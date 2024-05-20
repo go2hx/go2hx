@@ -168,318 +168,318 @@ private function set_acceptFunc(v:stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 
     public function __copy__() return this.__copy__();
 }
 class T_errNetClosing_static_extension {
-    static public function temporary(e:T_errNetClosing):Bool {
-        return stdgo._internal.internal.poll.Poll.T_errNetClosing_static_extension.temporary(e);
+    static public function temporary(_e:T_errNetClosing):Bool {
+        return stdgo._internal.internal.poll.Poll.T_errNetClosing_static_extension.temporary(_e);
     }
-    static public function timeout(e:T_errNetClosing):Bool {
-        return stdgo._internal.internal.poll.Poll.T_errNetClosing_static_extension.timeout(e);
+    static public function timeout(_e:T_errNetClosing):Bool {
+        return stdgo._internal.internal.poll.Poll.T_errNetClosing_static_extension.timeout(_e);
     }
-    static public function error(e:T_errNetClosing):String {
-        return stdgo._internal.internal.poll.Poll.T_errNetClosing_static_extension.error(e);
+    static public function error(_e:T_errNetClosing):String {
+        return stdgo._internal.internal.poll.Poll.T_errNetClosing_static_extension.error(_e);
     }
 }
 class DeadlineExceededError_static_extension {
-    static public function temporary(e:DeadlineExceededError):Bool {
-        return stdgo._internal.internal.poll.Poll.DeadlineExceededError_static_extension.temporary(e);
+    static public function temporary(_e:DeadlineExceededError):Bool {
+        return stdgo._internal.internal.poll.Poll.DeadlineExceededError_static_extension.temporary(_e);
     }
-    static public function timeout(e:DeadlineExceededError):Bool {
-        return stdgo._internal.internal.poll.Poll.DeadlineExceededError_static_extension.timeout(e);
+    static public function timeout(_e:DeadlineExceededError):Bool {
+        return stdgo._internal.internal.poll.Poll.DeadlineExceededError_static_extension.timeout(_e);
     }
-    static public function error(e:DeadlineExceededError):String {
-        return stdgo._internal.internal.poll.Poll.DeadlineExceededError_static_extension.error(e);
+    static public function error(_e:DeadlineExceededError):String {
+        return stdgo._internal.internal.poll.Poll.DeadlineExceededError_static_extension.error(_e);
     }
 }
 class T_fdMutex_static_extension {
-    static public function _rwunlock(mu:T_fdMutex, read:Bool):Bool {
-        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._rwunlock(mu, read);
+    static public function _rwunlock(_mu:T_fdMutex, _read:Bool):Bool {
+        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._rwunlock(_mu, _read);
     }
-    static public function _rwlock(mu:T_fdMutex, read:Bool):Bool {
-        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._rwlock(mu, read);
+    static public function _rwlock(_mu:T_fdMutex, _read:Bool):Bool {
+        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._rwlock(_mu, _read);
     }
-    static public function _decref(mu:T_fdMutex):Bool {
-        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._decref(mu);
+    static public function _decref(_mu:T_fdMutex):Bool {
+        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._decref(_mu);
     }
-    static public function _increfAndClose(mu:T_fdMutex):Bool {
-        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._increfAndClose(mu);
+    static public function _increfAndClose(_mu:T_fdMutex):Bool {
+        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._increfAndClose(_mu);
     }
-    static public function _incref(mu:T_fdMutex):Bool {
-        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._incref(mu);
+    static public function _incref(_mu:T_fdMutex):Bool {
+        return stdgo._internal.internal.poll.Poll.T_fdMutex_static_extension._incref(_mu);
     }
 }
 class T_pollDesc_static_extension {
-    static public function _pollable(pd:T_pollDesc):Bool {
-        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._pollable(pd);
+    static public function _pollable(_pd:T_pollDesc):Bool {
+        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._pollable(_pd);
     }
-    static public function _waitCanceled(pd:T_pollDesc, mode:StdTypes.Int):Void {
-        stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._waitCanceled(pd, mode);
+    static public function _waitCanceled(_pd:T_pollDesc, _mode:StdTypes.Int):Void {
+        stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._waitCanceled(_pd, _mode);
     }
-    static public function _waitWrite(pd:T_pollDesc, isFile:Bool):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._waitWrite(pd, isFile);
+    static public function _waitWrite(_pd:T_pollDesc, _isFile:Bool):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._waitWrite(_pd, _isFile);
     }
-    static public function _waitRead(pd:T_pollDesc, isFile:Bool):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._waitRead(pd, isFile);
+    static public function _waitRead(_pd:T_pollDesc, _isFile:Bool):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._waitRead(_pd, _isFile);
     }
-    static public function _wait(pd:T_pollDesc, mode:StdTypes.Int, isFile:Bool):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._wait(pd, mode, isFile);
+    static public function _wait(_pd:T_pollDesc, _mode:StdTypes.Int, _isFile:Bool):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._wait(_pd, _mode, _isFile);
     }
-    static public function _prepareWrite(pd:T_pollDesc, isFile:Bool):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._prepareWrite(pd, isFile);
+    static public function _prepareWrite(_pd:T_pollDesc, _isFile:Bool):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._prepareWrite(_pd, _isFile);
     }
-    static public function _prepareRead(pd:T_pollDesc, isFile:Bool):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._prepareRead(pd, isFile);
+    static public function _prepareRead(_pd:T_pollDesc, _isFile:Bool):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._prepareRead(_pd, _isFile);
     }
-    static public function _prepare(pd:T_pollDesc, mode:StdTypes.Int, isFile:Bool):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._prepare(pd, mode, isFile);
+    static public function _prepare(_pd:T_pollDesc, _mode:StdTypes.Int, _isFile:Bool):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._prepare(_pd, _mode, _isFile);
     }
-    static public function _evict(pd:T_pollDesc):Void {
-        stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._evict(pd);
+    static public function _evict(_pd:T_pollDesc):Void {
+        stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._evict(_pd);
     }
-    static public function _close(pd:T_pollDesc):Void {
-        stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._close(pd);
+    static public function _close(_pd:T_pollDesc):Void {
+        stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._close(_pd);
     }
-    static public function _init(pd:T_pollDesc, fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._init(pd, fd);
+    static public function _init(_pd:T_pollDesc, _fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.T_pollDesc_static_extension._init(_pd, _fd);
     }
 }
 class FD_static_extension {
-    static public function seek(fd:FD, offset:haxe.Int64, whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function seek(_fd:FD, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.seek(fd, offset, whence);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.seek(_fd, _offset, _whence);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readDirent(fd:FD, buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readDirent(_fd:FD, _buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readDirent(fd, buf);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readDirent(_fd, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function fchdir(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.fchdir(fd);
+    static public function fchdir(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.fchdir(_fd);
     }
-    static public function rawWrite(fd:FD, f:stdgo.GoUIntptr -> Bool):stdgo.Error {
-        final f = f;
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.rawWrite(fd, f);
+    static public function rawWrite(_fd:FD, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
+        final _f = _f;
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.rawWrite(_fd, _f);
     }
-    static public function rawRead(fd:FD, f:stdgo.GoUIntptr -> Bool):stdgo.Error {
-        final f = f;
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.rawRead(fd, f);
+    static public function rawRead(_fd:FD, _f:stdgo.GoUIntptr -> Bool):stdgo.Error {
+        final _f = _f;
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.rawRead(_fd, _f);
     }
-    static public function writeOnce(fd:FD, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function writeOnce(_fd:FD, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeOnce(fd, p);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeOnce(_fd, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function waitWrite(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.waitWrite(fd);
+    static public function waitWrite(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.waitWrite(_fd);
     }
-    static public function dup(fd:FD):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
+    static public function dup(_fd:FD):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.dup(fd);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.dup(_fd);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function fstat(fd:FD, s:stdgo._internal.syscall.Syscall.Stat_t):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.fstat(fd, s);
+    static public function fstat(_fd:FD, _s:stdgo._internal.syscall.Syscall.Stat_t):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.fstat(_fd, _s);
     }
-    static public function fchmod(fd:FD, mode:std.UInt):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.fchmod(fd, mode);
+    static public function fchmod(_fd:FD, _mode:std.UInt):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.fchmod(_fd, _mode);
     }
-    static public function accept(fd:FD):stdgo.Tuple.Tuple4<StdTypes.Int, stdgo._internal.syscall.Syscall.Sockaddr, String, stdgo.Error> {
+    static public function accept(_fd:FD):stdgo.Tuple.Tuple4<StdTypes.Int, stdgo._internal.syscall.Syscall.Sockaddr, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.accept(fd);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.accept(_fd);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
-    static public function writeMsgInet6(fd:FD, p:Array<StdTypes.Int>, oob:Array<StdTypes.Int>, sa:stdgo._internal.syscall.Syscall.SockaddrInet6):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        final oob = ([for (i in oob) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function writeMsgInet6(_fd:FD, _p:Array<StdTypes.Int>, _oob:Array<StdTypes.Int>, _sa:stdgo._internal.syscall.Syscall.SockaddrInet6):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        final _oob = ([for (i in _oob) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeMsgInet6(fd, p, oob, sa);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeMsgInet6(_fd, _p, _oob, _sa);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function writeMsgInet4(fd:FD, p:Array<StdTypes.Int>, oob:Array<StdTypes.Int>, sa:stdgo._internal.syscall.Syscall.SockaddrInet4):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        final oob = ([for (i in oob) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function writeMsgInet4(_fd:FD, _p:Array<StdTypes.Int>, _oob:Array<StdTypes.Int>, _sa:stdgo._internal.syscall.Syscall.SockaddrInet4):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        final _oob = ([for (i in _oob) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeMsgInet4(fd, p, oob, sa);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeMsgInet4(_fd, _p, _oob, _sa);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function writeMsg(fd:FD, p:Array<StdTypes.Int>, oob:Array<StdTypes.Int>, sa:stdgo._internal.syscall.Syscall.Sockaddr):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        final oob = ([for (i in oob) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function writeMsg(_fd:FD, _p:Array<StdTypes.Int>, _oob:Array<StdTypes.Int>, _sa:stdgo._internal.syscall.Syscall.Sockaddr):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        final _oob = ([for (i in _oob) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeMsg(fd, p, oob, sa);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeMsg(_fd, _p, _oob, _sa);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function writeTo(fd:FD, p:Array<StdTypes.Int>, sa:stdgo._internal.syscall.Syscall.Sockaddr):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function writeTo(_fd:FD, _p:Array<StdTypes.Int>, _sa:stdgo._internal.syscall.Syscall.Sockaddr):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeTo(fd, p, sa);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeTo(_fd, _p, _sa);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeToInet6(fd:FD, p:Array<StdTypes.Int>, sa:stdgo._internal.syscall.Syscall.SockaddrInet6):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function writeToInet6(_fd:FD, _p:Array<StdTypes.Int>, _sa:stdgo._internal.syscall.Syscall.SockaddrInet6):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeToInet6(fd, p, sa);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeToInet6(_fd, _p, _sa);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeToInet4(fd:FD, p:Array<StdTypes.Int>, sa:stdgo._internal.syscall.Syscall.SockaddrInet4):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function writeToInet4(_fd:FD, _p:Array<StdTypes.Int>, _sa:stdgo._internal.syscall.Syscall.SockaddrInet4):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeToInet4(fd, p, sa);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.writeToInet4(_fd, _p, _sa);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function pwrite(fd:FD, p:Array<StdTypes.Int>, off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function pwrite(_fd:FD, _p:Array<StdTypes.Int>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.pwrite(fd, p, off);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.pwrite(_fd, _p, _off);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function write(fd:FD, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_fd:FD, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.write(fd, p);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.write(_fd, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readMsgInet6(fd:FD, p:Array<StdTypes.Int>, oob:Array<StdTypes.Int>, flags:StdTypes.Int, sa6:stdgo._internal.syscall.Syscall.SockaddrInet6):stdgo.Tuple.Tuple4<StdTypes.Int, StdTypes.Int, StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        final oob = ([for (i in oob) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readMsgInet6(_fd:FD, _p:Array<StdTypes.Int>, _oob:Array<StdTypes.Int>, _flags:StdTypes.Int, _sa6:stdgo._internal.syscall.Syscall.SockaddrInet6):stdgo.Tuple.Tuple4<StdTypes.Int, StdTypes.Int, StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        final _oob = ([for (i in _oob) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readMsgInet6(fd, p, oob, flags, sa6);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readMsgInet6(_fd, _p, _oob, _flags, _sa6);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
-    static public function readMsgInet4(fd:FD, p:Array<StdTypes.Int>, oob:Array<StdTypes.Int>, flags:StdTypes.Int, sa4:stdgo._internal.syscall.Syscall.SockaddrInet4):stdgo.Tuple.Tuple4<StdTypes.Int, StdTypes.Int, StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        final oob = ([for (i in oob) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readMsgInet4(_fd:FD, _p:Array<StdTypes.Int>, _oob:Array<StdTypes.Int>, _flags:StdTypes.Int, _sa4:stdgo._internal.syscall.Syscall.SockaddrInet4):stdgo.Tuple.Tuple4<StdTypes.Int, StdTypes.Int, StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        final _oob = ([for (i in _oob) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readMsgInet4(fd, p, oob, flags, sa4);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readMsgInet4(_fd, _p, _oob, _flags, _sa4);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
-    static public function readMsg(fd:FD, p:Array<StdTypes.Int>, oob:Array<StdTypes.Int>, flags:StdTypes.Int):stdgo.Tuple.Tuple5<StdTypes.Int, StdTypes.Int, StdTypes.Int, stdgo._internal.syscall.Syscall.Sockaddr, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        final oob = ([for (i in oob) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readMsg(_fd:FD, _p:Array<StdTypes.Int>, _oob:Array<StdTypes.Int>, _flags:StdTypes.Int):stdgo.Tuple.Tuple5<StdTypes.Int, StdTypes.Int, StdTypes.Int, stdgo._internal.syscall.Syscall.Sockaddr, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        final _oob = ([for (i in _oob) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readMsg(fd, p, oob, flags);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readMsg(_fd, _p, _oob, _flags);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4 };
         };
     }
-    static public function readFromInet6(fd:FD, p:Array<StdTypes.Int>, from:stdgo._internal.syscall.Syscall.SockaddrInet6):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readFromInet6(_fd:FD, _p:Array<StdTypes.Int>, _from:stdgo._internal.syscall.Syscall.SockaddrInet6):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readFromInet6(fd, p, from);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readFromInet6(_fd, _p, _from);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readFromInet4(fd:FD, p:Array<StdTypes.Int>, from:stdgo._internal.syscall.Syscall.SockaddrInet4):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readFromInet4(_fd:FD, _p:Array<StdTypes.Int>, _from:stdgo._internal.syscall.Syscall.SockaddrInet4):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readFromInet4(fd, p, from);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readFromInet4(_fd, _p, _from);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readFrom(fd:FD, p:Array<StdTypes.Int>):stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall.Sockaddr, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readFrom(_fd:FD, _p:Array<StdTypes.Int>):stdgo.Tuple.Tuple3<StdTypes.Int, stdgo._internal.syscall.Syscall.Sockaddr, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readFrom(fd, p);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.readFrom(_fd, _p);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function pread(fd:FD, p:Array<StdTypes.Int>, off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function pread(_fd:FD, _p:Array<StdTypes.Int>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.pread(fd, p, off);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.pread(_fd, _p, _off);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function read(fd:FD, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_fd:FD, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.read(fd, p);
+            final obj = stdgo._internal.internal.poll.Poll.FD_static_extension.read(_fd, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function setBlocking(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.setBlocking(fd);
+    static public function setBlocking(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.setBlocking(_fd);
     }
-    static public function close(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.close(fd);
+    static public function close(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.close(_fd);
     }
-    static public function _destroy(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension._destroy(fd);
+    static public function _destroy(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension._destroy(_fd);
     }
-    static public function init(fd:FD, net:String, pollable:Bool):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.init(fd, net, pollable);
+    static public function init(_fd:FD, _net:String, _pollable:Bool):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.init(_fd, _net, _pollable);
     }
-    static public function rawControl(fd:FD, f:stdgo.GoUIntptr -> Void):stdgo.Error {
-        final f = f;
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.rawControl(fd, f);
+    static public function rawControl(_fd:FD, _f:stdgo.GoUIntptr -> Void):stdgo.Error {
+        final _f = _f;
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.rawControl(_fd, _f);
     }
-    static public function ftruncate(fd:FD, size:haxe.Int64):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.ftruncate(fd, size);
+    static public function ftruncate(_fd:FD, _size:haxe.Int64):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.ftruncate(_fd, _size);
     }
-    static public function fchown(fd:FD, uid:StdTypes.Int, gid:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.fchown(fd, uid, gid);
+    static public function fchown(_fd:FD, _uid:StdTypes.Int, _gid:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.fchown(_fd, _uid, _gid);
     }
-    static public function shutdown(fd:FD, how:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.shutdown(fd, how);
+    static public function shutdown(_fd:FD, _how:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.shutdown(_fd, _how);
     }
-    static public function _eofError(fd:FD, n:StdTypes.Int, err:stdgo.Error):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension._eofError(fd, n, err);
+    static public function _eofError(_fd:FD, _n:StdTypes.Int, _err:stdgo.Error):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension._eofError(_fd, _n, _err);
     }
-    static public function setWriteDeadline(fd:FD, t:stdgo._internal.time.Time.Time):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.setWriteDeadline(fd, t);
+    static public function setWriteDeadline(_fd:FD, _t:stdgo._internal.time.Time.Time):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.setWriteDeadline(_fd, _t);
     }
-    static public function setReadDeadline(fd:FD, t:stdgo._internal.time.Time.Time):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.setReadDeadline(fd, t);
+    static public function setReadDeadline(_fd:FD, _t:stdgo._internal.time.Time.Time):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.setReadDeadline(_fd, _t);
     }
-    static public function setDeadline(fd:FD, t:stdgo._internal.time.Time.Time):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.setDeadline(fd, t);
+    static public function setDeadline(_fd:FD, _t:stdgo._internal.time.Time.Time):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.setDeadline(_fd, _t);
     }
-    static public function _writeUnlock(fd:FD):Void {
-        stdgo._internal.internal.poll.Poll.FD_static_extension._writeUnlock(fd);
+    static public function _writeUnlock(_fd:FD):Void {
+        stdgo._internal.internal.poll.Poll.FD_static_extension._writeUnlock(_fd);
     }
-    static public function _writeLock(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension._writeLock(fd);
+    static public function _writeLock(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension._writeLock(_fd);
     }
-    static public function _readUnlock(fd:FD):Void {
-        stdgo._internal.internal.poll.Poll.FD_static_extension._readUnlock(fd);
+    static public function _readUnlock(_fd:FD):Void {
+        stdgo._internal.internal.poll.Poll.FD_static_extension._readUnlock(_fd);
     }
-    static public function _readLock(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension._readLock(fd);
+    static public function _readLock(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension._readLock(_fd);
     }
-    static public function _decref(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension._decref(fd);
+    static public function _decref(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension._decref(_fd);
     }
-    static public function _incref(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension._incref(fd);
+    static public function _incref(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension._incref(_fd);
     }
-    static public function fsync(fd:FD):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.FD_static_extension.fsync(fd);
+    static public function fsync(_fd:FD):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.FD_static_extension.fsync(_fd);
     }
-    public static function _init(_self__:FD) {
-        stdgo._internal.internal.poll.Poll.FD_static_extension._init(_self__);
+    public static function _init(__self__:FD) {
+        stdgo._internal.internal.poll.Poll.FD_static_extension._init(__self__);
     }
 }
 class SysFile_static_extension {
-    static public function _destroy(s:SysFile, fd:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.internal.poll.Poll.SysFile_static_extension._destroy(s, fd);
+    static public function _destroy(_s:SysFile, _fd:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.internal.poll.Poll.SysFile_static_extension._destroy(_s, _fd);
     }
-    static public function _init(s:SysFile):Void {
-        stdgo._internal.internal.poll.Poll.SysFile_static_extension._init(s);
+    static public function _init(_s:SysFile):Void {
+        stdgo._internal.internal.poll.Poll.SysFile_static_extension._init(_s);
     }
 }
 /**
@@ -494,15 +494,15 @@ class Poll {
         IsPollDescriptor reports whether fd is the descriptor being used by the poller.
         This is only used for testing.
     **/
-    static public function isPollDescriptor(fd:stdgo.GoUIntptr):Bool {
-        return stdgo._internal.internal.poll.Poll.isPollDescriptor(fd);
+    static public function isPollDescriptor(_fd:stdgo.GoUIntptr):Bool {
+        return stdgo._internal.internal.poll.Poll.isPollDescriptor(_fd);
     }
     /**
         DupCloseOnExec dups fd and marks it close-on-exec.
     **/
-    static public function dupCloseOnExec(fd:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
+    static public function dupCloseOnExec(_fd:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.internal.poll.Poll.dupCloseOnExec(fd);
+            final obj = stdgo._internal.internal.poll.Poll.dupCloseOnExec(_fd);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }

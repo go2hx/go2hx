@@ -49,7 +49,7 @@ class Godebugs {
     /**
         Lookup returns the Info with the given name.
     **/
-    static public function lookup(name:String):Info {
-        return stdgo._internal.internal.godebugs.Godebugs.lookup(name);
+    static public function lookup(_name:String):Info {
+        return stdgo._internal.internal.godebugs.Godebugs.lookup(_name);
     }
 }

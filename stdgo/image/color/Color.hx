@@ -99,8 +99,8 @@ class Color__static_extension {
 }
 typedef Color = stdgo._internal.image.color.Color.Color;
 class Model_static_extension {
-    static public function convert(t:Model, c:Color_):Color_ {
-        return stdgo._internal.image.color.Color.Model_static_extension.convert(t, c);
+    static public function convert(t:Model, _c:Color_):Color_ {
+        return stdgo._internal.image.color.Color.Model_static_extension.convert(t, _c);
     }
 }
 typedef Model = stdgo._internal.image.color.Color.Model;
@@ -346,104 +346,104 @@ typedef Model = stdgo._internal.image.color.Color.Model;
 }
 typedef Palette = stdgo._internal.image.color.Color.Palette;
 class RGBA_static_extension {
-    static public function rgba(c:RGBA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:RGBA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.RGBA_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.RGBA_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class RGBA64_static_extension {
-    static public function rgba(c:RGBA64):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:RGBA64):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.RGBA64_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.RGBA64_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class NRGBA_static_extension {
-    static public function rgba(c:NRGBA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:NRGBA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.NRGBA_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.NRGBA_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class NRGBA64_static_extension {
-    static public function rgba(c:NRGBA64):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:NRGBA64):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.NRGBA64_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.NRGBA64_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class Alpha_static_extension {
-    static public function rgba(c:Alpha):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:Alpha):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.Alpha_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.Alpha_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class Alpha16_static_extension {
-    static public function rgba(c:Alpha16):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:Alpha16):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.Alpha16_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.Alpha16_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class Gray_static_extension {
-    static public function rgba(c:Gray):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:Gray):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.Gray_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.Gray_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class Gray16_static_extension {
-    static public function rgba(c:Gray16):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:Gray16):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.Gray16_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.Gray16_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class T_modelFunc_static_extension {
-    static public function convert(m:T_modelFunc, c:Color_):Color_ {
-        return stdgo._internal.image.color.Color.T_modelFunc_static_extension.convert(m, c);
+    static public function convert(_m:T_modelFunc, _c:Color_):Color_ {
+        return stdgo._internal.image.color.Color.T_modelFunc_static_extension.convert(_m, _c);
     }
 }
 class YCbCr_static_extension {
-    static public function rgba(c:YCbCr):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:YCbCr):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.YCbCr_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.YCbCr_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class NYCbCrA_static_extension {
-    static public function rgba(c:NYCbCrA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:NYCbCrA):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.NYCbCrA_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.NYCbCrA_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class CMYK_static_extension {
-    static public function rgba(c:CMYK):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:CMYK):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.CMYK_static_extension.rgba(c);
+            final obj = stdgo._internal.image.color.Color.CMYK_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class Palette_static_extension {
-    static public function index(p:Palette, c:Color_):StdTypes.Int {
-        return stdgo._internal.image.color.Color.Palette_static_extension.index(p, c);
+    static public function index(_p:Palette, _c:Color_):StdTypes.Int {
+        return stdgo._internal.image.color.Color.Palette_static_extension.index(_p, _c);
     }
-    static public function convert(p:Palette, c:Color_):Color_ {
-        return stdgo._internal.image.color.Color.Palette_static_extension.convert(p, c);
+    static public function convert(_p:Palette, _c:Color_):Color_ {
+        return stdgo._internal.image.color.Color.Palette_static_extension.convert(_p, _c);
     }
 }
 /**
@@ -453,46 +453,46 @@ class Color {
     /**
         ModelFunc returns a Model that invokes f to implement the conversion.
     **/
-    static public function modelFunc(f:Color -> Color):Model {
-        final f = f;
-        return stdgo._internal.image.color.Color.modelFunc(f);
+    static public function modelFunc(_f:Color -> Color):Model {
+        final _f = _f;
+        return stdgo._internal.image.color.Color.modelFunc(_f);
     }
-    static public function testSqDiff(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testSqDiff(t);
+    static public function testSqDiff(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testSqDiff(_t);
     }
     /**
         RGBToYCbCr converts an RGB triple to a Y'CbCr triple.
     **/
-    static public function rgbtoYCbCr(r:std.UInt, g:std.UInt, b:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+    static public function rgbtoYCbCr(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.rgbtoYCbCr(r, g, b);
+            final obj = stdgo._internal.image.color.Color.rgbtoYCbCr(_r, _g, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     /**
         YCbCrToRGB converts a Y'CbCr triple to an RGB triple.
     **/
-    static public function ycbCrToRGB(y:std.UInt, cb:std.UInt, cr:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+    static public function ycbCrToRGB(_y:std.UInt, _cb:std.UInt, _cr:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.ycbCrToRGB(y, cb, cr);
+            final obj = stdgo._internal.image.color.Color.ycbCrToRGB(_y, _cb, _cr);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
     /**
         RGBToCMYK converts an RGB triple to a CMYK quadruple.
     **/
-    static public function rgbtoCMYK(r:std.UInt, g:std.UInt, b:std.UInt):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgbtoCMYK(_r:std.UInt, _g:std.UInt, _b:std.UInt):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.rgbtoCMYK(r, g, b);
+            final obj = stdgo._internal.image.color.Color.rgbtoCMYK(_r, _g, _b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
     /**
         CMYKToRGB converts a CMYK quadruple to an RGB triple.
     **/
-    static public function cmyktoRGB(c:std.UInt, m:std.UInt, y:std.UInt, k:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
+    static public function cmyktoRGB(_c:std.UInt, _m:std.UInt, _y:std.UInt, _k:std.UInt):stdgo.Tuple.Tuple3<std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.color.Color.cmyktoRGB(c, m, y, k);
+            final obj = stdgo._internal.image.color.Color.cmyktoRGB(_c, _m, _y, _k);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -500,69 +500,69 @@ class Color {
         TestYCbCrRoundtrip tests that a subset of RGB space can be converted to YCbCr
         and back to within 2/256 tolerance.
     **/
-    static public function testYCbCrRoundtrip(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testYCbCrRoundtrip(t);
+    static public function testYCbCrRoundtrip(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testYCbCrRoundtrip(_t);
     }
     /**
         TestYCbCrToRGBConsistency tests that calling the RGBA method (16 bit color)
         then truncating to 8 bits is equivalent to calling the YCbCrToRGB function (8
         bit color).
     **/
-    static public function testYCbCrToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testYCbCrToRGBConsistency(t);
+    static public function testYCbCrToRGBConsistency(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testYCbCrToRGBConsistency(_t);
     }
     /**
         TestYCbCrGray tests that YCbCr colors are a superset of Gray colors.
     **/
-    static public function testYCbCrGray(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testYCbCrGray(t);
+    static public function testYCbCrGray(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testYCbCrGray(_t);
     }
     /**
         TestNYCbCrAAlpha tests that NYCbCrA colors are a superset of Alpha colors.
     **/
-    static public function testNYCbCrAAlpha(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testNYCbCrAAlpha(t);
+    static public function testNYCbCrAAlpha(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testNYCbCrAAlpha(_t);
     }
     /**
         TestNYCbCrAYCbCr tests that NYCbCrA colors are a superset of YCbCr colors.
     **/
-    static public function testNYCbCrAYCbCr(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testNYCbCrAYCbCr(t);
+    static public function testNYCbCrAYCbCr(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testNYCbCrAYCbCr(_t);
     }
     /**
         TestCMYKRoundtrip tests that a subset of RGB space can be converted to CMYK
         and back to within 1/256 tolerance.
     **/
-    static public function testCMYKRoundtrip(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testCMYKRoundtrip(t);
+    static public function testCMYKRoundtrip(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testCMYKRoundtrip(_t);
     }
     /**
         TestCMYKToRGBConsistency tests that calling the RGBA method (16 bit color)
         then truncating to 8 bits is equivalent to calling the CMYKToRGB function (8
         bit color).
     **/
-    static public function testCMYKToRGBConsistency(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testCMYKToRGBConsistency(t);
+    static public function testCMYKToRGBConsistency(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testCMYKToRGBConsistency(_t);
     }
     /**
         TestCMYKGray tests that CMYK colors are a superset of Gray colors.
     **/
-    static public function testCMYKGray(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testCMYKGray(t);
+    static public function testCMYKGray(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testCMYKGray(_t);
     }
-    static public function testPalette(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.color.Color.testPalette(t);
+    static public function testPalette(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.color.Color.testPalette(_t);
     }
-    static public function benchmarkYCbCrToRGB(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.color.Color.benchmarkYCbCrToRGB(b);
+    static public function benchmarkYCbCrToRGB(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.color.Color.benchmarkYCbCrToRGB(_b);
     }
-    static public function benchmarkRGBToYCbCr(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.color.Color.benchmarkRGBToYCbCr(b);
+    static public function benchmarkRGBToYCbCr(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.color.Color.benchmarkRGBToYCbCr(_b);
     }
-    static public function benchmarkYCbCrToRGBA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.color.Color.benchmarkYCbCrToRGBA(b);
+    static public function benchmarkYCbCrToRGBA(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.color.Color.benchmarkYCbCrToRGBA(_b);
     }
-    static public function benchmarkNYCbCrAToRGBA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.color.Color.benchmarkNYCbCrAToRGBA(b);
+    static public function benchmarkNYCbCrAToRGBA(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.color.Color.benchmarkNYCbCrAToRGBA(_b);
     }
 }

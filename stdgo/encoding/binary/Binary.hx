@@ -24,29 +24,29 @@ class ByteOrder_static_extension {
     static public function string(t:ByteOrder):String {
         return stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.string(t);
     }
-    static public function putUint64(t:ByteOrder, 0:Array<StdTypes.Int>, 1:haxe.UInt64):Void {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.putUint64(t, 0, 1);
+    static public function putUint64(t:ByteOrder, _0:Array<StdTypes.Int>, _1:haxe.UInt64):Void {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.putUint64(t, _0, _1);
     }
-    static public function putUint32(t:ByteOrder, 0:Array<StdTypes.Int>, 1:std.UInt):Void {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.putUint32(t, 0, 1);
+    static public function putUint32(t:ByteOrder, _0:Array<StdTypes.Int>, _1:std.UInt):Void {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.putUint32(t, _0, _1);
     }
-    static public function putUint16(t:ByteOrder, 0:Array<StdTypes.Int>, 1:std.UInt):Void {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.putUint16(t, 0, 1);
+    static public function putUint16(t:ByteOrder, _0:Array<StdTypes.Int>, _1:std.UInt):Void {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.putUint16(t, _0, _1);
     }
-    static public function uint64(t:ByteOrder, 0:Array<StdTypes.Int>):haxe.UInt64 {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.uint64(t, 0);
+    static public function uint64(t:ByteOrder, _0:Array<StdTypes.Int>):haxe.UInt64 {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.uint64(t, _0);
     }
-    static public function uint32(t:ByteOrder, 0:Array<StdTypes.Int>):std.UInt {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.uint32(t, 0);
+    static public function uint32(t:ByteOrder, _0:Array<StdTypes.Int>):std.UInt {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.uint32(t, _0);
     }
-    static public function uint16(t:ByteOrder, 0:Array<StdTypes.Int>):std.UInt {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.uint16(t, 0);
+    static public function uint16(t:ByteOrder, _0:Array<StdTypes.Int>):std.UInt {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.ByteOrder_static_extension.uint16(t, _0);
     }
 }
 typedef ByteOrder = stdgo._internal.encoding.binary.Binary.ByteOrder;
@@ -54,17 +54,17 @@ class AppendByteOrder_static_extension {
     static public function string(t:AppendByteOrder):String {
         return stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension.string(t);
     }
-    static public function appendUint64(t:AppendByteOrder, 0:Array<StdTypes.Int>, 1:haxe.UInt64):Array<StdTypes.Int> {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension.appendUint64(t, 0, 1)) i];
+    static public function appendUint64(t:AppendByteOrder, _0:Array<StdTypes.Int>, _1:haxe.UInt64):Array<StdTypes.Int> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension.appendUint64(t, _0, _1)) i];
     }
-    static public function appendUint32(t:AppendByteOrder, 0:Array<StdTypes.Int>, 1:std.UInt):Array<StdTypes.Int> {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension.appendUint32(t, 0, 1)) i];
+    static public function appendUint32(t:AppendByteOrder, _0:Array<StdTypes.Int>, _1:std.UInt):Array<StdTypes.Int> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension.appendUint32(t, _0, _1)) i];
     }
-    static public function appendUint16(t:AppendByteOrder, 0:Array<StdTypes.Int>, 1:std.UInt):Array<StdTypes.Int> {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension.appendUint16(t, 0, 1)) i];
+    static public function appendUint16(t:AppendByteOrder, _0:Array<StdTypes.Int>, _1:std.UInt):Array<StdTypes.Int> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.AppendByteOrder_static_extension.appendUint16(t, _0, _1)) i];
     }
 }
 typedef AppendByteOrder = stdgo._internal.encoding.binary.Binary.AppendByteOrder;
@@ -477,214 +477,214 @@ typedef T_testByteOrder___localname___byteOrder_10108 = stdgo._internal.encoding
     public function __copy__() return this.__copy__();
 }
 class T_littleEndian_static_extension {
-    static public function goString(:T_littleEndian):String {
-        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.goString();
+    static public function goString(_:T_littleEndian):String {
+        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.goString(_);
     }
-    static public function string(:T_littleEndian):String {
-        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.string();
+    static public function string(_:T_littleEndian):String {
+        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.string(_);
     }
-    static public function appendUint64(:T_littleEndian, b:Array<StdTypes.Int>, v:haxe.UInt64):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.appendUint64(, b, v)) i];
+    static public function appendUint64(_:T_littleEndian, _b:Array<StdTypes.Int>, _v:haxe.UInt64):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.appendUint64(_, _b, _v)) i];
     }
-    static public function putUint64(:T_littleEndian, b:Array<StdTypes.Int>, v:haxe.UInt64):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.putUint64(, b, v);
+    static public function putUint64(_:T_littleEndian, _b:Array<StdTypes.Int>, _v:haxe.UInt64):Void {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.putUint64(_, _b, _v);
     }
-    static public function uint64(:T_littleEndian, b:Array<StdTypes.Int>):haxe.UInt64 {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.uint64(, b);
+    static public function uint64(_:T_littleEndian, _b:Array<StdTypes.Int>):haxe.UInt64 {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.uint64(_, _b);
     }
-    static public function appendUint32(:T_littleEndian, b:Array<StdTypes.Int>, v:std.UInt):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.appendUint32(, b, v)) i];
+    static public function appendUint32(_:T_littleEndian, _b:Array<StdTypes.Int>, _v:std.UInt):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.appendUint32(_, _b, _v)) i];
     }
-    static public function putUint32(:T_littleEndian, b:Array<StdTypes.Int>, v:std.UInt):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.putUint32(, b, v);
+    static public function putUint32(_:T_littleEndian, _b:Array<StdTypes.Int>, _v:std.UInt):Void {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.putUint32(_, _b, _v);
     }
-    static public function uint32(:T_littleEndian, b:Array<StdTypes.Int>):std.UInt {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.uint32(, b);
+    static public function uint32(_:T_littleEndian, _b:Array<StdTypes.Int>):std.UInt {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.uint32(_, _b);
     }
-    static public function appendUint16(:T_littleEndian, b:Array<StdTypes.Int>, v:std.UInt):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.appendUint16(, b, v)) i];
+    static public function appendUint16(_:T_littleEndian, _b:Array<StdTypes.Int>, _v:std.UInt):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.appendUint16(_, _b, _v)) i];
     }
-    static public function putUint16(:T_littleEndian, b:Array<StdTypes.Int>, v:std.UInt):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.putUint16(, b, v);
+    static public function putUint16(_:T_littleEndian, _b:Array<StdTypes.Int>, _v:std.UInt):Void {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.putUint16(_, _b, _v);
     }
-    static public function uint16(:T_littleEndian, b:Array<StdTypes.Int>):std.UInt {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.uint16(, b);
+    static public function uint16(_:T_littleEndian, _b:Array<StdTypes.Int>):std.UInt {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.T_littleEndian_static_extension.uint16(_, _b);
     }
 }
 class T_bigEndian_static_extension {
-    static public function goString(:T_bigEndian):String {
-        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.goString();
+    static public function goString(_:T_bigEndian):String {
+        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.goString(_);
     }
-    static public function string(:T_bigEndian):String {
-        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.string();
+    static public function string(_:T_bigEndian):String {
+        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.string(_);
     }
-    static public function appendUint64(:T_bigEndian, b:Array<StdTypes.Int>, v:haxe.UInt64):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.appendUint64(, b, v)) i];
+    static public function appendUint64(_:T_bigEndian, _b:Array<StdTypes.Int>, _v:haxe.UInt64):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.appendUint64(_, _b, _v)) i];
     }
-    static public function putUint64(:T_bigEndian, b:Array<StdTypes.Int>, v:haxe.UInt64):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.putUint64(, b, v);
+    static public function putUint64(_:T_bigEndian, _b:Array<StdTypes.Int>, _v:haxe.UInt64):Void {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.putUint64(_, _b, _v);
     }
-    static public function uint64(:T_bigEndian, b:Array<StdTypes.Int>):haxe.UInt64 {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.uint64(, b);
+    static public function uint64(_:T_bigEndian, _b:Array<StdTypes.Int>):haxe.UInt64 {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.uint64(_, _b);
     }
-    static public function appendUint32(:T_bigEndian, b:Array<StdTypes.Int>, v:std.UInt):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.appendUint32(, b, v)) i];
+    static public function appendUint32(_:T_bigEndian, _b:Array<StdTypes.Int>, _v:std.UInt):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.appendUint32(_, _b, _v)) i];
     }
-    static public function putUint32(:T_bigEndian, b:Array<StdTypes.Int>, v:std.UInt):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.putUint32(, b, v);
+    static public function putUint32(_:T_bigEndian, _b:Array<StdTypes.Int>, _v:std.UInt):Void {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.putUint32(_, _b, _v);
     }
-    static public function uint32(:T_bigEndian, b:Array<StdTypes.Int>):std.UInt {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.uint32(, b);
+    static public function uint32(_:T_bigEndian, _b:Array<StdTypes.Int>):std.UInt {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.uint32(_, _b);
     }
-    static public function appendUint16(:T_bigEndian, b:Array<StdTypes.Int>, v:std.UInt):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.appendUint16(, b, v)) i];
+    static public function appendUint16(_:T_bigEndian, _b:Array<StdTypes.Int>, _v:std.UInt):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.appendUint16(_, _b, _v)) i];
     }
-    static public function putUint16(:T_bigEndian, b:Array<StdTypes.Int>, v:std.UInt):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.putUint16(, b, v);
+    static public function putUint16(_:T_bigEndian, _b:Array<StdTypes.Int>, _v:std.UInt):Void {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.putUint16(_, _b, _v);
     }
-    static public function uint16(:T_bigEndian, b:Array<StdTypes.Int>):std.UInt {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.uint16(, b);
+    static public function uint16(_:T_bigEndian, _b:Array<StdTypes.Int>):std.UInt {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.T_bigEndian_static_extension.uint16(_, _b);
     }
 }
 class T_byteSliceReader_static_extension {
-    static public function read(br:T_byteSliceReader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_br:T_byteSliceReader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.encoding.binary.Binary.T_byteSliceReader_static_extension.read(br, p);
+            final obj = stdgo._internal.encoding.binary.Binary.T_byteSliceReader_static_extension.read(_br, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_nativeEndian_static_extension {
-    static public function goString(:T_nativeEndian):String {
-        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.goString();
+    static public function goString(_:T_nativeEndian):String {
+        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.goString(_);
     }
-    static public function string(:T_nativeEndian):String {
-        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.string();
+    static public function string(_:T_nativeEndian):String {
+        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.string(_);
     }
-    public static function uint64(_self__:T_nativeEndian, _0:Array<std.UInt>):haxe.UInt64 {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.uint64(_self__, _0);
+    public static function uint64(__self__:T_nativeEndian, __0:Array<std.UInt>):haxe.UInt64 {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.uint64(__self__, __0);
     }
-    public static function uint32(_self__:T_nativeEndian, _0:Array<std.UInt>):std.UInt {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.uint32(_self__, _0);
+    public static function uint32(__self__:T_nativeEndian, __0:Array<std.UInt>):std.UInt {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.uint32(__self__, __0);
     }
-    public static function uint16(_self__:T_nativeEndian, _0:Array<std.UInt>):std.UInt {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.uint16(_self__, _0);
+    public static function uint16(__self__:T_nativeEndian, __0:Array<std.UInt>):std.UInt {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.uint16(__self__, __0);
     }
-    public static function putUint64(_self__:T_nativeEndian, _0:Array<std.UInt>, _1:haxe.UInt64) {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.putUint64(_self__, _0, _1);
+    public static function putUint64(__self__:T_nativeEndian, __0:Array<std.UInt>, __1:haxe.UInt64) {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.putUint64(__self__, __0, __1);
     }
-    public static function putUint32(_self__:T_nativeEndian, _0:Array<std.UInt>, _1:std.UInt) {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.putUint32(_self__, _0, _1);
+    public static function putUint32(__self__:T_nativeEndian, __0:Array<std.UInt>, __1:std.UInt) {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.putUint32(__self__, __0, __1);
     }
-    public static function putUint16(_self__:T_nativeEndian, _0:Array<std.UInt>, _1:std.UInt) {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.putUint16(_self__, _0, _1);
+    public static function putUint16(__self__:T_nativeEndian, __0:Array<std.UInt>, __1:std.UInt) {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.putUint16(__self__, __0, __1);
     }
-    public static function appendUint64(_self__:T_nativeEndian, _0:Array<std.UInt>, _1:haxe.UInt64):Array<std.UInt> {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.appendUint64(_self__, _0, _1)) i];
+    public static function appendUint64(__self__:T_nativeEndian, __0:Array<std.UInt>, __1:haxe.UInt64):Array<std.UInt> {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.appendUint64(__self__, __0, __1)) i];
     }
-    public static function appendUint32(_self__:T_nativeEndian, _0:Array<std.UInt>, _1:std.UInt):Array<std.UInt> {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.appendUint32(_self__, _0, _1)) i];
+    public static function appendUint32(__self__:T_nativeEndian, __0:Array<std.UInt>, __1:std.UInt):Array<std.UInt> {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.appendUint32(__self__, __0, __1)) i];
     }
-    public static function appendUint16(_self__:T_nativeEndian, _0:Array<std.UInt>, _1:std.UInt):Array<std.UInt> {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.appendUint16(_self__, _0, _1)) i];
+    public static function appendUint16(__self__:T_nativeEndian, __0:Array<std.UInt>, __1:std.UInt):Array<std.UInt> {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.T_nativeEndian_static_extension.appendUint16(__self__, __0, __1)) i];
     }
 }
 class T_decoder_static_extension {
-    static public function _skip(d:T_decoder, v:stdgo._internal.reflect.Reflect.Value):Void {
-        stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._skip(d, v);
+    static public function _skip(_d:T_decoder, _v:stdgo._internal.reflect.Reflect.Value):Void {
+        stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._skip(_d, _v);
     }
-    static public function _value(d:T_decoder, v:stdgo._internal.reflect.Reflect.Value):Void {
-        stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._value(d, v);
+    static public function _value(_d:T_decoder, _v:stdgo._internal.reflect.Reflect.Value):Void {
+        stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._value(_d, _v);
     }
-    static public function _int64(d:T_decoder):haxe.Int64 {
-        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._int64(d);
+    static public function _int64(_d:T_decoder):haxe.Int64 {
+        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._int64(_d);
     }
-    static public function _int32(d:T_decoder):StdTypes.Int {
-        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._int32(d);
+    static public function _int32(_d:T_decoder):StdTypes.Int {
+        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._int32(_d);
     }
-    static public function _int16(d:T_decoder):StdTypes.Int {
-        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._int16(d);
+    static public function _int16(_d:T_decoder):StdTypes.Int {
+        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._int16(_d);
     }
-    static public function _int8(d:T_decoder):StdTypes.Int {
-        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._int8(d);
+    static public function _int8(_d:T_decoder):StdTypes.Int {
+        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._int8(_d);
     }
-    static public function _uint64(d:T_decoder):haxe.UInt64 {
-        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._uint64(d);
+    static public function _uint64(_d:T_decoder):haxe.UInt64 {
+        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._uint64(_d);
     }
-    static public function _uint32(d:T_decoder):std.UInt {
-        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._uint32(d);
+    static public function _uint32(_d:T_decoder):std.UInt {
+        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._uint32(_d);
     }
-    static public function _uint16(d:T_decoder):std.UInt {
-        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._uint16(d);
+    static public function _uint16(_d:T_decoder):std.UInt {
+        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._uint16(_d);
     }
-    static public function _uint8(d:T_decoder):std.UInt {
-        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._uint8(d);
+    static public function _uint8(_d:T_decoder):std.UInt {
+        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._uint8(_d);
     }
-    static public function _bool(d:T_decoder):Bool {
-        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._bool(d);
+    static public function _bool(_d:T_decoder):Bool {
+        return stdgo._internal.encoding.binary.Binary.T_decoder_static_extension._bool(_d);
     }
 }
 class T_encoder_static_extension {
-    static public function _skip(e:T_encoder, v:stdgo._internal.reflect.Reflect.Value):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._skip(e, v);
+    static public function _skip(_e:T_encoder, _v:stdgo._internal.reflect.Reflect.Value):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._skip(_e, _v);
     }
-    static public function _value(e:T_encoder, v:stdgo._internal.reflect.Reflect.Value):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._value(e, v);
+    static public function _value(_e:T_encoder, _v:stdgo._internal.reflect.Reflect.Value):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._value(_e, _v);
     }
-    static public function _int64(e:T_encoder, x:haxe.Int64):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._int64(e, x);
+    static public function _int64(_e:T_encoder, _x:haxe.Int64):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._int64(_e, _x);
     }
-    static public function _int32(e:T_encoder, x:StdTypes.Int):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._int32(e, x);
+    static public function _int32(_e:T_encoder, _x:StdTypes.Int):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._int32(_e, _x);
     }
-    static public function _int16(e:T_encoder, x:StdTypes.Int):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._int16(e, x);
+    static public function _int16(_e:T_encoder, _x:StdTypes.Int):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._int16(_e, _x);
     }
-    static public function _int8(e:T_encoder, x:StdTypes.Int):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._int8(e, x);
+    static public function _int8(_e:T_encoder, _x:StdTypes.Int):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._int8(_e, _x);
     }
-    static public function _uint64(e:T_encoder, x:haxe.UInt64):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._uint64(e, x);
+    static public function _uint64(_e:T_encoder, _x:haxe.UInt64):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._uint64(_e, _x);
     }
-    static public function _uint32(e:T_encoder, x:std.UInt):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._uint32(e, x);
+    static public function _uint32(_e:T_encoder, _x:std.UInt):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._uint32(_e, _x);
     }
-    static public function _uint16(e:T_encoder, x:std.UInt):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._uint16(e, x);
+    static public function _uint16(_e:T_encoder, _x:std.UInt):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._uint16(_e, _x);
     }
-    static public function _uint8(e:T_encoder, x:std.UInt):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._uint8(e, x);
+    static public function _uint8(_e:T_encoder, _x:std.UInt):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._uint8(_e, _x);
     }
-    static public function _bool(e:T_encoder, x:Bool):Void {
-        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._bool(e, x);
+    static public function _bool(_e:T_encoder, _x:Bool):Void {
+        stdgo._internal.encoding.binary.Binary.T_encoder_static_extension._bool(_e, _x);
     }
 }
 /**
@@ -725,8 +725,8 @@ class Binary {
         If an EOF happens after reading some but not all the bytes,
         Read returns ErrUnexpectedEOF.
     **/
-    static public function read(r:stdgo._internal.io.Io.Reader, order:ByteOrder, data:stdgo.AnyInterface):stdgo.Error {
-        return stdgo._internal.encoding.binary.Binary.read(r, order, data);
+    static public function read(_r:stdgo._internal.io.Io.Reader, _order:ByteOrder, _data:stdgo.AnyInterface):stdgo.Error {
+        return stdgo._internal.encoding.binary.Binary.read(_r, _order, _data);
     }
     /**
         Write writes the binary representation of data into w.
@@ -738,173 +738,173 @@ class Binary {
         When writing structs, zero values are written for fields
         with blank (_) field names.
     **/
-    static public function write(w:stdgo._internal.io.Io.Writer, order:ByteOrder, data:stdgo.AnyInterface):stdgo.Error {
-        return stdgo._internal.encoding.binary.Binary.write(w, order, data);
+    static public function write(_w:stdgo._internal.io.Io.Writer, _order:ByteOrder, _data:stdgo.AnyInterface):stdgo.Error {
+        return stdgo._internal.encoding.binary.Binary.write(_w, _order, _data);
     }
     /**
         Size returns how many bytes Write would generate to encode the value v, which
         must be a fixed-size value or a slice of fixed-size values, or a pointer to such data.
         If v is neither of these, Size returns -1.
     **/
-    static public function size(v:stdgo.AnyInterface):StdTypes.Int {
-        return stdgo._internal.encoding.binary.Binary.size(v);
+    static public function size(_v:stdgo.AnyInterface):StdTypes.Int {
+        return stdgo._internal.encoding.binary.Binary.size(_v);
     }
-    static public function testLittleEndianRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testLittleEndianRead(t);
+    static public function testLittleEndianRead(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testLittleEndianRead(_t);
     }
-    static public function testLittleEndianWrite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testLittleEndianWrite(t);
+    static public function testLittleEndianWrite(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testLittleEndianWrite(_t);
     }
-    static public function testLittleEndianPtrWrite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testLittleEndianPtrWrite(t);
+    static public function testLittleEndianPtrWrite(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testLittleEndianPtrWrite(_t);
     }
-    static public function testBigEndianRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBigEndianRead(t);
+    static public function testBigEndianRead(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBigEndianRead(_t);
     }
-    static public function testBigEndianWrite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBigEndianWrite(t);
+    static public function testBigEndianWrite(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBigEndianWrite(_t);
     }
-    static public function testBigEndianPtrWrite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBigEndianPtrWrite(t);
+    static public function testBigEndianPtrWrite(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBigEndianPtrWrite(_t);
     }
-    static public function testReadSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadSlice(t);
+    static public function testReadSlice(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadSlice(_t);
     }
-    static public function testWriteSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testWriteSlice(t);
+    static public function testWriteSlice(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testWriteSlice(_t);
     }
-    static public function testReadBool(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadBool(t);
+    static public function testReadBool(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadBool(_t);
     }
-    static public function testReadBoolSlice(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadBoolSlice(t);
+    static public function testReadBoolSlice(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadBoolSlice(_t);
     }
-    static public function testSliceRoundTrip(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testSliceRoundTrip(t);
+    static public function testSliceRoundTrip(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testSliceRoundTrip(_t);
     }
-    static public function testWriteT(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testWriteT(t);
+    static public function testWriteT(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testWriteT(_t);
     }
-    static public function testBlankFields(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBlankFields(t);
+    static public function testBlankFields(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBlankFields(_t);
     }
-    static public function testSizeStructCache(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testSizeStructCache(t);
+    static public function testSizeStructCache(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testSizeStructCache(_t);
     }
-    static public function testSizeInvalid(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testSizeInvalid(t);
+    static public function testSizeInvalid(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testSizeInvalid(_t);
     }
-    static public function testUnexportedRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testUnexportedRead(t);
+    static public function testUnexportedRead(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testUnexportedRead(_t);
     }
-    static public function testReadErrorMsg(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadErrorMsg(t);
+    static public function testReadErrorMsg(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadErrorMsg(_t);
     }
-    static public function testReadTruncated(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadTruncated(t);
+    static public function testReadTruncated(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadTruncated(_t);
     }
-    static public function testByteOrder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testByteOrder(t);
+    static public function testByteOrder(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testByteOrder(_t);
     }
-    static public function testEarlyBoundsChecks(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testEarlyBoundsChecks(t);
+    static public function testEarlyBoundsChecks(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testEarlyBoundsChecks(_t);
     }
-    static public function testReadInvalidDestination(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testReadInvalidDestination(t);
+    static public function testReadInvalidDestination(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testReadInvalidDestination(_t);
     }
-    static public function testNoFixedSize(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testNoFixedSize(t);
+    static public function testNoFixedSize(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testNoFixedSize(_t);
     }
-    static public function benchmarkReadSlice1000Int32s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Int32s(b);
+    static public function benchmarkReadSlice1000Int32s(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Int32s(_b);
     }
-    static public function benchmarkReadStruct(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadStruct(b);
+    static public function benchmarkReadStruct(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadStruct(_b);
     }
-    static public function benchmarkWriteStruct(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteStruct(b);
+    static public function benchmarkWriteStruct(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteStruct(_b);
     }
-    static public function benchmarkReadInts(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadInts(b);
+    static public function benchmarkReadInts(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadInts(_b);
     }
-    static public function benchmarkWriteInts(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteInts(b);
+    static public function benchmarkWriteInts(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteInts(_b);
     }
-    static public function benchmarkWriteSlice1000Int32s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Int32s(b);
+    static public function benchmarkWriteSlice1000Int32s(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Int32s(_b);
     }
-    static public function benchmarkPutUint16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUint16(b);
+    static public function benchmarkPutUint16(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUint16(_b);
     }
-    static public function benchmarkAppendUint16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint16(b);
+    static public function benchmarkAppendUint16(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint16(_b);
     }
-    static public function benchmarkPutUint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUint32(b);
+    static public function benchmarkPutUint32(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUint32(_b);
     }
-    static public function benchmarkAppendUint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint32(b);
+    static public function benchmarkAppendUint32(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint32(_b);
     }
-    static public function benchmarkPutUint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUint64(b);
+    static public function benchmarkPutUint64(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUint64(_b);
     }
-    static public function benchmarkAppendUint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint64(b);
+    static public function benchmarkAppendUint64(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkAppendUint64(_b);
     }
-    static public function benchmarkLittleEndianPutUint16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint16(b);
+    static public function benchmarkLittleEndianPutUint16(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint16(_b);
     }
-    static public function benchmarkLittleEndianAppendUint16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint16(b);
+    static public function benchmarkLittleEndianAppendUint16(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint16(_b);
     }
-    static public function benchmarkLittleEndianPutUint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint32(b);
+    static public function benchmarkLittleEndianPutUint32(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint32(_b);
     }
-    static public function benchmarkLittleEndianAppendUint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint32(b);
+    static public function benchmarkLittleEndianAppendUint32(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint32(_b);
     }
-    static public function benchmarkLittleEndianPutUint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint64(b);
+    static public function benchmarkLittleEndianPutUint64(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianPutUint64(_b);
     }
-    static public function benchmarkLittleEndianAppendUint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint64(b);
+    static public function benchmarkLittleEndianAppendUint64(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkLittleEndianAppendUint64(_b);
     }
-    static public function benchmarkReadFloats(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadFloats(b);
+    static public function benchmarkReadFloats(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadFloats(_b);
     }
-    static public function benchmarkWriteFloats(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteFloats(b);
+    static public function benchmarkWriteFloats(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteFloats(_b);
     }
-    static public function benchmarkReadSlice1000Float32s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Float32s(b);
+    static public function benchmarkReadSlice1000Float32s(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Float32s(_b);
     }
-    static public function benchmarkWriteSlice1000Float32s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Float32s(b);
+    static public function benchmarkWriteSlice1000Float32s(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Float32s(_b);
     }
-    static public function benchmarkReadSlice1000Uint8s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Uint8s(b);
+    static public function benchmarkReadSlice1000Uint8s(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkReadSlice1000Uint8s(_b);
     }
-    static public function benchmarkWriteSlice1000Uint8s(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Uint8s(b);
+    static public function benchmarkWriteSlice1000Uint8s(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkWriteSlice1000Uint8s(_b);
     }
-    static public function testNativeEndian(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testNativeEndian(t);
+    static public function testNativeEndian(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testNativeEndian(_t);
     }
     /**
         AppendUvarint appends the varint-encoded form of x,
         as generated by PutUvarint, to buf and returns the extended buffer.
     **/
-    static public function appendUvarint(buf:Array<StdTypes.Int>, x:haxe.UInt64):Array<StdTypes.Int> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.appendUvarint(buf, x)) i];
+    static public function appendUvarint(_buf:Array<StdTypes.Int>, _x:haxe.UInt64):Array<StdTypes.Int> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.appendUvarint(_buf, _x)) i];
     }
     /**
         PutUvarint encodes a uint64 into buf and returns the number of bytes written.
         If the buffer is too small, PutUvarint will panic.
     **/
-    static public function putUvarint(buf:Array<StdTypes.Int>, x:haxe.UInt64):StdTypes.Int {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.putUvarint(buf, x);
+    static public function putUvarint(_buf:Array<StdTypes.Int>, _x:haxe.UInt64):StdTypes.Int {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.putUvarint(_buf, _x);
     }
     /**
         Uvarint decodes a uint64 from buf and returns that value and the
@@ -915,10 +915,10 @@ class Binary {
         	n  < 0: value larger than 64 bits (overflow)
         	        and -n is the number of bytes read
     **/
-    static public function uvarint(buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.UInt64, StdTypes.Int> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function uvarint(_buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.UInt64, StdTypes.Int> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.encoding.binary.Binary.uvarint(buf);
+            final obj = stdgo._internal.encoding.binary.Binary.uvarint(_buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -926,17 +926,17 @@ class Binary {
         AppendVarint appends the varint-encoded form of x,
         as generated by PutVarint, to buf and returns the extended buffer.
     **/
-    static public function appendVarint(buf:Array<StdTypes.Int>, x:haxe.Int64):Array<StdTypes.Int> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.encoding.binary.Binary.appendVarint(buf, x)) i];
+    static public function appendVarint(_buf:Array<StdTypes.Int>, _x:haxe.Int64):Array<StdTypes.Int> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.encoding.binary.Binary.appendVarint(_buf, _x)) i];
     }
     /**
         PutVarint encodes an int64 into buf and returns the number of bytes written.
         If the buffer is too small, PutVarint will panic.
     **/
-    static public function putVarint(buf:Array<StdTypes.Int>, x:haxe.Int64):StdTypes.Int {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.binary.Binary.putVarint(buf, x);
+    static public function putVarint(_buf:Array<StdTypes.Int>, _x:haxe.Int64):StdTypes.Int {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.binary.Binary.putVarint(_buf, _x);
     }
     /**
         Varint decodes an int64 from buf and returns that value and the
@@ -947,10 +947,10 @@ class Binary {
         	n  < 0: value larger than 64 bits (overflow)
         	        and -n is the number of bytes read
     **/
-    static public function varint(buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.Int64, StdTypes.Int> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function varint(_buf:Array<StdTypes.Int>):stdgo.Tuple<haxe.Int64, StdTypes.Int> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.encoding.binary.Binary.varint(buf);
+            final obj = stdgo._internal.encoding.binary.Binary.varint(_buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -960,9 +960,9 @@ class Binary {
         If an EOF happens after reading some but not all the bytes,
         ReadUvarint returns io.ErrUnexpectedEOF.
     **/
-    static public function readUvarint(r:stdgo._internal.io.Io.ByteReader):stdgo.Tuple<haxe.UInt64, stdgo.Error> {
+    static public function readUvarint(_r:stdgo._internal.io.Io.ByteReader):stdgo.Tuple<haxe.UInt64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.encoding.binary.Binary.readUvarint(r);
+            final obj = stdgo._internal.encoding.binary.Binary.readUvarint(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -972,41 +972,41 @@ class Binary {
         If an EOF happens after reading some but not all the bytes,
         ReadVarint returns io.ErrUnexpectedEOF.
     **/
-    static public function readVarint(r:stdgo._internal.io.Io.ByteReader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function readVarint(_r:stdgo._internal.io.Io.ByteReader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.encoding.binary.Binary.readVarint(r);
+            final obj = stdgo._internal.encoding.binary.Binary.readVarint(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function testConstants(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testConstants(t);
+    static public function testConstants(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testConstants(_t);
     }
-    static public function testVarint(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testVarint(t);
+    static public function testVarint(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testVarint(_t);
     }
-    static public function testUvarint(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testUvarint(t);
+    static public function testUvarint(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testUvarint(_t);
     }
-    static public function testBufferTooSmall(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBufferTooSmall(t);
+    static public function testBufferTooSmall(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBufferTooSmall(_t);
     }
     /**
         Ensure that we catch overflows of bytes going past MaxVarintLen64.
         See issue https://golang.org/issues/41185
     **/
-    static public function testBufferTooBigWithOverflow(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testBufferTooBigWithOverflow(t);
+    static public function testBufferTooBigWithOverflow(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testBufferTooBigWithOverflow(_t);
     }
-    static public function testOverflow(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testOverflow(t);
+    static public function testOverflow(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testOverflow(_t);
     }
-    static public function testNonCanonicalZero(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.binary.Binary.testNonCanonicalZero(t);
+    static public function testNonCanonicalZero(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.binary.Binary.testNonCanonicalZero(_t);
     }
-    static public function benchmarkPutUvarint32(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUvarint32(b);
+    static public function benchmarkPutUvarint32(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUvarint32(_b);
     }
-    static public function benchmarkPutUvarint64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.binary.Binary.benchmarkPutUvarint64(b);
+    static public function benchmarkPutUvarint64(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.binary.Binary.benchmarkPutUvarint64(_b);
     }
 }

@@ -536,7 +536,13 @@ function makeSlice(_typ:Type_, _len:stdgo.GoInt, _cap:stdgo.GoInt):Value {
 function makeChan(_typ:Type_, _buffer:stdgo.GoInt):Value throw ":reflect.makeChan is not yet implemented";
 function makeMap(_typ:Type_):Value throw ":reflect.makeMap is not yet implemented";
 function makeMapWithSize(_typ:Type_, _n:stdgo.GoInt):Value throw ":reflect.makeMapWithSize is not yet implemented";
-function indirect(_v:Value):Value throw ":reflect.indirect is not yet implemented";
+function indirect(_v:Value):Value {
+        if (_v.kind() != pointer) {
+            return _v;
+        } else {
+            return _v.elem();
+        };
+    }
 function valueOf(_i:stdgo.AnyInterface):Value {
         return new Value(_i);
     }

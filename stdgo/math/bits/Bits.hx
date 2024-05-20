@@ -15,92 +15,92 @@ class Bits {
     /**
         LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
     **/
-    static public function leadingZeros(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.leadingZeros(x);
+    static public function leadingZeros(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.leadingZeros(_x);
     }
     /**
         LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for x == 0.
     **/
-    static public function leadingZeros8(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.leadingZeros8(x);
+    static public function leadingZeros8(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.leadingZeros8(_x);
     }
     /**
         LeadingZeros16 returns the number of leading zero bits in x; the result is 16 for x == 0.
     **/
-    static public function leadingZeros16(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.leadingZeros16(x);
+    static public function leadingZeros16(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.leadingZeros16(_x);
     }
     /**
         LeadingZeros32 returns the number of leading zero bits in x; the result is 32 for x == 0.
     **/
-    static public function leadingZeros32(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.leadingZeros32(x);
+    static public function leadingZeros32(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.leadingZeros32(_x);
     }
     /**
         LeadingZeros64 returns the number of leading zero bits in x; the result is 64 for x == 0.
     **/
-    static public function leadingZeros64(x:haxe.UInt64):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.leadingZeros64(x);
+    static public function leadingZeros64(_x:haxe.UInt64):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.leadingZeros64(_x);
     }
     /**
         TrailingZeros returns the number of trailing zero bits in x; the result is UintSize for x == 0.
     **/
-    static public function trailingZeros(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.trailingZeros(x);
+    static public function trailingZeros(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.trailingZeros(_x);
     }
     /**
         TrailingZeros8 returns the number of trailing zero bits in x; the result is 8 for x == 0.
     **/
-    static public function trailingZeros8(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.trailingZeros8(x);
+    static public function trailingZeros8(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.trailingZeros8(_x);
     }
     /**
         TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 for x == 0.
     **/
-    static public function trailingZeros16(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.trailingZeros16(x);
+    static public function trailingZeros16(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.trailingZeros16(_x);
     }
     /**
         TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 for x == 0.
     **/
-    static public function trailingZeros32(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.trailingZeros32(x);
+    static public function trailingZeros32(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.trailingZeros32(_x);
     }
     /**
         TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 for x == 0.
     **/
-    static public function trailingZeros64(x:haxe.UInt64):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.trailingZeros64(x);
+    static public function trailingZeros64(_x:haxe.UInt64):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.trailingZeros64(_x);
     }
     /**
         OnesCount returns the number of one bits ("population count") in x.
     **/
-    static public function onesCount(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.onesCount(x);
+    static public function onesCount(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.onesCount(_x);
     }
     /**
         OnesCount8 returns the number of one bits ("population count") in x.
     **/
-    static public function onesCount8(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.onesCount8(x);
+    static public function onesCount8(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.onesCount8(_x);
     }
     /**
         OnesCount16 returns the number of one bits ("population count") in x.
     **/
-    static public function onesCount16(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.onesCount16(x);
+    static public function onesCount16(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.onesCount16(_x);
     }
     /**
         OnesCount32 returns the number of one bits ("population count") in x.
     **/
-    static public function onesCount32(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.onesCount32(x);
+    static public function onesCount32(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.onesCount32(_x);
     }
     /**
         OnesCount64 returns the number of one bits ("population count") in x.
     **/
-    static public function onesCount64(x:haxe.UInt64):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.onesCount64(x);
+    static public function onesCount64(_x:haxe.UInt64):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.onesCount64(_x);
     }
     /**
         RotateLeft returns the value of x rotated left by (k mod UintSize) bits.
@@ -108,8 +108,8 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function rotateLeft(x:std.UInt, k:StdTypes.Int):std.UInt {
-        return stdgo._internal.math.bits.Bits.rotateLeft(x, k);
+    static public function rotateLeft(_x:std.UInt, _k:StdTypes.Int):std.UInt {
+        return stdgo._internal.math.bits.Bits.rotateLeft(_x, _k);
     }
     /**
         RotateLeft8 returns the value of x rotated left by (k mod 8) bits.
@@ -117,8 +117,8 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function rotateLeft8(x:std.UInt, k:StdTypes.Int):std.UInt {
-        return stdgo._internal.math.bits.Bits.rotateLeft8(x, k);
+    static public function rotateLeft8(_x:std.UInt, _k:StdTypes.Int):std.UInt {
+        return stdgo._internal.math.bits.Bits.rotateLeft8(_x, _k);
     }
     /**
         RotateLeft16 returns the value of x rotated left by (k mod 16) bits.
@@ -126,8 +126,8 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function rotateLeft16(x:std.UInt, k:StdTypes.Int):std.UInt {
-        return stdgo._internal.math.bits.Bits.rotateLeft16(x, k);
+    static public function rotateLeft16(_x:std.UInt, _k:StdTypes.Int):std.UInt {
+        return stdgo._internal.math.bits.Bits.rotateLeft16(_x, _k);
     }
     /**
         RotateLeft32 returns the value of x rotated left by (k mod 32) bits.
@@ -135,8 +135,8 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function rotateLeft32(x:std.UInt, k:StdTypes.Int):std.UInt {
-        return stdgo._internal.math.bits.Bits.rotateLeft32(x, k);
+    static public function rotateLeft32(_x:std.UInt, _k:StdTypes.Int):std.UInt {
+        return stdgo._internal.math.bits.Bits.rotateLeft32(_x, _k);
     }
     /**
         RotateLeft64 returns the value of x rotated left by (k mod 64) bits.
@@ -144,100 +144,100 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function rotateLeft64(x:haxe.UInt64, k:StdTypes.Int):haxe.UInt64 {
-        return stdgo._internal.math.bits.Bits.rotateLeft64(x, k);
+    static public function rotateLeft64(_x:haxe.UInt64, _k:StdTypes.Int):haxe.UInt64 {
+        return stdgo._internal.math.bits.Bits.rotateLeft64(_x, _k);
     }
     /**
         Reverse returns the value of x with its bits in reversed order.
     **/
-    static public function reverse(x:std.UInt):std.UInt {
-        return stdgo._internal.math.bits.Bits.reverse(x);
+    static public function reverse(_x:std.UInt):std.UInt {
+        return stdgo._internal.math.bits.Bits.reverse(_x);
     }
     /**
         Reverse8 returns the value of x with its bits in reversed order.
     **/
-    static public function reverse8(x:std.UInt):std.UInt {
-        return stdgo._internal.math.bits.Bits.reverse8(x);
+    static public function reverse8(_x:std.UInt):std.UInt {
+        return stdgo._internal.math.bits.Bits.reverse8(_x);
     }
     /**
         Reverse16 returns the value of x with its bits in reversed order.
     **/
-    static public function reverse16(x:std.UInt):std.UInt {
-        return stdgo._internal.math.bits.Bits.reverse16(x);
+    static public function reverse16(_x:std.UInt):std.UInt {
+        return stdgo._internal.math.bits.Bits.reverse16(_x);
     }
     /**
         Reverse32 returns the value of x with its bits in reversed order.
     **/
-    static public function reverse32(x:std.UInt):std.UInt {
-        return stdgo._internal.math.bits.Bits.reverse32(x);
+    static public function reverse32(_x:std.UInt):std.UInt {
+        return stdgo._internal.math.bits.Bits.reverse32(_x);
     }
     /**
         Reverse64 returns the value of x with its bits in reversed order.
     **/
-    static public function reverse64(x:haxe.UInt64):haxe.UInt64 {
-        return stdgo._internal.math.bits.Bits.reverse64(x);
+    static public function reverse64(_x:haxe.UInt64):haxe.UInt64 {
+        return stdgo._internal.math.bits.Bits.reverse64(_x);
     }
     /**
         ReverseBytes returns the value of x with its bytes in reversed order.
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function reverseBytes(x:std.UInt):std.UInt {
-        return stdgo._internal.math.bits.Bits.reverseBytes(x);
+    static public function reverseBytes(_x:std.UInt):std.UInt {
+        return stdgo._internal.math.bits.Bits.reverseBytes(_x);
     }
     /**
         ReverseBytes16 returns the value of x with its bytes in reversed order.
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function reverseBytes16(x:std.UInt):std.UInt {
-        return stdgo._internal.math.bits.Bits.reverseBytes16(x);
+    static public function reverseBytes16(_x:std.UInt):std.UInt {
+        return stdgo._internal.math.bits.Bits.reverseBytes16(_x);
     }
     /**
         ReverseBytes32 returns the value of x with its bytes in reversed order.
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function reverseBytes32(x:std.UInt):std.UInt {
-        return stdgo._internal.math.bits.Bits.reverseBytes32(x);
+    static public function reverseBytes32(_x:std.UInt):std.UInt {
+        return stdgo._internal.math.bits.Bits.reverseBytes32(_x);
     }
     /**
         ReverseBytes64 returns the value of x with its bytes in reversed order.
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function reverseBytes64(x:haxe.UInt64):haxe.UInt64 {
-        return stdgo._internal.math.bits.Bits.reverseBytes64(x);
+    static public function reverseBytes64(_x:haxe.UInt64):haxe.UInt64 {
+        return stdgo._internal.math.bits.Bits.reverseBytes64(_x);
     }
     /**
         Len returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
-    static public function len(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.len(x);
+    static public function len(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.len(_x);
     }
     /**
         Len8 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
-    static public function len8(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.len8(x);
+    static public function len8(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.len8(_x);
     }
     /**
         Len16 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
-    static public function len16(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.len16(x);
+    static public function len16(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.len16(_x);
     }
     /**
         Len32 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
-    static public function len32(x:std.UInt):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.len32(x);
+    static public function len32(_x:std.UInt):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.len32(_x);
     }
     /**
         Len64 returns the minimum number of bits required to represent x; the result is 0 for x == 0.
     **/
-    static public function len64(x:haxe.UInt64):StdTypes.Int {
-        return stdgo._internal.math.bits.Bits.len64(x);
+    static public function len64(_x:haxe.UInt64):StdTypes.Int {
+        return stdgo._internal.math.bits.Bits.len64(_x);
     }
     /**
         Add returns the sum with carry of x, y and carry: sum = x + y + carry.
@@ -246,9 +246,9 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function add(x:std.UInt, y:std.UInt, carry:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function add(_x:std.UInt, _y:std.UInt, _carry:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.add(x, y, carry);
+            final obj = stdgo._internal.math.bits.Bits.add(_x, _y, _carry);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -259,9 +259,9 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function add32(x:std.UInt, y:std.UInt, carry:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function add32(_x:std.UInt, _y:std.UInt, _carry:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.add32(x, y, carry);
+            final obj = stdgo._internal.math.bits.Bits.add32(_x, _y, _carry);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -272,9 +272,9 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function add64(x:haxe.UInt64, y:haxe.UInt64, carry:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
+    static public function add64(_x:haxe.UInt64, _y:haxe.UInt64, _carry:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.add64(x, y, carry);
+            final obj = stdgo._internal.math.bits.Bits.add64(_x, _y, _carry);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -285,9 +285,9 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function sub(x:std.UInt, y:std.UInt, borrow:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function sub(_x:std.UInt, _y:std.UInt, _borrow:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.sub(x, y, borrow);
+            final obj = stdgo._internal.math.bits.Bits.sub(_x, _y, _borrow);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -298,9 +298,9 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function sub32(x:std.UInt, y:std.UInt, borrow:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function sub32(_x:std.UInt, _y:std.UInt, _borrow:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.sub32(x, y, borrow);
+            final obj = stdgo._internal.math.bits.Bits.sub32(_x, _y, _borrow);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -311,9 +311,9 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function sub64(x:haxe.UInt64, y:haxe.UInt64, borrow:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
+    static public function sub64(_x:haxe.UInt64, _y:haxe.UInt64, _borrow:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.sub64(x, y, borrow);
+            final obj = stdgo._internal.math.bits.Bits.sub64(_x, _y, _borrow);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -324,9 +324,9 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function mul(x:std.UInt, y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function mul(_x:std.UInt, _y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.mul(x, y);
+            final obj = stdgo._internal.math.bits.Bits.mul(_x, _y);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -337,9 +337,9 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function mul32(x:std.UInt, y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function mul32(_x:std.UInt, _y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.mul32(x, y);
+            final obj = stdgo._internal.math.bits.Bits.mul32(_x, _y);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -350,9 +350,9 @@ class Bits {
         
         This function's execution time does not depend on the inputs.
     **/
-    static public function mul64(x:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
+    static public function mul64(_x:haxe.UInt64, _y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.mul64(x, y);
+            final obj = stdgo._internal.math.bits.Bits.mul64(_x, _y);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -362,9 +362,9 @@ class Bits {
         half in parameter hi and the lower half in parameter lo.
         Div panics for y == 0 (division by zero) or y <= hi (quotient overflow).
     **/
-    static public function div(hi:std.UInt, lo:std.UInt, y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function div(_hi:std.UInt, _lo:std.UInt, _y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.div(hi, lo, y);
+            final obj = stdgo._internal.math.bits.Bits.div(_hi, _lo, _y);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -374,9 +374,9 @@ class Bits {
         half in parameter hi and the lower half in parameter lo.
         Div32 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
     **/
-    static public function div32(hi:std.UInt, lo:std.UInt, y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function div32(_hi:std.UInt, _lo:std.UInt, _y:std.UInt):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.div32(hi, lo, y);
+            final obj = stdgo._internal.math.bits.Bits.div32(_hi, _lo, _y);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -386,9 +386,9 @@ class Bits {
         half in parameter hi and the lower half in parameter lo.
         Div64 panics for y == 0 (division by zero) or y <= hi (quotient overflow).
     **/
-    static public function div64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
+    static public function div64(_hi:haxe.UInt64, _lo:haxe.UInt64, _y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64> {
         return {
-            final obj = stdgo._internal.math.bits.Bits.div64(hi, lo, y);
+            final obj = stdgo._internal.math.bits.Bits.div64(_hi, _lo, _y);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -397,23 +397,23 @@ class Bits {
         y == 0 (division by zero) but, unlike Div, it doesn't panic on a
         quotient overflow.
     **/
-    static public function rem(hi:std.UInt, lo:std.UInt, y:std.UInt):std.UInt {
-        return stdgo._internal.math.bits.Bits.rem(hi, lo, y);
+    static public function rem(_hi:std.UInt, _lo:std.UInt, _y:std.UInt):std.UInt {
+        return stdgo._internal.math.bits.Bits.rem(_hi, _lo, _y);
     }
     /**
         Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics
         for y == 0 (division by zero) but, unlike Div32, it doesn't panic
         on a quotient overflow.
     **/
-    static public function rem32(hi:std.UInt, lo:std.UInt, y:std.UInt):std.UInt {
-        return stdgo._internal.math.bits.Bits.rem32(hi, lo, y);
+    static public function rem32(_hi:std.UInt, _lo:std.UInt, _y:std.UInt):std.UInt {
+        return stdgo._internal.math.bits.Bits.rem32(_hi, _lo, _y);
     }
     /**
         Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics
         for y == 0 (division by zero) but, unlike Div64, it doesn't panic
         on a quotient overflow.
     **/
-    static public function rem64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):haxe.UInt64 {
-        return stdgo._internal.math.bits.Bits.rem64(hi, lo, y);
+    static public function rem64(_hi:haxe.UInt64, _lo:haxe.UInt64, _y:haxe.UInt64):haxe.UInt64 {
+        return stdgo._internal.math.bits.Bits.rem64(_hi, _lo, _y);
     }
 }

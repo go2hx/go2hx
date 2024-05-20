@@ -33,8 +33,8 @@ class T_boolFlag_static_extension {
 }
 typedef T_boolFlag = stdgo._internal.flag.Flag.T_boolFlag;
 class Value_static_extension {
-    static public function set(t:Value, 0:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.Value_static_extension.set(t, 0);
+    static public function set(t:Value, _0:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.Value_static_extension.set(t, _0);
     }
     static public function string(t:Value):String {
         return stdgo._internal.flag.Flag.Value_static_extension.string(t);
@@ -158,260 +158,260 @@ typedef T_funcValue = stdgo._internal.flag.Flag.T_funcValue;
 typedef T_boolFuncValue = stdgo._internal.flag.Flag.T_boolFuncValue;
 typedef ErrorHandling = stdgo._internal.flag.Flag.ErrorHandling;
 class T_textValue_static_extension {
-    static public function string(v:T_textValue):String {
-        return stdgo._internal.flag.Flag.T_textValue_static_extension.string(v);
+    static public function string(_v:T_textValue):String {
+        return stdgo._internal.flag.Flag.T_textValue_static_extension.string(_v);
     }
-    static public function get(v:T_textValue):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag.T_textValue_static_extension.get(v);
+    static public function get(_v:T_textValue):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag.T_textValue_static_extension.get(_v);
     }
-    static public function set(v:T_textValue, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_textValue_static_extension.set(v, s);
+    static public function set(_v:T_textValue, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_textValue_static_extension.set(_v, _s);
     }
 }
 class Flag_Set_static_extension {
-    static public function init(f:FlagSet, name:String, errorHandling:ErrorHandling):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.init(f, name, errorHandling);
+    static public function init(_f:FlagSet, _name:String, _errorHandling:ErrorHandling):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.init(_f, _name, _errorHandling);
     }
-    static public function parsed(f:FlagSet):Bool {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.parsed(f);
+    static public function parsed(_f:FlagSet):Bool {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.parsed(_f);
     }
-    static public function parse(f:FlagSet, arguments:Array<String>):stdgo.Error {
-        final arguments = ([for (i in arguments) i] : stdgo.Slice<stdgo.GoString>);
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.parse(f, arguments);
+    static public function parse(_f:FlagSet, _arguments:Array<String>):stdgo.Error {
+        final _arguments = ([for (i in _arguments) i] : stdgo.Slice<stdgo.GoString>);
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.parse(_f, _arguments);
     }
-    static public function _parseOne(f:FlagSet):stdgo.Tuple<Bool, stdgo.Error> {
+    static public function _parseOne(_f:FlagSet):stdgo.Tuple<Bool, stdgo.Error> {
         return {
-            final obj = stdgo._internal.flag.Flag.FlagSet_static_extension._parseOne(f);
+            final obj = stdgo._internal.flag.Flag.FlagSet_static_extension._parseOne(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _usage(f:FlagSet):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension._usage(f);
+    static public function _usage(_f:FlagSet):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension._usage(_f);
     }
-    static public function _failf(f:FlagSet, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension._failf(f, format, ...[for (i in a) i]);
+    static public function _failf(_f:FlagSet, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension._failf(_f, _format, ...[for (i in _a) i]);
     }
-    static public function _sprintf(f:FlagSet, format:String, a:haxe.Rest<stdgo.AnyInterface>):String {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension._sprintf(f, format, ...[for (i in a) i]);
+    static public function _sprintf(_f:FlagSet, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):String {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension._sprintf(_f, _format, ...[for (i in _a) i]);
     }
-    static public function var_(f:FlagSet, value:Value, name:String, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.var_(f, value, name, usage);
+    static public function var_(_f:FlagSet, _value:Value, _name:String, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.var_(_f, _value, _name, _usage);
     }
-    static public function boolFunc(f:FlagSet, name:String, usage:String, fn:stdgo.GoString -> stdgo.Error):Void {
-        final fn = fn;
-        stdgo._internal.flag.Flag.FlagSet_static_extension.boolFunc(f, name, usage, fn);
+    static public function boolFunc(_f:FlagSet, _name:String, _usage:String, _fn:stdgo.GoString -> stdgo.Error):Void {
+        final _fn = _fn;
+        stdgo._internal.flag.Flag.FlagSet_static_extension.boolFunc(_f, _name, _usage, _fn);
     }
-    static public function func(f:FlagSet, name:String, usage:String, fn:stdgo.GoString -> stdgo.Error):Void {
-        final fn = fn;
-        stdgo._internal.flag.Flag.FlagSet_static_extension.func(f, name, usage, fn);
+    static public function func(_f:FlagSet, _name:String, _usage:String, _fn:stdgo.GoString -> stdgo.Error):Void {
+        final _fn = _fn;
+        stdgo._internal.flag.Flag.FlagSet_static_extension.func(_f, _name, _usage, _fn);
     }
-    static public function textVar(f:FlagSet, p:stdgo._internal.encoding.Encoding.TextUnmarshaler, name:String, value:stdgo._internal.encoding.Encoding.TextMarshaler, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.textVar(f, p, name, value, usage);
+    static public function textVar(_f:FlagSet, _p:stdgo._internal.encoding.Encoding.TextUnmarshaler, _name:String, _value:stdgo._internal.encoding.Encoding.TextMarshaler, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.textVar(_f, _p, _name, _value, _usage);
     }
-    static public function duration(f:FlagSet, name:String, value:stdgo._internal.time.Time.Duration, usage:String):stdgo.Pointer<stdgo._internal.time.Time.Duration> {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.duration(f, name, value, usage);
+    static public function duration(_f:FlagSet, _name:String, _value:stdgo._internal.time.Time.Duration, _usage:String):stdgo.Pointer<stdgo._internal.time.Time.Duration> {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.duration(_f, _name, _value, _usage);
     }
-    static public function durationVar(f:FlagSet, p:stdgo.Pointer<stdgo._internal.time.Time.Duration>, name:String, value:stdgo._internal.time.Time.Duration, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.durationVar(f, p, name, value, usage);
+    static public function durationVar(_f:FlagSet, _p:stdgo.Pointer<stdgo._internal.time.Time.Duration>, _name:String, _value:stdgo._internal.time.Time.Duration, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.durationVar(_f, _p, _name, _value, _usage);
     }
-    static public function float64(f:FlagSet, name:String, value:StdTypes.Float, usage:String):stdgo.Pointer<StdTypes.Float> {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.float64(f, name, value, usage);
+    static public function float64(_f:FlagSet, _name:String, _value:StdTypes.Float, _usage:String):stdgo.Pointer<StdTypes.Float> {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.float64(_f, _name, _value, _usage);
     }
-    static public function float64Var(f:FlagSet, p:stdgo.Pointer<StdTypes.Float>, name:String, value:StdTypes.Float, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.float64Var(f, p, name, value, usage);
+    static public function float64Var(_f:FlagSet, _p:stdgo.Pointer<StdTypes.Float>, _name:String, _value:StdTypes.Float, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.float64Var(_f, _p, _name, _value, _usage);
     }
-    static public function string(f:FlagSet, name:String, value:String, usage:String):stdgo.Pointer<String> {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.string(f, name, value, usage);
+    static public function string(_f:FlagSet, _name:String, _value:String, _usage:String):stdgo.Pointer<String> {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.string(_f, _name, _value, _usage);
     }
-    static public function stringVar(f:FlagSet, p:stdgo.Pointer<String>, name:String, value:String, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.stringVar(f, p, name, value, usage);
+    static public function stringVar(_f:FlagSet, _p:stdgo.Pointer<String>, _name:String, _value:String, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.stringVar(_f, _p, _name, _value, _usage);
     }
-    static public function uint64(f:FlagSet, name:String, value:haxe.UInt64, usage:String):stdgo.Pointer<haxe.UInt64> {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.uint64(f, name, value, usage);
+    static public function uint64(_f:FlagSet, _name:String, _value:haxe.UInt64, _usage:String):stdgo.Pointer<haxe.UInt64> {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.uint64(_f, _name, _value, _usage);
     }
-    static public function uint64Var(f:FlagSet, p:stdgo.Pointer<haxe.UInt64>, name:String, value:haxe.UInt64, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.uint64Var(f, p, name, value, usage);
+    static public function uint64Var(_f:FlagSet, _p:stdgo.Pointer<haxe.UInt64>, _name:String, _value:haxe.UInt64, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.uint64Var(_f, _p, _name, _value, _usage);
     }
-    static public function uint(f:FlagSet, name:String, value:std.UInt, usage:String):stdgo.Pointer<std.UInt> {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.uint(f, name, value, usage);
+    static public function uint(_f:FlagSet, _name:String, _value:std.UInt, _usage:String):stdgo.Pointer<std.UInt> {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.uint(_f, _name, _value, _usage);
     }
-    static public function uintVar(f:FlagSet, p:stdgo.Pointer<std.UInt>, name:String, value:std.UInt, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.uintVar(f, p, name, value, usage);
+    static public function uintVar(_f:FlagSet, _p:stdgo.Pointer<std.UInt>, _name:String, _value:std.UInt, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.uintVar(_f, _p, _name, _value, _usage);
     }
-    static public function int64(f:FlagSet, name:String, value:haxe.Int64, usage:String):stdgo.Pointer<haxe.Int64> {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.int64(f, name, value, usage);
+    static public function int64(_f:FlagSet, _name:String, _value:haxe.Int64, _usage:String):stdgo.Pointer<haxe.Int64> {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.int64(_f, _name, _value, _usage);
     }
-    static public function int64Var(f:FlagSet, p:stdgo.Pointer<haxe.Int64>, name:String, value:haxe.Int64, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.int64Var(f, p, name, value, usage);
+    static public function int64Var(_f:FlagSet, _p:stdgo.Pointer<haxe.Int64>, _name:String, _value:haxe.Int64, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.int64Var(_f, _p, _name, _value, _usage);
     }
-    static public function int_(f:FlagSet, name:String, value:StdTypes.Int, usage:String):stdgo.Pointer<StdTypes.Int> {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.int_(f, name, value, usage);
+    static public function int_(_f:FlagSet, _name:String, _value:StdTypes.Int, _usage:String):stdgo.Pointer<StdTypes.Int> {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.int_(_f, _name, _value, _usage);
     }
-    static public function intVar(f:FlagSet, p:stdgo.Pointer<StdTypes.Int>, name:String, value:StdTypes.Int, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.intVar(f, p, name, value, usage);
+    static public function intVar(_f:FlagSet, _p:stdgo.Pointer<StdTypes.Int>, _name:String, _value:StdTypes.Int, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.intVar(_f, _p, _name, _value, _usage);
     }
-    static public function bool_(f:FlagSet, name:String, value:Bool, usage:String):stdgo.Pointer<Bool> {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.bool_(f, name, value, usage);
+    static public function bool_(_f:FlagSet, _name:String, _value:Bool, _usage:String):stdgo.Pointer<Bool> {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.bool_(_f, _name, _value, _usage);
     }
-    static public function boolVar(f:FlagSet, p:stdgo.Pointer<Bool>, name:String, value:Bool, usage:String):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.boolVar(f, p, name, value, usage);
+    static public function boolVar(_f:FlagSet, _p:stdgo.Pointer<Bool>, _name:String, _value:Bool, _usage:String):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.boolVar(_f, _p, _name, _value, _usage);
     }
-    static public function args(f:FlagSet):Array<String> {
-        return [for (i in stdgo._internal.flag.Flag.FlagSet_static_extension.args(f)) i];
+    static public function args(_f:FlagSet):Array<String> {
+        return [for (i in stdgo._internal.flag.Flag.FlagSet_static_extension.args(_f)) i];
     }
-    static public function narg(f:FlagSet):StdTypes.Int {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.narg(f);
+    static public function narg(_f:FlagSet):StdTypes.Int {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.narg(_f);
     }
-    static public function arg(f:FlagSet, i:StdTypes.Int):String {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.arg(f, i);
+    static public function arg(_f:FlagSet, _i:StdTypes.Int):String {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.arg(_f, _i);
     }
-    static public function nflag(f:FlagSet):StdTypes.Int {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.nflag(f);
+    static public function nflag(_f:FlagSet):StdTypes.Int {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.nflag(_f);
     }
-    static public function _defaultUsage(f:FlagSet):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension._defaultUsage(f);
+    static public function _defaultUsage(_f:FlagSet):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension._defaultUsage(_f);
     }
-    static public function printDefaults(f:FlagSet):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.printDefaults(f);
+    static public function printDefaults(_f:FlagSet):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.printDefaults(_f);
     }
-    static public function _set(f:FlagSet, name:String, value:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension._set(f, name, value);
+    static public function _set(_f:FlagSet, _name:String, _value:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension._set(_f, _name, _value);
     }
-    static public function set(f:FlagSet, name:String, value:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.set(f, name, value);
+    static public function set(_f:FlagSet, _name:String, _value:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.set(_f, _name, _value);
     }
-    static public function lookup(f:FlagSet, name:String):Flag_ {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.lookup(f, name);
+    static public function lookup(_f:FlagSet, _name:String):Flag_ {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.lookup(_f, _name);
     }
-    static public function visit(f:FlagSet, fn:stdgo.Ref<Flag> -> Void):Void {
-        final fn = fn;
-        stdgo._internal.flag.Flag.FlagSet_static_extension.visit(f, fn);
+    static public function visit(_f:FlagSet, _fn:stdgo.Ref<Flag> -> Void):Void {
+        final _fn = _fn;
+        stdgo._internal.flag.Flag.FlagSet_static_extension.visit(_f, _fn);
     }
-    static public function visitAll(f:FlagSet, fn:stdgo.Ref<Flag> -> Void):Void {
-        final fn = fn;
-        stdgo._internal.flag.Flag.FlagSet_static_extension.visitAll(f, fn);
+    static public function visitAll(_f:FlagSet, _fn:stdgo.Ref<Flag> -> Void):Void {
+        final _fn = _fn;
+        stdgo._internal.flag.Flag.FlagSet_static_extension.visitAll(_f, _fn);
     }
-    static public function setOutput(f:FlagSet, output:stdgo._internal.io.Io.Writer):Void {
-        stdgo._internal.flag.Flag.FlagSet_static_extension.setOutput(f, output);
+    static public function setOutput(_f:FlagSet, _output:stdgo._internal.io.Io.Writer):Void {
+        stdgo._internal.flag.Flag.FlagSet_static_extension.setOutput(_f, _output);
     }
-    static public function errorHandling(f:FlagSet):ErrorHandling {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.errorHandling(f);
+    static public function errorHandling(_f:FlagSet):ErrorHandling {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.errorHandling(_f);
     }
-    static public function name(f:FlagSet):String {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.name(f);
+    static public function name(_f:FlagSet):String {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.name(_f);
     }
-    static public function output(f:FlagSet):stdgo._internal.io.Io.Writer {
-        return stdgo._internal.flag.Flag.FlagSet_static_extension.output(f);
+    static public function output(_f:FlagSet):stdgo._internal.io.Io.Writer {
+        return stdgo._internal.flag.Flag.FlagSet_static_extension.output(_f);
     }
 }
 class T_boolValue_static_extension {
-    static public function isBoolFlag(___:T_boolValue, b:stdgo.Pointer<T_boolValue>):Bool {
-        return stdgo._internal.flag.Flag.T_boolValue_static_extension.isBoolFlag(___, b);
+    static public function isBoolFlag(____:T_boolValue, _b:stdgo.Pointer<T_boolValue>):Bool {
+        return stdgo._internal.flag.Flag.T_boolValue_static_extension.isBoolFlag(____, _b);
     }
-    static public function string(___:T_boolValue, b:stdgo.Pointer<T_boolValue>):String {
-        return stdgo._internal.flag.Flag.T_boolValue_static_extension.string(___, b);
+    static public function string(____:T_boolValue, _b:stdgo.Pointer<T_boolValue>):String {
+        return stdgo._internal.flag.Flag.T_boolValue_static_extension.string(____, _b);
     }
-    static public function get(___:T_boolValue, b:stdgo.Pointer<T_boolValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag.T_boolValue_static_extension.get(___, b);
+    static public function get(____:T_boolValue, _b:stdgo.Pointer<T_boolValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag.T_boolValue_static_extension.get(____, _b);
     }
-    static public function set(___:T_boolValue, b:stdgo.Pointer<T_boolValue>, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_boolValue_static_extension.set(___, b, s);
+    static public function set(____:T_boolValue, _b:stdgo.Pointer<T_boolValue>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_boolValue_static_extension.set(____, _b, _s);
     }
 }
 class T_intValue_static_extension {
-    static public function string(___:T_intValue, i:stdgo.Pointer<T_intValue>):String {
-        return stdgo._internal.flag.Flag.T_intValue_static_extension.string(___, i);
+    static public function string(____:T_intValue, _i:stdgo.Pointer<T_intValue>):String {
+        return stdgo._internal.flag.Flag.T_intValue_static_extension.string(____, _i);
     }
-    static public function get(___:T_intValue, i:stdgo.Pointer<T_intValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag.T_intValue_static_extension.get(___, i);
+    static public function get(____:T_intValue, _i:stdgo.Pointer<T_intValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag.T_intValue_static_extension.get(____, _i);
     }
-    static public function set(___:T_intValue, i:stdgo.Pointer<T_intValue>, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_intValue_static_extension.set(___, i, s);
+    static public function set(____:T_intValue, _i:stdgo.Pointer<T_intValue>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_intValue_static_extension.set(____, _i, _s);
     }
 }
 class T_int64Value_static_extension {
-    static public function string(___:T_int64Value, i:stdgo.Pointer<T_int64Value>):String {
-        return stdgo._internal.flag.Flag.T_int64Value_static_extension.string(___, i);
+    static public function string(____:T_int64Value, _i:stdgo.Pointer<T_int64Value>):String {
+        return stdgo._internal.flag.Flag.T_int64Value_static_extension.string(____, _i);
     }
-    static public function get(___:T_int64Value, i:stdgo.Pointer<T_int64Value>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag.T_int64Value_static_extension.get(___, i);
+    static public function get(____:T_int64Value, _i:stdgo.Pointer<T_int64Value>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag.T_int64Value_static_extension.get(____, _i);
     }
-    static public function set(___:T_int64Value, i:stdgo.Pointer<T_int64Value>, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_int64Value_static_extension.set(___, i, s);
+    static public function set(____:T_int64Value, _i:stdgo.Pointer<T_int64Value>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_int64Value_static_extension.set(____, _i, _s);
     }
 }
 class T_uintValue_static_extension {
-    static public function string(___:T_uintValue, i:stdgo.Pointer<T_uintValue>):String {
-        return stdgo._internal.flag.Flag.T_uintValue_static_extension.string(___, i);
+    static public function string(____:T_uintValue, _i:stdgo.Pointer<T_uintValue>):String {
+        return stdgo._internal.flag.Flag.T_uintValue_static_extension.string(____, _i);
     }
-    static public function get(___:T_uintValue, i:stdgo.Pointer<T_uintValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag.T_uintValue_static_extension.get(___, i);
+    static public function get(____:T_uintValue, _i:stdgo.Pointer<T_uintValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag.T_uintValue_static_extension.get(____, _i);
     }
-    static public function set(___:T_uintValue, i:stdgo.Pointer<T_uintValue>, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_uintValue_static_extension.set(___, i, s);
+    static public function set(____:T_uintValue, _i:stdgo.Pointer<T_uintValue>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_uintValue_static_extension.set(____, _i, _s);
     }
 }
 class T_uint64Value_static_extension {
-    static public function string(___:T_uint64Value, i:stdgo.Pointer<T_uint64Value>):String {
-        return stdgo._internal.flag.Flag.T_uint64Value_static_extension.string(___, i);
+    static public function string(____:T_uint64Value, _i:stdgo.Pointer<T_uint64Value>):String {
+        return stdgo._internal.flag.Flag.T_uint64Value_static_extension.string(____, _i);
     }
-    static public function get(___:T_uint64Value, i:stdgo.Pointer<T_uint64Value>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag.T_uint64Value_static_extension.get(___, i);
+    static public function get(____:T_uint64Value, _i:stdgo.Pointer<T_uint64Value>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag.T_uint64Value_static_extension.get(____, _i);
     }
-    static public function set(___:T_uint64Value, i:stdgo.Pointer<T_uint64Value>, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_uint64Value_static_extension.set(___, i, s);
+    static public function set(____:T_uint64Value, _i:stdgo.Pointer<T_uint64Value>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_uint64Value_static_extension.set(____, _i, _s);
     }
 }
 class T_stringValue_static_extension {
-    static public function string(___:T_stringValue, s:stdgo.Pointer<T_stringValue>):String {
-        return stdgo._internal.flag.Flag.T_stringValue_static_extension.string(___, s);
+    static public function string(____:T_stringValue, _s:stdgo.Pointer<T_stringValue>):String {
+        return stdgo._internal.flag.Flag.T_stringValue_static_extension.string(____, _s);
     }
-    static public function get(___:T_stringValue, s:stdgo.Pointer<T_stringValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag.T_stringValue_static_extension.get(___, s);
+    static public function get(____:T_stringValue, _s:stdgo.Pointer<T_stringValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag.T_stringValue_static_extension.get(____, _s);
     }
-    static public function set(___:T_stringValue, s:stdgo.Pointer<T_stringValue>, val:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_stringValue_static_extension.set(___, s, val);
+    static public function set(____:T_stringValue, _s:stdgo.Pointer<T_stringValue>, _val:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_stringValue_static_extension.set(____, _s, _val);
     }
 }
 class T_float64Value_static_extension {
-    static public function string(___:T_float64Value, f:stdgo.Pointer<T_float64Value>):String {
-        return stdgo._internal.flag.Flag.T_float64Value_static_extension.string(___, f);
+    static public function string(____:T_float64Value, _f:stdgo.Pointer<T_float64Value>):String {
+        return stdgo._internal.flag.Flag.T_float64Value_static_extension.string(____, _f);
     }
-    static public function get(___:T_float64Value, f:stdgo.Pointer<T_float64Value>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag.T_float64Value_static_extension.get(___, f);
+    static public function get(____:T_float64Value, _f:stdgo.Pointer<T_float64Value>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag.T_float64Value_static_extension.get(____, _f);
     }
-    static public function set(___:T_float64Value, f:stdgo.Pointer<T_float64Value>, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_float64Value_static_extension.set(___, f, s);
+    static public function set(____:T_float64Value, _f:stdgo.Pointer<T_float64Value>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_float64Value_static_extension.set(____, _f, _s);
     }
 }
 class T_durationValue_static_extension {
-    static public function string(___:T_durationValue, d:stdgo.Pointer<T_durationValue>):String {
-        return stdgo._internal.flag.Flag.T_durationValue_static_extension.string(___, d);
+    static public function string(____:T_durationValue, _d:stdgo.Pointer<T_durationValue>):String {
+        return stdgo._internal.flag.Flag.T_durationValue_static_extension.string(____, _d);
     }
-    static public function get(___:T_durationValue, d:stdgo.Pointer<T_durationValue>):stdgo.AnyInterface {
-        return stdgo._internal.flag.Flag.T_durationValue_static_extension.get(___, d);
+    static public function get(____:T_durationValue, _d:stdgo.Pointer<T_durationValue>):stdgo.AnyInterface {
+        return stdgo._internal.flag.Flag.T_durationValue_static_extension.get(____, _d);
     }
-    static public function set(___:T_durationValue, d:stdgo.Pointer<T_durationValue>, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_durationValue_static_extension.set(___, d, s);
+    static public function set(____:T_durationValue, _d:stdgo.Pointer<T_durationValue>, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_durationValue_static_extension.set(____, _d, _s);
     }
 }
 class T_funcValue_static_extension {
-    static public function string(f:T_funcValue):String {
-        return stdgo._internal.flag.Flag.T_funcValue_static_extension.string(f);
+    static public function string(_f:T_funcValue):String {
+        return stdgo._internal.flag.Flag.T_funcValue_static_extension.string(_f);
     }
-    static public function set(f:T_funcValue, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_funcValue_static_extension.set(f, s);
+    static public function set(_f:T_funcValue, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_funcValue_static_extension.set(_f, _s);
     }
 }
 class T_boolFuncValue_static_extension {
-    static public function isBoolFlag(f:T_boolFuncValue):Bool {
-        return stdgo._internal.flag.Flag.T_boolFuncValue_static_extension.isBoolFlag(f);
+    static public function isBoolFlag(_f:T_boolFuncValue):Bool {
+        return stdgo._internal.flag.Flag.T_boolFuncValue_static_extension.isBoolFlag(_f);
     }
-    static public function string(f:T_boolFuncValue):String {
-        return stdgo._internal.flag.Flag.T_boolFuncValue_static_extension.string(f);
+    static public function string(_f:T_boolFuncValue):String {
+        return stdgo._internal.flag.Flag.T_boolFuncValue_static_extension.string(_f);
     }
-    static public function set(f:T_boolFuncValue, s:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.T_boolFuncValue_static_extension.set(f, s);
+    static public function set(_f:T_boolFuncValue, _s:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.T_boolFuncValue_static_extension.set(_f, _s);
     }
 }
 /**
@@ -500,38 +500,38 @@ class Flag {
         After calling ResetForTesting, parse errors in flag handling will not
         exit the program.
     **/
-    static public function resetForTesting(usage:() -> Void):Void {
-        final usage = usage;
-        stdgo._internal.flag.Flag.resetForTesting(usage);
+    static public function resetForTesting(_usage:() -> Void):Void {
+        final _usage = _usage;
+        stdgo._internal.flag.Flag.resetForTesting(_usage);
     }
     /**
         VisitAll visits the command-line flags in lexicographical order, calling
         fn for each. It visits all flags, even those not set.
     **/
-    static public function visitAll(fn:stdgo.Ref<Flag> -> Void):Void {
-        final fn = fn;
-        stdgo._internal.flag.Flag.visitAll(fn);
+    static public function visitAll(_fn:stdgo.Ref<Flag> -> Void):Void {
+        final _fn = _fn;
+        stdgo._internal.flag.Flag.visitAll(_fn);
     }
     /**
         Visit visits the command-line flags in lexicographical order, calling fn
         for each. It visits only those flags that have been set.
     **/
-    static public function visit(fn:stdgo.Ref<Flag> -> Void):Void {
-        final fn = fn;
-        stdgo._internal.flag.Flag.visit(fn);
+    static public function visit(_fn:stdgo.Ref<Flag> -> Void):Void {
+        final _fn = _fn;
+        stdgo._internal.flag.Flag.visit(_fn);
     }
     /**
         Lookup returns the Flag structure of the named command-line flag,
         returning nil if none exists.
     **/
-    static public function lookup(name:String):Flag_ {
-        return stdgo._internal.flag.Flag.lookup(name);
+    static public function lookup(_name:String):Flag_ {
+        return stdgo._internal.flag.Flag.lookup(_name);
     }
     /**
         Set sets the value of the named command-line flag.
     **/
-    static public function set(name:String, value:String):stdgo.Error {
-        return stdgo._internal.flag.Flag.set(name, value);
+    static public function set(_name:String, _value:String):stdgo.Error {
+        return stdgo._internal.flag.Flag.set(_name, _value);
     }
     /**
         UnquoteUsage extracts a back-quoted name from the usage
@@ -540,9 +540,9 @@ class Flag {
         If there are no back quotes, the name is an educated guess of the
         type of the flag's value, or the empty string if the flag is boolean.
     **/
-    static public function unquoteUsage(flag:Flag_):stdgo.Tuple<String, String> {
+    static public function unquoteUsage(_flag:Flag_):stdgo.Tuple<String, String> {
         return {
-            final obj = stdgo._internal.flag.Flag.unquoteUsage(flag);
+            final obj = stdgo._internal.flag.Flag.unquoteUsage(_flag);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -588,8 +588,8 @@ class Flag {
         after flags have been processed. Arg returns an empty string if the
         requested element does not exist.
     **/
-    static public function arg(i:StdTypes.Int):String {
-        return stdgo._internal.flag.Flag.arg(i);
+    static public function arg(_i:StdTypes.Int):String {
+        return stdgo._internal.flag.Flag.arg(_i);
     }
     /**
         NArg is the number of arguments remaining after flags have been processed.
@@ -607,115 +607,115 @@ class Flag {
         BoolVar defines a bool flag with specified name, default value, and usage string.
         The argument p points to a bool variable in which to store the value of the flag.
     **/
-    static public function boolVar(p:stdgo.Pointer<Bool>, name:String, value:Bool, usage:String):Void {
-        stdgo._internal.flag.Flag.boolVar(p, name, value, usage);
+    static public function boolVar(_p:stdgo.Pointer<Bool>, _name:String, _value:Bool, _usage:String):Void {
+        stdgo._internal.flag.Flag.boolVar(_p, _name, _value, _usage);
     }
     /**
         Bool defines a bool flag with specified name, default value, and usage string.
         The return value is the address of a bool variable that stores the value of the flag.
     **/
-    static public function bool_(name:String, value:Bool, usage:String):stdgo.Pointer<Bool> {
-        return stdgo._internal.flag.Flag.bool_(name, value, usage);
+    static public function bool_(_name:String, _value:Bool, _usage:String):stdgo.Pointer<Bool> {
+        return stdgo._internal.flag.Flag.bool_(_name, _value, _usage);
     }
     /**
         IntVar defines an int flag with specified name, default value, and usage string.
         The argument p points to an int variable in which to store the value of the flag.
     **/
-    static public function intVar(p:stdgo.Pointer<StdTypes.Int>, name:String, value:StdTypes.Int, usage:String):Void {
-        stdgo._internal.flag.Flag.intVar(p, name, value, usage);
+    static public function intVar(_p:stdgo.Pointer<StdTypes.Int>, _name:String, _value:StdTypes.Int, _usage:String):Void {
+        stdgo._internal.flag.Flag.intVar(_p, _name, _value, _usage);
     }
     /**
         Int defines an int flag with specified name, default value, and usage string.
         The return value is the address of an int variable that stores the value of the flag.
     **/
-    static public function int_(name:String, value:StdTypes.Int, usage:String):stdgo.Pointer<StdTypes.Int> {
-        return stdgo._internal.flag.Flag.int_(name, value, usage);
+    static public function int_(_name:String, _value:StdTypes.Int, _usage:String):stdgo.Pointer<StdTypes.Int> {
+        return stdgo._internal.flag.Flag.int_(_name, _value, _usage);
     }
     /**
         Int64Var defines an int64 flag with specified name, default value, and usage string.
         The argument p points to an int64 variable in which to store the value of the flag.
     **/
-    static public function int64Var(p:stdgo.Pointer<haxe.Int64>, name:String, value:haxe.Int64, usage:String):Void {
-        stdgo._internal.flag.Flag.int64Var(p, name, value, usage);
+    static public function int64Var(_p:stdgo.Pointer<haxe.Int64>, _name:String, _value:haxe.Int64, _usage:String):Void {
+        stdgo._internal.flag.Flag.int64Var(_p, _name, _value, _usage);
     }
     /**
         Int64 defines an int64 flag with specified name, default value, and usage string.
         The return value is the address of an int64 variable that stores the value of the flag.
     **/
-    static public function int64(name:String, value:haxe.Int64, usage:String):stdgo.Pointer<haxe.Int64> {
-        return stdgo._internal.flag.Flag.int64(name, value, usage);
+    static public function int64(_name:String, _value:haxe.Int64, _usage:String):stdgo.Pointer<haxe.Int64> {
+        return stdgo._internal.flag.Flag.int64(_name, _value, _usage);
     }
     /**
         UintVar defines a uint flag with specified name, default value, and usage string.
         The argument p points to a uint variable in which to store the value of the flag.
     **/
-    static public function uintVar(p:stdgo.Pointer<std.UInt>, name:String, value:std.UInt, usage:String):Void {
-        stdgo._internal.flag.Flag.uintVar(p, name, value, usage);
+    static public function uintVar(_p:stdgo.Pointer<std.UInt>, _name:String, _value:std.UInt, _usage:String):Void {
+        stdgo._internal.flag.Flag.uintVar(_p, _name, _value, _usage);
     }
     /**
         Uint defines a uint flag with specified name, default value, and usage string.
         The return value is the address of a uint variable that stores the value of the flag.
     **/
-    static public function uint(name:String, value:std.UInt, usage:String):stdgo.Pointer<std.UInt> {
-        return stdgo._internal.flag.Flag.uint(name, value, usage);
+    static public function uint(_name:String, _value:std.UInt, _usage:String):stdgo.Pointer<std.UInt> {
+        return stdgo._internal.flag.Flag.uint(_name, _value, _usage);
     }
     /**
         Uint64Var defines a uint64 flag with specified name, default value, and usage string.
         The argument p points to a uint64 variable in which to store the value of the flag.
     **/
-    static public function uint64Var(p:stdgo.Pointer<haxe.UInt64>, name:String, value:haxe.UInt64, usage:String):Void {
-        stdgo._internal.flag.Flag.uint64Var(p, name, value, usage);
+    static public function uint64Var(_p:stdgo.Pointer<haxe.UInt64>, _name:String, _value:haxe.UInt64, _usage:String):Void {
+        stdgo._internal.flag.Flag.uint64Var(_p, _name, _value, _usage);
     }
     /**
         Uint64 defines a uint64 flag with specified name, default value, and usage string.
         The return value is the address of a uint64 variable that stores the value of the flag.
     **/
-    static public function uint64(name:String, value:haxe.UInt64, usage:String):stdgo.Pointer<haxe.UInt64> {
-        return stdgo._internal.flag.Flag.uint64(name, value, usage);
+    static public function uint64(_name:String, _value:haxe.UInt64, _usage:String):stdgo.Pointer<haxe.UInt64> {
+        return stdgo._internal.flag.Flag.uint64(_name, _value, _usage);
     }
     /**
         StringVar defines a string flag with specified name, default value, and usage string.
         The argument p points to a string variable in which to store the value of the flag.
     **/
-    static public function stringVar(p:stdgo.Pointer<String>, name:String, value:String, usage:String):Void {
-        stdgo._internal.flag.Flag.stringVar(p, name, value, usage);
+    static public function stringVar(_p:stdgo.Pointer<String>, _name:String, _value:String, _usage:String):Void {
+        stdgo._internal.flag.Flag.stringVar(_p, _name, _value, _usage);
     }
     /**
         String defines a string flag with specified name, default value, and usage string.
         The return value is the address of a string variable that stores the value of the flag.
     **/
-    static public function string(name:String, value:String, usage:String):stdgo.Pointer<String> {
-        return stdgo._internal.flag.Flag.string(name, value, usage);
+    static public function string(_name:String, _value:String, _usage:String):stdgo.Pointer<String> {
+        return stdgo._internal.flag.Flag.string(_name, _value, _usage);
     }
     /**
         Float64Var defines a float64 flag with specified name, default value, and usage string.
         The argument p points to a float64 variable in which to store the value of the flag.
     **/
-    static public function float64Var(p:stdgo.Pointer<StdTypes.Float>, name:String, value:StdTypes.Float, usage:String):Void {
-        stdgo._internal.flag.Flag.float64Var(p, name, value, usage);
+    static public function float64Var(_p:stdgo.Pointer<StdTypes.Float>, _name:String, _value:StdTypes.Float, _usage:String):Void {
+        stdgo._internal.flag.Flag.float64Var(_p, _name, _value, _usage);
     }
     /**
         Float64 defines a float64 flag with specified name, default value, and usage string.
         The return value is the address of a float64 variable that stores the value of the flag.
     **/
-    static public function float64(name:String, value:StdTypes.Float, usage:String):stdgo.Pointer<StdTypes.Float> {
-        return stdgo._internal.flag.Flag.float64(name, value, usage);
+    static public function float64(_name:String, _value:StdTypes.Float, _usage:String):stdgo.Pointer<StdTypes.Float> {
+        return stdgo._internal.flag.Flag.float64(_name, _value, _usage);
     }
     /**
         DurationVar defines a time.Duration flag with specified name, default value, and usage string.
         The argument p points to a time.Duration variable in which to store the value of the flag.
         The flag accepts a value acceptable to time.ParseDuration.
     **/
-    static public function durationVar(p:stdgo.Pointer<stdgo._internal.time.Time.Duration>, name:String, value:stdgo._internal.time.Time.Duration, usage:String):Void {
-        stdgo._internal.flag.Flag.durationVar(p, name, value, usage);
+    static public function durationVar(_p:stdgo.Pointer<stdgo._internal.time.Time.Duration>, _name:String, _value:stdgo._internal.time.Time.Duration, _usage:String):Void {
+        stdgo._internal.flag.Flag.durationVar(_p, _name, _value, _usage);
     }
     /**
         Duration defines a time.Duration flag with specified name, default value, and usage string.
         The return value is the address of a time.Duration variable that stores the value of the flag.
         The flag accepts a value acceptable to time.ParseDuration.
     **/
-    static public function duration(name:String, value:stdgo._internal.time.Time.Duration, usage:String):stdgo.Pointer<stdgo._internal.time.Time.Duration> {
-        return stdgo._internal.flag.Flag.duration(name, value, usage);
+    static public function duration(_name:String, _value:stdgo._internal.time.Time.Duration, _usage:String):stdgo.Pointer<stdgo._internal.time.Time.Duration> {
+        return stdgo._internal.flag.Flag.duration(_name, _value, _usage);
     }
     /**
         TextVar defines a flag with a specified name, default value, and usage string.
@@ -724,26 +724,26 @@ class Flag {
         If the flag is used, the flag value will be passed to p's UnmarshalText method.
         The type of the default value must be the same as the type of p.
     **/
-    static public function textVar(p:stdgo._internal.encoding.Encoding.TextUnmarshaler, name:String, value:stdgo._internal.encoding.Encoding.TextMarshaler, usage:String):Void {
-        stdgo._internal.flag.Flag.textVar(p, name, value, usage);
+    static public function textVar(_p:stdgo._internal.encoding.Encoding.TextUnmarshaler, _name:String, _value:stdgo._internal.encoding.Encoding.TextMarshaler, _usage:String):Void {
+        stdgo._internal.flag.Flag.textVar(_p, _name, _value, _usage);
     }
     /**
         Func defines a flag with the specified name and usage string.
         Each time the flag is seen, fn is called with the value of the flag.
         If fn returns a non-nil error, it will be treated as a flag value parsing error.
     **/
-    static public function func(name:String, usage:String, fn:stdgo.GoString -> stdgo.Error):Void {
-        final fn = fn;
-        stdgo._internal.flag.Flag.func(name, usage, fn);
+    static public function func(_name:String, _usage:String, _fn:stdgo.GoString -> stdgo.Error):Void {
+        final _fn = _fn;
+        stdgo._internal.flag.Flag.func(_name, _usage, _fn);
     }
     /**
         BoolFunc defines a flag with the specified name and usage string without requiring values.
         Each time the flag is seen, fn is called with the value of the flag.
         If fn returns a non-nil error, it will be treated as a flag value parsing error.
     **/
-    static public function boolFunc(name:String, usage:String, fn:stdgo.GoString -> stdgo.Error):Void {
-        final fn = fn;
-        stdgo._internal.flag.Flag.boolFunc(name, usage, fn);
+    static public function boolFunc(_name:String, _usage:String, _fn:stdgo.GoString -> stdgo.Error):Void {
+        final _fn = _fn;
+        stdgo._internal.flag.Flag.boolFunc(_name, _usage, _fn);
     }
     /**
         Var defines a flag with the specified name and usage string. The type and
@@ -753,8 +753,8 @@ class Flag {
         of strings by giving the slice the methods of Value; in particular, Set would
         decompose the comma-separated string into the slice.
     **/
-    static public function var_(value:Value, name:String, usage:String):Void {
-        stdgo._internal.flag.Flag.var_(value, name, usage);
+    static public function var_(_value:Value, _name:String, _usage:String):Void {
+        stdgo._internal.flag.Flag.var_(_value, _name, _usage);
     }
     /**
         Parse parses the command-line flags from os.Args[1:]. Must be called
@@ -774,7 +774,7 @@ class Flag {
         error handling property. If the name is not empty, it will be printed
         in the default usage message and in error messages.
     **/
-    static public function newFlagSet(name:String, errorHandling:ErrorHandling):FlagSet {
-        return stdgo._internal.flag.Flag.newFlagSet(name, errorHandling);
+    static public function newFlagSet(_name:String, _errorHandling:ErrorHandling):FlagSet {
+        return stdgo._internal.flag.Flag.newFlagSet(_name, _errorHandling);
     }
 }

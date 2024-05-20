@@ -237,92 +237,92 @@ class T__struct_1_static_extension {
 typedef T__struct_1 = stdgo._internal.encoding.base64.Base64.T__struct_1;
 typedef CorruptInputError = stdgo._internal.encoding.base64.Base64.CorruptInputError;
 class Encoding_static_extension {
-    static public function decodedLen(enc:Encoding, n:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.decodedLen(enc, n);
+    static public function decodedLen(_enc:Encoding, _n:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.decodedLen(_enc, _n);
     }
-    static public function decode(enc:Encoding, dst:Array<StdTypes.Int>, src:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        final src = ([for (i in src) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function decode(_enc:Encoding, _dst:Array<StdTypes.Int>, _src:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.encoding.base64.Base64.Encoding_static_extension.decode(enc, dst, src);
+            final obj = stdgo._internal.encoding.base64.Base64.Encoding_static_extension.decode(_enc, _dst, _src);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function decodeString(enc:Encoding, s:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function decodeString(_enc:Encoding, _s:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.encoding.base64.Base64.Encoding_static_extension.decodeString(enc, s);
+            final obj = stdgo._internal.encoding.base64.Base64.Encoding_static_extension.decodeString(_enc, _s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function _decodeQuantum(enc:Encoding, dst:Array<StdTypes.Int>, src:Array<StdTypes.Int>, si:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        final src = ([for (i in src) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function _decodeQuantum(_enc:Encoding, _dst:Array<StdTypes.Int>, _src:Array<StdTypes.Int>, _si:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.encoding.base64.Base64.Encoding_static_extension._decodeQuantum(enc, dst, src, si);
+            final obj = stdgo._internal.encoding.base64.Base64.Encoding_static_extension._decodeQuantum(_enc, _dst, _src, _si);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function encodedLen(enc:Encoding, n:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.encodedLen(enc, n);
+    static public function encodedLen(_enc:Encoding, _n:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.encodedLen(_enc, _n);
     }
-    static public function encodeToString(enc:Encoding, src:Array<StdTypes.Int>):String {
-        final src = ([for (i in src) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.encodeToString(enc, src);
+    static public function encodeToString(_enc:Encoding, _src:Array<StdTypes.Int>):String {
+        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.encodeToString(_enc, _src);
     }
-    static public function encode(enc:Encoding, dst:Array<StdTypes.Int>, src:Array<StdTypes.Int>):Void {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        final src = ([for (i in src) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.encoding.base64.Base64.Encoding_static_extension.encode(enc, dst, src);
+    static public function encode(_enc:Encoding, _dst:Array<StdTypes.Int>, _src:Array<StdTypes.Int>):Void {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.encoding.base64.Base64.Encoding_static_extension.encode(_enc, _dst, _src);
     }
-    static public function strict(enc:Encoding):Encoding {
-        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.strict(enc);
+    static public function strict(_enc:Encoding):Encoding {
+        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.strict(_enc);
     }
-    static public function withPadding(enc:Encoding, padding:StdTypes.Int):Encoding {
-        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.withPadding(enc, padding);
+    static public function withPadding(_enc:Encoding, _padding:StdTypes.Int):Encoding {
+        return stdgo._internal.encoding.base64.Base64.Encoding_static_extension.withPadding(_enc, _padding);
     }
 }
 class T_encoder_static_extension {
-    static public function close(e:T_encoder):stdgo.Error {
-        return stdgo._internal.encoding.base64.Base64.T_encoder_static_extension.close(e);
+    static public function close(_e:T_encoder):stdgo.Error {
+        return stdgo._internal.encoding.base64.Base64.T_encoder_static_extension.close(_e);
     }
-    static public function write(e:T_encoder, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_e:T_encoder, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.encoding.base64.Base64.T_encoder_static_extension.write(e, p);
+            final obj = stdgo._internal.encoding.base64.Base64.T_encoder_static_extension.write(_e, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_decoder_static_extension {
-    static public function read(d:T_decoder, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_d:T_decoder, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.encoding.base64.Base64.T_decoder_static_extension.read(d, p);
+            final obj = stdgo._internal.encoding.base64.Base64.T_decoder_static_extension.read(_d, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_newlineFilteringReader_static_extension {
-    static public function read(r:T_newlineFilteringReader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:T_newlineFilteringReader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.encoding.base64.Base64.T_newlineFilteringReader_static_extension.read(r, p);
+            final obj = stdgo._internal.encoding.base64.Base64.T_newlineFilteringReader_static_extension.read(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_faultInjectReader_static_extension {
-    static public function read(r:T_faultInjectReader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:T_faultInjectReader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.encoding.base64.Base64.T_faultInjectReader_static_extension.read(r, p);
+            final obj = stdgo._internal.encoding.base64.Base64.T_faultInjectReader_static_extension.read(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class CorruptInputError_static_extension {
-    static public function error(e:CorruptInputError):String {
-        return stdgo._internal.encoding.base64.Base64.CorruptInputError_static_extension.error(e);
+    static public function error(_e:CorruptInputError):String {
+        return stdgo._internal.encoding.base64.Base64.CorruptInputError_static_extension.error(_e);
     }
 }
 /**
@@ -337,8 +337,8 @@ class Base64 {
         The resulting Encoding uses the default padding character ('='),
         which may be changed or disabled via WithPadding.
     **/
-    static public function newEncoding(encoder:String):Encoding {
-        return stdgo._internal.encoding.base64.Base64.newEncoding(encoder);
+    static public function newEncoding(_encoder:String):Encoding {
+        return stdgo._internal.encoding.base64.Base64.newEncoding(_encoder);
     }
     /**
         NewEncoder returns a new base64 stream encoder. Data written to
@@ -347,76 +347,76 @@ class Base64 {
         writing, the caller must Close the returned encoder to flush any
         partially written blocks.
     **/
-    static public function newEncoder(enc:Encoding, w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.WriteCloser {
-        return stdgo._internal.encoding.base64.Base64.newEncoder(enc, w);
+    static public function newEncoder(_enc:Encoding, _w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.WriteCloser {
+        return stdgo._internal.encoding.base64.Base64.newEncoder(_enc, _w);
     }
     /**
         NewDecoder constructs a new base64 stream decoder.
     **/
-    static public function newDecoder(enc:Encoding, r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.encoding.base64.Base64.newDecoder(enc, r);
+    static public function newDecoder(_enc:Encoding, _r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.encoding.base64.Base64.newDecoder(_enc, _r);
     }
-    static public function testEncode(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testEncode(t);
+    static public function testEncode(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testEncode(_t);
     }
-    static public function testEncoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testEncoder(t);
+    static public function testEncoder(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testEncoder(_t);
     }
-    static public function testEncoderBuffering(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testEncoderBuffering(t);
+    static public function testEncoderBuffering(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testEncoderBuffering(_t);
     }
-    static public function testDecode(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecode(t);
+    static public function testDecode(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecode(_t);
     }
-    static public function testDecoder(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoder(t);
+    static public function testDecoder(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoder(_t);
     }
-    static public function testDecoderBuffering(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderBuffering(t);
+    static public function testDecoderBuffering(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderBuffering(_t);
     }
-    static public function testDecodeCorrupt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecodeCorrupt(t);
+    static public function testDecodeCorrupt(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecodeCorrupt(_t);
     }
-    static public function testDecodeBounds(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecodeBounds(t);
+    static public function testDecodeBounds(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecodeBounds(_t);
     }
-    static public function testEncodedLen(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testEncodedLen(t);
+    static public function testEncodedLen(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testEncodedLen(_t);
     }
-    static public function testDecodedLen(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecodedLen(t);
+    static public function testDecodedLen(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecodedLen(_t);
     }
-    static public function testBig(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testBig(t);
+    static public function testBig(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testBig(_t);
     }
-    static public function testNewLineCharacters(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testNewLineCharacters(t);
+    static public function testNewLineCharacters(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testNewLineCharacters(_t);
     }
     /**
         tests that we don't ignore errors from our underlying reader
     **/
-    static public function testDecoderIssue3577(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderIssue3577(t);
+    static public function testDecoderIssue3577(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderIssue3577(_t);
     }
-    static public function testDecoderIssue4779(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderIssue4779(t);
+    static public function testDecoderIssue4779(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderIssue4779(_t);
     }
-    static public function testDecoderIssue7733(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderIssue7733(t);
+    static public function testDecoderIssue7733(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderIssue7733(_t);
     }
-    static public function testDecoderIssue15656(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderIssue15656(t);
+    static public function testDecoderIssue15656(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderIssue15656(_t);
     }
-    static public function benchmarkEncodeToString(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.base64.Base64.benchmarkEncodeToString(b);
+    static public function benchmarkEncodeToString(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.base64.Base64.benchmarkEncodeToString(_b);
     }
-    static public function benchmarkDecodeString(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.base64.Base64.benchmarkDecodeString(b);
+    static public function benchmarkDecodeString(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.base64.Base64.benchmarkDecodeString(_b);
     }
-    static public function benchmarkNewEncoding(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.encoding.base64.Base64.benchmarkNewEncoding(b);
+    static public function benchmarkNewEncoding(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.encoding.base64.Base64.benchmarkNewEncoding(_b);
     }
-    static public function testDecoderRaw(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.encoding.base64.Base64.testDecoderRaw(t);
+    static public function testDecoderRaw(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.encoding.base64.Base64.testDecoderRaw(_t);
     }
 }

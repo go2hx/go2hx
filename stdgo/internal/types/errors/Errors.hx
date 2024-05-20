@@ -152,8 +152,8 @@ class T__struct_0_static_extension {
 typedef T__struct_0 = stdgo._internal.internal.types.errors.Errors.T__struct_0;
 typedef Code = stdgo._internal.internal.types.errors.Errors.Code;
 class Code_static_extension {
-    static public function string(i:Code):String {
-        return stdgo._internal.internal.types.errors.Errors.Code_static_extension.string(i);
+    static public function string(_i:Code):String {
+        return stdgo._internal.internal.types.errors.Errors.Code_static_extension.string(_i);
     }
 }
 class Errors {

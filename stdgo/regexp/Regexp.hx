@@ -1,20 +1,20 @@
 package stdgo.regexp;
 class T_input_static_extension {
-    static public function _context(t:T_input, pos:StdTypes.Int):T_lazyFlag {
-        return stdgo._internal.regexp.Regexp.T_input_static_extension._context(t, pos);
+    static public function _context(t:T_input, _pos:StdTypes.Int):T_lazyFlag {
+        return stdgo._internal.regexp.Regexp.T_input_static_extension._context(t, _pos);
     }
-    static public function _index(t:T_input, re:Regexp_, pos:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.regexp.Regexp.T_input_static_extension._index(t, re, pos);
+    static public function _index(t:T_input, _re:Regexp_, _pos:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.regexp.Regexp.T_input_static_extension._index(t, _re, _pos);
     }
-    static public function _hasPrefix(t:T_input, re:Regexp_):Bool {
-        return stdgo._internal.regexp.Regexp.T_input_static_extension._hasPrefix(t, re);
+    static public function _hasPrefix(t:T_input, _re:Regexp_):Bool {
+        return stdgo._internal.regexp.Regexp.T_input_static_extension._hasPrefix(t, _re);
     }
     static public function _canCheckPrefix(t:T_input):Bool {
         return stdgo._internal.regexp.Regexp.T_input_static_extension._canCheckPrefix(t);
     }
-    static public function _step(t:T_input, pos:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
+    static public function _step(t:T_input, _pos:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.T_input_static_extension._step(t, pos);
+            final obj = stdgo._internal.regexp.Regexp.T_input_static_extension._step(t, _pos);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -667,371 +667,371 @@ typedef T__struct_7 = stdgo._internal.regexp.Regexp.T__struct_7;
 typedef T_lazyFlag = stdgo._internal.regexp.Regexp.T_lazyFlag;
 typedef T_runeSlice = stdgo._internal.regexp.Regexp.T_runeSlice;
 class T_bitState_static_extension {
-    static public function _push(b:T_bitState, re:Regexp_, pc:std.UInt, pos:StdTypes.Int, arg:Bool):Void {
-        stdgo._internal.regexp.Regexp.T_bitState_static_extension._push(b, re, pc, pos, arg);
+    static public function _push(_b:T_bitState, _re:Regexp_, _pc:std.UInt, _pos:StdTypes.Int, _arg:Bool):Void {
+        stdgo._internal.regexp.Regexp.T_bitState_static_extension._push(_b, _re, _pc, _pos, _arg);
     }
-    static public function _shouldVisit(b:T_bitState, pc:std.UInt, pos:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.Regexp.T_bitState_static_extension._shouldVisit(b, pc, pos);
+    static public function _shouldVisit(_b:T_bitState, _pc:std.UInt, _pos:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.Regexp.T_bitState_static_extension._shouldVisit(_b, _pc, _pos);
     }
-    static public function _reset(b:T_bitState, prog:stdgo._internal.regexp.syntax.Syntax.Prog, end:StdTypes.Int, ncap:StdTypes.Int):Void {
-        stdgo._internal.regexp.Regexp.T_bitState_static_extension._reset(b, prog, end, ncap);
+    static public function _reset(_b:T_bitState, _prog:stdgo._internal.regexp.syntax.Syntax.Prog, _end:StdTypes.Int, _ncap:StdTypes.Int):Void {
+        stdgo._internal.regexp.Regexp.T_bitState_static_extension._reset(_b, _prog, _end, _ncap);
     }
 }
 class T_machine_static_extension {
-    static public function _add(m:T_machine, q:T_queue, pc:std.UInt, pos:StdTypes.Int, cap:Array<StdTypes.Int>, cond:stdgo.Pointer<T_lazyFlag>, t:T_thread):T_thread {
-        final cap = ([for (i in cap) i] : stdgo.Slice<stdgo.GoInt>);
-        return stdgo._internal.regexp.Regexp.T_machine_static_extension._add(m, q, pc, pos, cap, cond, t);
+    static public function _add(_m:T_machine, _q:T_queue, _pc:std.UInt, _pos:StdTypes.Int, _cap:Array<StdTypes.Int>, _cond:stdgo.Pointer<T_lazyFlag>, _t:T_thread):T_thread {
+        final _cap = ([for (i in _cap) i] : stdgo.Slice<stdgo.GoInt>);
+        return stdgo._internal.regexp.Regexp.T_machine_static_extension._add(_m, _q, _pc, _pos, _cap, _cond, _t);
     }
-    static public function _step(m:T_machine, runq:T_queue, nextq:T_queue, pos:StdTypes.Int, nextPos:StdTypes.Int, c:StdTypes.Int, nextCond:stdgo.Pointer<T_lazyFlag>):Void {
-        stdgo._internal.regexp.Regexp.T_machine_static_extension._step(m, runq, nextq, pos, nextPos, c, nextCond);
+    static public function _step(_m:T_machine, _runq:T_queue, _nextq:T_queue, _pos:StdTypes.Int, _nextPos:StdTypes.Int, _c:StdTypes.Int, _nextCond:stdgo.Pointer<T_lazyFlag>):Void {
+        stdgo._internal.regexp.Regexp.T_machine_static_extension._step(_m, _runq, _nextq, _pos, _nextPos, _c, _nextCond);
     }
-    static public function _clear(m:T_machine, q:T_queue):Void {
-        stdgo._internal.regexp.Regexp.T_machine_static_extension._clear(m, q);
+    static public function _clear(_m:T_machine, _q:T_queue):Void {
+        stdgo._internal.regexp.Regexp.T_machine_static_extension._clear(_m, _q);
     }
-    static public function _match(m:T_machine, i:T_input, pos:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.Regexp.T_machine_static_extension._match(m, i, pos);
+    static public function _match(_m:T_machine, _i:T_input, _pos:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.Regexp.T_machine_static_extension._match(_m, _i, _pos);
     }
-    static public function _alloc(m:T_machine, i:stdgo._internal.regexp.syntax.Syntax.Inst):T_thread {
-        return stdgo._internal.regexp.Regexp.T_machine_static_extension._alloc(m, i);
+    static public function _alloc(_m:T_machine, _i:stdgo._internal.regexp.syntax.Syntax.Inst):T_thread {
+        return stdgo._internal.regexp.Regexp.T_machine_static_extension._alloc(_m, _i);
     }
-    static public function _init(m:T_machine, ncap:StdTypes.Int):Void {
-        stdgo._internal.regexp.Regexp.T_machine_static_extension._init(m, ncap);
+    static public function _init(_m:T_machine, _ncap:StdTypes.Int):Void {
+        stdgo._internal.regexp.Regexp.T_machine_static_extension._init(_m, _ncap);
     }
 }
 class T_inputs_static_extension {
-    static public function _init(i:T_inputs, r:stdgo._internal.io.Io.RuneReader, b:Array<StdTypes.Int>, s:String):stdgo.Tuple<T_input, StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function _init(_i:T_inputs, _r:stdgo._internal.io.Io.RuneReader, _b:Array<StdTypes.Int>, _s:String):stdgo.Tuple<T_input, StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.regexp.Regexp.T_inputs_static_extension._init(i, r, b, s);
+            final obj = stdgo._internal.regexp.Regexp.T_inputs_static_extension._init(_i, _r, _b, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _clear(i:T_inputs):Void {
-        stdgo._internal.regexp.Regexp.T_inputs_static_extension._clear(i);
+    static public function _clear(_i:T_inputs):Void {
+        stdgo._internal.regexp.Regexp.T_inputs_static_extension._clear(_i);
     }
-    static public function _newReader(i:T_inputs, r:stdgo._internal.io.Io.RuneReader):T_input {
-        return stdgo._internal.regexp.Regexp.T_inputs_static_extension._newReader(i, r);
+    static public function _newReader(_i:T_inputs, _r:stdgo._internal.io.Io.RuneReader):T_input {
+        return stdgo._internal.regexp.Regexp.T_inputs_static_extension._newReader(_i, _r);
     }
-    static public function _newString(i:T_inputs, s:String):T_input {
-        return stdgo._internal.regexp.Regexp.T_inputs_static_extension._newString(i, s);
+    static public function _newString(_i:T_inputs, _s:String):T_input {
+        return stdgo._internal.regexp.Regexp.T_inputs_static_extension._newString(_i, _s);
     }
-    static public function _newBytes(i:T_inputs, b:Array<StdTypes.Int>):T_input {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.regexp.Regexp.T_inputs_static_extension._newBytes(i, b);
+    static public function _newBytes(_i:T_inputs, _b:Array<StdTypes.Int>):T_input {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.regexp.Regexp.T_inputs_static_extension._newBytes(_i, _b);
     }
 }
 class FindTest_static_extension {
-    static public function string(t:FindTest):String {
-        return stdgo._internal.regexp.Regexp.FindTest_static_extension.string(t);
+    static public function string(_t:FindTest):String {
+        return stdgo._internal.regexp.Regexp.FindTest_static_extension.string(_t);
     }
 }
 class T_onePassInst_static_extension {
-    public static function _op(_self__:T_onePassInst):stdgo._internal.regexp.syntax.Syntax.InstOp {
-        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension._op(_self__);
+    public static function _op(__self__:T_onePassInst):stdgo._internal.regexp.syntax.Syntax.InstOp {
+        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension._op(__self__);
     }
-    public static function string(_self__:T_onePassInst):String {
-        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension.string(_self__);
+    public static function string(__self__:T_onePassInst):String {
+        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension.string(__self__);
     }
-    public static function matchRunePos(_self__:T_onePassInst, nameOff:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension.matchRunePos(_self__, nameOff);
+    public static function matchRunePos(__self__:T_onePassInst, _nameOff:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension.matchRunePos(__self__, _nameOff);
     }
-    public static function matchRune(_self__:T_onePassInst, nameOff:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension.matchRune(_self__, nameOff);
+    public static function matchRune(__self__:T_onePassInst, _nameOff:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension.matchRune(__self__, _nameOff);
     }
-    public static function matchEmptyWidth(_self__:T_onePassInst, old:StdTypes.Int, _new:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension.matchEmptyWidth(_self__, old, _new);
+    public static function matchEmptyWidth(__self__:T_onePassInst, _old:StdTypes.Int, _new:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.Regexp.T_onePassInst_static_extension.matchEmptyWidth(__self__, _old, _new);
     }
 }
 class T_queueOnePass_static_extension {
-    static public function _insertNew(q:T_queueOnePass, u:std.UInt):Void {
-        stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._insertNew(q, u);
+    static public function _insertNew(_q:T_queueOnePass, _u:std.UInt):Void {
+        stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._insertNew(_q, _u);
     }
-    static public function _insert(q:T_queueOnePass, u:std.UInt):Void {
-        stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._insert(q, u);
+    static public function _insert(_q:T_queueOnePass, _u:std.UInt):Void {
+        stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._insert(_q, _u);
     }
-    static public function _contains(q:T_queueOnePass, u:std.UInt):Bool {
-        return stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._contains(q, u);
+    static public function _contains(_q:T_queueOnePass, _u:std.UInt):Bool {
+        return stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._contains(_q, _u);
     }
-    static public function _clear(q:T_queueOnePass):Void {
-        stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._clear(q);
+    static public function _clear(_q:T_queueOnePass):Void {
+        stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._clear(_q);
     }
-    static public function _next(q:T_queueOnePass):std.UInt {
-        return stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._next(q);
+    static public function _next(_q:T_queueOnePass):std.UInt {
+        return stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._next(_q);
     }
-    static public function _empty(q:T_queueOnePass):Bool {
-        return stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._empty(q);
+    static public function _empty(_q:T_queueOnePass):Bool {
+        return stdgo._internal.regexp.Regexp.T_queueOnePass_static_extension._empty(_q);
     }
 }
 class Regexp__static_extension {
-    static public function unmarshalText(re:Regexp_, text:Array<StdTypes.Int>):stdgo.Error {
-        final text = ([for (i in text) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.unmarshalText(re, text);
+    static public function unmarshalText(_re:Regexp_, _text:Array<StdTypes.Int>):stdgo.Error {
+        final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.unmarshalText(_re, _text);
     }
-    static public function marshalText(re:Regexp_):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function marshalText(_re:Regexp_):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.Regexp_static_extension.marshalText(re);
+            final obj = stdgo._internal.regexp.Regexp.Regexp_static_extension.marshalText(_re);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function split(re:Regexp_, s:String, n:StdTypes.Int):Array<String> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.split(re, s, n)) i];
+    static public function split(_re:Regexp_, _s:String, _n:StdTypes.Int):Array<String> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.split(_re, _s, _n)) i];
     }
-    static public function findAllStringSubmatchIndex(re:Regexp_, s:String, n:StdTypes.Int):Array<Array<StdTypes.Int>> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllStringSubmatchIndex(re, s, n)) [for (i in i) i]];
+    static public function findAllStringSubmatchIndex(_re:Regexp_, _s:String, _n:StdTypes.Int):Array<Array<StdTypes.Int>> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllStringSubmatchIndex(_re, _s, _n)) [for (i in i) i]];
     }
-    static public function findAllStringSubmatch(re:Regexp_, s:String, n:StdTypes.Int):Array<Array<String>> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllStringSubmatch(re, s, n)) [for (i in i) i]];
+    static public function findAllStringSubmatch(_re:Regexp_, _s:String, _n:StdTypes.Int):Array<Array<String>> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllStringSubmatch(_re, _s, _n)) [for (i in i) i]];
     }
-    static public function findAllSubmatchIndex(re:Regexp_, b:Array<StdTypes.Int>, n:StdTypes.Int):Array<Array<StdTypes.Int>> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllSubmatchIndex(re, b, n)) [for (i in i) i]];
+    static public function findAllSubmatchIndex(_re:Regexp_, _b:Array<StdTypes.Int>, _n:StdTypes.Int):Array<Array<StdTypes.Int>> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllSubmatchIndex(_re, _b, _n)) [for (i in i) i]];
     }
-    static public function findAllSubmatch(re:Regexp_, b:Array<StdTypes.Int>, n:StdTypes.Int):Array<Array<Array<StdTypes.Int>>> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllSubmatch(re, b, n)) [for (i in i) [for (i in i) i]]];
+    static public function findAllSubmatch(_re:Regexp_, _b:Array<StdTypes.Int>, _n:StdTypes.Int):Array<Array<Array<StdTypes.Int>>> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllSubmatch(_re, _b, _n)) [for (i in i) [for (i in i) i]]];
     }
-    static public function findAllStringIndex(re:Regexp_, s:String, n:StdTypes.Int):Array<Array<StdTypes.Int>> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllStringIndex(re, s, n)) [for (i in i) i]];
+    static public function findAllStringIndex(_re:Regexp_, _s:String, _n:StdTypes.Int):Array<Array<StdTypes.Int>> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllStringIndex(_re, _s, _n)) [for (i in i) i]];
     }
-    static public function findAllString(re:Regexp_, s:String, n:StdTypes.Int):Array<String> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllString(re, s, n)) i];
+    static public function findAllString(_re:Regexp_, _s:String, _n:StdTypes.Int):Array<String> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllString(_re, _s, _n)) i];
     }
-    static public function findAllIndex(re:Regexp_, b:Array<StdTypes.Int>, n:StdTypes.Int):Array<Array<StdTypes.Int>> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllIndex(re, b, n)) [for (i in i) i]];
+    static public function findAllIndex(_re:Regexp_, _b:Array<StdTypes.Int>, _n:StdTypes.Int):Array<Array<StdTypes.Int>> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAllIndex(_re, _b, _n)) [for (i in i) i]];
     }
-    static public function findAll(re:Regexp_, b:Array<StdTypes.Int>, n:StdTypes.Int):Array<Array<StdTypes.Int>> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAll(re, b, n)) [for (i in i) i]];
+    static public function findAll(_re:Regexp_, _b:Array<StdTypes.Int>, _n:StdTypes.Int):Array<Array<StdTypes.Int>> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findAll(_re, _b, _n)) [for (i in i) i]];
     }
-    static public function findReaderSubmatchIndex(re:Regexp_, r:stdgo._internal.io.Io.RuneReader):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findReaderSubmatchIndex(re, r)) i];
+    static public function findReaderSubmatchIndex(_re:Regexp_, _r:stdgo._internal.io.Io.RuneReader):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findReaderSubmatchIndex(_re, _r)) i];
     }
-    static public function findStringSubmatchIndex(re:Regexp_, s:String):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findStringSubmatchIndex(re, s)) i];
+    static public function findStringSubmatchIndex(_re:Regexp_, _s:String):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findStringSubmatchIndex(_re, _s)) i];
     }
-    static public function findStringSubmatch(re:Regexp_, s:String):Array<String> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findStringSubmatch(re, s)) i];
+    static public function findStringSubmatch(_re:Regexp_, _s:String):Array<String> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findStringSubmatch(_re, _s)) i];
     }
-    static public function findSubmatchIndex(re:Regexp_, b:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findSubmatchIndex(re, b)) i];
+    static public function findSubmatchIndex(_re:Regexp_, _b:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findSubmatchIndex(_re, _b)) i];
     }
-    static public function _expand(re:Regexp_, dst:Array<StdTypes.Int>, template:String, bsrc:Array<StdTypes.Int>, src:String, match:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        final bsrc = ([for (i in bsrc) i] : stdgo.Slice<stdgo.GoByte>);
-        final match = ([for (i in match) i] : stdgo.Slice<stdgo.GoInt>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._expand(re, dst, template, bsrc, src, match)) i];
+    static public function _expand(_re:Regexp_, _dst:Array<StdTypes.Int>, _template:String, _bsrc:Array<StdTypes.Int>, _src:String, _match:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        final _bsrc = ([for (i in _bsrc) i] : stdgo.Slice<stdgo.GoByte>);
+        final _match = ([for (i in _match) i] : stdgo.Slice<stdgo.GoInt>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._expand(_re, _dst, _template, _bsrc, _src, _match)) i];
     }
-    static public function expandString(re:Regexp_, dst:Array<StdTypes.Int>, template:String, src:String, match:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        final match = ([for (i in match) i] : stdgo.Slice<stdgo.GoInt>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.expandString(re, dst, template, src, match)) i];
+    static public function expandString(_re:Regexp_, _dst:Array<StdTypes.Int>, _template:String, _src:String, _match:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        final _match = ([for (i in _match) i] : stdgo.Slice<stdgo.GoInt>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.expandString(_re, _dst, _template, _src, _match)) i];
     }
-    static public function expand(re:Regexp_, dst:Array<StdTypes.Int>, template:Array<StdTypes.Int>, src:Array<StdTypes.Int>, match:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        final template = ([for (i in template) i] : stdgo.Slice<stdgo.GoByte>);
-        final src = ([for (i in src) i] : stdgo.Slice<stdgo.GoByte>);
-        final match = ([for (i in match) i] : stdgo.Slice<stdgo.GoInt>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.expand(re, dst, template, src, match)) i];
+    static public function expand(_re:Regexp_, _dst:Array<StdTypes.Int>, _template:Array<StdTypes.Int>, _src:Array<StdTypes.Int>, _match:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        final _template = ([for (i in _template) i] : stdgo.Slice<stdgo.GoByte>);
+        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoByte>);
+        final _match = ([for (i in _match) i] : stdgo.Slice<stdgo.GoInt>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.expand(_re, _dst, _template, _src, _match)) i];
     }
-    static public function findSubmatch(re:Regexp_, b:Array<StdTypes.Int>):Array<Array<StdTypes.Int>> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findSubmatch(re, b)) [for (i in i) i]];
+    static public function findSubmatch(_re:Regexp_, _b:Array<StdTypes.Int>):Array<Array<StdTypes.Int>> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findSubmatch(_re, _b)) [for (i in i) i]];
     }
-    static public function findReaderIndex(re:Regexp_, r:stdgo._internal.io.Io.RuneReader):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findReaderIndex(re, r)) i];
+    static public function findReaderIndex(_re:Regexp_, _r:stdgo._internal.io.Io.RuneReader):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findReaderIndex(_re, _r)) i];
     }
-    static public function findStringIndex(re:Regexp_, s:String):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findStringIndex(re, s)) i];
+    static public function findStringIndex(_re:Regexp_, _s:String):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findStringIndex(_re, _s)) i];
     }
-    static public function findString(re:Regexp_, s:String):String {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.findString(re, s);
+    static public function findString(_re:Regexp_, _s:String):String {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.findString(_re, _s);
     }
-    static public function findIndex(re:Regexp_, b:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findIndex(re, b)) i];
+    static public function findIndex(_re:Regexp_, _b:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.findIndex(_re, _b)) i];
     }
-    static public function find(re:Regexp_, b:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.find(re, b)) i];
+    static public function find(_re:Regexp_, _b:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.find(_re, _b)) i];
     }
-    static public function _allMatches(re:Regexp_, s:String, b:Array<StdTypes.Int>, n:StdTypes.Int, deliver:stdgo.Slice<stdgo.GoInt> -> Void):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        final deliver = deliver;
-        stdgo._internal.regexp.Regexp.Regexp_static_extension._allMatches(re, s, b, n, deliver);
+    static public function _allMatches(_re:Regexp_, _s:String, _b:Array<StdTypes.Int>, _n:StdTypes.Int, _deliver:stdgo.Slice<stdgo.GoInt> -> Void):Void {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        final _deliver = _deliver;
+        stdgo._internal.regexp.Regexp.Regexp_static_extension._allMatches(_re, _s, _b, _n, _deliver);
     }
-    static public function _pad(re:Regexp_, a:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final a = ([for (i in a) i] : stdgo.Slice<stdgo.GoInt>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._pad(re, a)) i];
+    static public function _pad(_re:Regexp_, _a:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoInt>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._pad(_re, _a)) i];
     }
-    static public function replaceAllFunc(re:Regexp_, src:Array<StdTypes.Int>, repl:stdgo.Slice<stdgo.GoByte> -> stdgo.Slice<stdgo.GoByte>):Array<StdTypes.Int> {
-        final src = ([for (i in src) i] : stdgo.Slice<stdgo.GoByte>);
-        final repl = repl;
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllFunc(re, src, repl)) i];
+    static public function replaceAllFunc(_re:Regexp_, _src:Array<StdTypes.Int>, _repl:stdgo.Slice<stdgo.GoByte> -> stdgo.Slice<stdgo.GoByte>):Array<StdTypes.Int> {
+        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoByte>);
+        final _repl = _repl;
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllFunc(_re, _src, _repl)) i];
     }
-    static public function replaceAllLiteral(re:Regexp_, src:Array<StdTypes.Int>, repl:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final src = ([for (i in src) i] : stdgo.Slice<stdgo.GoByte>);
-        final repl = ([for (i in repl) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllLiteral(re, src, repl)) i];
+    static public function replaceAllLiteral(_re:Regexp_, _src:Array<StdTypes.Int>, _repl:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoByte>);
+        final _repl = ([for (i in _repl) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllLiteral(_re, _src, _repl)) i];
     }
-    static public function replaceAll(re:Regexp_, src:Array<StdTypes.Int>, repl:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final src = ([for (i in src) i] : stdgo.Slice<stdgo.GoByte>);
-        final repl = ([for (i in repl) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAll(re, src, repl)) i];
+    static public function replaceAll(_re:Regexp_, _src:Array<StdTypes.Int>, _repl:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoByte>);
+        final _repl = ([for (i in _repl) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAll(_re, _src, _repl)) i];
     }
-    static public function _replaceAll(re:Regexp_, bsrc:Array<StdTypes.Int>, src:String, nmatch:StdTypes.Int, repl:(_dst:stdgo.Slice<stdgo.GoByte>, _m:stdgo.Slice<stdgo.GoInt>) -> stdgo.Slice<stdgo.GoByte>):Array<StdTypes.Int> {
-        final bsrc = ([for (i in bsrc) i] : stdgo.Slice<stdgo.GoByte>);
-        final repl = repl;
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._replaceAll(re, bsrc, src, nmatch, repl)) i];
+    static public function _replaceAll(_re:Regexp_, _bsrc:Array<StdTypes.Int>, _src:String, _nmatch:StdTypes.Int, _repl:(_dst:stdgo.Slice<stdgo.GoByte>, _m:stdgo.Slice<stdgo.GoInt>) -> stdgo.Slice<stdgo.GoByte>):Array<StdTypes.Int> {
+        final _bsrc = ([for (i in _bsrc) i] : stdgo.Slice<stdgo.GoByte>);
+        final _repl = _repl;
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._replaceAll(_re, _bsrc, _src, _nmatch, _repl)) i];
     }
-    static public function replaceAllStringFunc(re:Regexp_, src:String, repl:stdgo.GoString -> stdgo.GoString):String {
-        final repl = repl;
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllStringFunc(re, src, repl);
+    static public function replaceAllStringFunc(_re:Regexp_, _src:String, _repl:stdgo.GoString -> stdgo.GoString):String {
+        final _repl = _repl;
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllStringFunc(_re, _src, _repl);
     }
-    static public function replaceAllLiteralString(re:Regexp_, src:String, repl:String):String {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllLiteralString(re, src, repl);
+    static public function replaceAllLiteralString(_re:Regexp_, _src:String, _repl:String):String {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllLiteralString(_re, _src, _repl);
     }
-    static public function replaceAllString(re:Regexp_, src:String, repl:String):String {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllString(re, src, repl);
+    static public function replaceAllString(_re:Regexp_, _src:String, _repl:String):String {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.replaceAllString(_re, _src, _repl);
     }
-    static public function match(re:Regexp_, b:Array<StdTypes.Int>):Bool {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.match(re, b);
+    static public function match(_re:Regexp_, _b:Array<StdTypes.Int>):Bool {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.match(_re, _b);
     }
-    static public function matchString(re:Regexp_, s:String):Bool {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.matchString(re, s);
+    static public function matchString(_re:Regexp_, _s:String):Bool {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.matchString(_re, _s);
     }
-    static public function matchReader(re:Regexp_, r:stdgo._internal.io.Io.RuneReader):Bool {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.matchReader(re, r);
+    static public function matchReader(_re:Regexp_, _r:stdgo._internal.io.Io.RuneReader):Bool {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.matchReader(_re, _r);
     }
-    static public function literalPrefix(re:Regexp_):stdgo.Tuple<String, Bool> {
+    static public function literalPrefix(_re:Regexp_):stdgo.Tuple<String, Bool> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.Regexp_static_extension.literalPrefix(re);
+            final obj = stdgo._internal.regexp.Regexp.Regexp_static_extension.literalPrefix(_re);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function subexpIndex(re:Regexp_, name:String):StdTypes.Int {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.subexpIndex(re, name);
+    static public function subexpIndex(_re:Regexp_, _name:String):StdTypes.Int {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.subexpIndex(_re, _name);
     }
-    static public function subexpNames(re:Regexp_):Array<String> {
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.subexpNames(re)) i];
+    static public function subexpNames(_re:Regexp_):Array<String> {
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension.subexpNames(_re)) i];
     }
-    static public function numSubexp(re:Regexp_):StdTypes.Int {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.numSubexp(re);
+    static public function numSubexp(_re:Regexp_):StdTypes.Int {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.numSubexp(_re);
     }
-    static public function _put(re:Regexp_, m:T_machine):Void {
-        stdgo._internal.regexp.Regexp.Regexp_static_extension._put(re, m);
+    static public function _put(_re:Regexp_, _m:T_machine):Void {
+        stdgo._internal.regexp.Regexp.Regexp_static_extension._put(_re, _m);
     }
-    static public function _get(re:Regexp_):T_machine {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension._get(re);
+    static public function _get(_re:Regexp_):T_machine {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension._get(_re);
     }
-    static public function longest(re:Regexp_):Void {
-        stdgo._internal.regexp.Regexp.Regexp_static_extension.longest(re);
+    static public function longest(_re:Regexp_):Void {
+        stdgo._internal.regexp.Regexp.Regexp_static_extension.longest(_re);
     }
-    static public function copy(re:Regexp_):Regexp_ {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.copy(re);
+    static public function copy(_re:Regexp_):Regexp_ {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.copy(_re);
     }
-    static public function string(re:Regexp_):String {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension.string(re);
+    static public function string(_re:Regexp_):String {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension.string(_re);
     }
-    static public function _doExecute(re:Regexp_, r:stdgo._internal.io.Io.RuneReader, b:Array<StdTypes.Int>, s:String, pos:StdTypes.Int, ncap:StdTypes.Int, dstCap:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        final dstCap = ([for (i in dstCap) i] : stdgo.Slice<stdgo.GoInt>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._doExecute(re, r, b, s, pos, ncap, dstCap)) i];
+    static public function _doExecute(_re:Regexp_, _r:stdgo._internal.io.Io.RuneReader, _b:Array<StdTypes.Int>, _s:String, _pos:StdTypes.Int, _ncap:StdTypes.Int, _dstCap:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        final _dstCap = ([for (i in _dstCap) i] : stdgo.Slice<stdgo.GoInt>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._doExecute(_re, _r, _b, _s, _pos, _ncap, _dstCap)) i];
     }
-    static public function _doMatch(re:Regexp_, r:stdgo._internal.io.Io.RuneReader, b:Array<StdTypes.Int>, s:String):Bool {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension._doMatch(re, r, b, s);
+    static public function _doMatch(_re:Regexp_, _r:stdgo._internal.io.Io.RuneReader, _b:Array<StdTypes.Int>, _s:String):Bool {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension._doMatch(_re, _r, _b, _s);
     }
-    static public function _doOnePass(re:Regexp_, ir:stdgo._internal.io.Io.RuneReader, ib:Array<StdTypes.Int>, _is:String, pos:StdTypes.Int, ncap:StdTypes.Int, dstCap:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final ib = ([for (i in ib) i] : stdgo.Slice<stdgo.GoByte>);
-        final dstCap = ([for (i in dstCap) i] : stdgo.Slice<stdgo.GoInt>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._doOnePass(re, ir, ib, _is, pos, ncap, dstCap)) i];
+    static public function _doOnePass(_re:Regexp_, _ir:stdgo._internal.io.Io.RuneReader, _ib:Array<StdTypes.Int>, _is:String, _pos:StdTypes.Int, _ncap:StdTypes.Int, _dstCap:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _ib = ([for (i in _ib) i] : stdgo.Slice<stdgo.GoByte>);
+        final _dstCap = ([for (i in _dstCap) i] : stdgo.Slice<stdgo.GoInt>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._doOnePass(_re, _ir, _ib, _is, _pos, _ncap, _dstCap)) i];
     }
-    static public function _backtrack(re:Regexp_, ib:Array<StdTypes.Int>, _is:String, pos:StdTypes.Int, ncap:StdTypes.Int, dstCap:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final ib = ([for (i in ib) i] : stdgo.Slice<stdgo.GoByte>);
-        final dstCap = ([for (i in dstCap) i] : stdgo.Slice<stdgo.GoInt>);
-        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._backtrack(re, ib, _is, pos, ncap, dstCap)) i];
+    static public function _backtrack(_re:Regexp_, _ib:Array<StdTypes.Int>, _is:String, _pos:StdTypes.Int, _ncap:StdTypes.Int, _dstCap:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _ib = ([for (i in _ib) i] : stdgo.Slice<stdgo.GoByte>);
+        final _dstCap = ([for (i in _dstCap) i] : stdgo.Slice<stdgo.GoInt>);
+        return [for (i in stdgo._internal.regexp.Regexp.Regexp_static_extension._backtrack(_re, _ib, _is, _pos, _ncap, _dstCap)) i];
     }
-    static public function _tryBacktrack(re:Regexp_, b:T_bitState, i:T_input, pc:std.UInt, pos:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.Regexp.Regexp_static_extension._tryBacktrack(re, b, i, pc, pos);
+    static public function _tryBacktrack(_re:Regexp_, _b:T_bitState, _i:T_input, _pc:std.UInt, _pos:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.Regexp.Regexp_static_extension._tryBacktrack(_re, _b, _i, _pc, _pos);
     }
 }
 class T_inputString_static_extension {
-    static public function _context(i:T_inputString, pos:StdTypes.Int):T_lazyFlag {
-        return stdgo._internal.regexp.Regexp.T_inputString_static_extension._context(i, pos);
+    static public function _context(_i:T_inputString, _pos:StdTypes.Int):T_lazyFlag {
+        return stdgo._internal.regexp.Regexp.T_inputString_static_extension._context(_i, _pos);
     }
-    static public function _index(i:T_inputString, re:Regexp_, pos:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.regexp.Regexp.T_inputString_static_extension._index(i, re, pos);
+    static public function _index(_i:T_inputString, _re:Regexp_, _pos:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.regexp.Regexp.T_inputString_static_extension._index(_i, _re, _pos);
     }
-    static public function _hasPrefix(i:T_inputString, re:Regexp_):Bool {
-        return stdgo._internal.regexp.Regexp.T_inputString_static_extension._hasPrefix(i, re);
+    static public function _hasPrefix(_i:T_inputString, _re:Regexp_):Bool {
+        return stdgo._internal.regexp.Regexp.T_inputString_static_extension._hasPrefix(_i, _re);
     }
-    static public function _canCheckPrefix(i:T_inputString):Bool {
-        return stdgo._internal.regexp.Regexp.T_inputString_static_extension._canCheckPrefix(i);
+    static public function _canCheckPrefix(_i:T_inputString):Bool {
+        return stdgo._internal.regexp.Regexp.T_inputString_static_extension._canCheckPrefix(_i);
     }
-    static public function _step(i:T_inputString, pos:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
+    static public function _step(_i:T_inputString, _pos:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.T_inputString_static_extension._step(i, pos);
+            final obj = stdgo._internal.regexp.Regexp.T_inputString_static_extension._step(_i, _pos);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_inputBytes_static_extension {
-    static public function _context(i:T_inputBytes, pos:StdTypes.Int):T_lazyFlag {
-        return stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._context(i, pos);
+    static public function _context(_i:T_inputBytes, _pos:StdTypes.Int):T_lazyFlag {
+        return stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._context(_i, _pos);
     }
-    static public function _index(i:T_inputBytes, re:Regexp_, pos:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._index(i, re, pos);
+    static public function _index(_i:T_inputBytes, _re:Regexp_, _pos:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._index(_i, _re, _pos);
     }
-    static public function _hasPrefix(i:T_inputBytes, re:Regexp_):Bool {
-        return stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._hasPrefix(i, re);
+    static public function _hasPrefix(_i:T_inputBytes, _re:Regexp_):Bool {
+        return stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._hasPrefix(_i, _re);
     }
-    static public function _canCheckPrefix(i:T_inputBytes):Bool {
-        return stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._canCheckPrefix(i);
+    static public function _canCheckPrefix(_i:T_inputBytes):Bool {
+        return stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._canCheckPrefix(_i);
     }
-    static public function _step(i:T_inputBytes, pos:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
+    static public function _step(_i:T_inputBytes, _pos:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._step(i, pos);
+            final obj = stdgo._internal.regexp.Regexp.T_inputBytes_static_extension._step(_i, _pos);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_inputReader_static_extension {
-    static public function _context(i:T_inputReader, pos:StdTypes.Int):T_lazyFlag {
-        return stdgo._internal.regexp.Regexp.T_inputReader_static_extension._context(i, pos);
+    static public function _context(_i:T_inputReader, _pos:StdTypes.Int):T_lazyFlag {
+        return stdgo._internal.regexp.Regexp.T_inputReader_static_extension._context(_i, _pos);
     }
-    static public function _index(i:T_inputReader, re:Regexp_, pos:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.regexp.Regexp.T_inputReader_static_extension._index(i, re, pos);
+    static public function _index(_i:T_inputReader, _re:Regexp_, _pos:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.regexp.Regexp.T_inputReader_static_extension._index(_i, _re, _pos);
     }
-    static public function _hasPrefix(i:T_inputReader, re:Regexp_):Bool {
-        return stdgo._internal.regexp.Regexp.T_inputReader_static_extension._hasPrefix(i, re);
+    static public function _hasPrefix(_i:T_inputReader, _re:Regexp_):Bool {
+        return stdgo._internal.regexp.Regexp.T_inputReader_static_extension._hasPrefix(_i, _re);
     }
-    static public function _canCheckPrefix(i:T_inputReader):Bool {
-        return stdgo._internal.regexp.Regexp.T_inputReader_static_extension._canCheckPrefix(i);
+    static public function _canCheckPrefix(_i:T_inputReader):Bool {
+        return stdgo._internal.regexp.Regexp.T_inputReader_static_extension._canCheckPrefix(_i);
     }
-    static public function _step(i:T_inputReader, pos:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
+    static public function _step(_i:T_inputReader, _pos:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.T_inputReader_static_extension._step(i, pos);
+            final obj = stdgo._internal.regexp.Regexp.T_inputReader_static_extension._step(_i, _pos);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_lazyFlag_static_extension {
-    static public function _match(f:T_lazyFlag, op:stdgo._internal.regexp.syntax.Syntax.EmptyOp):Bool {
-        return stdgo._internal.regexp.Regexp.T_lazyFlag_static_extension._match(f, op);
+    static public function _match(_f:T_lazyFlag, _op:stdgo._internal.regexp.syntax.Syntax.EmptyOp):Bool {
+        return stdgo._internal.regexp.Regexp.T_lazyFlag_static_extension._match(_f, _op);
     }
 }
 class T_runeSlice_static_extension {
-    static public function swap(p:T_runeSlice, i:StdTypes.Int, j:StdTypes.Int):Void {
-        stdgo._internal.regexp.Regexp.T_runeSlice_static_extension.swap(p, i, j);
+    static public function swap(_p:T_runeSlice, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        stdgo._internal.regexp.Regexp.T_runeSlice_static_extension.swap(_p, _i, _j);
     }
-    static public function less(p:T_runeSlice, i:StdTypes.Int, j:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.Regexp.T_runeSlice_static_extension.less(p, i, j);
+    static public function less(_p:T_runeSlice, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.Regexp.T_runeSlice_static_extension.less(_p, _i, _j);
     }
-    static public function len(p:T_runeSlice):StdTypes.Int {
-        return stdgo._internal.regexp.Regexp.T_runeSlice_static_extension.len(p);
+    static public function len(_p:T_runeSlice):StdTypes.Int {
+        return stdgo._internal.regexp.Regexp.T_runeSlice_static_extension.len(_p);
     }
 }
 /**
@@ -1102,151 +1102,151 @@ class T_runeSlice_static_extension {
     (There are a few other methods that do not match this pattern.)
 **/
 class Regexp {
-    static public function testGoodCompile(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testGoodCompile(t);
+    static public function testGoodCompile(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testGoodCompile(_t);
     }
-    static public function testBadCompile(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testBadCompile(t);
+    static public function testBadCompile(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testBadCompile(_t);
     }
-    static public function testMatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testMatch(t);
+    static public function testMatch(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testMatch(_t);
     }
-    static public function testMatchFunction(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testMatchFunction(t);
+    static public function testMatchFunction(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testMatchFunction(_t);
     }
-    static public function testCopyMatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testCopyMatch(t);
+    static public function testCopyMatch(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testCopyMatch(_t);
     }
-    static public function testReplaceAll(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testReplaceAll(t);
+    static public function testReplaceAll(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testReplaceAll(_t);
     }
-    static public function testReplaceAllLiteral(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testReplaceAllLiteral(t);
+    static public function testReplaceAllLiteral(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testReplaceAllLiteral(_t);
     }
-    static public function testReplaceAllFunc(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testReplaceAllFunc(t);
+    static public function testReplaceAllFunc(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testReplaceAllFunc(_t);
     }
-    static public function testQuoteMeta(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testQuoteMeta(t);
+    static public function testQuoteMeta(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testQuoteMeta(_t);
     }
-    static public function testLiteralPrefix(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testLiteralPrefix(t);
+    static public function testLiteralPrefix(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testLiteralPrefix(_t);
     }
-    static public function testSubexp(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testSubexp(t);
+    static public function testSubexp(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testSubexp(_t);
     }
-    static public function testSplit(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testSplit(t);
+    static public function testSplit(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testSplit(_t);
     }
     /**
         The following sequence of Match calls used to panic. See issue #12980.
     **/
-    static public function testParseAndCompile(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testParseAndCompile(t);
+    static public function testParseAndCompile(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testParseAndCompile(_t);
     }
     /**
         Check that one-pass cutoff does trigger.
     **/
-    static public function testOnePassCutoff(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testOnePassCutoff(t);
+    static public function testOnePassCutoff(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testOnePassCutoff(_t);
     }
     /**
         Check that the same machine can be used with the standard matcher
         and then the backtracker when there are no captures.
     **/
-    static public function testSwitchBacktrack(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testSwitchBacktrack(t);
+    static public function testSwitchBacktrack(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testSwitchBacktrack(_t);
     }
-    static public function benchmarkFind(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFind(b);
+    static public function benchmarkFind(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFind(_b);
     }
-    static public function benchmarkFindAllNoMatches(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFindAllNoMatches(b);
+    static public function benchmarkFindAllNoMatches(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFindAllNoMatches(_b);
     }
-    static public function benchmarkFindString(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFindString(b);
+    static public function benchmarkFindString(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFindString(_b);
     }
-    static public function benchmarkFindSubmatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFindSubmatch(b);
+    static public function benchmarkFindSubmatch(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFindSubmatch(_b);
     }
-    static public function benchmarkFindStringSubmatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkFindStringSubmatch(b);
+    static public function benchmarkFindStringSubmatch(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkFindStringSubmatch(_b);
     }
-    static public function benchmarkLiteral(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkLiteral(b);
+    static public function benchmarkLiteral(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkLiteral(_b);
     }
-    static public function benchmarkNotLiteral(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkNotLiteral(b);
+    static public function benchmarkNotLiteral(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkNotLiteral(_b);
     }
-    static public function benchmarkMatchClass(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatchClass(b);
+    static public function benchmarkMatchClass(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatchClass(_b);
     }
-    static public function benchmarkMatchClass_InRange(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatchClass_InRange(b);
+    static public function benchmarkMatchClass_InRange(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatchClass_InRange(_b);
     }
-    static public function benchmarkReplaceAll(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkReplaceAll(b);
+    static public function benchmarkReplaceAll(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkReplaceAll(_b);
     }
-    static public function benchmarkAnchoredLiteralShortNonMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkAnchoredLiteralShortNonMatch(b);
+    static public function benchmarkAnchoredLiteralShortNonMatch(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkAnchoredLiteralShortNonMatch(_b);
     }
-    static public function benchmarkAnchoredLiteralLongNonMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkAnchoredLiteralLongNonMatch(b);
+    static public function benchmarkAnchoredLiteralLongNonMatch(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkAnchoredLiteralLongNonMatch(_b);
     }
-    static public function benchmarkAnchoredShortMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkAnchoredShortMatch(b);
+    static public function benchmarkAnchoredShortMatch(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkAnchoredShortMatch(_b);
     }
-    static public function benchmarkAnchoredLongMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkAnchoredLongMatch(b);
+    static public function benchmarkAnchoredLongMatch(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkAnchoredLongMatch(_b);
     }
-    static public function benchmarkOnePassShortA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkOnePassShortA(b);
+    static public function benchmarkOnePassShortA(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkOnePassShortA(_b);
     }
-    static public function benchmarkNotOnePassShortA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkNotOnePassShortA(b);
+    static public function benchmarkNotOnePassShortA(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkNotOnePassShortA(_b);
     }
-    static public function benchmarkOnePassShortB(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkOnePassShortB(b);
+    static public function benchmarkOnePassShortB(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkOnePassShortB(_b);
     }
-    static public function benchmarkNotOnePassShortB(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkNotOnePassShortB(b);
+    static public function benchmarkNotOnePassShortB(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkNotOnePassShortB(_b);
     }
-    static public function benchmarkOnePassLongPrefix(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkOnePassLongPrefix(b);
+    static public function benchmarkOnePassLongPrefix(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkOnePassLongPrefix(_b);
     }
-    static public function benchmarkOnePassLongNotPrefix(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkOnePassLongNotPrefix(b);
+    static public function benchmarkOnePassLongNotPrefix(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkOnePassLongNotPrefix(_b);
     }
-    static public function benchmarkMatchParallelShared(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatchParallelShared(b);
+    static public function benchmarkMatchParallelShared(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatchParallelShared(_b);
     }
-    static public function benchmarkMatchParallelCopied(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatchParallelCopied(b);
+    static public function benchmarkMatchParallelCopied(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatchParallelCopied(_b);
     }
-    static public function benchmarkQuoteMetaAll(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkQuoteMetaAll(b);
+    static public function benchmarkQuoteMetaAll(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkQuoteMetaAll(_b);
     }
-    static public function benchmarkQuoteMetaNone(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkQuoteMetaNone(b);
+    static public function benchmarkQuoteMetaNone(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkQuoteMetaNone(_b);
     }
-    static public function benchmarkCompile(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkCompile(b);
+    static public function benchmarkCompile(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkCompile(_b);
     }
-    static public function testDeepEqual(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testDeepEqual(t);
+    static public function testDeepEqual(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testDeepEqual(_t);
     }
-    static public function testMinInputLen(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testMinInputLen(t);
+    static public function testMinInputLen(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testMinInputLen(_t);
     }
-    static public function testUnmarshalText(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testUnmarshalText(t);
+    static public function testUnmarshalText(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testUnmarshalText(_t);
     }
     /**
         This test is excluded when running under the race detector because
         it is a very expensive test and takes too long.
     **/
-    static public function testRE2Exhaustive(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testRE2Exhaustive(t);
+    static public function testRE2Exhaustive(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testRE2Exhaustive(_t);
     }
     /**
         TestRE2 tests this package's regexp API against test cases
@@ -1293,95 +1293,95 @@ class Regexp {
         At time of writing, re2-exhaustive.txt is 59 MB but compresses to 385 kB,
         so we store re2-exhaustive.txt.bz2 in the repository and decompress it on the fly.
     **/
-    static public function testRE2Search(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testRE2Search(t);
+    static public function testRE2Search(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testRE2Search(_t);
     }
     /**
         TestFowler runs this package's regexp API against the
         POSIX regular expression tests collected by Glenn Fowler
         at http://www2.research.att.com/~astopen/testregex/testregex.html.
     **/
-    static public function testFowler(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFowler(t);
+    static public function testFowler(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFowler(_t);
     }
-    static public function benchmarkMatch(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatch(b);
+    static public function benchmarkMatch(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatch(_b);
     }
-    static public function benchmarkMatch_onepass_regex(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.Regexp.benchmarkMatch_onepass_regex(b);
+    static public function benchmarkMatch_onepass_regex(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.Regexp.benchmarkMatch_onepass_regex(_b);
     }
-    static public function testLongest(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testLongest(t);
+    static public function testLongest(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testLongest(_t);
     }
     /**
         TestProgramTooLongForBacktrack tests that a regex which is too long
         for the backtracker still executes properly.
     **/
-    static public function testProgramTooLongForBacktrack(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testProgramTooLongForBacktrack(t);
+    static public function testProgramTooLongForBacktrack(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testProgramTooLongForBacktrack(_t);
     }
-    static public function testFind(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFind(t);
+    static public function testFind(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFind(_t);
     }
-    static public function testFindString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindString(t);
+    static public function testFindString(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindString(_t);
     }
-    static public function testFindIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindIndex(t);
+    static public function testFindIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindIndex(_t);
     }
-    static public function testFindStringIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindStringIndex(t);
+    static public function testFindStringIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindStringIndex(_t);
     }
-    static public function testFindReaderIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindReaderIndex(t);
+    static public function testFindReaderIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindReaderIndex(_t);
     }
-    static public function testFindAll(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAll(t);
+    static public function testFindAll(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAll(_t);
     }
-    static public function testFindAllString(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllString(t);
+    static public function testFindAllString(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllString(_t);
     }
-    static public function testFindAllIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllIndex(t);
+    static public function testFindAllIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllIndex(_t);
     }
-    static public function testFindAllStringIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllStringIndex(t);
+    static public function testFindAllStringIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllStringIndex(_t);
     }
-    static public function testFindSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindSubmatch(t);
+    static public function testFindSubmatch(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindSubmatch(_t);
     }
-    static public function testFindStringSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindStringSubmatch(t);
+    static public function testFindStringSubmatch(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindStringSubmatch(_t);
     }
-    static public function testFindSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindSubmatchIndex(t);
+    static public function testFindSubmatchIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindSubmatchIndex(_t);
     }
-    static public function testFindStringSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindStringSubmatchIndex(t);
+    static public function testFindStringSubmatchIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindStringSubmatchIndex(_t);
     }
-    static public function testFindReaderSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindReaderSubmatchIndex(t);
+    static public function testFindReaderSubmatchIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindReaderSubmatchIndex(_t);
     }
-    static public function testFindAllSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllSubmatch(t);
+    static public function testFindAllSubmatch(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllSubmatch(_t);
     }
-    static public function testFindAllStringSubmatch(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllStringSubmatch(t);
+    static public function testFindAllStringSubmatch(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllStringSubmatch(_t);
     }
-    static public function testFindAllSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllSubmatchIndex(t);
+    static public function testFindAllSubmatchIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllSubmatchIndex(_t);
     }
-    static public function testFindAllStringSubmatchIndex(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testFindAllStringSubmatchIndex(t);
+    static public function testFindAllStringSubmatchIndex(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testFindAllStringSubmatchIndex(_t);
     }
-    static public function testMergeRuneSet(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testMergeRuneSet(t);
+    static public function testMergeRuneSet(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testMergeRuneSet(_t);
     }
-    static public function testCompileOnePass(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testCompileOnePass(t);
+    static public function testCompileOnePass(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testCompileOnePass(_t);
     }
-    static public function testRunOnePass(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.Regexp.testRunOnePass(t);
+    static public function testRunOnePass(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.Regexp.testRunOnePass(_t);
     }
     /**
         Compile parses a regular expression and returns, if successful,
@@ -1395,9 +1395,9 @@ class Regexp {
         package implements it without the expense of backtracking.
         For POSIX leftmost-longest matching, see CompilePOSIX.
     **/
-    static public function compile(expr:String):stdgo.Tuple<Regexp_, stdgo.Error> {
+    static public function compile(_expr:String):stdgo.Tuple<Regexp_, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.compile(expr);
+            final obj = stdgo._internal.regexp.Regexp.compile(_expr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1422,9 +1422,9 @@ class Regexp {
         The POSIX rule is computationally prohibitive and not even well-defined.
         See https://swtch.com/~rsc/regexp/regexp2.html#posix for details.
     **/
-    static public function compilePOSIX(expr:String):stdgo.Tuple<Regexp_, stdgo.Error> {
+    static public function compilePOSIX(_expr:String):stdgo.Tuple<Regexp_, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.compilePOSIX(expr);
+            final obj = stdgo._internal.regexp.Regexp.compilePOSIX(_expr);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1433,25 +1433,25 @@ class Regexp {
         It simplifies safe initialization of global variables holding compiled regular
         expressions.
     **/
-    static public function mustCompile(str:String):Regexp_ {
-        return stdgo._internal.regexp.Regexp.mustCompile(str);
+    static public function mustCompile(_str:String):Regexp_ {
+        return stdgo._internal.regexp.Regexp.mustCompile(_str);
     }
     /**
         MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be parsed.
         It simplifies safe initialization of global variables holding compiled regular
         expressions.
     **/
-    static public function mustCompilePOSIX(str:String):Regexp_ {
-        return stdgo._internal.regexp.Regexp.mustCompilePOSIX(str);
+    static public function mustCompilePOSIX(_str:String):Regexp_ {
+        return stdgo._internal.regexp.Regexp.mustCompilePOSIX(_str);
     }
     /**
         MatchReader reports whether the text returned by the RuneReader
         contains any match of the regular expression pattern.
         More complicated queries need to use Compile and the full Regexp interface.
     **/
-    static public function matchReader(pattern:String, r:stdgo._internal.io.Io.RuneReader):stdgo.Tuple<Bool, stdgo.Error> {
+    static public function matchReader(_pattern:String, _r:stdgo._internal.io.Io.RuneReader):stdgo.Tuple<Bool, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.matchReader(pattern, r);
+            final obj = stdgo._internal.regexp.Regexp.matchReader(_pattern, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1460,9 +1460,9 @@ class Regexp {
         contains any match of the regular expression pattern.
         More complicated queries need to use Compile and the full Regexp interface.
     **/
-    static public function matchString(pattern:String, s:String):stdgo.Tuple<Bool, stdgo.Error> {
+    static public function matchString(_pattern:String, _s:String):stdgo.Tuple<Bool, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.Regexp.matchString(pattern, s);
+            final obj = stdgo._internal.regexp.Regexp.matchString(_pattern, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1471,10 +1471,10 @@ class Regexp {
         contains any match of the regular expression pattern.
         More complicated queries need to use Compile and the full Regexp interface.
     **/
-    static public function match(pattern:String, b:Array<StdTypes.Int>):stdgo.Tuple<Bool, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function match(_pattern:String, _b:Array<StdTypes.Int>):stdgo.Tuple<Bool, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.regexp.Regexp.match(pattern, b);
+            final obj = stdgo._internal.regexp.Regexp.match(_pattern, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1483,7 +1483,7 @@ class Regexp {
         inside the argument text; the returned string is a regular expression matching
         the literal text.
     **/
-    static public function quoteMeta(s:String):String {
-        return stdgo._internal.regexp.Regexp.quoteMeta(s);
+    static public function quoteMeta(_s:String):String {
+        return stdgo._internal.regexp.Regexp.quoteMeta(_s);
     }
 }

@@ -12,10 +12,10 @@ class Bytealg {
         HashStrBytes returns the hash and the appropriate multiplicative
         factor for use in Rabin-Karp algorithm.
     **/
-    static public function hashStrBytes(sep:Array<StdTypes.Int>):stdgo.Tuple<std.UInt, std.UInt> {
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function hashStrBytes(_sep:Array<StdTypes.Int>):stdgo.Tuple<std.UInt, std.UInt> {
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.bytealg.Bytealg.hashStrBytes(sep);
+            final obj = stdgo._internal.internal.bytealg.Bytealg.hashStrBytes(_sep);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -23,9 +23,9 @@ class Bytealg {
         HashStr returns the hash and the appropriate multiplicative
         factor for use in Rabin-Karp algorithm.
     **/
-    static public function hashStr(sep:String):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function hashStr(_sep:String):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.internal.bytealg.Bytealg.hashStr(sep);
+            final obj = stdgo._internal.internal.bytealg.Bytealg.hashStr(_sep);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -33,10 +33,10 @@ class Bytealg {
         HashStrRevBytes returns the hash of the reverse of sep and the
         appropriate multiplicative factor for use in Rabin-Karp algorithm.
     **/
-    static public function hashStrRevBytes(sep:Array<StdTypes.Int>):stdgo.Tuple<std.UInt, std.UInt> {
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function hashStrRevBytes(_sep:Array<StdTypes.Int>):stdgo.Tuple<std.UInt, std.UInt> {
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.bytealg.Bytealg.hashStrRevBytes(sep);
+            final obj = stdgo._internal.internal.bytealg.Bytealg.hashStrRevBytes(_sep);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -44,9 +44,9 @@ class Bytealg {
         HashStrRev returns the hash of the reverse of sep and the
         appropriate multiplicative factor for use in Rabin-Karp algorithm.
     **/
-    static public function hashStrRev(sep:String):stdgo.Tuple<std.UInt, std.UInt> {
+    static public function hashStrRev(_sep:String):stdgo.Tuple<std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.internal.bytealg.Bytealg.hashStrRev(sep);
+            final obj = stdgo._internal.internal.bytealg.Bytealg.hashStrRev(_sep);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -54,40 +54,40 @@ class Bytealg {
         IndexRabinKarpBytes uses the Rabin-Karp search algorithm to return the index of the
         first occurrence of substr in s, or -1 if not present.
     **/
-    static public function indexRabinKarpBytes(s:Array<StdTypes.Int>, sep:Array<StdTypes.Int>):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.internal.bytealg.Bytealg.indexRabinKarpBytes(s, sep);
+    static public function indexRabinKarpBytes(_s:Array<StdTypes.Int>, _sep:Array<StdTypes.Int>):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.internal.bytealg.Bytealg.indexRabinKarpBytes(_s, _sep);
     }
     /**
         IndexRabinKarp uses the Rabin-Karp search algorithm to return the index of the
         first occurrence of substr in s, or -1 if not present.
     **/
-    static public function indexRabinKarp(s:String, substr:String):StdTypes.Int {
-        return stdgo._internal.internal.bytealg.Bytealg.indexRabinKarp(s, substr);
+    static public function indexRabinKarp(_s:String, _substr:String):StdTypes.Int {
+        return stdgo._internal.internal.bytealg.Bytealg.indexRabinKarp(_s, _substr);
     }
     /**
         MakeNoZero makes a slice of length and capacity n without zeroing the bytes.
         It is the caller's responsibility to ensure uninitialized bytes
         do not leak to the end user.
     **/
-    static public function makeNoZero(n:StdTypes.Int):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.internal.bytealg.Bytealg.makeNoZero(n)) i];
+    static public function makeNoZero(_n:StdTypes.Int):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.internal.bytealg.Bytealg.makeNoZero(_n)) i];
     }
     /**
         go:noescape
     **/
-    static public function compare(a:Array<StdTypes.Int>, b:Array<StdTypes.Int>):StdTypes.Int {
-        final a = ([for (i in a) i] : stdgo.Slice<stdgo.GoByte>);
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.internal.bytealg.Bytealg.compare(a, b);
+    static public function compare(_a:Array<StdTypes.Int>, _b:Array<StdTypes.Int>):StdTypes.Int {
+        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoByte>);
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.internal.bytealg.Bytealg.compare(_a, _b);
     }
-    static public function count(b:Array<StdTypes.Int>, c:StdTypes.Int):StdTypes.Int {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.internal.bytealg.Bytealg.count(b, c);
+    static public function count(_b:Array<StdTypes.Int>, _c:StdTypes.Int):StdTypes.Int {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.internal.bytealg.Bytealg.count(_b, _c);
     }
-    static public function countString(s:String, c:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.bytealg.Bytealg.countString(s, c);
+    static public function countString(_s:String, _c:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.bytealg.Bytealg.countString(_s, _c);
     }
     /**
         Equal reports whether a and b
@@ -98,26 +98,26 @@ class Bytealg {
         It is provided here for convenience,
         because some packages cannot depend on bytes.
     **/
-    static public function equal(a:Array<StdTypes.Int>, b:Array<StdTypes.Int>):Bool {
-        final a = ([for (i in a) i] : stdgo.Slice<stdgo.GoByte>);
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.internal.bytealg.Bytealg.equal(a, b);
+    static public function equal(_a:Array<StdTypes.Int>, _b:Array<StdTypes.Int>):Bool {
+        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoByte>);
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.internal.bytealg.Bytealg.equal(_a, _b);
     }
     /**
         Index returns the index of the first instance of b in a, or -1 if b is not present in a.
         Requires 2 <= len(b) <= MaxLen.
     **/
-    static public function index(a:Array<StdTypes.Int>, b:Array<StdTypes.Int>):StdTypes.Int {
-        final a = ([for (i in a) i] : stdgo.Slice<stdgo.GoByte>);
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.internal.bytealg.Bytealg.index(a, b);
+    static public function index(_a:Array<StdTypes.Int>, _b:Array<StdTypes.Int>):StdTypes.Int {
+        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoByte>);
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.internal.bytealg.Bytealg.index(_a, _b);
     }
     /**
         IndexString returns the index of the first instance of b in a, or -1 if b is not present in a.
         Requires 2 <= len(b) <= MaxLen.
     **/
-    static public function indexString(a:String, b:String):StdTypes.Int {
-        return stdgo._internal.internal.bytealg.Bytealg.indexString(a, b);
+    static public function indexString(_a:String, _b:String):StdTypes.Int {
+        return stdgo._internal.internal.bytealg.Bytealg.indexString(_a, _b);
     }
     /**
         Cutover reports the number of failures of IndexByte we should tolerate
@@ -125,20 +125,20 @@ class Bytealg {
         n is the number of bytes processed so far.
         See the bytes.Index implementation for details.
     **/
-    static public function cutover(n:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.bytealg.Bytealg.cutover(n);
+    static public function cutover(_n:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.bytealg.Bytealg.cutover(_n);
     }
     /**
         go:noescape
     **/
-    static public function indexByte(b:Array<StdTypes.Int>, c:StdTypes.Int):StdTypes.Int {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.internal.bytealg.Bytealg.indexByte(b, c);
+    static public function indexByte(_b:Array<StdTypes.Int>, _c:StdTypes.Int):StdTypes.Int {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.internal.bytealg.Bytealg.indexByte(_b, _c);
     }
     /**
         go:noescape
     **/
-    static public function indexByteString(s:String, c:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.bytealg.Bytealg.indexByteString(s, c);
+    static public function indexByteString(_s:String, _c:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.bytealg.Bytealg.indexByteString(_s, _c);
     }
 }

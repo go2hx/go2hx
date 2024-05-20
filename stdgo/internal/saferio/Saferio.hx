@@ -16,9 +16,9 @@ class Saferio {
         If an io.EOF happens after reading some but not all the bytes,
         ReadData returns io.ErrUnexpectedEOF.
     **/
-    static public function readData(r:stdgo._internal.io.Io.Reader, n:haxe.UInt64):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function readData(_r:stdgo._internal.io.Io.Reader, _n:haxe.UInt64):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.internal.saferio.Saferio.readData(r, n);
+            final obj = stdgo._internal.internal.saferio.Saferio.readData(_r, _n);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -27,9 +27,9 @@ class Saferio {
         allocating all n bytes if n is large. This avoids crashing the program
         by allocating all n bytes in cases where n is incorrect.
     **/
-    static public function readDataAt(r:stdgo._internal.io.Io.ReaderAt, n:haxe.UInt64, off:haxe.Int64):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function readDataAt(_r:stdgo._internal.io.Io.ReaderAt, _n:haxe.UInt64, _off:haxe.Int64):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.internal.saferio.Saferio.readDataAt(r, n, off);
+            final obj = stdgo._internal.internal.saferio.Saferio.readDataAt(_r, _n, _off);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -46,7 +46,7 @@ class Saferio {
         the bootstrap compiler which need not support generics.
         We use a pointer so that we can handle slices of interface type.
     **/
-    static public function sliceCap(v:stdgo.AnyInterface, c:haxe.UInt64):StdTypes.Int {
-        return stdgo._internal.internal.saferio.Saferio.sliceCap(v, c);
+    static public function sliceCap(_v:stdgo.AnyInterface, _c:haxe.UInt64):StdTypes.Int {
+        return stdgo._internal.internal.saferio.Saferio.sliceCap(_v, _c);
     }
 }

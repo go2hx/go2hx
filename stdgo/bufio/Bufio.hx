@@ -238,312 +238,312 @@ _done);
 }
 typedef SplitFunc = stdgo._internal.bufio.Bufio.SplitFunc;
 class Reader_static_extension {
-    static public function _writeBuf(b:Reader, w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function _writeBuf(_b:Reader, _w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension._writeBuf(b, w);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension._writeBuf(_b, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeTo(b:Reader, w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function writeTo(_b:Reader, _w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.writeTo(b, w);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.writeTo(_b, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readString(b:Reader, delim:StdTypes.Int):stdgo.Tuple<String, stdgo.Error> {
+    static public function readString(_b:Reader, _delim:StdTypes.Int):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readString(b, delim);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readString(_b, _delim);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readBytes(b:Reader, delim:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function readBytes(_b:Reader, _delim:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readBytes(b, delim);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readBytes(_b, _delim);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function _collectFragments(b:Reader, delim:StdTypes.Int):stdgo.Tuple.Tuple4<Array<Array<StdTypes.Int>>, Array<StdTypes.Int>, StdTypes.Int, stdgo.Error> {
+    static public function _collectFragments(_b:Reader, _delim:StdTypes.Int):stdgo.Tuple.Tuple4<Array<Array<StdTypes.Int>>, Array<StdTypes.Int>, StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension._collectFragments(b, delim);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension._collectFragments(_b, _delim);
             { _0 : [for (i in obj._0) [for (i in i) i]], _1 : [for (i in obj._1) i], _2 : obj._2, _3 : obj._3 };
         };
     }
-    static public function readLine(b:Reader):stdgo.Tuple.Tuple3<Array<StdTypes.Int>, Bool, stdgo.Error> {
+    static public function readLine(_b:Reader):stdgo.Tuple.Tuple3<Array<StdTypes.Int>, Bool, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readLine(b);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readLine(_b);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function readSlice(b:Reader, delim:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function readSlice(_b:Reader, _delim:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readSlice(b, delim);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readSlice(_b, _delim);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function buffered(b:Reader):StdTypes.Int {
-        return stdgo._internal.bufio.Bufio.Reader_static_extension.buffered(b);
+    static public function buffered(_b:Reader):StdTypes.Int {
+        return stdgo._internal.bufio.Bufio.Reader_static_extension.buffered(_b);
     }
-    static public function unreadRune(b:Reader):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.Reader_static_extension.unreadRune(b);
+    static public function unreadRune(_b:Reader):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.Reader_static_extension.unreadRune(_b);
     }
-    static public function readRune(b:Reader):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+    static public function readRune(_b:Reader):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readRune(b);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readRune(_b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function unreadByte(b:Reader):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.Reader_static_extension.unreadByte(b);
+    static public function unreadByte(_b:Reader):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.Reader_static_extension.unreadByte(_b);
     }
-    static public function readByte(b:Reader):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function readByte(_b:Reader):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readByte(b);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.readByte(_b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function read(b:Reader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_b:Reader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.read(b, p);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.read(_b, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function discard(b:Reader, n:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function discard(_b:Reader, _n:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.discard(b, n);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.discard(_b, _n);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function peek(b:Reader, n:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function peek(_b:Reader, _n:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.peek(b, n);
+            final obj = stdgo._internal.bufio.Bufio.Reader_static_extension.peek(_b, _n);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function _readErr(b:Reader):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.Reader_static_extension._readErr(b);
+    static public function _readErr(_b:Reader):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.Reader_static_extension._readErr(_b);
     }
-    static public function _fill(b:Reader):Void {
-        stdgo._internal.bufio.Bufio.Reader_static_extension._fill(b);
+    static public function _fill(_b:Reader):Void {
+        stdgo._internal.bufio.Bufio.Reader_static_extension._fill(_b);
     }
-    static public function _reset(b:Reader, buf:Array<StdTypes.Int>, r:stdgo._internal.io.Io.Reader):Void {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.bufio.Bufio.Reader_static_extension._reset(b, buf, r);
+    static public function _reset(_b:Reader, _buf:Array<StdTypes.Int>, _r:stdgo._internal.io.Io.Reader):Void {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.bufio.Bufio.Reader_static_extension._reset(_b, _buf, _r);
     }
-    static public function reset(b:Reader, r:stdgo._internal.io.Io.Reader):Void {
-        stdgo._internal.bufio.Bufio.Reader_static_extension.reset(b, r);
+    static public function reset(_b:Reader, _r:stdgo._internal.io.Io.Reader):Void {
+        stdgo._internal.bufio.Bufio.Reader_static_extension.reset(_b, _r);
     }
-    static public function size(b:Reader):StdTypes.Int {
-        return stdgo._internal.bufio.Bufio.Reader_static_extension.size(b);
+    static public function size(_b:Reader):StdTypes.Int {
+        return stdgo._internal.bufio.Bufio.Reader_static_extension.size(_b);
     }
 }
 class Writer_static_extension {
-    static public function readFrom(b:Writer, r:stdgo._internal.io.Io.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function readFrom(_b:Writer, _r:stdgo._internal.io.Io.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Writer_static_extension.readFrom(b, r);
+            final obj = stdgo._internal.bufio.Bufio.Writer_static_extension.readFrom(_b, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeString(b:Writer, s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function writeString(_b:Writer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Writer_static_extension.writeString(b, s);
+            final obj = stdgo._internal.bufio.Bufio.Writer_static_extension.writeString(_b, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeRune(b:Writer, r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function writeRune(_b:Writer, _r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.Writer_static_extension.writeRune(b, r);
+            final obj = stdgo._internal.bufio.Bufio.Writer_static_extension.writeRune(_b, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeByte(b:Writer, c:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.Writer_static_extension.writeByte(b, c);
+    static public function writeByte(_b:Writer, _c:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.Writer_static_extension.writeByte(_b, _c);
     }
-    static public function write(b:Writer, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_b:Writer, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bufio.Bufio.Writer_static_extension.write(b, p);
+            final obj = stdgo._internal.bufio.Bufio.Writer_static_extension.write(_b, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function buffered(b:Writer):StdTypes.Int {
-        return stdgo._internal.bufio.Bufio.Writer_static_extension.buffered(b);
+    static public function buffered(_b:Writer):StdTypes.Int {
+        return stdgo._internal.bufio.Bufio.Writer_static_extension.buffered(_b);
     }
-    static public function availableBuffer(b:Writer):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.bufio.Bufio.Writer_static_extension.availableBuffer(b)) i];
+    static public function availableBuffer(_b:Writer):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.bufio.Bufio.Writer_static_extension.availableBuffer(_b)) i];
     }
-    static public function available(b:Writer):StdTypes.Int {
-        return stdgo._internal.bufio.Bufio.Writer_static_extension.available(b);
+    static public function available(_b:Writer):StdTypes.Int {
+        return stdgo._internal.bufio.Bufio.Writer_static_extension.available(_b);
     }
-    static public function flush(b:Writer):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.Writer_static_extension.flush(b);
+    static public function flush(_b:Writer):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.Writer_static_extension.flush(_b);
     }
-    static public function reset(b:Writer, w:stdgo._internal.io.Io.Writer):Void {
-        stdgo._internal.bufio.Bufio.Writer_static_extension.reset(b, w);
+    static public function reset(_b:Writer, _w:stdgo._internal.io.Io.Writer):Void {
+        stdgo._internal.bufio.Bufio.Writer_static_extension.reset(_b, _w);
     }
-    static public function size(b:Writer):StdTypes.Int {
-        return stdgo._internal.bufio.Bufio.Writer_static_extension.size(b);
+    static public function size(_b:Writer):StdTypes.Int {
+        return stdgo._internal.bufio.Bufio.Writer_static_extension.size(_b);
     }
 }
 class ReadWriter_static_extension {
-    public static function _writeBuf(_self__:ReadWriter, w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    public static function _writeBuf(__self__:ReadWriter, _w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension._writeBuf(_self__, w);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension._writeBuf(__self__, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _reset(_self__:ReadWriter, buf:Array<std.UInt>, r:stdgo._internal.io.Io.Reader) {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo._internal.bufio.Bufio.ReadWriter_static_extension._reset(_self__, buf, r);
+    public static function _reset(__self__:ReadWriter, _buf:Array<std.UInt>, _r:stdgo._internal.io.Io.Reader) {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>);
+        stdgo._internal.bufio.Bufio.ReadWriter_static_extension._reset(__self__, _buf, _r);
     }
-    public static function _readErr(_self__:ReadWriter):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension._readErr(_self__);
+    public static function _readErr(__self__:ReadWriter):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension._readErr(__self__);
     }
-    public static function _fill(_self__:ReadWriter) {
-        stdgo._internal.bufio.Bufio.ReadWriter_static_extension._fill(_self__);
+    public static function _fill(__self__:ReadWriter) {
+        stdgo._internal.bufio.Bufio.ReadWriter_static_extension._fill(__self__);
     }
-    public static function _collectFragments(_self__:ReadWriter, delim:std.UInt):stdgo.Tuple.Tuple4<Array<Array<std.UInt>>, Array<std.UInt>, StdTypes.Int, stdgo.Error> {
+    public static function _collectFragments(__self__:ReadWriter, _delim:std.UInt):stdgo.Tuple.Tuple4<Array<Array<std.UInt>>, Array<std.UInt>, StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension._collectFragments(_self__, delim);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension._collectFragments(__self__, _delim);
             { _0 : [for (i in obj._0) [for (i in i) i]], _1 : [for (i in obj._1) i], _2 : obj._2, _3 : obj._3 };
         };
     }
-    public static function writeTo(_self__:ReadWriter, w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    public static function writeTo(__self__:ReadWriter, _w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.writeTo(_self__, w);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.writeTo(__self__, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function writeString(_self__:ReadWriter, text:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function writeString(__self__:ReadWriter, _text:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.writeString(_self__, text);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.writeString(__self__, _text);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function writeRune(_self__:ReadWriter, r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function writeRune(__self__:ReadWriter, _r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.writeRune(_self__, r);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.writeRune(__self__, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function writeByte(_self__:ReadWriter, delim:std.UInt):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.writeByte(_self__, delim);
+    public static function writeByte(__self__:ReadWriter, _delim:std.UInt):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.writeByte(__self__, _delim);
     }
-    public static function write(_self__:ReadWriter, p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function write(__self__:ReadWriter, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.write(_self__, p);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.write(__self__, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function unreadRune(_self__:ReadWriter):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.unreadRune(_self__);
+    public static function unreadRune(__self__:ReadWriter):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.unreadRune(__self__);
     }
-    public static function unreadByte(_self__:ReadWriter):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.unreadByte(_self__);
+    public static function unreadByte(__self__:ReadWriter):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.unreadByte(__self__);
     }
-    public static function readString(_self__:ReadWriter, delim:std.UInt):stdgo.Tuple<String, stdgo.Error> {
+    public static function readString(__self__:ReadWriter, _delim:std.UInt):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readString(_self__, delim);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readString(__self__, _delim);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function readSlice(_self__:ReadWriter, delim:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    public static function readSlice(__self__:ReadWriter, _delim:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readSlice(_self__, delim);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readSlice(__self__, _delim);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readRune(_self__:ReadWriter):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+    public static function readRune(__self__:ReadWriter):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readRune(_self__);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readRune(__self__);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    public static function readLine(_self__:ReadWriter):stdgo.Tuple.Tuple3<Array<std.UInt>, Bool, stdgo.Error> {
+    public static function readLine(__self__:ReadWriter):stdgo.Tuple.Tuple3<Array<std.UInt>, Bool, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readLine(_self__);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readLine(__self__);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2 };
         };
     }
-    public static function readFrom(_self__:ReadWriter, r:stdgo._internal.io.Io.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    public static function readFrom(__self__:ReadWriter, _r:stdgo._internal.io.Io.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readFrom(_self__, r);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readFrom(__self__, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function readBytes(_self__:ReadWriter, delim:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    public static function readBytes(__self__:ReadWriter, _delim:std.UInt):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readBytes(_self__, delim);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readBytes(__self__, _delim);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readByte(_self__:ReadWriter):stdgo.Tuple<std.UInt, stdgo.Error> {
+    public static function readByte(__self__:ReadWriter):stdgo.Tuple<std.UInt, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readByte(_self__);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.readByte(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function read(_self__:ReadWriter, p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function read(__self__:ReadWriter, _p:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.read(_self__, p);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.read(__self__, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function peek(_self__:ReadWriter, _0:StdTypes.Int):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    public static function peek(__self__:ReadWriter, __0:StdTypes.Int):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.peek(_self__, _0);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.peek(__self__, __0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function flush(_self__:ReadWriter):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.flush(_self__);
+    public static function flush(__self__:ReadWriter):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.flush(__self__);
     }
-    public static function discard(_self__:ReadWriter, _0:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    public static function discard(__self__:ReadWriter, __0:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.discard(_self__, _0);
+            final obj = stdgo._internal.bufio.Bufio.ReadWriter_static_extension.discard(__self__, __0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function availableBuffer(_self__:ReadWriter):Array<std.UInt> {
-        return [for (i in stdgo._internal.bufio.Bufio.ReadWriter_static_extension.availableBuffer(_self__)) i];
+    public static function availableBuffer(__self__:ReadWriter):Array<std.UInt> {
+        return [for (i in stdgo._internal.bufio.Bufio.ReadWriter_static_extension.availableBuffer(__self__)) i];
     }
-    public static function available(_self__:ReadWriter):StdTypes.Int {
-        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.available(_self__);
+    public static function available(__self__:ReadWriter):StdTypes.Int {
+        return stdgo._internal.bufio.Bufio.ReadWriter_static_extension.available(__self__);
     }
 }
 class Scanner_static_extension {
-    static public function split(s:Scanner, split:SplitFunc):Void {
-        stdgo._internal.bufio.Bufio.Scanner_static_extension.split(s, split);
+    static public function split(_s:Scanner, _split:SplitFunc):Void {
+        stdgo._internal.bufio.Bufio.Scanner_static_extension.split(_s, _split);
     }
-    static public function buffer(s:Scanner, buf:Array<StdTypes.Int>, max:StdTypes.Int):Void {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.bufio.Bufio.Scanner_static_extension.buffer(s, buf, max);
+    static public function buffer(_s:Scanner, _buf:Array<StdTypes.Int>, _max:StdTypes.Int):Void {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.bufio.Bufio.Scanner_static_extension.buffer(_s, _buf, _max);
     }
-    static public function _setErr(s:Scanner, err:stdgo.Error):Void {
-        stdgo._internal.bufio.Bufio.Scanner_static_extension._setErr(s, err);
+    static public function _setErr(_s:Scanner, _err:stdgo.Error):Void {
+        stdgo._internal.bufio.Bufio.Scanner_static_extension._setErr(_s, _err);
     }
-    static public function _advance(s:Scanner, n:StdTypes.Int):Bool {
-        return stdgo._internal.bufio.Bufio.Scanner_static_extension._advance(s, n);
+    static public function _advance(_s:Scanner, _n:StdTypes.Int):Bool {
+        return stdgo._internal.bufio.Bufio.Scanner_static_extension._advance(_s, _n);
     }
-    static public function scan(s:Scanner):Bool {
-        return stdgo._internal.bufio.Bufio.Scanner_static_extension.scan(s);
+    static public function scan(_s:Scanner):Bool {
+        return stdgo._internal.bufio.Bufio.Scanner_static_extension.scan(_s);
     }
-    static public function text(s:Scanner):String {
-        return stdgo._internal.bufio.Bufio.Scanner_static_extension.text(s);
+    static public function text(_s:Scanner):String {
+        return stdgo._internal.bufio.Bufio.Scanner_static_extension.text(_s);
     }
-    static public function bytes(s:Scanner):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.bufio.Bufio.Scanner_static_extension.bytes(s)) i];
+    static public function bytes(_s:Scanner):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.bufio.Bufio.Scanner_static_extension.bytes(_s)) i];
     }
-    static public function err(s:Scanner):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.Scanner_static_extension.err(s);
+    static public function err(_s:Scanner):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.Scanner_static_extension.err(_s);
     }
-    static public function errOrEOF(s:Scanner):stdgo.Error {
-        return stdgo._internal.bufio.Bufio.Scanner_static_extension.errOrEOF(s);
+    static public function errOrEOF(_s:Scanner):stdgo.Error {
+        return stdgo._internal.bufio.Bufio.Scanner_static_extension.errOrEOF(_s);
     }
-    static public function maxTokenSize(s:Scanner, n:StdTypes.Int):Void {
-        stdgo._internal.bufio.Bufio.Scanner_static_extension.maxTokenSize(s, n);
+    static public function maxTokenSize(_s:Scanner, _n:StdTypes.Int):Void {
+        stdgo._internal.bufio.Bufio.Scanner_static_extension.maxTokenSize(_s, _n);
     }
 }
 /**
@@ -557,51 +557,51 @@ class Bufio {
         size. If the argument io.Reader is already a Reader with large enough
         size, it returns the underlying Reader.
     **/
-    static public function newReaderSize(rd:stdgo._internal.io.Io.Reader, size:StdTypes.Int):Reader {
-        return stdgo._internal.bufio.Bufio.newReaderSize(rd, size);
+    static public function newReaderSize(_rd:stdgo._internal.io.Io.Reader, _size:StdTypes.Int):Reader {
+        return stdgo._internal.bufio.Bufio.newReaderSize(_rd, _size);
     }
     /**
         NewReader returns a new Reader whose buffer has the default size.
     **/
-    static public function newReader(rd:stdgo._internal.io.Io.Reader):Reader {
-        return stdgo._internal.bufio.Bufio.newReader(rd);
+    static public function newReader(_rd:stdgo._internal.io.Io.Reader):Reader {
+        return stdgo._internal.bufio.Bufio.newReader(_rd);
     }
     /**
         NewWriterSize returns a new Writer whose buffer has at least the specified
         size. If the argument io.Writer is already a Writer with large enough
         size, it returns the underlying Writer.
     **/
-    static public function newWriterSize(w:stdgo._internal.io.Io.Writer, size:StdTypes.Int):Writer {
-        return stdgo._internal.bufio.Bufio.newWriterSize(w, size);
+    static public function newWriterSize(_w:stdgo._internal.io.Io.Writer, _size:StdTypes.Int):Writer {
+        return stdgo._internal.bufio.Bufio.newWriterSize(_w, _size);
     }
     /**
         NewWriter returns a new Writer whose buffer has the default size.
         If the argument io.Writer is already a Writer with large enough buffer size,
         it returns the underlying Writer.
     **/
-    static public function newWriter(w:stdgo._internal.io.Io.Writer):Writer {
-        return stdgo._internal.bufio.Bufio.newWriter(w);
+    static public function newWriter(_w:stdgo._internal.io.Io.Writer):Writer {
+        return stdgo._internal.bufio.Bufio.newWriter(_w);
     }
     /**
         NewReadWriter allocates a new ReadWriter that dispatches to r and w.
     **/
-    static public function newReadWriter(r:Reader, w:Writer):ReadWriter {
-        return stdgo._internal.bufio.Bufio.newReadWriter(r, w);
+    static public function newReadWriter(_r:Reader, _w:Writer):ReadWriter {
+        return stdgo._internal.bufio.Bufio.newReadWriter(_r, _w);
     }
     /**
         NewScanner returns a new Scanner to read from r.
         The split function defaults to ScanLines.
     **/
-    static public function newScanner(r:stdgo._internal.io.Io.Reader):Scanner {
-        return stdgo._internal.bufio.Bufio.newScanner(r);
+    static public function newScanner(_r:stdgo._internal.io.Io.Reader):Scanner {
+        return stdgo._internal.bufio.Bufio.newScanner(_r);
     }
     /**
         ScanBytes is a split function for a Scanner that returns each byte as a token.
     **/
-    static public function scanBytes(data:Array<StdTypes.Int>, atEOF:Bool):stdgo.Tuple.Tuple3<StdTypes.Int, Array<StdTypes.Int>, stdgo.Error> {
-        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function scanBytes(_data:Array<StdTypes.Int>, _atEOF:Bool):stdgo.Tuple.Tuple3<StdTypes.Int, Array<StdTypes.Int>, stdgo.Error> {
+        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bufio.Bufio.scanBytes(data, atEOF);
+            final obj = stdgo._internal.bufio.Bufio.scanBytes(_data, _atEOF);
             { _0 : obj._0, _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
@@ -613,10 +613,10 @@ class Bufio {
         Because of the Scan interface, this makes it impossible for the client to
         distinguish correctly encoded replacement runes from encoding errors.
     **/
-    static public function scanRunes(data:Array<StdTypes.Int>, atEOF:Bool):stdgo.Tuple.Tuple3<StdTypes.Int, Array<StdTypes.Int>, stdgo.Error> {
-        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function scanRunes(_data:Array<StdTypes.Int>, _atEOF:Bool):stdgo.Tuple.Tuple3<StdTypes.Int, Array<StdTypes.Int>, stdgo.Error> {
+        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bufio.Bufio.scanRunes(data, atEOF);
+            final obj = stdgo._internal.bufio.Bufio.scanRunes(_data, _atEOF);
             { _0 : obj._0, _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
@@ -628,10 +628,10 @@ class Bufio {
         The last non-empty line of input will be returned even if it has no
         newline.
     **/
-    static public function scanLines(data:Array<StdTypes.Int>, atEOF:Bool):stdgo.Tuple.Tuple3<StdTypes.Int, Array<StdTypes.Int>, stdgo.Error> {
-        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function scanLines(_data:Array<StdTypes.Int>, _atEOF:Bool):stdgo.Tuple.Tuple3<StdTypes.Int, Array<StdTypes.Int>, stdgo.Error> {
+        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bufio.Bufio.scanLines(data, atEOF);
+            final obj = stdgo._internal.bufio.Bufio.scanLines(_data, _atEOF);
             { _0 : obj._0, _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
@@ -641,10 +641,10 @@ class Bufio {
         never return an empty string. The definition of space is set by
         unicode.IsSpace.
     **/
-    static public function scanWords(data:Array<StdTypes.Int>, atEOF:Bool):stdgo.Tuple.Tuple3<StdTypes.Int, Array<StdTypes.Int>, stdgo.Error> {
-        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function scanWords(_data:Array<StdTypes.Int>, _atEOF:Bool):stdgo.Tuple.Tuple3<StdTypes.Int, Array<StdTypes.Int>, stdgo.Error> {
+        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bufio.Bufio.scanWords(data, atEOF);
+            final obj = stdgo._internal.bufio.Bufio.scanWords(_data, _atEOF);
             { _0 : obj._0, _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }

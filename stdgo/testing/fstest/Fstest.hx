@@ -162,299 +162,299 @@ package stdgo.testing.fstest;
 typedef MapFS = stdgo._internal.testing.fstest.Fstest.MapFS;
 typedef T_shuffledFS = stdgo._internal.testing.fstest.Fstest.T_shuffledFS;
 class T_fsOnly_static_extension {
-    public static function open(_self__:T_fsOnly, pattern:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.File, stdgo.Error> {
+    public static function open(__self__:T_fsOnly, _pattern:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_fsOnly_static_extension.open(_self__, pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_fsOnly_static_extension.open(__self__, _pattern);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_noSub_static_extension {
-    static public function sub(:T_noSub):Void {
-        stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.sub();
+    static public function sub(_:T_noSub):Void {
+        stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.sub(_);
     }
-    public static function stat(_self__:T_noSub, pattern:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
+    public static function stat(__self__:T_noSub, _pattern:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.stat(_self__, pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.stat(__self__, _pattern);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function readFile(_self__:T_noSub, pattern:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
+    public static function readFile(__self__:T_noSub, _pattern:String):stdgo.Tuple<Array<std.UInt>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.readFile(_self__, pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.readFile(__self__, _pattern);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function readDir(_self__:T_noSub, pattern:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs.DirEntry>, stdgo.Error> {
+    public static function readDir(__self__:T_noSub, _pattern:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs.DirEntry>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.readDir(_self__, pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.readDir(__self__, _pattern);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function open(_self__:T_noSub, pattern:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.File, stdgo.Error> {
+    public static function open(__self__:T_noSub, _pattern:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.open(_self__, pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.open(__self__, _pattern);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function glob(_self__:T_noSub, pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
+    public static function glob(__self__:T_noSub, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.glob(_self__, pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_noSub_static_extension.glob(__self__, _pattern);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
 class T_mapFileInfo_static_extension {
-    static public function string(i:T_mapFileInfo):String {
-        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.string(i);
+    static public function string(_i:T_mapFileInfo):String {
+        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.string(_i);
     }
-    static public function info(i:T_mapFileInfo):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
+    static public function info(_i:T_mapFileInfo):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.info(i);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.info(_i);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function sys(i:T_mapFileInfo):stdgo.AnyInterface {
-        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.sys(i);
+    static public function sys(_i:T_mapFileInfo):stdgo.AnyInterface {
+        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.sys(_i);
     }
-    static public function isDir(i:T_mapFileInfo):Bool {
-        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.isDir(i);
+    static public function isDir(_i:T_mapFileInfo):Bool {
+        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.isDir(_i);
     }
-    static public function modTime(i:T_mapFileInfo):stdgo._internal.time.Time.Time {
-        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.modTime(i);
+    static public function modTime(_i:T_mapFileInfo):stdgo._internal.time.Time.Time {
+        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.modTime(_i);
     }
-    static public function type(i:T_mapFileInfo):stdgo._internal.io.fs.Fs.FileMode {
-        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.type(i);
+    static public function type(_i:T_mapFileInfo):stdgo._internal.io.fs.Fs.FileMode {
+        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.type(_i);
     }
-    static public function mode(i:T_mapFileInfo):stdgo._internal.io.fs.Fs.FileMode {
-        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.mode(i);
+    static public function mode(_i:T_mapFileInfo):stdgo._internal.io.fs.Fs.FileMode {
+        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.mode(_i);
     }
-    static public function size(i:T_mapFileInfo):haxe.Int64 {
-        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.size(i);
+    static public function size(_i:T_mapFileInfo):haxe.Int64 {
+        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.size(_i);
     }
-    static public function name(i:T_mapFileInfo):String {
-        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.name(i);
+    static public function name(_i:T_mapFileInfo):String {
+        return stdgo._internal.testing.fstest.Fstest.T_mapFileInfo_static_extension.name(_i);
     }
 }
 class T_openMapFile_static_extension {
-    static public function readAt(f:T_openMapFile, b:Array<StdTypes.Int>, offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readAt(_f:T_openMapFile, _b:Array<StdTypes.Int>, _offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.readAt(f, b, offset);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.readAt(_f, _b, _offset);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function seek(f:T_openMapFile, offset:haxe.Int64, whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function seek(_f:T_openMapFile, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.seek(f, offset, whence);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.seek(_f, _offset, _whence);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function read(f:T_openMapFile, b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_f:T_openMapFile, _b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.read(f, b);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.read(_f, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function close(f:T_openMapFile):stdgo.Error {
-        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.close(f);
+    static public function close(_f:T_openMapFile):stdgo.Error {
+        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.close(_f);
     }
-    static public function stat(f:T_openMapFile):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
+    static public function stat(_f:T_openMapFile):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.stat(f);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.stat(_f);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function type(_self__:T_openMapFile):stdgo._internal.io.fs.Fs.FileMode {
-        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.type(_self__);
+    public static function type(__self__:T_openMapFile):stdgo._internal.io.fs.Fs.FileMode {
+        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.type(__self__);
     }
-    public static function sys(_self__:T_openMapFile):stdgo.AnyInterface {
-        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.sys(_self__);
+    public static function sys(__self__:T_openMapFile):stdgo.AnyInterface {
+        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.sys(__self__);
     }
-    public static function string(_self__:T_openMapFile):String {
-        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.string(_self__);
+    public static function string(__self__:T_openMapFile):String {
+        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.string(__self__);
     }
-    public static function size(_self__:T_openMapFile):haxe.Int64 {
-        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.size(_self__);
+    public static function size(__self__:T_openMapFile):haxe.Int64 {
+        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.size(__self__);
     }
-    public static function name(_self__:T_openMapFile):String {
-        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.name(_self__);
+    public static function name(__self__:T_openMapFile):String {
+        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.name(__self__);
     }
-    public static function mode(_self__:T_openMapFile):stdgo._internal.io.fs.Fs.FileMode {
-        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.mode(_self__);
+    public static function mode(__self__:T_openMapFile):stdgo._internal.io.fs.Fs.FileMode {
+        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.mode(__self__);
     }
-    public static function modTime(_self__:T_openMapFile):stdgo._internal.time.Time.Time {
-        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.modTime(_self__);
+    public static function modTime(__self__:T_openMapFile):stdgo._internal.time.Time.Time {
+        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.modTime(__self__);
     }
-    public static function isDir(_self__:T_openMapFile):Bool {
-        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.isDir(_self__);
+    public static function isDir(__self__:T_openMapFile):Bool {
+        return stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.isDir(__self__);
     }
-    public static function info(_self__:T_openMapFile):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
+    public static function info(__self__:T_openMapFile):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.info(_self__);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_openMapFile_static_extension.info(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_mapDir_static_extension {
-    static public function readDir(d:T_mapDir, count:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs.DirEntry>, stdgo.Error> {
+    static public function readDir(_d:T_mapDir, _count:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs.DirEntry>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.readDir(d, count);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.readDir(_d, _count);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function read(d:T_mapDir, b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_d:T_mapDir, _b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.read(d, b);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.read(_d, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function close(d:T_mapDir):stdgo.Error {
-        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.close(d);
+    static public function close(_d:T_mapDir):stdgo.Error {
+        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.close(_d);
     }
-    static public function stat(d:T_mapDir):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
+    static public function stat(_d:T_mapDir):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.stat(d);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.stat(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function type(_self__:T_mapDir):stdgo._internal.io.fs.Fs.FileMode {
-        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.type(_self__);
+    public static function type(__self__:T_mapDir):stdgo._internal.io.fs.Fs.FileMode {
+        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.type(__self__);
     }
-    public static function sys(_self__:T_mapDir):stdgo.AnyInterface {
-        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.sys(_self__);
+    public static function sys(__self__:T_mapDir):stdgo.AnyInterface {
+        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.sys(__self__);
     }
-    public static function string(_self__:T_mapDir):String {
-        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.string(_self__);
+    public static function string(__self__:T_mapDir):String {
+        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.string(__self__);
     }
-    public static function size(_self__:T_mapDir):haxe.Int64 {
-        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.size(_self__);
+    public static function size(__self__:T_mapDir):haxe.Int64 {
+        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.size(__self__);
     }
-    public static function name(_self__:T_mapDir):String {
-        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.name(_self__);
+    public static function name(__self__:T_mapDir):String {
+        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.name(__self__);
     }
-    public static function mode(_self__:T_mapDir):stdgo._internal.io.fs.Fs.FileMode {
-        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.mode(_self__);
+    public static function mode(__self__:T_mapDir):stdgo._internal.io.fs.Fs.FileMode {
+        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.mode(__self__);
     }
-    public static function modTime(_self__:T_mapDir):stdgo._internal.time.Time.Time {
-        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.modTime(_self__);
+    public static function modTime(__self__:T_mapDir):stdgo._internal.time.Time.Time {
+        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.modTime(__self__);
     }
-    public static function isDir(_self__:T_mapDir):Bool {
-        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.isDir(_self__);
+    public static function isDir(__self__:T_mapDir):Bool {
+        return stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.isDir(__self__);
     }
-    public static function info(_self__:T_mapDir):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
+    public static function info(__self__:T_mapDir):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.info(_self__);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_mapDir_static_extension.info(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_fsTester_static_extension {
-    static public function _checkBadPath(t:T_fsTester, file:String, desc:String, open:stdgo.GoString -> stdgo.Error):Void {
-        final open = open;
-        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkBadPath(t, file, desc, open);
+    static public function _checkBadPath(_t:T_fsTester, _file:String, _desc:String, _open:stdgo.GoString -> stdgo.Error):Void {
+        final _open = _open;
+        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkBadPath(_t, _file, _desc, _open);
     }
-    static public function _checkOpen(t:T_fsTester, file:String):Void {
-        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkOpen(t, file);
+    static public function _checkOpen(_t:T_fsTester, _file:String):Void {
+        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkOpen(_t, _file);
     }
-    static public function _checkFileRead(t:T_fsTester, file:String, desc:String, data1:Array<StdTypes.Int>, data2:Array<StdTypes.Int>):Void {
-        final data1 = ([for (i in data1) i] : stdgo.Slice<stdgo.GoByte>);
-        final data2 = ([for (i in data2) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkFileRead(t, file, desc, data1, data2);
+    static public function _checkFileRead(_t:T_fsTester, _file:String, _desc:String, _data1:Array<StdTypes.Int>, _data2:Array<StdTypes.Int>):Void {
+        final _data1 = ([for (i in _data1) i] : stdgo.Slice<stdgo.GoByte>);
+        final _data2 = ([for (i in _data2) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkFileRead(_t, _file, _desc, _data1, _data2);
     }
-    static public function _checkFile(t:T_fsTester, file:String):Void {
-        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkFile(t, file);
+    static public function _checkFile(_t:T_fsTester, _file:String):Void {
+        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkFile(_t, _file);
     }
-    static public function _checkDirList(t:T_fsTester, dir:String, desc:String, list1:Array<stdgo._internal.io.fs.Fs.DirEntry>, list2:Array<stdgo._internal.io.fs.Fs.DirEntry>):Void {
-        final list1 = ([for (i in list1) i] : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>);
-        final list2 = ([for (i in list2) i] : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>);
-        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkDirList(t, dir, desc, list1, list2);
+    static public function _checkDirList(_t:T_fsTester, _dir:String, _desc:String, _list1:Array<stdgo._internal.io.fs.Fs.DirEntry>, _list2:Array<stdgo._internal.io.fs.Fs.DirEntry>):Void {
+        final _list1 = ([for (i in _list1) i] : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>);
+        final _list2 = ([for (i in _list2) i] : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>);
+        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkDirList(_t, _dir, _desc, _list1, _list2);
     }
-    static public function _checkStat(t:T_fsTester, path:String, entry:stdgo._internal.io.fs.Fs.DirEntry):Void {
-        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkStat(t, path, entry);
+    static public function _checkStat(_t:T_fsTester, _path:String, _entry:stdgo._internal.io.fs.Fs.DirEntry):Void {
+        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkStat(_t, _path, _entry);
     }
-    static public function _checkGlob(t:T_fsTester, dir:String, list:Array<stdgo._internal.io.fs.Fs.DirEntry>):Void {
-        final list = ([for (i in list) i] : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>);
-        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkGlob(t, dir, list);
+    static public function _checkGlob(_t:T_fsTester, _dir:String, _list:Array<stdgo._internal.io.fs.Fs.DirEntry>):Void {
+        final _list = ([for (i in _list) i] : stdgo.Slice<stdgo._internal.io.fs.Fs.DirEntry>);
+        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkGlob(_t, _dir, _list);
     }
-    static public function _checkDir(t:T_fsTester, dir:String):Void {
-        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkDir(t, dir);
+    static public function _checkDir(_t:T_fsTester, _dir:String):Void {
+        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._checkDir(_t, _dir);
     }
-    static public function _openDir(t:T_fsTester, dir:String):stdgo._internal.io.fs.Fs.ReadDirFile {
-        return stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._openDir(t, dir);
+    static public function _openDir(_t:T_fsTester, _dir:String):stdgo._internal.io.fs.Fs.ReadDirFile {
+        return stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._openDir(_t, _dir);
     }
-    static public function _errorf(t:T_fsTester, format:String, args:haxe.Rest<stdgo.AnyInterface>):Void {
-        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._errorf(t, format, ...[for (i in args) i]);
+    static public function _errorf(_t:T_fsTester, _format:String, _args:haxe.Rest<stdgo.AnyInterface>):Void {
+        stdgo._internal.testing.fstest.Fstest.T_fsTester_static_extension._errorf(_t, _format, ...[for (i in _args) i]);
     }
 }
 class T_shuffledFile_static_extension {
-    static public function readDir(f:T_shuffledFile, n:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs.DirEntry>, stdgo.Error> {
+    static public function readDir(_f:T_shuffledFile, _n:StdTypes.Int):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs.DirEntry>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_shuffledFile_static_extension.readDir(f, n);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_shuffledFile_static_extension.readDir(_f, _n);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    public static function stat(_self__:T_shuffledFile):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
+    public static function stat(__self__:T_shuffledFile):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_shuffledFile_static_extension.stat(_self__);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_shuffledFile_static_extension.stat(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function read(_self__:T_shuffledFile, _0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoUInt8>);
+    public static function read(__self__:T_shuffledFile, __0:Array<std.UInt>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final __0 = ([for (i in __0) i] : stdgo.Slice<stdgo.GoUInt8>);
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_shuffledFile_static_extension.read(_self__, _0);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_shuffledFile_static_extension.read(__self__, __0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function close(_self__:T_shuffledFile):stdgo.Error {
-        return stdgo._internal.testing.fstest.Fstest.T_shuffledFile_static_extension.close(_self__);
+    public static function close(__self__:T_shuffledFile):stdgo.Error {
+        return stdgo._internal.testing.fstest.Fstest.T_shuffledFile_static_extension.close(__self__);
     }
 }
 class MapFS_static_extension {
-    static public function sub(fsys:MapFS, dir:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.FS, stdgo.Error> {
+    static public function sub(_fsys:MapFS, _dir:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.FS, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.sub(fsys, dir);
+            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.sub(_fsys, _dir);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function glob(fsys:MapFS, pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
+    static public function glob(_fsys:MapFS, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.glob(fsys, pattern);
+            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.glob(_fsys, _pattern);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function readDir(fsys:MapFS, name:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs.DirEntry>, stdgo.Error> {
+    static public function readDir(_fsys:MapFS, _name:String):stdgo.Tuple<Array<stdgo._internal.io.fs.Fs.DirEntry>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.readDir(fsys, name);
+            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.readDir(_fsys, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function stat(fsys:MapFS, name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
+    static public function stat(_fsys:MapFS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.stat(fsys, name);
+            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.stat(_fsys, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readFile(fsys:MapFS, name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function readFile(_fsys:MapFS, _name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.readFile(fsys, name);
+            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.readFile(_fsys, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function open(fsys:MapFS, name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.File, stdgo.Error> {
+    static public function open(_fsys:MapFS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.open(fsys, name);
+            final obj = stdgo._internal.testing.fstest.Fstest.MapFS_static_extension.open(_fsys, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_shuffledFS_static_extension {
-    static public function open(fsys:T_shuffledFS, name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.File, stdgo.Error> {
+    static public function open(_fsys:T_shuffledFS, _name:String):stdgo.Tuple<stdgo._internal.io.fs.Fs.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.testing.fstest.Fstest.T_shuffledFS_static_extension.open(fsys, name);
+            final obj = stdgo._internal.testing.fstest.Fstest.T_shuffledFS_static_extension.open(_fsys, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -463,11 +463,11 @@ class T_shuffledFS_static_extension {
     Package fstest implements support for testing implementations and users of file systems.
 **/
 class Fstest {
-    static public function testMapFS(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.fstest.Fstest.testMapFS(t);
+    static public function testMapFS(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.fstest.Fstest.testMapFS(_t);
     }
-    static public function testMapFSChmodDot(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.fstest.Fstest.testMapFSChmodDot(t);
+    static public function testMapFSChmodDot(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.fstest.Fstest.testMapFSChmodDot(_t);
     }
     /**
         TestFS tests a file system implementation.
@@ -487,16 +487,16 @@ class Fstest {
         		t.Fatal(err)
         	}
     **/
-    static public function testFS(fsys:stdgo._internal.io.fs.Fs.FS, expected:haxe.Rest<String>):stdgo.Error {
-        return stdgo._internal.testing.fstest.Fstest.testFS(fsys, ...[for (i in expected) i]);
+    static public function testFS(_fsys:stdgo._internal.io.fs.Fs.FS, _expected:haxe.Rest<String>):stdgo.Error {
+        return stdgo._internal.testing.fstest.Fstest.testFS(_fsys, ...[for (i in _expected) i]);
     }
-    static public function testSymlink(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.fstest.Fstest.testSymlink(t);
+    static public function testSymlink(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.fstest.Fstest.testSymlink(_t);
     }
-    static public function testDash(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.fstest.Fstest.testDash(t);
+    static public function testDash(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.fstest.Fstest.testDash(_t);
     }
-    static public function testShuffledFS(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.fstest.Fstest.testShuffledFS(t);
+    static public function testShuffledFS(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.fstest.Fstest.testShuffledFS(_t);
     }
 }

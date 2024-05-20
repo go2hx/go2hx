@@ -29,203 +29,203 @@ class Cmplx {
     /**
         Abs returns the absolute value (also called the modulus) of x.
     **/
-    static public function abs(x:stdgo.GoComplex128):StdTypes.Float {
-        return stdgo._internal.math.cmplx.Cmplx.abs(x);
+    static public function abs(_x:stdgo.GoComplex128):StdTypes.Float {
+        return stdgo._internal.math.cmplx.Cmplx.abs(_x);
     }
     /**
         Asin returns the inverse sine of x.
     **/
-    static public function asin(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.asin(x);
+    static public function asin(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.asin(_x);
     }
     /**
         Asinh returns the inverse hyperbolic sine of x.
     **/
-    static public function asinh(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.asinh(x);
+    static public function asinh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.asinh(_x);
     }
     /**
         Acos returns the inverse cosine of x.
     **/
-    static public function acos(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.acos(x);
+    static public function acos(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.acos(_x);
     }
     /**
         Acosh returns the inverse hyperbolic cosine of x.
     **/
-    static public function acosh(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.acosh(x);
+    static public function acosh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.acosh(_x);
     }
     /**
         Atan returns the inverse tangent of x.
     **/
-    static public function atan(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.atan(x);
+    static public function atan(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.atan(_x);
     }
     /**
         Atanh returns the inverse hyperbolic tangent of x.
     **/
-    static public function atanh(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.atanh(x);
+    static public function atanh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.atanh(_x);
     }
-    static public function testAbs(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testAbs(t);
+    static public function testAbs(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testAbs(_t);
     }
-    static public function testAcos(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testAcos(t);
+    static public function testAcos(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testAcos(_t);
     }
-    static public function testAcosh(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testAcosh(t);
+    static public function testAcosh(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testAcosh(_t);
     }
-    static public function testAsin(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testAsin(t);
+    static public function testAsin(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testAsin(_t);
     }
-    static public function testAsinh(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testAsinh(t);
+    static public function testAsinh(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testAsinh(_t);
     }
-    static public function testAtan(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testAtan(t);
+    static public function testAtan(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testAtan(_t);
     }
-    static public function testAtanh(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testAtanh(t);
+    static public function testAtanh(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testAtanh(_t);
     }
-    static public function testConj(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testConj(t);
+    static public function testConj(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testConj(_t);
     }
-    static public function testCos(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testCos(t);
+    static public function testCos(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testCos(_t);
     }
-    static public function testCosh(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testCosh(t);
+    static public function testCosh(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testCosh(_t);
     }
-    static public function testExp(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testExp(t);
+    static public function testExp(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testExp(_t);
     }
-    static public function testIsNaN(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testIsNaN(t);
+    static public function testIsNaN(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testIsNaN(_t);
     }
-    static public function testLog(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testLog(t);
+    static public function testLog(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testLog(_t);
     }
-    static public function testLog10(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testLog10(t);
+    static public function testLog10(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testLog10(_t);
     }
-    static public function testPolar(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testPolar(t);
+    static public function testPolar(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testPolar(_t);
     }
-    static public function testPow(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testPow(t);
+    static public function testPow(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testPow(_t);
     }
-    static public function testRect(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testRect(t);
+    static public function testRect(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testRect(_t);
     }
-    static public function testSin(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testSin(t);
+    static public function testSin(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testSin(_t);
     }
-    static public function testSinh(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testSinh(t);
+    static public function testSinh(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testSinh(_t);
     }
-    static public function testSqrt(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testSqrt(t);
+    static public function testSqrt(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testSqrt(_t);
     }
-    static public function testTan(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testTan(t);
+    static public function testTan(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testTan(_t);
     }
-    static public function testTanh(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testTanh(t);
+    static public function testTanh(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testTanh(_t);
     }
     /**
         See issue 17577
     **/
-    static public function testInfiniteLoopIntanSeries(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testInfiniteLoopIntanSeries(t);
+    static public function testInfiniteLoopIntanSeries(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testInfiniteLoopIntanSeries(_t);
     }
-    static public function benchmarkAbs(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkAbs(b);
+    static public function benchmarkAbs(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkAbs(_b);
     }
-    static public function benchmarkAcos(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkAcos(b);
+    static public function benchmarkAcos(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkAcos(_b);
     }
-    static public function benchmarkAcosh(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkAcosh(b);
+    static public function benchmarkAcosh(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkAcosh(_b);
     }
-    static public function benchmarkAsin(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkAsin(b);
+    static public function benchmarkAsin(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkAsin(_b);
     }
-    static public function benchmarkAsinh(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkAsinh(b);
+    static public function benchmarkAsinh(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkAsinh(_b);
     }
-    static public function benchmarkAtan(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkAtan(b);
+    static public function benchmarkAtan(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkAtan(_b);
     }
-    static public function benchmarkAtanh(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkAtanh(b);
+    static public function benchmarkAtanh(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkAtanh(_b);
     }
-    static public function benchmarkConj(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkConj(b);
+    static public function benchmarkConj(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkConj(_b);
     }
-    static public function benchmarkCos(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkCos(b);
+    static public function benchmarkCos(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkCos(_b);
     }
-    static public function benchmarkCosh(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkCosh(b);
+    static public function benchmarkCosh(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkCosh(_b);
     }
-    static public function benchmarkExp(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkExp(b);
+    static public function benchmarkExp(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkExp(_b);
     }
-    static public function benchmarkLog(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkLog(b);
+    static public function benchmarkLog(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkLog(_b);
     }
-    static public function benchmarkLog10(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkLog10(b);
+    static public function benchmarkLog10(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkLog10(_b);
     }
-    static public function benchmarkPhase(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkPhase(b);
+    static public function benchmarkPhase(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkPhase(_b);
     }
-    static public function benchmarkPolar(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkPolar(b);
+    static public function benchmarkPolar(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkPolar(_b);
     }
-    static public function benchmarkPow(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkPow(b);
+    static public function benchmarkPow(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkPow(_b);
     }
-    static public function benchmarkRect(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkRect(b);
+    static public function benchmarkRect(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkRect(_b);
     }
-    static public function benchmarkSin(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkSin(b);
+    static public function benchmarkSin(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkSin(_b);
     }
-    static public function benchmarkSinh(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkSinh(b);
+    static public function benchmarkSinh(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkSinh(_b);
     }
-    static public function benchmarkSqrt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkSqrt(b);
+    static public function benchmarkSqrt(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkSqrt(_b);
     }
-    static public function benchmarkTan(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkTan(b);
+    static public function benchmarkTan(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkTan(_b);
     }
-    static public function benchmarkTanh(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.math.cmplx.Cmplx.benchmarkTanh(b);
+    static public function benchmarkTanh(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.math.cmplx.Cmplx.benchmarkTanh(_b);
     }
     /**
         Conj returns the complex conjugate of x.
     **/
-    static public function conj(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.conj(x);
+    static public function conj(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.conj(_x);
     }
     /**
         Exp returns e**x, the base-e exponential of x.
     **/
-    static public function exp(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.exp(x);
+    static public function exp(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.exp(_x);
     }
-    static public function testTanHuge(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.math.cmplx.Cmplx.testTanHuge(t);
+    static public function testTanHuge(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.math.cmplx.Cmplx.testTanHuge(_t);
     }
     /**
         IsInf reports whether either real(x) or imag(x) is an infinity.
     **/
-    static public function isInf(x:stdgo.GoComplex128):Bool {
-        return stdgo._internal.math.cmplx.Cmplx.isInf(x);
+    static public function isInf(_x:stdgo.GoComplex128):Bool {
+        return stdgo._internal.math.cmplx.Cmplx.isInf(_x);
     }
     /**
         Inf returns a complex infinity, complex(+Inf, +Inf).
@@ -237,8 +237,8 @@ class Cmplx {
         IsNaN reports whether either real(x) or imag(x) is NaN
         and neither is an infinity.
     **/
-    static public function isNaN(x:stdgo.GoComplex128):Bool {
-        return stdgo._internal.math.cmplx.Cmplx.isNaN(x);
+    static public function isNaN(_x:stdgo.GoComplex128):Bool {
+        return stdgo._internal.math.cmplx.Cmplx.isNaN(_x);
     }
     /**
         NaN returns a complex “not-a-number” value.
@@ -249,30 +249,30 @@ class Cmplx {
     /**
         Log returns the natural logarithm of x.
     **/
-    static public function log(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.log(x);
+    static public function log(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.log(_x);
     }
     /**
         Log10 returns the decimal logarithm of x.
     **/
-    static public function log10(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.log10(x);
+    static public function log10(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.log10(_x);
     }
     /**
         Phase returns the phase (also called the argument) of x.
         The returned value is in the range [-Pi, Pi].
     **/
-    static public function phase(x:stdgo.GoComplex128):StdTypes.Float {
-        return stdgo._internal.math.cmplx.Cmplx.phase(x);
+    static public function phase(_x:stdgo.GoComplex128):StdTypes.Float {
+        return stdgo._internal.math.cmplx.Cmplx.phase(_x);
     }
     /**
         Polar returns the absolute value r and phase θ of x,
         such that x = r * e**θi.
         The phase is in the range [-Pi, Pi].
     **/
-    static public function polar(x:stdgo.GoComplex128):stdgo.Tuple<StdTypes.Float, StdTypes.Float> {
+    static public function polar(_x:stdgo.GoComplex128):stdgo.Tuple<StdTypes.Float, StdTypes.Float> {
         return {
-            final obj = stdgo._internal.math.cmplx.Cmplx.polar(x);
+            final obj = stdgo._internal.math.cmplx.Cmplx.polar(_x);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -283,62 +283,62 @@ class Cmplx {
         	Pow(0, ±0) returns 1+0i
         	Pow(0, c) for real(c)<0 returns Inf+0i if imag(c) is zero, otherwise Inf+Inf i.
     **/
-    static public function pow(x:stdgo.GoComplex128, y:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.pow(x, y);
+    static public function pow(_x:stdgo.GoComplex128, _y:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.pow(_x, _y);
     }
     /**
         Rect returns the complex number x with polar coordinates r, θ.
     **/
-    static public function rect(r:StdTypes.Float, _952:StdTypes.Float):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.rect(r, _952);
+    static public function rect(_r:StdTypes.Float, __952:StdTypes.Float):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.rect(_r, __952);
     }
     /**
         Sin returns the sine of x.
     **/
-    static public function sin(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.sin(x);
+    static public function sin(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.sin(_x);
     }
     /**
         Sinh returns the hyperbolic sine of x.
     **/
-    static public function sinh(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.sinh(x);
+    static public function sinh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.sinh(_x);
     }
     /**
         Cos returns the cosine of x.
     **/
-    static public function cos(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.cos(x);
+    static public function cos(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.cos(_x);
     }
     /**
         Cosh returns the hyperbolic cosine of x.
     **/
-    static public function cosh(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.cosh(x);
+    static public function cosh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.cosh(_x);
     }
     /**
         Sqrt returns the square root of x.
         The result r is chosen so that real(r) ≥ 0 and imag(r) has the same sign as imag(x).
     **/
-    static public function sqrt(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.sqrt(x);
+    static public function sqrt(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.sqrt(_x);
     }
     /**
         Tan returns the tangent of x.
     **/
-    static public function tan(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.tan(x);
+    static public function tan(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.tan(_x);
     }
     /**
         Tanh returns the hyperbolic tangent of x.
     **/
-    static public function tanh(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.tanh(x);
+    static public function tanh(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.tanh(_x);
     }
     /**
         Cot returns the cotangent of x.
     **/
-    static public function cot(x:stdgo.GoComplex128):stdgo.GoComplex128 {
-        return stdgo._internal.math.cmplx.Cmplx.cot(x);
+    static public function cot(_x:stdgo.GoComplex128):stdgo.GoComplex128 {
+        return stdgo._internal.math.cmplx.Cmplx.cot(_x);
     }
 }

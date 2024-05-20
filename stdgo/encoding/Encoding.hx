@@ -9,9 +9,9 @@ class BinaryMarshaler_static_extension {
 }
 typedef BinaryMarshaler = stdgo._internal.encoding.Encoding.BinaryMarshaler;
 class BinaryUnmarshaler_static_extension {
-    static public function unmarshalBinary(t:BinaryUnmarshaler, data:Array<StdTypes.Int>):stdgo.Error {
-        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.Encoding.BinaryUnmarshaler_static_extension.unmarshalBinary(t, data);
+    static public function unmarshalBinary(t:BinaryUnmarshaler, _data:Array<StdTypes.Int>):stdgo.Error {
+        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.Encoding.BinaryUnmarshaler_static_extension.unmarshalBinary(t, _data);
     }
 }
 typedef BinaryUnmarshaler = stdgo._internal.encoding.Encoding.BinaryUnmarshaler;
@@ -25,9 +25,9 @@ class TextMarshaler_static_extension {
 }
 typedef TextMarshaler = stdgo._internal.encoding.Encoding.TextMarshaler;
 class TextUnmarshaler_static_extension {
-    static public function unmarshalText(t:TextUnmarshaler, text:Array<StdTypes.Int>):stdgo.Error {
-        final text = ([for (i in text) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.encoding.Encoding.TextUnmarshaler_static_extension.unmarshalText(t, text);
+    static public function unmarshalText(t:TextUnmarshaler, _text:Array<StdTypes.Int>):stdgo.Error {
+        final _text = ([for (i in _text) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.encoding.Encoding.TextUnmarshaler_static_extension.unmarshalText(t, _text);
     }
 }
 typedef TextUnmarshaler = stdgo._internal.encoding.Encoding.TextUnmarshaler;

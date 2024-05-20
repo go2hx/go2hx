@@ -1,7 +1,7 @@
 package stdgo.testing.quick;
 class Generator_static_extension {
-    static public function generate(t:Generator, rand:stdgo._internal.math.rand.Rand.Rand, size:StdTypes.Int):stdgo._internal.reflect.Reflect.Value {
-        return stdgo._internal.testing.quick.Quick.Generator_static_extension.generate(t, rand, size);
+    static public function generate(t:Generator, _rand:stdgo._internal.math.rand.Rand.Rand, _size:StdTypes.Int):stdgo._internal.reflect.Reflect.Value {
+        return stdgo._internal.testing.quick.Quick.Generator_static_extension.generate(t, _rand, _size);
     }
 }
 typedef Generator = stdgo._internal.testing.quick.Quick.Generator;
@@ -216,31 +216,31 @@ typedef TestUintptrAlias = stdgo._internal.testing.quick.Quick.TestUintptrAlias;
     public function __copy__() return this.__copy__();
 }
 class Config_static_extension {
-    static public function _getMaxCount(c:Config):StdTypes.Int {
-        return stdgo._internal.testing.quick.Quick.Config_static_extension._getMaxCount(c);
+    static public function _getMaxCount(_c:Config):StdTypes.Int {
+        return stdgo._internal.testing.quick.Quick.Config_static_extension._getMaxCount(_c);
     }
-    static public function _getRand(c:Config):stdgo._internal.math.rand.Rand.Rand {
-        return stdgo._internal.testing.quick.Quick.Config_static_extension._getRand(c);
+    static public function _getRand(_c:Config):stdgo._internal.math.rand.Rand.Rand {
+        return stdgo._internal.testing.quick.Quick.Config_static_extension._getRand(_c);
     }
 }
 class CheckError_static_extension {
-    static public function error(s:CheckError):String {
-        return stdgo._internal.testing.quick.Quick.CheckError_static_extension.error(s);
+    static public function error(_s:CheckError):String {
+        return stdgo._internal.testing.quick.Quick.CheckError_static_extension.error(_s);
     }
 }
 class CheckEqualError_static_extension {
-    static public function error(s:CheckEqualError):String {
-        return stdgo._internal.testing.quick.Quick.CheckEqualError_static_extension.error(s);
+    static public function error(_s:CheckEqualError):String {
+        return stdgo._internal.testing.quick.Quick.CheckEqualError_static_extension.error(_s);
     }
 }
 class T_myStruct_static_extension {
-    static public function generate(m:T_myStruct, r:stdgo._internal.math.rand.Rand.Rand, _0:StdTypes.Int):stdgo._internal.reflect.Reflect.Value {
-        return stdgo._internal.testing.quick.Quick.T_myStruct_static_extension.generate(m, r, _0);
+    static public function generate(_m:T_myStruct, _r:stdgo._internal.math.rand.Rand.Rand, __0:StdTypes.Int):stdgo._internal.reflect.Reflect.Value {
+        return stdgo._internal.testing.quick.Quick.T_myStruct_static_extension.generate(_m, _r, __0);
     }
 }
 class SetupError_static_extension {
-    static public function error(s:SetupError):String {
-        return stdgo._internal.testing.quick.Quick.SetupError_static_extension.error(s);
+    static public function error(_s:SetupError):String {
+        return stdgo._internal.testing.quick.Quick.SetupError_static_extension.error(_s);
     }
 }
 /**
@@ -254,9 +254,9 @@ class Quick {
         If the type implements the Generator interface, that will be used.
         Note: To create arbitrary values for structs, all the fields must be exported.
     **/
-    static public function value(t:stdgo._internal.reflect.Reflect.Type_, rand:stdgo._internal.math.rand.Rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Reflect.Value, Bool> {
+    static public function value(_t:stdgo._internal.reflect.Reflect.Type_, _rand:stdgo._internal.math.rand.Rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Reflect.Value, Bool> {
         return {
-            final obj = stdgo._internal.testing.quick.Quick.value(t, rand);
+            final obj = stdgo._internal.testing.quick.Quick.value(_t, _rand);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -277,8 +277,8 @@ class Quick {
         		}
         	}
     **/
-    static public function check(f:stdgo.AnyInterface, config:Config):stdgo.Error {
-        return stdgo._internal.testing.quick.Quick.check(f, config);
+    static public function check(_f:stdgo.AnyInterface, _config:Config):stdgo.Error {
+        return stdgo._internal.testing.quick.Quick.check(_f, _config);
     }
     /**
         CheckEqual looks for an input on which f and g return different results.
@@ -286,40 +286,40 @@ class Quick {
         If f and g return different answers, CheckEqual returns a *CheckEqualError
         describing the input and the outputs.
     **/
-    static public function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:Config):stdgo.Error {
-        return stdgo._internal.testing.quick.Quick.checkEqual(f, g, config);
+    static public function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:Config):stdgo.Error {
+        return stdgo._internal.testing.quick.Quick.checkEqual(_f, _g, _config);
     }
-    static public function testCheckEqual(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testCheckEqual(t);
+    static public function testCheckEqual(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testCheckEqual(_t);
     }
-    static public function testCheckProperty(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testCheckProperty(t);
+    static public function testCheckProperty(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testCheckProperty(_t);
     }
-    static public function testFailure(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testFailure(t);
+    static public function testFailure(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testFailure(_t);
     }
     /**
         Recursive data structures didn't terminate.
         Issues 8818 and 11148.
     **/
-    static public function testRecursive(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testRecursive(t);
+    static public function testRecursive(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testRecursive(_t);
     }
-    static public function testEmptyStruct(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testEmptyStruct(t);
+    static public function testEmptyStruct(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testEmptyStruct(_t);
     }
-    static public function testMutuallyRecursive(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testMutuallyRecursive(t);
+    static public function testMutuallyRecursive(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testMutuallyRecursive(_t);
     }
     /**
         Some serialization formats (e.g. encoding/pem) cannot distinguish
         between a nil and an empty map or slice, so avoid generating the
         zero value for these.
     **/
-    static public function testNonZeroSliceAndMap(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testNonZeroSliceAndMap(t);
+    static public function testNonZeroSliceAndMap(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testNonZeroSliceAndMap(_t);
     }
-    static public function testInt64(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.quick.Quick.testInt64(t);
+    static public function testInt64(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.quick.Quick.testInt64(_t);
     }
 }

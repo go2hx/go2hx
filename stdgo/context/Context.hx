@@ -12,8 +12,8 @@ private function set_deadlineExceeded(v:stdgo.Error):stdgo.Error {
         return v;
     }
 class Context__static_extension {
-    static public function value(t:Context_, key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.Context_static_extension.value(t, key);
+    static public function value(t:Context_, _key:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.Context_static_extension.value(t, _key);
     }
     static public function err(t:Context_):stdgo.Error {
         return stdgo._internal.context.Context.Context_static_extension.err(t);
@@ -30,9 +30,9 @@ class Context__static_extension {
 }
 typedef Context = stdgo._internal.context.Context.Context;
 class T_afterFuncer_static_extension {
-    static public function afterFunc(t:T_afterFuncer, 0:() -> Void):() -> Bool {
-        final 0 = 0;
-        return () -> stdgo._internal.context.Context.T_afterFuncer_static_extension.afterFunc(t, 0)();
+    static public function afterFunc(t:T_afterFuncer, _0:() -> Void):() -> Bool {
+        final _0 = _0;
+        return () -> stdgo._internal.context.Context.T_afterFuncer_static_extension.afterFunc(t, _0)();
     }
 }
 typedef T_afterFuncer = stdgo._internal.context.Context.T_afterFuncer;
@@ -40,8 +40,8 @@ class T_canceler_static_extension {
     static public function done(t:T_canceler):stdgo.Chan<T__struct_0> {
         return stdgo._internal.context.Context.T_canceler_static_extension.done(t);
     }
-    static public function _cancel(t:T_canceler, removeFromParent:Bool, err:stdgo.Error, cause:stdgo.Error):Void {
-        stdgo._internal.context.Context.T_canceler_static_extension._cancel(t, removeFromParent, err, cause);
+    static public function _cancel(t:T_canceler, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void {
+        stdgo._internal.context.Context.T_canceler_static_extension._cancel(t, _removeFromParent, _err, _cause);
     }
 }
 typedef T_canceler = stdgo._internal.context.Context.T_canceler;
@@ -228,204 +228,204 @@ typedef T__struct_0 = stdgo._internal.context.Context.T__struct_0;
 typedef CancelFunc = stdgo._internal.context.Context.CancelFunc;
 typedef CancelCauseFunc = stdgo._internal.context.Context.CancelCauseFunc;
 class T_deadlineExceededError_static_extension {
-    static public function temporary(:T_deadlineExceededError):Bool {
-        return stdgo._internal.context.Context.T_deadlineExceededError_static_extension.temporary();
+    static public function temporary(_:T_deadlineExceededError):Bool {
+        return stdgo._internal.context.Context.T_deadlineExceededError_static_extension.temporary(_);
     }
-    static public function timeout(:T_deadlineExceededError):Bool {
-        return stdgo._internal.context.Context.T_deadlineExceededError_static_extension.timeout();
+    static public function timeout(_:T_deadlineExceededError):Bool {
+        return stdgo._internal.context.Context.T_deadlineExceededError_static_extension.timeout(_);
     }
-    static public function error(:T_deadlineExceededError):String {
-        return stdgo._internal.context.Context.T_deadlineExceededError_static_extension.error();
+    static public function error(_:T_deadlineExceededError):String {
+        return stdgo._internal.context.Context.T_deadlineExceededError_static_extension.error(_);
     }
 }
 class T_emptyCtx_static_extension {
-    static public function value(:T_emptyCtx, key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.T_emptyCtx_static_extension.value(, key);
+    static public function value(_:T_emptyCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.T_emptyCtx_static_extension.value(_, _key);
     }
-    static public function err(:T_emptyCtx):stdgo.Error {
-        return stdgo._internal.context.Context.T_emptyCtx_static_extension.err();
+    static public function err(_:T_emptyCtx):stdgo.Error {
+        return stdgo._internal.context.Context.T_emptyCtx_static_extension.err(_);
     }
-    static public function done(:T_emptyCtx):stdgo.Chan<T__struct_0> {
-        return stdgo._internal.context.Context.T_emptyCtx_static_extension.done();
+    static public function done(_:T_emptyCtx):stdgo.Chan<T__struct_0> {
+        return stdgo._internal.context.Context.T_emptyCtx_static_extension.done(_);
     }
-    static public function deadline(:T_emptyCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
+    static public function deadline(_:T_emptyCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
         return {
-            final obj = stdgo._internal.context.Context.T_emptyCtx_static_extension.deadline();
+            final obj = stdgo._internal.context.Context.T_emptyCtx_static_extension.deadline(_);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_backgroundCtx_static_extension {
-    static public function string(:T_backgroundCtx):String {
-        return stdgo._internal.context.Context.T_backgroundCtx_static_extension.string();
+    static public function string(_:T_backgroundCtx):String {
+        return stdgo._internal.context.Context.T_backgroundCtx_static_extension.string(_);
     }
-    public static function value(_self__:T_backgroundCtx, key_:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.T_backgroundCtx_static_extension.value(_self__, key_);
+    public static function value(__self__:T_backgroundCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.T_backgroundCtx_static_extension.value(__self__, _key_);
     }
-    public static function err(_self__:T_backgroundCtx):stdgo.Error {
-        return stdgo._internal.context.Context.T_backgroundCtx_static_extension.err(_self__);
+    public static function err(__self__:T_backgroundCtx):stdgo.Error {
+        return stdgo._internal.context.Context.T_backgroundCtx_static_extension.err(__self__);
     }
-    public static function done(_self__:T_backgroundCtx):stdgo.Chan<T_deadlineExceededError> {
-        return stdgo._internal.context.Context.T_backgroundCtx_static_extension.done(_self__);
+    public static function done(__self__:T_backgroundCtx):stdgo.Chan<T_deadlineExceededError> {
+        return stdgo._internal.context.Context.T_backgroundCtx_static_extension.done(__self__);
     }
-    public static function deadline(_self__:T_backgroundCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
+    public static function deadline(__self__:T_backgroundCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
         return {
-            final obj = stdgo._internal.context.Context.T_backgroundCtx_static_extension.deadline(_self__);
+            final obj = stdgo._internal.context.Context.T_backgroundCtx_static_extension.deadline(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_todoCtx_static_extension {
-    static public function string(:T_todoCtx):String {
-        return stdgo._internal.context.Context.T_todoCtx_static_extension.string();
+    static public function string(_:T_todoCtx):String {
+        return stdgo._internal.context.Context.T_todoCtx_static_extension.string(_);
     }
-    public static function value(_self__:T_todoCtx, key_:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.T_todoCtx_static_extension.value(_self__, key_);
+    public static function value(__self__:T_todoCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.T_todoCtx_static_extension.value(__self__, _key_);
     }
-    public static function err(_self__:T_todoCtx):stdgo.Error {
-        return stdgo._internal.context.Context.T_todoCtx_static_extension.err(_self__);
+    public static function err(__self__:T_todoCtx):stdgo.Error {
+        return stdgo._internal.context.Context.T_todoCtx_static_extension.err(__self__);
     }
-    public static function done(_self__:T_todoCtx):stdgo.Chan<T_deadlineExceededError> {
-        return stdgo._internal.context.Context.T_todoCtx_static_extension.done(_self__);
+    public static function done(__self__:T_todoCtx):stdgo.Chan<T_deadlineExceededError> {
+        return stdgo._internal.context.Context.T_todoCtx_static_extension.done(__self__);
     }
-    public static function deadline(_self__:T_todoCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
+    public static function deadline(__self__:T_todoCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
         return {
-            final obj = stdgo._internal.context.Context.T_todoCtx_static_extension.deadline(_self__);
+            final obj = stdgo._internal.context.Context.T_todoCtx_static_extension.deadline(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_afterFuncCtx_static_extension {
-    static public function _cancel(a:T_afterFuncCtx, removeFromParent:Bool, err:stdgo.Error, cause:stdgo.Error):Void {
-        stdgo._internal.context.Context.T_afterFuncCtx_static_extension._cancel(a, removeFromParent, err, cause);
+    static public function _cancel(_a:T_afterFuncCtx, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void {
+        stdgo._internal.context.Context.T_afterFuncCtx_static_extension._cancel(_a, _removeFromParent, _err, _cause);
     }
-    public static function _propagateCancel(_self__:T_afterFuncCtx, parent:stdgo._internal.context.Context.Context, child:stdgo._internal.context.Context.T_canceler) {
-        stdgo._internal.context.Context.T_afterFuncCtx_static_extension._propagateCancel(_self__, parent, child);
+    public static function _propagateCancel(__self__:T_afterFuncCtx, _parent:stdgo._internal.context.Context.Context, _child:stdgo._internal.context.Context.T_canceler) {
+        stdgo._internal.context.Context.T_afterFuncCtx_static_extension._propagateCancel(__self__, _parent, _child);
     }
-    public static function value(_self__:T_afterFuncCtx, key_:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.T_afterFuncCtx_static_extension.value(_self__, key_);
+    public static function value(__self__:T_afterFuncCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.T_afterFuncCtx_static_extension.value(__self__, _key_);
     }
-    public static function string(_self__:T_afterFuncCtx):String {
-        return stdgo._internal.context.Context.T_afterFuncCtx_static_extension.string(_self__);
+    public static function string(__self__:T_afterFuncCtx):String {
+        return stdgo._internal.context.Context.T_afterFuncCtx_static_extension.string(__self__);
     }
-    public static function err(_self__:T_afterFuncCtx):stdgo.Error {
-        return stdgo._internal.context.Context.T_afterFuncCtx_static_extension.err(_self__);
+    public static function err(__self__:T_afterFuncCtx):stdgo.Error {
+        return stdgo._internal.context.Context.T_afterFuncCtx_static_extension.err(__self__);
     }
-    public static function done(_self__:T_afterFuncCtx):stdgo.Chan<T_deadlineExceededError> {
-        return stdgo._internal.context.Context.T_afterFuncCtx_static_extension.done(_self__);
+    public static function done(__self__:T_afterFuncCtx):stdgo.Chan<T_deadlineExceededError> {
+        return stdgo._internal.context.Context.T_afterFuncCtx_static_extension.done(__self__);
     }
-    public static function deadline(_self__:T_afterFuncCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
+    public static function deadline(__self__:T_afterFuncCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
         return {
-            final obj = stdgo._internal.context.Context.T_afterFuncCtx_static_extension.deadline(_self__);
+            final obj = stdgo._internal.context.Context.T_afterFuncCtx_static_extension.deadline(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_stopCtx_static_extension {
-    public static function value(_self__:T_stopCtx, key_:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.T_stopCtx_static_extension.value(_self__, key_);
+    public static function value(__self__:T_stopCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.T_stopCtx_static_extension.value(__self__, _key_);
     }
-    public static function err(_self__:T_stopCtx):stdgo.Error {
-        return stdgo._internal.context.Context.T_stopCtx_static_extension.err(_self__);
+    public static function err(__self__:T_stopCtx):stdgo.Error {
+        return stdgo._internal.context.Context.T_stopCtx_static_extension.err(__self__);
     }
-    public static function done(_self__:T_stopCtx):stdgo.Chan<T_deadlineExceededError> {
-        return stdgo._internal.context.Context.T_stopCtx_static_extension.done(_self__);
+    public static function done(__self__:T_stopCtx):stdgo.Chan<T_deadlineExceededError> {
+        return stdgo._internal.context.Context.T_stopCtx_static_extension.done(__self__);
     }
-    public static function deadline(_self__:T_stopCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
+    public static function deadline(__self__:T_stopCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
         return {
-            final obj = stdgo._internal.context.Context.T_stopCtx_static_extension.deadline(_self__);
+            final obj = stdgo._internal.context.Context.T_stopCtx_static_extension.deadline(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_cancelCtx_static_extension {
-    static public function _cancel(c:T_cancelCtx, removeFromParent:Bool, err:stdgo.Error, cause:stdgo.Error):Void {
-        stdgo._internal.context.Context.T_cancelCtx_static_extension._cancel(c, removeFromParent, err, cause);
+    static public function _cancel(_c:T_cancelCtx, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void {
+        stdgo._internal.context.Context.T_cancelCtx_static_extension._cancel(_c, _removeFromParent, _err, _cause);
     }
-    static public function string(c:T_cancelCtx):String {
-        return stdgo._internal.context.Context.T_cancelCtx_static_extension.string(c);
+    static public function string(_c:T_cancelCtx):String {
+        return stdgo._internal.context.Context.T_cancelCtx_static_extension.string(_c);
     }
-    static public function _propagateCancel(c:T_cancelCtx, parent:Context_, child:T_canceler):Void {
-        stdgo._internal.context.Context.T_cancelCtx_static_extension._propagateCancel(c, parent, child);
+    static public function _propagateCancel(_c:T_cancelCtx, _parent:Context_, _child:T_canceler):Void {
+        stdgo._internal.context.Context.T_cancelCtx_static_extension._propagateCancel(_c, _parent, _child);
     }
-    static public function err(c:T_cancelCtx):stdgo.Error {
-        return stdgo._internal.context.Context.T_cancelCtx_static_extension.err(c);
+    static public function err(_c:T_cancelCtx):stdgo.Error {
+        return stdgo._internal.context.Context.T_cancelCtx_static_extension.err(_c);
     }
-    static public function done(c:T_cancelCtx):stdgo.Chan<T__struct_0> {
-        return stdgo._internal.context.Context.T_cancelCtx_static_extension.done(c);
+    static public function done(_c:T_cancelCtx):stdgo.Chan<T__struct_0> {
+        return stdgo._internal.context.Context.T_cancelCtx_static_extension.done(_c);
     }
-    static public function value(c:T_cancelCtx, key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.T_cancelCtx_static_extension.value(c, key);
+    static public function value(_c:T_cancelCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.T_cancelCtx_static_extension.value(_c, _key);
     }
-    public static function deadline(_self__:T_cancelCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
+    public static function deadline(__self__:T_cancelCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
         return {
-            final obj = stdgo._internal.context.Context.T_cancelCtx_static_extension.deadline(_self__);
+            final obj = stdgo._internal.context.Context.T_cancelCtx_static_extension.deadline(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_withoutCancelCtx_static_extension {
-    static public function string(c:T_withoutCancelCtx):String {
-        return stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.string(c);
+    static public function string(_c:T_withoutCancelCtx):String {
+        return stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.string(_c);
     }
-    static public function value(c:T_withoutCancelCtx, key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.value(c, key);
+    static public function value(_c:T_withoutCancelCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.value(_c, _key);
     }
-    static public function err(:T_withoutCancelCtx):stdgo.Error {
-        return stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.err();
+    static public function err(_:T_withoutCancelCtx):stdgo.Error {
+        return stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.err(_);
     }
-    static public function done(:T_withoutCancelCtx):stdgo.Chan<T__struct_0> {
-        return stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.done();
+    static public function done(_:T_withoutCancelCtx):stdgo.Chan<T__struct_0> {
+        return stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.done(_);
     }
-    static public function deadline(:T_withoutCancelCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
+    static public function deadline(_:T_withoutCancelCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
         return {
-            final obj = stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.deadline();
+            final obj = stdgo._internal.context.Context.T_withoutCancelCtx_static_extension.deadline(_);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_timerCtx_static_extension {
-    static public function _cancel(c:T_timerCtx, removeFromParent:Bool, err:stdgo.Error, cause:stdgo.Error):Void {
-        stdgo._internal.context.Context.T_timerCtx_static_extension._cancel(c, removeFromParent, err, cause);
+    static public function _cancel(_c:T_timerCtx, _removeFromParent:Bool, _err:stdgo.Error, _cause:stdgo.Error):Void {
+        stdgo._internal.context.Context.T_timerCtx_static_extension._cancel(_c, _removeFromParent, _err, _cause);
     }
-    static public function string(c:T_timerCtx):String {
-        return stdgo._internal.context.Context.T_timerCtx_static_extension.string(c);
+    static public function string(_c:T_timerCtx):String {
+        return stdgo._internal.context.Context.T_timerCtx_static_extension.string(_c);
     }
-    static public function deadline(c:T_timerCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
+    static public function deadline(_c:T_timerCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
         return {
-            final obj = stdgo._internal.context.Context.T_timerCtx_static_extension.deadline(c);
+            final obj = stdgo._internal.context.Context.T_timerCtx_static_extension.deadline(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _propagateCancel(_self__:T_timerCtx, parent:stdgo._internal.context.Context.Context, child:stdgo._internal.context.Context.T_canceler) {
-        stdgo._internal.context.Context.T_timerCtx_static_extension._propagateCancel(_self__, parent, child);
+    public static function _propagateCancel(__self__:T_timerCtx, _parent:stdgo._internal.context.Context.Context, _child:stdgo._internal.context.Context.T_canceler) {
+        stdgo._internal.context.Context.T_timerCtx_static_extension._propagateCancel(__self__, _parent, _child);
     }
-    public static function value(_self__:T_timerCtx, key_:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.T_timerCtx_static_extension.value(_self__, key_);
+    public static function value(__self__:T_timerCtx, _key_:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.T_timerCtx_static_extension.value(__self__, _key_);
     }
-    public static function err(_self__:T_timerCtx):stdgo.Error {
-        return stdgo._internal.context.Context.T_timerCtx_static_extension.err(_self__);
+    public static function err(__self__:T_timerCtx):stdgo.Error {
+        return stdgo._internal.context.Context.T_timerCtx_static_extension.err(__self__);
     }
-    public static function done(_self__:T_timerCtx):stdgo.Chan<T_deadlineExceededError> {
-        return stdgo._internal.context.Context.T_timerCtx_static_extension.done(_self__);
+    public static function done(__self__:T_timerCtx):stdgo.Chan<T_deadlineExceededError> {
+        return stdgo._internal.context.Context.T_timerCtx_static_extension.done(__self__);
     }
 }
 class T_valueCtx_static_extension {
-    static public function value(c:T_valueCtx, key:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.context.Context.T_valueCtx_static_extension.value(c, key);
+    static public function value(_c:T_valueCtx, _key:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.context.Context.T_valueCtx_static_extension.value(_c, _key);
     }
-    static public function string(c:T_valueCtx):String {
-        return stdgo._internal.context.Context.T_valueCtx_static_extension.string(c);
+    static public function string(_c:T_valueCtx):String {
+        return stdgo._internal.context.Context.T_valueCtx_static_extension.string(_c);
     }
-    public static function err(_self__:T_valueCtx):stdgo.Error {
-        return stdgo._internal.context.Context.T_valueCtx_static_extension.err(_self__);
+    public static function err(__self__:T_valueCtx):stdgo.Error {
+        return stdgo._internal.context.Context.T_valueCtx_static_extension.err(__self__);
     }
-    public static function done(_self__:T_valueCtx):stdgo.Chan<T_deadlineExceededError> {
-        return stdgo._internal.context.Context.T_valueCtx_static_extension.done(_self__);
+    public static function done(__self__:T_valueCtx):stdgo.Chan<T_deadlineExceededError> {
+        return stdgo._internal.context.Context.T_valueCtx_static_extension.done(__self__);
     }
-    public static function deadline(_self__:T_valueCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
+    public static function deadline(__self__:T_valueCtx):stdgo.Tuple<stdgo._internal.time.Time.Time, Bool> {
         return {
-            final obj = stdgo._internal.context.Context.T_valueCtx_static_extension.deadline(_self__);
+            final obj = stdgo._internal.context.Context.T_valueCtx_static_extension.deadline(__self__);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -508,9 +508,9 @@ class Context {
         Canceling this context releases resources associated with it, so code should
         call cancel as soon as the operations running in this Context complete.
     **/
-    static public function withCancel(parent:Context_):stdgo.Tuple<Context_, CancelFunc> {
+    static public function withCancel(_parent:Context_):stdgo.Tuple<Context_, CancelFunc> {
         return {
-            final obj = stdgo._internal.context.Context.withCancel(parent);
+            final obj = stdgo._internal.context.Context.withCancel(_parent);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -527,9 +527,9 @@ class Context {
         	ctx.Err() // returns context.Canceled
         	context.Cause(ctx) // returns myError
     **/
-    static public function withCancelCause(parent:Context_):stdgo.Tuple<Context_, CancelCauseFunc> {
+    static public function withCancelCause(_parent:Context_):stdgo.Tuple<Context_, CancelCauseFunc> {
         return {
-            final obj = stdgo._internal.context.Context.withCancelCause(parent);
+            final obj = stdgo._internal.context.Context.withCancelCause(_parent);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -541,8 +541,8 @@ class Context {
         Otherwise Cause(c) returns the same value as c.Err().
         Cause returns nil if c has not been canceled yet.
     **/
-    static public function cause(c:Context_):stdgo.Error {
-        return stdgo._internal.context.Context.cause(c);
+    static public function cause(_c:Context_):stdgo.Error {
+        return stdgo._internal.context.Context.cause(_c);
     }
     /**
         AfterFunc arranges to call f in its own goroutine after ctx is done
@@ -564,17 +564,17 @@ class Context {
         If ctx has a "AfterFunc(func()) func() bool" method,
         AfterFunc will use it to schedule the call.
     **/
-    static public function afterFunc(ctx:Context_, f:() -> Void):() -> Bool {
-        final f = f;
-        return () -> stdgo._internal.context.Context.afterFunc(ctx, f)();
+    static public function afterFunc(_ctx:Context_, _f:() -> Void):() -> Bool {
+        final _f = _f;
+        return () -> stdgo._internal.context.Context.afterFunc(_ctx, _f)();
     }
     /**
         WithoutCancel returns a copy of parent that is not canceled when parent is canceled.
         The returned context returns no Deadline or Err, and its Done channel is nil.
         Calling [Cause] on the returned context returns nil.
     **/
-    static public function withoutCancel(parent:Context_):Context_ {
-        return stdgo._internal.context.Context.withoutCancel(parent);
+    static public function withoutCancel(_parent:Context_):Context_ {
+        return stdgo._internal.context.Context.withoutCancel(_parent);
     }
     /**
         WithDeadline returns a copy of the parent context with the deadline adjusted
@@ -587,9 +587,9 @@ class Context {
         Canceling this context releases resources associated with it, so code should
         call cancel as soon as the operations running in this [Context] complete.
     **/
-    static public function withDeadline(parent:Context_, d:stdgo._internal.time.Time.Time):stdgo.Tuple<Context_, CancelFunc> {
+    static public function withDeadline(_parent:Context_, _d:stdgo._internal.time.Time.Time):stdgo.Tuple<Context_, CancelFunc> {
         return {
-            final obj = stdgo._internal.context.Context.withDeadline(parent, d);
+            final obj = stdgo._internal.context.Context.withDeadline(_parent, _d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -598,9 +598,9 @@ class Context {
         returned Context when the deadline is exceeded. The returned [CancelFunc] does
         not set the cause.
     **/
-    static public function withDeadlineCause(parent:Context_, d:stdgo._internal.time.Time.Time, cause:stdgo.Error):stdgo.Tuple<Context_, CancelFunc> {
+    static public function withDeadlineCause(_parent:Context_, _d:stdgo._internal.time.Time.Time, _cause:stdgo.Error):stdgo.Tuple<Context_, CancelFunc> {
         return {
-            final obj = stdgo._internal.context.Context.withDeadlineCause(parent, d, cause);
+            final obj = stdgo._internal.context.Context.withDeadlineCause(_parent, _d, _cause);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -616,9 +616,9 @@ class Context {
         		return slowOperation(ctx)
         	}
     **/
-    static public function withTimeout(parent:Context_, timeout:stdgo._internal.time.Time.Duration):stdgo.Tuple<Context_, CancelFunc> {
+    static public function withTimeout(_parent:Context_, _timeout:stdgo._internal.time.Time.Duration):stdgo.Tuple<Context_, CancelFunc> {
         return {
-            final obj = stdgo._internal.context.Context.withTimeout(parent, timeout);
+            final obj = stdgo._internal.context.Context.withTimeout(_parent, _timeout);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -627,9 +627,9 @@ class Context {
         returned Context when the timeout expires. The returned [CancelFunc] does
         not set the cause.
     **/
-    static public function withTimeoutCause(parent:Context_, timeout:stdgo._internal.time.Time.Duration, cause:stdgo.Error):stdgo.Tuple<Context_, CancelFunc> {
+    static public function withTimeoutCause(_parent:Context_, _timeout:stdgo._internal.time.Time.Duration, _cause:stdgo.Error):stdgo.Tuple<Context_, CancelFunc> {
         return {
-            final obj = stdgo._internal.context.Context.withTimeoutCause(parent, timeout, cause);
+            final obj = stdgo._internal.context.Context.withTimeoutCause(_parent, _timeout, _cause);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -648,7 +648,7 @@ class Context {
         struct{}. Alternatively, exported context key variables' static
         type should be a pointer or interface.
     **/
-    static public function withValue(parent:Context_, key:stdgo.AnyInterface, val:stdgo.AnyInterface):Context_ {
-        return stdgo._internal.context.Context.withValue(parent, key, val);
+    static public function withValue(_parent:Context_, _key:stdgo.AnyInterface, _val:stdgo.AnyInterface):Context_ {
+        return stdgo._internal.context.Context.withValue(_parent, _key, _val);
     }
 }

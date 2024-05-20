@@ -73,37 +73,37 @@ private function set_lstatP(v:stdgo.GoString -> { var _0 : stdgo._internal.io.fs
 }
 typedef WalkFunc = stdgo._internal.path.filepath.Filepath.WalkFunc;
 class T_lazybuf_static_extension {
-    static public function _string(b:T_lazybuf):String {
-        return stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension._string(b);
+    static public function _string(_b:T_lazybuf):String {
+        return stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension._string(_b);
     }
-    static public function _prepend(b:T_lazybuf, prefix:haxe.Rest<StdTypes.Int>):Void {
-        stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension._prepend(b, ...[for (i in prefix) i]);
+    static public function _prepend(_b:T_lazybuf, _prefix:haxe.Rest<StdTypes.Int>):Void {
+        stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension._prepend(_b, ...[for (i in _prefix) i]);
     }
-    static public function _append(b:T_lazybuf, c:StdTypes.Int):Void {
-        stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension._append(b, c);
+    static public function _append(_b:T_lazybuf, _c:StdTypes.Int):Void {
+        stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension._append(_b, _c);
     }
-    static public function _index(b:T_lazybuf, i:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension._index(b, i);
+    static public function _index(_b:T_lazybuf, _i:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension._index(_b, _i);
     }
 }
 class T_statDirEntry_static_extension {
-    static public function string(d:T_statDirEntry):String {
-        return stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.string(d);
+    static public function string(_d:T_statDirEntry):String {
+        return stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.string(_d);
     }
-    static public function info(d:T_statDirEntry):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
+    static public function info(_d:T_statDirEntry):stdgo.Tuple<stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.info(d);
+            final obj = stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.info(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function type(d:T_statDirEntry):stdgo._internal.io.fs.Fs.FileMode {
-        return stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.type(d);
+    static public function type(_d:T_statDirEntry):stdgo._internal.io.fs.Fs.FileMode {
+        return stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.type(_d);
     }
-    static public function isDir(d:T_statDirEntry):Bool {
-        return stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.isDir(d);
+    static public function isDir(_d:T_statDirEntry):Bool {
+        return stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.isDir(_d);
     }
-    static public function name(d:T_statDirEntry):String {
-        return stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.name(d);
+    static public function name(_d:T_statDirEntry):String {
+        return stdgo._internal.path.filepath.Filepath.T_statDirEntry_static_extension.name(_d);
     }
 }
 /**
@@ -142,9 +142,9 @@ class Filepath {
         On Windows, escaping is disabled. Instead, '\\' is treated as
         path separator.
     **/
-    static public function match(pattern:String, name:String):stdgo.Tuple<Bool, stdgo.Error> {
+    static public function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error> {
         return {
-            final obj = stdgo._internal.path.filepath.Filepath.match(pattern, name);
+            final obj = stdgo._internal.path.filepath.Filepath.match(_pattern, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -158,9 +158,9 @@ class Filepath {
         The only possible returned error is ErrBadPattern, when pattern
         is malformed.
     **/
-    static public function glob(pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
+    static public function glob(_pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.path.filepath.Filepath.glob(pattern);
+            final obj = stdgo._internal.path.filepath.Filepath.glob(_pattern);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -193,8 +193,8 @@ class Filepath {
         Getting Dot-Dot Right,”
         https://9p.io/sys/doc/lexnames.html
     **/
-    static public function clean(path:String):String {
-        return stdgo._internal.path.filepath.Filepath.clean(path);
+    static public function clean(_path:String):String {
+        return stdgo._internal.path.filepath.Filepath.clean(_path);
     }
     /**
         IsLocal reports whether path, using lexical analysis only, has all of these properties:
@@ -212,24 +212,24 @@ class Filepath {
         In particular, it does not account for the effect of any symbolic links
         that may exist in the filesystem.
     **/
-    static public function isLocal(path:String):Bool {
-        return stdgo._internal.path.filepath.Filepath.isLocal(path);
+    static public function isLocal(_path:String):Bool {
+        return stdgo._internal.path.filepath.Filepath.isLocal(_path);
     }
     /**
         ToSlash returns the result of replacing each separator character
         in path with a slash ('/') character. Multiple separators are
         replaced by multiple slashes.
     **/
-    static public function toSlash(path:String):String {
-        return stdgo._internal.path.filepath.Filepath.toSlash(path);
+    static public function toSlash(_path:String):String {
+        return stdgo._internal.path.filepath.Filepath.toSlash(_path);
     }
     /**
         FromSlash returns the result of replacing each slash ('/') character
         in path with a separator character. Multiple slashes are replaced
         by multiple separators.
     **/
-    static public function fromSlash(path:String):String {
-        return stdgo._internal.path.filepath.Filepath.fromSlash(path);
+    static public function fromSlash(_path:String):String {
+        return stdgo._internal.path.filepath.Filepath.fromSlash(_path);
     }
     /**
         SplitList splits a list of paths joined by the OS-specific ListSeparator,
@@ -237,8 +237,8 @@ class Filepath {
         Unlike strings.Split, SplitList returns an empty slice when passed an empty
         string.
     **/
-    static public function splitList(path:String):Array<String> {
-        return [for (i in stdgo._internal.path.filepath.Filepath.splitList(path)) i];
+    static public function splitList(_path:String):Array<String> {
+        return [for (i in stdgo._internal.path.filepath.Filepath.splitList(_path)) i];
     }
     /**
         Split splits path immediately following the final Separator,
@@ -247,9 +247,9 @@ class Filepath {
         and file set to path.
         The returned values have the property that path = dir+file.
     **/
-    static public function split(path:String):stdgo.Tuple<String, String> {
+    static public function split(_path:String):stdgo.Tuple<String, String> {
         return {
-            final obj = stdgo._internal.path.filepath.Filepath.split(path);
+            final obj = stdgo._internal.path.filepath.Filepath.split(_path);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -262,8 +262,8 @@ class Filepath {
         On Windows, the result will only be a UNC path if the first
         non-empty element is a UNC path.
     **/
-    static public function join(elem:haxe.Rest<String>):String {
-        return stdgo._internal.path.filepath.Filepath.join(...[for (i in elem) i]);
+    static public function join(_elem:haxe.Rest<String>):String {
+        return stdgo._internal.path.filepath.Filepath.join(...[for (i in _elem) i]);
     }
     /**
         Ext returns the file name extension used by path.
@@ -271,8 +271,8 @@ class Filepath {
         in the final element of path; it is empty if there is
         no dot.
     **/
-    static public function ext(path:String):String {
-        return stdgo._internal.path.filepath.Filepath.ext(path);
+    static public function ext(_path:String):String {
+        return stdgo._internal.path.filepath.Filepath.ext(_path);
     }
     /**
         EvalSymlinks returns the path name after the evaluation of any symbolic
@@ -281,9 +281,9 @@ class Filepath {
         unless one of the components is an absolute symbolic link.
         EvalSymlinks calls Clean on the result.
     **/
-    static public function evalSymlinks(path:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function evalSymlinks(_path:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.path.filepath.Filepath.evalSymlinks(path);
+            final obj = stdgo._internal.path.filepath.Filepath.evalSymlinks(_path);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -294,9 +294,9 @@ class Filepath {
         path name for a given file is not guaranteed to be unique.
         Abs calls Clean on the result.
     **/
-    static public function abs(path:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function abs(_path:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.path.filepath.Filepath.abs(path);
+            final obj = stdgo._internal.path.filepath.Filepath.abs(_path);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -310,9 +310,9 @@ class Filepath {
         knowing the current working directory would be necessary to compute it.
         Rel calls Clean on the result.
     **/
-    static public function rel(basepath:String, targpath:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function rel(_basepath:String, _targpath:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.path.filepath.Filepath.rel(basepath, targpath);
+            final obj = stdgo._internal.path.filepath.Filepath.rel(_basepath, _targpath);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -333,8 +333,8 @@ class Filepath {
         for the operating system. This is unlike [io/fs.WalkDir], which always
         uses slash separated paths.
     **/
-    static public function walkDir(root:String, fn:stdgo._internal.io.fs.Fs.WalkDirFunc):stdgo.Error {
-        return stdgo._internal.path.filepath.Filepath.walkDir(root, fn);
+    static public function walkDir(_root:String, _fn:stdgo._internal.io.fs.Fs.WalkDirFunc):stdgo.Error {
+        return stdgo._internal.path.filepath.Filepath.walkDir(_root, _fn);
     }
     /**
         Walk walks the file tree rooted at root, calling fn for each file or
@@ -352,8 +352,8 @@ class Filepath {
         Walk is less efficient than WalkDir, introduced in Go 1.16,
         which avoids calling os.Lstat on every visited file or directory.
     **/
-    static public function walk(root:String, fn:WalkFunc):stdgo.Error {
-        return stdgo._internal.path.filepath.Filepath.walk(root, fn);
+    static public function walk(_root:String, _fn:WalkFunc):stdgo.Error {
+        return stdgo._internal.path.filepath.Filepath.walk(_root, _fn);
     }
     /**
         Base returns the last element of path.
@@ -361,8 +361,8 @@ class Filepath {
         If the path is empty, Base returns ".".
         If the path consists entirely of separators, Base returns a single separator.
     **/
-    static public function base(path:String):String {
-        return stdgo._internal.path.filepath.Filepath.base(path);
+    static public function base(_path:String):String {
+        return stdgo._internal.path.filepath.Filepath.base(_path);
     }
     /**
         Dir returns all but the last element of path, typically the path's directory.
@@ -372,8 +372,8 @@ class Filepath {
         If the path consists entirely of separators, Dir returns a single separator.
         The returned path does not end in a separator unless it is the root directory.
     **/
-    static public function dir(path:String):String {
-        return stdgo._internal.path.filepath.Filepath.dir(path);
+    static public function dir(_path:String):String {
+        return stdgo._internal.path.filepath.Filepath.dir(_path);
     }
     /**
         VolumeName returns leading volume name.
@@ -381,14 +381,14 @@ class Filepath {
         Given "\\host\share\foo" it returns "\\host\share".
         On other platforms it returns "".
     **/
-    static public function volumeName(path:String):String {
-        return stdgo._internal.path.filepath.Filepath.volumeName(path);
+    static public function volumeName(_path:String):String {
+        return stdgo._internal.path.filepath.Filepath.volumeName(_path);
     }
     /**
         IsAbs reports whether the path is absolute.
     **/
-    static public function isAbs(path:String):Bool {
-        return stdgo._internal.path.filepath.Filepath.isAbs(path);
+    static public function isAbs(_path:String):Bool {
+        return stdgo._internal.path.filepath.Filepath.isAbs(_path);
     }
     /**
         HasPrefix exists for historical compatibility and should not be used.
@@ -396,7 +396,7 @@ class Filepath {
         Deprecated: HasPrefix does not respect path boundaries and
         does not ignore case when required.
     **/
-    static public function hasPrefix(p:String, prefix:String):Bool {
-        return stdgo._internal.path.filepath.Filepath.hasPrefix(p, prefix);
+    static public function hasPrefix(_p:String, _prefix:String):Bool {
+        return stdgo._internal.path.filepath.Filepath.hasPrefix(_p, _prefix);
     }
 }

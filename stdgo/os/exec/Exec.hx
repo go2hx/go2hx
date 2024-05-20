@@ -280,169 +280,169 @@ _lookPathErr);
     public function __copy__() return this.__copy__();
 }
 class Error_static_extension {
-    static public function unwrap(e:Error):stdgo.Error {
-        return stdgo._internal.os.exec.Exec.Error_static_extension.unwrap(e);
+    static public function unwrap(_e:Error):stdgo.Error {
+        return stdgo._internal.os.exec.Exec.Error_static_extension.unwrap(_e);
     }
-    static public function error(e:Error):String {
-        return stdgo._internal.os.exec.Exec.Error_static_extension.error(e);
+    static public function error(_e:Error):String {
+        return stdgo._internal.os.exec.Exec.Error_static_extension.error(_e);
     }
 }
 class T_wrappedError_static_extension {
-    static public function unwrap(w:T_wrappedError):stdgo.Error {
-        return stdgo._internal.os.exec.Exec.T_wrappedError_static_extension.unwrap(w);
+    static public function unwrap(_w:T_wrappedError):stdgo.Error {
+        return stdgo._internal.os.exec.Exec.T_wrappedError_static_extension.unwrap(_w);
     }
-    static public function error(w:T_wrappedError):String {
-        return stdgo._internal.os.exec.Exec.T_wrappedError_static_extension.error(w);
+    static public function error(_w:T_wrappedError):String {
+        return stdgo._internal.os.exec.Exec.T_wrappedError_static_extension.error(_w);
     }
 }
 class Cmd_static_extension {
-    static public function environ(c:Cmd):Array<String> {
-        return [for (i in stdgo._internal.os.exec.Exec.Cmd_static_extension.environ(c)) i];
+    static public function environ(_c:Cmd):Array<String> {
+        return [for (i in stdgo._internal.os.exec.Exec.Cmd_static_extension.environ(_c)) i];
     }
-    static public function _environ(c:Cmd):stdgo.Tuple<Array<String>, stdgo.Error> {
+    static public function _environ(_c:Cmd):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._environ(c);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._environ(_c);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function stderrPipe(c:Cmd):stdgo.Tuple<stdgo._internal.io.Io.ReadCloser, stdgo.Error> {
+    static public function stderrPipe(_c:Cmd):stdgo.Tuple<stdgo._internal.io.Io.ReadCloser, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.stderrPipe(c);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.stderrPipe(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function stdoutPipe(c:Cmd):stdgo.Tuple<stdgo._internal.io.Io.ReadCloser, stdgo.Error> {
+    static public function stdoutPipe(_c:Cmd):stdgo.Tuple<stdgo._internal.io.Io.ReadCloser, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.stdoutPipe(c);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.stdoutPipe(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function stdinPipe(c:Cmd):stdgo.Tuple<stdgo._internal.io.Io.WriteCloser, stdgo.Error> {
+    static public function stdinPipe(_c:Cmd):stdgo.Tuple<stdgo._internal.io.Io.WriteCloser, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.stdinPipe(c);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.stdinPipe(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function combinedOutput(c:Cmd):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function combinedOutput(_c:Cmd):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.combinedOutput(c);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.combinedOutput(_c);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function output(c:Cmd):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function output(_c:Cmd):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.output(c);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension.output(_c);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function _awaitGoroutines(c:Cmd, timer:stdgo._internal.time.Time.Timer):stdgo.Error {
-        return stdgo._internal.os.exec.Exec.Cmd_static_extension._awaitGoroutines(c, timer);
+    static public function _awaitGoroutines(_c:Cmd, _timer:stdgo._internal.time.Time.Timer):stdgo.Error {
+        return stdgo._internal.os.exec.Exec.Cmd_static_extension._awaitGoroutines(_c, _timer);
     }
-    static public function wait_(c:Cmd):stdgo.Error {
-        return stdgo._internal.os.exec.Exec.Cmd_static_extension.wait_(c);
+    static public function wait_(_c:Cmd):stdgo.Error {
+        return stdgo._internal.os.exec.Exec.Cmd_static_extension.wait_(_c);
     }
-    static public function _watchCtx(c:Cmd, resultc:stdgo.Chan<T_ctxResult>):Void {
-        stdgo._internal.os.exec.Exec.Cmd_static_extension._watchCtx(c, resultc);
+    static public function _watchCtx(_c:Cmd, _resultc:stdgo.Chan<T_ctxResult>):Void {
+        stdgo._internal.os.exec.Exec.Cmd_static_extension._watchCtx(_c, _resultc);
     }
-    static public function start(c:Cmd):stdgo.Error {
-        return stdgo._internal.os.exec.Exec.Cmd_static_extension.start(c);
+    static public function start(_c:Cmd):stdgo.Error {
+        return stdgo._internal.os.exec.Exec.Cmd_static_extension.start(_c);
     }
-    static public function run(c:Cmd):stdgo.Error {
-        return stdgo._internal.os.exec.Exec.Cmd_static_extension.run(c);
+    static public function run(_c:Cmd):stdgo.Error {
+        return stdgo._internal.os.exec.Exec.Cmd_static_extension.run(_c);
     }
-    static public function _writerDescriptor(c:Cmd, w:stdgo._internal.io.Io.Writer):stdgo.Tuple<stdgo._internal.os.Os.File, stdgo.Error> {
+    static public function _writerDescriptor(_c:Cmd, _w:stdgo._internal.io.Io.Writer):stdgo.Tuple<stdgo._internal.os.Os.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._writerDescriptor(c, w);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._writerDescriptor(_c, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _childStderr(c:Cmd, childStdout:stdgo._internal.os.Os.File):stdgo.Tuple<stdgo._internal.os.Os.File, stdgo.Error> {
+    static public function _childStderr(_c:Cmd, _childStdout:stdgo._internal.os.Os.File):stdgo.Tuple<stdgo._internal.os.Os.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._childStderr(c, childStdout);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._childStderr(_c, _childStdout);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _childStdout(c:Cmd):stdgo.Tuple<stdgo._internal.os.Os.File, stdgo.Error> {
+    static public function _childStdout(_c:Cmd):stdgo.Tuple<stdgo._internal.os.Os.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._childStdout(c);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._childStdout(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _childStdin(c:Cmd):stdgo.Tuple<stdgo._internal.os.Os.File, stdgo.Error> {
+    static public function _childStdin(_c:Cmd):stdgo.Tuple<stdgo._internal.os.Os.File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._childStdin(c);
+            final obj = stdgo._internal.os.exec.Exec.Cmd_static_extension._childStdin(_c);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _argv(c:Cmd):Array<String> {
-        return [for (i in stdgo._internal.os.exec.Exec.Cmd_static_extension._argv(c)) i];
+    static public function _argv(_c:Cmd):Array<String> {
+        return [for (i in stdgo._internal.os.exec.Exec.Cmd_static_extension._argv(_c)) i];
     }
-    static public function string(c:Cmd):String {
-        return stdgo._internal.os.exec.Exec.Cmd_static_extension.string(c);
+    static public function string(_c:Cmd):String {
+        return stdgo._internal.os.exec.Exec.Cmd_static_extension.string(_c);
     }
 }
 class ExitError_static_extension {
-    static public function error(e:ExitError):String {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.error(e);
+    static public function error(_e:ExitError):String {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.error(_e);
     }
-    public static function _userTime(_self__:ExitError):stdgo._internal.time.Time.Duration {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension._userTime(_self__);
+    public static function _userTime(__self__:ExitError):stdgo._internal.time.Time.Duration {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension._userTime(__self__);
     }
-    public static function _systemTime(_self__:ExitError):stdgo._internal.time.Time.Duration {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension._systemTime(_self__);
+    public static function _systemTime(__self__:ExitError):stdgo._internal.time.Time.Duration {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension._systemTime(__self__);
     }
-    public static function _sysUsage(_self__:ExitError):stdgo.AnyInterface {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension._sysUsage(_self__);
+    public static function _sysUsage(__self__:ExitError):stdgo.AnyInterface {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension._sysUsage(__self__);
     }
-    public static function _sys(_self__:ExitError):stdgo.AnyInterface {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension._sys(_self__);
+    public static function _sys(__self__:ExitError):stdgo.AnyInterface {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension._sys(__self__);
     }
-    public static function _success(_self__:ExitError):Bool {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension._success(_self__);
+    public static function _success(__self__:ExitError):Bool {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension._success(__self__);
     }
-    public static function _exited(_self__:ExitError):Bool {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension._exited(_self__);
+    public static function _exited(__self__:ExitError):Bool {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension._exited(__self__);
     }
-    public static function userTime(_self__:ExitError):stdgo._internal.time.Time.Duration {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.userTime(_self__);
+    public static function userTime(__self__:ExitError):stdgo._internal.time.Time.Duration {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.userTime(__self__);
     }
-    public static function systemTime(_self__:ExitError):stdgo._internal.time.Time.Duration {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.systemTime(_self__);
+    public static function systemTime(__self__:ExitError):stdgo._internal.time.Time.Duration {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.systemTime(__self__);
     }
-    public static function sysUsage(_self__:ExitError):stdgo.AnyInterface {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.sysUsage(_self__);
+    public static function sysUsage(__self__:ExitError):stdgo.AnyInterface {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.sysUsage(__self__);
     }
-    public static function sys(_self__:ExitError):stdgo.AnyInterface {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.sys(_self__);
+    public static function sys(__self__:ExitError):stdgo.AnyInterface {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.sys(__self__);
     }
-    public static function success(_self__:ExitError):Bool {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.success(_self__);
+    public static function success(__self__:ExitError):Bool {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.success(__self__);
     }
-    public static function string(_self__:ExitError):String {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.string(_self__);
+    public static function string(__self__:ExitError):String {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.string(__self__);
     }
-    public static function pid(_self__:ExitError):StdTypes.Int {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.pid(_self__);
+    public static function pid(__self__:ExitError):StdTypes.Int {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.pid(__self__);
     }
-    public static function exited(_self__:ExitError):Bool {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.exited(_self__);
+    public static function exited(__self__:ExitError):Bool {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.exited(__self__);
     }
-    public static function exitCode(_self__:ExitError):StdTypes.Int {
-        return stdgo._internal.os.exec.Exec.ExitError_static_extension.exitCode(_self__);
+    public static function exitCode(__self__:ExitError):StdTypes.Int {
+        return stdgo._internal.os.exec.Exec.ExitError_static_extension.exitCode(__self__);
     }
 }
 class T_prefixSuffixSaver_static_extension {
-    static public function bytes(w:T_prefixSuffixSaver):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension.bytes(w)) i];
+    static public function bytes(_w:T_prefixSuffixSaver):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension.bytes(_w)) i];
     }
-    static public function _fill(w:T_prefixSuffixSaver, dst:Array<StdTypes.Int>, p:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension._fill(w, dst, p)) i];
+    static public function _fill(_w:T_prefixSuffixSaver, _dst:Array<StdTypes.Int>, _p:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension._fill(_w, _dst, _p)) i];
     }
-    static public function write(w:T_prefixSuffixSaver, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_w:T_prefixSuffixSaver, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension.write(w, p);
+            final obj = stdgo._internal.os.exec.Exec.T_prefixSuffixSaver_static_extension.write(_w, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -536,11 +536,11 @@ class T_prefixSuffixSaver_static_extension {
     See https://go.dev/blog/path-security for more information.
 **/
 class Exec {
-    static public function benchmarkExecHostname(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.os.exec.Exec.benchmarkExecHostname(b);
+    static public function benchmarkExecHostname(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.os.exec.Exec.benchmarkExecHostname(_b);
     }
-    static public function testDedupEnv(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.os.exec.Exec.testDedupEnv(t);
+    static public function testDedupEnv(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.os.exec.Exec.testDedupEnv(_t);
     }
     /**
         Command returns the Cmd struct to execute the named program with
@@ -566,8 +566,8 @@ class Exec {
         quoting yourself and provide the full command line in SysProcAttr.CmdLine,
         leaving Args empty.
     **/
-    static public function command(name:String, arg:haxe.Rest<String>):Cmd {
-        return stdgo._internal.os.exec.Exec.command(name, ...[for (i in arg) i]);
+    static public function command(_name:String, _arg:haxe.Rest<String>):Cmd {
+        return stdgo._internal.os.exec.Exec.command(_name, ...[for (i in _arg) i]);
     }
     /**
         CommandContext is like Command but includes a context.
@@ -580,14 +580,14 @@ class Exec {
         on its Process, and leaves its WaitDelay unset. The caller may change the
         cancellation behavior by modifying those fields before starting the command.
     **/
-    static public function commandContext(ctx:stdgo._internal.context.Context.Context, name:String, arg:haxe.Rest<String>):Cmd {
-        return stdgo._internal.os.exec.Exec.commandContext(ctx, name, ...[for (i in arg) i]);
+    static public function commandContext(_ctx:stdgo._internal.context.Context.Context, _name:String, _arg:haxe.Rest<String>):Cmd {
+        return stdgo._internal.os.exec.Exec.commandContext(_ctx, _name, ...[for (i in _arg) i]);
     }
-    static public function testPrefixSuffixSaver(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.os.exec.Exec.testPrefixSuffixSaver(t);
+    static public function testPrefixSuffixSaver(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.os.exec.Exec.testPrefixSuffixSaver(_t);
     }
-    static public function testLookPathNotFound(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.os.exec.Exec.testLookPathNotFound(t);
+    static public function testLookPathNotFound(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.os.exec.Exec.testLookPathNotFound(_t);
     }
     /**
         LookPath searches for an executable named file in the
@@ -595,9 +595,9 @@ class Exec {
         If file contains a slash, it is tried directly and the PATH is not consulted.
         The result may be an absolute path or a path relative to the current directory.
     **/
-    static public function lookPath(file:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function lookPath(_file:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.os.exec.Exec.lookPath(file);
+            final obj = stdgo._internal.os.exec.Exec.lookPath(_file);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

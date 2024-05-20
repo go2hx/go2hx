@@ -74,30 +74,30 @@ package stdgo.internal.godebug;
     public function __copy__() return this.__copy__();
 }
 class Setting_static_extension {
-    static public function value(s:Setting):String {
-        return stdgo._internal.internal.godebug.Godebug.Setting_static_extension.value(s);
+    static public function value(_s:Setting):String {
+        return stdgo._internal.internal.godebug.Godebug.Setting_static_extension.value(_s);
     }
-    static public function _register(s:Setting):Void {
-        stdgo._internal.internal.godebug.Godebug.Setting_static_extension._register(s);
+    static public function _register(_s:Setting):Void {
+        stdgo._internal.internal.godebug.Godebug.Setting_static_extension._register(_s);
     }
-    static public function incNonDefault(s:Setting):Void {
-        stdgo._internal.internal.godebug.Godebug.Setting_static_extension.incNonDefault(s);
+    static public function incNonDefault(_s:Setting):Void {
+        stdgo._internal.internal.godebug.Godebug.Setting_static_extension.incNonDefault(_s);
     }
-    static public function string(s:Setting):String {
-        return stdgo._internal.internal.godebug.Godebug.Setting_static_extension.string(s);
+    static public function string(_s:Setting):String {
+        return stdgo._internal.internal.godebug.Godebug.Setting_static_extension.string(_s);
     }
-    static public function undocumented(s:Setting):Bool {
-        return stdgo._internal.internal.godebug.Godebug.Setting_static_extension.undocumented(s);
+    static public function undocumented(_s:Setting):Bool {
+        return stdgo._internal.internal.godebug.Godebug.Setting_static_extension.undocumented(_s);
     }
-    static public function name(s:Setting):String {
-        return stdgo._internal.internal.godebug.Godebug.Setting_static_extension.name(s);
+    static public function name(_s:Setting):String {
+        return stdgo._internal.internal.godebug.Godebug.Setting_static_extension.name(_s);
     }
 }
 class T_runtimeStderr_static_extension {
-    static public function write(:T_runtimeStderr, b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_:T_runtimeStderr, _b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.internal.godebug.Godebug.T_runtimeStderr_static_extension.write(, b);
+            final obj = stdgo._internal.internal.godebug.Godebug.T_runtimeStderr_static_extension.write(_, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -141,7 +141,7 @@ class Godebug {
         prefix the name with a #, as in godebug.New("#gofsystrace").
         The # is a signal to New but not part of the key used in $GODEBUG.
     **/
-    static public function new_(name:String):Setting {
-        return stdgo._internal.internal.godebug.Godebug.new_(name);
+    static public function new_(_name:String):Setting {
+        return stdgo._internal.internal.godebug.Godebug.new_(_name);
     }
 }

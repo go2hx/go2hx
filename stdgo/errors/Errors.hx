@@ -12,8 +12,8 @@ class T__interface_0_static_extension {
 }
 typedef T__interface_0 = stdgo._internal.errors.Errors.T__interface_0;
 class T__interface_1_static_extension {
-    static public function is_(t:T__interface_1, 0:stdgo.Error):Bool {
-        return stdgo._internal.errors.Errors.T__interface_1_static_extension.is_(t, 0);
+    static public function is_(t:T__interface_1, _0:stdgo.Error):Bool {
+        return stdgo._internal.errors.Errors.T__interface_1_static_extension.is_(t, _0);
     }
 }
 typedef T__interface_1 = stdgo._internal.errors.Errors.T__interface_1;
@@ -24,8 +24,8 @@ class T__interface_2_static_extension {
 }
 typedef T__interface_2 = stdgo._internal.errors.Errors.T__interface_2;
 class T__interface_3_static_extension {
-    static public function as(t:T__interface_3, 0:stdgo.AnyInterface):Bool {
-        return stdgo._internal.errors.Errors.T__interface_3_static_extension.as(t, 0);
+    static public function as(t:T__interface_3, _0:stdgo.AnyInterface):Bool {
+        return stdgo._internal.errors.Errors.T__interface_3_static_extension.as(t, _0);
     }
 }
 typedef T__interface_3 = stdgo._internal.errors.Errors.T__interface_3;
@@ -52,16 +52,16 @@ typedef T__interface_3 = stdgo._internal.errors.Errors.T__interface_3;
     public function __copy__() return this.__copy__();
 }
 class T_errorString_static_extension {
-    static public function error(e:T_errorString):String {
-        return stdgo._internal.errors.Errors.T_errorString_static_extension.error(e);
+    static public function error(_e:T_errorString):String {
+        return stdgo._internal.errors.Errors.T_errorString_static_extension.error(_e);
     }
 }
 class T_joinError_static_extension {
-    static public function unwrap(e:T_joinError):Array<stdgo.Error> {
-        return [for (i in stdgo._internal.errors.Errors.T_joinError_static_extension.unwrap(e)) i];
+    static public function unwrap(_e:T_joinError):Array<stdgo.Error> {
+        return [for (i in stdgo._internal.errors.Errors.T_joinError_static_extension.unwrap(_e)) i];
     }
-    static public function error(e:T_joinError):String {
-        return stdgo._internal.errors.Errors.T_joinError_static_extension.error(e);
+    static public function error(_e:T_joinError):String {
+        return stdgo._internal.errors.Errors.T_joinError_static_extension.error(_e);
     }
 }
 /**
@@ -123,8 +123,8 @@ class Errors {
         New returns an error that formats as the given text.
         Each call to New returns a distinct error value even if the text is identical.
     **/
-    static public function new_(text:String):stdgo.Error {
-        return stdgo._internal.errors.Errors.new_(text);
+    static public function new_(_text:String):stdgo.Error {
+        return stdgo._internal.errors.Errors.new_(_text);
     }
     /**
         Join returns an error that wraps the given errors.
@@ -136,8 +136,8 @@ class Errors {
         
         A non-nil error returned by Join implements the Unwrap() []error method.
     **/
-    static public function join(errs:haxe.Rest<stdgo.Error>):stdgo.Error {
-        return stdgo._internal.errors.Errors.join(...[for (i in errs) i]);
+    static public function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
+        return stdgo._internal.errors.Errors.join(...[for (i in _errs) i]);
     }
     /**
         Unwrap returns the result of calling the Unwrap method on err, if err's
@@ -147,8 +147,8 @@ class Errors {
         Unwrap only calls a method of the form "Unwrap() error".
         In particular Unwrap does not unwrap errors returned by [Join].
     **/
-    static public function unwrap(err:stdgo.Error):stdgo.Error {
-        return stdgo._internal.errors.Errors.unwrap(err);
+    static public function unwrap(_err:stdgo.Error):stdgo.Error {
+        return stdgo._internal.errors.Errors.unwrap(_err);
     }
     /**
         Is reports whether any error in err's tree matches target.
@@ -169,8 +169,8 @@ class Errors {
         an example in the standard library. An Is method should only shallowly
         compare err and the target and not call Unwrap on either.
     **/
-    static public function is_(err:stdgo.Error, target:stdgo.Error):Bool {
-        return stdgo._internal.errors.Errors.is_(err, target);
+    static public function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
+        return stdgo._internal.errors.Errors.is_(_err, _target);
     }
     /**
         As finds the first error in err's tree that matches target, and if one is found, sets
@@ -191,7 +191,7 @@ class Errors {
         As panics if target is not a non-nil pointer to either a type that implements
         error, or to any interface type.
     **/
-    static public function as(err:stdgo.Error, target:stdgo.AnyInterface):Bool {
-        return stdgo._internal.errors.Errors.as(err, target);
+    static public function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool {
+        return stdgo._internal.errors.Errors.as(_err, _target);
     }
 }

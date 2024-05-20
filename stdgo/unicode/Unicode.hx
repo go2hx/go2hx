@@ -1651,14 +1651,14 @@ private function set_foldScript(v:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._i
 typedef SpecialCase = stdgo._internal.unicode.Unicode.SpecialCase;
 typedef T_d = stdgo._internal.unicode.Unicode.T_d;
 class SpecialCase_static_extension {
-    static public function toLower(special:SpecialCase, r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.SpecialCase_static_extension.toLower(special, r);
+    static public function toLower(_special:SpecialCase, _r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.SpecialCase_static_extension.toLower(_special, _r);
     }
-    static public function toTitle(special:SpecialCase, r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.SpecialCase_static_extension.toTitle(special, r);
+    static public function toTitle(_special:SpecialCase, _r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.SpecialCase_static_extension.toTitle(_special, _r);
     }
-    static public function toUpper(special:SpecialCase, r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.SpecialCase_static_extension.toUpper(special, r);
+    static public function toUpper(_special:SpecialCase, _r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.SpecialCase_static_extension.toUpper(_special, _r);
     }
 }
 /**
@@ -1669,16 +1669,16 @@ class Unicode {
     /**
         IsDigit reports whether the rune is a decimal digit.
     **/
-    static public function isDigit(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isDigit(r);
+    static public function isDigit(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isDigit(_r);
     }
     /**
         IsGraphic reports whether the rune is defined as a Graphic by Unicode.
         Such characters include letters, marks, numbers, punctuation, symbols, and
         spaces, from categories L, M, N, P, S, Zs.
     **/
-    static public function isGraphic(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isGraphic(r);
+    static public function isGraphic(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isGraphic(_r);
     }
     /**
         IsPrint reports whether the rune is defined as printable by Go. Such
@@ -1687,55 +1687,55 @@ class Unicode {
         character. This categorization is the same as IsGraphic except that the
         only spacing character is ASCII space, U+0020.
     **/
-    static public function isPrint(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isPrint(r);
+    static public function isPrint(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isPrint(_r);
     }
     /**
         IsOneOf reports whether the rune is a member of one of the ranges.
         The function "In" provides a nicer signature and should be used in preference to IsOneOf.
     **/
-    static public function isOneOf(ranges:Array<RangeTable>, r:StdTypes.Int):Bool {
-        final ranges = ([for (i in ranges) i] : stdgo.Slice<stdgo.Ref<RangeTable>>);
-        return stdgo._internal.unicode.Unicode.isOneOf(ranges, r);
+    static public function isOneOf(_ranges:Array<RangeTable>, _r:StdTypes.Int):Bool {
+        final _ranges = ([for (i in _ranges) i] : stdgo.Slice<stdgo.Ref<RangeTable>>);
+        return stdgo._internal.unicode.Unicode.isOneOf(_ranges, _r);
     }
     /**
         In reports whether the rune is a member of one of the ranges.
     **/
-    static public function in_(r:StdTypes.Int, ranges:haxe.Rest<RangeTable>):Bool {
-        return stdgo._internal.unicode.Unicode.in_(r, ...[for (i in ranges) i]);
+    static public function in_(_r:StdTypes.Int, _ranges:haxe.Rest<RangeTable>):Bool {
+        return stdgo._internal.unicode.Unicode.in_(_r, ...[for (i in _ranges) i]);
     }
     /**
         IsControl reports whether the rune is a control character.
         The C (Other) Unicode category includes more code points
         such as surrogates; use Is(C, r) to test for them.
     **/
-    static public function isControl(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isControl(r);
+    static public function isControl(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isControl(_r);
     }
     /**
         IsLetter reports whether the rune is a letter (category L).
     **/
-    static public function isLetter(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isLetter(r);
+    static public function isLetter(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isLetter(_r);
     }
     /**
         IsMark reports whether the rune is a mark character (category M).
     **/
-    static public function isMark(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isMark(r);
+    static public function isMark(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isMark(_r);
     }
     /**
         IsNumber reports whether the rune is a number (category N).
     **/
-    static public function isNumber(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isNumber(r);
+    static public function isNumber(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isNumber(_r);
     }
     /**
         IsPunct reports whether the rune is a Unicode punctuation character
         (category P).
     **/
-    static public function isPunct(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isPunct(r);
+    static public function isPunct(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isPunct(_r);
     }
     /**
         IsSpace reports whether the rune is a space character as defined
@@ -1747,62 +1747,62 @@ class Unicode {
         Other definitions of spacing characters are set by category
         Z and property Pattern_White_Space.
     **/
-    static public function isSpace(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isSpace(r);
+    static public function isSpace(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isSpace(_r);
     }
     /**
         IsSymbol reports whether the rune is a symbolic character.
     **/
-    static public function isSymbol(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isSymbol(r);
+    static public function isSymbol(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isSymbol(_r);
     }
     /**
         Is reports whether the rune is in the specified table of ranges.
     **/
-    static public function is_(rangeTab:RangeTable, r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.is_(rangeTab, r);
+    static public function is_(_rangeTab:RangeTable, _r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.is_(_rangeTab, _r);
     }
     /**
         IsUpper reports whether the rune is an upper case letter.
     **/
-    static public function isUpper(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isUpper(r);
+    static public function isUpper(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isUpper(_r);
     }
     /**
         IsLower reports whether the rune is a lower case letter.
     **/
-    static public function isLower(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isLower(r);
+    static public function isLower(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isLower(_r);
     }
     /**
         IsTitle reports whether the rune is a title case letter.
     **/
-    static public function isTitle(r:StdTypes.Int):Bool {
-        return stdgo._internal.unicode.Unicode.isTitle(r);
+    static public function isTitle(_r:StdTypes.Int):Bool {
+        return stdgo._internal.unicode.Unicode.isTitle(_r);
     }
     /**
         To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
     **/
-    static public function to(_case:StdTypes.Int, r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.to(_case, r);
+    static public function to(__case:StdTypes.Int, _r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.to(__case, _r);
     }
     /**
         ToUpper maps the rune to upper case.
     **/
-    static public function toUpper(r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.toUpper(r);
+    static public function toUpper(_r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.toUpper(_r);
     }
     /**
         ToLower maps the rune to lower case.
     **/
-    static public function toLower(r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.toLower(r);
+    static public function toLower(_r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.toLower(_r);
     }
     /**
         ToTitle maps the rune to title case.
     **/
-    static public function toTitle(r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.toTitle(r);
+    static public function toTitle(_r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.toTitle(_r);
     }
     /**
         SimpleFold iterates over Unicode code points equivalent under
@@ -1824,7 +1824,7 @@ class Unicode {
         
         	SimpleFold(-2) = -2
     **/
-    static public function simpleFold(r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.unicode.Unicode.simpleFold(r);
+    static public function simpleFold(_r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.unicode.Unicode.simpleFold(_r);
     }
 }

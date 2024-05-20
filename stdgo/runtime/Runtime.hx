@@ -392,73 +392,73 @@ class T__struct_0_static_extension {
 }
 typedef T__struct_0 = stdgo._internal.runtime.Runtime.T__struct_0;
 class TypeAssertionError_static_extension {
-    static public function error(e:TypeAssertionError):String {
-        return stdgo._internal.runtime.Runtime.TypeAssertionError_static_extension.error(e);
+    static public function error(_e:TypeAssertionError):String {
+        return stdgo._internal.runtime.Runtime.TypeAssertionError_static_extension.error(_e);
     }
-    static public function runtimeError(:TypeAssertionError):Void {
-        stdgo._internal.runtime.Runtime.TypeAssertionError_static_extension.runtimeError();
+    static public function runtimeError(_:TypeAssertionError):Void {
+        stdgo._internal.runtime.Runtime.TypeAssertionError_static_extension.runtimeError(_);
     }
 }
 class StackRecord_static_extension {
-    static public function stack(r:StackRecord):Array<stdgo.GoUIntptr> {
-        return [for (i in stdgo._internal.runtime.Runtime.StackRecord_static_extension.stack(r)) i];
+    static public function stack(_r:StackRecord):Array<stdgo.GoUIntptr> {
+        return [for (i in stdgo._internal.runtime.Runtime.StackRecord_static_extension.stack(_r)) i];
     }
 }
 class MemProfileRecord_static_extension {
-    static public function stack(r:MemProfileRecord):Array<stdgo.GoUIntptr> {
-        return [for (i in stdgo._internal.runtime.Runtime.MemProfileRecord_static_extension.stack(r)) i];
+    static public function stack(_r:MemProfileRecord):Array<stdgo.GoUIntptr> {
+        return [for (i in stdgo._internal.runtime.Runtime.MemProfileRecord_static_extension.stack(_r)) i];
     }
-    static public function inUseObjects(r:MemProfileRecord):haxe.Int64 {
-        return stdgo._internal.runtime.Runtime.MemProfileRecord_static_extension.inUseObjects(r);
+    static public function inUseObjects(_r:MemProfileRecord):haxe.Int64 {
+        return stdgo._internal.runtime.Runtime.MemProfileRecord_static_extension.inUseObjects(_r);
     }
-    static public function inUseBytes(r:MemProfileRecord):haxe.Int64 {
-        return stdgo._internal.runtime.Runtime.MemProfileRecord_static_extension.inUseBytes(r);
+    static public function inUseBytes(_r:MemProfileRecord):haxe.Int64 {
+        return stdgo._internal.runtime.Runtime.MemProfileRecord_static_extension.inUseBytes(_r);
     }
 }
 class BlockProfileRecord_static_extension {
-    public static function stack(_self__:BlockProfileRecord):Array<stdgo.GoUIntptr> {
-        return [for (i in stdgo._internal.runtime.Runtime.BlockProfileRecord_static_extension.stack(_self__)) i];
+    public static function stack(__self__:BlockProfileRecord):Array<stdgo.GoUIntptr> {
+        return [for (i in stdgo._internal.runtime.Runtime.BlockProfileRecord_static_extension.stack(__self__)) i];
     }
 }
 class PanicNilError_static_extension {
-    static public function runtimeError(:PanicNilError):Void {
-        stdgo._internal.runtime.Runtime.PanicNilError_static_extension.runtimeError();
+    static public function runtimeError(_:PanicNilError):Void {
+        stdgo._internal.runtime.Runtime.PanicNilError_static_extension.runtimeError(_);
     }
-    static public function error(:PanicNilError):String {
-        return stdgo._internal.runtime.Runtime.PanicNilError_static_extension.error();
+    static public function error(_:PanicNilError):String {
+        return stdgo._internal.runtime.Runtime.PanicNilError_static_extension.error(_);
     }
 }
 class Pinner_static_extension {
-    static public function unpin(p:Pinner):Void {
-        stdgo._internal.runtime.Runtime.Pinner_static_extension.unpin(p);
+    static public function unpin(_p:Pinner):Void {
+        stdgo._internal.runtime.Runtime.Pinner_static_extension.unpin(_p);
     }
-    static public function pin(p:Pinner, pointer:stdgo.AnyInterface):Void {
-        stdgo._internal.runtime.Runtime.Pinner_static_extension.pin(p, pointer);
+    static public function pin(_p:Pinner, _pointer:stdgo.AnyInterface):Void {
+        stdgo._internal.runtime.Runtime.Pinner_static_extension.pin(_p, _pointer);
     }
-    public static function _unpin(_self__:Pinner) {
-        stdgo._internal.runtime.Runtime.Pinner_static_extension._unpin(_self__);
+    public static function _unpin(__self__:Pinner) {
+        stdgo._internal.runtime.Runtime.Pinner_static_extension._unpin(__self__);
     }
 }
 class Frames_static_extension {
-    static public function next(ci:Frames):stdgo.Tuple<Frame, Bool> {
+    static public function next(_ci:Frames):stdgo.Tuple<Frame, Bool> {
         return {
-            final obj = stdgo._internal.runtime.Runtime.Frames_static_extension.next(ci);
+            final obj = stdgo._internal.runtime.Runtime.Frames_static_extension.next(_ci);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class Func_static_extension {
-    static public function fileLine(f:Func, pc:stdgo.GoUIntptr):stdgo.Tuple<String, StdTypes.Int> {
+    static public function fileLine(_f:Func, _pc:stdgo.GoUIntptr):stdgo.Tuple<String, StdTypes.Int> {
         return {
-            final obj = stdgo._internal.runtime.Runtime.Func_static_extension.fileLine(f, pc);
+            final obj = stdgo._internal.runtime.Runtime.Func_static_extension.fileLine(_f, _pc);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function entry(f:Func):stdgo.GoUIntptr {
-        return stdgo._internal.runtime.Runtime.Func_static_extension.entry(f);
+    static public function entry(_f:Func):stdgo.GoUIntptr {
+        return stdgo._internal.runtime.Runtime.Func_static_extension.entry(_f);
     }
-    static public function name(f:Func):String {
-        return stdgo._internal.runtime.Runtime.Func_static_extension.name(f);
+    static public function name(_f:Func):String {
+        return stdgo._internal.runtime.Runtime.Func_static_extension.name(_f);
     }
 }
 /**
@@ -726,8 +726,8 @@ class Runtime {
         the testing package's -test.cpuprofile flag instead of calling
         SetCPUProfileRate directly.
     **/
-    static public function setCPUProfileRate(hz:StdTypes.Int):Void {
-        stdgo._internal.runtime.Runtime.setCPUProfileRate(hz);
+    static public function setCPUProfileRate(_hz:StdTypes.Int):Void {
+        stdgo._internal.runtime.Runtime.setCPUProfileRate(_hz);
     }
     /**
         CPUProfile panics.
@@ -749,8 +749,8 @@ class Runtime {
         the value of runtime.NumCPU. If n < 1, it does not change the current setting.
         This call will go away when the scheduler improves.
     **/
-    static public function gomaxprocs(n:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.runtime.Runtime.gomaxprocs(n);
+    static public function gomaxprocs(_n:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.runtime.Runtime.gomaxprocs(_n);
     }
     /**
         NumCPU returns the number of logical CPUs usable by the current process.
@@ -782,9 +782,9 @@ class Runtime {
         program counter, file name, and line number within the file of the corresponding
         call. The boolean ok is false if it was not possible to recover the information.
     **/
-    static public function caller(skip:StdTypes.Int):stdgo.Tuple.Tuple4<stdgo.GoUIntptr, String, StdTypes.Int, Bool> {
+    static public function caller(_skip:StdTypes.Int):stdgo.Tuple.Tuple4<stdgo.GoUIntptr, String, StdTypes.Int, Bool> {
         return {
-            final obj = stdgo._internal.runtime.Runtime.caller(skip);
+            final obj = stdgo._internal.runtime.Runtime.caller(_skip);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
@@ -803,9 +803,9 @@ class Runtime {
         returned PCs, since these cannot account for inlining or return
         program counter adjustment.
     **/
-    static public function callers(skip:StdTypes.Int, pc:Array<stdgo.GoUIntptr>):StdTypes.Int {
-        final pc = ([for (i in pc) i] : stdgo.Slice<stdgo.GoUIntptr>);
-        return stdgo._internal.runtime.Runtime.callers(skip, pc);
+    static public function callers(_skip:StdTypes.Int, _pc:Array<stdgo.GoUIntptr>):StdTypes.Int {
+        final _pc = ([for (i in _pc) i] : stdgo.Slice<stdgo.GoUIntptr>);
+        return stdgo._internal.runtime.Runtime.callers(_skip, _pc);
     }
     /**
         GOROOT returns the root of the Go tree. It uses the
@@ -911,8 +911,8 @@ class Runtime {
         need to use appropriate synchronization, such as mutexes or atomic updates,
         to avoid read-write races.
     **/
-    static public function setFinalizer(obj:stdgo.AnyInterface, finalizer:stdgo.AnyInterface):Void {
-        stdgo._internal.runtime.Runtime.setFinalizer(obj, finalizer);
+    static public function setFinalizer(_obj:stdgo.AnyInterface, _finalizer:stdgo.AnyInterface):Void {
+        stdgo._internal.runtime.Runtime.setFinalizer(_obj, _finalizer);
     }
     /**
         KeepAlive marks its argument as currently reachable.
@@ -940,8 +940,8 @@ class Runtime {
         running prematurely. In particular, when used with unsafe.Pointer,
         the rules for valid uses of unsafe.Pointer still apply.
     **/
-    static public function keepAlive(x:stdgo.AnyInterface):Void {
-        stdgo._internal.runtime.Runtime.keepAlive(x);
+    static public function keepAlive(_x:stdgo.AnyInterface):Void {
+        stdgo._internal.runtime.Runtime.keepAlive(_x);
     }
     /**
         GC runs a garbage collection and blocks the caller until the
@@ -959,8 +959,8 @@ class Runtime {
         To include every blocking event in the profile, pass rate = 1.
         To turn off profiling entirely, pass rate <= 0.
     **/
-    static public function setBlockProfileRate(rate:StdTypes.Int):Void {
-        stdgo._internal.runtime.Runtime.setBlockProfileRate(rate);
+    static public function setBlockProfileRate(_rate:StdTypes.Int):Void {
+        stdgo._internal.runtime.Runtime.setBlockProfileRate(_rate);
     }
     /**
         SetMutexProfileFraction controls the fraction of mutex contention events
@@ -971,8 +971,8 @@ class Runtime {
         To just read the current rate, pass rate < 0.
         (For n>1 the details of sampling may change.)
     **/
-    static public function setMutexProfileFraction(rate:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.runtime.Runtime.setMutexProfileFraction(rate);
+    static public function setMutexProfileFraction(_rate:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.runtime.Runtime.setMutexProfileFraction(_rate);
     }
     /**
         MemProfile returns a profile of memory allocated and freed per allocation
@@ -997,10 +997,10 @@ class Runtime {
         the testing package's -test.memprofile flag instead
         of calling MemProfile directly.
     **/
-    static public function memProfile(p:Array<MemProfileRecord>, inuseZero:Bool):stdgo.Tuple<StdTypes.Int, Bool> {
-        final p = ([for (i in p) i] : stdgo.Slice<MemProfileRecord>);
+    static public function memProfile(_p:Array<MemProfileRecord>, _inuseZero:Bool):stdgo.Tuple<StdTypes.Int, Bool> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<MemProfileRecord>);
         return {
-            final obj = stdgo._internal.runtime.Runtime.memProfile(p, inuseZero);
+            final obj = stdgo._internal.runtime.Runtime.memProfile(_p, _inuseZero);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1013,10 +1013,10 @@ class Runtime {
         the testing package's -test.blockprofile flag instead
         of calling BlockProfile directly.
     **/
-    static public function blockProfile(p:Array<BlockProfileRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final p = ([for (i in p) i] : stdgo.Slice<BlockProfileRecord>);
+    static public function blockProfile(_p:Array<BlockProfileRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<BlockProfileRecord>);
         return {
-            final obj = stdgo._internal.runtime.Runtime.blockProfile(p);
+            final obj = stdgo._internal.runtime.Runtime.blockProfile(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1028,10 +1028,10 @@ class Runtime {
         Most clients should use the runtime/pprof package
         instead of calling MutexProfile directly.
     **/
-    static public function mutexProfile(p:Array<BlockProfileRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final p = ([for (i in p) i] : stdgo.Slice<BlockProfileRecord>);
+    static public function mutexProfile(_p:Array<BlockProfileRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<BlockProfileRecord>);
         return {
-            final obj = stdgo._internal.runtime.Runtime.mutexProfile(p);
+            final obj = stdgo._internal.runtime.Runtime.mutexProfile(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1043,10 +1043,10 @@ class Runtime {
         Most clients should use the runtime/pprof package instead
         of calling ThreadCreateProfile directly.
     **/
-    static public function threadCreateProfile(p:Array<StackRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final p = ([for (i in p) i] : stdgo.Slice<StackRecord>);
+    static public function threadCreateProfile(_p:Array<StackRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<StackRecord>);
         return {
-            final obj = stdgo._internal.runtime.Runtime.threadCreateProfile(p);
+            final obj = stdgo._internal.runtime.Runtime.threadCreateProfile(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1058,10 +1058,10 @@ class Runtime {
         Most clients should use the runtime/pprof package instead
         of calling GoroutineProfile directly.
     **/
-    static public function goroutineProfile(p:Array<StackRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
-        final p = ([for (i in p) i] : stdgo.Slice<StackRecord>);
+    static public function goroutineProfile(_p:Array<StackRecord>):stdgo.Tuple<StdTypes.Int, Bool> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<StackRecord>);
         return {
-            final obj = stdgo._internal.runtime.Runtime.goroutineProfile(p);
+            final obj = stdgo._internal.runtime.Runtime.goroutineProfile(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1071,9 +1071,9 @@ class Runtime {
         If all is true, Stack formats stack traces of all other goroutines
         into buf after the trace for the current goroutine.
     **/
-    static public function stack(buf:Array<StdTypes.Int>, all:Bool):StdTypes.Int {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.runtime.Runtime.stack(buf, all);
+    static public function stack(_buf:Array<StdTypes.Int>, _all:Bool):StdTypes.Int {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.runtime.Runtime.stack(_buf, _all);
     }
     /**
         ReadMemStats populates m with memory allocator statistics.
@@ -1083,8 +1083,8 @@ class Runtime {
         which is a snapshot as of the most recently completed garbage
         collection cycle.
     **/
-    static public function readMemStats(m:MemStats):Void {
-        stdgo._internal.runtime.Runtime.readMemStats(m);
+    static public function readMemStats(_m:MemStats):Void {
+        stdgo._internal.runtime.Runtime.readMemStats(_m);
     }
     /**
         Goexit terminates the goroutine that calls it. No other goroutine is affected.
@@ -1159,9 +1159,9 @@ class Runtime {
         prepares to return function/file/line information.
         Do not change the slice until you are done with the Frames.
     **/
-    static public function callersFrames(callers:Array<stdgo.GoUIntptr>):Frames {
-        final callers = ([for (i in callers) i] : stdgo.Slice<stdgo.GoUIntptr>);
-        return stdgo._internal.runtime.Runtime.callersFrames(callers);
+    static public function callersFrames(_callers:Array<stdgo.GoUIntptr>):Frames {
+        final _callers = ([for (i in _callers) i] : stdgo.Slice<stdgo.GoUIntptr>);
+        return stdgo._internal.runtime.Runtime.callersFrames(_callers);
     }
     /**
         FuncForPC returns a *Func describing the function that contains the
@@ -1171,8 +1171,8 @@ class Runtime {
         the *Func describing the innermost function, but with an entry of
         the outermost function.
     **/
-    static public function funcForPC(pc:stdgo.GoUIntptr):Func {
-        return stdgo._internal.runtime.Runtime.funcForPC(pc);
+    static public function funcForPC(_pc:stdgo.GoUIntptr):Func {
+        return stdgo._internal.runtime.Runtime.funcForPC(_pc);
     }
     /**
         StartTrace enables tracing for the current process.
@@ -1364,7 +1364,7 @@ class Runtime {
         
         SetCgoTraceback should be called only once, ideally from an init function.
     **/
-    static public function setCgoTraceback(version:StdTypes.Int, traceback:stdgo._internal.unsafe.Unsafe.UnsafePointer, context:stdgo._internal.unsafe.Unsafe.UnsafePointer, symbolizer:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
-        stdgo._internal.runtime.Runtime.setCgoTraceback(version, traceback, context, symbolizer);
+    static public function setCgoTraceback(_version:StdTypes.Int, _traceback:stdgo._internal.unsafe.Unsafe.UnsafePointer, _context:stdgo._internal.unsafe.Unsafe.UnsafePointer, _symbolizer:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
+        stdgo._internal.runtime.Runtime.setCgoTraceback(_version, _traceback, _context, _symbolizer);
     }
 }

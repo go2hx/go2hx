@@ -16,7 +16,7 @@ class Randutil {
         This does not affect tests that pass a stream of fixed bytes as the random
         source (e.g. a zeroReader).
     **/
-    static public function maybeReadByte(r:stdgo._internal.io.Io.Reader):Void {
-        stdgo._internal.crypto.internal.randutil.Randutil.maybeReadByte(r);
+    static public function maybeReadByte(_r:stdgo._internal.io.Io.Reader):Void {
+        stdgo._internal.crypto.internal.randutil.Randutil.maybeReadByte(_r);
     }
 }

@@ -37,24 +37,24 @@ class Testenv {
         If exec is not supported, testenv.SyscallIsNotSupported will return true
         for the resulting error.
     **/
-    static public function mustHaveExec(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveExec(t);
+    static public function mustHaveExec(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveExec(_t);
     }
     /**
         MustHaveExecPath checks that the current system can start the named executable
         using os.StartProcess or (more commonly) exec.Command.
         If not, MustHaveExecPath calls t.Skip with an explanation.
     **/
-    static public function mustHaveExecPath(t:stdgo._internal.testing.Testing.TB, path:String):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveExecPath(t, path);
+    static public function mustHaveExecPath(_t:stdgo._internal.testing.Testing.TB, _path:String):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveExecPath(_t, _path);
     }
     /**
         CleanCmdEnv will fill cmd.Env with the environment, excluding certain
         variables that could modify the behavior of the Go tools such as
         GODEBUG and GOTRACEBACK.
     **/
-    static public function cleanCmdEnv(cmd:stdgo._internal.os.exec.Exec.Cmd):stdgo._internal.os.exec.Exec.Cmd {
-        return stdgo._internal.internal.testenv.Testenv.cleanCmdEnv(cmd);
+    static public function cleanCmdEnv(_cmd:stdgo._internal.os.exec.Exec.Cmd):stdgo._internal.os.exec.Exec.Cmd {
+        return stdgo._internal.internal.testenv.Testenv.cleanCmdEnv(_cmd);
     }
     /**
         CommandContext is like exec.CommandContext, but:
@@ -66,15 +66,15 @@ class Testenv {
           - fails the test if the command does not complete before the test's deadline, and
           - sets a Cleanup function that verifies that the test did not leak a subprocess.
     **/
-    static public function commandContext(t:stdgo._internal.testing.Testing.TB, ctx:stdgo._internal.context.Context.Context, name:String, args:haxe.Rest<String>):stdgo._internal.os.exec.Exec.Cmd {
-        return stdgo._internal.internal.testenv.Testenv.commandContext(t, ctx, name, ...[for (i in args) i]);
+    static public function commandContext(_t:stdgo._internal.testing.Testing.TB, _ctx:stdgo._internal.context.Context.Context, _name:String, _args:haxe.Rest<String>):stdgo._internal.os.exec.Exec.Cmd {
+        return stdgo._internal.internal.testenv.Testenv.commandContext(_t, _ctx, _name, ...[for (i in _args) i]);
     }
     /**
         Command is like exec.Command, but applies the same changes as
         testenv.CommandContext (with a default Context).
     **/
-    static public function command(t:stdgo._internal.testing.Testing.TB, name:String, args:haxe.Rest<String>):stdgo._internal.os.exec.Exec.Cmd {
-        return stdgo._internal.internal.testenv.Testenv.command(t, name, ...[for (i in args) i]);
+    static public function command(_t:stdgo._internal.testing.Testing.TB, _name:String, _args:haxe.Rest<String>):stdgo._internal.os.exec.Exec.Cmd {
+        return stdgo._internal.internal.testenv.Testenv.command(_t, _name, ...[for (i in _args) i]);
     }
     /**
         OptimizationOff reports whether optimization is disabled.
@@ -103,8 +103,8 @@ class Testenv {
         and then run them with os.StartProcess or exec.Command.
         If not, MustHaveGoBuild calls t.Skip with an explanation.
     **/
-    static public function mustHaveGoBuild(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveGoBuild(t);
+    static public function mustHaveGoBuild(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveGoBuild(_t);
     }
     /**
         HasGoRun reports whether the current system can run programs with “go run.”
@@ -116,8 +116,8 @@ class Testenv {
         MustHaveGoRun checks that the current system can run programs with “go run.”
         If not, MustHaveGoRun calls t.Skip with an explanation.
     **/
-    static public function mustHaveGoRun(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveGoRun(t);
+    static public function mustHaveGoRun(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveGoRun(_t);
     }
     /**
         HasParallelism reports whether the current system can execute multiple
@@ -131,8 +131,8 @@ class Testenv {
         MustHaveParallelism checks that the current system can execute multiple
         threads in parallel. If not, MustHaveParallelism calls t.Skip with an explanation.
     **/
-    static public function mustHaveParallelism(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveParallelism(t);
+    static public function mustHaveParallelism(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveParallelism(_t);
     }
     /**
         GoToolPath reports the path to the Go tool.
@@ -140,8 +140,8 @@ class Testenv {
         If the tool is unavailable GoToolPath calls t.Skip.
         If the tool should be available and isn't, GoToolPath calls t.Fatal.
     **/
-    static public function goToolPath(t:stdgo._internal.testing.Testing.TB):String {
-        return stdgo._internal.internal.testenv.Testenv.goToolPath(t);
+    static public function goToolPath(_t:stdgo._internal.testing.Testing.TB):String {
+        return stdgo._internal.internal.testenv.Testenv.goToolPath(_t);
     }
     /**
         GOROOT reports the path to the directory containing the root of the Go
@@ -152,8 +152,8 @@ class Testenv {
         If GOROOT cannot be found, GOROOT skips t if t is non-nil,
         or panics otherwise.
     **/
-    static public function goroot(t:stdgo._internal.testing.Testing.TB):String {
-        return stdgo._internal.internal.testenv.Testenv.goroot(t);
+    static public function goroot(_t:stdgo._internal.testing.Testing.TB):String {
+        return stdgo._internal.internal.testenv.Testenv.goroot(_t);
     }
     /**
         GoTool reports the path to the Go tool.
@@ -182,8 +182,8 @@ class Testenv {
         external (non-localhost) networks.
         If not, MustHaveExternalNetwork calls t.Skip with an explanation.
     **/
-    static public function mustHaveExternalNetwork(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveExternalNetwork(t);
+    static public function mustHaveExternalNetwork(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveExternalNetwork(_t);
     }
     /**
         HasCGO reports whether the current system can use cgo.
@@ -194,31 +194,31 @@ class Testenv {
     /**
         MustHaveCGO calls t.Skip if cgo is not available.
     **/
-    static public function mustHaveCGO(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveCGO(t);
+    static public function mustHaveCGO(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveCGO(_t);
     }
     /**
         CanInternalLink reports whether the current system can link programs with
         internal linking.
     **/
-    static public function canInternalLink(withCgo:Bool):Bool {
-        return stdgo._internal.internal.testenv.Testenv.canInternalLink(withCgo);
+    static public function canInternalLink(_withCgo:Bool):Bool {
+        return stdgo._internal.internal.testenv.Testenv.canInternalLink(_withCgo);
     }
     /**
         MustInternalLink checks that the current system can link programs with internal
         linking.
         If not, MustInternalLink calls t.Skip with an explanation.
     **/
-    static public function mustInternalLink(t:stdgo._internal.testing.Testing.TB, withCgo:Bool):Void {
-        stdgo._internal.internal.testenv.Testenv.mustInternalLink(t, withCgo);
+    static public function mustInternalLink(_t:stdgo._internal.testing.Testing.TB, _withCgo:Bool):Void {
+        stdgo._internal.internal.testenv.Testenv.mustInternalLink(_t, _withCgo);
     }
     /**
         MustHaveBuildMode reports whether the current system can build programs in
         the given build mode.
         If not, MustHaveBuildMode calls t.Skip with an explanation.
     **/
-    static public function mustHaveBuildMode(t:stdgo._internal.testing.Testing.TB, buildmode:String):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveBuildMode(t, buildmode);
+    static public function mustHaveBuildMode(_t:stdgo._internal.testing.Testing.TB, _buildmode:String):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveBuildMode(_t, _buildmode);
     }
     /**
         HasSymlink reports whether the current system can use os.Symlink.
@@ -230,8 +230,8 @@ class Testenv {
         MustHaveSymlink reports whether the current system can use os.Symlink.
         If not, MustHaveSymlink calls t.Skip with an explanation.
     **/
-    static public function mustHaveSymlink(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveSymlink(t);
+    static public function mustHaveSymlink(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveSymlink(_t);
     }
     /**
         HasLink reports whether the current system can use os.Link.
@@ -243,14 +243,14 @@ class Testenv {
         MustHaveLink reports whether the current system can use os.Link.
         If not, MustHaveLink calls t.Skip with an explanation.
     **/
-    static public function mustHaveLink(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.mustHaveLink(t);
+    static public function mustHaveLink(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.mustHaveLink(_t);
     }
-    static public function skipFlaky(t:stdgo._internal.testing.Testing.TB, issue:StdTypes.Int):Void {
-        stdgo._internal.internal.testenv.Testenv.skipFlaky(t, issue);
+    static public function skipFlaky(_t:stdgo._internal.testing.Testing.TB, _issue:StdTypes.Int):Void {
+        stdgo._internal.internal.testenv.Testenv.skipFlaky(_t, _issue);
     }
-    static public function skipFlakyNet(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.skipFlakyNet(t);
+    static public function skipFlakyNet(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.skipFlakyNet(_t);
     }
     /**
         CPUIsSlow reports whether the CPU running the test is suspected to be slow.
@@ -264,14 +264,14 @@ class Testenv {
         
         (This is useful for CPU-intensive tests that otherwise complete quickly.)
     **/
-    static public function skipIfShortAndSlow(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.skipIfShortAndSlow(t);
+    static public function skipIfShortAndSlow(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.skipIfShortAndSlow(_t);
     }
     /**
         SkipIfOptimizationOff skips t if optimization is disabled.
     **/
-    static public function skipIfOptimizationOff(t:stdgo._internal.testing.Testing.TB):Void {
-        stdgo._internal.internal.testenv.Testenv.skipIfOptimizationOff(t);
+    static public function skipIfOptimizationOff(_t:stdgo._internal.testing.Testing.TB):Void {
+        stdgo._internal.internal.testenv.Testenv.skipIfOptimizationOff(_t);
     }
     /**
         WriteImportcfg writes an importcfg file used by the compiler or linker to
@@ -281,14 +281,14 @@ class Testenv {
         pkgs may include any package pattern that is valid to pass to 'go list',
         so it may also be a list of Go source files all in the same directory.
     **/
-    static public function writeImportcfg(t:stdgo._internal.testing.Testing.TB, dstPath:String, packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, pkgs:haxe.Rest<String>):Void {
-        stdgo._internal.internal.testenv.Testenv.writeImportcfg(t, dstPath, packageFiles, ...[for (i in pkgs) i]);
+    static public function writeImportcfg(_t:stdgo._internal.testing.Testing.TB, _dstPath:String, _packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<String>):Void {
+        stdgo._internal.internal.testenv.Testenv.writeImportcfg(_t, _dstPath, _packageFiles, ...[for (i in _pkgs) i]);
     }
     /**
         SyscallIsNotSupported reports whether err may indicate that a system call is
         not supported by the current platform or execution environment.
     **/
-    static public function syscallIsNotSupported(err:stdgo.Error):Bool {
-        return stdgo._internal.internal.testenv.Testenv.syscallIsNotSupported(err);
+    static public function syscallIsNotSupported(_err:stdgo.Error):Bool {
+        return stdgo._internal.internal.testenv.Testenv.syscallIsNotSupported(_err);
     }
 }

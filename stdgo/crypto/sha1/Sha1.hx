@@ -71,43 +71,43 @@ final blockSize : haxe.UInt64 = stdgo._internal.crypto.sha1.Sha1.blockSize;
     public function __copy__() return this.__copy__();
 }
 class T_digest_static_extension {
-    static public function _constSum(d:T_digest):haxe.ds.Vector<StdTypes.Int> {
-        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension._constSum(d)) i]);
+    static public function _constSum(_d:T_digest):haxe.ds.Vector<StdTypes.Int> {
+        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension._constSum(_d)) i]);
     }
-    static public function constantTimeSum(d:T_digest, _in:Array<StdTypes.Int>):Array<StdTypes.Int> {
+    static public function constantTimeSum(_d:T_digest, _in:Array<StdTypes.Int>):Array<StdTypes.Int> {
         final _in = ([for (i in _in) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.constantTimeSum(d, _in)) i];
+        return [for (i in stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.constantTimeSum(_d, _in)) i];
     }
-    static public function _checkSum(d:T_digest):haxe.ds.Vector<StdTypes.Int> {
-        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension._checkSum(d)) i]);
+    static public function _checkSum(_d:T_digest):haxe.ds.Vector<StdTypes.Int> {
+        return haxe.ds.Vector.fromArrayCopy([for (i in stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension._checkSum(_d)) i]);
     }
-    static public function sum(d:T_digest, _in:Array<StdTypes.Int>):Array<StdTypes.Int> {
+    static public function sum(_d:T_digest, _in:Array<StdTypes.Int>):Array<StdTypes.Int> {
         final _in = ([for (i in _in) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.sum(d, _in)) i];
+        return [for (i in stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.sum(_d, _in)) i];
     }
-    static public function write(d:T_digest, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_d:T_digest, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.write(d, p);
+            final obj = stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.write(_d, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function blockSize(d:T_digest):StdTypes.Int {
-        return stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.blockSize(d);
+    static public function blockSize(_d:T_digest):StdTypes.Int {
+        return stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.blockSize(_d);
     }
-    static public function size(d:T_digest):StdTypes.Int {
-        return stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.size(d);
+    static public function size(_d:T_digest):StdTypes.Int {
+        return stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.size(_d);
     }
-    static public function reset(d:T_digest):Void {
-        stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.reset(d);
+    static public function reset(_d:T_digest):Void {
+        stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.reset(_d);
     }
-    static public function unmarshalBinary(d:T_digest, b:Array<StdTypes.Int>):stdgo.Error {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.unmarshalBinary(d, b);
+    static public function unmarshalBinary(_d:T_digest, _b:Array<StdTypes.Int>):stdgo.Error {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.unmarshalBinary(_d, _b);
     }
-    static public function marshalBinary(d:T_digest):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function marshalBinary(_d:T_digest):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.marshalBinary(d);
+            final obj = stdgo._internal.crypto.sha1.Sha1.T_digest_static_extension.marshalBinary(_d);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -130,44 +130,44 @@ class Sha1 {
     /**
         Sum returns the SHA-1 checksum of the data.
     **/
-    static public function sum(data:Array<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
-        final data = ([for (i in data) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.crypto.sha1.Sha1.sum(data);
+    static public function sum(_data:Array<StdTypes.Int>):haxe.ds.Vector<StdTypes.Int> {
+        final _data = ([for (i in _data) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.crypto.sha1.Sha1.sum(_data);
     }
-    static public function testGolden(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.crypto.sha1.Sha1.testGolden(t);
+    static public function testGolden(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.crypto.sha1.Sha1.testGolden(_t);
     }
-    static public function testGoldenMarshal(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.crypto.sha1.Sha1.testGoldenMarshal(t);
+    static public function testGoldenMarshal(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.crypto.sha1.Sha1.testGoldenMarshal(_t);
     }
-    static public function testSize(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.crypto.sha1.Sha1.testSize(t);
+    static public function testSize(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.crypto.sha1.Sha1.testSize(_t);
     }
-    static public function testBlockSize(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.crypto.sha1.Sha1.testBlockSize(t);
+    static public function testBlockSize(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.crypto.sha1.Sha1.testBlockSize(_t);
     }
     /**
         Tests that blockGeneric (pure Go) and block (in assembly for some architectures) match.
     **/
-    static public function testBlockGeneric(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.crypto.sha1.Sha1.testBlockGeneric(t);
+    static public function testBlockGeneric(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.crypto.sha1.Sha1.testBlockGeneric(_t);
     }
-    static public function testLargeHashes(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.crypto.sha1.Sha1.testLargeHashes(t);
+    static public function testLargeHashes(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.crypto.sha1.Sha1.testLargeHashes(_t);
     }
-    static public function testAllocations(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.crypto.sha1.Sha1.testAllocations(t);
+    static public function testAllocations(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.crypto.sha1.Sha1.testAllocations(_t);
     }
-    static public function benchmarkHash8Bytes(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.crypto.sha1.Sha1.benchmarkHash8Bytes(b);
+    static public function benchmarkHash8Bytes(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.crypto.sha1.Sha1.benchmarkHash8Bytes(_b);
     }
-    static public function benchmarkHash320Bytes(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.crypto.sha1.Sha1.benchmarkHash320Bytes(b);
+    static public function benchmarkHash320Bytes(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.crypto.sha1.Sha1.benchmarkHash320Bytes(_b);
     }
-    static public function benchmarkHash1K(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.crypto.sha1.Sha1.benchmarkHash1K(b);
+    static public function benchmarkHash1K(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.crypto.sha1.Sha1.benchmarkHash1K(_b);
     }
-    static public function benchmarkHash8K(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.crypto.sha1.Sha1.benchmarkHash8K(b);
+    static public function benchmarkHash8K(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.crypto.sha1.Sha1.benchmarkHash8K(_b);
     }
 }

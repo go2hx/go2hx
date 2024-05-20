@@ -9,9 +9,9 @@ class Hash__static_extension {
     static public function reset(t:Hash_):Void {
         stdgo._internal.hash.Hash.Hash_static_extension.reset(t);
     }
-    static public function sum(t:Hash_, b:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.hash.Hash.Hash_static_extension.sum(t, b)) i];
+    static public function sum(t:Hash_, _b:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.hash.Hash.Hash_static_extension.sum(t, _b)) i];
     }
 }
 typedef Hash = stdgo._internal.hash.Hash.Hash;

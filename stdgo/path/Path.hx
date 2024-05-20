@@ -29,14 +29,14 @@ private function set_errBadPattern(v:stdgo.Error):stdgo.Error {
     public function __copy__() return this.__copy__();
 }
 class T_lazybuf_static_extension {
-    static public function _string(b:T_lazybuf):String {
-        return stdgo._internal.path.Path.T_lazybuf_static_extension._string(b);
+    static public function _string(_b:T_lazybuf):String {
+        return stdgo._internal.path.Path.T_lazybuf_static_extension._string(_b);
     }
-    static public function _append(b:T_lazybuf, c:StdTypes.Int):Void {
-        stdgo._internal.path.Path.T_lazybuf_static_extension._append(b, c);
+    static public function _append(_b:T_lazybuf, _c:StdTypes.Int):Void {
+        stdgo._internal.path.Path.T_lazybuf_static_extension._append(_b, _c);
     }
-    static public function _index(b:T_lazybuf, i:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.path.Path.T_lazybuf_static_extension._index(b, i);
+    static public function _index(_b:T_lazybuf, _i:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.path.Path.T_lazybuf_static_extension._index(_b, _i);
     }
 }
 /**
@@ -72,9 +72,9 @@ class Path {
         The only possible returned error is ErrBadPattern, when pattern
         is malformed.
     **/
-    static public function match(pattern:String, name:String):stdgo.Tuple<Bool, stdgo.Error> {
+    static public function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error> {
         return {
-            final obj = stdgo._internal.path.Path.match(pattern, name);
+            final obj = stdgo._internal.path.Path.match(_pattern, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -99,8 +99,8 @@ class Path {
         Getting Dot-Dot Right,”
         https://9p.io/sys/doc/lexnames.html
     **/
-    static public function clean(path:String):String {
-        return stdgo._internal.path.Path.clean(path);
+    static public function clean(_path:String):String {
+        return stdgo._internal.path.Path.clean(_path);
     }
     /**
         Split splits path immediately following the final slash,
@@ -109,9 +109,9 @@ class Path {
         file set to path.
         The returned values have the property that path = dir+file.
     **/
-    static public function split(path:String):stdgo.Tuple<String, String> {
+    static public function split(_path:String):stdgo.Tuple<String, String> {
         return {
-            final obj = stdgo._internal.path.Path.split(path);
+            final obj = stdgo._internal.path.Path.split(_path);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -122,8 +122,8 @@ class Path {
         empty or all its elements are empty, Join returns
         an empty string.
     **/
-    static public function join(elem:haxe.Rest<String>):String {
-        return stdgo._internal.path.Path.join(...[for (i in elem) i]);
+    static public function join(_elem:haxe.Rest<String>):String {
+        return stdgo._internal.path.Path.join(...[for (i in _elem) i]);
     }
     /**
         Ext returns the file name extension used by path.
@@ -131,8 +131,8 @@ class Path {
         in the final slash-separated element of path;
         it is empty if there is no dot.
     **/
-    static public function ext(path:String):String {
-        return stdgo._internal.path.Path.ext(path);
+    static public function ext(_path:String):String {
+        return stdgo._internal.path.Path.ext(_path);
     }
     /**
         Base returns the last element of path.
@@ -140,14 +140,14 @@ class Path {
         If the path is empty, Base returns ".".
         If the path consists entirely of slashes, Base returns "/".
     **/
-    static public function base(path:String):String {
-        return stdgo._internal.path.Path.base(path);
+    static public function base(_path:String):String {
+        return stdgo._internal.path.Path.base(_path);
     }
     /**
         IsAbs reports whether the path is absolute.
     **/
-    static public function isAbs(path:String):Bool {
-        return stdgo._internal.path.Path.isAbs(path);
+    static public function isAbs(_path:String):Bool {
+        return stdgo._internal.path.Path.isAbs(_path);
     }
     /**
         Dir returns all but the last element of path, typically the path's directory.
@@ -158,7 +158,7 @@ class Path {
         returns a single slash. In any other case, the returned path does not end in a
         slash.
     **/
-    static public function dir(path:String):String {
-        return stdgo._internal.path.Path.dir(path);
+    static public function dir(_path:String):String {
+        return stdgo._internal.path.Path.dir(_path);
     }
 }

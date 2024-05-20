@@ -19,10 +19,10 @@ final blake2b_256 = stdgo._internal.crypto.Crypto.blake2b_256;
 final blake2b_384 = stdgo._internal.crypto.Crypto.blake2b_384;
 final blake2b_512 = stdgo._internal.crypto.Crypto.blake2b_512;
 class Signer_static_extension {
-    static public function sign(t:Signer, rand:stdgo._internal.io.Io.Reader, digest:Array<StdTypes.Int>, opts:SignerOpts):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
-        final digest = ([for (i in digest) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function sign(t:Signer, _rand:stdgo._internal.io.Io.Reader, _digest:Array<StdTypes.Int>, _opts:SignerOpts):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+        final _digest = ([for (i in _digest) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.crypto.Crypto.Signer_static_extension.sign(t, rand, digest, opts);
+            final obj = stdgo._internal.crypto.Crypto.Signer_static_extension.sign(t, _rand, _digest, _opts);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -38,10 +38,10 @@ class SignerOpts_static_extension {
 }
 typedef SignerOpts = stdgo._internal.crypto.Crypto.SignerOpts;
 class Decrypter_static_extension {
-    static public function decrypt(t:Decrypter, rand:stdgo._internal.io.Io.Reader, msg:Array<StdTypes.Int>, opts:DecrypterOpts):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
-        final msg = ([for (i in msg) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function decrypt(t:Decrypter, _rand:stdgo._internal.io.Io.Reader, _msg:Array<StdTypes.Int>, _opts:DecrypterOpts):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+        final _msg = ([for (i in _msg) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.crypto.Crypto.Decrypter_static_extension.decrypt(t, rand, msg, opts);
+            final obj = stdgo._internal.crypto.Crypto.Decrypter_static_extension.decrypt(t, _rand, _msg, _opts);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -55,20 +55,20 @@ typedef PublicKey = stdgo._internal.crypto.Crypto.PublicKey;
 typedef PrivateKey = stdgo._internal.crypto.Crypto.PrivateKey;
 typedef DecrypterOpts = stdgo._internal.crypto.Crypto.DecrypterOpts;
 class Hash_static_extension {
-    static public function available(h:Hash):Bool {
-        return stdgo._internal.crypto.Crypto.Hash_static_extension.available(h);
+    static public function available(_h:Hash):Bool {
+        return stdgo._internal.crypto.Crypto.Hash_static_extension.available(_h);
     }
-    static public function new_(h:Hash):stdgo._internal.hash.Hash.Hash {
-        return stdgo._internal.crypto.Crypto.Hash_static_extension.new_(h);
+    static public function new_(_h:Hash):stdgo._internal.hash.Hash.Hash {
+        return stdgo._internal.crypto.Crypto.Hash_static_extension.new_(_h);
     }
-    static public function size(h:Hash):StdTypes.Int {
-        return stdgo._internal.crypto.Crypto.Hash_static_extension.size(h);
+    static public function size(_h:Hash):StdTypes.Int {
+        return stdgo._internal.crypto.Crypto.Hash_static_extension.size(_h);
     }
-    static public function string(h:Hash):String {
-        return stdgo._internal.crypto.Crypto.Hash_static_extension.string(h);
+    static public function string(_h:Hash):String {
+        return stdgo._internal.crypto.Crypto.Hash_static_extension.string(_h);
     }
-    static public function hashFunc(h:Hash):Hash {
-        return stdgo._internal.crypto.Crypto.Hash_static_extension.hashFunc(h);
+    static public function hashFunc(_h:Hash):Hash {
+        return stdgo._internal.crypto.Crypto.Hash_static_extension.hashFunc(_h);
     }
 }
 /**
@@ -80,8 +80,8 @@ class Crypto {
         hash function. This is intended to be called from the init function in
         packages that implement hash functions.
     **/
-    static public function registerHash(h:Hash, f:() -> stdgo._internal.hash.Hash.Hash):Void {
-        final f = f;
-        stdgo._internal.crypto.Crypto.registerHash(h, f);
+    static public function registerHash(_h:Hash, _f:() -> stdgo._internal.hash.Hash.Hash):Void {
+        final _f = _f;
+        stdgo._internal.crypto.Crypto.registerHash(_h, _f);
     }
 }

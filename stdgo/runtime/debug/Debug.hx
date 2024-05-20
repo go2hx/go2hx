@@ -122,8 +122,8 @@ package stdgo.runtime.debug;
     public function __copy__() return this.__copy__();
 }
 class BuildInfo_static_extension {
-    static public function string(bi:BuildInfo):String {
-        return stdgo._internal.runtime.debug.Debug.BuildInfo_static_extension.string(bi);
+    static public function string(_bi:BuildInfo):String {
+        return stdgo._internal.runtime.debug.Debug.BuildInfo_static_extension.string(_bi);
     }
 }
 /**
@@ -141,8 +141,8 @@ class Debug {
         len(stats.PauseQuantiles) is 5, it will be filled with the minimum,
         25%, 50%, 75%, and maximum pause times.
     **/
-    static public function readGCStats(stats:GCStats):Void {
-        stdgo._internal.runtime.debug.Debug.readGCStats(stats);
+    static public function readGCStats(_stats:GCStats):Void {
+        stdgo._internal.runtime.debug.Debug.readGCStats(_stats);
     }
     /**
         SetGCPercent sets the garbage collection target percentage:
@@ -157,8 +157,8 @@ class Debug {
         the memory limit is reached.
         See SetMemoryLimit for more details.
     **/
-    static public function setGCPercent(percent:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.runtime.debug.Debug.setGCPercent(percent);
+    static public function setGCPercent(_percent:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.runtime.debug.Debug.setGCPercent(_percent);
     }
     /**
         FreeOSMemory forces a garbage collection followed by an
@@ -183,8 +183,8 @@ class Debug {
         goroutines that enter an infinite recursion. It only limits future
         stack growth.
     **/
-    static public function setMaxStack(bytes:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.runtime.debug.Debug.setMaxStack(bytes);
+    static public function setMaxStack(_bytes:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.runtime.debug.Debug.setMaxStack(_bytes);
     }
     /**
         SetMaxThreads sets the maximum number of operating system
@@ -202,8 +202,8 @@ class Debug {
         programs that create an unbounded number of threads. The idea is
         to take down the program before it takes down the operating system.
     **/
-    static public function setMaxThreads(threads:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.runtime.debug.Debug.setMaxThreads(threads);
+    static public function setMaxThreads(_threads:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.runtime.debug.Debug.setMaxThreads(_threads);
     }
     /**
         SetPanicOnFault controls the runtime's behavior when a program faults
@@ -223,8 +223,8 @@ class Debug {
         SetPanicOnFault applies only to the current goroutine.
         It returns the previous setting.
     **/
-    static public function setPanicOnFault(enabled:Bool):Bool {
-        return stdgo._internal.runtime.debug.Debug.setPanicOnFault(enabled);
+    static public function setPanicOnFault(_enabled:Bool):Bool {
+        return stdgo._internal.runtime.debug.Debug.setPanicOnFault(_enabled);
     }
     /**
         WriteHeapDump writes a description of the heap and the objects in
@@ -237,8 +237,8 @@ class Debug {
         
         The heap dump format is defined at https://golang.org/s/go15heapdump.
     **/
-    static public function writeHeapDump(fd:stdgo.GoUIntptr):Void {
-        stdgo._internal.runtime.debug.Debug.writeHeapDump(fd);
+    static public function writeHeapDump(_fd:stdgo.GoUIntptr):Void {
+        stdgo._internal.runtime.debug.Debug.writeHeapDump(_fd);
     }
     /**
         SetTraceback sets the amount of detail printed by the runtime in
@@ -251,8 +251,8 @@ class Debug {
         If SetTraceback is called with a level lower than that of the
         environment variable, the call is ignored.
     **/
-    static public function setTraceback(level:String):Void {
-        stdgo._internal.runtime.debug.Debug.setTraceback(level);
+    static public function setTraceback(_level:String):Void {
+        stdgo._internal.runtime.debug.Debug.setTraceback(_level);
     }
     /**
         SetMemoryLimit provides the runtime with a soft memory limit.
@@ -309,8 +309,8 @@ class Debug {
         A negative input does not adjust the limit, and allows for
         retrieval of the currently set memory limit.
     **/
-    static public function setMemoryLimit(limit:haxe.Int64):haxe.Int64 {
-        return stdgo._internal.runtime.debug.Debug.setMemoryLimit(limit);
+    static public function setMemoryLimit(_limit:haxe.Int64):haxe.Int64 {
+        return stdgo._internal.runtime.debug.Debug.setMemoryLimit(_limit);
     }
     /**
         ReadBuildInfo returns the build information embedded
@@ -323,9 +323,9 @@ class Debug {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function parseBuildInfo(data:String):stdgo.Tuple<BuildInfo, stdgo.Error> {
+    static public function parseBuildInfo(_data:String):stdgo.Tuple<BuildInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.runtime.debug.Debug.parseBuildInfo(data);
+            final obj = stdgo._internal.runtime.debug.Debug.parseBuildInfo(_data);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

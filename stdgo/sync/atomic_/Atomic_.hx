@@ -175,138 +175,138 @@ package stdgo.sync.atomic_;
     public function __copy__() return this.__copy__();
 }
 class Bool__static_extension {
-    static public function compareAndSwap(x:Bool_, old:Bool, _new:Bool):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension.compareAndSwap(x, old, _new);
+    static public function compareAndSwap(_x:Bool_, _old:Bool, _new:Bool):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension.compareAndSwap(_x, _old, _new);
     }
-    static public function swap(x:Bool_, _new:Bool):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension.swap(x, _new);
+    static public function swap(_x:Bool_, _new:Bool):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension.swap(_x, _new);
     }
-    static public function store(x:Bool_, val:Bool):Void {
-        stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension.store(x, val);
+    static public function store(_x:Bool_, _val:Bool):Void {
+        stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension.store(_x, _val);
     }
-    static public function load(x:Bool_):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension.load(x);
+    static public function load(_x:Bool_):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension.load(_x);
     }
 }
 class Pointer__static_extension {
-    macro static public function compareAndSwap<T_>(x:haxe.macro.Expr<Pointer_<T_>>, _generic__0:haxe.macro.Expr<T_>, old:haxe.macro.Expr<T_>, _new:haxe.macro.Expr<T_>):haxe.macro.Expr<Bool> {
-        return stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension.compareAndSwap(x, _generic__0, old, _new);
+    macro static public function compareAndSwap<T_>(_x:haxe.macro.Expr<Pointer_<T_>>, __generic__0:haxe.macro.Expr<T_>, _old:haxe.macro.Expr<T_>, _new:haxe.macro.Expr<T_>):haxe.macro.Expr<Bool> {
+        return stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension.compareAndSwap(_x, __generic__0, _old, _new);
     }
-    macro static public function swap<T_>(x:haxe.macro.Expr<Pointer_<T_>>, _generic__0:haxe.macro.Expr<T_>, _new:haxe.macro.Expr<T_>):haxe.macro.Expr<T_> {
-        return stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension.swap(x, _generic__0, _new);
+    macro static public function swap<T_>(_x:haxe.macro.Expr<Pointer_<T_>>, __generic__0:haxe.macro.Expr<T_>, _new:haxe.macro.Expr<T_>):haxe.macro.Expr<T_> {
+        return stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension.swap(_x, __generic__0, _new);
     }
-    macro static public function store<T_>(x:haxe.macro.Expr<Pointer_<T_>>, _generic__0:haxe.macro.Expr<T_>, val:haxe.macro.Expr<T_>):haxe.macro.Expr<Void> {
-        return stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension.store(x, _generic__0, val);
+    macro static public function store<T_>(_x:haxe.macro.Expr<Pointer_<T_>>, __generic__0:haxe.macro.Expr<T_>, _val:haxe.macro.Expr<T_>):haxe.macro.Expr<Void> {
+        return stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension.store(_x, __generic__0, _val);
     }
-    macro static public function load<T_>(x:haxe.macro.Expr<Pointer_<T_>>, _generic__0:haxe.macro.Expr<T_>):haxe.macro.Expr<T_> {
-        return stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension.load(x, _generic__0);
+    macro static public function load<T_>(_x:haxe.macro.Expr<Pointer_<T_>>, __generic__0:haxe.macro.Expr<T_>):haxe.macro.Expr<T_> {
+        return stdgo._internal.sync.atomic_.Atomic_.Pointer__static_extension.load(_x, __generic__0);
     }
 }
 class Int32_static_extension {
-    static public function add(x:Int32, delta:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.add(x, delta);
+    static public function add(_x:Int32, _delta:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.add(_x, _delta);
     }
-    static public function compareAndSwap(x:Int32, old:StdTypes.Int, _new:StdTypes.Int):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.compareAndSwap(x, old, _new);
+    static public function compareAndSwap(_x:Int32, _old:StdTypes.Int, _new:StdTypes.Int):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.compareAndSwap(_x, _old, _new);
     }
-    static public function swap(x:Int32, _new:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.swap(x, _new);
+    static public function swap(_x:Int32, _new:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.swap(_x, _new);
     }
-    static public function store(x:Int32, val:StdTypes.Int):Void {
-        stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.store(x, val);
+    static public function store(_x:Int32, _val:StdTypes.Int):Void {
+        stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.store(_x, _val);
     }
-    static public function load(x:Int32):StdTypes.Int {
-        return stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.load(x);
+    static public function load(_x:Int32):StdTypes.Int {
+        return stdgo._internal.sync.atomic_.Atomic_.Int32_static_extension.load(_x);
     }
 }
 class Int64__static_extension {
-    static public function add(x:Int64_, delta:haxe.Int64):haxe.Int64 {
-        return stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.add(x, delta);
+    static public function add(_x:Int64_, _delta:haxe.Int64):haxe.Int64 {
+        return stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.add(_x, _delta);
     }
-    static public function compareAndSwap(x:Int64_, old:haxe.Int64, _new:haxe.Int64):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.compareAndSwap(x, old, _new);
+    static public function compareAndSwap(_x:Int64_, _old:haxe.Int64, _new:haxe.Int64):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.compareAndSwap(_x, _old, _new);
     }
-    static public function swap(x:Int64_, _new:haxe.Int64):haxe.Int64 {
-        return stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.swap(x, _new);
+    static public function swap(_x:Int64_, _new:haxe.Int64):haxe.Int64 {
+        return stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.swap(_x, _new);
     }
-    static public function store(x:Int64_, val:haxe.Int64):Void {
-        stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.store(x, val);
+    static public function store(_x:Int64_, _val:haxe.Int64):Void {
+        stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.store(_x, _val);
     }
-    static public function load(x:Int64_):haxe.Int64 {
-        return stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.load(x);
+    static public function load(_x:Int64_):haxe.Int64 {
+        return stdgo._internal.sync.atomic_.Atomic_.Int64__static_extension.load(_x);
     }
 }
 class Uint32_static_extension {
-    static public function add(x:Uint32, delta:std.UInt):std.UInt {
-        return stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.add(x, delta);
+    static public function add(_x:Uint32, _delta:std.UInt):std.UInt {
+        return stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.add(_x, _delta);
     }
-    static public function compareAndSwap(x:Uint32, old:std.UInt, _new:std.UInt):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.compareAndSwap(x, old, _new);
+    static public function compareAndSwap(_x:Uint32, _old:std.UInt, _new:std.UInt):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.compareAndSwap(_x, _old, _new);
     }
-    static public function swap(x:Uint32, _new:std.UInt):std.UInt {
-        return stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.swap(x, _new);
+    static public function swap(_x:Uint32, _new:std.UInt):std.UInt {
+        return stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.swap(_x, _new);
     }
-    static public function store(x:Uint32, val:std.UInt):Void {
-        stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.store(x, val);
+    static public function store(_x:Uint32, _val:std.UInt):Void {
+        stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.store(_x, _val);
     }
-    static public function load(x:Uint32):std.UInt {
-        return stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.load(x);
+    static public function load(_x:Uint32):std.UInt {
+        return stdgo._internal.sync.atomic_.Atomic_.Uint32_static_extension.load(_x);
     }
 }
 class Uint64_static_extension {
-    static public function add(x:Uint64, delta:haxe.UInt64):haxe.UInt64 {
-        return stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.add(x, delta);
+    static public function add(_x:Uint64, _delta:haxe.UInt64):haxe.UInt64 {
+        return stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.add(_x, _delta);
     }
-    static public function compareAndSwap(x:Uint64, old:haxe.UInt64, _new:haxe.UInt64):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.compareAndSwap(x, old, _new);
+    static public function compareAndSwap(_x:Uint64, _old:haxe.UInt64, _new:haxe.UInt64):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.compareAndSwap(_x, _old, _new);
     }
-    static public function swap(x:Uint64, _new:haxe.UInt64):haxe.UInt64 {
-        return stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.swap(x, _new);
+    static public function swap(_x:Uint64, _new:haxe.UInt64):haxe.UInt64 {
+        return stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.swap(_x, _new);
     }
-    static public function store(x:Uint64, val:haxe.UInt64):Void {
-        stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.store(x, val);
+    static public function store(_x:Uint64, _val:haxe.UInt64):Void {
+        stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.store(_x, _val);
     }
-    static public function load(x:Uint64):haxe.UInt64 {
-        return stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.load(x);
+    static public function load(_x:Uint64):haxe.UInt64 {
+        return stdgo._internal.sync.atomic_.Atomic_.Uint64_static_extension.load(_x);
     }
 }
 class Uintptr_static_extension {
-    static public function add(x:Uintptr, delta:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        return stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.add(x, delta);
+    static public function add(_x:Uintptr, _delta:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        return stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.add(_x, _delta);
     }
-    static public function compareAndSwap(x:Uintptr, old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.compareAndSwap(x, old, _new);
+    static public function compareAndSwap(_x:Uintptr, _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.compareAndSwap(_x, _old, _new);
     }
-    static public function swap(x:Uintptr, _new:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        return stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.swap(x, _new);
+    static public function swap(_x:Uintptr, _new:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        return stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.swap(_x, _new);
     }
-    static public function store(x:Uintptr, val:stdgo.GoUIntptr):Void {
-        stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.store(x, val);
+    static public function store(_x:Uintptr, _val:stdgo.GoUIntptr):Void {
+        stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.store(_x, _val);
     }
-    static public function load(x:Uintptr):stdgo.GoUIntptr {
-        return stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.load(x);
+    static public function load(_x:Uintptr):stdgo.GoUIntptr {
+        return stdgo._internal.sync.atomic_.Atomic_.Uintptr_static_extension.load(_x);
     }
 }
 class T_noCopy_static_extension {
-    static public function unlock(:T_noCopy):Void {
-        stdgo._internal.sync.atomic_.Atomic_.T_noCopy_static_extension.unlock();
+    static public function unlock(_:T_noCopy):Void {
+        stdgo._internal.sync.atomic_.Atomic_.T_noCopy_static_extension.unlock(_);
     }
-    static public function lock(:T_noCopy):Void {
-        stdgo._internal.sync.atomic_.Atomic_.T_noCopy_static_extension.lock();
+    static public function lock(_:T_noCopy):Void {
+        stdgo._internal.sync.atomic_.Atomic_.T_noCopy_static_extension.lock(_);
     }
 }
 class Value_static_extension {
-    static public function compareAndSwap(v:Value, old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.Value_static_extension.compareAndSwap(v, old, _new);
+    static public function compareAndSwap(_v:Value, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.Value_static_extension.compareAndSwap(_v, _old, _new);
     }
-    static public function swap(v:Value, _new:stdgo.AnyInterface):stdgo.AnyInterface {
-        return stdgo._internal.sync.atomic_.Atomic_.Value_static_extension.swap(v, _new);
+    static public function swap(_v:Value, _new:stdgo.AnyInterface):stdgo.AnyInterface {
+        return stdgo._internal.sync.atomic_.Atomic_.Value_static_extension.swap(_v, _new);
     }
-    static public function store(v:Value, val:stdgo.AnyInterface):Void {
-        stdgo._internal.sync.atomic_.Atomic_.Value_static_extension.store(v, val);
+    static public function store(_v:Value, _val:stdgo.AnyInterface):Void {
+        stdgo._internal.sync.atomic_.Atomic_.Value_static_extension.store(_v, _val);
     }
-    static public function load(v:Value):stdgo.AnyInterface {
-        return stdgo._internal.sync.atomic_.Atomic_.Value_static_extension.load(v);
+    static public function load(_v:Value):stdgo.AnyInterface {
+        return stdgo._internal.sync.atomic_.Atomic_.Value_static_extension.load(_v);
     }
 }
 /**
@@ -358,96 +358,96 @@ class Atomic_ {
         SwapInt32 atomically stores new into *addr and returns the previous *addr value.
         Consider using the more ergonomic and less error-prone [Int32.Swap] instead.
     **/
-    static public function swapInt32(addr:stdgo.Pointer<StdTypes.Int>, _new:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.sync.atomic_.Atomic_.swapInt32(addr, _new);
+    static public function swapInt32(_addr:stdgo.Pointer<StdTypes.Int>, _new:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.sync.atomic_.Atomic_.swapInt32(_addr, _new);
     }
     /**
         SwapInt64 atomically stores new into *addr and returns the previous *addr value.
         Consider using the more ergonomic and less error-prone [Int64.Swap] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function swapInt64(addr:stdgo.Pointer<haxe.Int64>, _new:haxe.Int64):haxe.Int64 {
-        return stdgo._internal.sync.atomic_.Atomic_.swapInt64(addr, _new);
+    static public function swapInt64(_addr:stdgo.Pointer<haxe.Int64>, _new:haxe.Int64):haxe.Int64 {
+        return stdgo._internal.sync.atomic_.Atomic_.swapInt64(_addr, _new);
     }
     /**
         SwapUint32 atomically stores new into *addr and returns the previous *addr value.
         Consider using the more ergonomic and less error-prone [Uint32.Swap] instead.
     **/
-    static public function swapUint32(addr:stdgo.Pointer<std.UInt>, _new:std.UInt):std.UInt {
-        return stdgo._internal.sync.atomic_.Atomic_.swapUint32(addr, _new);
+    static public function swapUint32(_addr:stdgo.Pointer<std.UInt>, _new:std.UInt):std.UInt {
+        return stdgo._internal.sync.atomic_.Atomic_.swapUint32(_addr, _new);
     }
     /**
         SwapUint64 atomically stores new into *addr and returns the previous *addr value.
         Consider using the more ergonomic and less error-prone [Uint64.Swap] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function swapUint64(addr:stdgo.Pointer<haxe.UInt64>, _new:haxe.UInt64):haxe.UInt64 {
-        return stdgo._internal.sync.atomic_.Atomic_.swapUint64(addr, _new);
+    static public function swapUint64(_addr:stdgo.Pointer<haxe.UInt64>, _new:haxe.UInt64):haxe.UInt64 {
+        return stdgo._internal.sync.atomic_.Atomic_.swapUint64(_addr, _new);
     }
     /**
         SwapUintptr atomically stores new into *addr and returns the previous *addr value.
         Consider using the more ergonomic and less error-prone [Uintptr.Swap] instead.
     **/
-    static public function swapUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        return stdgo._internal.sync.atomic_.Atomic_.swapUintptr(addr, _new);
+    static public function swapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _new:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        return stdgo._internal.sync.atomic_.Atomic_.swapUintptr(_addr, _new);
     }
     /**
         SwapPointer atomically stores new into *addr and returns the previous *addr value.
         Consider using the more ergonomic and less error-prone [Pointer.Swap] instead.
     **/
-    static public function swapPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>, _new:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
-        return stdgo._internal.sync.atomic_.Atomic_.swapPointer(addr, _new);
+    static public function swapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>, _new:stdgo._internal.unsafe.Unsafe.UnsafePointer):stdgo._internal.unsafe.Unsafe.UnsafePointer {
+        return stdgo._internal.sync.atomic_.Atomic_.swapPointer(_addr, _new);
     }
     /**
         CompareAndSwapInt32 executes the compare-and-swap operation for an int32 value.
         Consider using the more ergonomic and less error-prone [Int32.CompareAndSwap] instead.
     **/
-    static public function compareAndSwapInt32(addr:stdgo.Pointer<StdTypes.Int>, old:StdTypes.Int, _new:StdTypes.Int):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapInt32(addr, old, _new);
+    static public function compareAndSwapInt32(_addr:stdgo.Pointer<StdTypes.Int>, _old:StdTypes.Int, _new:StdTypes.Int):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapInt32(_addr, _old, _new);
     }
     /**
         CompareAndSwapInt64 executes the compare-and-swap operation for an int64 value.
         Consider using the more ergonomic and less error-prone [Int64.CompareAndSwap] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function compareAndSwapInt64(addr:stdgo.Pointer<haxe.Int64>, old:haxe.Int64, _new:haxe.Int64):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapInt64(addr, old, _new);
+    static public function compareAndSwapInt64(_addr:stdgo.Pointer<haxe.Int64>, _old:haxe.Int64, _new:haxe.Int64):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapInt64(_addr, _old, _new);
     }
     /**
         CompareAndSwapUint32 executes the compare-and-swap operation for a uint32 value.
         Consider using the more ergonomic and less error-prone [Uint32.CompareAndSwap] instead.
     **/
-    static public function compareAndSwapUint32(addr:stdgo.Pointer<std.UInt>, old:std.UInt, _new:std.UInt):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapUint32(addr, old, _new);
+    static public function compareAndSwapUint32(_addr:stdgo.Pointer<std.UInt>, _old:std.UInt, _new:std.UInt):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapUint32(_addr, _old, _new);
     }
     /**
         CompareAndSwapUint64 executes the compare-and-swap operation for a uint64 value.
         Consider using the more ergonomic and less error-prone [Uint64.CompareAndSwap] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function compareAndSwapUint64(addr:stdgo.Pointer<haxe.UInt64>, old:haxe.UInt64, _new:haxe.UInt64):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapUint64(addr, old, _new);
+    static public function compareAndSwapUint64(_addr:stdgo.Pointer<haxe.UInt64>, _old:haxe.UInt64, _new:haxe.UInt64):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapUint64(_addr, _old, _new);
     }
     /**
         CompareAndSwapUintptr executes the compare-and-swap operation for a uintptr value.
         Consider using the more ergonomic and less error-prone [Uintptr.CompareAndSwap] instead.
     **/
-    static public function compareAndSwapUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapUintptr(addr, old, _new);
+    static public function compareAndSwapUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _old:stdgo.GoUIntptr, _new:stdgo.GoUIntptr):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapUintptr(_addr, _old, _new);
     }
     /**
         CompareAndSwapPointer executes the compare-and-swap operation for a unsafe.Pointer value.
         Consider using the more ergonomic and less error-prone [Pointer.CompareAndSwap] instead.
     **/
-    static public function compareAndSwapPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>, old:stdgo._internal.unsafe.Unsafe.UnsafePointer, _new:stdgo._internal.unsafe.Unsafe.UnsafePointer):Bool {
-        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapPointer(addr, old, _new);
+    static public function compareAndSwapPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>, _old:stdgo._internal.unsafe.Unsafe.UnsafePointer, _new:stdgo._internal.unsafe.Unsafe.UnsafePointer):Bool {
+        return stdgo._internal.sync.atomic_.Atomic_.compareAndSwapPointer(_addr, _old, _new);
     }
     /**
         AddInt32 atomically adds delta to *addr and returns the new value.
         Consider using the more ergonomic and less error-prone [Int32.Add] instead.
     **/
-    static public function addInt32(addr:stdgo.Pointer<StdTypes.Int>, delta:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.sync.atomic_.Atomic_.addInt32(addr, delta);
+    static public function addInt32(_addr:stdgo.Pointer<StdTypes.Int>, _delta:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.sync.atomic_.Atomic_.addInt32(_addr, _delta);
     }
     /**
         AddUint32 atomically adds delta to *addr and returns the new value.
@@ -455,16 +455,16 @@ class Atomic_ {
         In particular, to decrement x, do AddUint32(&x, ^uint32(0)).
         Consider using the more ergonomic and less error-prone [Uint32.Add] instead.
     **/
-    static public function addUint32(addr:stdgo.Pointer<std.UInt>, delta:std.UInt):std.UInt {
-        return stdgo._internal.sync.atomic_.Atomic_.addUint32(addr, delta);
+    static public function addUint32(_addr:stdgo.Pointer<std.UInt>, _delta:std.UInt):std.UInt {
+        return stdgo._internal.sync.atomic_.Atomic_.addUint32(_addr, _delta);
     }
     /**
         AddInt64 atomically adds delta to *addr and returns the new value.
         Consider using the more ergonomic and less error-prone [Int64.Add] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function addInt64(addr:stdgo.Pointer<haxe.Int64>, delta:haxe.Int64):haxe.Int64 {
-        return stdgo._internal.sync.atomic_.Atomic_.addInt64(addr, delta);
+    static public function addInt64(_addr:stdgo.Pointer<haxe.Int64>, _delta:haxe.Int64):haxe.Int64 {
+        return stdgo._internal.sync.atomic_.Atomic_.addInt64(_addr, _delta);
     }
     /**
         AddUint64 atomically adds delta to *addr and returns the new value.
@@ -473,102 +473,102 @@ class Atomic_ {
         Consider using the more ergonomic and less error-prone [Uint64.Add] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function addUint64(addr:stdgo.Pointer<haxe.UInt64>, delta:haxe.UInt64):haxe.UInt64 {
-        return stdgo._internal.sync.atomic_.Atomic_.addUint64(addr, delta);
+    static public function addUint64(_addr:stdgo.Pointer<haxe.UInt64>, _delta:haxe.UInt64):haxe.UInt64 {
+        return stdgo._internal.sync.atomic_.Atomic_.addUint64(_addr, _delta);
     }
     /**
         AddUintptr atomically adds delta to *addr and returns the new value.
         Consider using the more ergonomic and less error-prone [Uintptr.Add] instead.
     **/
-    static public function addUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, delta:stdgo.GoUIntptr):stdgo.GoUIntptr {
-        return stdgo._internal.sync.atomic_.Atomic_.addUintptr(addr, delta);
+    static public function addUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _delta:stdgo.GoUIntptr):stdgo.GoUIntptr {
+        return stdgo._internal.sync.atomic_.Atomic_.addUintptr(_addr, _delta);
     }
     /**
         LoadInt32 atomically loads *addr.
         Consider using the more ergonomic and less error-prone [Int32.Load] instead.
     **/
-    static public function loadInt32(addr:stdgo.Pointer<StdTypes.Int>):StdTypes.Int {
-        return stdgo._internal.sync.atomic_.Atomic_.loadInt32(addr);
+    static public function loadInt32(_addr:stdgo.Pointer<StdTypes.Int>):StdTypes.Int {
+        return stdgo._internal.sync.atomic_.Atomic_.loadInt32(_addr);
     }
     /**
         LoadInt64 atomically loads *addr.
         Consider using the more ergonomic and less error-prone [Int64.Load] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function loadInt64(addr:stdgo.Pointer<haxe.Int64>):haxe.Int64 {
-        return stdgo._internal.sync.atomic_.Atomic_.loadInt64(addr);
+    static public function loadInt64(_addr:stdgo.Pointer<haxe.Int64>):haxe.Int64 {
+        return stdgo._internal.sync.atomic_.Atomic_.loadInt64(_addr);
     }
     /**
         LoadUint32 atomically loads *addr.
         Consider using the more ergonomic and less error-prone [Uint32.Load] instead.
     **/
-    static public function loadUint32(addr:stdgo.Pointer<std.UInt>):std.UInt {
-        return stdgo._internal.sync.atomic_.Atomic_.loadUint32(addr);
+    static public function loadUint32(_addr:stdgo.Pointer<std.UInt>):std.UInt {
+        return stdgo._internal.sync.atomic_.Atomic_.loadUint32(_addr);
     }
     /**
         LoadUint64 atomically loads *addr.
         Consider using the more ergonomic and less error-prone [Uint64.Load] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function loadUint64(addr:stdgo.Pointer<haxe.UInt64>):haxe.UInt64 {
-        return stdgo._internal.sync.atomic_.Atomic_.loadUint64(addr);
+    static public function loadUint64(_addr:stdgo.Pointer<haxe.UInt64>):haxe.UInt64 {
+        return stdgo._internal.sync.atomic_.Atomic_.loadUint64(_addr);
     }
     /**
         LoadUintptr atomically loads *addr.
         Consider using the more ergonomic and less error-prone [Uintptr.Load] instead.
     **/
-    static public function loadUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>):stdgo.GoUIntptr {
-        return stdgo._internal.sync.atomic_.Atomic_.loadUintptr(addr);
+    static public function loadUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>):stdgo.GoUIntptr {
+        return stdgo._internal.sync.atomic_.Atomic_.loadUintptr(_addr);
     }
     /**
         LoadPointer atomically loads *addr.
         Consider using the more ergonomic and less error-prone [Pointer.Load] instead.
     **/
-    static public function loadPointer(addr:stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>):stdgo._internal.unsafe.Unsafe.UnsafePointer {
-        return stdgo._internal.sync.atomic_.Atomic_.loadPointer(addr);
+    static public function loadPointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>):stdgo._internal.unsafe.Unsafe.UnsafePointer {
+        return stdgo._internal.sync.atomic_.Atomic_.loadPointer(_addr);
     }
     /**
         StoreInt32 atomically stores val into *addr.
         Consider using the more ergonomic and less error-prone [Int32.Store] instead.
     **/
-    static public function storeInt32(addr:stdgo.Pointer<StdTypes.Int>, val:StdTypes.Int):Void {
-        stdgo._internal.sync.atomic_.Atomic_.storeInt32(addr, val);
+    static public function storeInt32(_addr:stdgo.Pointer<StdTypes.Int>, _val:StdTypes.Int):Void {
+        stdgo._internal.sync.atomic_.Atomic_.storeInt32(_addr, _val);
     }
     /**
         StoreInt64 atomically stores val into *addr.
         Consider using the more ergonomic and less error-prone [Int64.Store] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function storeInt64(addr:stdgo.Pointer<haxe.Int64>, val:haxe.Int64):Void {
-        stdgo._internal.sync.atomic_.Atomic_.storeInt64(addr, val);
+    static public function storeInt64(_addr:stdgo.Pointer<haxe.Int64>, _val:haxe.Int64):Void {
+        stdgo._internal.sync.atomic_.Atomic_.storeInt64(_addr, _val);
     }
     /**
         StoreUint32 atomically stores val into *addr.
         Consider using the more ergonomic and less error-prone [Uint32.Store] instead.
     **/
-    static public function storeUint32(addr:stdgo.Pointer<std.UInt>, val:std.UInt):Void {
-        stdgo._internal.sync.atomic_.Atomic_.storeUint32(addr, val);
+    static public function storeUint32(_addr:stdgo.Pointer<std.UInt>, _val:std.UInt):Void {
+        stdgo._internal.sync.atomic_.Atomic_.storeUint32(_addr, _val);
     }
     /**
         StoreUint64 atomically stores val into *addr.
         Consider using the more ergonomic and less error-prone [Uint64.Store] instead
         (particularly if you target 32-bit platforms; see the bugs section).
     **/
-    static public function storeUint64(addr:stdgo.Pointer<haxe.UInt64>, val:haxe.UInt64):Void {
-        stdgo._internal.sync.atomic_.Atomic_.storeUint64(addr, val);
+    static public function storeUint64(_addr:stdgo.Pointer<haxe.UInt64>, _val:haxe.UInt64):Void {
+        stdgo._internal.sync.atomic_.Atomic_.storeUint64(_addr, _val);
     }
     /**
         StoreUintptr atomically stores val into *addr.
         Consider using the more ergonomic and less error-prone [Uintptr.Store] instead.
     **/
-    static public function storeUintptr(addr:stdgo.Pointer<stdgo.GoUIntptr>, val:stdgo.GoUIntptr):Void {
-        stdgo._internal.sync.atomic_.Atomic_.storeUintptr(addr, val);
+    static public function storeUintptr(_addr:stdgo.Pointer<stdgo.GoUIntptr>, _val:stdgo.GoUIntptr):Void {
+        stdgo._internal.sync.atomic_.Atomic_.storeUintptr(_addr, _val);
     }
     /**
         StorePointer atomically stores val into *addr.
         Consider using the more ergonomic and less error-prone [Pointer.Store] instead.
     **/
-    static public function storePointer(addr:stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>, val:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
-        stdgo._internal.sync.atomic_.Atomic_.storePointer(addr, val);
+    static public function storePointer(_addr:stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>, _val:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
+        stdgo._internal.sync.atomic_.Atomic_.storePointer(_addr, _val);
     }
 }

@@ -123,8 +123,8 @@ class Cpu {
         before normal init functions are run. env is set by runtime if the OS supports
         cpu feature options in GODEBUG.
     **/
-    static public function initialize(env:String):Void {
-        stdgo._internal.internal.cpu.Cpu.initialize(env);
+    static public function initialize(_env:String):Void {
+        stdgo._internal.internal.cpu.Cpu.initialize(_env);
     }
     /**
         Name returns the CPU name given by the vendor

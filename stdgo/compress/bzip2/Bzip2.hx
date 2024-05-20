@@ -239,61 +239,61 @@ typedef T__struct_2 = stdgo._internal.compress.bzip2.Bzip2.T__struct_2;
 typedef StructuralError = stdgo._internal.compress.bzip2.Bzip2.StructuralError;
 typedef T_moveToFrontDecoder = stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder;
 class T_bitReader_static_extension {
-    static public function err(br:T_bitReader):stdgo.Error {
-        return stdgo._internal.compress.bzip2.Bzip2.T_bitReader_static_extension.err(br);
+    static public function err(_br:T_bitReader):stdgo.Error {
+        return stdgo._internal.compress.bzip2.Bzip2.T_bitReader_static_extension.err(_br);
     }
-    static public function readBit(br:T_bitReader):Bool {
-        return stdgo._internal.compress.bzip2.Bzip2.T_bitReader_static_extension.readBit(br);
+    static public function readBit(_br:T_bitReader):Bool {
+        return stdgo._internal.compress.bzip2.Bzip2.T_bitReader_static_extension.readBit(_br);
     }
-    static public function readBits(br:T_bitReader, bits:std.UInt):StdTypes.Int {
-        return stdgo._internal.compress.bzip2.Bzip2.T_bitReader_static_extension.readBits(br, bits);
+    static public function readBits(_br:T_bitReader, _bits:std.UInt):StdTypes.Int {
+        return stdgo._internal.compress.bzip2.Bzip2.T_bitReader_static_extension.readBits(_br, _bits);
     }
-    static public function readBits64(br:T_bitReader, bits:std.UInt):haxe.UInt64 {
-        return stdgo._internal.compress.bzip2.Bzip2.T_bitReader_static_extension.readBits64(br, bits);
+    static public function readBits64(_br:T_bitReader, _bits:std.UInt):haxe.UInt64 {
+        return stdgo._internal.compress.bzip2.Bzip2.T_bitReader_static_extension.readBits64(_br, _bits);
     }
 }
 class T_reader_static_extension {
-    static public function _readBlock(bz2:T_reader):stdgo.Error {
-        return stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension._readBlock(bz2);
+    static public function _readBlock(_bz2:T_reader):stdgo.Error {
+        return stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension._readBlock(_bz2);
     }
-    static public function _read(bz2:T_reader, buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function _read(_bz2:T_reader, _buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension._read(bz2, buf);
+            final obj = stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension._read(_bz2, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _readFromBlock(bz2:T_reader, buf:Array<StdTypes.Int>):StdTypes.Int {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension._readFromBlock(bz2, buf);
+    static public function _readFromBlock(_bz2:T_reader, _buf:Array<StdTypes.Int>):StdTypes.Int {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension._readFromBlock(_bz2, _buf);
     }
-    static public function read(bz2:T_reader, buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_bz2:T_reader, _buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension.read(bz2, buf);
+            final obj = stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension.read(_bz2, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _setup(bz2:T_reader, needMagic:Bool):stdgo.Error {
-        return stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension._setup(bz2, needMagic);
+    static public function _setup(_bz2:T_reader, _needMagic:Bool):stdgo.Error {
+        return stdgo._internal.compress.bzip2.Bzip2.T_reader_static_extension._setup(_bz2, _needMagic);
     }
 }
 class T_huffmanTree_static_extension {
-    static public function decode(t:T_huffmanTree, br:T_bitReader):std.UInt {
-        return stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree_static_extension.decode(t, br);
+    static public function decode(_t:T_huffmanTree, _br:T_bitReader):std.UInt {
+        return stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree_static_extension.decode(_t, _br);
     }
 }
 class StructuralError_static_extension {
-    static public function error(s:StructuralError):String {
-        return stdgo._internal.compress.bzip2.Bzip2.StructuralError_static_extension.error(s);
+    static public function error(_s:StructuralError):String {
+        return stdgo._internal.compress.bzip2.Bzip2.StructuralError_static_extension.error(_s);
     }
 }
 class T_moveToFrontDecoder_static_extension {
-    static public function first(m:T_moveToFrontDecoder):StdTypes.Int {
-        return stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder_static_extension.first(m);
+    static public function first(_m:T_moveToFrontDecoder):StdTypes.Int {
+        return stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder_static_extension.first(_m);
     }
-    static public function decode(m:T_moveToFrontDecoder, n:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder_static_extension.decode(m, n);
+    static public function decode(_m:T_moveToFrontDecoder, _n:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.compress.bzip2.Bzip2.T_moveToFrontDecoder_static_extension.decode(_m, _n);
     }
 }
 /**
@@ -305,28 +305,28 @@ class Bzip2 {
         If r does not also implement io.ByteReader,
         the decompressor may read more data than necessary from r.
     **/
-    static public function newReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.compress.bzip2.Bzip2.newReader(r);
+    static public function newReader(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.compress.bzip2.Bzip2.newReader(_r);
     }
-    static public function testReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.bzip2.Bzip2.testReader(t);
+    static public function testReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.bzip2.Bzip2.testReader(_t);
     }
-    static public function testBitReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.bzip2.Bzip2.testBitReader(t);
+    static public function testBitReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.bzip2.Bzip2.testBitReader(_t);
     }
-    static public function testMTF(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.bzip2.Bzip2.testMTF(t);
+    static public function testMTF(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.bzip2.Bzip2.testMTF(_t);
     }
-    static public function testZeroRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.compress.bzip2.Bzip2.testZeroRead(t);
+    static public function testZeroRead(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.compress.bzip2.Bzip2.testZeroRead(_t);
     }
-    static public function benchmarkDecodeDigits(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeDigits(b);
+    static public function benchmarkDecodeDigits(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeDigits(_b);
     }
-    static public function benchmarkDecodeNewton(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeNewton(b);
+    static public function benchmarkDecodeNewton(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeNewton(_b);
     }
-    static public function benchmarkDecodeRand(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeRand(b);
+    static public function benchmarkDecodeRand(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.compress.bzip2.Bzip2.benchmarkDecodeRand(_b);
     }
 }

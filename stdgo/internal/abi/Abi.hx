@@ -586,120 +586,120 @@ typedef TypeOff = stdgo._internal.internal.abi.Abi.TypeOff;
 typedef TextOff = stdgo._internal.internal.abi.Abi.TextOff;
 typedef ChanDir = stdgo._internal.internal.abi.Abi.ChanDir;
 class RegArgs_static_extension {
-    static public function intRegArgAddr(r:RegArgs, reg:StdTypes.Int, argSize:stdgo.GoUIntptr):stdgo._internal.unsafe.Unsafe.UnsafePointer {
-        return stdgo._internal.internal.abi.Abi.RegArgs_static_extension.intRegArgAddr(r, reg, argSize);
+    static public function intRegArgAddr(_r:RegArgs, _reg:StdTypes.Int, _argSize:stdgo.GoUIntptr):stdgo._internal.unsafe.Unsafe.UnsafePointer {
+        return stdgo._internal.internal.abi.Abi.RegArgs_static_extension.intRegArgAddr(_r, _reg, _argSize);
     }
-    static public function dump(r:RegArgs):Void {
-        stdgo._internal.internal.abi.Abi.RegArgs_static_extension.dump(r);
+    static public function dump(_r:RegArgs):Void {
+        stdgo._internal.internal.abi.Abi.RegArgs_static_extension.dump(_r);
     }
 }
 class Offset_static_extension {
-    static public function plusUncommon(o:Offset):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.plusUncommon(o);
+    static public function plusUncommon(_o:Offset):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.plusUncommon(_o);
     }
-    static public function offset(o:Offset):haxe.UInt64 {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.offset(o);
+    static public function offset(_o:Offset):haxe.UInt64 {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.offset(_o);
     }
-    static public function interface_(o:Offset):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.interface_(o);
+    static public function interface_(_o:Offset):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.interface_(_o);
     }
-    static public function string(o:Offset):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.string(o);
+    static public function string(_o:Offset):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.string(_o);
     }
-    static public function slice(o:Offset):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.slice(o);
+    static public function slice(_o:Offset):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.slice(_o);
     }
-    static public function p(o:Offset):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.p(o);
+    static public function p(_o:Offset):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.p(_o);
     }
-    static public function d64(o:Offset):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.d64(o);
+    static public function d64(_o:Offset):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.d64(_o);
     }
-    static public function d32(o:Offset):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.d32(o);
+    static public function d32(_o:Offset):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.d32(_o);
     }
-    static public function d16(o:Offset):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.d16(o);
+    static public function d16(_o:Offset):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.d16(_o);
     }
-    static public function d8(o:Offset):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.d8(o);
+    static public function d8(_o:Offset):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.d8(_o);
     }
-    static public function _plus(o:Offset, x:haxe.UInt64):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension._plus(o, x);
+    static public function _plus(_o:Offset, _x:haxe.UInt64):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension._plus(_o, _x);
     }
-    static public function align(o:Offset, a:std.UInt):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension.align(o, a);
+    static public function align(_o:Offset, _a:std.UInt):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension.align(_o, _a);
     }
-    static public function _align_(o:Offset, a:std.UInt):Offset {
-        return stdgo._internal.internal.abi.Abi.Offset_static_extension._align_(o, a);
+    static public function _align_(_o:Offset, _a:std.UInt):Offset {
+        return stdgo._internal.internal.abi.Abi.Offset_static_extension._align_(_o, _a);
     }
 }
 class Type__static_extension {
-    static public function key(t:Type_):Type_ {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.key(t);
+    static public function key(_t:Type_):Type_ {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.key(_t);
     }
-    static public function numMethod(t:Type_):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.numMethod(t);
+    static public function numMethod(_t:Type_):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.numMethod(_t);
     }
-    static public function exportedMethods(t:Type_):Array<Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.Type__static_extension.exportedMethods(t)) i];
+    static public function exportedMethods(_t:Type_):Array<Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.Type__static_extension.exportedMethods(_t)) i];
     }
-    static public function fieldAlign(t:Type_):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.fieldAlign(t);
+    static public function fieldAlign(_t:Type_):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.fieldAlign(_t);
     }
-    static public function align(t:Type_):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.align(t);
+    static public function align(_t:Type_):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.align(_t);
     }
-    static public function size(t:Type_):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.size(t);
+    static public function size(_t:Type_):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.size(_t);
     }
-    static public function interfaceType(t:Type_):InterfaceType {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.interfaceType(t);
+    static public function interfaceType(_t:Type_):InterfaceType {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.interfaceType(_t);
     }
-    static public function funcType(t:Type_):FuncType {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.funcType(t);
+    static public function funcType(_t:Type_):FuncType {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.funcType(_t);
     }
-    static public function arrayType(t:Type_):ArrayType {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.arrayType(t);
+    static public function arrayType(_t:Type_):ArrayType {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.arrayType(_t);
     }
-    static public function mapType(t:Type_):MapType {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.mapType(t);
+    static public function mapType(_t:Type_):MapType {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.mapType(_t);
     }
-    static public function structType(t:Type_):StructType {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.structType(t);
+    static public function structType(_t:Type_):StructType {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.structType(_t);
     }
-    static public function elem(t:Type_):Type_ {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.elem(t);
+    static public function elem(_t:Type_):Type_ {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.elem(_t);
     }
-    static public function uncommon(t:Type_):UncommonType {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.uncommon(t);
+    static public function uncommon(_t:Type_):UncommonType {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.uncommon(_t);
     }
-    static public function chanDir(t:Type_):ChanDir {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.chanDir(t);
+    static public function chanDir(_t:Type_):ChanDir {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.chanDir(_t);
     }
-    static public function common(t:Type_):Type_ {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.common(t);
+    static public function common(_t:Type_):Type_ {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.common(_t);
     }
-    static public function len(t:Type_):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.len(t);
+    static public function len(_t:Type_):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.len(_t);
     }
-    static public function gcSlice(t:Type_, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.internal.abi.Abi.Type__static_extension.gcSlice(t, begin, end)) i];
+    static public function gcSlice(_t:Type_, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.internal.abi.Abi.Type__static_extension.gcSlice(_t, _begin, _end)) i];
     }
-    static public function isDirectIface(t:Type_):Bool {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.isDirectIface(t);
+    static public function isDirectIface(_t:Type_):Bool {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.isDirectIface(_t);
     }
-    static public function ifaceIndir(t:Type_):Bool {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.ifaceIndir(t);
+    static public function ifaceIndir(_t:Type_):Bool {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.ifaceIndir(_t);
     }
-    static public function pointers(t:Type_):Bool {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.pointers(t);
+    static public function pointers(_t:Type_):Bool {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.pointers(_t);
     }
-    static public function hasName(t:Type_):Bool {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.hasName(t);
+    static public function hasName(_t:Type_):Bool {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.hasName(_t);
     }
-    static public function kind(t:Type_):Kind {
-        return stdgo._internal.internal.abi.Abi.Type__static_extension.kind(t);
+    static public function kind(_t:Type_):Kind {
+        return stdgo._internal.internal.abi.Abi.Type__static_extension.kind(_t);
     }
 }
 @:structInit abstract T_uncommon___localname___u_8324(stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8324) from stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8324 to stdgo._internal.internal.abi.Abi.T_uncommon___localname___u_8324 {
@@ -839,699 +839,699 @@ class Type__static_extension {
     public function __copy__() return this.__copy__();
 }
 class UncommonType_static_extension {
-    static public function exportedMethods(t:UncommonType):Array<Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.UncommonType_static_extension.exportedMethods(t)) i];
+    static public function exportedMethods(_t:UncommonType):Array<Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.UncommonType_static_extension.exportedMethods(_t)) i];
     }
-    static public function methods(t:UncommonType):Array<Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.UncommonType_static_extension.methods(t)) i];
+    static public function methods(_t:UncommonType):Array<Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.UncommonType_static_extension.methods(_t)) i];
     }
 }
 class ArrayType_static_extension {
-    public static function uncommon(_self__:ArrayType):stdgo._internal.internal.abi.Abi.UncommonType {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.uncommon(_self__);
+    public static function uncommon(__self__:ArrayType):stdgo._internal.internal.abi.Abi.UncommonType {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.uncommon(__self__);
     }
-    public static function structType(_self__:ArrayType):stdgo._internal.internal.abi.Abi.StructType {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.structType(_self__);
+    public static function structType(__self__:ArrayType):stdgo._internal.internal.abi.Abi.StructType {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.structType(__self__);
     }
-    public static function size(_self__:ArrayType):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.size(_self__);
+    public static function size(__self__:ArrayType):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.size(__self__);
     }
-    public static function pointers(_self__:ArrayType):Bool {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.pointers(_self__);
+    public static function pointers(__self__:ArrayType):Bool {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.pointers(__self__);
     }
-    public static function numMethod(_self__:ArrayType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.numMethod(_self__);
+    public static function numMethod(__self__:ArrayType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.numMethod(__self__);
     }
-    public static function mapType(_self__:ArrayType):stdgo._internal.internal.abi.Abi.MapType {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.mapType(_self__);
+    public static function mapType(__self__:ArrayType):stdgo._internal.internal.abi.Abi.MapType {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.mapType(__self__);
     }
-    public static function kind(_self__:ArrayType):stdgo._internal.internal.abi.Abi.Kind {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.kind(_self__);
+    public static function kind(__self__:ArrayType):stdgo._internal.internal.abi.Abi.Kind {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.kind(__self__);
     }
-    public static function key(_self__:ArrayType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.key(_self__);
+    public static function key(__self__:ArrayType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.key(__self__);
     }
-    public static function isDirectIface(_self__:ArrayType):Bool {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.isDirectIface(_self__);
+    public static function isDirectIface(__self__:ArrayType):Bool {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(_self__:ArrayType):stdgo._internal.internal.abi.Abi.InterfaceType {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.interfaceType(_self__);
+    public static function interfaceType(__self__:ArrayType):stdgo._internal.internal.abi.Abi.InterfaceType {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(_self__:ArrayType):Bool {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.ifaceIndir(_self__);
+    public static function ifaceIndir(__self__:ArrayType):Bool {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(_self__:ArrayType):Bool {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.hasName(_self__);
+    public static function hasName(__self__:ArrayType):Bool {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(_self__:ArrayType, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi.ArrayType_static_extension.gcSlice(_self__, begin, end)) i];
+    public static function gcSlice(__self__:ArrayType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi.ArrayType_static_extension.gcSlice(__self__, _begin, _end)) i];
     }
-    public static function funcType(_self__:ArrayType):stdgo._internal.internal.abi.Abi.FuncType {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.funcType(_self__);
+    public static function funcType(__self__:ArrayType):stdgo._internal.internal.abi.Abi.FuncType {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(_self__:ArrayType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.fieldAlign(_self__);
+    public static function fieldAlign(__self__:ArrayType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(_self__:ArrayType):Array<stdgo._internal.internal.abi.Abi.Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.ArrayType_static_extension.exportedMethods(_self__)) i];
+    public static function exportedMethods(__self__:ArrayType):Array<stdgo._internal.internal.abi.Abi.Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.ArrayType_static_extension.exportedMethods(__self__)) i];
     }
-    public static function common(_self__:ArrayType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.common(_self__);
+    public static function common(__self__:ArrayType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.common(__self__);
     }
-    public static function chanDir(_self__:ArrayType):stdgo._internal.internal.abi.Abi.ChanDir {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.chanDir(_self__);
+    public static function chanDir(__self__:ArrayType):stdgo._internal.internal.abi.Abi.ChanDir {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.chanDir(__self__);
     }
-    public static function arrayType(_self__:ArrayType):stdgo._internal.internal.abi.Abi.ArrayType {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.arrayType(_self__);
+    public static function arrayType(__self__:ArrayType):stdgo._internal.internal.abi.Abi.ArrayType {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.arrayType(__self__);
     }
-    public static function align(_self__:ArrayType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.align(_self__);
+    public static function align(__self__:ArrayType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.ArrayType_static_extension.align(__self__);
     }
 }
 class ChanType_static_extension {
-    public static function uncommon(_self__:ChanType):stdgo._internal.internal.abi.Abi.UncommonType {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.uncommon(_self__);
+    public static function uncommon(__self__:ChanType):stdgo._internal.internal.abi.Abi.UncommonType {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.uncommon(__self__);
     }
-    public static function structType(_self__:ChanType):stdgo._internal.internal.abi.Abi.StructType {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.structType(_self__);
+    public static function structType(__self__:ChanType):stdgo._internal.internal.abi.Abi.StructType {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.structType(__self__);
     }
-    public static function size(_self__:ChanType):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.size(_self__);
+    public static function size(__self__:ChanType):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.size(__self__);
     }
-    public static function pointers(_self__:ChanType):Bool {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.pointers(_self__);
+    public static function pointers(__self__:ChanType):Bool {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.pointers(__self__);
     }
-    public static function numMethod(_self__:ChanType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.numMethod(_self__);
+    public static function numMethod(__self__:ChanType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.numMethod(__self__);
     }
-    public static function mapType(_self__:ChanType):stdgo._internal.internal.abi.Abi.MapType {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.mapType(_self__);
+    public static function mapType(__self__:ChanType):stdgo._internal.internal.abi.Abi.MapType {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.mapType(__self__);
     }
-    public static function len(_self__:ChanType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.len(_self__);
+    public static function len(__self__:ChanType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.len(__self__);
     }
-    public static function kind(_self__:ChanType):stdgo._internal.internal.abi.Abi.Kind {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.kind(_self__);
+    public static function kind(__self__:ChanType):stdgo._internal.internal.abi.Abi.Kind {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.kind(__self__);
     }
-    public static function key(_self__:ChanType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.key(_self__);
+    public static function key(__self__:ChanType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.key(__self__);
     }
-    public static function isDirectIface(_self__:ChanType):Bool {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.isDirectIface(_self__);
+    public static function isDirectIface(__self__:ChanType):Bool {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(_self__:ChanType):stdgo._internal.internal.abi.Abi.InterfaceType {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.interfaceType(_self__);
+    public static function interfaceType(__self__:ChanType):stdgo._internal.internal.abi.Abi.InterfaceType {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(_self__:ChanType):Bool {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.ifaceIndir(_self__);
+    public static function ifaceIndir(__self__:ChanType):Bool {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(_self__:ChanType):Bool {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.hasName(_self__);
+    public static function hasName(__self__:ChanType):Bool {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(_self__:ChanType, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi.ChanType_static_extension.gcSlice(_self__, begin, end)) i];
+    public static function gcSlice(__self__:ChanType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi.ChanType_static_extension.gcSlice(__self__, _begin, _end)) i];
     }
-    public static function funcType(_self__:ChanType):stdgo._internal.internal.abi.Abi.FuncType {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.funcType(_self__);
+    public static function funcType(__self__:ChanType):stdgo._internal.internal.abi.Abi.FuncType {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(_self__:ChanType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.fieldAlign(_self__);
+    public static function fieldAlign(__self__:ChanType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(_self__:ChanType):Array<stdgo._internal.internal.abi.Abi.Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.ChanType_static_extension.exportedMethods(_self__)) i];
+    public static function exportedMethods(__self__:ChanType):Array<stdgo._internal.internal.abi.Abi.Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.ChanType_static_extension.exportedMethods(__self__)) i];
     }
-    public static function common(_self__:ChanType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.common(_self__);
+    public static function common(__self__:ChanType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.common(__self__);
     }
-    public static function chanDir(_self__:ChanType):stdgo._internal.internal.abi.Abi.ChanDir {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.chanDir(_self__);
+    public static function chanDir(__self__:ChanType):stdgo._internal.internal.abi.Abi.ChanDir {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.chanDir(__self__);
     }
-    public static function arrayType(_self__:ChanType):stdgo._internal.internal.abi.Abi.ArrayType {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.arrayType(_self__);
+    public static function arrayType(__self__:ChanType):stdgo._internal.internal.abi.Abi.ArrayType {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.arrayType(__self__);
     }
-    public static function align(_self__:ChanType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.align(_self__);
+    public static function align(__self__:ChanType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.ChanType_static_extension.align(__self__);
     }
 }
 class T_structTypeUncommon_static_extension {
-    public static function uncommon(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.UncommonType {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.uncommon(_self__);
+    public static function uncommon(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.UncommonType {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.uncommon(__self__);
     }
-    public static function size(_self__:T_structTypeUncommon):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.size(_self__);
+    public static function size(__self__:T_structTypeUncommon):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.size(__self__);
     }
-    public static function pointers(_self__:T_structTypeUncommon):Bool {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.pointers(_self__);
+    public static function pointers(__self__:T_structTypeUncommon):Bool {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.pointers(__self__);
     }
-    public static function numMethod(_self__:T_structTypeUncommon):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.numMethod(_self__);
+    public static function numMethod(__self__:T_structTypeUncommon):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.numMethod(__self__);
     }
-    public static function mapType(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.MapType {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.mapType(_self__);
+    public static function mapType(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.MapType {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.mapType(__self__);
     }
-    public static function len(_self__:T_structTypeUncommon):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.len(_self__);
+    public static function len(__self__:T_structTypeUncommon):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.len(__self__);
     }
-    public static function kind(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.Kind {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.kind(_self__);
+    public static function kind(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.Kind {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.kind(__self__);
     }
-    public static function key(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.key(_self__);
+    public static function key(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.key(__self__);
     }
-    public static function isDirectIface(_self__:T_structTypeUncommon):Bool {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.isDirectIface(_self__);
+    public static function isDirectIface(__self__:T_structTypeUncommon):Bool {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.InterfaceType {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.interfaceType(_self__);
+    public static function interfaceType(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.InterfaceType {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(_self__:T_structTypeUncommon):Bool {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.ifaceIndir(_self__);
+    public static function ifaceIndir(__self__:T_structTypeUncommon):Bool {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(_self__:T_structTypeUncommon):Bool {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.hasName(_self__);
+    public static function hasName(__self__:T_structTypeUncommon):Bool {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.hasName(__self__);
     }
-    public static function gcSlice(_self__:T_structTypeUncommon, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.gcSlice(_self__, begin, end)) i];
+    public static function gcSlice(__self__:T_structTypeUncommon, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.gcSlice(__self__, _begin, _end)) i];
     }
-    public static function funcType(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.FuncType {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.funcType(_self__);
+    public static function funcType(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.FuncType {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(_self__:T_structTypeUncommon):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.fieldAlign(_self__);
+    public static function fieldAlign(__self__:T_structTypeUncommon):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(_self__:T_structTypeUncommon):Array<stdgo._internal.internal.abi.Abi.Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.exportedMethods(_self__)) i];
+    public static function exportedMethods(__self__:T_structTypeUncommon):Array<stdgo._internal.internal.abi.Abi.Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.exportedMethods(__self__)) i];
     }
-    public static function elem(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.elem(_self__);
+    public static function elem(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.elem(__self__);
     }
-    public static function common(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.common(_self__);
+    public static function common(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.common(__self__);
     }
-    public static function chanDir(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.ChanDir {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.chanDir(_self__);
+    public static function chanDir(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.ChanDir {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.chanDir(__self__);
     }
-    public static function arrayType(_self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.ArrayType {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.arrayType(_self__);
+    public static function arrayType(__self__:T_structTypeUncommon):stdgo._internal.internal.abi.Abi.ArrayType {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.arrayType(__self__);
     }
-    public static function align(_self__:T_structTypeUncommon):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.align(_self__);
+    public static function align(__self__:T_structTypeUncommon):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.T_structTypeUncommon_static_extension.align(__self__);
     }
 }
 class InterfaceType_static_extension {
-    static public function numMethod(t:InterfaceType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.numMethod(t);
+    static public function numMethod(_t:InterfaceType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.numMethod(_t);
     }
-    public static function uncommon(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.UncommonType {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.uncommon(_self__);
+    public static function uncommon(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.UncommonType {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.uncommon(__self__);
     }
-    public static function structType(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.StructType {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.structType(_self__);
+    public static function structType(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.StructType {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.structType(__self__);
     }
-    public static function size(_self__:InterfaceType):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.size(_self__);
+    public static function size(__self__:InterfaceType):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.size(__self__);
     }
-    public static function pointers(_self__:InterfaceType):Bool {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.pointers(_self__);
+    public static function pointers(__self__:InterfaceType):Bool {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.pointers(__self__);
     }
-    public static function mapType(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.MapType {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.mapType(_self__);
+    public static function mapType(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.MapType {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.mapType(__self__);
     }
-    public static function len(_self__:InterfaceType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.len(_self__);
+    public static function len(__self__:InterfaceType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.len(__self__);
     }
-    public static function kind(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.Kind {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.kind(_self__);
+    public static function kind(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.Kind {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.kind(__self__);
     }
-    public static function key(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.key(_self__);
+    public static function key(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.key(__self__);
     }
-    public static function isDirectIface(_self__:InterfaceType):Bool {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.isDirectIface(_self__);
+    public static function isDirectIface(__self__:InterfaceType):Bool {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.InterfaceType {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.interfaceType(_self__);
+    public static function interfaceType(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.InterfaceType {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(_self__:InterfaceType):Bool {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.ifaceIndir(_self__);
+    public static function ifaceIndir(__self__:InterfaceType):Bool {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(_self__:InterfaceType):Bool {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.hasName(_self__);
+    public static function hasName(__self__:InterfaceType):Bool {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(_self__:InterfaceType, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.gcSlice(_self__, begin, end)) i];
+    public static function gcSlice(__self__:InterfaceType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.gcSlice(__self__, _begin, _end)) i];
     }
-    public static function funcType(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.FuncType {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.funcType(_self__);
+    public static function funcType(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.FuncType {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(_self__:InterfaceType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.fieldAlign(_self__);
+    public static function fieldAlign(__self__:InterfaceType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(_self__:InterfaceType):Array<stdgo._internal.internal.abi.Abi.Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.exportedMethods(_self__)) i];
+    public static function exportedMethods(__self__:InterfaceType):Array<stdgo._internal.internal.abi.Abi.Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.exportedMethods(__self__)) i];
     }
-    public static function elem(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.elem(_self__);
+    public static function elem(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.elem(__self__);
     }
-    public static function common(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.common(_self__);
+    public static function common(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.common(__self__);
     }
-    public static function chanDir(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.ChanDir {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.chanDir(_self__);
+    public static function chanDir(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.ChanDir {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.chanDir(__self__);
     }
-    public static function arrayType(_self__:InterfaceType):stdgo._internal.internal.abi.Abi.ArrayType {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.arrayType(_self__);
+    public static function arrayType(__self__:InterfaceType):stdgo._internal.internal.abi.Abi.ArrayType {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.arrayType(__self__);
     }
-    public static function align(_self__:InterfaceType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.align(_self__);
+    public static function align(__self__:InterfaceType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.InterfaceType_static_extension.align(__self__);
     }
 }
 class MapType_static_extension {
-    static public function hashMightPanic(mt:MapType):Bool {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.hashMightPanic(mt);
+    static public function hashMightPanic(_mt:MapType):Bool {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.hashMightPanic(_mt);
     }
-    static public function needKeyUpdate(mt:MapType):Bool {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.needKeyUpdate(mt);
+    static public function needKeyUpdate(_mt:MapType):Bool {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.needKeyUpdate(_mt);
     }
-    static public function reflexiveKey(mt:MapType):Bool {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.reflexiveKey(mt);
+    static public function reflexiveKey(_mt:MapType):Bool {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.reflexiveKey(_mt);
     }
-    static public function indirectElem(mt:MapType):Bool {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.indirectElem(mt);
+    static public function indirectElem(_mt:MapType):Bool {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.indirectElem(_mt);
     }
-    static public function indirectKey(mt:MapType):Bool {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.indirectKey(mt);
+    static public function indirectKey(_mt:MapType):Bool {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.indirectKey(_mt);
     }
-    public static function uncommon(_self__:MapType):stdgo._internal.internal.abi.Abi.UncommonType {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.uncommon(_self__);
+    public static function uncommon(__self__:MapType):stdgo._internal.internal.abi.Abi.UncommonType {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.uncommon(__self__);
     }
-    public static function structType(_self__:MapType):stdgo._internal.internal.abi.Abi.StructType {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.structType(_self__);
+    public static function structType(__self__:MapType):stdgo._internal.internal.abi.Abi.StructType {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.structType(__self__);
     }
-    public static function size(_self__:MapType):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.size(_self__);
+    public static function size(__self__:MapType):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.size(__self__);
     }
-    public static function pointers(_self__:MapType):Bool {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.pointers(_self__);
+    public static function pointers(__self__:MapType):Bool {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.pointers(__self__);
     }
-    public static function numMethod(_self__:MapType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.numMethod(_self__);
+    public static function numMethod(__self__:MapType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.numMethod(__self__);
     }
-    public static function mapType(_self__:MapType):stdgo._internal.internal.abi.Abi.MapType {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.mapType(_self__);
+    public static function mapType(__self__:MapType):stdgo._internal.internal.abi.Abi.MapType {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.mapType(__self__);
     }
-    public static function len(_self__:MapType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.len(_self__);
+    public static function len(__self__:MapType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.len(__self__);
     }
-    public static function kind(_self__:MapType):stdgo._internal.internal.abi.Abi.Kind {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.kind(_self__);
+    public static function kind(__self__:MapType):stdgo._internal.internal.abi.Abi.Kind {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.kind(__self__);
     }
-    public static function isDirectIface(_self__:MapType):Bool {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.isDirectIface(_self__);
+    public static function isDirectIface(__self__:MapType):Bool {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(_self__:MapType):stdgo._internal.internal.abi.Abi.InterfaceType {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.interfaceType(_self__);
+    public static function interfaceType(__self__:MapType):stdgo._internal.internal.abi.Abi.InterfaceType {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(_self__:MapType):Bool {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.ifaceIndir(_self__);
+    public static function ifaceIndir(__self__:MapType):Bool {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(_self__:MapType):Bool {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.hasName(_self__);
+    public static function hasName(__self__:MapType):Bool {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(_self__:MapType, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi.MapType_static_extension.gcSlice(_self__, begin, end)) i];
+    public static function gcSlice(__self__:MapType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi.MapType_static_extension.gcSlice(__self__, _begin, _end)) i];
     }
-    public static function funcType(_self__:MapType):stdgo._internal.internal.abi.Abi.FuncType {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.funcType(_self__);
+    public static function funcType(__self__:MapType):stdgo._internal.internal.abi.Abi.FuncType {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(_self__:MapType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.fieldAlign(_self__);
+    public static function fieldAlign(__self__:MapType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(_self__:MapType):Array<stdgo._internal.internal.abi.Abi.Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.MapType_static_extension.exportedMethods(_self__)) i];
+    public static function exportedMethods(__self__:MapType):Array<stdgo._internal.internal.abi.Abi.Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.MapType_static_extension.exportedMethods(__self__)) i];
     }
-    public static function common(_self__:MapType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.common(_self__);
+    public static function common(__self__:MapType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.common(__self__);
     }
-    public static function chanDir(_self__:MapType):stdgo._internal.internal.abi.Abi.ChanDir {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.chanDir(_self__);
+    public static function chanDir(__self__:MapType):stdgo._internal.internal.abi.Abi.ChanDir {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.chanDir(__self__);
     }
-    public static function arrayType(_self__:MapType):stdgo._internal.internal.abi.Abi.ArrayType {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.arrayType(_self__);
+    public static function arrayType(__self__:MapType):stdgo._internal.internal.abi.Abi.ArrayType {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.arrayType(__self__);
     }
-    public static function align(_self__:MapType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.MapType_static_extension.align(_self__);
+    public static function align(__self__:MapType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.MapType_static_extension.align(__self__);
     }
 }
 class SliceType_static_extension {
-    public static function uncommon(_self__:SliceType):stdgo._internal.internal.abi.Abi.UncommonType {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.uncommon(_self__);
+    public static function uncommon(__self__:SliceType):stdgo._internal.internal.abi.Abi.UncommonType {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.uncommon(__self__);
     }
-    public static function structType(_self__:SliceType):stdgo._internal.internal.abi.Abi.StructType {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.structType(_self__);
+    public static function structType(__self__:SliceType):stdgo._internal.internal.abi.Abi.StructType {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.structType(__self__);
     }
-    public static function size(_self__:SliceType):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.size(_self__);
+    public static function size(__self__:SliceType):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.size(__self__);
     }
-    public static function pointers(_self__:SliceType):Bool {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.pointers(_self__);
+    public static function pointers(__self__:SliceType):Bool {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.pointers(__self__);
     }
-    public static function numMethod(_self__:SliceType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.numMethod(_self__);
+    public static function numMethod(__self__:SliceType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.numMethod(__self__);
     }
-    public static function mapType(_self__:SliceType):stdgo._internal.internal.abi.Abi.MapType {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.mapType(_self__);
+    public static function mapType(__self__:SliceType):stdgo._internal.internal.abi.Abi.MapType {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.mapType(__self__);
     }
-    public static function len(_self__:SliceType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.len(_self__);
+    public static function len(__self__:SliceType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.len(__self__);
     }
-    public static function kind(_self__:SliceType):stdgo._internal.internal.abi.Abi.Kind {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.kind(_self__);
+    public static function kind(__self__:SliceType):stdgo._internal.internal.abi.Abi.Kind {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.kind(__self__);
     }
-    public static function key(_self__:SliceType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.key(_self__);
+    public static function key(__self__:SliceType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.key(__self__);
     }
-    public static function isDirectIface(_self__:SliceType):Bool {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.isDirectIface(_self__);
+    public static function isDirectIface(__self__:SliceType):Bool {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(_self__:SliceType):stdgo._internal.internal.abi.Abi.InterfaceType {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.interfaceType(_self__);
+    public static function interfaceType(__self__:SliceType):stdgo._internal.internal.abi.Abi.InterfaceType {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(_self__:SliceType):Bool {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.ifaceIndir(_self__);
+    public static function ifaceIndir(__self__:SliceType):Bool {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(_self__:SliceType):Bool {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.hasName(_self__);
+    public static function hasName(__self__:SliceType):Bool {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(_self__:SliceType, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi.SliceType_static_extension.gcSlice(_self__, begin, end)) i];
+    public static function gcSlice(__self__:SliceType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi.SliceType_static_extension.gcSlice(__self__, _begin, _end)) i];
     }
-    public static function funcType(_self__:SliceType):stdgo._internal.internal.abi.Abi.FuncType {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.funcType(_self__);
+    public static function funcType(__self__:SliceType):stdgo._internal.internal.abi.Abi.FuncType {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(_self__:SliceType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.fieldAlign(_self__);
+    public static function fieldAlign(__self__:SliceType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(_self__:SliceType):Array<stdgo._internal.internal.abi.Abi.Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.SliceType_static_extension.exportedMethods(_self__)) i];
+    public static function exportedMethods(__self__:SliceType):Array<stdgo._internal.internal.abi.Abi.Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.SliceType_static_extension.exportedMethods(__self__)) i];
     }
-    public static function common(_self__:SliceType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.common(_self__);
+    public static function common(__self__:SliceType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.common(__self__);
     }
-    public static function chanDir(_self__:SliceType):stdgo._internal.internal.abi.Abi.ChanDir {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.chanDir(_self__);
+    public static function chanDir(__self__:SliceType):stdgo._internal.internal.abi.Abi.ChanDir {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.chanDir(__self__);
     }
-    public static function arrayType(_self__:SliceType):stdgo._internal.internal.abi.Abi.ArrayType {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.arrayType(_self__);
+    public static function arrayType(__self__:SliceType):stdgo._internal.internal.abi.Abi.ArrayType {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.arrayType(__self__);
     }
-    public static function align(_self__:SliceType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.align(_self__);
+    public static function align(__self__:SliceType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.SliceType_static_extension.align(__self__);
     }
 }
 class FuncType_static_extension {
-    static public function isVariadic(t:FuncType):Bool {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.isVariadic(t);
+    static public function isVariadic(_t:FuncType):Bool {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.isVariadic(_t);
     }
-    static public function outSlice(t:FuncType):Array<Type_> {
-        return [for (i in stdgo._internal.internal.abi.Abi.FuncType_static_extension.outSlice(t)) i];
+    static public function outSlice(_t:FuncType):Array<Type_> {
+        return [for (i in stdgo._internal.internal.abi.Abi.FuncType_static_extension.outSlice(_t)) i];
     }
-    static public function inSlice(t:FuncType):Array<Type_> {
-        return [for (i in stdgo._internal.internal.abi.Abi.FuncType_static_extension.inSlice(t)) i];
+    static public function inSlice(_t:FuncType):Array<Type_> {
+        return [for (i in stdgo._internal.internal.abi.Abi.FuncType_static_extension.inSlice(_t)) i];
     }
-    static public function out(t:FuncType, i:StdTypes.Int):Type_ {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.out(t, i);
+    static public function out(_t:FuncType, _i:StdTypes.Int):Type_ {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.out(_t, _i);
     }
-    static public function numOut(t:FuncType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.numOut(t);
+    static public function numOut(_t:FuncType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.numOut(_t);
     }
-    static public function numIn(t:FuncType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.numIn(t);
+    static public function numIn(_t:FuncType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.numIn(_t);
     }
-    static public function in_(t:FuncType, i:StdTypes.Int):Type_ {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.in_(t, i);
+    static public function in_(_t:FuncType, _i:StdTypes.Int):Type_ {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.in_(_t, _i);
     }
-    public static function uncommon(_self__:FuncType):stdgo._internal.internal.abi.Abi.UncommonType {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.uncommon(_self__);
+    public static function uncommon(__self__:FuncType):stdgo._internal.internal.abi.Abi.UncommonType {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.uncommon(__self__);
     }
-    public static function structType(_self__:FuncType):stdgo._internal.internal.abi.Abi.StructType {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.structType(_self__);
+    public static function structType(__self__:FuncType):stdgo._internal.internal.abi.Abi.StructType {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.structType(__self__);
     }
-    public static function size(_self__:FuncType):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.size(_self__);
+    public static function size(__self__:FuncType):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.size(__self__);
     }
-    public static function pointers(_self__:FuncType):Bool {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.pointers(_self__);
+    public static function pointers(__self__:FuncType):Bool {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.pointers(__self__);
     }
-    public static function numMethod(_self__:FuncType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.numMethod(_self__);
+    public static function numMethod(__self__:FuncType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.numMethod(__self__);
     }
-    public static function mapType(_self__:FuncType):stdgo._internal.internal.abi.Abi.MapType {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.mapType(_self__);
+    public static function mapType(__self__:FuncType):stdgo._internal.internal.abi.Abi.MapType {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.mapType(__self__);
     }
-    public static function len(_self__:FuncType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.len(_self__);
+    public static function len(__self__:FuncType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.len(__self__);
     }
-    public static function kind(_self__:FuncType):stdgo._internal.internal.abi.Abi.Kind {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.kind(_self__);
+    public static function kind(__self__:FuncType):stdgo._internal.internal.abi.Abi.Kind {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.kind(__self__);
     }
-    public static function key(_self__:FuncType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.key(_self__);
+    public static function key(__self__:FuncType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.key(__self__);
     }
-    public static function isDirectIface(_self__:FuncType):Bool {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.isDirectIface(_self__);
+    public static function isDirectIface(__self__:FuncType):Bool {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(_self__:FuncType):stdgo._internal.internal.abi.Abi.InterfaceType {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.interfaceType(_self__);
+    public static function interfaceType(__self__:FuncType):stdgo._internal.internal.abi.Abi.InterfaceType {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(_self__:FuncType):Bool {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.ifaceIndir(_self__);
+    public static function ifaceIndir(__self__:FuncType):Bool {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(_self__:FuncType):Bool {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.hasName(_self__);
+    public static function hasName(__self__:FuncType):Bool {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(_self__:FuncType, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi.FuncType_static_extension.gcSlice(_self__, begin, end)) i];
+    public static function gcSlice(__self__:FuncType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi.FuncType_static_extension.gcSlice(__self__, _begin, _end)) i];
     }
-    public static function funcType(_self__:FuncType):stdgo._internal.internal.abi.Abi.FuncType {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.funcType(_self__);
+    public static function funcType(__self__:FuncType):stdgo._internal.internal.abi.Abi.FuncType {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(_self__:FuncType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.fieldAlign(_self__);
+    public static function fieldAlign(__self__:FuncType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(_self__:FuncType):Array<stdgo._internal.internal.abi.Abi.Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.FuncType_static_extension.exportedMethods(_self__)) i];
+    public static function exportedMethods(__self__:FuncType):Array<stdgo._internal.internal.abi.Abi.Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.FuncType_static_extension.exportedMethods(__self__)) i];
     }
-    public static function elem(_self__:FuncType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.elem(_self__);
+    public static function elem(__self__:FuncType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.elem(__self__);
     }
-    public static function common(_self__:FuncType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.common(_self__);
+    public static function common(__self__:FuncType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.common(__self__);
     }
-    public static function chanDir(_self__:FuncType):stdgo._internal.internal.abi.Abi.ChanDir {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.chanDir(_self__);
+    public static function chanDir(__self__:FuncType):stdgo._internal.internal.abi.Abi.ChanDir {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.chanDir(__self__);
     }
-    public static function arrayType(_self__:FuncType):stdgo._internal.internal.abi.Abi.ArrayType {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.arrayType(_self__);
+    public static function arrayType(__self__:FuncType):stdgo._internal.internal.abi.Abi.ArrayType {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.arrayType(__self__);
     }
-    public static function align(_self__:FuncType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.align(_self__);
+    public static function align(__self__:FuncType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.FuncType_static_extension.align(__self__);
     }
 }
 class PtrType_static_extension {
-    public static function uncommon(_self__:PtrType):stdgo._internal.internal.abi.Abi.UncommonType {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.uncommon(_self__);
+    public static function uncommon(__self__:PtrType):stdgo._internal.internal.abi.Abi.UncommonType {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.uncommon(__self__);
     }
-    public static function structType(_self__:PtrType):stdgo._internal.internal.abi.Abi.StructType {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.structType(_self__);
+    public static function structType(__self__:PtrType):stdgo._internal.internal.abi.Abi.StructType {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.structType(__self__);
     }
-    public static function size(_self__:PtrType):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.size(_self__);
+    public static function size(__self__:PtrType):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.size(__self__);
     }
-    public static function pointers(_self__:PtrType):Bool {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.pointers(_self__);
+    public static function pointers(__self__:PtrType):Bool {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.pointers(__self__);
     }
-    public static function numMethod(_self__:PtrType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.numMethod(_self__);
+    public static function numMethod(__self__:PtrType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.numMethod(__self__);
     }
-    public static function mapType(_self__:PtrType):stdgo._internal.internal.abi.Abi.MapType {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.mapType(_self__);
+    public static function mapType(__self__:PtrType):stdgo._internal.internal.abi.Abi.MapType {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.mapType(__self__);
     }
-    public static function len(_self__:PtrType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.len(_self__);
+    public static function len(__self__:PtrType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.len(__self__);
     }
-    public static function kind(_self__:PtrType):stdgo._internal.internal.abi.Abi.Kind {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.kind(_self__);
+    public static function kind(__self__:PtrType):stdgo._internal.internal.abi.Abi.Kind {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.kind(__self__);
     }
-    public static function key(_self__:PtrType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.key(_self__);
+    public static function key(__self__:PtrType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.key(__self__);
     }
-    public static function isDirectIface(_self__:PtrType):Bool {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.isDirectIface(_self__);
+    public static function isDirectIface(__self__:PtrType):Bool {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(_self__:PtrType):stdgo._internal.internal.abi.Abi.InterfaceType {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.interfaceType(_self__);
+    public static function interfaceType(__self__:PtrType):stdgo._internal.internal.abi.Abi.InterfaceType {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(_self__:PtrType):Bool {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.ifaceIndir(_self__);
+    public static function ifaceIndir(__self__:PtrType):Bool {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(_self__:PtrType):Bool {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.hasName(_self__);
+    public static function hasName(__self__:PtrType):Bool {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(_self__:PtrType, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi.PtrType_static_extension.gcSlice(_self__, begin, end)) i];
+    public static function gcSlice(__self__:PtrType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi.PtrType_static_extension.gcSlice(__self__, _begin, _end)) i];
     }
-    public static function funcType(_self__:PtrType):stdgo._internal.internal.abi.Abi.FuncType {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.funcType(_self__);
+    public static function funcType(__self__:PtrType):stdgo._internal.internal.abi.Abi.FuncType {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(_self__:PtrType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.fieldAlign(_self__);
+    public static function fieldAlign(__self__:PtrType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(_self__:PtrType):Array<stdgo._internal.internal.abi.Abi.Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.PtrType_static_extension.exportedMethods(_self__)) i];
+    public static function exportedMethods(__self__:PtrType):Array<stdgo._internal.internal.abi.Abi.Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.PtrType_static_extension.exportedMethods(__self__)) i];
     }
-    public static function common(_self__:PtrType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.common(_self__);
+    public static function common(__self__:PtrType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.common(__self__);
     }
-    public static function chanDir(_self__:PtrType):stdgo._internal.internal.abi.Abi.ChanDir {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.chanDir(_self__);
+    public static function chanDir(__self__:PtrType):stdgo._internal.internal.abi.Abi.ChanDir {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.chanDir(__self__);
     }
-    public static function arrayType(_self__:PtrType):stdgo._internal.internal.abi.Abi.ArrayType {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.arrayType(_self__);
+    public static function arrayType(__self__:PtrType):stdgo._internal.internal.abi.Abi.ArrayType {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.arrayType(__self__);
     }
-    public static function align(_self__:PtrType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.align(_self__);
+    public static function align(__self__:PtrType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.PtrType_static_extension.align(__self__);
     }
 }
 class StructField_static_extension {
-    static public function embedded(f:StructField):Bool {
-        return stdgo._internal.internal.abi.Abi.StructField_static_extension.embedded(f);
+    static public function embedded(_f:StructField):Bool {
+        return stdgo._internal.internal.abi.Abi.StructField_static_extension.embedded(_f);
     }
 }
 class StructType_static_extension {
-    public static function uncommon(_self__:StructType):stdgo._internal.internal.abi.Abi.UncommonType {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.uncommon(_self__);
+    public static function uncommon(__self__:StructType):stdgo._internal.internal.abi.Abi.UncommonType {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.uncommon(__self__);
     }
-    public static function structType(_self__:StructType):stdgo._internal.internal.abi.Abi.StructType {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.structType(_self__);
+    public static function structType(__self__:StructType):stdgo._internal.internal.abi.Abi.StructType {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.structType(__self__);
     }
-    public static function size(_self__:StructType):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.size(_self__);
+    public static function size(__self__:StructType):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.size(__self__);
     }
-    public static function pointers(_self__:StructType):Bool {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.pointers(_self__);
+    public static function pointers(__self__:StructType):Bool {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.pointers(__self__);
     }
-    public static function numMethod(_self__:StructType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.numMethod(_self__);
+    public static function numMethod(__self__:StructType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.numMethod(__self__);
     }
-    public static function mapType(_self__:StructType):stdgo._internal.internal.abi.Abi.MapType {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.mapType(_self__);
+    public static function mapType(__self__:StructType):stdgo._internal.internal.abi.Abi.MapType {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.mapType(__self__);
     }
-    public static function len(_self__:StructType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.len(_self__);
+    public static function len(__self__:StructType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.len(__self__);
     }
-    public static function kind(_self__:StructType):stdgo._internal.internal.abi.Abi.Kind {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.kind(_self__);
+    public static function kind(__self__:StructType):stdgo._internal.internal.abi.Abi.Kind {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.kind(__self__);
     }
-    public static function key(_self__:StructType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.key(_self__);
+    public static function key(__self__:StructType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.key(__self__);
     }
-    public static function isDirectIface(_self__:StructType):Bool {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.isDirectIface(_self__);
+    public static function isDirectIface(__self__:StructType):Bool {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.isDirectIface(__self__);
     }
-    public static function interfaceType(_self__:StructType):stdgo._internal.internal.abi.Abi.InterfaceType {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.interfaceType(_self__);
+    public static function interfaceType(__self__:StructType):stdgo._internal.internal.abi.Abi.InterfaceType {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.interfaceType(__self__);
     }
-    public static function ifaceIndir(_self__:StructType):Bool {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.ifaceIndir(_self__);
+    public static function ifaceIndir(__self__:StructType):Bool {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.ifaceIndir(__self__);
     }
-    public static function hasName(_self__:StructType):Bool {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.hasName(_self__);
+    public static function hasName(__self__:StructType):Bool {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.hasName(__self__);
     }
-    public static function gcSlice(_self__:StructType, begin:stdgo.GoUIntptr, end:stdgo.GoUIntptr):Array<std.UInt> {
-        return [for (i in stdgo._internal.internal.abi.Abi.StructType_static_extension.gcSlice(_self__, begin, end)) i];
+    public static function gcSlice(__self__:StructType, _begin:stdgo.GoUIntptr, _end:stdgo.GoUIntptr):Array<std.UInt> {
+        return [for (i in stdgo._internal.internal.abi.Abi.StructType_static_extension.gcSlice(__self__, _begin, _end)) i];
     }
-    public static function funcType(_self__:StructType):stdgo._internal.internal.abi.Abi.FuncType {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.funcType(_self__);
+    public static function funcType(__self__:StructType):stdgo._internal.internal.abi.Abi.FuncType {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.funcType(__self__);
     }
-    public static function fieldAlign(_self__:StructType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.fieldAlign(_self__);
+    public static function fieldAlign(__self__:StructType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.fieldAlign(__self__);
     }
-    public static function exportedMethods(_self__:StructType):Array<stdgo._internal.internal.abi.Abi.Method> {
-        return [for (i in stdgo._internal.internal.abi.Abi.StructType_static_extension.exportedMethods(_self__)) i];
+    public static function exportedMethods(__self__:StructType):Array<stdgo._internal.internal.abi.Abi.Method> {
+        return [for (i in stdgo._internal.internal.abi.Abi.StructType_static_extension.exportedMethods(__self__)) i];
     }
-    public static function elem(_self__:StructType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.elem(_self__);
+    public static function elem(__self__:StructType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.elem(__self__);
     }
-    public static function common(_self__:StructType):stdgo._internal.internal.abi.Abi.Type_ {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.common(_self__);
+    public static function common(__self__:StructType):stdgo._internal.internal.abi.Abi.Type_ {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.common(__self__);
     }
-    public static function chanDir(_self__:StructType):stdgo._internal.internal.abi.Abi.ChanDir {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.chanDir(_self__);
+    public static function chanDir(__self__:StructType):stdgo._internal.internal.abi.Abi.ChanDir {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.chanDir(__self__);
     }
-    public static function arrayType(_self__:StructType):stdgo._internal.internal.abi.Abi.ArrayType {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.arrayType(_self__);
+    public static function arrayType(__self__:StructType):stdgo._internal.internal.abi.Abi.ArrayType {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.arrayType(__self__);
     }
-    public static function align(_self__:StructType):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.StructType_static_extension.align(_self__);
+    public static function align(__self__:StructType):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.StructType_static_extension.align(__self__);
     }
 }
 class Name_static_extension {
-    static public function tag(n:Name):String {
-        return stdgo._internal.internal.abi.Abi.Name_static_extension.tag(n);
+    static public function tag(_n:Name):String {
+        return stdgo._internal.internal.abi.Abi.Name_static_extension.tag(_n);
     }
-    static public function name(n:Name):String {
-        return stdgo._internal.internal.abi.Abi.Name_static_extension.name(n);
+    static public function name(_n:Name):String {
+        return stdgo._internal.internal.abi.Abi.Name_static_extension.name(_n);
     }
-    static public function isBlank(n:Name):Bool {
-        return stdgo._internal.internal.abi.Abi.Name_static_extension.isBlank(n);
+    static public function isBlank(_n:Name):Bool {
+        return stdgo._internal.internal.abi.Abi.Name_static_extension.isBlank(_n);
     }
-    static public function readVarint(n:Name, off:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
+    static public function readVarint(_n:Name, _off:StdTypes.Int):stdgo.Tuple<StdTypes.Int, StdTypes.Int> {
         return {
-            final obj = stdgo._internal.internal.abi.Abi.Name_static_extension.readVarint(n, off);
+            final obj = stdgo._internal.internal.abi.Abi.Name_static_extension.readVarint(_n, _off);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function isEmbedded(n:Name):Bool {
-        return stdgo._internal.internal.abi.Abi.Name_static_extension.isEmbedded(n);
+    static public function isEmbedded(_n:Name):Bool {
+        return stdgo._internal.internal.abi.Abi.Name_static_extension.isEmbedded(_n);
     }
-    static public function hasTag(n:Name):Bool {
-        return stdgo._internal.internal.abi.Abi.Name_static_extension.hasTag(n);
+    static public function hasTag(_n:Name):Bool {
+        return stdgo._internal.internal.abi.Abi.Name_static_extension.hasTag(_n);
     }
-    static public function isExported(n:Name):Bool {
-        return stdgo._internal.internal.abi.Abi.Name_static_extension.isExported(n);
+    static public function isExported(_n:Name):Bool {
+        return stdgo._internal.internal.abi.Abi.Name_static_extension.isExported(_n);
     }
-    static public function data(n:Name, off:StdTypes.Int):stdgo.Pointer<StdTypes.Int> {
-        return stdgo._internal.internal.abi.Abi.Name_static_extension.data(n, off);
+    static public function data(_n:Name, _off:StdTypes.Int):stdgo.Pointer<StdTypes.Int> {
+        return stdgo._internal.internal.abi.Abi.Name_static_extension.data(_n, _off);
     }
-    static public function dataChecked(n:Name, off:StdTypes.Int, whySafe:String):stdgo.Pointer<StdTypes.Int> {
-        return stdgo._internal.internal.abi.Abi.Name_static_extension.dataChecked(n, off, whySafe);
+    static public function dataChecked(_n:Name, _off:StdTypes.Int, _whySafe:String):stdgo.Pointer<StdTypes.Int> {
+        return stdgo._internal.internal.abi.Abi.Name_static_extension.dataChecked(_n, _off, _whySafe);
     }
 }
 class IntArgRegBitmap_static_extension {
-    static public function get(b:IntArgRegBitmap, i:StdTypes.Int):Bool {
-        return stdgo._internal.internal.abi.Abi.IntArgRegBitmap_static_extension.get(b, i);
+    static public function get(_b:IntArgRegBitmap, _i:StdTypes.Int):Bool {
+        return stdgo._internal.internal.abi.Abi.IntArgRegBitmap_static_extension.get(_b, _i);
     }
-    static public function set(b:IntArgRegBitmap, i:StdTypes.Int):Void {
-        stdgo._internal.internal.abi.Abi.IntArgRegBitmap_static_extension.set(b, i);
+    static public function set(_b:IntArgRegBitmap, _i:StdTypes.Int):Void {
+        stdgo._internal.internal.abi.Abi.IntArgRegBitmap_static_extension.set(_b, _i);
     }
 }
 class Kind_static_extension {
-    static public function string(k:Kind):String {
-        return stdgo._internal.internal.abi.Abi.Kind_static_extension.string(k);
+    static public function string(_k:Kind):String {
+        return stdgo._internal.internal.abi.Abi.Kind_static_extension.string(_k);
     }
 }
 class Abi {
     /**
         CommonSize returns sizeof(Type) for a compilation target with a given ptrSize
     **/
-    static public function commonSize(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.commonSize(ptrSize);
+    static public function commonSize(_ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.commonSize(_ptrSize);
     }
     /**
         StructFieldSize returns sizeof(StructField) for a compilation target with a given ptrSize
     **/
-    static public function structFieldSize(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.structFieldSize(ptrSize);
+    static public function structFieldSize(_ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.structFieldSize(_ptrSize);
     }
     /**
         UncommonSize returns sizeof(UncommonType).  This currently does not depend on ptrSize.
@@ -1543,50 +1543,50 @@ class Abi {
     /**
         IMethodSize returns sizeof(IMethod) for a compilation target with a given ptrSize
     **/
-    static public function imethodSize(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.imethodSize(ptrSize);
+    static public function imethodSize(_ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.imethodSize(_ptrSize);
     }
     /**
         KindOff returns the offset of Type.Kind_ for a compilation target with a given ptrSize
     **/
-    static public function kindOff(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.kindOff(ptrSize);
+    static public function kindOff(_ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.kindOff(_ptrSize);
     }
     /**
         SizeOff returns the offset of Type.Size_ for a compilation target with a given ptrSize
     **/
-    static public function sizeOff(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.sizeOff(ptrSize);
+    static public function sizeOff(_ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.sizeOff(_ptrSize);
     }
     /**
         PtrBytes returns the offset of Type.PtrBytes for a compilation target with a given ptrSize
     **/
-    static public function ptrBytesOff(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.ptrBytesOff(ptrSize);
+    static public function ptrBytesOff(_ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.ptrBytesOff(_ptrSize);
     }
     /**
         TFlagOff returns the offset of Type.TFlag for a compilation target with a given ptrSize
     **/
-    static public function tflagOff(ptrSize:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.internal.abi.Abi.tflagOff(ptrSize);
+    static public function tflagOff(_ptrSize:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.internal.abi.Abi.tflagOff(_ptrSize);
     }
     /**
         NewOffset returns a new Offset with offset 0 and alignment 1.
     **/
-    static public function newOffset(ptrSize:std.UInt, twoWordAlignSlices:Bool):Offset {
-        return stdgo._internal.internal.abi.Abi.newOffset(ptrSize, twoWordAlignSlices);
+    static public function newOffset(_ptrSize:std.UInt, _twoWordAlignSlices:Bool):Offset {
+        return stdgo._internal.internal.abi.Abi.newOffset(_ptrSize, _twoWordAlignSlices);
     }
     /**
         InitializedOffset returns a new Offset with specified offset, alignment, pointer size, and slice alignment.
     **/
-    static public function initializedOffset(off:StdTypes.Int, align:std.UInt, ptrSize:std.UInt, twoWordAlignSlices:Bool):Offset {
-        return stdgo._internal.internal.abi.Abi.initializedOffset(off, align, ptrSize, twoWordAlignSlices);
+    static public function initializedOffset(_off:StdTypes.Int, _align:std.UInt, _ptrSize:std.UInt, _twoWordAlignSlices:Bool):Offset {
+        return stdgo._internal.internal.abi.Abi.initializedOffset(_off, _align, _ptrSize, _twoWordAlignSlices);
     }
     /**
         CommonOffset returns the Offset to the data after the common portion of type data structures.
     **/
-    static public function commonOffset(ptrSize:StdTypes.Int, twoWordAlignSlices:Bool):Offset {
-        return stdgo._internal.internal.abi.Abi.commonOffset(ptrSize, twoWordAlignSlices);
+    static public function commonOffset(_ptrSize:StdTypes.Int, _twoWordAlignSlices:Bool):Offset {
+        return stdgo._internal.internal.abi.Abi.commonOffset(_ptrSize, _twoWordAlignSlices);
     }
     /**
         FuncPCABI0 returns the entry PC of the function f, which must be a
@@ -1595,8 +1595,8 @@ class Abi {
         
         Implemented as a compile intrinsic.
     **/
-    static public function funcPCABI0(f:stdgo.AnyInterface):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.funcPCABI0(f);
+    static public function funcPCABI0(_f:stdgo.AnyInterface):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.funcPCABI0(_f);
     }
     /**
         FuncPCABIInternal returns the entry PC of the function f. If f is a
@@ -1607,10 +1607,10 @@ class Abi {
         
         Implemented as a compile intrinsic.
     **/
-    static public function funcPCABIInternal(f:stdgo.AnyInterface):stdgo.GoUIntptr {
-        return stdgo._internal.internal.abi.Abi.funcPCABIInternal(f);
+    static public function funcPCABIInternal(_f:stdgo.AnyInterface):stdgo.GoUIntptr {
+        return stdgo._internal.internal.abi.Abi.funcPCABIInternal(_f);
     }
-    static public function newName(n:String, tag:String, exported:Bool, embedded:Bool):Name {
-        return stdgo._internal.internal.abi.Abi.newName(n, tag, exported, embedded);
+    static public function newName(_n:String, _tag:String, _exported:Bool, _embedded:Bool):Name {
+        return stdgo._internal.internal.abi.Abi.newName(_n, _tag, _exported, _embedded);
     }
 }

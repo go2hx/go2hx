@@ -48,17 +48,17 @@ private function set_opaque(v:stdgo._internal.image.Image.Uniform):stdgo._intern
         return v;
     }
 class T_reader_static_extension {
-    static public function peek(t:T_reader, 0:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function peek(t:T_reader, _0:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.image.Image.T_reader_static_extension.peek(t, 0);
+            final obj = stdgo._internal.image.Image.T_reader_static_extension.peek(t, _0);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
 typedef T_reader = stdgo._internal.image.Image.T_reader;
 class Image__static_extension {
-    static public function at(t:Image_, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.Image_static_extension.at(t, x, y);
+    static public function at(t:Image_, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.Image_static_extension.at(t, _x, _y);
     }
     static public function bounds(t:Image_):Rectangle {
         return stdgo._internal.image.Image.Image_static_extension.bounds(t);
@@ -69,23 +69,23 @@ class Image__static_extension {
 }
 typedef Image = stdgo._internal.image.Image.Image;
 class RGBA64Image_static_extension {
-    static public function rgba64at(t:RGBA64Image, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.RGBA64Image_static_extension.rgba64at(t, x, y);
+    static public function rgba64at(t:RGBA64Image, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.RGBA64Image_static_extension.rgba64at(t, _x, _y);
     }
 }
 typedef RGBA64Image = stdgo._internal.image.Image.RGBA64Image;
 class PalettedImage_static_extension {
-    static public function colorIndexAt(t:PalettedImage, x:StdTypes.Int, y:StdTypes.Int):std.UInt {
-        return stdgo._internal.image.Image.PalettedImage_static_extension.colorIndexAt(t, x, y);
+    static public function colorIndexAt(t:PalettedImage, _x:StdTypes.Int, _y:StdTypes.Int):std.UInt {
+        return stdgo._internal.image.Image.PalettedImage_static_extension.colorIndexAt(t, _x, _y);
     }
 }
 typedef PalettedImage = stdgo._internal.image.Image.PalettedImage;
 class T_image_static_extension {
-    static public function subImage(t:T_image, 0:Rectangle):Image_ {
-        return stdgo._internal.image.Image.T_image_static_extension.subImage(t, 0);
+    static public function subImage(t:T_image, _0:Rectangle):Image_ {
+        return stdgo._internal.image.Image.T_image_static_extension.subImage(t, _0);
     }
-    static public function set(t:T_image, 0:StdTypes.Int, 1:StdTypes.Int, 2:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.T_image_static_extension.set(t, 0, 1, 2);
+    static public function set(t:T_image, _0:StdTypes.Int, _1:StdTypes.Int, _2:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.T_image_static_extension.set(t, _0, _1, _2);
     }
     static public function opaque(t:T_image):Bool {
         return stdgo._internal.image.Image.T_image_static_extension.opaque(t);
@@ -93,8 +93,8 @@ class T_image_static_extension {
 }
 typedef T_image = stdgo._internal.image.Image.T_image;
 class T__interface_0_static_extension {
-    static public function setRGBA64(t:T__interface_0, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.T__interface_0_static_extension.setRGBA64(t, x, y, c);
+    static public function setRGBA64(t:T__interface_0, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.T__interface_0_static_extension.setRGBA64(t, _x, _y, _c);
     }
 }
 typedef T__interface_0 = stdgo._internal.image.Image.T__interface_0;
@@ -511,524 +511,524 @@ class T__struct_1_static_extension {
 typedef T__struct_1 = stdgo._internal.image.Image.T__struct_1;
 typedef YCbCrSubsampleRatio = stdgo._internal.image.Image.YCbCrSubsampleRatio;
 class Point_static_extension {
-    static public function eq(p:Point, q:Point):Bool {
-        return stdgo._internal.image.Image.Point_static_extension.eq(p, q);
+    static public function eq(_p:Point, _q:Point):Bool {
+        return stdgo._internal.image.Image.Point_static_extension.eq(_p, _q);
     }
-    static public function mod(p:Point, r:Rectangle):Point {
-        return stdgo._internal.image.Image.Point_static_extension.mod(p, r);
+    static public function mod(_p:Point, _r:Rectangle):Point {
+        return stdgo._internal.image.Image.Point_static_extension.mod(_p, _r);
     }
-    static public function in_(p:Point, r:Rectangle):Bool {
-        return stdgo._internal.image.Image.Point_static_extension.in_(p, r);
+    static public function in_(_p:Point, _r:Rectangle):Bool {
+        return stdgo._internal.image.Image.Point_static_extension.in_(_p, _r);
     }
-    static public function div(p:Point, k:StdTypes.Int):Point {
-        return stdgo._internal.image.Image.Point_static_extension.div(p, k);
+    static public function div(_p:Point, _k:StdTypes.Int):Point {
+        return stdgo._internal.image.Image.Point_static_extension.div(_p, _k);
     }
-    static public function mul(p:Point, k:StdTypes.Int):Point {
-        return stdgo._internal.image.Image.Point_static_extension.mul(p, k);
+    static public function mul(_p:Point, _k:StdTypes.Int):Point {
+        return stdgo._internal.image.Image.Point_static_extension.mul(_p, _k);
     }
-    static public function sub(p:Point, q:Point):Point {
-        return stdgo._internal.image.Image.Point_static_extension.sub(p, q);
+    static public function sub(_p:Point, _q:Point):Point {
+        return stdgo._internal.image.Image.Point_static_extension.sub(_p, _q);
     }
-    static public function add(p:Point, q:Point):Point {
-        return stdgo._internal.image.Image.Point_static_extension.add(p, q);
+    static public function add(_p:Point, _q:Point):Point {
+        return stdgo._internal.image.Image.Point_static_extension.add(_p, _q);
     }
-    static public function string(p:Point):String {
-        return stdgo._internal.image.Image.Point_static_extension.string(p);
+    static public function string(_p:Point):String {
+        return stdgo._internal.image.Image.Point_static_extension.string(_p);
     }
 }
 class Rectangle_static_extension {
-    static public function colorModel(r:Rectangle):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.Rectangle_static_extension.colorModel(r);
+    static public function colorModel(_r:Rectangle):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.Rectangle_static_extension.colorModel(_r);
     }
-    static public function bounds(r:Rectangle):Rectangle {
-        return stdgo._internal.image.Image.Rectangle_static_extension.bounds(r);
+    static public function bounds(_r:Rectangle):Rectangle {
+        return stdgo._internal.image.Image.Rectangle_static_extension.bounds(_r);
     }
-    static public function rgba64at(r:Rectangle, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.Rectangle_static_extension.rgba64at(r, x, y);
+    static public function rgba64at(_r:Rectangle, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.Rectangle_static_extension.rgba64at(_r, _x, _y);
     }
-    static public function at(r:Rectangle, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.Rectangle_static_extension.at(r, x, y);
+    static public function at(_r:Rectangle, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.Rectangle_static_extension.at(_r, _x, _y);
     }
-    static public function canon(r:Rectangle):Rectangle {
-        return stdgo._internal.image.Image.Rectangle_static_extension.canon(r);
+    static public function canon(_r:Rectangle):Rectangle {
+        return stdgo._internal.image.Image.Rectangle_static_extension.canon(_r);
     }
-    static public function in_(r:Rectangle, s:Rectangle):Bool {
-        return stdgo._internal.image.Image.Rectangle_static_extension.in_(r, s);
+    static public function in_(_r:Rectangle, _s:Rectangle):Bool {
+        return stdgo._internal.image.Image.Rectangle_static_extension.in_(_r, _s);
     }
-    static public function overlaps(r:Rectangle, s:Rectangle):Bool {
-        return stdgo._internal.image.Image.Rectangle_static_extension.overlaps(r, s);
+    static public function overlaps(_r:Rectangle, _s:Rectangle):Bool {
+        return stdgo._internal.image.Image.Rectangle_static_extension.overlaps(_r, _s);
     }
-    static public function eq(r:Rectangle, s:Rectangle):Bool {
-        return stdgo._internal.image.Image.Rectangle_static_extension.eq(r, s);
+    static public function eq(_r:Rectangle, _s:Rectangle):Bool {
+        return stdgo._internal.image.Image.Rectangle_static_extension.eq(_r, _s);
     }
-    static public function empty(r:Rectangle):Bool {
-        return stdgo._internal.image.Image.Rectangle_static_extension.empty(r);
+    static public function empty(_r:Rectangle):Bool {
+        return stdgo._internal.image.Image.Rectangle_static_extension.empty(_r);
     }
-    static public function union(r:Rectangle, s:Rectangle):Rectangle {
-        return stdgo._internal.image.Image.Rectangle_static_extension.union(r, s);
+    static public function union(_r:Rectangle, _s:Rectangle):Rectangle {
+        return stdgo._internal.image.Image.Rectangle_static_extension.union(_r, _s);
     }
-    static public function intersect(r:Rectangle, s:Rectangle):Rectangle {
-        return stdgo._internal.image.Image.Rectangle_static_extension.intersect(r, s);
+    static public function intersect(_r:Rectangle, _s:Rectangle):Rectangle {
+        return stdgo._internal.image.Image.Rectangle_static_extension.intersect(_r, _s);
     }
-    static public function inset(r:Rectangle, n:StdTypes.Int):Rectangle {
-        return stdgo._internal.image.Image.Rectangle_static_extension.inset(r, n);
+    static public function inset(_r:Rectangle, _n:StdTypes.Int):Rectangle {
+        return stdgo._internal.image.Image.Rectangle_static_extension.inset(_r, _n);
     }
-    static public function sub(r:Rectangle, p:Point):Rectangle {
-        return stdgo._internal.image.Image.Rectangle_static_extension.sub(r, p);
+    static public function sub(_r:Rectangle, _p:Point):Rectangle {
+        return stdgo._internal.image.Image.Rectangle_static_extension.sub(_r, _p);
     }
-    static public function add(r:Rectangle, p:Point):Rectangle {
-        return stdgo._internal.image.Image.Rectangle_static_extension.add(r, p);
+    static public function add(_r:Rectangle, _p:Point):Rectangle {
+        return stdgo._internal.image.Image.Rectangle_static_extension.add(_r, _p);
     }
-    static public function size(r:Rectangle):Point {
-        return stdgo._internal.image.Image.Rectangle_static_extension.size(r);
+    static public function size(_r:Rectangle):Point {
+        return stdgo._internal.image.Image.Rectangle_static_extension.size(_r);
     }
-    static public function dy(r:Rectangle):StdTypes.Int {
-        return stdgo._internal.image.Image.Rectangle_static_extension.dy(r);
+    static public function dy(_r:Rectangle):StdTypes.Int {
+        return stdgo._internal.image.Image.Rectangle_static_extension.dy(_r);
     }
-    static public function dx(r:Rectangle):StdTypes.Int {
-        return stdgo._internal.image.Image.Rectangle_static_extension.dx(r);
+    static public function dx(_r:Rectangle):StdTypes.Int {
+        return stdgo._internal.image.Image.Rectangle_static_extension.dx(_r);
     }
-    static public function string(r:Rectangle):String {
-        return stdgo._internal.image.Image.Rectangle_static_extension.string(r);
+    static public function string(_r:Rectangle):String {
+        return stdgo._internal.image.Image.Rectangle_static_extension.string(_r);
     }
 }
 class RGBA_static_extension {
-    static public function opaque(p:RGBA):Bool {
-        return stdgo._internal.image.Image.RGBA_static_extension.opaque(p);
+    static public function opaque(_p:RGBA):Bool {
+        return stdgo._internal.image.Image.RGBA_static_extension.opaque(_p);
     }
-    static public function subImage(p:RGBA, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.RGBA_static_extension.subImage(p, r);
+    static public function subImage(_p:RGBA, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.RGBA_static_extension.subImage(_p, _r);
     }
-    static public function setRGBA(p:RGBA, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA):Void {
-        stdgo._internal.image.Image.RGBA_static_extension.setRGBA(p, x, y, c);
+    static public function setRGBA(_p:RGBA, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA):Void {
+        stdgo._internal.image.Image.RGBA_static_extension.setRGBA(_p, _x, _y, _c);
     }
-    static public function setRGBA64(p:RGBA, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.RGBA_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:RGBA, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.RGBA_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:RGBA, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.RGBA_static_extension.set(p, x, y, c);
+    static public function set(_p:RGBA, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.RGBA_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:RGBA, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.RGBA_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:RGBA, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.RGBA_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function rgbaat(p:RGBA, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA {
-        return stdgo._internal.image.Image.RGBA_static_extension.rgbaat(p, x, y);
+    static public function rgbaat(_p:RGBA, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA {
+        return stdgo._internal.image.Image.RGBA_static_extension.rgbaat(_p, _x, _y);
     }
-    static public function rgba64at(p:RGBA, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.RGBA_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:RGBA, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.RGBA_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:RGBA, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.RGBA_static_extension.at(p, x, y);
+    static public function at(_p:RGBA, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.RGBA_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:RGBA):Rectangle {
-        return stdgo._internal.image.Image.RGBA_static_extension.bounds(p);
+    static public function bounds(_p:RGBA):Rectangle {
+        return stdgo._internal.image.Image.RGBA_static_extension.bounds(_p);
     }
-    static public function colorModel(p:RGBA):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.RGBA_static_extension.colorModel(p);
+    static public function colorModel(_p:RGBA):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.RGBA_static_extension.colorModel(_p);
     }
 }
 class RGBA64_static_extension {
-    static public function opaque(p:RGBA64):Bool {
-        return stdgo._internal.image.Image.RGBA64_static_extension.opaque(p);
+    static public function opaque(_p:RGBA64):Bool {
+        return stdgo._internal.image.Image.RGBA64_static_extension.opaque(_p);
     }
-    static public function subImage(p:RGBA64, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.RGBA64_static_extension.subImage(p, r);
+    static public function subImage(_p:RGBA64, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.RGBA64_static_extension.subImage(_p, _r);
     }
-    static public function setRGBA64(p:RGBA64, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.RGBA64_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:RGBA64, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.RGBA64_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:RGBA64, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.RGBA64_static_extension.set(p, x, y, c);
+    static public function set(_p:RGBA64, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.RGBA64_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:RGBA64, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.RGBA64_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:RGBA64, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.RGBA64_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function rgba64at(p:RGBA64, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.RGBA64_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:RGBA64, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.RGBA64_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:RGBA64, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.RGBA64_static_extension.at(p, x, y);
+    static public function at(_p:RGBA64, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.RGBA64_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:RGBA64):Rectangle {
-        return stdgo._internal.image.Image.RGBA64_static_extension.bounds(p);
+    static public function bounds(_p:RGBA64):Rectangle {
+        return stdgo._internal.image.Image.RGBA64_static_extension.bounds(_p);
     }
-    static public function colorModel(p:RGBA64):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.RGBA64_static_extension.colorModel(p);
+    static public function colorModel(_p:RGBA64):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.RGBA64_static_extension.colorModel(_p);
     }
 }
 class NRGBA_static_extension {
-    static public function opaque(p:NRGBA):Bool {
-        return stdgo._internal.image.Image.NRGBA_static_extension.opaque(p);
+    static public function opaque(_p:NRGBA):Bool {
+        return stdgo._internal.image.Image.NRGBA_static_extension.opaque(_p);
     }
-    static public function subImage(p:NRGBA, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.NRGBA_static_extension.subImage(p, r);
+    static public function subImage(_p:NRGBA, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.NRGBA_static_extension.subImage(_p, _r);
     }
-    static public function setNRGBA(p:NRGBA, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.NRGBA):Void {
-        stdgo._internal.image.Image.NRGBA_static_extension.setNRGBA(p, x, y, c);
+    static public function setNRGBA(_p:NRGBA, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.NRGBA):Void {
+        stdgo._internal.image.Image.NRGBA_static_extension.setNRGBA(_p, _x, _y, _c);
     }
-    static public function setRGBA64(p:NRGBA, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.NRGBA_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:NRGBA, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.NRGBA_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:NRGBA, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.NRGBA_static_extension.set(p, x, y, c);
+    static public function set(_p:NRGBA, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.NRGBA_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:NRGBA, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.NRGBA_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:NRGBA, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.NRGBA_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function nrgbaat(p:NRGBA, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.NRGBA {
-        return stdgo._internal.image.Image.NRGBA_static_extension.nrgbaat(p, x, y);
+    static public function nrgbaat(_p:NRGBA, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.NRGBA {
+        return stdgo._internal.image.Image.NRGBA_static_extension.nrgbaat(_p, _x, _y);
     }
-    static public function rgba64at(p:NRGBA, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.NRGBA_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:NRGBA, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.NRGBA_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:NRGBA, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.NRGBA_static_extension.at(p, x, y);
+    static public function at(_p:NRGBA, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.NRGBA_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:NRGBA):Rectangle {
-        return stdgo._internal.image.Image.NRGBA_static_extension.bounds(p);
+    static public function bounds(_p:NRGBA):Rectangle {
+        return stdgo._internal.image.Image.NRGBA_static_extension.bounds(_p);
     }
-    static public function colorModel(p:NRGBA):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.NRGBA_static_extension.colorModel(p);
+    static public function colorModel(_p:NRGBA):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.NRGBA_static_extension.colorModel(_p);
     }
 }
 class NRGBA64_static_extension {
-    static public function opaque(p:NRGBA64):Bool {
-        return stdgo._internal.image.Image.NRGBA64_static_extension.opaque(p);
+    static public function opaque(_p:NRGBA64):Bool {
+        return stdgo._internal.image.Image.NRGBA64_static_extension.opaque(_p);
     }
-    static public function subImage(p:NRGBA64, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.NRGBA64_static_extension.subImage(p, r);
+    static public function subImage(_p:NRGBA64, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.NRGBA64_static_extension.subImage(_p, _r);
     }
-    static public function setNRGBA64(p:NRGBA64, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.NRGBA64):Void {
-        stdgo._internal.image.Image.NRGBA64_static_extension.setNRGBA64(p, x, y, c);
+    static public function setNRGBA64(_p:NRGBA64, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.NRGBA64):Void {
+        stdgo._internal.image.Image.NRGBA64_static_extension.setNRGBA64(_p, _x, _y, _c);
     }
-    static public function setRGBA64(p:NRGBA64, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.NRGBA64_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:NRGBA64, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.NRGBA64_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:NRGBA64, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.NRGBA64_static_extension.set(p, x, y, c);
+    static public function set(_p:NRGBA64, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.NRGBA64_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:NRGBA64, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.NRGBA64_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:NRGBA64, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.NRGBA64_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function nrgba64at(p:NRGBA64, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.NRGBA64 {
-        return stdgo._internal.image.Image.NRGBA64_static_extension.nrgba64at(p, x, y);
+    static public function nrgba64at(_p:NRGBA64, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.NRGBA64 {
+        return stdgo._internal.image.Image.NRGBA64_static_extension.nrgba64at(_p, _x, _y);
     }
-    static public function rgba64at(p:NRGBA64, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.NRGBA64_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:NRGBA64, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.NRGBA64_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:NRGBA64, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.NRGBA64_static_extension.at(p, x, y);
+    static public function at(_p:NRGBA64, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.NRGBA64_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:NRGBA64):Rectangle {
-        return stdgo._internal.image.Image.NRGBA64_static_extension.bounds(p);
+    static public function bounds(_p:NRGBA64):Rectangle {
+        return stdgo._internal.image.Image.NRGBA64_static_extension.bounds(_p);
     }
-    static public function colorModel(p:NRGBA64):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.NRGBA64_static_extension.colorModel(p);
+    static public function colorModel(_p:NRGBA64):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.NRGBA64_static_extension.colorModel(_p);
     }
 }
 class Alpha_static_extension {
-    static public function opaque(p:Alpha):Bool {
-        return stdgo._internal.image.Image.Alpha_static_extension.opaque(p);
+    static public function opaque(_p:Alpha):Bool {
+        return stdgo._internal.image.Image.Alpha_static_extension.opaque(_p);
     }
-    static public function subImage(p:Alpha, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.Alpha_static_extension.subImage(p, r);
+    static public function subImage(_p:Alpha, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.Alpha_static_extension.subImage(_p, _r);
     }
-    static public function setAlpha(p:Alpha, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Alpha):Void {
-        stdgo._internal.image.Image.Alpha_static_extension.setAlpha(p, x, y, c);
+    static public function setAlpha(_p:Alpha, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Alpha):Void {
+        stdgo._internal.image.Image.Alpha_static_extension.setAlpha(_p, _x, _y, _c);
     }
-    static public function setRGBA64(p:Alpha, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.Alpha_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:Alpha, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.Alpha_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:Alpha, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.Alpha_static_extension.set(p, x, y, c);
+    static public function set(_p:Alpha, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.Alpha_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:Alpha, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.Alpha_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:Alpha, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.Alpha_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function alphaAt(p:Alpha, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Alpha {
-        return stdgo._internal.image.Image.Alpha_static_extension.alphaAt(p, x, y);
+    static public function alphaAt(_p:Alpha, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Alpha {
+        return stdgo._internal.image.Image.Alpha_static_extension.alphaAt(_p, _x, _y);
     }
-    static public function rgba64at(p:Alpha, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.Alpha_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:Alpha, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.Alpha_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:Alpha, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.Alpha_static_extension.at(p, x, y);
+    static public function at(_p:Alpha, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.Alpha_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:Alpha):Rectangle {
-        return stdgo._internal.image.Image.Alpha_static_extension.bounds(p);
+    static public function bounds(_p:Alpha):Rectangle {
+        return stdgo._internal.image.Image.Alpha_static_extension.bounds(_p);
     }
-    static public function colorModel(p:Alpha):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.Alpha_static_extension.colorModel(p);
+    static public function colorModel(_p:Alpha):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.Alpha_static_extension.colorModel(_p);
     }
 }
 class Alpha16_static_extension {
-    static public function opaque(p:Alpha16):Bool {
-        return stdgo._internal.image.Image.Alpha16_static_extension.opaque(p);
+    static public function opaque(_p:Alpha16):Bool {
+        return stdgo._internal.image.Image.Alpha16_static_extension.opaque(_p);
     }
-    static public function subImage(p:Alpha16, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.Alpha16_static_extension.subImage(p, r);
+    static public function subImage(_p:Alpha16, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.Alpha16_static_extension.subImage(_p, _r);
     }
-    static public function setAlpha16(p:Alpha16, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Alpha16):Void {
-        stdgo._internal.image.Image.Alpha16_static_extension.setAlpha16(p, x, y, c);
+    static public function setAlpha16(_p:Alpha16, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Alpha16):Void {
+        stdgo._internal.image.Image.Alpha16_static_extension.setAlpha16(_p, _x, _y, _c);
     }
-    static public function setRGBA64(p:Alpha16, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.Alpha16_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:Alpha16, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.Alpha16_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:Alpha16, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.Alpha16_static_extension.set(p, x, y, c);
+    static public function set(_p:Alpha16, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.Alpha16_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:Alpha16, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.Alpha16_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:Alpha16, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.Alpha16_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function alpha16At(p:Alpha16, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Alpha16 {
-        return stdgo._internal.image.Image.Alpha16_static_extension.alpha16At(p, x, y);
+    static public function alpha16At(_p:Alpha16, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Alpha16 {
+        return stdgo._internal.image.Image.Alpha16_static_extension.alpha16At(_p, _x, _y);
     }
-    static public function rgba64at(p:Alpha16, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.Alpha16_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:Alpha16, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.Alpha16_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:Alpha16, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.Alpha16_static_extension.at(p, x, y);
+    static public function at(_p:Alpha16, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.Alpha16_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:Alpha16):Rectangle {
-        return stdgo._internal.image.Image.Alpha16_static_extension.bounds(p);
+    static public function bounds(_p:Alpha16):Rectangle {
+        return stdgo._internal.image.Image.Alpha16_static_extension.bounds(_p);
     }
-    static public function colorModel(p:Alpha16):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.Alpha16_static_extension.colorModel(p);
+    static public function colorModel(_p:Alpha16):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.Alpha16_static_extension.colorModel(_p);
     }
 }
 class Gray_static_extension {
-    static public function opaque(p:Gray):Bool {
-        return stdgo._internal.image.Image.Gray_static_extension.opaque(p);
+    static public function opaque(_p:Gray):Bool {
+        return stdgo._internal.image.Image.Gray_static_extension.opaque(_p);
     }
-    static public function subImage(p:Gray, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.Gray_static_extension.subImage(p, r);
+    static public function subImage(_p:Gray, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.Gray_static_extension.subImage(_p, _r);
     }
-    static public function setGray(p:Gray, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Gray):Void {
-        stdgo._internal.image.Image.Gray_static_extension.setGray(p, x, y, c);
+    static public function setGray(_p:Gray, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Gray):Void {
+        stdgo._internal.image.Image.Gray_static_extension.setGray(_p, _x, _y, _c);
     }
-    static public function setRGBA64(p:Gray, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.Gray_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:Gray, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.Gray_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:Gray, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.Gray_static_extension.set(p, x, y, c);
+    static public function set(_p:Gray, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.Gray_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:Gray, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.Gray_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:Gray, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.Gray_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function grayAt(p:Gray, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Gray {
-        return stdgo._internal.image.Image.Gray_static_extension.grayAt(p, x, y);
+    static public function grayAt(_p:Gray, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Gray {
+        return stdgo._internal.image.Image.Gray_static_extension.grayAt(_p, _x, _y);
     }
-    static public function rgba64at(p:Gray, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.Gray_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:Gray, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.Gray_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:Gray, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.Gray_static_extension.at(p, x, y);
+    static public function at(_p:Gray, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.Gray_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:Gray):Rectangle {
-        return stdgo._internal.image.Image.Gray_static_extension.bounds(p);
+    static public function bounds(_p:Gray):Rectangle {
+        return stdgo._internal.image.Image.Gray_static_extension.bounds(_p);
     }
-    static public function colorModel(p:Gray):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.Gray_static_extension.colorModel(p);
+    static public function colorModel(_p:Gray):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.Gray_static_extension.colorModel(_p);
     }
 }
 class Gray16_static_extension {
-    static public function opaque(p:Gray16):Bool {
-        return stdgo._internal.image.Image.Gray16_static_extension.opaque(p);
+    static public function opaque(_p:Gray16):Bool {
+        return stdgo._internal.image.Image.Gray16_static_extension.opaque(_p);
     }
-    static public function subImage(p:Gray16, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.Gray16_static_extension.subImage(p, r);
+    static public function subImage(_p:Gray16, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.Gray16_static_extension.subImage(_p, _r);
     }
-    static public function setGray16(p:Gray16, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Gray16):Void {
-        stdgo._internal.image.Image.Gray16_static_extension.setGray16(p, x, y, c);
+    static public function setGray16(_p:Gray16, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Gray16):Void {
+        stdgo._internal.image.Image.Gray16_static_extension.setGray16(_p, _x, _y, _c);
     }
-    static public function setRGBA64(p:Gray16, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.Gray16_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:Gray16, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.Gray16_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:Gray16, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.Gray16_static_extension.set(p, x, y, c);
+    static public function set(_p:Gray16, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.Gray16_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:Gray16, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.Gray16_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:Gray16, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.Gray16_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function gray16At(p:Gray16, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Gray16 {
-        return stdgo._internal.image.Image.Gray16_static_extension.gray16At(p, x, y);
+    static public function gray16At(_p:Gray16, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Gray16 {
+        return stdgo._internal.image.Image.Gray16_static_extension.gray16At(_p, _x, _y);
     }
-    static public function rgba64at(p:Gray16, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.Gray16_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:Gray16, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.Gray16_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:Gray16, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.Gray16_static_extension.at(p, x, y);
+    static public function at(_p:Gray16, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.Gray16_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:Gray16):Rectangle {
-        return stdgo._internal.image.Image.Gray16_static_extension.bounds(p);
+    static public function bounds(_p:Gray16):Rectangle {
+        return stdgo._internal.image.Image.Gray16_static_extension.bounds(_p);
     }
-    static public function colorModel(p:Gray16):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.Gray16_static_extension.colorModel(p);
+    static public function colorModel(_p:Gray16):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.Gray16_static_extension.colorModel(_p);
     }
 }
 class CMYK_static_extension {
-    static public function opaque(p:CMYK):Bool {
-        return stdgo._internal.image.Image.CMYK_static_extension.opaque(p);
+    static public function opaque(_p:CMYK):Bool {
+        return stdgo._internal.image.Image.CMYK_static_extension.opaque(_p);
     }
-    static public function subImage(p:CMYK, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.CMYK_static_extension.subImage(p, r);
+    static public function subImage(_p:CMYK, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.CMYK_static_extension.subImage(_p, _r);
     }
-    static public function setCMYK(p:CMYK, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.CMYK):Void {
-        stdgo._internal.image.Image.CMYK_static_extension.setCMYK(p, x, y, c);
+    static public function setCMYK(_p:CMYK, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.CMYK):Void {
+        stdgo._internal.image.Image.CMYK_static_extension.setCMYK(_p, _x, _y, _c);
     }
-    static public function setRGBA64(p:CMYK, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.CMYK_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:CMYK, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.CMYK_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:CMYK, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.CMYK_static_extension.set(p, x, y, c);
+    static public function set(_p:CMYK, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.CMYK_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:CMYK, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.CMYK_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:CMYK, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.CMYK_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function cmykat(p:CMYK, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.CMYK {
-        return stdgo._internal.image.Image.CMYK_static_extension.cmykat(p, x, y);
+    static public function cmykat(_p:CMYK, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.CMYK {
+        return stdgo._internal.image.Image.CMYK_static_extension.cmykat(_p, _x, _y);
     }
-    static public function rgba64at(p:CMYK, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.CMYK_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:CMYK, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.CMYK_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:CMYK, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.CMYK_static_extension.at(p, x, y);
+    static public function at(_p:CMYK, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.CMYK_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:CMYK):Rectangle {
-        return stdgo._internal.image.Image.CMYK_static_extension.bounds(p);
+    static public function bounds(_p:CMYK):Rectangle {
+        return stdgo._internal.image.Image.CMYK_static_extension.bounds(_p);
     }
-    static public function colorModel(p:CMYK):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.CMYK_static_extension.colorModel(p);
+    static public function colorModel(_p:CMYK):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.CMYK_static_extension.colorModel(_p);
     }
 }
 class Paletted_static_extension {
-    static public function opaque(p:Paletted):Bool {
-        return stdgo._internal.image.Image.Paletted_static_extension.opaque(p);
+    static public function opaque(_p:Paletted):Bool {
+        return stdgo._internal.image.Image.Paletted_static_extension.opaque(_p);
     }
-    static public function subImage(p:Paletted, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.Paletted_static_extension.subImage(p, r);
+    static public function subImage(_p:Paletted, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.Paletted_static_extension.subImage(_p, _r);
     }
-    static public function setColorIndex(p:Paletted, x:StdTypes.Int, y:StdTypes.Int, index:std.UInt):Void {
-        stdgo._internal.image.Image.Paletted_static_extension.setColorIndex(p, x, y, index);
+    static public function setColorIndex(_p:Paletted, _x:StdTypes.Int, _y:StdTypes.Int, _index:std.UInt):Void {
+        stdgo._internal.image.Image.Paletted_static_extension.setColorIndex(_p, _x, _y, _index);
     }
-    static public function colorIndexAt(p:Paletted, x:StdTypes.Int, y:StdTypes.Int):std.UInt {
-        return stdgo._internal.image.Image.Paletted_static_extension.colorIndexAt(p, x, y);
+    static public function colorIndexAt(_p:Paletted, _x:StdTypes.Int, _y:StdTypes.Int):std.UInt {
+        return stdgo._internal.image.Image.Paletted_static_extension.colorIndexAt(_p, _x, _y);
     }
-    static public function setRGBA64(p:Paletted, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.RGBA64):Void {
-        stdgo._internal.image.Image.Paletted_static_extension.setRGBA64(p, x, y, c);
+    static public function setRGBA64(_p:Paletted, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.RGBA64):Void {
+        stdgo._internal.image.Image.Paletted_static_extension.setRGBA64(_p, _x, _y, _c);
     }
-    static public function set(p:Paletted, x:StdTypes.Int, y:StdTypes.Int, c:stdgo._internal.image.color.Color.Color):Void {
-        stdgo._internal.image.Image.Paletted_static_extension.set(p, x, y, c);
+    static public function set(_p:Paletted, _x:StdTypes.Int, _y:StdTypes.Int, _c:stdgo._internal.image.color.Color.Color):Void {
+        stdgo._internal.image.Image.Paletted_static_extension.set(_p, _x, _y, _c);
     }
-    static public function pixOffset(p:Paletted, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.Paletted_static_extension.pixOffset(p, x, y);
+    static public function pixOffset(_p:Paletted, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.Paletted_static_extension.pixOffset(_p, _x, _y);
     }
-    static public function rgba64at(p:Paletted, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.Paletted_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:Paletted, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.Paletted_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:Paletted, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.Paletted_static_extension.at(p, x, y);
+    static public function at(_p:Paletted, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.Paletted_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:Paletted):Rectangle {
-        return stdgo._internal.image.Image.Paletted_static_extension.bounds(p);
+    static public function bounds(_p:Paletted):Rectangle {
+        return stdgo._internal.image.Image.Paletted_static_extension.bounds(_p);
     }
-    static public function colorModel(p:Paletted):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.Paletted_static_extension.colorModel(p);
+    static public function colorModel(_p:Paletted):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.Paletted_static_extension.colorModel(_p);
     }
 }
 class Uniform_static_extension {
-    static public function opaque(c:Uniform):Bool {
-        return stdgo._internal.image.Image.Uniform_static_extension.opaque(c);
+    static public function opaque(_c:Uniform):Bool {
+        return stdgo._internal.image.Image.Uniform_static_extension.opaque(_c);
     }
-    static public function rgba64at(c:Uniform, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.Uniform_static_extension.rgba64at(c, x, y);
+    static public function rgba64at(_c:Uniform, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.Uniform_static_extension.rgba64at(_c, _x, _y);
     }
-    static public function at(c:Uniform, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.Uniform_static_extension.at(c, x, y);
+    static public function at(_c:Uniform, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.Uniform_static_extension.at(_c, _x, _y);
     }
-    static public function bounds(c:Uniform):Rectangle {
-        return stdgo._internal.image.Image.Uniform_static_extension.bounds(c);
+    static public function bounds(_c:Uniform):Rectangle {
+        return stdgo._internal.image.Image.Uniform_static_extension.bounds(_c);
     }
-    static public function convert(c:Uniform, 0:stdgo._internal.image.color.Color.Color):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.Uniform_static_extension.convert(c, 0);
+    static public function convert(_c:Uniform, _0:stdgo._internal.image.color.Color.Color):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.Uniform_static_extension.convert(_c, _0);
     }
-    static public function colorModel(c:Uniform):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.Uniform_static_extension.colorModel(c);
+    static public function colorModel(_c:Uniform):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.Uniform_static_extension.colorModel(_c);
     }
-    static public function rgba(c:Uniform):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
+    static public function rgba(_c:Uniform):stdgo.Tuple.Tuple4<std.UInt, std.UInt, std.UInt, std.UInt> {
         return {
-            final obj = stdgo._internal.image.Image.Uniform_static_extension.rgba(c);
+            final obj = stdgo._internal.image.Image.Uniform_static_extension.rgba(_c);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
 }
 class YCbCr_static_extension {
-    static public function opaque(p:YCbCr):Bool {
-        return stdgo._internal.image.Image.YCbCr_static_extension.opaque(p);
+    static public function opaque(_p:YCbCr):Bool {
+        return stdgo._internal.image.Image.YCbCr_static_extension.opaque(_p);
     }
-    static public function subImage(p:YCbCr, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.YCbCr_static_extension.subImage(p, r);
+    static public function subImage(_p:YCbCr, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.YCbCr_static_extension.subImage(_p, _r);
     }
-    static public function coffset(p:YCbCr, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.YCbCr_static_extension.coffset(p, x, y);
+    static public function coffset(_p:YCbCr, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.YCbCr_static_extension.coffset(_p, _x, _y);
     }
-    static public function yoffset(p:YCbCr, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.YCbCr_static_extension.yoffset(p, x, y);
+    static public function yoffset(_p:YCbCr, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.YCbCr_static_extension.yoffset(_p, _x, _y);
     }
-    static public function ycbCrAt(p:YCbCr, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.YCbCr {
-        return stdgo._internal.image.Image.YCbCr_static_extension.ycbCrAt(p, x, y);
+    static public function ycbCrAt(_p:YCbCr, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.YCbCr {
+        return stdgo._internal.image.Image.YCbCr_static_extension.ycbCrAt(_p, _x, _y);
     }
-    static public function rgba64at(p:YCbCr, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.YCbCr_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:YCbCr, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.YCbCr_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:YCbCr, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.YCbCr_static_extension.at(p, x, y);
+    static public function at(_p:YCbCr, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.YCbCr_static_extension.at(_p, _x, _y);
     }
-    static public function bounds(p:YCbCr):Rectangle {
-        return stdgo._internal.image.Image.YCbCr_static_extension.bounds(p);
+    static public function bounds(_p:YCbCr):Rectangle {
+        return stdgo._internal.image.Image.YCbCr_static_extension.bounds(_p);
     }
-    static public function colorModel(p:YCbCr):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.YCbCr_static_extension.colorModel(p);
+    static public function colorModel(_p:YCbCr):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.YCbCr_static_extension.colorModel(_p);
     }
 }
 class NYCbCrA_static_extension {
-    static public function opaque(p:NYCbCrA):Bool {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.opaque(p);
+    static public function opaque(_p:NYCbCrA):Bool {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.opaque(_p);
     }
-    static public function subImage(p:NYCbCrA, r:Rectangle):Image_ {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.subImage(p, r);
+    static public function subImage(_p:NYCbCrA, _r:Rectangle):Image_ {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.subImage(_p, _r);
     }
-    static public function aoffset(p:NYCbCrA, x:StdTypes.Int, y:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.aoffset(p, x, y);
+    static public function aoffset(_p:NYCbCrA, _x:StdTypes.Int, _y:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.aoffset(_p, _x, _y);
     }
-    static public function nycbCrAAt(p:NYCbCrA, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.NYCbCrA {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.nycbCrAAt(p, x, y);
+    static public function nycbCrAAt(_p:NYCbCrA, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.NYCbCrA {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.nycbCrAAt(_p, _x, _y);
     }
-    static public function rgba64at(p:NYCbCrA, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.rgba64at(p, x, y);
+    static public function rgba64at(_p:NYCbCrA, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.RGBA64 {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.rgba64at(_p, _x, _y);
     }
-    static public function at(p:NYCbCrA, x:StdTypes.Int, y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.at(p, x, y);
+    static public function at(_p:NYCbCrA, _x:StdTypes.Int, _y:StdTypes.Int):stdgo._internal.image.color.Color.Color {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.at(_p, _x, _y);
     }
-    static public function colorModel(p:NYCbCrA):stdgo._internal.image.color.Color.Model {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.colorModel(p);
+    static public function colorModel(_p:NYCbCrA):stdgo._internal.image.color.Color.Model {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.colorModel(_p);
     }
-    public static function yoffset(_self__:NYCbCrA, x_:StdTypes.Int, y_:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.yoffset(_self__, x_, y_);
+    public static function yoffset(__self__:NYCbCrA, _x_:StdTypes.Int, _y_:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.yoffset(__self__, _x_, _y_);
     }
-    public static function ycbCrAt(_self__:NYCbCrA, x_:StdTypes.Int, y_:StdTypes.Int):stdgo._internal.image.color.Color.YCbCr {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.ycbCrAt(_self__, x_, y_);
+    public static function ycbCrAt(__self__:NYCbCrA, _x_:StdTypes.Int, _y_:StdTypes.Int):stdgo._internal.image.color.Color.YCbCr {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.ycbCrAt(__self__, _x_, _y_);
     }
-    public static function coffset(_self__:NYCbCrA, x_:StdTypes.Int, y_:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.coffset(_self__, x_, y_);
+    public static function coffset(__self__:NYCbCrA, _x_:StdTypes.Int, _y_:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.coffset(__self__, _x_, _y_);
     }
-    public static function bounds(_self__:NYCbCrA):stdgo._internal.image.Image.Rectangle {
-        return stdgo._internal.image.Image.NYCbCrA_static_extension.bounds(_self__);
+    public static function bounds(__self__:NYCbCrA):stdgo._internal.image.Image.Rectangle {
+        return stdgo._internal.image.Image.NYCbCrA_static_extension.bounds(__self__);
     }
 }
 class YCbCrSubsampleRatio_static_extension {
-    static public function string(s:YCbCrSubsampleRatio):String {
-        return stdgo._internal.image.Image.YCbCrSubsampleRatio_static_extension.string(s);
+    static public function string(_s:YCbCrSubsampleRatio):String {
+        return stdgo._internal.image.Image.YCbCrSubsampleRatio_static_extension.string(_s);
     }
 }
 /**
@@ -1061,10 +1061,10 @@ class Image {
         Decode is the function that decodes the encoded image.
         DecodeConfig is the function that decodes just its configuration.
     **/
-    static public function registerFormat(name:String, magic:String, decode:stdgo._internal.io.Io.Reader -> { var _0 : Image; var _1 : stdgo.Error; }, decodeConfig:stdgo._internal.io.Io.Reader -> { var _0 : Config; var _1 : stdgo.Error; }):Void {
-        final decode = decode;
-        final decodeConfig = decodeConfig;
-        stdgo._internal.image.Image.registerFormat(name, magic, decode, decodeConfig);
+    static public function registerFormat(_name:String, _magic:String, _decode:stdgo._internal.io.Io.Reader -> { var _0 : Image; var _1 : stdgo.Error; }, _decodeConfig:stdgo._internal.io.Io.Reader -> { var _0 : Config; var _1 : stdgo.Error; }):Void {
+        final _decode = _decode;
+        final _decodeConfig = _decodeConfig;
+        stdgo._internal.image.Image.registerFormat(_name, _magic, _decode, _decodeConfig);
     }
     /**
         Decode decodes an image that has been encoded in a registered format.
@@ -1072,9 +1072,9 @@ class Image {
         Format registration is typically done by an init function in the codec-
         specific package.
     **/
-    static public function decode(r:stdgo._internal.io.Io.Reader):stdgo.Tuple.Tuple3<Image_, String, stdgo.Error> {
+    static public function decode(_r:stdgo._internal.io.Io.Reader):stdgo.Tuple.Tuple3<Image_, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.image.Image.decode(r);
+            final obj = stdgo._internal.image.Image.decode(_r);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -1084,9 +1084,9 @@ class Image {
         used during format registration. Format registration is typically done by
         an init function in the codec-specific package.
     **/
-    static public function decodeConfig(r:stdgo._internal.io.Io.Reader):stdgo.Tuple.Tuple3<Config, String, stdgo.Error> {
+    static public function decodeConfig(_r:stdgo._internal.io.Io.Reader):stdgo.Tuple.Tuple3<Config, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.image.Image.decodeConfig(r);
+            final obj = stdgo._internal.image.Image.decodeConfig(_r);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
@@ -1101,163 +1101,163 @@ class Image {
         rectangle has minimum and maximum coordinates swapped if necessary so that
         it is well-formed.
     **/
-    static public function rect(x0:StdTypes.Int, y0:StdTypes.Int, x1:StdTypes.Int, y1:StdTypes.Int):Rectangle {
-        return stdgo._internal.image.Image.rect(x0, y0, x1, y1);
+    static public function rect(_x0:StdTypes.Int, _y0:StdTypes.Int, _x1:StdTypes.Int, _y1:StdTypes.Int):Rectangle {
+        return stdgo._internal.image.Image.rect(_x0, _y0, _x1, _y1);
     }
-    static public function testRectangle(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testRectangle(t);
+    static public function testRectangle(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testRectangle(_t);
     }
     /**
         NewRGBA returns a new RGBA image with the given bounds.
     **/
-    static public function newRGBA(r:Rectangle):RGBA {
-        return stdgo._internal.image.Image.newRGBA(r);
+    static public function newRGBA(_r:Rectangle):RGBA {
+        return stdgo._internal.image.Image.newRGBA(_r);
     }
     /**
         NewRGBA64 returns a new RGBA64 image with the given bounds.
     **/
-    static public function newRGBA64(r:Rectangle):RGBA64 {
-        return stdgo._internal.image.Image.newRGBA64(r);
+    static public function newRGBA64(_r:Rectangle):RGBA64 {
+        return stdgo._internal.image.Image.newRGBA64(_r);
     }
     /**
         NewNRGBA returns a new NRGBA image with the given bounds.
     **/
-    static public function newNRGBA(r:Rectangle):NRGBA {
-        return stdgo._internal.image.Image.newNRGBA(r);
+    static public function newNRGBA(_r:Rectangle):NRGBA {
+        return stdgo._internal.image.Image.newNRGBA(_r);
     }
     /**
         NewNRGBA64 returns a new NRGBA64 image with the given bounds.
     **/
-    static public function newNRGBA64(r:Rectangle):NRGBA64 {
-        return stdgo._internal.image.Image.newNRGBA64(r);
+    static public function newNRGBA64(_r:Rectangle):NRGBA64 {
+        return stdgo._internal.image.Image.newNRGBA64(_r);
     }
     /**
         NewAlpha returns a new Alpha image with the given bounds.
     **/
-    static public function newAlpha(r:Rectangle):Alpha {
-        return stdgo._internal.image.Image.newAlpha(r);
+    static public function newAlpha(_r:Rectangle):Alpha {
+        return stdgo._internal.image.Image.newAlpha(_r);
     }
     /**
         NewAlpha16 returns a new Alpha16 image with the given bounds.
     **/
-    static public function newAlpha16(r:Rectangle):Alpha16 {
-        return stdgo._internal.image.Image.newAlpha16(r);
+    static public function newAlpha16(_r:Rectangle):Alpha16 {
+        return stdgo._internal.image.Image.newAlpha16(_r);
     }
     /**
         NewGray returns a new Gray image with the given bounds.
     **/
-    static public function newGray(r:Rectangle):Gray {
-        return stdgo._internal.image.Image.newGray(r);
+    static public function newGray(_r:Rectangle):Gray {
+        return stdgo._internal.image.Image.newGray(_r);
     }
     /**
         NewGray16 returns a new Gray16 image with the given bounds.
     **/
-    static public function newGray16(r:Rectangle):Gray16 {
-        return stdgo._internal.image.Image.newGray16(r);
+    static public function newGray16(_r:Rectangle):Gray16 {
+        return stdgo._internal.image.Image.newGray16(_r);
     }
     /**
         NewCMYK returns a new CMYK image with the given bounds.
     **/
-    static public function newCMYK(r:Rectangle):CMYK {
-        return stdgo._internal.image.Image.newCMYK(r);
+    static public function newCMYK(_r:Rectangle):CMYK {
+        return stdgo._internal.image.Image.newCMYK(_r);
     }
     /**
         NewPaletted returns a new Paletted image with the given width, height and
         palette.
     **/
-    static public function newPaletted(r:Rectangle, p:stdgo._internal.image.color.Color.Palette):Paletted {
-        return stdgo._internal.image.Image.newPaletted(r, p);
+    static public function newPaletted(_r:Rectangle, _p:stdgo._internal.image.color.Color.Palette):Paletted {
+        return stdgo._internal.image.Image.newPaletted(_r, _p);
     }
-    static public function testImage(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testImage(t);
+    static public function testImage(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testImage(_t);
     }
-    static public function testNewXxxBadRectangle(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testNewXxxBadRectangle(t);
+    static public function testNewXxxBadRectangle(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testNewXxxBadRectangle(_t);
     }
-    static public function test16BitsPerColorChannel(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.test16BitsPerColorChannel(t);
+    static public function test16BitsPerColorChannel(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.test16BitsPerColorChannel(_t);
     }
-    static public function testRGBA64Image(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testRGBA64Image(t);
+    static public function testRGBA64Image(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testRGBA64Image(_t);
     }
-    static public function benchmarkAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAt(b);
+    static public function benchmarkAt(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAt(_b);
     }
-    static public function benchmarkSet(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkSet(b);
+    static public function benchmarkSet(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkSet(_b);
     }
-    static public function benchmarkRGBAAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkRGBAAt(b);
+    static public function benchmarkRGBAAt(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkRGBAAt(_b);
     }
-    static public function benchmarkRGBASetRGBA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkRGBASetRGBA(b);
+    static public function benchmarkRGBASetRGBA(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkRGBASetRGBA(_b);
     }
-    static public function benchmarkRGBA64At(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkRGBA64At(b);
+    static public function benchmarkRGBA64At(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkRGBA64At(_b);
     }
-    static public function benchmarkRGBA64SetRGBA64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkRGBA64SetRGBA64(b);
+    static public function benchmarkRGBA64SetRGBA64(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkRGBA64SetRGBA64(_b);
     }
-    static public function benchmarkNRGBAAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkNRGBAAt(b);
+    static public function benchmarkNRGBAAt(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkNRGBAAt(_b);
     }
-    static public function benchmarkNRGBASetNRGBA(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkNRGBASetNRGBA(b);
+    static public function benchmarkNRGBASetNRGBA(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkNRGBASetNRGBA(_b);
     }
-    static public function benchmarkNRGBA64At(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkNRGBA64At(b);
+    static public function benchmarkNRGBA64At(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkNRGBA64At(_b);
     }
-    static public function benchmarkNRGBA64SetNRGBA64(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkNRGBA64SetNRGBA64(b);
+    static public function benchmarkNRGBA64SetNRGBA64(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkNRGBA64SetNRGBA64(_b);
     }
-    static public function benchmarkAlphaAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAlphaAt(b);
+    static public function benchmarkAlphaAt(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAlphaAt(_b);
     }
-    static public function benchmarkAlphaSetAlpha(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAlphaSetAlpha(b);
+    static public function benchmarkAlphaSetAlpha(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAlphaSetAlpha(_b);
     }
-    static public function benchmarkAlpha16At(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAlpha16At(b);
+    static public function benchmarkAlpha16At(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAlpha16At(_b);
     }
-    static public function benchmarkAlphaSetAlpha16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkAlphaSetAlpha16(b);
+    static public function benchmarkAlphaSetAlpha16(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkAlphaSetAlpha16(_b);
     }
-    static public function benchmarkGrayAt(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkGrayAt(b);
+    static public function benchmarkGrayAt(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkGrayAt(_b);
     }
-    static public function benchmarkGraySetGray(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkGraySetGray(b);
+    static public function benchmarkGraySetGray(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkGraySetGray(_b);
     }
-    static public function benchmarkGray16At(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkGray16At(b);
+    static public function benchmarkGray16At(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkGray16At(_b);
     }
-    static public function benchmarkGraySetGray16(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.image.Image.benchmarkGraySetGray16(b);
+    static public function benchmarkGraySetGray16(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.image.Image.benchmarkGraySetGray16(_b);
     }
     /**
         NewUniform returns a new Uniform image of the given color.
     **/
-    static public function newUniform(c:stdgo._internal.image.color.Color.Color):Uniform {
-        return stdgo._internal.image.Image.newUniform(c);
+    static public function newUniform(_c:stdgo._internal.image.color.Color.Color):Uniform {
+        return stdgo._internal.image.Image.newUniform(_c);
     }
     /**
         NewYCbCr returns a new YCbCr image with the given bounds and subsample
         ratio.
     **/
-    static public function newYCbCr(r:Rectangle, subsampleRatio:YCbCrSubsampleRatio):YCbCr {
-        return stdgo._internal.image.Image.newYCbCr(r, subsampleRatio);
+    static public function newYCbCr(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):YCbCr {
+        return stdgo._internal.image.Image.newYCbCr(_r, _subsampleRatio);
     }
     /**
         NewNYCbCrA returns a new NYCbCrA image with the given bounds and subsample
         ratio.
     **/
-    static public function newNYCbCrA(r:Rectangle, subsampleRatio:YCbCrSubsampleRatio):NYCbCrA {
-        return stdgo._internal.image.Image.newNYCbCrA(r, subsampleRatio);
+    static public function newNYCbCrA(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):NYCbCrA {
+        return stdgo._internal.image.Image.newNYCbCrA(_r, _subsampleRatio);
     }
-    static public function testYCbCr(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testYCbCr(t);
+    static public function testYCbCr(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testYCbCr(_t);
     }
-    static public function testYCbCrSlicesDontOverlap(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.image.Image.testYCbCrSlicesDontOverlap(t);
+    static public function testYCbCrSlicesDontOverlap(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.image.Image.testYCbCrSlicesDontOverlap(_t);
     }
 }

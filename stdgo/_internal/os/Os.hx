@@ -60,9 +60,18 @@ var interrupt : stdgo._internal.os.Os.Signal = (() -> (null : stdgo._internal.os
 var kill : stdgo._internal.os.Os.Signal = (() -> (null : stdgo._internal.os.Os.Signal))();
 var _errWriteAtInAppendMode : stdgo.Error = (() -> (null : stdgo.Error))();
 var _checkWrapErr : Bool = (() -> false)();
-var stdin : stdgo.Ref<stdgo._internal.os.Os.File> = (() -> new File(Sys.stdin(), null))();
-var stdout : stdgo.Ref<stdgo._internal.os.Os.File> = (() -> new File(null, Sys.stdout()))();
-var stderr : stdgo.Ref<stdgo._internal.os.Os.File> = (() -> new File(null, Sys.stderr()))();
+var stdin : stdgo.Ref<stdgo._internal.os.Os.File> = (() -> {
+        final input:haxe.io.Input = #if target.sys Sys.stdin() #else null #end;
+        new File(input, null);
+    })();
+var stdout : stdgo.Ref<stdgo._internal.os.Os.File> = (() -> {
+        final output:haxe.io.Output = #if target.sys Sys.stdout() #else null #end;
+        new File(null, output);
+    })();
+var stderr : stdgo.Ref<stdgo._internal.os.Os.File> = (() -> {
+        final output:haxe.io.Output = #if target.sys Sys.stderr() #else null #end;
+        new File(null, output);
+    })();
 var _errPatternHasSeparator : stdgo.Error = (() -> (null : stdgo.Error))();
 var _lstat : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = (() -> null)();
 var atime : stdgo._internal.io.fs.Fs.FileInfo -> stdgo._internal.time.Time.Time = (() -> null)();
@@ -450,14 +459,16 @@ function open(_name:stdgo.GoString):{ var _0 : stdgo.Ref<File>; var _1 : stdgo.E
     }
 function create(_name:stdgo.GoString):{ var _0 : stdgo.Ref<File>; var _1 : stdgo.Error; } throw ":os.create is not yet implemented";
 function openFile(_name:stdgo.GoString, _flag:stdgo.GoInt, _perm:FileMode):{ var _0 : stdgo.Ref<File>; var _1 : stdgo.Error; } {
-        if (!sys.FileSystem.exists(_name)) {
-            sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
-        };
-        try {
-            return { _0 : { _file : { _name : _name }, _input : sys.io.File.read(_name), _output : sys.io.File.write(_name) }, _1 : null };
-        } catch(e) {
-            return { _0 : null, _1 : stdgo._internal.errors.Errors.new_(e.details()) };
-        };
+        return #if target.sys {
+            if (!sys.FileSystem.exists(_name)) {
+                sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
+            };
+            try {
+                { _0 : { _file : { _name : _name }, _input : sys.io.File.read(_name), _output : sys.io.File.write(_name) }, _1 : null };
+            } catch(e) {
+                { _0 : null, _1 : stdgo._internal.errors.Errors.new_(e.details()) };
+            };
+        } #else null #end;
     }
 function rename(_oldpath:stdgo.GoString, _newpath:stdgo.GoString):stdgo.Error throw ":os.rename is not yet implemented";
 function _fixCount(_n:stdgo.GoInt, _err:stdgo.Error):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw ":os._fixCount is not yet implemented";
@@ -469,12 +480,17 @@ function chmod(_name:stdgo.GoString, _mode:FileMode):stdgo.Error throw ":os.chmo
 function dirFS(_dir:stdgo.GoString):stdgo._internal.io.fs.Fs.FS throw ":os.dirFS is not yet implemented";
 function _containsAny(_s:stdgo.GoString, _chars:stdgo.GoString):Bool throw ":os._containsAny is not yet implemented";
 function readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
-        if (!sys.FileSystem.exists(_name)) return { _0 : null, _1 : stdgo._internal.errors.Errors.new_("readFile " + _name + ": no such file or directory") };
-        try {
-            return { _0 : sys.io.File.getBytes(_name), _1 : null };
-        } catch(e) {
-            return { _0 : null, _1 : stdgo._internal.errors.Errors.new_(e.details()) };
-        };
+        return #if target.sys {
+            if (!sys.FileSystem.exists(_name)) {
+                return { _0 : null, _1 : stdgo._internal.errors.Errors.new_("readFile " + _name + ": no such file or directory") };
+            } else {
+                try {
+                    return { _0 : sys.io.File.getBytes(_name), _1 : null };
+                } catch(e) {
+                    { _0 : null, _1 : stdgo._internal.errors.Errors.new_(e.details()) };
+                };
+            };
+        } #else null #end;
     }
 function writeFile(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.GoByte>, _perm:FileMode):stdgo.Error throw ":os.writeFile is not yet implemented";
 function _open(_path:stdgo.GoString, _flag:stdgo.GoInt, _perm:stdgo.GoUInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.internal.poll.Poll.SysFile; var _2 : stdgo.Error; } throw ":os._open is not yet implemented";
@@ -519,7 +535,7 @@ function _fixRootDirectory(_p:stdgo.GoString):stdgo.GoString throw ":os._fixRoot
 function pipe():{ var _0 : stdgo.Ref<File>; var _1 : stdgo.Ref<File>; var _2 : stdgo.Error; } throw ":os.pipe is not yet implemented";
 function _runtime_args():stdgo.Slice<stdgo.GoString> {
         #if js return new stdgo.Slice<stdgo.GoString>(0, 0).__setString__() #else null #end;
-        #if sys {
+        #if target.sys {
             final args:Array<stdgo.GoString> = Sys.args().map(arg -> (arg : stdgo.GoString));
             args.unshift(Sys.getCwd());
             return new stdgo.Slice<stdgo.GoString>(args.length, args.length, ...args).__setString__();
@@ -1078,10 +1094,12 @@ class File_asInterface {
     @:keep
     static public function truncate( _f:stdgo.Ref<File>, _size:stdgo.GoInt64):stdgo.Error {
         @:recv var _f:stdgo.Ref<File> = _f;
-        @:privateAccess _f._output.close();
-        final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
-        sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0, (_size : stdgo.GoInt).toBasic()));
-        @:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
+        #if target.sys {
+            @:privateAccess _f._output.close();
+            final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
+            sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0, (_size : stdgo.GoInt).toBasic()));
+            @:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
+        } #else null #end;
         return null;
     }
     @:keep

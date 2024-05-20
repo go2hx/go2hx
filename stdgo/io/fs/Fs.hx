@@ -57,9 +57,9 @@ private function set_skipAll(v:stdgo.Error):stdgo.Error {
         return v;
     }
 class FS_static_extension {
-    static public function open(t:FS, name:String):stdgo.Tuple<File, stdgo.Error> {
+    static public function open(t:FS, _name:String):stdgo.Tuple<File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.FS_static_extension.open(t, name);
+            final obj = stdgo._internal.io.fs.Fs.FS_static_extension.open(t, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -69,10 +69,10 @@ class File_static_extension {
     static public function close(t:File):stdgo.Error {
         return stdgo._internal.io.fs.Fs.File_static_extension.close(t);
     }
-    static public function read(t:File, 0:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(t:File, _0:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.io.fs.Fs.File_static_extension.read(t, 0);
+            final obj = stdgo._internal.io.fs.Fs.File_static_extension.read(t, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -103,9 +103,9 @@ class DirEntry_static_extension {
 }
 typedef DirEntry = stdgo._internal.io.fs.Fs.DirEntry;
 class ReadDirFile_static_extension {
-    static public function readDir(t:ReadDirFile, n:StdTypes.Int):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
+    static public function readDir(t:ReadDirFile, _n:StdTypes.Int):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.ReadDirFile_static_extension.readDir(t, n);
+            final obj = stdgo._internal.io.fs.Fs.ReadDirFile_static_extension.readDir(t, _n);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -133,45 +133,45 @@ class FileInfo_static_extension {
 }
 typedef FileInfo = stdgo._internal.io.fs.Fs.FileInfo;
 class GlobFS_static_extension {
-    static public function glob(t:GlobFS, pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
+    static public function glob(t:GlobFS, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.GlobFS_static_extension.glob(t, pattern);
+            final obj = stdgo._internal.io.fs.Fs.GlobFS_static_extension.glob(t, _pattern);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
 typedef GlobFS = stdgo._internal.io.fs.Fs.GlobFS;
 class ReadDirFS_static_extension {
-    static public function readDir(t:ReadDirFS, name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
+    static public function readDir(t:ReadDirFS, _name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.ReadDirFS_static_extension.readDir(t, name);
+            final obj = stdgo._internal.io.fs.Fs.ReadDirFS_static_extension.readDir(t, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
 typedef ReadDirFS = stdgo._internal.io.fs.Fs.ReadDirFS;
 class ReadFileFS_static_extension {
-    static public function readFile(t:ReadFileFS, name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function readFile(t:ReadFileFS, _name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.ReadFileFS_static_extension.readFile(t, name);
+            final obj = stdgo._internal.io.fs.Fs.ReadFileFS_static_extension.readFile(t, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
 }
 typedef ReadFileFS = stdgo._internal.io.fs.Fs.ReadFileFS;
 class StatFS_static_extension {
-    static public function stat(t:StatFS, name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
+    static public function stat(t:StatFS, _name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.StatFS_static_extension.stat(t, name);
+            final obj = stdgo._internal.io.fs.Fs.StatFS_static_extension.stat(t, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 typedef StatFS = stdgo._internal.io.fs.Fs.StatFS;
 class SubFS_static_extension {
-    static public function sub(t:SubFS, dir:String):stdgo.Tuple<FS, stdgo.Error> {
+    static public function sub(t:SubFS, _dir:String):stdgo.Tuple<FS, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.SubFS_static_extension.sub(t, dir);
+            final obj = stdgo._internal.io.fs.Fs.SubFS_static_extension.sub(t, _dir);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -248,118 +248,118 @@ typedef T__interface_0 = stdgo._internal.io.fs.Fs.T__interface_0;
 typedef FileMode = stdgo._internal.io.fs.Fs.FileMode;
 typedef WalkDirFunc = stdgo._internal.io.fs.Fs.WalkDirFunc;
 class PathError_static_extension {
-    static public function timeout(e:PathError):Bool {
-        return stdgo._internal.io.fs.Fs.PathError_static_extension.timeout(e);
+    static public function timeout(_e:PathError):Bool {
+        return stdgo._internal.io.fs.Fs.PathError_static_extension.timeout(_e);
     }
-    static public function unwrap(e:PathError):stdgo.Error {
-        return stdgo._internal.io.fs.Fs.PathError_static_extension.unwrap(e);
+    static public function unwrap(_e:PathError):stdgo.Error {
+        return stdgo._internal.io.fs.Fs.PathError_static_extension.unwrap(_e);
     }
-    static public function error(e:PathError):String {
-        return stdgo._internal.io.fs.Fs.PathError_static_extension.error(e);
+    static public function error(_e:PathError):String {
+        return stdgo._internal.io.fs.Fs.PathError_static_extension.error(_e);
     }
 }
 class T_dirInfo_static_extension {
-    static public function string(di:T_dirInfo):String {
-        return stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.string(di);
+    static public function string(_di:T_dirInfo):String {
+        return stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.string(_di);
     }
-    static public function name(di:T_dirInfo):String {
-        return stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.name(di);
+    static public function name(_di:T_dirInfo):String {
+        return stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.name(_di);
     }
-    static public function info(di:T_dirInfo):stdgo.Tuple<FileInfo, stdgo.Error> {
+    static public function info(_di:T_dirInfo):stdgo.Tuple<FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.info(di);
+            final obj = stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.info(_di);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function type(di:T_dirInfo):FileMode {
-        return stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.type(di);
+    static public function type(_di:T_dirInfo):FileMode {
+        return stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.type(_di);
     }
-    static public function isDir(di:T_dirInfo):Bool {
-        return stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.isDir(di);
+    static public function isDir(_di:T_dirInfo):Bool {
+        return stdgo._internal.io.fs.Fs.T_dirInfo_static_extension.isDir(_di);
     }
 }
 class T_subFS_static_extension {
-    static public function sub(f:T_subFS, dir:String):stdgo.Tuple<FS, stdgo.Error> {
+    static public function sub(_f:T_subFS, _dir:String):stdgo.Tuple<FS, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.sub(f, dir);
+            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.sub(_f, _dir);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function glob(f:T_subFS, pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
+    static public function glob(_f:T_subFS, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.glob(f, pattern);
+            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.glob(_f, _pattern);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function readFile(f:T_subFS, name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function readFile(_f:T_subFS, _name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.readFile(f, name);
+            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.readFile(_f, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function readDir(f:T_subFS, name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
+    static public function readDir(_f:T_subFS, _name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.readDir(f, name);
+            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.readDir(_f, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function open(f:T_subFS, name:String):stdgo.Tuple<File, stdgo.Error> {
+    static public function open(_f:T_subFS, _name:String):stdgo.Tuple<File, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.open(f, name);
+            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension.open(_f, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _fixErr(f:T_subFS, err:stdgo.Error):stdgo.Error {
-        return stdgo._internal.io.fs.Fs.T_subFS_static_extension._fixErr(f, err);
+    static public function _fixErr(_f:T_subFS, _err:stdgo.Error):stdgo.Error {
+        return stdgo._internal.io.fs.Fs.T_subFS_static_extension._fixErr(_f, _err);
     }
-    static public function _shorten(f:T_subFS, name:String):stdgo.Tuple<String, Bool> {
+    static public function _shorten(_f:T_subFS, _name:String):stdgo.Tuple<String, Bool> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension._shorten(f, name);
+            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension._shorten(_f, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _fullName(f:T_subFS, op:String, name:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function _fullName(_f:T_subFS, _op:String, _name:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension._fullName(f, op, name);
+            final obj = stdgo._internal.io.fs.Fs.T_subFS_static_extension._fullName(_f, _op, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_statDirEntry_static_extension {
-    static public function string(d:T_statDirEntry):String {
-        return stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.string(d);
+    static public function string(_d:T_statDirEntry):String {
+        return stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.string(_d);
     }
-    static public function info(d:T_statDirEntry):stdgo.Tuple<FileInfo, stdgo.Error> {
+    static public function info(_d:T_statDirEntry):stdgo.Tuple<FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.info(d);
+            final obj = stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.info(_d);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function type(d:T_statDirEntry):FileMode {
-        return stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.type(d);
+    static public function type(_d:T_statDirEntry):FileMode {
+        return stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.type(_d);
     }
-    static public function isDir(d:T_statDirEntry):Bool {
-        return stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.isDir(d);
+    static public function isDir(_d:T_statDirEntry):Bool {
+        return stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.isDir(_d);
     }
-    static public function name(d:T_statDirEntry):String {
-        return stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.name(d);
+    static public function name(_d:T_statDirEntry):String {
+        return stdgo._internal.io.fs.Fs.T_statDirEntry_static_extension.name(_d);
     }
 }
 class FileMode_static_extension {
-    static public function type(m:FileMode):FileMode {
-        return stdgo._internal.io.fs.Fs.FileMode_static_extension.type(m);
+    static public function type(_m:FileMode):FileMode {
+        return stdgo._internal.io.fs.Fs.FileMode_static_extension.type(_m);
     }
-    static public function perm(m:FileMode):FileMode {
-        return stdgo._internal.io.fs.Fs.FileMode_static_extension.perm(m);
+    static public function perm(_m:FileMode):FileMode {
+        return stdgo._internal.io.fs.Fs.FileMode_static_extension.perm(_m);
     }
-    static public function isRegular(m:FileMode):Bool {
-        return stdgo._internal.io.fs.Fs.FileMode_static_extension.isRegular(m);
+    static public function isRegular(_m:FileMode):Bool {
+        return stdgo._internal.io.fs.Fs.FileMode_static_extension.isRegular(_m);
     }
-    static public function isDir(m:FileMode):Bool {
-        return stdgo._internal.io.fs.Fs.FileMode_static_extension.isDir(m);
+    static public function isDir(_m:FileMode):Bool {
+        return stdgo._internal.io.fs.Fs.FileMode_static_extension.isDir(_m);
     }
-    static public function string(m:FileMode):String {
-        return stdgo._internal.io.fs.Fs.FileMode_static_extension.string(m);
+    static public function string(_m:FileMode):String {
+        return stdgo._internal.io.fs.Fs.FileMode_static_extension.string(_m);
     }
 }
 /**
@@ -376,8 +376,8 @@ class Fs {
         
         	-rw-r--r-- 100 1970-01-01 12:00:00 hello.go
     **/
-    static public function formatFileInfo(info:FileInfo):String {
-        return stdgo._internal.io.fs.Fs.formatFileInfo(info);
+    static public function formatFileInfo(_info:FileInfo):String {
+        return stdgo._internal.io.fs.Fs.formatFileInfo(_info);
     }
     /**
         FormatDirEntry returns a formatted version of dir for human readability.
@@ -387,8 +387,8 @@ class Fs {
         	d subdir/
         	- hello.go
     **/
-    static public function formatDirEntry(dir:DirEntry):String {
-        return stdgo._internal.io.fs.Fs.formatDirEntry(dir);
+    static public function formatDirEntry(_dir:DirEntry):String {
+        return stdgo._internal.io.fs.Fs.formatDirEntry(_dir);
     }
     /**
         ValidPath reports whether the given path name
@@ -405,8 +405,8 @@ class Fs {
         are accepted as valid, but those characters must never be
         interpreted by an FS implementation as path element separators.
     **/
-    static public function validPath(name:String):Bool {
-        return stdgo._internal.io.fs.Fs.validPath(name);
+    static public function validPath(_name:String):Bool {
+        return stdgo._internal.io.fs.Fs.validPath(_name);
     }
     /**
         Glob returns the names of all files matching pattern or nil
@@ -422,9 +422,9 @@ class Fs {
         Otherwise, Glob uses ReadDir to traverse the directory tree
         and look for matches for the pattern.
     **/
-    static public function glob(fsys:FS, pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
+    static public function glob(_fsys:FS, _pattern:String):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.glob(fsys, pattern);
+            final obj = stdgo._internal.io.fs.Fs.glob(_fsys, _pattern);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -436,9 +436,9 @@ class Fs {
         Otherwise ReadDir calls fs.Open and uses ReadDir and Close
         on the returned file.
     **/
-    static public function readDir(fsys:FS, name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
+    static public function readDir(_fsys:FS, _name:String):stdgo.Tuple<Array<DirEntry>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.readDir(fsys, name);
+            final obj = stdgo._internal.io.fs.Fs.readDir(_fsys, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -446,8 +446,8 @@ class Fs {
         FileInfoToDirEntry returns a DirEntry that returns information from info.
         If info is nil, FileInfoToDirEntry returns nil.
     **/
-    static public function fileInfoToDirEntry(info:FileInfo):DirEntry {
-        return stdgo._internal.io.fs.Fs.fileInfoToDirEntry(info);
+    static public function fileInfoToDirEntry(_info:FileInfo):DirEntry {
+        return stdgo._internal.io.fs.Fs.fileInfoToDirEntry(_info);
     }
     /**
         ReadFile reads the named file from the file system fs and returns its contents.
@@ -459,9 +459,9 @@ class Fs {
         Otherwise ReadFile calls fs.Open and uses Read and Close
         on the returned file.
     **/
-    static public function readFile(fsys:FS, name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function readFile(_fsys:FS, _name:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.readFile(fsys, name);
+            final obj = stdgo._internal.io.fs.Fs.readFile(_fsys, _name);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -471,9 +471,9 @@ class Fs {
         If fs implements StatFS, Stat calls fs.Stat.
         Otherwise, Stat opens the file to stat it.
     **/
-    static public function stat(fsys:FS, name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
+    static public function stat(_fsys:FS, _name:String):stdgo.Tuple<FileInfo, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.stat(fsys, name);
+            final obj = stdgo._internal.io.fs.Fs.stat(_fsys, _name);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -493,9 +493,9 @@ class Fs {
         other directories. That is, os.DirFS is not a general substitute for a
         chroot-style security mechanism, and Sub does not change that fact.
     **/
-    static public function sub(fsys:FS, dir:String):stdgo.Tuple<FS, stdgo.Error> {
+    static public function sub(_fsys:FS, _dir:String):stdgo.Tuple<FS, stdgo.Error> {
         return {
-            final obj = stdgo._internal.io.fs.Fs.sub(fsys, dir);
+            final obj = stdgo._internal.io.fs.Fs.sub(_fsys, _dir);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -513,7 +513,7 @@ class Fs {
         WalkDir does not follow symbolic links found in directories,
         but if root itself is a symbolic link, its target will be walked.
     **/
-    static public function walkDir(fsys:FS, root:String, fn:WalkDirFunc):stdgo.Error {
-        return stdgo._internal.io.fs.Fs.walkDir(fsys, root, fn);
+    static public function walkDir(_fsys:FS, _root:String, _fn:WalkDirFunc):stdgo.Error {
+        return stdgo._internal.io.fs.Fs.walkDir(_fsys, _root, _fn);
     }
 }

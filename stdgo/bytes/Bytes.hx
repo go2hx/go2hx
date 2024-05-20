@@ -78,185 +78,185 @@ typedef T_asciiSet = stdgo._internal.bytes.Bytes.T_asciiSet;
     public function __copy__() return this.__copy__();
 }
 class Buffer_static_extension {
-    static public function readString(b:Buffer, delim:StdTypes.Int):stdgo.Tuple<String, stdgo.Error> {
+    static public function readString(_b:Buffer, _delim:StdTypes.Int):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readString(b, delim);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readString(_b, _delim);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _readSlice(b:Buffer, delim:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function _readSlice(_b:Buffer, _delim:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension._readSlice(b, delim);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension._readSlice(_b, _delim);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function readBytes(b:Buffer, delim:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function readBytes(_b:Buffer, _delim:StdTypes.Int):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readBytes(b, delim);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readBytes(_b, _delim);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function unreadByte(b:Buffer):stdgo.Error {
-        return stdgo._internal.bytes.Bytes.Buffer_static_extension.unreadByte(b);
+    static public function unreadByte(_b:Buffer):stdgo.Error {
+        return stdgo._internal.bytes.Bytes.Buffer_static_extension.unreadByte(_b);
     }
-    static public function unreadRune(b:Buffer):stdgo.Error {
-        return stdgo._internal.bytes.Bytes.Buffer_static_extension.unreadRune(b);
+    static public function unreadRune(_b:Buffer):stdgo.Error {
+        return stdgo._internal.bytes.Bytes.Buffer_static_extension.unreadRune(_b);
     }
-    static public function readRune(b:Buffer):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+    static public function readRune(_b:Buffer):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readRune(b);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readRune(_b);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function readByte(b:Buffer):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function readByte(_b:Buffer):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readByte(b);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readByte(_b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function next(b:Buffer, n:StdTypes.Int):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.bytes.Bytes.Buffer_static_extension.next(b, n)) i];
+    static public function next(_b:Buffer, _n:StdTypes.Int):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.bytes.Bytes.Buffer_static_extension.next(_b, _n)) i];
     }
-    static public function read(b:Buffer, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_b:Buffer, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.read(b, p);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.read(_b, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeRune(b:Buffer, r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function writeRune(_b:Buffer, _r:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.writeRune(b, r);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.writeRune(_b, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeByte(b:Buffer, c:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.bytes.Bytes.Buffer_static_extension.writeByte(b, c);
+    static public function writeByte(_b:Buffer, _c:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.bytes.Bytes.Buffer_static_extension.writeByte(_b, _c);
     }
-    static public function writeTo(b:Buffer, w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function writeTo(_b:Buffer, _w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.writeTo(b, w);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.writeTo(_b, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readFrom(b:Buffer, r:stdgo._internal.io.Io.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function readFrom(_b:Buffer, _r:stdgo._internal.io.Io.Reader):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readFrom(b, r);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.readFrom(_b, _r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function writeString(b:Buffer, s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function writeString(_b:Buffer, _s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.writeString(b, s);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.writeString(_b, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function write(b:Buffer, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_b:Buffer, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.write(b, p);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension.write(_b, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function grow(b:Buffer, n:StdTypes.Int):Void {
-        stdgo._internal.bytes.Bytes.Buffer_static_extension.grow(b, n);
+    static public function grow(_b:Buffer, _n:StdTypes.Int):Void {
+        stdgo._internal.bytes.Bytes.Buffer_static_extension.grow(_b, _n);
     }
-    static public function _grow(b:Buffer, n:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.bytes.Bytes.Buffer_static_extension._grow(b, n);
+    static public function _grow(_b:Buffer, _n:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.bytes.Bytes.Buffer_static_extension._grow(_b, _n);
     }
-    static public function _tryGrowByReslice(b:Buffer, n:StdTypes.Int):stdgo.Tuple<StdTypes.Int, Bool> {
+    static public function _tryGrowByReslice(_b:Buffer, _n:StdTypes.Int):stdgo.Tuple<StdTypes.Int, Bool> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension._tryGrowByReslice(b, n);
+            final obj = stdgo._internal.bytes.Bytes.Buffer_static_extension._tryGrowByReslice(_b, _n);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function reset(b:Buffer):Void {
-        stdgo._internal.bytes.Bytes.Buffer_static_extension.reset(b);
+    static public function reset(_b:Buffer):Void {
+        stdgo._internal.bytes.Bytes.Buffer_static_extension.reset(_b);
     }
-    static public function truncate(b:Buffer, n:StdTypes.Int):Void {
-        stdgo._internal.bytes.Bytes.Buffer_static_extension.truncate(b, n);
+    static public function truncate(_b:Buffer, _n:StdTypes.Int):Void {
+        stdgo._internal.bytes.Bytes.Buffer_static_extension.truncate(_b, _n);
     }
-    static public function available(b:Buffer):StdTypes.Int {
-        return stdgo._internal.bytes.Bytes.Buffer_static_extension.available(b);
+    static public function available(_b:Buffer):StdTypes.Int {
+        return stdgo._internal.bytes.Bytes.Buffer_static_extension.available(_b);
     }
-    static public function cap(b:Buffer):StdTypes.Int {
-        return stdgo._internal.bytes.Bytes.Buffer_static_extension.cap(b);
+    static public function cap(_b:Buffer):StdTypes.Int {
+        return stdgo._internal.bytes.Bytes.Buffer_static_extension.cap(_b);
     }
-    static public function len(b:Buffer):StdTypes.Int {
-        return stdgo._internal.bytes.Bytes.Buffer_static_extension.len(b);
+    static public function len(_b:Buffer):StdTypes.Int {
+        return stdgo._internal.bytes.Bytes.Buffer_static_extension.len(_b);
     }
-    static public function _empty(b:Buffer):Bool {
-        return stdgo._internal.bytes.Bytes.Buffer_static_extension._empty(b);
+    static public function _empty(_b:Buffer):Bool {
+        return stdgo._internal.bytes.Bytes.Buffer_static_extension._empty(_b);
     }
-    static public function string(b:Buffer):String {
-        return stdgo._internal.bytes.Bytes.Buffer_static_extension.string(b);
+    static public function string(_b:Buffer):String {
+        return stdgo._internal.bytes.Bytes.Buffer_static_extension.string(_b);
     }
-    static public function availableBuffer(b:Buffer):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.bytes.Bytes.Buffer_static_extension.availableBuffer(b)) i];
+    static public function availableBuffer(_b:Buffer):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.bytes.Bytes.Buffer_static_extension.availableBuffer(_b)) i];
     }
-    static public function bytes(b:Buffer):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.bytes.Bytes.Buffer_static_extension.bytes(b)) i];
+    static public function bytes(_b:Buffer):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.bytes.Bytes.Buffer_static_extension.bytes(_b)) i];
     }
 }
 class Reader_static_extension {
-    static public function reset(r:Reader, b:Array<StdTypes.Int>):Void {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        stdgo._internal.bytes.Bytes.Reader_static_extension.reset(r, b);
+    static public function reset(_r:Reader, _b:Array<StdTypes.Int>):Void {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        stdgo._internal.bytes.Bytes.Reader_static_extension.reset(_r, _b);
     }
-    static public function writeTo(r:Reader, w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function writeTo(_r:Reader, _w:stdgo._internal.io.Io.Writer):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.writeTo(r, w);
+            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.writeTo(_r, _w);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function seek(r:Reader, offset:haxe.Int64, whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function seek(_r:Reader, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.seek(r, offset, whence);
+            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.seek(_r, _offset, _whence);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function unreadRune(r:Reader):stdgo.Error {
-        return stdgo._internal.bytes.Bytes.Reader_static_extension.unreadRune(r);
+    static public function unreadRune(_r:Reader):stdgo.Error {
+        return stdgo._internal.bytes.Bytes.Reader_static_extension.unreadRune(_r);
     }
-    static public function readRune(r:Reader):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
+    static public function readRune(_r:Reader):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.readRune(r);
+            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.readRune(_r);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function unreadByte(r:Reader):stdgo.Error {
-        return stdgo._internal.bytes.Bytes.Reader_static_extension.unreadByte(r);
+    static public function unreadByte(_r:Reader):stdgo.Error {
+        return stdgo._internal.bytes.Bytes.Reader_static_extension.unreadByte(_r);
     }
-    static public function readByte(r:Reader):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function readByte(_r:Reader):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.readByte(r);
+            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.readByte(_r);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function readAt(r:Reader, b:Array<StdTypes.Int>, off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readAt(_r:Reader, _b:Array<StdTypes.Int>, _off:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.readAt(r, b, off);
+            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.readAt(_r, _b, _off);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function read(r:Reader, b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:Reader, _b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.read(r, b);
+            final obj = stdgo._internal.bytes.Bytes.Reader_static_extension.read(_r, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function size(r:Reader):haxe.Int64 {
-        return stdgo._internal.bytes.Bytes.Reader_static_extension.size(r);
+    static public function size(_r:Reader):haxe.Int64 {
+        return stdgo._internal.bytes.Bytes.Reader_static_extension.size(_r);
     }
-    static public function len(r:Reader):StdTypes.Int {
-        return stdgo._internal.bytes.Bytes.Reader_static_extension.len(r);
+    static public function len(_r:Reader):StdTypes.Int {
+        return stdgo._internal.bytes.Bytes.Reader_static_extension.len(_r);
     }
 }
 class T_asciiSet_static_extension {
-    static public function _contains(as:T_asciiSet, c:StdTypes.Int):Bool {
-        return stdgo._internal.bytes.Bytes.T_asciiSet_static_extension._contains(as, c);
+    static public function _contains(_as:T_asciiSet, _c:StdTypes.Int):Bool {
+        return stdgo._internal.bytes.Bytes.T_asciiSet_static_extension._contains(_as, _c);
     }
 }
 /**
@@ -275,9 +275,9 @@ class Bytes {
         In most cases, new(Buffer) (or just declaring a Buffer variable) is
         sufficient to initialize a Buffer.
     **/
-    static public function newBuffer(buf:Array<StdTypes.Int>):Buffer {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.newBuffer(buf);
+    static public function newBuffer(_buf:Array<StdTypes.Int>):Buffer {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.newBuffer(_buf);
     }
     /**
         NewBufferString creates and initializes a new Buffer using string s as its
@@ -287,89 +287,89 @@ class Bytes {
         In most cases, new(Buffer) (or just declaring a Buffer variable) is
         sufficient to initialize a Buffer.
     **/
-    static public function newBufferString(s:String):Buffer {
-        return stdgo._internal.bytes.Bytes.newBufferString(s);
+    static public function newBufferString(_s:String):Buffer {
+        return stdgo._internal.bytes.Bytes.newBufferString(_s);
     }
     /**
         Equal reports whether a and b
         are the same length and contain the same bytes.
         A nil argument is equivalent to an empty slice.
     **/
-    static public function equal(a:Array<StdTypes.Int>, b:Array<StdTypes.Int>):Bool {
-        final a = ([for (i in a) i] : stdgo.Slice<stdgo.GoByte>);
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.equal(a, b);
+    static public function equal(_a:Array<StdTypes.Int>, _b:Array<StdTypes.Int>):Bool {
+        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoByte>);
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.equal(_a, _b);
     }
     /**
         Compare returns an integer comparing two byte slices lexicographically.
         The result will be 0 if a == b, -1 if a < b, and +1 if a > b.
         A nil argument is equivalent to an empty slice.
     **/
-    static public function compare(a:Array<StdTypes.Int>, b:Array<StdTypes.Int>):StdTypes.Int {
-        final a = ([for (i in a) i] : stdgo.Slice<stdgo.GoByte>);
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.compare(a, b);
+    static public function compare(_a:Array<StdTypes.Int>, _b:Array<StdTypes.Int>):StdTypes.Int {
+        final _a = ([for (i in _a) i] : stdgo.Slice<stdgo.GoByte>);
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.compare(_a, _b);
     }
     /**
         Count counts the number of non-overlapping instances of sep in s.
         If sep is an empty slice, Count returns 1 + the number of UTF-8-encoded code points in s.
     **/
-    static public function count(s:Array<StdTypes.Int>, sep:Array<StdTypes.Int>):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.count(s, sep);
+    static public function count(_s:Array<StdTypes.Int>, _sep:Array<StdTypes.Int>):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.count(_s, _sep);
     }
     /**
         Contains reports whether subslice is within b.
     **/
-    static public function contains(b:Array<StdTypes.Int>, subslice:Array<StdTypes.Int>):Bool {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        final subslice = ([for (i in subslice) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.contains(b, subslice);
+    static public function contains(_b:Array<StdTypes.Int>, _subslice:Array<StdTypes.Int>):Bool {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        final _subslice = ([for (i in _subslice) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.contains(_b, _subslice);
     }
     /**
         ContainsAny reports whether any of the UTF-8-encoded code points in chars are within b.
     **/
-    static public function containsAny(b:Array<StdTypes.Int>, chars:String):Bool {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.containsAny(b, chars);
+    static public function containsAny(_b:Array<StdTypes.Int>, _chars:String):Bool {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.containsAny(_b, _chars);
     }
     /**
         ContainsRune reports whether the rune is contained in the UTF-8-encoded byte slice b.
     **/
-    static public function containsRune(b:Array<StdTypes.Int>, r:StdTypes.Int):Bool {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.containsRune(b, r);
+    static public function containsRune(_b:Array<StdTypes.Int>, _r:StdTypes.Int):Bool {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.containsRune(_b, _r);
     }
     /**
         ContainsFunc reports whether any of the UTF-8-encoded code points r within b satisfy f(r).
     **/
-    static public function containsFunc(b:Array<StdTypes.Int>, f:stdgo.GoRune -> Bool):Bool {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        final f = f;
-        return stdgo._internal.bytes.Bytes.containsFunc(b, f);
+    static public function containsFunc(_b:Array<StdTypes.Int>, _f:stdgo.GoRune -> Bool):Bool {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        final _f = _f;
+        return stdgo._internal.bytes.Bytes.containsFunc(_b, _f);
     }
     /**
         IndexByte returns the index of the first instance of c in b, or -1 if c is not present in b.
     **/
-    static public function indexByte(b:Array<StdTypes.Int>, c:StdTypes.Int):StdTypes.Int {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.indexByte(b, c);
+    static public function indexByte(_b:Array<StdTypes.Int>, _c:StdTypes.Int):StdTypes.Int {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.indexByte(_b, _c);
     }
     /**
         LastIndex returns the index of the last instance of sep in s, or -1 if sep is not present in s.
     **/
-    static public function lastIndex(s:Array<StdTypes.Int>, sep:Array<StdTypes.Int>):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.lastIndex(s, sep);
+    static public function lastIndex(_s:Array<StdTypes.Int>, _sep:Array<StdTypes.Int>):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.lastIndex(_s, _sep);
     }
     /**
         LastIndexByte returns the index of the last instance of c in s, or -1 if c is not present in s.
     **/
-    static public function lastIndexByte(s:Array<StdTypes.Int>, c:StdTypes.Int):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.lastIndexByte(s, c);
+    static public function lastIndexByte(_s:Array<StdTypes.Int>, _c:StdTypes.Int):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.lastIndexByte(_s, _c);
     }
     /**
         IndexRune interprets s as a sequence of UTF-8-encoded code points.
@@ -378,9 +378,9 @@ class Bytes {
         If r is utf8.RuneError, it returns the first instance of any
         invalid UTF-8 byte sequence.
     **/
-    static public function indexRune(s:Array<StdTypes.Int>, r:StdTypes.Int):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.indexRune(s, r);
+    static public function indexRune(_s:Array<StdTypes.Int>, _r:StdTypes.Int):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.indexRune(_s, _r);
     }
     /**
         IndexAny interprets s as a sequence of UTF-8-encoded Unicode code points.
@@ -388,9 +388,9 @@ class Bytes {
         code points in chars. It returns -1 if chars is empty or if there is no code
         point in common.
     **/
-    static public function indexAny(s:Array<StdTypes.Int>, chars:String):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.indexAny(s, chars);
+    static public function indexAny(_s:Array<StdTypes.Int>, _chars:String):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.indexAny(_s, _chars);
     }
     /**
         LastIndexAny interprets s as a sequence of UTF-8-encoded Unicode code
@@ -398,9 +398,9 @@ class Bytes {
         the Unicode code points in chars. It returns -1 if chars is empty or if
         there is no code point in common.
     **/
-    static public function lastIndexAny(s:Array<StdTypes.Int>, chars:String):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.lastIndexAny(s, chars);
+    static public function lastIndexAny(_s:Array<StdTypes.Int>, _chars:String):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.lastIndexAny(_s, _chars);
     }
     /**
         SplitN slices s into subslices separated by sep and returns a slice of
@@ -414,10 +414,10 @@ class Bytes {
         
         To split around the first instance of a separator, see Cut.
     **/
-    static public function splitN(s:Array<StdTypes.Int>, sep:Array<StdTypes.Int>, n:StdTypes.Int):Array<Array<StdTypes.Int>> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.splitN(s, sep, n)) [for (i in i) i]];
+    static public function splitN(_s:Array<StdTypes.Int>, _sep:Array<StdTypes.Int>, _n:StdTypes.Int):Array<Array<StdTypes.Int>> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.splitN(_s, _sep, _n)) [for (i in i) i]];
     }
     /**
         SplitAfterN slices s into subslices after each instance of sep and
@@ -429,10 +429,10 @@ class Bytes {
         	n == 0: the result is nil (zero subslices)
         	n < 0: all subslices
     **/
-    static public function splitAfterN(s:Array<StdTypes.Int>, sep:Array<StdTypes.Int>, n:StdTypes.Int):Array<Array<StdTypes.Int>> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.splitAfterN(s, sep, n)) [for (i in i) i]];
+    static public function splitAfterN(_s:Array<StdTypes.Int>, _sep:Array<StdTypes.Int>, _n:StdTypes.Int):Array<Array<StdTypes.Int>> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.splitAfterN(_s, _sep, _n)) [for (i in i) i]];
     }
     /**
         Split slices s into all subslices separated by sep and returns a slice of
@@ -442,10 +442,10 @@ class Bytes {
         
         To split around the first instance of a separator, see Cut.
     **/
-    static public function split(s:Array<StdTypes.Int>, sep:Array<StdTypes.Int>):Array<Array<StdTypes.Int>> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.split(s, sep)) [for (i in i) i]];
+    static public function split(_s:Array<StdTypes.Int>, _sep:Array<StdTypes.Int>):Array<Array<StdTypes.Int>> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.split(_s, _sep)) [for (i in i) i]];
     }
     /**
         SplitAfter slices s into all subslices after each instance of sep and
@@ -453,10 +453,10 @@ class Bytes {
         If sep is empty, SplitAfter splits after each UTF-8 sequence.
         It is equivalent to SplitAfterN with a count of -1.
     **/
-    static public function splitAfter(s:Array<StdTypes.Int>, sep:Array<StdTypes.Int>):Array<Array<StdTypes.Int>> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.splitAfter(s, sep)) [for (i in i) i]];
+    static public function splitAfter(_s:Array<StdTypes.Int>, _sep:Array<StdTypes.Int>):Array<Array<StdTypes.Int>> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.splitAfter(_s, _sep)) [for (i in i) i]];
     }
     /**
         Fields interprets s as a sequence of UTF-8-encoded code points.
@@ -464,9 +464,9 @@ class Bytes {
         characters, as defined by unicode.IsSpace, returning a slice of subslices of s or an
         empty slice if s contains only white space.
     **/
-    static public function fields(s:Array<StdTypes.Int>):Array<Array<StdTypes.Int>> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.fields(s)) [for (i in i) i]];
+    static public function fields(_s:Array<StdTypes.Int>):Array<Array<StdTypes.Int>> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.fields(_s)) [for (i in i) i]];
     }
     /**
         FieldsFunc interprets s as a sequence of UTF-8-encoded code points.
@@ -477,35 +477,35 @@ class Bytes {
         FieldsFunc makes no guarantees about the order in which it calls f(c)
         and assumes that f always returns the same value for a given c.
     **/
-    static public function fieldsFunc(s:Array<StdTypes.Int>, f:stdgo.GoRune -> Bool):Array<Array<StdTypes.Int>> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final f = f;
-        return [for (i in stdgo._internal.bytes.Bytes.fieldsFunc(s, f)) [for (i in i) i]];
+    static public function fieldsFunc(_s:Array<StdTypes.Int>, _f:stdgo.GoRune -> Bool):Array<Array<StdTypes.Int>> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _f = _f;
+        return [for (i in stdgo._internal.bytes.Bytes.fieldsFunc(_s, _f)) [for (i in i) i]];
     }
     /**
         Join concatenates the elements of s to create a new byte slice. The separator
         sep is placed between elements in the resulting slice.
     **/
-    static public function join(s:Array<Array<StdTypes.Int>>, sep:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) ([for (i in i) i] : stdgo.Slice<stdgo.GoByte>)] : stdgo.Slice<stdgo.Slice<stdgo.GoByte>>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.join(s, sep)) i];
+    static public function join(_s:Array<Array<StdTypes.Int>>, _sep:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) ([for (i in i) i] : stdgo.Slice<stdgo.GoByte>)] : stdgo.Slice<stdgo.Slice<stdgo.GoByte>>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.join(_s, _sep)) i];
     }
     /**
         HasPrefix tests whether the byte slice s begins with prefix.
     **/
-    static public function hasPrefix(s:Array<StdTypes.Int>, prefix:Array<StdTypes.Int>):Bool {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final prefix = ([for (i in prefix) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.hasPrefix(s, prefix);
+    static public function hasPrefix(_s:Array<StdTypes.Int>, _prefix:Array<StdTypes.Int>):Bool {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _prefix = ([for (i in _prefix) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.hasPrefix(_s, _prefix);
     }
     /**
         HasSuffix tests whether the byte slice s ends with suffix.
     **/
-    static public function hasSuffix(s:Array<StdTypes.Int>, suffix:Array<StdTypes.Int>):Bool {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final suffix = ([for (i in suffix) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.hasSuffix(s, suffix);
+    static public function hasSuffix(_s:Array<StdTypes.Int>, _suffix:Array<StdTypes.Int>):Bool {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _suffix = ([for (i in _suffix) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.hasSuffix(_s, _suffix);
     }
     /**
         Map returns a copy of the byte slice s with all its characters modified
@@ -513,10 +513,10 @@ class Bytes {
         dropped from the byte slice with no replacement. The characters in s and the
         output are interpreted as UTF-8-encoded code points.
     **/
-    static public function map_(mapping:(_r:stdgo.GoRune) -> stdgo.GoRune, s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final mapping = mapping;
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.map_(mapping, s)) i];
+    static public function map_(_mapping:(_r:stdgo.GoRune) -> stdgo.GoRune, _s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _mapping = _mapping;
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.map_(_mapping, _s)) i];
     }
     /**
         Repeat returns a new byte slice consisting of count copies of b.
@@ -524,65 +524,65 @@ class Bytes {
         It panics if count is negative or if the result of (len(b) * count)
         overflows.
     **/
-    static public function repeat(b:Array<StdTypes.Int>, count:StdTypes.Int):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.repeat(b, count)) i];
+    static public function repeat(_b:Array<StdTypes.Int>, _count:StdTypes.Int):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.repeat(_b, _count)) i];
     }
     /**
         ToUpper returns a copy of the byte slice s with all Unicode letters mapped to
         their upper case.
     **/
-    static public function toUpper(s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.toUpper(s)) i];
+    static public function toUpper(_s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.toUpper(_s)) i];
     }
     /**
         ToLower returns a copy of the byte slice s with all Unicode letters mapped to
         their lower case.
     **/
-    static public function toLower(s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.toLower(s)) i];
+    static public function toLower(_s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.toLower(_s)) i];
     }
     /**
         ToTitle treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their title case.
     **/
-    static public function toTitle(s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.toTitle(s)) i];
+    static public function toTitle(_s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.toTitle(_s)) i];
     }
     /**
         ToUpperSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
         upper case, giving priority to the special casing rules.
     **/
-    static public function toUpperSpecial(c:stdgo._internal.unicode.Unicode.SpecialCase, s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.toUpperSpecial(c, s)) i];
+    static public function toUpperSpecial(_c:stdgo._internal.unicode.Unicode.SpecialCase, _s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.toUpperSpecial(_c, _s)) i];
     }
     /**
         ToLowerSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
         lower case, giving priority to the special casing rules.
     **/
-    static public function toLowerSpecial(c:stdgo._internal.unicode.Unicode.SpecialCase, s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.toLowerSpecial(c, s)) i];
+    static public function toLowerSpecial(_c:stdgo._internal.unicode.Unicode.SpecialCase, _s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.toLowerSpecial(_c, _s)) i];
     }
     /**
         ToTitleSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
         title case, giving priority to the special casing rules.
     **/
-    static public function toTitleSpecial(c:stdgo._internal.unicode.Unicode.SpecialCase, s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.toTitleSpecial(c, s)) i];
+    static public function toTitleSpecial(_c:stdgo._internal.unicode.Unicode.SpecialCase, _s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.toTitleSpecial(_c, _s)) i];
     }
     /**
         ToValidUTF8 treats s as UTF-8-encoded bytes and returns a copy with each run of bytes
         representing invalid UTF-8 replaced with the bytes in replacement, which may be empty.
     **/
-    static public function toValidUTF8(s:Array<StdTypes.Int>, replacement:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final replacement = ([for (i in replacement) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.toValidUTF8(s, replacement)) i];
+    static public function toValidUTF8(_s:Array<StdTypes.Int>, _replacement:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _replacement = ([for (i in _replacement) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.toValidUTF8(_s, _replacement)) i];
     }
     /**
         Title treats s as UTF-8-encoded bytes and returns a copy with all Unicode letters that begin
@@ -591,114 +591,114 @@ class Bytes {
         Deprecated: The rule Title uses for word boundaries does not handle Unicode
         punctuation properly. Use golang.org/x/text/cases instead.
     **/
-    static public function title(s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.title(s)) i];
+    static public function title(_s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.title(_s)) i];
     }
     /**
         TrimLeftFunc treats s as UTF-8-encoded bytes and returns a subslice of s by slicing off
         all leading UTF-8-encoded code points c that satisfy f(c).
     **/
-    static public function trimLeftFunc(s:Array<StdTypes.Int>, f:(_r:stdgo.GoRune) -> Bool):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final f = f;
-        return [for (i in stdgo._internal.bytes.Bytes.trimLeftFunc(s, f)) i];
+    static public function trimLeftFunc(_s:Array<StdTypes.Int>, _f:(_r:stdgo.GoRune) -> Bool):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _f = _f;
+        return [for (i in stdgo._internal.bytes.Bytes.trimLeftFunc(_s, _f)) i];
     }
     /**
         TrimRightFunc returns a subslice of s by slicing off all trailing
         UTF-8-encoded code points c that satisfy f(c).
     **/
-    static public function trimRightFunc(s:Array<StdTypes.Int>, f:(_r:stdgo.GoRune) -> Bool):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final f = f;
-        return [for (i in stdgo._internal.bytes.Bytes.trimRightFunc(s, f)) i];
+    static public function trimRightFunc(_s:Array<StdTypes.Int>, _f:(_r:stdgo.GoRune) -> Bool):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _f = _f;
+        return [for (i in stdgo._internal.bytes.Bytes.trimRightFunc(_s, _f)) i];
     }
     /**
         TrimFunc returns a subslice of s by slicing off all leading and trailing
         UTF-8-encoded code points c that satisfy f(c).
     **/
-    static public function trimFunc(s:Array<StdTypes.Int>, f:(_r:stdgo.GoRune) -> Bool):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final f = f;
-        return [for (i in stdgo._internal.bytes.Bytes.trimFunc(s, f)) i];
+    static public function trimFunc(_s:Array<StdTypes.Int>, _f:(_r:stdgo.GoRune) -> Bool):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _f = _f;
+        return [for (i in stdgo._internal.bytes.Bytes.trimFunc(_s, _f)) i];
     }
     /**
         TrimPrefix returns s without the provided leading prefix string.
         If s doesn't start with prefix, s is returned unchanged.
     **/
-    static public function trimPrefix(s:Array<StdTypes.Int>, prefix:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final prefix = ([for (i in prefix) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.trimPrefix(s, prefix)) i];
+    static public function trimPrefix(_s:Array<StdTypes.Int>, _prefix:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _prefix = ([for (i in _prefix) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.trimPrefix(_s, _prefix)) i];
     }
     /**
         TrimSuffix returns s without the provided trailing suffix string.
         If s doesn't end with suffix, s is returned unchanged.
     **/
-    static public function trimSuffix(s:Array<StdTypes.Int>, suffix:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final suffix = ([for (i in suffix) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.trimSuffix(s, suffix)) i];
+    static public function trimSuffix(_s:Array<StdTypes.Int>, _suffix:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _suffix = ([for (i in _suffix) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.trimSuffix(_s, _suffix)) i];
     }
     /**
         IndexFunc interprets s as a sequence of UTF-8-encoded code points.
         It returns the byte index in s of the first Unicode
         code point satisfying f(c), or -1 if none do.
     **/
-    static public function indexFunc(s:Array<StdTypes.Int>, f:(_r:stdgo.GoRune) -> Bool):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final f = f;
-        return stdgo._internal.bytes.Bytes.indexFunc(s, f);
+    static public function indexFunc(_s:Array<StdTypes.Int>, _f:(_r:stdgo.GoRune) -> Bool):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _f = _f;
+        return stdgo._internal.bytes.Bytes.indexFunc(_s, _f);
     }
     /**
         LastIndexFunc interprets s as a sequence of UTF-8-encoded code points.
         It returns the byte index in s of the last Unicode
         code point satisfying f(c), or -1 if none do.
     **/
-    static public function lastIndexFunc(s:Array<StdTypes.Int>, f:(_r:stdgo.GoRune) -> Bool):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final f = f;
-        return stdgo._internal.bytes.Bytes.lastIndexFunc(s, f);
+    static public function lastIndexFunc(_s:Array<StdTypes.Int>, _f:(_r:stdgo.GoRune) -> Bool):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _f = _f;
+        return stdgo._internal.bytes.Bytes.lastIndexFunc(_s, _f);
     }
     /**
         Trim returns a subslice of s by slicing off all leading and
         trailing UTF-8-encoded code points contained in cutset.
     **/
-    static public function trim(s:Array<StdTypes.Int>, cutset:String):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.trim(s, cutset)) i];
+    static public function trim(_s:Array<StdTypes.Int>, _cutset:String):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.trim(_s, _cutset)) i];
     }
     /**
         TrimLeft returns a subslice of s by slicing off all leading
         UTF-8-encoded code points contained in cutset.
     **/
-    static public function trimLeft(s:Array<StdTypes.Int>, cutset:String):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.trimLeft(s, cutset)) i];
+    static public function trimLeft(_s:Array<StdTypes.Int>, _cutset:String):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.trimLeft(_s, _cutset)) i];
     }
     /**
         TrimRight returns a subslice of s by slicing off all trailing
         UTF-8-encoded code points that are contained in cutset.
     **/
-    static public function trimRight(s:Array<StdTypes.Int>, cutset:String):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.trimRight(s, cutset)) i];
+    static public function trimRight(_s:Array<StdTypes.Int>, _cutset:String):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.trimRight(_s, _cutset)) i];
     }
     /**
         TrimSpace returns a subslice of s by slicing off all leading and
         trailing white space, as defined by Unicode.
     **/
-    static public function trimSpace(s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.trimSpace(s)) i];
+    static public function trimSpace(_s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.trimSpace(_s)) i];
     }
     /**
         Runes interprets s as a sequence of UTF-8-encoded code points.
         It returns a slice of runes (Unicode code points) equivalent to s.
     **/
-    static public function runes(s:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.runes(s)) i];
+    static public function runes(_s:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.runes(_s)) i];
     }
     /**
         Replace returns a copy of the slice s with the first n
@@ -708,11 +708,11 @@ class Bytes {
         for a k-rune slice.
         If n < 0, there is no limit on the number of replacements.
     **/
-    static public function replace(s:Array<StdTypes.Int>, old:Array<StdTypes.Int>, _new:Array<StdTypes.Int>, n:StdTypes.Int):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final old = ([for (i in old) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function replace(_s:Array<StdTypes.Int>, _old:Array<StdTypes.Int>, _new:Array<StdTypes.Int>, _n:StdTypes.Int):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _old = ([for (i in _old) i] : stdgo.Slice<stdgo.GoByte>);
         final _new = ([for (i in _new) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.replace(s, old, _new, n)) i];
+        return [for (i in stdgo._internal.bytes.Bytes.replace(_s, _old, _new, _n)) i];
     }
     /**
         ReplaceAll returns a copy of the slice s with all
@@ -721,29 +721,29 @@ class Bytes {
         and after each UTF-8 sequence, yielding up to k+1 replacements
         for a k-rune slice.
     **/
-    static public function replaceAll(s:Array<StdTypes.Int>, old:Array<StdTypes.Int>, _new:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final old = ([for (i in old) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function replaceAll(_s:Array<StdTypes.Int>, _old:Array<StdTypes.Int>, _new:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _old = ([for (i in _old) i] : stdgo.Slice<stdgo.GoByte>);
         final _new = ([for (i in _new) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.replaceAll(s, old, _new)) i];
+        return [for (i in stdgo._internal.bytes.Bytes.replaceAll(_s, _old, _new)) i];
     }
     /**
         EqualFold reports whether s and t, interpreted as UTF-8 strings,
         are equal under simple Unicode case-folding, which is a more general
         form of case-insensitivity.
     **/
-    static public function equalFold(s:Array<StdTypes.Int>, t:Array<StdTypes.Int>):Bool {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final t = ([for (i in t) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.equalFold(s, t);
+    static public function equalFold(_s:Array<StdTypes.Int>, _t:Array<StdTypes.Int>):Bool {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _t = ([for (i in _t) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.equalFold(_s, _t);
     }
     /**
         Index returns the index of the first instance of sep in s, or -1 if sep is not present in s.
     **/
-    static public function index(s:Array<StdTypes.Int>, sep:Array<StdTypes.Int>):StdTypes.Int {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.index(s, sep);
+    static public function index(_s:Array<StdTypes.Int>, _sep:Array<StdTypes.Int>):StdTypes.Int {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.index(_s, _sep);
     }
     /**
         Cut slices s around the first instance of sep,
@@ -753,11 +753,11 @@ class Bytes {
         
         Cut returns slices of the original slice s, not copies.
     **/
-    static public function cut(s:Array<StdTypes.Int>, sep:Array<StdTypes.Int>):stdgo.Tuple.Tuple3<Array<StdTypes.Int>, Array<StdTypes.Int>, Bool> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final sep = ([for (i in sep) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function cut(_s:Array<StdTypes.Int>, _sep:Array<StdTypes.Int>):stdgo.Tuple.Tuple3<Array<StdTypes.Int>, Array<StdTypes.Int>, Bool> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _sep = ([for (i in _sep) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bytes.Bytes.cut(s, sep);
+            final obj = stdgo._internal.bytes.Bytes.cut(_s, _sep);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i], _2 : obj._2 };
         };
     }
@@ -766,9 +766,9 @@ class Bytes {
         The result may have additional unused capacity.
         Clone(nil) returns nil.
     **/
-    static public function clone(b:Array<StdTypes.Int>):Array<StdTypes.Int> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.bytes.Bytes.clone(b)) i];
+    static public function clone(_b:Array<StdTypes.Int>):Array<StdTypes.Int> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.bytes.Bytes.clone(_b)) i];
     }
     /**
         CutPrefix returns s without the provided leading prefix byte slice
@@ -778,11 +778,11 @@ class Bytes {
         
         CutPrefix returns slices of the original slice s, not copies.
     **/
-    static public function cutPrefix(s:Array<StdTypes.Int>, prefix:Array<StdTypes.Int>):stdgo.Tuple<Array<StdTypes.Int>, Bool> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final prefix = ([for (i in prefix) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function cutPrefix(_s:Array<StdTypes.Int>, _prefix:Array<StdTypes.Int>):stdgo.Tuple<Array<StdTypes.Int>, Bool> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _prefix = ([for (i in _prefix) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bytes.Bytes.cutPrefix(s, prefix);
+            final obj = stdgo._internal.bytes.Bytes.cutPrefix(_s, _prefix);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -794,19 +794,19 @@ class Bytes {
         
         CutSuffix returns slices of the original slice s, not copies.
     **/
-    static public function cutSuffix(s:Array<StdTypes.Int>, suffix:Array<StdTypes.Int>):stdgo.Tuple<Array<StdTypes.Int>, Bool> {
-        final s = ([for (i in s) i] : stdgo.Slice<stdgo.GoByte>);
-        final suffix = ([for (i in suffix) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function cutSuffix(_s:Array<StdTypes.Int>, _suffix:Array<StdTypes.Int>):stdgo.Tuple<Array<StdTypes.Int>, Bool> {
+        final _s = ([for (i in _s) i] : stdgo.Slice<stdgo.GoByte>);
+        final _suffix = ([for (i in _suffix) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.bytes.Bytes.cutSuffix(s, suffix);
+            final obj = stdgo._internal.bytes.Bytes.cutSuffix(_s, _suffix);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
     /**
         NewReader returns a new Reader reading from b.
     **/
-    static public function newReader(b:Array<StdTypes.Int>):Reader {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.bytes.Bytes.newReader(b);
+    static public function newReader(_b:Array<StdTypes.Int>):Reader {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.bytes.Bytes.newReader(_b);
     }
 }

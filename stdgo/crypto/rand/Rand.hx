@@ -11,10 +11,10 @@ private function set_reader(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.I
     public function __copy__() return this.__copy__();
 }
 class T_reader_static_extension {
-    static public function read(r:T_reader, b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:T_reader, _b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.crypto.rand.Rand.T_reader_static_extension.read(r, b);
+            final obj = stdgo._internal.crypto.rand.Rand.T_reader_static_extension.read(_r, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -28,35 +28,35 @@ class Rand {
         Read is a helper function that calls Reader.Read using io.ReadFull.
         On return, n == len(b) if and only if err == nil.
     **/
-    static public function read(b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.crypto.rand.Rand.read(b);
+            final obj = stdgo._internal.crypto.rand.Rand.read(_b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function testRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.crypto.rand.Rand.testRead(t);
+    static public function testRead(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.crypto.rand.Rand.testRead(_t);
     }
-    static public function testReadEmpty(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.crypto.rand.Rand.testReadEmpty(t);
+    static public function testReadEmpty(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.crypto.rand.Rand.testReadEmpty(_t);
     }
     /**
         Prime returns a number of the given bit length that is prime with high probability.
         Prime will return error for any error returned by rand.Read or if bits < 2.
     **/
-    static public function prime(rand:stdgo._internal.io.Io.Reader, bits:StdTypes.Int):stdgo.Tuple<stdgo._internal.math.big.Big.Int_, stdgo.Error> {
+    static public function prime(_rand:stdgo._internal.io.Io.Reader, _bits:StdTypes.Int):stdgo.Tuple<stdgo._internal.math.big.Big.Int_, stdgo.Error> {
         return {
-            final obj = stdgo._internal.crypto.rand.Rand.prime(rand, bits);
+            final obj = stdgo._internal.crypto.rand.Rand.prime(_rand, _bits);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     /**
         Int returns a uniform random value in [0, max). It panics if max <= 0.
     **/
-    static public function int_(rand:stdgo._internal.io.Io.Reader, max:stdgo._internal.math.big.Big.Int_):stdgo.Tuple<stdgo._internal.math.big.Big.Int_, stdgo.Error> {
+    static public function int_(_rand:stdgo._internal.io.Io.Reader, _max:stdgo._internal.math.big.Big.Int_):stdgo.Tuple<stdgo._internal.math.big.Big.Int_, stdgo.Error> {
         return {
-            final obj = stdgo._internal.crypto.rand.Rand.int_(rand, max);
+            final obj = stdgo._internal.crypto.rand.Rand.int_(_rand, _max);
             { _0 : obj._0, _1 : obj._1 };
         };
     }

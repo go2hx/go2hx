@@ -146,43 +146,43 @@ private function set_baseError(v:(stdgo.GoString, stdgo.GoString, stdgo.GoInt) -
     public function __copy__() return this.__copy__();
 }
 class NumError_static_extension {
-    static public function unwrap(e:NumError):stdgo.Error {
-        return stdgo._internal.strconv.Strconv.NumError_static_extension.unwrap(e);
+    static public function unwrap(_e:NumError):stdgo.Error {
+        return stdgo._internal.strconv.Strconv.NumError_static_extension.unwrap(_e);
     }
-    static public function error(e:NumError):String {
-        return stdgo._internal.strconv.Strconv.NumError_static_extension.error(e);
+    static public function error(_e:NumError):String {
+        return stdgo._internal.strconv.Strconv.NumError_static_extension.error(_e);
     }
 }
 class T_decimal_static_extension {
-    static public function roundedInteger(a:T_decimal):haxe.UInt64 {
-        return stdgo._internal.strconv.Strconv.T_decimal_static_extension.roundedInteger(a);
+    static public function roundedInteger(_a:T_decimal):haxe.UInt64 {
+        return stdgo._internal.strconv.Strconv.T_decimal_static_extension.roundedInteger(_a);
     }
-    static public function roundUp(a:T_decimal, nd:StdTypes.Int):Void {
-        stdgo._internal.strconv.Strconv.T_decimal_static_extension.roundUp(a, nd);
+    static public function roundUp(_a:T_decimal, _nd:StdTypes.Int):Void {
+        stdgo._internal.strconv.Strconv.T_decimal_static_extension.roundUp(_a, _nd);
     }
-    static public function roundDown(a:T_decimal, nd:StdTypes.Int):Void {
-        stdgo._internal.strconv.Strconv.T_decimal_static_extension.roundDown(a, nd);
+    static public function roundDown(_a:T_decimal, _nd:StdTypes.Int):Void {
+        stdgo._internal.strconv.Strconv.T_decimal_static_extension.roundDown(_a, _nd);
     }
-    static public function round(a:T_decimal, nd:StdTypes.Int):Void {
-        stdgo._internal.strconv.Strconv.T_decimal_static_extension.round(a, nd);
+    static public function round(_a:T_decimal, _nd:StdTypes.Int):Void {
+        stdgo._internal.strconv.Strconv.T_decimal_static_extension.round(_a, _nd);
     }
-    static public function shift(a:T_decimal, k:StdTypes.Int):Void {
-        stdgo._internal.strconv.Strconv.T_decimal_static_extension.shift(a, k);
+    static public function shift(_a:T_decimal, _k:StdTypes.Int):Void {
+        stdgo._internal.strconv.Strconv.T_decimal_static_extension.shift(_a, _k);
     }
-    static public function assign(a:T_decimal, v:haxe.UInt64):Void {
-        stdgo._internal.strconv.Strconv.T_decimal_static_extension.assign(a, v);
+    static public function assign(_a:T_decimal, _v:haxe.UInt64):Void {
+        stdgo._internal.strconv.Strconv.T_decimal_static_extension.assign(_a, _v);
     }
-    static public function string(a:T_decimal):String {
-        return stdgo._internal.strconv.Strconv.T_decimal_static_extension.string(a);
+    static public function string(_a:T_decimal):String {
+        return stdgo._internal.strconv.Strconv.T_decimal_static_extension.string(_a);
     }
-    static public function _floatBits(d:T_decimal, flt:T_floatInfo):stdgo.Tuple<haxe.UInt64, Bool> {
+    static public function _floatBits(_d:T_decimal, _flt:T_floatInfo):stdgo.Tuple<haxe.UInt64, Bool> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.T_decimal_static_extension._floatBits(d, flt);
+            final obj = stdgo._internal.strconv.Strconv.T_decimal_static_extension._floatBits(_d, _flt);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _set(b:T_decimal, s:String):Bool {
-        return stdgo._internal.strconv.Strconv.T_decimal_static_extension._set(b, s);
+    static public function _set(_b:T_decimal, _s:String):Bool {
+        return stdgo._internal.strconv.Strconv.T_decimal_static_extension._set(_b, _s);
     }
 }
 /**
@@ -244,25 +244,25 @@ class Strconv {
         It accepts 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False.
         Any other value returns an error.
     **/
-    static public function parseBool(str:String):stdgo.Tuple<Bool, stdgo.Error> {
+    static public function parseBool(_str:String):stdgo.Tuple<Bool, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.parseBool(str);
+            final obj = stdgo._internal.strconv.Strconv.parseBool(_str);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     /**
         FormatBool returns "true" or "false" according to the value of b.
     **/
-    static public function formatBool(b:Bool):String {
-        return stdgo._internal.strconv.Strconv.formatBool(b);
+    static public function formatBool(_b:Bool):String {
+        return stdgo._internal.strconv.Strconv.formatBool(_b);
     }
     /**
         AppendBool appends "true" or "false", according to the value of b,
         to dst and returns the extended buffer.
     **/
-    static public function appendBool(dst:Array<StdTypes.Int>, b:Bool):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendBool(dst, b)) i];
+    static public function appendBool(_dst:Array<StdTypes.Int>, _b:Bool):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendBool(_dst, _b)) i];
     }
     /**
         ParseComplex converts the string s to a complex number
@@ -286,9 +286,9 @@ class Strconv {
         away from the largest floating point number of the given component's size,
         ParseComplex returns err.Err = ErrRange and c = ±Inf for the respective component.
     **/
-    static public function parseComplex(s:String, bitSize:StdTypes.Int):stdgo.Tuple<stdgo.GoComplex128, stdgo.Error> {
+    static public function parseComplex(_s:String, _bitSize:StdTypes.Int):stdgo.Tuple<stdgo.GoComplex128, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.parseComplex(s, bitSize);
+            final obj = stdgo._internal.strconv.Strconv.parseComplex(_s, _bitSize);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -321,9 +321,9 @@ class Strconv {
         
         [floating-point literals]: https://go.dev/ref/spec#Floating-point_literals
     **/
-    static public function parseFloat(s:String, bitSize:StdTypes.Int):stdgo.Tuple<StdTypes.Float, stdgo.Error> {
+    static public function parseFloat(_s:String, _bitSize:StdTypes.Int):stdgo.Tuple<StdTypes.Float, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.parseFloat(s, bitSize);
+            final obj = stdgo._internal.strconv.Strconv.parseFloat(_s, _bitSize);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -332,9 +332,9 @@ class Strconv {
         
         A sign prefix is not permitted.
     **/
-    static public function parseUint(s:String, base:StdTypes.Int, bitSize:StdTypes.Int):stdgo.Tuple<haxe.UInt64, stdgo.Error> {
+    static public function parseUint(_s:String, _base:StdTypes.Int, _bitSize:StdTypes.Int):stdgo.Tuple<haxe.UInt64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.parseUint(s, base, bitSize);
+            final obj = stdgo._internal.strconv.Strconv.parseUint(_s, _base, _bitSize);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -365,18 +365,18 @@ class Strconv {
         
         [integer literals]: https://go.dev/ref/spec#Integer_literals
     **/
-    static public function parseInt(s:String, base:StdTypes.Int, bitSize:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function parseInt(_s:String, _base:StdTypes.Int, _bitSize:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.parseInt(s, base, bitSize);
+            final obj = stdgo._internal.strconv.Strconv.parseInt(_s, _base, _bitSize);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     /**
         Atoi is equivalent to ParseInt(s, 10, 0), converted to type int.
     **/
-    static public function atoi(s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function atoi(_s:String):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.atoi(s);
+            final obj = stdgo._internal.strconv.Strconv.atoi(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -389,8 +389,8 @@ class Strconv {
         It rounds the result assuming that the original was obtained from a complex
         value of bitSize bits, which must be 64 for complex64 and 128 for complex128.
     **/
-    static public function formatComplex(c:stdgo.GoComplex128, fmt:StdTypes.Int, prec:StdTypes.Int, bitSize:StdTypes.Int):String {
-        return stdgo._internal.strconv.Strconv.formatComplex(c, fmt, prec, bitSize);
+    static public function formatComplex(_c:stdgo.GoComplex128, _fmt:StdTypes.Int, _prec:StdTypes.Int, _bitSize:StdTypes.Int):String {
+        return stdgo._internal.strconv.Strconv.formatComplex(_c, _fmt, _prec, _bitSize);
     }
     /**
         FormatFloat converts the floating-point number f to a string,
@@ -416,72 +416,72 @@ class Strconv {
         The special precision -1 uses the smallest number of digits
         necessary such that ParseFloat will return f exactly.
     **/
-    static public function formatFloat(f:StdTypes.Float, fmt:StdTypes.Int, prec:StdTypes.Int, bitSize:StdTypes.Int):String {
-        return stdgo._internal.strconv.Strconv.formatFloat(f, fmt, prec, bitSize);
+    static public function formatFloat(_f:StdTypes.Float, _fmt:StdTypes.Int, _prec:StdTypes.Int, _bitSize:StdTypes.Int):String {
+        return stdgo._internal.strconv.Strconv.formatFloat(_f, _fmt, _prec, _bitSize);
     }
     /**
         AppendFloat appends the string form of the floating-point number f,
         as generated by FormatFloat, to dst and returns the extended buffer.
     **/
-    static public function appendFloat(dst:Array<StdTypes.Int>, f:StdTypes.Float, fmt:StdTypes.Int, prec:StdTypes.Int, bitSize:StdTypes.Int):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendFloat(dst, f, fmt, prec, bitSize)) i];
+    static public function appendFloat(_dst:Array<StdTypes.Int>, _f:StdTypes.Float, _fmt:StdTypes.Int, _prec:StdTypes.Int, _bitSize:StdTypes.Int):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendFloat(_dst, _f, _fmt, _prec, _bitSize)) i];
     }
-    static public function newDecimal(i:haxe.UInt64):T_decimal {
-        return stdgo._internal.strconv.Strconv.newDecimal(i);
+    static public function newDecimal(_i:haxe.UInt64):T_decimal {
+        return stdgo._internal.strconv.Strconv.newDecimal(_i);
     }
-    static public function setOptimize(b:Bool):Bool {
-        return stdgo._internal.strconv.Strconv.setOptimize(b);
+    static public function setOptimize(_b:Bool):Bool {
+        return stdgo._internal.strconv.Strconv.setOptimize(_b);
     }
-    static public function parseFloatPrefix(s:String, bitSize:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Float, StdTypes.Int, stdgo.Error> {
+    static public function parseFloatPrefix(_s:String, _bitSize:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Float, StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.parseFloatPrefix(s, bitSize);
+            final obj = stdgo._internal.strconv.Strconv.parseFloatPrefix(_s, _bitSize);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function mulByLog2Log10(x:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.strconv.Strconv.mulByLog2Log10(x);
+    static public function mulByLog2Log10(_x:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.strconv.Strconv.mulByLog2Log10(_x);
     }
-    static public function mulByLog10Log2(x:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.strconv.Strconv.mulByLog10Log2(x);
+    static public function mulByLog10Log2(_x:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.strconv.Strconv.mulByLog10Log2(_x);
     }
     /**
         FormatUint returns the string representation of i in the given base,
         for 2 <= base <= 36. The result uses the lower-case letters 'a' to 'z'
         for digit values >= 10.
     **/
-    static public function formatUint(i:haxe.UInt64, base:StdTypes.Int):String {
-        return stdgo._internal.strconv.Strconv.formatUint(i, base);
+    static public function formatUint(_i:haxe.UInt64, _base:StdTypes.Int):String {
+        return stdgo._internal.strconv.Strconv.formatUint(_i, _base);
     }
     /**
         FormatInt returns the string representation of i in the given base,
         for 2 <= base <= 36. The result uses the lower-case letters 'a' to 'z'
         for digit values >= 10.
     **/
-    static public function formatInt(i:haxe.Int64, base:StdTypes.Int):String {
-        return stdgo._internal.strconv.Strconv.formatInt(i, base);
+    static public function formatInt(_i:haxe.Int64, _base:StdTypes.Int):String {
+        return stdgo._internal.strconv.Strconv.formatInt(_i, _base);
     }
     /**
         Itoa is equivalent to FormatInt(int64(i), 10).
     **/
-    static public function itoa(i:StdTypes.Int):String {
-        return stdgo._internal.strconv.Strconv.itoa(i);
+    static public function itoa(_i:StdTypes.Int):String {
+        return stdgo._internal.strconv.Strconv.itoa(_i);
     }
     /**
         AppendInt appends the string form of the integer i,
         as generated by FormatInt, to dst and returns the extended buffer.
     **/
-    static public function appendInt(dst:Array<StdTypes.Int>, i:haxe.Int64, base:StdTypes.Int):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendInt(dst, i, base)) i];
+    static public function appendInt(_dst:Array<StdTypes.Int>, _i:haxe.Int64, _base:StdTypes.Int):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendInt(_dst, _i, _base)) i];
     }
     /**
         AppendUint appends the string form of the unsigned integer i,
         as generated by FormatUint, to dst and returns the extended buffer.
     **/
-    static public function appendUint(dst:Array<StdTypes.Int>, i:haxe.UInt64, base:StdTypes.Int):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendUint(dst, i, base)) i];
+    static public function appendUint(_dst:Array<StdTypes.Int>, _i:haxe.UInt64, _base:StdTypes.Int):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendUint(_dst, _i, _base)) i];
     }
     /**
         Quote returns a double-quoted Go string literal representing s. The
@@ -489,32 +489,32 @@ class Strconv {
         control characters and non-printable characters as defined by
         IsPrint.
     **/
-    static public function quote(s:String):String {
-        return stdgo._internal.strconv.Strconv.quote(s);
+    static public function quote(_s:String):String {
+        return stdgo._internal.strconv.Strconv.quote(_s);
     }
     /**
         AppendQuote appends a double-quoted Go string literal representing s,
         as generated by Quote, to dst and returns the extended buffer.
     **/
-    static public function appendQuote(dst:Array<StdTypes.Int>, s:String):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendQuote(dst, s)) i];
+    static public function appendQuote(_dst:Array<StdTypes.Int>, _s:String):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendQuote(_dst, _s)) i];
     }
     /**
         QuoteToASCII returns a double-quoted Go string literal representing s.
         The returned string uses Go escape sequences (\t, \n, \xFF, \u0100) for
         non-ASCII characters and non-printable characters as defined by IsPrint.
     **/
-    static public function quoteToASCII(s:String):String {
-        return stdgo._internal.strconv.Strconv.quoteToASCII(s);
+    static public function quoteToASCII(_s:String):String {
+        return stdgo._internal.strconv.Strconv.quoteToASCII(_s);
     }
     /**
         AppendQuoteToASCII appends a double-quoted Go string literal representing s,
         as generated by QuoteToASCII, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteToASCII(dst:Array<StdTypes.Int>, s:String):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteToASCII(dst, s)) i];
+    static public function appendQuoteToASCII(_dst:Array<StdTypes.Int>, _s:String):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteToASCII(_dst, _s)) i];
     }
     /**
         QuoteToGraphic returns a double-quoted Go string literal representing s.
@@ -522,16 +522,16 @@ class Strconv {
         IsGraphic, unchanged and uses Go escape sequences (\t, \n, \xFF, \u0100)
         for non-graphic characters.
     **/
-    static public function quoteToGraphic(s:String):String {
-        return stdgo._internal.strconv.Strconv.quoteToGraphic(s);
+    static public function quoteToGraphic(_s:String):String {
+        return stdgo._internal.strconv.Strconv.quoteToGraphic(_s);
     }
     /**
         AppendQuoteToGraphic appends a double-quoted Go string literal representing s,
         as generated by QuoteToGraphic, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteToGraphic(dst:Array<StdTypes.Int>, s:String):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteToGraphic(dst, s)) i];
+    static public function appendQuoteToGraphic(_dst:Array<StdTypes.Int>, _s:String):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteToGraphic(_dst, _s)) i];
     }
     /**
         QuoteRune returns a single-quoted Go character literal representing the
@@ -540,16 +540,16 @@ class Strconv {
         If r is not a valid Unicode code point, it is interpreted as the Unicode
         replacement character U+FFFD.
     **/
-    static public function quoteRune(r:StdTypes.Int):String {
-        return stdgo._internal.strconv.Strconv.quoteRune(r);
+    static public function quoteRune(_r:StdTypes.Int):String {
+        return stdgo._internal.strconv.Strconv.quoteRune(_r);
     }
     /**
         AppendQuoteRune appends a single-quoted Go character literal representing the rune,
         as generated by QuoteRune, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteRune(dst:Array<StdTypes.Int>, r:StdTypes.Int):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteRune(dst, r)) i];
+    static public function appendQuoteRune(_dst:Array<StdTypes.Int>, _r:StdTypes.Int):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteRune(_dst, _r)) i];
     }
     /**
         QuoteRuneToASCII returns a single-quoted Go character literal representing
@@ -559,16 +559,16 @@ class Strconv {
         If r is not a valid Unicode code point, it is interpreted as the Unicode
         replacement character U+FFFD.
     **/
-    static public function quoteRuneToASCII(r:StdTypes.Int):String {
-        return stdgo._internal.strconv.Strconv.quoteRuneToASCII(r);
+    static public function quoteRuneToASCII(_r:StdTypes.Int):String {
+        return stdgo._internal.strconv.Strconv.quoteRuneToASCII(_r);
     }
     /**
         AppendQuoteRuneToASCII appends a single-quoted Go character literal representing the rune,
         as generated by QuoteRuneToASCII, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteRuneToASCII(dst:Array<StdTypes.Int>, r:StdTypes.Int):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteRuneToASCII(dst, r)) i];
+    static public function appendQuoteRuneToASCII(_dst:Array<StdTypes.Int>, _r:StdTypes.Int):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteRuneToASCII(_dst, _r)) i];
     }
     /**
         QuoteRuneToGraphic returns a single-quoted Go character literal representing
@@ -578,24 +578,24 @@ class Strconv {
         If r is not a valid Unicode code point, it is interpreted as the Unicode
         replacement character U+FFFD.
     **/
-    static public function quoteRuneToGraphic(r:StdTypes.Int):String {
-        return stdgo._internal.strconv.Strconv.quoteRuneToGraphic(r);
+    static public function quoteRuneToGraphic(_r:StdTypes.Int):String {
+        return stdgo._internal.strconv.Strconv.quoteRuneToGraphic(_r);
     }
     /**
         AppendQuoteRuneToGraphic appends a single-quoted Go character literal representing the rune,
         as generated by QuoteRuneToGraphic, to dst and returns the extended buffer.
     **/
-    static public function appendQuoteRuneToGraphic(dst:Array<StdTypes.Int>, r:StdTypes.Int):Array<StdTypes.Int> {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteRuneToGraphic(dst, r)) i];
+    static public function appendQuoteRuneToGraphic(_dst:Array<StdTypes.Int>, _r:StdTypes.Int):Array<StdTypes.Int> {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return [for (i in stdgo._internal.strconv.Strconv.appendQuoteRuneToGraphic(_dst, _r)) i];
     }
     /**
         CanBackquote reports whether the string s can be represented
         unchanged as a single-line backquoted string without control
         characters other than tab.
     **/
-    static public function canBackquote(s:String):Bool {
-        return stdgo._internal.strconv.Strconv.canBackquote(s);
+    static public function canBackquote(_s:String):Bool {
+        return stdgo._internal.strconv.Strconv.canBackquote(_s);
     }
     /**
         UnquoteChar decodes the first character or byte in the escaped string
@@ -613,9 +613,9 @@ class Strconv {
         If set to a double quote, it permits \" and disallows unescaped ".
         If set to zero, it does not permit either escape and allows both quote characters to appear unescaped.
     **/
-    static public function unquoteChar(s:String, quote:StdTypes.Int):stdgo.Tuple.Tuple4<StdTypes.Int, Bool, String, stdgo.Error> {
+    static public function unquoteChar(_s:String, _quote:StdTypes.Int):stdgo.Tuple.Tuple4<StdTypes.Int, Bool, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.unquoteChar(s, quote);
+            final obj = stdgo._internal.strconv.Strconv.unquoteChar(_s, _quote);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
@@ -623,9 +623,9 @@ class Strconv {
         QuotedPrefix returns the quoted string (as understood by Unquote) at the prefix of s.
         If s does not start with a valid quoted string, QuotedPrefix returns an error.
     **/
-    static public function quotedPrefix(s:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function quotedPrefix(_s:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.quotedPrefix(s);
+            final obj = stdgo._internal.strconv.Strconv.quotedPrefix(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -636,9 +636,9 @@ class Strconv {
         character literal; Unquote returns the corresponding
         one-character string.)
     **/
-    static public function unquote(s:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function unquote(_s:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.strconv.Strconv.unquote(s);
+            final obj = stdgo._internal.strconv.Strconv.unquote(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -647,15 +647,15 @@ class Strconv {
         the same definition as unicode.IsPrint: letters, numbers, punctuation,
         symbols and ASCII space.
     **/
-    static public function isPrint(r:StdTypes.Int):Bool {
-        return stdgo._internal.strconv.Strconv.isPrint(r);
+    static public function isPrint(_r:StdTypes.Int):Bool {
+        return stdgo._internal.strconv.Strconv.isPrint(_r);
     }
     /**
         IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such
         characters include letters, marks, numbers, punctuation, symbols, and
         spaces, from categories L, M, N, P, S, and Zs.
     **/
-    static public function isGraphic(r:StdTypes.Int):Bool {
-        return stdgo._internal.strconv.Strconv.isGraphic(r);
+    static public function isGraphic(_r:StdTypes.Int):Bool {
+        return stdgo._internal.strconv.Strconv.isGraphic(_r);
     }
 }

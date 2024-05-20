@@ -168,91 +168,91 @@ class T__struct_0_static_extension {
 }
 typedef T__struct_0 = stdgo._internal.testing.iotest.Iotest.T__struct_0;
 class T_writeLogger_static_extension {
-    static public function write(l:T_writeLogger, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_l:T_writeLogger, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_writeLogger_static_extension.write(l, p);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_writeLogger_static_extension.write(_l, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_readLogger_static_extension {
-    static public function read(l:T_readLogger, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_l:T_readLogger, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_readLogger_static_extension.read(l, p);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_readLogger_static_extension.read(_l, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_errWriter_static_extension {
-    static public function write(w:T_errWriter, 0:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final 0 = ([for (i in 0) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_w:T_errWriter, _0:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _0 = ([for (i in _0) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_errWriter_static_extension.write(w, 0);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_errWriter_static_extension.write(_w, _0);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_oneByteReader_static_extension {
-    static public function read(r:T_oneByteReader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:T_oneByteReader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_oneByteReader_static_extension.read(r, p);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_oneByteReader_static_extension.read(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_halfReader_static_extension {
-    static public function read(r:T_halfReader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:T_halfReader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_halfReader_static_extension.read(r, p);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_halfReader_static_extension.read(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_dataErrReader_static_extension {
-    static public function read(r:T_dataErrReader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:T_dataErrReader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_dataErrReader_static_extension.read(r, p);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_dataErrReader_static_extension.read(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_timeoutReader_static_extension {
-    static public function read(r:T_timeoutReader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:T_timeoutReader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_timeoutReader_static_extension.read(r, p);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_timeoutReader_static_extension.read(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_errReader_static_extension {
-    static public function read(r:T_errReader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:T_errReader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_errReader_static_extension.read(r, p);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_errReader_static_extension.read(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_smallByteReader_static_extension {
-    static public function read(r:T_smallByteReader, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_r:T_smallByteReader, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_smallByteReader_static_extension.read(r, p);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_smallByteReader_static_extension.read(_r, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class T_truncateWriter_static_extension {
-    static public function write(t:T_truncateWriter, p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_t:T_truncateWriter, _p:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.testing.iotest.Iotest.T_truncateWriter_static_extension.write(t, p);
+            final obj = stdgo._internal.testing.iotest.Iotest.T_truncateWriter_static_extension.write(_t, _p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -266,42 +266,42 @@ class Iotest {
         that it logs (using log.Printf) each write to standard error,
         printing the prefix and the hexadecimal data written.
     **/
-    static public function newWriteLogger(prefix:String, w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
-        return stdgo._internal.testing.iotest.Iotest.newWriteLogger(prefix, w);
+    static public function newWriteLogger(_prefix:String, _w:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+        return stdgo._internal.testing.iotest.Iotest.newWriteLogger(_prefix, _w);
     }
     /**
         NewReadLogger returns a reader that behaves like r except
         that it logs (using log.Printf) each read to standard error,
         printing the prefix and the hexadecimal data read.
     **/
-    static public function newReadLogger(prefix:String, r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.testing.iotest.Iotest.newReadLogger(prefix, r);
+    static public function newReadLogger(_prefix:String, _r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.testing.iotest.Iotest.newReadLogger(_prefix, _r);
     }
-    static public function testWriteLogger(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testWriteLogger(t);
+    static public function testWriteLogger(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testWriteLogger(_t);
     }
-    static public function testWriteLogger_errorOnWrite(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testWriteLogger_errorOnWrite(t);
+    static public function testWriteLogger_errorOnWrite(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testWriteLogger_errorOnWrite(_t);
     }
-    static public function testReadLogger(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testReadLogger(t);
+    static public function testReadLogger(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testReadLogger(_t);
     }
-    static public function testReadLogger_errorOnRead(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testReadLogger_errorOnRead(t);
+    static public function testReadLogger_errorOnRead(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testReadLogger_errorOnRead(_t);
     }
     /**
         OneByteReader returns a Reader that implements
         each non-empty Read by reading one byte from r.
     **/
-    static public function oneByteReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.testing.iotest.Iotest.oneByteReader(r);
+    static public function oneByteReader(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.testing.iotest.Iotest.oneByteReader(_r);
     }
     /**
         HalfReader returns a Reader that implements Read
         by reading half as many requested bytes from r.
     **/
-    static public function halfReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.testing.iotest.Iotest.halfReader(r);
+    static public function halfReader(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.testing.iotest.Iotest.halfReader(_r);
     }
     /**
         DataErrReader changes the way errors are handled by a Reader. Normally, a
@@ -310,21 +310,21 @@ class Iotest {
         behavior so the final error is returned along with the final data, instead
         of in the first call after the final data.
     **/
-    static public function dataErrReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.testing.iotest.Iotest.dataErrReader(r);
+    static public function dataErrReader(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.testing.iotest.Iotest.dataErrReader(_r);
     }
     /**
         TimeoutReader returns ErrTimeout on the second read
         with no data. Subsequent calls to read succeed.
     **/
-    static public function timeoutReader(r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.testing.iotest.Iotest.timeoutReader(r);
+    static public function timeoutReader(_r:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.testing.iotest.Iotest.timeoutReader(_r);
     }
     /**
         ErrReader returns an io.Reader that returns 0, err from all Read calls.
     **/
-    static public function errReader(err:stdgo.Error):stdgo._internal.io.Io.Reader {
-        return stdgo._internal.testing.iotest.Iotest.errReader(err);
+    static public function errReader(_err:stdgo.Error):stdgo._internal.io.Io.Reader {
+        return stdgo._internal.testing.iotest.Iotest.errReader(_err);
     }
     /**
         TestReader tests that reading from r returns the expected file content.
@@ -335,48 +335,48 @@ class Iotest {
         If TestReader finds any misbehaviors, it returns an error reporting them.
         The error text may span multiple lines.
     **/
-    static public function testReader(r:stdgo._internal.io.Io.Reader, content:Array<StdTypes.Int>):stdgo.Error {
-        final content = ([for (i in content) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.testing.iotest.Iotest.testReader(r, content);
+    static public function testReader(_r:stdgo._internal.io.Io.Reader, _content:Array<StdTypes.Int>):stdgo.Error {
+        final _content = ([for (i in _content) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.testing.iotest.Iotest.testReader(_r, _content);
     }
-    static public function testOneByteReader_nonEmptyReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testOneByteReader_nonEmptyReader(t);
+    static public function testOneByteReader_nonEmptyReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testOneByteReader_nonEmptyReader(_t);
     }
-    static public function testOneByteReader_emptyReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testOneByteReader_emptyReader(t);
+    static public function testOneByteReader_emptyReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testOneByteReader_emptyReader(_t);
     }
-    static public function testHalfReader_nonEmptyReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testHalfReader_nonEmptyReader(t);
+    static public function testHalfReader_nonEmptyReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testHalfReader_nonEmptyReader(_t);
     }
-    static public function testHalfReader_emptyReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testHalfReader_emptyReader(t);
+    static public function testHalfReader_emptyReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testHalfReader_emptyReader(_t);
     }
-    static public function testTimeOutReader_nonEmptyReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testTimeOutReader_nonEmptyReader(t);
+    static public function testTimeOutReader_nonEmptyReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testTimeOutReader_nonEmptyReader(_t);
     }
-    static public function testTimeOutReader_emptyReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testTimeOutReader_emptyReader(t);
+    static public function testTimeOutReader_emptyReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testTimeOutReader_emptyReader(_t);
     }
-    static public function testDataErrReader_nonEmptyReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testDataErrReader_nonEmptyReader(t);
+    static public function testDataErrReader_nonEmptyReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testDataErrReader_nonEmptyReader(_t);
     }
-    static public function testDataErrReader_emptyReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testDataErrReader_emptyReader(t);
+    static public function testDataErrReader_emptyReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testDataErrReader_emptyReader(_t);
     }
-    static public function testErrReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testErrReader(t);
+    static public function testErrReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testErrReader(_t);
     }
-    static public function testStringsReader(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testStringsReader(t);
+    static public function testStringsReader(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testStringsReader(_t);
     }
     /**
         TruncateWriter returns a Writer that writes to w
         but stops silently after n bytes.
     **/
-    static public function truncateWriter(w:stdgo._internal.io.Io.Writer, n:haxe.Int64):stdgo._internal.io.Io.Writer {
-        return stdgo._internal.testing.iotest.Iotest.truncateWriter(w, n);
+    static public function truncateWriter(_w:stdgo._internal.io.Io.Writer, _n:haxe.Int64):stdgo._internal.io.Io.Writer {
+        return stdgo._internal.testing.iotest.Iotest.truncateWriter(_w, _n);
     }
-    static public function testTruncateWriter(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.testing.iotest.Iotest.testTruncateWriter(t);
+    static public function testTruncateWriter(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.testing.iotest.Iotest.testTruncateWriter(_t);
     }
 }

@@ -394,282 +394,282 @@ typedef InstOp = stdgo._internal.regexp.syntax.Syntax.InstOp;
 typedef EmptyOp = stdgo._internal.regexp.syntax.Syntax.EmptyOp;
 typedef Op = stdgo._internal.regexp.syntax.Syntax.Op;
 class T_patchList_static_extension {
-    static public function _append(l1:T_patchList, p:Prog, l2:T_patchList):T_patchList {
-        return stdgo._internal.regexp.syntax.Syntax.T_patchList_static_extension._append(l1, p, l2);
+    static public function _append(_l1:T_patchList, _p:Prog, _l2:T_patchList):T_patchList {
+        return stdgo._internal.regexp.syntax.Syntax.T_patchList_static_extension._append(_l1, _p, _l2);
     }
-    static public function _patch(l:T_patchList, p:Prog, val:std.UInt):Void {
-        stdgo._internal.regexp.syntax.Syntax.T_patchList_static_extension._patch(l, p, val);
+    static public function _patch(_l:T_patchList, _p:Prog, _val:std.UInt):Void {
+        stdgo._internal.regexp.syntax.Syntax.T_patchList_static_extension._patch(_l, _p, _val);
     }
 }
 class T_compiler_static_extension {
-    static public function _rune(c:T_compiler, r:Array<StdTypes.Int>, flags:Flags):T_frag {
-        final r = ([for (i in r) i] : stdgo.Slice<stdgo.GoRune>);
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._rune(c, r, flags);
+    static public function _rune(_c:T_compiler, _r:Array<StdTypes.Int>, _flags:Flags):T_frag {
+        final _r = ([for (i in _r) i] : stdgo.Slice<stdgo.GoRune>);
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._rune(_c, _r, _flags);
     }
-    static public function _empty(c:T_compiler, op:EmptyOp):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._empty(c, op);
+    static public function _empty(_c:T_compiler, _op:EmptyOp):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._empty(_c, _op);
     }
-    static public function _plus(c:T_compiler, f1:T_frag, nongreedy:Bool):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._plus(c, f1, nongreedy);
+    static public function _plus(_c:T_compiler, _f1:T_frag, _nongreedy:Bool):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._plus(_c, _f1, _nongreedy);
     }
-    static public function _star(c:T_compiler, f1:T_frag, nongreedy:Bool):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._star(c, f1, nongreedy);
+    static public function _star(_c:T_compiler, _f1:T_frag, _nongreedy:Bool):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._star(_c, _f1, _nongreedy);
     }
-    static public function _loop(c:T_compiler, f1:T_frag, nongreedy:Bool):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._loop(c, f1, nongreedy);
+    static public function _loop(_c:T_compiler, _f1:T_frag, _nongreedy:Bool):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._loop(_c, _f1, _nongreedy);
     }
-    static public function _quest(c:T_compiler, f1:T_frag, nongreedy:Bool):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._quest(c, f1, nongreedy);
+    static public function _quest(_c:T_compiler, _f1:T_frag, _nongreedy:Bool):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._quest(_c, _f1, _nongreedy);
     }
-    static public function _alt(c:T_compiler, f1:T_frag, f2:T_frag):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._alt(c, f1, f2);
+    static public function _alt(_c:T_compiler, _f1:T_frag, _f2:T_frag):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._alt(_c, _f1, _f2);
     }
-    static public function _cat(c:T_compiler, f1:T_frag, f2:T_frag):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._cat(c, f1, f2);
+    static public function _cat(_c:T_compiler, _f1:T_frag, _f2:T_frag):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._cat(_c, _f1, _f2);
     }
-    static public function _cap(c:T_compiler, arg:std.UInt):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._cap(c, arg);
+    static public function _cap(_c:T_compiler, _arg:std.UInt):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._cap(_c, _arg);
     }
-    static public function _fail(c:T_compiler):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._fail(c);
+    static public function _fail(_c:T_compiler):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._fail(_c);
     }
-    static public function _nop(c:T_compiler):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._nop(c);
+    static public function _nop(_c:T_compiler):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._nop(_c);
     }
-    static public function _inst(c:T_compiler, op:InstOp):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._inst(c, op);
+    static public function _inst(_c:T_compiler, _op:InstOp):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._inst(_c, _op);
     }
-    static public function _compile(c:T_compiler, re:Regexp):T_frag {
-        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._compile(c, re);
+    static public function _compile(_c:T_compiler, _re:Regexp):T_frag {
+        return stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._compile(_c, _re);
     }
-    static public function _init(c:T_compiler):Void {
-        stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._init(c);
+    static public function _init(_c:T_compiler):Void {
+        stdgo._internal.regexp.syntax.Syntax.T_compiler_static_extension._init(_c);
     }
 }
 class Error_static_extension {
-    static public function error(e:Error):String {
-        return stdgo._internal.regexp.syntax.Syntax.Error_static_extension.error(e);
+    static public function error(_e:Error):String {
+        return stdgo._internal.regexp.syntax.Syntax.Error_static_extension.error(_e);
     }
 }
 class T_parser_static_extension {
-    static public function _parseClass(p:T_parser, s:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function _parseClass(_p:T_parser, _s:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseClass(p, s);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseClass(_p, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _parseUnicodeClass(p:T_parser, s:String, r:Array<StdTypes.Int>):stdgo.Tuple.Tuple3<Array<StdTypes.Int>, String, stdgo.Error> {
-        final r = ([for (i in r) i] : stdgo.Slice<stdgo.GoRune>);
+    static public function _parseUnicodeClass(_p:T_parser, _s:String, _r:Array<StdTypes.Int>):stdgo.Tuple.Tuple3<Array<StdTypes.Int>, String, stdgo.Error> {
+        final _r = ([for (i in _r) i] : stdgo.Slice<stdgo.GoRune>);
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseUnicodeClass(p, s, r);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseUnicodeClass(_p, _s, _r);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function _appendGroup(p:T_parser, r:Array<StdTypes.Int>, g:T_charGroup):Array<StdTypes.Int> {
-        final r = ([for (i in r) i] : stdgo.Slice<stdgo.GoRune>);
-        return [for (i in stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._appendGroup(p, r, g)) i];
+    static public function _appendGroup(_p:T_parser, _r:Array<StdTypes.Int>, _g:T_charGroup):Array<StdTypes.Int> {
+        final _r = ([for (i in _r) i] : stdgo.Slice<stdgo.GoRune>);
+        return [for (i in stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._appendGroup(_p, _r, _g)) i];
     }
-    static public function _parseNamedClass(p:T_parser, s:String, r:Array<StdTypes.Int>):stdgo.Tuple.Tuple3<Array<StdTypes.Int>, String, stdgo.Error> {
-        final r = ([for (i in r) i] : stdgo.Slice<stdgo.GoRune>);
+    static public function _parseNamedClass(_p:T_parser, _s:String, _r:Array<StdTypes.Int>):stdgo.Tuple.Tuple3<Array<StdTypes.Int>, String, stdgo.Error> {
+        final _r = ([for (i in _r) i] : stdgo.Slice<stdgo.GoRune>);
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseNamedClass(p, s, r);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseNamedClass(_p, _s, _r);
             { _0 : [for (i in obj._0) i], _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function _parsePerlClassEscape(p:T_parser, s:String, r:Array<StdTypes.Int>):stdgo.Tuple<Array<StdTypes.Int>, String> {
-        final r = ([for (i in r) i] : stdgo.Slice<stdgo.GoRune>);
+    static public function _parsePerlClassEscape(_p:T_parser, _s:String, _r:Array<StdTypes.Int>):stdgo.Tuple<Array<StdTypes.Int>, String> {
+        final _r = ([for (i in _r) i] : stdgo.Slice<stdgo.GoRune>);
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parsePerlClassEscape(p, s, r);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parsePerlClassEscape(_p, _s, _r);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function _parseClassChar(p:T_parser, s:String, wholeClass:String):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
+    static public function _parseClassChar(_p:T_parser, _s:String, _wholeClass:String):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseClassChar(p, s, wholeClass);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseClassChar(_p, _s, _wholeClass);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function _parseEscape(p:T_parser, s:String):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
+    static public function _parseEscape(_p:T_parser, _s:String):stdgo.Tuple.Tuple3<StdTypes.Int, String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseEscape(p, s);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseEscape(_p, _s);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function _parseRightParen(p:T_parser):stdgo.Error {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseRightParen(p);
+    static public function _parseRightParen(_p:T_parser):stdgo.Error {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseRightParen(_p);
     }
-    static public function _swapVerticalBar(p:T_parser):Bool {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._swapVerticalBar(p);
+    static public function _swapVerticalBar(_p:T_parser):Bool {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._swapVerticalBar(_p);
     }
-    static public function _parseVerticalBar(p:T_parser):stdgo.Error {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseVerticalBar(p);
+    static public function _parseVerticalBar(_p:T_parser):stdgo.Error {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseVerticalBar(_p);
     }
-    static public function _parseInt(p:T_parser, s:String):stdgo.Tuple.Tuple3<StdTypes.Int, String, Bool> {
+    static public function _parseInt(_p:T_parser, _s:String):stdgo.Tuple.Tuple3<StdTypes.Int, String, Bool> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseInt(p, s);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseInt(_p, _s);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function _parsePerlFlags(p:T_parser, s:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function _parsePerlFlags(_p:T_parser, _s:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parsePerlFlags(p, s);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parsePerlFlags(_p, _s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _parseRepeat(p:T_parser, s:String):stdgo.Tuple.Tuple4<StdTypes.Int, StdTypes.Int, String, Bool> {
+    static public function _parseRepeat(_p:T_parser, _s:String):stdgo.Tuple.Tuple4<StdTypes.Int, StdTypes.Int, String, Bool> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseRepeat(p, s);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._parseRepeat(_p, _s);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3 };
         };
     }
-    static public function _removeLeadingRegexp(p:T_parser, re:Regexp, reuse:Bool):Regexp {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._removeLeadingRegexp(p, re, reuse);
+    static public function _removeLeadingRegexp(_p:T_parser, _re:Regexp, _reuse:Bool):Regexp {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._removeLeadingRegexp(_p, _re, _reuse);
     }
-    static public function _leadingRegexp(p:T_parser, re:Regexp):Regexp {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._leadingRegexp(p, re);
+    static public function _leadingRegexp(_p:T_parser, _re:Regexp):Regexp {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._leadingRegexp(_p, _re);
     }
-    static public function _removeLeadingString(p:T_parser, re:Regexp, n:StdTypes.Int):Regexp {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._removeLeadingString(p, re, n);
+    static public function _removeLeadingString(_p:T_parser, _re:Regexp, _n:StdTypes.Int):Regexp {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._removeLeadingString(_p, _re, _n);
     }
-    static public function _leadingString(p:T_parser, re:Regexp):stdgo.Tuple<Array<StdTypes.Int>, Flags> {
+    static public function _leadingString(_p:T_parser, _re:Regexp):stdgo.Tuple<Array<StdTypes.Int>, Flags> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._leadingString(p, re);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._leadingString(_p, _re);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
-    static public function _factor(p:T_parser, sub:Array<Regexp>):Array<Regexp> {
-        final sub = ([for (i in sub) i] : stdgo.Slice<stdgo.Ref<Regexp>>);
-        return [for (i in stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._factor(p, sub)) i];
+    static public function _factor(_p:T_parser, _sub:Array<Regexp>):Array<Regexp> {
+        final _sub = ([for (i in _sub) i] : stdgo.Slice<stdgo.Ref<Regexp>>);
+        return [for (i in stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._factor(_p, _sub)) i];
     }
-    static public function _collapse(p:T_parser, subs:Array<Regexp>, op:Op):Regexp {
-        final subs = ([for (i in subs) i] : stdgo.Slice<stdgo.Ref<Regexp>>);
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._collapse(p, subs, op);
+    static public function _collapse(_p:T_parser, _subs:Array<Regexp>, _op:Op):Regexp {
+        final _subs = ([for (i in _subs) i] : stdgo.Slice<stdgo.Ref<Regexp>>);
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._collapse(_p, _subs, _op);
     }
-    static public function _alternate(p:T_parser):Regexp {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._alternate(p);
+    static public function _alternate(_p:T_parser):Regexp {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._alternate(_p);
     }
-    static public function _concat(p:T_parser):Regexp {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._concat(p);
+    static public function _concat(_p:T_parser):Regexp {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._concat(_p);
     }
-    static public function _repeat(p:T_parser, op:Op, min:StdTypes.Int, max:StdTypes.Int, before:String, after:String, lastRepeat:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function _repeat(_p:T_parser, _op:Op, _min:StdTypes.Int, _max:StdTypes.Int, _before:String, _after:String, _lastRepeat:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._repeat(p, op, min, max, before, after, lastRepeat);
+            final obj = stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._repeat(_p, _op, _min, _max, _before, _after, _lastRepeat);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _op(p:T_parser, op:Op):Regexp {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._op(p, op);
+    static public function _op(_p:T_parser, _op:Op):Regexp {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._op(_p, _op);
     }
-    static public function _literal(p:T_parser, r:StdTypes.Int):Void {
-        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._literal(p, r);
+    static public function _literal(_p:T_parser, _r:StdTypes.Int):Void {
+        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._literal(_p, _r);
     }
-    static public function _maybeConcat(p:T_parser, r:StdTypes.Int, flags:Flags):Bool {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._maybeConcat(p, r, flags);
+    static public function _maybeConcat(_p:T_parser, _r:StdTypes.Int, _flags:Flags):Bool {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._maybeConcat(_p, _r, _flags);
     }
-    static public function _push(p:T_parser, re:Regexp):Regexp {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._push(p, re);
+    static public function _push(_p:T_parser, _re:Regexp):Regexp {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._push(_p, _re);
     }
-    static public function _calcHeight(p:T_parser, re:Regexp, force:Bool):StdTypes.Int {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._calcHeight(p, re, force);
+    static public function _calcHeight(_p:T_parser, _re:Regexp, _force:Bool):StdTypes.Int {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._calcHeight(_p, _re, _force);
     }
-    static public function _checkHeight(p:T_parser, re:Regexp):Void {
-        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._checkHeight(p, re);
+    static public function _checkHeight(_p:T_parser, _re:Regexp):Void {
+        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._checkHeight(_p, _re);
     }
-    static public function _calcSize(p:T_parser, re:Regexp, force:Bool):haxe.Int64 {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._calcSize(p, re, force);
+    static public function _calcSize(_p:T_parser, _re:Regexp, _force:Bool):haxe.Int64 {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._calcSize(_p, _re, _force);
     }
-    static public function _checkSize(p:T_parser, re:Regexp):Void {
-        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._checkSize(p, re);
+    static public function _checkSize(_p:T_parser, _re:Regexp):Void {
+        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._checkSize(_p, _re);
     }
-    static public function _checkLimits(p:T_parser, re:Regexp):Void {
-        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._checkLimits(p, re);
+    static public function _checkLimits(_p:T_parser, _re:Regexp):Void {
+        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._checkLimits(_p, _re);
     }
-    static public function _reuse(p:T_parser, re:Regexp):Void {
-        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._reuse(p, re);
+    static public function _reuse(_p:T_parser, _re:Regexp):Void {
+        stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._reuse(_p, _re);
     }
-    static public function _newRegexp(p:T_parser, op:Op):Regexp {
-        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._newRegexp(p, op);
+    static public function _newRegexp(_p:T_parser, _op:Op):Regexp {
+        return stdgo._internal.regexp.syntax.Syntax.T_parser_static_extension._newRegexp(_p, _op);
     }
 }
 class T_ranges_static_extension {
-    static public function swap(ra:T_ranges, i:StdTypes.Int, j:StdTypes.Int):Void {
-        stdgo._internal.regexp.syntax.Syntax.T_ranges_static_extension.swap(ra, i, j);
+    static public function swap(_ra:T_ranges, _i:StdTypes.Int, _j:StdTypes.Int):Void {
+        stdgo._internal.regexp.syntax.Syntax.T_ranges_static_extension.swap(_ra, _i, _j);
     }
-    static public function len(ra:T_ranges):StdTypes.Int {
-        return stdgo._internal.regexp.syntax.Syntax.T_ranges_static_extension.len(ra);
+    static public function len(_ra:T_ranges):StdTypes.Int {
+        return stdgo._internal.regexp.syntax.Syntax.T_ranges_static_extension.len(_ra);
     }
-    static public function less(ra:T_ranges, i:StdTypes.Int, j:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.syntax.Syntax.T_ranges_static_extension.less(ra, i, j);
+    static public function less(_ra:T_ranges, _i:StdTypes.Int, _j:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.syntax.Syntax.T_ranges_static_extension.less(_ra, _i, _j);
     }
 }
 class Prog_static_extension {
-    static public function startCond(p:Prog):EmptyOp {
-        return stdgo._internal.regexp.syntax.Syntax.Prog_static_extension.startCond(p);
+    static public function startCond(_p:Prog):EmptyOp {
+        return stdgo._internal.regexp.syntax.Syntax.Prog_static_extension.startCond(_p);
     }
-    static public function prefix(p:Prog):stdgo.Tuple<String, Bool> {
+    static public function prefix(_p:Prog):stdgo.Tuple<String, Bool> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.Prog_static_extension.prefix(p);
+            final obj = stdgo._internal.regexp.syntax.Syntax.Prog_static_extension.prefix(_p);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function _skipNop(p:Prog, pc:std.UInt):Inst {
-        return stdgo._internal.regexp.syntax.Syntax.Prog_static_extension._skipNop(p, pc);
+    static public function _skipNop(_p:Prog, _pc:std.UInt):Inst {
+        return stdgo._internal.regexp.syntax.Syntax.Prog_static_extension._skipNop(_p, _pc);
     }
-    static public function string(p:Prog):String {
-        return stdgo._internal.regexp.syntax.Syntax.Prog_static_extension.string(p);
+    static public function string(_p:Prog):String {
+        return stdgo._internal.regexp.syntax.Syntax.Prog_static_extension.string(_p);
     }
 }
 class Inst_static_extension {
-    static public function string(i:Inst):String {
-        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension.string(i);
+    static public function string(_i:Inst):String {
+        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension.string(_i);
     }
-    static public function matchEmptyWidth(i:Inst, before:StdTypes.Int, after:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension.matchEmptyWidth(i, before, after);
+    static public function matchEmptyWidth(_i:Inst, _before:StdTypes.Int, _after:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension.matchEmptyWidth(_i, _before, _after);
     }
-    static public function matchRunePos(i:Inst, r:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension.matchRunePos(i, r);
+    static public function matchRunePos(_i:Inst, _r:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension.matchRunePos(_i, _r);
     }
-    static public function matchRune(i:Inst, r:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension.matchRune(i, r);
+    static public function matchRune(_i:Inst, _r:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension.matchRune(_i, _r);
     }
-    static public function _op(i:Inst):InstOp {
-        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension._op(i);
+    static public function _op(_i:Inst):InstOp {
+        return stdgo._internal.regexp.syntax.Syntax.Inst_static_extension._op(_i);
     }
 }
 class Regexp_static_extension {
-    static public function simplify(re:Regexp):Regexp {
-        return stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.simplify(re);
+    static public function simplify(_re:Regexp):Regexp {
+        return stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.simplify(_re);
     }
-    static public function _capNames(re:Regexp, names:Array<String>):Void {
-        final names = ([for (i in names) i] : stdgo.Slice<stdgo.GoString>);
-        stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension._capNames(re, names);
+    static public function _capNames(_re:Regexp, _names:Array<String>):Void {
+        final _names = ([for (i in _names) i] : stdgo.Slice<stdgo.GoString>);
+        stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension._capNames(_re, _names);
     }
-    static public function capNames(re:Regexp):Array<String> {
-        return [for (i in stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.capNames(re)) i];
+    static public function capNames(_re:Regexp):Array<String> {
+        return [for (i in stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.capNames(_re)) i];
     }
-    static public function maxCap(re:Regexp):StdTypes.Int {
-        return stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.maxCap(re);
+    static public function maxCap(_re:Regexp):StdTypes.Int {
+        return stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.maxCap(_re);
     }
-    static public function string(re:Regexp):String {
-        return stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.string(re);
+    static public function string(_re:Regexp):String {
+        return stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.string(_re);
     }
-    static public function equal(x:Regexp, y:Regexp):Bool {
-        return stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.equal(x, y);
+    static public function equal(_x:Regexp, _y:Regexp):Bool {
+        return stdgo._internal.regexp.syntax.Syntax.Regexp_static_extension.equal(_x, _y);
     }
 }
 class ErrorCode_static_extension {
-    static public function string(e:ErrorCode):String {
-        return stdgo._internal.regexp.syntax.Syntax.ErrorCode_static_extension.string(e);
+    static public function string(_e:ErrorCode):String {
+        return stdgo._internal.regexp.syntax.Syntax.ErrorCode_static_extension.string(_e);
     }
 }
 class InstOp_static_extension {
-    static public function string(i:InstOp):String {
-        return stdgo._internal.regexp.syntax.Syntax.InstOp_static_extension.string(i);
+    static public function string(_i:InstOp):String {
+        return stdgo._internal.regexp.syntax.Syntax.InstOp_static_extension.string(_i);
     }
 }
 class Op_static_extension {
-    static public function string(i:Op):String {
-        return stdgo._internal.regexp.syntax.Syntax.Op_static_extension.string(i);
+    static public function string(_i:Op):String {
+        return stdgo._internal.regexp.syntax.Syntax.Op_static_extension.string(_i);
     }
 }
 /**
@@ -813,9 +813,9 @@ class Syntax {
         Compile compiles the regexp into a program to be executed.
         The regexp should have been simplified already (returned from re.Simplify).
     **/
-    static public function compile(re:Regexp):stdgo.Tuple<Prog, stdgo.Error> {
+    static public function compile(_re:Regexp):stdgo.Tuple<Prog, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.compile(re);
+            final obj = stdgo._internal.regexp.syntax.Syntax.compile(_re);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -824,38 +824,38 @@ class Syntax {
         Flags, and returns a regular expression parse tree. The syntax is
         described in the top-level comment.
     **/
-    static public function parse(s:String, flags:Flags):stdgo.Tuple<Regexp, stdgo.Error> {
+    static public function parse(_s:String, _flags:Flags):stdgo.Tuple<Regexp, stdgo.Error> {
         return {
-            final obj = stdgo._internal.regexp.syntax.Syntax.parse(s, flags);
+            final obj = stdgo._internal.regexp.syntax.Syntax.parse(_s, _flags);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function testParseSimple(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseSimple(t);
+    static public function testParseSimple(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseSimple(_t);
     }
-    static public function testParseFoldCase(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseFoldCase(t);
+    static public function testParseFoldCase(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseFoldCase(_t);
     }
-    static public function testParseLiteral(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseLiteral(t);
+    static public function testParseLiteral(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseLiteral(_t);
     }
-    static public function testParseMatchNL(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseMatchNL(t);
+    static public function testParseMatchNL(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseMatchNL(_t);
     }
-    static public function testParseNoMatchNL(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseNoMatchNL(t);
+    static public function testParseNoMatchNL(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseNoMatchNL(_t);
     }
-    static public function testFoldConstants(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testFoldConstants(t);
+    static public function testFoldConstants(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testFoldConstants(_t);
     }
-    static public function testAppendRangeCollapse(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testAppendRangeCollapse(t);
+    static public function testAppendRangeCollapse(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testAppendRangeCollapse(_t);
     }
-    static public function testParseInvalidRegexps(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testParseInvalidRegexps(t);
+    static public function testParseInvalidRegexps(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testParseInvalidRegexps(_t);
     }
-    static public function testToStringEquivalentParse(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testToStringEquivalentParse(t);
+    static public function testToStringEquivalentParse(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testToStringEquivalentParse(_t);
     }
     /**
         EmptyOpContext returns the zero-width assertions
@@ -865,27 +865,27 @@ class Syntax {
         Passing r2 == -1 indicates that the position is
         at the end of the text.
     **/
-    static public function emptyOpContext(r1:StdTypes.Int, r2:StdTypes.Int):EmptyOp {
-        return stdgo._internal.regexp.syntax.Syntax.emptyOpContext(r1, r2);
+    static public function emptyOpContext(_r1:StdTypes.Int, _r2:StdTypes.Int):EmptyOp {
+        return stdgo._internal.regexp.syntax.Syntax.emptyOpContext(_r1, _r2);
     }
     /**
         IsWordChar reports whether r is considered a “word character”
         during the evaluation of the \b and \B zero-width assertions.
         These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
     **/
-    static public function isWordChar(r:StdTypes.Int):Bool {
-        return stdgo._internal.regexp.syntax.Syntax.isWordChar(r);
+    static public function isWordChar(_r:StdTypes.Int):Bool {
+        return stdgo._internal.regexp.syntax.Syntax.isWordChar(_r);
     }
-    static public function testCompile(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testCompile(t);
+    static public function testCompile(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testCompile(_t);
     }
-    static public function benchmarkEmptyOpContext(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.syntax.Syntax.benchmarkEmptyOpContext(b);
+    static public function benchmarkEmptyOpContext(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.syntax.Syntax.benchmarkEmptyOpContext(_b);
     }
-    static public function benchmarkIsWordChar(b:stdgo._internal.testing.Testing.B):Void {
-        stdgo._internal.regexp.syntax.Syntax.benchmarkIsWordChar(b);
+    static public function benchmarkIsWordChar(_b:stdgo._internal.testing.Testing.B):Void {
+        stdgo._internal.regexp.syntax.Syntax.benchmarkIsWordChar(_b);
     }
-    static public function testSimplify(t:stdgo._internal.testing.Testing.T_):Void {
-        stdgo._internal.regexp.syntax.Syntax.testSimplify(t);
+    static public function testSimplify(_t:stdgo._internal.testing.Testing.T_):Void {
+        stdgo._internal.regexp.syntax.Syntax.testSimplify(_t);
     }
 }

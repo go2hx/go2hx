@@ -220,17 +220,17 @@ final enoshare : stdgo._internal.syscall.Syscall.Errno = stdgo._internal.syscall
 final ecaseclash : stdgo._internal.syscall.Syscall.Errno = stdgo._internal.syscall.Syscall.ecaseclash;
 final ewouldblock : stdgo._internal.syscall.Syscall.Errno = stdgo._internal.syscall.Syscall.ewouldblock;
 class RawConn_static_extension {
-    static public function write(t:RawConn, f:(_fd:stdgo.GoUIntptr) -> Bool):stdgo.Error {
-        final f = f;
-        return stdgo._internal.syscall.Syscall.RawConn_static_extension.write(t, f);
+    static public function write(t:RawConn, _f:(_fd:stdgo.GoUIntptr) -> Bool):stdgo.Error {
+        final _f = _f;
+        return stdgo._internal.syscall.Syscall.RawConn_static_extension.write(t, _f);
     }
-    static public function read(t:RawConn, f:(_fd:stdgo.GoUIntptr) -> Bool):stdgo.Error {
-        final f = f;
-        return stdgo._internal.syscall.Syscall.RawConn_static_extension.read(t, f);
+    static public function read(t:RawConn, _f:(_fd:stdgo.GoUIntptr) -> Bool):stdgo.Error {
+        final _f = _f;
+        return stdgo._internal.syscall.Syscall.RawConn_static_extension.read(t, _f);
     }
-    static public function control(t:RawConn, f:(_fd:stdgo.GoUIntptr) -> Void):stdgo.Error {
-        final f = f;
-        return stdgo._internal.syscall.Syscall.RawConn_static_extension.control(t, f);
+    static public function control(t:RawConn, _f:(_fd:stdgo.GoUIntptr) -> Void):stdgo.Error {
+        final _f = _f;
+        return stdgo._internal.syscall.Syscall.RawConn_static_extension.control(t, _f);
     }
 }
 typedef RawConn = stdgo._internal.syscall.Syscall.RawConn;
@@ -558,76 +558,76 @@ typedef Errno = stdgo._internal.syscall.Syscall.Errno;
 typedef Signal = stdgo._internal.syscall.Syscall.Signal;
 typedef WaitStatus = stdgo._internal.syscall.Syscall.WaitStatus;
 class Timespec_static_extension {
-    static public function nano(ts:Timespec):haxe.Int64 {
-        return stdgo._internal.syscall.Syscall.Timespec_static_extension.nano(ts);
+    static public function nano(_ts:Timespec):haxe.Int64 {
+        return stdgo._internal.syscall.Syscall.Timespec_static_extension.nano(_ts);
     }
-    static public function unix(ts:Timespec):stdgo.Tuple<haxe.Int64, haxe.Int64> {
+    static public function unix(_ts:Timespec):stdgo.Tuple<haxe.Int64, haxe.Int64> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.Timespec_static_extension.unix(ts);
+            final obj = stdgo._internal.syscall.Syscall.Timespec_static_extension.unix(_ts);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class Timeval_static_extension {
-    static public function nano(tv:Timeval):haxe.Int64 {
-        return stdgo._internal.syscall.Syscall.Timeval_static_extension.nano(tv);
+    static public function nano(_tv:Timeval):haxe.Int64 {
+        return stdgo._internal.syscall.Syscall.Timeval_static_extension.nano(_tv);
     }
-    static public function unix(tv:Timeval):stdgo.Tuple<haxe.Int64, haxe.Int64> {
+    static public function unix(_tv:Timeval):stdgo.Tuple<haxe.Int64, haxe.Int64> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.Timeval_static_extension.unix(tv);
+            final obj = stdgo._internal.syscall.Syscall.Timeval_static_extension.unix(_tv);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
 }
 class Errno_static_extension {
-    static public function timeout(e:Errno):Bool {
-        return stdgo._internal.syscall.Syscall.Errno_static_extension.timeout(e);
+    static public function timeout(_e:Errno):Bool {
+        return stdgo._internal.syscall.Syscall.Errno_static_extension.timeout(_e);
     }
-    static public function temporary(e:Errno):Bool {
-        return stdgo._internal.syscall.Syscall.Errno_static_extension.temporary(e);
+    static public function temporary(_e:Errno):Bool {
+        return stdgo._internal.syscall.Syscall.Errno_static_extension.temporary(_e);
     }
-    static public function is_(e:Errno, target:stdgo.Error):Bool {
-        return stdgo._internal.syscall.Syscall.Errno_static_extension.is_(e, target);
+    static public function is_(_e:Errno, _target:stdgo.Error):Bool {
+        return stdgo._internal.syscall.Syscall.Errno_static_extension.is_(_e, _target);
     }
-    static public function error(e:Errno):String {
-        return stdgo._internal.syscall.Syscall.Errno_static_extension.error(e);
+    static public function error(_e:Errno):String {
+        return stdgo._internal.syscall.Syscall.Errno_static_extension.error(_e);
     }
 }
 class Signal_static_extension {
-    static public function string(s:Signal):String {
-        return stdgo._internal.syscall.Syscall.Signal_static_extension.string(s);
+    static public function string(_s:Signal):String {
+        return stdgo._internal.syscall.Syscall.Signal_static_extension.string(_s);
     }
-    static public function signal(s:Signal):Void {
-        stdgo._internal.syscall.Syscall.Signal_static_extension.signal(s);
+    static public function signal(_s:Signal):Void {
+        stdgo._internal.syscall.Syscall.Signal_static_extension.signal(_s);
     }
 }
 class WaitStatus_static_extension {
-    static public function trapCause(w:WaitStatus):StdTypes.Int {
-        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.trapCause(w);
+    static public function trapCause(_w:WaitStatus):StdTypes.Int {
+        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.trapCause(_w);
     }
-    static public function stopSignal(w:WaitStatus):Signal {
-        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.stopSignal(w);
+    static public function stopSignal(_w:WaitStatus):Signal {
+        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.stopSignal(_w);
     }
-    static public function continued(w:WaitStatus):Bool {
-        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.continued(w);
+    static public function continued(_w:WaitStatus):Bool {
+        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.continued(_w);
     }
-    static public function stopped(w:WaitStatus):Bool {
-        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.stopped(w);
+    static public function stopped(_w:WaitStatus):Bool {
+        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.stopped(_w);
     }
-    static public function coreDump(w:WaitStatus):Bool {
-        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.coreDump(w);
+    static public function coreDump(_w:WaitStatus):Bool {
+        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.coreDump(_w);
     }
-    static public function signal(w:WaitStatus):Signal {
-        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.signal(w);
+    static public function signal(_w:WaitStatus):Signal {
+        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.signal(_w);
     }
-    static public function signaled(w:WaitStatus):Bool {
-        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.signaled(w);
+    static public function signaled(_w:WaitStatus):Bool {
+        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.signaled(_w);
     }
-    static public function exitStatus(w:WaitStatus):StdTypes.Int {
-        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.exitStatus(w);
+    static public function exitStatus(_w:WaitStatus):StdTypes.Int {
+        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.exitStatus(_w);
     }
-    static public function exited(w:WaitStatus):Bool {
-        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.exited(w);
+    static public function exited(_w:WaitStatus):Bool {
+        return stdgo._internal.syscall.Syscall.WaitStatus_static_extension.exited(_w);
     }
 }
 /**
@@ -660,25 +660,25 @@ class Syscall {
         bytes consumed from buf, the number of entries added
         to names, and the new names slice.
     **/
-    static public function parseDirent(buf:Array<StdTypes.Int>, max:StdTypes.Int, names:Array<String>):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, Array<String>> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
-        final names = ([for (i in names) i] : stdgo.Slice<stdgo.GoString>);
+    static public function parseDirent(_buf:Array<StdTypes.Int>, _max:StdTypes.Int, _names:Array<String>):stdgo.Tuple.Tuple3<StdTypes.Int, StdTypes.Int, Array<String>> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
+        final _names = ([for (i in _names) i] : stdgo.Slice<stdgo.GoString>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.parseDirent(buf, max, names);
+            final obj = stdgo._internal.syscall.Syscall.parseDirent(_buf, _max, _names);
             { _0 : obj._0, _1 : obj._1, _2 : [for (i in obj._2) i] };
         };
     }
-    static public function unsetenv(key:String):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.unsetenv(key);
+    static public function unsetenv(_key:String):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.unsetenv(_key);
     }
-    static public function getenv(key:String):stdgo.Tuple<String, Bool> {
+    static public function getenv(_key:String):stdgo.Tuple<String, Bool> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.getenv(key);
+            final obj = stdgo._internal.syscall.Syscall.getenv(_key);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function setenv(key:String, value:String):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.setenv(key, value);
+    static public function setenv(_key:String, _value:String):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.setenv(_key, _value);
     }
     static public function clearenv():Void {
         stdgo._internal.syscall.Syscall.clearenv();
@@ -686,218 +686,218 @@ class Syscall {
     static public function environ():Array<String> {
         return [for (i in stdgo._internal.syscall.Syscall.environ()) i];
     }
-    static public function open(path:String, openmode:StdTypes.Int, perm:std.UInt):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function open(_path:String, _openmode:StdTypes.Int, _perm:std.UInt):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.open(path, openmode, perm);
+            final obj = stdgo._internal.syscall.Syscall.open(_path, _openmode, _perm);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function close(fd:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.close(fd);
+    static public function close(_fd:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.close(_fd);
     }
-    static public function closeOnExec(fd:StdTypes.Int):Void {
-        stdgo._internal.syscall.Syscall.closeOnExec(fd);
+    static public function closeOnExec(_fd:StdTypes.Int):Void {
+        stdgo._internal.syscall.Syscall.closeOnExec(_fd);
     }
-    static public function mkdir(path:String, perm:std.UInt):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.mkdir(path, perm);
+    static public function mkdir(_path:String, _perm:std.UInt):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.mkdir(_path, _perm);
     }
-    static public function readDirent(fd:StdTypes.Int, buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readDirent(_fd:StdTypes.Int, _buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.readDirent(fd, buf);
+            final obj = stdgo._internal.syscall.Syscall.readDirent(_fd, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function stat(path:String, st:Stat_t):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.stat(path, st);
+    static public function stat(_path:String, _st:Stat_t):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.stat(_path, _st);
     }
-    static public function lstat(path:String, st:Stat_t):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.lstat(path, st);
+    static public function lstat(_path:String, _st:Stat_t):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.lstat(_path, _st);
     }
-    static public function fstat(fd:StdTypes.Int, st:Stat_t):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.fstat(fd, st);
+    static public function fstat(_fd:StdTypes.Int, _st:Stat_t):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.fstat(_fd, _st);
     }
-    static public function unlink(path:String):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.unlink(path);
+    static public function unlink(_path:String):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.unlink(_path);
     }
-    static public function rmdir(path:String):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.rmdir(path);
+    static public function rmdir(_path:String):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.rmdir(_path);
     }
-    static public function chmod(path:String, mode:std.UInt):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.chmod(path, mode);
+    static public function chmod(_path:String, _mode:std.UInt):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.chmod(_path, _mode);
     }
-    static public function fchmod(fd:StdTypes.Int, mode:std.UInt):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.fchmod(fd, mode);
+    static public function fchmod(_fd:StdTypes.Int, _mode:std.UInt):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.fchmod(_fd, _mode);
     }
-    static public function chown(path:String, uid:StdTypes.Int, gid:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.chown(path, uid, gid);
+    static public function chown(_path:String, _uid:StdTypes.Int, _gid:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.chown(_path, _uid, _gid);
     }
-    static public function fchown(fd:StdTypes.Int, uid:StdTypes.Int, gid:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.fchown(fd, uid, gid);
+    static public function fchown(_fd:StdTypes.Int, _uid:StdTypes.Int, _gid:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.fchown(_fd, _uid, _gid);
     }
-    static public function lchown(path:String, uid:StdTypes.Int, gid:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.lchown(path, uid, gid);
+    static public function lchown(_path:String, _uid:StdTypes.Int, _gid:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.lchown(_path, _uid, _gid);
     }
-    static public function utimesNano(path:String, ts:Array<Timespec>):stdgo.Error {
-        final ts = ([for (i in ts) i] : stdgo.Slice<Timespec>);
-        return stdgo._internal.syscall.Syscall.utimesNano(path, ts);
+    static public function utimesNano(_path:String, _ts:Array<Timespec>):stdgo.Error {
+        final _ts = ([for (i in _ts) i] : stdgo.Slice<Timespec>);
+        return stdgo._internal.syscall.Syscall.utimesNano(_path, _ts);
     }
-    static public function rename(from:String, to:String):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.rename(from, to);
+    static public function rename(_from:String, _to:String):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.rename(_from, _to);
     }
-    static public function truncate(path:String, _length:haxe.Int64):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.truncate(path, _length);
+    static public function truncate(_path:String, _length:haxe.Int64):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.truncate(_path, _length);
     }
-    static public function ftruncate(fd:StdTypes.Int, _length:haxe.Int64):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.ftruncate(fd, _length);
+    static public function ftruncate(_fd:StdTypes.Int, _length:haxe.Int64):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.ftruncate(_fd, _length);
     }
-    static public function getcwd(buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function getcwd(_buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.getcwd(buf);
+            final obj = stdgo._internal.syscall.Syscall.getcwd(_buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function chdir(path:String):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.chdir(path);
+    static public function chdir(_path:String):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.chdir(_path);
     }
-    static public function fchdir(fd:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.fchdir(fd);
+    static public function fchdir(_fd:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.fchdir(_fd);
     }
-    static public function readlink(path:String, buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final buf = ([for (i in buf) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function readlink(_path:String, _buf:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _buf = ([for (i in _buf) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.readlink(path, buf);
+            final obj = stdgo._internal.syscall.Syscall.readlink(_path, _buf);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function link(path:String, link:String):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.link(path, link);
+    static public function link(_path:String, _link:String):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.link(_path, _link);
     }
-    static public function symlink(path:String, link:String):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.symlink(path, link);
+    static public function symlink(_path:String, _link:String):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.symlink(_path, _link);
     }
-    static public function fsync(fd:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.fsync(fd);
+    static public function fsync(_fd:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.fsync(_fd);
     }
-    static public function read(fd:StdTypes.Int, b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function read(_fd:StdTypes.Int, _b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.read(fd, b);
+            final obj = stdgo._internal.syscall.Syscall.read(_fd, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function write(fd:StdTypes.Int, b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function write(_fd:StdTypes.Int, _b:Array<StdTypes.Int>):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.write(fd, b);
+            final obj = stdgo._internal.syscall.Syscall.write(_fd, _b);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function pread(fd:StdTypes.Int, b:Array<StdTypes.Int>, offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function pread(_fd:StdTypes.Int, _b:Array<StdTypes.Int>, _offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.pread(fd, b, offset);
+            final obj = stdgo._internal.syscall.Syscall.pread(_fd, _b, _offset);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function pwrite(fd:StdTypes.Int, b:Array<StdTypes.Int>, offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final b = ([for (i in b) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function pwrite(_fd:StdTypes.Int, _b:Array<StdTypes.Int>, _offset:haxe.Int64):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _b = ([for (i in _b) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.pwrite(fd, b, offset);
+            final obj = stdgo._internal.syscall.Syscall.pwrite(_fd, _b, _offset);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function seek(fd:StdTypes.Int, offset:haxe.Int64, whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
+    static public function seek(_fd:StdTypes.Int, _offset:haxe.Int64, _whence:StdTypes.Int):stdgo.Tuple<haxe.Int64, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.seek(fd, offset, whence);
+            final obj = stdgo._internal.syscall.Syscall.seek(_fd, _offset, _whence);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function dup(fd:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function dup(_fd:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.dup(fd);
+            final obj = stdgo._internal.syscall.Syscall.dup(_fd);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function dup2(fd:StdTypes.Int, newfd:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.dup2(fd, newfd);
+    static public function dup2(_fd:StdTypes.Int, _newfd:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.dup2(_fd, _newfd);
     }
-    static public function pipe(fd:Array<StdTypes.Int>):stdgo.Error {
-        final fd = ([for (i in fd) i] : stdgo.Slice<stdgo.GoInt>);
-        return stdgo._internal.syscall.Syscall.pipe(fd);
+    static public function pipe(_fd:Array<StdTypes.Int>):stdgo.Error {
+        final _fd = ([for (i in _fd) i] : stdgo.Slice<stdgo.GoInt>);
+        return stdgo._internal.syscall.Syscall.pipe(_fd);
     }
-    static public function socket(proto:StdTypes.Int, sotype:StdTypes.Int, unused:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function socket(_proto:StdTypes.Int, _sotype:StdTypes.Int, _unused:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.socket(proto, sotype, unused);
+            final obj = stdgo._internal.syscall.Syscall.socket(_proto, _sotype, _unused);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function bind(fd:StdTypes.Int, sa:Sockaddr):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.bind(fd, sa);
+    static public function bind(_fd:StdTypes.Int, _sa:Sockaddr):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.bind(_fd, _sa);
     }
-    static public function stopIO(fd:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.stopIO(fd);
+    static public function stopIO(_fd:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.stopIO(_fd);
     }
-    static public function listen(fd:StdTypes.Int, backlog:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.listen(fd, backlog);
+    static public function listen(_fd:StdTypes.Int, _backlog:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.listen(_fd, _backlog);
     }
-    static public function accept(fd:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, Sockaddr, stdgo.Error> {
+    static public function accept(_fd:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, Sockaddr, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.accept(fd);
+            final obj = stdgo._internal.syscall.Syscall.accept(_fd);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function connect(fd:StdTypes.Int, sa:Sockaddr):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.connect(fd, sa);
+    static public function connect(_fd:StdTypes.Int, _sa:Sockaddr):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.connect(_fd, _sa);
     }
-    static public function recvfrom(fd:StdTypes.Int, p:Array<StdTypes.Int>, flags:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, Sockaddr, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function recvfrom(_fd:StdTypes.Int, _p:Array<StdTypes.Int>, _flags:StdTypes.Int):stdgo.Tuple.Tuple3<StdTypes.Int, Sockaddr, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.recvfrom(fd, p, flags);
+            final obj = stdgo._internal.syscall.Syscall.recvfrom(_fd, _p, _flags);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function sendto(fd:StdTypes.Int, p:Array<StdTypes.Int>, flags:StdTypes.Int, to:Sockaddr):stdgo.Error {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.syscall.Syscall.sendto(fd, p, flags, to);
+    static public function sendto(_fd:StdTypes.Int, _p:Array<StdTypes.Int>, _flags:StdTypes.Int, _to:Sockaddr):stdgo.Error {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.syscall.Syscall.sendto(_fd, _p, _flags, _to);
     }
-    static public function recvmsg(fd:StdTypes.Int, p:Array<StdTypes.Int>, oob:Array<StdTypes.Int>, flags:StdTypes.Int):stdgo.Tuple.Tuple5<StdTypes.Int, StdTypes.Int, StdTypes.Int, Sockaddr, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        final oob = ([for (i in oob) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function recvmsg(_fd:StdTypes.Int, _p:Array<StdTypes.Int>, _oob:Array<StdTypes.Int>, _flags:StdTypes.Int):stdgo.Tuple.Tuple5<StdTypes.Int, StdTypes.Int, StdTypes.Int, Sockaddr, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        final _oob = ([for (i in _oob) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.recvmsg(fd, p, oob, flags);
+            final obj = stdgo._internal.syscall.Syscall.recvmsg(_fd, _p, _oob, _flags);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : obj._3, _4 : obj._4 };
         };
     }
-    static public function sendmsgN(fd:StdTypes.Int, p:Array<StdTypes.Int>, oob:Array<StdTypes.Int>, to:Sockaddr, flags:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
-        final p = ([for (i in p) i] : stdgo.Slice<stdgo.GoByte>);
-        final oob = ([for (i in oob) i] : stdgo.Slice<stdgo.GoByte>);
+    static public function sendmsgN(_fd:StdTypes.Int, _p:Array<StdTypes.Int>, _oob:Array<StdTypes.Int>, _to:Sockaddr, _flags:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+        final _p = ([for (i in _p) i] : stdgo.Slice<stdgo.GoByte>);
+        final _oob = ([for (i in _oob) i] : stdgo.Slice<stdgo.GoByte>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.sendmsgN(fd, p, oob, to, flags);
+            final obj = stdgo._internal.syscall.Syscall.sendmsgN(_fd, _p, _oob, _to, _flags);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function getsockoptInt(fd:StdTypes.Int, level:StdTypes.Int, opt:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function getsockoptInt(_fd:StdTypes.Int, _level:StdTypes.Int, _opt:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.getsockoptInt(fd, level, opt);
+            final obj = stdgo._internal.syscall.Syscall.getsockoptInt(_fd, _level, _opt);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function setsockoptInt(fd:StdTypes.Int, level:StdTypes.Int, opt:StdTypes.Int, value:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.setsockoptInt(fd, level, opt, value);
+    static public function setsockoptInt(_fd:StdTypes.Int, _level:StdTypes.Int, _opt:StdTypes.Int, _value:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.setsockoptInt(_fd, _level, _opt, _value);
     }
-    static public function setReadDeadline(fd:StdTypes.Int, t:haxe.Int64):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.setReadDeadline(fd, t);
+    static public function setReadDeadline(_fd:StdTypes.Int, _t:haxe.Int64):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.setReadDeadline(_fd, _t);
     }
-    static public function setWriteDeadline(fd:StdTypes.Int, t:haxe.Int64):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.setWriteDeadline(fd, t);
+    static public function setWriteDeadline(_fd:StdTypes.Int, _t:haxe.Int64):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.setWriteDeadline(_fd, _t);
     }
-    static public function shutdown(fd:StdTypes.Int, how:StdTypes.Int):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.shutdown(fd, how);
+    static public function shutdown(_fd:StdTypes.Int, _how:StdTypes.Int):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.shutdown(_fd, _how);
     }
-    static public function setNonblock(fd:StdTypes.Int, nonblocking:Bool):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.setNonblock(fd, nonblocking);
+    static public function setNonblock(_fd:StdTypes.Int, _nonblocking:Bool):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.setNonblock(_fd, _nonblocking);
     }
     /**
         StringByteSlice converts a string to a NUL-terminated []byte,
@@ -906,17 +906,17 @@ class Syscall {
         
         Deprecated: Use ByteSliceFromString instead.
     **/
-    static public function stringByteSlice(s:String):Array<StdTypes.Int> {
-        return [for (i in stdgo._internal.syscall.Syscall.stringByteSlice(s)) i];
+    static public function stringByteSlice(_s:String):Array<StdTypes.Int> {
+        return [for (i in stdgo._internal.syscall.Syscall.stringByteSlice(_s)) i];
     }
     /**
         ByteSliceFromString returns a NUL-terminated slice of bytes
         containing the text of s. If s contains a NUL byte at any
         location, it returns (nil, EINVAL).
     **/
-    static public function byteSliceFromString(s:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
+    static public function byteSliceFromString(_s:String):stdgo.Tuple<Array<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.byteSliceFromString(s);
+            final obj = stdgo._internal.syscall.Syscall.byteSliceFromString(_s);
             { _0 : [for (i in obj._0) i], _1 : obj._1 };
         };
     }
@@ -927,53 +927,53 @@ class Syscall {
         
         Deprecated: Use BytePtrFromString instead.
     **/
-    static public function stringBytePtr(s:String):stdgo.Pointer<StdTypes.Int> {
-        return stdgo._internal.syscall.Syscall.stringBytePtr(s);
+    static public function stringBytePtr(_s:String):stdgo.Pointer<StdTypes.Int> {
+        return stdgo._internal.syscall.Syscall.stringBytePtr(_s);
     }
     /**
         BytePtrFromString returns a pointer to a NUL-terminated array of
         bytes containing the text of s. If s contains a NUL byte at any
         location, it returns (nil, EINVAL).
     **/
-    static public function bytePtrFromString(s:String):stdgo.Tuple<stdgo.Pointer<StdTypes.Int>, stdgo.Error> {
+    static public function bytePtrFromString(_s:String):stdgo.Tuple<stdgo.Pointer<StdTypes.Int>, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.bytePtrFromString(s);
+            final obj = stdgo._internal.syscall.Syscall.bytePtrFromString(_s);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     static public function getpagesize():StdTypes.Int {
         return stdgo._internal.syscall.Syscall.getpagesize();
     }
-    static public function exit(code:StdTypes.Int):Void {
-        stdgo._internal.syscall.Syscall.exit(code);
+    static public function exit(_code:StdTypes.Int):Void {
+        stdgo._internal.syscall.Syscall.exit(_code);
     }
-    static public function syscall(trap:stdgo.GoUIntptr, a1:stdgo.GoUIntptr, a2:stdgo.GoUIntptr, a3:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> {
+    static public function syscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.syscall(trap, a1, a2, a3);
+            final obj = stdgo._internal.syscall.Syscall.syscall(_trap, _a1, _a2, _a3);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function syscall6(trap:stdgo.GoUIntptr, a1:stdgo.GoUIntptr, a2:stdgo.GoUIntptr, a3:stdgo.GoUIntptr, a4:stdgo.GoUIntptr, a5:stdgo.GoUIntptr, a6:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> {
+    static public function syscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr, _a4:stdgo.GoUIntptr, _a5:stdgo.GoUIntptr, _a6:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.syscall6(trap, a1, a2, a3, a4, a5, a6);
+            final obj = stdgo._internal.syscall.Syscall.syscall6(_trap, _a1, _a2, _a3, _a4, _a5, _a6);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function rawSyscall(trap:stdgo.GoUIntptr, a1:stdgo.GoUIntptr, a2:stdgo.GoUIntptr, a3:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> {
+    static public function rawSyscall(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.rawSyscall(trap, a1, a2, a3);
+            final obj = stdgo._internal.syscall.Syscall.rawSyscall(_trap, _a1, _a2, _a3);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function rawSyscall6(trap:stdgo.GoUIntptr, a1:stdgo.GoUIntptr, a2:stdgo.GoUIntptr, a3:stdgo.GoUIntptr, a4:stdgo.GoUIntptr, a5:stdgo.GoUIntptr, a6:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> {
+    static public function rawSyscall6(_trap:stdgo.GoUIntptr, _a1:stdgo.GoUIntptr, _a2:stdgo.GoUIntptr, _a3:stdgo.GoUIntptr, _a4:stdgo.GoUIntptr, _a5:stdgo.GoUIntptr, _a6:stdgo.GoUIntptr):stdgo.Tuple.Tuple3<stdgo.GoUIntptr, stdgo.GoUIntptr, Errno> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.rawSyscall6(trap, a1, a2, a3, a4, a5, a6);
+            final obj = stdgo._internal.syscall.Syscall.rawSyscall6(_trap, _a1, _a2, _a3, _a4, _a5, _a6);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function sysctl(key:String):stdgo.Tuple<String, stdgo.Error> {
+    static public function sysctl(_key:String):stdgo.Tuple<String, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.sysctl(key);
+            final obj = stdgo._internal.syscall.Syscall.sysctl(_key);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
@@ -1007,56 +1007,56 @@ class Syscall {
     static public function getppid():StdTypes.Int {
         return stdgo._internal.syscall.Syscall.getppid();
     }
-    static public function umask(mask:StdTypes.Int):StdTypes.Int {
-        return stdgo._internal.syscall.Syscall.umask(mask);
+    static public function umask(_mask:StdTypes.Int):StdTypes.Int {
+        return stdgo._internal.syscall.Syscall.umask(_mask);
     }
-    static public function gettimeofday(tv:Timeval):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.gettimeofday(tv);
+    static public function gettimeofday(_tv:Timeval):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.gettimeofday(_tv);
     }
-    static public function kill(pid:StdTypes.Int, signum:Signal):stdgo.Error {
-        return stdgo._internal.syscall.Syscall.kill(pid, signum);
+    static public function kill(_pid:StdTypes.Int, _signum:Signal):stdgo.Error {
+        return stdgo._internal.syscall.Syscall.kill(_pid, _signum);
     }
-    static public function sendfile(outfd:StdTypes.Int, infd:StdTypes.Int, offset:stdgo.Pointer<haxe.Int64>, count:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function sendfile(_outfd:StdTypes.Int, _infd:StdTypes.Int, _offset:stdgo.Pointer<haxe.Int64>, _count:StdTypes.Int):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.sendfile(outfd, infd, offset, count);
+            final obj = stdgo._internal.syscall.Syscall.sendfile(_outfd, _infd, _offset, _count);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    static public function startProcess(argv0:String, argv:Array<String>, attr:ProcAttr):stdgo.Tuple.Tuple3<StdTypes.Int, stdgo.GoUIntptr, stdgo.Error> {
-        final argv = ([for (i in argv) i] : stdgo.Slice<stdgo.GoString>);
+    static public function startProcess(_argv0:String, _argv:Array<String>, _attr:ProcAttr):stdgo.Tuple.Tuple3<StdTypes.Int, stdgo.GoUIntptr, stdgo.Error> {
+        final _argv = ([for (i in _argv) i] : stdgo.Slice<stdgo.GoString>);
         return {
-            final obj = stdgo._internal.syscall.Syscall.startProcess(argv0, argv, attr);
+            final obj = stdgo._internal.syscall.Syscall.startProcess(_argv0, _argv, _attr);
             { _0 : obj._0, _1 : obj._1, _2 : obj._2 };
         };
     }
-    static public function wait4(pid:StdTypes.Int, wstatus:stdgo.Pointer<WaitStatus>, options:StdTypes.Int, rusage:Rusage):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
+    static public function wait4(_pid:StdTypes.Int, _wstatus:stdgo.Pointer<WaitStatus>, _options:StdTypes.Int, _rusage:Rusage):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {
-            final obj = stdgo._internal.syscall.Syscall.wait4(pid, wstatus, options, rusage);
+            final obj = stdgo._internal.syscall.Syscall.wait4(_pid, _wstatus, _options, _rusage);
             { _0 : obj._0, _1 : obj._1 };
         };
     }
     /**
         TimespecToNsec returns the time stored in ts as nanoseconds.
     **/
-    static public function timespecToNsec(ts:Timespec):haxe.Int64 {
-        return stdgo._internal.syscall.Syscall.timespecToNsec(ts);
+    static public function timespecToNsec(_ts:Timespec):haxe.Int64 {
+        return stdgo._internal.syscall.Syscall.timespecToNsec(_ts);
     }
     /**
         NsecToTimespec converts a number of nanoseconds into a Timespec.
     **/
-    static public function nsecToTimespec(nsec:haxe.Int64):Timespec {
-        return stdgo._internal.syscall.Syscall.nsecToTimespec(nsec);
+    static public function nsecToTimespec(_nsec:haxe.Int64):Timespec {
+        return stdgo._internal.syscall.Syscall.nsecToTimespec(_nsec);
     }
     /**
         TimevalToNsec returns the time stored in tv as nanoseconds.
     **/
-    static public function timevalToNsec(tv:Timeval):haxe.Int64 {
-        return stdgo._internal.syscall.Syscall.timevalToNsec(tv);
+    static public function timevalToNsec(_tv:Timeval):haxe.Int64 {
+        return stdgo._internal.syscall.Syscall.timevalToNsec(_tv);
     }
     /**
         NsecToTimeval converts a number of nanoseconds into a Timeval.
     **/
-    static public function nsecToTimeval(nsec:haxe.Int64):Timeval {
-        return stdgo._internal.syscall.Syscall.nsecToTimeval(nsec);
+    static public function nsecToTimeval(_nsec:haxe.Int64):Timeval {
+        return stdgo._internal.syscall.Syscall.nsecToTimeval(_nsec);
     }
 }

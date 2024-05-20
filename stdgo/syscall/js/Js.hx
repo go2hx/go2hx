@@ -78,226 +78,226 @@ final typeFunction = stdgo._internal.syscall.js.Js.typeFunction;
 typedef T_ref = stdgo._internal.syscall.js.Js.T_ref;
 typedef Type_ = stdgo._internal.syscall.js.Js.Type_;
 class Func_static_extension {
-    static public function release(c:Func):Void {
-        stdgo._internal.syscall.js.Js.Func_static_extension.release(c);
+    static public function release(_c:Func):Void {
+        stdgo._internal.syscall.js.Js.Func_static_extension.release(_c);
     }
-    public static function _isNumber(_self__:Func):Bool {
-        return stdgo._internal.syscall.js.Js.Func_static_extension._isNumber(_self__);
+    public static function _isNumber(__self__:Func):Bool {
+        return stdgo._internal.syscall.js.Js.Func_static_extension._isNumber(__self__);
     }
-    public static function _float(_self__:Func, p:String):StdTypes.Float {
-        return stdgo._internal.syscall.js.Js.Func_static_extension._float(_self__, p);
+    public static function _float(__self__:Func, _p:String):StdTypes.Float {
+        return stdgo._internal.syscall.js.Js.Func_static_extension._float(__self__, _p);
     }
-    public static function type(_self__:Func):stdgo._internal.syscall.js.Js.Type_ {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.type(_self__);
+    public static function type(__self__:Func):stdgo._internal.syscall.js.Js.Type_ {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.type(__self__);
     }
-    public static function truthy(_self__:Func):Bool {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.truthy(_self__);
+    public static function truthy(__self__:Func):Bool {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.truthy(__self__);
     }
-    public static function string(_self__:Func):String {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.string(_self__);
+    public static function string(__self__:Func):String {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.string(__self__);
     }
-    public static function setIndex(_self__:Func, i:StdTypes.Int, x:stdgo.AnyInterface) {
-        stdgo._internal.syscall.js.Js.Func_static_extension.setIndex(_self__, i, x);
+    public static function setIndex(__self__:Func, _i:StdTypes.Int, _x:stdgo.AnyInterface) {
+        stdgo._internal.syscall.js.Js.Func_static_extension.setIndex(__self__, _i, _x);
     }
-    public static function set(_self__:Func, p:String, x:stdgo.AnyInterface) {
-        stdgo._internal.syscall.js.Js.Func_static_extension.set(_self__, p, x);
+    public static function set(__self__:Func, _p:String, _x:stdgo.AnyInterface) {
+        stdgo._internal.syscall.js.Js.Func_static_extension.set(__self__, _p, _x);
     }
-    public static function new_(_self__:Func, args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.new_(_self__, ...[for (i in args) i]);
+    public static function new_(__self__:Func, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.new_(__self__, ...[for (i in _args) i]);
     }
-    public static function length_(_self__:Func):StdTypes.Int {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.length_(_self__);
+    public static function length_(__self__:Func):StdTypes.Int {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.length_(__self__);
     }
-    public static function isUndefined(_self__:Func):Bool {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.isUndefined(_self__);
+    public static function isUndefined(__self__:Func):Bool {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.isUndefined(__self__);
     }
-    public static function isNull(_self__:Func):Bool {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.isNull(_self__);
+    public static function isNull(__self__:Func):Bool {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.isNull(__self__);
     }
-    public static function isNaN(_self__:Func):Bool {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.isNaN(_self__);
+    public static function isNaN(__self__:Func):Bool {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.isNaN(__self__);
     }
-    public static function invoke(_self__:Func, args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.invoke(_self__, ...[for (i in args) i]);
+    public static function invoke(__self__:Func, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.invoke(__self__, ...[for (i in _args) i]);
     }
-    public static function int_(_self__:Func):StdTypes.Int {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.int_(_self__);
+    public static function int_(__self__:Func):StdTypes.Int {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.int_(__self__);
     }
-    public static function instanceOf(_self__:Func, _0:stdgo._internal.syscall.js.Js.Value):Bool {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.instanceOf(_self__, _0);
+    public static function instanceOf(__self__:Func, __0:stdgo._internal.syscall.js.Js.Value):Bool {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.instanceOf(__self__, __0);
     }
-    public static function index(_self__:Func, i:StdTypes.Int):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.index(_self__, i);
+    public static function index(__self__:Func, _i:StdTypes.Int):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.index(__self__, _i);
     }
-    public static function get(_self__:Func, p:String):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.get(_self__, p);
+    public static function get(__self__:Func, _p:String):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.get(__self__, _p);
     }
-    public static function float_(_self__:Func):StdTypes.Float {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.float_(_self__);
+    public static function float_(__self__:Func):StdTypes.Float {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.float_(__self__);
     }
-    public static function equal(_self__:Func, _0:stdgo._internal.syscall.js.Js.Value):Bool {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.equal(_self__, _0);
+    public static function equal(__self__:Func, __0:stdgo._internal.syscall.js.Js.Value):Bool {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.equal(__self__, __0);
     }
-    public static function delete(_self__:Func, p:String) {
-        stdgo._internal.syscall.js.Js.Func_static_extension.delete(_self__, p);
+    public static function delete(__self__:Func, _p:String) {
+        stdgo._internal.syscall.js.Js.Func_static_extension.delete(__self__, _p);
     }
-    public static function call(_self__:Func, m:String, args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.call(_self__, m, ...[for (i in args) i]);
+    public static function call(__self__:Func, _m:String, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.call(__self__, _m, ...[for (i in _args) i]);
     }
-    public static function bool_(_self__:Func):Bool {
-        return stdgo._internal.syscall.js.Js.Func_static_extension.bool_(_self__);
+    public static function bool_(__self__:Func):Bool {
+        return stdgo._internal.syscall.js.Js.Func_static_extension.bool_(__self__);
     }
 }
 class Value_static_extension {
-    static public function instanceOf(v:Value, t:Value):Bool {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.instanceOf(v, t);
+    static public function instanceOf(_v:Value, _t:Value):Bool {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.instanceOf(_v, _t);
     }
-    static public function string(v:Value):String {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.string(v);
+    static public function string(_v:Value):String {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.string(_v);
     }
-    static public function truthy(v:Value):Bool {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.truthy(v);
+    static public function truthy(_v:Value):Bool {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.truthy(_v);
     }
-    static public function bool_(v:Value):Bool {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.bool_(v);
+    static public function bool_(_v:Value):Bool {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.bool_(_v);
     }
-    static public function int_(v:Value):StdTypes.Int {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.int_(v);
+    static public function int_(_v:Value):StdTypes.Int {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.int_(_v);
     }
-    static public function float_(v:Value):StdTypes.Float {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.float_(v);
+    static public function float_(_v:Value):StdTypes.Float {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.float_(_v);
     }
-    static public function _float(v:Value, method:String):StdTypes.Float {
-        return stdgo._internal.syscall.js.Js.Value_static_extension._float(v, method);
+    static public function _float(_v:Value, _method:String):StdTypes.Float {
+        return stdgo._internal.syscall.js.Js.Value_static_extension._float(_v, _method);
     }
-    static public function _isNumber(v:Value):Bool {
-        return stdgo._internal.syscall.js.Js.Value_static_extension._isNumber(v);
+    static public function _isNumber(_v:Value):Bool {
+        return stdgo._internal.syscall.js.Js.Value_static_extension._isNumber(_v);
     }
-    static public function new_(v:Value, args:haxe.Rest<stdgo.AnyInterface>):Value {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.new_(v, ...[for (i in args) i]);
+    static public function new_(_v:Value, _args:haxe.Rest<stdgo.AnyInterface>):Value {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.new_(_v, ...[for (i in _args) i]);
     }
-    static public function invoke(v:Value, args:haxe.Rest<stdgo.AnyInterface>):Value {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.invoke(v, ...[for (i in args) i]);
+    static public function invoke(_v:Value, _args:haxe.Rest<stdgo.AnyInterface>):Value {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.invoke(_v, ...[for (i in _args) i]);
     }
-    static public function call(v:Value, m:String, args:haxe.Rest<stdgo.AnyInterface>):Value {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.call(v, m, ...[for (i in args) i]);
+    static public function call(_v:Value, _m:String, _args:haxe.Rest<stdgo.AnyInterface>):Value {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.call(_v, _m, ...[for (i in _args) i]);
     }
-    static public function length_(v:Value):StdTypes.Int {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.length_(v);
+    static public function length_(_v:Value):StdTypes.Int {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.length_(_v);
     }
-    static public function setIndex(v:Value, i:StdTypes.Int, x:stdgo.AnyInterface):Void {
-        stdgo._internal.syscall.js.Js.Value_static_extension.setIndex(v, i, x);
+    static public function setIndex(_v:Value, _i:StdTypes.Int, _x:stdgo.AnyInterface):Void {
+        stdgo._internal.syscall.js.Js.Value_static_extension.setIndex(_v, _i, _x);
     }
-    static public function index(v:Value, i:StdTypes.Int):Value {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.index(v, i);
+    static public function index(_v:Value, _i:StdTypes.Int):Value {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.index(_v, _i);
     }
-    static public function delete(v:Value, p:String):Void {
-        stdgo._internal.syscall.js.Js.Value_static_extension.delete(v, p);
+    static public function delete(_v:Value, _p:String):Void {
+        stdgo._internal.syscall.js.Js.Value_static_extension.delete(_v, _p);
     }
-    static public function set(v:Value, p:String, x:stdgo.AnyInterface):Void {
-        stdgo._internal.syscall.js.Js.Value_static_extension.set(v, p, x);
+    static public function set(_v:Value, _p:String, _x:stdgo.AnyInterface):Void {
+        stdgo._internal.syscall.js.Js.Value_static_extension.set(_v, _p, _x);
     }
-    static public function get(v:Value, p:String):Value {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.get(v, p);
+    static public function get(_v:Value, _p:String):Value {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.get(_v, _p);
     }
-    static public function type(v:Value):Type_ {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.type(v);
+    static public function type(_v:Value):Type_ {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.type(_v);
     }
-    static public function isNaN(v:Value):Bool {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.isNaN(v);
+    static public function isNaN(_v:Value):Bool {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.isNaN(_v);
     }
-    static public function isNull(v:Value):Bool {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.isNull(v);
+    static public function isNull(_v:Value):Bool {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.isNull(_v);
     }
-    static public function isUndefined(v:Value):Bool {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.isUndefined(v);
+    static public function isUndefined(_v:Value):Bool {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.isUndefined(_v);
     }
-    static public function equal(v:Value, w:Value):Bool {
-        return stdgo._internal.syscall.js.Js.Value_static_extension.equal(v, w);
+    static public function equal(_v:Value, _w:Value):Bool {
+        return stdgo._internal.syscall.js.Js.Value_static_extension.equal(_v, _w);
     }
 }
 class Error_static_extension {
-    static public function error(e:Error):String {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.error(e);
+    static public function error(_e:Error):String {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.error(_e);
     }
-    public static function _isNumber(_self__:Error):Bool {
-        return stdgo._internal.syscall.js.Js.Error_static_extension._isNumber(_self__);
+    public static function _isNumber(__self__:Error):Bool {
+        return stdgo._internal.syscall.js.Js.Error_static_extension._isNumber(__self__);
     }
-    public static function _float(_self__:Error, p:String):StdTypes.Float {
-        return stdgo._internal.syscall.js.Js.Error_static_extension._float(_self__, p);
+    public static function _float(__self__:Error, _p:String):StdTypes.Float {
+        return stdgo._internal.syscall.js.Js.Error_static_extension._float(__self__, _p);
     }
-    public static function type(_self__:Error):stdgo._internal.syscall.js.Js.Type_ {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.type(_self__);
+    public static function type(__self__:Error):stdgo._internal.syscall.js.Js.Type_ {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.type(__self__);
     }
-    public static function truthy(_self__:Error):Bool {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.truthy(_self__);
+    public static function truthy(__self__:Error):Bool {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.truthy(__self__);
     }
-    public static function string(_self__:Error):String {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.string(_self__);
+    public static function string(__self__:Error):String {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.string(__self__);
     }
-    public static function setIndex(_self__:Error, i:StdTypes.Int, x:stdgo.AnyInterface) {
-        stdgo._internal.syscall.js.Js.Error_static_extension.setIndex(_self__, i, x);
+    public static function setIndex(__self__:Error, _i:StdTypes.Int, _x:stdgo.AnyInterface) {
+        stdgo._internal.syscall.js.Js.Error_static_extension.setIndex(__self__, _i, _x);
     }
-    public static function set(_self__:Error, p:String, x:stdgo.AnyInterface) {
-        stdgo._internal.syscall.js.Js.Error_static_extension.set(_self__, p, x);
+    public static function set(__self__:Error, _p:String, _x:stdgo.AnyInterface) {
+        stdgo._internal.syscall.js.Js.Error_static_extension.set(__self__, _p, _x);
     }
-    public static function new_(_self__:Error, args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.new_(_self__, ...[for (i in args) i]);
+    public static function new_(__self__:Error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.new_(__self__, ...[for (i in _args) i]);
     }
-    public static function length_(_self__:Error):StdTypes.Int {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.length_(_self__);
+    public static function length_(__self__:Error):StdTypes.Int {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.length_(__self__);
     }
-    public static function isUndefined(_self__:Error):Bool {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.isUndefined(_self__);
+    public static function isUndefined(__self__:Error):Bool {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.isUndefined(__self__);
     }
-    public static function isNull(_self__:Error):Bool {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.isNull(_self__);
+    public static function isNull(__self__:Error):Bool {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.isNull(__self__);
     }
-    public static function isNaN(_self__:Error):Bool {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.isNaN(_self__);
+    public static function isNaN(__self__:Error):Bool {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.isNaN(__self__);
     }
-    public static function invoke(_self__:Error, args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.invoke(_self__, ...[for (i in args) i]);
+    public static function invoke(__self__:Error, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.invoke(__self__, ...[for (i in _args) i]);
     }
-    public static function int_(_self__:Error):StdTypes.Int {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.int_(_self__);
+    public static function int_(__self__:Error):StdTypes.Int {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.int_(__self__);
     }
-    public static function instanceOf(_self__:Error, _0:stdgo._internal.syscall.js.Js.Value):Bool {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.instanceOf(_self__, _0);
+    public static function instanceOf(__self__:Error, __0:stdgo._internal.syscall.js.Js.Value):Bool {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.instanceOf(__self__, __0);
     }
-    public static function index(_self__:Error, i:StdTypes.Int):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.index(_self__, i);
+    public static function index(__self__:Error, _i:StdTypes.Int):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.index(__self__, _i);
     }
-    public static function get(_self__:Error, p:String):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.get(_self__, p);
+    public static function get(__self__:Error, _p:String):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.get(__self__, _p);
     }
-    public static function float_(_self__:Error):StdTypes.Float {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.float_(_self__);
+    public static function float_(__self__:Error):StdTypes.Float {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.float_(__self__);
     }
-    public static function equal(_self__:Error, _0:stdgo._internal.syscall.js.Js.Value):Bool {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.equal(_self__, _0);
+    public static function equal(__self__:Error, __0:stdgo._internal.syscall.js.Js.Value):Bool {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.equal(__self__, __0);
     }
-    public static function delete(_self__:Error, p:String) {
-        stdgo._internal.syscall.js.Js.Error_static_extension.delete(_self__, p);
+    public static function delete(__self__:Error, _p:String) {
+        stdgo._internal.syscall.js.Js.Error_static_extension.delete(__self__, _p);
     }
-    public static function call(_self__:Error, m:String, args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.call(_self__, m, ...[for (i in args) i]);
+    public static function call(__self__:Error, _m:String, _args:haxe.Rest<stdgo.AnyInterface>):stdgo._internal.syscall.js.Js.Value {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.call(__self__, _m, ...[for (i in _args) i]);
     }
-    public static function bool_(_self__:Error):Bool {
-        return stdgo._internal.syscall.js.Js.Error_static_extension.bool_(_self__);
+    public static function bool_(__self__:Error):Bool {
+        return stdgo._internal.syscall.js.Js.Error_static_extension.bool_(__self__);
     }
 }
 class ValueError_static_extension {
-    static public function error(e:ValueError):String {
-        return stdgo._internal.syscall.js.Js.ValueError_static_extension.error(e);
+    static public function error(_e:ValueError):String {
+        return stdgo._internal.syscall.js.Js.ValueError_static_extension.error(_e);
     }
 }
 class Type__static_extension {
-    static public function _isObject(t:Type_):Bool {
-        return stdgo._internal.syscall.js.Js.Type__static_extension._isObject(t);
+    static public function _isObject(_t:Type_):Bool {
+        return stdgo._internal.syscall.js.Js.Type__static_extension._isObject(_t);
     }
-    static public function string(t:Type_):String {
-        return stdgo._internal.syscall.js.Js.Type__static_extension.string(t);
+    static public function string(_t:Type_):String {
+        return stdgo._internal.syscall.js.Js.Type__static_extension.string(_t);
     }
 }
 /**
@@ -328,9 +328,9 @@ class Js {
         
         Func.Release must be called to free up resources when the function will not be invoked any more.
     **/
-    static public function funcOf(fn:(_this:Value, _args:stdgo.Slice<Value>) -> stdgo.AnyInterface):Func {
-        final fn = fn;
-        return stdgo._internal.syscall.js.Js.funcOf(fn);
+    static public function funcOf(_fn:(_this:Value, _args:stdgo.Slice<Value>) -> stdgo.AnyInterface):Func {
+        final _fn = _fn;
+        return stdgo._internal.syscall.js.Js.funcOf(_fn);
     }
     /**
         Undefined returns the JavaScript value "undefined".
@@ -366,25 +366,25 @@ class Js {
         
         Panics if x is not one of the expected types.
     **/
-    static public function valueOf(x:stdgo.AnyInterface):Value {
-        return stdgo._internal.syscall.js.Js.valueOf(x);
+    static public function valueOf(_x:stdgo.AnyInterface):Value {
+        return stdgo._internal.syscall.js.Js.valueOf(_x);
     }
     /**
         CopyBytesToGo copies bytes from src to dst.
         It panics if src is not a Uint8Array or Uint8ClampedArray.
         It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
     **/
-    static public function copyBytesToGo(dst:Array<StdTypes.Int>, src:Value):StdTypes.Int {
-        final dst = ([for (i in dst) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.syscall.js.Js.copyBytesToGo(dst, src);
+    static public function copyBytesToGo(_dst:Array<StdTypes.Int>, _src:Value):StdTypes.Int {
+        final _dst = ([for (i in _dst) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.syscall.js.Js.copyBytesToGo(_dst, _src);
     }
     /**
         CopyBytesToJS copies bytes from src to dst.
         It panics if dst is not a Uint8Array or Uint8ClampedArray.
         It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
     **/
-    static public function copyBytesToJS(dst:Value, src:Array<StdTypes.Int>):StdTypes.Int {
-        final src = ([for (i in src) i] : stdgo.Slice<stdgo.GoByte>);
-        return stdgo._internal.syscall.js.Js.copyBytesToJS(dst, src);
+    static public function copyBytesToJS(_dst:Value, _src:Array<StdTypes.Int>):StdTypes.Int {
+        final _src = ([for (i in _src) i] : stdgo.Slice<stdgo.GoByte>);
+        return stdgo._internal.syscall.js.Js.copyBytesToJS(_dst, _src);
     }
 }

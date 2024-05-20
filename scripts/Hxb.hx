@@ -65,15 +65,22 @@ func main() {
     }
 
     FileSystem.deleteFile("./hxb.go");
-
-    final commands:Array<String> = [];
-    // create
-    src.Util.hxmlToArgs(cwd + "/scripts/create_hxb.hxml", commands);
-    commands.push("--macro");
-    commands.push('\"stdgo._internal.internal.Macro.initHxb(\'$startingPath\')"');
-    commands.push("--hl");
-    commands.push("hxb.hl");
-    if (Sys.command("haxe " + commands.join(" ")) != 0) {
-        Sys.exit(1);
+    final targets = ["hl","js"];//,"jvm"];
+    for (target in targets) {
+        final commands:Array<String> = [];
+        // create
+        src.Util.hxmlToArgs(cwd + "/scripts/create_hxb.hxml", commands);
+        commands.push("--macro");
+        commands.push('\"stdgo._internal.internal.Macro.initHxb(\'$startingPath\')"');
+        commands.push('--no-output');
+        commands.push('--$target');
+        commands.push('hxb');
+        if (target == "js") {
+            commands.push("-lib");
+            commands.push("hxnodejs");
+        }
+        if (Sys.command("haxe " + commands.join(" ")) != 0) {
+            Sys.exit(1);
+        }
     }
 }

@@ -631,15 +631,19 @@ class GoAnyInterfaceMap<V> extends BalancedTree<Dynamic, V> {
 }
 
 
-private class IntMap<V> extends haxe.ds.IntMap<V> {
+private class IntMap<V> {
 	public var __defaultValue__:Void->Dynamic;
+	private var map:haxe.ds.IntMap<V>;
 
 	public function new() {
-		super();
+		map = new haxe.ds.IntMap<V>();
 	}
 
-	override function get(key:Int):V {
-		var v = super.get(key);
+	public function get(key:Int):V {
+		var v = map.get(key);
 		return v == null ? __defaultValue__() : v;
+	}
+	public function set(key:Int,value:V) {
+		map.set(key,value);
 	}
 }

@@ -64,6 +64,9 @@ abstract GoUIntptr(Dynamic) from Dynamic {
 	@:to inline function toFloat64():GoFloat64
 		return address();
 
+	@:op(-A) inline function neg():GoUIntptr
+		return this * -1;
+
 	@:op(A / B) private static function div(a:GoUIntptr, b:GoUIntptr):GoUIntptr {
 		return a.address().toBasic() / b.address().toBasic();
 	}

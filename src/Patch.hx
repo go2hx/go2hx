@@ -192,7 +192,13 @@ final list = [
 	},
 	"math:trunc" => macro return _x > 0 ? floor(_x) : ceil(_x),
 	"math:log" => macro return std.Math.log(_x.toBasic()),
-	"math:pow" => macro return std.Math.pow(_x.toBasic(), _y.toBasic()),
+	"math:pow" => macro {
+		@:define("js") {
+			if (_x == 1 && (std.Math.isNaN(_y.toBasic()) || !Math.isFinite(_y.toBasic())))
+				return 1;
+		};
+		return std.Math.pow(_x.toBasic(), _y.toBasic());
+	},
 	"math:mod" => macro return _x.toBasic() % _y.toBasic(),
 	"math:float64bits" => macro {
 		final bits = haxe.io.Bytes.alloc(8);
@@ -319,15 +325,15 @@ final list = [
 	},
 	"regexp:_notab" => macro null,
 	"os:stdin" => macro {
-		final input:haxe.io.Input = @:define("target.sys") Sys.stdin();
+		final input:haxe.io.Input = @:define("(target.sys || hxnodejs)") Sys.stdin();
 		new File(input, null);
 	},
 	"os:stdout" => macro {
-		final output:haxe.io.Output = @:define("target.sys") Sys.stdout();
+		final output:haxe.io.Output = @:define("(target.sys || hxnodejs)") Sys.stdout();
 		new File(null, output);
 	},
 	"os:stderr" => macro {
-		final output:haxe.io.Output = @:define("target.sys") Sys.stderr();
+		final output:haxe.io.Output = @:define("(target.sys || hxnodejs)") Sys.stderr();
 		new File(null, output);
 	},
 	"os.File:writeString" => macro return _f.write(_s),

@@ -463,7 +463,7 @@ function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 }
 
 function removeUnderline(name:String):String {
-	if (name.charAt(0) == "_") {
+	if (name.charAt(0) == "_" && name.charCodeAt(1) < '0'.code && name.charCodeAt(1) > '9'.code ) {
 		name = name.substring(1);
 		if (Typer.reserved.indexOf(name) != -1)
 			name = "_" + name;

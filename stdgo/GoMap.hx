@@ -646,4 +646,16 @@ private class IntMap<V> {
 	public function set(key:Int,value:V) {
 		map.set(key,value);
 	}
+	public function copy() {
+		return map.copy();
+	}
+
+	public function iterator() {
+		return map.iterator();
+	}
+
+	public function keyValueIterator() {
+		return map.keyValueIterator();
+	}
+
 }

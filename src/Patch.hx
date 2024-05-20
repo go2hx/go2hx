@@ -16,23 +16,29 @@ final list = [
 		return slice;
 	},
 	"os:readFile" => macro {
-		if (!sys.FileSystem.exists(_name))
-			return {_0: null, _1: stdgo._internal.errors.Errors.new_("readFile " + _name + ": no such file or directory")};
-		try {
-			return {_0: sys.io.File.getBytes(_name), _1: null};
-		} catch (e) {
-			return {_0: null, _1: stdgo._internal.errors.Errors.new_(e.details())};
-		}
+		return @:define("target.sys") {
+			if (!sys.FileSystem.exists(_name)) {
+				return {_0: null, _1: stdgo._internal.errors.Errors.new_("readFile " + _name + ": no such file or directory")};
+			}else{
+				try {
+					return {_0: sys.io.File.getBytes(_name), _1: null};
+				} catch (e) {
+					{_0: null, _1: stdgo._internal.errors.Errors.new_(e.details())};
+				}
+			}
+		};
 	},
 	"os:openFile" => macro {
-		if (!sys.FileSystem.exists(_name)) {
-			sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
-		}
-		try {
-			return {_0: {_file: {_name: _name}, _input: sys.io.File.read(_name), _output: sys.io.File.write(_name)}, _1: null};
-		} catch (e) {
-			return {_0: null, _1: stdgo._internal.errors.Errors.new_(e.details())};
-		}
+		return @:define("target.sys") {
+			if (!sys.FileSystem.exists(_name)) {
+				sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
+			}
+			try {
+				{_0: {_file: {_name: _name}, _input: sys.io.File.read(_name), _output: sys.io.File.write(_name)}, _1: null};
+			} catch (e) {
+				{_0: null, _1: stdgo._internal.errors.Errors.new_(e.details())};
+			}
+		};
 	},
 	"os:truncate" => macro {
 		trace("os.truncate not implemented");
@@ -47,10 +53,12 @@ final list = [
 		return {_0: i, _1: null};
 	},
 	"os.File:truncate" => macro {
-		@:privateAccess _f._output.close();
-		final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
-		sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0,(_size : stdgo.GoInt).toBasic()));
-		@:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
+		@:define("target.sys") {
+			@:privateAccess _f._output.close();
+			final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
+			sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0,(_size : stdgo.GoInt).toBasic()));
+			@:privateAccess _f._output = sys.io.File.write(@:privateAccess _f._file._name);
+		}
 		return null;
 	},
 	"sync.atomic_.Value.load" => macro {
@@ -70,7 +78,7 @@ final list = [
 	},
 	"os:_runtime_args" => macro {
 		@:define("js") return new stdgo.Slice<stdgo.GoString>(0, 0).__setString__();
-		@:define("sys") {
+		@:define("target.sys") {
 			final args:Array<stdgo.GoString> = Sys.args().map(arg -> (arg : stdgo.GoString));
 			args.unshift(Sys.getCwd());
 			return new stdgo.Slice<stdgo.GoString>(args.length, args.length, ...args).__setString__();
@@ -310,9 +318,18 @@ final list = [
 		return {_0: null, _1: null};
 	},
 	"regexp:_notab" => macro null,
-	"os:stdin" => macro new File(Sys.stdin(), null),
-	"os:stdout" => macro new File(null, Sys.stdout()),
-	"os:stderr" => macro new File(null, Sys.stderr()),
+	"os:stdin" => macro {
+		final input:haxe.io.Input = @:define("target.sys") Sys.stdin();
+		new File(input, null);
+	},
+	"os:stdout" => macro {
+		final output:haxe.io.Output = @:define("target.sys") Sys.stdout();
+		new File(null, output);
+	},
+	"os:stderr" => macro {
+		final output:haxe.io.Output = @:define("target.sys") Sys.stderr();
+		new File(null, output);
+	},
 	"os.File:writeString" => macro return _f.write(_s),
 	"os:_fastrand" => macro return Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),
 	"math.rand:_fastrand64" => macro return haxe.Int64.make(Std.random(1) > 0 ? -Std.random(2147483647) - 1 : Std.random(2147483647),
@@ -347,6 +364,13 @@ final list = [
 	},
 	"reflect:valueOf" => macro {
 		return new Value(_i);
+	},
+	"reflect:indirect" => macro {
+		if (_v.kind() != pointer) {
+			return _v;
+		}else{
+			return _v.elem();
+		}
 	},
 	"reflect:makeSlice" => macro {
 		// (_typ:Type, _len:GoInt, _cap:GoInt)

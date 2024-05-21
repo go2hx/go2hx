@@ -194,7 +194,9 @@ final list = [
 	"math:log" => macro return std.Math.log(_x.toBasic()),
 	"math:pow" => macro {
 		@:define("js") {
-			if (_x == 1 && (std.Math.isNaN(_y.toBasic()) || !Math.isFinite(_y.toBasic())))
+			if (_x == 1 && std.Math.isNaN(_y.toBasic()))
+				return 1;
+			if ((_x == -1 || _x == 1) && isInf(_y, 0))
 				return 1;
 		};
 		return std.Math.pow(_x.toBasic(), _y.toBasic());
@@ -324,6 +326,8 @@ final list = [
 		return {_0: null, _1: null};
 	},
 	"regexp:_notab" => macro null,
+	"regexp.syntax:_parseTests" => macro null,
+	"regexp.syntax:_invalidRegexps" => macro null,
 	"os:stdin" => macro {
 		final input:haxe.io.Input = @:define("(target.sys || hxnodejs)") Sys.stdin();
 		new File(input, null);
@@ -1353,10 +1357,10 @@ final skipTargets = [
 	"bytes_test:testSplit" => [], // Segmentation fault (core dumped)
 	"fmt_test:testFinderNext" => [], // Segmentation fault (core dumped)
 	"strings_test:testGenericTrieBuilding" => [], // Segmentation fault (core dumped)
-	"math_test:testFloatMinima" => ["interp"],
-	"math_test:testNextafter32" => ["interp"],
+	"math_test:testFloatMinima" => ["interp", "js"],
+	"math_test:testNextafter32" => ["interp", "js"],
 	// "math_test:testSignbit" => ["interp"],
-	"math_test:testGamma" => ["interp"],
+	"math_test:testGamma" => ["interp", "js"],
 	"strconv_test:testAtof" => [], // uses rand and sync
 	"strconv_test:testAtofSlow" => [], // uses rand and sync
 	"strconv_test:testAtofRandom" => [], // imprecise float

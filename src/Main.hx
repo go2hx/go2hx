@@ -54,7 +54,7 @@ function run(args:Array<String>) {
 	}
 	final instance = compileArgs(args);
 	Sys.println("Golang compiler instance");
-	setup(0, processCount, () -> {
+	setup(instance.port, processCount, () -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
 				close();
@@ -145,6 +145,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-v", "--v"] => () -> instance.defines.push("verboseTest"),
 		@doc("Remove all depedency on go2hx for the compiled code by moving the stdlib into the output")
 		["-nodeps", "--nodeps", "-nodep", "--nodep"] => () -> instance.noDeps = true,
+		["-port", "--port"] => port -> instance.port = port,
 	]);
 	argHandler.parse(args);
 	for (i in 0...args.length) {
@@ -381,8 +382,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 }
 
 private function createBasePkgs(outputPath:String, modules:Array<Typer.Module>, cwd:String) {
-	/*if (FileSystem.exists(outputPath + "/stdgo/_internal/unicode") && FileSystem.exists(outputPath + "/stdgo/Go.hx"))
-		return;*/
 	if (!FileSystem.exists(outputPath + "/stdgo"))
 		FileSystem.createDirectory(outputPath + "/stdgo");
 	for (file in FileSystem.readDirectory(cwd + "/stdgo")) {
@@ -694,6 +693,7 @@ class InstanceData {
 	public var printGoCode = false;
 	public var localPath = "";
 	public var target = "";
+	public var port:Int = 0;
 	public var targetOutput = "";
 	public var libwrap = false;
 	public var outputPath:String = "";

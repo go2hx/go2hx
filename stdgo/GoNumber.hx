@@ -182,7 +182,7 @@ function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
 function clampUInt(x:Int):UInt32
-	return x & 0xFFFFFF;
+	return x & 0xFFFFFFFF;
 
 
 function shiftGuard(x:Int):Bool

@@ -3,7 +3,7 @@ package stdgo;
 import stdgo.GoNumber;
 
 @:notNull
-abstract GoInt32(Int) from Int32 to Int32 to Int {
+abstract GoInt32(Int32) from Int32 to Int32 to Int {
 	public inline function new(x:Int32 = 0)
 		this = x;
 

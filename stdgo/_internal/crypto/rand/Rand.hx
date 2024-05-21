@@ -1,10 +1,10 @@
 package stdgo._internal.crypto.rand;
 private var __go2hxdoc__package : Bool;
-var reader : stdgo._internal.io.Io.Reader = (() -> (null : stdgo._internal.io.Io.Reader))();
-final _maxGetRandomRead : stdgo.GoUInt64 = (() -> (65536i64 : stdgo.GoUInt64))();
-var _batchedGetRandom : stdgo.Slice<stdgo.GoByte> -> stdgo.Error = (() -> null)();
-var _jsCrypto : stdgo._internal.syscall.js.Js.Value = (() -> stdgo._internal.syscall.js.Js.global().get(("crypto" : stdgo.GoString)))();
-var _uint8Array : stdgo._internal.syscall.js.Js.Value = (() -> stdgo._internal.syscall.js.Js.global().get(("Uint8Array" : stdgo.GoString)))();
+var reader : stdgo._internal.io.Io.Reader = (null : stdgo._internal.io.Io.Reader);
+final _maxGetRandomRead : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
+var _batchedGetRandom : stdgo.Slice<stdgo.GoByte> -> stdgo.Error = null;
+var _jsCrypto : stdgo._internal.syscall.js.Js.Value = stdgo._internal.syscall.js.Js.global().get(("crypto" : stdgo.GoString));
+var _uint8Array : stdgo._internal.syscall.js.Js.Value = stdgo._internal.syscall.js.Js.global().get(("Uint8Array" : stdgo.GoString));
 @:structInit @:private @:using(stdgo._internal.crypto.rand.Rand.T_reader_static_extension) class T_reader {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);

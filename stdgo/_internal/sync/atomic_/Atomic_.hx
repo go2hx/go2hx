@@ -1,7 +1,7 @@
 package stdgo._internal.sync.atomic_;
 private var __go2hxdoc__package : Bool;
-var _firstStoreInProgress : stdgo.GoByte = (() -> (0 : stdgo.GoUInt8))();
-var __24 : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoInt>> = (() -> (null : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoInt>>))();
+var _firstStoreInProgress : stdgo.GoByte = (0 : stdgo.GoUInt8);
+var __24 : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoInt>> = (null : stdgo.Ref<stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoInt>>);
 @:structInit @:using(stdgo._internal.sync.atomic_.Atomic_.Bool__static_extension) class Bool_ {
     @:optional
     public var __2 : stdgo._internal.sync.atomic_.Atomic_.T_noCopy = ({} : stdgo._internal.sync.atomic_.Atomic_.T_noCopy);

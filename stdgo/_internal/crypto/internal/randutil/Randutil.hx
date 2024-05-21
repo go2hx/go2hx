@@ -1,7 +1,7 @@
 package stdgo._internal.crypto.internal.randutil;
 private var __go2hxdoc__package : Bool;
-var _closedChanOnce : stdgo._internal.sync.Sync.Once = (() -> ({} : stdgo._internal.sync.Sync.Once))();
-var _closedChan : stdgo.Chan<T__struct_0> = (() -> (null : stdgo.Chan<T__struct_0>))();
+var _closedChanOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
+var _closedChan : stdgo.Chan<T__struct_0> = (null : stdgo.Chan<T__struct_0>);
 class T__struct_0_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

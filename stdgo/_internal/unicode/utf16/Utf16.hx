@@ -1,13 +1,13 @@
 package stdgo._internal.unicode.utf16;
 private var __go2hxdoc__package : Bool;
-final maxRune : stdgo.GoInt32 = (() -> (1114111 : stdgo.GoInt32))();
-final replacementChar : stdgo.GoInt32 = (() -> (65533 : stdgo.GoInt32))();
-final _replacementChar : stdgo.GoInt32 = (() -> (65533 : stdgo.GoInt32))();
-final _maxRune : stdgo.GoInt32 = (() -> (1114111 : stdgo.GoInt32))();
-final _surr1 : stdgo.GoUInt64 = (() -> (55296i64 : stdgo.GoUInt64))();
-final _surr2 : stdgo.GoUInt64 = (() -> (56320i64 : stdgo.GoUInt64))();
-final _surr3 : stdgo.GoUInt64 = (() -> (57344i64 : stdgo.GoUInt64))();
-final _surrSelf : stdgo.GoUInt64 = (() -> (65536i64 : stdgo.GoUInt64))();
+final maxRune : stdgo.GoInt32 = (1114111 : stdgo.GoInt32);
+final replacementChar : stdgo.GoInt32 = (65533 : stdgo.GoInt32);
+final _replacementChar : stdgo.GoInt32 = (65533 : stdgo.GoInt32);
+final _maxRune : stdgo.GoInt32 = (1114111 : stdgo.GoInt32);
+final _surr1 : stdgo.GoUInt64 = (55296i64 : stdgo.GoUInt64);
+final _surr2 : stdgo.GoUInt64 = (56320i64 : stdgo.GoUInt64);
+final _surr3 : stdgo.GoUInt64 = (57344i64 : stdgo.GoUInt64);
+final _surrSelf : stdgo.GoUInt64 = (65536i64 : stdgo.GoUInt64);
 function isSurrogate(_r:stdgo.GoRune):Bool {
     return (((55296 : stdgo.GoInt32) <= _r : Bool) && (_r < (57344 : stdgo.GoInt32) : Bool) : Bool);
 }

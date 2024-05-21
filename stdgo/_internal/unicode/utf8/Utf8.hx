@@ -1,36 +1,36 @@
 package stdgo._internal.unicode.utf8;
 private var __go2hxdoc__package : Bool;
-final runeError : stdgo.GoInt32 = (() -> (65533 : stdgo.GoInt32))();
-final runeSelf : stdgo.GoUInt64 = (() -> (128i64 : stdgo.GoUInt64))();
-final maxRune : stdgo.GoInt32 = (() -> (1114111 : stdgo.GoInt32))();
-final utfmax : stdgo.GoUInt64 = (() -> (4i64 : stdgo.GoUInt64))();
-final _surrogateMin : stdgo.GoUInt64 = (() -> (55296i64 : stdgo.GoUInt64))();
-final _surrogateMax : stdgo.GoUInt64 = (() -> (57343i64 : stdgo.GoUInt64))();
-final _t1 : stdgo.GoUInt64 = (() -> (0i64 : stdgo.GoUInt64))();
-final _tx : stdgo.GoUInt64 = (() -> (128i64 : stdgo.GoUInt64))();
-final _t2 : stdgo.GoUInt64 = (() -> (192i64 : stdgo.GoUInt64))();
-final _t3 : stdgo.GoUInt64 = (() -> (224i64 : stdgo.GoUInt64))();
-final _t4 : stdgo.GoUInt64 = (() -> (240i64 : stdgo.GoUInt64))();
-final _t5 : stdgo.GoUInt64 = (() -> (248i64 : stdgo.GoUInt64))();
-final _maskx : stdgo.GoUInt64 = (() -> (63i64 : stdgo.GoUInt64))();
-final _mask2 : stdgo.GoUInt64 = (() -> (31i64 : stdgo.GoUInt64))();
-final _mask3 : stdgo.GoUInt64 = (() -> (15i64 : stdgo.GoUInt64))();
-final _mask4 : stdgo.GoUInt64 = (() -> (7i64 : stdgo.GoUInt64))();
-final _rune1Max : stdgo.GoUInt64 = (() -> (127i64 : stdgo.GoUInt64))();
-final _rune2Max : stdgo.GoUInt64 = (() -> (2047i64 : stdgo.GoUInt64))();
-final _rune3Max : stdgo.GoUInt64 = (() -> (65535i64 : stdgo.GoUInt64))();
-final _locb : stdgo.GoUInt64 = (() -> (128i64 : stdgo.GoUInt64))();
-final _hicb : stdgo.GoUInt64 = (() -> (191i64 : stdgo.GoUInt64))();
-final _xx : stdgo.GoUInt64 = (() -> (241i64 : stdgo.GoUInt64))();
-final _as : stdgo.GoUInt64 = (() -> (240i64 : stdgo.GoUInt64))();
-final _s1 : stdgo.GoUInt64 = (() -> (2i64 : stdgo.GoUInt64))();
-final _s2 : stdgo.GoUInt64 = (() -> (19i64 : stdgo.GoUInt64))();
-final _s3 : stdgo.GoUInt64 = (() -> (3i64 : stdgo.GoUInt64))();
-final _s4 : stdgo.GoUInt64 = (() -> (35i64 : stdgo.GoUInt64))();
-final _s5 : stdgo.GoUInt64 = (() -> (52i64 : stdgo.GoUInt64))();
-final _s6 : stdgo.GoUInt64 = (() -> (4i64 : stdgo.GoUInt64))();
-final _s7 : stdgo.GoUInt64 = (() -> (68i64 : stdgo.GoUInt64))();
-var _first : stdgo.GoArray<stdgo.GoUInt8> = (() -> (new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[
+final runeError : stdgo.GoInt32 = (65533 : stdgo.GoInt32);
+final runeSelf : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
+final maxRune : stdgo.GoInt32 = (1114111 : stdgo.GoInt32);
+final utfmax : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
+final _surrogateMin : stdgo.GoUInt64 = (55296i64 : stdgo.GoUInt64);
+final _surrogateMax : stdgo.GoUInt64 = (57343i64 : stdgo.GoUInt64);
+final _t1 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final _tx : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
+final _t2 : stdgo.GoUInt64 = (192i64 : stdgo.GoUInt64);
+final _t3 : stdgo.GoUInt64 = (224i64 : stdgo.GoUInt64);
+final _t4 : stdgo.GoUInt64 = (240i64 : stdgo.GoUInt64);
+final _t5 : stdgo.GoUInt64 = (248i64 : stdgo.GoUInt64);
+final _maskx : stdgo.GoUInt64 = (63i64 : stdgo.GoUInt64);
+final _mask2 : stdgo.GoUInt64 = (31i64 : stdgo.GoUInt64);
+final _mask3 : stdgo.GoUInt64 = (15i64 : stdgo.GoUInt64);
+final _mask4 : stdgo.GoUInt64 = (7i64 : stdgo.GoUInt64);
+final _rune1Max : stdgo.GoUInt64 = (127i64 : stdgo.GoUInt64);
+final _rune2Max : stdgo.GoUInt64 = (2047i64 : stdgo.GoUInt64);
+final _rune3Max : stdgo.GoUInt64 = (65535i64 : stdgo.GoUInt64);
+final _locb : stdgo.GoUInt64 = (128i64 : stdgo.GoUInt64);
+final _hicb : stdgo.GoUInt64 = (191i64 : stdgo.GoUInt64);
+final _xx : stdgo.GoUInt64 = (241i64 : stdgo.GoUInt64);
+final _as : stdgo.GoUInt64 = (240i64 : stdgo.GoUInt64);
+final _s1 : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
+final _s2 : stdgo.GoUInt64 = (19i64 : stdgo.GoUInt64);
+final _s3 : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
+final _s4 : stdgo.GoUInt64 = (35i64 : stdgo.GoUInt64);
+final _s5 : stdgo.GoUInt64 = (52i64 : stdgo.GoUInt64);
+final _s6 : stdgo.GoUInt64 = (4i64 : stdgo.GoUInt64);
+final _s7 : stdgo.GoUInt64 = (68i64 : stdgo.GoUInt64);
+var _first : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[
 (240 : stdgo.GoUInt8),
 (240 : stdgo.GoUInt8),
 (240 : stdgo.GoUInt8),
@@ -286,8 +286,8 @@ var _first : stdgo.GoArray<stdgo.GoUInt8> = (() -> (new stdgo.GoArray<stdgo.GoUI
 (241 : stdgo.GoUInt8),
 (241 : stdgo.GoUInt8),
 (241 : stdgo.GoUInt8),
-(241 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>))();
-var _acceptRanges : stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange> = (() -> {
+(241 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>);
+var _acceptRanges : stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange> = {
         var s:stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange> = new stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRange>(16, 16, ...[for (i in 0 ... 16) ({} : stdgo._internal.unicode.utf8.Utf8.T_acceptRange)]);
         s[0] = (new stdgo._internal.unicode.utf8.Utf8.T_acceptRange((128 : stdgo.GoUInt8), (191 : stdgo.GoUInt8)) : stdgo._internal.unicode.utf8.Utf8.T_acceptRange);
         s[1] = (new stdgo._internal.unicode.utf8.Utf8.T_acceptRange((160 : stdgo.GoUInt8), (191 : stdgo.GoUInt8)) : stdgo._internal.unicode.utf8.Utf8.T_acceptRange);
@@ -295,7 +295,7 @@ var _acceptRanges : stdgo.GoArray<stdgo._internal.unicode.utf8.Utf8.T_acceptRang
         s[3] = (new stdgo._internal.unicode.utf8.Utf8.T_acceptRange((144 : stdgo.GoUInt8), (191 : stdgo.GoUInt8)) : stdgo._internal.unicode.utf8.Utf8.T_acceptRange);
         s[4] = (new stdgo._internal.unicode.utf8.Utf8.T_acceptRange((128 : stdgo.GoUInt8), (143 : stdgo.GoUInt8)) : stdgo._internal.unicode.utf8.Utf8.T_acceptRange);
         s;
-    })();
+    };
 @:structInit @:private class T_acceptRange {
     public var _lo : stdgo.GoUInt8 = 0;
     public var _hi : stdgo.GoUInt8 = 0;

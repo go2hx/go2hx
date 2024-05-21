@@ -1,18 +1,18 @@
 package stdgo._internal.bytes;
 private var __go2hxdoc__package : Bool;
-final _smallBufferSize : stdgo.GoUInt64 = (() -> (64i64 : stdgo.GoUInt64))();
-final _opRead : stdgo._internal.bytes.Bytes.T_readOp = (() -> (-1 : stdgo._internal.bytes.Bytes.T_readOp))();
-final _opInvalid : stdgo._internal.bytes.Bytes.T_readOp = (() -> (0 : stdgo._internal.bytes.Bytes.T_readOp))();
-final _opReadRune1 : stdgo._internal.bytes.Bytes.T_readOp = (() -> (1 : stdgo._internal.bytes.Bytes.T_readOp))();
-final _opReadRune2 : stdgo._internal.bytes.Bytes.T_readOp = (() -> (2 : stdgo._internal.bytes.Bytes.T_readOp))();
-final _opReadRune3 : stdgo._internal.bytes.Bytes.T_readOp = (() -> (3 : stdgo._internal.bytes.Bytes.T_readOp))();
-final _opReadRune4 : stdgo._internal.bytes.Bytes.T_readOp = (() -> (4 : stdgo._internal.bytes.Bytes.T_readOp))();
-final _maxInt : stdgo.GoInt = (() -> ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt))();
-final minRead : stdgo.GoUInt64 = (() -> (512i64 : stdgo.GoUInt64))();
-var errTooLarge : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("bytes.Buffer: too large" : stdgo.GoString)))();
-var _errNegativeRead : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("bytes.Buffer: reader returned negative count from Read" : stdgo.GoString)))();
-var _errUnreadByte : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("bytes.Buffer: UnreadByte: previous operation was not a successful read" : stdgo.GoString)))();
-var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = (() -> {
+final _smallBufferSize : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+final _opRead : stdgo._internal.bytes.Bytes.T_readOp = (-1 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opInvalid : stdgo._internal.bytes.Bytes.T_readOp = (0 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opReadRune1 : stdgo._internal.bytes.Bytes.T_readOp = (1 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opReadRune2 : stdgo._internal.bytes.Bytes.T_readOp = (2 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opReadRune3 : stdgo._internal.bytes.Bytes.T_readOp = (3 : stdgo._internal.bytes.Bytes.T_readOp);
+final _opReadRune4 : stdgo._internal.bytes.Bytes.T_readOp = (4 : stdgo._internal.bytes.Bytes.T_readOp);
+final _maxInt : stdgo.GoInt = ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt);
+final minRead : stdgo.GoUInt64 = (512i64 : stdgo.GoUInt64);
+var errTooLarge : stdgo.Error = stdgo._internal.errors.Errors.new_(("bytes.Buffer: too large" : stdgo.GoString));
+var _errNegativeRead : stdgo.Error = stdgo._internal.errors.Errors.new_(("bytes.Buffer: reader returned negative count from Read" : stdgo.GoString));
+var _errUnreadByte : stdgo.Error = stdgo._internal.errors.Errors.new_(("bytes.Buffer: UnreadByte: previous operation was not a successful read" : stdgo.GoString));
+var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
         var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[for (i in 0 ... 256) 0]);
         s[9] = (1 : stdgo.GoUInt8);
         s[10] = (1 : stdgo.GoUInt8);
@@ -21,8 +21,8 @@ var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = (() -> {
         s[13] = (1 : stdgo.GoUInt8);
         s[32] = (1 : stdgo.GoUInt8);
         s;
-    })();
-var indexBytePortable : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt = (() -> _indexBytePortable)();
+    };
+var indexBytePortable : (stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUInt8) -> stdgo.GoInt = _indexBytePortable;
 @:structInit @:using(stdgo._internal.bytes.Bytes.Buffer_static_extension) class Buffer {
     public var _buf : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _off : stdgo.GoInt = 0;

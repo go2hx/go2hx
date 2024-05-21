@@ -1,11 +1,11 @@
 package stdgo._internal.encoding.json_test;
 import stdgo._internal.encoding.json.Json;
-final unknown : stdgo._internal.encoding.json_test.Json_test.Animal = (() -> (2 : stdgo._internal.encoding.json_test.Json_test.Animal))();
-final gopher = (() -> (2 : stdgo._internal.encoding.json_test.Json_test.Animal))();
-final zebra = (() -> (2 : stdgo._internal.encoding.json_test.Json_test.Animal))();
-final unrecognized : stdgo._internal.encoding.json_test.Json_test.Size = (() -> (2 : stdgo._internal.encoding.json_test.Json_test.Size))();
-final small = (() -> (2 : stdgo._internal.encoding.json_test.Json_test.Size))();
-final large = (() -> (2 : stdgo._internal.encoding.json_test.Json_test.Size))();
+final unknown : stdgo._internal.encoding.json_test.Json_test.Animal = (2 : stdgo._internal.encoding.json_test.Json_test.Animal);
+final gopher = (2 : stdgo._internal.encoding.json_test.Json_test.Animal);
+final zebra = (2 : stdgo._internal.encoding.json_test.Json_test.Animal);
+final unrecognized : stdgo._internal.encoding.json_test.Json_test.Size = (2 : stdgo._internal.encoding.json_test.Json_test.Size);
+final small = (2 : stdgo._internal.encoding.json_test.Json_test.Size);
+final large = (2 : stdgo._internal.encoding.json_test.Json_test.Size);
 class T__struct_47_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

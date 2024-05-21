@@ -1,6 +1,6 @@
 package stdgo._internal.internal.race;
 private var __go2hxdoc__package : Bool;
-final enabled : Bool = (() -> false)();
+final enabled : Bool = false;
 function acquire(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void throw ":internal.race.acquire is not yet implemented";
 function release(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void throw ":internal.race.release is not yet implemented";
 function releaseMerge(_addr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void throw ":internal.race.releaseMerge is not yet implemented";

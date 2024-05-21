@@ -1,9 +1,9 @@
 package stdgo._internal.internal.fmtsort_test;
 import stdgo._internal.internal.fmtsort.Fmtsort;
-var _iFace : stdgo.AnyInterface = (() -> (null : stdgo.AnyInterface))();
-var _ints : stdgo.GoArray<stdgo.GoInt> = (() -> new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt)]))();
-var _chans : stdgo.Slice<stdgo.Chan<stdgo.GoInt>> = (() -> _makeChans())();
-var _compareTests : stdgo.Slice<stdgo.Slice<stdgo._internal.reflect.Reflect.Value>> = (() -> (new stdgo.Slice<stdgo.Slice<stdgo._internal.reflect.Reflect.Value>>(23, 23, ...[
+var _iFace : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+var _ints : stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt)]);
+var _chans : stdgo.Slice<stdgo.Chan<stdgo.GoInt>> = _makeChans();
+var _compareTests : stdgo.Slice<stdgo.Slice<stdgo._internal.reflect.Reflect.Value>> = (new stdgo.Slice<stdgo.Slice<stdgo._internal.reflect.Reflect.Value>>(23, 23, ...[
 _ct(stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface((0 : stdgo.GoInt))), stdgo.Go.toInterface((-1 : stdgo.GoInt)), stdgo.Go.toInterface((0 : stdgo.GoInt)), stdgo.Go.toInterface((1 : stdgo.GoInt))),
 _ct(stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface((0 : stdgo.GoInt8))), stdgo.Go.toInterface((-1 : stdgo.GoInt)), stdgo.Go.toInterface((0 : stdgo.GoInt)), stdgo.Go.toInterface((1 : stdgo.GoInt))),
 _ct(stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface((0 : stdgo.GoInt16))), stdgo.Go.toInterface((-1 : stdgo.GoInt)), stdgo.Go.toInterface((0 : stdgo.GoInt)), stdgo.Go.toInterface((1 : stdgo.GoInt))),
@@ -26,8 +26,8 @@ _ct(stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface((stdgo.Go.toInte
 _ct(stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(_chans[(0 : stdgo.GoInt)])), stdgo.Go.toInterface(_chans[(0 : stdgo.GoInt)]), stdgo.Go.toInterface(_chans[(1 : stdgo.GoInt)]), stdgo.Go.toInterface(_chans[(2 : stdgo.GoInt)])),
 _ct(stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface((new stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy() : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy))), stdgo.Go.toInterface((new stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy((0 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy)), stdgo.Go.toInterface((new stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy((0 : stdgo.GoInt), (2 : stdgo.GoInt)) : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy)), stdgo.Go.toInterface((new stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy((1 : stdgo.GoInt), (-1 : stdgo.GoInt)) : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy)), stdgo.Go.toInterface((new stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy((1 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_toy))),
 _ct(stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>))), stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[(1 : stdgo.GoInt), (1 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)), stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)), stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[(2 : stdgo.GoInt), (0 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>))),
-_ct(stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.toInterface((0 : stdgo.GoInt)))), _iFace, stdgo.Go.toInterface((1 : stdgo.GoInt)), stdgo.Go.toInterface((2 : stdgo.GoInt)), stdgo.Go.toInterface((3 : stdgo.GoInt)))]) : stdgo.Slice<stdgo.Slice<stdgo._internal.reflect.Reflect.Value>>))();
-var _sortTests : stdgo.Slice<stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest> = (() -> (new stdgo.Slice<stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest>(11, 11, ...[
+_ct(stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.toInterface((0 : stdgo.GoInt)))), _iFace, stdgo.Go.toInterface((1 : stdgo.GoInt)), stdgo.Go.toInterface((2 : stdgo.GoInt)), stdgo.Go.toInterface((3 : stdgo.GoInt)))]) : stdgo.Slice<stdgo.Slice<stdgo._internal.reflect.Reflect.Value>>);
+var _sortTests : stdgo.Slice<stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest> = (new stdgo.Slice<stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest>(11, 11, ...[
 (new stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest(stdgo.Go.toInterface(({
         final x = new stdgo.GoMap.GoIntMap<stdgo.GoString>();
         x.__defaultValue__ = () -> ("" : stdgo.GoString);
@@ -111,7 +111,7 @@ var _sortTests : stdgo.Slice<stdgo._internal.internal.fmtsort_test.Fmtsort_test.
             x.set((new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[(3 : stdgo.GoInt), (4 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>), ("34" : stdgo.GoString));
         };
         cast x;
-    } : stdgo.GoMap<stdgo.GoArray<stdgo.GoInt>, stdgo.GoString>)), ("[3 4]:34 [7 1]:71 [7 2]:72" : stdgo.GoString)) : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest)].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest)])) : stdgo.Slice<stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest>))();
+    } : stdgo.GoMap<stdgo.GoArray<stdgo.GoInt>, stdgo.GoString>)), ("[3 4]:34 [7 1]:71 [7 2]:72" : stdgo.GoString)) : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest)].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest)])) : stdgo.Slice<stdgo._internal.internal.fmtsort_test.Fmtsort_test.T_sortTest>);
 @:structInit @:private class T_sortTest {
     public var _data : stdgo.AnyInterface = (null : stdgo.AnyInterface);
     public var _print : stdgo.GoString = "";

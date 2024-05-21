@@ -1,9 +1,9 @@
 package stdgo._internal.testing.internal.testdeps;
 private var __go2hxdoc__package : Bool;
-var _matchPat : stdgo.GoString = (() -> ("" : stdgo.GoString))();
-var _matchRe : stdgo.Ref<stdgo._internal.regexp.Regexp.Regexp> = (() -> (null : stdgo.Ref<stdgo._internal.regexp.Regexp.Regexp>))();
-var importPath : stdgo.GoString = (() -> ("" : stdgo.GoString))();
-var _log : T_testLog = (() -> ({} : stdgo._internal.testing.internal.testdeps.Testdeps.T_testLog))();
+var _matchPat : stdgo.GoString = ("" : stdgo.GoString);
+var _matchRe : stdgo.Ref<stdgo._internal.regexp.Regexp.Regexp> = (null : stdgo.Ref<stdgo._internal.regexp.Regexp.Regexp>);
+var importPath : stdgo.GoString = ("" : stdgo.GoString);
+var _log : T_testLog = ({} : stdgo._internal.testing.internal.testdeps.Testdeps.T_testLog);
 @:structInit @:using(stdgo._internal.testing.internal.testdeps.Testdeps.TestDeps_static_extension) class TestDeps {
     public function new() {}
     public function __underlying__() return stdgo.Go.toInterface(this);

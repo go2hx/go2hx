@@ -1,24 +1,24 @@
 package stdgo._internal.strconv;
 private var __go2hxdoc__package : Bool;
-final _fnParseComplex : stdgo.GoString = (() -> ("ParseComplex" : stdgo.GoString))();
-final _fnParseFloat : stdgo.GoString = (() -> ("ParseFloat" : stdgo.GoString))();
-final _intSize : stdgo.GoUInt64 = (() -> (32i64 : stdgo.GoUInt64))();
-final intSize : stdgo.GoUInt64 = (() -> (32i64 : stdgo.GoUInt64))();
-final _maxUint64 : stdgo.GoUInt64 = (() -> (-1i64 : stdgo.GoUInt64))();
-final _uintSize : stdgo.GoUInt64 = (() -> (32i64 : stdgo.GoUInt64))();
-final _maxShift : stdgo.GoUInt64 = (() -> (28i64 : stdgo.GoUInt64))();
-final _detailedPowersOfTenMinExp10 : stdgo.GoUInt64 = (() -> (0i64 : stdgo.GoUInt64))();
-final _detailedPowersOfTenMaxExp10 : stdgo.GoUInt64 = (() -> (347i64 : stdgo.GoUInt64))();
-final _fastSmalls : Bool = (() -> true)();
-final _nSmalls : stdgo.GoUInt64 = (() -> (100i64 : stdgo.GoUInt64))();
-final _smallsString : stdgo.GoString = (() -> ("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString))();
-final _host32bit : Bool = (() -> true)();
-final _digits : stdgo.GoString = (() -> ("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString))();
-final _lowerhex : stdgo.GoString = (() -> ("0123456789abcdef" : stdgo.GoString))();
-final _upperhex : stdgo.GoString = (() -> ("0123456789ABCDEF" : stdgo.GoString))();
-var _optimize : Bool = (() -> true)();
-var _powtab : stdgo.Slice<stdgo.GoInt> = (() -> (new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(1 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt), (9 : stdgo.GoInt), (13 : stdgo.GoInt), (16 : stdgo.GoInt), (19 : stdgo.GoInt), (23 : stdgo.GoInt), (26 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>))();
-var _float64pow10 : stdgo.Slice<stdgo.GoFloat64> = (() -> (new stdgo.Slice<stdgo.GoFloat64>(23, 23, ...[
+final _fnParseComplex : stdgo.GoString = ("ParseComplex" : stdgo.GoString);
+final _fnParseFloat : stdgo.GoString = ("ParseFloat" : stdgo.GoString);
+final _intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final intSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final _maxUint64 : stdgo.GoUInt64 = (-1i64 : stdgo.GoUInt64);
+final _uintSize : stdgo.GoUInt64 = (32i64 : stdgo.GoUInt64);
+final _maxShift : stdgo.GoUInt64 = (28i64 : stdgo.GoUInt64);
+final _detailedPowersOfTenMinExp10 : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final _detailedPowersOfTenMaxExp10 : stdgo.GoUInt64 = (347i64 : stdgo.GoUInt64);
+final _fastSmalls : Bool = true;
+final _nSmalls : stdgo.GoUInt64 = (100i64 : stdgo.GoUInt64);
+final _smallsString : stdgo.GoString = ("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString);
+final _host32bit : Bool = true;
+final _digits : stdgo.GoString = ("0123456789abcdefghijklmnopqrstuvwxyz" : stdgo.GoString);
+final _lowerhex : stdgo.GoString = ("0123456789abcdef" : stdgo.GoString);
+final _upperhex : stdgo.GoString = ("0123456789ABCDEF" : stdgo.GoString);
+var _optimize : Bool = true;
+var _powtab : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(1 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt), (9 : stdgo.GoInt), (13 : stdgo.GoInt), (16 : stdgo.GoInt), (19 : stdgo.GoInt), (23 : stdgo.GoInt), (26 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+var _float64pow10 : stdgo.Slice<stdgo.GoFloat64> = (new stdgo.Slice<stdgo.GoFloat64>(23, 23, ...[
 (1 : stdgo.GoFloat64),
 (10 : stdgo.GoFloat64),
 (100 : stdgo.GoFloat64),
@@ -41,8 +41,8 @@ var _float64pow10 : stdgo.Slice<stdgo.GoFloat64> = (() -> (new stdgo.Slice<stdgo
 (1e+19 : stdgo.GoFloat64),
 (1e+20 : stdgo.GoFloat64),
 (1e+21 : stdgo.GoFloat64),
-(1e+22 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>))();
-var _float32pow10 : stdgo.Slice<stdgo.GoFloat32> = (() -> (new stdgo.Slice<stdgo.GoFloat32>(11, 11, ...[
+(1e+22 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>);
+var _float32pow10 : stdgo.Slice<stdgo.GoFloat32> = (new stdgo.Slice<stdgo.GoFloat32>(11, 11, ...[
 (1 : stdgo.GoFloat64),
 (10 : stdgo.GoFloat64),
 (100 : stdgo.GoFloat64),
@@ -53,10 +53,10 @@ var _float32pow10 : stdgo.Slice<stdgo.GoFloat32> = (() -> (new stdgo.Slice<stdgo
 (1e+07 : stdgo.GoFloat64),
 (1e+08 : stdgo.GoFloat64),
 (1e+09 : stdgo.GoFloat64),
-(1e+10 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat32>))();
-var errRange : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("value out of range" : stdgo.GoString)))();
-var errSyntax : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("invalid syntax" : stdgo.GoString)))();
-var _leftcheats : stdgo.Slice<stdgo._internal.strconv.Strconv.T_leftCheat> = (() -> (new stdgo.Slice<stdgo._internal.strconv.Strconv.T_leftCheat>(61, 61, ...[
+(1e+10 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat32>);
+var errRange : stdgo.Error = stdgo._internal.errors.Errors.new_(("value out of range" : stdgo.GoString));
+var errSyntax : stdgo.Error = stdgo._internal.errors.Errors.new_(("invalid syntax" : stdgo.GoString));
+var _leftcheats : stdgo.Slice<stdgo._internal.strconv.Strconv.T_leftCheat> = (new stdgo.Slice<stdgo._internal.strconv.Strconv.T_leftCheat>(61, 61, ...[
 (new stdgo._internal.strconv.Strconv.T_leftCheat((0 : stdgo.GoInt), stdgo.Go.str()?.__copy__()) : stdgo._internal.strconv.Strconv.T_leftCheat),
 (new stdgo._internal.strconv.Strconv.T_leftCheat((1 : stdgo.GoInt), ("5" : stdgo.GoString)) : stdgo._internal.strconv.Strconv.T_leftCheat),
 (new stdgo._internal.strconv.Strconv.T_leftCheat((1 : stdgo.GoInt), ("25" : stdgo.GoString)) : stdgo._internal.strconv.Strconv.T_leftCheat),
@@ -117,8 +117,8 @@ var _leftcheats : stdgo.Slice<stdgo._internal.strconv.Strconv.T_leftCheat> = (()
 (new stdgo._internal.strconv.Strconv.T_leftCheat((18 : stdgo.GoInt), ("6938893903907228377647697925567626953125" : stdgo.GoString)) : stdgo._internal.strconv.Strconv.T_leftCheat),
 (new stdgo._internal.strconv.Strconv.T_leftCheat((18 : stdgo.GoInt), ("34694469519536141888238489627838134765625" : stdgo.GoString)) : stdgo._internal.strconv.Strconv.T_leftCheat),
 (new stdgo._internal.strconv.Strconv.T_leftCheat((18 : stdgo.GoInt), ("173472347597680709441192448139190673828125" : stdgo.GoString)) : stdgo._internal.strconv.Strconv.T_leftCheat),
-(new stdgo._internal.strconv.Strconv.T_leftCheat((19 : stdgo.GoInt), ("867361737988403547205962240695953369140625" : stdgo.GoString)) : stdgo._internal.strconv.Strconv.T_leftCheat)].concat([for (i in 61 ... (61 > 61 ? 61 : 61 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strconv.Strconv.T_leftCheat)])) : stdgo.Slice<stdgo._internal.strconv.Strconv.T_leftCheat>))();
-var _detailedPowersOfTen : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>> = (() -> (new stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>(696, 696, ...[
+(new stdgo._internal.strconv.Strconv.T_leftCheat((19 : stdgo.GoInt), ("867361737988403547205962240695953369140625" : stdgo.GoString)) : stdgo._internal.strconv.Strconv.T_leftCheat)].concat([for (i in 61 ... (61 > 61 ? 61 : 61 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strconv.Strconv.T_leftCheat)])) : stdgo.Slice<stdgo._internal.strconv.Strconv.T_leftCheat>);
+var _detailedPowersOfTen : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>> = (new stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>(696, 696, ...[
 (new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(1671618768450675795i64 : stdgo.GoUInt64), (-391859759250406776i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(1044761730281672372i64 : stdgo.GoUInt64), (-7162441377172586091i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(5917638181279478369i64 : stdgo.GoUInt64), (-4341365703038344710i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__(),
@@ -814,10 +814,10 @@ var _detailedPowersOfTen : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>> = (() ->
 (new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(-8895485272135061476i64 : stdgo.GoUInt64), (-3007192641170597111i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(-947992276657025519i64 : stdgo.GoUInt64), (-8797024428372705051i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(8038381691033493909i64 : stdgo.GoUInt64), (-6384594517038493409i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__(),
-(new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(5436291095364479483i64 : stdgo.GoUInt64), (-3369057127870728857i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__()].concat([for (i in 696 ... (696 > 696 ? 696 : 696 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[for (i in 0 ... 2) (0 : stdgo.GoUInt64)])])) : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>))();
-var _float32info : stdgo._internal.strconv.Strconv.T_floatInfo = (() -> (new stdgo._internal.strconv.Strconv.T_floatInfo((23u32 : stdgo.GoUInt), (8u32 : stdgo.GoUInt), (-127 : stdgo.GoInt)) : stdgo._internal.strconv.Strconv.T_floatInfo))();
-var _float64info : stdgo._internal.strconv.Strconv.T_floatInfo = (() -> (new stdgo._internal.strconv.Strconv.T_floatInfo((52u32 : stdgo.GoUInt), (11u32 : stdgo.GoUInt), (-1023 : stdgo.GoInt)) : stdgo._internal.strconv.Strconv.T_floatInfo))();
-var _uint64pow10 : stdgo.GoArray<stdgo.GoUInt64> = (() -> (new stdgo.GoArray<stdgo.GoUInt64>(20, 20, ...[
+(new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(5436291095364479483i64 : stdgo.GoUInt64), (-3369057127870728857i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__()].concat([for (i in 696 ... (696 > 696 ? 696 : 696 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[for (i in 0 ... 2) (0 : stdgo.GoUInt64)])])) : stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt64>>);
+var _float32info : stdgo._internal.strconv.Strconv.T_floatInfo = (new stdgo._internal.strconv.Strconv.T_floatInfo((23u32 : stdgo.GoUInt), (8u32 : stdgo.GoUInt), (-127 : stdgo.GoInt)) : stdgo._internal.strconv.Strconv.T_floatInfo);
+var _float64info : stdgo._internal.strconv.Strconv.T_floatInfo = (new stdgo._internal.strconv.Strconv.T_floatInfo((52u32 : stdgo.GoUInt), (11u32 : stdgo.GoUInt), (-1023 : stdgo.GoInt)) : stdgo._internal.strconv.Strconv.T_floatInfo);
+var _uint64pow10 : stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64>(20, 20, ...[
 (1i64 : stdgo.GoUInt64),
 (10i64 : stdgo.GoUInt64),
 (100i64 : stdgo.GoUInt64),
@@ -837,8 +837,8 @@ var _uint64pow10 : stdgo.GoArray<stdgo.GoUInt64> = (() -> (new stdgo.GoArray<std
 (10000000000000000i64 : stdgo.GoUInt64),
 (100000000000000000i64 : stdgo.GoUInt64),
 (1000000000000000000i64 : stdgo.GoUInt64),
-(-8446744073709551616i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>))();
-var _isPrint16 : stdgo.Slice<stdgo.GoUInt16> = (() -> (new stdgo.Slice<stdgo.GoUInt16>(424, 424, ...[
+(-8446744073709551616i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>);
+var _isPrint16 : stdgo.Slice<stdgo.GoUInt16> = (new stdgo.Slice<stdgo.GoUInt16>(424, 424, ...[
 (32 : stdgo.GoUInt16),
 (126 : stdgo.GoUInt16),
 (161 : stdgo.GoUInt16),
@@ -1262,8 +1262,8 @@ var _isPrint16 : stdgo.Slice<stdgo.GoUInt16> = (() -> (new stdgo.Slice<stdgo.GoU
 (65504 : stdgo.GoUInt16),
 (65518 : stdgo.GoUInt16),
 (65532 : stdgo.GoUInt16),
-(65533 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>))();
-var _isNotPrint16 : stdgo.Slice<stdgo.GoUInt16> = (() -> (new stdgo.Slice<stdgo.GoUInt16>(133, 133, ...[
+(65533 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
+var _isNotPrint16 : stdgo.Slice<stdgo.GoUInt16> = (new stdgo.Slice<stdgo.GoUInt16>(133, 133, ...[
 (173 : stdgo.GoUInt16),
 (907 : stdgo.GoUInt16),
 (909 : stdgo.GoUInt16),
@@ -1396,8 +1396,8 @@ var _isNotPrint16 : stdgo.Slice<stdgo.GoUInt16> = (() -> (new stdgo.Slice<stdgo.
 (65107 : stdgo.GoUInt16),
 (65127 : stdgo.GoUInt16),
 (65141 : stdgo.GoUInt16),
-(65511 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>))();
-var _isPrint32 : stdgo.Slice<stdgo.GoUInt32> = (() -> (new stdgo.Slice<stdgo.GoUInt32>(508, 508, ...[
+(65511 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
+var _isPrint32 : stdgo.Slice<stdgo.GoUInt32> = (new stdgo.Slice<stdgo.GoUInt32>(508, 508, ...[
 (65536u32 : stdgo.GoUInt32),
 (65613u32 : stdgo.GoUInt32),
 (65616u32 : stdgo.GoUInt32),
@@ -1905,8 +1905,8 @@ var _isPrint32 : stdgo.Slice<stdgo.GoUInt32> = (() -> (new stdgo.Slice<stdgo.GoU
 (201552u32 : stdgo.GoUInt32),
 (205743u32 : stdgo.GoUInt32),
 (917760u32 : stdgo.GoUInt32),
-(917999u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>))();
-var _isNotPrint32 : stdgo.Slice<stdgo.GoUInt16> = (() -> (new stdgo.Slice<stdgo.GoUInt16>(112, 112, ...[
+(917999u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
+var _isNotPrint32 : stdgo.Slice<stdgo.GoUInt16> = (new stdgo.Slice<stdgo.GoUInt16>(112, 112, ...[
 (12 : stdgo.GoUInt16),
 (39 : stdgo.GoUInt16),
 (59 : stdgo.GoUInt16),
@@ -2018,8 +2018,8 @@ var _isNotPrint32 : stdgo.Slice<stdgo.GoUInt16> = (() -> (new stdgo.Slice<stdgo.
 (61632 : stdgo.GoUInt16),
 (61648 : stdgo.GoUInt16),
 (64190 : stdgo.GoUInt16),
-(64403 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>))();
-var _isGraphic : stdgo.Slice<stdgo.GoUInt16> = (() -> (new stdgo.Slice<stdgo.GoUInt16>(16, 16, ...[
+(64403 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
+var _isGraphic : stdgo.Slice<stdgo.GoUInt16> = (new stdgo.Slice<stdgo.GoUInt16>(16, 16, ...[
 (160 : stdgo.GoUInt16),
 (5760 : stdgo.GoUInt16),
 (8192 : stdgo.GoUInt16),
@@ -2035,9 +2035,9 @@ var _isGraphic : stdgo.Slice<stdgo.GoUInt16> = (() -> (new stdgo.Slice<stdgo.GoU
 (8202 : stdgo.GoUInt16),
 (8239 : stdgo.GoUInt16),
 (8287 : stdgo.GoUInt16),
-(12288 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>))();
-var bitSizeError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> = (() -> _bitSizeError)();
-var baseError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> = (() -> _baseError)();
+(12288 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
+var bitSizeError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> = _bitSizeError;
+var baseError : (stdgo.GoString, stdgo.GoString, stdgo.GoInt) -> stdgo.Ref<stdgo._internal.strconv.Strconv.NumError> = _baseError;
 @:structInit @:using(stdgo._internal.strconv.Strconv.NumError_static_extension) class NumError {
     public var func : stdgo.GoString = "";
     public var num : stdgo.GoString = "";

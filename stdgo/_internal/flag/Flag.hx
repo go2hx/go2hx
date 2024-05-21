@@ -1,17 +1,17 @@
 package stdgo._internal.flag;
 private var __go2hxdoc__package : Bool;
-final continueOnError : stdgo._internal.flag.Flag.ErrorHandling = (() -> (2 : stdgo._internal.flag.Flag.ErrorHandling))();
-final exitOnError = (() -> (2 : stdgo._internal.flag.Flag.ErrorHandling))();
-final panicOnError = (() -> (2 : stdgo._internal.flag.Flag.ErrorHandling))();
-var errHelp : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("flag: help requested" : stdgo.GoString)))();
-var _errParse : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("parse error" : stdgo.GoString)))();
-var _errRange : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("value out of range" : stdgo.GoString)))();
-var commandLine : stdgo.Ref<stdgo._internal.flag.Flag.FlagSet> = (() -> newFlagSet(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]?.__copy__(), (1 : stdgo._internal.flag.Flag.ErrorHandling)))();
-var usage : () -> Void = (() -> function():Void {
+final continueOnError : stdgo._internal.flag.Flag.ErrorHandling = (2 : stdgo._internal.flag.Flag.ErrorHandling);
+final exitOnError = (2 : stdgo._internal.flag.Flag.ErrorHandling);
+final panicOnError = (2 : stdgo._internal.flag.Flag.ErrorHandling);
+var errHelp : stdgo.Error = stdgo._internal.errors.Errors.new_(("flag: help requested" : stdgo.GoString));
+var _errParse : stdgo.Error = stdgo._internal.errors.Errors.new_(("parse error" : stdgo.GoString));
+var _errRange : stdgo.Error = stdgo._internal.errors.Errors.new_(("value out of range" : stdgo.GoString));
+var commandLine : stdgo.Ref<stdgo._internal.flag.Flag.FlagSet> = newFlagSet(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]?.__copy__(), (1 : stdgo._internal.flag.Flag.ErrorHandling));
+var usage : () -> Void = function():Void {
         stdgo._internal.fmt.Fmt.fprintf(commandLine.output(), ("Usage of %s:\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]));
         printDefaults();
-    })();
-var defaultUsage : () -> Void = (() -> usage)();
+    };
+var defaultUsage : () -> Void = usage;
 @:keep class T_boolFlag_static_extension {
     static public function isBoolFlag(t:T_boolFlag):Bool return t.isBoolFlag();
 }

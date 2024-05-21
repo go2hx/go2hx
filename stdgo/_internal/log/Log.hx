@@ -1,24 +1,24 @@
 package stdgo._internal.log;
 private var __go2hxdoc__package : Bool;
-final ldate : stdgo.GoUInt64 = (() -> (64i64 : stdgo.GoUInt64))();
-final ltime = (() -> (64i64 : stdgo.GoUInt64))();
-final lmicroseconds = (() -> (64i64 : stdgo.GoUInt64))();
-final llongfile = (() -> (64i64 : stdgo.GoUInt64))();
-final lshortfile = (() -> (64i64 : stdgo.GoUInt64))();
-final lutc = (() -> (64i64 : stdgo.GoUInt64))();
-final lmsgprefix = (() -> (64i64 : stdgo.GoUInt64))();
-final lstdFlags : stdgo.GoUInt64 = (() -> (3i64 : stdgo.GoUInt64))();
-final rdate : stdgo.GoString = (() -> ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]" : stdgo.GoString))();
-final rtime : stdgo.GoString = (() -> ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]" : stdgo.GoString))();
-final rmicroseconds : stdgo.GoString = (() -> ("\\.[0-9][0-9][0-9][0-9][0-9][0-9]" : stdgo.GoString))();
-final rline : stdgo.GoString = (() -> ("(63|65):" : stdgo.GoString))();
-final rlongfile : stdgo.GoString = (() -> (".*/[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString))();
-final rshortfile : stdgo.GoString = (() -> ("[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString))();
-var _std : stdgo.Ref<stdgo._internal.log.Log.Logger> = (() -> new_(stdgo.Go.asInterface(stdgo._internal.os.Os.stderr), stdgo.Go.str()?.__copy__(), (3 : stdgo.GoInt)))();
-var _bufferPool : stdgo._internal.sync.Sync.Pool = (() -> ({ new_ : function():stdgo.AnyInterface {
+final ldate : stdgo.GoUInt64 = (64i64 : stdgo.GoUInt64);
+final ltime = (64i64 : stdgo.GoUInt64);
+final lmicroseconds = (64i64 : stdgo.GoUInt64);
+final llongfile = (64i64 : stdgo.GoUInt64);
+final lshortfile = (64i64 : stdgo.GoUInt64);
+final lutc = (64i64 : stdgo.GoUInt64);
+final lmsgprefix = (64i64 : stdgo.GoUInt64);
+final lstdFlags : stdgo.GoUInt64 = (3i64 : stdgo.GoUInt64);
+final rdate : stdgo.GoString = ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]" : stdgo.GoString);
+final rtime : stdgo.GoString = ("[0-9][0-9]:[0-9][0-9]:[0-9][0-9]" : stdgo.GoString);
+final rmicroseconds : stdgo.GoString = ("\\.[0-9][0-9][0-9][0-9][0-9][0-9]" : stdgo.GoString);
+final rline : stdgo.GoString = ("(63|65):" : stdgo.GoString);
+final rlongfile : stdgo.GoString = (".*/[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString);
+final rshortfile : stdgo.GoString = ("[A-Za-z0-9_\\-]+\\.go:(63|65):" : stdgo.GoString);
+var _std : stdgo.Ref<stdgo._internal.log.Log.Logger> = new_(stdgo.Go.asInterface(stdgo._internal.os.Os.stderr), stdgo.Go.str()?.__copy__(), (3 : stdgo.GoInt));
+var _bufferPool : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
         return stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>));
-    } } : stdgo._internal.sync.Sync.Pool))();
-var _tests : stdgo.Slice<stdgo._internal.log.Log.T_tester> = (() -> (new stdgo.Slice<stdgo._internal.log.Log.T_tester>(14, 14, ...[
+    } } : stdgo._internal.sync.Sync.Pool);
+var _tests : stdgo.Slice<stdgo._internal.log.Log.T_tester> = (new stdgo.Slice<stdgo._internal.log.Log.T_tester>(14, 14, ...[
 (new stdgo._internal.log.Log.T_tester((0 : stdgo.GoInt), stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((0 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((1 : stdgo.GoInt), stdgo.Go.str()?.__copy__(), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] " : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
@@ -32,7 +32,7 @@ var _tests : stdgo.Slice<stdgo._internal.log.Log.T_tester> = (() -> (new stdgo.S
 (new stdgo._internal.log.Log.T_tester((15 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((23 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("XXX[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): " : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
 (new stdgo._internal.log.Log.T_tester((79 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] .*/[A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester),
-(new stdgo._internal.log.Log.T_tester((87 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester)].concat([for (i in 14 ... (14 > 14 ? 14 : 14 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.log.Log.T_tester)])) : stdgo.Slice<stdgo._internal.log.Log.T_tester>))();
+(new stdgo._internal.log.Log.T_tester((87 : stdgo.GoInt), ("XXX" : stdgo.GoString), ("[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9] [0-9][0-9]:[0-9][0-9]:[0-9][0-9]\\.[0-9][0-9][0-9][0-9][0-9][0-9] [A-Za-z0-9_\\-]+\\.go:(63|65): XXX" : stdgo.GoString)) : stdgo._internal.log.Log.T_tester)].concat([for (i in 14 ... (14 > 14 ? 14 : 14 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.log.Log.T_tester)])) : stdgo.Slice<stdgo._internal.log.Log.T_tester>);
 @:structInit @:using(stdgo._internal.log.Log.Logger_static_extension) class Logger {
     public var _outMu : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
     public var _out : stdgo._internal.io.Io.Writer = (null : stdgo._internal.io.Io.Writer);

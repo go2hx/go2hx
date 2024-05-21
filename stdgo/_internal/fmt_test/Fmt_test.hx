@@ -3,79 +3,79 @@ import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
-var _pValue : P = (() -> ((0 : stdgo.GoInt) : stdgo._internal.fmt_test.Fmt_test.P))();
-var _mallocBuf : stdgo._internal.bytes.Bytes.Buffer = (() -> ({} : stdgo._internal.bytes.Bytes.Buffer))();
-var _mallocPointer : stdgo.Pointer<stdgo.GoInt> = (() -> (null : stdgo.Pointer<stdgo.GoInt>))();
-final _appendResult : stdgo.GoString = (() -> ("hello world, 23" : stdgo.GoString))();
-final _hello : stdgo.GoString = (() -> ("hello " : stdgo.GoString))();
-var _boolVal : Bool = (() -> false)();
-var _intVal : stdgo.GoInt = (() -> (0 : stdgo.GoInt))();
-var _int8Val : stdgo.GoInt8 = (() -> (0 : stdgo.GoInt8))();
-var _int16Val : stdgo.GoInt16 = (() -> (0 : stdgo.GoInt16))();
-var _int32Val : stdgo.GoInt32 = (() -> (0 : stdgo.GoInt32))();
-var _int64Val : stdgo.GoInt64 = (() -> (0 : stdgo.GoInt64))();
-var _uintVal : stdgo.GoUInt = (() -> (0 : stdgo.GoUInt))();
-var _uint8Val : stdgo.GoUInt8 = (() -> (0 : stdgo.GoUInt8))();
-var _uint16Val : stdgo.GoUInt16 = (() -> (0 : stdgo.GoUInt16))();
-var _uint32Val : stdgo.GoUInt32 = (() -> (0 : stdgo.GoUInt32))();
-var _uint64Val : stdgo.GoUInt64 = (() -> (0 : stdgo.GoUInt64))();
-var _uintptrVal : stdgo.GoUIntptr = (() -> (0 : stdgo.GoUIntptr))();
-var _float32Val : stdgo.GoFloat32 = (() -> (0 : stdgo.GoFloat32))();
-var _float64Val : stdgo.GoFloat64 = (() -> (0 : stdgo.GoFloat64))();
-var _stringVal : stdgo.GoString = (() -> ("" : stdgo.GoString))();
-var _bytesVal : stdgo.Slice<stdgo.GoByte> = (() -> (null : stdgo.Slice<stdgo.GoUInt8>))();
-var _runeVal : stdgo.GoRune = (() -> (0 : stdgo.GoInt32))();
-var _complex64Val : stdgo.GoComplex64 = (() -> new stdgo.GoComplex64(0, 0))();
-var _complex128Val : stdgo.GoComplex128 = (() -> new stdgo.GoComplex128(0, 0))();
-var _renamedBoolVal : T_renamedBool = (() -> (false : stdgo._internal.fmt_test.Fmt_test.T_renamedBool))();
-var _renamedIntVal : T_renamedInt = (() -> ((0 : stdgo.GoInt) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt))();
-var _renamedInt8Val : T_renamedInt8 = (() -> ((0 : stdgo.GoInt8) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt8))();
-var _renamedInt16Val : T_renamedInt16 = (() -> ((0 : stdgo.GoInt16) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt16))();
-var _renamedInt32Val : T_renamedInt32 = (() -> ((0 : stdgo.GoInt32) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt32))();
-var _renamedInt64Val : T_renamedInt64 = (() -> ((0 : stdgo.GoInt64) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt64))();
-var _renamedUintVal : T_renamedUint = (() -> ((0 : stdgo.GoUInt) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint))();
-var _renamedUint8Val : T_renamedUint8 = (() -> ((0 : stdgo.GoUInt8) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8))();
-var _renamedUint16Val : T_renamedUint16 = (() -> ((0 : stdgo.GoUInt16) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint16))();
-var _renamedUint32Val : T_renamedUint32 = (() -> ((0 : stdgo.GoUInt32) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint32))();
-var _renamedUint64Val : T_renamedUint64 = (() -> ((0 : stdgo.GoUInt64) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint64))();
-var _renamedUintptrVal : T_renamedUintptr = (() -> ((0 : stdgo.GoUIntptr) : stdgo._internal.fmt_test.Fmt_test.T_renamedUintptr))();
-var _renamedStringVal : T_renamedString = (() -> (("" : stdgo.GoString) : stdgo._internal.fmt_test.Fmt_test.T_renamedString))();
-var _renamedBytesVal : T_renamedBytes = (() -> new stdgo._internal.fmt_test.Fmt_test.T_renamedBytes(0, 0))();
-var _renamedFloat32Val : T_renamedFloat32 = (() -> ((0 : stdgo.GoFloat32) : stdgo._internal.fmt_test.Fmt_test.T_renamedFloat32))();
-var _renamedFloat64Val : T_renamedFloat64 = (() -> ((0 : stdgo.GoFloat64) : stdgo._internal.fmt_test.Fmt_test.T_renamedFloat64))();
-var _renamedComplex64Val : T_renamedComplex64 = (() -> (new stdgo.GoComplex64(0, 0) : stdgo._internal.fmt_test.Fmt_test.T_renamedComplex64))();
-var _renamedComplex128Val : T_renamedComplex128 = (() -> (new stdgo.GoComplex128(0, 0) : stdgo._internal.fmt_test.Fmt_test.T_renamedComplex128))();
-var _xVal : Xs = (() -> (("" : stdgo.GoString) : stdgo._internal.fmt_test.Fmt_test.Xs))();
-var _intStringVal : IntString = (() -> ({} : stdgo._internal.fmt_test.Fmt_test.IntString))();
-var _truth : Bool = (() -> false)();
-var _i : stdgo.GoInt = (() -> (0 : stdgo.GoInt))();
-var _j : stdgo.GoInt = (() -> (0 : stdgo.GoInt))();
-var _k : stdgo.GoInt = (() -> (0 : stdgo.GoInt))();
-var _f : stdgo.GoFloat64 = (() -> (0 : stdgo.GoFloat64))();
-var _s : stdgo.GoString = (() -> ("" : stdgo.GoString))();
-var _t : stdgo.GoString = (() -> ("" : stdgo.GoString))();
-var _c : stdgo.GoComplex128 = (() -> new stdgo.GoComplex128(0, 0))();
-var _x : Xs = (() -> (("" : stdgo.GoString) : stdgo._internal.fmt_test.Fmt_test.Xs))();
-var _y : Xs = (() -> (("" : stdgo.GoString) : stdgo._internal.fmt_test.Fmt_test.Xs))();
-var _z : IntString = (() -> ({} : stdgo._internal.fmt_test.Fmt_test.IntString))();
-var _r1 : stdgo.GoRune = (() -> (0 : stdgo.GoInt32))();
-var _r2 : stdgo.GoRune = (() -> (0 : stdgo.GoInt32))();
-var _r3 : stdgo.GoRune = (() -> (0 : stdgo.GoInt32))();
-final _intCount : stdgo.GoUInt64 = (() -> (800i64 : stdgo.GoUInt64))();
-final no : stdgo.GoUInt64 = (() -> (0i64 : stdgo.GoUInt64))();
-var naN : stdgo.GoFloat64 = (() -> stdgo._internal.math.Math.naN())();
-var _posInf : stdgo.GoFloat64 = (() -> stdgo._internal.math.Math.inf((1 : stdgo.GoInt)))();
-var _negInf : stdgo.GoFloat64 = (() -> stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)))();
-var _intVar : stdgo.GoInt = (() -> (0 : stdgo.GoInt))();
-var _array : stdgo.GoArray<stdgo.GoInt> = (() -> (new stdgo.GoArray<stdgo.GoInt>(5, 5, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>))();
-var _iarray : stdgo.GoArray<stdgo.AnyInterface> = (() -> (new stdgo.GoArray<stdgo.AnyInterface>(4, 4, ...[stdgo.Go.toInterface((1 : stdgo.GoInt)), stdgo.Go.toInterface(("hello" : stdgo.GoString)), stdgo.Go.toInterface((2.5 : stdgo.GoFloat64)), (null : stdgo.AnyInterface)]) : stdgo.GoArray<stdgo.AnyInterface>))();
-var _slice : stdgo.Slice<stdgo.GoInt> = (() -> (_array.__slice__(0) : stdgo.Slice<stdgo.GoInt>))();
-var _islice : stdgo.Slice<stdgo.AnyInterface> = (() -> (_iarray.__slice__(0) : stdgo.Slice<stdgo.AnyInterface>))();
-var _barray : stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8> = (() -> (new stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8>(5, 5, ...[(1 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8), (2 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8), (3 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8), (4 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8), (5 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8)]).__setNumber32__() : stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8>))();
-var _bslice : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8> = (() -> (_barray.__slice__(0) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8>))();
-var _byteStringerSlice : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteStringer> = (() -> (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteStringer>(5, 5, ...[(104 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer), (101 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer), (108 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer), (108 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer), (111 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer)]).__setNumber32__() : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteStringer>))();
-var _byteFormatterSlice : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteFormatter> = (() -> (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteFormatter>(5, 5, ...[(104 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter), (101 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter), (108 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter), (108 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter), (111 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter)]).__setNumber32__() : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteFormatter>))();
-var _fmtTests : stdgo.Slice<T__struct_2> = (() -> (new stdgo.Slice<T__struct_2>(768, 768, ...[
+var _pValue : P = ((0 : stdgo.GoInt) : stdgo._internal.fmt_test.Fmt_test.P);
+var _mallocBuf : stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
+var _mallocPointer : stdgo.Pointer<stdgo.GoInt> = (null : stdgo.Pointer<stdgo.GoInt>);
+final _appendResult : stdgo.GoString = ("hello world, 23" : stdgo.GoString);
+final _hello : stdgo.GoString = ("hello " : stdgo.GoString);
+var _boolVal : Bool = false;
+var _intVal : stdgo.GoInt = (0 : stdgo.GoInt);
+var _int8Val : stdgo.GoInt8 = (0 : stdgo.GoInt8);
+var _int16Val : stdgo.GoInt16 = (0 : stdgo.GoInt16);
+var _int32Val : stdgo.GoInt32 = (0 : stdgo.GoInt32);
+var _int64Val : stdgo.GoInt64 = (0 : stdgo.GoInt64);
+var _uintVal : stdgo.GoUInt = (0 : stdgo.GoUInt);
+var _uint8Val : stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+var _uint16Val : stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+var _uint32Val : stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+var _uint64Val : stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+var _uintptrVal : stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+var _float32Val : stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
+var _float64Val : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+var _stringVal : stdgo.GoString = ("" : stdgo.GoString);
+var _bytesVal : stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+var _runeVal : stdgo.GoRune = (0 : stdgo.GoInt32);
+var _complex64Val : stdgo.GoComplex64 = new stdgo.GoComplex64(0, 0);
+var _complex128Val : stdgo.GoComplex128 = new stdgo.GoComplex128(0, 0);
+var _renamedBoolVal : T_renamedBool = (false : stdgo._internal.fmt_test.Fmt_test.T_renamedBool);
+var _renamedIntVal : T_renamedInt = ((0 : stdgo.GoInt) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt);
+var _renamedInt8Val : T_renamedInt8 = ((0 : stdgo.GoInt8) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt8);
+var _renamedInt16Val : T_renamedInt16 = ((0 : stdgo.GoInt16) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt16);
+var _renamedInt32Val : T_renamedInt32 = ((0 : stdgo.GoInt32) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt32);
+var _renamedInt64Val : T_renamedInt64 = ((0 : stdgo.GoInt64) : stdgo._internal.fmt_test.Fmt_test.T_renamedInt64);
+var _renamedUintVal : T_renamedUint = ((0 : stdgo.GoUInt) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint);
+var _renamedUint8Val : T_renamedUint8 = ((0 : stdgo.GoUInt8) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8);
+var _renamedUint16Val : T_renamedUint16 = ((0 : stdgo.GoUInt16) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint16);
+var _renamedUint32Val : T_renamedUint32 = ((0 : stdgo.GoUInt32) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint32);
+var _renamedUint64Val : T_renamedUint64 = ((0 : stdgo.GoUInt64) : stdgo._internal.fmt_test.Fmt_test.T_renamedUint64);
+var _renamedUintptrVal : T_renamedUintptr = ((0 : stdgo.GoUIntptr) : stdgo._internal.fmt_test.Fmt_test.T_renamedUintptr);
+var _renamedStringVal : T_renamedString = (("" : stdgo.GoString) : stdgo._internal.fmt_test.Fmt_test.T_renamedString);
+var _renamedBytesVal : T_renamedBytes = new stdgo._internal.fmt_test.Fmt_test.T_renamedBytes(0, 0);
+var _renamedFloat32Val : T_renamedFloat32 = ((0 : stdgo.GoFloat32) : stdgo._internal.fmt_test.Fmt_test.T_renamedFloat32);
+var _renamedFloat64Val : T_renamedFloat64 = ((0 : stdgo.GoFloat64) : stdgo._internal.fmt_test.Fmt_test.T_renamedFloat64);
+var _renamedComplex64Val : T_renamedComplex64 = (new stdgo.GoComplex64(0, 0) : stdgo._internal.fmt_test.Fmt_test.T_renamedComplex64);
+var _renamedComplex128Val : T_renamedComplex128 = (new stdgo.GoComplex128(0, 0) : stdgo._internal.fmt_test.Fmt_test.T_renamedComplex128);
+var _xVal : Xs = (("" : stdgo.GoString) : stdgo._internal.fmt_test.Fmt_test.Xs);
+var _intStringVal : IntString = ({} : stdgo._internal.fmt_test.Fmt_test.IntString);
+var _truth : Bool = false;
+var _i : stdgo.GoInt = (0 : stdgo.GoInt);
+var _j : stdgo.GoInt = (0 : stdgo.GoInt);
+var _k : stdgo.GoInt = (0 : stdgo.GoInt);
+var _f : stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+var _s : stdgo.GoString = ("" : stdgo.GoString);
+var _t : stdgo.GoString = ("" : stdgo.GoString);
+var _c : stdgo.GoComplex128 = new stdgo.GoComplex128(0, 0);
+var _x : Xs = (("" : stdgo.GoString) : stdgo._internal.fmt_test.Fmt_test.Xs);
+var _y : Xs = (("" : stdgo.GoString) : stdgo._internal.fmt_test.Fmt_test.Xs);
+var _z : IntString = ({} : stdgo._internal.fmt_test.Fmt_test.IntString);
+var _r1 : stdgo.GoRune = (0 : stdgo.GoInt32);
+var _r2 : stdgo.GoRune = (0 : stdgo.GoInt32);
+var _r3 : stdgo.GoRune = (0 : stdgo.GoInt32);
+final _intCount : stdgo.GoUInt64 = (800i64 : stdgo.GoUInt64);
+final no : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+var naN : stdgo.GoFloat64 = stdgo._internal.math.Math.naN();
+var _posInf : stdgo.GoFloat64 = stdgo._internal.math.Math.inf((1 : stdgo.GoInt));
+var _negInf : stdgo.GoFloat64 = stdgo._internal.math.Math.inf((-1 : stdgo.GoInt));
+var _intVar : stdgo.GoInt = (0 : stdgo.GoInt);
+var _array : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>(5, 5, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>);
+var _iarray : stdgo.GoArray<stdgo.AnyInterface> = (new stdgo.GoArray<stdgo.AnyInterface>(4, 4, ...[stdgo.Go.toInterface((1 : stdgo.GoInt)), stdgo.Go.toInterface(("hello" : stdgo.GoString)), stdgo.Go.toInterface((2.5 : stdgo.GoFloat64)), (null : stdgo.AnyInterface)]) : stdgo.GoArray<stdgo.AnyInterface>);
+var _slice : stdgo.Slice<stdgo.GoInt> = (_array.__slice__(0) : stdgo.Slice<stdgo.GoInt>);
+var _islice : stdgo.Slice<stdgo.AnyInterface> = (_iarray.__slice__(0) : stdgo.Slice<stdgo.AnyInterface>);
+var _barray : stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8> = (new stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8>(5, 5, ...[(1 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8), (2 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8), (3 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8), (4 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8), (5 : stdgo._internal.fmt_test.Fmt_test.T_renamedUint8)]).__setNumber32__() : stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8>);
+var _bslice : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8> = (_barray.__slice__(0) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_renamedUint8>);
+var _byteStringerSlice : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteStringer> = (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteStringer>(5, 5, ...[(104 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer), (101 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer), (108 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer), (108 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer), (111 : stdgo._internal.fmt_test.Fmt_test.T_byteStringer)]).__setNumber32__() : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteStringer>);
+var _byteFormatterSlice : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteFormatter> = (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteFormatter>(5, 5, ...[(104 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter), (101 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter), (108 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter), (108 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter), (111 : stdgo._internal.fmt_test.Fmt_test.T_byteFormatter)]).__setNumber32__() : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.T_byteFormatter>);
+var _fmtTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(768, 768, ...[
 ({ _fmt : ("%d" : stdgo.GoString), _val : stdgo.Go.toInterface((12345 : stdgo.GoInt)), _out : ("12345" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%v" : stdgo.GoString), _val : stdgo.Go.toInterface((12345 : stdgo.GoInt)), _out : ("12345" : stdgo.GoString) } : T__struct_2),
 ({ _fmt : ("%t" : stdgo.GoString), _val : stdgo.Go.toInterface(true), _out : ("true" : stdgo.GoString) } : T__struct_2),
@@ -882,8 +882,8 @@ var _fmtTests : stdgo.Slice<T__struct_2> = (() -> (new stdgo.Slice<T__struct_2>(
             x.set(naN, (1 : stdgo.GoInt));
         };
         x;
-    } : stdgo.GoMap<stdgo.GoFloat64, stdgo.GoInt>)), _out : ("map[%!☠(float64=NaN):%!☠(int=1)]" : stdgo.GoString) } : T__struct_2)].concat([for (i in 768 ... (768 > 768 ? 768 : 768 : stdgo.GoInt).toBasic()) ({ _fmt : ("" : stdgo.GoString), _val : (null : stdgo.AnyInterface), _out : ("" : stdgo.GoString) } : T__struct_2)])) : stdgo.Slice<T__struct_2>))();
-var _reorderTests : stdgo.Slice<T__struct_3> = (() -> (new stdgo.Slice<T__struct_3>(32, 32, ...[
+    } : stdgo.GoMap<stdgo.GoFloat64, stdgo.GoInt>)), _out : ("map[%!☠(float64=NaN):%!☠(int=1)]" : stdgo.GoString) } : T__struct_2)].concat([for (i in 768 ... (768 > 768 ? 768 : 768 : stdgo.GoInt).toBasic()) ({ _fmt : ("" : stdgo.GoString), _val : (null : stdgo.AnyInterface), _out : ("" : stdgo.GoString) } : T__struct_2)])) : stdgo.Slice<T__struct_2>);
+var _reorderTests : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>(32, 32, ...[
 ({ _fmt : ("%[1]d" : stdgo.GoString), _val : (new stdgo.Slice<stdgo.AnyInterface>(1, 1, ...[stdgo.Go.toInterface((1 : stdgo.GoInt))]) : stdgo._internal.fmt_test.Fmt_test.SE), _out : ("1" : stdgo.GoString) } : T__struct_3),
 ({ _fmt : ("%[2]d" : stdgo.GoString), _val : (new stdgo.Slice<stdgo.AnyInterface>(2, 2, ...[stdgo.Go.toInterface((2 : stdgo.GoInt)), stdgo.Go.toInterface((1 : stdgo.GoInt))]) : stdgo._internal.fmt_test.Fmt_test.SE), _out : ("1" : stdgo.GoString) } : T__struct_3),
 ({ _fmt : ("%[2]d %[1]d" : stdgo.GoString), _val : (new stdgo.Slice<stdgo.AnyInterface>(2, 2, ...[stdgo.Go.toInterface((1 : stdgo.GoInt)), stdgo.Go.toInterface((2 : stdgo.GoInt))]) : stdgo._internal.fmt_test.Fmt_test.SE), _out : ("2 1" : stdgo.GoString) } : T__struct_3),
@@ -915,8 +915,8 @@ var _reorderTests : stdgo.Slice<T__struct_3> = (() -> (new stdgo.Slice<T__struct
 ({ _fmt : ("%.-3d" : stdgo.GoString), _val : (new stdgo.Slice<stdgo.AnyInterface>(1, 1, ...[stdgo.Go.toInterface((42 : stdgo.GoInt))]) : stdgo._internal.fmt_test.Fmt_test.SE), _out : ("%!-(int=42)3d" : stdgo.GoString) } : T__struct_3),
 ({ _fmt : ("%2147483648d" : stdgo.GoString), _val : (new stdgo.Slice<stdgo.AnyInterface>(1, 1, ...[stdgo.Go.toInterface((42 : stdgo.GoInt))]) : stdgo._internal.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : stdgo.GoString) } : T__struct_3),
 ({ _fmt : ("%-2147483648d" : stdgo.GoString), _val : (new stdgo.Slice<stdgo.AnyInterface>(1, 1, ...[stdgo.Go.toInterface((42 : stdgo.GoInt))]) : stdgo._internal.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : stdgo.GoString) } : T__struct_3),
-({ _fmt : ("%.2147483648d" : stdgo.GoString), _val : (new stdgo.Slice<stdgo.AnyInterface>(1, 1, ...[stdgo.Go.toInterface((42 : stdgo.GoInt))]) : stdgo._internal.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : stdgo.GoString) } : T__struct_3)].concat([for (i in 32 ... (32 > 32 ? 32 : 32 : stdgo.GoInt).toBasic()) ({ _fmt : ("" : stdgo.GoString), _val : new stdgo._internal.fmt_test.Fmt_test.SE(0, 0), _out : ("" : stdgo.GoString) } : T__struct_3)])) : stdgo.Slice<T__struct_3>))();
-var _mallocTest : stdgo.Slice<T__struct_4> = (() -> (new stdgo.Slice<T__struct_4>(13, 13, ...[
+({ _fmt : ("%.2147483648d" : stdgo.GoString), _val : (new stdgo.Slice<stdgo.AnyInterface>(1, 1, ...[stdgo.Go.toInterface((42 : stdgo.GoInt))]) : stdgo._internal.fmt_test.Fmt_test.SE), _out : ("%!(NOVERB)%!(EXTRA int=42)" : stdgo.GoString) } : T__struct_3)].concat([for (i in 32 ... (32 > 32 ? 32 : 32 : stdgo.GoInt).toBasic()) ({ _fmt : ("" : stdgo.GoString), _val : new stdgo._internal.fmt_test.Fmt_test.SE(0, 0), _out : ("" : stdgo.GoString) } : T__struct_3)])) : stdgo.Slice<T__struct_3>);
+var _mallocTest : stdgo.Slice<T__struct_4> = (new stdgo.Slice<T__struct_4>(13, 13, ...[
 ({ _count : (0 : stdgo.GoInt), _desc : ("Sprintf(\"\")" : stdgo.GoString), _fn : function():Void {
         var __blank__ = sprintf(stdgo.Go.str()?.__copy__());
     } } : T__struct_4),
@@ -960,8 +960,8 @@ var _mallocTest : stdgo.Slice<T__struct_4> = (() -> (new stdgo.Slice<T__struct_4
 ({ _count : (0 : stdgo.GoInt), _desc : ("Fprintf(buf, \"%x %x %x\")" : stdgo.GoString), _fn : function():Void {
         _mallocBuf.reset();
         fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_mallocBuf) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)), ("%x %x %x" : stdgo.GoString), stdgo.Go.toInterface(_mallocPointer), stdgo.Go.toInterface(_mallocPointer), stdgo.Go.toInterface(_mallocPointer));
-    } } : T__struct_4)].concat([for (i in 13 ... (13 > 13 ? 13 : 13 : stdgo.GoInt).toBasic()) ({ _count : (0 : stdgo.GoInt), _desc : ("" : stdgo.GoString), _fn : null } : T__struct_4)])) : stdgo.Slice<T__struct_4>))();
-var _flagtests : stdgo.Slice<T__struct_5> = (() -> (new stdgo.Slice<T__struct_5>(12, 12, ...[
+    } } : T__struct_4)].concat([for (i in 13 ... (13 > 13 ? 13 : 13 : stdgo.GoInt).toBasic()) ({ _count : (0 : stdgo.GoInt), _desc : ("" : stdgo.GoString), _fn : null } : T__struct_4)])) : stdgo.Slice<T__struct_4>);
+var _flagtests : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_5>(12, 12, ...[
 ({ _in : ("%a" : stdgo.GoString), _out : ("[%a]" : stdgo.GoString) } : T__struct_5),
 ({ _in : ("%-a" : stdgo.GoString), _out : ("[%-a]" : stdgo.GoString) } : T__struct_5),
 ({ _in : ("%+a" : stdgo.GoString), _out : ("[%+a]" : stdgo.GoString) } : T__struct_5),
@@ -973,8 +973,8 @@ var _flagtests : stdgo.Slice<T__struct_5> = (() -> (new stdgo.Slice<T__struct_5>
 ({ _in : ("%+1.2a" : stdgo.GoString), _out : ("[%+1.2a]" : stdgo.GoString) } : T__struct_5),
 ({ _in : ("%-+1.2a" : stdgo.GoString), _out : ("[%+-1.2a]" : stdgo.GoString) } : T__struct_5),
 ({ _in : ("%-+1.2abc" : stdgo.GoString), _out : ("[%+-1.2a]bc" : stdgo.GoString) } : T__struct_5),
-({ _in : ("%-1.2abc" : stdgo.GoString), _out : ("[%-1.2a]bc" : stdgo.GoString) } : T__struct_5)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _out : ("" : stdgo.GoString) } : T__struct_5)])) : stdgo.Slice<T__struct_5>))();
-var _startests : stdgo.Slice<T__struct_7> = (() -> (new stdgo.Slice<T__struct_7>(23, 23, ...[
+({ _in : ("%-1.2abc" : stdgo.GoString), _out : ("[%-1.2a]bc" : stdgo.GoString) } : T__struct_5)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _out : ("" : stdgo.GoString) } : T__struct_5)])) : stdgo.Slice<T__struct_5>);
+var _startests : stdgo.Slice<T__struct_7> = (new stdgo.Slice<T__struct_7>(23, 23, ...[
 ({ _fmt : ("%*d" : stdgo.GoString), _in : _args(stdgo.Go.toInterface((4 : stdgo.GoInt)), stdgo.Go.toInterface((42 : stdgo.GoInt))), _out : ("  42" : stdgo.GoString) } : T__struct_7),
 ({ _fmt : ("%-*d" : stdgo.GoString), _in : _args(stdgo.Go.toInterface((4 : stdgo.GoInt)), stdgo.Go.toInterface((42 : stdgo.GoInt))), _out : ("42  " : stdgo.GoString) } : T__struct_7),
 ({ _fmt : ("%*d" : stdgo.GoString), _in : _args(stdgo.Go.toInterface((-4 : stdgo.GoInt)), stdgo.Go.toInterface((42 : stdgo.GoInt))), _out : ("42  " : stdgo.GoString) } : T__struct_7),
@@ -997,10 +997,10 @@ var _startests : stdgo.Slice<T__struct_7> = (() -> (new stdgo.Slice<T__struct_7>
 ({ _fmt : ("%.*d" : stdgo.GoString), _in : _args(stdgo.Go.toInterface((-1i64 : stdgo.GoUInt64)), stdgo.Go.toInterface((42 : stdgo.GoInt))), _out : ("%!(BADPREC)42" : stdgo.GoString) } : T__struct_7),
 ({ _fmt : ("%*d" : stdgo.GoString), _in : _args(stdgo.Go.toInterface((5 : stdgo.GoInt)), stdgo.Go.toInterface(("foo" : stdgo.GoString))), _out : ("%!d(string=  foo)" : stdgo.GoString) } : T__struct_7),
 ({ _fmt : ("%*% %d" : stdgo.GoString), _in : _args(stdgo.Go.toInterface((20 : stdgo.GoInt)), stdgo.Go.toInterface((5 : stdgo.GoInt))), _out : ("% 5" : stdgo.GoString) } : T__struct_7),
-({ _fmt : ("%*" : stdgo.GoString), _in : _args(stdgo.Go.toInterface((4 : stdgo.GoInt))), _out : ("%!(NOVERB)" : stdgo.GoString) } : T__struct_7)].concat([for (i in 23 ... (23 > 23 ? 23 : 23 : stdgo.GoInt).toBasic()) ({ _fmt : ("" : stdgo.GoString), _in : (null : stdgo.Slice<stdgo.AnyInterface>), _out : ("" : stdgo.GoString) } : T__struct_7)])) : stdgo.Slice<T__struct_7>))();
-var _panictests : stdgo.Slice<T__struct_8> = (() -> (new stdgo.Slice<T__struct_8>(10, 10, ...[({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.PanicS>) : stdgo.Ref<PanicS>))), _out : ("<nil>" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicS(stdgo.Go.toInterface(stdgo._internal.io.Io.errUnexpectedEOF)) : stdgo._internal.fmt_test.Fmt_test.PanicS))), _out : ("%!s(PANIC=String method: unexpected EOF)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicS(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicS))), _out : ("%!s(PANIC=String method: 3)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%#v" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.PanicGo>) : stdgo.Ref<PanicGo>))), _out : ("<nil>" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%#v" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicGo(stdgo.Go.toInterface(stdgo._internal.io.Io.errUnexpectedEOF)) : stdgo._internal.fmt_test.Fmt_test.PanicGo))), _out : ("%!v(PANIC=GoString method: unexpected EOF)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%#v" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicGo(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicGo))), _out : ("%!v(PANIC=GoString method: 3)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%#v" : stdgo.GoString), _in : stdgo.Go.toInterface((new stdgo.Slice<stdgo.AnyInterface>(2, 2, ...[stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicGo(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicGo))), stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicGo(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicGo)))]) : stdgo.Slice<stdgo.AnyInterface>)), _out : ("[]interface {}{%!v(PANIC=GoString method: 3), %!v(PANIC=GoString method: 3)}" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.PanicF>) : stdgo.Ref<PanicF>))), _out : ("<nil>" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicF(stdgo.Go.toInterface(stdgo._internal.io.Io.errUnexpectedEOF)) : stdgo._internal.fmt_test.Fmt_test.PanicF))), _out : ("%!s(PANIC=Format method: unexpected EOF)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicF(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicF))), _out : ("%!s(PANIC=Format method: 3)" : stdgo.GoString) } : T__struct_8)].concat([for (i in 10 ... (10 > 10 ? 10 : 10 : stdgo.GoInt).toBasic()) ({ _fmt : ("" : stdgo.GoString), _in : (null : stdgo.AnyInterface), _out : ("" : stdgo.GoString) } : T__struct_8)])) : stdgo.Slice<T__struct_8>))();
-var _recurCount : stdgo.GoInt = (() -> (0 : stdgo.GoInt))();
-var _formatterFlagTests : stdgo.Slice<T__struct_9> = (() -> (new stdgo.Slice<T__struct_9>(48, 48, ...[
+({ _fmt : ("%*" : stdgo.GoString), _in : _args(stdgo.Go.toInterface((4 : stdgo.GoInt))), _out : ("%!(NOVERB)" : stdgo.GoString) } : T__struct_7)].concat([for (i in 23 ... (23 > 23 ? 23 : 23 : stdgo.GoInt).toBasic()) ({ _fmt : ("" : stdgo.GoString), _in : (null : stdgo.Slice<stdgo.AnyInterface>), _out : ("" : stdgo.GoString) } : T__struct_7)])) : stdgo.Slice<T__struct_7>);
+var _panictests : stdgo.Slice<T__struct_8> = (new stdgo.Slice<T__struct_8>(10, 10, ...[({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.PanicS>) : stdgo.Ref<PanicS>))), _out : ("<nil>" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicS(stdgo.Go.toInterface(stdgo._internal.io.Io.errUnexpectedEOF)) : stdgo._internal.fmt_test.Fmt_test.PanicS))), _out : ("%!s(PANIC=String method: unexpected EOF)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicS(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicS))), _out : ("%!s(PANIC=String method: 3)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%#v" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.PanicGo>) : stdgo.Ref<PanicGo>))), _out : ("<nil>" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%#v" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicGo(stdgo.Go.toInterface(stdgo._internal.io.Io.errUnexpectedEOF)) : stdgo._internal.fmt_test.Fmt_test.PanicGo))), _out : ("%!v(PANIC=GoString method: unexpected EOF)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%#v" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicGo(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicGo))), _out : ("%!v(PANIC=GoString method: 3)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%#v" : stdgo.GoString), _in : stdgo.Go.toInterface((new stdgo.Slice<stdgo.AnyInterface>(2, 2, ...[stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicGo(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicGo))), stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicGo(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicGo)))]) : stdgo.Slice<stdgo.AnyInterface>)), _out : ("[]interface {}{%!v(PANIC=GoString method: 3), %!v(PANIC=GoString method: 3)}" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.PanicF>) : stdgo.Ref<PanicF>))), _out : ("<nil>" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicF(stdgo.Go.toInterface(stdgo._internal.io.Io.errUnexpectedEOF)) : stdgo._internal.fmt_test.Fmt_test.PanicF))), _out : ("%!s(PANIC=Format method: unexpected EOF)" : stdgo.GoString) } : T__struct_8), ({ _fmt : ("%s" : stdgo.GoString), _in : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.PanicF(stdgo.Go.toInterface((3 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.PanicF))), _out : ("%!s(PANIC=Format method: 3)" : stdgo.GoString) } : T__struct_8)].concat([for (i in 10 ... (10 > 10 ? 10 : 10 : stdgo.GoInt).toBasic()) ({ _fmt : ("" : stdgo.GoString), _in : (null : stdgo.AnyInterface), _out : ("" : stdgo.GoString) } : T__struct_8)])) : stdgo.Slice<T__struct_8>);
+var _recurCount : stdgo.GoInt = (0 : stdgo.GoInt);
+var _formatterFlagTests : stdgo.Slice<T__struct_9> = (new stdgo.Slice<T__struct_9>(48, 48, ...[
 ({ _in : ("%a" : stdgo.GoString), _val : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.T_flagPrinter() : stdgo._internal.fmt_test.Fmt_test.T_flagPrinter))), _out : ("[%a]" : stdgo.GoString) } : T__struct_9),
 ({ _in : ("%-a" : stdgo.GoString), _val : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.T_flagPrinter() : stdgo._internal.fmt_test.Fmt_test.T_flagPrinter))), _out : ("[%-a]" : stdgo.GoString) } : T__struct_9),
 ({ _in : ("%+a" : stdgo.GoString), _val : stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.T_flagPrinter() : stdgo._internal.fmt_test.Fmt_test.T_flagPrinter))), _out : ("[%+a]" : stdgo.GoString) } : T__struct_9),
@@ -1048,8 +1048,8 @@ var _formatterFlagTests : stdgo.Slice<T__struct_9> = (() -> (new stdgo.Slice<T__
 ({ _in : ("%+1.2v" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>(1, 1, ...[].concat([for (i in 0 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.T_flagPrinter)])) : stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>)), _out : ("[[%+1.2v]]" : stdgo.GoString) } : T__struct_9),
 ({ _in : ("%-+1.2v" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>(1, 1, ...[].concat([for (i in 0 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.T_flagPrinter)])) : stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>)), _out : ("[[%+-1.2v]]" : stdgo.GoString) } : T__struct_9),
 ({ _in : ("%-+1.2vbc" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>(1, 1, ...[].concat([for (i in 0 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.T_flagPrinter)])) : stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>)), _out : ("[[%+-1.2v]]bc" : stdgo.GoString) } : T__struct_9),
-({ _in : ("%-1.2vbc" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>(1, 1, ...[].concat([for (i in 0 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.T_flagPrinter)])) : stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>)), _out : ("[[%-1.2v]]bc" : stdgo.GoString) } : T__struct_9)].concat([for (i in 48 ... (48 > 48 ? 48 : 48 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _val : (null : stdgo.AnyInterface), _out : ("" : stdgo.GoString) } : T__struct_9)])) : stdgo.Slice<T__struct_9>))();
-var _scanTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest> = (() -> (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest>(86, 86, ...[
+({ _in : ("%-1.2vbc" : stdgo.GoString), _val : stdgo.Go.toInterface((new stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>(1, 1, ...[].concat([for (i in 0 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.T_flagPrinter)])) : stdgo.GoArray<stdgo._internal.fmt_test.Fmt_test.T_flagPrinter>)), _out : ("[[%-1.2v]]bc" : stdgo.GoString) } : T__struct_9)].concat([for (i in 48 ... (48 > 48 ? 48 : 48 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _val : (null : stdgo.AnyInterface), _out : ("" : stdgo.GoString) } : T__struct_9)])) : stdgo.Slice<T__struct_9>);
+var _scanTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest> = (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest>(86, 86, ...[
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("T\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_boolVal)), stdgo.Go.toInterface(true)) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("F\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_boolVal)), stdgo.Go.toInterface(false)) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("21\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_intVal)), stdgo.Go.toInterface((21 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
@@ -1135,8 +1135,8 @@ var _scanTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest> = (() -
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("115\n" : stdgo.GoString), stdgo.Go.toInterface((stdgo.Go.setRef(_renamedBytesVal) : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.T_renamedBytes>)), stdgo.Go.toInterface(((("115" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>) : T_renamedBytes))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("  vvv " : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_xVal)), stdgo.Go.toInterface(stdgo.Go.asInterface(((("vvv" : stdgo.GoString) : stdgo._internal.fmt_test.Fmt_test.Xs) : Xs)))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest((" 1234hello" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_intStringVal) : stdgo.Ref<stdgo._internal.fmt_test.Fmt_test.IntString>))), stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.IntString((1234 : stdgo.GoInt), ("hello" : stdgo.GoString)) : stdgo._internal.fmt_test.Fmt_test.IntString)))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
-(new stdgo._internal.fmt_test.Fmt_test.ScanTest(("2147483648\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_int64Val)), stdgo.Go.toInterface((2147483648i64 : stdgo.GoInt64))) : stdgo._internal.fmt_test.Fmt_test.ScanTest)].concat([for (i in 86 ... (86 > 86 ? 86 : 86 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.ScanTest)])) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest>))();
-var _scanfTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfTest> = (() -> (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfTest>(168, 168, ...[
+(new stdgo._internal.fmt_test.Fmt_test.ScanTest(("2147483648\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_int64Val)), stdgo.Go.toInterface((2147483648i64 : stdgo.GoInt64))) : stdgo._internal.fmt_test.Fmt_test.ScanTest)].concat([for (i in 86 ... (86 > 86 ? 86 : 86 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.ScanTest)])) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest>);
+var _scanfTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfTest> = (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfTest>(168, 168, ...[
 (new stdgo._internal.fmt_test.Fmt_test.ScanfTest(("%v" : stdgo.GoString), ("TRUE\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_boolVal)), stdgo.Go.toInterface(true)) : stdgo._internal.fmt_test.Fmt_test.ScanfTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanfTest(("%t" : stdgo.GoString), ("false\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_boolVal)), stdgo.Go.toInterface(false)) : stdgo._internal.fmt_test.Fmt_test.ScanfTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanfTest(("%v" : stdgo.GoString), ("-71\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_intVal)), stdgo.Go.toInterface((-71 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanfTest),
@@ -1304,8 +1304,8 @@ var _scanfTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfTest> = (()
 (new stdgo._internal.fmt_test.Fmt_test.ScanfTest((" X%dX " : stdgo.GoString), (" X27X" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_intVal)), stdgo.Go.toInterface((27 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanfTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanfTest((" X%dX " : stdgo.GoString), (" X27X " : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_intVal)), stdgo.Go.toInterface((27 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanfTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanfTest(("%d\nX" : stdgo.GoString), ("27\nX" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_intVal)), stdgo.Go.toInterface((27 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanfTest),
-(new stdgo._internal.fmt_test.Fmt_test.ScanfTest(("%dX\n X" : stdgo.GoString), ("27X\n X" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_intVal)), stdgo.Go.toInterface((27 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanfTest)].concat([for (i in 168 ... (168 > 168 ? 168 : 168 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.ScanfTest)])) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfTest>))();
-var _overflowTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest> = (() -> (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest>(11, 11, ...[
+(new stdgo._internal.fmt_test.Fmt_test.ScanfTest(("%dX\n X" : stdgo.GoString), ("27X\n X" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_intVal)), stdgo.Go.toInterface((27 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanfTest)].concat([for (i in 168 ... (168 > 168 ? 168 : 168 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.ScanfTest)])) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfTest>);
+var _overflowTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest> = (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest>(11, 11, ...[
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("128" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_int8Val)), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("32768" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_int16Val)), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("-129" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_int8Val)), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
@@ -1316,8 +1316,8 @@ var _overflowTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest> = (
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("1e500" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_float64Val)), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("(1e100+0i)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_complex64Val)), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanTest(("(1+1e100i)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_complex64Val)), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanTest),
-(new stdgo._internal.fmt_test.Fmt_test.ScanTest(("(1-1e500i)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_complex128Val)), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanTest)].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.ScanTest)])) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest>))();
-var _multiTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest> = (() -> (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest>(26, 26, ...[
+(new stdgo._internal.fmt_test.Fmt_test.ScanTest(("(1-1e500i)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.pointer(_complex128Val)), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.fmt_test.Fmt_test.ScanTest)].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.ScanTest)])) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanTest>);
+var _multiTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest> = (new stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest>(26, 26, ...[
 (new stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest(stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__(), (new stdgo.Slice<stdgo.AnyInterface>(0, 0, ...[]) : stdgo.Slice<stdgo.AnyInterface>), (new stdgo.Slice<stdgo.AnyInterface>(0, 0, ...[]) : stdgo.Slice<stdgo.AnyInterface>), stdgo.Go.str()?.__copy__()) : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest(("%d" : stdgo.GoString), ("23" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface((23 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest(("%2s%3s" : stdgo.GoString), ("22333" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_s)), stdgo.Go.toInterface(stdgo.Go.pointer(_t))), _args(stdgo.Go.toInterface(("22" : stdgo.GoString)), stdgo.Go.toInterface(("333" : stdgo.GoString))), stdgo.Go.str()?.__copy__()) : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest),
@@ -1343,8 +1343,8 @@ var _multiTests : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest> 
 (new stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest(("%%%d" : stdgo.GoString), ("x42" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing literal %" : stdgo.GoString)) : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest(("%%%d" : stdgo.GoString), ("42" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_intVal))), _args(stdgo.Go.toInterface((42 : stdgo.GoInt))), ("missing literal %" : stdgo.GoString)) : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest),
 (new stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest(("%c%c%c" : stdgo.GoString), stdgo.Go.str(194, "X", 194)?.__copy__(), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_r1)), stdgo.Go.toInterface(stdgo.Go.pointer(_r2)), stdgo.Go.toInterface(stdgo.Go.pointer(_r3))), _args(stdgo.Go.toInterface((65533 : stdgo.GoInt32)), stdgo.Go.toInterface((88 : stdgo.GoInt32)), stdgo.Go.toInterface((65533 : stdgo.GoInt32))), stdgo.Go.str()?.__copy__()) : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest),
-(new stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest(("%v%v" : stdgo.GoString), ("FALSE23" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_truth)), stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface(false), stdgo.Go.toInterface((23 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest)].concat([for (i in 26 ... (26 > 26 ? 26 : 26 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest)])) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest>))();
-var _readers : stdgo.Slice<T__struct_11> = (() -> (new stdgo.Slice<T__struct_11>(4, 4, ...[({ _name : ("StringReader" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo._internal.io.Io.Reader {
+(new stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest(("%v%v" : stdgo.GoString), ("FALSE23" : stdgo.GoString), _args(stdgo.Go.toInterface(stdgo.Go.pointer(_truth)), stdgo.Go.toInterface(stdgo.Go.pointer(_i))), _args(stdgo.Go.toInterface(false), stdgo.Go.toInterface((23 : stdgo.GoInt))), stdgo.Go.str()?.__copy__()) : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest)].concat([for (i in 26 ... (26 > 26 ? 26 : 26 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest)])) : stdgo.Slice<stdgo._internal.fmt_test.Fmt_test.ScanfMultiTest>);
+var _readers : stdgo.Slice<T__struct_11> = (new stdgo.Slice<T__struct_11>(4, 4, ...[({ _name : ("StringReader" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo._internal.io.Io.Reader {
         return stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(_s?.__copy__()));
     } } : T__struct_11), ({ _name : ("ReaderOnly" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo._internal.io.Io.Reader {
         return stdgo.Go.asInterface(({ reader : stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(_s?.__copy__())) } : T__struct_12));
@@ -1352,8 +1352,8 @@ var _readers : stdgo.Slice<T__struct_11> = (() -> (new stdgo.Slice<T__struct_11>
         return stdgo._internal.testing.iotest.Iotest.oneByteReader(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(_s?.__copy__())));
     } } : T__struct_11), ({ _name : ("DataErrReader" : stdgo.GoString), _f : function(_s:stdgo.GoString):stdgo._internal.io.Io.Reader {
         return stdgo._internal.testing.iotest.Iotest.dataErrReader(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(_s?.__copy__())));
-    } } : T__struct_11)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _f : null } : T__struct_11)])) : stdgo.Slice<T__struct_11>))();
-var _eofTests : stdgo.Slice<T__struct_13> = (() -> (new stdgo.Slice<T__struct_13>(17, 17, ...[
+    } } : T__struct_11)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _f : null } : T__struct_11)])) : stdgo.Slice<T__struct_11>);
+var _eofTests : stdgo.Slice<T__struct_13> = (new stdgo.Slice<T__struct_13>(17, 17, ...[
 ({ _format : ("%s" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
 ({ _format : ("%q" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
 ({ _format : ("%x" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_stringVal)) } : T__struct_13),
@@ -1370,9 +1370,9 @@ var _eofTests : stdgo.Slice<T__struct_13> = (() -> (new stdgo.Slice<T__struct_13
 ({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedUintVal)) } : T__struct_13),
 ({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedBoolVal)) } : T__struct_13),
 ({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedFloat32Val)) } : T__struct_13),
-({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedComplex64Val)) } : T__struct_13)].concat([for (i in 17 ... (17 > 17 ? 17 : 17 : stdgo.GoInt).toBasic()) ({ _format : ("" : stdgo.GoString), _v : (null : stdgo.AnyInterface) } : T__struct_13)])) : stdgo.Slice<T__struct_13>))();
-var __1 : stdgo._internal.bytes.Bytes.Buffer = (() -> ({} : stdgo._internal.bytes.Bytes.Buffer))();
-var __2 : stdgo._internal.fmt.Fmt.State = (() -> stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.T_testState() : stdgo._internal.fmt_test.Fmt_test.T_testState)))();
+({ _format : ("%v" : stdgo.GoString), _v : stdgo.Go.toInterface(stdgo.Go.pointer(_renamedComplex64Val)) } : T__struct_13)].concat([for (i in 17 ... (17 > 17 ? 17 : 17 : stdgo.GoInt).toBasic()) ({ _format : ("" : stdgo.GoString), _v : (null : stdgo.AnyInterface) } : T__struct_13)])) : stdgo.Slice<T__struct_13>);
+var __1 : stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
+var __2 : stdgo._internal.fmt.Fmt.State = stdgo.Go.asInterface((new stdgo._internal.fmt_test.Fmt_test.T_testState() : stdgo._internal.fmt_test.Fmt_test.T_testState));
 @:keep class T__interface_0_static_extension {
     static public function unwrap(t:T__interface_0):stdgo.Slice<stdgo.Error> return t.unwrap();
 }

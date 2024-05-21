@@ -1,8 +1,8 @@
 package stdgo._internal.testing.quick;
 private var __go2hxdoc__package : Bool;
-final _complexSize : stdgo.GoUInt64 = (() -> (50i64 : stdgo.GoUInt64))();
-var _defaultConfig : Config = (() -> ({} : stdgo._internal.testing.quick.Quick.Config))();
-var _defaultMaxCount : stdgo.Pointer<stdgo.GoInt> = (() -> stdgo._internal.flag.Flag.int_(("quickchecks" : stdgo.GoString), (100 : stdgo.GoInt), ("The default number of iterations for each check" : stdgo.GoString)))();
+final _complexSize : stdgo.GoUInt64 = (50i64 : stdgo.GoUInt64);
+var _defaultConfig : Config = ({} : stdgo._internal.testing.quick.Quick.Config);
+var _defaultMaxCount : stdgo.Pointer<stdgo.GoInt> = stdgo._internal.flag.Flag.int_(("quickchecks" : stdgo.GoString), (100 : stdgo.GoInt), ("The default number of iterations for each check" : stdgo.GoString));
 @:keep class Generator_static_extension {
     static public function generate(t:Generator, _rand:stdgo.Ref<stdgo._internal.math.rand.Rand.Rand>, _size:stdgo.GoInt):stdgo._internal.reflect.Reflect.Value return t.generate(_rand, _size);
 }

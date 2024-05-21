@@ -1,13 +1,13 @@
 package stdgo._internal.internal.bytealg;
 import stdgo._internal.unsafe.Unsafe;
-final _offsetX86HasSSE42 : stdgo.GoUIntptr = (() -> stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasSSE42)))();
-final _offsetX86HasAVX2 : stdgo.GoUIntptr = (() -> stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasAVX2)))();
-final _offsetX86HasPOPCNT : stdgo.GoUIntptr = (() -> stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasPOPCNT)))();
-final _offsetS390xHasVX : stdgo.GoUIntptr = (() -> stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.s390x.hasVX)))();
-final _offsetPPC64HasPOWER9 : stdgo.GoUIntptr = (() -> stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.ppc64.isPOWER9)))();
-var maxLen : stdgo.GoInt = (() -> (0 : stdgo.GoInt))();
-final primeRK : stdgo.GoUInt64 = (() -> (16777619i64 : stdgo.GoUInt64))();
-final maxBruteForce : stdgo.GoUInt64 = (() -> (0i64 : stdgo.GoUInt64))();
+final _offsetX86HasSSE42 : stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasSSE42));
+final _offsetX86HasAVX2 : stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasAVX2));
+final _offsetX86HasPOPCNT : stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasPOPCNT));
+final _offsetS390xHasVX : stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.s390x.hasVX));
+final _offsetPPC64HasPOWER9 : stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.ppc64.isPOWER9));
+var maxLen : stdgo.GoInt = (0 : stdgo.GoInt);
+final primeRK : stdgo.GoUInt64 = (16777619i64 : stdgo.GoUInt64);
+final maxBruteForce : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
         var _hash:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
         {

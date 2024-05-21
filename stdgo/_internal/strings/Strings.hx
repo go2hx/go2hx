@@ -1,8 +1,8 @@
 package stdgo._internal.strings;
 private var __go2hxdoc__package : Bool;
-final _countCutOff : stdgo.GoUInt64 = (() -> (8i64 : stdgo.GoUInt64))();
-final _maxInt : stdgo.GoInt = (() -> ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt))();
-var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = (() -> {
+final _countCutOff : stdgo.GoUInt64 = (8i64 : stdgo.GoUInt64);
+final _maxInt : stdgo.GoInt = ((2147483647u32 : stdgo.GoUInt) : stdgo.GoInt);
+var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = {
         var s:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[for (i in 0 ... 256) 0]);
         s[9] = (1 : stdgo.GoUInt8);
         s[10] = (1 : stdgo.GoUInt8);
@@ -11,7 +11,7 @@ var _asciiSpace : stdgo.GoArray<stdgo.GoUInt8> = (() -> {
         s[13] = (1 : stdgo.GoUInt8);
         s[32] = (1 : stdgo.GoUInt8);
         s;
-    })();
+    };
 @:keep class T_replacer_static_extension {
     static public function writeString(t:T_replacer, _w:stdgo._internal.io.Io.Writer, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.writeString(_w, _s);
     static public function replace(t:T_replacer, _s:stdgo.GoString):stdgo.GoString return t.replace(_s);

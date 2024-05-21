@@ -7,10 +7,10 @@ import stdgo._internal.os.Os;
 import stdgo._internal.os.Os;
 import stdgo._internal.os.Os;
 import stdgo._internal.os.Os;
-var _global : stdgo.AnyInterface = (() -> (null : stdgo.AnyInterface))();
-final _executable_EnvVar : stdgo.GoString = (() -> ("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString))();
-final _testExecutableDeletion : stdgo.GoString = (() -> ("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n" : stdgo.GoString))();
-var _expandTests : stdgo.Slice<T__struct_1> = (() -> (new stdgo.Slice<T__struct_1>(18, 18, ...[
+var _global : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+final _executable_EnvVar : stdgo.GoString = ("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString);
+final _testExecutableDeletion : stdgo.GoString = ("package main\n\nimport (\n\t\"fmt\"\n\t\"os\"\n)\n\nfunc main() {\n\tbefore, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name before deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\terr = os.Remove(before)\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to remove executable: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tafter, err := os.Executable()\n\tif err != nil {\n\t\tfmt.Fprintf(os.Stderr, \"failed to read executable name after deletion: %v\\n\", err)\n\t\tos.Exit(1)\n\t}\n\n\tif before != after {\n\t\tfmt.Fprintf(os.Stderr, \"before and after do not match: %v != %v\\n\", before, after)\n\t\tos.Exit(1)\n\t}\n}\n" : stdgo.GoString);
+var _expandTests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(18, 18, ...[
 ({ _in : stdgo.Go.str()?.__copy__(), _out : stdgo.Go.str()?.__copy__() } : T__struct_1),
 ({ _in : ("$*" : stdgo.GoString), _out : ("all the args" : stdgo.GoString) } : T__struct_1),
 ({ _in : ("$$" : stdgo.GoString), _out : ("PID" : stdgo.GoString) } : T__struct_1),
@@ -28,8 +28,8 @@ var _expandTests : stdgo.Slice<T__struct_1> = (() -> (new stdgo.Slice<T__struct_
 ({ _in : ("$" : stdgo.GoString), _out : ("$" : stdgo.GoString) } : T__struct_1),
 ({ _in : ("$}" : stdgo.GoString), _out : ("$}" : stdgo.GoString) } : T__struct_1),
 ({ _in : ("${" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__() } : T__struct_1),
-({ _in : ("${}" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__() } : T__struct_1)].concat([for (i in 18 ... (18 > 18 ? 18 : 18 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _out : ("" : stdgo.GoString) } : T__struct_1)])) : stdgo.Slice<T__struct_1>))();
-var _isExistTests : stdgo.Slice<stdgo._internal.os_test.Os_test.T_isExistTest> = (() -> (new stdgo.Slice<stdgo._internal.os_test.Os_test.T_isExistTest>(13, 13, ...[
+({ _in : ("${}" : stdgo.GoString), _out : stdgo.Go.str()?.__copy__() } : T__struct_1)].concat([for (i in 18 ... (18 > 18 ? 18 : 18 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _out : ("" : stdgo.GoString) } : T__struct_1)])) : stdgo.Slice<T__struct_1>);
+var _isExistTests : stdgo.Slice<stdgo._internal.os_test.Os_test.T_isExistTest> = (new stdgo.Slice<stdgo._internal.os_test.Os_test.T_isExistTest>(13, 13, ...[
 (new stdgo._internal.os_test.Os_test.T_isExistTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errInvalid } : stdgo._internal.io.fs.Fs.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>)), false, false) : stdgo._internal.os_test.Os_test.T_isExistTest),
 (new stdgo._internal.os_test.Os_test.T_isExistTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errPermission } : stdgo._internal.io.fs.Fs.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>)), false, false) : stdgo._internal.os_test.Os_test.T_isExistTest),
 (new stdgo._internal.os_test.Os_test.T_isExistTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errExist } : stdgo._internal.io.fs.Fs.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>)), true, false) : stdgo._internal.os_test.Os_test.T_isExistTest),
@@ -42,10 +42,10 @@ var _isExistTests : stdgo.Slice<stdgo._internal.os_test.Os_test.T_isExistTest> =
 (new stdgo._internal.os_test.Os_test.T_isExistTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errClosed } : stdgo._internal.os.Os.LinkError)) : stdgo.Ref<stdgo._internal.os.Os.LinkError>)), false, false) : stdgo._internal.os_test.Os_test.T_isExistTest),
 (new stdgo._internal.os_test.Os_test.T_isExistTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errNotExist } : stdgo._internal.os.Os.SyscallError)) : stdgo.Ref<stdgo._internal.os.Os.SyscallError>)), false, true) : stdgo._internal.os_test.Os_test.T_isExistTest),
 (new stdgo._internal.os_test.Os_test.T_isExistTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errExist } : stdgo._internal.os.Os.SyscallError)) : stdgo.Ref<stdgo._internal.os.Os.SyscallError>)), true, false) : stdgo._internal.os_test.Os_test.T_isExistTest),
-(new stdgo._internal.os_test.Os_test.T_isExistTest((null : stdgo.Error), false, false) : stdgo._internal.os_test.Os_test.T_isExistTest)].concat([for (i in 13 ... (13 > 13 ? 13 : 13 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.os_test.Os_test.T_isExistTest)])) : stdgo.Slice<stdgo._internal.os_test.Os_test.T_isExistTest>))();
-var _isPermissionTests : stdgo.Slice<stdgo._internal.os_test.Os_test.T_isPermissionTest> = (() -> (new stdgo.Slice<stdgo._internal.os_test.Os_test.T_isPermissionTest>(3, 3, ...[(new stdgo._internal.os_test.Os_test.T_isPermissionTest((null : stdgo.Error), false) : stdgo._internal.os_test.Os_test.T_isPermissionTest), (new stdgo._internal.os_test.Os_test.T_isPermissionTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errPermission } : stdgo._internal.io.fs.Fs.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>)), true) : stdgo._internal.os_test.Os_test.T_isPermissionTest), (new stdgo._internal.os_test.Os_test.T_isPermissionTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errPermission } : stdgo._internal.os.Os.SyscallError)) : stdgo.Ref<stdgo._internal.os.Os.SyscallError>)), true) : stdgo._internal.os_test.Os_test.T_isPermissionTest)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.os_test.Os_test.T_isPermissionTest)])) : stdgo.Slice<stdgo._internal.os_test.Os_test.T_isPermissionTest>))();
-var _dot : stdgo.Slice<stdgo.GoString> = (() -> (new stdgo.Slice<stdgo.GoString>(8, 8, ...[("dir_unix.go" : stdgo.GoString), ("env.go" : stdgo.GoString), ("error.go" : stdgo.GoString), ("file.go" : stdgo.GoString), ("os_test.go" : stdgo.GoString), ("types.go" : stdgo.GoString), ("stat_darwin.go" : stdgo.GoString), ("stat_linux.go" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>))();
-var _sysdir : stdgo.Ref<stdgo._internal.os_test.Os_test.T_sysDir> = (() -> {
+(new stdgo._internal.os_test.Os_test.T_isExistTest((null : stdgo.Error), false, false) : stdgo._internal.os_test.Os_test.T_isExistTest)].concat([for (i in 13 ... (13 > 13 ? 13 : 13 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.os_test.Os_test.T_isExistTest)])) : stdgo.Slice<stdgo._internal.os_test.Os_test.T_isExistTest>);
+var _isPermissionTests : stdgo.Slice<stdgo._internal.os_test.Os_test.T_isPermissionTest> = (new stdgo.Slice<stdgo._internal.os_test.Os_test.T_isPermissionTest>(3, 3, ...[(new stdgo._internal.os_test.Os_test.T_isPermissionTest((null : stdgo.Error), false) : stdgo._internal.os_test.Os_test.T_isPermissionTest), (new stdgo._internal.os_test.Os_test.T_isPermissionTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errPermission } : stdgo._internal.io.fs.Fs.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>)), true) : stdgo._internal.os_test.Os_test.T_isPermissionTest), (new stdgo._internal.os_test.Os_test.T_isPermissionTest(stdgo.Go.asInterface((stdgo.Go.setRef(({ err : stdgo._internal.io.fs.Fs.errPermission } : stdgo._internal.os.Os.SyscallError)) : stdgo.Ref<stdgo._internal.os.Os.SyscallError>)), true) : stdgo._internal.os_test.Os_test.T_isPermissionTest)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.os_test.Os_test.T_isPermissionTest)])) : stdgo.Slice<stdgo._internal.os_test.Os_test.T_isPermissionTest>);
+var _dot : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(8, 8, ...[("dir_unix.go" : stdgo.GoString), ("env.go" : stdgo.GoString), ("error.go" : stdgo.GoString), ("file.go" : stdgo.GoString), ("os_test.go" : stdgo.GoString), ("types.go" : stdgo.GoString), ("stat_darwin.go" : stdgo.GoString), ("stat_linux.go" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
+var _sysdir : stdgo.Ref<stdgo._internal.os_test.Os_test.T_sysDir> = {
         var a = function():stdgo.Ref<T_sysDir> {
             {
                 var __switchIndex__ = -1;
@@ -95,12 +95,12 @@ var _sysdir : stdgo.Ref<stdgo._internal.os_test.Os_test.T_sysDir> = (() -> {
             return (stdgo.Go.setRef((new stdgo._internal.os_test.Os_test.T_sysDir(("/etc" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("group" : stdgo.GoString), ("hosts" : stdgo.GoString), ("passwd" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) : stdgo._internal.os_test.Os_test.T_sysDir)) : stdgo.Ref<stdgo._internal.os_test.Os_test.T_sysDir>);
         };
         a();
-    })();
-var _sfdir : stdgo.GoString = (() -> _sysdir._name)();
-var _sfname : stdgo.GoString = (() -> _sysdir._files[(0 : stdgo.GoInt)])();
-var _openErrorTests : stdgo.Slice<stdgo._internal.os_test.Os_test.T_openErrorTest> = (() -> (new stdgo.Slice<stdgo._internal.os_test.Os_test.T_openErrorTest>(3, 3, ...[(new stdgo._internal.os_test.Os_test.T_openErrorTest((_sfdir + ("/no-such-file" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt), stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall.Errno))) : stdgo._internal.os_test.Os_test.T_openErrorTest), (new stdgo._internal.os_test.Os_test.T_openErrorTest(_sfdir?.__copy__(), (1 : stdgo.GoInt), stdgo.Go.asInterface((21 : stdgo._internal.syscall.Syscall.Errno))) : stdgo._internal.os_test.Os_test.T_openErrorTest), (new stdgo._internal.os_test.Os_test.T_openErrorTest((((_sfdir + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _sfname?.__copy__() : stdgo.GoString) + ("/no-such-file" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (1 : stdgo.GoInt), stdgo.Go.asInterface((20 : stdgo._internal.syscall.Syscall.Errno))) : stdgo._internal.os_test.Os_test.T_openErrorTest)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.os_test.Os_test.T_openErrorTest)])) : stdgo.Slice<stdgo._internal.os_test.Os_test.T_openErrorTest>))();
-var _testLargeWrite : stdgo.Pointer<Bool> = (() -> stdgo._internal.flag.Flag.bool_(("large_write" : stdgo.GoString), false, ("run TestLargeWriteToConsole test that floods console with output" : stdgo.GoString)))();
-var _nilFileMethodTests : stdgo.Slice<T__struct_5> = (() -> (new stdgo.Slice<T__struct_5>(15, 15, ...[
+    };
+var _sfdir : stdgo.GoString = _sysdir._name;
+var _sfname : stdgo.GoString = _sysdir._files[(0 : stdgo.GoInt)];
+var _openErrorTests : stdgo.Slice<stdgo._internal.os_test.Os_test.T_openErrorTest> = (new stdgo.Slice<stdgo._internal.os_test.Os_test.T_openErrorTest>(3, 3, ...[(new stdgo._internal.os_test.Os_test.T_openErrorTest((_sfdir + ("/no-such-file" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt), stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall.Errno))) : stdgo._internal.os_test.Os_test.T_openErrorTest), (new stdgo._internal.os_test.Os_test.T_openErrorTest(_sfdir?.__copy__(), (1 : stdgo.GoInt), stdgo.Go.asInterface((21 : stdgo._internal.syscall.Syscall.Errno))) : stdgo._internal.os_test.Os_test.T_openErrorTest), (new stdgo._internal.os_test.Os_test.T_openErrorTest((((_sfdir + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _sfname?.__copy__() : stdgo.GoString) + ("/no-such-file" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), (1 : stdgo.GoInt), stdgo.Go.asInterface((20 : stdgo._internal.syscall.Syscall.Errno))) : stdgo._internal.os_test.Os_test.T_openErrorTest)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.os_test.Os_test.T_openErrorTest)])) : stdgo.Slice<stdgo._internal.os_test.Os_test.T_openErrorTest>);
+var _testLargeWrite : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("large_write" : stdgo.GoString), false, ("run TestLargeWriteToConsole test that floods console with output" : stdgo.GoString));
+var _nilFileMethodTests : stdgo.Slice<T__struct_5> = (new stdgo.Slice<T__struct_5>(15, 15, ...[
 ({ _name : ("Chdir" : stdgo.GoString), _f : function(_f:stdgo.Ref<File>):stdgo.Error {
         return _f.chdir();
     } } : T__struct_5),
@@ -154,10 +154,10 @@ var _nilFileMethodTests : stdgo.Slice<T__struct_5> = (() -> (new stdgo.Slice<T__
 ({ _name : ("WriteString" : stdgo.GoString), _f : function(_f:stdgo.Ref<File>):stdgo.Error {
         var __tmp__ = _f.writeString(stdgo.Go.str()?.__copy__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return _err;
-    } } : T__struct_5)].concat([for (i in 15 ... (15 > 15 ? 15 : 15 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _f : null } : T__struct_5)])) : stdgo.Slice<T__struct_5>))();
-var _isReadonlyError : stdgo.Error -> Bool = (() -> function(_0:stdgo.Error):Bool {
+    } } : T__struct_5)].concat([for (i in 15 ... (15 > 15 ? 15 : 15 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _f : null } : T__struct_5)])) : stdgo.Slice<T__struct_5>);
+var _isReadonlyError : stdgo.Error -> Bool = function(_0:stdgo.Error):Bool {
         return false;
-    })();
+    };
 @:structInit @:private class T_isExistTest {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _is : Bool = false;

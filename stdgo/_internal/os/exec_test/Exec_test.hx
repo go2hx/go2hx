@@ -1,11 +1,11 @@
 package stdgo._internal.os.exec_test;
 import stdgo._internal.os.exec.Exec;
 import stdgo._internal.os.exec.Exec;
-var _haveUnexpectedFDs : Bool = (() -> false)();
-var _exeOnce : T__struct_1 = (() -> ({ _path : ("" : stdgo.GoString), _err : (null : stdgo.Error), once : ({} : stdgo._internal.sync.Sync.Once) } : T__struct_1))();
-var _helperCommandUsed : stdgo._internal.sync.Sync.Map_ = (() -> ({} : stdgo._internal.sync.Sync.Map_))();
-final _stdinCloseTestString : stdgo.GoString = (() -> ("Some test string." : stdgo.GoString))();
-var _pathVar : stdgo.GoString = (() -> {
+var _haveUnexpectedFDs : Bool = false;
+var _exeOnce : T__struct_1 = ({ _path : ("" : stdgo.GoString), _err : (null : stdgo.Error), once : ({} : stdgo._internal.sync.Sync.Once) } : T__struct_1);
+var _helperCommandUsed : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
+final _stdinCloseTestString : stdgo.GoString = ("Some test string." : stdgo.GoString);
+var _pathVar : stdgo.GoString = {
         var a = function():stdgo.GoString {
             if (false) {
                 return ("path" : stdgo.GoString);
@@ -13,10 +13,10 @@ var _pathVar : stdgo.GoString = (() -> {
             return ("PATH" : stdgo.GoString);
         };
         a();
-    })();
-var _quitSignal : stdgo._internal.os.Os.Signal = (() -> (null : stdgo._internal.os.Os.Signal))();
-var _pipeSignal : stdgo._internal.os.Os.Signal = (() -> (null : stdgo._internal.os.Os.Signal))();
-var _helperCommands : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void> = (() -> ({
+    };
+var _quitSignal : stdgo._internal.os.Os.Signal = (null : stdgo._internal.os.Os.Signal);
+var _pipeSignal : stdgo._internal.os.Os.Signal = (null : stdgo._internal.os.Os.Signal);
+var _helperCommands : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void> = ({
         final x = new stdgo.GoMap.GoStringMap<haxe.Rest<stdgo.GoString> -> Void>();
         x.__defaultValue__ = () -> null;
         @:mergeBlock {
@@ -32,7 +32,7 @@ var _helperCommands : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> V
             x.set(("hang" : stdgo.GoString), _cmdHang);
         };
         x;
-    } : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void>))();
+    } : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void>);
 @:keep class T__interface_0_static_extension {
     static public function fd(t:T__interface_0):stdgo.GoUIntptr return t.fd();
 }

@@ -2,22 +2,22 @@ package stdgo._internal.sort_test;
 import stdgo._internal.sort.Sort;
 import stdgo._internal.sort.Sort;
 import stdgo._internal.sort.Sort;
-final __Sawtooth : stdgo.GoUInt64 = (() -> (5i64 : stdgo.GoUInt64))();
-final __Rand = (() -> (5i64 : stdgo.GoUInt64))();
-final __Stagger = (() -> (5i64 : stdgo.GoUInt64))();
-final __Plateau = (() -> (5i64 : stdgo.GoUInt64))();
-final __Shuffle = (() -> (5i64 : stdgo.GoUInt64))();
-final __NDist = (() -> (5i64 : stdgo.GoUInt64))();
-final __Copy : stdgo.GoUInt64 = (() -> (6i64 : stdgo.GoUInt64))();
-final __Reverse = (() -> (6i64 : stdgo.GoUInt64))();
-final __ReverseFirstHalf = (() -> (6i64 : stdgo.GoUInt64))();
-final __ReverseSecondHalf = (() -> (6i64 : stdgo.GoUInt64))();
-final __Sorted = (() -> (6i64 : stdgo.GoUInt64))();
-final __Dither = (() -> (6i64 : stdgo.GoUInt64))();
-final __NMode = (() -> (6i64 : stdgo.GoUInt64))();
-var _planets : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet> = (() -> (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>(4, 4, ...[(new stdgo._internal.sort_test.Sort_test.Planet(("Mercury" : stdgo.GoString), (0.055 : stdgo.GoFloat64), (0.4 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Venus" : stdgo.GoString), (0.815 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Earth" : stdgo.GoString), (1 : stdgo.GoFloat64), (1 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Mars" : stdgo.GoString), (0.107 : stdgo.GoFloat64), (1.5 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sort_test.Sort_test.Planet)])) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>))();
-var _changes : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change> = (() -> (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change>(9, 9, ...[(new stdgo._internal.sort_test.Sort_test.Change(("gri" : stdgo.GoString), ("Go" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("ken" : stdgo.GoString), ("C" : stdgo.GoString), (150 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("glenda" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("rsc" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("r" : stdgo.GoString), ("Go" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("ken" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("dmr" : stdgo.GoString), ("C" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("r" : stdgo.GoString), ("C" : stdgo.GoString), (150 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("gri" : stdgo.GoString), ("Smalltalk" : stdgo.GoString), (80 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sort_test.Sort_test.Change)])) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change>))();
-var _data : stdgo.Slice<stdgo.GoInt> = (() -> {
+final __Sawtooth : stdgo.GoUInt64 = (5i64 : stdgo.GoUInt64);
+final __Rand = (5i64 : stdgo.GoUInt64);
+final __Stagger = (5i64 : stdgo.GoUInt64);
+final __Plateau = (5i64 : stdgo.GoUInt64);
+final __Shuffle = (5i64 : stdgo.GoUInt64);
+final __NDist = (5i64 : stdgo.GoUInt64);
+final __Copy : stdgo.GoUInt64 = (6i64 : stdgo.GoUInt64);
+final __Reverse = (6i64 : stdgo.GoUInt64);
+final __ReverseFirstHalf = (6i64 : stdgo.GoUInt64);
+final __ReverseSecondHalf = (6i64 : stdgo.GoUInt64);
+final __Sorted = (6i64 : stdgo.GoUInt64);
+final __Dither = (6i64 : stdgo.GoUInt64);
+final __NMode = (6i64 : stdgo.GoUInt64);
+var _planets : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet> = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>(4, 4, ...[(new stdgo._internal.sort_test.Sort_test.Planet(("Mercury" : stdgo.GoString), (0.055 : stdgo.GoFloat64), (0.4 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Venus" : stdgo.GoString), (0.815 : stdgo.GoFloat64), (0.7 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Earth" : stdgo.GoString), (1 : stdgo.GoFloat64), (1 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet), (new stdgo._internal.sort_test.Sort_test.Planet(("Mars" : stdgo.GoString), (0.107 : stdgo.GoFloat64), (1.5 : stdgo.GoFloat64)) : stdgo._internal.sort_test.Sort_test.Planet)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sort_test.Sort_test.Planet)])) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Planet>);
+var _changes : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change> = (new stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change>(9, 9, ...[(new stdgo._internal.sort_test.Sort_test.Change(("gri" : stdgo.GoString), ("Go" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("ken" : stdgo.GoString), ("C" : stdgo.GoString), (150 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("glenda" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("rsc" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("r" : stdgo.GoString), ("Go" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("ken" : stdgo.GoString), ("Go" : stdgo.GoString), (200 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("dmr" : stdgo.GoString), ("C" : stdgo.GoString), (100 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("r" : stdgo.GoString), ("C" : stdgo.GoString), (150 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change), (new stdgo._internal.sort_test.Sort_test.Change(("gri" : stdgo.GoString), ("Smalltalk" : stdgo.GoString), (80 : stdgo.GoInt)) : stdgo._internal.sort_test.Sort_test.Change)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sort_test.Sort_test.Change)])) : stdgo.Slice<stdgo._internal.sort_test.Sort_test.Change>);
+var _data : stdgo.Slice<stdgo.GoInt> = {
         var s = new stdgo.Slice<stdgo.GoInt>(14, 0).__setNumber32__();
         s[0] = (-10 : stdgo.GoInt);
         s[1] = (-5 : stdgo.GoInt);
@@ -34,8 +34,8 @@ var _data : stdgo.Slice<stdgo.GoInt> = (() -> {
         s[12] = (1000 : stdgo.GoInt);
         s[13] = (10000 : stdgo.GoInt);
         s;
-    })();
-var _tests : stdgo.Slice<T__struct_1> = (() -> (new stdgo.Slice<T__struct_1>(22, 22, ...[
+    };
+var _tests : stdgo.Slice<T__struct_1> = (new stdgo.Slice<T__struct_1>(22, 22, ...[
 ({ _name : ("empty" : stdgo.GoString), _n : (0 : stdgo.GoInt), _f : null, _i : (0 : stdgo.GoInt) } : T__struct_1),
 ({ _name : ("1 1" : stdgo.GoString), _n : (1 : stdgo.GoInt), _f : function(_i:stdgo.GoInt):Bool {
         return (_i >= (1 : stdgo.GoInt) : Bool);
@@ -75,8 +75,8 @@ var _tests : stdgo.Slice<T__struct_1> = (() -> (new stdgo.Slice<T__struct_1>(22,
     }, _i : (999999993 : stdgo.GoInt) } : T__struct_1),
 ({ _name : ("overflow" : stdgo.GoString), _n : (2000000000 : stdgo.GoInt), _f : function(_i:stdgo.GoInt):Bool {
         return false;
-    }, _i : (2000000000 : stdgo.GoInt) } : T__struct_1)].concat([for (i in 22 ... (22 > 22 ? 22 : 22 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _n : (0 : stdgo.GoInt), _f : null, _i : (0 : stdgo.GoInt) } : T__struct_1)])) : stdgo.Slice<T__struct_1>))();
-var _fdata : stdgo.Slice<stdgo.GoFloat64> = (() -> {
+    }, _i : (2000000000 : stdgo.GoInt) } : T__struct_1)].concat([for (i in 22 ... (22 > 22 ? 22 : 22 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _n : (0 : stdgo.GoInt), _f : null, _i : (0 : stdgo.GoInt) } : T__struct_1)])) : stdgo.Slice<T__struct_1>);
+var _fdata : stdgo.Slice<stdgo.GoFloat64> = {
         var s = new stdgo.Slice<stdgo.GoFloat64>(5, 0).__setNumber32__();
         s[0] = (-3.14 : stdgo.GoFloat64);
         s[1] = (0 : stdgo.GoFloat64);
@@ -84,17 +84,17 @@ var _fdata : stdgo.Slice<stdgo.GoFloat64> = (() -> {
         s[3] = (2 : stdgo.GoFloat64);
         s[4] = (1000.7 : stdgo.GoFloat64);
         s;
-    })();
-var _sdata : stdgo.Slice<stdgo.GoString> = (() -> {
+    };
+var _sdata : stdgo.Slice<stdgo.GoString> = {
         var s = new stdgo.Slice<stdgo.GoString>(4, 0).__setString__();
         s[0] = ("f" : stdgo.GoString);
         s[1] = ("foo" : stdgo.GoString);
         s[2] = ("foobar" : stdgo.GoString);
         s[3] = ("x" : stdgo.GoString);
         s;
-    })();
-var _wrappertests : stdgo.Slice<T__struct_3> = (() -> (new stdgo.Slice<T__struct_3>(6, 6, ...[({ _name : ("SearchInts" : stdgo.GoString), _result : searchInts(_data, (11 : stdgo.GoInt)), _i : (8 : stdgo.GoInt) } : T__struct_3), ({ _name : ("SearchFloat64s" : stdgo.GoString), _result : searchFloat64s(_fdata, (2.1 : stdgo.GoFloat64)), _i : (4 : stdgo.GoInt) } : T__struct_3), ({ _name : ("SearchStrings" : stdgo.GoString), _result : searchStrings(_sdata, stdgo.Go.str()?.__copy__()), _i : (0 : stdgo.GoInt) } : T__struct_3), ({ _name : ("IntSlice.Search" : stdgo.GoString), _result : (_data : IntSlice).search((0 : stdgo.GoInt)), _i : (2 : stdgo.GoInt) } : T__struct_3), ({ _name : ("Float64Slice.Search" : stdgo.GoString), _result : (_fdata : Float64Slice).search((2 : stdgo.GoFloat64)), _i : (3 : stdgo.GoInt) } : T__struct_3), ({ _name : ("StringSlice.Search" : stdgo.GoString), _result : (_sdata : StringSlice).search(("x" : stdgo.GoString)), _i : (3 : stdgo.GoInt) } : T__struct_3)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _result : (0 : stdgo.GoInt), _i : (0 : stdgo.GoInt) } : T__struct_3)])) : stdgo.Slice<T__struct_3>))();
-var _ints : stdgo.GoArray<stdgo.GoInt> = (() -> (new stdgo.GoArray<stdgo.GoInt>(13, 13, ...[
+    };
+var _wrappertests : stdgo.Slice<T__struct_3> = (new stdgo.Slice<T__struct_3>(6, 6, ...[({ _name : ("SearchInts" : stdgo.GoString), _result : searchInts(_data, (11 : stdgo.GoInt)), _i : (8 : stdgo.GoInt) } : T__struct_3), ({ _name : ("SearchFloat64s" : stdgo.GoString), _result : searchFloat64s(_fdata, (2.1 : stdgo.GoFloat64)), _i : (4 : stdgo.GoInt) } : T__struct_3), ({ _name : ("SearchStrings" : stdgo.GoString), _result : searchStrings(_sdata, stdgo.Go.str()?.__copy__()), _i : (0 : stdgo.GoInt) } : T__struct_3), ({ _name : ("IntSlice.Search" : stdgo.GoString), _result : (_data : IntSlice).search((0 : stdgo.GoInt)), _i : (2 : stdgo.GoInt) } : T__struct_3), ({ _name : ("Float64Slice.Search" : stdgo.GoString), _result : (_fdata : Float64Slice).search((2 : stdgo.GoFloat64)), _i : (3 : stdgo.GoInt) } : T__struct_3), ({ _name : ("StringSlice.Search" : stdgo.GoString), _result : (_sdata : StringSlice).search(("x" : stdgo.GoString)), _i : (3 : stdgo.GoInt) } : T__struct_3)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _result : (0 : stdgo.GoInt), _i : (0 : stdgo.GoInt) } : T__struct_3)])) : stdgo.Slice<T__struct_3>);
+var _ints : stdgo.GoArray<stdgo.GoInt> = (new stdgo.GoArray<stdgo.GoInt>(13, 13, ...[
 (74 : stdgo.GoInt),
 (59 : stdgo.GoInt),
 (238 : stdgo.GoInt),
@@ -107,8 +107,8 @@ var _ints : stdgo.GoArray<stdgo.GoInt> = (() -> (new stdgo.GoArray<stdgo.GoInt>(
 (42 : stdgo.GoInt),
 (7586 : stdgo.GoInt),
 (-5467984 : stdgo.GoInt),
-(7586 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>))();
-var _float64s : stdgo.GoArray<stdgo.GoFloat64> = (() -> (new stdgo.GoArray<stdgo.GoFloat64>(14, 14, ...[
+(7586 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>);
+var _float64s : stdgo.GoArray<stdgo.GoFloat64> = (new stdgo.GoArray<stdgo.GoFloat64>(14, 14, ...[
 (74.3 : stdgo.GoFloat64),
 (59 : stdgo.GoFloat64),
 stdgo._internal.math.Math.inf((1 : stdgo.GoInt)),
@@ -122,9 +122,9 @@ stdgo._internal.math.Math.inf((-1 : stdgo.GoInt)),
 (-959.7485 : stdgo.GoFloat64),
 (905 : stdgo.GoFloat64),
 (7.8 : stdgo.GoFloat64),
-(7.8 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat64>))();
-var _strings : stdgo.GoArray<stdgo.GoString> = (() -> (new stdgo.GoArray<stdgo.GoString>(8, 8, ...[stdgo.Go.str()?.__copy__(), ("Hello" : stdgo.GoString), ("foo" : stdgo.GoString), ("bar" : stdgo.GoString), ("foo" : stdgo.GoString), ("f00" : stdgo.GoString), ("%*&^*&^&" : stdgo.GoString), ("***" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>))();
-var _countOpsSizes : stdgo.Slice<stdgo.GoInt> = (() -> (new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(100 : stdgo.GoInt), (300 : stdgo.GoInt), (1000 : stdgo.GoInt), (3000 : stdgo.GoInt), (10000 : stdgo.GoInt), (30000 : stdgo.GoInt), (100000 : stdgo.GoInt), (300000 : stdgo.GoInt), (1000000 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>))();
+(7.8 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.GoArray<stdgo.GoFloat64>);
+var _strings : stdgo.GoArray<stdgo.GoString> = (new stdgo.GoArray<stdgo.GoString>(8, 8, ...[stdgo.Go.str()?.__copy__(), ("Hello" : stdgo.GoString), ("foo" : stdgo.GoString), ("bar" : stdgo.GoString), ("foo" : stdgo.GoString), ("f00" : stdgo.GoString), ("%*&^*&^&" : stdgo.GoString), ("***" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>);
+var _countOpsSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(9, 9, ...[(100 : stdgo.GoInt), (300 : stdgo.GoInt), (1000 : stdgo.GoInt), (3000 : stdgo.GoInt), (10000 : stdgo.GoInt), (30000 : stdgo.GoInt), (100000 : stdgo.GoInt), (300000 : stdgo.GoInt), (1000000 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
 @:structInit @:using(stdgo._internal.sort_test.Sort_test.Person_static_extension) class Person {
     public var name : stdgo.GoString = "";
     public var age : stdgo.GoInt = 0;

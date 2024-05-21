@@ -1,6 +1,6 @@
 package stdgo._internal.internal.saferio;
 private var __go2hxdoc__package : Bool;
-final _chunk : stdgo.GoUInt64 = (() -> (10485760i64 : stdgo.GoUInt64))();
+final _chunk : stdgo.GoUInt64 = (10485760i64 : stdgo.GoUInt64);
 function readData(_r:stdgo._internal.io.Io.Reader, _n:stdgo.GoUInt64):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
         if ((((_n : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool) || (_n != ((_n : stdgo.GoInt) : stdgo.GoUInt64)) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.io.Io.errUnexpectedEOF };

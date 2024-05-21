@@ -1,7 +1,7 @@
 package stdgo._internal.testing.fstest;
 private var __go2hxdoc__package : Bool;
-var __2 : stdgo._internal.io.fs.Fs.FS = (() -> (null : stdgo._internal.io.fs.Fs.FS))();
-var __3 : stdgo._internal.io.fs.Fs.File = (() -> (null : stdgo._internal.io.fs.Fs.File))();
+var __2 : stdgo._internal.io.fs.Fs.FS = (null : stdgo._internal.io.fs.Fs.FS);
+var __3 : stdgo._internal.io.fs.Fs.File = (null : stdgo._internal.io.fs.Fs.File);
 @:structInit class MapFile {
     public var data : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var mode : stdgo._internal.io.fs.Fs.FileMode = ((0 : stdgo.GoUInt32) : stdgo._internal.io.fs.Fs.FileMode);

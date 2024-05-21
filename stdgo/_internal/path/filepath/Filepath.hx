@@ -1,12 +1,12 @@
 package stdgo._internal.path.filepath;
 private var __go2hxdoc__package : Bool;
-final separator : stdgo.GoInt32 = (() -> (47 : stdgo.GoInt32))();
-final listSeparator : stdgo.GoInt32 = (() -> (58 : stdgo.GoInt32))();
-var errBadPattern : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString)))();
-var skipDir : stdgo.Error = (() -> stdgo._internal.io.fs.Fs.skipDir)();
-var skipAll : stdgo.Error = (() -> stdgo._internal.io.fs.Fs.skipAll)();
-var _lstat : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = (() -> stdgo._internal.os.Os.lstat)();
-var lstatP : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }> = (() -> (stdgo.Go.setRef(_lstat) : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }>))();
+final separator : stdgo.GoInt32 = (47 : stdgo.GoInt32);
+final listSeparator : stdgo.GoInt32 = (58 : stdgo.GoInt32);
+var errBadPattern : stdgo.Error = stdgo._internal.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString));
+var skipDir : stdgo.Error = stdgo._internal.io.fs.Fs.skipDir;
+var skipAll : stdgo.Error = stdgo._internal.io.fs.Fs.skipAll;
+var _lstat : stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = stdgo._internal.os.Os.lstat;
+var lstatP : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }> = (stdgo.Go.setRef(_lstat) : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }>);
 @:structInit @:private @:using(stdgo._internal.path.filepath.Filepath.T_lazybuf_static_extension) class T_lazybuf {
     public var _path : stdgo.GoString = "";
     public var _buf : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

@@ -7,24 +7,24 @@ import stdgo._internal.sync.Sync;
 import stdgo._internal.sync.Sync;
 import stdgo._internal.sync.Sync;
 import stdgo._internal.sync.Sync;
-var _http : T_httpPkg = (() -> ({} : stdgo._internal.sync_test.Sync_test.T_httpPkg))();
-final _opLoad : stdgo._internal.sync_test.Sync_test.T_mapOp = (() -> ((("Load" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp))();
-final _opStore : stdgo._internal.sync_test.Sync_test.T_mapOp = (() -> ((("Store" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp))();
-final _opLoadOrStore : stdgo._internal.sync_test.Sync_test.T_mapOp = (() -> ((("LoadOrStore" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp))();
-final _opLoadAndDelete : stdgo._internal.sync_test.Sync_test.T_mapOp = (() -> ((("LoadAndDelete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp))();
-final _opDelete : stdgo._internal.sync_test.Sync_test.T_mapOp = (() -> ((("Delete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp))();
-final _opSwap : stdgo._internal.sync_test.Sync_test.T_mapOp = (() -> ((("Swap" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp))();
-final _opCompareAndSwap : stdgo._internal.sync_test.Sync_test.T_mapOp = (() -> ((("CompareAndSwap" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp))();
-final _opCompareAndDelete : stdgo._internal.sync_test.Sync_test.T_mapOp = (() -> ((("CompareAndDelete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp))();
-var _onceFuncOnce : stdgo._internal.sync.Sync.Once = (() -> ({} : stdgo._internal.sync.Sync.Once))();
-var _onceValueOnce : stdgo._internal.sync.Sync.Once = (() -> ({} : stdgo._internal.sync.Sync.Once))();
-var _onceValueValue : stdgo.GoInt = (() -> (0 : stdgo.GoInt))();
-var _globalSink : stdgo.AnyInterface = (() -> (null : stdgo.AnyInterface))();
-var _bufPool : stdgo._internal.sync.Sync.Pool = (() -> ({ new_ : function():stdgo.AnyInterface {
+var _http : T_httpPkg = ({} : stdgo._internal.sync_test.Sync_test.T_httpPkg);
+final _opLoad : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("Load" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
+final _opStore : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("Store" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
+final _opLoadOrStore : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("LoadOrStore" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
+final _opLoadAndDelete : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("LoadAndDelete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
+final _opDelete : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("Delete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
+final _opSwap : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("Swap" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
+final _opCompareAndSwap : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("CompareAndSwap" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
+final _opCompareAndDelete : stdgo._internal.sync_test.Sync_test.T_mapOp = ((("CompareAndDelete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp) : T_mapOp);
+var _onceFuncOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
+var _onceValueOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
+var _onceValueValue : stdgo.GoInt = (0 : stdgo.GoInt);
+var _globalSink : stdgo.AnyInterface = (null : stdgo.AnyInterface);
+var _bufPool : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
         return stdgo.Go.toInterface(stdgo.Go.asInterface(_new(stdgo._internal.bytes.Bytes.buffer)));
-    } } : stdgo._internal.sync.Sync.Pool))();
-var _mapOps : stdgo.GoArray<stdgo._internal.sync_test.Sync_test.T_mapOp> = (() -> (new stdgo.GoArray<stdgo._internal.sync_test.Sync_test.T_mapOp>(8, 8, ...[(("Load" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("Store" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("LoadOrStore" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("LoadAndDelete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("Delete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("Swap" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("CompareAndSwap" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("CompareAndDelete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp)]).__setString__() : stdgo.GoArray<stdgo._internal.sync_test.Sync_test.T_mapOp>))();
-var _misuseTests : stdgo.Slice<T__struct_2> = (() -> (new stdgo.Slice<T__struct_2>(8, 8, ...[({ _name : ("Mutex.Unlock" : stdgo.GoString), _f : function():Void {
+    } } : stdgo._internal.sync.Sync.Pool);
+var _mapOps : stdgo.GoArray<stdgo._internal.sync_test.Sync_test.T_mapOp> = (new stdgo.GoArray<stdgo._internal.sync_test.Sync_test.T_mapOp>(8, 8, ...[(("Load" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("Store" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("LoadOrStore" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("LoadAndDelete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("Delete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("Swap" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("CompareAndSwap" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp), (("CompareAndDelete" : stdgo.GoString) : stdgo._internal.sync_test.Sync_test.T_mapOp)]).__setString__() : stdgo.GoArray<stdgo._internal.sync_test.Sync_test.T_mapOp>);
+var _misuseTests : stdgo.Slice<T__struct_2> = (new stdgo.Slice<T__struct_2>(8, 8, ...[({ _name : ("Mutex.Unlock" : stdgo.GoString), _f : function():Void {
         var _mu:Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
         _mu.unlock();
     } } : T__struct_2), ({ _name : ("Mutex.Unlock2" : stdgo.GoString), _f : function():Void {
@@ -56,13 +56,13 @@ var _misuseTests : stdgo.Slice<T__struct_2> = (() -> (new stdgo.Slice<T__struct_
         _mu.rlock();
         _mu.runlock();
         _mu.runlock();
-    } } : T__struct_2)].concat([for (i in 8 ... (8 > 8 ? 8 : 8 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _f : null } : T__struct_2)])) : stdgo.Slice<T__struct_2>))();
-var _onceFunc : () -> Void = (() -> stdgo._internal.sync.Sync.onceFunc(function():Void {}))();
-var _onceValue : () -> stdgo.GoInt = (() -> stdgo._internal.sync.Sync.onceValue((0 : stdgo.GoInt), function():stdgo.GoInt {
+    } } : T__struct_2)].concat([for (i in 8 ... (8 > 8 ? 8 : 8 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _f : null } : T__struct_2)])) : stdgo.Slice<T__struct_2>);
+var _onceFunc : () -> Void = stdgo._internal.sync.Sync.onceFunc(function():Void {});
+var _onceValue : () -> stdgo.GoInt = stdgo._internal.sync.Sync.onceValue((0 : stdgo.GoInt), function():stdgo.GoInt {
         return (42 : stdgo.GoInt);
-    }))();
-var __2 : stdgo._internal.sync_test.Sync_test.T_mapInterface = (() -> stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.sync_test.Sync_test.RWMutexMap() : stdgo._internal.sync_test.Sync_test.RWMutexMap)) : stdgo.Ref<stdgo._internal.sync_test.Sync_test.RWMutexMap>)))();
-var __3 : stdgo._internal.sync_test.Sync_test.T_mapInterface = (() -> stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.sync_test.Sync_test.DeepCopyMap() : stdgo._internal.sync_test.Sync_test.DeepCopyMap)) : stdgo.Ref<stdgo._internal.sync_test.Sync_test.DeepCopyMap>)))();
+    });
+var __2 : stdgo._internal.sync_test.Sync_test.T_mapInterface = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.sync_test.Sync_test.RWMutexMap() : stdgo._internal.sync_test.Sync_test.RWMutexMap)) : stdgo.Ref<stdgo._internal.sync_test.Sync_test.RWMutexMap>));
+var __3 : stdgo._internal.sync_test.Sync_test.T_mapInterface = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.sync_test.Sync_test.DeepCopyMap() : stdgo._internal.sync_test.Sync_test.DeepCopyMap)) : stdgo.Ref<stdgo._internal.sync_test.Sync_test.DeepCopyMap>));
 @:keep class T_mapInterface_static_extension {
     static public function range(t:T_mapInterface, _0:(_key:stdgo.AnyInterface, _value:stdgo.AnyInterface) -> Bool):Void t.range(_0);
     static public function compareAndDelete(t:T_mapInterface, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface):Bool return t.compareAndDelete(_key, _old);

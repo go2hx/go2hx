@@ -1,6 +1,6 @@
 package stdgo._internal.path;
 private var __go2hxdoc__package : Bool;
-var errBadPattern : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString)))();
+var errBadPattern : stdgo.Error = stdgo._internal.errors.Errors.new_(("syntax error in pattern" : stdgo.GoString));
 @:structInit @:private @:using(stdgo._internal.path.Path.T_lazybuf_static_extension) class T_lazybuf {
     public var _s : stdgo.GoString = "";
     public var _buf : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

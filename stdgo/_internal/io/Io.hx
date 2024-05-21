@@ -1,28 +1,28 @@
 package stdgo._internal.io;
 private var __go2hxdoc__package : Bool;
-final seekStart : stdgo.GoUInt64 = (() -> (0i64 : stdgo.GoUInt64))();
-final seekCurrent : stdgo.GoUInt64 = (() -> (1i64 : stdgo.GoUInt64))();
-final seekEnd : stdgo.GoUInt64 = (() -> (2i64 : stdgo.GoUInt64))();
-var errShortWrite : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("short write" : stdgo.GoString)))();
-var _errInvalidWrite : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("invalid write result" : stdgo.GoString)))();
-var errShortBuffer : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("short buffer" : stdgo.GoString)))();
-var eof : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("EOF" : stdgo.GoString)))();
-var errUnexpectedEOF : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("unexpected EOF" : stdgo.GoString)))();
-var errNoProgress : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("multiple Read calls return no data or error" : stdgo.GoString)))();
-var _errWhence : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("Seek: invalid whence" : stdgo.GoString)))();
-var _errOffset : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("Seek: invalid offset" : stdgo.GoString)))();
-var discard : stdgo._internal.io.Io.Writer = (() -> stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard)))();
-var _blackHolePool : stdgo._internal.sync.Sync.Pool = (() -> ({ new_ : function():stdgo.AnyInterface {
+final seekStart : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+final seekCurrent : stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+final seekEnd : stdgo.GoUInt64 = (2i64 : stdgo.GoUInt64);
+var errShortWrite : stdgo.Error = stdgo._internal.errors.Errors.new_(("short write" : stdgo.GoString));
+var _errInvalidWrite : stdgo.Error = stdgo._internal.errors.Errors.new_(("invalid write result" : stdgo.GoString));
+var errShortBuffer : stdgo.Error = stdgo._internal.errors.Errors.new_(("short buffer" : stdgo.GoString));
+var eof : stdgo.Error = stdgo._internal.errors.Errors.new_(("EOF" : stdgo.GoString));
+var errUnexpectedEOF : stdgo.Error = stdgo._internal.errors.Errors.new_(("unexpected EOF" : stdgo.GoString));
+var errNoProgress : stdgo.Error = stdgo._internal.errors.Errors.new_(("multiple Read calls return no data or error" : stdgo.GoString));
+var _errWhence : stdgo.Error = stdgo._internal.errors.Errors.new_(("Seek: invalid whence" : stdgo.GoString));
+var _errOffset : stdgo.Error = stdgo._internal.errors.Errors.new_(("Seek: invalid offset" : stdgo.GoString));
+var discard : stdgo._internal.io.Io.Writer = stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard));
+var _blackHolePool : stdgo._internal.sync.Sync.Pool = ({ new_ : function():stdgo.AnyInterface {
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((8192 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         return stdgo.Go.toInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>));
-    } } : stdgo._internal.sync.Sync.Pool))();
-var errClosedPipe : stdgo.Error = (() -> stdgo._internal.errors.Errors.new_(("io: read/write on closed pipe" : stdgo.GoString)))();
-var errInvalidWrite : stdgo.Error = (() -> _errInvalidWrite)();
-var errWhence : stdgo.Error = (() -> _errWhence)();
-var errOffset : stdgo.Error = (() -> _errOffset)();
-var __3 : stdgo._internal.io.Io.ReaderFrom = (() -> stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard)))();
-var __4 : stdgo._internal.io.Io.WriterTo = (() -> stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiReader>) : stdgo.Ref<T_multiReader>)))();
-var __5 : stdgo._internal.io.Io.StringWriter = (() -> stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiWriter>) : stdgo.Ref<T_multiWriter>)))();
+    } } : stdgo._internal.sync.Sync.Pool);
+var errClosedPipe : stdgo.Error = stdgo._internal.errors.Errors.new_(("io: read/write on closed pipe" : stdgo.GoString));
+var errInvalidWrite : stdgo.Error = _errInvalidWrite;
+var errWhence : stdgo.Error = _errWhence;
+var errOffset : stdgo.Error = _errOffset;
+var __3 : stdgo._internal.io.Io.ReaderFrom = stdgo.Go.asInterface((new stdgo._internal.io.Io.T_discard() : stdgo._internal.io.Io.T_discard));
+var __4 : stdgo._internal.io.Io.WriterTo = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiReader>) : stdgo.Ref<T_multiReader>));
+var __5 : stdgo._internal.io.Io.StringWriter = stdgo.Go.asInterface(((null : stdgo.Ref<stdgo._internal.io.Io.T_multiWriter>) : stdgo.Ref<T_multiWriter>));
 @:keep class Reader_static_extension {
     static public function read(t:Reader, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return t.read(_p);
 }

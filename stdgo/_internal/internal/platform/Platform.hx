@@ -1,6 +1,6 @@
 package stdgo._internal.internal.platform;
-var list : stdgo.Slice<stdgo._internal.internal.platform.Platform.OSArch> = (() -> (null : stdgo.Slice<stdgo._internal.internal.platform.Platform.OSArch>))();
-var _distInfo : stdgo.GoMap<stdgo._internal.internal.platform.Platform.OSArch, stdgo._internal.internal.platform.Platform.T_osArchInfo> = (() -> (null : stdgo.GoMap<stdgo._internal.internal.platform.Platform.OSArch, stdgo._internal.internal.platform.Platform.T_osArchInfo>))();
+var list : stdgo.Slice<stdgo._internal.internal.platform.Platform.OSArch> = (null : stdgo.Slice<stdgo._internal.internal.platform.Platform.OSArch>);
+var _distInfo : stdgo.GoMap<stdgo._internal.internal.platform.Platform.OSArch, stdgo._internal.internal.platform.Platform.T_osArchInfo> = (null : stdgo.GoMap<stdgo._internal.internal.platform.Platform.OSArch, stdgo._internal.internal.platform.Platform.T_osArchInfo>);
 @:structInit @:using(stdgo._internal.internal.platform.Platform.OSArch_static_extension) class OSArch {
     public var goos : stdgo.GoString = "";
     public var goarch : stdgo.GoString = "";

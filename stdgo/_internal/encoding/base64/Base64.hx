@@ -1,8 +1,8 @@
 package stdgo._internal.encoding.base64;
 private var __go2hxdoc__package : Bool;
-final stdPadding : stdgo.GoInt32 = (() -> (61 : stdgo.GoInt32))();
-final noPadding : stdgo.GoInt32 = (() -> (-1 : stdgo.GoInt32))();
-final _decodeMapInitialize : stdgo.GoString = (() -> stdgo.Go.str(255,
+final stdPadding : stdgo.GoInt32 = (61 : stdgo.GoInt32);
+final noPadding : stdgo.GoInt32 = (-1 : stdgo.GoInt32);
+final _decodeMapInitialize : stdgo.GoString = stdgo.Go.str(255,
 255,
 255,
 255,
@@ -257,14 +257,14 @@ final _decodeMapInitialize : stdgo.GoString = (() -> stdgo.Go.str(255,
 255,
 255,
 255,
-255))();
-final _encodeStd : stdgo.GoString = (() -> ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString))();
-final _encodeURL : stdgo.GoString = (() -> ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_" : stdgo.GoString))();
-var stdEncoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = (() -> newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString)))();
-var urlencoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = (() -> newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_" : stdgo.GoString)))();
-var rawStdEncoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = (() -> stdEncoding.withPadding((-1 : stdgo.GoInt32)))();
-var rawURLEncoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = (() -> urlencoding.withPadding((-1 : stdgo.GoInt32)))();
-var _pairs : stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_testpair> = (() -> (new stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_testpair>(18, 18, ...[
+255);
+final _encodeStd : stdgo.GoString = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString);
+final _encodeURL : stdgo.GoString = ("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_" : stdgo.GoString);
+var stdEncoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString));
+var urlencoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_" : stdgo.GoString));
+var rawStdEncoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = stdEncoding.withPadding((-1 : stdgo.GoInt32));
+var rawURLEncoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = urlencoding.withPadding((-1 : stdgo.GoInt32));
+var _pairs : stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_testpair> = (new stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_testpair>(18, 18, ...[
 (new stdgo._internal.encoding.base64.Base64.T_testpair(stdgo.Go.str(20, 251, 156, 3, 217, "~")?.__copy__(), ("FPucA9l+" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair),
 (new stdgo._internal.encoding.base64.Base64.T_testpair(stdgo.Go.str(20, 251, 156, 3, 217)?.__copy__(), ("FPucA9k=" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair),
 (new stdgo._internal.encoding.base64.Base64.T_testpair(stdgo.Go.str(20, 251, 156, 3)?.__copy__(), ("FPucAw==" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair),
@@ -282,10 +282,10 @@ var _pairs : stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_testpair> = ((
 (new stdgo._internal.encoding.base64.Base64.T_testpair(("leasure." : stdgo.GoString), ("bGVhc3VyZS4=" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair),
 (new stdgo._internal.encoding.base64.Base64.T_testpair(("easure." : stdgo.GoString), ("ZWFzdXJlLg==" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair),
 (new stdgo._internal.encoding.base64.Base64.T_testpair(("asure." : stdgo.GoString), ("YXN1cmUu" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair),
-(new stdgo._internal.encoding.base64.Base64.T_testpair(("sure." : stdgo.GoString), ("c3VyZS4=" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair)].concat([for (i in 18 ... (18 > 18 ? 18 : 18 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.base64.Base64.T_testpair)])) : stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_testpair>))();
-var _funnyEncoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = (() -> newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString)).withPadding(((64 : stdgo.GoInt32) : stdgo.GoRune)))();
-var _encodingTests : stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_encodingTest> = (() -> (new stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_encodingTest>(10, 10, ...[(new stdgo._internal.encoding.base64.Base64.T_encodingTest(stdEncoding, _stdRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(urlencoding, _urlRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(rawStdEncoding, _rawRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(rawURLEncoding, _rawURLRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(_funnyEncoding, _funnyRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(stdEncoding.strict(), _stdRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(urlencoding.strict(), _urlRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(rawStdEncoding.strict(), _rawRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(rawURLEncoding.strict(), _rawURLRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(_funnyEncoding.strict(), _funnyRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest)].concat([for (i in 10 ... (10 > 10 ? 10 : 10 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.base64.Base64.T_encodingTest)])) : stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_encodingTest>))();
-var _bigtest : stdgo._internal.encoding.base64.Base64.T_testpair = (() -> (new stdgo._internal.encoding.base64.Base64.T_testpair(("Twas brillig, and the slithy toves" : stdgo.GoString), ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair))();
+(new stdgo._internal.encoding.base64.Base64.T_testpair(("sure." : stdgo.GoString), ("c3VyZS4=" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair)].concat([for (i in 18 ... (18 > 18 ? 18 : 18 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.base64.Base64.T_testpair)])) : stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_testpair>);
+var _funnyEncoding : stdgo.Ref<stdgo._internal.encoding.base64.Base64.Encoding> = newEncoding(("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/" : stdgo.GoString)).withPadding(((64 : stdgo.GoInt32) : stdgo.GoRune));
+var _encodingTests : stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_encodingTest> = (new stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_encodingTest>(10, 10, ...[(new stdgo._internal.encoding.base64.Base64.T_encodingTest(stdEncoding, _stdRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(urlencoding, _urlRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(rawStdEncoding, _rawRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(rawURLEncoding, _rawURLRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(_funnyEncoding, _funnyRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(stdEncoding.strict(), _stdRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(urlencoding.strict(), _urlRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(rawStdEncoding.strict(), _rawRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(rawURLEncoding.strict(), _rawURLRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest), (new stdgo._internal.encoding.base64.Base64.T_encodingTest(_funnyEncoding.strict(), _funnyRef) : stdgo._internal.encoding.base64.Base64.T_encodingTest)].concat([for (i in 10 ... (10 > 10 ? 10 : 10 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.encoding.base64.Base64.T_encodingTest)])) : stdgo.Slice<stdgo._internal.encoding.base64.Base64.T_encodingTest>);
+var _bigtest : stdgo._internal.encoding.base64.Base64.T_testpair = (new stdgo._internal.encoding.base64.Base64.T_testpair(("Twas brillig, and the slithy toves" : stdgo.GoString), ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : stdgo.GoString)) : stdgo._internal.encoding.base64.Base64.T_testpair);
 @:structInit @:using(stdgo._internal.encoding.base64.Base64.Encoding_static_extension) class Encoding {
     public var _encode : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoUInt8)]);
     public var _decodeMap : stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[for (i in 0 ... 256) (0 : stdgo.GoUInt8)]);

@@ -1,10 +1,10 @@
 package stdgo._internal.internal.godebug;
 import stdgo._internal.unsafe.Unsafe;
 private var __go2hxdoc__package : Bool;
-var _cache : stdgo._internal.sync.Sync.Map_ = (() -> ({} : stdgo._internal.sync.Sync.Map_))();
-var _empty : T_value = (() -> ({} : stdgo._internal.internal.godebug.Godebug.T_value))();
-var _updateMu : stdgo._internal.sync.Sync.Mutex = (() -> ({} : stdgo._internal.sync.Sync.Mutex))();
-var _stderr : T_runtimeStderr = (() -> ({} : stdgo._internal.internal.godebug.Godebug.T_runtimeStderr))();
+var _cache : stdgo._internal.sync.Sync.Map_ = ({} : stdgo._internal.sync.Sync.Map_);
+var _empty : T_value = ({} : stdgo._internal.internal.godebug.Godebug.T_value);
+var _updateMu : stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
+var _stderr : T_runtimeStderr = ({} : stdgo._internal.internal.godebug.Godebug.T_runtimeStderr);
 @:structInit @:using(stdgo._internal.internal.godebug.Godebug.Setting_static_extension) class Setting {
     public var _name : stdgo.GoString = "";
     public var _once : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);

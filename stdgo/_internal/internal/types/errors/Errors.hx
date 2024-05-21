@@ -1,158 +1,158 @@
 package stdgo._internal.internal.types.errors;
-final __Code_name_0 : stdgo.GoString = (() -> ("InvalidSyntaxTree" : stdgo.GoString))();
-final __Code_name_1 : stdgo.GoString = (() -> ("TestBlankPkgNameMismatchedPkgNameInvalidPkgUseBadImportPathBrokenImportImportCRenamedUnusedImportInvalidInitCycleDuplicateDeclInvalidDeclCycleInvalidTypeCycleInvalidConstInitInvalidConstValInvalidConstTypeUntypedNilUseWrongAssignCountUnassignableOperandNoNewVarMultiValAssignOpInvalidIfaceAssignInvalidChanAssignIncompatibleAssignUnaddressableFieldAssignNotATypeInvalidArrayLenBlankIfaceMethodIncomparableMapKey" : stdgo.GoString))();
-final __Code_name_2 : stdgo.GoString = (() -> ("InvalidPtrEmbedBadRecvInvalidRecvDuplicateFieldAndMethodDuplicateMethodInvalidBlankInvalidIotaMissingInitBodyInvalidInitSigInvalidInitDeclInvalidMainDeclTooManyValuesNotAnExprTruncatedFloatNumericOverflowUndefinedOpMismatchedTypesDivByZeroNonNumericIncDecUnaddressableOperandInvalidIndirectionNonIndexableOperandInvalidIndexSwappedSliceIndicesNonSliceableOperandInvalidSliceExprInvalidShiftCountInvalidShiftOperandInvalidReceiveInvalidSendDuplicateLitKeyMissingLitKeyInvalidLitIndexOversizeArrayLitMixedStructLitInvalidStructLitMissingLitFieldDuplicateLitFieldUnexportedLitFieldInvalidLitFieldUntypedLitInvalidLitAmbiguousSelectorUndeclaredImportedNameUnexportedNameUndeclaredNameMissingFieldOrMethodBadDotDotDotSyntaxNonVariadicDotDotDotMisplacedDotDotDot" : stdgo.GoString))();
-final __Code_name_3 : stdgo.GoString = (() -> ("InvalidDotDotDotUncalledBuiltinInvalidAppendInvalidCapInvalidCloseInvalidCopyInvalidComplexInvalidDeleteInvalidImagInvalidLenSwappedMakeArgsInvalidMakeInvalidRealInvalidAssertImpossibleAssertInvalidConversionInvalidUntypedConversionBadOffsetofSyntaxInvalidOffsetofUnusedExprUnusedVarMissingReturnWrongResultCountOutOfScopeResultInvalidCondInvalidPostDecl" : stdgo.GoString))();
-final __Code_name_4 : stdgo.GoString = (() -> ("InvalidIterVarInvalidRangeExprMisplacedBreakMisplacedContinueMisplacedFallthroughDuplicateCaseDuplicateDefaultBadTypeKeywordInvalidTypeSwitchInvalidExprSwitchInvalidSelectCaseUndeclaredLabelDuplicateLabelMisplacedLabelUnusedLabelJumpOverDeclJumpIntoBlockInvalidMethodExprWrongArgCountInvalidCallUnusedResultsInvalidDeferInvalidGoBadDeclRepeatedDeclInvalidUnsafeAddInvalidUnsafeSliceUnsupportedFeatureNotAGenericTypeWrongTypeArgCountCannotInferTypeArgsInvalidTypeArgInvalidInstanceCycleInvalidUnionMisplacedConstraintIfaceInvalidMethodTypeParamsMisplacedTypeParamInvalidUnsafeSliceDataInvalidUnsafeString" : stdgo.GoString))();
-final __Code_name_5 : stdgo.GoString = (() -> ("InvalidClearTypeTooLargeInvalidMinMaxOperand" : stdgo.GoString))();
-final invalidSyntaxTree : stdgo._internal.internal.types.errors.Errors.Code = (() -> (-1 : stdgo._internal.internal.types.errors.Errors.Code))();
-final test = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final blankPkgName = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final mismatchedPkgName = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidPkgUse = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final badImportPath = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final brokenImport = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final importCRenamed = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unusedImport = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidInitCycle = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final duplicateDecl = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidDeclCycle = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidTypeCycle = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidConstInit = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidConstVal = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidConstType = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final untypedNilUse = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final wrongAssignCount = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unassignableOperand = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final noNewVar = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final multiValAssignOp = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidIfaceAssign = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidChanAssign = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final incompatibleAssign = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unaddressableFieldAssign = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final notAType = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidArrayLen = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final blankIfaceMethod = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final incomparableMapKey = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidPtrEmbed = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final badRecv = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidRecv = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final duplicateFieldAndMethod = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final duplicateMethod = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidBlank = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidIota = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final missingInitBody = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidInitSig = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidInitDecl = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidMainDecl = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final tooManyValues = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final notAnExpr = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final truncatedFloat = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final numericOverflow = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final undefinedOp = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final mismatchedTypes = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final divByZero = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final nonNumericIncDec = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unaddressableOperand = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidIndirection = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final nonIndexableOperand = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidIndex = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final swappedSliceIndices = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final nonSliceableOperand = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidSliceExpr = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidShiftCount = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidShiftOperand = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidReceive = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidSend = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final duplicateLitKey = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final missingLitKey = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidLitIndex = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final oversizeArrayLit = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final mixedStructLit = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidStructLit = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final missingLitField = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final duplicateLitField = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unexportedLitField = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidLitField = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final untypedLit = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidLit = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final ambiguousSelector = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final undeclaredImportedName = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unexportedName = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final undeclaredName = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final missingFieldOrMethod = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final badDotDotDotSyntax = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final nonVariadicDotDotDot = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final misplacedDotDotDot = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidDotDotDot = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final uncalledBuiltin = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidAppend = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidCap = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidClose = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidCopy = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidComplex = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidDelete = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidImag = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidLen = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final swappedMakeArgs = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidMake = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidReal = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidAssert = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final impossibleAssert = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidConversion = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidUntypedConversion = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final badOffsetofSyntax = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidOffsetof = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unusedExpr = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unusedVar = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final missingReturn = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final wrongResultCount = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final outOfScopeResult = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidCond = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidPostDecl = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidIterVar = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidRangeExpr = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final misplacedBreak = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final misplacedContinue = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final misplacedFallthrough = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final duplicateCase = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final duplicateDefault = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final badTypeKeyword = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidTypeSwitch = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidExprSwitch = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidSelectCase = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final undeclaredLabel = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final duplicateLabel = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final misplacedLabel = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unusedLabel = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final jumpOverDecl = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final jumpIntoBlock = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidMethodExpr = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final wrongArgCount = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidCall = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unusedResults = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidDefer = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidGo = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final badDecl = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final repeatedDecl = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidUnsafeAdd = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidUnsafeSlice = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final unsupportedFeature = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final notAGenericType = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final wrongTypeArgCount = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final cannotInferTypeArgs = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidTypeArg = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidInstanceCycle = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidUnion = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final misplacedConstraintIface = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidMethodTypeParams = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final misplacedTypeParam = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidUnsafeSliceData = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidUnsafeString = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidClear = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final typeTooLarge = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final invalidMinMaxOperand = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-var __Code_index_1 : stdgo.GoArray<stdgo.GoUInt16> = (() -> (new stdgo.GoArray<stdgo.GoUInt16>(29, 29, ...[
+final __Code_name_0 : stdgo.GoString = ("InvalidSyntaxTree" : stdgo.GoString);
+final __Code_name_1 : stdgo.GoString = ("TestBlankPkgNameMismatchedPkgNameInvalidPkgUseBadImportPathBrokenImportImportCRenamedUnusedImportInvalidInitCycleDuplicateDeclInvalidDeclCycleInvalidTypeCycleInvalidConstInitInvalidConstValInvalidConstTypeUntypedNilUseWrongAssignCountUnassignableOperandNoNewVarMultiValAssignOpInvalidIfaceAssignInvalidChanAssignIncompatibleAssignUnaddressableFieldAssignNotATypeInvalidArrayLenBlankIfaceMethodIncomparableMapKey" : stdgo.GoString);
+final __Code_name_2 : stdgo.GoString = ("InvalidPtrEmbedBadRecvInvalidRecvDuplicateFieldAndMethodDuplicateMethodInvalidBlankInvalidIotaMissingInitBodyInvalidInitSigInvalidInitDeclInvalidMainDeclTooManyValuesNotAnExprTruncatedFloatNumericOverflowUndefinedOpMismatchedTypesDivByZeroNonNumericIncDecUnaddressableOperandInvalidIndirectionNonIndexableOperandInvalidIndexSwappedSliceIndicesNonSliceableOperandInvalidSliceExprInvalidShiftCountInvalidShiftOperandInvalidReceiveInvalidSendDuplicateLitKeyMissingLitKeyInvalidLitIndexOversizeArrayLitMixedStructLitInvalidStructLitMissingLitFieldDuplicateLitFieldUnexportedLitFieldInvalidLitFieldUntypedLitInvalidLitAmbiguousSelectorUndeclaredImportedNameUnexportedNameUndeclaredNameMissingFieldOrMethodBadDotDotDotSyntaxNonVariadicDotDotDotMisplacedDotDotDot" : stdgo.GoString);
+final __Code_name_3 : stdgo.GoString = ("InvalidDotDotDotUncalledBuiltinInvalidAppendInvalidCapInvalidCloseInvalidCopyInvalidComplexInvalidDeleteInvalidImagInvalidLenSwappedMakeArgsInvalidMakeInvalidRealInvalidAssertImpossibleAssertInvalidConversionInvalidUntypedConversionBadOffsetofSyntaxInvalidOffsetofUnusedExprUnusedVarMissingReturnWrongResultCountOutOfScopeResultInvalidCondInvalidPostDecl" : stdgo.GoString);
+final __Code_name_4 : stdgo.GoString = ("InvalidIterVarInvalidRangeExprMisplacedBreakMisplacedContinueMisplacedFallthroughDuplicateCaseDuplicateDefaultBadTypeKeywordInvalidTypeSwitchInvalidExprSwitchInvalidSelectCaseUndeclaredLabelDuplicateLabelMisplacedLabelUnusedLabelJumpOverDeclJumpIntoBlockInvalidMethodExprWrongArgCountInvalidCallUnusedResultsInvalidDeferInvalidGoBadDeclRepeatedDeclInvalidUnsafeAddInvalidUnsafeSliceUnsupportedFeatureNotAGenericTypeWrongTypeArgCountCannotInferTypeArgsInvalidTypeArgInvalidInstanceCycleInvalidUnionMisplacedConstraintIfaceInvalidMethodTypeParamsMisplacedTypeParamInvalidUnsafeSliceDataInvalidUnsafeString" : stdgo.GoString);
+final __Code_name_5 : stdgo.GoString = ("InvalidClearTypeTooLargeInvalidMinMaxOperand" : stdgo.GoString);
+final invalidSyntaxTree : stdgo._internal.internal.types.errors.Errors.Code = (-1 : stdgo._internal.internal.types.errors.Errors.Code);
+final test = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final blankPkgName = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final mismatchedPkgName = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidPkgUse = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final badImportPath = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final brokenImport = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final importCRenamed = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unusedImport = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidInitCycle = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final duplicateDecl = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidDeclCycle = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidTypeCycle = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidConstInit = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidConstVal = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidConstType = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final untypedNilUse = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final wrongAssignCount = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unassignableOperand = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final noNewVar = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final multiValAssignOp = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidIfaceAssign = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidChanAssign = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final incompatibleAssign = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unaddressableFieldAssign = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final notAType = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidArrayLen = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final blankIfaceMethod = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final incomparableMapKey = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidPtrEmbed = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final badRecv = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidRecv = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final duplicateFieldAndMethod = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final duplicateMethod = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidBlank = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidIota = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final missingInitBody = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidInitSig = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidInitDecl = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidMainDecl = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final tooManyValues = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final notAnExpr = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final truncatedFloat = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final numericOverflow = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final undefinedOp = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final mismatchedTypes = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final divByZero = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final nonNumericIncDec = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unaddressableOperand = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidIndirection = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final nonIndexableOperand = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidIndex = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final swappedSliceIndices = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final nonSliceableOperand = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidSliceExpr = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidShiftCount = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidShiftOperand = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidReceive = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidSend = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final duplicateLitKey = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final missingLitKey = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidLitIndex = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final oversizeArrayLit = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final mixedStructLit = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidStructLit = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final missingLitField = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final duplicateLitField = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unexportedLitField = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidLitField = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final untypedLit = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidLit = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final ambiguousSelector = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final undeclaredImportedName = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unexportedName = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final undeclaredName = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final missingFieldOrMethod = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final badDotDotDotSyntax = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final nonVariadicDotDotDot = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final misplacedDotDotDot = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidDotDotDot = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final uncalledBuiltin = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidAppend = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidCap = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidClose = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidCopy = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidComplex = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidDelete = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidImag = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidLen = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final swappedMakeArgs = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidMake = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidReal = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidAssert = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final impossibleAssert = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidConversion = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidUntypedConversion = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final badOffsetofSyntax = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidOffsetof = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unusedExpr = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unusedVar = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final missingReturn = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final wrongResultCount = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final outOfScopeResult = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidCond = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidPostDecl = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidIterVar = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidRangeExpr = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final misplacedBreak = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final misplacedContinue = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final misplacedFallthrough = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final duplicateCase = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final duplicateDefault = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final badTypeKeyword = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidTypeSwitch = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidExprSwitch = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidSelectCase = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final undeclaredLabel = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final duplicateLabel = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final misplacedLabel = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unusedLabel = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final jumpOverDecl = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final jumpIntoBlock = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidMethodExpr = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final wrongArgCount = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidCall = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unusedResults = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidDefer = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidGo = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final badDecl = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final repeatedDecl = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidUnsafeAdd = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidUnsafeSlice = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final unsupportedFeature = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final notAGenericType = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final wrongTypeArgCount = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final cannotInferTypeArgs = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidTypeArg = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidInstanceCycle = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidUnion = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final misplacedConstraintIface = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidMethodTypeParams = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final misplacedTypeParam = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidUnsafeSliceData = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidUnsafeString = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidClear = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final typeTooLarge = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final invalidMinMaxOperand = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+var __Code_index_1 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(29, 29, ...[
 (0 : stdgo.GoUInt16),
 (4 : stdgo.GoUInt16),
 (16 : stdgo.GoUInt16),
@@ -181,8 +181,8 @@ var __Code_index_1 : stdgo.GoArray<stdgo.GoUInt16> = (() -> (new stdgo.GoArray<s
 (362 : stdgo.GoUInt16),
 (377 : stdgo.GoUInt16),
 (393 : stdgo.GoUInt16),
-(411 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt16>))();
-var __Code_index_2 : stdgo.GoArray<stdgo.GoUInt16> = (() -> (new stdgo.GoArray<stdgo.GoUInt16>(51, 51, ...[
+(411 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt16>);
+var __Code_index_2 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(51, 51, ...[
 (0 : stdgo.GoUInt16),
 (15 : stdgo.GoUInt16),
 (22 : stdgo.GoUInt16),
@@ -233,8 +233,8 @@ var __Code_index_2 : stdgo.GoArray<stdgo.GoUInt16> = (() -> (new stdgo.GoArray<s
 (700 : stdgo.GoUInt16),
 (718 : stdgo.GoUInt16),
 (738 : stdgo.GoUInt16),
-(756 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt16>))();
-var __Code_index_3 : stdgo.GoArray<stdgo.GoUInt16> = (() -> (new stdgo.GoArray<stdgo.GoUInt16>(27, 27, ...[
+(756 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt16>);
+var __Code_index_3 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(27, 27, ...[
 (0 : stdgo.GoUInt16),
 (16 : stdgo.GoUInt16),
 (31 : stdgo.GoUInt16),
@@ -261,8 +261,8 @@ var __Code_index_3 : stdgo.GoArray<stdgo.GoUInt16> = (() -> (new stdgo.GoArray<s
 (312 : stdgo.GoUInt16),
 (328 : stdgo.GoUInt16),
 (339 : stdgo.GoUInt16),
-(354 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt16>))();
-var __Code_index_4 : stdgo.GoArray<stdgo.GoUInt16> = (() -> (new stdgo.GoArray<stdgo.GoUInt16>(40, 40, ...[
+(354 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt16>);
+var __Code_index_4 : stdgo.GoArray<stdgo.GoUInt16> = (new stdgo.GoArray<stdgo.GoUInt16>(40, 40, ...[
 (0 : stdgo.GoUInt16),
 (14 : stdgo.GoUInt16),
 (30 : stdgo.GoUInt16),
@@ -302,13 +302,13 @@ var __Code_index_4 : stdgo.GoArray<stdgo.GoUInt16> = (() -> (new stdgo.GoArray<s
 (544 : stdgo.GoUInt16),
 (562 : stdgo.GoUInt16),
 (584 : stdgo.GoUInt16),
-(603 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt16>))();
-var __Code_index_5 : stdgo.GoArray<stdgo.GoUInt8> = (() -> (new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[(0 : stdgo.GoUInt8), (12 : stdgo.GoUInt8), (24 : stdgo.GoUInt8), (44 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>))();
-final __1 : stdgo._internal.internal.types.errors.Errors.Code = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final __2 = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final __3 = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final __4 = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
-final __5 = (() -> (150 : stdgo._internal.internal.types.errors.Errors.Code))();
+(603 : stdgo.GoUInt16)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt16>);
+var __Code_index_5 : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[(0 : stdgo.GoUInt8), (12 : stdgo.GoUInt8), (24 : stdgo.GoUInt8), (44 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>);
+final __1 : stdgo._internal.internal.types.errors.Errors.Code = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final __2 = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final __3 = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final __4 = (150 : stdgo._internal.internal.types.errors.Errors.Code);
+final __5 = (150 : stdgo._internal.internal.types.errors.Errors.Code);
 class T__struct_0_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

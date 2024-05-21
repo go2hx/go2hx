@@ -33,6 +33,8 @@
     "internal/oserror",
     "encoding",
     "bufio",
+    "regexp",
+    "regexp/syntax",
     "encoding/binary",
     "encoding/base64",
     "reflect",

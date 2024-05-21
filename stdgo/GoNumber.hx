@@ -182,7 +182,11 @@ function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
 function clampUInt(x:Int):UInt32
-	return x & 0xFFFFFFFF;
+	#if js 
+		return x >>> untyped __js__("0"); // using GopherJS method (with workround to stop it being optimized away by Haxe)
+	#else
+		return x;
+	#end
 
 
 function shiftGuard(x:Int):Bool

@@ -31,10 +31,10 @@ class Go {
 	}
 
 	static function _print(arg:Dynamic) {
-		#if js
-		js.Syntax.code("console.log({0});", arg);
-		#else
+		#if (sys || hxnodejs)
 		Sys.print(arg);
+		#elseif js
+		js.Syntax.code("console.log({0});", arg);
 		#end
 	}
 

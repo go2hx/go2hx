@@ -7766,7 +7766,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 				}
 			final nameType = typeof(value.names[i], info, false);
 			//expr = defaultValue(nameType, info);
-			expr = macro (() -> $expr)();
+			//expr = macro (() -> $expr)();
 			values.push({
 				name: name,
 				pos: null,

@@ -145,7 +145,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		["-v", "--v"] => () -> instance.defines.push("verboseTest"),
 		@doc("Remove all depedency on go2hx for the compiled code by moving the stdlib into the output")
 		["-nodeps", "--nodeps", "-nodep", "--nodep"] => () -> instance.noDeps = true,
-		["-port", "--port"] => port -> instance.port = port,
+		["-port", "--port"] => port -> instance.port = Std.parseInt(port),
 	]);
 	argHandler.parse(args);
 	for (i in 0...args.length) {

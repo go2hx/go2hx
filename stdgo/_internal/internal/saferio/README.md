@@ -32,7 +32,7 @@ import stdgo._internal.internal.saferio.Saferio
 
 
 ```haxe
-final _chunk:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((10485760i64 : stdgo.GoUInt64)))()
+final _chunk:stdgo.GoUInt64 = ((10485760i64 : stdgo.GoUInt64))
 ```
 
 

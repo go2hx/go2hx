@@ -1328,457 +1328,457 @@ import stdgo._internal.internal.abi.Abi
 
 
 ```haxe
-final argsSizeUnknown:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final argsSizeUnknown:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final array:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final array:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final bool_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final bool_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final bothDir:stdgo._internal.internal.abi.ChanDir = (function() ->  @:implicitReturn return ((3 : stdgo._internal.internal.abi.Abi.ChanDir)))()
+final bothDir:stdgo._internal.internal.abi.ChanDir = ((3 : stdgo._internal.internal.abi.Abi.ChanDir))
 ```
 
 
 ```haxe
-final chan:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final chan:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final complex128:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final complex128:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final complex64:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final complex64:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final effectiveFloatRegSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final effectiveFloatRegSize:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final float32:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final float32:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final float64:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final float64:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final floatArgRegs:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final floatArgRegs:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final func:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final func:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final funcFlagAsm:stdgo._internal.internal.abi.FuncFlag = (function() ->  @:implicitReturn return ((4 : stdgo._internal.internal.abi.Abi.FuncFlag)))()
+final funcFlagAsm:stdgo._internal.internal.abi.FuncFlag = ((4 : stdgo._internal.internal.abi.Abi.FuncFlag))
 ```
 
 
 ```haxe
-final funcFlagSPWrite:stdgo._internal.internal.abi.FuncFlag = (function() ->  @:implicitReturn return ((4 : stdgo._internal.internal.abi.Abi.FuncFlag)))()
+final funcFlagSPWrite:stdgo._internal.internal.abi.FuncFlag = ((4 : stdgo._internal.internal.abi.Abi.FuncFlag))
 ```
 
 
 ```haxe
-final funcFlagTopFrame:stdgo._internal.internal.abi.FuncFlag = (function() ->  @:implicitReturn return ((4 : stdgo._internal.internal.abi.Abi.FuncFlag)))()
+final funcFlagTopFrame:stdgo._internal.internal.abi.FuncFlag = ((4 : stdgo._internal.internal.abi.Abi.FuncFlag))
 ```
 
 
 ```haxe
-final funcIDNormal:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcIDNormal:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcIDWrapper:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcIDWrapper:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_abort:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_abort:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_asmcgocall:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_asmcgocall:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_asyncPreempt:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_asyncPreempt:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_cgocallback:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_cgocallback:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_debugCallV2:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_debugCallV2:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_gcBgMarkWorker:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_gcBgMarkWorker:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_goexit:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_goexit:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_gogo:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_gogo:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_gopanic:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_gopanic:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_handleAsyncEvent:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_handleAsyncEvent:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_mcall:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_mcall:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_morestack:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_morestack:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_mstart:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_mstart:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_panicwrap:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_panicwrap:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_rt0_go:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_rt0_go:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_runfinq:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_runfinq:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_runtime_main:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_runtime_main:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_sigpanic:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_sigpanic:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_systemstack:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_systemstack:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcID_systemstack_switch:stdgo._internal.internal.abi.FuncID = (function() ->  @:implicitReturn return ((21 : stdgo._internal.internal.abi.Abi.FuncID)))()
+final funcID_systemstack_switch:stdgo._internal.internal.abi.FuncID = ((21 : stdgo._internal.internal.abi.Abi.FuncID))
 ```
 
 
 ```haxe
-final funcdata_ArgInfo:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5i64 : stdgo.GoUInt64)))()
+final funcdata_ArgInfo:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final funcdata_ArgLiveInfo:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((6i64 : stdgo.GoUInt64)))()
+final funcdata_ArgLiveInfo:stdgo.GoUInt64 = ((6i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final funcdata_ArgsPointerMaps:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final funcdata_ArgsPointerMaps:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final funcdata_InlTree:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((3i64 : stdgo.GoUInt64)))()
+final funcdata_InlTree:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final funcdata_LocalsPointerMaps:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((1i64 : stdgo.GoUInt64)))()
+final funcdata_LocalsPointerMaps:stdgo.GoUInt64 = ((1i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final funcdata_OpenCodedDeferInfo:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4i64 : stdgo.GoUInt64)))()
+final funcdata_OpenCodedDeferInfo:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final funcdata_StackObjects:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((2i64 : stdgo.GoUInt64)))()
+final funcdata_StackObjects:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final funcdata_WrapInfo:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((7i64 : stdgo.GoUInt64)))()
+final funcdata_WrapInfo:stdgo.GoUInt64 = ((7i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final int16:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final int16:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final int32:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final int32:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final int64:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final int64:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final int8:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final int8:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final intArgRegs:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final intArgRegs:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final int_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final int_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final interface_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final interface_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final invalid:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final invalid:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final invalidDir:stdgo._internal.internal.abi.ChanDir = (function() ->  @:implicitReturn return ((0 : stdgo._internal.internal.abi.Abi.ChanDir)))()
+final invalidDir:stdgo._internal.internal.abi.ChanDir = ((0 : stdgo._internal.internal.abi.Abi.ChanDir))
 ```
 
 
 ```haxe
-final kindDirectIface:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((32i64 : stdgo.GoUInt64)))()
+final kindDirectIface:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final kindGCProg:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((64i64 : stdgo.GoUInt64)))()
+final kindGCProg:stdgo.GoUInt64 = ((64i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final kindMask:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((31i64 : stdgo.GoUInt64)))()
+final kindMask:stdgo.GoUInt64 = ((31i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final mapBucketCount:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((8i64 : stdgo.GoUInt64)))()
+final mapBucketCount:stdgo.GoUInt64 = ((8i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final mapBucketCountBits:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((3i64 : stdgo.GoUInt64)))()
+final mapBucketCountBits:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final mapMaxElemBytes:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
+final mapMaxElemBytes:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final mapMaxKeyBytes:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
+final mapMaxKeyBytes:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final map_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final map_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final pcdata_ArgLiveIndex:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((3i64 : stdgo.GoUInt64)))()
+final pcdata_ArgLiveIndex:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final pcdata_InlTreeIndex:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((2i64 : stdgo.GoUInt64)))()
+final pcdata_InlTreeIndex:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final pcdata_StackMapIndex:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((1i64 : stdgo.GoUInt64)))()
+final pcdata_StackMapIndex:stdgo.GoUInt64 = ((1i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final pcdata_UnsafePoint:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final pcdata_UnsafePoint:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final pointer:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final pointer:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final recvDir:stdgo._internal.internal.abi.ChanDir = (function() ->  @:implicitReturn return ((2 : stdgo._internal.internal.abi.Abi.ChanDir)))()
+final recvDir:stdgo._internal.internal.abi.ChanDir = ((2 : stdgo._internal.internal.abi.Abi.ChanDir))
 ```
 
 
 ```haxe
-final sendDir:stdgo._internal.internal.abi.ChanDir = (function() ->  @:implicitReturn return ((2 : stdgo._internal.internal.abi.Abi.ChanDir)))()
+final sendDir:stdgo._internal.internal.abi.ChanDir = ((2 : stdgo._internal.internal.abi.Abi.ChanDir))
 ```
 
 
 ```haxe
-final slice:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final slice:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final stackBig:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4096i64 : stdgo.GoUInt64)))()
+final stackBig:stdgo.GoUInt64 = ((4096i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final stackNosplitBase:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((800i64 : stdgo.GoUInt64)))()
+final stackNosplitBase:stdgo.GoUInt64 = ((800i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final stackSmall:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
+final stackSmall:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final string:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final string:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final struct_:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final struct_:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final tflagExtraStar:stdgo._internal.internal.abi.TFlag = (function() ->  @:implicitReturn return ((2 : stdgo._internal.internal.abi.Abi.TFlag)))()
+final tflagExtraStar:stdgo._internal.internal.abi.TFlag = ((2 : stdgo._internal.internal.abi.Abi.TFlag))
 ```
 
 
 ```haxe
-final tflagNamed:stdgo._internal.internal.abi.TFlag = (function() ->  @:implicitReturn return ((4 : stdgo._internal.internal.abi.Abi.TFlag)))()
+final tflagNamed:stdgo._internal.internal.abi.TFlag = ((4 : stdgo._internal.internal.abi.Abi.TFlag))
 ```
 
 
 ```haxe
-final tflagRegularMemory:stdgo._internal.internal.abi.TFlag = (function() ->  @:implicitReturn return ((8 : stdgo._internal.internal.abi.Abi.TFlag)))()
+final tflagRegularMemory:stdgo._internal.internal.abi.TFlag = ((8 : stdgo._internal.internal.abi.Abi.TFlag))
 ```
 
 
 ```haxe
-final tflagUncommon:stdgo._internal.internal.abi.TFlag = (function() ->  @:implicitReturn return ((1 : stdgo._internal.internal.abi.Abi.TFlag)))()
+final tflagUncommon:stdgo._internal.internal.abi.TFlag = ((1 : stdgo._internal.internal.abi.Abi.TFlag))
 ```
 
 
 ```haxe
-final uint:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final uint:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final uint16:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final uint16:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final uint32:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final uint32:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final uint64:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final uint64:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final uint8:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final uint8:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final uintptr:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final uintptr:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 
 ```haxe
-final unsafePointRestart1:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final unsafePointRestart1:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final unsafePointRestart2:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final unsafePointRestart2:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final unsafePointRestartAtEntry:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final unsafePointRestartAtEntry:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final unsafePointSafe:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final unsafePointSafe:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final unsafePointUnsafe:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final unsafePointUnsafe:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final unsafePointer:stdgo._internal.internal.abi.Kind = (function() ->  @:implicitReturn return ((26u32 : stdgo._internal.internal.abi.Abi.Kind)))()
+final unsafePointer:stdgo._internal.internal.abi.Kind = ((26u32 : stdgo._internal.internal.abi.Abi.Kind))
 ```
 
 

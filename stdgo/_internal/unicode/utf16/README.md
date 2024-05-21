@@ -39,42 +39,42 @@ import stdgo._internal.unicode.utf16.Utf16
 
 
 ```haxe
-final _maxRune:stdgo.GoInt32 = (function() ->  @:implicitReturn return ((1114111 : stdgo.GoInt32)))()
+final _maxRune:stdgo.GoInt32 = ((1114111 : stdgo.GoInt32))
 ```
 
 
 ```haxe
-final _replacementChar:stdgo.GoInt32 = (function() ->  @:implicitReturn return ((65533 : stdgo.GoInt32)))()
+final _replacementChar:stdgo.GoInt32 = ((65533 : stdgo.GoInt32))
 ```
 
 
 ```haxe
-final _surr1:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((55296i64 : stdgo.GoUInt64)))()
+final _surr1:stdgo.GoUInt64 = ((55296i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _surr2:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((56320i64 : stdgo.GoUInt64)))()
+final _surr2:stdgo.GoUInt64 = ((56320i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _surr3:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((57344i64 : stdgo.GoUInt64)))()
+final _surr3:stdgo.GoUInt64 = ((57344i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _surrSelf:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((65536i64 : stdgo.GoUInt64)))()
+final _surrSelf:stdgo.GoUInt64 = ((65536i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final maxRune:stdgo.GoInt32 = (function() ->  @:implicitReturn return ((1114111 : stdgo.GoInt32)))()
+final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.GoInt32))
 ```
 
 
 ```haxe
-final replacementChar:stdgo.GoInt32 = (function() ->  @:implicitReturn return ((65533 : stdgo.GoInt32)))()
+final replacementChar:stdgo.GoInt32 = ((65533 : stdgo.GoInt32))
 ```
 
 

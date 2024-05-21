@@ -40,7 +40,7 @@ import stdgo._internal.internal.race.Race
 
 
 ```haxe
-final enabled:Bool = (function() ->  @:implicitReturn return false)()
+final enabled:Bool = false
 ```
 
 

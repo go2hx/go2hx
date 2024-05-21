@@ -602,12 +602,12 @@ import stdgo._internal.bytes_test.Bytes
 
 
 ```haxe
-final _space:stdgo.GoString = (function() ->  @:implicitReturn return (("\t\x0B\r\x0C\n�  　" : stdgo.GoString)))()
+final _space:stdgo.GoString = (("\t\x0B\r\x0C\n�  　" : stdgo.GoString))
 ```
 
 
 ```haxe
-final n:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((10000i64 : stdgo.GoUInt64)))()
+final n:stdgo.GoUInt64 = ((10000i64 : stdgo.GoUInt64))
 ```
 
 

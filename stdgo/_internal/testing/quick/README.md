@@ -256,7 +256,7 @@ import stdgo._internal.testing.quick.Quick
 
 
 ```haxe
-final _complexSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((50i64 : stdgo.GoUInt64)))()
+final _complexSize:stdgo.GoUInt64 = ((50i64 : stdgo.GoUInt64))
 ```
 
 

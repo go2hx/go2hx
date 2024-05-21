@@ -216,152 +216,152 @@ import stdgo._internal.fmt.Fmt
 
 
 ```haxe
-final _badIndexString:stdgo.GoString = (function() ->  @:implicitReturn return (("(BADINDEX)" : stdgo.GoString)))()
+final _badIndexString:stdgo.GoString = (("(BADINDEX)" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _badPrecString:stdgo.GoString = (function() ->  @:implicitReturn return (("%!(BADPREC)" : stdgo.GoString)))()
+final _badPrecString:stdgo.GoString = (("%!(BADPREC)" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _badWidthString:stdgo.GoString = (function() ->  @:implicitReturn return (("%!(BADWIDTH)" : stdgo.GoString)))()
+final _badWidthString:stdgo.GoString = (("%!(BADWIDTH)" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _binaryDigits:stdgo.GoString = (function() ->  @:implicitReturn return (("01" : stdgo.GoString)))()
+final _binaryDigits:stdgo.GoString = (("01" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _commaSpaceString:stdgo.GoString = (function() ->  @:implicitReturn return ((", " : stdgo.GoString)))()
+final _commaSpaceString:stdgo.GoString = ((", " : stdgo.GoString))
 ```
 
 
 ```haxe
-final _decimalDigits:stdgo.GoString = (function() ->  @:implicitReturn return (("0123456789" : stdgo.GoString)))()
+final _decimalDigits:stdgo.GoString = (("0123456789" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _eof:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final _eof:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _exponent:stdgo.GoString = (function() ->  @:implicitReturn return (("eEpP" : stdgo.GoString)))()
+final _exponent:stdgo.GoString = (("eEpP" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _extraString:stdgo.GoString = (function() ->  @:implicitReturn return (("%!(EXTRA " : stdgo.GoString)))()
+final _extraString:stdgo.GoString = (("%!(EXTRA " : stdgo.GoString))
 ```
 
 
 ```haxe
-final _floatVerbs:stdgo.GoString = (function() ->  @:implicitReturn return (("beEfFgGv" : stdgo.GoString)))()
+final _floatVerbs:stdgo.GoString = (("beEfFgGv" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _hexadecimalDigits:stdgo.GoString = (function() ->  @:implicitReturn return (("0123456789aAbBcCdDeEfF" : stdgo.GoString)))()
+final _hexadecimalDigits:stdgo.GoString = (("0123456789aAbBcCdDeEfF" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _hugeWid:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((1073741824i64 : stdgo.GoUInt64)))()
+final _hugeWid:stdgo.GoUInt64 = ((1073741824i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _intBits:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((32i64 : stdgo.GoUInt64)))()
+final _intBits:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _invReflectString:stdgo.GoString = (function() ->  @:implicitReturn return (("<invalid reflect.Value>" : stdgo.GoString)))()
+final _invReflectString:stdgo.GoString = (("<invalid reflect.Value>" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _ldigits:stdgo.GoString = (function() ->  @:implicitReturn return (("0123456789abcdefx" : stdgo.GoString)))()
+final _ldigits:stdgo.GoString = (("0123456789abcdefx" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _mapString:stdgo.GoString = (function() ->  @:implicitReturn return (("map[" : stdgo.GoString)))()
+final _mapString:stdgo.GoString = (("map[" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _missingString:stdgo.GoString = (function() ->  @:implicitReturn return (("(MISSING)" : stdgo.GoString)))()
+final _missingString:stdgo.GoString = (("(MISSING)" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _nilAngleString:stdgo.GoString = (function() ->  @:implicitReturn return (("<nil>" : stdgo.GoString)))()
+final _nilAngleString:stdgo.GoString = (("<nil>" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _nilParenString:stdgo.GoString = (function() ->  @:implicitReturn return (("(nil)" : stdgo.GoString)))()
+final _nilParenString:stdgo.GoString = (("(nil)" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _nilString:stdgo.GoString = (function() ->  @:implicitReturn return (("nil" : stdgo.GoString)))()
+final _nilString:stdgo.GoString = (("nil" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _noVerbString:stdgo.GoString = (function() ->  @:implicitReturn return (("%!(NOVERB)" : stdgo.GoString)))()
+final _noVerbString:stdgo.GoString = (("%!(NOVERB)" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _octalDigits:stdgo.GoString = (function() ->  @:implicitReturn return (("01234567" : stdgo.GoString)))()
+final _octalDigits:stdgo.GoString = (("01234567" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _panicString:stdgo.GoString = (function() ->  @:implicitReturn return (("(PANIC=" : stdgo.GoString)))()
+final _panicString:stdgo.GoString = (("(PANIC=" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _percentBangString:stdgo.GoString = (function() ->  @:implicitReturn return (("%!" : stdgo.GoString)))()
+final _percentBangString:stdgo.GoString = (("%!" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _period:stdgo.GoString = (function() ->  @:implicitReturn return (("." : stdgo.GoString)))()
+final _period:stdgo.GoString = (("." : stdgo.GoString))
 ```
 
 
 ```haxe
-final _sign:stdgo.GoString = (function() ->  @:implicitReturn return (("+-" : stdgo.GoString)))()
+final _sign:stdgo.GoString = (("+-" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _signed:Bool = (function() ->  @:implicitReturn return true)()
+final _signed:Bool = true
 ```
 
 
 ```haxe
-final _udigits:stdgo.GoString = (function() ->  @:implicitReturn return (("0123456789ABCDEFX" : stdgo.GoString)))()
+final _udigits:stdgo.GoString = (("0123456789ABCDEFX" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _uintptrBits:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((32i64 : stdgo.GoUInt64)))()
+final _uintptrBits:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _unsigned:Bool = (function() ->  @:implicitReturn return false)()
+final _unsigned:Bool = false
 ```
 
 

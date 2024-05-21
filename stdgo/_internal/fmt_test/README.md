@@ -467,22 +467,22 @@ import stdgo._internal.fmt_test.Fmt
 
 
 ```haxe
-final _appendResult:stdgo.GoString = (function() ->  @:implicitReturn return (("hello world, 23" : stdgo.GoString)))()
+final _appendResult:stdgo.GoString = (("hello world, 23" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _hello:stdgo.GoString = (function() ->  @:implicitReturn return (("hello " : stdgo.GoString)))()
+final _hello:stdgo.GoString = (("hello " : stdgo.GoString))
 ```
 
 
 ```haxe
-final _intCount:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((800i64 : stdgo.GoUInt64)))()
+final _intCount:stdgo.GoUInt64 = ((800i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final no:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final no:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 

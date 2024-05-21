@@ -286,172 +286,172 @@ import stdgo._internal.reflect.Reflect
 
 
 ```haxe
-final array:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final array:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final bool_:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final bool_:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final bothDir:stdgo._internal.reflect.ChanDir = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.reflect.Reflect.ChanDir)))()
+final bothDir:stdgo._internal.reflect.ChanDir = ((((0 : stdgo.GoInt)) : stdgo._internal.reflect.Reflect.ChanDir))
 ```
 
 
 ```haxe
-final chan:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final chan:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final complex128:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final complex128:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final complex64:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final complex64:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final float32:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final float32:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final float64:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final float64:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final func:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final func:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int16:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final int16:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int32:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final int32:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int64:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final int64:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int8:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final int8:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final int_:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final int_:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final interface_:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final interface_:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final invalid:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final invalid:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final map_:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final map_:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final pointer:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final pointer:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final ptr:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final ptr:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final recvDir:stdgo._internal.reflect.ChanDir = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.reflect.Reflect.ChanDir)))()
+final recvDir:stdgo._internal.reflect.ChanDir = ((((0 : stdgo.GoInt)) : stdgo._internal.reflect.Reflect.ChanDir))
 ```
 
 
 ```haxe
-final selectDefault:Null<Any> = (function() ->  @:implicitReturn return @:unknown_default_value null)()
+final selectDefault:Null<Any> = @:unknown_default_value null
 ```
 
 
 ```haxe
-final selectRecv:Null<Any> = (function() ->  @:implicitReturn return @:unknown_default_value null)()
+final selectRecv:Null<Any> = @:unknown_default_value null
 ```
 
 
 ```haxe
-final selectSend:Null<Any> = (function() ->  @:implicitReturn return @:unknown_default_value null)()
+final selectSend:Null<Any> = @:unknown_default_value null
 ```
 
 
 ```haxe
-final sendDir:stdgo._internal.reflect.ChanDir = (function() ->  @:implicitReturn return ((((0 : stdgo.GoInt)) : stdgo._internal.reflect.Reflect.ChanDir)))()
+final sendDir:stdgo._internal.reflect.ChanDir = ((((0 : stdgo.GoInt)) : stdgo._internal.reflect.Reflect.ChanDir))
 ```
 
 
 ```haxe
-final slice:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final slice:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final string:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final string:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final struct_:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final struct_:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final uint:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint16:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final uint16:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint32:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final uint32:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint64:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final uint64:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uint8:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final uint8:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final uintptr:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final uintptr:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 
 ```haxe
-final unsafePointer:stdgo._internal.reflect.Kind = (function() ->  @:implicitReturn return ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind)))()
+final unsafePointer:stdgo._internal.reflect.Kind = ((((0 : stdgo.GoUInt)) : stdgo._internal.reflect.Reflect.Kind))
 ```
 
 

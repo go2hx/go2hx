@@ -72,37 +72,37 @@ import stdgo._internal.internal.bytealg.Bytealg
 
 
 ```haxe
-final _offsetPPC64HasPOWER9:stdgo.GoUIntptr = (function() ->  @:implicitReturn return stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.ppc64.isPOWER9)))()
+final _offsetPPC64HasPOWER9:stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.ppc64.isPOWER9))
 ```
 
 
 ```haxe
-final _offsetS390xHasVX:stdgo.GoUIntptr = (function() ->  @:implicitReturn return stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.s390x.hasVX)))()
+final _offsetS390xHasVX:stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.s390x.hasVX))
 ```
 
 
 ```haxe
-final _offsetX86HasAVX2:stdgo.GoUIntptr = (function() ->  @:implicitReturn return stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasAVX2)))()
+final _offsetX86HasAVX2:stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasAVX2))
 ```
 
 
 ```haxe
-final _offsetX86HasPOPCNT:stdgo.GoUIntptr = (function() ->  @:implicitReturn return stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasPOPCNT)))()
+final _offsetX86HasPOPCNT:stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasPOPCNT))
 ```
 
 
 ```haxe
-final _offsetX86HasSSE42:stdgo.GoUIntptr = (function() ->  @:implicitReturn return stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasSSE42)))()
+final _offsetX86HasSSE42:stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_(stdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasSSE42))
 ```
 
 
 ```haxe
-final maxBruteForce:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final maxBruteForce:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final primeRK:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((16777619i64 : stdgo.GoUInt64)))()
+final primeRK:stdgo.GoUInt64 = ((16777619i64 : stdgo.GoUInt64))
 ```
 
 

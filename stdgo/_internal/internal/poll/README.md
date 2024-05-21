@@ -187,57 +187,57 @@ import stdgo._internal.internal.poll.Poll
 
 
 ```haxe
-final _maxRW:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _maxRW:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mutexClosed:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _mutexClosed:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mutexRLock:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _mutexRLock:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mutexRMask:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _mutexRMask:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mutexRWait:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _mutexRWait:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mutexRef:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _mutexRef:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mutexRefMask:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _mutexRefMask:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mutexWLock:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _mutexWLock:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mutexWMask:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _mutexWMask:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mutexWWait:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0 : stdgo.GoUInt64)))()
+final _mutexWWait:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _overflowMsg:stdgo.GoString = (function() ->  @:implicitReturn return (("" : stdgo.GoString)))()
+final _overflowMsg:stdgo.GoString = (("" : stdgo.GoString))
 ```
 
 

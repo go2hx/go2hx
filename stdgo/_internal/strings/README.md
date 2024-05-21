@@ -367,12 +367,12 @@ import stdgo._internal.strings.Strings
 
 
 ```haxe
-final _countCutOff:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((8i64 : stdgo.GoUInt64)))()
+final _countCutOff:stdgo.GoUInt64 = ((8i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _maxInt:stdgo.GoInt = (function() ->  @:implicitReturn return ((((2147483647u32 : stdgo.GoUInt)) : stdgo.GoInt)))()
+final _maxInt:stdgo.GoInt = ((((2147483647u32 : stdgo.GoUInt)) : stdgo.GoInt))
 ```
 
 

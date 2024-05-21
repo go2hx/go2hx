@@ -275,17 +275,17 @@ import stdgo._internal.encoding.binary.Binary
 
 
 ```haxe
-final maxVarintLen16:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((3i64 : stdgo.GoUInt64)))()
+final maxVarintLen16:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final maxVarintLen32:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5i64 : stdgo.GoUInt64)))()
+final maxVarintLen32:stdgo.GoUInt64 = ((5i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final maxVarintLen64:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((10i64 : stdgo.GoUInt64)))()
+final maxVarintLen64:stdgo.GoUInt64 = ((10i64 : stdgo.GoUInt64))
 ```
 
 

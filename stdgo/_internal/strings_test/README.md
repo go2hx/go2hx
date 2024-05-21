@@ -506,12 +506,12 @@ import stdgo._internal.strings_test.Strings
 
 
 ```haxe
-final _benchmarkString:stdgo.GoString = (function() ->  @:implicitReturn return (("some_text=some☺value" : stdgo.GoString)))()
+final _benchmarkString:stdgo.GoString = (("some_text=some☺value" : stdgo.GoString))
 ```
 
 
 ```haxe
-final _space:stdgo.GoString = (function() ->  @:implicitReturn return (("\t\x0B\r\x0C\n�  　" : stdgo.GoString)))()
+final _space:stdgo.GoString = (("\t\x0B\r\x0C\n�  　" : stdgo.GoString))
 ```
 
 

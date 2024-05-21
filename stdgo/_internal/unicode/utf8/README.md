@@ -103,152 +103,152 @@ import stdgo._internal.unicode.utf8.Utf8
 
 
 ```haxe
-final _as:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((240i64 : stdgo.GoUInt64)))()
+final _as:stdgo.GoUInt64 = ((240i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _hicb:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((191i64 : stdgo.GoUInt64)))()
+final _hicb:stdgo.GoUInt64 = ((191i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _locb:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
+final _locb:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mask2:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((31i64 : stdgo.GoUInt64)))()
+final _mask2:stdgo.GoUInt64 = ((31i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mask3:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((15i64 : stdgo.GoUInt64)))()
+final _mask3:stdgo.GoUInt64 = ((15i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mask4:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((7i64 : stdgo.GoUInt64)))()
+final _mask4:stdgo.GoUInt64 = ((7i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _maskx:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((63i64 : stdgo.GoUInt64)))()
+final _maskx:stdgo.GoUInt64 = ((63i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _rune1Max:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((127i64 : stdgo.GoUInt64)))()
+final _rune1Max:stdgo.GoUInt64 = ((127i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _rune2Max:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((2047i64 : stdgo.GoUInt64)))()
+final _rune2Max:stdgo.GoUInt64 = ((2047i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _rune3Max:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((65535i64 : stdgo.GoUInt64)))()
+final _rune3Max:stdgo.GoUInt64 = ((65535i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _s1:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((2i64 : stdgo.GoUInt64)))()
+final _s1:stdgo.GoUInt64 = ((2i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _s2:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((19i64 : stdgo.GoUInt64)))()
+final _s2:stdgo.GoUInt64 = ((19i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _s3:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((3i64 : stdgo.GoUInt64)))()
+final _s3:stdgo.GoUInt64 = ((3i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _s4:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((35i64 : stdgo.GoUInt64)))()
+final _s4:stdgo.GoUInt64 = ((35i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _s5:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((52i64 : stdgo.GoUInt64)))()
+final _s5:stdgo.GoUInt64 = ((52i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _s6:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4i64 : stdgo.GoUInt64)))()
+final _s6:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _s7:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((68i64 : stdgo.GoUInt64)))()
+final _s7:stdgo.GoUInt64 = ((68i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _surrogateMax:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((57343i64 : stdgo.GoUInt64)))()
+final _surrogateMax:stdgo.GoUInt64 = ((57343i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _surrogateMin:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((55296i64 : stdgo.GoUInt64)))()
+final _surrogateMin:stdgo.GoUInt64 = ((55296i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _t1:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((0i64 : stdgo.GoUInt64)))()
+final _t1:stdgo.GoUInt64 = ((0i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _t2:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((192i64 : stdgo.GoUInt64)))()
+final _t2:stdgo.GoUInt64 = ((192i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _t3:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((224i64 : stdgo.GoUInt64)))()
+final _t3:stdgo.GoUInt64 = ((224i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _t4:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((240i64 : stdgo.GoUInt64)))()
+final _t4:stdgo.GoUInt64 = ((240i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _t5:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((248i64 : stdgo.GoUInt64)))()
+final _t5:stdgo.GoUInt64 = ((248i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _tx:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
+final _tx:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _xx:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((241i64 : stdgo.GoUInt64)))()
+final _xx:stdgo.GoUInt64 = ((241i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final maxRune:stdgo.GoInt32 = (function() ->  @:implicitReturn return ((1114111 : stdgo.GoInt32)))()
+final maxRune:stdgo.GoInt32 = ((1114111 : stdgo.GoInt32))
 ```
 
 
 ```haxe
-final runeError:stdgo.GoInt32 = (function() ->  @:implicitReturn return ((65533 : stdgo.GoInt32)))()
+final runeError:stdgo.GoInt32 = ((65533 : stdgo.GoInt32))
 ```
 
 
 ```haxe
-final runeSelf:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((128i64 : stdgo.GoUInt64)))()
+final runeSelf:stdgo.GoUInt64 = ((128i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final utfmax:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4i64 : stdgo.GoUInt64)))()
+final utfmax:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
 ```
 
 

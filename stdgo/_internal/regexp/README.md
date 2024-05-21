@@ -497,32 +497,32 @@ import stdgo._internal.regexp.Regexp
 
 
 ```haxe
-final _endOfText:stdgo.GoInt32 = (function() ->  @:implicitReturn return ((-1 : stdgo.GoInt32)))()
+final _endOfText:stdgo.GoInt32 = ((-1 : stdgo.GoInt32))
 ```
 
 
 ```haxe
-final _maxBacktrackProg:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((500i64 : stdgo.GoUInt64)))()
+final _maxBacktrackProg:stdgo.GoUInt64 = ((500i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _maxBacktrackVector:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((262144i64 : stdgo.GoUInt64)))()
+final _maxBacktrackVector:stdgo.GoUInt64 = ((262144i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _mergeFailed:stdgo.GoUInt32 = (function() ->  @:implicitReturn return ((-1u32 : stdgo.GoUInt32)))()
+final _mergeFailed:stdgo.GoUInt32 = ((-1u32 : stdgo.GoUInt32))
 ```
 
 
 ```haxe
-final _startSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((10i64 : stdgo.GoUInt64)))()
+final _startSize:stdgo.GoUInt64 = ((10i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _visitedBits:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((32i64 : stdgo.GoUInt64)))()
+final _visitedBits:stdgo.GoUInt64 = ((32i64 : stdgo.GoUInt64))
 ```
 
 

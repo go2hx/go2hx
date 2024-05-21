@@ -376,47 +376,47 @@ import stdgo._internal.bytes.Bytes
 
 
 ```haxe
-final _maxInt:stdgo.GoInt = (function() ->  @:implicitReturn return ((((2147483647u32 : stdgo.GoUInt)) : stdgo.GoInt)))()
+final _maxInt:stdgo.GoInt = ((((2147483647u32 : stdgo.GoUInt)) : stdgo.GoInt))
 ```
 
 
 ```haxe
-final _opInvalid:stdgo._internal.bytes.T_readOp = (function() ->  @:implicitReturn return ((0 : stdgo._internal.bytes.Bytes.T_readOp)))()
+final _opInvalid:stdgo._internal.bytes.T_readOp = ((0 : stdgo._internal.bytes.Bytes.T_readOp))
 ```
 
 
 ```haxe
-final _opRead:stdgo._internal.bytes.T_readOp = (function() ->  @:implicitReturn return ((-1 : stdgo._internal.bytes.Bytes.T_readOp)))()
+final _opRead:stdgo._internal.bytes.T_readOp = ((-1 : stdgo._internal.bytes.Bytes.T_readOp))
 ```
 
 
 ```haxe
-final _opReadRune1:stdgo._internal.bytes.T_readOp = (function() ->  @:implicitReturn return ((1 : stdgo._internal.bytes.Bytes.T_readOp)))()
+final _opReadRune1:stdgo._internal.bytes.T_readOp = ((1 : stdgo._internal.bytes.Bytes.T_readOp))
 ```
 
 
 ```haxe
-final _opReadRune2:stdgo._internal.bytes.T_readOp = (function() ->  @:implicitReturn return ((2 : stdgo._internal.bytes.Bytes.T_readOp)))()
+final _opReadRune2:stdgo._internal.bytes.T_readOp = ((2 : stdgo._internal.bytes.Bytes.T_readOp))
 ```
 
 
 ```haxe
-final _opReadRune3:stdgo._internal.bytes.T_readOp = (function() ->  @:implicitReturn return ((3 : stdgo._internal.bytes.Bytes.T_readOp)))()
+final _opReadRune3:stdgo._internal.bytes.T_readOp = ((3 : stdgo._internal.bytes.Bytes.T_readOp))
 ```
 
 
 ```haxe
-final _opReadRune4:stdgo._internal.bytes.T_readOp = (function() ->  @:implicitReturn return ((4 : stdgo._internal.bytes.Bytes.T_readOp)))()
+final _opReadRune4:stdgo._internal.bytes.T_readOp = ((4 : stdgo._internal.bytes.Bytes.T_readOp))
 ```
 
 
 ```haxe
-final _smallBufferSize:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((64i64 : stdgo.GoUInt64)))()
+final _smallBufferSize:stdgo.GoUInt64 = ((64i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final minRead:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((512i64 : stdgo.GoUInt64)))()
+final minRead:stdgo.GoUInt64 = ((512i64 : stdgo.GoUInt64))
 ```
 
 

@@ -46,27 +46,27 @@ import stdgo._internal.hash.adler32.Adler32
 
 
 ```haxe
-final _magic:stdgo.GoString = (function() ->  @:implicitReturn return stdgo.Go.str("adl", 1))()
+final _magic:stdgo.GoString = stdgo.Go.str("adl", 1)
 ```
 
 
 ```haxe
-final _marshaledSize:stdgo.GoInt = (function() ->  @:implicitReturn return ((8 : stdgo.GoInt)))()
+final _marshaledSize:stdgo.GoInt = ((8 : stdgo.GoInt))
 ```
 
 
 ```haxe
-final _mod:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((65521i64 : stdgo.GoUInt64)))()
+final _mod:stdgo.GoUInt64 = ((65521i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final _nmax:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((5552i64 : stdgo.GoUInt64)))()
+final _nmax:stdgo.GoUInt64 = ((5552i64 : stdgo.GoUInt64))
 ```
 
 
 ```haxe
-final size:stdgo.GoUInt64 = (function() ->  @:implicitReturn return ((4i64 : stdgo.GoUInt64)))()
+final size:stdgo.GoUInt64 = ((4i64 : stdgo.GoUInt64))
 ```
 
 

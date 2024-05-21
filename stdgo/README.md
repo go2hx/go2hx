@@ -426,7 +426,7 @@ function clampInt8(x:Int):Int
 ```
 
 
-[\(view code\)](<./GoNumber.hx#L191>)
+[\(view code\)](<./GoNumber.hx#L195>)
 
 
 ## function clampUInt
@@ -437,7 +437,7 @@ function clampUInt(x:Int):stdgo.UInt32
 ```
 
 
-[\(view code\)](<./GoNumber.hx#L185>)
+[\(view code\)](<./GoNumber.hx#L188>)
 
 
 ## function clampUInt16
@@ -514,7 +514,7 @@ function ofIntInt64(x:Int):stdgo.Int64
 ```
 
 
-[\(view code\)](<./GoNumber.hx#L198>)
+[\(view code\)](<./GoNumber.hx#L202>)
 
 
 ## function ofIntUInt
@@ -591,7 +591,7 @@ function shiftGuard(x:Int):Bool
 ```
 
 
-[\(view code\)](<./GoNumber.hx#L189>)
+[\(view code\)](<./GoNumber.hx#L193>)
 
 
 ## function toFloatInt64

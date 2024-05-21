@@ -13,31 +13,31 @@
 
 - [class Abi](<#class-abi>)
 
-  - [`function commonOffset(ptrSize:Int, twoWordAlignSlices:Bool):stdgo.internal.abi.Offset`](<#abi-function-commonoffset>)
+  - [`function commonOffset(_ptrSize:Int, _twoWordAlignSlices:Bool):stdgo.internal.abi.Offset`](<#abi-function-commonoffset>)
 
-  - [`function commonSize(ptrSize:Int):Int`](<#abi-function-commonsize>)
+  - [`function commonSize(_ptrSize:Int):Int`](<#abi-function-commonsize>)
 
-  - [`function funcPCABI0(f:stdgo.AnyInterface):stdgo.GoUIntptr`](<#abi-function-funcpcabi0>)
+  - [`function funcPCABI0(_f:stdgo.AnyInterface):stdgo.GoUIntptr`](<#abi-function-funcpcabi0>)
 
-  - [`function funcPCABIInternal(f:stdgo.AnyInterface):stdgo.GoUIntptr`](<#abi-function-funcpcabiinternal>)
+  - [`function funcPCABIInternal(_f:stdgo.AnyInterface):stdgo.GoUIntptr`](<#abi-function-funcpcabiinternal>)
 
-  - [`function imethodSize(ptrSize:Int):Int`](<#abi-function-imethodsize>)
+  - [`function imethodSize(_ptrSize:Int):Int`](<#abi-function-imethodsize>)
 
-  - [`function initializedOffset(off:Int, align:UInt, ptrSize:UInt, twoWordAlignSlices:Bool):stdgo.internal.abi.Offset`](<#abi-function-initializedoffset>)
+  - [`function initializedOffset(_off:Int, _align:UInt, _ptrSize:UInt, _twoWordAlignSlices:Bool):stdgo.internal.abi.Offset`](<#abi-function-initializedoffset>)
 
-  - [`function kindOff(ptrSize:Int):Int`](<#abi-function-kindoff>)
+  - [`function kindOff(_ptrSize:Int):Int`](<#abi-function-kindoff>)
 
-  - [`function newName(n:String, tag:String, exported:Bool, embedded:Bool):stdgo.internal.abi.Name`](<#abi-function-newname>)
+  - [`function newName(_n:String, _tag:String, _exported:Bool, _embedded:Bool):stdgo.internal.abi.Name`](<#abi-function-newname>)
 
-  - [`function newOffset(ptrSize:UInt, twoWordAlignSlices:Bool):stdgo.internal.abi.Offset`](<#abi-function-newoffset>)
+  - [`function newOffset(_ptrSize:UInt, _twoWordAlignSlices:Bool):stdgo.internal.abi.Offset`](<#abi-function-newoffset>)
 
-  - [`function ptrBytesOff(ptrSize:Int):Int`](<#abi-function-ptrbytesoff>)
+  - [`function ptrBytesOff(_ptrSize:Int):Int`](<#abi-function-ptrbytesoff>)
 
-  - [`function sizeOff(ptrSize:Int):Int`](<#abi-function-sizeoff>)
+  - [`function sizeOff(_ptrSize:Int):Int`](<#abi-function-sizeoff>)
 
-  - [`function structFieldSize(ptrSize:Int):Int`](<#abi-function-structfieldsize>)
+  - [`function structFieldSize(_ptrSize:Int):Int`](<#abi-function-structfieldsize>)
 
-  - [`function tflagOff(ptrSize:Int):Int`](<#abi-function-tflagoff>)
+  - [`function tflagOff(_ptrSize:Int):Int`](<#abi-function-tflagoff>)
 
   - [`function uncommonSize():haxe.UInt64`](<#abi-function-uncommonsize>)
 
@@ -587,7 +587,7 @@ import stdgo.internal.abi.*
 
 
 ```haxe
-function commonOffset(ptrSize:Int, twoWordAlignSlices:Bool):stdgo.internal.abi.Offset
+function commonOffset(_ptrSize:Int, _twoWordAlignSlices:Bool):stdgo.internal.abi.Offset
 ```
 
 
@@ -601,7 +601,7 @@ CommonOffset returns the Offset to the data after the common portion of type dat
 
 
 ```haxe
-function commonSize(ptrSize:Int):Int
+function commonSize(_ptrSize:Int):Int
 ```
 
 
@@ -615,7 +615,7 @@ CommonSize returns sizeof\(Type\) for a compilation target with a given ptrSize
 
 
 ```haxe
-function funcPCABI0(f:stdgo.AnyInterface):stdgo.GoUIntptr
+function funcPCABI0(_f:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
@@ -634,7 +634,7 @@ Implemented as a compile intrinsic.
 
 
 ```haxe
-function funcPCABIInternal(f:stdgo.AnyInterface):stdgo.GoUIntptr
+function funcPCABIInternal(_f:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
@@ -655,7 +655,7 @@ Implemented as a compile intrinsic.
 
 
 ```haxe
-function imethodSize(ptrSize:Int):Int
+function imethodSize(_ptrSize:Int):Int
 ```
 
 
@@ -669,7 +669,7 @@ IMethodSize returns sizeof\(IMethod\) for a compilation target with a given ptrS
 
 
 ```haxe
-function initializedOffset(off:Int, align:UInt, ptrSize:UInt, twoWordAlignSlices:Bool):stdgo.internal.abi.Offset
+function initializedOffset(_off:Int, _align:UInt, _ptrSize:UInt, _twoWordAlignSlices:Bool):stdgo.internal.abi.Offset
 ```
 
 
@@ -683,7 +683,7 @@ InitializedOffset returns a new Offset with specified offset, alignment, pointer
 
 
 ```haxe
-function kindOff(ptrSize:Int):Int
+function kindOff(_ptrSize:Int):Int
 ```
 
 
@@ -697,7 +697,7 @@ KindOff returns the offset of Type.Kind\_ for a compilation target with a given 
 
 
 ```haxe
-function newName(n:String, tag:String, exported:Bool, embedded:Bool):stdgo.internal.abi.Name
+function newName(_n:String, _tag:String, _exported:Bool, _embedded:Bool):stdgo.internal.abi.Name
 ```
 
 
@@ -708,7 +708,7 @@ function newName(n:String, tag:String, exported:Bool, embedded:Bool):stdgo.inter
 
 
 ```haxe
-function newOffset(ptrSize:UInt, twoWordAlignSlices:Bool):stdgo.internal.abi.Offset
+function newOffset(_ptrSize:UInt, _twoWordAlignSlices:Bool):stdgo.internal.abi.Offset
 ```
 
 
@@ -722,7 +722,7 @@ NewOffset returns a new Offset with offset 0 and alignment 1.
 
 
 ```haxe
-function ptrBytesOff(ptrSize:Int):Int
+function ptrBytesOff(_ptrSize:Int):Int
 ```
 
 
@@ -736,7 +736,7 @@ PtrBytes returns the offset of Type.PtrBytes for a compilation target with a giv
 
 
 ```haxe
-function sizeOff(ptrSize:Int):Int
+function sizeOff(_ptrSize:Int):Int
 ```
 
 
@@ -750,7 +750,7 @@ SizeOff returns the offset of Type.Size\_ for a compilation target with a given 
 
 
 ```haxe
-function structFieldSize(ptrSize:Int):Int
+function structFieldSize(_ptrSize:Int):Int
 ```
 
 
@@ -764,7 +764,7 @@ StructFieldSize returns sizeof\(StructField\) for a compilation target with a gi
 
 
 ```haxe
-function tflagOff(ptrSize:Int):Int
+function tflagOff(_ptrSize:Int):Int
 ```
 
 

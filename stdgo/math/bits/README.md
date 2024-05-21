@@ -13,103 +13,103 @@
 
 - [class Bits](<#class-bits>)
 
-  - [`function add(x:UInt, y:UInt, carry:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-add>)
+  - [`function add(_x:UInt, _y:UInt, _carry:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-add>)
 
-  - [`function add32(x:UInt, y:UInt, carry:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-add32>)
+  - [`function add32(_x:UInt, _y:UInt, _carry:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-add32>)
 
-  - [`function add64(x:haxe.UInt64, y:haxe.UInt64, carry:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>`](<#bits-function-add64>)
+  - [`function add64(_x:haxe.UInt64, _y:haxe.UInt64, _carry:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>`](<#bits-function-add64>)
 
-  - [`function div(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-div>)
+  - [`function div(_hi:UInt, _lo:UInt, _y:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-div>)
 
-  - [`function div32(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-div32>)
+  - [`function div32(_hi:UInt, _lo:UInt, _y:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-div32>)
 
-  - [`function div64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>`](<#bits-function-div64>)
+  - [`function div64(_hi:haxe.UInt64, _lo:haxe.UInt64, _y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>`](<#bits-function-div64>)
 
-  - [`function leadingZeros(x:UInt):Int`](<#bits-function-leadingzeros>)
+  - [`function leadingZeros(_x:UInt):Int`](<#bits-function-leadingzeros>)
 
-  - [`function leadingZeros16(x:UInt):Int`](<#bits-function-leadingzeros16>)
+  - [`function leadingZeros16(_x:UInt):Int`](<#bits-function-leadingzeros16>)
 
-  - [`function leadingZeros32(x:UInt):Int`](<#bits-function-leadingzeros32>)
+  - [`function leadingZeros32(_x:UInt):Int`](<#bits-function-leadingzeros32>)
 
-  - [`function leadingZeros64(x:haxe.UInt64):Int`](<#bits-function-leadingzeros64>)
+  - [`function leadingZeros64(_x:haxe.UInt64):Int`](<#bits-function-leadingzeros64>)
 
-  - [`function leadingZeros8(x:UInt):Int`](<#bits-function-leadingzeros8>)
+  - [`function leadingZeros8(_x:UInt):Int`](<#bits-function-leadingzeros8>)
 
-  - [`function len(x:UInt):Int`](<#bits-function-len>)
+  - [`function len(_x:UInt):Int`](<#bits-function-len>)
 
-  - [`function len16(x:UInt):Int`](<#bits-function-len16>)
+  - [`function len16(_x:UInt):Int`](<#bits-function-len16>)
 
-  - [`function len32(x:UInt):Int`](<#bits-function-len32>)
+  - [`function len32(_x:UInt):Int`](<#bits-function-len32>)
 
-  - [`function len64(x:haxe.UInt64):Int`](<#bits-function-len64>)
+  - [`function len64(_x:haxe.UInt64):Int`](<#bits-function-len64>)
 
-  - [`function len8(x:UInt):Int`](<#bits-function-len8>)
+  - [`function len8(_x:UInt):Int`](<#bits-function-len8>)
 
-  - [`function mul(x:UInt, y:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-mul>)
+  - [`function mul(_x:UInt, _y:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-mul>)
 
-  - [`function mul32(x:UInt, y:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-mul32>)
+  - [`function mul32(_x:UInt, _y:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-mul32>)
 
-  - [`function mul64(x:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>`](<#bits-function-mul64>)
+  - [`function mul64(_x:haxe.UInt64, _y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>`](<#bits-function-mul64>)
 
-  - [`function onesCount(x:UInt):Int`](<#bits-function-onescount>)
+  - [`function onesCount(_x:UInt):Int`](<#bits-function-onescount>)
 
-  - [`function onesCount16(x:UInt):Int`](<#bits-function-onescount16>)
+  - [`function onesCount16(_x:UInt):Int`](<#bits-function-onescount16>)
 
-  - [`function onesCount32(x:UInt):Int`](<#bits-function-onescount32>)
+  - [`function onesCount32(_x:UInt):Int`](<#bits-function-onescount32>)
 
-  - [`function onesCount64(x:haxe.UInt64):Int`](<#bits-function-onescount64>)
+  - [`function onesCount64(_x:haxe.UInt64):Int`](<#bits-function-onescount64>)
 
-  - [`function onesCount8(x:UInt):Int`](<#bits-function-onescount8>)
+  - [`function onesCount8(_x:UInt):Int`](<#bits-function-onescount8>)
 
-  - [`function rem(hi:UInt, lo:UInt, y:UInt):UInt`](<#bits-function-rem>)
+  - [`function rem(_hi:UInt, _lo:UInt, _y:UInt):UInt`](<#bits-function-rem>)
 
-  - [`function rem32(hi:UInt, lo:UInt, y:UInt):UInt`](<#bits-function-rem32>)
+  - [`function rem32(_hi:UInt, _lo:UInt, _y:UInt):UInt`](<#bits-function-rem32>)
 
-  - [`function rem64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):haxe.UInt64`](<#bits-function-rem64>)
+  - [`function rem64(_hi:haxe.UInt64, _lo:haxe.UInt64, _y:haxe.UInt64):haxe.UInt64`](<#bits-function-rem64>)
 
-  - [`function reverse(x:UInt):UInt`](<#bits-function-reverse>)
+  - [`function reverse(_x:UInt):UInt`](<#bits-function-reverse>)
 
-  - [`function reverse16(x:UInt):UInt`](<#bits-function-reverse16>)
+  - [`function reverse16(_x:UInt):UInt`](<#bits-function-reverse16>)
 
-  - [`function reverse32(x:UInt):UInt`](<#bits-function-reverse32>)
+  - [`function reverse32(_x:UInt):UInt`](<#bits-function-reverse32>)
 
-  - [`function reverse64(x:haxe.UInt64):haxe.UInt64`](<#bits-function-reverse64>)
+  - [`function reverse64(_x:haxe.UInt64):haxe.UInt64`](<#bits-function-reverse64>)
 
-  - [`function reverse8(x:UInt):UInt`](<#bits-function-reverse8>)
+  - [`function reverse8(_x:UInt):UInt`](<#bits-function-reverse8>)
 
-  - [`function reverseBytes(x:UInt):UInt`](<#bits-function-reversebytes>)
+  - [`function reverseBytes(_x:UInt):UInt`](<#bits-function-reversebytes>)
 
-  - [`function reverseBytes16(x:UInt):UInt`](<#bits-function-reversebytes16>)
+  - [`function reverseBytes16(_x:UInt):UInt`](<#bits-function-reversebytes16>)
 
-  - [`function reverseBytes32(x:UInt):UInt`](<#bits-function-reversebytes32>)
+  - [`function reverseBytes32(_x:UInt):UInt`](<#bits-function-reversebytes32>)
 
-  - [`function reverseBytes64(x:haxe.UInt64):haxe.UInt64`](<#bits-function-reversebytes64>)
+  - [`function reverseBytes64(_x:haxe.UInt64):haxe.UInt64`](<#bits-function-reversebytes64>)
 
-  - [`function rotateLeft(x:UInt, k:Int):UInt`](<#bits-function-rotateleft>)
+  - [`function rotateLeft(_x:UInt, _k:Int):UInt`](<#bits-function-rotateleft>)
 
-  - [`function rotateLeft16(x:UInt, k:Int):UInt`](<#bits-function-rotateleft16>)
+  - [`function rotateLeft16(_x:UInt, _k:Int):UInt`](<#bits-function-rotateleft16>)
 
-  - [`function rotateLeft32(x:UInt, k:Int):UInt`](<#bits-function-rotateleft32>)
+  - [`function rotateLeft32(_x:UInt, _k:Int):UInt`](<#bits-function-rotateleft32>)
 
-  - [`function rotateLeft64(x:haxe.UInt64, k:Int):haxe.UInt64`](<#bits-function-rotateleft64>)
+  - [`function rotateLeft64(_x:haxe.UInt64, _k:Int):haxe.UInt64`](<#bits-function-rotateleft64>)
 
-  - [`function rotateLeft8(x:UInt, k:Int):UInt`](<#bits-function-rotateleft8>)
+  - [`function rotateLeft8(_x:UInt, _k:Int):UInt`](<#bits-function-rotateleft8>)
 
-  - [`function sub(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-sub>)
+  - [`function sub(_x:UInt, _y:UInt, _borrow:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-sub>)
 
-  - [`function sub32(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-sub32>)
+  - [`function sub32(_x:UInt, _y:UInt, _borrow:UInt):stdgo.Tuple<UInt, UInt>`](<#bits-function-sub32>)
 
-  - [`function sub64(x:haxe.UInt64, y:haxe.UInt64, borrow:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>`](<#bits-function-sub64>)
+  - [`function sub64(_x:haxe.UInt64, _y:haxe.UInt64, _borrow:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>`](<#bits-function-sub64>)
 
-  - [`function trailingZeros(x:UInt):Int`](<#bits-function-trailingzeros>)
+  - [`function trailingZeros(_x:UInt):Int`](<#bits-function-trailingzeros>)
 
-  - [`function trailingZeros16(x:UInt):Int`](<#bits-function-trailingzeros16>)
+  - [`function trailingZeros16(_x:UInt):Int`](<#bits-function-trailingzeros16>)
 
-  - [`function trailingZeros32(x:UInt):Int`](<#bits-function-trailingzeros32>)
+  - [`function trailingZeros32(_x:UInt):Int`](<#bits-function-trailingzeros32>)
 
-  - [`function trailingZeros64(x:haxe.UInt64):Int`](<#bits-function-trailingzeros64>)
+  - [`function trailingZeros64(_x:haxe.UInt64):Int`](<#bits-function-trailingzeros64>)
 
-  - [`function trailingZeros8(x:UInt):Int`](<#bits-function-trailingzeros8>)
+  - [`function trailingZeros8(_x:UInt):Int`](<#bits-function-trailingzeros8>)
 
 # Constants
 
@@ -155,7 +155,7 @@ architecture and the Go release.
 
 
 ```haxe
-function add(x:UInt, y:UInt, carry:UInt):stdgo.Tuple<UInt, UInt>
+function add(_x:UInt, _y:UInt, _carry:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -174,7 +174,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function add32(x:UInt, y:UInt, carry:UInt):stdgo.Tuple<UInt, UInt>
+function add32(_x:UInt, _y:UInt, _carry:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -193,7 +193,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function add64(x:haxe.UInt64, y:haxe.UInt64, carry:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>
+function add64(_x:haxe.UInt64, _y:haxe.UInt64, _carry:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>
 ```
 
 
@@ -212,7 +212,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function div(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple<UInt, UInt>
+function div(_hi:UInt, _lo:UInt, _y:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -229,7 +229,7 @@ Div returns the quotient and remainder of (hi, lo) divided by y:
 
 
 ```haxe
-function div32(hi:UInt, lo:UInt, y:UInt):stdgo.Tuple<UInt, UInt>
+function div32(_hi:UInt, _lo:UInt, _y:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -246,7 +246,7 @@ Div32 returns the quotient and remainder of (hi, lo) divided by y:
 
 
 ```haxe
-function div64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>
+function div64(_hi:haxe.UInt64, _lo:haxe.UInt64, _y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>
 ```
 
 
@@ -263,7 +263,7 @@ Div64 returns the quotient and remainder of (hi, lo) divided by y:
 
 
 ```haxe
-function leadingZeros(x:UInt):Int
+function leadingZeros(_x:UInt):Int
 ```
 
 
@@ -277,7 +277,7 @@ LeadingZeros returns the number of leading zero bits in x; the result is UintSiz
 
 
 ```haxe
-function leadingZeros16(x:UInt):Int
+function leadingZeros16(_x:UInt):Int
 ```
 
 
@@ -291,7 +291,7 @@ LeadingZeros16 returns the number of leading zero bits in x; the result is 16 fo
 
 
 ```haxe
-function leadingZeros32(x:UInt):Int
+function leadingZeros32(_x:UInt):Int
 ```
 
 
@@ -305,7 +305,7 @@ LeadingZeros32 returns the number of leading zero bits in x; the result is 32 fo
 
 
 ```haxe
-function leadingZeros64(x:haxe.UInt64):Int
+function leadingZeros64(_x:haxe.UInt64):Int
 ```
 
 
@@ -319,7 +319,7 @@ LeadingZeros64 returns the number of leading zero bits in x; the result is 64 fo
 
 
 ```haxe
-function leadingZeros8(x:UInt):Int
+function leadingZeros8(_x:UInt):Int
 ```
 
 
@@ -333,7 +333,7 @@ LeadingZeros8 returns the number of leading zero bits in x; the result is 8 for 
 
 
 ```haxe
-function len(x:UInt):Int
+function len(_x:UInt):Int
 ```
 
 
@@ -347,7 +347,7 @@ Len returns the minimum number of bits required to represent x; the result is 0 
 
 
 ```haxe
-function len16(x:UInt):Int
+function len16(_x:UInt):Int
 ```
 
 
@@ -361,7 +361,7 @@ Len16 returns the minimum number of bits required to represent x; the result is 
 
 
 ```haxe
-function len32(x:UInt):Int
+function len32(_x:UInt):Int
 ```
 
 
@@ -375,7 +375,7 @@ Len32 returns the minimum number of bits required to represent x; the result is 
 
 
 ```haxe
-function len64(x:haxe.UInt64):Int
+function len64(_x:haxe.UInt64):Int
 ```
 
 
@@ -389,7 +389,7 @@ Len64 returns the minimum number of bits required to represent x; the result is 
 
 
 ```haxe
-function len8(x:UInt):Int
+function len8(_x:UInt):Int
 ```
 
 
@@ -403,7 +403,7 @@ Len8 returns the minimum number of bits required to represent x; the result is 0
 
 
 ```haxe
-function mul(x:UInt, y:UInt):stdgo.Tuple<UInt, UInt>
+function mul(_x:UInt, _y:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -422,7 +422,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function mul32(x:UInt, y:UInt):stdgo.Tuple<UInt, UInt>
+function mul32(_x:UInt, _y:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -441,7 +441,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function mul64(x:haxe.UInt64, y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>
+function mul64(_x:haxe.UInt64, _y:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>
 ```
 
 
@@ -460,7 +460,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function onesCount(x:UInt):Int
+function onesCount(_x:UInt):Int
 ```
 
 
@@ -474,7 +474,7 @@ OnesCount returns the number of one bits \("population count"\) in x.
 
 
 ```haxe
-function onesCount16(x:UInt):Int
+function onesCount16(_x:UInt):Int
 ```
 
 
@@ -488,7 +488,7 @@ OnesCount16 returns the number of one bits \("population count"\) in x.
 
 
 ```haxe
-function onesCount32(x:UInt):Int
+function onesCount32(_x:UInt):Int
 ```
 
 
@@ -502,7 +502,7 @@ OnesCount32 returns the number of one bits \("population count"\) in x.
 
 
 ```haxe
-function onesCount64(x:haxe.UInt64):Int
+function onesCount64(_x:haxe.UInt64):Int
 ```
 
 
@@ -516,7 +516,7 @@ OnesCount64 returns the number of one bits \("population count"\) in x.
 
 
 ```haxe
-function onesCount8(x:UInt):Int
+function onesCount8(_x:UInt):Int
 ```
 
 
@@ -530,7 +530,7 @@ OnesCount8 returns the number of one bits \("population count"\) in x.
 
 
 ```haxe
-function rem(hi:UInt, lo:UInt, y:UInt):UInt
+function rem(_hi:UInt, _lo:UInt, _y:UInt):UInt
 ```
 
 
@@ -546,7 +546,7 @@ Rem returns the remainder of (hi, lo) divided by y. Rem panics for
 
 
 ```haxe
-function rem32(hi:UInt, lo:UInt, y:UInt):UInt
+function rem32(_hi:UInt, _lo:UInt, _y:UInt):UInt
 ```
 
 
@@ -562,7 +562,7 @@ Rem32 returns the remainder of (hi, lo) divided by y. Rem32 panics
 
 
 ```haxe
-function rem64(hi:haxe.UInt64, lo:haxe.UInt64, y:haxe.UInt64):haxe.UInt64
+function rem64(_hi:haxe.UInt64, _lo:haxe.UInt64, _y:haxe.UInt64):haxe.UInt64
 ```
 
 
@@ -578,7 +578,7 @@ Rem64 returns the remainder of (hi, lo) divided by y. Rem64 panics
 
 
 ```haxe
-function reverse(x:UInt):UInt
+function reverse(_x:UInt):UInt
 ```
 
 
@@ -592,7 +592,7 @@ Reverse returns the value of x with its bits in reversed order.
 
 
 ```haxe
-function reverse16(x:UInt):UInt
+function reverse16(_x:UInt):UInt
 ```
 
 
@@ -606,7 +606,7 @@ Reverse16 returns the value of x with its bits in reversed order.
 
 
 ```haxe
-function reverse32(x:UInt):UInt
+function reverse32(_x:UInt):UInt
 ```
 
 
@@ -620,7 +620,7 @@ Reverse32 returns the value of x with its bits in reversed order.
 
 
 ```haxe
-function reverse64(x:haxe.UInt64):haxe.UInt64
+function reverse64(_x:haxe.UInt64):haxe.UInt64
 ```
 
 
@@ -634,7 +634,7 @@ Reverse64 returns the value of x with its bits in reversed order.
 
 
 ```haxe
-function reverse8(x:UInt):UInt
+function reverse8(_x:UInt):UInt
 ```
 
 
@@ -648,7 +648,7 @@ Reverse8 returns the value of x with its bits in reversed order.
 
 
 ```haxe
-function reverseBytes(x:UInt):UInt
+function reverseBytes(_x:UInt):UInt
 ```
 
 
@@ -665,7 +665,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function reverseBytes16(x:UInt):UInt
+function reverseBytes16(_x:UInt):UInt
 ```
 
 
@@ -682,7 +682,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function reverseBytes32(x:UInt):UInt
+function reverseBytes32(_x:UInt):UInt
 ```
 
 
@@ -699,7 +699,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function reverseBytes64(x:haxe.UInt64):haxe.UInt64
+function reverseBytes64(_x:haxe.UInt64):haxe.UInt64
 ```
 
 
@@ -716,7 +716,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function rotateLeft(x:UInt, k:Int):UInt
+function rotateLeft(_x:UInt, _k:Int):UInt
 ```
 
 
@@ -734,7 +734,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function rotateLeft16(x:UInt, k:Int):UInt
+function rotateLeft16(_x:UInt, _k:Int):UInt
 ```
 
 
@@ -752,7 +752,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function rotateLeft32(x:UInt, k:Int):UInt
+function rotateLeft32(_x:UInt, _k:Int):UInt
 ```
 
 
@@ -770,7 +770,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function rotateLeft64(x:haxe.UInt64, k:Int):haxe.UInt64
+function rotateLeft64(_x:haxe.UInt64, _k:Int):haxe.UInt64
 ```
 
 
@@ -788,7 +788,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function rotateLeft8(x:UInt, k:Int):UInt
+function rotateLeft8(_x:UInt, _k:Int):UInt
 ```
 
 
@@ -806,7 +806,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function sub(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple<UInt, UInt>
+function sub(_x:UInt, _y:UInt, _borrow:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -825,7 +825,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function sub32(x:UInt, y:UInt, borrow:UInt):stdgo.Tuple<UInt, UInt>
+function sub32(_x:UInt, _y:UInt, _borrow:UInt):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -844,7 +844,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function sub64(x:haxe.UInt64, y:haxe.UInt64, borrow:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>
+function sub64(_x:haxe.UInt64, _y:haxe.UInt64, _borrow:haxe.UInt64):stdgo.Tuple<haxe.UInt64, haxe.UInt64>
 ```
 
 
@@ -863,7 +863,7 @@ This function's execution time does not depend on the inputs.
 
 
 ```haxe
-function trailingZeros(x:UInt):Int
+function trailingZeros(_x:UInt):Int
 ```
 
 
@@ -877,7 +877,7 @@ TrailingZeros returns the number of trailing zero bits in x; the result is UintS
 
 
 ```haxe
-function trailingZeros16(x:UInt):Int
+function trailingZeros16(_x:UInt):Int
 ```
 
 
@@ -891,7 +891,7 @@ TrailingZeros16 returns the number of trailing zero bits in x; the result is 16 
 
 
 ```haxe
-function trailingZeros32(x:UInt):Int
+function trailingZeros32(_x:UInt):Int
 ```
 
 
@@ -905,7 +905,7 @@ TrailingZeros32 returns the number of trailing zero bits in x; the result is 32 
 
 
 ```haxe
-function trailingZeros64(x:haxe.UInt64):Int
+function trailingZeros64(_x:haxe.UInt64):Int
 ```
 
 
@@ -919,7 +919,7 @@ TrailingZeros64 returns the number of trailing zero bits in x; the result is 64 
 
 
 ```haxe
-function trailingZeros8(x:UInt):Int
+function trailingZeros8(_x:UInt):Int
 ```
 
 

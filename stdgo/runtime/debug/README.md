@@ -13,29 +13,29 @@
 
   - [`function freeOSMemory():Void`](<#debug-function-freeosmemory>)
 
-  - [`function parseBuildInfo(data:String):stdgo.Tuple<stdgo.runtime.debug.BuildInfo, stdgo.Error>`](<#debug-function-parsebuildinfo>)
+  - [`function parseBuildInfo(_data:String):stdgo.Tuple<stdgo.runtime.debug.BuildInfo, stdgo.Error>`](<#debug-function-parsebuildinfo>)
 
   - [`function printStack():Void`](<#debug-function-printstack>)
 
   - [`function readBuildInfo():stdgo.Tuple<stdgo.runtime.debug.BuildInfo, Bool>`](<#debug-function-readbuildinfo>)
 
-  - [`function readGCStats(stats:stdgo.runtime.debug.GCStats):Void`](<#debug-function-readgcstats>)
+  - [`function readGCStats(_stats:stdgo.runtime.debug.GCStats):Void`](<#debug-function-readgcstats>)
 
-  - [`function setGCPercent(percent:Int):Int`](<#debug-function-setgcpercent>)
+  - [`function setGCPercent(_percent:Int):Int`](<#debug-function-setgcpercent>)
 
-  - [`function setMaxStack(bytes:Int):Int`](<#debug-function-setmaxstack>)
+  - [`function setMaxStack(_bytes:Int):Int`](<#debug-function-setmaxstack>)
 
-  - [`function setMaxThreads(threads:Int):Int`](<#debug-function-setmaxthreads>)
+  - [`function setMaxThreads(_threads:Int):Int`](<#debug-function-setmaxthreads>)
 
-  - [`function setMemoryLimit(limit:haxe.Int64):haxe.Int64`](<#debug-function-setmemorylimit>)
+  - [`function setMemoryLimit(_limit:haxe.Int64):haxe.Int64`](<#debug-function-setmemorylimit>)
 
-  - [`function setPanicOnFault(enabled:Bool):Bool`](<#debug-function-setpaniconfault>)
+  - [`function setPanicOnFault(_enabled:Bool):Bool`](<#debug-function-setpaniconfault>)
 
-  - [`function setTraceback(level:String):Void`](<#debug-function-settraceback>)
+  - [`function setTraceback(_level:String):Void`](<#debug-function-settraceback>)
 
   - [`function stack():Array<Int>`](<#debug-function-stack>)
 
-  - [`function writeHeapDump(fd:stdgo.GoUIntptr):Void`](<#debug-function-writeheapdump>)
+  - [`function writeHeapDump(_fd:stdgo.GoUIntptr):Void`](<#debug-function-writeheapdump>)
 
 - [abstract GCStats](<#abstract-gcstats>)
 
@@ -81,7 +81,7 @@ FreeOSMemory forces a garbage collection followed by an
 
 
 ```haxe
-function parseBuildInfo(data:String):stdgo.Tuple<stdgo.runtime.debug.BuildInfo, stdgo.Error>
+function parseBuildInfo(_data:String):stdgo.Tuple<stdgo.runtime.debug.BuildInfo, stdgo.Error>
 ```
 
 
@@ -122,7 +122,7 @@ ReadBuildInfo returns the build information embedded
 
 
 ```haxe
-function readGCStats(stats:stdgo.runtime.debug.GCStats):Void
+function readGCStats(_stats:stdgo.runtime.debug.GCStats):Void
 ```
 
 
@@ -143,7 +143,7 @@ ReadGCStats reads statistics about garbage collection into stats.
 
 
 ```haxe
-function setGCPercent(percent:Int):Int
+function setGCPercent(_percent:Int):Int
 ```
 
 
@@ -167,7 +167,7 @@ SetGCPercent sets the garbage collection target percentage:
 
 
 ```haxe
-function setMaxStack(bytes:Int):Int
+function setMaxStack(_bytes:Int):Int
 ```
 
 
@@ -193,7 +193,7 @@ stack growth.
 
 
 ```haxe
-function setMaxThreads(threads:Int):Int
+function setMaxThreads(_threads:Int):Int
 ```
 
 
@@ -222,7 +222,7 @@ to take down the program before it takes down the operating system.
 
 
 ```haxe
-function setMemoryLimit(limit:haxe.Int64):haxe.Int64
+function setMemoryLimit(_limit:haxe.Int64):haxe.Int64
 ```
 
 
@@ -299,7 +299,7 @@ retrieval of the currently set memory limit.
 
 
 ```haxe
-function setPanicOnFault(enabled:Bool):Bool
+function setPanicOnFault(_enabled:Bool):Bool
 ```
 
 
@@ -330,7 +330,7 @@ It returns the previous setting.
 
 
 ```haxe
-function setTraceback(level:String):Void
+function setTraceback(_level:String):Void
 ```
 
 
@@ -367,7 +367,7 @@ Stack returns a formatted stack trace of the goroutine that calls it.
 
 
 ```haxe
-function writeHeapDump(fd:stdgo.GoUIntptr):Void
+function writeHeapDump(_fd:stdgo.GoUIntptr):Void
 ```
 
 

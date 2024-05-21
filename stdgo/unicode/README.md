@@ -15,47 +15,47 @@
 
 - [class Unicode](<#class-unicode>)
 
-  - [`function in_(r:Int, ranges:haxe.Rest<stdgo.unicode.RangeTable>):Bool`](<#unicode-function-in_>)
+  - [`function in_(_r:Int, _ranges:haxe.Rest<stdgo.unicode.RangeTable>):Bool`](<#unicode-function-in_>)
 
-  - [`function isControl(r:Int):Bool`](<#unicode-function-iscontrol>)
+  - [`function isControl(_r:Int):Bool`](<#unicode-function-iscontrol>)
 
-  - [`function isDigit(r:Int):Bool`](<#unicode-function-isdigit>)
+  - [`function isDigit(_r:Int):Bool`](<#unicode-function-isdigit>)
 
-  - [`function isGraphic(r:Int):Bool`](<#unicode-function-isgraphic>)
+  - [`function isGraphic(_r:Int):Bool`](<#unicode-function-isgraphic>)
 
-  - [`function isLetter(r:Int):Bool`](<#unicode-function-isletter>)
+  - [`function isLetter(_r:Int):Bool`](<#unicode-function-isletter>)
 
-  - [`function isLower(r:Int):Bool`](<#unicode-function-islower>)
+  - [`function isLower(_r:Int):Bool`](<#unicode-function-islower>)
 
-  - [`function isMark(r:Int):Bool`](<#unicode-function-ismark>)
+  - [`function isMark(_r:Int):Bool`](<#unicode-function-ismark>)
 
-  - [`function isNumber(r:Int):Bool`](<#unicode-function-isnumber>)
+  - [`function isNumber(_r:Int):Bool`](<#unicode-function-isnumber>)
 
-  - [`function isOneOf(ranges:Array<stdgo.unicode.RangeTable>, r:Int):Bool`](<#unicode-function-isoneof>)
+  - [`function isOneOf(_ranges:Array<stdgo.unicode.RangeTable>, _r:Int):Bool`](<#unicode-function-isoneof>)
 
-  - [`function isPrint(r:Int):Bool`](<#unicode-function-isprint>)
+  - [`function isPrint(_r:Int):Bool`](<#unicode-function-isprint>)
 
-  - [`function isPunct(r:Int):Bool`](<#unicode-function-ispunct>)
+  - [`function isPunct(_r:Int):Bool`](<#unicode-function-ispunct>)
 
-  - [`function isSpace(r:Int):Bool`](<#unicode-function-isspace>)
+  - [`function isSpace(_r:Int):Bool`](<#unicode-function-isspace>)
 
-  - [`function isSymbol(r:Int):Bool`](<#unicode-function-issymbol>)
+  - [`function isSymbol(_r:Int):Bool`](<#unicode-function-issymbol>)
 
-  - [`function isTitle(r:Int):Bool`](<#unicode-function-istitle>)
+  - [`function isTitle(_r:Int):Bool`](<#unicode-function-istitle>)
 
-  - [`function isUpper(r:Int):Bool`](<#unicode-function-isupper>)
+  - [`function isUpper(_r:Int):Bool`](<#unicode-function-isupper>)
 
-  - [`function is_(rangeTab:stdgo.unicode.RangeTable, r:Int):Bool`](<#unicode-function-is_>)
+  - [`function is_(_rangeTab:stdgo.unicode.RangeTable, _r:Int):Bool`](<#unicode-function-is_>)
 
-  - [`function simpleFold(r:Int):Int`](<#unicode-function-simplefold>)
+  - [`function simpleFold(_r:Int):Int`](<#unicode-function-simplefold>)
 
-  - [`function to(_case:Int, r:Int):Int`](<#unicode-function-to>)
+  - [`function to(__case:Int, _r:Int):Int`](<#unicode-function-to>)
 
-  - [`function toLower(r:Int):Int`](<#unicode-function-tolower>)
+  - [`function toLower(_r:Int):Int`](<#unicode-function-tolower>)
 
-  - [`function toTitle(r:Int):Int`](<#unicode-function-totitle>)
+  - [`function toTitle(_r:Int):Int`](<#unicode-function-totitle>)
 
-  - [`function toUpper(r:Int):Int`](<#unicode-function-toupper>)
+  - [`function toUpper(_r:Int):Int`](<#unicode-function-toupper>)
 
 - [typedef SpecialCase](<#typedef-specialcase>)
 
@@ -1431,7 +1431,7 @@ Package unicode provides data and functions to test some properties of
 
 
 ```haxe
-function in_(r:Int, ranges:haxe.Rest<stdgo.unicode.RangeTable>):Bool
+function in_(_r:Int, _ranges:haxe.Rest<stdgo.unicode.RangeTable>):Bool
 ```
 
 
@@ -1445,7 +1445,7 @@ In reports whether the rune is a member of one of the ranges.
 
 
 ```haxe
-function isControl(r:Int):Bool
+function isControl(_r:Int):Bool
 ```
 
 
@@ -1461,7 +1461,7 @@ IsControl reports whether the rune is a control character.
 
 
 ```haxe
-function isDigit(r:Int):Bool
+function isDigit(_r:Int):Bool
 ```
 
 
@@ -1475,7 +1475,7 @@ IsDigit reports whether the rune is a decimal digit.
 
 
 ```haxe
-function isGraphic(r:Int):Bool
+function isGraphic(_r:Int):Bool
 ```
 
 
@@ -1491,7 +1491,7 @@ IsGraphic reports whether the rune is defined as a Graphic by Unicode.
 
 
 ```haxe
-function isLetter(r:Int):Bool
+function isLetter(_r:Int):Bool
 ```
 
 
@@ -1505,7 +1505,7 @@ IsLetter reports whether the rune is a letter \(category L\).
 
 
 ```haxe
-function isLower(r:Int):Bool
+function isLower(_r:Int):Bool
 ```
 
 
@@ -1519,7 +1519,7 @@ IsLower reports whether the rune is a lower case letter.
 
 
 ```haxe
-function isMark(r:Int):Bool
+function isMark(_r:Int):Bool
 ```
 
 
@@ -1533,7 +1533,7 @@ IsMark reports whether the rune is a mark character \(category M\).
 
 
 ```haxe
-function isNumber(r:Int):Bool
+function isNumber(_r:Int):Bool
 ```
 
 
@@ -1547,7 +1547,7 @@ IsNumber reports whether the rune is a number \(category N\).
 
 
 ```haxe
-function isOneOf(ranges:Array<stdgo.unicode.RangeTable>, r:Int):Bool
+function isOneOf(_ranges:Array<stdgo.unicode.RangeTable>, _r:Int):Bool
 ```
 
 
@@ -1562,7 +1562,7 @@ IsOneOf reports whether the rune is a member of one of the ranges.
 
 
 ```haxe
-function isPrint(r:Int):Bool
+function isPrint(_r:Int):Bool
 ```
 
 
@@ -1580,7 +1580,7 @@ IsPrint reports whether the rune is defined as printable by Go. Such
 
 
 ```haxe
-function isPunct(r:Int):Bool
+function isPunct(_r:Int):Bool
 ```
 
 
@@ -1595,7 +1595,7 @@ IsPunct reports whether the rune is a Unicode punctuation character
 
 
 ```haxe
-function isSpace(r:Int):Bool
+function isSpace(_r:Int):Bool
 ```
 
 
@@ -1618,7 +1618,7 @@ Z and property Pattern\_White\_Space.
 
 
 ```haxe
-function isSymbol(r:Int):Bool
+function isSymbol(_r:Int):Bool
 ```
 
 
@@ -1632,7 +1632,7 @@ IsSymbol reports whether the rune is a symbolic character.
 
 
 ```haxe
-function isTitle(r:Int):Bool
+function isTitle(_r:Int):Bool
 ```
 
 
@@ -1646,7 +1646,7 @@ IsTitle reports whether the rune is a title case letter.
 
 
 ```haxe
-function isUpper(r:Int):Bool
+function isUpper(_r:Int):Bool
 ```
 
 
@@ -1660,7 +1660,7 @@ IsUpper reports whether the rune is an upper case letter.
 
 
 ```haxe
-function is_(rangeTab:stdgo.unicode.RangeTable, r:Int):Bool
+function is_(_rangeTab:stdgo.unicode.RangeTable, _r:Int):Bool
 ```
 
 
@@ -1674,7 +1674,7 @@ Is reports whether the rune is in the specified table of ranges.
 
 
 ```haxe
-function simpleFold(r:Int):Int
+function simpleFold(_r:Int):Int
 ```
 
 
@@ -1710,7 +1710,7 @@ For example:
 
 
 ```haxe
-function to(_case:Int, r:Int):Int
+function to(__case:Int, _r:Int):Int
 ```
 
 
@@ -1724,7 +1724,7 @@ To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
 
 
 ```haxe
-function toLower(r:Int):Int
+function toLower(_r:Int):Int
 ```
 
 
@@ -1738,7 +1738,7 @@ ToLower maps the rune to lower case.
 
 
 ```haxe
-function toTitle(r:Int):Int
+function toTitle(_r:Int):Int
 ```
 
 
@@ -1752,7 +1752,7 @@ ToTitle maps the rune to title case.
 
 
 ```haxe
-function toUpper(r:Int):Int
+function toUpper(_r:Int):Int
 ```
 
 

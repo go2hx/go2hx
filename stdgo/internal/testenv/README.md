@@ -15,21 +15,21 @@
 
   - [`function builder():String`](<#testenv-function-builder>)
 
-  - [`function canInternalLink(withCgo:Bool):Bool`](<#testenv-function-caninternallink>)
+  - [`function canInternalLink(_withCgo:Bool):Bool`](<#testenv-function-caninternallink>)
 
-  - [`function cleanCmdEnv(cmd:stdgo._internal.os.exec.Cmd):stdgo._internal.os.exec.Cmd`](<#testenv-function-cleancmdenv>)
+  - [`function cleanCmdEnv(_cmd:stdgo._internal.os.exec.Cmd):stdgo._internal.os.exec.Cmd`](<#testenv-function-cleancmdenv>)
 
-  - [`function command(t:stdgo._internal.testing.TB, name:String, args:haxe.Rest<String>):stdgo._internal.os.exec.Cmd`](<#testenv-function-command>)
+  - [`function command(_t:stdgo._internal.testing.TB, _name:String, _args:haxe.Rest<String>):stdgo._internal.os.exec.Cmd`](<#testenv-function-command>)
 
-  - [`function commandContext(t:stdgo._internal.testing.TB, ctx:stdgo._internal.context.Context, name:String, args:haxe.Rest<String>):stdgo._internal.os.exec.Cmd`](<#testenv-function-commandcontext>)
+  - [`function commandContext(_t:stdgo._internal.testing.TB, _ctx:stdgo._internal.context.Context, _name:String, _args:haxe.Rest<String>):stdgo._internal.os.exec.Cmd`](<#testenv-function-commandcontext>)
 
   - [`function cpuisSlow():Bool`](<#testenv-function-cpuisslow>)
 
   - [`function goTool():stdgo.Tuple<String, stdgo.Error>`](<#testenv-function-gotool>)
 
-  - [`function goToolPath(t:stdgo._internal.testing.TB):String`](<#testenv-function-gotoolpath>)
+  - [`function goToolPath(_t:stdgo._internal.testing.TB):String`](<#testenv-function-gotoolpath>)
 
-  - [`function goroot(t:stdgo._internal.testing.TB):String`](<#testenv-function-goroot>)
+  - [`function goroot(_t:stdgo._internal.testing.TB):String`](<#testenv-function-goroot>)
 
   - [`function hasCGO():Bool`](<#testenv-function-hascgo>)
 
@@ -47,41 +47,41 @@
 
   - [`function hasSymlink():Bool`](<#testenv-function-hassymlink>)
 
-  - [`function mustHaveBuildMode(t:stdgo._internal.testing.TB, buildmode:String):Void`](<#testenv-function-musthavebuildmode>)
+  - [`function mustHaveBuildMode(_t:stdgo._internal.testing.TB, _buildmode:String):Void`](<#testenv-function-musthavebuildmode>)
 
-  - [`function mustHaveCGO(t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavecgo>)
+  - [`function mustHaveCGO(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavecgo>)
 
-  - [`function mustHaveExec(t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthaveexec>)
+  - [`function mustHaveExec(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthaveexec>)
 
-  - [`function mustHaveExecPath(t:stdgo._internal.testing.TB, path:String):Void`](<#testenv-function-musthaveexecpath>)
+  - [`function mustHaveExecPath(_t:stdgo._internal.testing.TB, _path:String):Void`](<#testenv-function-musthaveexecpath>)
 
-  - [`function mustHaveExternalNetwork(t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthaveexternalnetwork>)
+  - [`function mustHaveExternalNetwork(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthaveexternalnetwork>)
 
-  - [`function mustHaveGoBuild(t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavegobuild>)
+  - [`function mustHaveGoBuild(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavegobuild>)
 
-  - [`function mustHaveGoRun(t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavegorun>)
+  - [`function mustHaveGoRun(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavegorun>)
 
-  - [`function mustHaveLink(t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavelink>)
+  - [`function mustHaveLink(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavelink>)
 
-  - [`function mustHaveParallelism(t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthaveparallelism>)
+  - [`function mustHaveParallelism(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthaveparallelism>)
 
-  - [`function mustHaveSymlink(t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavesymlink>)
+  - [`function mustHaveSymlink(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-musthavesymlink>)
 
-  - [`function mustInternalLink(t:stdgo._internal.testing.TB, withCgo:Bool):Void`](<#testenv-function-mustinternallink>)
+  - [`function mustInternalLink(_t:stdgo._internal.testing.TB, _withCgo:Bool):Void`](<#testenv-function-mustinternallink>)
 
   - [`function optimizationOff():Bool`](<#testenv-function-optimizationoff>)
 
-  - [`function skipFlaky(t:stdgo._internal.testing.TB, issue:Int):Void`](<#testenv-function-skipflaky>)
+  - [`function skipFlaky(_t:stdgo._internal.testing.TB, _issue:Int):Void`](<#testenv-function-skipflaky>)
 
-  - [`function skipFlakyNet(t:stdgo._internal.testing.TB):Void`](<#testenv-function-skipflakynet>)
+  - [`function skipFlakyNet(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-skipflakynet>)
 
-  - [`function skipIfOptimizationOff(t:stdgo._internal.testing.TB):Void`](<#testenv-function-skipifoptimizationoff>)
+  - [`function skipIfOptimizationOff(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-skipifoptimizationoff>)
 
-  - [`function skipIfShortAndSlow(t:stdgo._internal.testing.TB):Void`](<#testenv-function-skipifshortandslow>)
+  - [`function skipIfShortAndSlow(_t:stdgo._internal.testing.TB):Void`](<#testenv-function-skipifshortandslow>)
 
-  - [`function syscallIsNotSupported(err:stdgo.Error):Bool`](<#testenv-function-syscallisnotsupported>)
+  - [`function syscallIsNotSupported(_err:stdgo.Error):Bool`](<#testenv-function-syscallisnotsupported>)
 
-  - [`function writeImportcfg(t:stdgo._internal.testing.TB, dstPath:String, packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, pkgs:haxe.Rest<String>):Void`](<#testenv-function-writeimportcfg>)
+  - [`function writeImportcfg(_t:stdgo._internal.testing.TB, _dstPath:String, _packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<String>):Void`](<#testenv-function-writeimportcfg>)
 
 - [typedef T\_\_interface\_0](<#typedef-t__interface_0>)
 
@@ -139,7 +139,7 @@ Builder reports the name of the builder running this test
 
 
 ```haxe
-function canInternalLink(withCgo:Bool):Bool
+function canInternalLink(_withCgo:Bool):Bool
 ```
 
 
@@ -154,7 +154,7 @@ CanInternalLink reports whether the current system can link programs with
 
 
 ```haxe
-function cleanCmdEnv(cmd:stdgo._internal.os.exec.Cmd):stdgo._internal.os.exec.Cmd
+function cleanCmdEnv(_cmd:stdgo._internal.os.exec.Cmd):stdgo._internal.os.exec.Cmd
 ```
 
 
@@ -170,7 +170,7 @@ CleanCmdEnv will fill cmd.Env with the environment, excluding certain
 
 
 ```haxe
-function command(t:stdgo._internal.testing.TB, name:String, args:haxe.Rest<String>):stdgo._internal.os.exec.Cmd
+function command(_t:stdgo._internal.testing.TB, _name:String, _args:haxe.Rest<String>):stdgo._internal.os.exec.Cmd
 ```
 
 
@@ -185,7 +185,7 @@ Command is like exec.Command, but applies the same changes as
 
 
 ```haxe
-function commandContext(t:stdgo._internal.testing.TB, ctx:stdgo._internal.context.Context, name:String, args:haxe.Rest<String>):stdgo._internal.os.exec.Cmd
+function commandContext(_t:stdgo._internal.testing.TB, _ctx:stdgo._internal.context.Context, _name:String, _args:haxe.Rest<String>):stdgo._internal.os.exec.Cmd
 ```
 
 
@@ -234,7 +234,7 @@ GoTool reports the path to the Go tool.
 
 
 ```haxe
-function goToolPath(t:stdgo._internal.testing.TB):String
+function goToolPath(_t:stdgo._internal.testing.TB):String
 ```
 
 
@@ -251,7 +251,7 @@ GoToolPath reports the path to the Go tool.
 
 
 ```haxe
-function goroot(t:stdgo._internal.testing.TB):String
+function goroot(_t:stdgo._internal.testing.TB):String
 ```
 
 
@@ -388,7 +388,7 @@ HasSymlink reports whether the current system can use os.Symlink.
 
 
 ```haxe
-function mustHaveBuildMode(t:stdgo._internal.testing.TB, buildmode:String):Void
+function mustHaveBuildMode(_t:stdgo._internal.testing.TB, _buildmode:String):Void
 ```
 
 
@@ -404,7 +404,7 @@ MustHaveBuildMode reports whether the current system can build programs in
 
 
 ```haxe
-function mustHaveCGO(t:stdgo._internal.testing.TB):Void
+function mustHaveCGO(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -418,7 +418,7 @@ MustHaveCGO calls t.Skip if cgo is not available.
 
 
 ```haxe
-function mustHaveExec(t:stdgo._internal.testing.TB):Void
+function mustHaveExec(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -445,7 +445,7 @@ for the resulting error.
 
 
 ```haxe
-function mustHaveExecPath(t:stdgo._internal.testing.TB, path:String):Void
+function mustHaveExecPath(_t:stdgo._internal.testing.TB, _path:String):Void
 ```
 
 
@@ -461,7 +461,7 @@ MustHaveExecPath checks that the current system can start the named executable
 
 
 ```haxe
-function mustHaveExternalNetwork(t:stdgo._internal.testing.TB):Void
+function mustHaveExternalNetwork(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -477,7 +477,7 @@ MustHaveExternalNetwork checks that the current system can use
 
 
 ```haxe
-function mustHaveGoBuild(t:stdgo._internal.testing.TB):Void
+function mustHaveGoBuild(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -493,7 +493,7 @@ MustHaveGoBuild checks that the current system can build programs with “go bui
 
 
 ```haxe
-function mustHaveGoRun(t:stdgo._internal.testing.TB):Void
+function mustHaveGoRun(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -508,7 +508,7 @@ MustHaveGoRun checks that the current system can run programs with “go run.”
 
 
 ```haxe
-function mustHaveLink(t:stdgo._internal.testing.TB):Void
+function mustHaveLink(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -523,7 +523,7 @@ MustHaveLink reports whether the current system can use os.Link.
 
 
 ```haxe
-function mustHaveParallelism(t:stdgo._internal.testing.TB):Void
+function mustHaveParallelism(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -538,7 +538,7 @@ MustHaveParallelism checks that the current system can execute multiple
 
 
 ```haxe
-function mustHaveSymlink(t:stdgo._internal.testing.TB):Void
+function mustHaveSymlink(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -553,7 +553,7 @@ MustHaveSymlink reports whether the current system can use os.Symlink.
 
 
 ```haxe
-function mustInternalLink(t:stdgo._internal.testing.TB, withCgo:Bool):Void
+function mustInternalLink(_t:stdgo._internal.testing.TB, _withCgo:Bool):Void
 ```
 
 
@@ -583,7 +583,7 @@ OptimizationOff reports whether optimization is disabled.
 
 
 ```haxe
-function skipFlaky(t:stdgo._internal.testing.TB, issue:Int):Void
+function skipFlaky(_t:stdgo._internal.testing.TB, _issue:Int):Void
 ```
 
 
@@ -594,7 +594,7 @@ function skipFlaky(t:stdgo._internal.testing.TB, issue:Int):Void
 
 
 ```haxe
-function skipFlakyNet(t:stdgo._internal.testing.TB):Void
+function skipFlakyNet(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -605,7 +605,7 @@ function skipFlakyNet(t:stdgo._internal.testing.TB):Void
 
 
 ```haxe
-function skipIfOptimizationOff(t:stdgo._internal.testing.TB):Void
+function skipIfOptimizationOff(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -619,7 +619,7 @@ SkipIfOptimizationOff skips t if optimization is disabled.
 
 
 ```haxe
-function skipIfShortAndSlow(t:stdgo._internal.testing.TB):Void
+function skipIfShortAndSlow(_t:stdgo._internal.testing.TB):Void
 ```
 
 
@@ -637,7 +637,7 @@ SkipIfShortAndSlow skips t if -short is set and the CPU running the test is
 
 
 ```haxe
-function syscallIsNotSupported(err:stdgo.Error):Bool
+function syscallIsNotSupported(_err:stdgo.Error):Bool
 ```
 
 
@@ -652,7 +652,7 @@ SyscallIsNotSupported reports whether err may indicate that a system call is
 
 
 ```haxe
-function writeImportcfg(t:stdgo._internal.testing.TB, dstPath:String, packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, pkgs:haxe.Rest<String>):Void
+function writeImportcfg(_t:stdgo._internal.testing.TB, _dstPath:String, _packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<String>):Void
 ```
 
 

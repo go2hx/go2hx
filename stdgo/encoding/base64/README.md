@@ -15,51 +15,51 @@
 
 - [class Base64](<#class-base64>)
 
-  - [`function benchmarkDecodeString(b:stdgo._internal.testing.B):Void`](<#base64-function-benchmarkdecodestring>)
+  - [`function benchmarkDecodeString(_b:stdgo._internal.testing.B):Void`](<#base64-function-benchmarkdecodestring>)
 
-  - [`function benchmarkEncodeToString(b:stdgo._internal.testing.B):Void`](<#base64-function-benchmarkencodetostring>)
+  - [`function benchmarkEncodeToString(_b:stdgo._internal.testing.B):Void`](<#base64-function-benchmarkencodetostring>)
 
-  - [`function benchmarkNewEncoding(b:stdgo._internal.testing.B):Void`](<#base64-function-benchmarknewencoding>)
+  - [`function benchmarkNewEncoding(_b:stdgo._internal.testing.B):Void`](<#base64-function-benchmarknewencoding>)
 
-  - [`function newDecoder(enc:stdgo.encoding.base64.Encoding, r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#base64-function-newdecoder>)
+  - [`function newDecoder(_enc:stdgo.encoding.base64.Encoding, _r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#base64-function-newdecoder>)
 
-  - [`function newEncoder(enc:stdgo.encoding.base64.Encoding, w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser`](<#base64-function-newencoder>)
+  - [`function newEncoder(_enc:stdgo.encoding.base64.Encoding, _w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser`](<#base64-function-newencoder>)
 
-  - [`function newEncoding(encoder:String):stdgo.encoding.base64.Encoding`](<#base64-function-newencoding>)
+  - [`function newEncoding(_encoder:String):stdgo.encoding.base64.Encoding`](<#base64-function-newencoding>)
 
-  - [`function testBig(t:stdgo._internal.testing.T_):Void`](<#base64-function-testbig>)
+  - [`function testBig(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testbig>)
 
-  - [`function testDecode(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecode>)
+  - [`function testDecode(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecode>)
 
-  - [`function testDecodeBounds(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecodebounds>)
+  - [`function testDecodeBounds(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecodebounds>)
 
-  - [`function testDecodeCorrupt(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecodecorrupt>)
+  - [`function testDecodeCorrupt(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecodecorrupt>)
 
-  - [`function testDecodedLen(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecodedlen>)
+  - [`function testDecodedLen(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecodedlen>)
 
-  - [`function testDecoder(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoder>)
+  - [`function testDecoder(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoder>)
 
-  - [`function testDecoderBuffering(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderbuffering>)
+  - [`function testDecoderBuffering(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderbuffering>)
 
-  - [`function testDecoderIssue15656(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue15656>)
+  - [`function testDecoderIssue15656(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue15656>)
 
-  - [`function testDecoderIssue3577(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue3577>)
+  - [`function testDecoderIssue3577(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue3577>)
 
-  - [`function testDecoderIssue4779(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue4779>)
+  - [`function testDecoderIssue4779(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue4779>)
 
-  - [`function testDecoderIssue7733(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue7733>)
+  - [`function testDecoderIssue7733(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderissue7733>)
 
-  - [`function testDecoderRaw(t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderraw>)
+  - [`function testDecoderRaw(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testdecoderraw>)
 
-  - [`function testEncode(t:stdgo._internal.testing.T_):Void`](<#base64-function-testencode>)
+  - [`function testEncode(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testencode>)
 
-  - [`function testEncodedLen(t:stdgo._internal.testing.T_):Void`](<#base64-function-testencodedlen>)
+  - [`function testEncodedLen(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testencodedlen>)
 
-  - [`function testEncoder(t:stdgo._internal.testing.T_):Void`](<#base64-function-testencoder>)
+  - [`function testEncoder(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testencoder>)
 
-  - [`function testEncoderBuffering(t:stdgo._internal.testing.T_):Void`](<#base64-function-testencoderbuffering>)
+  - [`function testEncoderBuffering(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testencoderbuffering>)
 
-  - [`function testNewLineCharacters(t:stdgo._internal.testing.T_):Void`](<#base64-function-testnewlinecharacters>)
+  - [`function testNewLineCharacters(_t:stdgo._internal.testing.T_):Void`](<#base64-function-testnewlinecharacters>)
 
 - [typedef CorruptInputError](<#typedef-corruptinputerror>)
 
@@ -147,7 +147,7 @@ Package base64 implements base64 encoding as specified by RFC 4648.
 
 
 ```haxe
-function benchmarkDecodeString(b:stdgo._internal.testing.B):Void
+function benchmarkDecodeString(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -158,7 +158,7 @@ function benchmarkDecodeString(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkEncodeToString(b:stdgo._internal.testing.B):Void
+function benchmarkEncodeToString(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -169,7 +169,7 @@ function benchmarkEncodeToString(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkNewEncoding(b:stdgo._internal.testing.B):Void
+function benchmarkNewEncoding(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -180,7 +180,7 @@ function benchmarkNewEncoding(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function newDecoder(enc:stdgo.encoding.base64.Encoding, r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
+function newDecoder(_enc:stdgo.encoding.base64.Encoding, _r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
 ```
 
 
@@ -194,7 +194,7 @@ NewDecoder constructs a new base64 stream decoder.
 
 
 ```haxe
-function newEncoder(enc:stdgo.encoding.base64.Encoding, w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser
+function newEncoder(_enc:stdgo.encoding.base64.Encoding, _w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser
 ```
 
 
@@ -212,7 +212,7 @@ NewEncoder returns a new base64 stream encoder. Data written to
 
 
 ```haxe
-function newEncoding(encoder:String):stdgo.encoding.base64.Encoding
+function newEncoding(_encoder:String):stdgo.encoding.base64.Encoding
 ```
 
 
@@ -231,7 +231,7 @@ NewEncoding returns a new padded Encoding defined by the given alphabet,
 
 
 ```haxe
-function testBig(t:stdgo._internal.testing.T_):Void
+function testBig(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -242,7 +242,7 @@ function testBig(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecode(t:stdgo._internal.testing.T_):Void
+function testDecode(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -253,7 +253,7 @@ function testDecode(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecodeBounds(t:stdgo._internal.testing.T_):Void
+function testDecodeBounds(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -264,7 +264,7 @@ function testDecodeBounds(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecodeCorrupt(t:stdgo._internal.testing.T_):Void
+function testDecodeCorrupt(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -275,7 +275,7 @@ function testDecodeCorrupt(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecodedLen(t:stdgo._internal.testing.T_):Void
+function testDecodedLen(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -286,7 +286,7 @@ function testDecodedLen(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecoder(t:stdgo._internal.testing.T_):Void
+function testDecoder(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -297,7 +297,7 @@ function testDecoder(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecoderBuffering(t:stdgo._internal.testing.T_):Void
+function testDecoderBuffering(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -308,7 +308,7 @@ function testDecoderBuffering(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecoderIssue15656(t:stdgo._internal.testing.T_):Void
+function testDecoderIssue15656(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -319,7 +319,7 @@ function testDecoderIssue15656(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecoderIssue3577(t:stdgo._internal.testing.T_):Void
+function testDecoderIssue3577(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -333,7 +333,7 @@ tests that we don't ignore errors from our underlying reader
 
 
 ```haxe
-function testDecoderIssue4779(t:stdgo._internal.testing.T_):Void
+function testDecoderIssue4779(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -344,7 +344,7 @@ function testDecoderIssue4779(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecoderIssue7733(t:stdgo._internal.testing.T_):Void
+function testDecoderIssue7733(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -355,7 +355,7 @@ function testDecoderIssue7733(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecoderRaw(t:stdgo._internal.testing.T_):Void
+function testDecoderRaw(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -366,7 +366,7 @@ function testDecoderRaw(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testEncode(t:stdgo._internal.testing.T_):Void
+function testEncode(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -377,7 +377,7 @@ function testEncode(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testEncodedLen(t:stdgo._internal.testing.T_):Void
+function testEncodedLen(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -388,7 +388,7 @@ function testEncodedLen(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testEncoder(t:stdgo._internal.testing.T_):Void
+function testEncoder(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -399,7 +399,7 @@ function testEncoder(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testEncoderBuffering(t:stdgo._internal.testing.T_):Void
+function testEncoderBuffering(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -410,7 +410,7 @@ function testEncoderBuffering(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testNewLineCharacters(t:stdgo._internal.testing.T_):Void
+function testNewLineCharacters(_t:stdgo._internal.testing.T_):Void
 ```
 
 

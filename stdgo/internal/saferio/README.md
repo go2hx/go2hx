@@ -11,11 +11,11 @@
 
 - [class Saferio](<#class-saferio>)
 
-  - [`function readData(r:stdgo._internal.io.Reader, n:haxe.UInt64):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#saferio-function-readdata>)
+  - [`function readData(_r:stdgo._internal.io.Reader, _n:haxe.UInt64):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#saferio-function-readdata>)
 
-  - [`function readDataAt(r:stdgo._internal.io.ReaderAt, n:haxe.UInt64, off:haxe.Int64):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#saferio-function-readdataat>)
+  - [`function readDataAt(_r:stdgo._internal.io.ReaderAt, _n:haxe.UInt64, _off:haxe.Int64):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#saferio-function-readdataat>)
 
-  - [`function sliceCap(v:stdgo.AnyInterface, c:haxe.UInt64):Int`](<#saferio-function-slicecap>)
+  - [`function sliceCap(_v:stdgo.AnyInterface, _c:haxe.UInt64):Int`](<#saferio-function-slicecap>)
 
 # Classes
 
@@ -39,7 +39,7 @@ Package saferio provides I/O functions that avoid allocating large
 
 
 ```haxe
-function readData(r:stdgo._internal.io.Reader, n:haxe.UInt64):stdgo.Tuple<Array<Int>, stdgo.Error>
+function readData(_r:stdgo._internal.io.Reader, _n:haxe.UInt64):stdgo.Tuple<Array<Int>, stdgo.Error>
 ```
 
 
@@ -60,7 +60,7 @@ ReadData returns io.ErrUnexpectedEOF.
 
 
 ```haxe
-function readDataAt(r:stdgo._internal.io.ReaderAt, n:haxe.UInt64, off:haxe.Int64):stdgo.Tuple<Array<Int>, stdgo.Error>
+function readDataAt(_r:stdgo._internal.io.ReaderAt, _n:haxe.UInt64, _off:haxe.Int64):stdgo.Tuple<Array<Int>, stdgo.Error>
 ```
 
 
@@ -76,7 +76,7 @@ ReadDataAt reads n bytes from the input stream at off, but avoids
 
 
 ```haxe
-function sliceCap(v:stdgo.AnyInterface, c:haxe.UInt64):Int
+function sliceCap(_v:stdgo.AnyInterface, _c:haxe.UInt64):Int
 ```
 
 

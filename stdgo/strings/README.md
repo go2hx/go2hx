@@ -11,113 +11,113 @@
 
 - [class Strings](<#class-strings>)
 
-  - [`function clone(s:String):String`](<#strings-function-clone>)
+  - [`function clone(_s:String):String`](<#strings-function-clone>)
 
-  - [`function compare(a:String, b:String):Int`](<#strings-function-compare>)
+  - [`function compare(_a:String, _b:String):Int`](<#strings-function-compare>)
 
-  - [`function contains(s:String, substr:String):Bool`](<#strings-function-contains>)
+  - [`function contains(_s:String, _substr:String):Bool`](<#strings-function-contains>)
 
-  - [`function containsAny(s:String, chars:String):Bool`](<#strings-function-containsany>)
+  - [`function containsAny(_s:String, _chars:String):Bool`](<#strings-function-containsany>)
 
-  - [`function containsFunc(s:String, f:()):Bool`](<#strings-function-containsfunc>)
+  - [`function containsFunc(_s:String, _f:()):Bool`](<#strings-function-containsfunc>)
 
-  - [`function containsRune(s:String, r:Int):Bool`](<#strings-function-containsrune>)
+  - [`function containsRune(_s:String, _r:Int):Bool`](<#strings-function-containsrune>)
 
-  - [`function count(s:String, substr:String):Int`](<#strings-function-count>)
+  - [`function count(_s:String, _substr:String):Int`](<#strings-function-count>)
 
-  - [`function cut(s:String, sep:String):stdgo.Tuple3<String, String, Bool>`](<#strings-function-cut>)
+  - [`function cut(_s:String, _sep:String):stdgo.Tuple3<String, String, Bool>`](<#strings-function-cut>)
 
-  - [`function cutPrefix(s:String, prefix:String):stdgo.Tuple<String, Bool>`](<#strings-function-cutprefix>)
+  - [`function cutPrefix(_s:String, _prefix:String):stdgo.Tuple<String, Bool>`](<#strings-function-cutprefix>)
 
-  - [`function cutSuffix(s:String, suffix:String):stdgo.Tuple<String, Bool>`](<#strings-function-cutsuffix>)
+  - [`function cutSuffix(_s:String, _suffix:String):stdgo.Tuple<String, Bool>`](<#strings-function-cutsuffix>)
 
-  - [`function dumpTables(pattern:String):stdgo.Tuple<Array<Int>, Array<Int>>`](<#strings-function-dumptables>)
+  - [`function dumpTables(_pattern:String):stdgo.Tuple<Array<Int>, Array<Int>>`](<#strings-function-dumptables>)
 
-  - [`function equalFold(s:String, t:String):Bool`](<#strings-function-equalfold>)
+  - [`function equalFold(_s:String, _t:String):Bool`](<#strings-function-equalfold>)
 
-  - [`function fields(s:String):Array<String>`](<#strings-function-fields>)
+  - [`function fields(_s:String):Array<String>`](<#strings-function-fields>)
 
-  - [`function fieldsFunc(s:String, f:()):Array<String>`](<#strings-function-fieldsfunc>)
+  - [`function fieldsFunc(_s:String, _f:()):Array<String>`](<#strings-function-fieldsfunc>)
 
-  - [`function hasPrefix(s:String, prefix:String):Bool`](<#strings-function-hasprefix>)
+  - [`function hasPrefix(_s:String, _prefix:String):Bool`](<#strings-function-hasprefix>)
 
-  - [`function hasSuffix(s:String, suffix:String):Bool`](<#strings-function-hassuffix>)
+  - [`function hasSuffix(_s:String, _suffix:String):Bool`](<#strings-function-hassuffix>)
 
-  - [`function index(s:String, substr:String):Int`](<#strings-function-index>)
+  - [`function index(_s:String, _substr:String):Int`](<#strings-function-index>)
 
-  - [`function indexAny(s:String, chars:String):Int`](<#strings-function-indexany>)
+  - [`function indexAny(_s:String, _chars:String):Int`](<#strings-function-indexany>)
 
-  - [`function indexByte(s:String, c:Int):Int`](<#strings-function-indexbyte>)
+  - [`function indexByte(_s:String, _c:Int):Int`](<#strings-function-indexbyte>)
 
-  - [`function indexFunc(s:String, f:()):Int`](<#strings-function-indexfunc>)
+  - [`function indexFunc(_s:String, _f:()):Int`](<#strings-function-indexfunc>)
 
-  - [`function indexRune(s:String, r:Int):Int`](<#strings-function-indexrune>)
+  - [`function indexRune(_s:String, _r:Int):Int`](<#strings-function-indexrune>)
 
-  - [`function join(elems:Array<String>, sep:String):String`](<#strings-function-join>)
+  - [`function join(_elems:Array<String>, _sep:String):String`](<#strings-function-join>)
 
-  - [`function lastIndex(s:String, substr:String):Int`](<#strings-function-lastindex>)
+  - [`function lastIndex(_s:String, _substr:String):Int`](<#strings-function-lastindex>)
 
-  - [`function lastIndexAny(s:String, chars:String):Int`](<#strings-function-lastindexany>)
+  - [`function lastIndexAny(_s:String, _chars:String):Int`](<#strings-function-lastindexany>)
 
-  - [`function lastIndexByte(s:String, c:Int):Int`](<#strings-function-lastindexbyte>)
+  - [`function lastIndexByte(_s:String, _c:Int):Int`](<#strings-function-lastindexbyte>)
 
-  - [`function lastIndexFunc(s:String, f:()):Int`](<#strings-function-lastindexfunc>)
+  - [`function lastIndexFunc(_s:String, _f:()):Int`](<#strings-function-lastindexfunc>)
 
-  - [`function map_(mapping:(), s:String):String`](<#strings-function-map_>)
+  - [`function map_(_mapping:(), _s:String):String`](<#strings-function-map_>)
 
-  - [`function newReader(s:String):stdgo.strings.Reader`](<#strings-function-newreader>)
+  - [`function newReader(_s:String):stdgo.strings.Reader`](<#strings-function-newreader>)
 
-  - [`function newReplacer(oldnew:haxe.Rest<String>):stdgo.strings.Replacer`](<#strings-function-newreplacer>)
+  - [`function newReplacer(_oldnew:haxe.Rest<String>):stdgo.strings.Replacer`](<#strings-function-newreplacer>)
 
-  - [`function repeat(s:String, count:Int):String`](<#strings-function-repeat>)
+  - [`function repeat(_s:String, _count:Int):String`](<#strings-function-repeat>)
 
-  - [`function replace(s:String, old:String, _new:String, n:Int):String`](<#strings-function-replace>)
+  - [`function replace(_s:String, _old:String, _new:String, _n:Int):String`](<#strings-function-replace>)
 
-  - [`function replaceAll(s:String, old:String, _new:String):String`](<#strings-function-replaceall>)
+  - [`function replaceAll(_s:String, _old:String, _new:String):String`](<#strings-function-replaceall>)
 
-  - [`function split(s:String, sep:String):Array<String>`](<#strings-function-split>)
+  - [`function split(_s:String, _sep:String):Array<String>`](<#strings-function-split>)
 
-  - [`function splitAfter(s:String, sep:String):Array<String>`](<#strings-function-splitafter>)
+  - [`function splitAfter(_s:String, _sep:String):Array<String>`](<#strings-function-splitafter>)
 
-  - [`function splitAfterN(s:String, sep:String, n:Int):Array<String>`](<#strings-function-splitaftern>)
+  - [`function splitAfterN(_s:String, _sep:String, _n:Int):Array<String>`](<#strings-function-splitaftern>)
 
-  - [`function splitN(s:String, sep:String, n:Int):Array<String>`](<#strings-function-splitn>)
+  - [`function splitN(_s:String, _sep:String, _n:Int):Array<String>`](<#strings-function-splitn>)
 
-  - [`function stringFind(pattern:String, text:String):Int`](<#strings-function-stringfind>)
+  - [`function stringFind(_pattern:String, _text:String):Int`](<#strings-function-stringfind>)
 
-  - [`function title(s:String):String`](<#strings-function-title>)
+  - [`function title(_s:String):String`](<#strings-function-title>)
 
-  - [`function toLower(s:String):String`](<#strings-function-tolower>)
+  - [`function toLower(_s:String):String`](<#strings-function-tolower>)
 
-  - [`function toLowerSpecial(c:stdgo._internal.unicode.SpecialCase, s:String):String`](<#strings-function-tolowerspecial>)
+  - [`function toLowerSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:String):String`](<#strings-function-tolowerspecial>)
 
-  - [`function toTitle(s:String):String`](<#strings-function-totitle>)
+  - [`function toTitle(_s:String):String`](<#strings-function-totitle>)
 
-  - [`function toTitleSpecial(c:stdgo._internal.unicode.SpecialCase, s:String):String`](<#strings-function-totitlespecial>)
+  - [`function toTitleSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:String):String`](<#strings-function-totitlespecial>)
 
-  - [`function toUpper(s:String):String`](<#strings-function-toupper>)
+  - [`function toUpper(_s:String):String`](<#strings-function-toupper>)
 
-  - [`function toUpperSpecial(c:stdgo._internal.unicode.SpecialCase, s:String):String`](<#strings-function-toupperspecial>)
+  - [`function toUpperSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:String):String`](<#strings-function-toupperspecial>)
 
-  - [`function toValidUTF8(s:String, replacement:String):String`](<#strings-function-tovalidutf8>)
+  - [`function toValidUTF8(_s:String, _replacement:String):String`](<#strings-function-tovalidutf8>)
 
-  - [`function trim(s:String, cutset:String):String`](<#strings-function-trim>)
+  - [`function trim(_s:String, _cutset:String):String`](<#strings-function-trim>)
 
-  - [`function trimFunc(s:String, f:()):String`](<#strings-function-trimfunc>)
+  - [`function trimFunc(_s:String, _f:()):String`](<#strings-function-trimfunc>)
 
-  - [`function trimLeft(s:String, cutset:String):String`](<#strings-function-trimleft>)
+  - [`function trimLeft(_s:String, _cutset:String):String`](<#strings-function-trimleft>)
 
-  - [`function trimLeftFunc(s:String, f:()):String`](<#strings-function-trimleftfunc>)
+  - [`function trimLeftFunc(_s:String, _f:()):String`](<#strings-function-trimleftfunc>)
 
-  - [`function trimPrefix(s:String, prefix:String):String`](<#strings-function-trimprefix>)
+  - [`function trimPrefix(_s:String, _prefix:String):String`](<#strings-function-trimprefix>)
 
-  - [`function trimRight(s:String, cutset:String):String`](<#strings-function-trimright>)
+  - [`function trimRight(_s:String, _cutset:String):String`](<#strings-function-trimright>)
 
-  - [`function trimRightFunc(s:String, f:()):String`](<#strings-function-trimrightfunc>)
+  - [`function trimRightFunc(_s:String, _f:()):String`](<#strings-function-trimrightfunc>)
 
-  - [`function trimSpace(s:String):String`](<#strings-function-trimspace>)
+  - [`function trimSpace(_s:String):String`](<#strings-function-trimspace>)
 
-  - [`function trimSuffix(s:String, suffix:String):String`](<#strings-function-trimsuffix>)
+  - [`function trimSuffix(_s:String, _suffix:String):String`](<#strings-function-trimsuffix>)
 
 - [typedef T\_appendSliceWriter](<#typedef-t_appendslicewriter>)
 
@@ -168,7 +168,7 @@ For information about UTF\-8 strings in Go, see https://blog.golang.org/strings.
 
 
 ```haxe
-function clone(s:String):String
+function clone(_s:String):String
 ```
 
 
@@ -191,7 +191,7 @@ Clone returns a fresh copy of s.
 
 
 ```haxe
-function compare(a:String, b:String):Int
+function compare(_a:String, _b:String):Int
 ```
 
 
@@ -211,7 +211,7 @@ string comparison operators ==, \<, \>, and so on.
 
 
 ```haxe
-function contains(s:String, substr:String):Bool
+function contains(_s:String, _substr:String):Bool
 ```
 
 
@@ -225,7 +225,7 @@ Contains reports whether substr is within s.
 
 
 ```haxe
-function containsAny(s:String, chars:String):Bool
+function containsAny(_s:String, _chars:String):Bool
 ```
 
 
@@ -239,7 +239,7 @@ ContainsAny reports whether any Unicode code points in chars are within s.
 
 
 ```haxe
-function containsFunc(s:String, f:()):Bool
+function containsFunc(_s:String, _f:()):Bool
 ```
 
 
@@ -253,7 +253,7 @@ ContainsFunc reports whether any Unicode code points r within s satisfy f\(r\).
 
 
 ```haxe
-function containsRune(s:String, r:Int):Bool
+function containsRune(_s:String, _r:Int):Bool
 ```
 
 
@@ -267,7 +267,7 @@ ContainsRune reports whether the Unicode code point r is within s.
 
 
 ```haxe
-function count(s:String, substr:String):Int
+function count(_s:String, _substr:String):Int
 ```
 
 
@@ -282,7 +282,7 @@ Count counts the number of non-overlapping instances of substr in s.
 
 
 ```haxe
-function cut(s:String, sep:String):stdgo.Tuple3<String, String, Bool>
+function cut(_s:String, _sep:String):stdgo.Tuple3<String, String, Bool>
 ```
 
 
@@ -299,7 +299,7 @@ Cut slices s around the first instance of sep,
 
 
 ```haxe
-function cutPrefix(s:String, prefix:String):stdgo.Tuple<String, Bool>
+function cutPrefix(_s:String, _prefix:String):stdgo.Tuple<String, Bool>
 ```
 
 
@@ -316,7 +316,7 @@ CutPrefix returns s without the provided leading prefix string
 
 
 ```haxe
-function cutSuffix(s:String, suffix:String):stdgo.Tuple<String, Bool>
+function cutSuffix(_s:String, _suffix:String):stdgo.Tuple<String, Bool>
 ```
 
 
@@ -333,7 +333,7 @@ CutSuffix returns s without the provided ending suffix string
 
 
 ```haxe
-function dumpTables(pattern:String):stdgo.Tuple<Array<Int>, Array<Int>>
+function dumpTables(_pattern:String):stdgo.Tuple<Array<Int>, Array<Int>>
 ```
 
 
@@ -344,7 +344,7 @@ function dumpTables(pattern:String):stdgo.Tuple<Array<Int>, Array<Int>>
 
 
 ```haxe
-function equalFold(s:String, t:String):Bool
+function equalFold(_s:String, _t:String):Bool
 ```
 
 
@@ -360,7 +360,7 @@ EqualFold reports whether s and t, interpreted as UTF-8 strings,
 
 
 ```haxe
-function fields(s:String):Array<String>
+function fields(_s:String):Array<String>
 ```
 
 
@@ -376,7 +376,7 @@ Fields splits the string s around each instance of one or more consecutive white
 
 
 ```haxe
-function fieldsFunc(s:String, f:()):Array<String>
+function fieldsFunc(_s:String, _f:()):Array<String>
 ```
 
 
@@ -396,7 +396,7 @@ and assumes that f always returns the same value for a given c.
 
 
 ```haxe
-function hasPrefix(s:String, prefix:String):Bool
+function hasPrefix(_s:String, _prefix:String):Bool
 ```
 
 
@@ -410,7 +410,7 @@ HasPrefix tests whether the string s begins with prefix.
 
 
 ```haxe
-function hasSuffix(s:String, suffix:String):Bool
+function hasSuffix(_s:String, _suffix:String):Bool
 ```
 
 
@@ -424,7 +424,7 @@ HasSuffix tests whether the string s ends with suffix.
 
 
 ```haxe
-function index(s:String, substr:String):Int
+function index(_s:String, _substr:String):Int
 ```
 
 
@@ -438,7 +438,7 @@ Index returns the index of the first instance of substr in s, or \-1 if substr i
 
 
 ```haxe
-function indexAny(s:String, chars:String):Int
+function indexAny(_s:String, _chars:String):Int
 ```
 
 
@@ -453,7 +453,7 @@ IndexAny returns the index of the first instance of any Unicode code point
 
 
 ```haxe
-function indexByte(s:String, c:Int):Int
+function indexByte(_s:String, _c:Int):Int
 ```
 
 
@@ -467,7 +467,7 @@ IndexByte returns the index of the first instance of c in s, or \-1 if c is not 
 
 
 ```haxe
-function indexFunc(s:String, f:()):Int
+function indexFunc(_s:String, _f:()):Int
 ```
 
 
@@ -482,7 +482,7 @@ IndexFunc returns the index into s of the first Unicode
 
 
 ```haxe
-function indexRune(s:String, r:Int):Int
+function indexRune(_s:String, _r:Int):Int
 ```
 
 
@@ -499,7 +499,7 @@ IndexRune returns the index of the first instance of the Unicode code point
 
 
 ```haxe
-function join(elems:Array<String>, sep:String):String
+function join(_elems:Array<String>, _sep:String):String
 ```
 
 
@@ -514,7 +514,7 @@ Join concatenates the elements of its first argument to create a single string. 
 
 
 ```haxe
-function lastIndex(s:String, substr:String):Int
+function lastIndex(_s:String, _substr:String):Int
 ```
 
 
@@ -528,7 +528,7 @@ LastIndex returns the index of the last instance of substr in s, or \-1 if subst
 
 
 ```haxe
-function lastIndexAny(s:String, chars:String):Int
+function lastIndexAny(_s:String, _chars:String):Int
 ```
 
 
@@ -544,7 +544,7 @@ LastIndexAny returns the index of the last instance of any Unicode code
 
 
 ```haxe
-function lastIndexByte(s:String, c:Int):Int
+function lastIndexByte(_s:String, _c:Int):Int
 ```
 
 
@@ -558,7 +558,7 @@ LastIndexByte returns the index of the last instance of c in s, or \-1 if c is n
 
 
 ```haxe
-function lastIndexFunc(s:String, f:()):Int
+function lastIndexFunc(_s:String, _f:()):Int
 ```
 
 
@@ -573,7 +573,7 @@ LastIndexFunc returns the index into s of the last
 
 
 ```haxe
-function map_(mapping:(), s:String):String
+function map_(_mapping:(), _s:String):String
 ```
 
 
@@ -589,7 +589,7 @@ Map returns a copy of the string s with all its characters modified
 
 
 ```haxe
-function newReader(s:String):stdgo.strings.Reader
+function newReader(_s:String):stdgo.strings.Reader
 ```
 
 
@@ -604,7 +604,7 @@ NewReader returns a new Reader reading from s.
 
 
 ```haxe
-function newReplacer(oldnew:haxe.Rest<String>):stdgo.strings.Replacer
+function newReplacer(_oldnew:haxe.Rest<String>):stdgo.strings.Replacer
 ```
 
 
@@ -624,7 +624,7 @@ NewReplacer panics if given an odd number of arguments.
 
 
 ```haxe
-function repeat(s:String, count:Int):String
+function repeat(_s:String, _count:Int):String
 ```
 
 
@@ -642,7 +642,7 @@ overflows.
 
 
 ```haxe
-function replace(s:String, old:String, _new:String, n:Int):String
+function replace(_s:String, _old:String, _new:String, _n:Int):String
 ```
 
 
@@ -661,7 +661,7 @@ Replace returns a copy of the string s with the first n
 
 
 ```haxe
-function replaceAll(s:String, old:String, _new:String):String
+function replaceAll(_s:String, _old:String, _new:String):String
 ```
 
 
@@ -679,7 +679,7 @@ ReplaceAll returns a copy of the string s with all
 
 
 ```haxe
-function split(s:String, sep:String):Array<String>
+function split(_s:String, _sep:String):Array<String>
 ```
 
 
@@ -708,7 +708,7 @@ To split around the first instance of a separator, see Cut.
 
 
 ```haxe
-function splitAfter(s:String, sep:String):Array<String>
+function splitAfter(_s:String, _sep:String):Array<String>
 ```
 
 
@@ -734,7 +734,7 @@ It is equivalent to SplitAfterN with a count of \-1.
 
 
 ```haxe
-function splitAfterN(s:String, sep:String, n:Int):Array<String>
+function splitAfterN(_s:String, _sep:String, _n:Int):Array<String>
 ```
 
 
@@ -761,7 +761,7 @@ as described in the documentation for SplitAfter.
 
 
 ```haxe
-function splitN(s:String, sep:String, n:Int):Array<String>
+function splitN(_s:String, _sep:String, _n:Int):Array<String>
 ```
 
 
@@ -791,7 +791,7 @@ To split around the first instance of a separator, see Cut.
 
 
 ```haxe
-function stringFind(pattern:String, text:String):Int
+function stringFind(_pattern:String, _text:String):Int
 ```
 
 
@@ -802,7 +802,7 @@ function stringFind(pattern:String, text:String):Int
 
 
 ```haxe
-function title(s:String):String
+function title(_s:String):String
 ```
 
 
@@ -821,7 +821,7 @@ punctuation properly. Use golang.org/x/text/cases instead.
 
 
 ```haxe
-function toLower(s:String):String
+function toLower(_s:String):String
 ```
 
 
@@ -835,7 +835,7 @@ ToLower returns s with all Unicode letters mapped to their lower case.
 
 
 ```haxe
-function toLowerSpecial(c:stdgo._internal.unicode.SpecialCase, s:String):String
+function toLowerSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:String):String
 ```
 
 
@@ -850,7 +850,7 @@ ToLowerSpecial returns a copy of the string s with all Unicode letters mapped to
 
 
 ```haxe
-function toTitle(s:String):String
+function toTitle(_s:String):String
 ```
 
 
@@ -865,7 +865,7 @@ ToTitle returns a copy of the string s with all Unicode letters mapped to
 
 
 ```haxe
-function toTitleSpecial(c:stdgo._internal.unicode.SpecialCase, s:String):String
+function toTitleSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:String):String
 ```
 
 
@@ -880,7 +880,7 @@ ToTitleSpecial returns a copy of the string s with all Unicode letters mapped to
 
 
 ```haxe
-function toUpper(s:String):String
+function toUpper(_s:String):String
 ```
 
 
@@ -894,7 +894,7 @@ ToUpper returns s with all Unicode letters mapped to their upper case.
 
 
 ```haxe
-function toUpperSpecial(c:stdgo._internal.unicode.SpecialCase, s:String):String
+function toUpperSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:String):String
 ```
 
 
@@ -909,7 +909,7 @@ ToUpperSpecial returns a copy of the string s with all Unicode letters mapped to
 
 
 ```haxe
-function toValidUTF8(s:String, replacement:String):String
+function toValidUTF8(_s:String, _replacement:String):String
 ```
 
 
@@ -924,7 +924,7 @@ ToValidUTF8 returns a copy of the string s with each run of invalid UTF-8 byte s
 
 
 ```haxe
-function trim(s:String, cutset:String):String
+function trim(_s:String, _cutset:String):String
 ```
 
 
@@ -939,7 +939,7 @@ Trim returns a slice of the string s with all leading and
 
 
 ```haxe
-function trimFunc(s:String, f:()):String
+function trimFunc(_s:String, _f:()):String
 ```
 
 
@@ -954,7 +954,7 @@ TrimFunc returns a slice of the string s with all leading
 
 
 ```haxe
-function trimLeft(s:String, cutset:String):String
+function trimLeft(_s:String, _cutset:String):String
 ```
 
 
@@ -972,7 +972,7 @@ To remove a prefix, use TrimPrefix instead.
 
 
 ```haxe
-function trimLeftFunc(s:String, f:()):String
+function trimLeftFunc(_s:String, _f:()):String
 ```
 
 
@@ -987,7 +987,7 @@ TrimLeftFunc returns a slice of the string s with all leading
 
 
 ```haxe
-function trimPrefix(s:String, prefix:String):String
+function trimPrefix(_s:String, _prefix:String):String
 ```
 
 
@@ -1002,7 +1002,7 @@ TrimPrefix returns s without the provided leading prefix string.
 
 
 ```haxe
-function trimRight(s:String, cutset:String):String
+function trimRight(_s:String, _cutset:String):String
 ```
 
 
@@ -1020,7 +1020,7 @@ To remove a suffix, use TrimSuffix instead.
 
 
 ```haxe
-function trimRightFunc(s:String, f:()):String
+function trimRightFunc(_s:String, _f:()):String
 ```
 
 
@@ -1035,7 +1035,7 @@ TrimRightFunc returns a slice of the string s with all trailing
 
 
 ```haxe
-function trimSpace(s:String):String
+function trimSpace(_s:String):String
 ```
 
 
@@ -1050,7 +1050,7 @@ TrimSpace returns a slice of the string s, with all leading
 
 
 ```haxe
-function trimSuffix(s:String, suffix:String):String
+function trimSuffix(_s:String, _suffix:String):String
 ```
 
 

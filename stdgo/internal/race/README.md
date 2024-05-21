@@ -13,7 +13,7 @@
 
 - [class Race](<#class-race>)
 
-  - [`function acquire(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-acquire>)
+  - [`function acquire(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-acquire>)
 
   - [`function disable():Void`](<#race-function-disable>)
 
@@ -21,17 +21,17 @@
 
   - [`function errors():Int`](<#race-function-errors>)
 
-  - [`function read(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-read>)
+  - [`function read(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-read>)
 
-  - [`function readRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void`](<#race-function-readrange>)
+  - [`function readRange(_addr:stdgo._internal.unsafe.UnsafePointer, _len:Int):Void`](<#race-function-readrange>)
 
-  - [`function release(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-release>)
+  - [`function release(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-release>)
 
-  - [`function releaseMerge(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-releasemerge>)
+  - [`function releaseMerge(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-releasemerge>)
 
-  - [`function write(addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-write>)
+  - [`function write(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-write>)
 
-  - [`function writeRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void`](<#race-function-writerange>)
+  - [`function writeRange(_addr:stdgo._internal.unsafe.UnsafePointer, _len:Int):Void`](<#race-function-writerange>)
 
 # Constants
 
@@ -68,7 +68,7 @@ this package exports them unconditionally but without the "race" build tag they 
 
 
 ```haxe
-function acquire(addr:stdgo._internal.unsafe.UnsafePointer):Void
+function acquire(_addr:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
@@ -112,7 +112,7 @@ function errors():Int
 
 
 ```haxe
-function read(addr:stdgo._internal.unsafe.UnsafePointer):Void
+function read(_addr:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
@@ -123,7 +123,7 @@ function read(addr:stdgo._internal.unsafe.UnsafePointer):Void
 
 
 ```haxe
-function readRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void
+function readRange(_addr:stdgo._internal.unsafe.UnsafePointer, _len:Int):Void
 ```
 
 
@@ -134,7 +134,7 @@ function readRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void
 
 
 ```haxe
-function release(addr:stdgo._internal.unsafe.UnsafePointer):Void
+function release(_addr:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
@@ -145,7 +145,7 @@ function release(addr:stdgo._internal.unsafe.UnsafePointer):Void
 
 
 ```haxe
-function releaseMerge(addr:stdgo._internal.unsafe.UnsafePointer):Void
+function releaseMerge(_addr:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
@@ -156,7 +156,7 @@ function releaseMerge(addr:stdgo._internal.unsafe.UnsafePointer):Void
 
 
 ```haxe
-function write(addr:stdgo._internal.unsafe.UnsafePointer):Void
+function write(_addr:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
@@ -167,7 +167,7 @@ function write(addr:stdgo._internal.unsafe.UnsafePointer):Void
 
 
 ```haxe
-function writeRange(addr:stdgo._internal.unsafe.UnsafePointer, len:Int):Void
+function writeRange(_addr:stdgo._internal.unsafe.UnsafePointer, _len:Int):Void
 ```
 
 

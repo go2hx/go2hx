@@ -19,83 +19,83 @@
 
 - [class Strconv](<#class-strconv>)
 
-  - [`function appendBool(dst:Array<Int>, b:Bool):Array<Int>`](<#strconv-function-appendbool>)
+  - [`function appendBool(_dst:Array<Int>, _b:Bool):Array<Int>`](<#strconv-function-appendbool>)
 
-  - [`function appendFloat(dst:Array<Int>, f:Float, fmt:Int, prec:Int, bitSize:Int):Array<Int>`](<#strconv-function-appendfloat>)
+  - [`function appendFloat(_dst:Array<Int>, _f:Float, _fmt:Int, _prec:Int, _bitSize:Int):Array<Int>`](<#strconv-function-appendfloat>)
 
-  - [`function appendInt(dst:Array<Int>, i:haxe.Int64, base:Int):Array<Int>`](<#strconv-function-appendint>)
+  - [`function appendInt(_dst:Array<Int>, _i:haxe.Int64, _base:Int):Array<Int>`](<#strconv-function-appendint>)
 
-  - [`function appendQuote(dst:Array<Int>, s:String):Array<Int>`](<#strconv-function-appendquote>)
+  - [`function appendQuote(_dst:Array<Int>, _s:String):Array<Int>`](<#strconv-function-appendquote>)
 
-  - [`function appendQuoteRune(dst:Array<Int>, r:Int):Array<Int>`](<#strconv-function-appendquoterune>)
+  - [`function appendQuoteRune(_dst:Array<Int>, _r:Int):Array<Int>`](<#strconv-function-appendquoterune>)
 
-  - [`function appendQuoteRuneToASCII(dst:Array<Int>, r:Int):Array<Int>`](<#strconv-function-appendquoterunetoascii>)
+  - [`function appendQuoteRuneToASCII(_dst:Array<Int>, _r:Int):Array<Int>`](<#strconv-function-appendquoterunetoascii>)
 
-  - [`function appendQuoteRuneToGraphic(dst:Array<Int>, r:Int):Array<Int>`](<#strconv-function-appendquoterunetographic>)
+  - [`function appendQuoteRuneToGraphic(_dst:Array<Int>, _r:Int):Array<Int>`](<#strconv-function-appendquoterunetographic>)
 
-  - [`function appendQuoteToASCII(dst:Array<Int>, s:String):Array<Int>`](<#strconv-function-appendquotetoascii>)
+  - [`function appendQuoteToASCII(_dst:Array<Int>, _s:String):Array<Int>`](<#strconv-function-appendquotetoascii>)
 
-  - [`function appendQuoteToGraphic(dst:Array<Int>, s:String):Array<Int>`](<#strconv-function-appendquotetographic>)
+  - [`function appendQuoteToGraphic(_dst:Array<Int>, _s:String):Array<Int>`](<#strconv-function-appendquotetographic>)
 
-  - [`function appendUint(dst:Array<Int>, i:haxe.UInt64, base:Int):Array<Int>`](<#strconv-function-appenduint>)
+  - [`function appendUint(_dst:Array<Int>, _i:haxe.UInt64, _base:Int):Array<Int>`](<#strconv-function-appenduint>)
 
-  - [`function atoi(s:String):stdgo.Tuple<Int, stdgo.Error>`](<#strconv-function-atoi>)
+  - [`function atoi(_s:String):stdgo.Tuple<Int, stdgo.Error>`](<#strconv-function-atoi>)
 
-  - [`function canBackquote(s:String):Bool`](<#strconv-function-canbackquote>)
+  - [`function canBackquote(_s:String):Bool`](<#strconv-function-canbackquote>)
 
-  - [`function formatBool(b:Bool):String`](<#strconv-function-formatbool>)
+  - [`function formatBool(_b:Bool):String`](<#strconv-function-formatbool>)
 
-  - [`function formatComplex(c:stdgo.GoComplex128, fmt:Int, prec:Int, bitSize:Int):String`](<#strconv-function-formatcomplex>)
+  - [`function formatComplex(_c:stdgo.GoComplex128, _fmt:Int, _prec:Int, _bitSize:Int):String`](<#strconv-function-formatcomplex>)
 
-  - [`function formatFloat(f:Float, fmt:Int, prec:Int, bitSize:Int):String`](<#strconv-function-formatfloat>)
+  - [`function formatFloat(_f:Float, _fmt:Int, _prec:Int, _bitSize:Int):String`](<#strconv-function-formatfloat>)
 
-  - [`function formatInt(i:haxe.Int64, base:Int):String`](<#strconv-function-formatint>)
+  - [`function formatInt(_i:haxe.Int64, _base:Int):String`](<#strconv-function-formatint>)
 
-  - [`function formatUint(i:haxe.UInt64, base:Int):String`](<#strconv-function-formatuint>)
+  - [`function formatUint(_i:haxe.UInt64, _base:Int):String`](<#strconv-function-formatuint>)
 
-  - [`function isGraphic(r:Int):Bool`](<#strconv-function-isgraphic>)
+  - [`function isGraphic(_r:Int):Bool`](<#strconv-function-isgraphic>)
 
-  - [`function isPrint(r:Int):Bool`](<#strconv-function-isprint>)
+  - [`function isPrint(_r:Int):Bool`](<#strconv-function-isprint>)
 
-  - [`function itoa(i:Int):String`](<#strconv-function-itoa>)
+  - [`function itoa(_i:Int):String`](<#strconv-function-itoa>)
 
-  - [`function mulByLog10Log2(x:Int):Int`](<#strconv-function-mulbylog10log2>)
+  - [`function mulByLog10Log2(_x:Int):Int`](<#strconv-function-mulbylog10log2>)
 
-  - [`function mulByLog2Log10(x:Int):Int`](<#strconv-function-mulbylog2log10>)
+  - [`function mulByLog2Log10(_x:Int):Int`](<#strconv-function-mulbylog2log10>)
 
-  - [`function newDecimal(i:haxe.UInt64):stdgo.strconv.T_decimal`](<#strconv-function-newdecimal>)
+  - [`function newDecimal(_i:haxe.UInt64):stdgo.strconv.T_decimal`](<#strconv-function-newdecimal>)
 
-  - [`function parseBool(str:String):stdgo.Tuple<Bool, stdgo.Error>`](<#strconv-function-parsebool>)
+  - [`function parseBool(_str:String):stdgo.Tuple<Bool, stdgo.Error>`](<#strconv-function-parsebool>)
 
-  - [`function parseComplex(s:String, bitSize:Int):stdgo.Tuple<stdgo.GoComplex128, stdgo.Error>`](<#strconv-function-parsecomplex>)
+  - [`function parseComplex(_s:String, _bitSize:Int):stdgo.Tuple<stdgo.GoComplex128, stdgo.Error>`](<#strconv-function-parsecomplex>)
 
-  - [`function parseFloat(s:String, bitSize:Int):stdgo.Tuple<Float, stdgo.Error>`](<#strconv-function-parsefloat>)
+  - [`function parseFloat(_s:String, _bitSize:Int):stdgo.Tuple<Float, stdgo.Error>`](<#strconv-function-parsefloat>)
 
-  - [`function parseFloatPrefix(s:String, bitSize:Int):stdgo.Tuple3<Float, Int, stdgo.Error>`](<#strconv-function-parsefloatprefix>)
+  - [`function parseFloatPrefix(_s:String, _bitSize:Int):stdgo.Tuple3<Float, Int, stdgo.Error>`](<#strconv-function-parsefloatprefix>)
 
-  - [`function parseInt(s:String, base:Int, bitSize:Int):stdgo.Tuple<haxe.Int64, stdgo.Error>`](<#strconv-function-parseint>)
+  - [`function parseInt(_s:String, _base:Int, _bitSize:Int):stdgo.Tuple<haxe.Int64, stdgo.Error>`](<#strconv-function-parseint>)
 
-  - [`function parseUint(s:String, base:Int, bitSize:Int):stdgo.Tuple<haxe.UInt64, stdgo.Error>`](<#strconv-function-parseuint>)
+  - [`function parseUint(_s:String, _base:Int, _bitSize:Int):stdgo.Tuple<haxe.UInt64, stdgo.Error>`](<#strconv-function-parseuint>)
 
-  - [`function quote(s:String):String`](<#strconv-function-quote>)
+  - [`function quote(_s:String):String`](<#strconv-function-quote>)
 
-  - [`function quoteRune(r:Int):String`](<#strconv-function-quoterune>)
+  - [`function quoteRune(_r:Int):String`](<#strconv-function-quoterune>)
 
-  - [`function quoteRuneToASCII(r:Int):String`](<#strconv-function-quoterunetoascii>)
+  - [`function quoteRuneToASCII(_r:Int):String`](<#strconv-function-quoterunetoascii>)
 
-  - [`function quoteRuneToGraphic(r:Int):String`](<#strconv-function-quoterunetographic>)
+  - [`function quoteRuneToGraphic(_r:Int):String`](<#strconv-function-quoterunetographic>)
 
-  - [`function quoteToASCII(s:String):String`](<#strconv-function-quotetoascii>)
+  - [`function quoteToASCII(_s:String):String`](<#strconv-function-quotetoascii>)
 
-  - [`function quoteToGraphic(s:String):String`](<#strconv-function-quotetographic>)
+  - [`function quoteToGraphic(_s:String):String`](<#strconv-function-quotetographic>)
 
-  - [`function quotedPrefix(s:String):stdgo.Tuple<String, stdgo.Error>`](<#strconv-function-quotedprefix>)
+  - [`function quotedPrefix(_s:String):stdgo.Tuple<String, stdgo.Error>`](<#strconv-function-quotedprefix>)
 
-  - [`function setOptimize(b:Bool):Bool`](<#strconv-function-setoptimize>)
+  - [`function setOptimize(_b:Bool):Bool`](<#strconv-function-setoptimize>)
 
-  - [`function unquote(s:String):stdgo.Tuple<String, stdgo.Error>`](<#strconv-function-unquote>)
+  - [`function unquote(_s:String):stdgo.Tuple<String, stdgo.Error>`](<#strconv-function-unquote>)
 
-  - [`function unquoteChar(s:String, quote:Int):stdgo.Tuple4<Int, Bool, String, stdgo.Error>`](<#strconv-function-unquotechar>)
+  - [`function unquoteChar(_s:String, _quote:Int):stdgo.Tuple4<Int, Bool, String, stdgo.Error>`](<#strconv-function-unquotechar>)
 
 - [abstract NumError](<#abstract-numerror>)
 
@@ -252,7 +252,7 @@ return quoted Go rune literals.
 
 
 ```haxe
-function appendBool(dst:Array<Int>, b:Bool):Array<Int>
+function appendBool(_dst:Array<Int>, _b:Bool):Array<Int>
 ```
 
 
@@ -267,7 +267,7 @@ AppendBool appends "true" or "false", according to the value of b,
 
 
 ```haxe
-function appendFloat(dst:Array<Int>, f:Float, fmt:Int, prec:Int, bitSize:Int):Array<Int>
+function appendFloat(_dst:Array<Int>, _f:Float, _fmt:Int, _prec:Int, _bitSize:Int):Array<Int>
 ```
 
 
@@ -282,7 +282,7 @@ AppendFloat appends the string form of the floating-point number f,
 
 
 ```haxe
-function appendInt(dst:Array<Int>, i:haxe.Int64, base:Int):Array<Int>
+function appendInt(_dst:Array<Int>, _i:haxe.Int64, _base:Int):Array<Int>
 ```
 
 
@@ -297,7 +297,7 @@ AppendInt appends the string form of the integer i,
 
 
 ```haxe
-function appendQuote(dst:Array<Int>, s:String):Array<Int>
+function appendQuote(_dst:Array<Int>, _s:String):Array<Int>
 ```
 
 
@@ -312,7 +312,7 @@ AppendQuote appends a double-quoted Go string literal representing s,
 
 
 ```haxe
-function appendQuoteRune(dst:Array<Int>, r:Int):Array<Int>
+function appendQuoteRune(_dst:Array<Int>, _r:Int):Array<Int>
 ```
 
 
@@ -327,7 +327,7 @@ AppendQuoteRune appends a single-quoted Go character literal representing the ru
 
 
 ```haxe
-function appendQuoteRuneToASCII(dst:Array<Int>, r:Int):Array<Int>
+function appendQuoteRuneToASCII(_dst:Array<Int>, _r:Int):Array<Int>
 ```
 
 
@@ -342,7 +342,7 @@ AppendQuoteRuneToASCII appends a single-quoted Go character literal representing
 
 
 ```haxe
-function appendQuoteRuneToGraphic(dst:Array<Int>, r:Int):Array<Int>
+function appendQuoteRuneToGraphic(_dst:Array<Int>, _r:Int):Array<Int>
 ```
 
 
@@ -357,7 +357,7 @@ AppendQuoteRuneToGraphic appends a single-quoted Go character literal representi
 
 
 ```haxe
-function appendQuoteToASCII(dst:Array<Int>, s:String):Array<Int>
+function appendQuoteToASCII(_dst:Array<Int>, _s:String):Array<Int>
 ```
 
 
@@ -372,7 +372,7 @@ AppendQuoteToASCII appends a double-quoted Go string literal representing s,
 
 
 ```haxe
-function appendQuoteToGraphic(dst:Array<Int>, s:String):Array<Int>
+function appendQuoteToGraphic(_dst:Array<Int>, _s:String):Array<Int>
 ```
 
 
@@ -387,7 +387,7 @@ AppendQuoteToGraphic appends a double-quoted Go string literal representing s,
 
 
 ```haxe
-function appendUint(dst:Array<Int>, i:haxe.UInt64, base:Int):Array<Int>
+function appendUint(_dst:Array<Int>, _i:haxe.UInt64, _base:Int):Array<Int>
 ```
 
 
@@ -402,7 +402,7 @@ AppendUint appends the string form of the unsigned integer i,
 
 
 ```haxe
-function atoi(s:String):stdgo.Tuple<Int, stdgo.Error>
+function atoi(_s:String):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -416,7 +416,7 @@ Atoi is equivalent to ParseInt\(s, 10, 0\), converted to type int.
 
 
 ```haxe
-function canBackquote(s:String):Bool
+function canBackquote(_s:String):Bool
 ```
 
 
@@ -432,7 +432,7 @@ CanBackquote reports whether the string s can be represented
 
 
 ```haxe
-function formatBool(b:Bool):String
+function formatBool(_b:Bool):String
 ```
 
 
@@ -446,7 +446,7 @@ FormatBool returns "true" or "false" according to the value of b.
 
 
 ```haxe
-function formatComplex(c:stdgo.GoComplex128, fmt:Int, prec:Int, bitSize:Int):String
+function formatComplex(_c:stdgo.GoComplex128, _fmt:Int, _prec:Int, _bitSize:Int):String
 ```
 
 
@@ -467,7 +467,7 @@ value of bitSize bits, which must be 64 for complex64 and 128 for complex128.
 
 
 ```haxe
-function formatFloat(f:Float, fmt:Int, prec:Int, bitSize:Int):String
+function formatFloat(_f:Float, _fmt:Int, _prec:Int, _bitSize:Int):String
 ```
 
 
@@ -504,7 +504,7 @@ necessary such that ParseFloat will return f exactly.
 
 
 ```haxe
-function formatInt(i:haxe.Int64, base:Int):String
+function formatInt(_i:haxe.Int64, _base:Int):String
 ```
 
 
@@ -520,7 +520,7 @@ FormatInt returns the string representation of i in the given base,
 
 
 ```haxe
-function formatUint(i:haxe.UInt64, base:Int):String
+function formatUint(_i:haxe.UInt64, _base:Int):String
 ```
 
 
@@ -536,7 +536,7 @@ FormatUint returns the string representation of i in the given base,
 
 
 ```haxe
-function isGraphic(r:Int):Bool
+function isGraphic(_r:Int):Bool
 ```
 
 
@@ -552,7 +552,7 @@ IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such
 
 
 ```haxe
-function isPrint(r:Int):Bool
+function isPrint(_r:Int):Bool
 ```
 
 
@@ -568,7 +568,7 @@ IsPrint reports whether the rune is defined as printable by Go, with
 
 
 ```haxe
-function itoa(i:Int):String
+function itoa(_i:Int):String
 ```
 
 
@@ -582,7 +582,7 @@ Itoa is equivalent to FormatInt\(int64\(i\), 10\).
 
 
 ```haxe
-function mulByLog10Log2(x:Int):Int
+function mulByLog10Log2(_x:Int):Int
 ```
 
 
@@ -593,7 +593,7 @@ function mulByLog10Log2(x:Int):Int
 
 
 ```haxe
-function mulByLog2Log10(x:Int):Int
+function mulByLog2Log10(_x:Int):Int
 ```
 
 
@@ -604,7 +604,7 @@ function mulByLog2Log10(x:Int):Int
 
 
 ```haxe
-function newDecimal(i:haxe.UInt64):stdgo.strconv.T_decimal
+function newDecimal(_i:haxe.UInt64):stdgo.strconv.T_decimal
 ```
 
 
@@ -615,7 +615,7 @@ function newDecimal(i:haxe.UInt64):stdgo.strconv.T_decimal
 
 
 ```haxe
-function parseBool(str:String):stdgo.Tuple<Bool, stdgo.Error>
+function parseBool(_str:String):stdgo.Tuple<Bool, stdgo.Error>
 ```
 
 
@@ -631,7 +631,7 @@ ParseBool returns the boolean value represented by the string.
 
 
 ```haxe
-function parseComplex(s:String, bitSize:Int):stdgo.Tuple<stdgo.GoComplex128, stdgo.Error>
+function parseComplex(_s:String, _bitSize:Int):stdgo.Tuple<stdgo.GoComplex128, stdgo.Error>
 ```
 
 
@@ -668,7 +668,7 @@ ParseComplex returns err.Err = ErrRange and c = ±Inf for the respective compone
 
 
 ```haxe
-function parseFloat(s:String, bitSize:Int):stdgo.Tuple<Float, stdgo.Error>
+function parseFloat(_s:String, _bitSize:Int):stdgo.Tuple<Float, stdgo.Error>
 ```
 
 
@@ -714,7 +714,7 @@ as their respective special floating point values. It ignores case when matching
 
 
 ```haxe
-function parseFloatPrefix(s:String, bitSize:Int):stdgo.Tuple3<Float, Int, stdgo.Error>
+function parseFloatPrefix(_s:String, _bitSize:Int):stdgo.Tuple3<Float, Int, stdgo.Error>
 ```
 
 
@@ -725,7 +725,7 @@ function parseFloatPrefix(s:String, bitSize:Int):stdgo.Tuple3<Float, Int, stdgo.
 
 
 ```haxe
-function parseInt(s:String, base:Int, bitSize:Int):stdgo.Tuple<haxe.Int64, stdgo.Error>
+function parseInt(_s:String, _base:Int, _bitSize:Int):stdgo.Tuple<haxe.Int64, stdgo.Error>
 ```
 
 
@@ -768,7 +768,7 @@ appropriate bitSize and sign.
 
 
 ```haxe
-function parseUint(s:String, base:Int, bitSize:Int):stdgo.Tuple<haxe.UInt64, stdgo.Error>
+function parseUint(_s:String, _base:Int, _bitSize:Int):stdgo.Tuple<haxe.UInt64, stdgo.Error>
 ```
 
 
@@ -785,7 +785,7 @@ A sign prefix is not permitted.
 
 
 ```haxe
-function quote(s:String):String
+function quote(_s:String):String
 ```
 
 
@@ -802,7 +802,7 @@ Quote returns a double-quoted Go string literal representing s. The
 
 
 ```haxe
-function quoteRune(r:Int):String
+function quoteRune(_r:Int):String
 ```
 
 
@@ -820,7 +820,7 @@ QuoteRune returns a single-quoted Go character literal representing the
 
 
 ```haxe
-function quoteRuneToASCII(r:Int):String
+function quoteRuneToASCII(_r:Int):String
 ```
 
 
@@ -839,7 +839,7 @@ QuoteRuneToASCII returns a single-quoted Go character literal representing
 
 
 ```haxe
-function quoteRuneToGraphic(r:Int):String
+function quoteRuneToGraphic(_r:Int):String
 ```
 
 
@@ -858,7 +858,7 @@ QuoteRuneToGraphic returns a single-quoted Go character literal representing
 
 
 ```haxe
-function quoteToASCII(s:String):String
+function quoteToASCII(_s:String):String
 ```
 
 
@@ -874,7 +874,7 @@ QuoteToASCII returns a double-quoted Go string literal representing s.
 
 
 ```haxe
-function quoteToGraphic(s:String):String
+function quoteToGraphic(_s:String):String
 ```
 
 
@@ -891,7 +891,7 @@ QuoteToGraphic returns a double-quoted Go string literal representing s.
 
 
 ```haxe
-function quotedPrefix(s:String):stdgo.Tuple<String, stdgo.Error>
+function quotedPrefix(_s:String):stdgo.Tuple<String, stdgo.Error>
 ```
 
 
@@ -906,7 +906,7 @@ QuotedPrefix returns the quoted string (as understood by Unquote) at the prefix 
 
 
 ```haxe
-function setOptimize(b:Bool):Bool
+function setOptimize(_b:Bool):Bool
 ```
 
 
@@ -917,7 +917,7 @@ function setOptimize(b:Bool):Bool
 
 
 ```haxe
-function unquote(s:String):stdgo.Tuple<String, stdgo.Error>
+function unquote(_s:String):stdgo.Tuple<String, stdgo.Error>
 ```
 
 
@@ -935,7 +935,7 @@ Unquote interprets s as a single-quoted, double-quoted,
 
 
 ```haxe
-function unquoteChar(s:String, quote:Int):stdgo.Tuple4<Int, Bool, String, stdgo.Error>
+function unquoteChar(_s:String, _quote:Int):stdgo.Tuple4<Int, Bool, String, stdgo.Error>
 ```
 
 

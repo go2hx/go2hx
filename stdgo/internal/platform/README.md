@@ -13,31 +13,31 @@
 
 - [class Platform](<#class-platform>)
 
-  - [`function asanSupported(goos:String, goarch:String):Bool`](<#platform-function-asansupported>)
+  - [`function asanSupported(_goos:String, _goarch:String):Bool`](<#platform-function-asansupported>)
 
-  - [`function broken(goos:String, goarch:String):Bool`](<#platform-function-broken>)
+  - [`function broken(_goos:String, _goarch:String):Bool`](<#platform-function-broken>)
 
-  - [`function buildModeSupported(compiler:String, buildmode:String, goos:String, goarch:String):Bool`](<#platform-function-buildmodesupported>)
+  - [`function buildModeSupported(_compiler:String, _buildmode:String, _goos:String, _goarch:String):Bool`](<#platform-function-buildmodesupported>)
 
-  - [`function cgoSupported(goos:String, goarch:String):Bool`](<#platform-function-cgosupported>)
+  - [`function cgoSupported(_goos:String, _goarch:String):Bool`](<#platform-function-cgosupported>)
 
-  - [`function defaultPIE(goos:String, goarch:String, isRace:Bool):Bool`](<#platform-function-defaultpie>)
+  - [`function defaultPIE(_goos:String, _goarch:String, _isRace:Bool):Bool`](<#platform-function-defaultpie>)
 
-  - [`function executableHasDWARF(goos:String, goarch:String):Bool`](<#platform-function-executablehasdwarf>)
+  - [`function executableHasDWARF(_goos:String, _goarch:String):Bool`](<#platform-function-executablehasdwarf>)
 
-  - [`function firstClass(goos:String, goarch:String):Bool`](<#platform-function-firstclass>)
+  - [`function firstClass(_goos:String, _goarch:String):Bool`](<#platform-function-firstclass>)
 
-  - [`function fuzzInstrumented(goos:String, goarch:String):Bool`](<#platform-function-fuzzinstrumented>)
+  - [`function fuzzInstrumented(_goos:String, _goarch:String):Bool`](<#platform-function-fuzzinstrumented>)
 
-  - [`function fuzzSupported(goos:String, goarch:String):Bool`](<#platform-function-fuzzsupported>)
+  - [`function fuzzSupported(_goos:String, _goarch:String):Bool`](<#platform-function-fuzzsupported>)
 
-  - [`function internalLinkPIESupported(goos:String, goarch:String):Bool`](<#platform-function-internallinkpiesupported>)
+  - [`function internalLinkPIESupported(_goos:String, _goarch:String):Bool`](<#platform-function-internallinkpiesupported>)
 
-  - [`function msanSupported(goos:String, goarch:String):Bool`](<#platform-function-msansupported>)
+  - [`function msanSupported(_goos:String, _goarch:String):Bool`](<#platform-function-msansupported>)
 
-  - [`function mustLinkExternal(goos:String, goarch:String, withCgo:Bool):Bool`](<#platform-function-mustlinkexternal>)
+  - [`function mustLinkExternal(_goos:String, _goarch:String, _withCgo:Bool):Bool`](<#platform-function-mustlinkexternal>)
 
-  - [`function raceDetectorSupported(goos:String, goarch:String):Bool`](<#platform-function-racedetectorsupported>)
+  - [`function raceDetectorSupported(_goos:String, _goarch:String):Bool`](<#platform-function-racedetectorsupported>)
 
 - [abstract OSArch](<#abstract-osarch>)
 
@@ -71,7 +71,7 @@ import stdgo.internal.platform.*
 
 
 ```haxe
-function asanSupported(goos:String, goarch:String):Bool
+function asanSupported(_goos:String, _goarch:String):Bool
 ```
 
 
@@ -86,7 +86,7 @@ ASanSupported reports whether goos/goarch supports the address
 
 
 ```haxe
-function broken(goos:String, goarch:String):Bool
+function broken(_goos:String, _goarch:String):Bool
 ```
 
 
@@ -101,7 +101,7 @@ Broken reportsr whether goos/goarch is considered a broken port.
 
 
 ```haxe
-function buildModeSupported(compiler:String, buildmode:String, goos:String, goarch:String):Bool
+function buildModeSupported(_compiler:String, _buildmode:String, _goos:String, _goarch:String):Bool
 ```
 
 
@@ -117,7 +117,7 @@ BuildModeSupported reports whether goos/goarch supports the given build mode
 
 
 ```haxe
-function cgoSupported(goos:String, goarch:String):Bool
+function cgoSupported(_goos:String, _goarch:String):Bool
 ```
 
 
@@ -131,7 +131,7 @@ CgoSupported reports whether goos/goarch supports cgo.
 
 
 ```haxe
-function defaultPIE(goos:String, goarch:String, isRace:Bool):Bool
+function defaultPIE(_goos:String, _goarch:String, _isRace:Bool):Bool
 ```
 
 
@@ -147,7 +147,7 @@ DefaultPIE reports whether goos/goarch produces a PIE binary when using the
 
 
 ```haxe
-function executableHasDWARF(goos:String, goarch:String):Bool
+function executableHasDWARF(_goos:String, _goarch:String):Bool
 ```
 
 
@@ -162,7 +162,7 @@ ExecutableHasDWARF reports whether the linked executable includes DWARF
 
 
 ```haxe
-function firstClass(goos:String, goarch:String):Bool
+function firstClass(_goos:String, _goarch:String):Bool
 ```
 
 
@@ -177,7 +177,7 @@ FirstClass reports whether goos/goarch is considered a “first class” port.
 
 
 ```haxe
-function fuzzInstrumented(goos:String, goarch:String):Bool
+function fuzzInstrumented(_goos:String, _goarch:String):Bool
 ```
 
 
@@ -192,7 +192,7 @@ FuzzInstrumented reports whether fuzzing on goos/goarch uses coverage
 
 
 ```haxe
-function fuzzSupported(goos:String, goarch:String):Bool
+function fuzzSupported(_goos:String, _goarch:String):Bool
 ```
 
 
@@ -207,7 +207,7 @@ FuzzSupported reports whether goos/goarch supports fuzzing
 
 
 ```haxe
-function internalLinkPIESupported(goos:String, goarch:String):Bool
+function internalLinkPIESupported(_goos:String, _goarch:String):Bool
 ```
 
 
@@ -218,7 +218,7 @@ function internalLinkPIESupported(goos:String, goarch:String):Bool
 
 
 ```haxe
-function msanSupported(goos:String, goarch:String):Bool
+function msanSupported(_goos:String, _goarch:String):Bool
 ```
 
 
@@ -233,7 +233,7 @@ MSanSupported reports whether goos/goarch supports the memory
 
 
 ```haxe
-function mustLinkExternal(goos:String, goarch:String, withCgo:Bool):Bool
+function mustLinkExternal(_goos:String, _goarch:String, _withCgo:Bool):Bool
 ```
 
 
@@ -248,7 +248,7 @@ MustLinkExternal reports whether goos/goarch requires external linking
 
 
 ```haxe
-function raceDetectorSupported(goos:String, goarch:String):Bool
+function raceDetectorSupported(_goos:String, _goarch:String):Bool
 ```
 
 

@@ -11,7 +11,7 @@
 
 - [class Randutil](<#class-randutil>)
 
-  - [`function maybeReadByte(r:stdgo._internal.io.Reader):Void`](<#randutil-function-maybereadbyte>)
+  - [`function maybeReadByte(_r:stdgo._internal.io.Reader):Void`](<#randutil-function-maybereadbyte>)
 
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
 
@@ -34,7 +34,7 @@ Package randutil contains internal randomness utilities for various
 
 
 ```haxe
-function maybeReadByte(r:stdgo._internal.io.Reader):Void
+function maybeReadByte(_r:stdgo._internal.io.Reader):Void
 ```
 
 

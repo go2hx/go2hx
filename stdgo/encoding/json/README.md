@@ -1,6 +1,11 @@
 # Module stdgo.encoding.json has compilation errors, please do not use:
 ```
-stdgo/encoding/json/Json.hx:3: characters 57-58 : Unexpected 0
+[30;41m ERROR [0m [31m(macro) [0m(unknown position)
+
+   | Module stdgo._internal.encoding.json.Json does not define type Array
+
+      | For function argument 'args'
+
 
 ```
 

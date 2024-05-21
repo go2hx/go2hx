@@ -19,9 +19,9 @@
 
 - [class Poll](<#class-poll>)
 
-  - [`function dupCloseOnExec(fd:Int):stdgo.Tuple3<Int, String, stdgo.Error>`](<#poll-function-dupcloseonexec>)
+  - [`function dupCloseOnExec(_fd:Int):stdgo.Tuple3<Int, String, stdgo.Error>`](<#poll-function-dupcloseonexec>)
 
-  - [`function isPollDescriptor(fd:stdgo.GoUIntptr):Bool`](<#poll-function-ispolldescriptor>)
+  - [`function isPollDescriptor(_fd:stdgo.GoUIntptr):Bool`](<#poll-function-ispolldescriptor>)
 
 - [abstract T\_errNetClosing](<#abstract-t_errnetclosing>)
 
@@ -131,7 +131,7 @@ Package poll supports non-blocking I/O on file descriptors with polling.
 
 
 ```haxe
-function dupCloseOnExec(fd:Int):stdgo.Tuple3<Int, String, stdgo.Error>
+function dupCloseOnExec(_fd:Int):stdgo.Tuple3<Int, String, stdgo.Error>
 ```
 
 
@@ -145,7 +145,7 @@ DupCloseOnExec dups fd and marks it close\-on\-exec.
 
 
 ```haxe
-function isPollDescriptor(fd:stdgo.GoUIntptr):Bool
+function isPollDescriptor(_fd:stdgo.GoUIntptr):Bool
 ```
 
 

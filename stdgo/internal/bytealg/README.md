@@ -15,37 +15,37 @@
 
 - [class Bytealg](<#class-bytealg>)
 
-  - [`function compare(a:Array<Int>, b:Array<Int>):Int`](<#bytealg-function-compare>)
+  - [`function compare(_a:Array<Int>, _b:Array<Int>):Int`](<#bytealg-function-compare>)
 
-  - [`function count(b:Array<Int>, c:Int):Int`](<#bytealg-function-count>)
+  - [`function count(_b:Array<Int>, _c:Int):Int`](<#bytealg-function-count>)
 
-  - [`function countString(s:String, c:Int):Int`](<#bytealg-function-countstring>)
+  - [`function countString(_s:String, _c:Int):Int`](<#bytealg-function-countstring>)
 
-  - [`function cutover(n:Int):Int`](<#bytealg-function-cutover>)
+  - [`function cutover(_n:Int):Int`](<#bytealg-function-cutover>)
 
-  - [`function equal(a:Array<Int>, b:Array<Int>):Bool`](<#bytealg-function-equal>)
+  - [`function equal(_a:Array<Int>, _b:Array<Int>):Bool`](<#bytealg-function-equal>)
 
-  - [`function hashStr(sep:String):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstr>)
+  - [`function hashStr(_sep:String):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstr>)
 
-  - [`function hashStrBytes(sep:Array<Int>):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstrbytes>)
+  - [`function hashStrBytes(_sep:Array<Int>):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstrbytes>)
 
-  - [`function hashStrRev(sep:String):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstrrev>)
+  - [`function hashStrRev(_sep:String):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstrrev>)
 
-  - [`function hashStrRevBytes(sep:Array<Int>):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstrrevbytes>)
+  - [`function hashStrRevBytes(_sep:Array<Int>):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstrrevbytes>)
 
-  - [`function index(a:Array<Int>, b:Array<Int>):Int`](<#bytealg-function-index>)
+  - [`function index(_a:Array<Int>, _b:Array<Int>):Int`](<#bytealg-function-index>)
 
-  - [`function indexByte(b:Array<Int>, c:Int):Int`](<#bytealg-function-indexbyte>)
+  - [`function indexByte(_b:Array<Int>, _c:Int):Int`](<#bytealg-function-indexbyte>)
 
-  - [`function indexByteString(s:String, c:Int):Int`](<#bytealg-function-indexbytestring>)
+  - [`function indexByteString(_s:String, _c:Int):Int`](<#bytealg-function-indexbytestring>)
 
-  - [`function indexRabinKarp(s:String, substr:String):Int`](<#bytealg-function-indexrabinkarp>)
+  - [`function indexRabinKarp(_s:String, _substr:String):Int`](<#bytealg-function-indexrabinkarp>)
 
-  - [`function indexRabinKarpBytes(s:Array<Int>, sep:Array<Int>):Int`](<#bytealg-function-indexrabinkarpbytes>)
+  - [`function indexRabinKarpBytes(_s:Array<Int>, _sep:Array<Int>):Int`](<#bytealg-function-indexrabinkarpbytes>)
 
-  - [`function indexString(a:String, b:String):Int`](<#bytealg-function-indexstring>)
+  - [`function indexString(_a:String, _b:String):Int`](<#bytealg-function-indexstring>)
 
-  - [`function makeNoZero(n:Int):Array<Int>`](<#bytealg-function-makenozero>)
+  - [`function makeNoZero(_n:Int):Array<Int>`](<#bytealg-function-makenozero>)
 
 # Constants
 
@@ -93,7 +93,7 @@ import stdgo.internal.bytealg.*
 
 
 ```haxe
-function compare(a:Array<Int>, b:Array<Int>):Int
+function compare(_a:Array<Int>, _b:Array<Int>):Int
 ```
 
 
@@ -107,7 +107,7 @@ go:noescape
 
 
 ```haxe
-function count(b:Array<Int>, c:Int):Int
+function count(_b:Array<Int>, _c:Int):Int
 ```
 
 
@@ -118,7 +118,7 @@ function count(b:Array<Int>, c:Int):Int
 
 
 ```haxe
-function countString(s:String, c:Int):Int
+function countString(_s:String, _c:Int):Int
 ```
 
 
@@ -129,7 +129,7 @@ function countString(s:String, c:Int):Int
 
 
 ```haxe
-function cutover(n:Int):Int
+function cutover(_n:Int):Int
 ```
 
 
@@ -146,7 +146,7 @@ Cutover reports the number of failures of IndexByte we should tolerate
 
 
 ```haxe
-function equal(a:Array<Int>, b:Array<Int>):Bool
+function equal(_a:Array<Int>, _b:Array<Int>):Bool
 ```
 
 
@@ -167,7 +167,7 @@ because some packages cannot depend on bytes.
 
 
 ```haxe
-function hashStr(sep:String):stdgo.Tuple<UInt, UInt>
+function hashStr(_sep:String):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -182,7 +182,7 @@ HashStr returns the hash and the appropriate multiplicative
 
 
 ```haxe
-function hashStrBytes(sep:Array<Int>):stdgo.Tuple<UInt, UInt>
+function hashStrBytes(_sep:Array<Int>):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -197,7 +197,7 @@ HashStrBytes returns the hash and the appropriate multiplicative
 
 
 ```haxe
-function hashStrRev(sep:String):stdgo.Tuple<UInt, UInt>
+function hashStrRev(_sep:String):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -212,7 +212,7 @@ HashStrRev returns the hash of the reverse of sep and the
 
 
 ```haxe
-function hashStrRevBytes(sep:Array<Int>):stdgo.Tuple<UInt, UInt>
+function hashStrRevBytes(_sep:Array<Int>):stdgo.Tuple<UInt, UInt>
 ```
 
 
@@ -227,7 +227,7 @@ HashStrRevBytes returns the hash of the reverse of sep and the
 
 
 ```haxe
-function index(a:Array<Int>, b:Array<Int>):Int
+function index(_a:Array<Int>, _b:Array<Int>):Int
 ```
 
 
@@ -242,7 +242,7 @@ Index returns the index of the first instance of b in a, or -1 if b is not prese
 
 
 ```haxe
-function indexByte(b:Array<Int>, c:Int):Int
+function indexByte(_b:Array<Int>, _c:Int):Int
 ```
 
 
@@ -256,7 +256,7 @@ go:noescape
 
 
 ```haxe
-function indexByteString(s:String, c:Int):Int
+function indexByteString(_s:String, _c:Int):Int
 ```
 
 
@@ -270,7 +270,7 @@ go:noescape
 
 
 ```haxe
-function indexRabinKarp(s:String, substr:String):Int
+function indexRabinKarp(_s:String, _substr:String):Int
 ```
 
 
@@ -285,7 +285,7 @@ IndexRabinKarp uses the Rabin-Karp search algorithm to return the index of the
 
 
 ```haxe
-function indexRabinKarpBytes(s:Array<Int>, sep:Array<Int>):Int
+function indexRabinKarpBytes(_s:Array<Int>, _sep:Array<Int>):Int
 ```
 
 
@@ -300,7 +300,7 @@ IndexRabinKarpBytes uses the Rabin-Karp search algorithm to return the index of 
 
 
 ```haxe
-function indexString(a:String, b:String):Int
+function indexString(_a:String, _b:String):Int
 ```
 
 
@@ -315,7 +315,7 @@ IndexString returns the index of the first instance of b in a, or -1 if b is not
 
 
 ```haxe
-function makeNoZero(n:Int):Array<Int>
+function makeNoZero(_n:Int):Array<Int>
 ```
 
 

@@ -11,21 +11,21 @@
 
 - [class Bzip2](<#class-bzip2>)
 
-  - [`function benchmarkDecodeDigits(b:stdgo._internal.testing.B):Void`](<#bzip2-function-benchmarkdecodedigits>)
+  - [`function benchmarkDecodeDigits(_b:stdgo._internal.testing.B):Void`](<#bzip2-function-benchmarkdecodedigits>)
 
-  - [`function benchmarkDecodeNewton(b:stdgo._internal.testing.B):Void`](<#bzip2-function-benchmarkdecodenewton>)
+  - [`function benchmarkDecodeNewton(_b:stdgo._internal.testing.B):Void`](<#bzip2-function-benchmarkdecodenewton>)
 
-  - [`function benchmarkDecodeRand(b:stdgo._internal.testing.B):Void`](<#bzip2-function-benchmarkdecoderand>)
+  - [`function benchmarkDecodeRand(_b:stdgo._internal.testing.B):Void`](<#bzip2-function-benchmarkdecoderand>)
 
-  - [`function newReader(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#bzip2-function-newreader>)
+  - [`function newReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#bzip2-function-newreader>)
 
-  - [`function testBitReader(t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testbitreader>)
+  - [`function testBitReader(_t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testbitreader>)
 
-  - [`function testMTF(t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testmtf>)
+  - [`function testMTF(_t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testmtf>)
 
-  - [`function testReader(t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testreader>)
+  - [`function testReader(_t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testreader>)
 
-  - [`function testZeroRead(t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testzeroread>)
+  - [`function testZeroRead(_t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testzeroread>)
 
 - [typedef StructuralError](<#typedef-structuralerror>)
 
@@ -67,7 +67,7 @@ Package bzip2 implements bzip2 decompression.
 
 
 ```haxe
-function benchmarkDecodeDigits(b:stdgo._internal.testing.B):Void
+function benchmarkDecodeDigits(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -78,7 +78,7 @@ function benchmarkDecodeDigits(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkDecodeNewton(b:stdgo._internal.testing.B):Void
+function benchmarkDecodeNewton(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -89,7 +89,7 @@ function benchmarkDecodeNewton(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkDecodeRand(b:stdgo._internal.testing.B):Void
+function benchmarkDecodeRand(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -100,7 +100,7 @@ function benchmarkDecodeRand(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function newReader(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
+function newReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
 ```
 
 
@@ -116,7 +116,7 @@ NewReader returns an io.Reader which decompresses bzip2 data from r.
 
 
 ```haxe
-function testBitReader(t:stdgo._internal.testing.T_):Void
+function testBitReader(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -127,7 +127,7 @@ function testBitReader(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testMTF(t:stdgo._internal.testing.T_):Void
+function testMTF(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -138,7 +138,7 @@ function testMTF(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testReader(t:stdgo._internal.testing.T_):Void
+function testReader(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -149,7 +149,7 @@ function testReader(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testZeroRead(t:stdgo._internal.testing.T_):Void
+function testZeroRead(_t:stdgo._internal.testing.T_):Void
 ```
 
 

@@ -13,21 +13,21 @@
 
 - [class Path](<#class-path>)
 
-  - [`function base(path:String):String`](<#path-function-base>)
+  - [`function base(_path:String):String`](<#path-function-base>)
 
-  - [`function clean(path:String):String`](<#path-function-clean>)
+  - [`function clean(_path:String):String`](<#path-function-clean>)
 
-  - [`function dir(path:String):String`](<#path-function-dir>)
+  - [`function dir(_path:String):String`](<#path-function-dir>)
 
-  - [`function ext(path:String):String`](<#path-function-ext>)
+  - [`function ext(_path:String):String`](<#path-function-ext>)
 
-  - [`function isAbs(path:String):Bool`](<#path-function-isabs>)
+  - [`function isAbs(_path:String):Bool`](<#path-function-isabs>)
 
-  - [`function join(elem:haxe.Rest<String>):String`](<#path-function-join>)
+  - [`function join(_elem:haxe.Rest<String>):String`](<#path-function-join>)
 
-  - [`function match(pattern:String, name:String):stdgo.Tuple<Bool, stdgo.Error>`](<#path-function-match>)
+  - [`function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error>`](<#path-function-match>)
 
-  - [`function split(path:String):stdgo.Tuple<String, String>`](<#path-function-split>)
+  - [`function split(_path:String):stdgo.Tuple<String, String>`](<#path-function-split>)
 
 - [abstract T\_lazybuf](<#abstract-t_lazybuf>)
 
@@ -69,7 +69,7 @@ operating system paths, use the path/filepath package.
 
 
 ```haxe
-function base(path:String):String
+function base(_path:String):String
 ```
 
 
@@ -86,7 +86,7 @@ Base returns the last element of path.
 
 
 ```haxe
-function clean(path:String):String
+function clean(_path:String):String
 ```
 
 
@@ -122,7 +122,7 @@ https://9p.io/sys/doc/lexnames.html
 
 
 ```haxe
-function dir(path:String):String
+function dir(_path:String):String
 ```
 
 
@@ -142,7 +142,7 @@ Dir returns all but the last element of path, typically the path's directory.
 
 
 ```haxe
-function ext(path:String):String
+function ext(_path:String):String
 ```
 
 
@@ -159,7 +159,7 @@ Ext returns the file name extension used by path.
 
 
 ```haxe
-function isAbs(path:String):Bool
+function isAbs(_path:String):Bool
 ```
 
 
@@ -173,7 +173,7 @@ IsAbs reports whether the path is absolute.
 
 
 ```haxe
-function join(elem:haxe.Rest<String>):String
+function join(_elem:haxe.Rest<String>):String
 ```
 
 
@@ -191,7 +191,7 @@ Join joins any number of path elements into a single path,
 
 
 ```haxe
-function match(pattern:String, name:String):stdgo.Tuple<Bool, stdgo.Error>
+function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error>
 ```
 
 
@@ -228,7 +228,7 @@ is malformed.
 
 
 ```haxe
-function split(path:String):stdgo.Tuple<String, String>
+function split(_path:String):stdgo.Tuple<String, String>
 ```
 
 

@@ -11,27 +11,27 @@
 
 - [class Quick](<#class-quick>)
 
-  - [`function check(f:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Error`](<#quick-function-check>)
+  - [`function check(_f:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):stdgo.Error`](<#quick-function-check>)
 
-  - [`function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Error`](<#quick-function-checkequal>)
+  - [`function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):stdgo.Error`](<#quick-function-checkequal>)
 
-  - [`function testCheckEqual(t:stdgo._internal.testing.T_):Void`](<#quick-function-testcheckequal>)
+  - [`function testCheckEqual(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testcheckequal>)
 
-  - [`function testCheckProperty(t:stdgo._internal.testing.T_):Void`](<#quick-function-testcheckproperty>)
+  - [`function testCheckProperty(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testcheckproperty>)
 
-  - [`function testEmptyStruct(t:stdgo._internal.testing.T_):Void`](<#quick-function-testemptystruct>)
+  - [`function testEmptyStruct(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testemptystruct>)
 
-  - [`function testFailure(t:stdgo._internal.testing.T_):Void`](<#quick-function-testfailure>)
+  - [`function testFailure(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testfailure>)
 
-  - [`function testInt64(t:stdgo._internal.testing.T_):Void`](<#quick-function-testint64>)
+  - [`function testInt64(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testint64>)
 
-  - [`function testMutuallyRecursive(t:stdgo._internal.testing.T_):Void`](<#quick-function-testmutuallyrecursive>)
+  - [`function testMutuallyRecursive(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testmutuallyrecursive>)
 
-  - [`function testNonZeroSliceAndMap(t:stdgo._internal.testing.T_):Void`](<#quick-function-testnonzerosliceandmap>)
+  - [`function testNonZeroSliceAndMap(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testnonzerosliceandmap>)
 
-  - [`function testRecursive(t:stdgo._internal.testing.T_):Void`](<#quick-function-testrecursive>)
+  - [`function testRecursive(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testrecursive>)
 
-  - [`function value(t:stdgo._internal.reflect.Type_, rand:stdgo._internal.math.rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Value, Bool>`](<#quick-function-value>)
+  - [`function value(_t:stdgo._internal.reflect.Type_, _rand:stdgo._internal.math.rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Value, Bool>`](<#quick-function-value>)
 
 - [typedef Generator](<#typedef-generator>)
 
@@ -122,7 +122,7 @@ The testing/quick package is frozen and is not accepting new features.
 
 
 ```haxe
-function check(f:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Error
+function check(_f:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):stdgo.Error
 ```
 
 
@@ -151,7 +151,7 @@ Check looks for an input to f, any function that returns bool,
 
 
 ```haxe
-function checkEqual(f:stdgo.AnyInterface, g:stdgo.AnyInterface, config:stdgo.testing.quick.Config):stdgo.Error
+function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):stdgo.Error
 ```
 
 
@@ -168,7 +168,7 @@ CheckEqual looks for an input on which f and g return different results.
 
 
 ```haxe
-function testCheckEqual(t:stdgo._internal.testing.T_):Void
+function testCheckEqual(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -179,7 +179,7 @@ function testCheckEqual(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testCheckProperty(t:stdgo._internal.testing.T_):Void
+function testCheckProperty(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -190,7 +190,7 @@ function testCheckProperty(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testEmptyStruct(t:stdgo._internal.testing.T_):Void
+function testEmptyStruct(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -201,7 +201,7 @@ function testEmptyStruct(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFailure(t:stdgo._internal.testing.T_):Void
+function testFailure(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -212,7 +212,7 @@ function testFailure(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testInt64(t:stdgo._internal.testing.T_):Void
+function testInt64(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -223,7 +223,7 @@ function testInt64(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testMutuallyRecursive(t:stdgo._internal.testing.T_):Void
+function testMutuallyRecursive(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -234,7 +234,7 @@ function testMutuallyRecursive(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testNonZeroSliceAndMap(t:stdgo._internal.testing.T_):Void
+function testNonZeroSliceAndMap(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -250,7 +250,7 @@ Some serialization formats (e.g. encoding/pem) cannot distinguish
 
 
 ```haxe
-function testRecursive(t:stdgo._internal.testing.T_):Void
+function testRecursive(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -265,7 +265,7 @@ Recursive data structures didn't terminate.
 
 
 ```haxe
-function value(t:stdgo._internal.reflect.Type_, rand:stdgo._internal.math.rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Value, Bool>
+function value(_t:stdgo._internal.reflect.Type_, _rand:stdgo._internal.math.rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Value, Bool>
 ```
 
 

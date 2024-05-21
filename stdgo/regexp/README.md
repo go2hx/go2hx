@@ -11,163 +11,163 @@
 
 - [class Regexp](<#class-regexp>)
 
-  - [`function benchmarkAnchoredLiteralLongNonMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredliterallongnonmatch>)
+  - [`function benchmarkAnchoredLiteralLongNonMatch(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredliterallongnonmatch>)
 
-  - [`function benchmarkAnchoredLiteralShortNonMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredliteralshortnonmatch>)
+  - [`function benchmarkAnchoredLiteralShortNonMatch(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredliteralshortnonmatch>)
 
-  - [`function benchmarkAnchoredLongMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredlongmatch>)
+  - [`function benchmarkAnchoredLongMatch(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredlongmatch>)
 
-  - [`function benchmarkAnchoredShortMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredshortmatch>)
+  - [`function benchmarkAnchoredShortMatch(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkanchoredshortmatch>)
 
-  - [`function benchmarkCompile(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkcompile>)
+  - [`function benchmarkCompile(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkcompile>)
 
-  - [`function benchmarkFind(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfind>)
+  - [`function benchmarkFind(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfind>)
 
-  - [`function benchmarkFindAllNoMatches(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindallnomatches>)
+  - [`function benchmarkFindAllNoMatches(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindallnomatches>)
 
-  - [`function benchmarkFindString(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindstring>)
+  - [`function benchmarkFindString(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindstring>)
 
-  - [`function benchmarkFindStringSubmatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindstringsubmatch>)
+  - [`function benchmarkFindStringSubmatch(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindstringsubmatch>)
 
-  - [`function benchmarkFindSubmatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindsubmatch>)
+  - [`function benchmarkFindSubmatch(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkfindsubmatch>)
 
-  - [`function benchmarkLiteral(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkliteral>)
+  - [`function benchmarkLiteral(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkliteral>)
 
-  - [`function benchmarkMatch(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatch>)
+  - [`function benchmarkMatch(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatch>)
 
-  - [`function benchmarkMatchClass(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchclass>)
+  - [`function benchmarkMatchClass(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchclass>)
 
-  - [`function benchmarkMatchClass_InRange(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchclass_inrange>)
+  - [`function benchmarkMatchClass_InRange(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchclass_inrange>)
 
-  - [`function benchmarkMatchParallelCopied(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchparallelcopied>)
+  - [`function benchmarkMatchParallelCopied(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchparallelcopied>)
 
-  - [`function benchmarkMatchParallelShared(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchparallelshared>)
+  - [`function benchmarkMatchParallelShared(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatchparallelshared>)
 
-  - [`function benchmarkMatch_onepass_regex(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatch_onepass_regex>)
+  - [`function benchmarkMatch_onepass_regex(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkmatch_onepass_regex>)
 
-  - [`function benchmarkNotLiteral(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarknotliteral>)
+  - [`function benchmarkNotLiteral(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarknotliteral>)
 
-  - [`function benchmarkNotOnePassShortA(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarknotonepassshorta>)
+  - [`function benchmarkNotOnePassShortA(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarknotonepassshorta>)
 
-  - [`function benchmarkNotOnePassShortB(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarknotonepassshortb>)
+  - [`function benchmarkNotOnePassShortB(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarknotonepassshortb>)
 
-  - [`function benchmarkOnePassLongNotPrefix(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepasslongnotprefix>)
+  - [`function benchmarkOnePassLongNotPrefix(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepasslongnotprefix>)
 
-  - [`function benchmarkOnePassLongPrefix(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepasslongprefix>)
+  - [`function benchmarkOnePassLongPrefix(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepasslongprefix>)
 
-  - [`function benchmarkOnePassShortA(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepassshorta>)
+  - [`function benchmarkOnePassShortA(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepassshorta>)
 
-  - [`function benchmarkOnePassShortB(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepassshortb>)
+  - [`function benchmarkOnePassShortB(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkonepassshortb>)
 
-  - [`function benchmarkQuoteMetaAll(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkquotemetaall>)
+  - [`function benchmarkQuoteMetaAll(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkquotemetaall>)
 
-  - [`function benchmarkQuoteMetaNone(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkquotemetanone>)
+  - [`function benchmarkQuoteMetaNone(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkquotemetanone>)
 
-  - [`function benchmarkReplaceAll(b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkreplaceall>)
+  - [`function benchmarkReplaceAll(_b:stdgo._internal.testing.B):Void`](<#regexp-function-benchmarkreplaceall>)
 
-  - [`function compile(expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>`](<#regexp-function-compile>)
+  - [`function compile(_expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>`](<#regexp-function-compile>)
 
-  - [`function compilePOSIX(expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>`](<#regexp-function-compileposix>)
+  - [`function compilePOSIX(_expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>`](<#regexp-function-compileposix>)
 
-  - [`function match(pattern:String, b:Array<Int>):stdgo.Tuple<Bool, stdgo.Error>`](<#regexp-function-match>)
+  - [`function match(_pattern:String, _b:Array<Int>):stdgo.Tuple<Bool, stdgo.Error>`](<#regexp-function-match>)
 
-  - [`function matchReader(pattern:String, r:stdgo._internal.io.RuneReader):stdgo.Tuple<Bool, stdgo.Error>`](<#regexp-function-matchreader>)
+  - [`function matchReader(_pattern:String, _r:stdgo._internal.io.RuneReader):stdgo.Tuple<Bool, stdgo.Error>`](<#regexp-function-matchreader>)
 
-  - [`function matchString(pattern:String, s:String):stdgo.Tuple<Bool, stdgo.Error>`](<#regexp-function-matchstring>)
+  - [`function matchString(_pattern:String, _s:String):stdgo.Tuple<Bool, stdgo.Error>`](<#regexp-function-matchstring>)
 
-  - [`function mustCompile(str:String):stdgo.regexp.Regexp_`](<#regexp-function-mustcompile>)
+  - [`function mustCompile(_str:String):stdgo.regexp.Regexp_`](<#regexp-function-mustcompile>)
 
-  - [`function mustCompilePOSIX(str:String):stdgo.regexp.Regexp_`](<#regexp-function-mustcompileposix>)
+  - [`function mustCompilePOSIX(_str:String):stdgo.regexp.Regexp_`](<#regexp-function-mustcompileposix>)
 
-  - [`function quoteMeta(s:String):String`](<#regexp-function-quotemeta>)
+  - [`function quoteMeta(_s:String):String`](<#regexp-function-quotemeta>)
 
-  - [`function testBadCompile(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testbadcompile>)
+  - [`function testBadCompile(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testbadcompile>)
 
-  - [`function testCompileOnePass(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testcompileonepass>)
+  - [`function testCompileOnePass(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testcompileonepass>)
 
-  - [`function testCopyMatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testcopymatch>)
+  - [`function testCopyMatch(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testcopymatch>)
 
-  - [`function testDeepEqual(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testdeepequal>)
+  - [`function testDeepEqual(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testdeepequal>)
 
-  - [`function testFind(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfind>)
+  - [`function testFind(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfind>)
 
-  - [`function testFindAll(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindall>)
+  - [`function testFindAll(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindall>)
 
-  - [`function testFindAllIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallindex>)
+  - [`function testFindAllIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallindex>)
 
-  - [`function testFindAllString(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstring>)
+  - [`function testFindAllString(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstring>)
 
-  - [`function testFindAllStringIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstringindex>)
+  - [`function testFindAllStringIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstringindex>)
 
-  - [`function testFindAllStringSubmatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstringsubmatch>)
+  - [`function testFindAllStringSubmatch(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstringsubmatch>)
 
-  - [`function testFindAllStringSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstringsubmatchindex>)
+  - [`function testFindAllStringSubmatchIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallstringsubmatchindex>)
 
-  - [`function testFindAllSubmatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallsubmatch>)
+  - [`function testFindAllSubmatch(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallsubmatch>)
 
-  - [`function testFindAllSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallsubmatchindex>)
+  - [`function testFindAllSubmatchIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindallsubmatchindex>)
 
-  - [`function testFindIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindindex>)
+  - [`function testFindIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindindex>)
 
-  - [`function testFindReaderIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindreaderindex>)
+  - [`function testFindReaderIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindreaderindex>)
 
-  - [`function testFindReaderSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindreadersubmatchindex>)
+  - [`function testFindReaderSubmatchIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindreadersubmatchindex>)
 
-  - [`function testFindString(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstring>)
+  - [`function testFindString(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstring>)
 
-  - [`function testFindStringIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstringindex>)
+  - [`function testFindStringIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstringindex>)
 
-  - [`function testFindStringSubmatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstringsubmatch>)
+  - [`function testFindStringSubmatch(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstringsubmatch>)
 
-  - [`function testFindStringSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstringsubmatchindex>)
+  - [`function testFindStringSubmatchIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindstringsubmatchindex>)
 
-  - [`function testFindSubmatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindsubmatch>)
+  - [`function testFindSubmatch(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindsubmatch>)
 
-  - [`function testFindSubmatchIndex(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindsubmatchindex>)
+  - [`function testFindSubmatchIndex(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfindsubmatchindex>)
 
-  - [`function testFowler(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfowler>)
+  - [`function testFowler(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testfowler>)
 
-  - [`function testGoodCompile(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testgoodcompile>)
+  - [`function testGoodCompile(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testgoodcompile>)
 
-  - [`function testLiteralPrefix(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testliteralprefix>)
+  - [`function testLiteralPrefix(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testliteralprefix>)
 
-  - [`function testLongest(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testlongest>)
+  - [`function testLongest(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testlongest>)
 
-  - [`function testMatch(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmatch>)
+  - [`function testMatch(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmatch>)
 
-  - [`function testMatchFunction(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmatchfunction>)
+  - [`function testMatchFunction(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmatchfunction>)
 
-  - [`function testMergeRuneSet(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmergeruneset>)
+  - [`function testMergeRuneSet(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmergeruneset>)
 
-  - [`function testMinInputLen(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmininputlen>)
+  - [`function testMinInputLen(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testmininputlen>)
 
-  - [`function testOnePassCutoff(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testonepasscutoff>)
+  - [`function testOnePassCutoff(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testonepasscutoff>)
 
-  - [`function testParseAndCompile(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testparseandcompile>)
+  - [`function testParseAndCompile(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testparseandcompile>)
 
-  - [`function testProgramTooLongForBacktrack(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testprogramtoolongforbacktrack>)
+  - [`function testProgramTooLongForBacktrack(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testprogramtoolongforbacktrack>)
 
-  - [`function testQuoteMeta(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testquotemeta>)
+  - [`function testQuoteMeta(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testquotemeta>)
 
-  - [`function testRE2Exhaustive(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testre2exhaustive>)
+  - [`function testRE2Exhaustive(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testre2exhaustive>)
 
-  - [`function testRE2Search(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testre2search>)
+  - [`function testRE2Search(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testre2search>)
 
-  - [`function testReplaceAll(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testreplaceall>)
+  - [`function testReplaceAll(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testreplaceall>)
 
-  - [`function testReplaceAllFunc(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testreplaceallfunc>)
+  - [`function testReplaceAllFunc(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testreplaceallfunc>)
 
-  - [`function testReplaceAllLiteral(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testreplaceallliteral>)
+  - [`function testReplaceAllLiteral(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testreplaceallliteral>)
 
-  - [`function testRunOnePass(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testrunonepass>)
+  - [`function testRunOnePass(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testrunonepass>)
 
-  - [`function testSplit(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testsplit>)
+  - [`function testSplit(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testsplit>)
 
-  - [`function testSubexp(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testsubexp>)
+  - [`function testSubexp(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testsubexp>)
 
-  - [`function testSwitchBacktrack(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testswitchbacktrack>)
+  - [`function testSwitchBacktrack(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testswitchbacktrack>)
 
-  - [`function testUnmarshalText(t:stdgo._internal.testing.T_):Void`](<#regexp-function-testunmarshaltext>)
+  - [`function testUnmarshalText(_t:stdgo._internal.testing.T_):Void`](<#regexp-function-testunmarshaltext>)
 
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
 
@@ -333,7 +333,7 @@ before returning.
 
 
 ```haxe
-function benchmarkAnchoredLiteralLongNonMatch(b:stdgo._internal.testing.B):Void
+function benchmarkAnchoredLiteralLongNonMatch(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -344,7 +344,7 @@ function benchmarkAnchoredLiteralLongNonMatch(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkAnchoredLiteralShortNonMatch(b:stdgo._internal.testing.B):Void
+function benchmarkAnchoredLiteralShortNonMatch(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -355,7 +355,7 @@ function benchmarkAnchoredLiteralShortNonMatch(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkAnchoredLongMatch(b:stdgo._internal.testing.B):Void
+function benchmarkAnchoredLongMatch(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -366,7 +366,7 @@ function benchmarkAnchoredLongMatch(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkAnchoredShortMatch(b:stdgo._internal.testing.B):Void
+function benchmarkAnchoredShortMatch(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -377,7 +377,7 @@ function benchmarkAnchoredShortMatch(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkCompile(b:stdgo._internal.testing.B):Void
+function benchmarkCompile(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -388,7 +388,7 @@ function benchmarkCompile(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkFind(b:stdgo._internal.testing.B):Void
+function benchmarkFind(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -399,7 +399,7 @@ function benchmarkFind(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkFindAllNoMatches(b:stdgo._internal.testing.B):Void
+function benchmarkFindAllNoMatches(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -410,7 +410,7 @@ function benchmarkFindAllNoMatches(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkFindString(b:stdgo._internal.testing.B):Void
+function benchmarkFindString(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -421,7 +421,7 @@ function benchmarkFindString(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkFindStringSubmatch(b:stdgo._internal.testing.B):Void
+function benchmarkFindStringSubmatch(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -432,7 +432,7 @@ function benchmarkFindStringSubmatch(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkFindSubmatch(b:stdgo._internal.testing.B):Void
+function benchmarkFindSubmatch(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -443,7 +443,7 @@ function benchmarkFindSubmatch(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkLiteral(b:stdgo._internal.testing.B):Void
+function benchmarkLiteral(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -454,7 +454,7 @@ function benchmarkLiteral(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkMatch(b:stdgo._internal.testing.B):Void
+function benchmarkMatch(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -465,7 +465,7 @@ function benchmarkMatch(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkMatchClass(b:stdgo._internal.testing.B):Void
+function benchmarkMatchClass(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -476,7 +476,7 @@ function benchmarkMatchClass(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkMatchClass_InRange(b:stdgo._internal.testing.B):Void
+function benchmarkMatchClass_InRange(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -487,7 +487,7 @@ function benchmarkMatchClass_InRange(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkMatchParallelCopied(b:stdgo._internal.testing.B):Void
+function benchmarkMatchParallelCopied(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -498,7 +498,7 @@ function benchmarkMatchParallelCopied(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkMatchParallelShared(b:stdgo._internal.testing.B):Void
+function benchmarkMatchParallelShared(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -509,7 +509,7 @@ function benchmarkMatchParallelShared(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkMatch_onepass_regex(b:stdgo._internal.testing.B):Void
+function benchmarkMatch_onepass_regex(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -520,7 +520,7 @@ function benchmarkMatch_onepass_regex(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkNotLiteral(b:stdgo._internal.testing.B):Void
+function benchmarkNotLiteral(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -531,7 +531,7 @@ function benchmarkNotLiteral(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkNotOnePassShortA(b:stdgo._internal.testing.B):Void
+function benchmarkNotOnePassShortA(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -542,7 +542,7 @@ function benchmarkNotOnePassShortA(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkNotOnePassShortB(b:stdgo._internal.testing.B):Void
+function benchmarkNotOnePassShortB(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -553,7 +553,7 @@ function benchmarkNotOnePassShortB(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkOnePassLongNotPrefix(b:stdgo._internal.testing.B):Void
+function benchmarkOnePassLongNotPrefix(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -564,7 +564,7 @@ function benchmarkOnePassLongNotPrefix(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkOnePassLongPrefix(b:stdgo._internal.testing.B):Void
+function benchmarkOnePassLongPrefix(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -575,7 +575,7 @@ function benchmarkOnePassLongPrefix(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkOnePassShortA(b:stdgo._internal.testing.B):Void
+function benchmarkOnePassShortA(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -586,7 +586,7 @@ function benchmarkOnePassShortA(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkOnePassShortB(b:stdgo._internal.testing.B):Void
+function benchmarkOnePassShortB(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -597,7 +597,7 @@ function benchmarkOnePassShortB(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkQuoteMetaAll(b:stdgo._internal.testing.B):Void
+function benchmarkQuoteMetaAll(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -608,7 +608,7 @@ function benchmarkQuoteMetaAll(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkQuoteMetaNone(b:stdgo._internal.testing.B):Void
+function benchmarkQuoteMetaNone(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -619,7 +619,7 @@ function benchmarkQuoteMetaNone(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkReplaceAll(b:stdgo._internal.testing.B):Void
+function benchmarkReplaceAll(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -630,7 +630,7 @@ function benchmarkReplaceAll(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function compile(expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>
+function compile(_expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>
 ```
 
 
@@ -654,7 +654,7 @@ For POSIX leftmost\-longest matching, see CompilePOSIX.
 
 
 ```haxe
-function compilePOSIX(expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>
+function compilePOSIX(_expr:String):stdgo.Tuple<stdgo.regexp.Regexp_, stdgo.Error>
 ```
 
 
@@ -688,7 +688,7 @@ See https://swtch.com/~rsc/regexp/regexp2.html#posix for details.
 
 
 ```haxe
-function match(pattern:String, b:Array<Int>):stdgo.Tuple<Bool, stdgo.Error>
+function match(_pattern:String, _b:Array<Int>):stdgo.Tuple<Bool, stdgo.Error>
 ```
 
 
@@ -704,7 +704,7 @@ Match reports whether the byte slice b
 
 
 ```haxe
-function matchReader(pattern:String, r:stdgo._internal.io.RuneReader):stdgo.Tuple<Bool, stdgo.Error>
+function matchReader(_pattern:String, _r:stdgo._internal.io.RuneReader):stdgo.Tuple<Bool, stdgo.Error>
 ```
 
 
@@ -720,7 +720,7 @@ MatchReader reports whether the text returned by the RuneReader
 
 
 ```haxe
-function matchString(pattern:String, s:String):stdgo.Tuple<Bool, stdgo.Error>
+function matchString(_pattern:String, _s:String):stdgo.Tuple<Bool, stdgo.Error>
 ```
 
 
@@ -736,7 +736,7 @@ MatchString reports whether the string s
 
 
 ```haxe
-function mustCompile(str:String):stdgo.regexp.Regexp_
+function mustCompile(_str:String):stdgo.regexp.Regexp_
 ```
 
 
@@ -752,7 +752,7 @@ MustCompile is like Compile but panics if the expression cannot be parsed.
 
 
 ```haxe
-function mustCompilePOSIX(str:String):stdgo.regexp.Regexp_
+function mustCompilePOSIX(_str:String):stdgo.regexp.Regexp_
 ```
 
 
@@ -768,7 +768,7 @@ MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be par
 
 
 ```haxe
-function quoteMeta(s:String):String
+function quoteMeta(_s:String):String
 ```
 
 
@@ -784,7 +784,7 @@ QuoteMeta returns a string that escapes all regular expression metacharacters
 
 
 ```haxe
-function testBadCompile(t:stdgo._internal.testing.T_):Void
+function testBadCompile(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -795,7 +795,7 @@ function testBadCompile(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testCompileOnePass(t:stdgo._internal.testing.T_):Void
+function testCompileOnePass(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -806,7 +806,7 @@ function testCompileOnePass(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testCopyMatch(t:stdgo._internal.testing.T_):Void
+function testCopyMatch(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -817,7 +817,7 @@ function testCopyMatch(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDeepEqual(t:stdgo._internal.testing.T_):Void
+function testDeepEqual(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -828,7 +828,7 @@ function testDeepEqual(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFind(t:stdgo._internal.testing.T_):Void
+function testFind(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -839,7 +839,7 @@ function testFind(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindAll(t:stdgo._internal.testing.T_):Void
+function testFindAll(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -850,7 +850,7 @@ function testFindAll(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindAllIndex(t:stdgo._internal.testing.T_):Void
+function testFindAllIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -861,7 +861,7 @@ function testFindAllIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindAllString(t:stdgo._internal.testing.T_):Void
+function testFindAllString(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -872,7 +872,7 @@ function testFindAllString(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindAllStringIndex(t:stdgo._internal.testing.T_):Void
+function testFindAllStringIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -883,7 +883,7 @@ function testFindAllStringIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindAllStringSubmatch(t:stdgo._internal.testing.T_):Void
+function testFindAllStringSubmatch(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -894,7 +894,7 @@ function testFindAllStringSubmatch(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindAllStringSubmatchIndex(t:stdgo._internal.testing.T_):Void
+function testFindAllStringSubmatchIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -905,7 +905,7 @@ function testFindAllStringSubmatchIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindAllSubmatch(t:stdgo._internal.testing.T_):Void
+function testFindAllSubmatch(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -916,7 +916,7 @@ function testFindAllSubmatch(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindAllSubmatchIndex(t:stdgo._internal.testing.T_):Void
+function testFindAllSubmatchIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -927,7 +927,7 @@ function testFindAllSubmatchIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindIndex(t:stdgo._internal.testing.T_):Void
+function testFindIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -938,7 +938,7 @@ function testFindIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindReaderIndex(t:stdgo._internal.testing.T_):Void
+function testFindReaderIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -949,7 +949,7 @@ function testFindReaderIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindReaderSubmatchIndex(t:stdgo._internal.testing.T_):Void
+function testFindReaderSubmatchIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -960,7 +960,7 @@ function testFindReaderSubmatchIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindString(t:stdgo._internal.testing.T_):Void
+function testFindString(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -971,7 +971,7 @@ function testFindString(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindStringIndex(t:stdgo._internal.testing.T_):Void
+function testFindStringIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -982,7 +982,7 @@ function testFindStringIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindStringSubmatch(t:stdgo._internal.testing.T_):Void
+function testFindStringSubmatch(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -993,7 +993,7 @@ function testFindStringSubmatch(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindStringSubmatchIndex(t:stdgo._internal.testing.T_):Void
+function testFindStringSubmatchIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1004,7 +1004,7 @@ function testFindStringSubmatchIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindSubmatch(t:stdgo._internal.testing.T_):Void
+function testFindSubmatch(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1015,7 +1015,7 @@ function testFindSubmatch(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFindSubmatchIndex(t:stdgo._internal.testing.T_):Void
+function testFindSubmatchIndex(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1026,7 +1026,7 @@ function testFindSubmatchIndex(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFowler(t:stdgo._internal.testing.T_):Void
+function testFowler(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1042,7 +1042,7 @@ TestFowler runs this package's regexp API against the
 
 
 ```haxe
-function testGoodCompile(t:stdgo._internal.testing.T_):Void
+function testGoodCompile(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1053,7 +1053,7 @@ function testGoodCompile(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testLiteralPrefix(t:stdgo._internal.testing.T_):Void
+function testLiteralPrefix(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1064,7 +1064,7 @@ function testLiteralPrefix(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testLongest(t:stdgo._internal.testing.T_):Void
+function testLongest(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1075,7 +1075,7 @@ function testLongest(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testMatch(t:stdgo._internal.testing.T_):Void
+function testMatch(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1086,7 +1086,7 @@ function testMatch(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testMatchFunction(t:stdgo._internal.testing.T_):Void
+function testMatchFunction(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1097,7 +1097,7 @@ function testMatchFunction(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testMergeRuneSet(t:stdgo._internal.testing.T_):Void
+function testMergeRuneSet(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1108,7 +1108,7 @@ function testMergeRuneSet(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testMinInputLen(t:stdgo._internal.testing.T_):Void
+function testMinInputLen(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1119,7 +1119,7 @@ function testMinInputLen(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testOnePassCutoff(t:stdgo._internal.testing.T_):Void
+function testOnePassCutoff(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1133,7 +1133,7 @@ Check that one\-pass cutoff does trigger.
 
 
 ```haxe
-function testParseAndCompile(t:stdgo._internal.testing.T_):Void
+function testParseAndCompile(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1147,7 +1147,7 @@ The following sequence of Match calls used to panic. See issue \#12980.
 
 
 ```haxe
-function testProgramTooLongForBacktrack(t:stdgo._internal.testing.T_):Void
+function testProgramTooLongForBacktrack(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1162,7 +1162,7 @@ TestProgramTooLongForBacktrack tests that a regex which is too long
 
 
 ```haxe
-function testQuoteMeta(t:stdgo._internal.testing.T_):Void
+function testQuoteMeta(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1173,7 +1173,7 @@ function testQuoteMeta(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testRE2Exhaustive(t:stdgo._internal.testing.T_):Void
+function testRE2Exhaustive(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1188,7 +1188,7 @@ This test is excluded when running under the race detector because
 
 
 ```haxe
-function testRE2Search(t:stdgo._internal.testing.T_):Void
+function testRE2Search(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1249,7 +1249,7 @@ so we store re2\-exhaustive.txt.bz2 in the repository and decompress it on the f
 
 
 ```haxe
-function testReplaceAll(t:stdgo._internal.testing.T_):Void
+function testReplaceAll(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1260,7 +1260,7 @@ function testReplaceAll(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testReplaceAllFunc(t:stdgo._internal.testing.T_):Void
+function testReplaceAllFunc(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1271,7 +1271,7 @@ function testReplaceAllFunc(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testReplaceAllLiteral(t:stdgo._internal.testing.T_):Void
+function testReplaceAllLiteral(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1282,7 +1282,7 @@ function testReplaceAllLiteral(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testRunOnePass(t:stdgo._internal.testing.T_):Void
+function testRunOnePass(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1293,7 +1293,7 @@ function testRunOnePass(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testSplit(t:stdgo._internal.testing.T_):Void
+function testSplit(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1304,7 +1304,7 @@ function testSplit(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testSubexp(t:stdgo._internal.testing.T_):Void
+function testSubexp(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1315,7 +1315,7 @@ function testSubexp(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testSwitchBacktrack(t:stdgo._internal.testing.T_):Void
+function testSwitchBacktrack(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -1330,7 +1330,7 @@ Check that the same machine can be used with the standard matcher
 
 
 ```haxe
-function testUnmarshalText(t:stdgo._internal.testing.T_):Void
+function testUnmarshalText(_t:stdgo._internal.testing.T_):Void
 ```
 
 

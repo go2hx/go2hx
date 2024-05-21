@@ -13,55 +13,55 @@
 
 - [class Hex](<#class-hex>)
 
-  - [`function benchmarkDecode(b:stdgo._internal.testing.B):Void`](<#hex-function-benchmarkdecode>)
+  - [`function benchmarkDecode(_b:stdgo._internal.testing.B):Void`](<#hex-function-benchmarkdecode>)
 
-  - [`function benchmarkDump(b:stdgo._internal.testing.B):Void`](<#hex-function-benchmarkdump>)
+  - [`function benchmarkDump(_b:stdgo._internal.testing.B):Void`](<#hex-function-benchmarkdump>)
 
-  - [`function benchmarkEncode(b:stdgo._internal.testing.B):Void`](<#hex-function-benchmarkencode>)
+  - [`function benchmarkEncode(_b:stdgo._internal.testing.B):Void`](<#hex-function-benchmarkencode>)
 
-  - [`function decode(dst:Array<Int>, src:Array<Int>):stdgo.Tuple<Int, stdgo.Error>`](<#hex-function-decode>)
+  - [`function decode(_dst:Array<Int>, _src:Array<Int>):stdgo.Tuple<Int, stdgo.Error>`](<#hex-function-decode>)
 
-  - [`function decodeString(s:String):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#hex-function-decodestring>)
+  - [`function decodeString(_s:String):stdgo.Tuple<Array<Int>, stdgo.Error>`](<#hex-function-decodestring>)
 
-  - [`function decodedLen(x:Int):Int`](<#hex-function-decodedlen>)
+  - [`function decodedLen(_x:Int):Int`](<#hex-function-decodedlen>)
 
-  - [`function dump(data:Array<Int>):String`](<#hex-function-dump>)
+  - [`function dump(_data:Array<Int>):String`](<#hex-function-dump>)
 
-  - [`function dumper(w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser`](<#hex-function-dumper>)
+  - [`function dumper(_w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser`](<#hex-function-dumper>)
 
-  - [`function encode(dst:Array<Int>, src:Array<Int>):Int`](<#hex-function-encode>)
+  - [`function encode(_dst:Array<Int>, _src:Array<Int>):Int`](<#hex-function-encode>)
 
-  - [`function encodeToString(src:Array<Int>):String`](<#hex-function-encodetostring>)
+  - [`function encodeToString(_src:Array<Int>):String`](<#hex-function-encodetostring>)
 
-  - [`function encodedLen(n:Int):Int`](<#hex-function-encodedlen>)
+  - [`function encodedLen(_n:Int):Int`](<#hex-function-encodedlen>)
 
-  - [`function newDecoder(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#hex-function-newdecoder>)
+  - [`function newDecoder(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#hex-function-newdecoder>)
 
-  - [`function newEncoder(w:stdgo._internal.io.Writer):stdgo._internal.io.Writer`](<#hex-function-newencoder>)
+  - [`function newEncoder(_w:stdgo._internal.io.Writer):stdgo._internal.io.Writer`](<#hex-function-newencoder>)
 
-  - [`function testDecode(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecode>)
+  - [`function testDecode(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecode>)
 
-  - [`function testDecodeErr(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodeerr>)
+  - [`function testDecodeErr(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodeerr>)
 
-  - [`function testDecodeString(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodestring>)
+  - [`function testDecodeString(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodestring>)
 
-  - [`function testDecodeStringErr(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodestringerr>)
+  - [`function testDecodeStringErr(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodestringerr>)
 
-  - [`function testDecoderErr(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodererr>)
+  - [`function testDecoderErr(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testdecodererr>)
 
-  - [`function testDump(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdump>)
+  - [`function testDump(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testdump>)
 
-  - [`function testDumper(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdumper>)
+  - [`function testDumper(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testdumper>)
 
-  - [`function testDumper_doubleclose(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdumper_doubleclose>)
+  - [`function testDumper_doubleclose(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testdumper_doubleclose>)
 
-  - [`function testDumper_earlyclose(t:stdgo._internal.testing.T_):Void`](<#hex-function-testdumper_earlyclose>)
+  - [`function testDumper_earlyclose(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testdumper_earlyclose>)
 
-  - [`function testEncode(t:stdgo._internal.testing.T_):Void`](<#hex-function-testencode>)
+  - [`function testEncode(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testencode>)
 
-  - [`function testEncodeToString(t:stdgo._internal.testing.T_):Void`](<#hex-function-testencodetostring>)
+  - [`function testEncodeToString(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testencodetostring>)
 
-  - [`function testEncoderDecoder(t:stdgo._internal.testing.T_):Void`](<#hex-function-testencoderdecoder>)
+  - [`function testEncoderDecoder(_t:stdgo._internal.testing.T_):Void`](<#hex-function-testencoderdecoder>)
 
 - [typedef InvalidByteError](<#typedef-invalidbyteerror>)
 
@@ -110,7 +110,7 @@ Package hex implements hexadecimal encoding and decoding.
 
 
 ```haxe
-function benchmarkDecode(b:stdgo._internal.testing.B):Void
+function benchmarkDecode(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -121,7 +121,7 @@ function benchmarkDecode(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkDump(b:stdgo._internal.testing.B):Void
+function benchmarkDump(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -132,7 +132,7 @@ function benchmarkDump(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkEncode(b:stdgo._internal.testing.B):Void
+function benchmarkEncode(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -143,7 +143,7 @@ function benchmarkEncode(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function decode(dst:Array<Int>, src:Array<Int>):stdgo.Tuple<Int, stdgo.Error>
+function decode(_dst:Array<Int>, _src:Array<Int>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -164,7 +164,7 @@ of bytes decoded before the error.
 
 
 ```haxe
-function decodeString(s:String):stdgo.Tuple<Array<Int>, stdgo.Error>
+function decodeString(_s:String):stdgo.Tuple<Array<Int>, stdgo.Error>
 ```
 
 
@@ -184,7 +184,7 @@ the bytes decoded before the error.
 
 
 ```haxe
-function decodedLen(x:Int):Int
+function decodedLen(_x:Int):Int
 ```
 
 
@@ -199,7 +199,7 @@ DecodedLen returns the length of a decoding of x source bytes.
 
 
 ```haxe
-function dump(data:Array<Int>):String
+function dump(_data:Array<Int>):String
 ```
 
 
@@ -214,7 +214,7 @@ Dump returns a string that contains a hex dump of the given data. The format
 
 
 ```haxe
-function dumper(w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser
+function dumper(_w:stdgo._internal.io.Writer):stdgo._internal.io.WriteCloser
 ```
 
 
@@ -230,7 +230,7 @@ Dumper returns a WriteCloser that writes a hex dump of all written data to
 
 
 ```haxe
-function encode(dst:Array<Int>, src:Array<Int>):Int
+function encode(_dst:Array<Int>, _src:Array<Int>):Int
 ```
 
 
@@ -247,7 +247,7 @@ Encode encodes src into EncodedLen(len(src))
 
 
 ```haxe
-function encodeToString(src:Array<Int>):String
+function encodeToString(_src:Array<Int>):String
 ```
 
 
@@ -261,7 +261,7 @@ EncodeToString returns the hexadecimal encoding of src.
 
 
 ```haxe
-function encodedLen(n:Int):Int
+function encodedLen(_n:Int):Int
 ```
 
 
@@ -276,7 +276,7 @@ EncodedLen returns the length of an encoding of n source bytes.
 
 
 ```haxe
-function newDecoder(r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
+function newDecoder(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
 ```
 
 
@@ -291,7 +291,7 @@ NewDecoder returns an io.Reader that decodes hexadecimal characters from r.
 
 
 ```haxe
-function newEncoder(w:stdgo._internal.io.Writer):stdgo._internal.io.Writer
+function newEncoder(_w:stdgo._internal.io.Writer):stdgo._internal.io.Writer
 ```
 
 
@@ -305,7 +305,7 @@ NewEncoder returns an io.Writer that writes lowercase hexadecimal characters to 
 
 
 ```haxe
-function testDecode(t:stdgo._internal.testing.T_):Void
+function testDecode(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -316,7 +316,7 @@ function testDecode(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecodeErr(t:stdgo._internal.testing.T_):Void
+function testDecodeErr(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -327,7 +327,7 @@ function testDecodeErr(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecodeString(t:stdgo._internal.testing.T_):Void
+function testDecodeString(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -338,7 +338,7 @@ function testDecodeString(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecodeStringErr(t:stdgo._internal.testing.T_):Void
+function testDecodeStringErr(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -349,7 +349,7 @@ function testDecodeStringErr(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDecoderErr(t:stdgo._internal.testing.T_):Void
+function testDecoderErr(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -360,7 +360,7 @@ function testDecoderErr(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDump(t:stdgo._internal.testing.T_):Void
+function testDump(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -371,7 +371,7 @@ function testDump(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDumper(t:stdgo._internal.testing.T_):Void
+function testDumper(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -382,7 +382,7 @@ function testDumper(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDumper_doubleclose(t:stdgo._internal.testing.T_):Void
+function testDumper_doubleclose(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -393,7 +393,7 @@ function testDumper_doubleclose(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testDumper_earlyclose(t:stdgo._internal.testing.T_):Void
+function testDumper_earlyclose(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -404,7 +404,7 @@ function testDumper_earlyclose(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testEncode(t:stdgo._internal.testing.T_):Void
+function testEncode(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -415,7 +415,7 @@ function testEncode(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testEncodeToString(t:stdgo._internal.testing.T_):Void
+function testEncodeToString(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -426,7 +426,7 @@ function testEncodeToString(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testEncoderDecoder(t:stdgo._internal.testing.T_):Void
+function testEncoderDecoder(_t:stdgo._internal.testing.T_):Void
 ```
 
 

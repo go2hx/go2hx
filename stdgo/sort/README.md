@@ -11,45 +11,45 @@
 
 - [class Sort](<#class-sort>)
 
-  - [`function find(n:Int, cmp:()):stdgo.Tuple<Int, Bool>`](<#sort-function-find>)
+  - [`function find(_n:Int, _cmp:()):stdgo.Tuple<Int, Bool>`](<#sort-function-find>)
 
-  - [`function float64s(x:Array<Float>):Void`](<#sort-function-float64s>)
+  - [`function float64s(_x:Array<Float>):Void`](<#sort-function-float64s>)
 
-  - [`function float64sAreSorted(x:Array<Float>):Bool`](<#sort-function-float64saresorted>)
+  - [`function float64sAreSorted(_x:Array<Float>):Bool`](<#sort-function-float64saresorted>)
 
-  - [`function heapsort(data:stdgo.sort.Interface):Void`](<#sort-function-heapsort>)
+  - [`function heapsort(_data:stdgo.sort.Interface):Void`](<#sort-function-heapsort>)
 
-  - [`function ints(x:Array<Int>):Void`](<#sort-function-ints>)
+  - [`function ints(_x:Array<Int>):Void`](<#sort-function-ints>)
 
-  - [`function intsAreSorted(x:Array<Int>):Bool`](<#sort-function-intsaresorted>)
+  - [`function intsAreSorted(_x:Array<Int>):Bool`](<#sort-function-intsaresorted>)
 
-  - [`function isSorted(data:stdgo.sort.Interface):Bool`](<#sort-function-issorted>)
+  - [`function isSorted(_data:stdgo.sort.Interface):Bool`](<#sort-function-issorted>)
 
-  - [`function reverse(data:stdgo.sort.Interface):stdgo.sort.Interface`](<#sort-function-reverse>)
+  - [`function reverse(_data:stdgo.sort.Interface):stdgo.sort.Interface`](<#sort-function-reverse>)
 
-  - [`function reverseRange(data:stdgo.sort.Interface, a:Int, b:Int):Void`](<#sort-function-reverserange>)
+  - [`function reverseRange(_data:stdgo.sort.Interface, _a:Int, _b:Int):Void`](<#sort-function-reverserange>)
 
-  - [`function search(n:Int, f:()):Int`](<#sort-function-search>)
+  - [`function search(_n:Int, _f:()):Int`](<#sort-function-search>)
 
-  - [`function searchFloat64s(a:Array<Float>, x:Float):Int`](<#sort-function-searchfloat64s>)
+  - [`function searchFloat64s(_a:Array<Float>, _x:Float):Int`](<#sort-function-searchfloat64s>)
 
-  - [`function searchInts(a:Array<Int>, x:Int):Int`](<#sort-function-searchints>)
+  - [`function searchInts(_a:Array<Int>, _x:Int):Int`](<#sort-function-searchints>)
 
-  - [`function searchStrings(a:Array<String>, x:String):Int`](<#sort-function-searchstrings>)
+  - [`function searchStrings(_a:Array<String>, _x:String):Int`](<#sort-function-searchstrings>)
 
-  - [`function slice(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void`](<#sort-function-slice>)
+  - [`function slice(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void`](<#sort-function-slice>)
 
-  - [`function sliceIsSorted(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Bool`](<#sort-function-sliceissorted>)
+  - [`function sliceIsSorted(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Bool`](<#sort-function-sliceissorted>)
 
-  - [`function sliceStable(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void`](<#sort-function-slicestable>)
+  - [`function sliceStable(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void`](<#sort-function-slicestable>)
 
-  - [`function sort(data:stdgo.sort.Interface):Void`](<#sort-function-sort>)
+  - [`function sort(_data:stdgo.sort.Interface):Void`](<#sort-function-sort>)
 
-  - [`function stable(data:stdgo.sort.Interface):Void`](<#sort-function-stable>)
+  - [`function stable(_data:stdgo.sort.Interface):Void`](<#sort-function-stable>)
 
-  - [`function strings(x:Array<String>):Void`](<#sort-function-strings>)
+  - [`function strings(_x:Array<String>):Void`](<#sort-function-strings>)
 
-  - [`function stringsAreSorted(x:Array<String>):Bool`](<#sort-function-stringsaresorted>)
+  - [`function stringsAreSorted(_x:Array<String>):Bool`](<#sort-function-stringsaresorted>)
 
 - [typedef Float64Slice](<#typedef-float64slice>)
 
@@ -85,7 +85,7 @@ Package sort provides primitives for sorting slices and user\-defined collection
 
 
 ```haxe
-function find(n:Int, cmp:()):stdgo.Tuple<Int, Bool>
+function find(_n:Int, _cmp:()):stdgo.Tuple<Int, Bool>
 ```
 
 
@@ -125,7 +125,7 @@ list of strings:
 
 
 ```haxe
-function float64s(x:Array<Float>):Void
+function float64s(_x:Array<Float>):Void
 ```
 
 
@@ -143,7 +143,7 @@ Note: consider using the newer slices.Sort function, which runs faster.
 
 
 ```haxe
-function float64sAreSorted(x:Array<Float>):Bool
+function float64sAreSorted(_x:Array<Float>):Bool
 ```
 
 
@@ -161,7 +161,7 @@ Note: consider using the newer slices.IsSorted function, which runs faster.
 
 
 ```haxe
-function heapsort(data:stdgo.sort.Interface):Void
+function heapsort(_data:stdgo.sort.Interface):Void
 ```
 
 
@@ -172,7 +172,7 @@ function heapsort(data:stdgo.sort.Interface):Void
 
 
 ```haxe
-function ints(x:Array<Int>):Void
+function ints(_x:Array<Int>):Void
 ```
 
 
@@ -189,7 +189,7 @@ Note: consider using the newer slices.Sort function, which runs faster.
 
 
 ```haxe
-function intsAreSorted(x:Array<Int>):Bool
+function intsAreSorted(_x:Array<Int>):Bool
 ```
 
 
@@ -206,7 +206,7 @@ Note: consider using the newer slices.IsSorted function, which runs faster.
 
 
 ```haxe
-function isSorted(data:stdgo.sort.Interface):Bool
+function isSorted(_data:stdgo.sort.Interface):Bool
 ```
 
 
@@ -224,7 +224,7 @@ ergonomic and runs faster.
 
 
 ```haxe
-function reverse(data:stdgo.sort.Interface):stdgo.sort.Interface
+function reverse(_data:stdgo.sort.Interface):stdgo.sort.Interface
 ```
 
 
@@ -238,7 +238,7 @@ Reverse returns the reverse order for data.
 
 
 ```haxe
-function reverseRange(data:stdgo.sort.Interface, a:Int, b:Int):Void
+function reverseRange(_data:stdgo.sort.Interface, _a:Int, _b:Int):Void
 ```
 
 
@@ -249,7 +249,7 @@ function reverseRange(data:stdgo.sort.Interface, a:Int, b:Int):Void
 
 
 ```haxe
-function search(n:Int, f:()):Int
+function search(_n:Int, _f:()):Int
 ```
 
 
@@ -318,7 +318,7 @@ As a more whimsical example, this program guesses your number:
 
 
 ```haxe
-function searchFloat64s(a:Array<Float>, x:Float):Int
+function searchFloat64s(_a:Array<Float>, _x:Float):Int
 ```
 
 
@@ -335,7 +335,7 @@ SearchFloat64s searches for x in a sorted slice of float64s and returns the inde
 
 
 ```haxe
-function searchInts(a:Array<Int>, x:Int):Int
+function searchInts(_a:Array<Int>, _x:Int):Int
 ```
 
 
@@ -352,7 +352,7 @@ SearchInts searches for x in a sorted slice of ints and returns the index
 
 
 ```haxe
-function searchStrings(a:Array<String>, x:String):Int
+function searchStrings(_a:Array<String>, _x:String):Int
 ```
 
 
@@ -369,7 +369,7 @@ SearchStrings searches for x in a sorted slice of strings and returns the index
 
 
 ```haxe
-function slice(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void
+function slice(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void
 ```
 
 
@@ -393,7 +393,7 @@ the Interface type's Less method.
 
 
 ```haxe
-function sliceIsSorted(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Bool
+function sliceIsSorted(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Bool
 ```
 
 
@@ -408,7 +408,7 @@ SliceIsSorted reports whether the slice x is sorted according to the provided le
 
 
 ```haxe
-function sliceStable(x:stdgo.AnyInterface, less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void
+function sliceStable(_x:stdgo.AnyInterface, _less:(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool):Void
 ```
 
 
@@ -428,7 +428,7 @@ the Interface type's Less method.
 
 
 ```haxe
-function sort(data:stdgo.sort.Interface):Void
+function sort(_data:stdgo.sort.Interface):Void
 ```
 
 
@@ -448,7 +448,7 @@ ergonomic and runs faster.
 
 
 ```haxe
-function stable(data:stdgo.sort.Interface):Void
+function stable(_data:stdgo.sort.Interface):Void
 ```
 
 
@@ -471,7 +471,7 @@ ergonomic and runs faster.
 
 
 ```haxe
-function strings(x:Array<String>):Void
+function strings(_x:Array<String>):Void
 ```
 
 
@@ -488,7 +488,7 @@ Note: consider using the newer slices.Sort function, which runs faster.
 
 
 ```haxe
-function stringsAreSorted(x:Array<String>):Bool
+function stringsAreSorted(_x:Array<String>):Bool
 ```
 
 

@@ -13,15 +13,15 @@
 
 - [class Adler32](<#class-adler32>)
 
-  - [`function benchmarkAdler32KB(b:stdgo._internal.testing.B):Void`](<#adler32-function-benchmarkadler32kb>)
+  - [`function benchmarkAdler32KB(_b:stdgo._internal.testing.B):Void`](<#adler32-function-benchmarkadler32kb>)
 
-  - [`function checksum(data:Array<Int>):UInt`](<#adler32-function-checksum>)
+  - [`function checksum(_data:Array<Int>):UInt`](<#adler32-function-checksum>)
 
   - [`function new_():stdgo._internal.hash.Hash32`](<#adler32-function-new_>)
 
-  - [`function testGolden(t:stdgo._internal.testing.T_):Void`](<#adler32-function-testgolden>)
+  - [`function testGolden(_t:stdgo._internal.testing.T_):Void`](<#adler32-function-testgolden>)
 
-  - [`function testGoldenMarshal(t:stdgo._internal.testing.T_):Void`](<#adler32-function-testgoldenmarshal>)
+  - [`function testGoldenMarshal(_t:stdgo._internal.testing.T_):Void`](<#adler32-function-testgoldenmarshal>)
 
 - [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
 
@@ -68,7 +68,7 @@ It is defined in RFC 1950:
 
 
 ```haxe
-function benchmarkAdler32KB(b:stdgo._internal.testing.B):Void
+function benchmarkAdler32KB(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -79,7 +79,7 @@ function benchmarkAdler32KB(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function checksum(data:Array<Int>):UInt
+function checksum(_data:Array<Int>):UInt
 ```
 
 
@@ -111,7 +111,7 @@ New returns a new hash.Hash32 computing the Adler-32 checksum. Its
 
 
 ```haxe
-function testGolden(t:stdgo._internal.testing.T_):Void
+function testGolden(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -122,7 +122,7 @@ function testGolden(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testGoldenMarshal(t:stdgo._internal.testing.T_):Void
+function testGoldenMarshal(_t:stdgo._internal.testing.T_):Void
 ```
 
 

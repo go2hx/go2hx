@@ -15,7 +15,7 @@
 
 - [class Cpu](<#class-cpu>)
 
-  - [`function initialize(env:String):Void`](<#cpu-function-initialize>)
+  - [`function initialize(_env:String):Void`](<#cpu-function-initialize>)
 
   - [`function name():String`](<#cpu-function-name>)
 
@@ -115,7 +115,7 @@ Package cpu implements processor feature detection
 
 
 ```haxe
-function initialize(env:String):Void
+function initialize(_env:String):Void
 ```
 
 

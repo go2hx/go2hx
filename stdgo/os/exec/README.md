@@ -13,19 +13,19 @@
 
 - [class Exec](<#class-exec>)
 
-  - [`function benchmarkExecHostname(b:stdgo._internal.testing.B):Void`](<#exec-function-benchmarkexechostname>)
+  - [`function benchmarkExecHostname(_b:stdgo._internal.testing.B):Void`](<#exec-function-benchmarkexechostname>)
 
-  - [`function command(name:String, arg:haxe.Rest<String>):stdgo.os.exec.Cmd`](<#exec-function-command>)
+  - [`function command(_name:String, _arg:haxe.Rest<String>):stdgo.os.exec.Cmd`](<#exec-function-command>)
 
-  - [`function commandContext(ctx:stdgo._internal.context.Context, name:String, arg:haxe.Rest<String>):stdgo.os.exec.Cmd`](<#exec-function-commandcontext>)
+  - [`function commandContext(_ctx:stdgo._internal.context.Context, _name:String, _arg:haxe.Rest<String>):stdgo.os.exec.Cmd`](<#exec-function-commandcontext>)
 
-  - [`function lookPath(file:String):stdgo.Tuple<String, stdgo.Error>`](<#exec-function-lookpath>)
+  - [`function lookPath(_file:String):stdgo.Tuple<String, stdgo.Error>`](<#exec-function-lookpath>)
 
-  - [`function testDedupEnv(t:stdgo._internal.testing.T_):Void`](<#exec-function-testdedupenv>)
+  - [`function testDedupEnv(_t:stdgo._internal.testing.T_):Void`](<#exec-function-testdedupenv>)
 
-  - [`function testLookPathNotFound(t:stdgo._internal.testing.T_):Void`](<#exec-function-testlookpathnotfound>)
+  - [`function testLookPathNotFound(_t:stdgo._internal.testing.T_):Void`](<#exec-function-testlookpathnotfound>)
 
-  - [`function testPrefixSuffixSaver(t:stdgo._internal.testing.T_):Void`](<#exec-function-testprefixsuffixsaver>)
+  - [`function testPrefixSuffixSaver(_t:stdgo._internal.testing.T_):Void`](<#exec-function-testprefixsuffixsaver>)
 
 - [abstract Error](<#abstract-error>)
 
@@ -182,7 +182,7 @@ See https://go.dev/blog/path-security for more information.
 
 
 ```haxe
-function benchmarkExecHostname(b:stdgo._internal.testing.B):Void
+function benchmarkExecHostname(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -193,7 +193,7 @@ function benchmarkExecHostname(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function command(name:String, arg:haxe.Rest<String>):stdgo.os.exec.Cmd
+function command(_name:String, _arg:haxe.Rest<String>):stdgo.os.exec.Cmd
 ```
 
 
@@ -232,7 +232,7 @@ leaving Args empty.
 
 
 ```haxe
-function commandContext(ctx:stdgo._internal.context.Context, name:String, arg:haxe.Rest<String>):stdgo.os.exec.Cmd
+function commandContext(_ctx:stdgo._internal.context.Context, _name:String, _arg:haxe.Rest<String>):stdgo.os.exec.Cmd
 ```
 
 
@@ -256,7 +256,7 @@ cancellation behavior by modifying those fields before starting the command.
 
 
 ```haxe
-function lookPath(file:String):stdgo.Tuple<String, stdgo.Error>
+function lookPath(_file:String):stdgo.Tuple<String, stdgo.Error>
 ```
 
 
@@ -273,7 +273,7 @@ LookPath searches for an executable named file in the
 
 
 ```haxe
-function testDedupEnv(t:stdgo._internal.testing.T_):Void
+function testDedupEnv(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -284,7 +284,7 @@ function testDedupEnv(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testLookPathNotFound(t:stdgo._internal.testing.T_):Void
+function testLookPathNotFound(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -295,7 +295,7 @@ function testLookPathNotFound(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testPrefixSuffixSaver(t:stdgo._internal.testing.T_):Void
+function testPrefixSuffixSaver(_t:stdgo._internal.testing.T_):Void
 ```
 
 

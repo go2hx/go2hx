@@ -13,7 +13,7 @@
 
 - [class Godebugs](<#class-godebugs>)
 
-  - [`function lookup(name:String):stdgo.internal.godebugs.Info`](<#godebugs-function-lookup>)
+  - [`function lookup(_name:String):stdgo.internal.godebugs.Info`](<#godebugs-function-lookup>)
 
 - [abstract Info](<#abstract-info>)
 
@@ -50,7 +50,7 @@ Package godebugs provides a table of known GODEBUG settings,
 
 
 ```haxe
-function lookup(name:String):stdgo.internal.godebugs.Info
+function lookup(_name:String):stdgo.internal.godebugs.Info
 ```
 
 

@@ -19,51 +19,51 @@
 
 - [class Fmt](<#class-fmt>)
 
-  - [`function append(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#fmt-function-append>)
+  - [`function append(_b:Array<Int>, _a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#fmt-function-append>)
 
-  - [`function appendf(b:Array<Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#fmt-function-appendf>)
+  - [`function appendf(_b:Array<Int>, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#fmt-function-appendf>)
 
-  - [`function appendln(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#fmt-function-appendln>)
+  - [`function appendln(_b:Array<Int>, _a:haxe.Rest<stdgo.AnyInterface>):Array<Int>`](<#fmt-function-appendln>)
 
-  - [`function errorf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error`](<#fmt-function-errorf>)
+  - [`function errorf(_format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error`](<#fmt-function-errorf>)
 
-  - [`function formatString(state:stdgo.fmt.State, verb:Int):String`](<#fmt-function-formatstring>)
+  - [`function formatString(_state:stdgo.fmt.State, _verb:Int):String`](<#fmt-function-formatstring>)
 
-  - [`function fprint(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fprint>)
+  - [`function fprint(_w:stdgo._internal.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fprint>)
 
-  - [`function fprintf(w:stdgo._internal.io.Writer, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fprintf>)
+  - [`function fprintf(_w:stdgo._internal.io.Writer, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fprintf>)
 
-  - [`function fprintln(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fprintln>)
+  - [`function fprintln(_w:stdgo._internal.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fprintln>)
 
-  - [`function fscan(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fscan>)
+  - [`function fscan(_r:stdgo._internal.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fscan>)
 
-  - [`function fscanf(r:stdgo._internal.io.Reader, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fscanf>)
+  - [`function fscanf(_r:stdgo._internal.io.Reader, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fscanf>)
 
-  - [`function fscanln(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fscanln>)
+  - [`function fscanln(_r:stdgo._internal.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-fscanln>)
 
-  - [`function print(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-print>)
+  - [`function print(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-print>)
 
-  - [`function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-printf>)
+  - [`function printf(_format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-printf>)
 
-  - [`function println(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-println>)
+  - [`function println(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-println>)
 
-  - [`function scan(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-scan>)
+  - [`function scan(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-scan>)
 
-  - [`function scanf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-scanf>)
+  - [`function scanf(_format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-scanf>)
 
-  - [`function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-scanln>)
+  - [`function scanln(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-scanln>)
 
-  - [`function sprint(a:haxe.Rest<stdgo.AnyInterface>):String`](<#fmt-function-sprint>)
+  - [`function sprint(_a:haxe.Rest<stdgo.AnyInterface>):String`](<#fmt-function-sprint>)
 
-  - [`function sprintf(format:String, a:haxe.Rest<stdgo.AnyInterface>):String`](<#fmt-function-sprintf>)
+  - [`function sprintf(_format:String, _a:haxe.Rest<stdgo.AnyInterface>):String`](<#fmt-function-sprintf>)
 
-  - [`function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String`](<#fmt-function-sprintln>)
+  - [`function sprintln(_a:haxe.Rest<stdgo.AnyInterface>):String`](<#fmt-function-sprintln>)
 
-  - [`function sscan(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-sscan>)
+  - [`function sscan(_str:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-sscan>)
 
-  - [`function sscanf(str:String, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-sscanf>)
+  - [`function sscanf(_str:String, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-sscanf>)
 
-  - [`function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-sscanln>)
+  - [`function sscanln(_str:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>`](<#fmt-function-sscanln>)
 
 - [typedef Formatter](<#typedef-formatter>)
 
@@ -614,7 +614,7 @@ bufio.NewReader.
 
 
 ```haxe
-function append(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
+function append(_b:Array<Int>, _a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
 ```
 
 
@@ -629,7 +629,7 @@ Append formats using the default formats for its operands, appends the result to
 
 
 ```haxe
-function appendf(b:Array<Int>, format:String, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
+function appendf(_b:Array<Int>, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
 ```
 
 
@@ -644,7 +644,7 @@ Appendf formats according to a format specifier, appends the result to the byte
 
 
 ```haxe
-function appendln(b:Array<Int>, a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
+function appendln(_b:Array<Int>, _a:haxe.Rest<stdgo.AnyInterface>):Array<Int>
 ```
 
 
@@ -660,7 +660,7 @@ Appendln formats using the default formats for its operands, appends the result
 
 
 ```haxe
-function errorf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error
+function errorf(_format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error
 ```
 
 
@@ -684,7 +684,7 @@ the error interface. The %w verb is otherwise a synonym for %v.
 
 
 ```haxe
-function formatString(state:stdgo.fmt.State, verb:Int):String
+function formatString(_state:stdgo.fmt.State, _verb:Int):String
 ```
 
 
@@ -703,7 +703,7 @@ FormatString returns a string representing the fully qualified formatting
 
 
 ```haxe
-function fprint(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function fprint(_w:stdgo._internal.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -719,7 +719,7 @@ Fprint formats using the default formats for its operands and writes to w.
 
 
 ```haxe
-function fprintf(w:stdgo._internal.io.Writer, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function fprintf(_w:stdgo._internal.io.Writer, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -734,7 +734,7 @@ Fprintf formats according to a format specifier and writes to w.
 
 
 ```haxe
-function fprintln(w:stdgo._internal.io.Writer, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function fprintln(_w:stdgo._internal.io.Writer, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -750,7 +750,7 @@ Fprintln formats using the default formats for its operands and writes to w.
 
 
 ```haxe
-function fscan(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function fscan(_r:stdgo._internal.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -767,7 +767,7 @@ Fscan scans text read from r, storing successive space-separated
 
 
 ```haxe
-function fscanf(r:stdgo._internal.io.Reader, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function fscanf(_r:stdgo._internal.io.Reader, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -784,7 +784,7 @@ Fscanf scans text read from r, storing successive space-separated
 
 
 ```haxe
-function fscanln(r:stdgo._internal.io.Reader, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function fscanln(_r:stdgo._internal.io.Reader, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -799,7 +799,7 @@ Fscanln is similar to Fscan, but stops scanning at a newline and
 
 
 ```haxe
-function print(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function print(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -815,7 +815,7 @@ Print formats using the default formats for its operands and writes to standard 
 
 
 ```haxe
-function printf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function printf(_format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -830,7 +830,7 @@ Printf formats according to a format specifier and writes to standard output.
 
 
 ```haxe
-function println(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function println(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -846,7 +846,7 @@ Println formats using the default formats for its operands and writes to standar
 
 
 ```haxe
-function scan(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function scan(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -863,7 +863,7 @@ Scan scans text read from standard input, storing successive
 
 
 ```haxe
-function scanf(format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function scanf(_format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -883,7 +883,7 @@ Scanf scans text read from standard input, storing successive
 
 
 ```haxe
-function scanln(a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function scanln(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -898,7 +898,7 @@ Scanln is similar to Scan, but stops scanning at a newline and
 
 
 ```haxe
-function sprint(a:haxe.Rest<stdgo.AnyInterface>):String
+function sprint(_a:haxe.Rest<stdgo.AnyInterface>):String
 ```
 
 
@@ -913,7 +913,7 @@ Sprint formats using the default formats for its operands and returns the result
 
 
 ```haxe
-function sprintf(format:String, a:haxe.Rest<stdgo.AnyInterface>):String
+function sprintf(_format:String, _a:haxe.Rest<stdgo.AnyInterface>):String
 ```
 
 
@@ -927,7 +927,7 @@ Sprintf formats according to a format specifier and returns the resulting string
 
 
 ```haxe
-function sprintln(a:haxe.Rest<stdgo.AnyInterface>):String
+function sprintln(_a:haxe.Rest<stdgo.AnyInterface>):String
 ```
 
 
@@ -942,7 +942,7 @@ Sprintln formats using the default formats for its operands and returns the resu
 
 
 ```haxe
-function sscan(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function sscan(_str:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -959,7 +959,7 @@ Sscan scans the argument string, storing successive space-separated
 
 
 ```haxe
-function sscanf(str:String, format:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function sscanf(_str:String, _format:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
@@ -976,7 +976,7 @@ Sscanf scans the argument string, storing successive space-separated
 
 
 ```haxe
-function sscanln(str:String, a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
+function sscanln(_str:String, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 

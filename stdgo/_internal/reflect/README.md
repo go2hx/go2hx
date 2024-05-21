@@ -625,7 +625,7 @@ function newAt(_typ:stdgo._internal.reflect.Type_, _p:stdgo._internal.unsafe.Uns
 ```
 
 
-[\(view code\)](<./Reflect.hx#L551>)
+[\(view code\)](<./Reflect.hx#L557>)
 
 
 ## function new\_
@@ -636,7 +636,7 @@ function new_(_typ:stdgo._internal.reflect.Type_):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L546>)
+[\(view code\)](<./Reflect.hx#L552>)
 
 
 ## function pointerTo
@@ -728,7 +728,7 @@ function valueOf(_i:stdgo.AnyInterface):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L540>)
+[\(view code\)](<./Reflect.hx#L546>)
 
 
 ## function visibleFields
@@ -739,7 +739,7 @@ function visibleFields(_t:stdgo._internal.reflect.Type_):stdgo.Slice<stdgo._inte
 ```
 
 
-[\(view code\)](<./Reflect.hx#L552>)
+[\(view code\)](<./Reflect.hx#L558>)
 
 
 ## function zero
@@ -750,7 +750,7 @@ function zero(_typ:stdgo._internal.reflect.Type_):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L543>)
+[\(view code\)](<./Reflect.hx#L549>)
 
 
 # Classes
@@ -783,7 +783,7 @@ function key():stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1594>)
+[\(view code\)](<./Reflect.hx#L1600>)
 
 
 ### MapIter function next
@@ -794,7 +794,7 @@ function next():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1566>)
+[\(view code\)](<./Reflect.hx#L1572>)
 
 
 ### MapIter function reset
@@ -805,7 +805,7 @@ function reset( _v:stdgo._internal.reflect.Value):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1558>)
+[\(view code\)](<./Reflect.hx#L1564>)
 
 
 ### MapIter function value
@@ -816,7 +816,7 @@ function value():stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1578>)
+[\(view code\)](<./Reflect.hx#L1584>)
 
 
 ## class Method
@@ -866,7 +866,7 @@ function isExported():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L566>)
+[\(view code\)](<./Reflect.hx#L572>)
 
 
 ## class SelectCase
@@ -1008,7 +1008,7 @@ function isExported():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L581>)
+[\(view code\)](<./Reflect.hx#L587>)
 
 
 ## class Value
@@ -1044,7 +1044,7 @@ function addr():stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1522>)
+[\(view code\)](<./Reflect.hx#L1528>)
 
 
 ### Value function bool\_
@@ -1055,7 +1055,7 @@ function bool_():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1496>)
+[\(view code\)](<./Reflect.hx#L1502>)
 
 
 ### Value function bytes
@@ -1066,7 +1066,7 @@ function bytes():stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1455>)
+[\(view code\)](<./Reflect.hx#L1461>)
 
 
 ### Value function call
@@ -1077,7 +1077,7 @@ function call( _in:stdgo.Slice<stdgo._internal.reflect.Value>):stdgo.Slice<stdgo
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1437>)
+[\(view code\)](<./Reflect.hx#L1443>)
 
 
 ### Value function callSlice
@@ -1088,7 +1088,7 @@ function callSlice( _in:stdgo.Slice<stdgo._internal.reflect.Value>):stdgo.Slice<
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1435>)
+[\(view code\)](<./Reflect.hx#L1441>)
 
 
 ### Value function canAddr
@@ -1099,7 +1099,7 @@ function canAddr():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1450>)
+[\(view code\)](<./Reflect.hx#L1456>)
 
 
 ### Value function canComplex
@@ -1110,7 +1110,7 @@ function canComplex():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1429>)
+[\(view code\)](<./Reflect.hx#L1435>)
 
 
 ### Value function canConvert
@@ -1121,7 +1121,7 @@ function canConvert( _t:stdgo._internal.reflect.Type_):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L748>)
+[\(view code\)](<./Reflect.hx#L754>)
 
 
 ### Value function canFloat
@@ -1132,7 +1132,7 @@ function canFloat():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1331>)
+[\(view code\)](<./Reflect.hx#L1337>)
 
 
 ### Value function canInt
@@ -1143,7 +1143,7 @@ function canInt():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1257>)
+[\(view code\)](<./Reflect.hx#L1263>)
 
 
 ### Value function canInterface
@@ -1154,7 +1154,7 @@ function canInterface():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1218>)
+[\(view code\)](<./Reflect.hx#L1224>)
 
 
 ### Value function canSet
@@ -1165,7 +1165,7 @@ function canSet():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1448>)
+[\(view code\)](<./Reflect.hx#L1454>)
 
 
 ### Value function canUint
@@ -1176,7 +1176,7 @@ function canUint():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L796>)
+[\(view code\)](<./Reflect.hx#L802>)
 
 
 ### Value function cap
@@ -1187,7 +1187,7 @@ function cap():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1433>)
+[\(view code\)](<./Reflect.hx#L1439>)
 
 
 ### Value function clear
@@ -1198,7 +1198,7 @@ function clear():Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L752>)
+[\(view code\)](<./Reflect.hx#L758>)
 
 
 ### Value function close
@@ -1209,7 +1209,7 @@ function close():Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1431>)
+[\(view code\)](<./Reflect.hx#L1437>)
 
 
 ### Value function comparable\_
@@ -1220,7 +1220,7 @@ function comparable_():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L746>)
+[\(view code\)](<./Reflect.hx#L752>)
 
 
 ### Value function complex
@@ -1231,7 +1231,7 @@ function complex():stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1403>)
+[\(view code\)](<./Reflect.hx#L1409>)
 
 
 ### Value function convert
@@ -1242,7 +1242,7 @@ function convert( _t:stdgo._internal.reflect.Type_):stdgo._internal.reflect.Valu
 ```
 
 
-[\(view code\)](<./Reflect.hx#L750>)
+[\(view code\)](<./Reflect.hx#L756>)
 
 
 ### Value function elem
@@ -1253,7 +1253,7 @@ function elem():stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1358>)
+[\(view code\)](<./Reflect.hx#L1364>)
 
 
 ### Value function equal
@@ -1264,7 +1264,7 @@ function equal( _u:stdgo._internal.reflect.Value):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L744>)
+[\(view code\)](<./Reflect.hx#L750>)
 
 
 ### Value function field
@@ -1275,7 +1275,7 @@ function field( _i:stdgo.GoInt):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1341>)
+[\(view code\)](<./Reflect.hx#L1347>)
 
 
 ### Value function fieldByIndex
@@ -1286,7 +1286,7 @@ function fieldByIndex( _index:stdgo.Slice<stdgo.GoInt>):stdgo._internal.reflect.
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1339>)
+[\(view code\)](<./Reflect.hx#L1345>)
 
 
 ### Value function fieldByIndexErr
@@ -1300,7 +1300,7 @@ function fieldByIndexErr( _index:stdgo.Slice<stdgo.GoInt>):{
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1337>)
+[\(view code\)](<./Reflect.hx#L1343>)
 
 
 ### Value function fieldByName
@@ -1311,7 +1311,7 @@ function fieldByName( _name:stdgo.GoString):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1335>)
+[\(view code\)](<./Reflect.hx#L1341>)
 
 
 ### Value function fieldByNameFunc
@@ -1322,7 +1322,7 @@ function fieldByNameFunc( _match:()):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1333>)
+[\(view code\)](<./Reflect.hx#L1339>)
 
 
 ### Value function float\_
@@ -1333,7 +1333,7 @@ function float_():stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1303>)
+[\(view code\)](<./Reflect.hx#L1309>)
 
 
 ### Value function grow
@@ -1344,7 +1344,7 @@ function grow( _n:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L754>)
+[\(view code\)](<./Reflect.hx#L760>)
 
 
 ### Value function index
@@ -1355,7 +1355,7 @@ function index( _i:stdgo.GoInt):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1259>)
+[\(view code\)](<./Reflect.hx#L1265>)
 
 
 ### Value function int\_
@@ -1366,7 +1366,7 @@ function int_():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1223>)
+[\(view code\)](<./Reflect.hx#L1229>)
 
 
 ### Value function interfaceData
@@ -1377,7 +1377,7 @@ function interfaceData():stdgo.GoArray<stdgo.GoUIntptr>
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1214>)
+[\(view code\)](<./Reflect.hx#L1220>)
 
 
 ### Value function interface\_
@@ -1388,7 +1388,7 @@ function interface_():stdgo.AnyInterface
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1216>)
+[\(view code\)](<./Reflect.hx#L1222>)
 
 
 ### Value function isNil
@@ -1399,7 +1399,7 @@ function isNil():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1161>)
+[\(view code\)](<./Reflect.hx#L1167>)
 
 
 ### Value function isValid
@@ -1410,7 +1410,7 @@ function isValid():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1149>)
+[\(view code\)](<./Reflect.hx#L1155>)
 
 
 ### Value function isZero
@@ -1421,7 +1421,7 @@ function isZero():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1147>)
+[\(view code\)](<./Reflect.hx#L1153>)
 
 
 ### Value function kind
@@ -1432,7 +1432,7 @@ function kind():stdgo._internal.reflect.Kind
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1143>)
+[\(view code\)](<./Reflect.hx#L1149>)
 
 
 ### Value function len
@@ -1443,7 +1443,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1107>)
+[\(view code\)](<./Reflect.hx#L1113>)
 
 
 ### Value function mapIndex
@@ -1454,7 +1454,7 @@ function mapIndex( _key:stdgo._internal.reflect.Value):stdgo._internal.reflect.V
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1105>)
+[\(view code\)](<./Reflect.hx#L1111>)
 
 
 ### Value function mapKeys
@@ -1465,7 +1465,7 @@ function mapKeys():stdgo.Slice<stdgo._internal.reflect.Value>
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1103>)
+[\(view code\)](<./Reflect.hx#L1109>)
 
 
 ### Value function mapRange
@@ -1476,7 +1476,7 @@ function mapRange():stdgo.Ref<stdgo._internal.reflect.MapIter>
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1094>)
+[\(view code\)](<./Reflect.hx#L1100>)
 
 
 ### Value function method
@@ -1487,7 +1487,7 @@ function method( _i:stdgo.GoInt):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1092>)
+[\(view code\)](<./Reflect.hx#L1098>)
 
 
 ### Value function methodByName
@@ -1498,7 +1498,7 @@ function methodByName( _name:stdgo.GoString):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1088>)
+[\(view code\)](<./Reflect.hx#L1094>)
 
 
 ### Value function numField
@@ -1509,7 +1509,7 @@ function numField():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1083>)
+[\(view code\)](<./Reflect.hx#L1089>)
 
 
 ### Value function numMethod
@@ -1520,7 +1520,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1090>)
+[\(view code\)](<./Reflect.hx#L1096>)
 
 
 ### Value function overflowComplex
@@ -1531,7 +1531,7 @@ function overflowComplex( _x:stdgo.GoComplex128):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1081>)
+[\(view code\)](<./Reflect.hx#L1087>)
 
 
 ### Value function overflowFloat
@@ -1542,7 +1542,7 @@ function overflowFloat( _x:stdgo.GoFloat64):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1079>)
+[\(view code\)](<./Reflect.hx#L1085>)
 
 
 ### Value function overflowInt
@@ -1553,7 +1553,7 @@ function overflowInt( _x:stdgo.GoInt64):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1077>)
+[\(view code\)](<./Reflect.hx#L1083>)
 
 
 ### Value function overflowUint
@@ -1564,7 +1564,7 @@ function overflowUint( _x:stdgo.GoUInt64):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1075>)
+[\(view code\)](<./Reflect.hx#L1081>)
 
 
 ### Value function pointer
@@ -1575,7 +1575,7 @@ function pointer():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1068>)
+[\(view code\)](<./Reflect.hx#L1074>)
 
 
 ### Value function recv
@@ -1589,7 +1589,7 @@ function recv():{
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1066>)
+[\(view code\)](<./Reflect.hx#L1072>)
 
 
 ### Value function send
@@ -1600,7 +1600,7 @@ function send( _x:stdgo._internal.reflect.Value):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1064>)
+[\(view code\)](<./Reflect.hx#L1070>)
 
 
 ### Value function set
@@ -1611,7 +1611,7 @@ function set( _x:stdgo._internal.reflect.Value):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1001>)
+[\(view code\)](<./Reflect.hx#L1007>)
 
 
 ### Value function setBool
@@ -1622,7 +1622,7 @@ function setBool( _x:Bool):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L995>)
+[\(view code\)](<./Reflect.hx#L1001>)
 
 
 ### Value function setBytes
@@ -1633,7 +1633,7 @@ function setBytes( _x:stdgo.Slice<stdgo.GoByte>):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L993>)
+[\(view code\)](<./Reflect.hx#L999>)
 
 
 ### Value function setCap
@@ -1644,7 +1644,7 @@ function setCap( _n:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L931>)
+[\(view code\)](<./Reflect.hx#L937>)
 
 
 ### Value function setComplex
@@ -1655,7 +1655,7 @@ function setComplex( _x:stdgo.GoComplex128):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L979>)
+[\(view code\)](<./Reflect.hx#L985>)
 
 
 ### Value function setFloat
@@ -1666,7 +1666,7 @@ function setFloat( _x:stdgo.GoFloat64):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L965>)
+[\(view code\)](<./Reflect.hx#L971>)
 
 
 ### Value function setInt
@@ -1677,7 +1677,7 @@ function setInt( _x:stdgo.GoInt64):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L935>)
+[\(view code\)](<./Reflect.hx#L941>)
 
 
 ### Value function setIterKey
@@ -1688,7 +1688,7 @@ function setIterKey( _iter:stdgo.Ref<stdgo._internal.reflect.MapIter>):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1101>)
+[\(view code\)](<./Reflect.hx#L1107>)
 
 
 ### Value function setIterValue
@@ -1699,7 +1699,7 @@ function setIterValue( _iter:stdgo.Ref<stdgo._internal.reflect.MapIter>):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1099>)
+[\(view code\)](<./Reflect.hx#L1105>)
 
 
 ### Value function setLen
@@ -1710,7 +1710,7 @@ function setLen( _n:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L933>)
+[\(view code\)](<./Reflect.hx#L939>)
 
 
 ### Value function setMapIndex
@@ -1721,7 +1721,7 @@ function setMapIndex( _key:stdgo._internal.reflect.Value, _elem:stdgo._internal.
 ```
 
 
-[\(view code\)](<./Reflect.hx#L929>)
+[\(view code\)](<./Reflect.hx#L935>)
 
 
 ### Value function setPointer
@@ -1732,7 +1732,7 @@ function setPointer( _x:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L895>)
+[\(view code\)](<./Reflect.hx#L901>)
 
 
 ### Value function setString
@@ -1743,7 +1743,7 @@ function setString( _x:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L889>)
+[\(view code\)](<./Reflect.hx#L895>)
 
 
 ### Value function setUint
@@ -1754,7 +1754,7 @@ function setUint( _x:stdgo.GoUInt64):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L897>)
+[\(view code\)](<./Reflect.hx#L903>)
 
 
 ### Value function setZero
@@ -1765,7 +1765,7 @@ function setZero():Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1145>)
+[\(view code\)](<./Reflect.hx#L1151>)
 
 
 ### Value function slice
@@ -1776,7 +1776,7 @@ function slice( _i:stdgo.GoInt, _j:stdgo.GoInt):stdgo._internal.reflect.Value
 ```
 
 
-[\(view code\)](<./Reflect.hx#L856>)
+[\(view code\)](<./Reflect.hx#L862>)
 
 
 ### Value function slice3
@@ -1787,7 +1787,7 @@ function slice3( _i:stdgo.GoInt, _j:stdgo.GoInt, _k:stdgo.GoInt):stdgo._internal
 ```
 
 
-[\(view code\)](<./Reflect.hx#L854>)
+[\(view code\)](<./Reflect.hx#L860>)
 
 
 ### Value function string
@@ -1798,7 +1798,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Reflect.hx#L819>)
+[\(view code\)](<./Reflect.hx#L825>)
 
 
 ### Value function tryRecv
@@ -1812,7 +1812,7 @@ function tryRecv():{
 ```
 
 
-[\(view code\)](<./Reflect.hx#L817>)
+[\(view code\)](<./Reflect.hx#L823>)
 
 
 ### Value function trySend
@@ -1823,7 +1823,7 @@ function trySend( _x:stdgo._internal.reflect.Value):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L815>)
+[\(view code\)](<./Reflect.hx#L821>)
 
 
 ### Value function type
@@ -1834,7 +1834,7 @@ function type():stdgo._internal.reflect.Type_
 ```
 
 
-[\(view code\)](<./Reflect.hx#L806>)
+[\(view code\)](<./Reflect.hx#L812>)
 
 
 ### Value function uint
@@ -1845,7 +1845,7 @@ function uint():stdgo.GoUInt64
 ```
 
 
-[\(view code\)](<./Reflect.hx#L760>)
+[\(view code\)](<./Reflect.hx#L766>)
 
 
 ### Value function unsafeAddr
@@ -1856,7 +1856,7 @@ function unsafeAddr():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Reflect.hx#L758>)
+[\(view code\)](<./Reflect.hx#L764>)
 
 
 ### Value function unsafePointer
@@ -1867,7 +1867,7 @@ function unsafePointer():stdgo._internal.unsafe.UnsafePointer
 ```
 
 
-[\(view code\)](<./Reflect.hx#L756>)
+[\(view code\)](<./Reflect.hx#L762>)
 
 
 ## class ValueError
@@ -1913,7 +1913,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1537>)
+[\(view code\)](<./Reflect.hx#L1543>)
 
 
 # Typedefs

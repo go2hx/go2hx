@@ -17,45 +17,45 @@
 
 - [class Filepath](<#class-filepath>)
 
-  - [`function abs(path:String):stdgo.Tuple<String, stdgo.Error>`](<#filepath-function-abs>)
+  - [`function abs(_path:String):stdgo.Tuple<String, stdgo.Error>`](<#filepath-function-abs>)
 
-  - [`function base(path:String):String`](<#filepath-function-base>)
+  - [`function base(_path:String):String`](<#filepath-function-base>)
 
-  - [`function clean(path:String):String`](<#filepath-function-clean>)
+  - [`function clean(_path:String):String`](<#filepath-function-clean>)
 
-  - [`function dir(path:String):String`](<#filepath-function-dir>)
+  - [`function dir(_path:String):String`](<#filepath-function-dir>)
 
-  - [`function evalSymlinks(path:String):stdgo.Tuple<String, stdgo.Error>`](<#filepath-function-evalsymlinks>)
+  - [`function evalSymlinks(_path:String):stdgo.Tuple<String, stdgo.Error>`](<#filepath-function-evalsymlinks>)
 
-  - [`function ext(path:String):String`](<#filepath-function-ext>)
+  - [`function ext(_path:String):String`](<#filepath-function-ext>)
 
-  - [`function fromSlash(path:String):String`](<#filepath-function-fromslash>)
+  - [`function fromSlash(_path:String):String`](<#filepath-function-fromslash>)
 
-  - [`function glob(pattern:String):stdgo.Tuple<Array<String>, stdgo.Error>`](<#filepath-function-glob>)
+  - [`function glob(_pattern:String):stdgo.Tuple<Array<String>, stdgo.Error>`](<#filepath-function-glob>)
 
-  - [`function hasPrefix(p:String, prefix:String):Bool`](<#filepath-function-hasprefix>)
+  - [`function hasPrefix(_p:String, _prefix:String):Bool`](<#filepath-function-hasprefix>)
 
-  - [`function isAbs(path:String):Bool`](<#filepath-function-isabs>)
+  - [`function isAbs(_path:String):Bool`](<#filepath-function-isabs>)
 
-  - [`function isLocal(path:String):Bool`](<#filepath-function-islocal>)
+  - [`function isLocal(_path:String):Bool`](<#filepath-function-islocal>)
 
-  - [`function join(elem:haxe.Rest<String>):String`](<#filepath-function-join>)
+  - [`function join(_elem:haxe.Rest<String>):String`](<#filepath-function-join>)
 
-  - [`function match(pattern:String, name:String):stdgo.Tuple<Bool, stdgo.Error>`](<#filepath-function-match>)
+  - [`function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error>`](<#filepath-function-match>)
 
-  - [`function rel(basepath:String, targpath:String):stdgo.Tuple<String, stdgo.Error>`](<#filepath-function-rel>)
+  - [`function rel(_basepath:String, _targpath:String):stdgo.Tuple<String, stdgo.Error>`](<#filepath-function-rel>)
 
-  - [`function split(path:String):stdgo.Tuple<String, String>`](<#filepath-function-split>)
+  - [`function split(_path:String):stdgo.Tuple<String, String>`](<#filepath-function-split>)
 
-  - [`function splitList(path:String):Array<String>`](<#filepath-function-splitlist>)
+  - [`function splitList(_path:String):Array<String>`](<#filepath-function-splitlist>)
 
-  - [`function toSlash(path:String):String`](<#filepath-function-toslash>)
+  - [`function toSlash(_path:String):String`](<#filepath-function-toslash>)
 
-  - [`function volumeName(path:String):String`](<#filepath-function-volumename>)
+  - [`function volumeName(_path:String):String`](<#filepath-function-volumename>)
 
-  - [`function walk(root:String, fn:stdgo.path.filepath.WalkFunc):stdgo.Error`](<#filepath-function-walk>)
+  - [`function walk(_root:String, _fn:stdgo.path.filepath.WalkFunc):stdgo.Error`](<#filepath-function-walk>)
 
-  - [`function walkDir(root:String, fn:stdgo._internal.io.fs.WalkDirFunc):stdgo.Error`](<#filepath-function-walkdir>)
+  - [`function walkDir(_root:String, _fn:stdgo._internal.io.fs.WalkDirFunc):stdgo.Error`](<#filepath-function-walkdir>)
 
 - [typedef WalkFunc](<#typedef-walkfunc>)
 
@@ -148,7 +148,7 @@ system, see the \[path\] package.
 
 
 ```haxe
-function abs(path:String):stdgo.Tuple<String, stdgo.Error>
+function abs(_path:String):stdgo.Tuple<String, stdgo.Error>
 ```
 
 
@@ -166,7 +166,7 @@ Abs returns an absolute representation of path.
 
 
 ```haxe
-function base(path:String):String
+function base(_path:String):String
 ```
 
 
@@ -183,7 +183,7 @@ Base returns the last element of path.
 
 
 ```haxe
-function clean(path:String):String
+function clean(_path:String):String
 ```
 
 
@@ -229,7 +229,7 @@ https://9p.io/sys/doc/lexnames.html
 
 
 ```haxe
-function dir(path:String):String
+function dir(_path:String):String
 ```
 
 
@@ -248,7 +248,7 @@ Dir returns all but the last element of path, typically the path's directory.
 
 
 ```haxe
-function evalSymlinks(path:String):stdgo.Tuple<String, stdgo.Error>
+function evalSymlinks(_path:String):stdgo.Tuple<String, stdgo.Error>
 ```
 
 
@@ -266,7 +266,7 @@ EvalSymlinks returns the path name after the evaluation of any symbolic
 
 
 ```haxe
-function ext(path:String):String
+function ext(_path:String):String
 ```
 
 
@@ -283,7 +283,7 @@ Ext returns the file name extension used by path.
 
 
 ```haxe
-function fromSlash(path:String):String
+function fromSlash(_path:String):String
 ```
 
 
@@ -299,7 +299,7 @@ FromSlash returns the result of replacing each slash ('/') character
 
 
 ```haxe
-function glob(pattern:String):stdgo.Tuple<Array<String>, stdgo.Error>
+function glob(_pattern:String):stdgo.Tuple<Array<String>, stdgo.Error>
 ```
 
 
@@ -321,7 +321,7 @@ is malformed.
 
 
 ```haxe
-function hasPrefix(p:String, prefix:String):Bool
+function hasPrefix(_p:String, _prefix:String):Bool
 ```
 
 
@@ -339,7 +339,7 @@ does not ignore case when required.
 
 
 ```haxe
-function isAbs(path:String):Bool
+function isAbs(_path:String):Bool
 ```
 
 
@@ -353,7 +353,7 @@ IsAbs reports whether the path is absolute.
 
 
 ```haxe
-function isLocal(path:String):Bool
+function isLocal(_path:String):Bool
 ```
 
 
@@ -383,7 +383,7 @@ that may exist in the filesystem.
 
 
 ```haxe
-function join(elem:haxe.Rest<String>):String
+function join(_elem:haxe.Rest<String>):String
 ```
 
 
@@ -403,7 +403,7 @@ Join joins any number of path elements into a single path,
 
 
 ```haxe
-function match(pattern:String, name:String):stdgo.Tuple<Bool, stdgo.Error>
+function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error>
 ```
 
 
@@ -444,7 +444,7 @@ path separator.
 
 
 ```haxe
-function rel(basepath:String, targpath:String):stdgo.Tuple<String, stdgo.Error>
+function rel(_basepath:String, _targpath:String):stdgo.Tuple<String, stdgo.Error>
 ```
 
 
@@ -465,7 +465,7 @@ Rel returns a relative path that is lexically equivalent to targpath when
 
 
 ```haxe
-function split(path:String):stdgo.Tuple<String, String>
+function split(_path:String):stdgo.Tuple<String, String>
 ```
 
 
@@ -483,7 +483,7 @@ Split splits path immediately following the final Separator,
 
 
 ```haxe
-function splitList(path:String):Array<String>
+function splitList(_path:String):Array<String>
 ```
 
 
@@ -500,7 +500,7 @@ SplitList splits a list of paths joined by the OS-specific ListSeparator,
 
 
 ```haxe
-function toSlash(path:String):String
+function toSlash(_path:String):String
 ```
 
 
@@ -516,7 +516,7 @@ ToSlash returns the result of replacing each separator character
 
 
 ```haxe
-function volumeName(path:String):String
+function volumeName(_path:String):String
 ```
 
 
@@ -533,7 +533,7 @@ VolumeName returns leading volume name.
 
 
 ```haxe
-function walk(root:String, fn:stdgo.path.filepath.WalkFunc):stdgo.Error
+function walk(_root:String, _fn:stdgo.path.filepath.WalkFunc):stdgo.Error
 ```
 
 
@@ -564,7 +564,7 @@ which avoids calling os.Lstat on every visited file or directory.
 
 
 ```haxe
-function walkDir(root:String, fn:stdgo._internal.io.fs.WalkDirFunc):stdgo.Error
+function walkDir(_root:String, _fn:stdgo._internal.io.fs.WalkDirFunc):stdgo.Error
 ```
 
 

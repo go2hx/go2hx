@@ -13,39 +13,39 @@
 
 - [class Syntax](<#class-syntax>)
 
-  - [`function benchmarkEmptyOpContext(b:stdgo._internal.testing.B):Void`](<#syntax-function-benchmarkemptyopcontext>)
+  - [`function benchmarkEmptyOpContext(_b:stdgo._internal.testing.B):Void`](<#syntax-function-benchmarkemptyopcontext>)
 
-  - [`function benchmarkIsWordChar(b:stdgo._internal.testing.B):Void`](<#syntax-function-benchmarkiswordchar>)
+  - [`function benchmarkIsWordChar(_b:stdgo._internal.testing.B):Void`](<#syntax-function-benchmarkiswordchar>)
 
-  - [`function compile(re:stdgo.regexp.syntax.Regexp):stdgo.Tuple<stdgo.regexp.syntax.Prog, stdgo.Error>`](<#syntax-function-compile>)
+  - [`function compile(_re:stdgo.regexp.syntax.Regexp):stdgo.Tuple<stdgo.regexp.syntax.Prog, stdgo.Error>`](<#syntax-function-compile>)
 
-  - [`function emptyOpContext(r1:Int, r2:Int):stdgo.regexp.syntax.EmptyOp`](<#syntax-function-emptyopcontext>)
+  - [`function emptyOpContext(_r1:Int, _r2:Int):stdgo.regexp.syntax.EmptyOp`](<#syntax-function-emptyopcontext>)
 
-  - [`function isWordChar(r:Int):Bool`](<#syntax-function-iswordchar>)
+  - [`function isWordChar(_r:Int):Bool`](<#syntax-function-iswordchar>)
 
-  - [`function parse(s:String, flags:stdgo.regexp.syntax.Flags):stdgo.Tuple<stdgo.regexp.syntax.Regexp, stdgo.Error>`](<#syntax-function-parse>)
+  - [`function parse(_s:String, _flags:stdgo.regexp.syntax.Flags):stdgo.Tuple<stdgo.regexp.syntax.Regexp, stdgo.Error>`](<#syntax-function-parse>)
 
-  - [`function testAppendRangeCollapse(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testappendrangecollapse>)
+  - [`function testAppendRangeCollapse(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testappendrangecollapse>)
 
-  - [`function testCompile(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testcompile>)
+  - [`function testCompile(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testcompile>)
 
-  - [`function testFoldConstants(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testfoldconstants>)
+  - [`function testFoldConstants(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testfoldconstants>)
 
-  - [`function testParseFoldCase(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsefoldcase>)
+  - [`function testParseFoldCase(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsefoldcase>)
 
-  - [`function testParseInvalidRegexps(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparseinvalidregexps>)
+  - [`function testParseInvalidRegexps(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparseinvalidregexps>)
 
-  - [`function testParseLiteral(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparseliteral>)
+  - [`function testParseLiteral(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparseliteral>)
 
-  - [`function testParseMatchNL(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsematchnl>)
+  - [`function testParseMatchNL(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsematchnl>)
 
-  - [`function testParseNoMatchNL(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsenomatchnl>)
+  - [`function testParseNoMatchNL(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsenomatchnl>)
 
-  - [`function testParseSimple(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsesimple>)
+  - [`function testParseSimple(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testparsesimple>)
 
-  - [`function testSimplify(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testsimplify>)
+  - [`function testSimplify(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testsimplify>)
 
-  - [`function testToStringEquivalentParse(t:stdgo._internal.testing.T_):Void`](<#syntax-function-testtostringequivalentparse>)
+  - [`function testToStringEquivalentParse(_t:stdgo._internal.testing.T_):Void`](<#syntax-function-testtostringequivalentparse>)
 
 - [typedef EmptyOp](<#typedef-emptyop>)
 
@@ -593,7 +593,7 @@ Unicode character classes are those in unicode.Categories and unicode.Scripts.
 
 
 ```haxe
-function benchmarkEmptyOpContext(b:stdgo._internal.testing.B):Void
+function benchmarkEmptyOpContext(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -604,7 +604,7 @@ function benchmarkEmptyOpContext(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function benchmarkIsWordChar(b:stdgo._internal.testing.B):Void
+function benchmarkIsWordChar(_b:stdgo._internal.testing.B):Void
 ```
 
 
@@ -615,7 +615,7 @@ function benchmarkIsWordChar(b:stdgo._internal.testing.B):Void
 
 
 ```haxe
-function compile(re:stdgo.regexp.syntax.Regexp):stdgo.Tuple<stdgo.regexp.syntax.Prog, stdgo.Error>
+function compile(_re:stdgo.regexp.syntax.Regexp):stdgo.Tuple<stdgo.regexp.syntax.Prog, stdgo.Error>
 ```
 
 
@@ -630,7 +630,7 @@ Compile compiles the regexp into a program to be executed.
 
 
 ```haxe
-function emptyOpContext(r1:Int, r2:Int):stdgo.regexp.syntax.EmptyOp
+function emptyOpContext(_r1:Int, _r2:Int):stdgo.regexp.syntax.EmptyOp
 ```
 
 
@@ -649,7 +649,7 @@ EmptyOpContext returns the zero-width assertions
 
 
 ```haxe
-function isWordChar(r:Int):Bool
+function isWordChar(_r:Int):Bool
 ```
 
 
@@ -665,7 +665,7 @@ IsWordChar reports whether r is considered a “word character”
 
 
 ```haxe
-function parse(s:String, flags:stdgo.regexp.syntax.Flags):stdgo.Tuple<stdgo.regexp.syntax.Regexp, stdgo.Error>
+function parse(_s:String, _flags:stdgo.regexp.syntax.Flags):stdgo.Tuple<stdgo.regexp.syntax.Regexp, stdgo.Error>
 ```
 
 
@@ -681,7 +681,7 @@ Parse parses a regular expression string s, controlled by the specified
 
 
 ```haxe
-function testAppendRangeCollapse(t:stdgo._internal.testing.T_):Void
+function testAppendRangeCollapse(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -692,7 +692,7 @@ function testAppendRangeCollapse(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testCompile(t:stdgo._internal.testing.T_):Void
+function testCompile(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -703,7 +703,7 @@ function testCompile(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testFoldConstants(t:stdgo._internal.testing.T_):Void
+function testFoldConstants(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -714,7 +714,7 @@ function testFoldConstants(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testParseFoldCase(t:stdgo._internal.testing.T_):Void
+function testParseFoldCase(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -725,7 +725,7 @@ function testParseFoldCase(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testParseInvalidRegexps(t:stdgo._internal.testing.T_):Void
+function testParseInvalidRegexps(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -736,7 +736,7 @@ function testParseInvalidRegexps(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testParseLiteral(t:stdgo._internal.testing.T_):Void
+function testParseLiteral(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -747,7 +747,7 @@ function testParseLiteral(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testParseMatchNL(t:stdgo._internal.testing.T_):Void
+function testParseMatchNL(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -758,7 +758,7 @@ function testParseMatchNL(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testParseNoMatchNL(t:stdgo._internal.testing.T_):Void
+function testParseNoMatchNL(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -769,7 +769,7 @@ function testParseNoMatchNL(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testParseSimple(t:stdgo._internal.testing.T_):Void
+function testParseSimple(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -780,7 +780,7 @@ function testParseSimple(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testSimplify(t:stdgo._internal.testing.T_):Void
+function testSimplify(_t:stdgo._internal.testing.T_):Void
 ```
 
 
@@ -791,7 +791,7 @@ function testSimplify(t:stdgo._internal.testing.T_):Void
 
 
 ```haxe
-function testToStringEquivalentParse(t:stdgo._internal.testing.T_):Void
+function testToStringEquivalentParse(_t:stdgo._internal.testing.T_):Void
 ```
 
 

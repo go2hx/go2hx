@@ -17,25 +17,25 @@
 
 - [class Bufio](<#class-bufio>)
 
-  - [`function newReadWriter(r:stdgo.bufio.Reader, w:stdgo.bufio.Writer):stdgo.bufio.ReadWriter`](<#bufio-function-newreadwriter>)
+  - [`function newReadWriter(_r:stdgo.bufio.Reader, _w:stdgo.bufio.Writer):stdgo.bufio.ReadWriter`](<#bufio-function-newreadwriter>)
 
-  - [`function newReader(rd:stdgo._internal.io.Reader):stdgo.bufio.Reader`](<#bufio-function-newreader>)
+  - [`function newReader(_rd:stdgo._internal.io.Reader):stdgo.bufio.Reader`](<#bufio-function-newreader>)
 
-  - [`function newReaderSize(rd:stdgo._internal.io.Reader, size:Int):stdgo.bufio.Reader`](<#bufio-function-newreadersize>)
+  - [`function newReaderSize(_rd:stdgo._internal.io.Reader, _size:Int):stdgo.bufio.Reader`](<#bufio-function-newreadersize>)
 
-  - [`function newScanner(r:stdgo._internal.io.Reader):stdgo.bufio.Scanner`](<#bufio-function-newscanner>)
+  - [`function newScanner(_r:stdgo._internal.io.Reader):stdgo.bufio.Scanner`](<#bufio-function-newscanner>)
 
-  - [`function newWriter(w:stdgo._internal.io.Writer):stdgo.bufio.Writer`](<#bufio-function-newwriter>)
+  - [`function newWriter(_w:stdgo._internal.io.Writer):stdgo.bufio.Writer`](<#bufio-function-newwriter>)
 
-  - [`function newWriterSize(w:stdgo._internal.io.Writer, size:Int):stdgo.bufio.Writer`](<#bufio-function-newwritersize>)
+  - [`function newWriterSize(_w:stdgo._internal.io.Writer, _size:Int):stdgo.bufio.Writer`](<#bufio-function-newwritersize>)
 
-  - [`function scanBytes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanbytes>)
+  - [`function scanBytes(_data:Array<Int>, _atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanbytes>)
 
-  - [`function scanLines(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanlines>)
+  - [`function scanLines(_data:Array<Int>, _atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanlines>)
 
-  - [`function scanRunes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanrunes>)
+  - [`function scanRunes(_data:Array<Int>, _atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanrunes>)
 
-  - [`function scanWords(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanwords>)
+  - [`function scanWords(_data:Array<Int>, _atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>`](<#bufio-function-scanwords>)
 
 - [typedef SplitFunc](<#typedef-splitfunc>)
 
@@ -157,7 +157,7 @@ Package bufio implements buffered I/O. It wraps an io.Reader or io.Writer
 
 
 ```haxe
-function newReadWriter(r:stdgo.bufio.Reader, w:stdgo.bufio.Writer):stdgo.bufio.ReadWriter
+function newReadWriter(_r:stdgo.bufio.Reader, _w:stdgo.bufio.Writer):stdgo.bufio.ReadWriter
 ```
 
 
@@ -171,7 +171,7 @@ NewReadWriter allocates a new ReadWriter that dispatches to r and w.
 
 
 ```haxe
-function newReader(rd:stdgo._internal.io.Reader):stdgo.bufio.Reader
+function newReader(_rd:stdgo._internal.io.Reader):stdgo.bufio.Reader
 ```
 
 
@@ -185,7 +185,7 @@ NewReader returns a new Reader whose buffer has the default size.
 
 
 ```haxe
-function newReaderSize(rd:stdgo._internal.io.Reader, size:Int):stdgo.bufio.Reader
+function newReaderSize(_rd:stdgo._internal.io.Reader, _size:Int):stdgo.bufio.Reader
 ```
 
 
@@ -201,7 +201,7 @@ NewReaderSize returns a new Reader whose buffer has at least the specified
 
 
 ```haxe
-function newScanner(r:stdgo._internal.io.Reader):stdgo.bufio.Scanner
+function newScanner(_r:stdgo._internal.io.Reader):stdgo.bufio.Scanner
 ```
 
 
@@ -216,7 +216,7 @@ NewScanner returns a new Scanner to read from r.
 
 
 ```haxe
-function newWriter(w:stdgo._internal.io.Writer):stdgo.bufio.Writer
+function newWriter(_w:stdgo._internal.io.Writer):stdgo.bufio.Writer
 ```
 
 
@@ -232,7 +232,7 @@ NewWriter returns a new Writer whose buffer has the default size.
 
 
 ```haxe
-function newWriterSize(w:stdgo._internal.io.Writer, size:Int):stdgo.bufio.Writer
+function newWriterSize(_w:stdgo._internal.io.Writer, _size:Int):stdgo.bufio.Writer
 ```
 
 
@@ -248,7 +248,7 @@ NewWriterSize returns a new Writer whose buffer has at least the specified
 
 
 ```haxe
-function scanBytes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>
+function scanBytes(_data:Array<Int>, _atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>
 ```
 
 
@@ -262,7 +262,7 @@ ScanBytes is a split function for a Scanner that returns each byte as a token.
 
 
 ```haxe
-function scanLines(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>
+function scanLines(_data:Array<Int>, _atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>
 ```
 
 
@@ -281,7 +281,7 @@ ScanLines is a split function for a Scanner that returns each line of
 
 
 ```haxe
-function scanRunes(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>
+function scanRunes(_data:Array<Int>, _atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>
 ```
 
 
@@ -300,7 +300,7 @@ ScanRunes is a split function for a Scanner that returns each
 
 
 ```haxe
-function scanWords(data:Array<Int>, atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>
+function scanWords(_data:Array<Int>, _atEOF:Bool):stdgo.Tuple3<Int, Array<Int>, stdgo.Error>
 ```
 
 

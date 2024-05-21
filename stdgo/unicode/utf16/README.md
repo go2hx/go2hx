@@ -13,17 +13,17 @@
 
 - [class Utf16](<#class-utf16>)
 
-  - [`function appendRune(a:Array<UInt>, r:Int):Array<UInt>`](<#utf16-function-appendrune>)
+  - [`function appendRune(_a:Array<UInt>, _r:Int):Array<UInt>`](<#utf16-function-appendrune>)
 
-  - [`function decode(s:Array<UInt>):Array<Int>`](<#utf16-function-decode>)
+  - [`function decode(_s:Array<UInt>):Array<Int>`](<#utf16-function-decode>)
 
-  - [`function decodeRune(r1:Int, r2:Int):Int`](<#utf16-function-decoderune>)
+  - [`function decodeRune(_r1:Int, _r2:Int):Int`](<#utf16-function-decoderune>)
 
-  - [`function encode(s:Array<Int>):Array<UInt>`](<#utf16-function-encode>)
+  - [`function encode(_s:Array<Int>):Array<UInt>`](<#utf16-function-encode>)
 
-  - [`function encodeRune(r:Int):stdgo.Tuple<Int, Int>`](<#utf16-function-encoderune>)
+  - [`function encodeRune(_r:Int):stdgo.Tuple<Int, Int>`](<#utf16-function-encoderune>)
 
-  - [`function isSurrogate(r:Int):Bool`](<#utf16-function-issurrogate>)
+  - [`function isSurrogate(_r:Int):Bool`](<#utf16-function-issurrogate>)
 
 # Constants
 
@@ -61,7 +61,7 @@ Package utf16 implements encoding and decoding of UTF\-16 sequences.
 
 
 ```haxe
-function appendRune(a:Array<UInt>, r:Int):Array<UInt>
+function appendRune(_a:Array<UInt>, _r:Int):Array<UInt>
 ```
 
 
@@ -77,7 +77,7 @@ AppendRune appends the UTF-16 encoding of the Unicode code point r
 
 
 ```haxe
-function decode(s:Array<UInt>):Array<Int>
+function decode(_s:Array<UInt>):Array<Int>
 ```
 
 
@@ -92,7 +92,7 @@ Decode returns the Unicode code point sequence represented
 
 
 ```haxe
-function decodeRune(r1:Int, r2:Int):Int
+function decodeRune(_r1:Int, _r2:Int):Int
 ```
 
 
@@ -108,7 +108,7 @@ DecodeRune returns the UTF-16 decoding of a surrogate pair.
 
 
 ```haxe
-function encode(s:Array<Int>):Array<UInt>
+function encode(_s:Array<Int>):Array<UInt>
 ```
 
 
@@ -122,7 +122,7 @@ Encode returns the UTF\-16 encoding of the Unicode code point sequence s.
 
 
 ```haxe
-function encodeRune(r:Int):stdgo.Tuple<Int, Int>
+function encodeRune(_r:Int):stdgo.Tuple<Int, Int>
 ```
 
 
@@ -138,7 +138,7 @@ EncodeRune returns the UTF-16 surrogate pair r1, r2 for the given rune.
 
 
 ```haxe
-function isSurrogate(r:Int):Bool
+function isSurrogate(_r:Int):Bool
 ```
 
 

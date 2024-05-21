@@ -13,11 +13,11 @@
 
 - [class Js](<#class-js>)
 
-  - [`function copyBytesToGo(dst:Array<Int>, src:stdgo.syscall.js.Value):Int`](<#js-function-copybytestogo>)
+  - [`function copyBytesToGo(_dst:Array<Int>, _src:stdgo.syscall.js.Value):Int`](<#js-function-copybytestogo>)
 
-  - [`function copyBytesToJS(dst:stdgo.syscall.js.Value, src:Array<Int>):Int`](<#js-function-copybytestojs>)
+  - [`function copyBytesToJS(_dst:stdgo.syscall.js.Value, _src:Array<Int>):Int`](<#js-function-copybytestojs>)
 
-  - [`function funcOf(fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):stdgo.syscall.js.Func`](<#js-function-funcof>)
+  - [`function funcOf(_fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):stdgo.syscall.js.Func`](<#js-function-funcof>)
 
   - [`function global():stdgo.syscall.js.Value`](<#js-function-global>)
 
@@ -25,7 +25,7 @@
 
   - [`function undefined():stdgo.syscall.js.Value`](<#js-function-undefined>)
 
-  - [`function valueOf(x:stdgo.AnyInterface):stdgo.syscall.js.Value`](<#js-function-valueof>)
+  - [`function valueOf(_x:stdgo.AnyInterface):stdgo.syscall.js.Value`](<#js-function-valueof>)
 
 - [typedef T\_ref](<#typedef-t_ref>)
 
@@ -110,7 +110,7 @@ comprehensive API for users. It is exempt from the Go compatibility promise.
 
 
 ```haxe
-function copyBytesToGo(dst:Array<Int>, src:stdgo.syscall.js.Value):Int
+function copyBytesToGo(_dst:Array<Int>, _src:stdgo.syscall.js.Value):Int
 ```
 
 
@@ -126,7 +126,7 @@ CopyBytesToGo copies bytes from src to dst.
 
 
 ```haxe
-function copyBytesToJS(dst:stdgo.syscall.js.Value, src:Array<Int>):Int
+function copyBytesToJS(_dst:stdgo.syscall.js.Value, _src:Array<Int>):Int
 ```
 
 
@@ -142,7 +142,7 @@ CopyBytesToJS copies bytes from src to dst.
 
 
 ```haxe
-function funcOf(fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):stdgo.syscall.js.Func
+function funcOf(_fn:(_this:stdgo.syscall.js.Value, _args:stdgo.Slice<stdgo.syscall.js.Value>):stdgo.AnyInterface):stdgo.syscall.js.Func
 ```
 
 
@@ -219,7 +219,7 @@ Undefined returns the JavaScript value "undefined".
 
 
 ```haxe
-function valueOf(x:stdgo.AnyInterface):stdgo.syscall.js.Value
+function valueOf(_x:stdgo.AnyInterface):stdgo.syscall.js.Value
 ```
 
 

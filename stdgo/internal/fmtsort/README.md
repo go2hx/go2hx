@@ -11,9 +11,9 @@
 
 - [class Fmtsort](<#class-fmtsort>)
 
-  - [`function compare(a:stdgo._internal.reflect.Value, b:stdgo._internal.reflect.Value):Int`](<#fmtsort-function-compare>)
+  - [`function compare(_a:stdgo._internal.reflect.Value, _b:stdgo._internal.reflect.Value):Int`](<#fmtsort-function-compare>)
 
-  - [`function sort(mapValue:stdgo._internal.reflect.Value):stdgo.internal.fmtsort.SortedMap`](<#fmtsort-function-sort>)
+  - [`function sort(_mapValue:stdgo._internal.reflect.Value):stdgo.internal.fmtsort.SortedMap`](<#fmtsort-function-sort>)
 
 - [abstract SortedMap](<#abstract-sortedmap>)
 
@@ -38,7 +38,7 @@ Package fmtsort provides a general stable ordering mechanism
 
 
 ```haxe
-function compare(a:stdgo._internal.reflect.Value, b:stdgo._internal.reflect.Value):Int
+function compare(_a:stdgo._internal.reflect.Value, _b:stdgo._internal.reflect.Value):Int
 ```
 
 
@@ -49,7 +49,7 @@ function compare(a:stdgo._internal.reflect.Value, b:stdgo._internal.reflect.Valu
 
 
 ```haxe
-function sort(mapValue:stdgo._internal.reflect.Value):stdgo.internal.fmtsort.SortedMap
+function sort(_mapValue:stdgo._internal.reflect.Value):stdgo.internal.fmtsort.SortedMap
 ```
 
 

@@ -17,115 +17,115 @@
 
 - [class Bytes](<#class-bytes>)
 
-  - [`function clone(b:Array<Int>):Array<Int>`](<#bytes-function-clone>)
+  - [`function clone(_b:Array<Int>):Array<Int>`](<#bytes-function-clone>)
 
-  - [`function compare(a:Array<Int>, b:Array<Int>):Int`](<#bytes-function-compare>)
+  - [`function compare(_a:Array<Int>, _b:Array<Int>):Int`](<#bytes-function-compare>)
 
-  - [`function contains(b:Array<Int>, subslice:Array<Int>):Bool`](<#bytes-function-contains>)
+  - [`function contains(_b:Array<Int>, _subslice:Array<Int>):Bool`](<#bytes-function-contains>)
 
-  - [`function containsAny(b:Array<Int>, chars:String):Bool`](<#bytes-function-containsany>)
+  - [`function containsAny(_b:Array<Int>, _chars:String):Bool`](<#bytes-function-containsany>)
 
-  - [`function containsFunc(b:Array<Int>, f:()):Bool`](<#bytes-function-containsfunc>)
+  - [`function containsFunc(_b:Array<Int>, _f:()):Bool`](<#bytes-function-containsfunc>)
 
-  - [`function containsRune(b:Array<Int>, r:Int):Bool`](<#bytes-function-containsrune>)
+  - [`function containsRune(_b:Array<Int>, _r:Int):Bool`](<#bytes-function-containsrune>)
 
-  - [`function count(s:Array<Int>, sep:Array<Int>):Int`](<#bytes-function-count>)
+  - [`function count(_s:Array<Int>, _sep:Array<Int>):Int`](<#bytes-function-count>)
 
-  - [`function cut(s:Array<Int>, sep:Array<Int>):stdgo.Tuple3<Array<Int>, Array<Int>, Bool>`](<#bytes-function-cut>)
+  - [`function cut(_s:Array<Int>, _sep:Array<Int>):stdgo.Tuple3<Array<Int>, Array<Int>, Bool>`](<#bytes-function-cut>)
 
-  - [`function cutPrefix(s:Array<Int>, prefix:Array<Int>):stdgo.Tuple<Array<Int>, Bool>`](<#bytes-function-cutprefix>)
+  - [`function cutPrefix(_s:Array<Int>, _prefix:Array<Int>):stdgo.Tuple<Array<Int>, Bool>`](<#bytes-function-cutprefix>)
 
-  - [`function cutSuffix(s:Array<Int>, suffix:Array<Int>):stdgo.Tuple<Array<Int>, Bool>`](<#bytes-function-cutsuffix>)
+  - [`function cutSuffix(_s:Array<Int>, _suffix:Array<Int>):stdgo.Tuple<Array<Int>, Bool>`](<#bytes-function-cutsuffix>)
 
-  - [`function equal(a:Array<Int>, b:Array<Int>):Bool`](<#bytes-function-equal>)
+  - [`function equal(_a:Array<Int>, _b:Array<Int>):Bool`](<#bytes-function-equal>)
 
-  - [`function equalFold(s:Array<Int>, t:Array<Int>):Bool`](<#bytes-function-equalfold>)
+  - [`function equalFold(_s:Array<Int>, _t:Array<Int>):Bool`](<#bytes-function-equalfold>)
 
-  - [`function fields(s:Array<Int>):Array<Array<Int>>`](<#bytes-function-fields>)
+  - [`function fields(_s:Array<Int>):Array<Array<Int>>`](<#bytes-function-fields>)
 
-  - [`function fieldsFunc(s:Array<Int>, f:()):Array<Array<Int>>`](<#bytes-function-fieldsfunc>)
+  - [`function fieldsFunc(_s:Array<Int>, _f:()):Array<Array<Int>>`](<#bytes-function-fieldsfunc>)
 
-  - [`function hasPrefix(s:Array<Int>, prefix:Array<Int>):Bool`](<#bytes-function-hasprefix>)
+  - [`function hasPrefix(_s:Array<Int>, _prefix:Array<Int>):Bool`](<#bytes-function-hasprefix>)
 
-  - [`function hasSuffix(s:Array<Int>, suffix:Array<Int>):Bool`](<#bytes-function-hassuffix>)
+  - [`function hasSuffix(_s:Array<Int>, _suffix:Array<Int>):Bool`](<#bytes-function-hassuffix>)
 
-  - [`function index(s:Array<Int>, sep:Array<Int>):Int`](<#bytes-function-index>)
+  - [`function index(_s:Array<Int>, _sep:Array<Int>):Int`](<#bytes-function-index>)
 
-  - [`function indexAny(s:Array<Int>, chars:String):Int`](<#bytes-function-indexany>)
+  - [`function indexAny(_s:Array<Int>, _chars:String):Int`](<#bytes-function-indexany>)
 
-  - [`function indexByte(b:Array<Int>, c:Int):Int`](<#bytes-function-indexbyte>)
+  - [`function indexByte(_b:Array<Int>, _c:Int):Int`](<#bytes-function-indexbyte>)
 
-  - [`function indexFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Int`](<#bytes-function-indexfunc>)
+  - [`function indexFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Int`](<#bytes-function-indexfunc>)
 
-  - [`function indexRune(s:Array<Int>, r:Int):Int`](<#bytes-function-indexrune>)
+  - [`function indexRune(_s:Array<Int>, _r:Int):Int`](<#bytes-function-indexrune>)
 
-  - [`function join(s:Array<Array<Int>>, sep:Array<Int>):Array<Int>`](<#bytes-function-join>)
+  - [`function join(_s:Array<Array<Int>>, _sep:Array<Int>):Array<Int>`](<#bytes-function-join>)
 
-  - [`function lastIndex(s:Array<Int>, sep:Array<Int>):Int`](<#bytes-function-lastindex>)
+  - [`function lastIndex(_s:Array<Int>, _sep:Array<Int>):Int`](<#bytes-function-lastindex>)
 
-  - [`function lastIndexAny(s:Array<Int>, chars:String):Int`](<#bytes-function-lastindexany>)
+  - [`function lastIndexAny(_s:Array<Int>, _chars:String):Int`](<#bytes-function-lastindexany>)
 
-  - [`function lastIndexByte(s:Array<Int>, c:Int):Int`](<#bytes-function-lastindexbyte>)
+  - [`function lastIndexByte(_s:Array<Int>, _c:Int):Int`](<#bytes-function-lastindexbyte>)
 
-  - [`function lastIndexFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Int`](<#bytes-function-lastindexfunc>)
+  - [`function lastIndexFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Int`](<#bytes-function-lastindexfunc>)
 
-  - [`function map_(mapping:(_r:stdgo.GoRune):stdgo.GoRune, s:Array<Int>):Array<Int>`](<#bytes-function-map_>)
+  - [`function map_(_mapping:(_r:stdgo.GoRune):stdgo.GoRune, _s:Array<Int>):Array<Int>`](<#bytes-function-map_>)
 
-  - [`function newBuffer(buf:Array<Int>):stdgo.bytes.Buffer`](<#bytes-function-newbuffer>)
+  - [`function newBuffer(_buf:Array<Int>):stdgo.bytes.Buffer`](<#bytes-function-newbuffer>)
 
-  - [`function newBufferString(s:String):stdgo.bytes.Buffer`](<#bytes-function-newbufferstring>)
+  - [`function newBufferString(_s:String):stdgo.bytes.Buffer`](<#bytes-function-newbufferstring>)
 
-  - [`function newReader(b:Array<Int>):stdgo.bytes.Reader`](<#bytes-function-newreader>)
+  - [`function newReader(_b:Array<Int>):stdgo.bytes.Reader`](<#bytes-function-newreader>)
 
-  - [`function repeat(b:Array<Int>, count:Int):Array<Int>`](<#bytes-function-repeat>)
+  - [`function repeat(_b:Array<Int>, _count:Int):Array<Int>`](<#bytes-function-repeat>)
 
-  - [`function replace(s:Array<Int>, old:Array<Int>, _new:Array<Int>, n:Int):Array<Int>`](<#bytes-function-replace>)
+  - [`function replace(_s:Array<Int>, _old:Array<Int>, _new:Array<Int>, _n:Int):Array<Int>`](<#bytes-function-replace>)
 
-  - [`function replaceAll(s:Array<Int>, old:Array<Int>, _new:Array<Int>):Array<Int>`](<#bytes-function-replaceall>)
+  - [`function replaceAll(_s:Array<Int>, _old:Array<Int>, _new:Array<Int>):Array<Int>`](<#bytes-function-replaceall>)
 
-  - [`function runes(s:Array<Int>):Array<Int>`](<#bytes-function-runes>)
+  - [`function runes(_s:Array<Int>):Array<Int>`](<#bytes-function-runes>)
 
-  - [`function split(s:Array<Int>, sep:Array<Int>):Array<Array<Int>>`](<#bytes-function-split>)
+  - [`function split(_s:Array<Int>, _sep:Array<Int>):Array<Array<Int>>`](<#bytes-function-split>)
 
-  - [`function splitAfter(s:Array<Int>, sep:Array<Int>):Array<Array<Int>>`](<#bytes-function-splitafter>)
+  - [`function splitAfter(_s:Array<Int>, _sep:Array<Int>):Array<Array<Int>>`](<#bytes-function-splitafter>)
 
-  - [`function splitAfterN(s:Array<Int>, sep:Array<Int>, n:Int):Array<Array<Int>>`](<#bytes-function-splitaftern>)
+  - [`function splitAfterN(_s:Array<Int>, _sep:Array<Int>, _n:Int):Array<Array<Int>>`](<#bytes-function-splitaftern>)
 
-  - [`function splitN(s:Array<Int>, sep:Array<Int>, n:Int):Array<Array<Int>>`](<#bytes-function-splitn>)
+  - [`function splitN(_s:Array<Int>, _sep:Array<Int>, _n:Int):Array<Array<Int>>`](<#bytes-function-splitn>)
 
-  - [`function title(s:Array<Int>):Array<Int>`](<#bytes-function-title>)
+  - [`function title(_s:Array<Int>):Array<Int>`](<#bytes-function-title>)
 
-  - [`function toLower(s:Array<Int>):Array<Int>`](<#bytes-function-tolower>)
+  - [`function toLower(_s:Array<Int>):Array<Int>`](<#bytes-function-tolower>)
 
-  - [`function toLowerSpecial(c:stdgo._internal.unicode.SpecialCase, s:Array<Int>):Array<Int>`](<#bytes-function-tolowerspecial>)
+  - [`function toLowerSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:Array<Int>):Array<Int>`](<#bytes-function-tolowerspecial>)
 
-  - [`function toTitle(s:Array<Int>):Array<Int>`](<#bytes-function-totitle>)
+  - [`function toTitle(_s:Array<Int>):Array<Int>`](<#bytes-function-totitle>)
 
-  - [`function toTitleSpecial(c:stdgo._internal.unicode.SpecialCase, s:Array<Int>):Array<Int>`](<#bytes-function-totitlespecial>)
+  - [`function toTitleSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:Array<Int>):Array<Int>`](<#bytes-function-totitlespecial>)
 
-  - [`function toUpper(s:Array<Int>):Array<Int>`](<#bytes-function-toupper>)
+  - [`function toUpper(_s:Array<Int>):Array<Int>`](<#bytes-function-toupper>)
 
-  - [`function toUpperSpecial(c:stdgo._internal.unicode.SpecialCase, s:Array<Int>):Array<Int>`](<#bytes-function-toupperspecial>)
+  - [`function toUpperSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:Array<Int>):Array<Int>`](<#bytes-function-toupperspecial>)
 
-  - [`function toValidUTF8(s:Array<Int>, replacement:Array<Int>):Array<Int>`](<#bytes-function-tovalidutf8>)
+  - [`function toValidUTF8(_s:Array<Int>, _replacement:Array<Int>):Array<Int>`](<#bytes-function-tovalidutf8>)
 
-  - [`function trim(s:Array<Int>, cutset:String):Array<Int>`](<#bytes-function-trim>)
+  - [`function trim(_s:Array<Int>, _cutset:String):Array<Int>`](<#bytes-function-trim>)
 
-  - [`function trimFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Array<Int>`](<#bytes-function-trimfunc>)
+  - [`function trimFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Array<Int>`](<#bytes-function-trimfunc>)
 
-  - [`function trimLeft(s:Array<Int>, cutset:String):Array<Int>`](<#bytes-function-trimleft>)
+  - [`function trimLeft(_s:Array<Int>, _cutset:String):Array<Int>`](<#bytes-function-trimleft>)
 
-  - [`function trimLeftFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Array<Int>`](<#bytes-function-trimleftfunc>)
+  - [`function trimLeftFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Array<Int>`](<#bytes-function-trimleftfunc>)
 
-  - [`function trimPrefix(s:Array<Int>, prefix:Array<Int>):Array<Int>`](<#bytes-function-trimprefix>)
+  - [`function trimPrefix(_s:Array<Int>, _prefix:Array<Int>):Array<Int>`](<#bytes-function-trimprefix>)
 
-  - [`function trimRight(s:Array<Int>, cutset:String):Array<Int>`](<#bytes-function-trimright>)
+  - [`function trimRight(_s:Array<Int>, _cutset:String):Array<Int>`](<#bytes-function-trimright>)
 
-  - [`function trimRightFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Array<Int>`](<#bytes-function-trimrightfunc>)
+  - [`function trimRightFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Array<Int>`](<#bytes-function-trimrightfunc>)
 
-  - [`function trimSpace(s:Array<Int>):Array<Int>`](<#bytes-function-trimspace>)
+  - [`function trimSpace(_s:Array<Int>):Array<Int>`](<#bytes-function-trimspace>)
 
-  - [`function trimSuffix(s:Array<Int>, suffix:Array<Int>):Array<Int>`](<#bytes-function-trimsuffix>)
+  - [`function trimSuffix(_s:Array<Int>, _suffix:Array<Int>):Array<Int>`](<#bytes-function-trimsuffix>)
 
 - [typedef T\_asciiSet](<#typedef-t_asciiset>)
 
@@ -201,7 +201,7 @@ Package bytes implements functions for the manipulation of byte slices.
 
 
 ```haxe
-function clone(b:Array<Int>):Array<Int>
+function clone(_b:Array<Int>):Array<Int>
 ```
 
 
@@ -217,7 +217,7 @@ Clone returns a copy of b[:len(b)].
 
 
 ```haxe
-function compare(a:Array<Int>, b:Array<Int>):Int
+function compare(_a:Array<Int>, _b:Array<Int>):Int
 ```
 
 
@@ -233,7 +233,7 @@ Compare returns an integer comparing two byte slices lexicographically.
 
 
 ```haxe
-function contains(b:Array<Int>, subslice:Array<Int>):Bool
+function contains(_b:Array<Int>, _subslice:Array<Int>):Bool
 ```
 
 
@@ -247,7 +247,7 @@ Contains reports whether subslice is within b.
 
 
 ```haxe
-function containsAny(b:Array<Int>, chars:String):Bool
+function containsAny(_b:Array<Int>, _chars:String):Bool
 ```
 
 
@@ -261,7 +261,7 @@ ContainsAny reports whether any of the UTF\-8\-encoded code points in chars are 
 
 
 ```haxe
-function containsFunc(b:Array<Int>, f:()):Bool
+function containsFunc(_b:Array<Int>, _f:()):Bool
 ```
 
 
@@ -275,7 +275,7 @@ ContainsFunc reports whether any of the UTF\-8\-encoded code points r within b s
 
 
 ```haxe
-function containsRune(b:Array<Int>, r:Int):Bool
+function containsRune(_b:Array<Int>, _r:Int):Bool
 ```
 
 
@@ -289,7 +289,7 @@ ContainsRune reports whether the rune is contained in the UTF\-8\-encoded byte s
 
 
 ```haxe
-function count(s:Array<Int>, sep:Array<Int>):Int
+function count(_s:Array<Int>, _sep:Array<Int>):Int
 ```
 
 
@@ -304,7 +304,7 @@ Count counts the number of non-overlapping instances of sep in s.
 
 
 ```haxe
-function cut(s:Array<Int>, sep:Array<Int>):stdgo.Tuple3<Array<Int>, Array<Int>, Bool>
+function cut(_s:Array<Int>, _sep:Array<Int>):stdgo.Tuple3<Array<Int>, Array<Int>, Bool>
 ```
 
 
@@ -324,7 +324,7 @@ Cut returns slices of the original slice s, not copies.
 
 
 ```haxe
-function cutPrefix(s:Array<Int>, prefix:Array<Int>):stdgo.Tuple<Array<Int>, Bool>
+function cutPrefix(_s:Array<Int>, _prefix:Array<Int>):stdgo.Tuple<Array<Int>, Bool>
 ```
 
 
@@ -344,7 +344,7 @@ CutPrefix returns slices of the original slice s, not copies.
 
 
 ```haxe
-function cutSuffix(s:Array<Int>, suffix:Array<Int>):stdgo.Tuple<Array<Int>, Bool>
+function cutSuffix(_s:Array<Int>, _suffix:Array<Int>):stdgo.Tuple<Array<Int>, Bool>
 ```
 
 
@@ -364,7 +364,7 @@ CutSuffix returns slices of the original slice s, not copies.
 
 
 ```haxe
-function equal(a:Array<Int>, b:Array<Int>):Bool
+function equal(_a:Array<Int>, _b:Array<Int>):Bool
 ```
 
 
@@ -380,7 +380,7 @@ Equal reports whether a and b
 
 
 ```haxe
-function equalFold(s:Array<Int>, t:Array<Int>):Bool
+function equalFold(_s:Array<Int>, _t:Array<Int>):Bool
 ```
 
 
@@ -396,7 +396,7 @@ EqualFold reports whether s and t, interpreted as UTF-8 strings,
 
 
 ```haxe
-function fields(s:Array<Int>):Array<Array<Int>>
+function fields(_s:Array<Int>):Array<Array<Int>>
 ```
 
 
@@ -413,7 +413,7 @@ Fields interprets s as a sequence of UTF-8-encoded code points.
 
 
 ```haxe
-function fieldsFunc(s:Array<Int>, f:()):Array<Array<Int>>
+function fieldsFunc(_s:Array<Int>, _f:()):Array<Array<Int>>
 ```
 
 
@@ -434,7 +434,7 @@ and assumes that f always returns the same value for a given c.
 
 
 ```haxe
-function hasPrefix(s:Array<Int>, prefix:Array<Int>):Bool
+function hasPrefix(_s:Array<Int>, _prefix:Array<Int>):Bool
 ```
 
 
@@ -448,7 +448,7 @@ HasPrefix tests whether the byte slice s begins with prefix.
 
 
 ```haxe
-function hasSuffix(s:Array<Int>, suffix:Array<Int>):Bool
+function hasSuffix(_s:Array<Int>, _suffix:Array<Int>):Bool
 ```
 
 
@@ -462,7 +462,7 @@ HasSuffix tests whether the byte slice s ends with suffix.
 
 
 ```haxe
-function index(s:Array<Int>, sep:Array<Int>):Int
+function index(_s:Array<Int>, _sep:Array<Int>):Int
 ```
 
 
@@ -476,7 +476,7 @@ Index returns the index of the first instance of sep in s, or \-1 if sep is not 
 
 
 ```haxe
-function indexAny(s:Array<Int>, chars:String):Int
+function indexAny(_s:Array<Int>, _chars:String):Int
 ```
 
 
@@ -493,7 +493,7 @@ IndexAny interprets s as a sequence of UTF-8-encoded Unicode code points.
 
 
 ```haxe
-function indexByte(b:Array<Int>, c:Int):Int
+function indexByte(_b:Array<Int>, _c:Int):Int
 ```
 
 
@@ -507,7 +507,7 @@ IndexByte returns the index of the first instance of c in b, or \-1 if c is not 
 
 
 ```haxe
-function indexFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Int
+function indexFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Int
 ```
 
 
@@ -523,7 +523,7 @@ IndexFunc interprets s as a sequence of UTF-8-encoded code points.
 
 
 ```haxe
-function indexRune(s:Array<Int>, r:Int):Int
+function indexRune(_s:Array<Int>, _r:Int):Int
 ```
 
 
@@ -541,7 +541,7 @@ IndexRune interprets s as a sequence of UTF-8-encoded code points.
 
 
 ```haxe
-function join(s:Array<Array<Int>>, sep:Array<Int>):Array<Int>
+function join(_s:Array<Array<Int>>, _sep:Array<Int>):Array<Int>
 ```
 
 
@@ -556,7 +556,7 @@ Join concatenates the elements of s to create a new byte slice. The separator
 
 
 ```haxe
-function lastIndex(s:Array<Int>, sep:Array<Int>):Int
+function lastIndex(_s:Array<Int>, _sep:Array<Int>):Int
 ```
 
 
@@ -570,7 +570,7 @@ LastIndex returns the index of the last instance of sep in s, or \-1 if sep is n
 
 
 ```haxe
-function lastIndexAny(s:Array<Int>, chars:String):Int
+function lastIndexAny(_s:Array<Int>, _chars:String):Int
 ```
 
 
@@ -587,7 +587,7 @@ LastIndexAny interprets s as a sequence of UTF-8-encoded Unicode code
 
 
 ```haxe
-function lastIndexByte(s:Array<Int>, c:Int):Int
+function lastIndexByte(_s:Array<Int>, _c:Int):Int
 ```
 
 
@@ -601,7 +601,7 @@ LastIndexByte returns the index of the last instance of c in s, or \-1 if c is n
 
 
 ```haxe
-function lastIndexFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Int
+function lastIndexFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Int
 ```
 
 
@@ -617,7 +617,7 @@ LastIndexFunc interprets s as a sequence of UTF-8-encoded code points.
 
 
 ```haxe
-function map_(mapping:(_r:stdgo.GoRune):stdgo.GoRune, s:Array<Int>):Array<Int>
+function map_(_mapping:(_r:stdgo.GoRune):stdgo.GoRune, _s:Array<Int>):Array<Int>
 ```
 
 
@@ -634,7 +634,7 @@ Map returns a copy of the byte slice s with all its characters modified
 
 
 ```haxe
-function newBuffer(buf:Array<Int>):stdgo.bytes.Buffer
+function newBuffer(_buf:Array<Int>):stdgo.bytes.Buffer
 ```
 
 
@@ -657,7 +657,7 @@ sufficient to initialize a Buffer.
 
 
 ```haxe
-function newBufferString(s:String):stdgo.bytes.Buffer
+function newBufferString(_s:String):stdgo.bytes.Buffer
 ```
 
 
@@ -677,7 +677,7 @@ sufficient to initialize a Buffer.
 
 
 ```haxe
-function newReader(b:Array<Int>):stdgo.bytes.Reader
+function newReader(_b:Array<Int>):stdgo.bytes.Reader
 ```
 
 
@@ -691,7 +691,7 @@ NewReader returns a new Reader reading from b.
 
 
 ```haxe
-function repeat(b:Array<Int>, count:Int):Array<Int>
+function repeat(_b:Array<Int>, _count:Int):Array<Int>
 ```
 
 
@@ -709,7 +709,7 @@ overflows.
 
 
 ```haxe
-function replace(s:Array<Int>, old:Array<Int>, _new:Array<Int>, n:Int):Array<Int>
+function replace(_s:Array<Int>, _old:Array<Int>, _new:Array<Int>, _n:Int):Array<Int>
 ```
 
 
@@ -728,7 +728,7 @@ Replace returns a copy of the slice s with the first n
 
 
 ```haxe
-function replaceAll(s:Array<Int>, old:Array<Int>, _new:Array<Int>):Array<Int>
+function replaceAll(_s:Array<Int>, _old:Array<Int>, _new:Array<Int>):Array<Int>
 ```
 
 
@@ -746,7 +746,7 @@ ReplaceAll returns a copy of the slice s with all
 
 
 ```haxe
-function runes(s:Array<Int>):Array<Int>
+function runes(_s:Array<Int>):Array<Int>
 ```
 
 
@@ -761,7 +761,7 @@ Runes interprets s as a sequence of UTF-8-encoded code points.
 
 
 ```haxe
-function split(s:Array<Int>, sep:Array<Int>):Array<Array<Int>>
+function split(_s:Array<Int>, _sep:Array<Int>):Array<Array<Int>>
 ```
 
 
@@ -781,7 +781,7 @@ To split around the first instance of a separator, see Cut.
 
 
 ```haxe
-function splitAfter(s:Array<Int>, sep:Array<Int>):Array<Array<Int>>
+function splitAfter(_s:Array<Int>, _sep:Array<Int>):Array<Array<Int>>
 ```
 
 
@@ -798,7 +798,7 @@ SplitAfter slices s into all subslices after each instance of sep and
 
 
 ```haxe
-function splitAfterN(s:Array<Int>, sep:Array<Int>, n:Int):Array<Array<Int>>
+function splitAfterN(_s:Array<Int>, _sep:Array<Int>, _n:Int):Array<Array<Int>>
 ```
 
 
@@ -820,7 +820,7 @@ SplitAfterN slices s into subslices after each instance of sep and
 
 
 ```haxe
-function splitN(s:Array<Int>, sep:Array<Int>, n:Int):Array<Array<Int>>
+function splitN(_s:Array<Int>, _sep:Array<Int>, _n:Int):Array<Array<Int>>
 ```
 
 
@@ -845,7 +845,7 @@ To split around the first instance of a separator, see Cut.
 
 
 ```haxe
-function title(s:Array<Int>):Array<Int>
+function title(_s:Array<Int>):Array<Int>
 ```
 
 
@@ -864,7 +864,7 @@ punctuation properly. Use golang.org/x/text/cases instead.
 
 
 ```haxe
-function toLower(s:Array<Int>):Array<Int>
+function toLower(_s:Array<Int>):Array<Int>
 ```
 
 
@@ -879,7 +879,7 @@ ToLower returns a copy of the byte slice s with all Unicode letters mapped to
 
 
 ```haxe
-function toLowerSpecial(c:stdgo._internal.unicode.SpecialCase, s:Array<Int>):Array<Int>
+function toLowerSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:Array<Int>):Array<Int>
 ```
 
 
@@ -894,7 +894,7 @@ ToLowerSpecial treats s as UTF-8-encoded bytes and returns a copy with all the U
 
 
 ```haxe
-function toTitle(s:Array<Int>):Array<Int>
+function toTitle(_s:Array<Int>):Array<Int>
 ```
 
 
@@ -908,7 +908,7 @@ ToTitle treats s as UTF\-8\-encoded bytes and returns a copy with all the Unicod
 
 
 ```haxe
-function toTitleSpecial(c:stdgo._internal.unicode.SpecialCase, s:Array<Int>):Array<Int>
+function toTitleSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:Array<Int>):Array<Int>
 ```
 
 
@@ -923,7 +923,7 @@ ToTitleSpecial treats s as UTF-8-encoded bytes and returns a copy with all the U
 
 
 ```haxe
-function toUpper(s:Array<Int>):Array<Int>
+function toUpper(_s:Array<Int>):Array<Int>
 ```
 
 
@@ -938,7 +938,7 @@ ToUpper returns a copy of the byte slice s with all Unicode letters mapped to
 
 
 ```haxe
-function toUpperSpecial(c:stdgo._internal.unicode.SpecialCase, s:Array<Int>):Array<Int>
+function toUpperSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:Array<Int>):Array<Int>
 ```
 
 
@@ -953,7 +953,7 @@ ToUpperSpecial treats s as UTF-8-encoded bytes and returns a copy with all the U
 
 
 ```haxe
-function toValidUTF8(s:Array<Int>, replacement:Array<Int>):Array<Int>
+function toValidUTF8(_s:Array<Int>, _replacement:Array<Int>):Array<Int>
 ```
 
 
@@ -968,7 +968,7 @@ ToValidUTF8 treats s as UTF-8-encoded bytes and returns a copy with each run of 
 
 
 ```haxe
-function trim(s:Array<Int>, cutset:String):Array<Int>
+function trim(_s:Array<Int>, _cutset:String):Array<Int>
 ```
 
 
@@ -983,7 +983,7 @@ Trim returns a subslice of s by slicing off all leading and
 
 
 ```haxe
-function trimFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Array<Int>
+function trimFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Array<Int>
 ```
 
 
@@ -998,7 +998,7 @@ TrimFunc returns a subslice of s by slicing off all leading and trailing
 
 
 ```haxe
-function trimLeft(s:Array<Int>, cutset:String):Array<Int>
+function trimLeft(_s:Array<Int>, _cutset:String):Array<Int>
 ```
 
 
@@ -1013,7 +1013,7 @@ TrimLeft returns a subslice of s by slicing off all leading
 
 
 ```haxe
-function trimLeftFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Array<Int>
+function trimLeftFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Array<Int>
 ```
 
 
@@ -1028,7 +1028,7 @@ TrimLeftFunc treats s as UTF-8-encoded bytes and returns a subslice of s by slic
 
 
 ```haxe
-function trimPrefix(s:Array<Int>, prefix:Array<Int>):Array<Int>
+function trimPrefix(_s:Array<Int>, _prefix:Array<Int>):Array<Int>
 ```
 
 
@@ -1043,7 +1043,7 @@ TrimPrefix returns s without the provided leading prefix string.
 
 
 ```haxe
-function trimRight(s:Array<Int>, cutset:String):Array<Int>
+function trimRight(_s:Array<Int>, _cutset:String):Array<Int>
 ```
 
 
@@ -1058,7 +1058,7 @@ TrimRight returns a subslice of s by slicing off all trailing
 
 
 ```haxe
-function trimRightFunc(s:Array<Int>, f:(_r:stdgo.GoRune):Bool):Array<Int>
+function trimRightFunc(_s:Array<Int>, _f:(_r:stdgo.GoRune):Bool):Array<Int>
 ```
 
 
@@ -1073,7 +1073,7 @@ TrimRightFunc returns a subslice of s by slicing off all trailing
 
 
 ```haxe
-function trimSpace(s:Array<Int>):Array<Int>
+function trimSpace(_s:Array<Int>):Array<Int>
 ```
 
 
@@ -1088,7 +1088,7 @@ TrimSpace returns a subslice of s by slicing off all leading and
 
 
 ```haxe
-function trimSuffix(s:Array<Int>, suffix:Array<Int>):Array<Int>
+function trimSuffix(_s:Array<Int>, _suffix:Array<Int>):Array<Int>
 ```
 
 

@@ -13,35 +13,35 @@
 
 - [class Utf8](<#class-utf8>)
 
-  - [`function appendRune(p:Array<Int>, r:Int):Array<Int>`](<#utf8-function-appendrune>)
+  - [`function appendRune(_p:Array<Int>, _r:Int):Array<Int>`](<#utf8-function-appendrune>)
 
-  - [`function decodeLastRune(p:Array<Int>):stdgo.Tuple<Int, Int>`](<#utf8-function-decodelastrune>)
+  - [`function decodeLastRune(_p:Array<Int>):stdgo.Tuple<Int, Int>`](<#utf8-function-decodelastrune>)
 
-  - [`function decodeLastRuneInString(s:String):stdgo.Tuple<Int, Int>`](<#utf8-function-decodelastruneinstring>)
+  - [`function decodeLastRuneInString(_s:String):stdgo.Tuple<Int, Int>`](<#utf8-function-decodelastruneinstring>)
 
-  - [`function decodeRune(p:Array<Int>):stdgo.Tuple<Int, Int>`](<#utf8-function-decoderune>)
+  - [`function decodeRune(_p:Array<Int>):stdgo.Tuple<Int, Int>`](<#utf8-function-decoderune>)
 
-  - [`function decodeRuneInString(s:String):stdgo.Tuple<Int, Int>`](<#utf8-function-decoderuneinstring>)
+  - [`function decodeRuneInString(_s:String):stdgo.Tuple<Int, Int>`](<#utf8-function-decoderuneinstring>)
 
-  - [`function encodeRune(p:Array<Int>, r:Int):Int`](<#utf8-function-encoderune>)
+  - [`function encodeRune(_p:Array<Int>, _r:Int):Int`](<#utf8-function-encoderune>)
 
-  - [`function fullRune(p:Array<Int>):Bool`](<#utf8-function-fullrune>)
+  - [`function fullRune(_p:Array<Int>):Bool`](<#utf8-function-fullrune>)
 
-  - [`function fullRuneInString(s:String):Bool`](<#utf8-function-fullruneinstring>)
+  - [`function fullRuneInString(_s:String):Bool`](<#utf8-function-fullruneinstring>)
 
-  - [`function runeCount(p:Array<Int>):Int`](<#utf8-function-runecount>)
+  - [`function runeCount(_p:Array<Int>):Int`](<#utf8-function-runecount>)
 
-  - [`function runeCountInString(s:String):Int`](<#utf8-function-runecountinstring>)
+  - [`function runeCountInString(_s:String):Int`](<#utf8-function-runecountinstring>)
 
-  - [`function runeLen(r:Int):Int`](<#utf8-function-runelen>)
+  - [`function runeLen(_r:Int):Int`](<#utf8-function-runelen>)
 
-  - [`function runeStart(b:Int):Bool`](<#utf8-function-runestart>)
+  - [`function runeStart(_b:Int):Bool`](<#utf8-function-runestart>)
 
-  - [`function valid(p:Array<Int>):Bool`](<#utf8-function-valid>)
+  - [`function valid(_p:Array<Int>):Bool`](<#utf8-function-valid>)
 
-  - [`function validRune(r:Int):Bool`](<#utf8-function-validrune>)
+  - [`function validRune(_r:Int):Bool`](<#utf8-function-validrune>)
 
-  - [`function validString(s:String):Bool`](<#utf8-function-validstring>)
+  - [`function validString(_s:String):Bool`](<#utf8-function-validstring>)
 
 - [abstract T\_acceptRange](<#abstract-t_acceptrange>)
 
@@ -93,7 +93,7 @@ Package utf8 implements functions and constants to support text encoded in
 
 
 ```haxe
-function appendRune(p:Array<Int>, r:Int):Array<Int>
+function appendRune(_p:Array<Int>, _r:Int):Array<Int>
 ```
 
 
@@ -109,7 +109,7 @@ AppendRune appends the UTF-8 encoding of r to the end of p and
 
 
 ```haxe
-function decodeLastRune(p:Array<Int>):stdgo.Tuple<Int, Int>
+function decodeLastRune(_p:Array<Int>):stdgo.Tuple<Int, Int>
 ```
 
 
@@ -131,7 +131,7 @@ value. No other validation is performed.
 
 
 ```haxe
-function decodeLastRuneInString(s:String):stdgo.Tuple<Int, Int>
+function decodeLastRuneInString(_s:String):stdgo.Tuple<Int, Int>
 ```
 
 
@@ -153,7 +153,7 @@ value. No other validation is performed.
 
 
 ```haxe
-function decodeRune(p:Array<Int>):stdgo.Tuple<Int, Int>
+function decodeRune(_p:Array<Int>):stdgo.Tuple<Int, Int>
 ```
 
 
@@ -175,7 +175,7 @@ value. No other validation is performed.
 
 
 ```haxe
-function decodeRuneInString(s:String):stdgo.Tuple<Int, Int>
+function decodeRuneInString(_s:String):stdgo.Tuple<Int, Int>
 ```
 
 
@@ -197,7 +197,7 @@ value. No other validation is performed.
 
 
 ```haxe
-function encodeRune(p:Array<Int>, r:Int):Int
+function encodeRune(_p:Array<Int>, _r:Int):Int
 ```
 
 
@@ -213,7 +213,7 @@ EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the 
 
 
 ```haxe
-function fullRune(p:Array<Int>):Bool
+function fullRune(_p:Array<Int>):Bool
 ```
 
 
@@ -228,7 +228,7 @@ FullRune reports whether the bytes in p begin with a full UTF-8 encoding of a ru
 
 
 ```haxe
-function fullRuneInString(s:String):Bool
+function fullRuneInString(_s:String):Bool
 ```
 
 
@@ -242,7 +242,7 @@ FullRuneInString is like FullRune but its input is a string.
 
 
 ```haxe
-function runeCount(p:Array<Int>):Int
+function runeCount(_p:Array<Int>):Int
 ```
 
 
@@ -257,7 +257,7 @@ RuneCount returns the number of runes in p. Erroneous and short
 
 
 ```haxe
-function runeCountInString(s:String):Int
+function runeCountInString(_s:String):Int
 ```
 
 
@@ -271,7 +271,7 @@ RuneCountInString is like RuneCount but its input is a string.
 
 
 ```haxe
-function runeLen(r:Int):Int
+function runeLen(_r:Int):Int
 ```
 
 
@@ -286,7 +286,7 @@ RuneLen returns the number of bytes required to encode the rune.
 
 
 ```haxe
-function runeStart(b:Int):Bool
+function runeStart(_b:Int):Bool
 ```
 
 
@@ -302,7 +302,7 @@ RuneStart reports whether the byte could be the first byte of an encoded,
 
 
 ```haxe
-function valid(p:Array<Int>):Bool
+function valid(_p:Array<Int>):Bool
 ```
 
 
@@ -316,7 +316,7 @@ Valid reports whether p consists entirely of valid UTF\-8\-encoded runes.
 
 
 ```haxe
-function validRune(r:Int):Bool
+function validRune(_r:Int):Bool
 ```
 
 
@@ -331,7 +331,7 @@ ValidRune reports whether r can be legally encoded as UTF-8.
 
 
 ```haxe
-function validString(s:String):Bool
+function validString(_s:String):Bool
 ```
 
 

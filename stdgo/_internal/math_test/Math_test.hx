@@ -1675,8 +1675,8 @@ function testFrexp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testGamma(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        #if (interp) {
-            trace("testGamma" + " skip targets: " + "interp");
+        #if (interp || js) {
+            trace("testGamma" + " skip targets: " + "interp, js");
             return;
         } #else null #end;
         {
@@ -2151,8 +2151,8 @@ function testModf(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testNextafter32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        #if (interp) {
-            trace("testNextafter32" + " skip targets: " + "interp");
+        #if (interp || js) {
+            trace("testNextafter32" + " skip targets: " + "interp, js");
             return;
         } #else null #end;
         {
@@ -2758,8 +2758,8 @@ function testTrigReduce(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testFloatMinMax(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void trace("testFloatMinMax not implemented: fmt formatter");
 function testFloatMinima(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        #if (interp) {
-            trace("testFloatMinima" + " skip targets: " + "interp");
+        #if (interp || js) {
+            trace("testFloatMinima" + " skip targets: " + "interp, js");
             return;
         } #else null #end;
         {

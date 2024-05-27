@@ -18,7 +18,21 @@ function main() {
 			final command = './bin/cpp/rnd';
 			Sys.println(command);
 			Sys.command(command);
-		} else if (Compiler.getDefine("rnd_interp") != null) {
+		} else if (Compiler.getDefine("rnd_js") != null) {
+			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --js runrnd.js -lib hxnodejs'  + (hxbBool ? " --hxb-lib go2hx.zip" : "");
+			Sys.println(command);
+			Sys.command(command);
+			final command = "NODE_OPTIONS=--enable-source-maps node runrnd.js";
+			Sys.println(command);
+			Sys.command(command);
+		}else if (Compiler.getDefine("rnd_jvm") != null) {
+			final command = 'haxe -cp golibs extraParams.hxml -v -main $mainPath --jvm runrnd.jar'  + (hxbBool ? " --hxb-lib go2hx.zip" : "");
+			Sys.println(command);
+			Sys.command(command);
+			final command = "java -jar runrnd.jar";
+			Sys.println(command);
+			Sys.command(command);
+		}else if (Compiler.getDefine("rnd_interp") != null) {
 			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --interp' + (hxbBool ? " --hxb-lib go2hx.zip" : "");
 			Sys.println(command);
 			Sys.command(command);

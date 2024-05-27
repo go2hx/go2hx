@@ -326,7 +326,7 @@ final list = [
 		return {_0: null, _1: null};
 	},
 	"regexp:_notab" => macro null,
-	"regexp.syntax:_badRe" => macro null,
+	"regexp:_badRe" => macro null,
 	"regexp.syntax:_parseTests" => macro null,
 	"regexp.syntax:_invalidRegexps" => macro null,
 	"os:stdin" => macro {

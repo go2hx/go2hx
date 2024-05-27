@@ -86,8 +86,6 @@ function hxmlToArgs(path:String,commands:Array<String>) {
 		if (line != "") {
 			final parts = line.split(" ");
 			commands.push(parts[0]);
-			if (parts[0] == "--macro")
-				parts[1] = '"' + parts[1] + '"';
 			if (parts.length > 1)
 				commands.push(parts[1]);
 		}

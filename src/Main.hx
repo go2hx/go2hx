@@ -49,7 +49,6 @@ function run(args:Array<String>) {
 	var index = 0;
 	if ((index = args.indexOf("-nogo")) != -1 || (index = args.indexOf("--nogo")) != -1) {
 		args.remove(args[index]);
-		trace("args after: " + args);
 		processCount = 0;
 	}
 	final instance = compileArgs(args);

@@ -1,7 +1,7 @@
 package stdgo.time;
-final ruleJulian : stdgo._internal.time.Time.RuleKind = stdgo._internal.time.Time.ruleJulian;
-final ruleDOY : stdgo._internal.time.Time.RuleKind = stdgo._internal.time.Time.ruleDOY;
-final ruleMonthWeekDay : stdgo._internal.time.Time.RuleKind = stdgo._internal.time.Time.ruleMonthWeekDay;
+final ruleJulian : RuleKind = stdgo._internal.time.Time.ruleJulian;
+final ruleDOY : RuleKind = stdgo._internal.time.Time.ruleDOY;
+final ruleMonthWeekDay : RuleKind = stdgo._internal.time.Time.ruleMonthWeekDay;
 final unixToInternal : haxe.Int64 = stdgo._internal.time.Time.unixToInternal;
 final layout : String = stdgo._internal.time.Time.layout;
 final ansic : String = stdgo._internal.time.Time.ansic;
@@ -22,7 +22,7 @@ final stampNano : String = stdgo._internal.time.Time.stampNano;
 final dateTime : String = stdgo._internal.time.Time.dateTime;
 final dateOnly : String = stdgo._internal.time.Time.dateOnly;
 final timeOnly : String = stdgo._internal.time.Time.timeOnly;
-final january : stdgo._internal.time.Time.Month = stdgo._internal.time.Time.january;
+final january : Month = stdgo._internal.time.Time.january;
 final february = stdgo._internal.time.Time.february;
 final march = stdgo._internal.time.Time.march;
 final april = stdgo._internal.time.Time.april;
@@ -34,28 +34,28 @@ final september = stdgo._internal.time.Time.september;
 final october = stdgo._internal.time.Time.october;
 final november = stdgo._internal.time.Time.november;
 final december = stdgo._internal.time.Time.december;
-final sunday : stdgo._internal.time.Time.Weekday = stdgo._internal.time.Time.sunday;
+final sunday : Weekday = stdgo._internal.time.Time.sunday;
 final monday = stdgo._internal.time.Time.monday;
 final tuesday = stdgo._internal.time.Time.tuesday;
 final wednesday = stdgo._internal.time.Time.wednesday;
 final thursday = stdgo._internal.time.Time.thursday;
 final friday = stdgo._internal.time.Time.friday;
 final saturday = stdgo._internal.time.Time.saturday;
-final nanosecond : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.nanosecond;
-final microsecond : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.microsecond;
-final millisecond : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.millisecond;
-final second : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.second;
-final minute : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.minute;
-final hour : stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.hour;
-var utc(get, set) : stdgo._internal.time.Time.Location;
-private function get_utc():stdgo._internal.time.Time.Location return stdgo._internal.time.Time.utc;
-private function set_utc(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location {
+final nanosecond : Duration = stdgo._internal.time.Time.nanosecond;
+final microsecond : Duration = stdgo._internal.time.Time.microsecond;
+final millisecond : Duration = stdgo._internal.time.Time.millisecond;
+final second : Duration = stdgo._internal.time.Time.second;
+final minute : Duration = stdgo._internal.time.Time.minute;
+final hour : Duration = stdgo._internal.time.Time.hour;
+var utc(get, set) : Location;
+private function get_utc():Location return stdgo._internal.time.Time.utc;
+private function set_utc(v:Location):Location {
         stdgo._internal.time.Time.utc = v;
         return v;
     }
-var local(get, set) : stdgo._internal.time.Time.Location;
-private function get_local():stdgo._internal.time.Time.Location return stdgo._internal.time.Time.local;
-private function set_local(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location {
+var local(get, set) : Location;
+private function get_local():Location return stdgo._internal.time.Time.local;
+private function set_local(v:Location):Location {
         stdgo._internal.time.Time.local = v;
         return v;
     }
@@ -185,28 +185,28 @@ private function set_daysIn(v:(stdgo._internal.time.Time.Month, stdgo.GoInt) -> 
         stdgo._internal.time.Time.daysIn = v;
         return v;
     }
-var minMonoTime(get, set) : stdgo._internal.time.Time.Time;
-private function get_minMonoTime():stdgo._internal.time.Time.Time return stdgo._internal.time.Time.minMonoTime;
-private function set_minMonoTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+var minMonoTime(get, set) : Time_;
+private function get_minMonoTime():Time_ return stdgo._internal.time.Time.minMonoTime;
+private function set_minMonoTime(v:Time_):Time_ {
         stdgo._internal.time.Time.minMonoTime = v;
         return v;
     }
-var maxMonoTime(get, set) : stdgo._internal.time.Time.Time;
-private function get_maxMonoTime():stdgo._internal.time.Time.Time return stdgo._internal.time.Time.maxMonoTime;
-private function set_maxMonoTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+var maxMonoTime(get, set) : Time_;
+private function get_maxMonoTime():Time_ return stdgo._internal.time.Time.maxMonoTime;
+private function set_maxMonoTime(v:Time_):Time_ {
         stdgo._internal.time.Time.maxMonoTime = v;
         return v;
     }
-var notMonoNegativeTime(get, set) : stdgo._internal.time.Time.Time;
-private function get_notMonoNegativeTime():stdgo._internal.time.Time.Time return stdgo._internal.time.Time.notMonoNegativeTime;
-private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo._internal.time.Time.Time {
+var notMonoNegativeTime(get, set) : Time_;
+private function get_notMonoNegativeTime():Time_ return stdgo._internal.time.Time.notMonoNegativeTime;
+private function set_notMonoNegativeTime(v:Time_):Time_ {
         stdgo._internal.time.Time.notMonoNegativeTime = v;
         return v;
     }
 @:structInit abstract Rule(stdgo._internal.time.Time.Rule) from stdgo._internal.time.Time.Rule to stdgo._internal.time.Time.Rule {
-    public var kind(get, set) : stdgo._internal.time.Time.RuleKind;
-    function get_kind():stdgo._internal.time.Time.RuleKind return this.kind;
-    function set_kind(v:stdgo._internal.time.Time.RuleKind):stdgo._internal.time.Time.RuleKind {
+    public var kind(get, set) : RuleKind;
+    function get_kind():RuleKind return this.kind;
+    function set_kind(v:RuleKind):RuleKind {
         this.kind = v;
         return v;
     }
@@ -234,7 +234,7 @@ private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo
         this.time = v;
         return v;
     }
-    public function new(?kind:stdgo._internal.time.Time.RuleKind, ?day:StdTypes.Int, ?week:StdTypes.Int, ?mon:StdTypes.Int, ?time:StdTypes.Int) this = new stdgo._internal.time.Time.Rule(kind, day, week, mon, time);
+    public function new(?kind:RuleKind, ?day:StdTypes.Int, ?week:StdTypes.Int, ?mon:StdTypes.Int, ?time:StdTypes.Int) this = new stdgo._internal.time.Time.Rule(kind, day, week, mon, time);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -333,13 +333,13 @@ private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo
         this.c = v;
         return v;
     }
-    public var _r(get, set) : stdgo._internal.time.Time.T_runtimeTimer;
-    function get__r():stdgo._internal.time.Time.T_runtimeTimer return this._r;
-    function set__r(v:stdgo._internal.time.Time.T_runtimeTimer):stdgo._internal.time.Time.T_runtimeTimer {
+    public var _r(get, set) : T_runtimeTimer;
+    function get__r():T_runtimeTimer return this._r;
+    function set__r(v:T_runtimeTimer):T_runtimeTimer {
         this._r = v;
         return v;
     }
-    public function new(?c:stdgo.Chan<stdgo._internal.time.Time.Time>, ?_r:stdgo._internal.time.Time.T_runtimeTimer) this = new stdgo._internal.time.Time.Timer(c, _r);
+    public function new(?c:stdgo.Chan<stdgo._internal.time.Time.Time>, ?_r:T_runtimeTimer) this = new stdgo._internal.time.Time.Timer(c, _r);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -350,13 +350,13 @@ private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo
         this.c = v;
         return v;
     }
-    public var _r(get, set) : stdgo._internal.time.Time.T_runtimeTimer;
-    function get__r():stdgo._internal.time.Time.T_runtimeTimer return this._r;
-    function set__r(v:stdgo._internal.time.Time.T_runtimeTimer):stdgo._internal.time.Time.T_runtimeTimer {
+    public var _r(get, set) : T_runtimeTimer;
+    function get__r():T_runtimeTimer return this._r;
+    function set__r(v:T_runtimeTimer):T_runtimeTimer {
         this._r = v;
         return v;
     }
-    public function new(?c:stdgo.Chan<stdgo._internal.time.Time.Time>, ?_r:stdgo._internal.time.Time.T_runtimeTimer) this = new stdgo._internal.time.Time.Ticker(c, _r);
+    public function new(?c:stdgo.Chan<stdgo._internal.time.Time.Time>, ?_r:T_runtimeTimer) this = new stdgo._internal.time.Time.Ticker(c, _r);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -373,13 +373,13 @@ private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo
         this._ext = v;
         return v;
     }
-    public var _loc(get, set) : stdgo._internal.time.Time.Location;
-    function get__loc():stdgo._internal.time.Time.Location return this._loc;
-    function set__loc(v:stdgo._internal.time.Time.Location):stdgo._internal.time.Time.Location {
+    public var _loc(get, set) : Location;
+    function get__loc():Location return this._loc;
+    function set__loc(v:Location):Location {
         this._loc = v;
         return v;
     }
-    public function new(?_wall:haxe.UInt64, ?_ext:haxe.Int64, ?_loc:stdgo._internal.time.Time.Location) this = new stdgo._internal.time.Time.Time(_wall, _ext, _loc);
+    public function new(?_wall:haxe.UInt64, ?_ext:haxe.Int64, ?_loc:Location) this = new stdgo._internal.time.Time.Time(_wall, _ext, _loc);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -390,15 +390,15 @@ private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo
         this._name = v;
         return v;
     }
-    public var _zone(get, set) : Array<stdgo._internal.time.Time.T_zone>;
-    function get__zone():Array<stdgo._internal.time.Time.T_zone> return [for (i in this._zone) i];
-    function set__zone(v:Array<stdgo._internal.time.Time.T_zone>):Array<stdgo._internal.time.Time.T_zone> {
+    public var _zone(get, set) : Array<T_zone>;
+    function get__zone():Array<T_zone> return [for (i in this._zone) i];
+    function set__zone(v:Array<T_zone>):Array<T_zone> {
         this._zone = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time.T_zone>);
         return v;
     }
-    public var _tx(get, set) : Array<stdgo._internal.time.Time.T_zoneTrans>;
-    function get__tx():Array<stdgo._internal.time.Time.T_zoneTrans> return [for (i in this._tx) i];
-    function set__tx(v:Array<stdgo._internal.time.Time.T_zoneTrans>):Array<stdgo._internal.time.Time.T_zoneTrans> {
+    public var _tx(get, set) : Array<T_zoneTrans>;
+    function get__tx():Array<T_zoneTrans> return [for (i in this._tx) i];
+    function set__tx(v:Array<T_zoneTrans>):Array<T_zoneTrans> {
         this._tx = ([for (i in v) i] : stdgo.Slice<stdgo._internal.time.Time.T_zoneTrans>);
         return v;
     }
@@ -420,13 +420,13 @@ private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo
         this._cacheEnd = v;
         return v;
     }
-    public var _cacheZone(get, set) : stdgo._internal.time.Time.T_zone;
-    function get__cacheZone():stdgo._internal.time.Time.T_zone return this._cacheZone;
-    function set__cacheZone(v:stdgo._internal.time.Time.T_zone):stdgo._internal.time.Time.T_zone {
+    public var _cacheZone(get, set) : T_zone;
+    function get__cacheZone():T_zone return this._cacheZone;
+    function set__cacheZone(v:T_zone):T_zone {
         this._cacheZone = v;
         return v;
     }
-    public function new(?_name:String, ?_zone:Array<stdgo._internal.time.Time.T_zone>, ?_tx:Array<stdgo._internal.time.Time.T_zoneTrans>, ?_extend:String, ?_cacheStart:haxe.Int64, ?_cacheEnd:haxe.Int64, ?_cacheZone:stdgo._internal.time.Time.T_zone) this = new stdgo._internal.time.Time.Location(_name, ([for (i in _zone) i] : stdgo.Slice<stdgo._internal.time.Time.T_zone>), ([for (i in _tx) i] : stdgo.Slice<stdgo._internal.time.Time.T_zoneTrans>), _extend, _cacheStart, _cacheEnd, _cacheZone);
+    public function new(?_name:String, ?_zone:Array<T_zone>, ?_tx:Array<T_zoneTrans>, ?_extend:String, ?_cacheStart:haxe.Int64, ?_cacheEnd:haxe.Int64, ?_cacheZone:T_zone) this = new stdgo._internal.time.Time.Location(_name, ([for (i in _zone) i] : stdgo.Slice<stdgo._internal.time.Time.T_zone>), ([for (i in _tx) i] : stdgo.Slice<stdgo._internal.time.Time.T_zoneTrans>), _extend, _cacheStart, _cacheEnd, _cacheZone);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -483,9 +483,9 @@ private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_rule(stdgo._internal.time.Time.T_rule) from stdgo._internal.time.Time.T_rule to stdgo._internal.time.Time.T_rule {
-    public var _kind(get, set) : stdgo._internal.time.Time.T_ruleKind;
-    function get__kind():stdgo._internal.time.Time.T_ruleKind return this._kind;
-    function set__kind(v:stdgo._internal.time.Time.T_ruleKind):stdgo._internal.time.Time.T_ruleKind {
+    public var _kind(get, set) : T_ruleKind;
+    function get__kind():T_ruleKind return this._kind;
+    function set__kind(v:T_ruleKind):T_ruleKind {
         this._kind = v;
         return v;
     }
@@ -513,7 +513,7 @@ private function set_notMonoNegativeTime(v:stdgo._internal.time.Time.Time):stdgo
         this._time = v;
         return v;
     }
-    public function new(?_kind:stdgo._internal.time.Time.T_ruleKind, ?_day:StdTypes.Int, ?_week:StdTypes.Int, ?_mon:StdTypes.Int, ?_time:StdTypes.Int) this = new stdgo._internal.time.Time.T_rule(_kind, _day, _week, _mon, _time);
+    public function new(?_kind:T_ruleKind, ?_day:StdTypes.Int, ?_week:StdTypes.Int, ?_mon:StdTypes.Int, ?_time:StdTypes.Int) this = new stdgo._internal.time.Time.T_rule(_kind, _day, _week, _mon, _time);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

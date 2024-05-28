@@ -2363,7 +2363,7 @@ function _isOddInt(_x:stdgo.GoFloat64):Bool {
         return ((_xf == (0 : stdgo.GoFloat64)) && (((_xi : stdgo.GoInt64) & (1i64 : stdgo.GoInt64) : stdgo.GoInt64) == (1i64 : stdgo.GoInt64)) : Bool);
     }
 function pow(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
-        #if js {
+        #if (js || interp) {
             if (_x == 1 && std.Math.isNaN(_y.toBasic())) return 1;
             if ((_x == -1 || _x == 1) && isInf(_y, 0)) return 1;
         } #else null #end;

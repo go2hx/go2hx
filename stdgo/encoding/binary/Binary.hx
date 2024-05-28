@@ -79,9 +79,9 @@ typedef AppendByteOrder = stdgo._internal.encoding.binary.Binary.AppendByteOrder
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_coder(stdgo._internal.encoding.binary.Binary.T_coder) from stdgo._internal.encoding.binary.Binary.T_coder to stdgo._internal.encoding.binary.Binary.T_coder {
-    public var _order(get, set) : stdgo._internal.encoding.binary.Binary.ByteOrder;
-    function get__order():stdgo._internal.encoding.binary.Binary.ByteOrder return this._order;
-    function set__order(v:stdgo._internal.encoding.binary.Binary.ByteOrder):stdgo._internal.encoding.binary.Binary.ByteOrder {
+    public var _order(get, set) : ByteOrder;
+    function get__order():ByteOrder return this._order;
+    function set__order(v:ByteOrder):ByteOrder {
         this._order = v;
         return v;
     }
@@ -97,7 +97,7 @@ typedef AppendByteOrder = stdgo._internal.encoding.binary.Binary.AppendByteOrder
         this._offset = v;
         return v;
     }
-    public function new(?_order:stdgo._internal.encoding.binary.Binary.ByteOrder, ?_buf:Array<std.UInt>, ?_offset:StdTypes.Int) this = new stdgo._internal.encoding.binary.Binary.T_coder(_order, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _offset);
+    public function new(?_order:ByteOrder, ?_buf:Array<std.UInt>, ?_offset:StdTypes.Int) this = new stdgo._internal.encoding.binary.Binary.T_coder(_order, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _offset);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -375,13 +375,13 @@ bool_,
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.encoding.binary.Binary.T_nativeEndian_static_extension) abstract T_nativeEndian(stdgo._internal.encoding.binary.Binary.T_nativeEndian) from stdgo._internal.encoding.binary.Binary.T_nativeEndian to stdgo._internal.encoding.binary.Binary.T_nativeEndian {
-    public var _littleEndian(get, set) : stdgo._internal.encoding.binary.Binary.T_littleEndian;
-    function get__littleEndian():stdgo._internal.encoding.binary.Binary.T_littleEndian return this._littleEndian;
-    function set__littleEndian(v:stdgo._internal.encoding.binary.Binary.T_littleEndian):stdgo._internal.encoding.binary.Binary.T_littleEndian {
+    public var _littleEndian(get, set) : T_littleEndian;
+    function get__littleEndian():T_littleEndian return this._littleEndian;
+    function set__littleEndian(v:T_littleEndian):T_littleEndian {
         this._littleEndian = v;
         return v;
     }
-    public function new(?_littleEndian:stdgo._internal.encoding.binary.Binary.T_littleEndian) this = new stdgo._internal.encoding.binary.Binary.T_nativeEndian(_littleEndian);
+    public function new(?_littleEndian:T_littleEndian) this = new stdgo._internal.encoding.binary.Binary.T_nativeEndian(_littleEndian);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -427,25 +427,25 @@ typedef T_encoder = stdgo._internal.encoding.binary.Binary.T_encoder;
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract T_testSizeStructCache___localname___bar_7275(stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275) from stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275 to stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275 {
-    public var a(get, set) : stdgo._internal.encoding.binary.Binary.Struct;
-    function get_a():stdgo._internal.encoding.binary.Binary.Struct return this.a;
-    function set_a(v:stdgo._internal.encoding.binary.Binary.Struct):stdgo._internal.encoding.binary.Binary.Struct {
+    public var a(get, set) : Struct;
+    function get_a():Struct return this.a;
+    function set_a(v:Struct):Struct {
         this.a = v;
         return v;
     }
-    public var b(get, set) : stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241;
-    function get_b():stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241 return this.b;
-    function set_b(v:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241):stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241 {
+    public var b(get, set) : T_testSizeStructCache___localname___foo_7241;
+    function get_b():T_testSizeStructCache___localname___foo_7241 return this.b;
+    function set_b(v:T_testSizeStructCache___localname___foo_7241):T_testSizeStructCache___localname___foo_7241 {
         this.b = v;
         return v;
     }
-    public var c(get, set) : stdgo._internal.encoding.binary.Binary.Struct;
-    function get_c():stdgo._internal.encoding.binary.Binary.Struct return this.c;
-    function set_c(v:stdgo._internal.encoding.binary.Binary.Struct):stdgo._internal.encoding.binary.Binary.Struct {
+    public var c(get, set) : Struct;
+    function get_c():Struct return this.c;
+    function set_c(v:Struct):Struct {
         this.c = v;
         return v;
     }
-    public function new(?a:stdgo._internal.encoding.binary.Binary.Struct, ?b:stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___foo_7241, ?c:stdgo._internal.encoding.binary.Binary.Struct) this = new stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275(a, b, c);
+    public function new(?a:Struct, ?b:T_testSizeStructCache___localname___foo_7241, ?c:Struct) this = new stdgo._internal.encoding.binary.Binary.T_testSizeStructCache___localname___bar_7275(a, b, c);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

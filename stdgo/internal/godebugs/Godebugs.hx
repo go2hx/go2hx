@@ -1,7 +1,7 @@
 package stdgo.internal.godebugs;
-var all(get, set) : Array<stdgo._internal.internal.godebugs.Godebugs.Info>;
-private function get_all():Array<stdgo._internal.internal.godebugs.Godebugs.Info> return [for (i in stdgo._internal.internal.godebugs.Godebugs.all) i];
-private function set_all(v:Array<stdgo._internal.internal.godebugs.Godebugs.Info>):Array<stdgo._internal.internal.godebugs.Godebugs.Info> {
+var all(get, set) : Array<Info>;
+private function get_all():Array<Info> return [for (i in stdgo._internal.internal.godebugs.Godebugs.all) i];
+private function set_all(v:Array<Info>):Array<Info> {
         stdgo._internal.internal.godebugs.Godebugs.all = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.godebugs.Godebugs.Info>);
         return v;
     }

@@ -29,9 +29,9 @@ package stdgo.compress.bzip2;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.compress.bzip2.Bzip2.T_reader_static_extension) abstract T_reader(stdgo._internal.compress.bzip2.Bzip2.T_reader) from stdgo._internal.compress.bzip2.Bzip2.T_reader to stdgo._internal.compress.bzip2.Bzip2.T_reader {
-    public var _br(get, set) : stdgo._internal.compress.bzip2.Bzip2.T_bitReader;
-    function get__br():stdgo._internal.compress.bzip2.Bzip2.T_bitReader return this._br;
-    function set__br(v:stdgo._internal.compress.bzip2.Bzip2.T_bitReader):stdgo._internal.compress.bzip2.Bzip2.T_bitReader {
+    public var _br(get, set) : T_bitReader;
+    function get__br():T_bitReader return this._br;
+    function set__br(v:T_bitReader):T_bitReader {
         this._br = v;
         return v;
     }
@@ -119,7 +119,7 @@ package stdgo.compress.bzip2;
         this._repeats = v;
         return v;
     }
-    public function new(?_br:stdgo._internal.compress.bzip2.Bzip2.T_bitReader, ?_fileCRC:std.UInt, ?_blockCRC:std.UInt, ?_wantBlockCRC:std.UInt, ?_setupDone:Bool, ?_blockSize:StdTypes.Int, ?_eof:Bool, ?_c:haxe.ds.Vector<std.UInt>, ?_tt:Array<std.UInt>, ?_tPos:std.UInt, ?_preRLE:Array<std.UInt>, ?_preRLEUsed:StdTypes.Int, ?_lastByte:StdTypes.Int, ?_byteRepeats:std.UInt, ?_repeats:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2.T_reader(
+    public function new(?_br:T_bitReader, ?_fileCRC:std.UInt, ?_blockCRC:std.UInt, ?_wantBlockCRC:std.UInt, ?_setupDone:Bool, ?_blockSize:StdTypes.Int, ?_eof:Bool, ?_c:haxe.ds.Vector<std.UInt>, ?_tt:Array<std.UInt>, ?_tPos:std.UInt, ?_preRLE:Array<std.UInt>, ?_preRLEUsed:StdTypes.Int, ?_lastByte:StdTypes.Int, ?_byteRepeats:std.UInt, ?_repeats:std.UInt) this = new stdgo._internal.compress.bzip2.Bzip2.T_reader(
 _br,
 _fileCRC,
 _blockCRC,
@@ -139,9 +139,9 @@ _repeats);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.compress.bzip2.Bzip2.T_huffmanTree_static_extension) abstract T_huffmanTree(stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree) from stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree to stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree {
-    public var _nodes(get, set) : Array<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode>;
-    function get__nodes():Array<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode> return [for (i in this._nodes) i];
-    function set__nodes(v:Array<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode>):Array<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode> {
+    public var _nodes(get, set) : Array<T_huffmanNode>;
+    function get__nodes():Array<T_huffmanNode> return [for (i in this._nodes) i];
+    function set__nodes(v:Array<T_huffmanNode>):Array<T_huffmanNode> {
         this._nodes = ([for (i in v) i] : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode>);
         return v;
     }
@@ -151,7 +151,7 @@ _repeats);
         this._nextNode = v;
         return v;
     }
-    public function new(?_nodes:Array<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode>, ?_nextNode:StdTypes.Int) this = new stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree(([for (i in _nodes) i] : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode>), _nextNode);
+    public function new(?_nodes:Array<T_huffmanNode>, ?_nextNode:StdTypes.Int) this = new stdgo._internal.compress.bzip2.Bzip2.T_huffmanTree(([for (i in _nodes) i] : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2.T_huffmanNode>), _nextNode);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

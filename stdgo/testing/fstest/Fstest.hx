@@ -40,13 +40,13 @@ package stdgo.testing.fstest;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.testing.fstest.Fstest.T_noSub_static_extension) abstract T_noSub(stdgo._internal.testing.fstest.Fstest.T_noSub) from stdgo._internal.testing.fstest.Fstest.T_noSub to stdgo._internal.testing.fstest.Fstest.T_noSub {
-    public var mapFS(get, set) : stdgo._internal.testing.fstest.Fstest.MapFS;
-    function get_mapFS():stdgo._internal.testing.fstest.Fstest.MapFS return this.mapFS;
-    function set_mapFS(v:stdgo._internal.testing.fstest.Fstest.MapFS):stdgo._internal.testing.fstest.Fstest.MapFS {
+    public var mapFS(get, set) : MapFS;
+    function get_mapFS():MapFS return this.mapFS;
+    function set_mapFS(v:MapFS):MapFS {
         this.mapFS = v;
         return v;
     }
-    public function new(?mapFS:stdgo._internal.testing.fstest.Fstest.MapFS) this = new stdgo._internal.testing.fstest.Fstest.T_noSub(mapFS);
+    public function new(?mapFS:MapFS) this = new stdgo._internal.testing.fstest.Fstest.T_noSub(mapFS);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -57,13 +57,13 @@ package stdgo.testing.fstest;
         this._name = v;
         return v;
     }
-    public var _f(get, set) : stdgo._internal.testing.fstest.Fstest.MapFile;
-    function get__f():stdgo._internal.testing.fstest.Fstest.MapFile return this._f;
-    function set__f(v:stdgo._internal.testing.fstest.Fstest.MapFile):stdgo._internal.testing.fstest.Fstest.MapFile {
+    public var _f(get, set) : MapFile;
+    function get__f():MapFile return this._f;
+    function set__f(v:MapFile):MapFile {
         this._f = v;
         return v;
     }
-    public function new(?_name:String, ?_f:stdgo._internal.testing.fstest.Fstest.MapFile) this = new stdgo._internal.testing.fstest.Fstest.T_mapFileInfo(_name, _f);
+    public function new(?_name:String, ?_f:MapFile) this = new stdgo._internal.testing.fstest.Fstest.T_mapFileInfo(_name, _f);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -74,9 +74,9 @@ package stdgo.testing.fstest;
         this._path = v;
         return v;
     }
-    public var _mapFileInfo(get, set) : stdgo._internal.testing.fstest.Fstest.T_mapFileInfo;
-    function get__mapFileInfo():stdgo._internal.testing.fstest.Fstest.T_mapFileInfo return this._mapFileInfo;
-    function set__mapFileInfo(v:stdgo._internal.testing.fstest.Fstest.T_mapFileInfo):stdgo._internal.testing.fstest.Fstest.T_mapFileInfo {
+    public var _mapFileInfo(get, set) : T_mapFileInfo;
+    function get__mapFileInfo():T_mapFileInfo return this._mapFileInfo;
+    function set__mapFileInfo(v:T_mapFileInfo):T_mapFileInfo {
         this._mapFileInfo = v;
         return v;
     }
@@ -86,7 +86,7 @@ package stdgo.testing.fstest;
         this._offset = v;
         return v;
     }
-    public function new(?_path:String, ?_mapFileInfo:stdgo._internal.testing.fstest.Fstest.T_mapFileInfo, ?_offset:haxe.Int64) this = new stdgo._internal.testing.fstest.Fstest.T_openMapFile(_path, _mapFileInfo, _offset);
+    public function new(?_path:String, ?_mapFileInfo:T_mapFileInfo, ?_offset:haxe.Int64) this = new stdgo._internal.testing.fstest.Fstest.T_openMapFile(_path, _mapFileInfo, _offset);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -97,15 +97,15 @@ package stdgo.testing.fstest;
         this._path = v;
         return v;
     }
-    public var _mapFileInfo(get, set) : stdgo._internal.testing.fstest.Fstest.T_mapFileInfo;
-    function get__mapFileInfo():stdgo._internal.testing.fstest.Fstest.T_mapFileInfo return this._mapFileInfo;
-    function set__mapFileInfo(v:stdgo._internal.testing.fstest.Fstest.T_mapFileInfo):stdgo._internal.testing.fstest.Fstest.T_mapFileInfo {
+    public var _mapFileInfo(get, set) : T_mapFileInfo;
+    function get__mapFileInfo():T_mapFileInfo return this._mapFileInfo;
+    function set__mapFileInfo(v:T_mapFileInfo):T_mapFileInfo {
         this._mapFileInfo = v;
         return v;
     }
-    public var _entry(get, set) : Array<stdgo._internal.testing.fstest.Fstest.T_mapFileInfo>;
-    function get__entry():Array<stdgo._internal.testing.fstest.Fstest.T_mapFileInfo> return [for (i in this._entry) i];
-    function set__entry(v:Array<stdgo._internal.testing.fstest.Fstest.T_mapFileInfo>):Array<stdgo._internal.testing.fstest.Fstest.T_mapFileInfo> {
+    public var _entry(get, set) : Array<T_mapFileInfo>;
+    function get__entry():Array<T_mapFileInfo> return [for (i in this._entry) i];
+    function set__entry(v:Array<T_mapFileInfo>):Array<T_mapFileInfo> {
         this._entry = ([for (i in v) i] : stdgo.Slice<stdgo._internal.testing.fstest.Fstest.T_mapFileInfo>);
         return v;
     }
@@ -115,7 +115,7 @@ package stdgo.testing.fstest;
         this._offset = v;
         return v;
     }
-    public function new(?_path:String, ?_mapFileInfo:stdgo._internal.testing.fstest.Fstest.T_mapFileInfo, ?_entry:Array<stdgo._internal.testing.fstest.Fstest.T_mapFileInfo>, ?_offset:StdTypes.Int) this = new stdgo._internal.testing.fstest.Fstest.T_mapDir(_path, _mapFileInfo, ([for (i in _entry) i] : stdgo.Slice<stdgo._internal.testing.fstest.Fstest.T_mapFileInfo>), _offset);
+    public function new(?_path:String, ?_mapFileInfo:T_mapFileInfo, ?_entry:Array<T_mapFileInfo>, ?_offset:StdTypes.Int) this = new stdgo._internal.testing.fstest.Fstest.T_mapDir(_path, _mapFileInfo, ([for (i in _entry) i] : stdgo.Slice<stdgo._internal.testing.fstest.Fstest.T_mapFileInfo>), _offset);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -1,27 +1,27 @@
 package stdgo.encoding.base64;
 final stdPadding : StdTypes.Int = stdgo._internal.encoding.base64.Base64.stdPadding;
 final noPadding : StdTypes.Int = stdgo._internal.encoding.base64.Base64.noPadding;
-var stdEncoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
-private function get_stdEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.stdEncoding;
-private function set_stdEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding {
+var stdEncoding(get, set) : Encoding;
+private function get_stdEncoding():Encoding return stdgo._internal.encoding.base64.Base64.stdEncoding;
+private function set_stdEncoding(v:Encoding):Encoding {
         stdgo._internal.encoding.base64.Base64.stdEncoding = v;
         return v;
     }
-var urlencoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
-private function get_urlencoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.urlencoding;
-private function set_urlencoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding {
+var urlencoding(get, set) : Encoding;
+private function get_urlencoding():Encoding return stdgo._internal.encoding.base64.Base64.urlencoding;
+private function set_urlencoding(v:Encoding):Encoding {
         stdgo._internal.encoding.base64.Base64.urlencoding = v;
         return v;
     }
-var rawStdEncoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
-private function get_rawStdEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawStdEncoding;
-private function set_rawStdEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding {
+var rawStdEncoding(get, set) : Encoding;
+private function get_rawStdEncoding():Encoding return stdgo._internal.encoding.base64.Base64.rawStdEncoding;
+private function set_rawStdEncoding(v:Encoding):Encoding {
         stdgo._internal.encoding.base64.Base64.rawStdEncoding = v;
         return v;
     }
-var rawURLEncoding(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
-private function get_rawURLEncoding():stdgo._internal.encoding.base64.Base64.Encoding return stdgo._internal.encoding.base64.Base64.rawURLEncoding;
-private function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding {
+var rawURLEncoding(get, set) : Encoding;
+private function get_rawURLEncoding():Encoding return stdgo._internal.encoding.base64.Base64.rawURLEncoding;
+private function set_rawURLEncoding(v:Encoding):Encoding {
         stdgo._internal.encoding.base64.Base64.rawURLEncoding = v;
         return v;
     }
@@ -61,9 +61,9 @@ private function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Enc
         this._err = v;
         return v;
     }
-    public var _enc(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
-    function get__enc():stdgo._internal.encoding.base64.Base64.Encoding return this._enc;
-    function set__enc(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding {
+    public var _enc(get, set) : Encoding;
+    function get__enc():Encoding return this._enc;
+    function set__enc(v:Encoding):Encoding {
         this._enc = v;
         return v;
     }
@@ -91,7 +91,7 @@ private function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Enc
         this._out = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_err:stdgo.Error, ?_enc:stdgo._internal.encoding.base64.Base64.Encoding, ?_w:stdgo._internal.io.Io.Writer, ?_buf:haxe.ds.Vector<std.UInt>, ?_nbuf:StdTypes.Int, ?_out:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.base64.Base64.T_encoder(_err, _enc, _w, ([for (i in _buf) i] : stdgo.GoArray<stdgo.GoUInt8>), _nbuf, ([for (i in _out) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_err:stdgo.Error, ?_enc:Encoding, ?_w:stdgo._internal.io.Io.Writer, ?_buf:haxe.ds.Vector<std.UInt>, ?_nbuf:StdTypes.Int, ?_out:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.base64.Base64.T_encoder(_err, _enc, _w, ([for (i in _buf) i] : stdgo.GoArray<stdgo.GoUInt8>), _nbuf, ([for (i in _out) i] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -108,9 +108,9 @@ private function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Enc
         this._readErr = v;
         return v;
     }
-    public var _enc(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
-    function get__enc():stdgo._internal.encoding.base64.Base64.Encoding return this._enc;
-    function set__enc(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding {
+    public var _enc(get, set) : Encoding;
+    function get__enc():Encoding return this._enc;
+    function set__enc(v:Encoding):Encoding {
         this._enc = v;
         return v;
     }
@@ -144,7 +144,7 @@ private function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Enc
         this._outbuf = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_err:stdgo.Error, ?_readErr:stdgo.Error, ?_enc:stdgo._internal.encoding.base64.Base64.Encoding, ?_r:stdgo._internal.io.Io.Reader, ?_buf:haxe.ds.Vector<std.UInt>, ?_nbuf:StdTypes.Int, ?_out:Array<std.UInt>, ?_outbuf:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.base64.Base64.T_decoder(_err, _readErr, _enc, _r, ([for (i in _buf) i] : stdgo.GoArray<stdgo.GoUInt8>), _nbuf, ([for (i in _out) i] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _outbuf) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_err:stdgo.Error, ?_readErr:stdgo.Error, ?_enc:Encoding, ?_r:stdgo._internal.io.Io.Reader, ?_buf:haxe.ds.Vector<std.UInt>, ?_nbuf:StdTypes.Int, ?_out:Array<std.UInt>, ?_outbuf:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.encoding.base64.Base64.T_decoder(_err, _readErr, _enc, _r, ([for (i in _buf) i] : stdgo.GoArray<stdgo.GoUInt8>), _nbuf, ([for (i in _out) i] : stdgo.Slice<stdgo.GoUInt8>), ([for (i in _outbuf) i] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -177,9 +177,9 @@ private function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Enc
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_encodingTest(stdgo._internal.encoding.base64.Base64.T_encodingTest) from stdgo._internal.encoding.base64.Base64.T_encodingTest to stdgo._internal.encoding.base64.Base64.T_encodingTest {
-    public var _enc(get, set) : stdgo._internal.encoding.base64.Base64.Encoding;
-    function get__enc():stdgo._internal.encoding.base64.Base64.Encoding return this._enc;
-    function set__enc(v:stdgo._internal.encoding.base64.Base64.Encoding):stdgo._internal.encoding.base64.Base64.Encoding {
+    public var _enc(get, set) : Encoding;
+    function get__enc():Encoding return this._enc;
+    function set__enc(v:Encoding):Encoding {
         this._enc = v;
         return v;
     }
@@ -189,7 +189,7 @@ private function set_rawURLEncoding(v:stdgo._internal.encoding.base64.Base64.Enc
         this._conv = v;
         return v;
     }
-    public function new(?_enc:stdgo._internal.encoding.base64.Base64.Encoding, ?_conv:stdgo.GoString -> stdgo.GoString) this = new stdgo._internal.encoding.base64.Base64.T_encodingTest(_enc, _conv);
+    public function new(?_enc:Encoding, ?_conv:stdgo.GoString -> stdgo.GoString) this = new stdgo._internal.encoding.base64.Base64.T_encodingTest(_enc, _conv);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

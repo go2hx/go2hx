@@ -1,5 +1,5 @@
 package stdgo.internal.types.errors;
-final invalidSyntaxTree : stdgo._internal.internal.types.errors.Errors.Code = stdgo._internal.internal.types.errors.Errors.invalidSyntaxTree;
+final invalidSyntaxTree : Code = stdgo._internal.internal.types.errors.Errors.invalidSyntaxTree;
 final test = stdgo._internal.internal.types.errors.Errors.test;
 final blankPkgName = stdgo._internal.internal.types.errors.Errors.blankPkgName;
 final mismatchedPkgName = stdgo._internal.internal.types.errors.Errors.mismatchedPkgName;

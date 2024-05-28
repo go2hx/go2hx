@@ -12,13 +12,13 @@ package stdgo.internal.godebug;
         this._once = v;
         return v;
     }
-    public var _setting(get, set) : stdgo._internal.internal.godebug.Godebug.T_setting;
-    function get__setting():stdgo._internal.internal.godebug.Godebug.T_setting return this._setting;
-    function set__setting(v:stdgo._internal.internal.godebug.Godebug.T_setting):stdgo._internal.internal.godebug.Godebug.T_setting {
+    public var _setting(get, set) : T_setting;
+    function get__setting():T_setting return this._setting;
+    function set__setting(v:T_setting):T_setting {
         this._setting = v;
         return v;
     }
-    public function new(?_name:String, ?_once:stdgo._internal.sync.Sync.Once, ?_setting:stdgo._internal.internal.godebug.Godebug.T_setting) this = new stdgo._internal.internal.godebug.Godebug.Setting(_name, _once, _setting);
+    public function new(?_name:String, ?_once:stdgo._internal.sync.Sync.Once, ?_setting:T_setting) this = new stdgo._internal.internal.godebug.Godebug.Setting(_name, _once, _setting);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -41,13 +41,13 @@ package stdgo.internal.godebug;
         this._nonDefault = v;
         return v;
     }
-    public var _info(get, set) : stdgo._internal.internal.godebugs.Godebugs.Info;
-    function get__info():stdgo._internal.internal.godebugs.Godebugs.Info return this._info;
-    function set__info(v:stdgo._internal.internal.godebugs.Godebugs.Info):stdgo._internal.internal.godebugs.Godebugs.Info {
+    public var _info(get, set) : Info;
+    function get__info():Info return this._info;
+    function set__info(v:Info):Info {
         this._info = v;
         return v;
     }
-    public function new(?_value:stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.internal.godebug.Godebug.T_value>, ?_nonDefaultOnce:stdgo._internal.sync.Sync.Once, ?_nonDefault:stdgo._internal.sync.atomic_.Atomic_.Uint64, ?_info:stdgo._internal.internal.godebugs.Godebugs.Info) this = new stdgo._internal.internal.godebug.Godebug.T_setting(_value, _nonDefaultOnce, _nonDefault, _info);
+    public function new(?_value:stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo._internal.internal.godebug.Godebug.T_value>, ?_nonDefaultOnce:stdgo._internal.sync.Sync.Once, ?_nonDefault:stdgo._internal.sync.atomic_.Atomic_.Uint64, ?_info:Info) this = new stdgo._internal.internal.godebug.Godebug.T_setting(_value, _nonDefaultOnce, _nonDefault, _info);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

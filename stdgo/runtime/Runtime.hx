@@ -78,13 +78,13 @@ typedef Error = stdgo._internal.runtime.Runtime.Error;
         this.cycles = v;
         return v;
     }
-    public var stackRecord(get, set) : stdgo._internal.runtime.Runtime.StackRecord;
-    function get_stackRecord():stdgo._internal.runtime.Runtime.StackRecord return this.stackRecord;
-    function set_stackRecord(v:stdgo._internal.runtime.Runtime.StackRecord):stdgo._internal.runtime.Runtime.StackRecord {
+    public var stackRecord(get, set) : StackRecord;
+    function get_stackRecord():StackRecord return this.stackRecord;
+    function set_stackRecord(v:StackRecord):StackRecord {
         this.stackRecord = v;
         return v;
     }
-    public function new(?count:haxe.Int64, ?cycles:haxe.Int64, ?stackRecord:stdgo._internal.runtime.Runtime.StackRecord) this = new stdgo._internal.runtime.Runtime.BlockProfileRecord(count, cycles, stackRecord);
+    public function new(?count:haxe.Int64, ?cycles:haxe.Int64, ?stackRecord:StackRecord) this = new stdgo._internal.runtime.Runtime.BlockProfileRecord(count, cycles, stackRecord);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -348,9 +348,9 @@ debugGC,
         this.pc = v;
         return v;
     }
-    public var func(get, set) : stdgo._internal.runtime.Runtime.Func;
-    function get_func():stdgo._internal.runtime.Runtime.Func return this.func;
-    function set_func(v:stdgo._internal.runtime.Runtime.Func):stdgo._internal.runtime.Runtime.Func {
+    public var func(get, set) : Func;
+    function get_func():Func return this.func;
+    function set_func(v:Func):Func {
         this.func = v;
         return v;
     }
@@ -378,7 +378,7 @@ debugGC,
         this.entry = v;
         return v;
     }
-    public function new(?pc:stdgo.GoUIntptr, ?func:stdgo._internal.runtime.Runtime.Func, ?function_:String, ?file:String, ?line:StdTypes.Int, ?entry:stdgo.GoUIntptr) this = new stdgo._internal.runtime.Runtime.Frame(pc, func, function_, file, line, entry);
+    public function new(?pc:stdgo.GoUIntptr, ?func:Func, ?function_:String, ?file:String, ?line:StdTypes.Int, ?entry:stdgo.GoUIntptr) this = new stdgo._internal.runtime.Runtime.Frame(pc, func, function_, file, line, entry);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

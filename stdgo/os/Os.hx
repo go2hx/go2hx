@@ -82,33 +82,33 @@ private function set_errProcessDone(v:stdgo.Error):stdgo.Error {
         stdgo._internal.os.Os.errProcessDone = v;
         return v;
     }
-var interrupt(get, set) : stdgo._internal.os.Os.Signal;
-private function get_interrupt():stdgo._internal.os.Os.Signal return stdgo._internal.os.Os.interrupt;
-private function set_interrupt(v:stdgo._internal.os.Os.Signal):stdgo._internal.os.Os.Signal {
+var interrupt(get, set) : Signal;
+private function get_interrupt():Signal return stdgo._internal.os.Os.interrupt;
+private function set_interrupt(v:Signal):Signal {
         stdgo._internal.os.Os.interrupt = v;
         return v;
     }
-var kill(get, set) : stdgo._internal.os.Os.Signal;
-private function get_kill():stdgo._internal.os.Os.Signal return stdgo._internal.os.Os.kill;
-private function set_kill(v:stdgo._internal.os.Os.Signal):stdgo._internal.os.Os.Signal {
+var kill(get, set) : Signal;
+private function get_kill():Signal return stdgo._internal.os.Os.kill;
+private function set_kill(v:Signal):Signal {
         stdgo._internal.os.Os.kill = v;
         return v;
     }
-var stdin(get, set) : stdgo._internal.os.Os.File;
-private function get_stdin():stdgo._internal.os.Os.File return stdgo._internal.os.Os.stdin;
-private function set_stdin(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+var stdin(get, set) : File;
+private function get_stdin():File return stdgo._internal.os.Os.stdin;
+private function set_stdin(v:File):File {
         stdgo._internal.os.Os.stdin = v;
         return v;
     }
-var stdout(get, set) : stdgo._internal.os.Os.File;
-private function get_stdout():stdgo._internal.os.Os.File return stdgo._internal.os.Os.stdout;
-private function set_stdout(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+var stdout(get, set) : File;
+private function get_stdout():File return stdgo._internal.os.Os.stdout;
+private function set_stdout(v:File):File {
         stdgo._internal.os.Os.stdout = v;
         return v;
     }
-var stderr(get, set) : stdgo._internal.os.Os.File;
-private function get_stderr():stdgo._internal.os.Os.File return stdgo._internal.os.Os.stderr;
-private function set_stderr(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+var stderr(get, set) : File;
+private function get_stderr():File return stdgo._internal.os.Os.stderr;
+private function set_stderr(v:File):File {
         stdgo._internal.os.Os.stderr = v;
         return v;
     }
@@ -245,9 +245,9 @@ typedef Signal = stdgo._internal.os.Os.Signal;
         this.env = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var files(get, set) : Array<stdgo._internal.os.Os.File>;
-    function get_files():Array<stdgo._internal.os.Os.File> return [for (i in this.files) i];
-    function set_files(v:Array<stdgo._internal.os.Os.File>):Array<stdgo._internal.os.Os.File> {
+    public var files(get, set) : Array<File>;
+    function get_files():Array<File> return [for (i in this.files) i];
+    function set_files(v:Array<File>):Array<File> {
         this.files = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
         return v;
     }
@@ -257,7 +257,7 @@ typedef Signal = stdgo._internal.os.Os.Signal;
         this.sys = v;
         return v;
     }
-    public function new(?dir:String, ?env:Array<String>, ?files:Array<stdgo._internal.os.Os.File>, ?sys:stdgo._internal.syscall.Syscall.SysProcAttr) this = new stdgo._internal.os.Os.ProcAttr(dir, ([for (i in env) i] : stdgo.Slice<stdgo.GoString>), ([for (i in files) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>), sys);
+    public function new(?dir:String, ?env:Array<String>, ?files:Array<File>, ?sys:stdgo._internal.syscall.Syscall.SysProcAttr) this = new stdgo._internal.os.Os.ProcAttr(dir, ([for (i in env) i] : stdgo.Slice<stdgo.GoString>), ([for (i in files) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>), sys);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -314,13 +314,13 @@ typedef Signal = stdgo._internal.os.Os.Signal;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.os.Os.T_fileWithoutReadFrom_static_extension) abstract T_fileWithoutReadFrom(stdgo._internal.os.Os.T_fileWithoutReadFrom) from stdgo._internal.os.Os.T_fileWithoutReadFrom to stdgo._internal.os.Os.T_fileWithoutReadFrom {
-    public var file(get, set) : stdgo._internal.os.Os.File;
-    function get_file():stdgo._internal.os.Os.File return this.file;
-    function set_file(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+    public var file(get, set) : File;
+    function get_file():File return this.file;
+    function set_file(v:File):File {
         this.file = v;
         return v;
     }
-    public function new(?file:stdgo._internal.os.Os.File) this = new stdgo._internal.os.Os.T_fileWithoutReadFrom(file);
+    public function new(?file:File) this = new stdgo._internal.os.Os.T_fileWithoutReadFrom(file);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -337,9 +337,9 @@ typedef Signal = stdgo._internal.os.Os.Signal;
         this._name = v;
         return v;
     }
-    public var _dirinfo(get, set) : stdgo._internal.os.Os.T_dirInfo;
-    function get__dirinfo():stdgo._internal.os.Os.T_dirInfo return this._dirinfo;
-    function set__dirinfo(v:stdgo._internal.os.Os.T_dirInfo):stdgo._internal.os.Os.T_dirInfo {
+    public var _dirinfo(get, set) : T_dirInfo;
+    function get__dirinfo():T_dirInfo return this._dirinfo;
+    function set__dirinfo(v:T_dirInfo):T_dirInfo {
         this._dirinfo = v;
         return v;
     }
@@ -361,7 +361,7 @@ typedef Signal = stdgo._internal.os.Os.Signal;
         this._appendMode = v;
         return v;
     }
-    public function new(?_pfd:stdgo._internal.internal.poll.Poll.FD, ?_name:String, ?_dirinfo:stdgo._internal.os.Os.T_dirInfo, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) this = new stdgo._internal.os.Os.T_file(_pfd, _name, _dirinfo, _nonblock, _stdoutOrErr, _appendMode);
+    public function new(?_pfd:stdgo._internal.internal.poll.Poll.FD, ?_name:String, ?_dirinfo:T_dirInfo, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) this = new stdgo._internal.os.Os.T_file(_pfd, _name, _dirinfo, _nonblock, _stdoutOrErr, _appendMode);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -395,24 +395,24 @@ typedef Signal = stdgo._internal.os.Os.Signal;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.os.Os.T_rawConn_static_extension) abstract T_rawConn(stdgo._internal.os.Os.T_rawConn) from stdgo._internal.os.Os.T_rawConn to stdgo._internal.os.Os.T_rawConn {
-    public var _file(get, set) : stdgo._internal.os.Os.File;
-    function get__file():stdgo._internal.os.Os.File return this._file;
-    function set__file(v:stdgo._internal.os.Os.File):stdgo._internal.os.Os.File {
+    public var _file(get, set) : File;
+    function get__file():File return this._file;
+    function set__file(v:File):File {
         this._file = v;
         return v;
     }
-    public function new(?_file:stdgo._internal.os.Os.File) this = new stdgo._internal.os.Os.T_rawConn(_file);
+    public function new(?_file:File) this = new stdgo._internal.os.Os.T_rawConn(_file);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.os.Os.File_static_extension) abstract File(stdgo._internal.os.Os.File) from stdgo._internal.os.Os.File to stdgo._internal.os.Os.File {
-    public var _file(get, set) : stdgo._internal.os.Os.T_file;
-    function get__file():stdgo._internal.os.Os.T_file return this._file;
-    function set__file(v:stdgo._internal.os.Os.T_file):stdgo._internal.os.Os.T_file {
+    public var _file(get, set) : T_file;
+    function get__file():T_file return this._file;
+    function set__file(v:T_file):T_file {
         this._file = v;
         return v;
     }
-    public function new(?_file:stdgo._internal.os.Os.T_file, ?_input:haxe.io.Input, ?_output:haxe.io.Output) this = new stdgo._internal.os.Os.File(_file, _input, _output);
+    public function new(?_file:T_file, ?_input:haxe.io.Input, ?_output:haxe.io.Output) this = new stdgo._internal.os.Os.File(_file, _input, _output);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -621,7 +621,7 @@ class T_fileWithoutReadFrom_static_extension {
             { _0 : obj._0, _1 : obj._1 };
         };
     }
-    public static function _readdir(__self__:T_fileWithoutReadFrom, _n:StdTypes.Int, _mode:stdgo._internal.os.Os.T_readdirMode):stdgo.Tuple.Tuple4<Array<String>, Array<stdgo._internal.io.fs.Fs.DirEntry>, Array<stdgo._internal.io.fs.Fs.FileInfo>, stdgo.Error> {
+    public static function _readdir(__self__:T_fileWithoutReadFrom, _n:StdTypes.Int, _mode:T_readdirMode):stdgo.Tuple.Tuple4<Array<String>, Array<stdgo._internal.io.fs.Fs.DirEntry>, Array<stdgo._internal.io.fs.Fs.FileInfo>, stdgo.Error> {
         return {
             final obj = stdgo._internal.os.Os.T_fileWithoutReadFrom_static_extension._readdir(__self__, _n, _mode);
             { _0 : [for (i in obj._0) i], _1 : [for (i in obj._1) i], _2 : [for (i in obj._2) i], _3 : obj._3 };

@@ -28,19 +28,19 @@ typedef Writer = stdgo._internal.internal.bisect.Bisect.Writer;
         this._enable = v;
         return v;
     }
-    public var _list(get, set) : Array<stdgo._internal.internal.bisect.Bisect.T_cond>;
-    function get__list():Array<stdgo._internal.internal.bisect.Bisect.T_cond> return [for (i in this._list) i];
-    function set__list(v:Array<stdgo._internal.internal.bisect.Bisect.T_cond>):Array<stdgo._internal.internal.bisect.Bisect.T_cond> {
+    public var _list(get, set) : Array<T_cond>;
+    function get__list():Array<T_cond> return [for (i in this._list) i];
+    function set__list(v:Array<T_cond>):Array<T_cond> {
         this._list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.bisect.Bisect.T_cond>);
         return v;
     }
-    public var _dedup(get, set) : stdgo._internal.internal.bisect.Bisect.T_atomicPointerDedup;
-    function get__dedup():stdgo._internal.internal.bisect.Bisect.T_atomicPointerDedup return this._dedup;
-    function set__dedup(v:stdgo._internal.internal.bisect.Bisect.T_atomicPointerDedup):stdgo._internal.internal.bisect.Bisect.T_atomicPointerDedup {
+    public var _dedup(get, set) : T_atomicPointerDedup;
+    function get__dedup():T_atomicPointerDedup return this._dedup;
+    function set__dedup(v:T_atomicPointerDedup):T_atomicPointerDedup {
         this._dedup = v;
         return v;
     }
-    public function new(?_verbose:Bool, ?_quiet:Bool, ?_enable:Bool, ?_list:Array<stdgo._internal.internal.bisect.Bisect.T_cond>, ?_dedup:stdgo._internal.internal.bisect.Bisect.T_atomicPointerDedup) this = new stdgo._internal.internal.bisect.Bisect.Matcher(_verbose, _quiet, _enable, ([for (i in _list) i] : stdgo.Slice<stdgo._internal.internal.bisect.Bisect.T_cond>), _dedup);
+    public function new(?_verbose:Bool, ?_quiet:Bool, ?_enable:Bool, ?_list:Array<T_cond>, ?_dedup:T_atomicPointerDedup) this = new stdgo._internal.internal.bisect.Bisect.Matcher(_verbose, _quiet, _enable, ([for (i in _list) i] : stdgo.Slice<stdgo._internal.internal.bisect.Bisect.T_cond>), _dedup);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -1,7 +1,7 @@
 package stdgo.internal.platform;
-var list(get, set) : Array<stdgo._internal.internal.platform.Platform.OSArch>;
-private function get_list():Array<stdgo._internal.internal.platform.Platform.OSArch> return [for (i in stdgo._internal.internal.platform.Platform.list) i];
-private function set_list(v:Array<stdgo._internal.internal.platform.Platform.OSArch>):Array<stdgo._internal.internal.platform.Platform.OSArch> {
+var list(get, set) : Array<OSArch>;
+private function get_list():Array<OSArch> return [for (i in stdgo._internal.internal.platform.Platform.list) i];
+private function set_list(v:Array<OSArch>):Array<OSArch> {
         stdgo._internal.internal.platform.Platform.list = ([for (i in v) i] : stdgo.Slice<stdgo._internal.internal.platform.Platform.OSArch>);
         return v;
     }

@@ -1,91 +1,91 @@
 package stdgo.image.color;
-var rgbamodel(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_rgbamodel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.rgbamodel;
-private function set_rgbamodel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var rgbamodel(get, set) : Model;
+private function get_rgbamodel():Model return stdgo._internal.image.color.Color.rgbamodel;
+private function set_rgbamodel(v:Model):Model {
         stdgo._internal.image.color.Color.rgbamodel = v;
         return v;
     }
-var rgba64model(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_rgba64model():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.rgba64model;
-private function set_rgba64model(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var rgba64model(get, set) : Model;
+private function get_rgba64model():Model return stdgo._internal.image.color.Color.rgba64model;
+private function set_rgba64model(v:Model):Model {
         stdgo._internal.image.color.Color.rgba64model = v;
         return v;
     }
-var nrgbamodel(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_nrgbamodel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.nrgbamodel;
-private function set_nrgbamodel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var nrgbamodel(get, set) : Model;
+private function get_nrgbamodel():Model return stdgo._internal.image.color.Color.nrgbamodel;
+private function set_nrgbamodel(v:Model):Model {
         stdgo._internal.image.color.Color.nrgbamodel = v;
         return v;
     }
-var nrgba64model(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_nrgba64model():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.nrgba64model;
-private function set_nrgba64model(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var nrgba64model(get, set) : Model;
+private function get_nrgba64model():Model return stdgo._internal.image.color.Color.nrgba64model;
+private function set_nrgba64model(v:Model):Model {
         stdgo._internal.image.color.Color.nrgba64model = v;
         return v;
     }
-var alphaModel(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_alphaModel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.alphaModel;
-private function set_alphaModel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var alphaModel(get, set) : Model;
+private function get_alphaModel():Model return stdgo._internal.image.color.Color.alphaModel;
+private function set_alphaModel(v:Model):Model {
         stdgo._internal.image.color.Color.alphaModel = v;
         return v;
     }
-var alpha16Model(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_alpha16Model():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.alpha16Model;
-private function set_alpha16Model(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var alpha16Model(get, set) : Model;
+private function get_alpha16Model():Model return stdgo._internal.image.color.Color.alpha16Model;
+private function set_alpha16Model(v:Model):Model {
         stdgo._internal.image.color.Color.alpha16Model = v;
         return v;
     }
-var grayModel(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_grayModel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.grayModel;
-private function set_grayModel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var grayModel(get, set) : Model;
+private function get_grayModel():Model return stdgo._internal.image.color.Color.grayModel;
+private function set_grayModel(v:Model):Model {
         stdgo._internal.image.color.Color.grayModel = v;
         return v;
     }
-var gray16Model(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_gray16Model():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.gray16Model;
-private function set_gray16Model(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var gray16Model(get, set) : Model;
+private function get_gray16Model():Model return stdgo._internal.image.color.Color.gray16Model;
+private function set_gray16Model(v:Model):Model {
         stdgo._internal.image.color.Color.gray16Model = v;
         return v;
     }
-var black(get, set) : stdgo._internal.image.color.Color.Gray16;
-private function get_black():stdgo._internal.image.color.Color.Gray16 return stdgo._internal.image.color.Color.black;
-private function set_black(v:stdgo._internal.image.color.Color.Gray16):stdgo._internal.image.color.Color.Gray16 {
+var black(get, set) : Gray16;
+private function get_black():Gray16 return stdgo._internal.image.color.Color.black;
+private function set_black(v:Gray16):Gray16 {
         stdgo._internal.image.color.Color.black = v;
         return v;
     }
-var white(get, set) : stdgo._internal.image.color.Color.Gray16;
-private function get_white():stdgo._internal.image.color.Color.Gray16 return stdgo._internal.image.color.Color.white;
-private function set_white(v:stdgo._internal.image.color.Color.Gray16):stdgo._internal.image.color.Color.Gray16 {
+var white(get, set) : Gray16;
+private function get_white():Gray16 return stdgo._internal.image.color.Color.white;
+private function set_white(v:Gray16):Gray16 {
         stdgo._internal.image.color.Color.white = v;
         return v;
     }
-var transparent(get, set) : stdgo._internal.image.color.Color.Alpha16;
-private function get_transparent():stdgo._internal.image.color.Color.Alpha16 return stdgo._internal.image.color.Color.transparent;
-private function set_transparent(v:stdgo._internal.image.color.Color.Alpha16):stdgo._internal.image.color.Color.Alpha16 {
+var transparent(get, set) : Alpha16;
+private function get_transparent():Alpha16 return stdgo._internal.image.color.Color.transparent;
+private function set_transparent(v:Alpha16):Alpha16 {
         stdgo._internal.image.color.Color.transparent = v;
         return v;
     }
-var opaque(get, set) : stdgo._internal.image.color.Color.Alpha16;
-private function get_opaque():stdgo._internal.image.color.Color.Alpha16 return stdgo._internal.image.color.Color.opaque;
-private function set_opaque(v:stdgo._internal.image.color.Color.Alpha16):stdgo._internal.image.color.Color.Alpha16 {
+var opaque(get, set) : Alpha16;
+private function get_opaque():Alpha16 return stdgo._internal.image.color.Color.opaque;
+private function set_opaque(v:Alpha16):Alpha16 {
         stdgo._internal.image.color.Color.opaque = v;
         return v;
     }
-var ycbCrModel(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_ycbCrModel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.ycbCrModel;
-private function set_ycbCrModel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var ycbCrModel(get, set) : Model;
+private function get_ycbCrModel():Model return stdgo._internal.image.color.Color.ycbCrModel;
+private function set_ycbCrModel(v:Model):Model {
         stdgo._internal.image.color.Color.ycbCrModel = v;
         return v;
     }
-var nycbCrAModel(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_nycbCrAModel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.nycbCrAModel;
-private function set_nycbCrAModel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var nycbCrAModel(get, set) : Model;
+private function get_nycbCrAModel():Model return stdgo._internal.image.color.Color.nycbCrAModel;
+private function set_nycbCrAModel(v:Model):Model {
         stdgo._internal.image.color.Color.nycbCrAModel = v;
         return v;
     }
-var cmykmodel(get, set) : stdgo._internal.image.color.Color.Model;
-private function get_cmykmodel():stdgo._internal.image.color.Color.Model return stdgo._internal.image.color.Color.cmykmodel;
-private function set_cmykmodel(v:stdgo._internal.image.color.Color.Model):stdgo._internal.image.color.Color.Model {
+var cmykmodel(get, set) : Model;
+private function get_cmykmodel():Model return stdgo._internal.image.color.Color.cmykmodel;
+private function set_cmykmodel(v:Model):Model {
         stdgo._internal.image.color.Color.cmykmodel = v;
         return v;
     }
@@ -299,9 +299,9 @@ typedef Model = stdgo._internal.image.color.Color.Model;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.image.color.Color.NYCbCrA_static_extension) abstract NYCbCrA(stdgo._internal.image.color.Color.NYCbCrA) from stdgo._internal.image.color.Color.NYCbCrA to stdgo._internal.image.color.Color.NYCbCrA {
-    public var ycbCr(get, set) : stdgo._internal.image.color.Color.YCbCr;
-    function get_ycbCr():stdgo._internal.image.color.Color.YCbCr return this.ycbCr;
-    function set_ycbCr(v:stdgo._internal.image.color.Color.YCbCr):stdgo._internal.image.color.Color.YCbCr {
+    public var ycbCr(get, set) : YCbCr;
+    function get_ycbCr():YCbCr return this.ycbCr;
+    function set_ycbCr(v:YCbCr):YCbCr {
         this.ycbCr = v;
         return v;
     }
@@ -311,7 +311,7 @@ typedef Model = stdgo._internal.image.color.Color.Model;
         this.a = v;
         return v;
     }
-    public function new(?ycbCr:stdgo._internal.image.color.Color.YCbCr, ?a:std.UInt) this = new stdgo._internal.image.color.Color.NYCbCrA(ycbCr, a);
+    public function new(?ycbCr:YCbCr, ?a:std.UInt) this = new stdgo._internal.image.color.Color.NYCbCrA(ycbCr, a);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

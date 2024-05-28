@@ -25,13 +25,13 @@ private function set_indexBytePortable(v:(stdgo.Slice<stdgo.GoUInt8>, stdgo.GoUI
         this._off = v;
         return v;
     }
-    public var _lastRead(get, set) : stdgo._internal.bytes.Bytes.T_readOp;
-    function get__lastRead():stdgo._internal.bytes.Bytes.T_readOp return this._lastRead;
-    function set__lastRead(v:stdgo._internal.bytes.Bytes.T_readOp):stdgo._internal.bytes.Bytes.T_readOp {
+    public var _lastRead(get, set) : T_readOp;
+    function get__lastRead():T_readOp return this._lastRead;
+    function set__lastRead(v:T_readOp):T_readOp {
         this._lastRead = v;
         return v;
     }
-    public function new(?_buf:Array<std.UInt>, ?_off:StdTypes.Int, ?_lastRead:stdgo._internal.bytes.Bytes.T_readOp) this = new stdgo._internal.bytes.Bytes.Buffer(([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _off, _lastRead);
+    public function new(?_buf:Array<std.UInt>, ?_off:StdTypes.Int, ?_lastRead:T_readOp) this = new stdgo._internal.bytes.Bytes.Buffer(([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>), _off, _lastRead);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

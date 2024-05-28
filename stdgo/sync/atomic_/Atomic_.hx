@@ -1,8 +1,8 @@
 package stdgo.sync.atomic_;
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Bool__static_extension) abstract Bool_(stdgo._internal.sync.atomic_.Atomic_.Bool_) from stdgo._internal.sync.atomic_.Atomic_.Bool_ to stdgo._internal.sync.atomic_.Atomic_.Bool_ {
-    public var __2(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
-    function get___2():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__2;
-    function set___2(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+    public var __2(get, set) : T_noCopy;
+    function get___2():T_noCopy return this.__2;
+    function set___2(v:T_noCopy):T_noCopy {
         this.__2 = v;
         return v;
     }
@@ -12,7 +12,7 @@ package stdgo.sync.atomic_;
         this._v = v;
         return v;
     }
-    public function new(?__2:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:std.UInt) this = new stdgo._internal.sync.atomic_.Atomic_.Bool_(__2, _v);
+    public function new(?__2:T_noCopy, ?_v:std.UInt) this = new stdgo._internal.sync.atomic_.Atomic_.Bool_(__2, _v);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -23,9 +23,9 @@ package stdgo.sync.atomic_;
         this.__5 = ([for (i in v) i] : stdgo.GoArray<stdgo.Ref<T_>>);
         return v;
     }
-    public var __6(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
-    function get___6():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__6;
-    function set___6(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+    public var __6(get, set) : T_noCopy;
+    function get___6():T_noCopy return this.__6;
+    function set___6(v:T_noCopy):T_noCopy {
         this.__6 = v;
         return v;
     }
@@ -35,14 +35,14 @@ package stdgo.sync.atomic_;
         this._v = v;
         return v;
     }
-    public function new(?__5:haxe.ds.Vector<T_>, ?__6:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo._internal.unsafe.Unsafe.UnsafePointer) this = new stdgo._internal.sync.atomic_.Atomic_.Pointer_(([for (i in __5) i] : stdgo.GoArray<stdgo.Ref<T_>>), __6, _v);
+    public function new(?__5:haxe.ds.Vector<T_>, ?__6:T_noCopy, ?_v:stdgo._internal.unsafe.Unsafe.UnsafePointer) this = new stdgo._internal.sync.atomic_.Atomic_.Pointer_(([for (i in __5) i] : stdgo.GoArray<stdgo.Ref<T_>>), __6, _v);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Int32_static_extension) abstract Int32(stdgo._internal.sync.atomic_.Atomic_.Int32) from stdgo._internal.sync.atomic_.Atomic_.Int32 to stdgo._internal.sync.atomic_.Atomic_.Int32 {
-    public var __8(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
-    function get___8():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__8;
-    function set___8(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+    public var __8(get, set) : T_noCopy;
+    function get___8():T_noCopy return this.__8;
+    function set___8(v:T_noCopy):T_noCopy {
         this.__8 = v;
         return v;
     }
@@ -52,20 +52,20 @@ package stdgo.sync.atomic_;
         this._v = v;
         return v;
     }
-    public function new(?__8:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:StdTypes.Int) this = new stdgo._internal.sync.atomic_.Atomic_.Int32(__8, _v);
+    public function new(?__8:T_noCopy, ?_v:StdTypes.Int) this = new stdgo._internal.sync.atomic_.Atomic_.Int32(__8, _v);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Int64__static_extension) abstract Int64_(stdgo._internal.sync.atomic_.Atomic_.Int64_) from stdgo._internal.sync.atomic_.Atomic_.Int64_ to stdgo._internal.sync.atomic_.Atomic_.Int64_ {
-    public var __11(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
-    function get___11():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__11;
-    function set___11(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+    public var __11(get, set) : T_noCopy;
+    function get___11():T_noCopy return this.__11;
+    function set___11(v:T_noCopy):T_noCopy {
         this.__11 = v;
         return v;
     }
-    public var __12(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_align64;
-    function get___12():stdgo._internal.sync.atomic_.Atomic_.T_align64 return this.__12;
-    function set___12(v:stdgo._internal.sync.atomic_.Atomic_.T_align64):stdgo._internal.sync.atomic_.Atomic_.T_align64 {
+    public var __12(get, set) : T_align64;
+    function get___12():T_align64 return this.__12;
+    function set___12(v:T_align64):T_align64 {
         this.__12 = v;
         return v;
     }
@@ -75,14 +75,14 @@ package stdgo.sync.atomic_;
         this._v = v;
         return v;
     }
-    public function new(?__11:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?__12:stdgo._internal.sync.atomic_.Atomic_.T_align64, ?_v:haxe.Int64) this = new stdgo._internal.sync.atomic_.Atomic_.Int64_(__11, __12, _v);
+    public function new(?__11:T_noCopy, ?__12:T_align64, ?_v:haxe.Int64) this = new stdgo._internal.sync.atomic_.Atomic_.Int64_(__11, __12, _v);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Uint32_static_extension) abstract Uint32(stdgo._internal.sync.atomic_.Atomic_.Uint32) from stdgo._internal.sync.atomic_.Atomic_.Uint32 to stdgo._internal.sync.atomic_.Atomic_.Uint32 {
-    public var __13(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
-    function get___13():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__13;
-    function set___13(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+    public var __13(get, set) : T_noCopy;
+    function get___13():T_noCopy return this.__13;
+    function set___13(v:T_noCopy):T_noCopy {
         this.__13 = v;
         return v;
     }
@@ -92,20 +92,20 @@ package stdgo.sync.atomic_;
         this._v = v;
         return v;
     }
-    public function new(?__13:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:std.UInt) this = new stdgo._internal.sync.atomic_.Atomic_.Uint32(__13, _v);
+    public function new(?__13:T_noCopy, ?_v:std.UInt) this = new stdgo._internal.sync.atomic_.Atomic_.Uint32(__13, _v);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Uint64_static_extension) abstract Uint64(stdgo._internal.sync.atomic_.Atomic_.Uint64) from stdgo._internal.sync.atomic_.Atomic_.Uint64 to stdgo._internal.sync.atomic_.Atomic_.Uint64 {
-    public var __16(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
-    function get___16():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__16;
-    function set___16(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+    public var __16(get, set) : T_noCopy;
+    function get___16():T_noCopy return this.__16;
+    function set___16(v:T_noCopy):T_noCopy {
         this.__16 = v;
         return v;
     }
-    public var __17(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_align64;
-    function get___17():stdgo._internal.sync.atomic_.Atomic_.T_align64 return this.__17;
-    function set___17(v:stdgo._internal.sync.atomic_.Atomic_.T_align64):stdgo._internal.sync.atomic_.Atomic_.T_align64 {
+    public var __17(get, set) : T_align64;
+    function get___17():T_align64 return this.__17;
+    function set___17(v:T_align64):T_align64 {
         this.__17 = v;
         return v;
     }
@@ -115,14 +115,14 @@ package stdgo.sync.atomic_;
         this._v = v;
         return v;
     }
-    public function new(?__16:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?__17:stdgo._internal.sync.atomic_.Atomic_.T_align64, ?_v:haxe.UInt64) this = new stdgo._internal.sync.atomic_.Atomic_.Uint64(__16, __17, _v);
+    public function new(?__16:T_noCopy, ?__17:T_align64, ?_v:haxe.UInt64) this = new stdgo._internal.sync.atomic_.Atomic_.Uint64(__16, __17, _v);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.sync.atomic_.Atomic_.Uintptr_static_extension) abstract Uintptr(stdgo._internal.sync.atomic_.Atomic_.Uintptr) from stdgo._internal.sync.atomic_.Atomic_.Uintptr to stdgo._internal.sync.atomic_.Atomic_.Uintptr {
-    public var __19(get, set) : stdgo._internal.sync.atomic_.Atomic_.T_noCopy;
-    function get___19():stdgo._internal.sync.atomic_.Atomic_.T_noCopy return this.__19;
-    function set___19(v:stdgo._internal.sync.atomic_.Atomic_.T_noCopy):stdgo._internal.sync.atomic_.Atomic_.T_noCopy {
+    public var __19(get, set) : T_noCopy;
+    function get___19():T_noCopy return this.__19;
+    function set___19(v:T_noCopy):T_noCopy {
         this.__19 = v;
         return v;
     }
@@ -132,7 +132,7 @@ package stdgo.sync.atomic_;
         this._v = v;
         return v;
     }
-    public function new(?__19:stdgo._internal.sync.atomic_.Atomic_.T_noCopy, ?_v:stdgo.GoUIntptr) this = new stdgo._internal.sync.atomic_.Atomic_.Uintptr(__19, _v);
+    public function new(?__19:T_noCopy, ?_v:stdgo.GoUIntptr) this = new stdgo._internal.sync.atomic_.Atomic_.Uintptr(__19, _v);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

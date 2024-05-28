@@ -2,78 +2,78 @@ package stdgo.math.big;
 final maxExp : haxe.UInt64 = stdgo._internal.math.big.Big.maxExp;
 final minExp : haxe.UInt64 = stdgo._internal.math.big.Big.minExp;
 final maxPrec : haxe.UInt64 = stdgo._internal.math.big.Big.maxPrec;
-final toNearestEven : stdgo._internal.math.big.Big.RoundingMode = stdgo._internal.math.big.Big.toNearestEven;
+final toNearestEven : RoundingMode = stdgo._internal.math.big.Big.toNearestEven;
 final toNearestAway = stdgo._internal.math.big.Big.toNearestAway;
 final toZero = stdgo._internal.math.big.Big.toZero;
 final awayFromZero = stdgo._internal.math.big.Big.awayFromZero;
 final toNegativeInf = stdgo._internal.math.big.Big.toNegativeInf;
 final toPositiveInf = stdgo._internal.math.big.Big.toPositiveInf;
-final below : stdgo._internal.math.big.Big.Accuracy = stdgo._internal.math.big.Big.below;
-final exact : stdgo._internal.math.big.Big.Accuracy = stdgo._internal.math.big.Big.exact;
-final above : stdgo._internal.math.big.Big.Accuracy = stdgo._internal.math.big.Big.above;
+final below : Accuracy = stdgo._internal.math.big.Big.below;
+final exact : Accuracy = stdgo._internal.math.big.Big.exact;
+final above : Accuracy = stdgo._internal.math.big.Big.above;
 final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
 @:structInit @:private abstract T_argVV(stdgo._internal.math.big.Big.T_argVV) from stdgo._internal.math.big.Big.T_argVV to stdgo._internal.math.big.Big.T_argVV {
-    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
-    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _z(get, set) : T_nat;
+    function get__z():T_nat return this._z;
+    function set__z(v:T_nat):T_nat {
         this._z = v;
         return v;
     }
-    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
-    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _x(get, set) : T_nat;
+    function get__x():T_nat return this._x;
+    function set__x(v:T_nat):T_nat {
         this._x = v;
         return v;
     }
-    public var _y(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__y():stdgo._internal.math.big.Big.T_nat return this._y;
-    function set__y(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _y(get, set) : T_nat;
+    function get__y():T_nat return this._y;
+    function set__y(v:T_nat):T_nat {
         this._y = v;
         return v;
     }
-    public var _c(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__c():stdgo._internal.math.big.Big.Word return this._c;
-    function set__c(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _c(get, set) : Word;
+    function get__c():Word return this._c;
+    function set__c(v:Word):Word {
         this._c = v;
         return v;
     }
-    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.T_nat, ?_c:stdgo._internal.math.big.Big.Word) this = new stdgo._internal.math.big.Big.T_argVV(_z, _x, _y, _c);
+    public function new(?_z:T_nat, ?_x:T_nat, ?_y:T_nat, ?_c:Word) this = new stdgo._internal.math.big.Big.T_argVV(_z, _x, _y, _c);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_argVW(stdgo._internal.math.big.Big.T_argVW) from stdgo._internal.math.big.Big.T_argVW to stdgo._internal.math.big.Big.T_argVW {
-    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
-    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _z(get, set) : T_nat;
+    function get__z():T_nat return this._z;
+    function set__z(v:T_nat):T_nat {
         this._z = v;
         return v;
     }
-    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
-    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _x(get, set) : T_nat;
+    function get__x():T_nat return this._x;
+    function set__x(v:T_nat):T_nat {
         this._x = v;
         return v;
     }
-    public var _y(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__y():stdgo._internal.math.big.Big.Word return this._y;
-    function set__y(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _y(get, set) : Word;
+    function get__y():Word return this._y;
+    function set__y(v:Word):Word {
         this._y = v;
         return v;
     }
-    public var _c(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__c():stdgo._internal.math.big.Big.Word return this._c;
-    function set__c(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _c(get, set) : Word;
+    function get__c():Word return this._c;
+    function set__c(v:Word):Word {
         this._c = v;
         return v;
     }
-    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.Word, ?_c:stdgo._internal.math.big.Big.Word) this = new stdgo._internal.math.big.Big.T_argVW(_z, _x, _y, _c);
+    public function new(?_z:T_nat, ?_x:T_nat, ?_y:Word, ?_c:Word) this = new stdgo._internal.math.big.Big.T_argVW(_z, _x, _y, _c);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_argVU(stdgo._internal.math.big.Big.T_argVU) from stdgo._internal.math.big.Big.T_argVU to stdgo._internal.math.big.Big.T_argVU {
-    public var _d(get, set) : Array<stdgo._internal.math.big.Big.Word>;
-    function get__d():Array<stdgo._internal.math.big.Big.Word> return [for (i in this._d) i];
-    function set__d(v:Array<stdgo._internal.math.big.Big.Word>):Array<stdgo._internal.math.big.Big.Word> {
+    public var _d(get, set) : Array<Word>;
+    function get__d():Array<Word> return [for (i in this._d) i];
+    function set__d(v:Array<Word>):Array<Word> {
         this._d = ([for (i in v) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
         return v;
     }
@@ -101,15 +101,15 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
         this._s = v;
         return v;
     }
-    public var _r(get, set) : Array<stdgo._internal.math.big.Big.Word>;
-    function get__r():Array<stdgo._internal.math.big.Big.Word> return [for (i in this._r) i];
-    function set__r(v:Array<stdgo._internal.math.big.Big.Word>):Array<stdgo._internal.math.big.Big.Word> {
+    public var _r(get, set) : Array<Word>;
+    function get__r():Array<Word> return [for (i in this._r) i];
+    function set__r(v:Array<Word>):Array<Word> {
         this._r = ([for (i in v) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>);
         return v;
     }
-    public var _c(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__c():stdgo._internal.math.big.Big.Word return this._c;
-    function set__c(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _c(get, set) : Word;
+    function get__c():Word return this._c;
+    function set__c(v:Word):Word {
         this._c = v;
         return v;
     }
@@ -119,77 +119,77 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
         this._m = v;
         return v;
     }
-    public function new(?_d:Array<stdgo._internal.math.big.Big.Word>, ?_l:std.UInt, ?_xp:std.UInt, ?_zp:std.UInt, ?_s:std.UInt, ?_r:Array<stdgo._internal.math.big.Big.Word>, ?_c:stdgo._internal.math.big.Big.Word, ?_m:String) this = new stdgo._internal.math.big.Big.T_argVU(([for (i in _d) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>), _l, _xp, _zp, _s, ([for (i in _r) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>), _c, _m);
+    public function new(?_d:Array<Word>, ?_l:std.UInt, ?_xp:std.UInt, ?_zp:std.UInt, ?_s:std.UInt, ?_r:Array<Word>, ?_c:Word, ?_m:String) this = new stdgo._internal.math.big.Big.T_argVU(([for (i in _d) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>), _l, _xp, _zp, _s, ([for (i in _r) i] : stdgo.Slice<stdgo._internal.math.big.Big.Word>), _c, _m);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_argVWW(stdgo._internal.math.big.Big.T_argVWW) from stdgo._internal.math.big.Big.T_argVWW to stdgo._internal.math.big.Big.T_argVWW {
-    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
-    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _z(get, set) : T_nat;
+    function get__z():T_nat return this._z;
+    function set__z(v:T_nat):T_nat {
         this._z = v;
         return v;
     }
-    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
-    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _x(get, set) : T_nat;
+    function get__x():T_nat return this._x;
+    function set__x(v:T_nat):T_nat {
         this._x = v;
         return v;
     }
-    public var _y(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__y():stdgo._internal.math.big.Big.Word return this._y;
-    function set__y(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _y(get, set) : Word;
+    function get__y():Word return this._y;
+    function set__y(v:Word):Word {
         this._y = v;
         return v;
     }
-    public var _r(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__r():stdgo._internal.math.big.Big.Word return this._r;
-    function set__r(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _r(get, set) : Word;
+    function get__r():Word return this._r;
+    function set__r(v:Word):Word {
         this._r = v;
         return v;
     }
-    public var _c(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__c():stdgo._internal.math.big.Big.Word return this._c;
-    function set__c(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _c(get, set) : Word;
+    function get__c():Word return this._c;
+    function set__c(v:Word):Word {
         this._c = v;
         return v;
     }
-    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.Word, ?_r:stdgo._internal.math.big.Big.Word, ?_c:stdgo._internal.math.big.Big.Word) this = new stdgo._internal.math.big.Big.T_argVWW(_z, _x, _y, _r, _c);
+    public function new(?_z:T_nat, ?_x:T_nat, ?_y:Word, ?_r:Word, ?_c:Word) this = new stdgo._internal.math.big.Big.T_argVWW(_z, _x, _y, _r, _c);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_argWVW(stdgo._internal.math.big.Big.T_argWVW) from stdgo._internal.math.big.Big.T_argWVW to stdgo._internal.math.big.Big.T_argWVW {
-    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
-    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _z(get, set) : T_nat;
+    function get__z():T_nat return this._z;
+    function set__z(v:T_nat):T_nat {
         this._z = v;
         return v;
     }
-    public var _xn(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__xn():stdgo._internal.math.big.Big.Word return this._xn;
-    function set__xn(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _xn(get, set) : Word;
+    function get__xn():Word return this._xn;
+    function set__xn(v:Word):Word {
         this._xn = v;
         return v;
     }
-    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
-    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _x(get, set) : T_nat;
+    function get__x():T_nat return this._x;
+    function set__x(v:T_nat):T_nat {
         this._x = v;
         return v;
     }
-    public var _y(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__y():stdgo._internal.math.big.Big.Word return this._y;
-    function set__y(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _y(get, set) : Word;
+    function get__y():Word return this._y;
+    function set__y(v:Word):Word {
         this._y = v;
         return v;
     }
-    public var _r(get, set) : stdgo._internal.math.big.Big.Word;
-    function get__r():stdgo._internal.math.big.Big.Word return this._r;
-    function set__r(v:stdgo._internal.math.big.Big.Word):stdgo._internal.math.big.Big.Word {
+    public var _r(get, set) : Word;
+    function get__r():Word return this._r;
+    function set__r(v:Word):Word {
         this._r = v;
         return v;
     }
-    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_xn:stdgo._internal.math.big.Big.Word, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.Word, ?_r:stdgo._internal.math.big.Big.Word) this = new stdgo._internal.math.big.Big.T_argWVW(_z, _xn, _x, _y, _r);
+    public function new(?_z:T_nat, ?_xn:Word, ?_x:T_nat, ?_y:Word, ?_r:Word) this = new stdgo._internal.math.big.Big.T_argWVW(_z, _xn, _x, _y, _r);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -217,21 +217,21 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
         this._prec = v;
         return v;
     }
-    public var _mode(get, set) : stdgo._internal.math.big.Big.RoundingMode;
-    function get__mode():stdgo._internal.math.big.Big.RoundingMode return this._mode;
-    function set__mode(v:stdgo._internal.math.big.Big.RoundingMode):stdgo._internal.math.big.Big.RoundingMode {
+    public var _mode(get, set) : RoundingMode;
+    function get__mode():RoundingMode return this._mode;
+    function set__mode(v:RoundingMode):RoundingMode {
         this._mode = v;
         return v;
     }
-    public var _acc(get, set) : stdgo._internal.math.big.Big.Accuracy;
-    function get__acc():stdgo._internal.math.big.Big.Accuracy return this._acc;
-    function set__acc(v:stdgo._internal.math.big.Big.Accuracy):stdgo._internal.math.big.Big.Accuracy {
+    public var _acc(get, set) : Accuracy;
+    function get__acc():Accuracy return this._acc;
+    function set__acc(v:Accuracy):Accuracy {
         this._acc = v;
         return v;
     }
-    public var _form(get, set) : stdgo._internal.math.big.Big.T_form;
-    function get__form():stdgo._internal.math.big.Big.T_form return this._form;
-    function set__form(v:stdgo._internal.math.big.Big.T_form):stdgo._internal.math.big.Big.T_form {
+    public var _form(get, set) : T_form;
+    function get__form():T_form return this._form;
+    function set__form(v:T_form):T_form {
         this._form = v;
         return v;
     }
@@ -241,9 +241,9 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
         this._neg = v;
         return v;
     }
-    public var _mant(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__mant():stdgo._internal.math.big.Big.T_nat return this._mant;
-    function set__mant(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _mant(get, set) : T_nat;
+    function get__mant():T_nat return this._mant;
+    function set__mant(v:T_nat):T_nat {
         this._mant = v;
         return v;
     }
@@ -253,7 +253,7 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
         this._exp = v;
         return v;
     }
-    public function new(?_prec:std.UInt, ?_mode:stdgo._internal.math.big.Big.RoundingMode, ?_acc:stdgo._internal.math.big.Big.Accuracy, ?_form:stdgo._internal.math.big.Big.T_form, ?_neg:Bool, ?_mant:stdgo._internal.math.big.Big.T_nat, ?_exp:StdTypes.Int) this = new stdgo._internal.math.big.Big.Float_(_prec, _mode, _acc, _form, _neg, _mant, _exp);
+    public function new(?_prec:std.UInt, ?_mode:RoundingMode, ?_acc:Accuracy, ?_form:T_form, ?_neg:Bool, ?_mant:T_nat, ?_exp:StdTypes.Int) this = new stdgo._internal.math.big.Big.Float_(_prec, _mode, _acc, _form, _neg, _mant, _exp);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -281,13 +281,13 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
         this._m = v;
         return v;
     }
-    public var _a(get, set) : Array<stdgo._internal.math.big.Big.Rat>;
-    function get__a():Array<stdgo._internal.math.big.Big.Rat> return [for (i in this._a) i];
-    function set__a(v:Array<stdgo._internal.math.big.Big.Rat>):Array<stdgo._internal.math.big.Big.Rat> {
+    public var _a(get, set) : Array<Rat>;
+    function get__a():Array<Rat> return [for (i in this._a) i];
+    function set__a(v:Array<Rat>):Array<Rat> {
         this._a = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>);
         return v;
     }
-    public function new(?_n:StdTypes.Int, ?_m:StdTypes.Int, ?_a:Array<stdgo._internal.math.big.Big.Rat>) this = new stdgo._internal.math.big.Big.T_matrix(_n, _m, ([for (i in _a) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>));
+    public function new(?_n:StdTypes.Int, ?_m:StdTypes.Int, ?_a:Array<Rat>) this = new stdgo._internal.math.big.Big.T_matrix(_n, _m, ([for (i in _a) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big.Rat>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -298,36 +298,36 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
         this._neg = v;
         return v;
     }
-    public var _abs(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__abs():stdgo._internal.math.big.Big.T_nat return this._abs;
-    function set__abs(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _abs(get, set) : T_nat;
+    function get__abs():T_nat return this._abs;
+    function set__abs(v:T_nat):T_nat {
         this._abs = v;
         return v;
     }
-    public function new(?_neg:Bool, ?_abs:stdgo._internal.math.big.Big.T_nat) this = new stdgo._internal.math.big.Big.Int_(_neg, _abs);
+    public function new(?_neg:Bool, ?_abs:T_nat) this = new stdgo._internal.math.big.Big.Int_(_neg, _abs);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_argZZ(stdgo._internal.math.big.Big.T_argZZ) from stdgo._internal.math.big.Big.T_argZZ to stdgo._internal.math.big.Big.T_argZZ {
-    public var _z(get, set) : stdgo._internal.math.big.Big.Int_;
-    function get__z():stdgo._internal.math.big.Big.Int_ return this._z;
-    function set__z(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+    public var _z(get, set) : Int_;
+    function get__z():Int_ return this._z;
+    function set__z(v:Int_):Int_ {
         this._z = v;
         return v;
     }
-    public var _x(get, set) : stdgo._internal.math.big.Big.Int_;
-    function get__x():stdgo._internal.math.big.Big.Int_ return this._x;
-    function set__x(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+    public var _x(get, set) : Int_;
+    function get__x():Int_ return this._x;
+    function set__x(v:Int_):Int_ {
         this._x = v;
         return v;
     }
-    public var _y(get, set) : stdgo._internal.math.big.Big.Int_;
-    function get__y():stdgo._internal.math.big.Big.Int_ return this._y;
-    function set__y(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+    public var _y(get, set) : Int_;
+    function get__y():Int_ return this._y;
+    function set__y(v:Int_):Int_ {
         this._y = v;
         return v;
     }
-    public function new(?_z:stdgo._internal.math.big.Big.Int_, ?_x:stdgo._internal.math.big.Big.Int_, ?_y:stdgo._internal.math.big.Big.Int_) this = new stdgo._internal.math.big.Big.T_argZZ(_z, _x, _y);
+    public function new(?_z:Int_, ?_x:Int_, ?_y:Int_) this = new stdgo._internal.math.big.Big.T_argZZ(_z, _x, _y);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -366,32 +366,32 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_argNN(stdgo._internal.math.big.Big.T_argNN) from stdgo._internal.math.big.Big.T_argNN to stdgo._internal.math.big.Big.T_argNN {
-    public var _z(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__z():stdgo._internal.math.big.Big.T_nat return this._z;
-    function set__z(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _z(get, set) : T_nat;
+    function get__z():T_nat return this._z;
+    function set__z(v:T_nat):T_nat {
         this._z = v;
         return v;
     }
-    public var _x(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__x():stdgo._internal.math.big.Big.T_nat return this._x;
-    function set__x(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _x(get, set) : T_nat;
+    function get__x():T_nat return this._x;
+    function set__x(v:T_nat):T_nat {
         this._x = v;
         return v;
     }
-    public var _y(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__y():stdgo._internal.math.big.Big.T_nat return this._y;
-    function set__y(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _y(get, set) : T_nat;
+    function get__y():T_nat return this._y;
+    function set__y(v:T_nat):T_nat {
         this._y = v;
         return v;
     }
-    public function new(?_z:stdgo._internal.math.big.Big.T_nat, ?_x:stdgo._internal.math.big.Big.T_nat, ?_y:stdgo._internal.math.big.Big.T_nat) this = new stdgo._internal.math.big.Big.T_argNN(_z, _x, _y);
+    public function new(?_z:T_nat, ?_x:T_nat, ?_y:T_nat) this = new stdgo._internal.math.big.Big.T_argNN(_z, _x, _y);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_shiftTest(stdgo._internal.math.big.Big.T_shiftTest) from stdgo._internal.math.big.Big.T_shiftTest to stdgo._internal.math.big.Big.T_shiftTest {
-    public var _in(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__in():stdgo._internal.math.big.Big.T_nat return this._in;
-    function set__in(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _in(get, set) : T_nat;
+    function get__in():T_nat return this._in;
+    function set__in(v:T_nat):T_nat {
         this._in = v;
         return v;
     }
@@ -401,13 +401,13 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
         this._shift = v;
         return v;
     }
-    public var _out(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__out():stdgo._internal.math.big.Big.T_nat return this._out;
-    function set__out(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _out(get, set) : T_nat;
+    function get__out():T_nat return this._out;
+    function set__out(v:T_nat):T_nat {
         this._out = v;
         return v;
     }
-    public function new(?_in:stdgo._internal.math.big.Big.T_nat, ?_shift:std.UInt, ?_out:stdgo._internal.math.big.Big.T_nat) this = new stdgo._internal.math.big.Big.T_shiftTest(_in, _shift, _out);
+    public function new(?_in:T_nat, ?_shift:std.UInt, ?_out:T_nat) this = new stdgo._internal.math.big.Big.T_shiftTest(_in, _shift, _out);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -435,9 +435,9 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private abstract T_divisor(stdgo._internal.math.big.Big.T_divisor) from stdgo._internal.math.big.Big.T_divisor to stdgo._internal.math.big.Big.T_divisor {
-    public var _bbb(get, set) : stdgo._internal.math.big.Big.T_nat;
-    function get__bbb():stdgo._internal.math.big.Big.T_nat return this._bbb;
-    function set__bbb(v:stdgo._internal.math.big.Big.T_nat):stdgo._internal.math.big.Big.T_nat {
+    public var _bbb(get, set) : T_nat;
+    function get__bbb():T_nat return this._bbb;
+    function set__bbb(v:T_nat):T_nat {
         this._bbb = v;
         return v;
     }
@@ -453,24 +453,24 @@ final maxBase : StdTypes.Int = stdgo._internal.math.big.Big.maxBase;
         this._ndigits = v;
         return v;
     }
-    public function new(?_bbb:stdgo._internal.math.big.Big.T_nat, ?_nbits:StdTypes.Int, ?_ndigits:StdTypes.Int) this = new stdgo._internal.math.big.Big.T_divisor(_bbb, _nbits, _ndigits);
+    public function new(?_bbb:T_nat, ?_nbits:StdTypes.Int, ?_ndigits:StdTypes.Int) this = new stdgo._internal.math.big.Big.T_divisor(_bbb, _nbits, _ndigits);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.math.big.Big.Rat_static_extension) abstract Rat(stdgo._internal.math.big.Big.Rat) from stdgo._internal.math.big.Big.Rat to stdgo._internal.math.big.Big.Rat {
-    public var _a(get, set) : stdgo._internal.math.big.Big.Int_;
-    function get__a():stdgo._internal.math.big.Big.Int_ return this._a;
-    function set__a(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+    public var _a(get, set) : Int_;
+    function get__a():Int_ return this._a;
+    function set__a(v:Int_):Int_ {
         this._a = v;
         return v;
     }
-    public var _b(get, set) : stdgo._internal.math.big.Big.Int_;
-    function get__b():stdgo._internal.math.big.Big.Int_ return this._b;
-    function set__b(v:stdgo._internal.math.big.Big.Int_):stdgo._internal.math.big.Big.Int_ {
+    public var _b(get, set) : Int_;
+    function get__b():Int_ return this._b;
+    function set__b(v:Int_):Int_ {
         this._b = v;
         return v;
     }
-    public function new(?_a:stdgo._internal.math.big.Big.Int_, ?_b:stdgo._internal.math.big.Big.Int_) this = new stdgo._internal.math.big.Big.Rat(_a, _b);
+    public function new(?_a:Int_, ?_b:Int_) this = new stdgo._internal.math.big.Big.Rat(_a, _b);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

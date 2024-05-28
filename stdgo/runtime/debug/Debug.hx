@@ -53,25 +53,25 @@ package stdgo.runtime.debug;
         this.path = v;
         return v;
     }
-    public var _Main(get, set) : stdgo._internal.runtime.debug.Debug.Module;
-    function get__Main():stdgo._internal.runtime.debug.Debug.Module return this._Main;
-    function set__Main(v:stdgo._internal.runtime.debug.Debug.Module):stdgo._internal.runtime.debug.Debug.Module {
+    public var _Main(get, set) : Module;
+    function get__Main():Module return this._Main;
+    function set__Main(v:Module):Module {
         this._Main = v;
         return v;
     }
-    public var deps(get, set) : Array<stdgo._internal.runtime.debug.Debug.Module>;
-    function get_deps():Array<stdgo._internal.runtime.debug.Debug.Module> return [for (i in this.deps) i];
-    function set_deps(v:Array<stdgo._internal.runtime.debug.Debug.Module>):Array<stdgo._internal.runtime.debug.Debug.Module> {
+    public var deps(get, set) : Array<Module>;
+    function get_deps():Array<Module> return [for (i in this.deps) i];
+    function set_deps(v:Array<Module>):Array<Module> {
         this.deps = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug.Module>>);
         return v;
     }
-    public var settings(get, set) : Array<stdgo._internal.runtime.debug.Debug.BuildSetting>;
-    function get_settings():Array<stdgo._internal.runtime.debug.Debug.BuildSetting> return [for (i in this.settings) i];
-    function set_settings(v:Array<stdgo._internal.runtime.debug.Debug.BuildSetting>):Array<stdgo._internal.runtime.debug.Debug.BuildSetting> {
+    public var settings(get, set) : Array<BuildSetting>;
+    function get_settings():Array<BuildSetting> return [for (i in this.settings) i];
+    function set_settings(v:Array<BuildSetting>):Array<BuildSetting> {
         this.settings = ([for (i in v) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug.BuildSetting>);
         return v;
     }
-    public function new(?goVersion:String, ?path:String, ?_Main:stdgo._internal.runtime.debug.Debug.Module, ?deps:Array<stdgo._internal.runtime.debug.Debug.Module>, ?settings:Array<stdgo._internal.runtime.debug.Debug.BuildSetting>) this = new stdgo._internal.runtime.debug.Debug.BuildInfo(goVersion, path, _Main, ([for (i in deps) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug.Module>>), ([for (i in settings) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug.BuildSetting>));
+    public function new(?goVersion:String, ?path:String, ?_Main:Module, ?deps:Array<Module>, ?settings:Array<BuildSetting>) this = new stdgo._internal.runtime.debug.Debug.BuildInfo(goVersion, path, _Main, ([for (i in deps) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.debug.Debug.Module>>), ([for (i in settings) i] : stdgo.Slice<stdgo._internal.runtime.debug.Debug.BuildSetting>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -94,13 +94,13 @@ package stdgo.runtime.debug;
         this.sum = v;
         return v;
     }
-    public var replace(get, set) : stdgo._internal.runtime.debug.Debug.Module;
-    function get_replace():stdgo._internal.runtime.debug.Debug.Module return this.replace;
-    function set_replace(v:stdgo._internal.runtime.debug.Debug.Module):stdgo._internal.runtime.debug.Debug.Module {
+    public var replace(get, set) : Module;
+    function get_replace():Module return this.replace;
+    function set_replace(v:Module):Module {
         this.replace = v;
         return v;
     }
-    public function new(?path:String, ?version:String, ?sum:String, ?replace:stdgo._internal.runtime.debug.Debug.Module) this = new stdgo._internal.runtime.debug.Debug.Module(path, version, sum, replace);
+    public function new(?path:String, ?version:String, ?sum:String, ?replace:Module) this = new stdgo._internal.runtime.debug.Debug.Module(path, version, sum, replace);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

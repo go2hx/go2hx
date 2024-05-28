@@ -15,15 +15,15 @@ class Source64_static_extension {
 }
 typedef Source64 = stdgo._internal.math.rand.Rand.Source64;
 @:structInit @:using(stdgo.math.rand.Rand.Rand__static_extension) abstract Rand_(stdgo._internal.math.rand.Rand.Rand) from stdgo._internal.math.rand.Rand.Rand to stdgo._internal.math.rand.Rand.Rand {
-    public var _src(get, set) : stdgo._internal.math.rand.Rand.Source;
-    function get__src():stdgo._internal.math.rand.Rand.Source return this._src;
-    function set__src(v:stdgo._internal.math.rand.Rand.Source):stdgo._internal.math.rand.Rand.Source {
+    public var _src(get, set) : Source;
+    function get__src():Source return this._src;
+    function set__src(v:Source):Source {
         this._src = v;
         return v;
     }
-    public var _s64(get, set) : stdgo._internal.math.rand.Rand.Source64;
-    function get__s64():stdgo._internal.math.rand.Rand.Source64 return this._s64;
-    function set__s64(v:stdgo._internal.math.rand.Rand.Source64):stdgo._internal.math.rand.Rand.Source64 {
+    public var _s64(get, set) : Source64;
+    function get__s64():Source64 return this._s64;
+    function set__s64(v:Source64):Source64 {
         this._s64 = v;
         return v;
     }
@@ -39,7 +39,7 @@ typedef Source64 = stdgo._internal.math.rand.Rand.Source64;
         this._readPos = v;
         return v;
     }
-    public function new(?_src:stdgo._internal.math.rand.Rand.Source, ?_s64:stdgo._internal.math.rand.Rand.Source64, ?_readVal:haxe.Int64, ?_readPos:StdTypes.Int) this = new stdgo._internal.math.rand.Rand.Rand(_src, _s64, _readVal, _readPos);
+    public function new(?_src:Source, ?_s64:Source64, ?_readVal:haxe.Int64, ?_readPos:StdTypes.Int) this = new stdgo._internal.math.rand.Rand.Rand(_src, _s64, _readVal, _readPos);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -61,13 +61,13 @@ typedef Source64 = stdgo._internal.math.rand.Rand.Source64;
         this._lk = v;
         return v;
     }
-    public var _s(get, set) : stdgo._internal.math.rand.Rand.T_rngSource;
-    function get__s():stdgo._internal.math.rand.Rand.T_rngSource return this._s;
-    function set__s(v:stdgo._internal.math.rand.Rand.T_rngSource):stdgo._internal.math.rand.Rand.T_rngSource {
+    public var _s(get, set) : T_rngSource;
+    function get__s():T_rngSource return this._s;
+    function set__s(v:T_rngSource):T_rngSource {
         this._s = v;
         return v;
     }
-    public function new(?_lk:stdgo._internal.sync.Sync.Mutex, ?_s:stdgo._internal.math.rand.Rand.T_rngSource) this = new stdgo._internal.math.rand.Rand.T_lockedSource(_lk, _s);
+    public function new(?_lk:stdgo._internal.sync.Sync.Mutex, ?_s:T_rngSource) this = new stdgo._internal.math.rand.Rand.T_lockedSource(_lk, _s);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -95,9 +95,9 @@ typedef Source64 = stdgo._internal.math.rand.Rand.Source64;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.math.rand.Rand.Zipf_static_extension) abstract Zipf(stdgo._internal.math.rand.Rand.Zipf) from stdgo._internal.math.rand.Rand.Zipf to stdgo._internal.math.rand.Rand.Zipf {
-    public var _r(get, set) : stdgo._internal.math.rand.Rand.Rand;
-    function get__r():stdgo._internal.math.rand.Rand.Rand return this._r;
-    function set__r(v:stdgo._internal.math.rand.Rand.Rand):stdgo._internal.math.rand.Rand.Rand {
+    public var _r(get, set) : Rand_;
+    function get__r():Rand_ return this._r;
+    function set__r(v:Rand_):Rand_ {
         this._r = v;
         return v;
     }
@@ -149,7 +149,7 @@ typedef Source64 = stdgo._internal.math.rand.Rand.Source64;
         this._hx0minusHxm = v;
         return v;
     }
-    public function new(?_r:stdgo._internal.math.rand.Rand.Rand, ?_imax:StdTypes.Float, ?_v:StdTypes.Float, ?_q:StdTypes.Float, ?_s:StdTypes.Float, ?_oneminusQ:StdTypes.Float, ?_oneminusQinv:StdTypes.Float, ?_hxm:StdTypes.Float, ?_hx0minusHxm:StdTypes.Float) this = new stdgo._internal.math.rand.Rand.Zipf(_r, _imax, _v, _q, _s, _oneminusQ, _oneminusQinv, _hxm, _hx0minusHxm);
+    public function new(?_r:Rand_, ?_imax:StdTypes.Float, ?_v:StdTypes.Float, ?_q:StdTypes.Float, ?_s:StdTypes.Float, ?_oneminusQ:StdTypes.Float, ?_oneminusQinv:StdTypes.Float, ?_hxm:StdTypes.Float, ?_hx0minusHxm:StdTypes.Float) this = new stdgo._internal.math.rand.Rand.Zipf(_r, _imax, _v, _q, _s, _oneminusQ, _oneminusQinv, _hxm, _hx0minusHxm);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

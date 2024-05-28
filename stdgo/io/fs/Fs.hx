@@ -1,5 +1,5 @@
 package stdgo.io.fs;
-final modeDir : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.io.fs.Fs.modeDir;
+final modeDir : FileMode = stdgo._internal.io.fs.Fs.modeDir;
 final modeAppend = stdgo._internal.io.fs.Fs.modeAppend;
 final modeExclusive = stdgo._internal.io.fs.Fs.modeExclusive;
 final modeTemporary = stdgo._internal.io.fs.Fs.modeTemporary;
@@ -12,8 +12,8 @@ final modeSetgid = stdgo._internal.io.fs.Fs.modeSetgid;
 final modeCharDevice = stdgo._internal.io.fs.Fs.modeCharDevice;
 final modeSticky = stdgo._internal.io.fs.Fs.modeSticky;
 final modeIrregular = stdgo._internal.io.fs.Fs.modeIrregular;
-final modeType : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.io.fs.Fs.modeType;
-final modePerm : stdgo._internal.io.fs.Fs.FileMode = stdgo._internal.io.fs.Fs.modePerm;
+final modeType : FileMode = stdgo._internal.io.fs.Fs.modeType;
+final modePerm : FileMode = stdgo._internal.io.fs.Fs.modePerm;
 var errInvalid(get, set) : stdgo.Error;
 private function get_errInvalid():stdgo.Error return stdgo._internal.io.fs.Fs.errInvalid;
 private function set_errInvalid(v:stdgo.Error):stdgo.Error {
@@ -207,20 +207,20 @@ typedef T__interface_0 = stdgo._internal.io.fs.Fs.T__interface_0;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) abstract T_dirInfo(stdgo._internal.io.fs.Fs.T_dirInfo) from stdgo._internal.io.fs.Fs.T_dirInfo to stdgo._internal.io.fs.Fs.T_dirInfo {
-    public var _fileInfo(get, set) : stdgo._internal.io.fs.Fs.FileInfo;
-    function get__fileInfo():stdgo._internal.io.fs.Fs.FileInfo return this._fileInfo;
-    function set__fileInfo(v:stdgo._internal.io.fs.Fs.FileInfo):stdgo._internal.io.fs.Fs.FileInfo {
+    public var _fileInfo(get, set) : FileInfo;
+    function get__fileInfo():FileInfo return this._fileInfo;
+    function set__fileInfo(v:FileInfo):FileInfo {
         this._fileInfo = v;
         return v;
     }
-    public function new(?_fileInfo:stdgo._internal.io.fs.Fs.FileInfo) this = new stdgo._internal.io.fs.Fs.T_dirInfo(_fileInfo);
+    public function new(?_fileInfo:FileInfo) this = new stdgo._internal.io.fs.Fs.T_dirInfo(_fileInfo);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.io.fs.Fs.T_subFS_static_extension) abstract T_subFS(stdgo._internal.io.fs.Fs.T_subFS) from stdgo._internal.io.fs.Fs.T_subFS to stdgo._internal.io.fs.Fs.T_subFS {
-    public var _fsys(get, set) : stdgo._internal.io.fs.Fs.FS;
-    function get__fsys():stdgo._internal.io.fs.Fs.FS return this._fsys;
-    function set__fsys(v:stdgo._internal.io.fs.Fs.FS):stdgo._internal.io.fs.Fs.FS {
+    public var _fsys(get, set) : FS;
+    function get__fsys():FS return this._fsys;
+    function set__fsys(v:FS):FS {
         this._fsys = v;
         return v;
     }
@@ -230,18 +230,18 @@ typedef T__interface_0 = stdgo._internal.io.fs.Fs.T__interface_0;
         this._dir = v;
         return v;
     }
-    public function new(?_fsys:stdgo._internal.io.fs.Fs.FS, ?_dir:String) this = new stdgo._internal.io.fs.Fs.T_subFS(_fsys, _dir);
+    public function new(?_fsys:FS, ?_dir:String) this = new stdgo._internal.io.fs.Fs.T_subFS(_fsys, _dir);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.io.fs.Fs.T_statDirEntry_static_extension) abstract T_statDirEntry(stdgo._internal.io.fs.Fs.T_statDirEntry) from stdgo._internal.io.fs.Fs.T_statDirEntry to stdgo._internal.io.fs.Fs.T_statDirEntry {
-    public var _info(get, set) : stdgo._internal.io.fs.Fs.FileInfo;
-    function get__info():stdgo._internal.io.fs.Fs.FileInfo return this._info;
-    function set__info(v:stdgo._internal.io.fs.Fs.FileInfo):stdgo._internal.io.fs.Fs.FileInfo {
+    public var _info(get, set) : FileInfo;
+    function get__info():FileInfo return this._info;
+    function set__info(v:FileInfo):FileInfo {
         this._info = v;
         return v;
     }
-    public function new(?_info:stdgo._internal.io.fs.Fs.FileInfo) this = new stdgo._internal.io.fs.Fs.T_statDirEntry(_info);
+    public function new(?_info:FileInfo) this = new stdgo._internal.io.fs.Fs.T_statDirEntry(_info);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

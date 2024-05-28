@@ -32,9 +32,9 @@ private function set_errNoProgress(v:stdgo.Error):stdgo.Error {
         stdgo._internal.io.Io.errNoProgress = v;
         return v;
     }
-var discard(get, set) : stdgo._internal.io.Io.Writer;
-private function get_discard():stdgo._internal.io.Io.Writer return stdgo._internal.io.Io.discard;
-private function set_discard(v:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+var discard(get, set) : Writer;
+private function get_discard():Writer return stdgo._internal.io.Io.discard;
+private function set_discard(v:Writer):Writer {
         stdgo._internal.io.Io.discard = v;
         return v;
     }
@@ -213,9 +213,9 @@ class StringWriter_static_extension {
 }
 typedef StringWriter = stdgo._internal.io.Io.StringWriter;
 @:structInit @:using(stdgo.io.Io.LimitedReader_static_extension) abstract LimitedReader(stdgo._internal.io.Io.LimitedReader) from stdgo._internal.io.Io.LimitedReader to stdgo._internal.io.Io.LimitedReader {
-    public var r(get, set) : stdgo._internal.io.Io.Reader;
-    function get_r():stdgo._internal.io.Io.Reader return this.r;
-    function set_r(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+    public var r(get, set) : Reader;
+    function get_r():Reader return this.r;
+    function set_r(v:Reader):Reader {
         this.r = v;
         return v;
     }
@@ -225,14 +225,14 @@ typedef StringWriter = stdgo._internal.io.Io.StringWriter;
         this.n = v;
         return v;
     }
-    public function new(?r:stdgo._internal.io.Io.Reader, ?n:haxe.Int64) this = new stdgo._internal.io.Io.LimitedReader(r, n);
+    public function new(?r:Reader, ?n:haxe.Int64) this = new stdgo._internal.io.Io.LimitedReader(r, n);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.io.Io.SectionReader_static_extension) abstract SectionReader(stdgo._internal.io.Io.SectionReader) from stdgo._internal.io.Io.SectionReader to stdgo._internal.io.Io.SectionReader {
-    public var _r(get, set) : stdgo._internal.io.Io.ReaderAt;
-    function get__r():stdgo._internal.io.Io.ReaderAt return this._r;
-    function set__r(v:stdgo._internal.io.Io.ReaderAt):stdgo._internal.io.Io.ReaderAt {
+    public var _r(get, set) : ReaderAt;
+    function get__r():ReaderAt return this._r;
+    function set__r(v:ReaderAt):ReaderAt {
         this._r = v;
         return v;
     }
@@ -254,14 +254,14 @@ typedef StringWriter = stdgo._internal.io.Io.StringWriter;
         this._limit = v;
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io.ReaderAt, ?_base:haxe.Int64, ?_off:haxe.Int64, ?_limit:haxe.Int64) this = new stdgo._internal.io.Io.SectionReader(_r, _base, _off, _limit);
+    public function new(?_r:ReaderAt, ?_base:haxe.Int64, ?_off:haxe.Int64, ?_limit:haxe.Int64) this = new stdgo._internal.io.Io.SectionReader(_r, _base, _off, _limit);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.io.Io.OffsetWriter_static_extension) abstract OffsetWriter(stdgo._internal.io.Io.OffsetWriter) from stdgo._internal.io.Io.OffsetWriter to stdgo._internal.io.Io.OffsetWriter {
-    public var _w(get, set) : stdgo._internal.io.Io.WriterAt;
-    function get__w():stdgo._internal.io.Io.WriterAt return this._w;
-    function set__w(v:stdgo._internal.io.Io.WriterAt):stdgo._internal.io.Io.WriterAt {
+    public var _w(get, set) : WriterAt;
+    function get__w():WriterAt return this._w;
+    function set__w(v:WriterAt):WriterAt {
         this._w = v;
         return v;
     }
@@ -277,24 +277,24 @@ typedef StringWriter = stdgo._internal.io.Io.StringWriter;
         this._off = v;
         return v;
     }
-    public function new(?_w:stdgo._internal.io.Io.WriterAt, ?_base:haxe.Int64, ?_off:haxe.Int64) this = new stdgo._internal.io.Io.OffsetWriter(_w, _base, _off);
+    public function new(?_w:WriterAt, ?_base:haxe.Int64, ?_off:haxe.Int64) this = new stdgo._internal.io.Io.OffsetWriter(_w, _base, _off);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.io.Io.T_teeReader_static_extension) abstract T_teeReader(stdgo._internal.io.Io.T_teeReader) from stdgo._internal.io.Io.T_teeReader to stdgo._internal.io.Io.T_teeReader {
-    public var _r(get, set) : stdgo._internal.io.Io.Reader;
-    function get__r():stdgo._internal.io.Io.Reader return this._r;
-    function set__r(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+    public var _r(get, set) : Reader;
+    function get__r():Reader return this._r;
+    function set__r(v:Reader):Reader {
         this._r = v;
         return v;
     }
-    public var _w(get, set) : stdgo._internal.io.Io.Writer;
-    function get__w():stdgo._internal.io.Io.Writer return this._w;
-    function set__w(v:stdgo._internal.io.Io.Writer):stdgo._internal.io.Io.Writer {
+    public var _w(get, set) : Writer;
+    function get__w():Writer return this._w;
+    function set__w(v:Writer):Writer {
         this._w = v;
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io.Reader, ?_w:stdgo._internal.io.Io.Writer) this = new stdgo._internal.io.Io.T_teeReader(_r, _w);
+    public function new(?_r:Reader, ?_w:Writer) this = new stdgo._internal.io.Io.T_teeReader(_r, _w);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -304,24 +304,24 @@ typedef StringWriter = stdgo._internal.io.Io.StringWriter;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.io.Io.T_nopCloser_static_extension) abstract T_nopCloser(stdgo._internal.io.Io.T_nopCloser) from stdgo._internal.io.Io.T_nopCloser to stdgo._internal.io.Io.T_nopCloser {
-    public var reader(get, set) : stdgo._internal.io.Io.Reader;
-    function get_reader():stdgo._internal.io.Io.Reader return this.reader;
-    function set_reader(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+    public var reader(get, set) : Reader;
+    function get_reader():Reader return this.reader;
+    function set_reader(v:Reader):Reader {
         this.reader = v;
         return v;
     }
-    public function new(?reader:stdgo._internal.io.Io.Reader) this = new stdgo._internal.io.Io.T_nopCloser(reader);
+    public function new(?reader:Reader) this = new stdgo._internal.io.Io.T_nopCloser(reader);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.io.Io.T_nopCloserWriterTo_static_extension) abstract T_nopCloserWriterTo(stdgo._internal.io.Io.T_nopCloserWriterTo) from stdgo._internal.io.Io.T_nopCloserWriterTo to stdgo._internal.io.Io.T_nopCloserWriterTo {
-    public var reader(get, set) : stdgo._internal.io.Io.Reader;
-    function get_reader():stdgo._internal.io.Io.Reader return this.reader;
-    function set_reader(v:stdgo._internal.io.Io.Reader):stdgo._internal.io.Io.Reader {
+    public var reader(get, set) : Reader;
+    function get_reader():Reader return this.reader;
+    function set_reader(v:Reader):Reader {
         this.reader = v;
         return v;
     }
-    public function new(?reader:stdgo._internal.io.Io.Reader) this = new stdgo._internal.io.Io.T_nopCloserWriterTo(reader);
+    public function new(?reader:Reader) this = new stdgo._internal.io.Io.T_nopCloserWriterTo(reader);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -331,24 +331,24 @@ typedef StringWriter = stdgo._internal.io.Io.StringWriter;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.io.Io.T_multiReader_static_extension) abstract T_multiReader(stdgo._internal.io.Io.T_multiReader) from stdgo._internal.io.Io.T_multiReader to stdgo._internal.io.Io.T_multiReader {
-    public var _readers(get, set) : Array<stdgo._internal.io.Io.Reader>;
-    function get__readers():Array<stdgo._internal.io.Io.Reader> return [for (i in this._readers) i];
-    function set__readers(v:Array<stdgo._internal.io.Io.Reader>):Array<stdgo._internal.io.Io.Reader> {
+    public var _readers(get, set) : Array<Reader>;
+    function get__readers():Array<Reader> return [for (i in this._readers) i];
+    function set__readers(v:Array<Reader>):Array<Reader> {
         this._readers = ([for (i in v) i] : stdgo.Slice<stdgo._internal.io.Io.Reader>);
         return v;
     }
-    public function new(?_readers:Array<stdgo._internal.io.Io.Reader>) this = new stdgo._internal.io.Io.T_multiReader(([for (i in _readers) i] : stdgo.Slice<stdgo._internal.io.Io.Reader>));
+    public function new(?_readers:Array<Reader>) this = new stdgo._internal.io.Io.T_multiReader(([for (i in _readers) i] : stdgo.Slice<stdgo._internal.io.Io.Reader>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.io.Io.T_multiWriter_static_extension) abstract T_multiWriter(stdgo._internal.io.Io.T_multiWriter) from stdgo._internal.io.Io.T_multiWriter to stdgo._internal.io.Io.T_multiWriter {
-    public var _writers(get, set) : Array<stdgo._internal.io.Io.Writer>;
-    function get__writers():Array<stdgo._internal.io.Io.Writer> return [for (i in this._writers) i];
-    function set__writers(v:Array<stdgo._internal.io.Io.Writer>):Array<stdgo._internal.io.Io.Writer> {
+    public var _writers(get, set) : Array<Writer>;
+    function get__writers():Array<Writer> return [for (i in this._writers) i];
+    function set__writers(v:Array<Writer>):Array<Writer> {
         this._writers = ([for (i in v) i] : stdgo.Slice<stdgo._internal.io.Io.Writer>);
         return v;
     }
-    public function new(?_writers:Array<stdgo._internal.io.Io.Writer>) this = new stdgo._internal.io.Io.T_multiWriter(([for (i in _writers) i] : stdgo.Slice<stdgo._internal.io.Io.Writer>));
+    public function new(?_writers:Array<Writer>) this = new stdgo._internal.io.Io.T_multiWriter(([for (i in _writers) i] : stdgo.Slice<stdgo._internal.io.Io.Writer>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -400,41 +400,41 @@ typedef StringWriter = stdgo._internal.io.Io.StringWriter;
         this._done = v;
         return v;
     }
-    public var _rerr(get, set) : stdgo._internal.io.Io.T_onceError;
-    function get__rerr():stdgo._internal.io.Io.T_onceError return this._rerr;
-    function set__rerr(v:stdgo._internal.io.Io.T_onceError):stdgo._internal.io.Io.T_onceError {
+    public var _rerr(get, set) : T_onceError;
+    function get__rerr():T_onceError return this._rerr;
+    function set__rerr(v:T_onceError):T_onceError {
         this._rerr = v;
         return v;
     }
-    public var _werr(get, set) : stdgo._internal.io.Io.T_onceError;
-    function get__werr():stdgo._internal.io.Io.T_onceError return this._werr;
-    function set__werr(v:stdgo._internal.io.Io.T_onceError):stdgo._internal.io.Io.T_onceError {
+    public var _werr(get, set) : T_onceError;
+    function get__werr():T_onceError return this._werr;
+    function set__werr(v:T_onceError):T_onceError {
         this._werr = v;
         return v;
     }
-    public function new(?_wrMu:stdgo._internal.sync.Sync.Mutex, ?_wrCh:stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>, ?_rdCh:stdgo.Chan<stdgo.GoInt>, ?_once:stdgo._internal.sync.Sync.Once, ?_done:stdgo.Chan<T_discard>, ?_rerr:stdgo._internal.io.Io.T_onceError, ?_werr:stdgo._internal.io.Io.T_onceError) this = new stdgo._internal.io.Io.T_pipe(_wrMu, _wrCh, _rdCh, _once, _done, _rerr, _werr);
+    public function new(?_wrMu:stdgo._internal.sync.Sync.Mutex, ?_wrCh:stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>, ?_rdCh:stdgo.Chan<stdgo.GoInt>, ?_once:stdgo._internal.sync.Sync.Once, ?_done:stdgo.Chan<T_discard>, ?_rerr:T_onceError, ?_werr:T_onceError) this = new stdgo._internal.io.Io.T_pipe(_wrMu, _wrCh, _rdCh, _once, _done, _rerr, _werr);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.io.Io.PipeReader_static_extension) abstract PipeReader(stdgo._internal.io.Io.PipeReader) from stdgo._internal.io.Io.PipeReader to stdgo._internal.io.Io.PipeReader {
-    public var _p(get, set) : stdgo._internal.io.Io.T_pipe;
-    function get__p():stdgo._internal.io.Io.T_pipe return this._p;
-    function set__p(v:stdgo._internal.io.Io.T_pipe):stdgo._internal.io.Io.T_pipe {
+    public var _p(get, set) : T_pipe;
+    function get__p():T_pipe return this._p;
+    function set__p(v:T_pipe):T_pipe {
         this._p = v;
         return v;
     }
-    public function new(?_p:stdgo._internal.io.Io.T_pipe) this = new stdgo._internal.io.Io.PipeReader(_p);
+    public function new(?_p:T_pipe) this = new stdgo._internal.io.Io.PipeReader(_p);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.io.Io.PipeWriter_static_extension) abstract PipeWriter(stdgo._internal.io.Io.PipeWriter) from stdgo._internal.io.Io.PipeWriter to stdgo._internal.io.Io.PipeWriter {
-    public var _p(get, set) : stdgo._internal.io.Io.T_pipe;
-    function get__p():stdgo._internal.io.Io.T_pipe return this._p;
-    function set__p(v:stdgo._internal.io.Io.T_pipe):stdgo._internal.io.Io.T_pipe {
+    public var _p(get, set) : T_pipe;
+    function get__p():T_pipe return this._p;
+    function set__p(v:T_pipe):T_pipe {
         this._p = v;
         return v;
     }
-    public function new(?_p:stdgo._internal.io.Io.T_pipe) this = new stdgo._internal.io.Io.PipeWriter(_p);
+    public function new(?_p:T_pipe) this = new stdgo._internal.io.Io.PipeWriter(_p);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

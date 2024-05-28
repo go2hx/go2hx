@@ -1,7 +1,7 @@
 package stdgo.internal.poll;
-var errNetClosing(get, set) : stdgo._internal.internal.poll.Poll.T_errNetClosing;
-private function get_errNetClosing():stdgo._internal.internal.poll.Poll.T_errNetClosing return stdgo._internal.internal.poll.Poll.errNetClosing;
-private function set_errNetClosing(v:stdgo._internal.internal.poll.Poll.T_errNetClosing):stdgo._internal.internal.poll.Poll.T_errNetClosing {
+var errNetClosing(get, set) : T_errNetClosing;
+private function get_errNetClosing():T_errNetClosing return stdgo._internal.internal.poll.Poll.errNetClosing;
+private function set_errNetClosing(v:T_errNetClosing):T_errNetClosing {
         stdgo._internal.internal.poll.Poll.errNetClosing = v;
         return v;
     }
@@ -81,9 +81,9 @@ private function set_acceptFunc(v:stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.internal.poll.Poll.T_pollDesc_static_extension) abstract T_pollDesc(stdgo._internal.internal.poll.Poll.T_pollDesc) from stdgo._internal.internal.poll.Poll.T_pollDesc to stdgo._internal.internal.poll.Poll.T_pollDesc {
-    public var _fd(get, set) : stdgo._internal.internal.poll.Poll.FD;
-    function get__fd():stdgo._internal.internal.poll.Poll.FD return this._fd;
-    function set__fd(v:stdgo._internal.internal.poll.Poll.FD):stdgo._internal.internal.poll.Poll.FD {
+    public var _fd(get, set) : FD;
+    function get__fd():FD return this._fd;
+    function set__fd(v:FD):FD {
         this._fd = v;
         return v;
     }
@@ -93,14 +93,14 @@ private function set_acceptFunc(v:stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 
         this._closing = v;
         return v;
     }
-    public function new(?_fd:stdgo._internal.internal.poll.Poll.FD, ?_closing:Bool) this = new stdgo._internal.internal.poll.Poll.T_pollDesc(_fd, _closing);
+    public function new(?_fd:FD, ?_closing:Bool) this = new stdgo._internal.internal.poll.Poll.T_pollDesc(_fd, _closing);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.internal.poll.Poll.FD_static_extension) abstract FD(stdgo._internal.internal.poll.Poll.FD) from stdgo._internal.internal.poll.Poll.FD to stdgo._internal.internal.poll.Poll.FD {
-    public var _fdmu(get, set) : stdgo._internal.internal.poll.Poll.T_fdMutex;
-    function get__fdmu():stdgo._internal.internal.poll.Poll.T_fdMutex return this._fdmu;
-    function set__fdmu(v:stdgo._internal.internal.poll.Poll.T_fdMutex):stdgo._internal.internal.poll.Poll.T_fdMutex {
+    public var _fdmu(get, set) : T_fdMutex;
+    function get__fdmu():T_fdMutex return this._fdmu;
+    function set__fdmu(v:T_fdMutex):T_fdMutex {
         this._fdmu = v;
         return v;
     }
@@ -110,15 +110,15 @@ private function set_acceptFunc(v:stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 
         this.sysfd = v;
         return v;
     }
-    public var sysFile(get, set) : stdgo._internal.internal.poll.Poll.SysFile;
-    function get_sysFile():stdgo._internal.internal.poll.Poll.SysFile return this.sysFile;
-    function set_sysFile(v:stdgo._internal.internal.poll.Poll.SysFile):stdgo._internal.internal.poll.Poll.SysFile {
+    public var sysFile(get, set) : SysFile;
+    function get_sysFile():SysFile return this.sysFile;
+    function set_sysFile(v:SysFile):SysFile {
         this.sysFile = v;
         return v;
     }
-    public var _pd(get, set) : stdgo._internal.internal.poll.Poll.T_pollDesc;
-    function get__pd():stdgo._internal.internal.poll.Poll.T_pollDesc return this._pd;
-    function set__pd(v:stdgo._internal.internal.poll.Poll.T_pollDesc):stdgo._internal.internal.poll.Poll.T_pollDesc {
+    public var _pd(get, set) : T_pollDesc;
+    function get__pd():T_pollDesc return this._pd;
+    function set__pd(v:T_pollDesc):T_pollDesc {
         this._pd = v;
         return v;
     }
@@ -152,7 +152,7 @@ private function set_acceptFunc(v:stdgo.GoInt -> { var _0 : stdgo.GoInt; var _1 
         this._isFile = v;
         return v;
     }
-    public function new(?_fdmu:stdgo._internal.internal.poll.Poll.T_fdMutex, ?sysfd:StdTypes.Int, ?sysFile:stdgo._internal.internal.poll.Poll.SysFile, ?_pd:stdgo._internal.internal.poll.Poll.T_pollDesc, ?_csema:std.UInt, ?_isBlocking:std.UInt, ?isStream:Bool, ?zeroReadIsEOF:Bool, ?_isFile:Bool) this = new stdgo._internal.internal.poll.Poll.FD(_fdmu, sysfd, sysFile, _pd, _csema, _isBlocking, isStream, zeroReadIsEOF, _isFile);
+    public function new(?_fdmu:T_fdMutex, ?sysfd:StdTypes.Int, ?sysFile:SysFile, ?_pd:T_pollDesc, ?_csema:std.UInt, ?_isBlocking:std.UInt, ?isStream:Bool, ?zeroReadIsEOF:Bool, ?_isFile:Bool) this = new stdgo._internal.internal.poll.Poll.FD(_fdmu, sysfd, sysFile, _pd, _csema, _isBlocking, isStream, zeroReadIsEOF, _isFile);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -155,13 +155,13 @@ final goWhitespace : haxe.UInt64 = stdgo._internal.text.scanner.Scanner.goWhites
         this.isIdentRune = v;
         return v;
     }
-    public var position(get, set) : stdgo._internal.text.scanner.Scanner.Position;
-    function get_position():stdgo._internal.text.scanner.Scanner.Position return this.position;
-    function set_position(v:stdgo._internal.text.scanner.Scanner.Position):stdgo._internal.text.scanner.Scanner.Position {
+    public var position(get, set) : Position;
+    function get_position():Position return this.position;
+    function set_position(v:Position):Position {
         this.position = v;
         return v;
     }
-    public function new(?_src:stdgo._internal.io.Io.Reader, ?_srcBuf:haxe.ds.Vector<std.UInt>, ?_srcPos:StdTypes.Int, ?_srcEnd:StdTypes.Int, ?_srcBufOffset:StdTypes.Int, ?_line:StdTypes.Int, ?_column:StdTypes.Int, ?_lastLineLen:StdTypes.Int, ?_lastCharLen:StdTypes.Int, ?_tokBuf:stdgo._internal.bytes.Bytes.Buffer, ?_tokPos:StdTypes.Int, ?_tokEnd:StdTypes.Int, ?_ch:StdTypes.Int, ?error:(stdgo.Ref<stdgo._internal.text.scanner.Scanner.Scanner>, stdgo.GoString) -> Void, ?errorCount:StdTypes.Int, ?mode:std.UInt, ?whitespace:haxe.UInt64, ?isIdentRune:(stdgo.GoInt32, stdgo.GoInt) -> Bool, ?position:stdgo._internal.text.scanner.Scanner.Position) this = new stdgo._internal.text.scanner.Scanner.Scanner(
+    public function new(?_src:stdgo._internal.io.Io.Reader, ?_srcBuf:haxe.ds.Vector<std.UInt>, ?_srcPos:StdTypes.Int, ?_srcEnd:StdTypes.Int, ?_srcBufOffset:StdTypes.Int, ?_line:StdTypes.Int, ?_column:StdTypes.Int, ?_lastLineLen:StdTypes.Int, ?_lastCharLen:StdTypes.Int, ?_tokBuf:stdgo._internal.bytes.Bytes.Buffer, ?_tokPos:StdTypes.Int, ?_tokEnd:StdTypes.Int, ?_ch:StdTypes.Int, ?error:(stdgo.Ref<stdgo._internal.text.scanner.Scanner.Scanner>, stdgo.GoString) -> Void, ?errorCount:StdTypes.Int, ?mode:std.UInt, ?whitespace:haxe.UInt64, ?isIdentRune:(stdgo.GoInt32, stdgo.GoInt) -> Bool, ?position:Position) this = new stdgo._internal.text.scanner.Scanner.Scanner(
 _src,
 ([for (i in _srcBuf) i] : stdgo.GoArray<stdgo.GoUInt8>),
 _srcPos,

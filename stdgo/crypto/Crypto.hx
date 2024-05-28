@@ -1,5 +1,5 @@
 package stdgo.crypto;
-final md4 : stdgo._internal.crypto.Crypto.Hash = stdgo._internal.crypto.Crypto.md4;
+final md4 : Hash = stdgo._internal.crypto.Crypto.md4;
 final md5 = stdgo._internal.crypto.Crypto.md5;
 final sha1 = stdgo._internal.crypto.Crypto.sha1;
 final sha224 = stdgo._internal.crypto.Crypto.sha224;

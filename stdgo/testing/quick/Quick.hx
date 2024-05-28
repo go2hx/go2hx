@@ -52,9 +52,9 @@ typedef Generator = stdgo._internal.testing.quick.Quick.Generator;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.testing.quick.Quick.CheckEqualError_static_extension) abstract CheckEqualError(stdgo._internal.testing.quick.Quick.CheckEqualError) from stdgo._internal.testing.quick.Quick.CheckEqualError to stdgo._internal.testing.quick.Quick.CheckEqualError {
-    public var checkError(get, set) : stdgo._internal.testing.quick.Quick.CheckError;
-    function get_checkError():stdgo._internal.testing.quick.Quick.CheckError return this.checkError;
-    function set_checkError(v:stdgo._internal.testing.quick.Quick.CheckError):stdgo._internal.testing.quick.Quick.CheckError {
+    public var checkError(get, set) : CheckError;
+    function get_checkError():CheckError return this.checkError;
+    function set_checkError(v:CheckError):CheckError {
         this.checkError = v;
         return v;
     }
@@ -70,7 +70,7 @@ typedef Generator = stdgo._internal.testing.quick.Quick.Generator;
         this.out2 = ([for (i in v) i] : stdgo.Slice<stdgo.AnyInterface>);
         return v;
     }
-    public function new(?checkError:stdgo._internal.testing.quick.Quick.CheckError, ?out1:Array<stdgo.AnyInterface>, ?out2:Array<stdgo.AnyInterface>) this = new stdgo._internal.testing.quick.Quick.CheckEqualError(checkError, ([for (i in out1) i] : stdgo.Slice<stdgo.AnyInterface>), ([for (i in out2) i] : stdgo.Slice<stdgo.AnyInterface>));
+    public function new(?checkError:CheckError, ?out1:Array<stdgo.AnyInterface>, ?out2:Array<stdgo.AnyInterface>) this = new stdgo._internal.testing.quick.Quick.CheckEqualError(checkError, ([for (i in out1) i] : stdgo.Slice<stdgo.AnyInterface>), ([for (i in out2) i] : stdgo.Slice<stdgo.AnyInterface>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -103,24 +103,24 @@ typedef Generator = stdgo._internal.testing.quick.Quick.Generator;
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract A(stdgo._internal.testing.quick.Quick.A) from stdgo._internal.testing.quick.Quick.A to stdgo._internal.testing.quick.Quick.A {
-    public var b(get, set) : stdgo._internal.testing.quick.Quick.B;
-    function get_b():stdgo._internal.testing.quick.Quick.B return this.b;
-    function set_b(v:stdgo._internal.testing.quick.Quick.B):stdgo._internal.testing.quick.Quick.B {
+    public var b(get, set) : B;
+    function get_b():B return this.b;
+    function set_b(v:B):B {
         this.b = v;
         return v;
     }
-    public function new(?b:stdgo._internal.testing.quick.Quick.B) this = new stdgo._internal.testing.quick.Quick.A(b);
+    public function new(?b:B) this = new stdgo._internal.testing.quick.Quick.A(b);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract B(stdgo._internal.testing.quick.Quick.B) from stdgo._internal.testing.quick.Quick.B to stdgo._internal.testing.quick.Quick.B {
-    public var a(get, set) : stdgo._internal.testing.quick.Quick.A;
-    function get_a():stdgo._internal.testing.quick.Quick.A return this.a;
-    function set_a(v:stdgo._internal.testing.quick.Quick.A):stdgo._internal.testing.quick.Quick.A {
+    public var a(get, set) : A;
+    function get_a():A return this.a;
+    function set_a(v:A):A {
         this.a = v;
         return v;
     }
-    public function new(?a:stdgo._internal.testing.quick.Quick.A) this = new stdgo._internal.testing.quick.Quick.B(a);
+    public function new(?a:A) this = new stdgo._internal.testing.quick.Quick.B(a);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -152,21 +152,21 @@ typedef TestUint8Alias = stdgo._internal.testing.quick.Quick.TestUint8Alias;
 typedef TestUintAlias = stdgo._internal.testing.quick.Quick.TestUintAlias;
 typedef TestUintptrAlias = stdgo._internal.testing.quick.Quick.TestUintptrAlias;
 @:structInit abstract T_testRecursive___localname___R_8108(stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108) from stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108 to stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108 {
-    public var ptr(get, set) : stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108;
-    function get_ptr():stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108 return this.ptr;
-    function set_ptr(v:stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108):stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108 {
+    public var ptr(get, set) : T_testRecursive___localname___R_8108;
+    function get_ptr():T_testRecursive___localname___R_8108 return this.ptr;
+    function set_ptr(v:T_testRecursive___localname___R_8108):T_testRecursive___localname___R_8108 {
         this.ptr = v;
         return v;
     }
-    public var sliceP(get, set) : Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>;
-    function get_sliceP():Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108> return [for (i in this.sliceP) i];
-    function set_sliceP(v:Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>):Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108> {
+    public var sliceP(get, set) : Array<T_testRecursive___localname___R_8108>;
+    function get_sliceP():Array<T_testRecursive___localname___R_8108> return [for (i in this.sliceP) i];
+    function set_sliceP(v:Array<T_testRecursive___localname___R_8108>):Array<T_testRecursive___localname___R_8108> {
         this.sliceP = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>);
         return v;
     }
-    public var slice(get, set) : Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>;
-    function get_slice():Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108> return [for (i in this.slice) i];
-    function set_slice(v:Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>):Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108> {
+    public var slice(get, set) : Array<T_testRecursive___localname___R_8108>;
+    function get_slice():Array<T_testRecursive___localname___R_8108> return [for (i in this.slice) i];
+    function set_slice(v:Array<T_testRecursive___localname___R_8108>):Array<T_testRecursive___localname___R_8108> {
         this.slice = ([for (i in v) i] : stdgo.Slice<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>);
         return v;
     }
@@ -194,7 +194,7 @@ typedef TestUintptrAlias = stdgo._internal.testing.quick.Quick.TestUintptrAlias;
         this.sliceMap = ([for (i in v) i] : stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>);
         return v;
     }
-    public function new(?ptr:stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108, ?sliceP:Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>, ?slice:Array<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>, ?map_:stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>, ?mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>, ?mapR:stdgo.GoMap<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>, ?sliceMap:Array<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>) this = new stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108(ptr, ([for (i in sliceP) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>), ([for (i in slice) i] : stdgo.Slice<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>), map_, mapP, mapR, ([for (i in sliceMap) i] : stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>));
+    public function new(?ptr:T_testRecursive___localname___R_8108, ?sliceP:Array<T_testRecursive___localname___R_8108>, ?slice:Array<T_testRecursive___localname___R_8108>, ?map_:stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>, ?mapP:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>, ?mapR:stdgo.GoMap<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>, stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>, ?sliceMap:Array<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>) this = new stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108(ptr, ([for (i in sliceP) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>), ([for (i in slice) i] : stdgo.Slice<stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>), map_, mapP, mapR, ([for (i in sliceMap) i] : stdgo.Slice<stdgo.GoMap<stdgo.GoInt, stdgo._internal.testing.quick.Quick.T_testRecursive___localname___R_8108>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

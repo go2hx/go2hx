@@ -1,5 +1,5 @@
 package stdgo.flag;
-final continueOnError : stdgo._internal.flag.Flag.ErrorHandling = stdgo._internal.flag.Flag.continueOnError;
+final continueOnError : ErrorHandling = stdgo._internal.flag.Flag.continueOnError;
 final exitOnError = stdgo._internal.flag.Flag.exitOnError;
 final panicOnError = stdgo._internal.flag.Flag.panicOnError;
 var errHelp(get, set) : stdgo.Error;
@@ -8,9 +8,9 @@ private function set_errHelp(v:stdgo.Error):stdgo.Error {
         stdgo._internal.flag.Flag.errHelp = v;
         return v;
     }
-var commandLine(get, set) : stdgo._internal.flag.Flag.FlagSet;
-private function get_commandLine():stdgo._internal.flag.Flag.FlagSet return stdgo._internal.flag.Flag.commandLine;
-private function set_commandLine(v:stdgo._internal.flag.Flag.FlagSet):stdgo._internal.flag.Flag.FlagSet {
+var commandLine(get, set) : FlagSet;
+private function get_commandLine():FlagSet return stdgo._internal.flag.Flag.commandLine;
+private function set_commandLine(v:FlagSet):FlagSet {
         stdgo._internal.flag.Flag.commandLine = v;
         return v;
     }
@@ -95,9 +95,9 @@ typedef Getter = stdgo._internal.flag.Flag.Getter;
         this._args = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public var _errorHandling(get, set) : stdgo._internal.flag.Flag.ErrorHandling;
-    function get__errorHandling():stdgo._internal.flag.Flag.ErrorHandling return this._errorHandling;
-    function set__errorHandling(v:stdgo._internal.flag.Flag.ErrorHandling):stdgo._internal.flag.Flag.ErrorHandling {
+    public var _errorHandling(get, set) : ErrorHandling;
+    function get__errorHandling():ErrorHandling return this._errorHandling;
+    function set__errorHandling(v:ErrorHandling):ErrorHandling {
         this._errorHandling = v;
         return v;
     }
@@ -113,7 +113,7 @@ typedef Getter = stdgo._internal.flag.Flag.Getter;
         this._undef = v;
         return v;
     }
-    public function new(?usage:() -> Void, ?_name:String, ?_parsed:Bool, ?_actual:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>, ?_formal:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>, ?_args:Array<String>, ?_errorHandling:stdgo._internal.flag.Flag.ErrorHandling, ?_output:stdgo._internal.io.Io.Writer, ?_undef:stdgo.GoMap<stdgo.GoString, stdgo.GoString>) this = new stdgo._internal.flag.Flag.FlagSet(usage, _name, _parsed, _actual, _formal, ([for (i in _args) i] : stdgo.Slice<stdgo.GoString>), _errorHandling, _output, _undef);
+    public function new(?usage:() -> Void, ?_name:String, ?_parsed:Bool, ?_actual:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>, ?_formal:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>, ?_args:Array<String>, ?_errorHandling:ErrorHandling, ?_output:stdgo._internal.io.Io.Writer, ?_undef:stdgo.GoMap<stdgo.GoString, stdgo.GoString>) this = new stdgo._internal.flag.Flag.FlagSet(usage, _name, _parsed, _actual, _formal, ([for (i in _args) i] : stdgo.Slice<stdgo.GoString>), _errorHandling, _output, _undef);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -130,9 +130,9 @@ typedef Getter = stdgo._internal.flag.Flag.Getter;
         this.usage = v;
         return v;
     }
-    public var value(get, set) : stdgo._internal.flag.Flag.Value;
-    function get_value():stdgo._internal.flag.Flag.Value return this.value;
-    function set_value(v:stdgo._internal.flag.Flag.Value):stdgo._internal.flag.Flag.Value {
+    public var value(get, set) : Value;
+    function get_value():Value return this.value;
+    function set_value(v:Value):Value {
         this.value = v;
         return v;
     }
@@ -142,7 +142,7 @@ typedef Getter = stdgo._internal.flag.Flag.Getter;
         this.defValue = v;
         return v;
     }
-    public function new(?name:String, ?usage:String, ?value:stdgo._internal.flag.Flag.Value, ?defValue:String) this = new stdgo._internal.flag.Flag.Flag(name, usage, value, defValue);
+    public function new(?name:String, ?usage:String, ?value:Value, ?defValue:String) this = new stdgo._internal.flag.Flag.Flag(name, usage, value, defValue);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

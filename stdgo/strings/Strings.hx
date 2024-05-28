@@ -12,9 +12,9 @@ class T_replacer_static_extension {
 }
 typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
 @:structInit @:using(stdgo.strings.Strings.Builder_static_extension) abstract Builder(stdgo._internal.strings.Strings.Builder) from stdgo._internal.strings.Strings.Builder to stdgo._internal.strings.Strings.Builder {
-    public var _addr(get, set) : stdgo._internal.strings.Strings.Builder;
-    function get__addr():stdgo._internal.strings.Strings.Builder return this._addr;
-    function set__addr(v:stdgo._internal.strings.Strings.Builder):stdgo._internal.strings.Strings.Builder {
+    public var _addr(get, set) : Builder;
+    function get__addr():Builder return this._addr;
+    function set__addr(v:Builder):Builder {
         this._addr = v;
         return v;
     }
@@ -24,7 +24,7 @@ typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
         this._buf = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_addr:stdgo._internal.strings.Strings.Builder, ?_buf:Array<std.UInt>) this = new stdgo._internal.strings.Strings.Builder(_addr, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>));
+    public function new(?_addr:Builder, ?_buf:Array<std.UInt>) this = new stdgo._internal.strings.Strings.Builder(_addr, ([for (i in _buf) i] : stdgo.Slice<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -58,9 +58,9 @@ typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
         this._once = v;
         return v;
     }
-    public var _r(get, set) : stdgo._internal.strings.Strings.T_replacer;
-    function get__r():stdgo._internal.strings.Strings.T_replacer return this._r;
-    function set__r(v:stdgo._internal.strings.Strings.T_replacer):stdgo._internal.strings.Strings.T_replacer {
+    public var _r(get, set) : T_replacer;
+    function get__r():T_replacer return this._r;
+    function set__r(v:T_replacer):T_replacer {
         this._r = v;
         return v;
     }
@@ -70,7 +70,7 @@ typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
         this._oldnew = ([for (i in v) i] : stdgo.Slice<stdgo.GoString>);
         return v;
     }
-    public function new(?_once:stdgo._internal.sync.Sync.Once, ?_r:stdgo._internal.strings.Strings.T_replacer, ?_oldnew:Array<String>) this = new stdgo._internal.strings.Strings.Replacer(_once, _r, ([for (i in _oldnew) i] : stdgo.Slice<stdgo.GoString>));
+    public function new(?_once:stdgo._internal.sync.Sync.Once, ?_r:T_replacer, ?_oldnew:Array<String>) this = new stdgo._internal.strings.Strings.Replacer(_once, _r, ([for (i in _oldnew) i] : stdgo.Slice<stdgo.GoString>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -93,26 +93,26 @@ typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
         this._prefix = v;
         return v;
     }
-    public var _next(get, set) : stdgo._internal.strings.Strings.T_trieNode;
-    function get__next():stdgo._internal.strings.Strings.T_trieNode return this._next;
-    function set__next(v:stdgo._internal.strings.Strings.T_trieNode):stdgo._internal.strings.Strings.T_trieNode {
+    public var _next(get, set) : T_trieNode;
+    function get__next():T_trieNode return this._next;
+    function set__next(v:T_trieNode):T_trieNode {
         this._next = v;
         return v;
     }
-    public var _table(get, set) : Array<stdgo._internal.strings.Strings.T_trieNode>;
-    function get__table():Array<stdgo._internal.strings.Strings.T_trieNode> return [for (i in this._table) i];
-    function set__table(v:Array<stdgo._internal.strings.Strings.T_trieNode>):Array<stdgo._internal.strings.Strings.T_trieNode> {
+    public var _table(get, set) : Array<T_trieNode>;
+    function get__table():Array<T_trieNode> return [for (i in this._table) i];
+    function set__table(v:Array<T_trieNode>):Array<T_trieNode> {
         this._table = ([for (i in v) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>);
         return v;
     }
-    public function new(?_value:String, ?_priority:StdTypes.Int, ?_prefix:String, ?_next:stdgo._internal.strings.Strings.T_trieNode, ?_table:Array<stdgo._internal.strings.Strings.T_trieNode>) this = new stdgo._internal.strings.Strings.T_trieNode(_value, _priority, _prefix, _next, ([for (i in _table) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>));
+    public function new(?_value:String, ?_priority:StdTypes.Int, ?_prefix:String, ?_next:T_trieNode, ?_table:Array<T_trieNode>) this = new stdgo._internal.strings.Strings.T_trieNode(_value, _priority, _prefix, _next, ([for (i in _table) i] : stdgo.Slice<stdgo.Ref<stdgo._internal.strings.Strings.T_trieNode>>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.strings.Strings.T_genericReplacer_static_extension) abstract T_genericReplacer(stdgo._internal.strings.Strings.T_genericReplacer) from stdgo._internal.strings.Strings.T_genericReplacer to stdgo._internal.strings.Strings.T_genericReplacer {
-    public var _root(get, set) : stdgo._internal.strings.Strings.T_trieNode;
-    function get__root():stdgo._internal.strings.Strings.T_trieNode return this._root;
-    function set__root(v:stdgo._internal.strings.Strings.T_trieNode):stdgo._internal.strings.Strings.T_trieNode {
+    public var _root(get, set) : T_trieNode;
+    function get__root():T_trieNode return this._root;
+    function set__root(v:T_trieNode):T_trieNode {
         this._root = v;
         return v;
     }
@@ -128,7 +128,7 @@ typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
         this._mapping = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_root:stdgo._internal.strings.Strings.T_trieNode, ?_tableSize:StdTypes.Int, ?_mapping:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.strings.Strings.T_genericReplacer(_root, _tableSize, ([for (i in _mapping) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_root:T_trieNode, ?_tableSize:StdTypes.Int, ?_mapping:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.strings.Strings.T_genericReplacer(_root, _tableSize, ([for (i in _mapping) i] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -144,9 +144,9 @@ typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.strings.Strings.T_singleStringReplacer_static_extension) abstract T_singleStringReplacer(stdgo._internal.strings.Strings.T_singleStringReplacer) from stdgo._internal.strings.Strings.T_singleStringReplacer to stdgo._internal.strings.Strings.T_singleStringReplacer {
-    public var _finder(get, set) : stdgo._internal.strings.Strings.T_stringFinder;
-    function get__finder():stdgo._internal.strings.Strings.T_stringFinder return this._finder;
-    function set__finder(v:stdgo._internal.strings.Strings.T_stringFinder):stdgo._internal.strings.Strings.T_stringFinder {
+    public var _finder(get, set) : T_stringFinder;
+    function get__finder():T_stringFinder return this._finder;
+    function set__finder(v:T_stringFinder):T_stringFinder {
         this._finder = v;
         return v;
     }
@@ -156,7 +156,7 @@ typedef T_replacer = stdgo._internal.strings.Strings.T_replacer;
         this._value = v;
         return v;
     }
-    public function new(?_finder:stdgo._internal.strings.Strings.T_stringFinder, ?_value:String) this = new stdgo._internal.strings.Strings.T_singleStringReplacer(_finder, _value);
+    public function new(?_finder:T_stringFinder, ?_value:String) this = new stdgo._internal.strings.Strings.T_singleStringReplacer(_finder, _value);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

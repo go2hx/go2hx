@@ -138,19 +138,19 @@ private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool {
     public function __copy__() return this.__copy__();
 }
 @:structInit @:using(stdgo.bufio.Bufio.ReadWriter_static_extension) abstract ReadWriter(stdgo._internal.bufio.Bufio.ReadWriter) from stdgo._internal.bufio.Bufio.ReadWriter to stdgo._internal.bufio.Bufio.ReadWriter {
-    public var reader(get, set) : stdgo._internal.bufio.Bufio.Reader;
-    function get_reader():stdgo._internal.bufio.Bufio.Reader return this.reader;
-    function set_reader(v:stdgo._internal.bufio.Bufio.Reader):stdgo._internal.bufio.Bufio.Reader {
+    public var reader(get, set) : Reader;
+    function get_reader():Reader return this.reader;
+    function set_reader(v:Reader):Reader {
         this.reader = v;
         return v;
     }
-    public var writer(get, set) : stdgo._internal.bufio.Bufio.Writer;
-    function get_writer():stdgo._internal.bufio.Bufio.Writer return this.writer;
-    function set_writer(v:stdgo._internal.bufio.Bufio.Writer):stdgo._internal.bufio.Bufio.Writer {
+    public var writer(get, set) : Writer;
+    function get_writer():Writer return this.writer;
+    function set_writer(v:Writer):Writer {
         this.writer = v;
         return v;
     }
-    public function new(?reader:stdgo._internal.bufio.Bufio.Reader, ?writer:stdgo._internal.bufio.Bufio.Writer) this = new stdgo._internal.bufio.Bufio.ReadWriter(reader, writer);
+    public function new(?reader:Reader, ?writer:Writer) this = new stdgo._internal.bufio.Bufio.ReadWriter(reader, writer);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -161,9 +161,9 @@ private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool {
         this._r = v;
         return v;
     }
-    public var _split(get, set) : stdgo._internal.bufio.Bufio.SplitFunc;
-    function get__split():stdgo._internal.bufio.Bufio.SplitFunc return this._split;
-    function set__split(v:stdgo._internal.bufio.Bufio.SplitFunc):stdgo._internal.bufio.Bufio.SplitFunc {
+    public var _split(get, set) : SplitFunc;
+    function get__split():SplitFunc return this._split;
+    function set__split(v:SplitFunc):SplitFunc {
         this._split = v;
         return v;
     }
@@ -221,7 +221,7 @@ private function set_isSpace(v:stdgo.GoInt32 -> Bool):stdgo.GoInt32 -> Bool {
         this._done = v;
         return v;
     }
-    public function new(?_r:stdgo._internal.io.Io.Reader, ?_split:stdgo._internal.bufio.Bufio.SplitFunc, ?_maxTokenSize:StdTypes.Int, ?_token:Array<std.UInt>, ?_buf:Array<std.UInt>, ?_start:StdTypes.Int, ?_end:StdTypes.Int, ?_err:stdgo.Error, ?_empties:StdTypes.Int, ?_scanCalled:Bool, ?_done:Bool) this = new stdgo._internal.bufio.Bufio.Scanner(
+    public function new(?_r:stdgo._internal.io.Io.Reader, ?_split:SplitFunc, ?_maxTokenSize:StdTypes.Int, ?_token:Array<std.UInt>, ?_buf:Array<std.UInt>, ?_start:StdTypes.Int, ?_end:StdTypes.Int, ?_err:stdgo.Error, ?_empties:StdTypes.Int, ?_scanCalled:Bool, ?_done:Bool) this = new stdgo._internal.bufio.Bufio.Scanner(
 _r,
 _split,
 _maxTokenSize,

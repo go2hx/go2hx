@@ -189,15 +189,15 @@ typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.fmt.Fmt.T_fmt_static_extension) abstract T_fmt(stdgo._internal.fmt.Fmt.T_fmt) from stdgo._internal.fmt.Fmt.T_fmt to stdgo._internal.fmt.Fmt.T_fmt {
-    public var _buf(get, set) : stdgo._internal.fmt.Fmt.T_buffer;
-    function get__buf():stdgo._internal.fmt.Fmt.T_buffer return this._buf;
-    function set__buf(v:stdgo._internal.fmt.Fmt.T_buffer):stdgo._internal.fmt.Fmt.T_buffer {
+    public var _buf(get, set) : T_buffer;
+    function get__buf():T_buffer return this._buf;
+    function set__buf(v:T_buffer):T_buffer {
         this._buf = v;
         return v;
     }
-    public var _fmtFlags(get, set) : stdgo._internal.fmt.Fmt.T_fmtFlags;
-    function get__fmtFlags():stdgo._internal.fmt.Fmt.T_fmtFlags return this._fmtFlags;
-    function set__fmtFlags(v:stdgo._internal.fmt.Fmt.T_fmtFlags):stdgo._internal.fmt.Fmt.T_fmtFlags {
+    public var _fmtFlags(get, set) : T_fmtFlags;
+    function get__fmtFlags():T_fmtFlags return this._fmtFlags;
+    function set__fmtFlags(v:T_fmtFlags):T_fmtFlags {
         this._fmtFlags = v;
         return v;
     }
@@ -219,14 +219,14 @@ typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
         this._intbuf = ([for (i in v) i] : stdgo.GoArray<stdgo.GoUInt8>);
         return v;
     }
-    public function new(?_buf:stdgo._internal.fmt.Fmt.T_buffer, ?_fmtFlags:stdgo._internal.fmt.Fmt.T_fmtFlags, ?_wid:StdTypes.Int, ?_prec:StdTypes.Int, ?_intbuf:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.fmt.Fmt.T_fmt(_buf, _fmtFlags, _wid, _prec, ([for (i in _intbuf) i] : stdgo.GoArray<stdgo.GoUInt8>));
+    public function new(?_buf:T_buffer, ?_fmtFlags:T_fmtFlags, ?_wid:StdTypes.Int, ?_prec:StdTypes.Int, ?_intbuf:haxe.ds.Vector<std.UInt>) this = new stdgo._internal.fmt.Fmt.T_fmt(_buf, _fmtFlags, _wid, _prec, ([for (i in _intbuf) i] : stdgo.GoArray<stdgo.GoUInt8>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit @:private @:using(stdgo.fmt.Fmt.T_pp_static_extension) abstract T_pp(stdgo._internal.fmt.Fmt.T_pp) from stdgo._internal.fmt.Fmt.T_pp to stdgo._internal.fmt.Fmt.T_pp {
-    public var _buf(get, set) : stdgo._internal.fmt.Fmt.T_buffer;
-    function get__buf():stdgo._internal.fmt.Fmt.T_buffer return this._buf;
-    function set__buf(v:stdgo._internal.fmt.Fmt.T_buffer):stdgo._internal.fmt.Fmt.T_buffer {
+    public var _buf(get, set) : T_buffer;
+    function get__buf():T_buffer return this._buf;
+    function set__buf(v:T_buffer):T_buffer {
         this._buf = v;
         return v;
     }
@@ -242,9 +242,9 @@ typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
         this._value = v;
         return v;
     }
-    public var _fmt(get, set) : stdgo._internal.fmt.Fmt.T_fmt;
-    function get__fmt():stdgo._internal.fmt.Fmt.T_fmt return this._fmt;
-    function set__fmt(v:stdgo._internal.fmt.Fmt.T_fmt):stdgo._internal.fmt.Fmt.T_fmt {
+    public var _fmt(get, set) : T_fmt;
+    function get__fmt():T_fmt return this._fmt;
+    function set__fmt(v:T_fmt):T_fmt {
         this._fmt = v;
         return v;
     }
@@ -284,7 +284,7 @@ typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
         this._wrappedErrs = ([for (i in v) i] : stdgo.Slice<stdgo.GoInt>);
         return v;
     }
-    public function new(?_buf:stdgo._internal.fmt.Fmt.T_buffer, ?_arg:stdgo.AnyInterface, ?_value:stdgo._internal.reflect.Reflect.Value, ?_fmt:stdgo._internal.fmt.Fmt.T_fmt, ?_reordered:Bool, ?_goodArgNum:Bool, ?_panicking:Bool, ?_erroring:Bool, ?_wrapErrs:Bool, ?_wrappedErrs:Array<StdTypes.Int>) this = new stdgo._internal.fmt.Fmt.T_pp(_buf, _arg, _value, _fmt, _reordered, _goodArgNum, _panicking, _erroring, _wrapErrs, ([for (i in _wrappedErrs) i] : stdgo.Slice<stdgo.GoInt>));
+    public function new(?_buf:T_buffer, ?_arg:stdgo.AnyInterface, ?_value:stdgo._internal.reflect.Reflect.Value, ?_fmt:T_fmt, ?_reordered:Bool, ?_goodArgNum:Bool, ?_panicking:Bool, ?_erroring:Bool, ?_wrapErrs:Bool, ?_wrappedErrs:Array<StdTypes.Int>) this = new stdgo._internal.fmt.Fmt.T_pp(_buf, _arg, _value, _fmt, _reordered, _goodArgNum, _panicking, _erroring, _wrapErrs, ([for (i in _wrappedErrs) i] : stdgo.Slice<stdgo.GoInt>));
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -306,9 +306,9 @@ typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
         this._rs = v;
         return v;
     }
-    public var _buf(get, set) : stdgo._internal.fmt.Fmt.T_buffer;
-    function get__buf():stdgo._internal.fmt.Fmt.T_buffer return this._buf;
-    function set__buf(v:stdgo._internal.fmt.Fmt.T_buffer):stdgo._internal.fmt.Fmt.T_buffer {
+    public var _buf(get, set) : T_buffer;
+    function get__buf():T_buffer return this._buf;
+    function set__buf(v:T_buffer):T_buffer {
         this._buf = v;
         return v;
     }
@@ -324,13 +324,13 @@ typedef Scanner = stdgo._internal.fmt.Fmt.Scanner;
         this._atEOF = v;
         return v;
     }
-    public var _ssave(get, set) : stdgo._internal.fmt.Fmt.T_ssave;
-    function get__ssave():stdgo._internal.fmt.Fmt.T_ssave return this._ssave;
-    function set__ssave(v:stdgo._internal.fmt.Fmt.T_ssave):stdgo._internal.fmt.Fmt.T_ssave {
+    public var _ssave(get, set) : T_ssave;
+    function get__ssave():T_ssave return this._ssave;
+    function set__ssave(v:T_ssave):T_ssave {
         this._ssave = v;
         return v;
     }
-    public function new(?_rs:stdgo._internal.io.Io.RuneScanner, ?_buf:stdgo._internal.fmt.Fmt.T_buffer, ?_count:StdTypes.Int, ?_atEOF:Bool, ?_ssave:stdgo._internal.fmt.Fmt.T_ssave) this = new stdgo._internal.fmt.Fmt.T_ss(_rs, _buf, _count, _atEOF, _ssave);
+    public function new(?_rs:stdgo._internal.io.Io.RuneScanner, ?_buf:T_buffer, ?_count:StdTypes.Int, ?_atEOF:Bool, ?_ssave:T_ssave) this = new stdgo._internal.fmt.Fmt.T_ss(_rs, _buf, _count, _atEOF, _ssave);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

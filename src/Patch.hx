@@ -193,7 +193,7 @@ final list = [
 	"math:trunc" => macro return _x > 0 ? floor(_x) : ceil(_x),
 	"math:log" => macro return std.Math.log(_x.toBasic()),
 	"math:pow" => macro {
-		@:define("js") {
+		@:define("(js || interp)") {
 			if (_x == 1 && std.Math.isNaN(_y.toBasic()))
 				return 1;
 			if ((_x == -1 || _x == 1) && isInf(_y, 0))
@@ -325,10 +325,10 @@ final list = [
 		throw "os.open is not yet implemented";
 		return {_0: null, _1: null};
 	},
-	"regexp:_notab" => macro null,
+	/*"regexp:_notab" => macro null,
 	"regexp:_badRe" => macro null,
 	"regexp.syntax:_parseTests" => macro null,
-	"regexp.syntax:_invalidRegexps" => macro null,
+	"regexp.syntax:_invalidRegexps" => macro null,*/
 	"os:stdin" => macro {
 		final input:haxe.io.Input = @:define("(target.sys || hxnodejs)") Sys.stdin();
 		new File(input, null);

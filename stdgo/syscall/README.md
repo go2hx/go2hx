@@ -6,7 +6,6 @@
      |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | Module stdgo._internal.syscall.Syscall does not define type Syscall
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,224
 
 ```
 

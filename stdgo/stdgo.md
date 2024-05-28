@@ -105,7 +105,7 @@
 | [stdgo.internal.bytealg](./internal/bytealg/README.md) | ✅ | no |
 | [stdgo.internal.cpu](./internal/cpu/README.md) | ✅ | no |
 | [stdgo.internal.fmtsort](./internal/fmtsort/README.md) | ✅ | no |
-| [stdgo.internal.godebug](./internal/godebug/README.md) | ✅ | no |
+| [stdgo.internal.godebug](./internal/godebug/README.md) | ❌ | no |
 | [stdgo.internal.godebugs](./internal/godebugs/README.md) | ✅ | no |
 | [stdgo.internal.oserror](./internal/oserror/README.md) | ✅ | no |
 | [stdgo.internal.platform](./internal/platform/README.md) | ✅ | no |
@@ -128,7 +128,7 @@
 | [stdgo.path](./path/README.md) | ✅ | no |
 | [stdgo.path.filepath](./path/filepath/README.md) | ✅ | no |
 | [stdgo.reflect](./reflect/README.md) | ❌ | no |
-| [stdgo.regexp](./regexp/README.md) | ✅ | no |
+| [stdgo.regexp](./regexp/README.md) | ❌ | no |
 | [stdgo.regexp.syntax](./regexp/syntax/README.md) | ✅ | no |
 | [stdgo.runtime](./runtime/README.md) | ❌ | no |
 | [stdgo.runtime.debug](./runtime/debug/README.md) | ✅ | no |

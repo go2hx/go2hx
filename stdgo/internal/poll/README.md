@@ -54,7 +54,7 @@ var errFileClosing:stdgo.Error
 
 
 ```haxe
-var errNetClosing:stdgo._internal.internal.poll.T_errNetClosing
+var errNetClosing:stdgo.internal.poll.T_errNetClosing
 ```
 
 

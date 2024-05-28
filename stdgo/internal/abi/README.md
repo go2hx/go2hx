@@ -133,7 +133,7 @@ final bool_:stdgo._internal.internal.abi.Kind = stdgo._internal.internal.abi.Abi
 
 
 ```haxe
-final bothDir:stdgo._internal.internal.abi.ChanDir = stdgo._internal.internal.abi.Abi.bothDir
+final bothDir:stdgo.internal.abi.ChanDir = stdgo._internal.internal.abi.Abi.bothDir
 ```
 
 
@@ -188,12 +188,12 @@ final funcFlagSPWrite:stdgo._internal.internal.abi.FuncFlag = stdgo._internal.in
 
 
 ```haxe
-final funcFlagTopFrame:stdgo._internal.internal.abi.FuncFlag = stdgo._internal.internal.abi.Abi.funcFlagTopFrame
+final funcFlagTopFrame:stdgo.internal.abi.FuncFlag = stdgo._internal.internal.abi.Abi.funcFlagTopFrame
 ```
 
 
 ```haxe
-final funcIDNormal:stdgo._internal.internal.abi.FuncID = stdgo._internal.internal.abi.Abi.funcIDNormal
+final funcIDNormal:stdgo.internal.abi.FuncID = stdgo._internal.internal.abi.Abi.funcIDNormal
 ```
 
 
@@ -378,12 +378,12 @@ final interface_:stdgo._internal.internal.abi.Kind = stdgo._internal.internal.ab
 
 
 ```haxe
-final invalid:stdgo._internal.internal.abi.Kind = stdgo._internal.internal.abi.Abi.invalid
+final invalid:stdgo.internal.abi.Kind = stdgo._internal.internal.abi.Abi.invalid
 ```
 
 
 ```haxe
-final invalidDir:stdgo._internal.internal.abi.ChanDir = stdgo._internal.internal.abi.Abi.invalidDir
+final invalidDir:stdgo.internal.abi.ChanDir = stdgo._internal.internal.abi.Abi.invalidDir
 ```
 
 
@@ -453,7 +453,7 @@ final pointer:stdgo._internal.internal.abi.Kind = stdgo._internal.internal.abi.A
 
 
 ```haxe
-final recvDir:stdgo._internal.internal.abi.ChanDir = stdgo._internal.internal.abi.Abi.recvDir
+final recvDir:stdgo.internal.abi.ChanDir = stdgo._internal.internal.abi.Abi.recvDir
 ```
 
 
@@ -493,22 +493,22 @@ final struct_:stdgo._internal.internal.abi.Kind = stdgo._internal.internal.abi.A
 
 
 ```haxe
-final tflagExtraStar:stdgo._internal.internal.abi.TFlag = stdgo._internal.internal.abi.Abi.tflagExtraStar
+final tflagExtraStar:stdgo.internal.abi.TFlag = stdgo._internal.internal.abi.Abi.tflagExtraStar
 ```
 
 
 ```haxe
-final tflagNamed:stdgo._internal.internal.abi.TFlag = stdgo._internal.internal.abi.Abi.tflagNamed
+final tflagNamed:stdgo.internal.abi.TFlag = stdgo._internal.internal.abi.Abi.tflagNamed
 ```
 
 
 ```haxe
-final tflagRegularMemory:stdgo._internal.internal.abi.TFlag = stdgo._internal.internal.abi.Abi.tflagRegularMemory
+final tflagRegularMemory:stdgo.internal.abi.TFlag = stdgo._internal.internal.abi.Abi.tflagRegularMemory
 ```
 
 
 ```haxe
-final tflagUncommon:stdgo._internal.internal.abi.TFlag = stdgo._internal.internal.abi.Abi.tflagUncommon
+final tflagUncommon:stdgo.internal.abi.TFlag = stdgo._internal.internal.abi.Abi.tflagUncommon
 ```
 
 

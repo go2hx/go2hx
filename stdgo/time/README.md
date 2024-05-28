@@ -24,7 +24,6 @@
       | have: stdgo.Chan<stdgo._internal.time.Time>
       | want: stdgo.Chan<stdgo.time.Time>
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,224
 
 ```
 

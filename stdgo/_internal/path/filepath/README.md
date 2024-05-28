@@ -8,7 +8,6 @@
 
           | For function argument 'f'
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,380
 
 ```
 

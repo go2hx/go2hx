@@ -52,7 +52,7 @@ import stdgo.internal.platform.Platform
 
 
 ```haxe
-var list:Array<stdgo._internal.internal.platform.OSArch>
+var list:Array<stdgo.internal.platform.OSArch>
 ```
 
 

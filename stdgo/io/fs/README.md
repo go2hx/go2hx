@@ -93,7 +93,7 @@ final modeDevice:stdgo._internal.io.fs.FileMode = stdgo._internal.io.fs.Fs.modeD
 
 
 ```haxe
-final modeDir:stdgo._internal.io.fs.FileMode = stdgo._internal.io.fs.Fs.modeDir
+final modeDir:stdgo.io.fs.FileMode = stdgo._internal.io.fs.Fs.modeDir
 ```
 
 
@@ -113,7 +113,7 @@ final modeNamedPipe:stdgo._internal.io.fs.FileMode = stdgo._internal.io.fs.Fs.mo
 
 
 ```haxe
-final modePerm:stdgo._internal.io.fs.FileMode = stdgo._internal.io.fs.Fs.modePerm
+final modePerm:stdgo.io.fs.FileMode = stdgo._internal.io.fs.Fs.modePerm
 ```
 
 
@@ -148,7 +148,7 @@ final modeTemporary:stdgo._internal.io.fs.FileMode = stdgo._internal.io.fs.Fs.mo
 
 
 ```haxe
-final modeType:stdgo._internal.io.fs.FileMode = stdgo._internal.io.fs.Fs.modeType
+final modeType:stdgo.io.fs.FileMode = stdgo._internal.io.fs.Fs.modeType
 ```
 
 

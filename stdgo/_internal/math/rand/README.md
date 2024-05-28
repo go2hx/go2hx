@@ -38,7 +38,6 @@
       |                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^[0m
       | invalid type run asInterface: TDynamic(null)
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,381
 
 ```
 

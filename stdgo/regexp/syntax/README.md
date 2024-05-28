@@ -104,7 +104,7 @@ final dotNL:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.
 
 
 ```haxe
-final emptyBeginLine:stdgo._internal.regexp.syntax.EmptyOp = stdgo._internal.regexp.syntax.Syntax.emptyBeginLine
+final emptyBeginLine:stdgo.regexp.syntax.EmptyOp = stdgo._internal.regexp.syntax.Syntax.emptyBeginLine
 ```
 
 
@@ -134,92 +134,92 @@ final emptyWordBoundary:stdgo._internal.regexp.syntax.EmptyOp = stdgo._internal.
 
 
 ```haxe
-final errInternalError:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInternalError
+final errInternalError:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInternalError
 ```
 
 
 ```haxe
-final errInvalidCharClass:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidCharClass
+final errInvalidCharClass:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidCharClass
 ```
 
 
 ```haxe
-final errInvalidCharRange:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidCharRange
+final errInvalidCharRange:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidCharRange
 ```
 
 
 ```haxe
-final errInvalidEscape:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidEscape
+final errInvalidEscape:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidEscape
 ```
 
 
 ```haxe
-final errInvalidNamedCapture:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidNamedCapture
+final errInvalidNamedCapture:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidNamedCapture
 ```
 
 
 ```haxe
-final errInvalidPerlOp:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidPerlOp
+final errInvalidPerlOp:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidPerlOp
 ```
 
 
 ```haxe
-final errInvalidRepeatOp:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidRepeatOp
+final errInvalidRepeatOp:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidRepeatOp
 ```
 
 
 ```haxe
-final errInvalidRepeatSize:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidRepeatSize
+final errInvalidRepeatSize:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidRepeatSize
 ```
 
 
 ```haxe
-final errInvalidUTF8:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidUTF8
+final errInvalidUTF8:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errInvalidUTF8
 ```
 
 
 ```haxe
-final errLarge:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errLarge
+final errLarge:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errLarge
 ```
 
 
 ```haxe
-final errMissingBracket:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errMissingBracket
+final errMissingBracket:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errMissingBracket
 ```
 
 
 ```haxe
-final errMissingParen:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errMissingParen
+final errMissingParen:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errMissingParen
 ```
 
 
 ```haxe
-final errMissingRepeatArgument:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errMissingRepeatArgument
+final errMissingRepeatArgument:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errMissingRepeatArgument
 ```
 
 
 ```haxe
-final errNestingDepth:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errNestingDepth
+final errNestingDepth:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errNestingDepth
 ```
 
 
 ```haxe
-final errTrailingBackslash:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errTrailingBackslash
+final errTrailingBackslash:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errTrailingBackslash
 ```
 
 
 ```haxe
-final errUnexpectedParen:stdgo._internal.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errUnexpectedParen
+final errUnexpectedParen:stdgo.regexp.syntax.ErrorCode = stdgo._internal.regexp.syntax.Syntax.errUnexpectedParen
 ```
 
 
 ```haxe
-final foldCase:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.foldCase
+final foldCase:stdgo.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.foldCase
 ```
 
 
 ```haxe
-final instAlt:stdgo._internal.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instAlt
+final instAlt:stdgo.regexp.syntax.InstOp = stdgo._internal.regexp.syntax.Syntax.instAlt
 ```
 
 
@@ -279,7 +279,7 @@ final literal:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.synta
 
 
 ```haxe
-final matchNL:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.matchNL
+final matchNL:stdgo.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.matchNL
 ```
 
 
@@ -354,7 +354,7 @@ final opLiteral:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax
 
 
 ```haxe
-final opNoMatch:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opNoMatch
+final opNoMatch:stdgo.regexp.syntax.Op = stdgo._internal.regexp.syntax.Syntax.opNoMatch
 ```
 
 
@@ -389,7 +389,7 @@ final opWordBoundary:stdgo._internal.regexp.syntax.Op = stdgo._internal.regexp.s
 
 
 ```haxe
-final perl:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.perl
+final perl:stdgo.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.perl
 ```
 
 
@@ -399,7 +399,7 @@ final perlX:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.
 
 
 ```haxe
-final posix:stdgo._internal.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.posix
+final posix:stdgo.regexp.syntax.Flags = stdgo._internal.regexp.syntax.Syntax.posix
 ```
 
 

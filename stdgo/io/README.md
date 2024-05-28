@@ -151,7 +151,7 @@ import stdgo.io.Io
 
 
 ```haxe
-var discard:stdgo._internal.io.Writer
+var discard:stdgo.io.Writer
 ```
 
 

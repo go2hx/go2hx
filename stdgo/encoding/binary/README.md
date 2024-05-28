@@ -66,7 +66,6 @@
      |                           [31m^^^^^[0m
      | You can't iterate on a Dynamic value, please specify Iterator or Iterable
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,259
 
 ```
 

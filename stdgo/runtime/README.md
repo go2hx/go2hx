@@ -47,7 +47,6 @@
      |                                                               [31m^^^^^[0m
      | stdgo.Tuple3<UInt, haxe.UInt64, haxe.UInt64> has no field frees
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,228
 
 ```
 

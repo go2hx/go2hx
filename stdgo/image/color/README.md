@@ -10,7 +10,6 @@
           |         [31m^^^^^[0m
           | Previous declaration here
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,0
 
 ```
 

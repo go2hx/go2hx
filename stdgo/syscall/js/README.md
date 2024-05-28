@@ -83,7 +83,7 @@ final typeSymbol:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.J
 
 
 ```haxe
-final typeUndefined:stdgo._internal.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeUndefined
+final typeUndefined:stdgo.syscall.js.Type_ = stdgo._internal.syscall.js.Js.typeUndefined
 ```
 
 

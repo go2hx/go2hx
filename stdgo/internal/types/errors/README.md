@@ -421,7 +421,7 @@ final invalidStructLit:stdgo._internal.internal.types.errors.Code = stdgo._inter
 
 
 ```haxe
-final invalidSyntaxTree:stdgo._internal.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidSyntaxTree
+final invalidSyntaxTree:stdgo.internal.types.errors.Code = stdgo._internal.internal.types.errors.Errors.invalidSyntaxTree
 ```
 
 

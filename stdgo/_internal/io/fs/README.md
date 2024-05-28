@@ -6,7 +6,6 @@
      |         [31m^^[0m
      | Unknown identifier : fs
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,379
 
 ```
 

@@ -55,7 +55,6 @@
     |                                                                                                                                                                                                                                      [31m^^^^^^[0m
     | stdgo.Tuple6<String, String, Array<UInt>, Array<stdgo.AnyInterface>, Int, Bool> has no field isSeed
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,362
 
 ```
 

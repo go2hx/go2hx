@@ -404,27 +404,27 @@ var errWriteAtInAppendMode:stdgo.Error
 
 
 ```haxe
-var interrupt:stdgo._internal.os.Signal
+var interrupt:stdgo.os.Signal
 ```
 
 
 ```haxe
-var kill:stdgo._internal.os.Signal
+var kill:stdgo.os.Signal
 ```
 
 
 ```haxe
-var stderr:stdgo._internal.os.File
+var stderr:stdgo.os.File
 ```
 
 
 ```haxe
-var stdin:stdgo._internal.os.File
+var stdin:stdgo.os.File
 ```
 
 
 ```haxe
-var stdout:stdgo._internal.os.File
+var stdout:stdgo.os.File
 ```
 
 

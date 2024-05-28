@@ -110,22 +110,22 @@ import stdgo.encoding.base64.Base64
 
 
 ```haxe
-var rawStdEncoding:stdgo._internal.encoding.base64.Encoding
+var rawStdEncoding:stdgo.encoding.base64.Encoding
 ```
 
 
 ```haxe
-var rawURLEncoding:stdgo._internal.encoding.base64.Encoding
+var rawURLEncoding:stdgo.encoding.base64.Encoding
 ```
 
 
 ```haxe
-var stdEncoding:stdgo._internal.encoding.base64.Encoding
+var stdEncoding:stdgo.encoding.base64.Encoding
 ```
 
 
 ```haxe
-var urlencoding:stdgo._internal.encoding.base64.Encoding
+var urlencoding:stdgo.encoding.base64.Encoding
 ```
 
 

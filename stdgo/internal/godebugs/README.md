@@ -26,7 +26,7 @@ import stdgo.internal.godebugs.Godebugs
 
 
 ```haxe
-var all:Array<stdgo._internal.internal.godebugs.Info>
+var all:Array<stdgo.internal.godebugs.Info>
 ```
 
 

@@ -138,122 +138,122 @@ import stdgo.unicode.Unicode
 
 
 ```haxe
-var adlam:stdgo._internal.unicode.RangeTable
+var adlam:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var ahom:stdgo._internal.unicode.RangeTable
+var ahom:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var anatolian_Hieroglyphs:stdgo._internal.unicode.RangeTable
+var anatolian_Hieroglyphs:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var arabic:stdgo._internal.unicode.RangeTable
+var arabic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var armenian:stdgo._internal.unicode.RangeTable
+var armenian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var ascii_Hex_Digit:stdgo._internal.unicode.RangeTable
+var ascii_Hex_Digit:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var avestan:stdgo._internal.unicode.RangeTable
+var avestan:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var azeriCase:stdgo._internal.unicode.SpecialCase
+var azeriCase:stdgo.unicode.SpecialCase
 ```
 
 
 ```haxe
-var balinese:stdgo._internal.unicode.RangeTable
+var balinese:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var bamum:stdgo._internal.unicode.RangeTable
+var bamum:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var bassa_Vah:stdgo._internal.unicode.RangeTable
+var bassa_Vah:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var batak:stdgo._internal.unicode.RangeTable
+var batak:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var bengali:stdgo._internal.unicode.RangeTable
+var bengali:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var bhaiksuki:stdgo._internal.unicode.RangeTable
+var bhaiksuki:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var bidi_Control:stdgo._internal.unicode.RangeTable
+var bidi_Control:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var bopomofo:stdgo._internal.unicode.RangeTable
+var bopomofo:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var brahmi:stdgo._internal.unicode.RangeTable
+var brahmi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var braille:stdgo._internal.unicode.RangeTable
+var braille:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var buginese:stdgo._internal.unicode.RangeTable
+var buginese:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var buhid:stdgo._internal.unicode.RangeTable
+var buhid:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var c:stdgo._internal.unicode.RangeTable
+var c:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var canadian_Aboriginal:stdgo._internal.unicode.RangeTable
+var canadian_Aboriginal:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var carian:stdgo._internal.unicode.RangeTable
+var carian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var caseRanges:Array<stdgo._internal.unicode.CaseRange>
+var caseRanges:Array<stdgo.unicode.CaseRange>
 ```
 
 
@@ -263,147 +263,147 @@ var categories:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Ran
 
 
 ```haxe
-var caucasian_Albanian:stdgo._internal.unicode.RangeTable
+var caucasian_Albanian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var cc:stdgo._internal.unicode.RangeTable
+var cc:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var cf:stdgo._internal.unicode.RangeTable
+var cf:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var chakma:stdgo._internal.unicode.RangeTable
+var chakma:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var cham:stdgo._internal.unicode.RangeTable
+var cham:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var cherokee:stdgo._internal.unicode.RangeTable
+var cherokee:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var chorasmian:stdgo._internal.unicode.RangeTable
+var chorasmian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var co:stdgo._internal.unicode.RangeTable
+var co:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var common:stdgo._internal.unicode.RangeTable
+var common:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var coptic:stdgo._internal.unicode.RangeTable
+var coptic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var cs:stdgo._internal.unicode.RangeTable
+var cs:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var cuneiform:stdgo._internal.unicode.RangeTable
+var cuneiform:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var cypriot:stdgo._internal.unicode.RangeTable
+var cypriot:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var cypro_Minoan:stdgo._internal.unicode.RangeTable
+var cypro_Minoan:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var cyrillic:stdgo._internal.unicode.RangeTable
+var cyrillic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var dash:stdgo._internal.unicode.RangeTable
+var dash:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var deprecated:stdgo._internal.unicode.RangeTable
+var deprecated:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var deseret:stdgo._internal.unicode.RangeTable
+var deseret:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var devanagari:stdgo._internal.unicode.RangeTable
+var devanagari:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var diacritic:stdgo._internal.unicode.RangeTable
+var diacritic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var digit:stdgo._internal.unicode.RangeTable
+var digit:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var dives_Akuru:stdgo._internal.unicode.RangeTable
+var dives_Akuru:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var dogra:stdgo._internal.unicode.RangeTable
+var dogra:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var duployan:stdgo._internal.unicode.RangeTable
+var duployan:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var egyptian_Hieroglyphs:stdgo._internal.unicode.RangeTable
+var egyptian_Hieroglyphs:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var elbasan:stdgo._internal.unicode.RangeTable
+var elbasan:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var elymaic:stdgo._internal.unicode.RangeTable
+var elymaic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var ethiopic:stdgo._internal.unicode.RangeTable
+var ethiopic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var extender:stdgo._internal.unicode.RangeTable
+var extender:stdgo.unicode.RangeTable
 ```
 
 
@@ -418,657 +418,657 @@ var foldScript:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Ran
 
 
 ```haxe
-var georgian:stdgo._internal.unicode.RangeTable
+var georgian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var glagolitic:stdgo._internal.unicode.RangeTable
+var glagolitic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var gothic:stdgo._internal.unicode.RangeTable
+var gothic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var grantha:stdgo._internal.unicode.RangeTable
+var grantha:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var graphicRanges:Array<stdgo._internal.unicode.RangeTable>
+var graphicRanges:Array<stdgo.unicode.RangeTable>
 ```
 
 
 ```haxe
-var greek:stdgo._internal.unicode.RangeTable
+var greek:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var gujarati:stdgo._internal.unicode.RangeTable
+var gujarati:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var gunjala_Gondi:stdgo._internal.unicode.RangeTable
+var gunjala_Gondi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var gurmukhi:stdgo._internal.unicode.RangeTable
+var gurmukhi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var han:stdgo._internal.unicode.RangeTable
+var han:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var hangul:stdgo._internal.unicode.RangeTable
+var hangul:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var hanifi_Rohingya:stdgo._internal.unicode.RangeTable
+var hanifi_Rohingya:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var hanunoo:stdgo._internal.unicode.RangeTable
+var hanunoo:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var hatran:stdgo._internal.unicode.RangeTable
+var hatran:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var hebrew:stdgo._internal.unicode.RangeTable
+var hebrew:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var hex_Digit:stdgo._internal.unicode.RangeTable
+var hex_Digit:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var hiragana:stdgo._internal.unicode.RangeTable
+var hiragana:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var hyphen:stdgo._internal.unicode.RangeTable
+var hyphen:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var ideographic:stdgo._internal.unicode.RangeTable
+var ideographic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var ids_Binary_Operator:stdgo._internal.unicode.RangeTable
+var ids_Binary_Operator:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var ids_Trinary_Operator:stdgo._internal.unicode.RangeTable
+var ids_Trinary_Operator:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var imperial_Aramaic:stdgo._internal.unicode.RangeTable
+var imperial_Aramaic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var inherited:stdgo._internal.unicode.RangeTable
+var inherited:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var inscriptional_Pahlavi:stdgo._internal.unicode.RangeTable
+var inscriptional_Pahlavi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var inscriptional_Parthian:stdgo._internal.unicode.RangeTable
+var inscriptional_Parthian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var javanese:stdgo._internal.unicode.RangeTable
+var javanese:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var join_Control:stdgo._internal.unicode.RangeTable
+var join_Control:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var kaithi:stdgo._internal.unicode.RangeTable
+var kaithi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var kannada:stdgo._internal.unicode.RangeTable
+var kannada:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var katakana:stdgo._internal.unicode.RangeTable
+var katakana:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var kawi:stdgo._internal.unicode.RangeTable
+var kawi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var kayah_Li:stdgo._internal.unicode.RangeTable
+var kayah_Li:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var kharoshthi:stdgo._internal.unicode.RangeTable
+var kharoshthi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var khitan_Small_Script:stdgo._internal.unicode.RangeTable
+var khitan_Small_Script:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var khmer:stdgo._internal.unicode.RangeTable
+var khmer:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var khojki:stdgo._internal.unicode.RangeTable
+var khojki:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var khudawadi:stdgo._internal.unicode.RangeTable
+var khudawadi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var l:stdgo._internal.unicode.RangeTable
+var l:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lao:stdgo._internal.unicode.RangeTable
+var lao:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var latin:stdgo._internal.unicode.RangeTable
+var latin:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lepcha:stdgo._internal.unicode.RangeTable
+var lepcha:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var letter:stdgo._internal.unicode.RangeTable
+var letter:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var limbu:stdgo._internal.unicode.RangeTable
+var limbu:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var linear_A:stdgo._internal.unicode.RangeTable
+var linear_A:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var linear_B:stdgo._internal.unicode.RangeTable
+var linear_B:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lisu:stdgo._internal.unicode.RangeTable
+var lisu:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var ll:stdgo._internal.unicode.RangeTable
+var ll:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lm:stdgo._internal.unicode.RangeTable
+var lm:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lo:stdgo._internal.unicode.RangeTable
+var lo:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var logical_Order_Exception:stdgo._internal.unicode.RangeTable
+var logical_Order_Exception:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lower:stdgo._internal.unicode.RangeTable
+var lower:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lt:stdgo._internal.unicode.RangeTable
+var lt:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lu:stdgo._internal.unicode.RangeTable
+var lu:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lycian:stdgo._internal.unicode.RangeTable
+var lycian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var lydian:stdgo._internal.unicode.RangeTable
+var lydian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var m:stdgo._internal.unicode.RangeTable
+var m:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var mahajani:stdgo._internal.unicode.RangeTable
+var mahajani:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var makasar:stdgo._internal.unicode.RangeTable
+var makasar:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var malayalam:stdgo._internal.unicode.RangeTable
+var malayalam:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var mandaic:stdgo._internal.unicode.RangeTable
+var mandaic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var manichaean:stdgo._internal.unicode.RangeTable
+var manichaean:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var marchen:stdgo._internal.unicode.RangeTable
+var marchen:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var mark:stdgo._internal.unicode.RangeTable
+var mark:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var masaram_Gondi:stdgo._internal.unicode.RangeTable
+var masaram_Gondi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var mc:stdgo._internal.unicode.RangeTable
+var mc:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var me:stdgo._internal.unicode.RangeTable
+var me:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var medefaidrin:stdgo._internal.unicode.RangeTable
+var medefaidrin:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var meetei_Mayek:stdgo._internal.unicode.RangeTable
+var meetei_Mayek:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var mende_Kikakui:stdgo._internal.unicode.RangeTable
+var mende_Kikakui:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var meroitic_Cursive:stdgo._internal.unicode.RangeTable
+var meroitic_Cursive:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var meroitic_Hieroglyphs:stdgo._internal.unicode.RangeTable
+var meroitic_Hieroglyphs:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var miao:stdgo._internal.unicode.RangeTable
+var miao:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var mn:stdgo._internal.unicode.RangeTable
+var mn:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var modi:stdgo._internal.unicode.RangeTable
+var modi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var mongolian:stdgo._internal.unicode.RangeTable
+var mongolian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var mro:stdgo._internal.unicode.RangeTable
+var mro:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var multani:stdgo._internal.unicode.RangeTable
+var multani:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var myanmar:stdgo._internal.unicode.RangeTable
+var myanmar:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var n:stdgo._internal.unicode.RangeTable
+var n:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var nabataean:stdgo._internal.unicode.RangeTable
+var nabataean:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var nag_Mundari:stdgo._internal.unicode.RangeTable
+var nag_Mundari:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var nandinagari:stdgo._internal.unicode.RangeTable
+var nandinagari:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var nd:stdgo._internal.unicode.RangeTable
+var nd:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var new_Tai_Lue:stdgo._internal.unicode.RangeTable
+var new_Tai_Lue:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var newa:stdgo._internal.unicode.RangeTable
+var newa:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var nko:stdgo._internal.unicode.RangeTable
+var nko:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var nl:stdgo._internal.unicode.RangeTable
+var nl:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var no:stdgo._internal.unicode.RangeTable
+var no:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var noncharacter_Code_Point:stdgo._internal.unicode.RangeTable
+var noncharacter_Code_Point:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var number:stdgo._internal.unicode.RangeTable
+var number:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var nushu:stdgo._internal.unicode.RangeTable
+var nushu:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var nyiakeng_Puachue_Hmong:stdgo._internal.unicode.RangeTable
+var nyiakeng_Puachue_Hmong:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var ogham:stdgo._internal.unicode.RangeTable
+var ogham:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var ol_Chiki:stdgo._internal.unicode.RangeTable
+var ol_Chiki:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var old_Hungarian:stdgo._internal.unicode.RangeTable
+var old_Hungarian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var old_Italic:stdgo._internal.unicode.RangeTable
+var old_Italic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var old_North_Arabian:stdgo._internal.unicode.RangeTable
+var old_North_Arabian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var old_Permic:stdgo._internal.unicode.RangeTable
+var old_Permic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var old_Persian:stdgo._internal.unicode.RangeTable
+var old_Persian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var old_Sogdian:stdgo._internal.unicode.RangeTable
+var old_Sogdian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var old_South_Arabian:stdgo._internal.unicode.RangeTable
+var old_South_Arabian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var old_Turkic:stdgo._internal.unicode.RangeTable
+var old_Turkic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var old_Uyghur:stdgo._internal.unicode.RangeTable
+var old_Uyghur:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var oriya:stdgo._internal.unicode.RangeTable
+var oriya:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var osage:stdgo._internal.unicode.RangeTable
+var osage:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var osmanya:stdgo._internal.unicode.RangeTable
+var osmanya:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var other:stdgo._internal.unicode.RangeTable
+var other:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var other_Alphabetic:stdgo._internal.unicode.RangeTable
+var other_Alphabetic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var other_Default_Ignorable_Code_Point:stdgo._internal.unicode.RangeTable
+var other_Default_Ignorable_Code_Point:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var other_Grapheme_Extend:stdgo._internal.unicode.RangeTable
+var other_Grapheme_Extend:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var other_ID_Continue:stdgo._internal.unicode.RangeTable
+var other_ID_Continue:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var other_ID_Start:stdgo._internal.unicode.RangeTable
+var other_ID_Start:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var other_Lowercase:stdgo._internal.unicode.RangeTable
+var other_Lowercase:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var other_Math:stdgo._internal.unicode.RangeTable
+var other_Math:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var other_Uppercase:stdgo._internal.unicode.RangeTable
+var other_Uppercase:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var p:stdgo._internal.unicode.RangeTable
+var p:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var pahawh_Hmong:stdgo._internal.unicode.RangeTable
+var pahawh_Hmong:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var palmyrene:stdgo._internal.unicode.RangeTable
+var palmyrene:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var pattern_Syntax:stdgo._internal.unicode.RangeTable
+var pattern_Syntax:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var pattern_White_Space:stdgo._internal.unicode.RangeTable
+var pattern_White_Space:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var pau_Cin_Hau:stdgo._internal.unicode.RangeTable
+var pau_Cin_Hau:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var pc:stdgo._internal.unicode.RangeTable
+var pc:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var pd:stdgo._internal.unicode.RangeTable
+var pd:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var pe:stdgo._internal.unicode.RangeTable
+var pe:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var pf:stdgo._internal.unicode.RangeTable
+var pf:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var phags_Pa:stdgo._internal.unicode.RangeTable
+var phags_Pa:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var phoenician:stdgo._internal.unicode.RangeTable
+var phoenician:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var pi:stdgo._internal.unicode.RangeTable
+var pi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var po:stdgo._internal.unicode.RangeTable
+var po:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var prepended_Concatenation_Mark:stdgo._internal.unicode.RangeTable
+var prepended_Concatenation_Mark:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var printRanges:Array<stdgo._internal.unicode.RangeTable>
+var printRanges:Array<stdgo.unicode.RangeTable>
 ```
 
 
@@ -1078,62 +1078,62 @@ var properties:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.Ran
 
 
 ```haxe
-var ps:stdgo._internal.unicode.RangeTable
+var ps:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var psalter_Pahlavi:stdgo._internal.unicode.RangeTable
+var psalter_Pahlavi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var punct:stdgo._internal.unicode.RangeTable
+var punct:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var quotation_Mark:stdgo._internal.unicode.RangeTable
+var quotation_Mark:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var radical:stdgo._internal.unicode.RangeTable
+var radical:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var regional_Indicator:stdgo._internal.unicode.RangeTable
+var regional_Indicator:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var rejang:stdgo._internal.unicode.RangeTable
+var rejang:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var runic:stdgo._internal.unicode.RangeTable
+var runic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var s:stdgo._internal.unicode.RangeTable
+var s:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var samaritan:stdgo._internal.unicode.RangeTable
+var samaritan:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var saurashtra:stdgo._internal.unicode.RangeTable
+var saurashtra:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var sc:stdgo._internal.unicode.RangeTable
+var sc:stdgo.unicode.RangeTable
 ```
 
 
@@ -1143,272 +1143,272 @@ var scripts:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.unicode.RangeT
 
 
 ```haxe
-var sentence_Terminal:stdgo._internal.unicode.RangeTable
+var sentence_Terminal:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var sharada:stdgo._internal.unicode.RangeTable
+var sharada:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var shavian:stdgo._internal.unicode.RangeTable
+var shavian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var siddham:stdgo._internal.unicode.RangeTable
+var siddham:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var signWriting:stdgo._internal.unicode.RangeTable
+var signWriting:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var sinhala:stdgo._internal.unicode.RangeTable
+var sinhala:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var sk:stdgo._internal.unicode.RangeTable
+var sk:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var sm:stdgo._internal.unicode.RangeTable
+var sm:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var so:stdgo._internal.unicode.RangeTable
+var so:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var soft_Dotted:stdgo._internal.unicode.RangeTable
+var soft_Dotted:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var sogdian:stdgo._internal.unicode.RangeTable
+var sogdian:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var sora_Sompeng:stdgo._internal.unicode.RangeTable
+var sora_Sompeng:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var soyombo:stdgo._internal.unicode.RangeTable
+var soyombo:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var space:stdgo._internal.unicode.RangeTable
+var space:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var sterm:stdgo._internal.unicode.RangeTable
+var sterm:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var sundanese:stdgo._internal.unicode.RangeTable
+var sundanese:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var syloti_Nagri:stdgo._internal.unicode.RangeTable
+var syloti_Nagri:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var symbol:stdgo._internal.unicode.RangeTable
+var symbol:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var syriac:stdgo._internal.unicode.RangeTable
+var syriac:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tagalog:stdgo._internal.unicode.RangeTable
+var tagalog:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tagbanwa:stdgo._internal.unicode.RangeTable
+var tagbanwa:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tai_Le:stdgo._internal.unicode.RangeTable
+var tai_Le:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tai_Tham:stdgo._internal.unicode.RangeTable
+var tai_Tham:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tai_Viet:stdgo._internal.unicode.RangeTable
+var tai_Viet:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var takri:stdgo._internal.unicode.RangeTable
+var takri:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tamil:stdgo._internal.unicode.RangeTable
+var tamil:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tangsa:stdgo._internal.unicode.RangeTable
+var tangsa:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tangut:stdgo._internal.unicode.RangeTable
+var tangut:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var telugu:stdgo._internal.unicode.RangeTable
+var telugu:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var terminal_Punctuation:stdgo._internal.unicode.RangeTable
+var terminal_Punctuation:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var thaana:stdgo._internal.unicode.RangeTable
+var thaana:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var thai:stdgo._internal.unicode.RangeTable
+var thai:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tibetan:stdgo._internal.unicode.RangeTable
+var tibetan:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tifinagh:stdgo._internal.unicode.RangeTable
+var tifinagh:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var tirhuta:stdgo._internal.unicode.RangeTable
+var tirhuta:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var title:stdgo._internal.unicode.RangeTable
+var title:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var toto:stdgo._internal.unicode.RangeTable
+var toto:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var turkishCase:stdgo._internal.unicode.SpecialCase
+var turkishCase:stdgo.unicode.SpecialCase
 ```
 
 
 ```haxe
-var ugaritic:stdgo._internal.unicode.RangeTable
+var ugaritic:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var unified_Ideograph:stdgo._internal.unicode.RangeTable
+var unified_Ideograph:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var upper:stdgo._internal.unicode.RangeTable
+var upper:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var vai:stdgo._internal.unicode.RangeTable
+var vai:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var variation_Selector:stdgo._internal.unicode.RangeTable
+var variation_Selector:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var vithkuqi:stdgo._internal.unicode.RangeTable
+var vithkuqi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var wancho:stdgo._internal.unicode.RangeTable
+var wancho:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var warang_Citi:stdgo._internal.unicode.RangeTable
+var warang_Citi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var white_Space:stdgo._internal.unicode.RangeTable
+var white_Space:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var yezidi:stdgo._internal.unicode.RangeTable
+var yezidi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var yi:stdgo._internal.unicode.RangeTable
+var yi:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var z:stdgo._internal.unicode.RangeTable
+var z:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var zanabazar_Square:stdgo._internal.unicode.RangeTable
+var zanabazar_Square:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var zl:stdgo._internal.unicode.RangeTable
+var zl:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var zp:stdgo._internal.unicode.RangeTable
+var zp:stdgo.unicode.RangeTable
 ```
 
 
 ```haxe
-var zs:stdgo._internal.unicode.RangeTable
+var zs:stdgo.unicode.RangeTable
 ```
 
 

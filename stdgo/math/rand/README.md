@@ -36,7 +36,6 @@
      |                                                           [31m^^^^^^[0m
      | stdgo.GoArray<stdgo.GoFloat32> should be haxe.ds.Vector<Float>
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,242
 
 ```
 

@@ -64,7 +64,6 @@
      | have: stdgo.Pointer<stdgo.GoString>
      | want: stdgo.Pointer<String>
 
-stdgo/_internal/internal/Macro.macro.hx:54: non hxb types:,258
 
 ```
 

@@ -19,7 +19,7 @@ class Macro {
 			for (name => e in @:privateAccess Go.nameTypes) {
 				exprs.push(macro $v{name} => $e);
 			}
-			trace("hxb types:", exprs.length);
+			//trace("hxb types:", exprs.length);
 			final e = macro $a{exprs};
 			final className = "HxbTypeInfoData";
 			final cl = macro class T {
@@ -51,7 +51,7 @@ class Macro {
 			for (name => e in @:privateAccess Go.nameTypes) {
 				exprs.push(macro $v{name} => $e);
 			}
-			trace("non hxb types:", exprs.length);
+			//trace("non hxb types:", exprs.length);
 			final e = macro $a{exprs};
 			final className = "TypeInfoData_go2hx_";
 			final cl = macro class T {

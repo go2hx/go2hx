@@ -5,6 +5,8 @@ go2hx
 > [!WARNING]  
 > experimental version, not able to compile most Go code correctly.
 
+If you want to use working Golang libraries easily, try out the new: [go2hxlibs](https://github.com/go2hx/go2hxlibs?tab=readme-ov-file#go2hxlibs)
+
 Compile [Go](https://go.dev) to [Haxe](https://haxe.org).
 
 

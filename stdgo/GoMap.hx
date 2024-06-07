@@ -654,6 +654,10 @@ private class IntMap<V> {
 		return map.iterator();
 	}
 
+	public function remove(key:Int) {
+		return map.remove(key);
+	}
+
 	public function keyValueIterator() {
 		return map.keyValueIterator();
 	}

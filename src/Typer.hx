@@ -3396,8 +3396,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}else if (expr.ellipsis != 0) {
 			var last = args.pop();
 			var t = typeof(exprArgs[exprArgs.length - 1], info, false);
-			if (elem != null)
-				t = elem;
 			last = typeRest(last, t, info);
 			args.push(last);
 		}
@@ -4538,6 +4536,7 @@ private function toGoType(expr:Expr):Expr {
 
 private function typeRest(expr:Expr, t:GoType, info:Info):Expr {
 	expr = toGoType(expr);
+	trace(t);
 	t = getElem(t);
 	final ct = toComplexType(t, info);
 	return macro...($expr : Array<$ct>);

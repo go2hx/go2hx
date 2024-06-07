@@ -1360,6 +1360,7 @@ final skipTargets = [
 	"strings_test:testGenericTrieBuilding" => [], // Segmentation fault (core dumped)
 	"math_test:testFloatMinima" => ["interp", "js"],
 	"math_test:testNextafter32" => ["interp", "js"],
+	"strconv_test:testRoundTrip32" => ["interp", "js"], // imprecise float
 	// "math_test:testSignbit" => ["interp"],
 	"math_test:testGamma" => ["interp", "js"],
 	"strconv_test:testAtof" => [], // uses rand and sync

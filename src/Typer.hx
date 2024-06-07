@@ -15,12 +15,13 @@ final reserved = [
 	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
 	"else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new", "operator",
 	"overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
-	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic", "map", "comparable",
+	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic", "map", "comparable", "environ",
 ];
 
 final reservedClassNames = [
 	"_Atomic",
 	"Atomic",
+	"Environ",
 	"Class",
 	"Single", // Single is a 32bit float
 	"Array",
@@ -3396,6 +3397,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}else if (expr.ellipsis != 0) {
 			var last = args.pop();
 			var t = typeof(exprArgs[exprArgs.length - 1], info, false);
+			if (elem != null)
+				t = elem;
 			last = typeRest(last, t, info);
 			args.push(last);
 		}
@@ -4892,6 +4895,8 @@ function title(name:String):String {
 	final name = name.charAt(0).toUpperCase() + name.substring(1);
 	if (name == "Atomic")
 		return "Atomic_";
+	if (name == "Environ")
+		return "Environ_";
 	return name;
 }
 

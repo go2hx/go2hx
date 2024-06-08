@@ -425,7 +425,7 @@ function lookupEnv(_key:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : Bool
 function setenv(_key:stdgo.GoString, _value:stdgo.GoString):stdgo.Error throw ":os.setenv is not yet implemented";
 function unsetenv(_key:stdgo.GoString):stdgo.Error throw ":os.unsetenv is not yet implemented";
 function clearenv():Void throw ":os.clearenv is not yet implemented";
-function environ():stdgo.Slice<stdgo.GoString> {
+function environ_():stdgo.Slice<stdgo.GoString> {
         final slice = new stdgo.Slice<stdgo.GoString>(0, 0);
         return slice;
     }

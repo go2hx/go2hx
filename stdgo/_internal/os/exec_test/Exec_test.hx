@@ -344,7 +344,7 @@ function exampleCommand():Void {
     }
 function exampleCommand_environment():Void {
         var _cmd = stdgo._internal.os.exec.Exec.command(("prog" : stdgo.GoString));
-        _cmd.env = (stdgo._internal.os.Os.environ().__append__(("FOO=duplicate_value" : stdgo.GoString), ("FOO=actual_value" : stdgo.GoString)));
+        _cmd.env = (stdgo._internal.os.Os.environ_().__append__(("FOO=duplicate_value" : stdgo.GoString), ("FOO=actual_value" : stdgo.GoString)));
         {
             var _err:stdgo.Error = _cmd.run();
             if (_err != null) {
@@ -475,7 +475,7 @@ function exampleCmd_CombinedOutput():Void {
 function exampleCmd_Environ():Void {
         var _cmd = stdgo._internal.os.exec.Exec.command(("pwd" : stdgo.GoString));
         _cmd.dir = (".." : stdgo.GoString);
-        _cmd.env = (_cmd.environ().__append__(("POSIXLY_CORRECT=1" : stdgo.GoString)));
+        _cmd.env = (_cmd.environ_().__append__(("POSIXLY_CORRECT=1" : stdgo.GoString)));
         var __tmp__ = _cmd.output(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
@@ -1298,7 +1298,7 @@ function testExtraFiles(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             var _tempdir:stdgo.GoString = _t.tempDir()?.__copy__();
             var _exe:stdgo.GoString = stdgo._internal.path.filepath.Filepath.join(_tempdir?.__copy__(), ("read3.exe" : stdgo.GoString))?.__copy__();
             var _c = stdgo._internal.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), stdgo._internal.internal.testenv.Testenv.goToolPath(stdgo.Go.asInterface(_t))?.__copy__(), ("build" : stdgo.GoString), ("-o" : stdgo.GoString), _exe?.__copy__(), ("read3.go" : stdgo.GoString));
-            _c.env = (stdgo._internal.os.Os.environ().__append__(("CGO_ENABLED=0" : stdgo.GoString)));
+            _c.env = (stdgo._internal.os.Os.environ_().__append__(("CGO_ENABLED=0" : stdgo.GoString)));
             {
                 var __tmp__ = _c.combinedOutput(), _output:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
@@ -1326,7 +1326,7 @@ function testExtraFiles(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _c.stderr = stdgo.Go.asInterface((stdgo.Go.setRef(_stderr) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>));
             _c.extraFiles = (new stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>(1, 1, ...[_tf]) : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
             if (false) {
-                _c.env = (stdgo._internal.os.Os.environ().__append__(("GOMAXPROCS=1" : stdgo.GoString)));
+                _c.env = (stdgo._internal.os.Os.environ_().__append__(("GOMAXPROCS=1" : stdgo.GoString)));
             };
             _err = _c.run();
             if (_err != null) {
@@ -1593,7 +1593,7 @@ function testContextCancel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
 function testDedupEnvEcho(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _t.parallel();
         var _cmd = _helperCommand(_t, ("echoenv" : stdgo.GoString), ("FOO" : stdgo.GoString));
-        _cmd.env = (_cmd.environ().__append__(("FOO=bad" : stdgo.GoString), ("FOO=good" : stdgo.GoString)));
+        _cmd.env = (_cmd.environ_().__append__(("FOO=bad" : stdgo.GoString), ("FOO=good" : stdgo.GoString)));
         var __tmp__ = _cmd.combinedOutput(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
@@ -1610,7 +1610,7 @@ function testEnvNULCharacter(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
             _t.skip(stdgo.Go.toInterface(("plan9 explicitly allows NUL in the environment" : stdgo.GoString)));
         };
         var _cmd = _helperCommand(_t, ("echoenv" : stdgo.GoString), ("FOO" : stdgo.GoString), ("BAR" : stdgo.GoString));
-        _cmd.env = (_cmd.environ().__append__(stdgo.Go.str("FOO=foo", 0, "BAR=bar")?.__copy__()));
+        _cmd.env = (_cmd.environ_().__append__(stdgo.Go.str("FOO=foo", 0, "BAR=bar")?.__copy__()));
         var __tmp__ = _cmd.combinedOutput(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err == null) {
             _t.errorf(("output = %q; want error" : stdgo.GoString), stdgo.Go.toInterface((_out : stdgo.GoString)));

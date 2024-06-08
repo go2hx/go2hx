@@ -1147,8 +1147,8 @@ class Os {
         Environ returns a copy of strings representing the environment,
         in the form "key=value".
     **/
-    static public function environ():Array<String> {
-        return [for (i in stdgo._internal.os.Os.environ()) i];
+    static public function environ_():Array<String> {
+        return [for (i in stdgo._internal.os.Os.environ_()) i];
     }
     /**
         NewSyscallError returns, as an error, a new SyscallError

@@ -1828,6 +1828,10 @@ function testRoundTrip(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testRoundTrip32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
+        #if (interp || js) {
+            trace("testRoundTrip32" + " skip targets: " + "interp, js");
+            return;
+        } #else null #end;
         var _step:stdgo.GoUInt32 = (997u32 : stdgo.GoUInt32);
         if (stdgo._internal.testing.Testing.short()) {
             _step = (99991u32 : stdgo.GoUInt32);

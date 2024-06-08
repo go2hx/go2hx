@@ -430,11 +430,11 @@ function benchmarkExpand(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         });
     }
 function testConsistentEnviron(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _e0 = environ();
+        var _e0 = environ_();
         {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (10 : stdgo.GoInt) : Bool), _i++, {
-                var _e1 = environ();
+                var _e1 = environ_();
                 if (!stdgo._internal.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_e0), stdgo.Go.toInterface(_e1))) {
                     _t.fatalf(("environment changed" : stdgo.GoString));
                 };
@@ -445,7 +445,7 @@ function testUnsetenv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
         var _set:() -> Bool = function():Bool {
             var _prefix:stdgo.GoString = ("GO_TEST_UNSETENV=" : stdgo.GoString);
-            for (__0 => _key in environ()) {
+            for (__0 => _key in environ_()) {
                 if (stdgo._internal.strings.Strings.hasPrefix(_key?.__copy__(), _prefix?.__copy__())) {
                     return true;
                 };
@@ -477,7 +477,7 @@ function testClearenv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             {};
             {};
             {
-                var _a0 = environ();
+                var _a0 = environ_();
                 __deferstack__.unshift(() -> {
                     var a = function(_origEnv:stdgo.Slice<stdgo.GoString>):Void {
                         for (__0 => _pair in _origEnv) {
@@ -579,7 +579,7 @@ function testLookupEnv(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testEnvironConsistency(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _t.parallel();
-        for (__8 => _kv in environ()) {
+        for (__8 => _kv in environ_()) {
             var _i:stdgo.GoInt = stdgo._internal.strings.Strings.index(_kv?.__copy__(), ("=" : stdgo.GoString));
             if (_i == ((0 : stdgo.GoInt))) {
                 _i = (stdgo._internal.strings.Strings.index((_kv.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), ("=" : stdgo.GoString)) + (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -1201,7 +1201,7 @@ function testExecutable(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         if (false) {} else {
             _cmd.args[(0 : stdgo.GoInt)] = ("-" : stdgo.GoString);
         };
-        _cmd.env = (_cmd.environ().__append__(stdgo._internal.fmt.Fmt.sprintf(("%s=1" : stdgo.GoString), stdgo.Go.toInterface(("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString)))?.__copy__()));
+        _cmd.env = (_cmd.environ_().__append__(stdgo._internal.fmt.Fmt.sprintf(("%s=1" : stdgo.GoString), stdgo.Go.toInterface(("OSTEST_OUTPUT_EXECPATH" : stdgo.GoString)))?.__copy__()));
         var __tmp__ = _cmd.combinedOutput(), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatalf(("exec(self) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
@@ -4548,7 +4548,7 @@ function testStatStdin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         } else {
             _cmd = stdgo._internal.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), ("/bin/sh" : stdgo.GoString), ("-c" : stdgo.GoString), ((("echo output | " : stdgo.GoString) + args[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString) + (" -test.run=TestStatStdin" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
         };
-        _cmd.env = (environ().__append__(("GO_WANT_HELPER_PROCESS=1" : stdgo.GoString)));
+        _cmd.env = (environ_().__append__(("GO_WANT_HELPER_PROCESS=1" : stdgo.GoString)));
         var __tmp__ = _cmd.combinedOutput(), _output:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatalf(("Failed to spawn child process: %v %q" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((_output : stdgo.GoString)));
@@ -4785,7 +4785,7 @@ function _testKillProcess(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _pro
             stdgo._internal.internal.testenv.Testenv.mustHaveExec(stdgo.Go.asInterface(_t));
             _t.parallel();
             var _cmd = stdgo._internal.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), args[(0 : stdgo.GoInt)]?.__copy__());
-            _cmd.env = (_cmd.environ().__append__(("GO_OS_TEST_DRAIN_STDIN=1" : stdgo.GoString)));
+            _cmd.env = (_cmd.environ_().__append__(("GO_OS_TEST_DRAIN_STDIN=1" : stdgo.GoString)));
             var __tmp__ = _cmd.stdoutPipe(), _stdout:stdgo._internal.io.Io.ReadCloser = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
@@ -4852,7 +4852,7 @@ function testGetppid(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         stdgo._internal.internal.testenv.Testenv.mustHaveExec(stdgo.Go.asInterface(_t));
         _t.parallel();
         var _cmd = stdgo._internal.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), args[(0 : stdgo.GoInt)]?.__copy__(), ("-test.run=TestGetppid" : stdgo.GoString));
-        _cmd.env = (environ().__append__(("GO_WANT_HELPER_PROCESS=1" : stdgo.GoString)));
+        _cmd.env = (environ_().__append__(("GO_WANT_HELPER_PROCESS=1" : stdgo.GoString)));
         var __tmp__ = _cmd.combinedOutput(), _output:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.fatalf(("Failed to spawn child process: %v %q" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface((_output : stdgo.GoString)));

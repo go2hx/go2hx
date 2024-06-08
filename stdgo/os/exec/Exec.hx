@@ -296,8 +296,8 @@ class T_wrappedError_static_extension {
     }
 }
 class Cmd_static_extension {
-    static public function environ(_c:Cmd):Array<String> {
-        return [for (i in stdgo._internal.os.exec.Exec.Cmd_static_extension.environ(_c)) i];
+    static public function environ_(_c:Cmd):Array<String> {
+        return [for (i in stdgo._internal.os.exec.Exec.Cmd_static_extension.environ_(_c)) i];
     }
     static public function _environ(_c:Cmd):stdgo.Tuple<Array<String>, stdgo.Error> {
         return {

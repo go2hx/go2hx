@@ -683,8 +683,8 @@ class Syscall {
     static public function clearenv():Void {
         stdgo._internal.syscall.Syscall.clearenv();
     }
-    static public function environ():Array<String> {
-        return [for (i in stdgo._internal.syscall.Syscall.environ()) i];
+    static public function environ_():Array<String> {
+        return [for (i in stdgo._internal.syscall.Syscall.environ_()) i];
     }
     static public function open(_path:String, _openmode:StdTypes.Int, _perm:std.UInt):stdgo.Tuple<StdTypes.Int, stdgo.Error> {
         return {

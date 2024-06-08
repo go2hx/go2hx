@@ -579,7 +579,7 @@ function unsetenv(_key:stdgo.GoString):stdgo.Error throw ":syscall.unsetenv is n
 function getenv(_key:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : Bool; } throw ":syscall.getenv is not yet implemented";
 function setenv(_key:stdgo.GoString, _value:stdgo.GoString):stdgo.Error throw ":syscall.setenv is not yet implemented";
 function clearenv():Void throw ":syscall.clearenv is not yet implemented";
-function environ():stdgo.Slice<stdgo.GoString> throw ":syscall.environ is not yet implemented";
+function environ_():stdgo.Slice<stdgo.GoString> throw ":syscall.environ_ is not yet implemented";
 function _now():{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt32; } throw ":syscall._now is not yet implemented";
 function _fdToFile(_fd:stdgo.GoInt):{ var _0 : stdgo.Ref<T_jsFile>; var _1 : stdgo.Error; } throw ":syscall._fdToFile is not yet implemented";
 function open(_path:stdgo.GoString, _openmode:stdgo.GoInt, _perm:stdgo.GoUInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw ":syscall.open is not yet implemented";

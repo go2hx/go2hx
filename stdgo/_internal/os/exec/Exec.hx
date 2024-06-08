@@ -232,7 +232,7 @@ class T_wrappedError_asInterface {
 }
 class Cmd_asInterface {
     @:keep
-    public dynamic function environ():stdgo.Slice<stdgo.GoString> return __self__.value.environ();
+    public dynamic function environ_():stdgo.Slice<stdgo.GoString> return __self__.value.environ_();
     @:keep
     public dynamic function _environ():{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } return __self__.value._environ();
     @:keep
@@ -277,7 +277,7 @@ class Cmd_asInterface {
 }
 @:keep @:allow(stdgo._internal.os.exec.Exec.Cmd_asInterface) class Cmd_static_extension {
     @:keep
-    static public function environ( _c:stdgo.Ref<Cmd>):stdgo.Slice<stdgo.GoString> throw "Cmd:os.exec.environ is not yet implemented";
+    static public function environ_( _c:stdgo.Ref<Cmd>):stdgo.Slice<stdgo.GoString> throw "Cmd:os.exec.environ_ is not yet implemented";
     @:keep
     static public function _environ( _c:stdgo.Ref<Cmd>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } throw "Cmd:os.exec._environ is not yet implemented";
     @:keep

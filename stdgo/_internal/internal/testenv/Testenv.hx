@@ -13,7 +13,7 @@ var _goToolPath : stdgo.GoString = ("" : stdgo.GoString);
 var _goToolErr : stdgo.Error = (null : stdgo.Error);
 var _hasCgoOnce : stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once);
 var _hasCgo : Bool = false;
-var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo._internal.os.Os.environ();
+var _origEnv : stdgo.Slice<stdgo.GoString> = stdgo._internal.os.Os.environ_();
 var _flaky : stdgo.Pointer<Bool> = stdgo._internal.flag.Flag.bool_(("flaky" : stdgo.GoString), false, ("run known-flaky tests too" : stdgo.GoString));
 var sigquit : stdgo._internal.os.Os.Signal = stdgo._internal.os.Os.kill;
 @:keep class T__interface_0_static_extension {
@@ -75,7 +75,7 @@ function cleanCmdEnv(_cmd:stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd>):stdgo.Ref
         if (_cmd.env != null) {
             throw stdgo.Go.toInterface(("environment already set" : stdgo.GoString));
         };
-        for (__6 => _env in stdgo._internal.os.Os.environ()) {
+        for (__6 => _env in stdgo._internal.os.Os.environ_()) {
             if (stdgo._internal.strings.Strings.hasPrefix(_env?.__copy__(), ("GODEBUG=" : stdgo.GoString))) {
                 continue;
             };

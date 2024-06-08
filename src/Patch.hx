@@ -11,7 +11,7 @@ final list = [
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
-	"os:environ" => macro {
+	"os:environ_" => macro {
 		final slice = new stdgo.Slice<stdgo.GoString>(0,0);
 		return slice;
 	},

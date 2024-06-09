@@ -123,7 +123,7 @@
 
 - [`function dup2(_fd:stdgo.GoInt, _newfd:stdgo.GoInt):stdgo.Error`](<#function-dup2>)
 
-- [`function environ():stdgo.Slice<stdgo.GoString>`](<#function-environ>)
+- [`function environ_():stdgo.Slice<stdgo.GoString>`](<#function-environ_>)
 
 - [`function exit(_code:stdgo.GoInt):Void`](<#function-exit>)
 
@@ -2540,11 +2540,11 @@ function dup2(_fd:stdgo.GoInt, _newfd:stdgo.GoInt):stdgo.Error
 [\(view code\)](<./Syscall.hx#L618>)
 
 
-## function environ
+## function environ\_
 
 
 ```haxe
-function environ():stdgo.Slice<stdgo.GoString>
+function environ_():stdgo.Slice<stdgo.GoString>
 ```
 
 

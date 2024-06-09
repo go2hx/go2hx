@@ -37,7 +37,7 @@
 
   - [`function dirFS(_dir:String):stdgo._internal.io.fs.FS`](<#os-function-dirfs>)
 
-  - [`function environ():Array<String>`](<#os-function-environ>)
+  - [`function environ_():Array<String>`](<#os-function-environ_>)
 
   - [`function executable():stdgo.Tuple<String, stdgo.Error>`](<#os-function-executable>)
 
@@ -706,11 +706,11 @@ The result implements \[io/fs.StatFS\], \[io/fs.ReadFileFS\] and
 [\(view code\)](<./Os.hx#L1453>)
 
 
-### Os function environ
+### Os function environ\_
 
 
 ```haxe
-function environ():Array<String>
+function environ_():Array<String>
 ```
 
 

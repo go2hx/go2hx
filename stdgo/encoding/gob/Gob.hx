@@ -104,32 +104,32 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob.GobDecoder;
         this.b = v;
         return v;
     }
-    public var c(get, set) : stdgo.Pointer<StdTypes.Int>;
-    function get_c():stdgo.Pointer<StdTypes.Int> return this.c;
-    function set_c(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+    public var c(get, set) : stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>;
+    function get_c():stdgo.Pointer<stdgo.Pointer<StdTypes.Int>> return this.c;
+    function set_c(v:stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>):stdgo.Pointer<stdgo.Pointer<StdTypes.Int>> {
         this.c = v;
         return v;
     }
-    public var d(get, set) : stdgo.Pointer<StdTypes.Int>;
-    function get_d():stdgo.Pointer<StdTypes.Int> return this.d;
-    function set_d(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+    public var d(get, set) : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>>;
+    function get_d():stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>> return this.d;
+    function set_d(v:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>>):stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>> {
         this.d = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?b:stdgo.Pointer<StdTypes.Int>, ?c:stdgo.Pointer<StdTypes.Int>, ?d:stdgo.Pointer<StdTypes.Int>) this = new stdgo._internal.encoding.gob.Gob.T1(a, b, c, d);
+    public function new(?a:StdTypes.Int, ?b:stdgo.Pointer<StdTypes.Int>, ?c:stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>, ?d:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>>) this = new stdgo._internal.encoding.gob.Gob.T1(a, b, c, d);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract T2(stdgo._internal.encoding.gob.Gob.T2) from stdgo._internal.encoding.gob.Gob.T2 to stdgo._internal.encoding.gob.Gob.T2 {
-    public var a(get, set) : stdgo.Pointer<StdTypes.Int>;
-    function get_a():stdgo.Pointer<StdTypes.Int> return this.a;
-    function set_a(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+    public var a(get, set) : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>>;
+    function get_a():stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>> return this.a;
+    function set_a(v:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>>):stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>> {
         this.a = v;
         return v;
     }
-    public var b(get, set) : stdgo.Pointer<StdTypes.Int>;
-    function get_b():stdgo.Pointer<StdTypes.Int> return this.b;
-    function set_b(v:stdgo.Pointer<StdTypes.Int>):stdgo.Pointer<StdTypes.Int> {
+    public var b(get, set) : stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>;
+    function get_b():stdgo.Pointer<stdgo.Pointer<StdTypes.Int>> return this.b;
+    function set_b(v:stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>):stdgo.Pointer<stdgo.Pointer<StdTypes.Int>> {
         this.b = v;
         return v;
     }
@@ -145,7 +145,7 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob.GobDecoder;
         this.d = v;
         return v;
     }
-    public function new(?a:stdgo.Pointer<StdTypes.Int>, ?b:stdgo.Pointer<StdTypes.Int>, ?c:stdgo.Pointer<StdTypes.Int>, ?d:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T2(a, b, c, d);
+    public function new(?a:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>>, ?b:stdgo.Pointer<stdgo.Pointer<StdTypes.Int>>, ?c:stdgo.Pointer<StdTypes.Int>, ?d:StdTypes.Int) this = new stdgo._internal.encoding.gob.Gob.T2(a, b, c, d);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -279,13 +279,13 @@ typedef GobDecoder = stdgo._internal.encoding.gob.Gob.GobDecoder;
         this.s = v;
         return v;
     }
-    public var m(get, set) : stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>;
-    function get_m():stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>> return this.m;
-    function set_m(v:stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>):stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>> {
+    public var m(get, set) : stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>;
+    function get_m():stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>> return this.m;
+    function set_m(v:stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>):stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>> {
         this.m = v;
         return v;
     }
-    public function new(?a:stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>, ?s:stdgo.Pointer<Array<StdTypes.Int>>, ?m:stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) this = new stdgo._internal.encoding.gob.Gob.Indirect(a, s, m);
+    public function new(?a:stdgo.Pointer<haxe.ds.Vector<StdTypes.Int>>, ?s:stdgo.Pointer<Array<StdTypes.Int>>, ?m:stdgo.Pointer<stdgo.Pointer<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>) this = new stdgo._internal.encoding.gob.Gob.Indirect(a, s, m);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2071,9 +2071,9 @@ bytes);
         this.e = v;
         return v;
     }
-    public var f(get, set) : stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>;
-    function get_f():stdgo.Pointer<stdgo.Pointer<StdTypes.Float>> return this.f;
-    function set_f(v:stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>):stdgo.Pointer<stdgo.Pointer<StdTypes.Float>> {
+    public var f(get, set) : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>>;
+    function get_f():stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>> return this.f;
+    function set_f(v:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>>):stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>> {
         this.f = v;
         return v;
     }
@@ -2095,7 +2095,7 @@ bytes);
         this.i = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:String, ?d:Array<std.UInt>, ?e:stdgo.Pointer<StdTypes.Float>, ?f:stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>, ?g:Bar, ?h:Bar, ?i:Foo) this = new stdgo._internal.encoding.gob.Gob.Foo(a, b, c, ([for (i in d) i] : stdgo.Slice<stdgo.GoUInt8>), e, f, g, h, i);
+    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:String, ?d:Array<std.UInt>, ?e:stdgo.Pointer<StdTypes.Float>, ?f:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>>, ?g:Bar, ?h:Bar, ?i:Foo) this = new stdgo._internal.encoding.gob.Gob.Foo(a, b, c, ([for (i in d) i] : stdgo.Slice<stdgo.GoUInt8>), e, f, g, h, i);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2536,13 +2536,13 @@ typedef T_testBadRecursiveType___localname___Rec_23209 = stdgo._internal.encodin
     public function __copy__() return this.__copy__();
 }
 @:structInit abstract T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593(stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593) from stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593 to stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593 {
-    public var a(get, set) : stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>;
-    function get_a():stdgo.Pointer<stdgo.Pointer<StdTypes.Float>> return this.a;
-    function set_a(v:stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>):stdgo.Pointer<stdgo.Pointer<StdTypes.Float>> {
+    public var a(get, set) : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>>;
+    function get_a():stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>> return this.a;
+    function set_a(v:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>>):stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>> {
         this.a = v;
         return v;
     }
-    public function new(?a:stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>) this = new stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593(a);
+    public function new(?a:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<StdTypes.Float>>>>) this = new stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593(a);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }

@@ -487,7 +487,7 @@ var _unmarshalTests : stdgo.Slice<stdgo._internal.encoding.json.Json.T_unmarshal
 ({ _in : ("{\"X\": 1,\"Y\":2}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.json.Json.S5)) : stdgo.Ref<stdgo._internal.encoding.json.Json.S5>)), _err : stdgo._internal.fmt.Fmt.errorf(("json: unknown field \"X\"" : stdgo.GoString)), _disallowUnknownFields : true } : stdgo._internal.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("{\"X\": 1,\"Y\":2}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.json.Json.S10)) : stdgo.Ref<stdgo._internal.encoding.json.Json.S10>)), _out : stdgo.Go.toInterface(({ s13 : ({ s8 : ({ s9 : ({ y : (2 : stdgo.GoInt) } : stdgo._internal.encoding.json.Json.S9) } : stdgo._internal.encoding.json.Json.S8) } : stdgo._internal.encoding.json.Json.S13) } : stdgo._internal.encoding.json.Json.S10)) } : stdgo._internal.encoding.json.Json.T_unmarshalTest),
 ({ _in : ("{\"X\": 1,\"Y\":2}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.json.Json.S10)) : stdgo.Ref<stdgo._internal.encoding.json.Json.S10>)), _err : stdgo._internal.fmt.Fmt.errorf(("json: unknown field \"X\"" : stdgo.GoString)), _disallowUnknownFields : true } : stdgo._internal.encoding.json.Json.T_unmarshalTest),
-({ _in : ("{\"I\": 0, \"I\": null, \"J\": null}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.json.Json.DoublePtr)) : stdgo.Ref<stdgo._internal.encoding.json.Json.DoublePtr>)), _out : stdgo.Go.toInterface(({ i : (null : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>), j : (null : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) } : stdgo._internal.encoding.json.Json.DoublePtr)) } : stdgo._internal.encoding.json.Json.T_unmarshalTest),
+({ _in : ("{\"I\": 0, \"I\": null, \"J\": null}" : stdgo.GoString), _ptr : stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.json.Json.DoublePtr)) : stdgo.Ref<stdgo._internal.encoding.json.Json.DoublePtr>)), _out : stdgo.Go.toInterface(({ i : (null : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>), j : (null : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>) } : stdgo._internal.encoding.json.Json.DoublePtr)) } : stdgo._internal.encoding.json.Json.T_unmarshalTest),
 ({ _in : stdgo.Go.str("\"hello", 255, "world\"")?.__copy__(), _ptr : stdgo.Go.toInterface(stdgo.Go.pointer(("" : stdgo.GoString))), _out : stdgo.Go.toInterface(("hello�world" : stdgo.GoString)) } : stdgo._internal.encoding.json.Json.T_unmarshalTest),
 ({ _in : stdgo.Go.str("\"hello", 194, 194, "world\"")?.__copy__(), _ptr : stdgo.Go.toInterface(stdgo.Go.pointer(("" : stdgo.GoString))), _out : stdgo.Go.toInterface(("hello��world" : stdgo.GoString)) } : stdgo._internal.encoding.json.Json.T_unmarshalTest),
 ({ _in : stdgo.Go.str("\"hello", 194, 255, "world\"")?.__copy__(), _ptr : stdgo.Go.toInterface(stdgo.Go.pointer(("" : stdgo.GoString))), _out : stdgo.Go.toInterface(("hello��world" : stdgo.GoString)) } : stdgo._internal.encoding.json.Json.T_unmarshalTest),
@@ -572,8 +572,8 @@ var _interfaceSetTests : stdgo.Slice<T__struct_8> = (new stdgo.Slice<T__struct_8
 ({ _pre : (null : stdgo.AnyInterface), _json : ("null" : stdgo.GoString), _post : (null : stdgo.AnyInterface) } : T__struct_8),
 ({ _pre : stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.GoInt))), _json : ("null" : stdgo.GoString), _post : (null : stdgo.AnyInterface) } : T__struct_8),
 ({ _pre : stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt>)), _json : ("null" : stdgo.GoString), _post : (null : stdgo.AnyInterface) } : T__struct_8),
-({ _pre : stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.Pointer<stdgo.GoInt>)) : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>)), _json : ("null" : stdgo.GoString), _post : stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.Pointer<stdgo.GoInt>)) : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>)) } : T__struct_8),
-({ _pre : stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>)), _json : ("null" : stdgo.GoString), _post : (null : stdgo.AnyInterface) } : T__struct_8),
+({ _pre : stdgo.Go.toInterface(stdgo.Go.pointer((null : stdgo.Pointer<stdgo.GoInt>))), _json : ("null" : stdgo.GoString), _post : stdgo.Go.toInterface(stdgo.Go.pointer((null : stdgo.Pointer<stdgo.GoInt>))) } : T__struct_8),
+({ _pre : stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>)), _json : ("null" : stdgo.GoString), _post : (null : stdgo.AnyInterface) } : T__struct_8),
 ({ _pre : stdgo.Go.toInterface(_intp((1 : stdgo.GoInt))), _json : ("null" : stdgo.GoString), _post : (null : stdgo.AnyInterface) } : T__struct_8),
 ({ _pre : stdgo.Go.toInterface(_intpp((null : stdgo.Pointer<stdgo.GoInt>))), _json : ("null" : stdgo.GoString), _post : stdgo.Go.toInterface(_intpp((null : stdgo.Pointer<stdgo.GoInt>))) } : T__struct_8),
 ({ _pre : stdgo.Go.toInterface(_intpp(_intp((1 : stdgo.GoInt)))), _json : ("null" : stdgo.GoString), _post : stdgo.Go.toInterface(_intpp((null : stdgo.Pointer<stdgo.GoInt>))) } : T__struct_8)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({ _pre : (null : stdgo.AnyInterface), _json : ("" : stdgo.GoString), _post : (null : stdgo.AnyInterface) } : T__struct_8)])) : stdgo.Slice<T__struct_8>);
@@ -1387,9 +1387,9 @@ typedef Marshaler = stdgo.StructType & {
     }
 }
 @:structInit class DoublePtr {
-    public var i : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>> = (null : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>);
-    public var j : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>> = (null : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>);
-    public function new(?i:stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>, ?j:stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) {
+    public var i : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>> = (null : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>);
+    public var j : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>> = (null : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>);
+    public function new(?i:stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>, ?j:stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>) {
         if (i != null) this.i = i;
         if (j != null) this.j = j;
     }
@@ -4538,9 +4538,9 @@ function _intp(_x:stdgo.GoInt):stdgo.Pointer<stdgo.GoInt> {
         _p.value = _x;
         return _p;
     }
-function _intpp(_x:stdgo.Pointer<stdgo.GoInt>):stdgo.Ref<stdgo.Pointer<stdgo.GoInt>> {
-        var _pp = (stdgo.Go.setRef((null : stdgo.Pointer<stdgo.GoInt>)) : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>);
-        _pp = _x;
+function _intpp(_x:stdgo.Pointer<stdgo.GoInt>):stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>> {
+        var _pp = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.GoInt>));
+        _pp.value = _x;
         return _pp;
     }
 function testInterfaceSet(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {

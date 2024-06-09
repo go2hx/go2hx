@@ -384,9 +384,9 @@ typedef GobDecoder = stdgo.StructType & {
 @:structInit class T1 {
     public var a : stdgo.GoInt = 0;
     public var b : stdgo.Pointer<stdgo.GoInt> = (null : stdgo.Pointer<stdgo.GoInt>);
-    public var c : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>> = (null : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>);
-    public var d : stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>> = (null : stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>>);
-    public function new(?a:stdgo.GoInt, ?b:stdgo.Pointer<stdgo.GoInt>, ?c:stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>, ?d:stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>>) {
+    public var c : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>> = (null : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>);
+    public var d : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>> = (null : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>>);
+    public function new(?a:stdgo.GoInt, ?b:stdgo.Pointer<stdgo.GoInt>, ?c:stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>, ?d:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>>) {
         if (a != null) this.a = a;
         if (b != null) this.b = b;
         if (c != null) this.c = c;
@@ -398,11 +398,11 @@ typedef GobDecoder = stdgo.StructType & {
     }
 }
 @:structInit class T2 {
-    public var a : stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>> = (null : stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>>);
-    public var b : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>> = (null : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>);
+    public var a : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>> = (null : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>>);
+    public var b : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>> = (null : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>);
     public var c : stdgo.Pointer<stdgo.GoInt> = (null : stdgo.Pointer<stdgo.GoInt>);
     public var d : stdgo.GoInt = 0;
-    public function new(?a:stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>>, ?b:stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>, ?c:stdgo.Pointer<stdgo.GoInt>, ?d:stdgo.GoInt) {
+    public function new(?a:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>>, ?b:stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>, ?c:stdgo.Pointer<stdgo.GoInt>, ?d:stdgo.GoInt) {
         if (a != null) this.a = a;
         if (b != null) this.b = b;
         if (c != null) this.c = c;
@@ -474,8 +474,8 @@ typedef GobDecoder = stdgo.StructType & {
 @:structInit class Indirect {
     public var a : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>> = (null : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>>);
     public var s : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>> = (null : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>>);
-    public var m : stdgo.Ref<stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>> = (null : stdgo.Ref<stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>>);
-    public function new(?a:stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>>, ?s:stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>>, ?m:stdgo.Ref<stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>>) {
+    public var m : stdgo.Pointer<stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>> = (null : stdgo.Pointer<stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>>);
+    public function new(?a:stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>>, ?s:stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>>, ?m:stdgo.Pointer<stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>>) {
         if (a != null) this.a = a;
         if (s != null) this.s = s;
         if (m != null) this.m = m;
@@ -1612,11 +1612,11 @@ bytes);
     public var c : stdgo.GoString = "";
     public var d : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var e : stdgo.Pointer<stdgo.GoFloat64> = (null : stdgo.Pointer<stdgo.GoFloat64>);
-    public var f : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>>> = (null : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>>>);
+    public var f : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoFloat64>>>> = (null : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoFloat64>>>>);
     public var g : stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bar> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bar>);
     public var h : stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bar> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bar>);
     public var i : stdgo.Ref<stdgo._internal.encoding.gob.Gob.Foo> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob.Foo>);
-    public function new(?a:stdgo.GoInt, ?b:stdgo.GoInt32, ?c:stdgo.GoString, ?d:stdgo.Slice<stdgo.GoUInt8>, ?e:stdgo.Pointer<stdgo.GoFloat64>, ?f:stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>>>, ?g:stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bar>, ?h:stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bar>, ?i:stdgo.Ref<stdgo._internal.encoding.gob.Gob.Foo>) {
+    public function new(?a:stdgo.GoInt, ?b:stdgo.GoInt32, ?c:stdgo.GoString, ?d:stdgo.Slice<stdgo.GoUInt8>, ?e:stdgo.Pointer<stdgo.GoFloat64>, ?f:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoFloat64>>>>, ?g:stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bar>, ?h:stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bar>, ?i:stdgo.Ref<stdgo._internal.encoding.gob.Gob.Foo>) {
         if (a != null) this.a = a;
         if (b != null) this.b = b;
         if (c != null) this.c = c;
@@ -2779,13 +2779,13 @@ function testAutoIndirection(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         _t1.a = (17 : stdgo.GoInt);
         _t1.b = stdgo.Go.pointer((0 : stdgo.GoInt));
         _t1.b.value = (177 : stdgo.GoInt);
-        _t1.c = (stdgo.Go.setRef((null : stdgo.Pointer<stdgo.GoInt>)) : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>);
-        _t1.c = stdgo.Go.pointer((0 : stdgo.GoInt));
-        (_t1.c : stdgo.Pointer<stdgo.GoInt>).value = (1777 : stdgo.GoInt);
-        _t1.d = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>>);
-        _t1.d = (stdgo.Go.setRef((null : stdgo.Pointer<stdgo.GoInt>)) : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>);
-        (_t1.d : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) = stdgo.Go.pointer((0 : stdgo.GoInt));
-        ((_t1.d : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) : stdgo.Pointer<stdgo.GoInt>).value = (17777 : stdgo.GoInt);
+        _t1.c = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.GoInt>));
+        _t1.c.value = stdgo.Go.pointer((0 : stdgo.GoInt));
+        _t1.c.value.value = (1777 : stdgo.GoInt);
+        _t1.d = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>));
+        _t1.d.value = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.GoInt>));
+        _t1.d.value.value = stdgo.Go.pointer((0 : stdgo.GoInt));
+        _t1.d.value.value.value = (17777 : stdgo.GoInt);
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>);
         var _enc = newEncoder(stdgo.Go.asInterface(_b));
         _enc.encode(stdgo.Go.toInterface(_t1));
@@ -2799,13 +2799,13 @@ function testAutoIndirection(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         _t2.d = (17777 : stdgo.GoInt);
         _t2.c = stdgo.Go.pointer((0 : stdgo.GoInt));
         _t2.c.value = (1777 : stdgo.GoInt);
-        _t2.b = (stdgo.Go.setRef((null : stdgo.Pointer<stdgo.GoInt>)) : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>);
-        _t2.b = stdgo.Go.pointer((0 : stdgo.GoInt));
-        (_t2.b : stdgo.Pointer<stdgo.GoInt>).value = (177 : stdgo.GoInt);
-        _t2.a = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>>);
-        _t2.a = (stdgo.Go.setRef((null : stdgo.Pointer<stdgo.GoInt>)) : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>);
-        (_t2.a : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) = stdgo.Go.pointer((0 : stdgo.GoInt));
-        ((_t2.a : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) : stdgo.Pointer<stdgo.GoInt>).value = (17 : stdgo.GoInt);
+        _t2.b = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.GoInt>));
+        _t2.b.value = stdgo.Go.pointer((0 : stdgo.GoInt));
+        _t2.b.value.value = (177 : stdgo.GoInt);
+        _t2.a = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.Pointer<stdgo.GoInt>>));
+        _t2.a.value = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.GoInt>));
+        _t2.a.value.value = stdgo.Go.pointer((0 : stdgo.GoInt));
+        _t2.a.value.value.value = (17 : stdgo.GoInt);
         _b.reset();
         _enc.encode(stdgo.Go.toInterface(_t2));
         _t0 = (new stdgo._internal.encoding.gob.Gob.T0() : stdgo._internal.encoding.gob.Gob.T0);
@@ -2818,25 +2818,25 @@ function testAutoIndirection(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         _enc.encode(stdgo.Go.toInterface(_t0));
         _t1 = (new stdgo._internal.encoding.gob.Gob.T1() : stdgo._internal.encoding.gob.Gob.T1);
         _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_t1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T1>)));
-        if ((((_t1.a != ((17 : stdgo.GoInt)) || _t1.b.value != ((177 : stdgo.GoInt)) : Bool) || (_t1.c : stdgo.Pointer<stdgo.GoInt>).value != ((1777 : stdgo.GoInt)) : Bool) || (((_t1.d : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) : stdgo.Pointer<stdgo.GoInt>).value != (17777 : stdgo.GoInt)) : Bool)) {
-            _t.errorf(("t0->t1 expected {17 177 1777 17777}; got {%d %d %d %d}" : stdgo.GoString), stdgo.Go.toInterface(_t1.a), stdgo.Go.toInterface(_t1.b.value), stdgo.Go.toInterface((_t1.c : stdgo.Pointer<stdgo.GoInt>).value), stdgo.Go.toInterface(((_t1.d : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) : stdgo.Pointer<stdgo.GoInt>).value));
+        if ((((_t1.a != ((17 : stdgo.GoInt)) || _t1.b.value != ((177 : stdgo.GoInt)) : Bool) || _t1.c.value.value != ((1777 : stdgo.GoInt)) : Bool) || (_t1.d.value.value.value != (17777 : stdgo.GoInt)) : Bool)) {
+            _t.errorf(("t0->t1 expected {17 177 1777 17777}; got {%d %d %d %d}" : stdgo.GoString), stdgo.Go.toInterface(_t1.a), stdgo.Go.toInterface(_t1.b.value), stdgo.Go.toInterface(_t1.c.value.value), stdgo.Go.toInterface(_t1.d.value.value.value));
         };
         _b.reset();
         _enc.encode(stdgo.Go.toInterface(_t0));
         _t2 = (new stdgo._internal.encoding.gob.Gob.T2() : stdgo._internal.encoding.gob.Gob.T2);
         _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_t2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T2>)));
-        if ((((((_t2.a : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) : stdgo.Pointer<stdgo.GoInt>).value != ((17 : stdgo.GoInt)) || (_t2.b : stdgo.Pointer<stdgo.GoInt>).value != ((177 : stdgo.GoInt)) : Bool) || _t2.c.value != ((1777 : stdgo.GoInt)) : Bool) || (_t2.d != (17777 : stdgo.GoInt)) : Bool)) {
-            _t.errorf(("t0->t2 expected {17 177 1777 17777}; got {%d %d %d %d}" : stdgo.GoString), stdgo.Go.toInterface(((_t2.a : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) : stdgo.Pointer<stdgo.GoInt>).value), stdgo.Go.toInterface((_t2.b : stdgo.Pointer<stdgo.GoInt>).value), stdgo.Go.toInterface(_t2.c.value), stdgo.Go.toInterface(_t2.d));
+        if ((((_t2.a.value.value.value != ((17 : stdgo.GoInt)) || _t2.b.value.value != ((177 : stdgo.GoInt)) : Bool) || _t2.c.value != ((1777 : stdgo.GoInt)) : Bool) || (_t2.d != (17777 : stdgo.GoInt)) : Bool)) {
+            _t.errorf(("t0->t2 expected {17 177 1777 17777}; got {%d %d %d %d}" : stdgo.GoString), stdgo.Go.toInterface(_t2.a.value.value.value), stdgo.Go.toInterface(_t2.b.value.value), stdgo.Go.toInterface(_t2.c.value), stdgo.Go.toInterface(_t2.d));
         };
         _b.reset();
         _enc.encode(stdgo.Go.toInterface(_t0));
-        ((_t2.a : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) : stdgo.Pointer<stdgo.GoInt>).value = (0 : stdgo.GoInt);
-        (_t2.b : stdgo.Pointer<stdgo.GoInt>).value = (0 : stdgo.GoInt);
+        _t2.a.value.value.value = (0 : stdgo.GoInt);
+        _t2.b.value.value = (0 : stdgo.GoInt);
         _t2.c.value = (0 : stdgo.GoInt);
         _t2.d = (0 : stdgo.GoInt);
         _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_t2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T2>)));
-        if ((((((_t2.a : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) : stdgo.Pointer<stdgo.GoInt>).value != ((17 : stdgo.GoInt)) || (_t2.b : stdgo.Pointer<stdgo.GoInt>).value != ((177 : stdgo.GoInt)) : Bool) || _t2.c.value != ((1777 : stdgo.GoInt)) : Bool) || (_t2.d != (17777 : stdgo.GoInt)) : Bool)) {
-            _t.errorf(("t0->t2 expected {17 177 1777 17777}; got {%d %d %d %d}" : stdgo.GoString), stdgo.Go.toInterface(((_t2.a : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>) : stdgo.Pointer<stdgo.GoInt>).value), stdgo.Go.toInterface((_t2.b : stdgo.Pointer<stdgo.GoInt>).value), stdgo.Go.toInterface(_t2.c.value), stdgo.Go.toInterface(_t2.d));
+        if ((((_t2.a.value.value.value != ((17 : stdgo.GoInt)) || _t2.b.value.value != ((177 : stdgo.GoInt)) : Bool) || _t2.c.value != ((1777 : stdgo.GoInt)) : Bool) || (_t2.d != (17777 : stdgo.GoInt)) : Bool)) {
+            _t.errorf(("t0->t2 expected {17 177 1777 17777}; got {%d %d %d %d}" : stdgo.GoString), stdgo.Go.toInterface(_t2.a.value.value.value), stdgo.Go.toInterface(_t2.b.value.value), stdgo.Go.toInterface(_t2.c.value), stdgo.Go.toInterface(_t2.d));
         };
     }
 function testReorderedFields(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
@@ -2890,12 +2890,12 @@ function testIgnoredFields(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             _t.errorf(("rt0->rt1: expected %v; got %v" : stdgo.GoString), stdgo.Go.toInterface(_it0), stdgo.Go.toInterface(_rt1));
         };
     }
-@:named typedef T_testBadRecursiveType___localname___Rec_23209 = stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType___localname___Rec_23209>>>;
+@:named typedef T_testBadRecursiveType___localname___Rec_23209 = stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType___localname___Rec_23209>>>;
 function testBadRecursiveType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
         var _rec:T_testBadRecursiveType___localname___Rec_23209 = (null : stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType___localname___Rec_23209);
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>);
-        var _err:stdgo.Error = newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface((stdgo.Go.setRef(_rec) : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testBadRecursiveType___localname___Rec_23209>)));
+        var _err:stdgo.Error = newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(stdgo.Go.pointer(_rec)));
         if (_err == null) {
             _t.error(stdgo.Go.toInterface(("expected error; got none" : stdgo.GoString)));
         } else if (!stdgo._internal.strings.Strings.contains(_err.error()?.__copy__(), ("recursive" : stdgo.GoString))) {
@@ -2912,11 +2912,11 @@ function testIndirectSliceMapArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.
         _i.s.value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>);
         _i.s.value = (stdgo.Go.setRef((null : stdgo.Slice<stdgo.GoInt>)) : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>);
         (_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>).__setData__((new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>));
-        _i.m = (stdgo.Go.setRef((null : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>)) : stdgo.Ref<stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>>);
-        _i.m = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>));
-        (_i.m : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>).value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>);
-        (_i.m : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>).value = (stdgo.Go.setRef((null : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>)) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>);
-        ((_i.m : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>).value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>).__setData__(({
+        _i.m = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>));
+        _i.m.value = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>));
+        _i.m.value.value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>);
+        _i.m.value.value = (stdgo.Go.setRef((null : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>)) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>);
+        (_i.m.value.value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>).__setData__(({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
             x.__defaultValue__ = () -> (0 : stdgo.GoInt);
             @:mergeBlock {
@@ -2941,7 +2941,7 @@ function testIndirectSliceMapArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.
             _t.errorf(("indirect to direct: d.S is %v not %v" : stdgo.GoString), stdgo.Go.toInterface(_d.s), stdgo.Go.toInterface(((_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>) : stdgo.Slice<stdgo.GoInt>)));
         };
         if (((((_d.m.length) != ((3 : stdgo.GoInt)) || (_d.m[("one" : stdgo.GoString)] ?? (0 : stdgo.GoInt)) != ((1 : stdgo.GoInt)) : Bool) || (_d.m[("two" : stdgo.GoString)] ?? (0 : stdgo.GoInt)) != ((2 : stdgo.GoInt)) : Bool) || ((_d.m[("three" : stdgo.GoString)] ?? (0 : stdgo.GoInt)) != (3 : stdgo.GoInt)) : Bool)) {
-            _t.errorf(("indirect to direct: d.M is %v not %v" : stdgo.GoString), stdgo.Go.toInterface(_d.m), stdgo.Go.toInterface(((_i.m : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>).value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>)));
+            _t.errorf(("indirect to direct: d.M is %v not %v" : stdgo.GoString), stdgo.Go.toInterface(_d.m), stdgo.Go.toInterface((_i.m.value.value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>)));
         };
         _d.a = (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(11 : stdgo.GoInt), (22 : stdgo.GoInt), (33 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();
         _d.s = (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(44 : stdgo.GoInt), (55 : stdgo.GoInt), (66 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
@@ -2969,8 +2969,8 @@ function testIndirectSliceMapArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.
         if (((((((_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>) : stdgo.Slice<stdgo.GoInt>).length) != ((3 : stdgo.GoInt)) || (((_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>) : stdgo.Slice<stdgo.GoInt>))[(0 : stdgo.GoInt)] != ((44 : stdgo.GoInt)) : Bool) || (((_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>) : stdgo.Slice<stdgo.GoInt>))[(1 : stdgo.GoInt)] != ((55 : stdgo.GoInt)) : Bool) || ((((_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>) : stdgo.Slice<stdgo.GoInt>))[(2 : stdgo.GoInt)] != (66 : stdgo.GoInt)) : Bool)) {
             _t.errorf(("direct to indirect: ***i.S is %v not %v" : stdgo.GoString), stdgo.Go.toInterface(((_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>) : stdgo.Slice<stdgo.GoInt>)), stdgo.Go.toInterface(((_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>) : stdgo.Slice<stdgo.GoInt>)));
         };
-        if ((((((((_i.m : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>).value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>).length) != ((3 : stdgo.GoInt)) || (((((_i.m : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>).value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>))[("four" : stdgo.GoString)] ?? (0 : stdgo.GoInt)) != ((4 : stdgo.GoInt)) : Bool) || (((((_i.m : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>).value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>))[("five" : stdgo.GoString)] ?? (0 : stdgo.GoInt)) != ((5 : stdgo.GoInt)) : Bool) || ((((((_i.m : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>).value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>))[("six" : stdgo.GoString)] ?? (0 : stdgo.GoInt)) != (6 : stdgo.GoInt)) : Bool)) {
-            _t.errorf(("direct to indirect: ****i.M is %v not %v" : stdgo.GoString), stdgo.Go.toInterface((((_i.m : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>).value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>)), stdgo.Go.toInterface(_d.m));
+        if (((((((_i.m.value.value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>).length) != ((3 : stdgo.GoInt)) || ((((_i.m.value.value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>))[("four" : stdgo.GoString)] ?? (0 : stdgo.GoInt)) != ((4 : stdgo.GoInt)) : Bool) || ((((_i.m.value.value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>))[("five" : stdgo.GoString)] ?? (0 : stdgo.GoInt)) != ((5 : stdgo.GoInt)) : Bool) || (((((_i.m.value.value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>))[("six" : stdgo.GoString)] ?? (0 : stdgo.GoInt)) != (6 : stdgo.GoInt)) : Bool)) {
+            _t.errorf(("direct to indirect: ****i.M is %v not %v" : stdgo.GoString), stdgo.Go.toInterface(((_i.m.value.value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>)), stdgo.Go.toInterface(_d.m));
         };
     }
 function testInterface(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
@@ -5149,8 +5149,8 @@ function testPtrTypeToType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         };
     }
 @:structInit class T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593 {
-    public var a : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>>> = (null : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>>>);
-    public function new(?a:stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>>>) {
+    public var a : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoFloat64>>>> = (null : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoFloat64>>>>);
+    public function new(?a:stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoFloat64>>>>) {
         if (a != null) this.a = a;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
@@ -5161,20 +5161,20 @@ function testPtrTypeToType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
 function testTypeToPtrPtrPtrPtrType(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
         var _t2:stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593 = (new stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593() : stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593);
-        _t2.a = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>>));
-        _t2.a.value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>)) : stdgo.Ref<stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>>);
-        _t2.a.value = (stdgo.Go.setRef((null : stdgo.Pointer<stdgo.GoFloat64>)) : stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>);
-        (_t2.a.value : stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>) = stdgo.Go.pointer((0 : stdgo.GoFloat64));
-        ((_t2.a.value : stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>) : stdgo.Pointer<stdgo.GoFloat64>).value = (27.4 : stdgo.GoFloat64);
-        var _t2pppp = (stdgo.Go.setRef((null : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593>>>)) : stdgo.Ref<stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593>>>>);
+        _t2.a = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.Pointer<stdgo.Pointer<stdgo.GoFloat64>>>));
+        _t2.a.value = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.Pointer<stdgo.GoFloat64>>));
+        _t2.a.value.value = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.GoFloat64>));
+        _t2.a.value.value.value = stdgo.Go.pointer((0 : stdgo.GoFloat64));
+        _t2.a.value.value.value.value = (27.4 : stdgo.GoFloat64);
+        var _t2pppp = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593>>>));
         {
             var _err:stdgo.Error = _encAndDec(stdgo.Go.toInterface(_t2), stdgo.Go.toInterface(_t2pppp));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
-        if ((((((_t2pppp : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593>>>).value : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593>) : stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593).a.value : stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>) : stdgo.Pointer<stdgo.GoFloat64>).value != (((_t2.a.value : stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>) : stdgo.Pointer<stdgo.GoFloat64>).value)) {
-            _t.errorf(("wrong value after decode: %g not %g" : stdgo.GoString), stdgo.Go.toInterface((((((_t2pppp : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593>>>).value : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593>) : stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593).a.value : stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>) : stdgo.Pointer<stdgo.GoFloat64>).value), stdgo.Go.toInterface(((_t2.a.value : stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>) : stdgo.Pointer<stdgo.GoFloat64>).value));
+        if (((_t2pppp.value.value : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593>) : stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593).a.value.value.value.value != (_t2.a.value.value.value.value)) {
+            _t.errorf(("wrong value after decode: %g not %g" : stdgo.GoString), stdgo.Go.toInterface(((_t2pppp.value.value : stdgo.Ref<stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593>) : stdgo._internal.encoding.gob.Gob.T_testTypeToPtrPtrPtrPtrType___localname___Type2_6593).a.value.value.value.value), stdgo.Go.toInterface(_t2.a.value.value.value.value));
         };
     }
 @:structInit class T_testSlice___localname___Type3_7005 {

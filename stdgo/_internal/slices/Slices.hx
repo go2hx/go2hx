@@ -1301,12 +1301,12 @@ function testInference(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             };
         };
         {};
-        var _s2:stdgo._internal.slices.Slices.S = (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.slices.Slices.S);
-        _apply(new stdgo._internal.slices.Slices.S(0, 0), _s2, reverse);
+        var _s2:stdgo._internal.slices.Slices.T_testInference___localname___S_22782 = (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.slices.Slices.T_testInference___localname___S_22782);
+        _apply(new stdgo._internal.slices.Slices.T_testInference___localname___S_22782(0, 0), _s2, reverse);
         {
-            var _want:stdgo._internal.slices.Slices.S = ((new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.slices.Slices.S));
-            if (!equal(new stdgo._internal.slices.Slices.S(0, 0), (0 : stdgo.GoInt), _s2, _want)) {
-                _t.errorf(("Reverse(%v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.slices.Slices.S)), stdgo.Go.toInterface(_s2), stdgo.Go.toInterface(_want));
+            var _want:stdgo._internal.slices.Slices.T_testInference___localname___S_22782 = ((new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.slices.Slices.T_testInference___localname___S_22782));
+            if (!equal(new stdgo._internal.slices.Slices.T_testInference___localname___S_22782(0, 0), (0 : stdgo.GoInt), _s2, _want)) {
+                _t.errorf(("Reverse(%v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.slices.Slices.T_testInference___localname___S_22782)), stdgo.Go.toInterface(_s2), stdgo.Go.toInterface(_want));
             };
         };
     }

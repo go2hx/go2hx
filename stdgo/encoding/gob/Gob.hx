@@ -2303,13 +2303,13 @@ typedef T_typeId = stdgo._internal.encoding.gob.Gob.T_typeId;
         this.y = ([for (i in v) i] : stdgo.Slice<stdgo.GoUInt8>);
         return v;
     }
-    public var t(get, set) : T2;
-    function get_t():T2 return this.t;
-    function set_t(v:T2):T2 {
+    public var t(get, set) : T_testEndToEnd___localname___T2_13762;
+    function get_t():T_testEndToEnd___localname___T2_13762 return this.t;
+    function set_t(v:T_testEndToEnd___localname___T2_13762):T_testEndToEnd___localname___T2_13762 {
         this.t = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:StdTypes.Int, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob.T_testEndToEnd___localname___T3_13794>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:haxe.ds.Vector<StdTypes.Float>, ?strs:haxe.ds.Vector<String>, ?int64s:Array<haxe.Int64>, ?ri:stdgo.GoComplex64, ?s:String, ?y:Array<std.UInt>, ?t:T2) this = new stdgo._internal.encoding.gob.Gob.T_testEndToEnd___localname___T1_13836(
+    public function new(?a:StdTypes.Int, ?b:StdTypes.Int, ?c:StdTypes.Int, ?m:stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>, ?m2:stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob.T_testEndToEnd___localname___T3_13794>, ?mstring:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, ?mintptr:stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>, ?mcomp:stdgo.GoMap<stdgo.GoComplex128, stdgo.GoComplex128>, ?marr:stdgo.GoMap<stdgo.GoArray<stdgo.GoString>, stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>>, ?emptyMap:stdgo.GoMap<stdgo.GoString, stdgo.GoInt>, ?n:haxe.ds.Vector<StdTypes.Float>, ?strs:haxe.ds.Vector<String>, ?int64s:Array<haxe.Int64>, ?ri:stdgo.GoComplex64, ?s:String, ?y:Array<std.UInt>, ?t:T_testEndToEnd___localname___T2_13762) this = new stdgo._internal.encoding.gob.Gob.T_testEndToEnd___localname___T1_13836(
 a,
 b,
 c,

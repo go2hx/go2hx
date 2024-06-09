@@ -2725,8 +2725,8 @@ function _hideFromVet(_s:stdgo.GoString):stdgo.GoString {
 function testNilDoesNotBecomeTyped(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {};
         {};
-        var _a:stdgo.Ref<A> = null;
-        var _b:B = (new stdgo._internal.fmt_test.Fmt_test.B() : stdgo._internal.fmt_test.Fmt_test.B);
+        var _a:stdgo.Ref<T_testNilDoesNotBecomeTyped___localname___A_55372> = null;
+        var _b:T_testNilDoesNotBecomeTyped___localname___B_55389 = (new stdgo._internal.fmt_test.Fmt_test.T_testNilDoesNotBecomeTyped___localname___B_55389() : stdgo._internal.fmt_test.Fmt_test.T_testNilDoesNotBecomeTyped___localname___B_55389);
         var _got:stdgo.GoString = sprintf(_hideFromVet(("%s %s %s %s %s" : stdgo.GoString))?.__copy__(), (null : stdgo.AnyInterface), stdgo.Go.toInterface(_a), (null : stdgo.AnyInterface), stdgo.Go.toInterface(_b), (null : stdgo.AnyInterface))?.__copy__();
         {};
         if (_got != (("%!s(<nil>) %!s(*fmt_test.A=<nil>) %!s(<nil>) {} %!s(<nil>)" : stdgo.GoString))) {

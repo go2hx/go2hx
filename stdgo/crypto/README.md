@@ -24,18 +24,6 @@
       |                  [31m^^^^^^^^[0m
       | stdgo._internal.encoding.gob.T1 has no field emptyMap
 
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:2787: characters 9-56
-
- 2787 | [2m        [0m[1m(_t1.d : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>)[0m[2m = stdgo.Go.pointer((0 : stdgo.GoInt));[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Invalid assign
-
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:2807: characters 9-56
-
- 2807 | [2m        [0m[1m(_t2.a : stdgo.Ref<stdgo.Pointer<stdgo.GoInt>>)[0m[2m = stdgo.Go.pointer((0 : stdgo.GoInt));[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Invalid assign
-
 [30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:2910: characters 9-61
 
  2910 | [2m        [0m[1m(_i.a.value : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>)[0m[2m = (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();[0m
@@ -79,12 +67,6 @@
       | want: stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>>
 
             | For function argument '_e'
-
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:5167: characters 9-66
-
- 5167 | [2m        [0m[1m(_t2.a.value : stdgo.Ref<stdgo.Pointer<stdgo.GoFloat64>>)[0m[2m = stdgo.Go.pointer((0 : stdgo.GoFloat64));[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Invalid assign
 
 [30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:5881: characters 125-132
 

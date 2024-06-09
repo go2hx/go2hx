@@ -222,6 +222,8 @@ function isRefValue(type:GoType):Bool {
 				default:
 					true;
 			}
+		case pointerType(_):
+			false;
 		case basic(_):
 			false;
 		default:

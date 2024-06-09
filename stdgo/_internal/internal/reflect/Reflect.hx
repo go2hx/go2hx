@@ -630,10 +630,21 @@ function isReflectTypeRef(type:_Type):Bool {
 }
 
 function isRefValue(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case named(_, _, t, _):
 			isRefValue(t);
-		case basic(_): // , pointer(_):
+		case refType(_.get() => t):
+			switch t {
+				case refType(_):
+					false;
+				default:
+					true;
+			}
+		case pointerType(_):
+			false;
+		case basic(_):
 			false;
 		default:
 			true;
@@ -1050,8 +1061,15 @@ class _Type {
 		if (_u == null)
 			throw "reflect: nil type passed to Type.AssignableTo";
 		final i = new _Type_asInterface(Go.pointer(t), t);
-		final b = directlyAssignable(_u, i) || t.implements_(_u);
-		return b;
+		final a = directlyAssignable(_u, i);
+		//trace("-SPLIT-");
+		final b = t.implements_(_u);
+		final c = a || b;
+		/*trace("----");
+		trace(t.string());
+		trace(a);
+		trace(b);*/
+		return c;
 	}
 
 

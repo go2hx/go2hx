@@ -1136,10 +1136,10 @@ private function importClassName(name:String):String {
 
 private function className(name:String, info:Info):String {
 	name = nameAscii(name);
-	if (info.global.renameClasses.exists(name))
-		return info.global.renameClasses[name];
 	if (info.renameClasses.exists(name))
 		return info.renameClasses[name];
+	if (info.global.renameClasses.exists(name))
+		return info.global.renameClasses[name];
 
 	if (name == "bool")
 		return "Bool";
@@ -4539,7 +4539,6 @@ private function toGoType(expr:Expr):Expr {
 
 private function typeRest(expr:Expr, t:GoType, info:Info):Expr {
 	expr = toGoType(expr);
-	trace(t);
 	t = getElem(t);
 	final ct = toComplexType(t, info);
 	return macro...($expr : Array<$ct>);

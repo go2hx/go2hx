@@ -45,7 +45,7 @@
       | Error: Compiler failure
       | Please submit an issue at https://github.com/HaxeFoundation/haxe/issues/new
       | Attach the following information:
-      | Haxe: 5.0.0-alpha.1+5e4e368; OS type: unix;
+      | Haxe: 5.0.0-alpha.1+c850b65; OS type: unix;
       | File "src/macro/eval/evalExceptions.ml", line 90, characters 20-27
       | Called from file "src/macro/eval/evalExceptions.ml", line 93, characters 15-26
       | Called from file "src/option.ml" (inlined), line 25, characters 14-17

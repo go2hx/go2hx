@@ -1,17 +1,5 @@
 # Module stdgo._internal.math.big has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:2453: characters 67-85
-
- 2453 | [2m        var _t1 = (stdgo.Go.setRef(({ a : (17 : stdgo.GoInt), b : [0m[1m(18 : stdgo.GoInt)[0m[2m, c : (-5 : stdgo.GoInt), m : ({[0m
-      |                                                                   [31m^^^^^^^^^^^^^^^^^^[0m
-      | stdgo.GoInt should be Null<stdgo.Pointer<stdgo.GoInt>>
-
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:2524: characters 18-26
-
- 2524 | [2m        if (__t1.[0m[1memptyMap[0m[2m == null) {[0m
-      |                  [31m^^^^^^^^[0m
-      | stdgo._internal.encoding.gob.T1 has no field emptyMap
-
 [30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:2910: characters 9-61
 
  2910 | [2m        [0m[1m(_i.a.value : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>)[0m[2m = (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();[0m
@@ -73,7 +61,7 @@
       | Error: Compiler failure
       | Please submit an issue at https://github.com/HaxeFoundation/haxe/issues/new
       | Attach the following information:
-      | Haxe: 5.0.0-alpha.1+5e4e368; OS type: unix;
+      | Haxe: 5.0.0-alpha.1+c850b65; OS type: unix;
       | File "src/macro/eval/evalExceptions.ml", line 90, characters 20-27
       | Called from file "src/macro/eval/evalExceptions.ml", line 93, characters 15-26
       | Called from file "src/option.ml" (inlined), line 25, characters 14-17
@@ -84,7 +72,7 @@
       | Called from file "src/typing/calls.ml", line 284, characters 10-29
       | Called from file "src/typing/typer.ml", line 1816, characters 14-50
       | Called from file "src/typing/macroContext.ml", line 83, characters 10-15
-      | Called from file "src/macro/macroApi.ml", line 1928, characters 15-54
+      | Called from file "src/macro/macroApi.ml", line 1929, characters 15-54
       | Called from file "src/macro/eval/evalEmitter.ml", line 766, characters 9-17
       | Called from file "src/macro/eval/evalEmitter.ml", line 83, characters 23-31
       | Called from file "src/macro/eval/evalEmitter.ml", line 260, characters 7-18

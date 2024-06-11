@@ -5,7 +5,7 @@
    | Error: Compiler failure
    | Please submit an issue at https://github.com/HaxeFoundation/haxe/issues/new
    | Attach the following information:
-   | Haxe: 5.0.0-alpha.1+5e4e368; OS type: unix;
+   | Haxe: 5.0.0-alpha.1+c850b65; OS type: unix;
    | File "src/macro/eval/evalExceptions.ml", line 90, characters 20-27
    | Called from file "src/macro/eval/evalExceptions.ml", line 93, characters 15-26
    | Called from file "src/option.ml" (inlined), line 25, characters 14-17
@@ -18,7 +18,7 @@
    | Called from file "src/typing/typer.ml", line 2009, characters 10-48
    | Called from file "src/typing/typer.ml", line 1896, characters 10-35
    | Called from file "src/typing/macroContext.ml", line 83, characters 10-15
-   | Called from file "src/macro/macroApi.ml", line 1928, characters 15-54
+   | Called from file "src/macro/macroApi.ml", line 1929, characters 15-54
    | Called from file "src/macro/eval/evalEmitter.ml", line 766, characters 9-17
    | Called from file "src/macro/eval/evalEmitter.ml", line 87, characters 25-33
    | Called from file "src/macro/eval/evalEmitter.ml", line 265, characters 8-19

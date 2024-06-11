@@ -2563,7 +2563,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				var op = typeOp(stmt.tok);
 				var exprs:Array<Expr> = [];
 				for (i in 0...stmt.lhs.length) {
-					var x = removeCoalAndCheckType(typeExpr(stmt.lhs[i], info));
+					var x = typeExpr(stmt.lhs[i], info);
 					var y = typeExpr(stmt.rhs[i], info);
 					if (op == OpAssign) {
 						// __append__ -> __append__

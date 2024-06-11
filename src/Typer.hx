@@ -2565,6 +2565,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					var x = typeExpr(stmt.lhs[i], info);
 					var y = typeExpr(stmt.rhs[i], info);
+					var toType = typeof(stmt.lhs[i], info, false);
 					if (op == OpAssign) {
 						// __append__ -> __append__
 						var callExpr:Expr = {expr: y.expr, pos: y.pos};
@@ -2573,8 +2574,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								callExpr = e;
 							default:
 						}
-						// remove checkType from x in x = y
-						x = removeCoalAndCheckType(x);
 						// remove Haxe compiler error: "Assigning a value to itself"
 						switch x.expr {
 							case EConst(c):
@@ -2594,7 +2593,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							default:
 						}
 					}
-					var toType = typeof(stmt.lhs[i], info, false);
 					var fromType = typeof(stmt.rhs[i], info, false);
 					y = assignTranslate(fromType, toType, y, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
@@ -2624,7 +2622,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									return (macro $b{exprs}).expr;
 								}
 							case sliceType(_), mapType(_, _):
-								return (macro $x.__setData__($y)).expr;
+									return (macro $x.__setData__($y)).expr;
 							case structType(fields):
 								final exprs:Array<Expr> = [
 									for (field in fields) {
@@ -2639,6 +2637,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					}
 					if (x == null || y == null)
 						return null;
+					// remove checkType from x in x = y
+					x = removeCoalAndCheckType(x);
 					var expr = toExpr(EBinop(op, x, y));
 					if (x.expr.match(EConst(CIdent("_")))) // blank means no assign/define just the rhs expr
 						expr = y;

@@ -1191,7 +1191,7 @@ function _mark(_d:stdgo._internal.io.fs.Fs.DirEntry, _err:stdgo.Error, _errors:s
             };
         });
         if (_err != null) {
-            _errors.__setData__(((_errors : stdgo.Slice<stdgo.Error>).__append__(_err)));
+            (_errors : stdgo.Slice<stdgo.Error>).__setData__(((_errors : stdgo.Slice<stdgo.Error>).__append__(_err)));
             if (_clear) {
                 return (null : stdgo.Error);
             };

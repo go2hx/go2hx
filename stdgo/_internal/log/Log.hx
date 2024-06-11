@@ -93,11 +93,11 @@ function _itoa(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _i:stdgo.GoInt, _wid:s
             _i = _q;
         };
         _b[(_bp : stdgo.GoInt)] = (((48 : stdgo.GoInt) + _i : stdgo.GoInt) : stdgo.GoByte);
-        _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...((_b.__slice__(_bp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>))));
+        (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...((_b.__slice__(_bp) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>))));
     }
 function _formatHeader(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _t:stdgo._internal.time.Time.Time, _prefix:stdgo.GoString, _flag:stdgo.GoInt, _file:stdgo.GoString, _line:stdgo.GoInt):Void {
         if ((_flag & (64 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
-            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_prefix : Array<stdgo.GoUInt8>))));
+            (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_prefix : Array<stdgo.GoUInt8>))));
         };
         if ((_flag & (7 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
             if ((_flag & (32 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
@@ -106,24 +106,24 @@ function _formatHeader(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _t:stdgo._inte
             if ((_flag & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                 var __tmp__ = _t.date(), _year:stdgo.GoInt = __tmp__._0, _month:stdgo._internal.time.Time.Month = __tmp__._1, _day:stdgo.GoInt = __tmp__._2;
                 _itoa(_buf, _year, (4 : stdgo.GoInt));
-                _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((47 : stdgo.GoUInt8))));
+                (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((47 : stdgo.GoUInt8))));
                 _itoa(_buf, (_month : stdgo.GoInt), (2 : stdgo.GoInt));
-                _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((47 : stdgo.GoUInt8))));
+                (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((47 : stdgo.GoUInt8))));
                 _itoa(_buf, _day, (2 : stdgo.GoInt));
-                _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((32 : stdgo.GoUInt8))));
+                (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((32 : stdgo.GoUInt8))));
             };
             if ((_flag & (6 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                 var __tmp__ = _t.clock(), _hour:stdgo.GoInt = __tmp__._0, _min:stdgo.GoInt = __tmp__._1, _sec:stdgo.GoInt = __tmp__._2;
                 _itoa(_buf, _hour, (2 : stdgo.GoInt));
-                _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((58 : stdgo.GoUInt8))));
+                (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((58 : stdgo.GoUInt8))));
                 _itoa(_buf, _min, (2 : stdgo.GoInt));
-                _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((58 : stdgo.GoUInt8))));
+                (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((58 : stdgo.GoUInt8))));
                 _itoa(_buf, _sec, (2 : stdgo.GoInt));
                 if ((_flag & (4 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                    _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((46 : stdgo.GoUInt8))));
+                    (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((46 : stdgo.GoUInt8))));
                     _itoa(_buf, (_t.nanosecond() / (1000 : stdgo.GoInt) : stdgo.GoInt), (6 : stdgo.GoInt));
                 };
-                _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((32 : stdgo.GoUInt8))));
+                (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((32 : stdgo.GoUInt8))));
             };
         };
         if ((_flag & (24 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
@@ -140,23 +140,23 @@ function _formatHeader(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>, _t:stdgo._inte
                 };
                 _file = _short?.__copy__();
             };
-            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_file : Array<stdgo.GoUInt8>))));
-            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((58 : stdgo.GoUInt8))));
+            (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_file : Array<stdgo.GoUInt8>))));
+            (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((58 : stdgo.GoUInt8))));
             _itoa(_buf, _line, (-1 : stdgo.GoInt));
-            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...((": " : stdgo.GoString) : Array<stdgo.GoUInt8>))));
+            (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...((": " : stdgo.GoString) : Array<stdgo.GoUInt8>))));
         };
         if ((_flag & (64 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-            _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_prefix : Array<stdgo.GoUInt8>))));
+            (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_prefix : Array<stdgo.GoUInt8>))));
         };
     }
 function _getBuffer():stdgo.Ref<stdgo.Slice<stdgo.GoByte>> {
         var _p = (stdgo.Go.typeAssert((_bufferPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoByte>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoByte>>);
-        _p.__setData__((((_p : stdgo.Slice<stdgo.GoUInt8>)).__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        (_p : stdgo.Slice<stdgo.GoUInt8>).__setData__((((_p : stdgo.Slice<stdgo.GoUInt8>)).__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         return _p;
     }
 function _putBuffer(_p:stdgo.Ref<stdgo.Slice<stdgo.GoByte>>):Void {
         if (((_p : stdgo.Slice<stdgo.GoUInt8>).capacity > (65536 : stdgo.GoInt) : Bool)) {
-            _p.__setData__((null : stdgo.Slice<stdgo.GoUInt8>));
+            (_p : stdgo.Slice<stdgo.GoUInt8>).__setData__((null : stdgo.Slice<stdgo.GoUInt8>));
         };
         _bufferPool.put(stdgo.Go.toInterface(_p));
     }
@@ -740,9 +740,9 @@ class Logger_asInterface {
                 __deferstack__.unshift(() -> _putBuffer(_a0));
             };
             _formatHeader(_buf, _now?.__copy__(), _prefix?.__copy__(), _flag, _file?.__copy__(), _line);
-            _buf.__setData__(_appendOutput((_buf : stdgo.Slice<stdgo.GoUInt8>)));
+            (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(_appendOutput((_buf : stdgo.Slice<stdgo.GoUInt8>)));
             if ((((_buf : stdgo.Slice<stdgo.GoUInt8>).length == (0 : stdgo.GoInt)) || (((_buf : stdgo.Slice<stdgo.GoUInt8>))[(((_buf : stdgo.Slice<stdgo.GoUInt8>).length) - (1 : stdgo.GoInt) : stdgo.GoInt)] != (10 : stdgo.GoUInt8)) : Bool)) {
-                _buf.__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((10 : stdgo.GoUInt8))));
+                (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((10 : stdgo.GoUInt8))));
             };
             _l._outMu.lock();
             __deferstack__.unshift(() -> _l._outMu.unlock());

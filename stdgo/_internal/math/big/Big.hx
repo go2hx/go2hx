@@ -6796,8 +6796,8 @@ function _euclidUpdate(a:stdgo.Ref<Int_>, b:stdgo.Ref<Int_>, ua:stdgo.Ref<Int_>,
         };
         {
             var __tmp__ = (b : stdgo._internal.math.big.Big.Int_)?.__copy__();
-            a._neg = __tmp__._neg;
-            a._abs = __tmp__._abs;
+            (a : stdgo._internal.math.big.Big.Int_)._neg = __tmp__._neg;
+            (a : stdgo._internal.math.big.Big.Int_)._abs = __tmp__._abs;
         };
         if (_extended) {
             _t.set(ub);
@@ -8909,7 +8909,7 @@ function _getNat(_n:stdgo.GoInt):stdgo.Ref<T_nat> {
         if (_z == null || (_z : Dynamic).__nil__) {
             _z = (stdgo.Go.setRef(new stdgo._internal.math.big.Big.T_nat(0, 0)) : stdgo.Ref<stdgo._internal.math.big.Big.T_nat>);
         };
-        _z.__setData__(_z._make(_n));
+        (_z : stdgo._internal.math.big.Big.T_nat).__setData__(_z._make(_n));
         if ((_n > (0 : stdgo.GoInt) : Bool)) {
             ((_z : stdgo._internal.math.big.Big.T_nat))[(0 : stdgo.GoInt)] = (1043915u32 : stdgo._internal.math.big.Big.Word);
         };
@@ -11940,13 +11940,13 @@ class Float__asInterface {
         if ((_buf.length) == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.math.big.Big.Float_() : stdgo._internal.math.big.Big.Float_);
-                _z._prec = __tmp__._prec;
-                _z._mode = __tmp__._mode;
-                _z._acc = __tmp__._acc;
-                _z._form = __tmp__._form;
-                _z._neg = __tmp__._neg;
-                _z._mant = __tmp__._mant;
-                _z._exp = __tmp__._exp;
+                (_z : stdgo._internal.math.big.Big.Float_)._prec = __tmp__._prec;
+                (_z : stdgo._internal.math.big.Big.Float_)._mode = __tmp__._mode;
+                (_z : stdgo._internal.math.big.Big.Float_)._acc = __tmp__._acc;
+                (_z : stdgo._internal.math.big.Big.Float_)._form = __tmp__._form;
+                (_z : stdgo._internal.math.big.Big.Float_)._neg = __tmp__._neg;
+                (_z : stdgo._internal.math.big.Big.Float_)._mant = __tmp__._mant;
+                (_z : stdgo._internal.math.big.Big.Float_)._exp = __tmp__._exp;
             };
             return (null : stdgo.Error);
         };
@@ -13598,8 +13598,8 @@ class Int__asInterface {
         if ((_buf.length) == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.math.big.Big.Int_() : stdgo._internal.math.big.Big.Int_);
-                _z._neg = __tmp__._neg;
-                _z._abs = __tmp__._abs;
+                (_z : stdgo._internal.math.big.Big.Int_)._neg = __tmp__._neg;
+                (_z : stdgo._internal.math.big.Big.Int_)._abs = __tmp__._abs;
             };
             return (null : stdgo.Error);
         };
@@ -14238,8 +14238,8 @@ _even);
         if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
             {
                 var __tmp__ = (ua : stdgo._internal.math.big.Big.Int_)?.__copy__();
-                _x._neg = __tmp__._neg;
-                _x._abs = __tmp__._abs;
+                (_x : stdgo._internal.math.big.Big.Int_)._neg = __tmp__._neg;
+                (_x : stdgo._internal.math.big.Big.Int_)._abs = __tmp__._abs;
             };
             if (_negA) {
                 _x._neg = !_x._neg;
@@ -14247,8 +14247,8 @@ _even);
         };
         {
             var __tmp__ = (a : stdgo._internal.math.big.Big.Int_)?.__copy__();
-            _z._neg = __tmp__._neg;
-            _z._abs = __tmp__._abs;
+            (_z : stdgo._internal.math.big.Big.Int_)._neg = __tmp__._neg;
+            (_z : stdgo._internal.math.big.Big.Int_)._abs = __tmp__._abs;
         };
         return _z;
     }
@@ -14837,8 +14837,8 @@ class Rat_asInterface {
         if ((_buf.length) == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.math.big.Big.Rat() : stdgo._internal.math.big.Big.Rat);
-                _z._a = __tmp__._a;
-                _z._b = __tmp__._b;
+                (_z : stdgo._internal.math.big.Big.Rat)._a = __tmp__._a;
+                (_z : stdgo._internal.math.big.Big.Rat)._b = __tmp__._b;
             };
             return (null : stdgo.Error);
         };
@@ -15935,7 +15935,7 @@ class T_nat_asInterface {
         if (_temps[(_depth : stdgo.GoInt)] == null || (_temps[(_depth : stdgo.GoInt)] : Dynamic).__nil__) {
             _temps[(_depth : stdgo.GoInt)] = _getNat(_n);
         } else {
-            _temps[(_depth : stdgo.GoInt)].__setData__(_temps[(_depth : stdgo.GoInt)]._make((b + (1 : stdgo.GoInt) : stdgo.GoInt)));
+            (_temps[(_depth : stdgo.GoInt)] : stdgo._internal.math.big.Big.T_nat).__setData__(_temps[(_depth : stdgo.GoInt)]._make((b + (1 : stdgo.GoInt) : stdgo.GoInt)));
         };
         var _j:stdgo.GoInt = _m;
         while ((_j > b : Bool)) {
@@ -16178,7 +16178,7 @@ class T_nat_asInterface {
         };
         var _qp = _getNat((0 : stdgo.GoInt));
         var __tmp__ = _qp._div(_z, _u, _v), _q:stdgo._internal.math.big.Big.T_nat = __tmp__._0, _r:stdgo._internal.math.big.Big.T_nat = __tmp__._1;
-        _qp.__setData__(_q);
+        (_qp : stdgo._internal.math.big.Big.T_nat).__setData__(_q);
         _putNat(_qp);
         return _r;
     }
@@ -16697,16 +16697,16 @@ class T_nat_asInterface {
         for (_i => _ in _powers) {
             _powers[(_i : stdgo.GoInt)] = _getNat(_w);
         };
-        _powers[(0 : stdgo.GoInt)].__setData__(_powers[(0 : stdgo.GoInt)]._set(_natOne));
-        _powers[(1 : stdgo.GoInt)].__setData__(_powers[(1 : stdgo.GoInt)]._trunc(_x, _logM));
+        (_powers[(0 : stdgo.GoInt)] : stdgo._internal.math.big.Big.T_nat).__setData__(_powers[(0 : stdgo.GoInt)]._set(_natOne));
+        (_powers[(1 : stdgo.GoInt)] : stdgo._internal.math.big.Big.T_nat).__setData__(_powers[(1 : stdgo.GoInt)]._trunc(_x, _logM));
         {
             var _i:stdgo.GoInt = (2 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (16 : stdgo.GoInt) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
                 var __0 = _powers[(_i / (2 : stdgo.GoInt) : stdgo.GoInt)], __1 = _powers[(_i : stdgo.GoInt)], __2 = _powers[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)], _p1 = __2, _p = __1, _p2 = __0;
-                _p.__setData__(_p._sqr((_p2 : stdgo._internal.math.big.Big.T_nat)));
-                _p.__setData__(_p._trunc((_p : stdgo._internal.math.big.Big.T_nat), _logM));
-                _p1.__setData__(_p1._mul((_p : stdgo._internal.math.big.Big.T_nat), _x));
-                _p1.__setData__(_p1._trunc((_p1 : stdgo._internal.math.big.Big.T_nat), _logM));
+                (_p : stdgo._internal.math.big.Big.T_nat).__setData__(_p._sqr((_p2 : stdgo._internal.math.big.Big.T_nat)));
+                (_p : stdgo._internal.math.big.Big.T_nat).__setData__(_p._trunc((_p : stdgo._internal.math.big.Big.T_nat), _logM));
+                (_p1 : stdgo._internal.math.big.Big.T_nat).__setData__(_p1._mul((_p : stdgo._internal.math.big.Big.T_nat), _x));
+                (_p1 : stdgo._internal.math.big.Big.T_nat).__setData__(_p1._trunc((_p1 : stdgo._internal.math.big.Big.T_nat), _logM));
             });
         };
         var _i:stdgo.GoInt = ((_y.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -16778,7 +16778,7 @@ class T_nat_asInterface {
                 });
             };
         });
-        _zzp.__setData__(_zz);
+        (_zzp : stdgo._internal.math.big.Big.T_nat).__setData__(_zz);
         _putNat(_zzp);
         for (_i => _ in _powers) {
             _putNat(_powers[(_i : stdgo.GoInt)]);

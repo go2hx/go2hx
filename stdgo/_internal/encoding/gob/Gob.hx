@@ -2907,16 +2907,16 @@ function testIndirectSliceMapArray(_t:stdgo.Ref<stdgo._internal.testing.Testing.
         _i.a = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>));
         _i.a.value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>);
         _i.a.value = (stdgo.Go.setRef(new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt)])) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>);
-        (_i.a.value : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>) = (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();
+        _i.a.value = (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();
         _i.s = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>));
         _i.s.value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>);
         _i.s.value = (stdgo.Go.setRef((null : stdgo.Slice<stdgo.GoInt>)) : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>);
-        (_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>).__setData__((new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>));
+        ((_i.s.value : stdgo.Ref<stdgo.Slice<stdgo.GoInt>>) : stdgo.Slice<stdgo.GoInt>).__setData__((new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(4 : stdgo.GoInt), (5 : stdgo.GoInt), (6 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>));
         _i.m = stdgo.Go.pointer((null : stdgo.Pointer<stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>>));
         _i.m.value = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>));
         _i.m.value.value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>>);
         _i.m.value.value = (stdgo.Go.setRef((null : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>)) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>);
-        (_i.m.value.value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>).__setData__(({
+        ((_i.m.value.value : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoInt>>) : stdgo.GoMap<stdgo.GoString, stdgo.GoInt>).__setData__(({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
             x.__defaultValue__ = () -> (0 : stdgo.GoInt);
             @:mergeBlock {
@@ -6200,7 +6200,7 @@ function _catchError(_err:stdgo.Ref<stdgo.Error>):Void {
                 };
                 {
                     var __tmp__ = _ge._err;
-                    _err.error = __tmp__.error;
+                    (_err : stdgo.Error).error = __tmp__.error;
                 };
             };
         };
@@ -6857,10 +6857,10 @@ function testCountDecodeMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
         var _allocs:stdgo.GoFloat64 = stdgo._internal.testing.Testing.allocsPerRun((1000 : stdgo.GoInt), function():Void {
             {
                 var __tmp__ = (new stdgo._internal.encoding.gob.Gob.Bench() : stdgo._internal.encoding.gob.Gob.Bench);
-                _bench.a = __tmp__.a;
-                _bench.b = __tmp__.b;
-                _bench.c = __tmp__.c;
-                _bench.d = __tmp__.d;
+                (_bench : stdgo._internal.encoding.gob.Gob.Bench).a = __tmp__.a;
+                (_bench : stdgo._internal.encoding.gob.Gob.Bench).b = __tmp__.b;
+                (_bench : stdgo._internal.encoding.gob.Gob.Bench).c = __tmp__.c;
+                (_bench : stdgo._internal.encoding.gob.Gob.Bench).d = __tmp__.d;
             };
             var _err:stdgo.Error = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_bench) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob.Bench>>)));
             if (_err != null) {

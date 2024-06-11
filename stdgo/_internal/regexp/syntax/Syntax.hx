@@ -3837,16 +3837,16 @@ class T_parser_asInterface {
             _p._free = _re.sub0[(0 : stdgo.GoInt)];
             {
                 var __tmp__ = (new stdgo._internal.regexp.syntax.Syntax.Regexp() : stdgo._internal.regexp.syntax.Syntax.Regexp);
-                _re.op = __tmp__.op;
-                _re.flags = __tmp__.flags;
-                _re.sub = __tmp__.sub;
-                _re.sub0 = __tmp__.sub0;
-                _re.rune = __tmp__.rune;
-                _re.rune0 = __tmp__.rune0;
-                _re.min = __tmp__.min;
-                _re.max = __tmp__.max;
-                _re.cap = __tmp__.cap;
-                _re.name = __tmp__.name;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).op = __tmp__.op;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).flags = __tmp__.flags;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).sub = __tmp__.sub;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).sub0 = __tmp__.sub0;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).rune = __tmp__.rune;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).rune0 = __tmp__.rune0;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).min = __tmp__.min;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).max = __tmp__.max;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).cap = __tmp__.cap;
+                (_re : stdgo._internal.regexp.syntax.Syntax.Regexp).name = __tmp__.name;
             };
         } else {
             _re = (stdgo.Go.setRef(({} : stdgo._internal.regexp.syntax.Syntax.Regexp)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>);
@@ -4164,16 +4164,16 @@ class Regexp_asInterface {
                         _nre = (stdgo.Go.setRef(({} : stdgo._internal.regexp.syntax.Syntax.Regexp)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>);
                         {
                             var __tmp__ = (_re : stdgo._internal.regexp.syntax.Syntax.Regexp)?.__copy__();
-                            _nre.op = __tmp__.op;
-                            _nre.flags = __tmp__.flags;
-                            _nre.sub = __tmp__.sub;
-                            _nre.sub0 = __tmp__.sub0;
-                            _nre.rune = __tmp__.rune;
-                            _nre.rune0 = __tmp__.rune0;
-                            _nre.min = __tmp__.min;
-                            _nre.max = __tmp__.max;
-                            _nre.cap = __tmp__.cap;
-                            _nre.name = __tmp__.name;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).op = __tmp__.op;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).flags = __tmp__.flags;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).sub = __tmp__.sub;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).sub0 = __tmp__.sub0;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).rune = __tmp__.rune;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).rune0 = __tmp__.rune0;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).min = __tmp__.min;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).max = __tmp__.max;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).cap = __tmp__.cap;
+                            (_nre : stdgo._internal.regexp.syntax.Syntax.Regexp).name = __tmp__.name;
                         };
                         _nre.rune = (null : stdgo.Slice<stdgo.GoInt32>);
                         _nre.sub = ((_nre.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>).__append__(...((_re.sub.__slice__(0, _i) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax.Regexp>>) : Array<stdgo._internal.regexp.syntax.Syntax.Regexp>)));

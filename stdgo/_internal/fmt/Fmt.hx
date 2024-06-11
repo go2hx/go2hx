@@ -774,7 +774,7 @@ function _errorHandler(_errp:stdgo.Ref<stdgo.Error>):Void {
                     if (_ok) {
                         {
                             var __tmp__ = _se._err;
-                            _errp.error = __tmp__.error;
+                            (_errp : stdgo.Error).error = __tmp__.error;
                         };
                     } else {
                         var __tmp__ = try {
@@ -785,7 +785,7 @@ function _errorHandler(_errp:stdgo.Ref<stdgo.Error>):Void {
                         if ((_ok && (stdgo.Go.toInterface(_eof) == stdgo.Go.toInterface(stdgo._internal.io.Io.eof)) : Bool)) {
                             {
                                 var __tmp__ = _eof;
-                                _errp.error = __tmp__.error;
+                                (_errp : stdgo.Error).error = __tmp__.error;
                             };
                         } else {
                             throw stdgo.Go.toInterface(_e);
@@ -1103,7 +1103,7 @@ class T_fmt_asInterface {
                 _buf = (_buf.__append__(_digits[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)], _digits[((_c & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
             });
         };
-        _f._buf.__setData__(_buf);
+        (_f._buf : stdgo._internal.fmt.Fmt.T_buffer).__setData__(_buf);
         if (((_f._fmtFlags._widPresent && (_f._wid > _width : Bool) : Bool) && _f._fmtFlags._minus : Bool)) {
             _f._writePadding((_f._wid - _width : stdgo.GoInt));
         };
@@ -1377,7 +1377,7 @@ class T_fmt_asInterface {
         for (_i => _ in _padding) {
             _padding[(_i : stdgo.GoInt)] = _padByte;
         };
-        _f._buf.__setData__((_buf.__slice__(0, _newLen) : stdgo._internal.fmt.Fmt.T_buffer));
+        (_f._buf : stdgo._internal.fmt.Fmt.T_buffer).__setData__((_buf.__slice__(0, _newLen) : stdgo._internal.fmt.Fmt.T_buffer));
     }
     @:keep
     static public function _init( _f:stdgo.Ref<T_fmt>, _buf:stdgo.Ref<T_buffer>):Void {
@@ -2942,7 +2942,7 @@ class T_ss_asInterface {
                 _v.value = _s._convertString(_verb)?.__copy__();
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Slice<stdgo.GoByte>>))) {
                 var _v:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> = __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>) : __type__.__underlying__().value;
-                _v.__setData__((_s._convertString(_verb) : stdgo.Slice<stdgo.GoByte>));
+                (_v : stdgo.Slice<stdgo.GoUInt8>).__setData__((_s._convertString(_verb) : stdgo.Slice<stdgo.GoByte>));
             } else {
                 var _v:stdgo.AnyInterface = __type__?.__underlying__();
                 var _val:stdgo._internal.reflect.Reflect.Value = stdgo._internal.reflect.Reflect.valueOf(_v)?.__copy__();
@@ -3750,22 +3750,22 @@ class T_buffer_asInterface {
     @:keep
     static public function _writeRune( _bp:stdgo.Ref<T_buffer>, _r:stdgo.GoRune):Void {
         @:recv var _bp:stdgo.Ref<T_buffer> = _bp;
-        _bp.__setData__(stdgo._internal.unicode.utf8.Utf8.appendRune((_bp : stdgo._internal.fmt.Fmt.T_buffer), _r));
+        (_bp : stdgo._internal.fmt.Fmt.T_buffer).__setData__(stdgo._internal.unicode.utf8.Utf8.appendRune((_bp : stdgo._internal.fmt.Fmt.T_buffer), _r));
     }
     @:keep
     static public function _writeByte( _b:stdgo.Ref<T_buffer>, _c:stdgo.GoByte):Void {
         @:recv var _b:stdgo.Ref<T_buffer> = _b;
-        _b.__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(_c)));
+        (_b : stdgo._internal.fmt.Fmt.T_buffer).__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(_c)));
     }
     @:keep
     static public function _writeString( _b:stdgo.Ref<T_buffer>, _s:stdgo.GoString):Void {
         @:recv var _b:stdgo.Ref<T_buffer> = _b;
-        _b.__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(...(_s : Array<stdgo.GoUInt8>))));
+        (_b : stdgo._internal.fmt.Fmt.T_buffer).__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(...(_s : Array<stdgo.GoUInt8>))));
     }
     @:keep
     static public function _write( _b:stdgo.Ref<T_buffer>, _p:stdgo.Slice<stdgo.GoByte>):Void {
         @:recv var _b:stdgo.Ref<T_buffer> = _b;
-        _b.__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(...(_p : Array<stdgo.GoUInt8>))));
+        (_b : stdgo._internal.fmt.Fmt.T_buffer).__setData__(((_b : stdgo._internal.fmt.Fmt.T_buffer).__append__(...(_p : Array<stdgo.GoUInt8>))));
     }
 }
 class T_stringReader_asInterface {

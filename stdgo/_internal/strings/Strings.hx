@@ -1457,9 +1457,9 @@ class Reader_asInterface {
         @:recv var _r:stdgo.Ref<Reader> = _r;
         {
             var __tmp__ = (new stdgo._internal.strings.Strings.Reader(_s?.__copy__(), (0i64 : stdgo.GoInt64), (-1 : stdgo.GoInt)) : stdgo._internal.strings.Strings.Reader);
-            _r._s = __tmp__._s;
-            _r._i = __tmp__._i;
-            _r._prevRune = __tmp__._prevRune;
+            (_r : stdgo._internal.strings.Strings.Reader)._s = __tmp__._s;
+            (_r : stdgo._internal.strings.Strings.Reader)._i = __tmp__._i;
+            (_r : stdgo._internal.strings.Strings.Reader)._prevRune = __tmp__._prevRune;
         };
     }
     @:keep
@@ -2152,13 +2152,13 @@ class T_appendSliceWriter_asInterface {
     @:keep
     static public function writeString( _w:stdgo.Ref<T_appendSliceWriter>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<T_appendSliceWriter> = _w;
-        _w.__setData__(((_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__append__(...(_s : Array<stdgo.GoUInt8>))));
+        (_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__setData__(((_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__append__(...(_s : Array<stdgo.GoUInt8>))));
         return { _0 : (_s.length), _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function write( _w:stdgo.Ref<T_appendSliceWriter>, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<T_appendSliceWriter> = _w;
-        _w.__setData__(((_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__append__(...(_p : Array<stdgo.GoUInt8>))));
+        (_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__setData__(((_w : stdgo._internal.strings.Strings.T_appendSliceWriter).__append__(...(_p : Array<stdgo.GoUInt8>))));
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
 }

@@ -4046,22 +4046,22 @@ class Regexp_asInterface {
         };
         {
             var __tmp__ = (_newRE : stdgo._internal.regexp.Regexp.Regexp)?.__copy__();
-            _re._expr = __tmp__._expr;
-            _re._prog = __tmp__._prog;
-            _re._onepass = __tmp__._onepass;
-            _re._numSubexp = __tmp__._numSubexp;
-            _re._maxBitStateLen = __tmp__._maxBitStateLen;
-            _re._subexpNames = __tmp__._subexpNames;
-            _re._prefix = __tmp__._prefix;
-            _re._prefixBytes = __tmp__._prefixBytes;
-            _re._prefixRune = __tmp__._prefixRune;
-            _re._prefixEnd = __tmp__._prefixEnd;
-            _re._mpool = __tmp__._mpool;
-            _re._matchcap = __tmp__._matchcap;
-            _re._prefixComplete = __tmp__._prefixComplete;
-            _re._cond = __tmp__._cond;
-            _re._minInputLen = __tmp__._minInputLen;
-            _re._longest = __tmp__._longest;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._expr = __tmp__._expr;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._prog = __tmp__._prog;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._onepass = __tmp__._onepass;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._numSubexp = __tmp__._numSubexp;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._maxBitStateLen = __tmp__._maxBitStateLen;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._subexpNames = __tmp__._subexpNames;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._prefix = __tmp__._prefix;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._prefixBytes = __tmp__._prefixBytes;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._prefixRune = __tmp__._prefixRune;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._prefixEnd = __tmp__._prefixEnd;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._mpool = __tmp__._mpool;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._matchcap = __tmp__._matchcap;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._prefixComplete = __tmp__._prefixComplete;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._cond = __tmp__._cond;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._minInputLen = __tmp__._minInputLen;
+            (_re : stdgo._internal.regexp.Regexp.Regexp)._longest = __tmp__._longest;
         };
         return (null : stdgo.Error);
     }

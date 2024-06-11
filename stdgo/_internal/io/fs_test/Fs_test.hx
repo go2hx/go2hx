@@ -514,7 +514,7 @@ function _mark(_entry:DirEntry, _err:stdgo.Error, _errors:stdgo.Ref<stdgo.Slice<
             };
         });
         if (_err != null) {
-            _errors.__setData__(((_errors : stdgo.Slice<stdgo.Error>).__append__(_err)));
+            (_errors : stdgo.Slice<stdgo.Error>).__setData__(((_errors : stdgo.Slice<stdgo.Error>).__append__(_err)));
             if (_clear) {
                 return (null : stdgo.Error);
             };

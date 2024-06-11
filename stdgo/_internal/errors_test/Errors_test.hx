@@ -497,7 +497,7 @@ class T_poser_asInterface {
                 var _x:stdgo.Ref<stdgo._internal.errors_test.Errors_test.T_errorT> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.errors_test.Errors_test.T_errorT>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.errors_test.Errors_test.T_errorT>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.errors_test.Errors_test.T_errorT>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = (new stdgo._internal.errors_test.Errors_test.T_errorT(("poser" : stdgo.GoString)) : stdgo._internal.errors_test.Errors_test.T_errorT);
-                    _x._s = __tmp__._s;
+                    (_x : stdgo._internal.errors_test.Errors_test.T_errorT)._s = __tmp__._s;
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>>))) {
                 var _x:stdgo.Ref<stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>> = __type__ == null ? (null : stdgo.Ref<stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>>) : __type__ == null ? (null : stdgo.Ref<stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>>) : __type__.__underlying__().value;

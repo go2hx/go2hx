@@ -1684,13 +1684,13 @@ function testReaderReset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         _checkAll(_r, ("bar bar" : stdgo.GoString));
         {
             var __tmp__ = (new stdgo._internal.bufio.Bufio.Reader() : stdgo._internal.bufio.Bufio.Reader);
-            _r._buf = __tmp__._buf;
-            _r._rd = __tmp__._rd;
-            _r._r = __tmp__._r;
-            _r._w = __tmp__._w;
-            _r._err = __tmp__._err;
-            _r._lastByte = __tmp__._lastByte;
-            _r._lastRuneSize = __tmp__._lastRuneSize;
+            (_r : stdgo._internal.bufio.Bufio.Reader)._buf = __tmp__._buf;
+            (_r : stdgo._internal.bufio.Bufio.Reader)._rd = __tmp__._rd;
+            (_r : stdgo._internal.bufio.Bufio.Reader)._r = __tmp__._r;
+            (_r : stdgo._internal.bufio.Bufio.Reader)._w = __tmp__._w;
+            (_r : stdgo._internal.bufio.Bufio.Reader)._err = __tmp__._err;
+            (_r : stdgo._internal.bufio.Bufio.Reader)._lastByte = __tmp__._lastByte;
+            (_r : stdgo._internal.bufio.Bufio.Reader)._lastRuneSize = __tmp__._lastRuneSize;
         };
         _r.reset(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("bar bar" : stdgo.GoString))));
         _checkAll(_r, ("bar bar" : stdgo.GoString));
@@ -1716,10 +1716,10 @@ function testWriterReset(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         };
         {
             var __tmp__ = (new stdgo._internal.bufio.Bufio.Writer() : stdgo._internal.bufio.Bufio.Writer);
-            _w._err = __tmp__._err;
-            _w._buf = __tmp__._buf;
-            _w._n = __tmp__._n;
-            _w._wr = __tmp__._wr;
+            (_w : stdgo._internal.bufio.Bufio.Writer)._err = __tmp__._err;
+            (_w : stdgo._internal.bufio.Bufio.Writer)._buf = __tmp__._buf;
+            (_w : stdgo._internal.bufio.Bufio.Writer)._n = __tmp__._n;
+            (_w : stdgo._internal.bufio.Bufio.Writer)._wr = __tmp__._wr;
         };
         _w.reset(stdgo.Go.asInterface((stdgo.Go.setRef(_buf3) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)));
         _w.writeString(("bar" : stdgo.GoString));
@@ -3268,7 +3268,7 @@ class T_scriptedReader_asInterface {
             throw stdgo.Go.toInterface(("too many Read calls on scripted Reader. No steps remain." : stdgo.GoString));
         };
         var _step = ((_sr : stdgo._internal.bufio_test.Bufio_test.T_scriptedReader))[(0 : stdgo.GoInt)];
-        _sr.__setData__((((_sr : stdgo._internal.bufio_test.Bufio_test.T_scriptedReader)).__slice__((1 : stdgo.GoInt)) : stdgo._internal.bufio_test.Bufio_test.T_scriptedReader));
+        (_sr : stdgo._internal.bufio_test.Bufio_test.T_scriptedReader).__setData__((((_sr : stdgo._internal.bufio_test.Bufio_test.T_scriptedReader)).__slice__((1 : stdgo.GoInt)) : stdgo._internal.bufio_test.Bufio_test.T_scriptedReader));
         return _step(_p);
     }
 }

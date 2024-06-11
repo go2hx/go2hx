@@ -3439,9 +3439,9 @@ class Time_asInterface {
         };
         {
             var __tmp__ = (new stdgo._internal.time.Time.Time() : stdgo._internal.time.Time.Time);
-            _t._wall = __tmp__._wall;
-            _t._ext = __tmp__._ext;
-            _t._loc = __tmp__._loc;
+            (_t : stdgo._internal.time.Time.Time)._wall = __tmp__._wall;
+            (_t : stdgo._internal.time.Time.Time)._ext = __tmp__._ext;
+            (_t : stdgo._internal.time.Time.Time)._loc = __tmp__._loc;
         };
         _t._wall = (_nsec : stdgo.GoUInt64);
         _t._ext = _sec;

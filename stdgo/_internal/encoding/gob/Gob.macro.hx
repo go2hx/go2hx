@@ -19,7 +19,7 @@ macro function _growSlice<E>(__generic__0:haxe.macro.Expr.ExprOf<E>, _v:haxe.mac
                     };
                     _s = (_s.__slice__(0, _cp) : stdgo.Slice<$E>);
                     _v.set(stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_s)).__copy__());
-                    _ps.__setData__(_s);
+                    (_ps : stdgo.Slice<$E>).__setData__(_s);
                 };
                 switch f.expr {
                     case EFunction(_, f):

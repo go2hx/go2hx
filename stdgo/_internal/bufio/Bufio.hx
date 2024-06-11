@@ -776,13 +776,13 @@ class Reader_asInterface {
         @:recv var _b:stdgo.Ref<Reader> = _b;
         {
             var __tmp__ = ({ _buf : _buf, _rd : _r, _lastByte : (-1 : stdgo.GoInt), _lastRuneSize : (-1 : stdgo.GoInt) } : stdgo._internal.bufio.Bufio.Reader);
-            _b._buf = __tmp__._buf;
-            _b._rd = __tmp__._rd;
-            _b._r = __tmp__._r;
-            _b._w = __tmp__._w;
-            _b._err = __tmp__._err;
-            _b._lastByte = __tmp__._lastByte;
-            _b._lastRuneSize = __tmp__._lastRuneSize;
+            (_b : stdgo._internal.bufio.Bufio.Reader)._buf = __tmp__._buf;
+            (_b : stdgo._internal.bufio.Bufio.Reader)._rd = __tmp__._rd;
+            (_b : stdgo._internal.bufio.Bufio.Reader)._r = __tmp__._r;
+            (_b : stdgo._internal.bufio.Bufio.Reader)._w = __tmp__._w;
+            (_b : stdgo._internal.bufio.Bufio.Reader)._err = __tmp__._err;
+            (_b : stdgo._internal.bufio.Bufio.Reader)._lastByte = __tmp__._lastByte;
+            (_b : stdgo._internal.bufio.Bufio.Reader)._lastRuneSize = __tmp__._lastRuneSize;
         };
     }
     @:keep

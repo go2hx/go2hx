@@ -981,17 +981,17 @@ class URLValue_asInterface {
             } else {
                 {
                     var __tmp__ = (_u : stdgo._internal.net.url.Url.URL)?.__copy__();
-                    _v.url.scheme = __tmp__.scheme;
-                    _v.url.opaque = __tmp__.opaque;
-                    _v.url.user = __tmp__.user;
-                    _v.url.host = __tmp__.host;
-                    _v.url.path = __tmp__.path;
-                    _v.url.rawPath = __tmp__.rawPath;
-                    _v.url.omitHost = __tmp__.omitHost;
-                    _v.url.forceQuery = __tmp__.forceQuery;
-                    _v.url.rawQuery = __tmp__.rawQuery;
-                    _v.url.fragment = __tmp__.fragment;
-                    _v.url.rawFragment = __tmp__.rawFragment;
+                    (_v.url : stdgo._internal.net.url.Url.URL).scheme = __tmp__.scheme;
+                    (_v.url : stdgo._internal.net.url.Url.URL).opaque = __tmp__.opaque;
+                    (_v.url : stdgo._internal.net.url.Url.URL).user = __tmp__.user;
+                    (_v.url : stdgo._internal.net.url.Url.URL).host = __tmp__.host;
+                    (_v.url : stdgo._internal.net.url.Url.URL).path = __tmp__.path;
+                    (_v.url : stdgo._internal.net.url.Url.URL).rawPath = __tmp__.rawPath;
+                    (_v.url : stdgo._internal.net.url.Url.URL).omitHost = __tmp__.omitHost;
+                    (_v.url : stdgo._internal.net.url.Url.URL).forceQuery = __tmp__.forceQuery;
+                    (_v.url : stdgo._internal.net.url.Url.URL).rawQuery = __tmp__.rawQuery;
+                    (_v.url : stdgo._internal.net.url.Url.URL).fragment = __tmp__.fragment;
+                    (_v.url : stdgo._internal.net.url.Url.URL).rawFragment = __tmp__.rawFragment;
                 };
             };
         };
@@ -1095,7 +1095,7 @@ class T_interval_asInterface {
             if (_err != null) {
                 return _err;
             };
-            _i.__setData__(((_i : stdgo._internal.flag_test.Flag_test.T_interval).__append__(_duration)));
+            (_i : stdgo._internal.flag_test.Flag_test.T_interval).__setData__(((_i : stdgo._internal.flag_test.Flag_test.T_interval).__append__(_duration)));
         };
         return (null : stdgo.Error);
     }
@@ -1122,7 +1122,7 @@ class T_flagVar_asInterface {
     @:keep
     static public function set( _f:stdgo.Ref<T_flagVar>, _value:stdgo.GoString):stdgo.Error {
         @:recv var _f:stdgo.Ref<T_flagVar> = _f;
-        _f.__setData__(((_f : stdgo._internal.flag_test.Flag_test.T_flagVar).__append__(_value?.__copy__())));
+        (_f : stdgo._internal.flag_test.Flag_test.T_flagVar).__setData__(((_f : stdgo._internal.flag_test.Flag_test.T_flagVar).__append__(_value?.__copy__())));
         return (null : stdgo.Error);
     }
     @:keep

@@ -9509,7 +9509,7 @@ class T_unmarshaler_asInterface {
         @:recv var _u:stdgo.Ref<T_unmarshaler> = _u;
         {
             var __tmp__ = (new stdgo._internal.encoding.json.Json.T_unmarshaler(true) : stdgo._internal.encoding.json.Json.T_unmarshaler);
-            _u.t = __tmp__.t;
+            (_u : stdgo._internal.encoding.json.Json.T_unmarshaler).t = __tmp__.t;
         };
         return (null : stdgo.Error);
     }
@@ -11472,9 +11472,9 @@ class Time3339_asInterface {
                 final e = _tm;
                 ({ _wall : e._wall, _ext : e._ext, _loc : e._loc } : stdgo._internal.encoding.json.Json.Time3339);
             }));
-            _t._wall = __tmp__._wall;
-            _t._ext = __tmp__._ext;
-            _t._loc = __tmp__._loc;
+            (_t : stdgo._internal.encoding.json.Json.Time3339)._wall = __tmp__._wall;
+            (_t : stdgo._internal.encoding.json.Json.Time3339)._ext = __tmp__._ext;
+            (_t : stdgo._internal.encoding.json.Json.Time3339)._loc = __tmp__._loc;
         };
         return (null : stdgo.Error);
     }
@@ -11866,7 +11866,7 @@ class RawMessage_asInterface {
         if (_m == null || (_m : Dynamic).__nil__) {
             return stdgo._internal.errors.Errors.new_(("json.RawMessage: UnmarshalJSON on nil pointer" : stdgo.GoString));
         };
-        _m.__setData__(((((_m : stdgo._internal.encoding.json.Json.RawMessage)).__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.encoding.json.Json.RawMessage).__append__(...(_data : Array<stdgo.GoUInt8>))));
+        (_m : stdgo._internal.encoding.json.Json.RawMessage).__setData__(((((_m : stdgo._internal.encoding.json.Json.RawMessage)).__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.encoding.json.Json.RawMessage).__append__(...(_data : Array<stdgo.GoUInt8>))));
         return (null : stdgo.Error);
     }
     @:keep

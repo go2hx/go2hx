@@ -43,7 +43,7 @@ jobs:
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Create hxb
-        run: haxelib run go2hx hxb .
+        run: npx haxelib run go2hx hxb .
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D hxb
       - name: Run std
@@ -199,7 +199,7 @@ jobs:
       - name: Set source
         run: haxelib dev go2hx .
       - name: Create hxb
-        run: haxelib run go2hx hxb .
+        run: npx haxelib run go2hx hxb .
       - name: clone go
         run: git clone https://github.com/golang/go ./tests/go --depth=1
         continue-on-error: true

@@ -1114,7 +1114,7 @@ private function removeCoalAndCheckType(assign:Expr):Expr {
 	assign = escapeParens(assign);
 	switch assign.expr {
 		case ECheckType(e, _):
-			assign = e;
+			assign = removeCoalAndCheckType(e);
 		case EBinop(OpNullCoal, e, _):
 			assign = e;
 		default:
@@ -6965,8 +6965,9 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					nameType = named(className(path, info), [], structType(fields), spec.assign != 0 || local, {get: () -> null});
 				default:
 			}
-			if (hash != 0)
+			if (hash != 0) {
 				info.locals[hash] = nameType;
+			}
 		}
 	}
 	if (spec.type != null) {

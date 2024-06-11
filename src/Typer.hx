@@ -4189,13 +4189,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 
 			]);
 			if (!isNamed) {
-				final lt = getLocalType(e.hash, t, info);
-				switch lt {
-					case named(_, _, _, _):
-
-					default:
-						t = lt;
-				}
+				t = getLocalType(e.hash, t, info);
 			}
 			t;
 		case "Chan":
@@ -4215,7 +4209,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			typeof(e.type, info, false, paths.copy());
 		case "Ident":
 			final e:Ast.Ident = e;
-			typeof(e.type, info, true, paths.copy());
+			typeof(e.type, info, false, paths.copy());
 		case "CompositeLit":
 			final e:Ast.CompositeLit = e;
 			final t = typeof(e.type, info, false, paths.copy());

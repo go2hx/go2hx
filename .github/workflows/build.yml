@@ -144,7 +144,7 @@ jobs:
       - name: Run rnd
         run: npx haxe rnd/rnd.hxml
       - name: Create hxb
-        run: haxelib run go2hx hxb .
+        run: npx haxelib run go2hx hxb .
       # run yaegi easy tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi ./tests/yaegi

@@ -48,8 +48,10 @@ function genGo() {
             return 0;
     });
     list = list.map(imp -> '    _ "$imp"');
-    Sys.setCwd(outputPath); 
-    final path = "./hxb.go";
+    Sys.setCwd(outputPath);
+    if (!FileSystem.exists("hxb"))
+        FileSystem.createDirectory("hxb");
+    final path = "./hxb/hxb.go";
     Sys.println(path);
     File.saveContent(path,'package main\n
 import (\n' + list.join("\n") + '\n)\n
@@ -59,12 +61,12 @@ func main() {
 }
     ');
     Sys.println("Run Compiler");
-    if (Sys.command('haxelib run go2hx ./hxb.go -compiler_interp') != 0) {
-        FileSystem.deleteFile("./hxb.go");
+    if (Sys.command('haxelib run go2hx $path -compiler_interp') != 0) {
+        FileSystem.deleteFile(path);
         Sys.exit(1);
     }
-
-    FileSystem.deleteFile("./hxb.go");
+    FileSystem.deleteFile(path);
+    FileSystem.deleteDirectory("hxb");
     final targets = ["hl","js"];//,"jvm"];
     for (target in targets) {
         final commands:Array<String> = [];

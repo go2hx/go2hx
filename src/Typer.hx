@@ -1273,9 +1273,6 @@ private function createTempVars(vars:Array<Var>):Array<Var> {
 	function createTempName(i:Int):String
 		return "__" + i;
 	for (i in 0...vars.length) {
-		names[vars[i].name] = createTempName(i);
-	}
-	for (i in 0...vars.length) {
 		final tempName = createTempName(i);
 
 		vars2.unshift({
@@ -1283,9 +1280,8 @@ private function createTempVars(vars:Array<Var>):Array<Var> {
 			//type: v.type,
 			expr: macro $i{tempName},
 		});
-		final names = names.copy();
-		names.remove(vars[i].name);
 		vars[i].expr = replaceIdent(names, vars[i].expr);
+		names[vars[i].name] = tempName;
 		vars[i].name = tempName;
 	}
 	return vars2;

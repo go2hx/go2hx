@@ -956,7 +956,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 			for (i in 0...info.returnNames.length) {
 				vars.push({
 					name: info.returnNames[i],
-					type: info.returnComplexTypes[i],
+					//type: info.returnComplexTypes[i],
 					expr: defaultValue(info.returnTypes[i], info),
 				});
 			}
@@ -1246,7 +1246,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							}
 							vars.push({
 								name: name,
-								type: exprType,
+								//type: exprType,
 								expr: expr,
 							});
 						}
@@ -1267,19 +1267,39 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 
 private function createTempVars(vars:Array<Var>):Array<Var> {
 	final vars2:Array<Var> = [];
-	if (vars.length > 1) {
-		var count = 0;
-		for (v in vars) {
-			final tempName = "__" + (count++);
-			vars2.unshift({
-				name: v.name,
-				type: v.type,
-				expr: macro $i{tempName},
-			});
-			v.name = tempName;
-		}
+	if (vars.length <= 1)
+		return vars2;
+	final names:Map<String,String> = [];
+	function createTempName(i:Int):String
+		return "__" + i;
+	for (i in 0...vars.length) {
+		names[vars[i].name] = createTempName(i);
+	}
+	for (i in 0...vars.length) {
+		final tempName = createTempName(i);
+
+		vars2.unshift({
+			name: vars[i].name,
+			//type: v.type,
+			expr: macro $i{tempName},
+		});
+		vars[i].expr = replaceIdent(names, vars[i].expr);
+		vars[i].name = tempName;
 	}
 	return vars2;
+}
+
+function replaceIdent(names:Map<String, String>, e:Expr):Expr {
+	return switch e.expr {
+		case EConst(CIdent(s)):
+			if (names.exists(s)) {
+				macro $i{names[s]};
+			}else{
+				e;
+			}
+		default:
+			mapExprWithData(e, names, replaceIdent);
+	}
 }
 
 private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):Expr {
@@ -2757,7 +2777,7 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 						ct = null;
 					vars.push({
 						name: name,
-						type: ct,
+						//type: ct,
 						expr: expr,
 					});
 				}

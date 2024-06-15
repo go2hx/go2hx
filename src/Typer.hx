@@ -1283,6 +1283,8 @@ private function createTempVars(vars:Array<Var>):Array<Var> {
 			//type: v.type,
 			expr: macro $i{tempName},
 		});
+		final names = names.copy();
+		names.remove(vars[i].name);
 		vars[i].expr = replaceIdent(names, vars[i].expr);
 		vars[i].name = tempName;
 	}

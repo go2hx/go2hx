@@ -340,6 +340,8 @@ class GoInt64Map<T> extends BalancedTree<GoInt64, T> {
 	}
 }
 
+typedef GoUInt64Map<T> = GoInt64Map<T>;
+/*
 class GoUInt64Map<T> extends BalancedTree<GoUInt64, T> {
 	public var __defaultValue__:Void->T;
 	override function compare(k1:GoUInt64, k2:GoUInt64):Int {
@@ -364,7 +366,7 @@ class GoUInt64Map<T> extends BalancedTree<GoUInt64, T> {
 		}
 		return __defaultValue__();
 	}
-}
+}*/
 
 class GoFloat64Map<T> extends BalancedTree<GoFloat64, T> {
 	public var __defaultValue__:Void->T;

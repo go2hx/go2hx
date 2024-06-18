@@ -61,7 +61,6 @@ final reservedClassNames = [
 	// "UnicodeString",
 	"ValueType",
 	"Void",
-	"Xml",
 	"XmlType",
 	"GoArray",
 	"GoMath",
@@ -5110,7 +5109,8 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 			switch kind {
 				case bool_kind, untyped_bool_kind: p.sub = "GoBoolMap";
 				case int_kind, int8_kind, int16_kind, int32_kind, uint_kind, uint8_kind, uint16_kind, uint32_kind, uintptr_kind: p.sub = "GoIntMap";
-				case int64_kind, uint64_kind, untyped_int_kind: p.sub = "GoInt64Map";
+				case int64_kind, untyped_int_kind: p.sub = "GoInt64Map";
+				case uint64_kind: p.sub = "GoUInt64Map";
 				case float32_kind, float64_kind: p.sub = "GoFloat64Map";
 				case complex64_kind, complex128_kind, untyped_complex_kind: p.sub = "GoComplex128Map";
 				case string_kind, untyped_string_kind: p.sub = "GoStringMap";

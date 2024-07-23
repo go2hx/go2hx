@@ -534,7 +534,6 @@ class Go {
 							final t = Context.toComplexType(params[0]);
 							value = macro new stdgo.Pointer(null);
 						default:
-							trace('hello');
 							throw "invalid path tabstract setRef: " + path;
 					}
 					if (isNull)
@@ -557,6 +556,10 @@ class Go {
 					macro cast $obj;
 				case TFun(_, _):
 					return expr;
+				case TAnonymous(_):
+					expr;
+				case TInst(_):
+					expr;
 				default:
 					throw "invalid t of gen setRef: " + t;
 			}
@@ -571,7 +574,7 @@ class Go {
 		final e = macro {
 			if ($expr == null) {
 				$valueNull;
-			} else {
+			} else { 
 				$expr;
 			}
 		};
@@ -1136,6 +1139,8 @@ class Go {
 			case TAbstract(ref, params):
 				var sref:String = ref.toString();
 				switch (sref) {
+					case "haxe.io.Bytes":
+						macro stdgo._internal.internal.reflect.Reflect.GoType.basic(string_kind);
 					case "stdgo.Chan":
 						var len = macro(-1);
 						if (expr != null) { // check for stdgo.reflect.Value
@@ -1236,7 +1241,12 @@ class Go {
 					case "Void":
 						ret = macro stdgo._internal.internal.reflect.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default: // used internally such as reflect.Kind
-						ret = gtDecode(ref.get().type, expr, marked);
+						final t = ref.get().type;
+						final tstr = Std.string(t);
+						if (!marked.exists(tstr)) {
+							marked[tstr] = true;
+							ret = gtDecode(t, expr, marked);
+						}
 				}
 			case TInst(ref, params):
 				final refString = ref.toString();
@@ -1312,6 +1322,7 @@ class Go {
 								}
 							}
 						}
+
 						ret = gtDecodeClassType(ref, methods, marked, expr);
 					}
 				} else {

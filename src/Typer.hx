@@ -806,12 +806,12 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	var needsReturn = true;
 	function ifs(i:Int):Expr {
 		final obj:Ast.CommClause = stmt.body.list[i];
-		var block = toExpr(typeStmtList(obj.body, info, false));
+		var block = (obj == null || obj.body == null) ? macro {} : toExpr(typeStmtList(obj.body, info, false));
 		var cond:Expr = null;
 		if (needsReturn && !exprWillReturn(block))
 			needsReturn = false;
 		var varName = "";
-		if (obj.comm == null) { // default true
+		if (obj == null || obj.comm == null) { // default true
 			defaultBlock = block;
 		} else {
 			var comm:Dynamic = obj.comm;
@@ -1245,7 +1245,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							}
 							vars.push({
 								name: name,
-								//type: exprType,
+								type: exprType,
 								expr: expr,
 							});
 						}
@@ -1256,18 +1256,18 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 		}
 	}
 	if (vars.length > 0) {
-		vars2 = vars2.concat(createTempVars(vars));
-		return EVars(vars.concat(vars2));
+		return createTempVars(vars).expr; 
 	} else if (vars2.length > 0) {
 		return EVars(vars2);
 	}
 	return (macro {}).expr; // blank expr def
 } // ($expr : $type);
 
-private function createTempVars(vars:Array<Var>):Array<Var> {
+private function createTempVars(vars:Array<Var>):Expr {
 	final vars2:Array<Var> = [];
-	if (vars.length <= 1)
-		return vars2;
+	vars.reverse();
+	//if (vars.length <= 1)
+		return {expr: EVars(vars), pos: null};
 	final names:Map<String,String> = [];
 	function createTempName(i:Int):String
 		return "__" + i;
@@ -1283,7 +1283,7 @@ private function createTempVars(vars:Array<Var>):Array<Var> {
 		names[vars[i].name] = tempName;
 		vars[i].name = tempName;
 	}
-	return vars2;
+	return {expr: EVars(vars.concat(vars2)), pos: null};
 }
 
 function replaceIdent(names:Map<String, String>, e:Expr):Expr {
@@ -2778,7 +2778,7 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 						expr: expr,
 					});
 				}
-				return EVars(vars.concat(createTempVars(vars)));
+				return createTempVars(vars).expr;
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// define, destructure system
 				var func = typeExpr(stmt.rhs[0], info);
@@ -2787,6 +2787,7 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 				var types:Array<ComplexType> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
+				// TODO_HERE
 				switch t {
 					case tuple(_, _.get() => vars):
 						for (i in 0...vars.length) {

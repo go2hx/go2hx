@@ -1256,19 +1256,19 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 		}
 	}
 	if (vars.length > 0) {
-		vars2 = vars2.concat(createTempVars(vars));
-		return EVars(vars.concat(vars2));
+		// here
+		return createTempVars(vars).expr;
 	} else if (vars2.length > 0) {
 		return EVars(vars2);
 	}
 	return (macro {}).expr; // blank expr def
 } // ($expr : $type);
 
-private function createTempVars(vars:Array<Var>):Array<Var> {
+private function createTempVars(vars:Array<Var>):Expr {
 	final vars2:Array<Var> = [];
 	if (vars.length <= 1)
-		return vars2;
-	final names:Map<String,String> = [];
+		return {expr: EVars(vars), pos: null};
+	//final names:Map<String,String> = [];
 	function createTempName(i:Int):String
 		return "__" + i;
 	for (i in 0...vars.length) {
@@ -1279,11 +1279,17 @@ private function createTempVars(vars:Array<Var>):Array<Var> {
 			//type: v.type,
 			expr: macro $i{tempName},
 		});
-		vars[i].expr = replaceIdent(names, vars[i].expr);
-		names[vars[i].name] = tempName;
+		//vars[i].expr = replaceIdent(names, vars[i].expr);
+		//names[vars[i].name] = tempName;
 		vars[i].name = tempName;
 	}
-	return vars2;
+	final e:Expr = {expr: EVars(vars), pos: null};
+	final e2:Expr = {expr: EVars(vars2), pos: null};
+	return macro @:mergeBlock {
+		$e;
+		${e2};
+	}
+	//return vars2;
 }
 
 function replaceIdent(names:Map<String, String>, e:Expr):Expr {
@@ -2778,7 +2784,7 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 						expr: expr,
 					});
 				}
-				return EVars(vars.concat(createTempVars(vars)));
+				return createTempVars(vars).expr;
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// define, destructure system
 				var func = typeExpr(stmt.rhs[0], info);
@@ -2787,7 +2793,6 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 				var types:Array<ComplexType> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
-				// TODO_HERE
 				switch t {
 					case tuple(_, _.get() => vars):
 						for (i in 0...vars.length) {

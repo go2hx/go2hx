@@ -32,6 +32,8 @@ class Printer extends haxe.macro.Printer {
 			case EField(e1, n, kind): kind == Safe ? '${printExpr(e1)}?.$n' : '${printExpr(e1)}.$n';
 			case EMeta({name: ":macro"}, e): "macro " + printExpr(e);
 			case EMeta({name: ":mergeBlock"}, {expr: EBlock(exprs), pos: _}):
+				if (exprs.length == 0)
+					return "{}";
 				return exprs.map(expr -> printExpr(expr)).join(";\n");
 			case EMeta({name: ":define", params: params}, e):
 				switch params[0].expr {

@@ -1258,11 +1258,15 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	if (vars.length > 0) {
 		// here
 		final e = createTempVars(vars);
-		final e2:Expr = {expr: EVars(vars2), pos: null};
-		return (macro @:mergeBlock {
-			${e2};
-			${e};
-		}).expr;
+		if (vars2.length > 0) {
+			final e2:Expr = {expr: EVars(vars2), pos: null};
+			return (macro @:mergeBlock {
+				${e2};
+				${e};
+			}).expr;
+		}else{
+			return e.expr;
+		}
 	} else if (vars2.length > 0) {
 		return EVars(vars2);
 	}

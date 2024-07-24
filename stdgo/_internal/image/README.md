@@ -6,11 +6,41 @@
      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | Type not found : stdgo._internal.image.jpeg.Jpeg
 
+     [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
+
+      229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+          |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
+
+      239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+          |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
+
 [30;41m ERROR [0m stdgo/_internal/image/Image.hx:886: characters 50-93
 
  886 | [2mstdgo.Go.asInterface(newPaletted(_r?.__copy__(), [0m[1mstdgo._internal.image.color.palette.Palette[0m[2m.plan9)),[0m
      |                                                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | Type not found : stdgo._internal.image.color.palette.Palette
+
+     [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:504: characters 10-30
+
+      504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
+          |          [31m^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
+
+     [30;41m -> [0m stdgo/Go.macro.hx:305: lines 305-310
+
+      305 | [2m  final selfType = [0m[1mContext.typeof(switch expr.expr {[0m
+        - | [2m    [...][0m
+      310 | [1m  })[0m[2m;[0m
+          |
+          | Called from here
+
+     [30;41m -> [0m stdgo/_internal/image/Image.hx:886: characters 1-101
+
+      886 | [0m[1mstdgo.Go.asInterface(newPaletted(_r?.__copy__(), stdgo._internal.image.color.palette.Palette.plan9))[0m[2m,[0m
+          | [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
 
           | For function argument 'args'
 

@@ -230,7 +230,7 @@
 
 - [class Replacer](<#class-replacer>)
 
-  - [`function new(?_once:stdgo._internal.sync.Once, ?_r:Null<stdgo._internal.strings.T_replacer>, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void`](<#replacer-function-new>)
+  - [`function new(?_once:stdgo._internal.sync.Once, ?_r:stdgo._internal.strings.T_replacer, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void`](<#replacer-function-new>)
 
   - [`function _build():stdgo._internal.strings.T_replacer`](<#replacer-function-_build>)
 
@@ -2535,7 +2535,7 @@ var _r:stdgo._internal.strings.T_replacer
 
 
 ```haxe
-function new(?_once:stdgo._internal.sync.Once, ?_r:Null<stdgo._internal.strings.T_replacer>, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void
+function new(?_once:stdgo._internal.sync.Once, ?_r:stdgo._internal.strings.T_replacer, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 

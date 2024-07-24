@@ -523,7 +523,7 @@
 
 - [class T\_testReaderCopyNothing\_\_\_localname\_\_\_justReader\_5869](<#class-t_testreadercopynothinglocalnamejustreader_5869>)
 
-  - [`function new(?reader:Null<stdgo._internal.io.Reader>):Void`](<#t_testreadercopynothinglocalnamejustreader_5869-function-new>)
+  - [`function new(?reader:stdgo._internal.io.Reader):Void`](<#t_testreadercopynothinglocalnamejustreader_5869-function-new>)
 
   - [`function read(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothinglocalnamejustreader_5869-function-read>)
 
@@ -531,7 +531,7 @@
 
 - [class T\_testReaderCopyNothing\_\_\_localname\_\_\_justWriter\_5910](<#class-t_testreadercopynothinglocalnamejustwriter_5910>)
 
-  - [`function new(?writer:Null<stdgo._internal.io.Writer>):Void`](<#t_testreadercopynothinglocalnamejustwriter_5910-function-new>)
+  - [`function new(?writer:stdgo._internal.io.Writer):Void`](<#t_testreadercopynothinglocalnamejustwriter_5910-function-new>)
 
   - [`function write(__0:stdgo.Slice<stdgo.GoUInt8>):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#t_testreadercopynothinglocalnamejustwriter_5910-function-write>)
 
@@ -539,7 +539,7 @@
 
 - [class T\_testReaderCopyNothing\_\_\_localname\_\_\_nErr\_5822](<#class-t_testreadercopynothinglocalnamenerr_5822>)
 
-  - [`function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void`](<#t_testreadercopynothinglocalnamenerr_5822-function-new>)
+  - [`function new(?_n:stdgo.GoInt64, ?_err:stdgo.Error):Void`](<#t_testreadercopynothinglocalnamenerr_5822-function-new>)
 
 - [class TitleTest](<#class-titletest>)
 
@@ -3767,7 +3767,7 @@ var reader:stdgo._internal.io.Reader
 
 
 ```haxe
-function new(?reader:Null<stdgo._internal.io.Reader>):Void
+function new(?reader:stdgo._internal.io.Reader):Void
 ```
 
 
@@ -3814,7 +3814,7 @@ var writer:stdgo._internal.io.Writer
 
 
 ```haxe
-function new(?writer:Null<stdgo._internal.io.Writer>):Void
+function new(?writer:stdgo._internal.io.Writer):Void
 ```
 
 
@@ -3866,7 +3866,7 @@ var _n:stdgo.GoInt64
 
 
 ```haxe
-function new(?_n:stdgo.GoInt64, ?_err:Null<stdgo.Error>):Void
+function new(?_n:stdgo.GoInt64, ?_err:stdgo.Error):Void
 ```
 
 

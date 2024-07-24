@@ -325,7 +325,7 @@
 
 - [class NumError](<#class-numerror>)
 
-  - [`function new(?func:stdgo.GoString, ?num:stdgo.GoString, ?err:Null<stdgo.Error>):Void`](<#numerror-function-new>)
+  - [`function new(?func:stdgo.GoString, ?num:stdgo.GoString, ?err:stdgo.Error):Void`](<#numerror-function-new>)
 
   - [`function error():stdgo.GoString`](<#numerror-function-error>)
 
@@ -2575,7 +2575,7 @@ var num:stdgo.GoString
 
 
 ```haxe
-function new(?func:stdgo.GoString, ?num:stdgo.GoString, ?err:Null<stdgo.Error>):Void
+function new(?func:stdgo.GoString, ?num:stdgo.GoString, ?err:stdgo.Error):Void
 ```
 
 

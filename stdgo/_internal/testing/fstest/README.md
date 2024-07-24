@@ -34,7 +34,7 @@
 
 - [class MapFile](<#class-mapfile>)
 
-  - [`function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?mode:Null<stdgo._internal.io.fs.FileMode>, ?modTime:stdgo._internal.time.Time, ?sys:stdgo.AnyInterface):Void`](<#mapfile-function-new>)
+  - [`function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?mode:stdgo._internal.io.fs.FileMode, ?modTime:stdgo._internal.time.Time, ?sys:stdgo.AnyInterface):Void`](<#mapfile-function-new>)
 
 - [typedef MapFS](<#typedef-mapfs>)
 
@@ -211,7 +211,7 @@ var sys:stdgo.AnyInterface
 
 
 ```haxe
-function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?mode:Null<stdgo._internal.io.fs.FileMode>, ?modTime:stdgo._internal.time.Time, ?sys:stdgo.AnyInterface):Void
+function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?mode:stdgo._internal.io.fs.FileMode, ?modTime:stdgo._internal.time.Time, ?sys:stdgo.AnyInterface):Void
 ```
 
 

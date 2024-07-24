@@ -140,13 +140,13 @@
 
 - [class Error](<#class-error>)
 
-  - [`function new(?code:Null<stdgo._internal.regexp.syntax.ErrorCode>, ?expr:stdgo.GoString):Void`](<#error-function-new>)
+  - [`function new(?code:stdgo._internal.regexp.syntax.ErrorCode, ?expr:stdgo.GoString):Void`](<#error-function-new>)
 
   - [`function error():stdgo.GoString`](<#error-function-error>)
 
 - [class Inst](<#class-inst>)
 
-  - [`function new(?op:Null<stdgo._internal.regexp.syntax.InstOp>, ?out:stdgo.GoUInt32, ?arg:stdgo.GoUInt32, ?rune:stdgo.Slice<stdgo.GoInt32>):Void`](<#inst-function-new>)
+  - [`function new(?op:stdgo._internal.regexp.syntax.InstOp, ?out:stdgo.GoUInt32, ?arg:stdgo.GoUInt32, ?rune:stdgo.Slice<stdgo.GoInt32>):Void`](<#inst-function-new>)
 
   - [`function _op():stdgo._internal.regexp.syntax.InstOp`](<#inst-function-_op>)
 
@@ -172,7 +172,7 @@
 
 - [class Regexp](<#class-regexp>)
 
-  - [`function new(?op:Null<stdgo._internal.regexp.syntax.Op>, ?flags:Null<stdgo._internal.regexp.syntax.Flags>, ?sub:stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>>, ?sub0:stdgo.GoArray<stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>>, ?rune:stdgo.Slice<stdgo.GoInt32>, ?rune0:stdgo.GoArray<stdgo.GoInt32>, ?min:stdgo.GoInt, ?max:stdgo.GoInt, ?cap:stdgo.GoInt, ?name:stdgo.GoString):Void`](<#regexp-function-new>)
+  - [`function new(?op:stdgo._internal.regexp.syntax.Op, ?flags:stdgo._internal.regexp.syntax.Flags, ?sub:stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>>, ?sub0:stdgo.GoArray<stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>>, ?rune:stdgo.Slice<stdgo.GoInt32>, ?rune0:stdgo.GoArray<stdgo.GoInt32>, ?min:stdgo.GoInt, ?max:stdgo.GoInt, ?cap:stdgo.GoInt, ?name:stdgo.GoString):Void`](<#regexp-function-new>)
 
   - [`function _capNames( _names:stdgo.Slice<stdgo.GoString>):Void`](<#regexp-function-_capnames>)
 
@@ -1441,7 +1441,7 @@ var expr:stdgo.GoString
 
 
 ```haxe
-function new(?code:Null<stdgo._internal.regexp.syntax.ErrorCode>, ?expr:stdgo.GoString):Void
+function new(?code:stdgo._internal.regexp.syntax.ErrorCode, ?expr:stdgo.GoString):Void
 ```
 
 
@@ -1486,7 +1486,7 @@ var rune:stdgo.Slice<stdgo.GoInt32>
 
 
 ```haxe
-function new(?op:Null<stdgo._internal.regexp.syntax.InstOp>, ?out:stdgo.GoUInt32, ?arg:stdgo.GoUInt32, ?rune:stdgo.Slice<stdgo.GoInt32>):Void
+function new(?op:stdgo._internal.regexp.syntax.InstOp, ?out:stdgo.GoUInt32, ?arg:stdgo.GoUInt32, ?rune:stdgo.Slice<stdgo.GoInt32>):Void
 ```
 
 
@@ -1681,7 +1681,7 @@ var sub0:stdgo.GoArray<stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>>
 
 
 ```haxe
-function new(?op:Null<stdgo._internal.regexp.syntax.Op>, ?flags:Null<stdgo._internal.regexp.syntax.Flags>, ?sub:stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>>, ?sub0:stdgo.GoArray<stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>>, ?rune:stdgo.Slice<stdgo.GoInt32>, ?rune0:stdgo.GoArray<stdgo.GoInt32>, ?min:stdgo.GoInt, ?max:stdgo.GoInt, ?cap:stdgo.GoInt, ?name:stdgo.GoString):Void
+function new(?op:stdgo._internal.regexp.syntax.Op, ?flags:stdgo._internal.regexp.syntax.Flags, ?sub:stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>>, ?sub0:stdgo.GoArray<stdgo.Ref<stdgo._internal.regexp.syntax.Regexp>>, ?rune:stdgo.Slice<stdgo.GoInt32>, ?rune0:stdgo.GoArray<stdgo.GoInt32>, ?min:stdgo.GoInt, ?max:stdgo.GoInt, ?cap:stdgo.GoInt, ?name:stdgo.GoString):Void
 ```
 
 

@@ -81,13 +81,13 @@
 
 - [class Method](<#class-method>)
 
-  - [`function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo._internal.reflect.Type_>, ?func:stdgo._internal.reflect.Value, ?index:stdgo.GoInt):Void`](<#method-function-new>)
+  - [`function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:stdgo._internal.reflect.Type_, ?func:stdgo._internal.reflect.Value, ?index:stdgo.GoInt):Void`](<#method-function-new>)
 
   - [`function isExported():Bool`](<#method-function-isexported>)
 
 - [class SelectCase](<#class-selectcase>)
 
-  - [`function new(?dir:Null<stdgo._internal.reflect.SelectDir>, ?chan:stdgo._internal.reflect.Value, ?send:stdgo._internal.reflect.Value):Void`](<#selectcase-function-new>)
+  - [`function new(?dir:stdgo._internal.reflect.SelectDir, ?chan:stdgo._internal.reflect.Value, ?send:stdgo._internal.reflect.Value):Void`](<#selectcase-function-new>)
 
 - [class SliceHeader](<#class-sliceheader>)
 
@@ -99,7 +99,7 @@
 
 - [class StructField](<#class-structfield>)
 
-  - [`function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo._internal.reflect.Type_>, ?tag:Null<stdgo._internal.reflect.StructTag>, ?offset:stdgo.GoUIntptr, ?index:stdgo.Slice<stdgo.GoInt>, ?anonymous:Bool):Void`](<#structfield-function-new>)
+  - [`function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:stdgo._internal.reflect.Type_, ?tag:stdgo._internal.reflect.StructTag, ?offset:stdgo.GoUIntptr, ?index:stdgo.Slice<stdgo.GoInt>, ?anonymous:Bool):Void`](<#structfield-function-new>)
 
   - [`function isExported():Bool`](<#structfield-function-isexported>)
 
@@ -851,7 +851,7 @@ var type:stdgo._internal.reflect.Type_
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo._internal.reflect.Type_>, ?func:stdgo._internal.reflect.Value, ?index:stdgo.GoInt):Void
+function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:stdgo._internal.reflect.Type_, ?func:stdgo._internal.reflect.Value, ?index:stdgo.GoInt):Void
 ```
 
 
@@ -891,7 +891,7 @@ var send:stdgo._internal.reflect.Value
 
 
 ```haxe
-function new(?dir:Null<stdgo._internal.reflect.SelectDir>, ?chan:stdgo._internal.reflect.Value, ?send:stdgo._internal.reflect.Value):Void
+function new(?dir:stdgo._internal.reflect.SelectDir, ?chan:stdgo._internal.reflect.Value, ?send:stdgo._internal.reflect.Value):Void
 ```
 
 
@@ -993,7 +993,7 @@ var type:stdgo._internal.reflect.Type_
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:Null<stdgo._internal.reflect.Type_>, ?tag:Null<stdgo._internal.reflect.StructTag>, ?offset:stdgo.GoUIntptr, ?index:stdgo.Slice<stdgo.GoInt>, ?anonymous:Bool):Void
+function new(?name:stdgo.GoString, ?pkgPath:stdgo.GoString, ?type:stdgo._internal.reflect.Type_, ?tag:stdgo._internal.reflect.StructTag, ?offset:stdgo.GoUIntptr, ?index:stdgo.Slice<stdgo.GoInt>, ?anonymous:Bool):Void
 ```
 
 

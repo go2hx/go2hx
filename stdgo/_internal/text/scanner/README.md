@@ -104,7 +104,7 @@
 
   - [`function isValid():Bool`](<#scanner-function-isvalid>)
 
-  - [`function new(?_src:Null<stdgo._internal.io.Reader>, ?_srcBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_srcPos:stdgo.GoInt, ?_srcEnd:stdgo.GoInt, ?_srcBufOffset:stdgo.GoInt, ?_line:stdgo.GoInt, ?_column:stdgo.GoInt, ?_lastLineLen:stdgo.GoInt, ?_lastCharLen:stdgo.GoInt, ?_tokBuf:stdgo._internal.bytes.Buffer, ?_tokPos:stdgo.GoInt, ?_tokEnd:stdgo.GoInt, ?_ch:stdgo.GoInt32, ?error:(:stdgo.Ref<stdgo._internal.text.scanner.Scanner>, :stdgo.GoString):Void, ?errorCount:stdgo.GoInt, ?mode:stdgo.GoUInt, ?whitespace:stdgo.GoUInt64, ?isIdentRune:(:stdgo.GoInt32, :stdgo.GoInt):Bool, ?position:stdgo._internal.text.scanner.Position):Void`](<#scanner-function-new>)
+  - [`function new(?_src:stdgo._internal.io.Reader, ?_srcBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_srcPos:stdgo.GoInt, ?_srcEnd:stdgo.GoInt, ?_srcBufOffset:stdgo.GoInt, ?_line:stdgo.GoInt, ?_column:stdgo.GoInt, ?_lastLineLen:stdgo.GoInt, ?_lastCharLen:stdgo.GoInt, ?_tokBuf:stdgo._internal.bytes.Buffer, ?_tokPos:stdgo.GoInt, ?_tokEnd:stdgo.GoInt, ?_ch:stdgo.GoInt32, ?error:(:stdgo.Ref<stdgo._internal.text.scanner.Scanner>, :stdgo.GoString):Void, ?errorCount:stdgo.GoInt, ?mode:stdgo.GoUInt, ?whitespace:stdgo.GoUInt64, ?isIdentRune:(:stdgo.GoInt32, :stdgo.GoInt):Bool, ?position:stdgo._internal.text.scanner.Position):Void`](<#scanner-function-new>)
 
   - [`function string():stdgo.GoString`](<#scanner-function-string>)
 
@@ -896,7 +896,7 @@ function isValid():Bool
 
 
 ```haxe
-function new(?_src:Null<stdgo._internal.io.Reader>, ?_srcBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_srcPos:stdgo.GoInt, ?_srcEnd:stdgo.GoInt, ?_srcBufOffset:stdgo.GoInt, ?_line:stdgo.GoInt, ?_column:stdgo.GoInt, ?_lastLineLen:stdgo.GoInt, ?_lastCharLen:stdgo.GoInt, ?_tokBuf:stdgo._internal.bytes.Buffer, ?_tokPos:stdgo.GoInt, ?_tokEnd:stdgo.GoInt, ?_ch:stdgo.GoInt32, ?error:(:stdgo.Ref<stdgo._internal.text.scanner.Scanner>, :stdgo.GoString):Void, ?errorCount:stdgo.GoInt, ?mode:stdgo.GoUInt, ?whitespace:stdgo.GoUInt64, ?isIdentRune:(:stdgo.GoInt32, :stdgo.GoInt):Bool, ?position:stdgo._internal.text.scanner.Position):Void
+function new(?_src:stdgo._internal.io.Reader, ?_srcBuf:stdgo.GoArray<stdgo.GoUInt8>, ?_srcPos:stdgo.GoInt, ?_srcEnd:stdgo.GoInt, ?_srcBufOffset:stdgo.GoInt, ?_line:stdgo.GoInt, ?_column:stdgo.GoInt, ?_lastLineLen:stdgo.GoInt, ?_lastCharLen:stdgo.GoInt, ?_tokBuf:stdgo._internal.bytes.Buffer, ?_tokPos:stdgo.GoInt, ?_tokEnd:stdgo.GoInt, ?_ch:stdgo.GoInt32, ?error:(:stdgo.Ref<stdgo._internal.text.scanner.Scanner>, :stdgo.GoString):Void, ?errorCount:stdgo.GoInt, ?mode:stdgo.GoUInt, ?whitespace:stdgo.GoUInt64, ?isIdentRune:(:stdgo.GoInt32, :stdgo.GoInt):Bool, ?position:stdgo._internal.text.scanner.Position):Void
 ```
 
 

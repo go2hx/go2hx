@@ -1,13 +1,5 @@
 # Module stdgo._internal.math.rand has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/math/rand_test/Rand_test.hx:632: lines 632-637
-
-  632 | [2m        var _m = [0m[1m({[0m
-    - | [2m          [...][0m
-  637 | [1m        } : stdgo.GoMap<stdgo.GoUInt64, Bool>)[0m[2m;[0m
-      |
-      | stdgo.GoInt64Map<Bool> should be stdgo.GoMap<stdgo.GoUInt64, Bool>
-
 [30;41m ERROR [0m stdgo/_internal/math/rand_test/Rand_test.hx:983: characters 62-65
 
   983 | [2m        var __0:stdgo.GoFloat64 = _rn, __1:stdgo.GoFloat64 = [0m[1m_dn[0m[2m, __2:stdgo.GoFloat64 = (0.00991256303526217 : stdgo.GoFloat64), _vn:stdgo.GoFloat64 = __2, _tn:stdgo.GoFloat64 = __1, _dn:stdgo.GoFloat64 = __0;[0m

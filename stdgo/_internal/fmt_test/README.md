@@ -234,7 +234,7 @@
 
 - [class A](<#class-a>)
 
-  - [`function new(?_i:stdgo.GoInt, ?_j:Null<stdgo.GoUInt>, ?_s:stdgo.GoString, ?_x:stdgo.Slice<stdgo.GoInt>):Void`](<#a-function-new>)
+  - [`function new(?_i:stdgo.GoInt, ?_j:stdgo.GoUInt, ?_s:stdgo.GoString, ?_x:stdgo.Slice<stdgo.GoInt>):Void`](<#a-function-new>)
 
 - [class Address](<#class-address>)
 
@@ -242,13 +242,13 @@
 
 - [class Animal](<#class-animal>)
 
-  - [`function new(?name:stdgo.GoString, ?age:Null<stdgo.GoUInt>):Void`](<#animal-function-new>)
+  - [`function new(?name:stdgo.GoString, ?age:stdgo.GoUInt):Void`](<#animal-function-new>)
 
   - [`function string():stdgo.GoString`](<#animal-function-string>)
 
 - [class B](<#class-b>)
 
-  - [`function new(?i:Null<stdgo._internal.fmt_test.I>, ?_j:stdgo.GoInt):Void`](<#b-function-new>)
+  - [`function new(?i:stdgo._internal.fmt_test.I, ?_j:stdgo.GoInt):Void`](<#b-function-new>)
 
 - [class C](<#class-c>)
 
@@ -280,7 +280,7 @@
 
 - [class Person](<#class-person>)
 
-  - [`function new(?name:stdgo.GoString, ?age:Null<stdgo.GoUInt>, ?addr:stdgo.Ref<stdgo._internal.fmt_test.Address>):Void`](<#person-function-new>)
+  - [`function new(?name:stdgo.GoString, ?age:stdgo.GoUInt, ?addr:stdgo.Ref<stdgo._internal.fmt_test.Address>):Void`](<#person-function-new>)
 
   - [`function goString():stdgo.GoString`](<#person-function-gostring>)
 
@@ -298,7 +298,7 @@
 
 - [class S](<#class-s>)
 
-  - [`function new(?f:Null<stdgo._internal.fmt_test.F>, ?g:Null<stdgo._internal.fmt_test.G>):Void`](<#s-function-new>)
+  - [`function new(?f:stdgo._internal.fmt_test.F, ?g:stdgo._internal.fmt_test.G):Void`](<#s-function-new>)
 
 - [class SI](<#class-si>)
 
@@ -326,7 +326,7 @@
 
 - [class T\_testStructPrinter\_\_\_localname\_\_\_T\_47832](<#class-t_teststructprinterlocalnamet_47832>)
 
-  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void`](<#t_teststructprinterlocalnamet_47832-function-new>)
+  - [`function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:stdgo.GoInt):Void`](<#t_teststructprinterlocalnamet_47832-function-new>)
 
 - [typedef F](<#typedef-f>)
 
@@ -2173,7 +2173,7 @@ var _x:stdgo.Slice<stdgo.GoInt>
 
 
 ```haxe
-function new(?_i:stdgo.GoInt, ?_j:Null<stdgo.GoUInt>, ?_s:stdgo.GoString, ?_x:stdgo.Slice<stdgo.GoInt>):Void
+function new(?_i:stdgo.GoInt, ?_j:stdgo.GoUInt, ?_s:stdgo.GoString, ?_x:stdgo.Slice<stdgo.GoInt>):Void
 ```
 
 
@@ -2226,7 +2226,7 @@ var name:stdgo.GoString
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?age:Null<stdgo.GoUInt>):Void
+function new(?name:stdgo.GoString, ?age:stdgo.GoUInt):Void
 ```
 
 
@@ -2261,7 +2261,7 @@ var i:stdgo._internal.fmt_test.I
 
 
 ```haxe
-function new(?i:Null<stdgo._internal.fmt_test.I>, ?_j:stdgo.GoInt):Void
+function new(?i:stdgo._internal.fmt_test.I, ?_j:stdgo.GoInt):Void
 ```
 
 
@@ -2439,7 +2439,7 @@ var name:stdgo.GoString
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?age:Null<stdgo.GoUInt>, ?addr:stdgo.Ref<stdgo._internal.fmt_test.Address>):Void
+function new(?name:stdgo.GoString, ?age:stdgo.GoUInt, ?addr:stdgo.Ref<stdgo._internal.fmt_test.Address>):Void
 ```
 
 
@@ -2544,7 +2544,7 @@ var g:stdgo._internal.fmt_test.G
 
 
 ```haxe
-function new(?f:Null<stdgo._internal.fmt_test.F>, ?g:Null<stdgo._internal.fmt_test.G>):Void
+function new(?f:stdgo._internal.fmt_test.F, ?g:stdgo._internal.fmt_test.G):Void
 ```
 
 
@@ -2722,7 +2722,7 @@ var _c:stdgo.GoInt
 
 
 ```haxe
-function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:Null<stdgo.GoInt>):Void
+function new(?_a:stdgo.GoString, ?_b:stdgo.GoString, ?_c:stdgo.GoInt):Void
 ```
 
 

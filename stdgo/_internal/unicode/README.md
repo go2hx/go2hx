@@ -69,7 +69,7 @@
 
 - [class CaseRange](<#class-caserange>)
 
-  - [`function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo._internal.unicode.T_d>):Void`](<#caserange-function-new>)
+  - [`function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:stdgo._internal.unicode.T_d):Void`](<#caserange-function-new>)
 
 - [class Range16](<#class-range16>)
 
@@ -3308,7 +3308,7 @@ var lo:stdgo.GoUInt32
 
 
 ```haxe
-function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:Null<stdgo._internal.unicode.T_d>):Void
+function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:stdgo._internal.unicode.T_d):Void
 ```
 
 

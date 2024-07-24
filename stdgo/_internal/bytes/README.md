@@ -171,7 +171,7 @@
 
 - [class Buffer](<#class-buffer>)
 
-  - [`function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:stdgo.GoInt, ?_lastRead:Null<stdgo._internal.bytes.T_readOp>):Void`](<#buffer-function-new>)
+  - [`function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:stdgo.GoInt, ?_lastRead:stdgo._internal.bytes.T_readOp):Void`](<#buffer-function-new>)
 
   - [`function _empty():Bool`](<#buffer-function-_empty>)
 
@@ -2302,7 +2302,7 @@ var _off:stdgo.GoInt
 
 
 ```haxe
-function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:stdgo.GoInt, ?_lastRead:Null<stdgo._internal.bytes.T_readOp>):Void
+function new(?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_off:stdgo.GoInt, ?_lastRead:stdgo._internal.bytes.T_readOp):Void
 ```
 
 

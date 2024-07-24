@@ -165,7 +165,7 @@
 
   - [`function len():stdgo.GoInt`](<#byname-function-len>)
 
-  - [`function new(?organs:Null<stdgo._internal.sort_test.Organs>):Void`](<#byname-function-new>)
+  - [`function new(?organs:stdgo._internal.sort_test.Organs):Void`](<#byname-function-new>)
 
   - [`function swap(_i:stdgo.GoInt, _j:stdgo.GoInt):Void`](<#byname-function-swap>)
 
@@ -179,7 +179,7 @@
 
   - [`function len():stdgo.GoInt`](<#byweight-function-len>)
 
-  - [`function new(?organs:Null<stdgo._internal.sort_test.Organs>):Void`](<#byweight-function-new>)
+  - [`function new(?organs:stdgo._internal.sort_test.Organs):Void`](<#byweight-function-new>)
 
   - [`function swap(_i:stdgo.GoInt, _j:stdgo.GoInt):Void`](<#byweight-function-swap>)
 
@@ -195,7 +195,7 @@
 
 - [class Organ](<#class-organ>)
 
-  - [`function new(?name:stdgo.GoString, ?weight:Null<stdgo._internal.sort_test.Grams>):Void`](<#organ-function-new>)
+  - [`function new(?name:stdgo.GoString, ?weight:stdgo._internal.sort_test.Grams):Void`](<#organ-function-new>)
 
 - [class Person](<#class-person>)
 
@@ -205,7 +205,7 @@
 
 - [class Planet](<#class-planet>)
 
-  - [`function new(?_name:stdgo.GoString, ?_mass:Null<stdgo._internal.sort_test.T_earthMass>, ?_distance:Null<stdgo._internal.sort_test.T_au>):Void`](<#planet-function-new>)
+  - [`function new(?_name:stdgo.GoString, ?_mass:stdgo._internal.sort_test.T_earthMass, ?_distance:stdgo._internal.sort_test.T_au):Void`](<#planet-function-new>)
 
 - [typedef By](<#typedef-by>)
 
@@ -1247,7 +1247,7 @@ function len():stdgo.GoInt
 
 
 ```haxe
-function new(?organs:Null<stdgo._internal.sort_test.Organs>):Void
+function new(?organs:stdgo._internal.sort_test.Organs):Void
 ```
 
 
@@ -1321,7 +1321,7 @@ function len():stdgo.GoInt
 
 
 ```haxe
-function new(?organs:Null<stdgo._internal.sort_test.Organs>):Void
+function new(?organs:stdgo._internal.sort_test.Organs):Void
 ```
 
 
@@ -1418,7 +1418,7 @@ var weight:stdgo._internal.sort_test.Grams
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?weight:Null<stdgo._internal.sort_test.Grams>):Void
+function new(?name:stdgo.GoString, ?weight:stdgo._internal.sort_test.Grams):Void
 ```
 
 
@@ -1482,7 +1482,7 @@ var _name:stdgo.GoString
 
 
 ```haxe
-function new(?_name:stdgo.GoString, ?_mass:Null<stdgo._internal.sort_test.T_earthMass>, ?_distance:Null<stdgo._internal.sort_test.T_au>):Void
+function new(?_name:stdgo.GoString, ?_mass:stdgo._internal.sort_test.T_earthMass, ?_distance:stdgo._internal.sort_test.T_au):Void
 ```
 
 

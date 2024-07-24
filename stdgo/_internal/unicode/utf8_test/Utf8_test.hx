@@ -197,7 +197,7 @@ function exampleDecodeLastRune():Void {
         };
     }
 function exampleDecodeLastRuneInString():Void {
-        var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
+        var _str = ("Hello, 世界" : stdgo.GoString);
         while (((_str.length) > (0 : stdgo.GoInt) : Bool)) {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeLastRuneInString(_str?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
             stdgo._internal.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
@@ -213,7 +213,7 @@ function exampleDecodeRune():Void {
         };
     }
 function exampleDecodeRuneInString():Void {
-        var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
+        var _str = ("Hello, 世界" : stdgo.GoString);
         while (((_str.length) > (0 : stdgo.GoInt) : Bool)) {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRuneInString(_str?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
             stdgo._internal.fmt.Fmt.printf(("%c %v\n" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size));
@@ -221,9 +221,9 @@ function exampleDecodeRuneInString():Void {
         };
     }
 function exampleEncodeRune():Void {
-        var _r:stdgo.GoInt32 = (19990 : stdgo.GoInt32);
+        var _r = (19990 : stdgo.GoInt32);
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        var _n:stdgo.GoInt = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _r);
+        var _n = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _r);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_buf));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_n));
     }
@@ -231,7 +231,7 @@ function exampleEncodeRune_outOfRange():Void {
         var _runes = (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (1114112 : stdgo.GoInt32), (65533 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         for (_i => _c in _runes) {
             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var _size:stdgo.GoInt = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _c);
+            var _size = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _c);
             stdgo._internal.fmt.Fmt.printf(("%d: %d %[2]s %d\n" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_buf), stdgo.Go.toInterface(_size));
         };
     }
@@ -241,7 +241,7 @@ function exampleFullRune():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.fullRune((_buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))));
     }
 function exampleFullRuneInString():Void {
-        var _str:stdgo.GoString = ("世" : stdgo.GoString);
+        var _str = ("世" : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.fullRuneInString(_str?.__copy__())));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.fullRuneInString((_str.__slice__(0, (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__())));
     }
@@ -251,7 +251,7 @@ function exampleRuneCount():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("runes =" : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.runeCount(_buf)));
     }
 function exampleRuneCountInString():Void {
-        var _str:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
+        var _str = ("Hello, 世界" : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("bytes =" : stdgo.GoString)), stdgo.Go.toInterface((_str.length)));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("runes =" : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.runeCountInString(_str?.__copy__())));
     }
@@ -272,14 +272,14 @@ function exampleValid():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.valid(_invalid)));
     }
 function exampleValidRune():Void {
-        var _valid:stdgo.GoInt32 = (97 : stdgo.GoInt32);
-        var _invalid:stdgo.GoInt32 = ((268435455 : stdgo.GoInt32) : stdgo.GoRune);
+        var _valid = (97 : stdgo.GoInt32);
+        var _invalid = ((268435455 : stdgo.GoInt32) : stdgo.GoRune);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validRune(_valid)));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validRune(_invalid)));
     }
 function exampleValidString():Void {
-        var _valid:stdgo.GoString = ("Hello, 世界" : stdgo.GoString);
-        var _invalid:stdgo.GoString = ((new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
+        var _valid = ("Hello, 世界" : stdgo.GoString);
+        var _invalid = ((new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validString(_valid?.__copy__())));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validString(_invalid?.__copy__())));
     }
@@ -303,7 +303,7 @@ function testFullRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             if (!fullRune(_b)) {
                 _t.errorf(("FullRune(%q) (%U) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_m._r));
             };
-            var _s:stdgo.GoString = _m._str?.__copy__();
+            var _s = _m._str?.__copy__();
             if (!fullRuneInString(_s?.__copy__())) {
                 _t.errorf(("FullRuneInString(%q) (%U) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_m._r));
             };
@@ -311,7 +311,7 @@ function testFullRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             if (fullRune(_b1)) {
                 _t.errorf(("FullRune(%q) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_b1));
             };
-            var _s1:stdgo.GoString = (_b1 : stdgo.GoString)?.__copy__();
+            var _s1 = (_b1 : stdgo.GoString)?.__copy__();
             if (fullRuneInString(_s1?.__copy__())) {
                 _t.errorf(("FullRune(%q) = true, want false" : stdgo.GoString), stdgo.Go.toInterface(_s1));
             };
@@ -330,7 +330,7 @@ function testEncodeRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _m in _utf8map) {
             var _b = (_m._str : stdgo.Slice<stdgo.GoByte>);
             var _buf:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10, ...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
-            var _n:stdgo.GoInt = encodeRune((_buf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _m._r);
+            var _n = encodeRune((_buf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _m._r);
             var _b1 = (_buf.__slice__((0 : stdgo.GoInt), _n) : stdgo.Slice<stdgo.GoUInt8>);
             if (!stdgo._internal.bytes.Bytes.equal(_b, _b1)) {
                 _t.errorf(("EncodeRune(%#04x) = %q want %q" : stdgo.GoString), stdgo.Go.toInterface(_m._r), stdgo.Go.toInterface(_b1), stdgo.Go.toInterface(_b));
@@ -360,7 +360,7 @@ function testDecodeRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             if (((_r != _m._r) || (_size != (_b.length)) : Bool)) {
                 _t.errorf(("DecodeRune(%q) = %#04x, %d want %#04x, %d" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size), stdgo.Go.toInterface(_m._r), stdgo.Go.toInterface((_b.length)));
             };
-            var _s:stdgo.GoString = _m._str?.__copy__();
+            var _s = _m._str?.__copy__();
             {
                 var __tmp__ = decodeRuneInString(_s?.__copy__());
                 _r = __tmp__._0;
@@ -386,7 +386,7 @@ function testDecodeRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             if (((_r != _m._r) || (_size != (_b.length)) : Bool)) {
                 _t.errorf(("DecodeRuneInString(%q) = %#04x, %d want %#04x, %d" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size), stdgo.Go.toInterface(_m._r), stdgo.Go.toInterface((_b.length)));
             };
-            var _wantsize:stdgo.GoInt = (1 : stdgo.GoInt);
+            var _wantsize = (1 : stdgo.GoInt);
             if ((_wantsize >= (_b.length) : Bool)) {
                 _wantsize = (0 : stdgo.GoInt);
             };
@@ -438,7 +438,7 @@ function testDecodeSurrogateRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
             if (((_r != (65533 : stdgo.GoInt32)) || (_size != (1 : stdgo.GoInt)) : Bool)) {
                 _t.errorf(("DecodeRune(%q) = %x, %d want %x, %d" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_size), stdgo.Go.toInterface((65533 : stdgo.GoInt32)), stdgo.Go.toInterface((1 : stdgo.GoInt)));
             };
-            var _s:stdgo.GoString = _m._str?.__copy__();
+            var _s = _m._str?.__copy__();
             {
                 var __tmp__ = decodeRuneInString(_s?.__copy__());
                 _r = __tmp__._0;
@@ -463,9 +463,9 @@ function _runtimeRuneCount(_s:stdgo.GoString):stdgo.GoInt {
     }
 function testRuntimeConversion(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _ts in _testStrings) {
-            var _count:stdgo.GoInt = runeCountInString(_ts?.__copy__());
+            var _count = runeCountInString(_ts?.__copy__());
             {
-                var _n:stdgo.GoInt = _runtimeRuneCount(_ts?.__copy__());
+                var _n = _runtimeRuneCount(_ts?.__copy__());
                 if (_n != (_count)) {
                     _t.errorf(("%q: len([]rune()) counted %d runes; got %d from RuneCountInString" : stdgo.GoString), stdgo.Go.toInterface(_ts), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_count));
                     break;
@@ -473,13 +473,13 @@ function testRuntimeConversion(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
             };
             var _runes = (_ts : stdgo.Slice<stdgo.GoRune>);
             {
-                var _n:stdgo.GoInt = (_runes.length);
+                var _n = (_runes.length);
                 if (_n != (_count)) {
                     _t.errorf(("%q: []rune() has length %d; got %d from RuneCountInString" : stdgo.GoString), stdgo.Go.toInterface(_ts), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_count));
                     break;
                 };
             };
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             for (__17 => _r in _ts) {
                 if (_r != (_runes[(_i : stdgo.GoInt)])) {
                     _t.errorf(("%q[%d]: expected %c (%U); got %c (%U)" : stdgo.GoString), stdgo.Go.toInterface(_ts), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_runes[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_runes[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_r));
@@ -498,7 +498,7 @@ function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo._internal.testing.Testing.
         for (__0 => _s in _invalidSequenceTests) {
             var __tmp__ = decodeRune((_s : stdgo.Slice<stdgo.GoByte>)), _r1:stdgo.GoInt32 = __tmp__._0, __1:stdgo.GoInt = __tmp__._1;
             {
-                var _want:stdgo.GoInt32 = (65533 : stdgo.GoInt32);
+                var _want = (65533 : stdgo.GoInt32);
                 if (_r1 != (_want)) {
                     _t.errorf(("DecodeRune(%#x) = %#04x, want %#04x" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_want));
                     return;
@@ -506,7 +506,7 @@ function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo._internal.testing.Testing.
             };
             var __tmp__ = decodeRuneInString(_s?.__copy__()), _r2:stdgo.GoInt32 = __tmp__._0, __10:stdgo.GoInt = __tmp__._1;
             {
-                var _want:stdgo.GoInt32 = (65533 : stdgo.GoInt32);
+                var _want = (65533 : stdgo.GoInt32);
                 if (_r2 != (_want)) {
                     _t.errorf(("DecodeRuneInString(%q) = %#04x, want %#04x" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_want));
                     return;
@@ -516,7 +516,7 @@ function testDecodeInvalidSequence(_t:stdgo.Ref<stdgo._internal.testing.Testing.
                 _t.errorf(("DecodeRune(%#x) = %#04x mismatch with DecodeRuneInString(%q) = %#04x" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_r2));
                 return;
             };
-            var _r3:stdgo.GoInt32 = _runtimeDecodeRune(_s?.__copy__());
+            var _r3 = _runtimeDecodeRune(_s?.__copy__());
             if (_r2 != (_r3)) {
                 _t.errorf(("DecodeRuneInString(%q) = %#04x mismatch with runtime.decoderune(%q) = %#04x" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_r3));
                 return;
@@ -539,8 +539,8 @@ function _testSequence(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _s:stdg
         {};
         var _index = (new stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.T__testSequence___localname___info_8684>((_s.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_s.length : stdgo.GoInt).toBasic() > 0 ? (_s.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.unicode.utf8_test.Utf8_test.T__testSequence___localname___info_8684)]) : stdgo.Slice<stdgo._internal.unicode.utf8_test.Utf8_test.T__testSequence___localname___info_8684>);
         var _b = (_s : stdgo.Slice<stdgo.GoByte>);
-        var _si:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _j:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _si = (0 : stdgo.GoInt);
+        var _j = (0 : stdgo.GoInt);
         for (_i => _r in _s) {
             if (_si != (_i)) {
                 _t.errorf(("Sequence(%q) mismatched index %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_si), stdgo.Go.toInterface(_i));
@@ -606,13 +606,13 @@ function testNegativeRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 function testRuneCount(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _runecounttests) {
             {
-                var _out:stdgo.GoInt = runeCountInString(_tt._in?.__copy__());
+                var _out = runeCountInString(_tt._in?.__copy__());
                 if (_out != (_tt._out)) {
                     _t.errorf(("RuneCountInString(%q) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
                 };
             };
             {
-                var _out:stdgo.GoInt = runeCount((_tt._in : stdgo.Slice<stdgo.GoByte>));
+                var _out = runeCount((_tt._in : stdgo.Slice<stdgo.GoByte>));
                 if (_out != (_tt._out)) {
                     _t.errorf(("RuneCount(%q) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
                 };
@@ -622,7 +622,7 @@ function testRuneCount(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testRuneLen(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _runelentests) {
             {
-                var _size:stdgo.GoInt = runeLen(_tt._r);
+                var _size = runeLen(_tt._r);
                 if (_size != (_tt._size)) {
                     _t.errorf(("RuneLen(%#U) = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_tt._r), stdgo.Go.toInterface(_size), stdgo.Go.toInterface(_tt._size));
                 };
@@ -642,7 +642,7 @@ function testValid(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testValidRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _validrunetests) {
             {
-                var _ok:Bool = validRune(_tt._r);
+                var _ok = validRune(_tt._r);
                 if (_ok != (_tt._ok)) {
                     _t.errorf(("ValidRune(%#U) = %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(_tt._r), stdgo.Go.toInterface(_ok), stdgo.Go.toInterface(_tt._ok));
                 };
@@ -652,7 +652,7 @@ function testValidRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function benchmarkRuneCountTenASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _s = (("0123456789" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 runeCount(_s);
             });
@@ -661,7 +661,7 @@ function benchmarkRuneCountTenASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.Te
 function benchmarkRuneCountTenJapaneseChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _s = (("日本語日本語日本語日" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 runeCount(_s);
             });
@@ -669,7 +669,7 @@ function benchmarkRuneCountTenJapaneseChars(_b:stdgo.Ref<stdgo._internal.testing
     }
 function benchmarkRuneCountInStringTenASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 runeCountInString(("0123456789" : stdgo.GoString));
             });
@@ -677,7 +677,7 @@ function benchmarkRuneCountInStringTenASCIIChars(_b:stdgo.Ref<stdgo._internal.te
     }
 function benchmarkRuneCountInStringTenJapaneseChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 runeCountInString(("日本語日本語日本語日" : stdgo.GoString));
             });
@@ -686,7 +686,7 @@ function benchmarkRuneCountInStringTenJapaneseChars(_b:stdgo.Ref<stdgo._internal
 function benchmarkValidTenASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _s = (("0123456789" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 valid(_s);
             });
@@ -695,7 +695,7 @@ function benchmarkValidTenASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.Testin
 function benchmarkValid100KASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _s = (_ascii100000 : stdgo.Slice<stdgo.GoByte>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 valid(_s);
             });
@@ -704,7 +704,7 @@ function benchmarkValid100KASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.Testi
 function benchmarkValidTenJapaneseChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _s = (("日本語日本語日本語日" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 valid(_s);
             });
@@ -713,7 +713,7 @@ function benchmarkValidTenJapaneseChars(_b:stdgo.Ref<stdgo._internal.testing.Tes
 function benchmarkValidLongMostlyASCII(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _longMostlyASCII = (_longStringMostlyASCII : stdgo.Slice<stdgo.GoByte>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 valid(_longMostlyASCII);
             });
@@ -722,7 +722,7 @@ function benchmarkValidLongMostlyASCII(_b:stdgo.Ref<stdgo._internal.testing.Test
 function benchmarkValidLongJapanese(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _longJapanese = (_longStringJapanese : stdgo.Slice<stdgo.GoByte>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 valid(_longJapanese);
             });
@@ -730,7 +730,7 @@ function benchmarkValidLongJapanese(_b:stdgo.Ref<stdgo._internal.testing.Testing
     }
 function benchmarkValidStringTenASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 validString(("0123456789" : stdgo.GoString));
             });
@@ -738,7 +738,7 @@ function benchmarkValidStringTenASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.
     }
 function benchmarkValidString100KASCIIChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 validString(_ascii100000?.__copy__());
             });
@@ -746,7 +746,7 @@ function benchmarkValidString100KASCIIChars(_b:stdgo.Ref<stdgo._internal.testing
     }
 function benchmarkValidStringTenJapaneseChars(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 validString(("日本語日本語日本語日" : stdgo.GoString));
             });
@@ -754,7 +754,7 @@ function benchmarkValidStringTenJapaneseChars(_b:stdgo.Ref<stdgo._internal.testi
     }
 function benchmarkValidStringLongMostlyASCII(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 validString(_longStringMostlyASCII?.__copy__());
             });
@@ -762,7 +762,7 @@ function benchmarkValidStringLongMostlyASCII(_b:stdgo.Ref<stdgo._internal.testin
     }
 function benchmarkValidStringLongJapanese(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 validString(_longStringJapanese?.__copy__());
             });
@@ -771,7 +771,7 @@ function benchmarkValidStringLongJapanese(_b:stdgo.Ref<stdgo._internal.testing.T
 function benchmarkEncodeASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 encodeRune(_buf, (97 : stdgo.GoInt32));
             });
@@ -780,7 +780,7 @@ function benchmarkEncodeASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
 function benchmarkEncodeJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 encodeRune(_buf, (26412 : stdgo.GoInt32));
             });
@@ -789,7 +789,7 @@ function benchmarkEncodeJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testin
 function benchmarkAppendASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 appendRune((_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (97 : stdgo.GoInt32));
             });
@@ -798,7 +798,7 @@ function benchmarkAppendASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
 function benchmarkAppendJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 appendRune((_buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (26412 : stdgo.GoInt32));
             });
@@ -807,7 +807,7 @@ function benchmarkAppendJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testin
 function benchmarkDecodeASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _a = (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(97 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 decodeRune(_a);
             });
@@ -816,7 +816,7 @@ function benchmarkDecodeASCIIRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
 function benchmarkDecodeJapaneseRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _nihon = (("本" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 decodeRune(_nihon);
             });
@@ -827,7 +827,7 @@ function benchmarkFullRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
         for (__0 => _bm in _benchmarks) {
             _b.run(_bm._name?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
                 {
-                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                         _boolSink = fullRune(_bm._data);
                     });
@@ -846,7 +846,7 @@ function benchmarkFullRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void
             {};
             var _b:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
             {
-                var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                var _i = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_b.len() < (100000 : stdgo.GoInt) : Bool), _i++, {
                     if ((_i % (100 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                         _b.writeString(("日本語日本語日本語日" : stdgo.GoString));

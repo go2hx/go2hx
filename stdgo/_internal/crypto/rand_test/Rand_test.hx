@@ -13,7 +13,7 @@ import stdgo._internal.crypto.rand.Rand;
     }
 }
 function exampleRead():Void {
-        var _c:stdgo.GoInt = (10 : stdgo.GoInt);
+        var _c = (10 : stdgo.GoInt);
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((_c : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = stdgo._internal.crypto.rand.Rand.read(_b), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -24,7 +24,7 @@ function exampleRead():Void {
     }
 function testPrimeSmall(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
-            var _n:stdgo.GoInt = (2 : stdgo.GoInt);
+            var _n = (2 : stdgo.GoInt);
             stdgo.Go.cfor((_n < (10 : stdgo.GoInt) : Bool), _n++, {
                 var __tmp__ = stdgo._internal.crypto.rand.Rand.prime(stdgo._internal.crypto.rand.Rand.reader, _n), _p:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
@@ -54,7 +54,7 @@ function testPrimeNondeterministic(_t:stdgo.Ref<stdgo._internal.testing.Testing.
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (128 : stdgo.GoInt) : Bool), _i++, {
                 _r.seed((42i64 : stdgo.GoInt64));
                 var __tmp__ = stdgo._internal.crypto.rand.Rand.prime(stdgo.Go.asInterface(_r), (32 : stdgo.GoInt)), _p:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -70,7 +70,7 @@ function testPrimeNondeterministic(_t:stdgo.Ref<stdgo._internal.testing.Testing.
     }
 function testInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
-            var _n:stdgo.GoInt = (128 : stdgo.GoInt);
+            var _n = (128 : stdgo.GoInt);
             stdgo.Go.cfor((_n < (140 : stdgo.GoInt) : Bool), _n++, {
                 var _b = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>).setInt64((_n : stdgo.GoInt64));
                 {
@@ -84,16 +84,16 @@ function testInt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testIntReads(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (32 : stdgo.GoInt) : Bool), _i++, {
-                var _max:stdgo.GoInt64 = ((1i64 : stdgo.GoInt64) << (_i : stdgo.GoUInt64) : stdgo.GoInt64);
+                var _max = ((1i64 : stdgo.GoInt64) << (_i : stdgo.GoUInt64) : stdgo.GoInt64);
                 _t.run(stdgo._internal.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString), stdgo.Go.toInterface(_max))?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     var _reader = (stdgo.Go.setRef(({ _r : stdgo._internal.crypto.rand.Rand.reader } : stdgo._internal.crypto.rand_test.Rand_test.T_countingReader)) : stdgo.Ref<stdgo._internal.crypto.rand_test.Rand_test.T_countingReader>);
                     var __tmp__ = stdgo._internal.crypto.rand.Rand.int_(stdgo.Go.asInterface(_reader), stdgo._internal.math.big.Big.newInt(_max)), __8:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         _t.fatalf(("Can\'t generate random value: %d, %v" : stdgo.GoString), stdgo.Go.toInterface(_max), stdgo.Go.toInterface(_err));
                     };
-                    var _expected:stdgo.GoInt = (((_i + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
+                    var _expected = (((_i + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
                     if (_reader._n != (_expected)) {
                         _t.errorf(("Int(reader, %d) should read %d bytes, but it read: %d" : stdgo.GoString), stdgo.Go.toInterface(_max), stdgo.Go.toInterface(_expected), stdgo.Go.toInterface(_reader._n));
                     };
@@ -103,11 +103,11 @@ function testIntReads(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testIntMask(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
-            var _max:stdgo.GoInt = (1 : stdgo.GoInt);
+            var _max = (1 : stdgo.GoInt);
             stdgo.Go.cfor((_max <= (256 : stdgo.GoInt) : Bool), _max++, {
                 _t.run(stdgo._internal.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString), stdgo.Go.toInterface(_max))?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     {
-                        var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                        var _i = (0 : stdgo.GoInt);
                         stdgo.Go.cfor((_i < _max : Bool), _i++, {
                             if ((stdgo._internal.testing.Testing.short() && (_i == (0 : stdgo.GoInt)) : Bool)) {
                                 _i = (_max - (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -133,7 +133,7 @@ function _testIntPanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _b:std
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
-                        var _err:stdgo.AnyInterface = ({
+                        var _err = ({
                             final r = stdgo.Go.recover_exception;
                             stdgo.Go.recover_exception = null;
                             r;
@@ -178,7 +178,7 @@ function testIntNegativeMaxPanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
 function benchmarkPrime(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _r = stdgo._internal.math.rand.Rand.new_(stdgo._internal.math.rand.Rand.newSource(stdgo._internal.time.Time.now().unixNano()));
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 stdgo._internal.crypto.rand.Rand.prime(stdgo.Go.asInterface(_r), (1024 : stdgo.GoInt));
             });
@@ -199,7 +199,7 @@ class T_countingReader_asInterface {
     @:keep
     static public function read( _r:stdgo.Ref<T_countingReader>, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<T_countingReader> = _r;
-        var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
+        var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         {
             var __tmp__ = _r._r.read(_p);
             _n = __tmp__._0;

@@ -207,8 +207,8 @@ function initialize(_env:stdgo.GoString):Void {
 function _processOptions(_env:stdgo.GoString):Void {
         stdgo._internal.internal.Macro.controlFlow({
             @:label("field") while (_env != (stdgo.Go.str())) {
-                var _field:stdgo.GoString = stdgo.Go.str()?.__copy__();
-                var _i:stdgo.GoInt = _indexByte(_env?.__copy__(), (44 : stdgo.GoUInt8));
+                var _field = stdgo.Go.str()?.__copy__();
+                var _i = _indexByte(_env?.__copy__(), (44 : stdgo.GoUInt8));
                 if ((_i < (0 : stdgo.GoInt) : Bool)) {
                     {
                         final __tmp__0 = _env?.__copy__();
@@ -232,7 +232,8 @@ function _processOptions(_env:stdgo.GoString):Void {
                     stdgo.Go.print(("GODEBUG: no value specified for \"" : stdgo.GoString), _field, ("\"\n" : stdgo.GoString));
                     continue;
                 };
-                var __0:stdgo.GoString = (_field.__slice__((4 : stdgo.GoInt), _i) : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_field.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _value:stdgo.GoString = __1, _key:stdgo.GoString = __0;
+                var __0 = (_field.__slice__((4 : stdgo.GoInt), _i) : stdgo.GoString)?.__copy__(), __1 = (_field.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+var _value = __1, _key = __0;
                 var _enable:Bool = false;
                 {
                     final __value__ = _value;
@@ -275,7 +276,7 @@ function _processOptions(_env:stdgo.GoString):Void {
     }
 function _indexByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
                 if (_s[(_i : stdgo.GoInt)] == (_c)) {
                     return _i;

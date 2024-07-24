@@ -356,8 +356,9 @@ function _newEntry(_i:stdgo.AnyInterface):stdgo.Ref<T_entry> {
 function _throw(_0:stdgo.GoString):Void {}
 function _fatal(_0:stdgo.GoString):Void {}
 function onceFunc(_f:() -> Void):() -> Void {
-        var __0:Once = ({} : stdgo._internal.sync.Sync.Once), __1:Bool = false, __2:stdgo.AnyInterface = (null : stdgo.AnyInterface), _p:stdgo.AnyInterface = __2, _valid:Bool = __1, _once:Once = __0;
-        var _g:() -> Void = function():Void {
+        var __0:Once = ({} : stdgo._internal.sync.Sync.Once), __1:Bool = false, __2:stdgo.AnyInterface = (null : stdgo.AnyInterface);
+var _p = __2, _valid = __1, _once = __0;
+        var _g = function():Void {
             var __deferstack__:Array<Void -> Void> = [];
             try {
                 __deferstack__.unshift(() -> {
@@ -410,8 +411,8 @@ function _fastrandn(_n:stdgo.GoUInt32):stdgo.GoUInt32 {
         throw "not implemented: _fastrandn";
     }
 function _poolRaceAddr(_x:stdgo.AnyInterface):stdgo._internal.unsafe.Unsafe.UnsafePointer {
-        var _ptr:stdgo.GoUIntptr = (((((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.AnyInterface>).__underlying__().value : Dynamic) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, 2) })) : stdgo.Ref<stdgo.GoArray<stdgo._internal.unsafe.Unsafe.UnsafePointer>>)[(1 : stdgo.GoInt)].__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr);
-        var _h:stdgo.GoUInt32 = ((((((_ptr : stdgo.GoUInt32) : stdgo.GoUInt64) * (2246822507i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
+        var _ptr = (((((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.AnyInterface>).__underlying__().value : Dynamic) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, 2) })) : stdgo.Ref<stdgo.GoArray<stdgo._internal.unsafe.Unsafe.UnsafePointer>>)[(1 : stdgo.GoInt)].__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr);
+        var _h = ((((((_ptr : stdgo.GoUInt32) : stdgo.GoUInt64) * (2246822507i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
         return (stdgo.Go.toInterface(stdgo.Go.pointer(_poolRaceHash[((_h % (_poolRaceHash.length : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer);
     }
 function _poolCleanup():Void {
@@ -433,7 +434,7 @@ function _poolCleanup():Void {
         };
     }
 function _indexLocal(_l:stdgo._internal.unsafe.Unsafe.UnsafePointer, _i:stdgo.GoInt):stdgo.Ref<T_poolLocal> {
-        var _lp:stdgo._internal.unsafe.Unsafe.UnsafePointer = (stdgo.Go.toInterface(((_l.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) + ((_i : stdgo.GoUIntptr) * stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo._internal.sync.Sync.T_poolLocal() : stdgo._internal.sync.Sync.T_poolLocal))) : stdgo.GoUIntptr) : stdgo.GoUIntptr)) : stdgo._internal.unsafe.Unsafe.UnsafePointer);
+        var _lp = (stdgo.Go.toInterface(((_l.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) + ((_i : stdgo.GoUIntptr) * stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo._internal.sync.Sync.T_poolLocal() : stdgo._internal.sync.Sync.T_poolLocal))) : stdgo.GoUIntptr) : stdgo.GoUIntptr)) : stdgo._internal.unsafe.Unsafe.UnsafePointer);
         return (_lp.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolLocal", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "_poolLocalInternal", embedded : true, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolLocalInternal", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "_private", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) }, optional : false }, { name : "_shared", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolChain", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "_head", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolChainElt", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "_poolDequeue", embedded : true, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolDequeue", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "_headTail", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_vals", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_eface", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "_typ", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }, { name : "_val", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_next", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolChainElt", [], stdgo._internal.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_prev", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolChainElt", [], stdgo._internal.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }, { name : "_tail", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolChainElt", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "_poolDequeue", embedded : true, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolDequeue", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "_headTail", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }, { name : "_vals", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.sliceType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_eface", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "_typ", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }, { name : "_val", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_next", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolChainElt", [], stdgo._internal.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }, { name : "_prev", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.Sync.T_poolChainElt", [], stdgo._internal.internal.reflect.Reflect.GoType.invalidType, false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }) }, optional : false }]), false, { get : () -> null }) }, optional : false }]), false, { get : () -> null }) }, optional : false }, { name : "_pad", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) }, 112) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<T_poolLocal>);
     }
 function _runtime_registerPoolCleanup(_cleanup:() -> Void):Void {}
@@ -476,7 +477,7 @@ function _runtime_nanotime():stdgo.GoInt64 {
         throw "not implemented: _runtime_nanotime";
     }
 function _syscall_hasWaitingReaders(_rw:stdgo.Ref<RWMutex>):Bool {
-        var _r:stdgo.GoInt32 = _rw._readerCount.load();
+        var _r = _rw._readerCount.load();
         return ((_r < (0 : stdgo.GoInt32) : Bool) && ((_r + (1073741824 : stdgo.GoInt32) : stdgo.GoInt32) > (0 : stdgo.GoInt32) : Bool) : Bool);
     }
 @:keep var _ = {
@@ -519,7 +520,7 @@ class Cond_asInterface {
     static public function wait_( _c:stdgo.Ref<Cond>):Void {
         @:recv var _c:stdgo.Ref<Cond> = _c;
         _c._checker._check(stdgo.Go.pointer(_c._checker));
-        var _t:stdgo.GoUInt32 = _runtime_notifyListAdd((stdgo.Go.setRef(_c._notify) : stdgo.Ref<stdgo._internal.sync.Sync.T_notifyList>));
+        var _t = _runtime_notifyListAdd((stdgo.Go.setRef(_c._notify) : stdgo.Ref<stdgo._internal.sync.Sync.T_notifyList>));
         _c.l.unlock();
         _runtime_notifyListWait((stdgo.Go.setRef(_c._notify) : stdgo.Ref<stdgo._internal.sync.Sync.T_notifyList>), _t);
         _c.l.lock();
@@ -600,7 +601,7 @@ class Map__asInterface {
     @:keep
     static public function range( _m:stdgo.Ref<Map_>, _f:(_key:stdgo.AnyInterface, _value:stdgo.AnyInterface) -> Bool):Void {
         @:recv var _m:stdgo.Ref<Map_> = _m;
-        var _read:stdgo._internal.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        var _read = _m._loadReadOnly()?.__copy__();
         if (_read._amended) {
             _m._mu.lock();
             _read = _m._loadReadOnly()?.__copy__();
@@ -625,8 +626,8 @@ class Map__asInterface {
     @:keep
     static public function compareAndDelete( _m:stdgo.Ref<Map_>, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface):Bool {
         @:recv var _m:stdgo.Ref<Map_> = _m;
-        var _deleted:Bool = false;
-        var _read:stdgo._internal.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        var _deleted = false;
+        var _read = _m._loadReadOnly()?.__copy__();
         var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
         if ((!_ok && _read._amended : Bool)) {
             _m._mu.lock();
@@ -662,7 +663,7 @@ class Map__asInterface {
         @:recv var _m:stdgo.Ref<Map_> = _m;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _read:stdgo._internal.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+            var _read = _m._loadReadOnly()?.__copy__();
             {
                 var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
@@ -674,7 +675,7 @@ class Map__asInterface {
             _m._mu.lock();
             __deferstack__.unshift(() -> _m._mu.unlock());
             _read = _m._loadReadOnly()?.__copy__();
-            var _swapped:Bool = false;
+            var _swapped = false;
             {
                 var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
@@ -717,8 +718,8 @@ class Map__asInterface {
     @:keep
     static public function swap( _m:stdgo.Ref<Map_>, _key:stdgo.AnyInterface, _value:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
         @:recv var _m:stdgo.Ref<Map_> = _m;
-        var _previous:stdgo.AnyInterface = (null : stdgo.AnyInterface), _loaded:Bool = false;
-        var _read:stdgo._internal.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        var _previous = (null : stdgo.AnyInterface), _loaded = false;
+        var _read = _m._loadReadOnly()?.__copy__();
         {
             var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
@@ -778,8 +779,8 @@ class Map__asInterface {
     @:keep
     static public function loadAndDelete( _m:stdgo.Ref<Map_>, _key:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
         @:recv var _m:stdgo.Ref<Map_> = _m;
-        var _value:stdgo.AnyInterface = (null : stdgo.AnyInterface), _loaded:Bool = false;
-        var _read:stdgo._internal.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        var _value = (null : stdgo.AnyInterface), _loaded = false;
+        var _read = _m._loadReadOnly()?.__copy__();
         var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
         if ((!_ok && _read._amended : Bool)) {
             _m._mu.lock();
@@ -808,8 +809,8 @@ class Map__asInterface {
     @:keep
     static public function loadOrStore( _m:stdgo.Ref<Map_>, _key:stdgo.AnyInterface, _value:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
         @:recv var _m:stdgo.Ref<Map_> = _m;
-        var _actual:stdgo.AnyInterface = (null : stdgo.AnyInterface), _loaded:Bool = false;
-        var _read:stdgo._internal.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        var _actual = (null : stdgo.AnyInterface), _loaded = false;
+        var _read = _m._loadReadOnly()?.__copy__();
         {
             var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
@@ -867,8 +868,8 @@ class Map__asInterface {
     @:keep
     static public function load( _m:stdgo.Ref<Map_>, _key:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
         @:recv var _m:stdgo.Ref<Map_> = _m;
-        var _value:stdgo.AnyInterface = (null : stdgo.AnyInterface), _ok:Bool = false;
-        var _read:stdgo._internal.sync.Sync.T_readOnly = _m._loadReadOnly()?.__copy__();
+        var _value = (null : stdgo.AnyInterface), _ok = false;
+        var _read = _m._loadReadOnly()?.__copy__();
         var __tmp__ = (_read._m != null && _read._m.exists(_key) ? { _0 : _read._m[_key], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.sync.Sync.T_entry>), _1 : false }), _e:stdgo.Ref<stdgo._internal.sync.Sync.T_entry> = __tmp__._0, _ok:Bool = __tmp__._1;
         if ((!_ok && _read._amended : Bool)) {
             _m._mu.lock();
@@ -934,7 +935,7 @@ class T_entry_asInterface {
     @:keep
     static public function _tryExpungeLocked( _e:stdgo.Ref<T_entry>):Bool {
         @:recv var _e:stdgo.Ref<T_entry> = _e;
-        var _isExpunged:Bool = false;
+        var _isExpunged = false;
         var _p = _e._p.load((null : stdgo.AnyInterface));
         while (_p == null || (_p : Dynamic).__nil__) {
             if (_e._p.compareAndSwap((null : stdgo.AnyInterface), (null : stdgo.Ref<stdgo.AnyInterface>), _expunged)) {
@@ -960,7 +961,7 @@ class T_entry_asInterface {
     @:keep
     static public function _delete( _e:stdgo.Ref<T_entry>):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
         @:recv var _e:stdgo.Ref<T_entry> = _e;
-        var _value:stdgo.AnyInterface = (null : stdgo.AnyInterface), _ok:Bool = false;
+        var _value = (null : stdgo.AnyInterface), _ok = false;
         while (true) {
             var _p = _e._p.load((null : stdgo.AnyInterface));
             if ((((_p == null) || (_p : Dynamic).__nil__) || (_p == _expunged) : Bool)) {
@@ -974,7 +975,7 @@ class T_entry_asInterface {
     @:keep
     static public function _tryLoadOrStore( _e:stdgo.Ref<T_entry>, _i:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; var _2 : Bool; } {
         @:recv var _e:stdgo.Ref<T_entry> = _e;
-        var _actual:stdgo.AnyInterface = (null : stdgo.AnyInterface), _loaded:Bool = false, _ok:Bool = false;
+        var _actual = (null : stdgo.AnyInterface), _loaded = false, _ok = false;
         var _p = _e._p.load((null : stdgo.AnyInterface));
         if (_p == (_expunged)) {
             return { _0 : (null : stdgo.AnyInterface), _1 : false, _2 : false };
@@ -982,7 +983,7 @@ class T_entry_asInterface {
         if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
             return { _0 : (_p : stdgo.AnyInterface), _1 : true, _2 : true };
         };
-        var _ic:stdgo.AnyInterface = _i;
+        var _ic = _i;
         while (true) {
             if (_e._p.compareAndSwap((null : stdgo.AnyInterface), (null : stdgo.Ref<stdgo.AnyInterface>), (stdgo.Go.setRef(_ic) : stdgo.Ref<stdgo.AnyInterface>))) {
                 return { _0 : _i, _1 : false, _2 : true };
@@ -1004,7 +1005,7 @@ class T_entry_asInterface {
     @:keep
     static public function _unexpungeLocked( _e:stdgo.Ref<T_entry>):Bool {
         @:recv var _e:stdgo.Ref<T_entry> = _e;
-        var _wasExpunged:Bool = false;
+        var _wasExpunged = false;
         return _e._p.compareAndSwap((null : stdgo.AnyInterface), _expunged, (null : stdgo.Ref<stdgo.AnyInterface>));
     }
     @:keep
@@ -1014,7 +1015,7 @@ class T_entry_asInterface {
         if (((_p == null || (_p : Dynamic).__nil__ || _p == (_expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
             return false;
         };
-        var _nc:stdgo.AnyInterface = _new;
+        var _nc = _new;
         while (true) {
             if (_e._p.compareAndSwap((null : stdgo.AnyInterface), _p, (stdgo.Go.setRef(_nc) : stdgo.Ref<stdgo.AnyInterface>))) {
                 return true;
@@ -1028,7 +1029,7 @@ class T_entry_asInterface {
     @:keep
     static public function _load( _e:stdgo.Ref<T_entry>):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
         @:recv var _e:stdgo.Ref<T_entry> = _e;
-        var _value:stdgo.AnyInterface = (null : stdgo.AnyInterface), _ok:Bool = false;
+        var _value = (null : stdgo.AnyInterface), _ok = false;
         var _p = _e._p.load((null : stdgo.AnyInterface));
         if ((((_p == null) || (_p : Dynamic).__nil__) || (_p == _expunged) : Bool)) {
             return { _0 : (null : stdgo.AnyInterface), _1 : false };
@@ -1063,7 +1064,7 @@ class Mutex_asInterface {
             _fatal(("sync: unlock of unlocked mutex" : stdgo.GoString));
         };
         if ((_new & (4 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
-            var _old:stdgo.GoInt32 = _new;
+            var _old = _new;
             while (true) {
                 if ((((_old >> (3i64 : stdgo.GoUInt64) : stdgo.GoInt32) == (0 : stdgo.GoInt32)) || ((_old & (7 : stdgo.GoInt32) : stdgo.GoInt32) != (0 : stdgo.GoInt32)) : Bool)) {
                     return;
@@ -1085,10 +1086,10 @@ class Mutex_asInterface {
     static public function _lockSlow( _m:stdgo.Ref<Mutex>):Void {
         @:recv var _m:stdgo.Ref<Mutex> = _m;
         var _waitStartTime:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _starving:Bool = false;
-        var _awoke:Bool = false;
-        var _iter:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _old:stdgo.GoInt32 = _m._state;
+        var _starving = false;
+        var _awoke = false;
+        var _iter = (0 : stdgo.GoInt);
+        var _old = _m._state;
         while (true) {
             if ((((_old & (5 : stdgo.GoInt32) : stdgo.GoInt32) == (1 : stdgo.GoInt32)) && _runtime_canSpin(_iter) : Bool)) {
                 if ((((!_awoke && (_old & (2 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32)) : Bool) && (_old >> (3i64 : stdgo.GoUInt64) : stdgo.GoInt32) != ((0 : stdgo.GoInt32)) : Bool) && stdgo._internal.sync.atomic_.Atomic_.compareAndSwapInt32(stdgo.Go.pointer(_m._state), _old, (_old | (2 : stdgo.GoInt32) : stdgo.GoInt32)) : Bool)) {
@@ -1099,7 +1100,7 @@ class Mutex_asInterface {
                 _old = _m._state;
                 continue;
             };
-            var _new:stdgo.GoInt32 = _old;
+            var _new = _old;
             if ((_old & (4 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
                 _new = (_new | ((1 : stdgo.GoInt32)) : stdgo.GoInt32);
             };
@@ -1119,7 +1120,7 @@ class Mutex_asInterface {
                 if ((_old & (5 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
                     break;
                 };
-                var _queueLifo:Bool = _waitStartTime != ((0i64 : stdgo.GoInt64));
+                var _queueLifo = _waitStartTime != ((0i64 : stdgo.GoInt64));
                 if (_waitStartTime == ((0i64 : stdgo.GoInt64))) {
                     _waitStartTime = _runtime_nanotime();
                 };
@@ -1130,7 +1131,7 @@ class Mutex_asInterface {
                     if ((((_old & (3 : stdgo.GoInt32) : stdgo.GoInt32) != (0 : stdgo.GoInt32)) || ((_old >> (3i64 : stdgo.GoUInt64) : stdgo.GoInt32) == (0 : stdgo.GoInt32)) : Bool)) {
                         _throw(("sync: inconsistent mutex state" : stdgo.GoString));
                     };
-                    var _delta:stdgo.GoInt32 = (-7 : stdgo.GoInt32);
+                    var _delta = (-7 : stdgo.GoInt32);
                     if ((!_starving || ((_old >> (3i64 : stdgo.GoUInt64) : stdgo.GoInt32) == (1 : stdgo.GoInt32)) : Bool)) {
                         _delta = (_delta - ((4 : stdgo.GoInt32)) : stdgo.GoInt32);
                     };
@@ -1235,9 +1236,9 @@ class Pool_asInterface {
     @:keep
     static public function _pin( _p:stdgo.Ref<Pool>):{ var _0 : stdgo.Ref<T_poolLocal>; var _1 : stdgo.GoInt; } {
         @:recv var _p:stdgo.Ref<Pool> = _p;
-        var _pid:stdgo.GoInt = _runtime_procPin();
-        var _s:stdgo.GoUIntptr = _runtime_LoadAcquintptr(stdgo.Go.pointer(_p._localSize));
-        var _l:stdgo._internal.unsafe.Unsafe.UnsafePointer = _p._local;
+        var _pid = _runtime_procPin();
+        var _s = _runtime_LoadAcquintptr(stdgo.Go.pointer(_p._localSize));
+        var _l = _p._local;
         if (((_pid : stdgo.GoUIntptr) < _s : Bool)) {
             return { _0 : _indexLocal(_l, _pid), _1 : _pid };
         };
@@ -1246,10 +1247,10 @@ class Pool_asInterface {
     @:keep
     static public function _getSlow( _p:stdgo.Ref<Pool>, _pid:stdgo.GoInt):stdgo.AnyInterface {
         @:recv var _p:stdgo.Ref<Pool> = _p;
-        var _size:stdgo.GoUIntptr = _runtime_LoadAcquintptr(stdgo.Go.pointer(_p._localSize));
-        var _locals:stdgo._internal.unsafe.Unsafe.UnsafePointer = _p._local;
+        var _size = _runtime_LoadAcquintptr(stdgo.Go.pointer(_p._localSize));
+        var _locals = _p._local;
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_size : stdgo.GoInt) : Bool), _i++, {
                 var _l = _indexLocal(_locals, ((((_pid + _i : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) % (_size : stdgo.GoInt) : stdgo.GoInt));
                 {
@@ -1267,14 +1268,14 @@ class Pool_asInterface {
         _locals = _p._victim;
         var _l = _indexLocal(_locals, _pid);
         {
-            var _x:stdgo.AnyInterface = _l._poolLocalInternal._private;
+            var _x = _l._poolLocalInternal._private;
             if (_x != null) {
                 _l._poolLocalInternal._private = (null : stdgo.AnyInterface);
                 return _x;
             };
         };
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_size : stdgo.GoInt) : Bool), _i++, {
                 var _l = _indexLocal(_locals, (((_pid + _i : stdgo.GoInt)) % (_size : stdgo.GoInt) : stdgo.GoInt));
                 {
@@ -1344,18 +1345,18 @@ class T_poolDequeue_asInterface {
         @:recv var _d:stdgo.Ref<T_poolDequeue> = _d;
         var _slot:stdgo.Ref<T_eface> = (null : stdgo.Ref<stdgo._internal.sync.Sync.T_eface>);
         while (true) {
-            var _ptrs:stdgo.GoUInt64 = stdgo._internal.sync.atomic_.Atomic_.loadUint64(stdgo.Go.pointer(_d._headTail));
+            var _ptrs = stdgo._internal.sync.atomic_.Atomic_.loadUint64(stdgo.Go.pointer(_d._headTail));
             var __tmp__ = _d._unpack(_ptrs), _head:stdgo.GoUInt32 = __tmp__._0, _tail:stdgo.GoUInt32 = __tmp__._1;
             if (_tail == (_head)) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : false };
             };
-            var _ptrs2:stdgo.GoUInt64 = _d._pack(_head, (_tail + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
+            var _ptrs2 = _d._pack(_head, (_tail + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
             if (stdgo._internal.sync.atomic_.Atomic_.compareAndSwapUint64(stdgo.Go.pointer(_d._headTail), _ptrs, _ptrs2)) {
                 _slot = (stdgo.Go.setRef(_d._vals[((_tail & (((_d._vals.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.sync.Sync.T_eface>);
                 break;
             };
         };
-        var _val:stdgo.AnyInterface = (((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>) : stdgo.AnyInterface);
+        var _val = (((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>) : stdgo.AnyInterface);
         if (_val == (stdgo.Go.toInterface(((null : stdgo._internal.sync.Sync.T_dequeueNil) : T_dequeueNil)))) {
             _val = (null : stdgo.AnyInterface);
         };
@@ -1368,19 +1369,19 @@ class T_poolDequeue_asInterface {
         @:recv var _d:stdgo.Ref<T_poolDequeue> = _d;
         var _slot:stdgo.Ref<T_eface> = (null : stdgo.Ref<stdgo._internal.sync.Sync.T_eface>);
         while (true) {
-            var _ptrs:stdgo.GoUInt64 = stdgo._internal.sync.atomic_.Atomic_.loadUint64(stdgo.Go.pointer(_d._headTail));
+            var _ptrs = stdgo._internal.sync.atomic_.Atomic_.loadUint64(stdgo.Go.pointer(_d._headTail));
             var __tmp__ = _d._unpack(_ptrs), _head:stdgo.GoUInt32 = __tmp__._0, _tail:stdgo.GoUInt32 = __tmp__._1;
             if (_tail == (_head)) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : false };
             };
             _head--;
-            var _ptrs2:stdgo.GoUInt64 = _d._pack(_head, _tail);
+            var _ptrs2 = _d._pack(_head, _tail);
             if (stdgo._internal.sync.atomic_.Atomic_.compareAndSwapUint64(stdgo.Go.pointer(_d._headTail), _ptrs, _ptrs2)) {
                 _slot = (stdgo.Go.setRef(_d._vals[((_head & (((_d._vals.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.sync.Sync.T_eface>);
                 break;
             };
         };
-        var _val:stdgo.AnyInterface = (((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>) : stdgo.AnyInterface);
+        var _val = (((stdgo.Go.toInterface(_slot) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(true, []) })) : stdgo.Ref<stdgo.AnyInterface>) : stdgo.AnyInterface);
         if (_val == (stdgo.Go.toInterface(((null : stdgo._internal.sync.Sync.T_dequeueNil) : T_dequeueNil)))) {
             _val = (null : stdgo.AnyInterface);
         };
@@ -1394,13 +1395,13 @@ class T_poolDequeue_asInterface {
     @:keep
     static public function _pushHead( _d:stdgo.Ref<T_poolDequeue>, _val:stdgo.AnyInterface):Bool {
         @:recv var _d:stdgo.Ref<T_poolDequeue> = _d;
-        var _ptrs:stdgo.GoUInt64 = stdgo._internal.sync.atomic_.Atomic_.loadUint64(stdgo.Go.pointer(_d._headTail));
+        var _ptrs = stdgo._internal.sync.atomic_.Atomic_.loadUint64(stdgo.Go.pointer(_d._headTail));
         var __tmp__ = _d._unpack(_ptrs), _head:stdgo.GoUInt32 = __tmp__._0, _tail:stdgo.GoUInt32 = __tmp__._1;
         if ((((_tail + (_d._vals.length : stdgo.GoUInt32) : stdgo.GoUInt32)) & (-1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == (_head)) {
             return false;
         };
         var _slot = (stdgo.Go.setRef(_d._vals[((_head & (((_d._vals.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.sync.Sync.T_eface>);
-        var _typ:stdgo._internal.unsafe.Unsafe.UnsafePointer = stdgo._internal.sync.atomic_.Atomic_.loadPointer(stdgo.Go.pointer(_slot._typ));
+        var _typ = stdgo._internal.sync.atomic_.Atomic_.loadPointer(stdgo.Go.pointer(_slot._typ));
         if (_typ != null) {
             return false;
         };
@@ -1420,7 +1421,7 @@ class T_poolDequeue_asInterface {
     @:keep
     static public function _unpack( _d:stdgo.Ref<T_poolDequeue>, _ptrs:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
         @:recv var _d:stdgo.Ref<T_poolDequeue> = _d;
-        var _head:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _tail:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _head = (0 : stdgo.GoUInt32), _tail = (0 : stdgo.GoUInt32);
         {};
         _head = ((((_ptrs >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
         _tail = ((_ptrs & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
@@ -1517,7 +1518,7 @@ class T_poolChain_asInterface {
         if (_d._pushHead(_val)) {
             return;
         };
-        var _newSize:stdgo.GoInt = ((_d._poolDequeue._vals.length) * (2 : stdgo.GoInt) : stdgo.GoInt);
+        var _newSize = ((_d._poolDequeue._vals.length) * (2 : stdgo.GoInt) : stdgo.GoInt);
         if ((_newSize >= (1073741824 : stdgo.GoInt) : Bool)) {
             _newSize = (1073741824 : stdgo.GoInt);
         };
@@ -1629,13 +1630,13 @@ class RWMutex_asInterface {
             stdgo._internal.internal.race.Race.release((stdgo.Go.toInterface(stdgo.Go.pointer(_rw._readerSem)) : stdgo._internal.unsafe.Unsafe.UnsafePointer));
             stdgo._internal.internal.race.Race.disable();
         };
-        var _r:stdgo.GoInt32 = _rw._readerCount.add((1073741824 : stdgo.GoInt32));
+        var _r = _rw._readerCount.add((1073741824 : stdgo.GoInt32));
         if ((_r >= (1073741824 : stdgo.GoInt32) : Bool)) {
             stdgo._internal.internal.race.Race.enable();
             _fatal(("sync: Unlock of unlocked RWMutex" : stdgo.GoString));
         };
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_r : stdgo.GoInt) : Bool), _i++, {
                 _runtime_Semrelease(stdgo.Go.pointer(_rw._readerSem), false, (0 : stdgo.GoInt));
             });
@@ -1680,7 +1681,7 @@ class RWMutex_asInterface {
             stdgo._internal.internal.race.Race.disable();
         };
         _rw._w.lock();
-        var _r:stdgo.GoInt32 = (_rw._readerCount.add((-1073741824 : stdgo.GoInt32)) + (1073741824 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _r = (_rw._readerCount.add((-1073741824 : stdgo.GoInt32)) + (1073741824 : stdgo.GoInt32) : stdgo.GoInt32);
         if (((_r != (0 : stdgo.GoInt32)) && (_rw._readerWait.add(_r) != (0 : stdgo.GoInt32)) : Bool)) {
             _runtime_SemacquireRWMutex(stdgo.Go.pointer(_rw._writerSem), false, (0 : stdgo.GoInt));
         };
@@ -1710,7 +1711,7 @@ class RWMutex_asInterface {
             stdgo._internal.internal.race.Race.disable();
         };
         {
-            var _r:stdgo.GoInt32 = _rw._readerCount.add((-1 : stdgo.GoInt32));
+            var _r = _rw._readerCount.add((-1 : stdgo.GoInt32));
             if ((_r < (0 : stdgo.GoInt32) : Bool)) {
                 _rw._rUnlockSlow(_r);
             };
@@ -1727,7 +1728,7 @@ class RWMutex_asInterface {
             stdgo._internal.internal.race.Race.disable();
         };
         while (true) {
-            var _c:stdgo.GoInt32 = _rw._readerCount.load();
+            var _c = _rw._readerCount.load();
             if ((_c < (0 : stdgo.GoInt32) : Bool)) {
                 if (false) {
                     stdgo._internal.internal.race.Race.enable();

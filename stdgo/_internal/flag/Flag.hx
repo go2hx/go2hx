@@ -173,11 +173,11 @@ function _newDurationValue(_val:stdgo._internal.time.Time.Duration, _p:stdgo.Poi
         return new stdgo.Pointer<stdgo._internal.flag.Flag.T_durationValue>(() -> (_p.value : stdgo._internal.flag.Flag.T_durationValue), v -> (_p.value = (v : stdgo._internal.time.Time.Duration) : stdgo._internal.flag.Flag.T_durationValue));
     }
 function _newTextValue(_val:stdgo._internal.encoding.Encoding.TextMarshaler, _p:stdgo._internal.encoding.Encoding.TextUnmarshaler):T_textValue {
-        var _ptrVal:stdgo._internal.reflect.Reflect.Value = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_p))?.__copy__();
+        var _ptrVal = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_p))?.__copy__();
         if (_ptrVal.kind() != ((22u32 : stdgo._internal.reflect.Reflect.Kind))) {
             throw stdgo.Go.toInterface(("variable value type must be a pointer" : stdgo.GoString));
         };
-        var _defVal:stdgo._internal.reflect.Reflect.Value = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_val))?.__copy__();
+        var _defVal = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_val))?.__copy__();
         if (_defVal.kind() == ((22u32 : stdgo._internal.reflect.Reflect.Kind))) {
             _defVal = _defVal.elem()?.__copy__();
         };
@@ -189,7 +189,7 @@ function _newTextValue(_val:stdgo._internal.encoding.Encoding.TextMarshaler, _p:
     }
 function _sortFlags(_flags:stdgo.GoMap<stdgo.GoString, stdgo.Ref<Flag>>):stdgo.Slice<stdgo.Ref<Flag>> {
         var _result = (new stdgo.Slice<stdgo.Ref<stdgo._internal.flag.Flag.Flag>>((_flags.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.flag.Flag.Flag>>);
-        var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i = (0 : stdgo.GoInt);
         for (__0 => _f in _flags) {
             _result[(_i : stdgo.GoInt)] = _f;
             _i++;
@@ -213,9 +213,9 @@ function set(_name:stdgo.GoString, _value:stdgo.GoString):stdgo.Error {
     }
 function _isZeroValue(_flag:stdgo.Ref<Flag>, _value:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
-        var _ok:Bool = false, _err:stdgo.Error = (null : stdgo.Error);
+        var _ok = false, _err = (null : stdgo.Error);
         try {
-            var _typ:stdgo._internal.reflect.Reflect.Type_ = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(_flag.value));
+            var _typ = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(_flag.value));
             var _z:stdgo._internal.reflect.Reflect.Value = ({} : stdgo._internal.reflect.Reflect.Value);
             if (_typ.kind() == ((22u32 : stdgo._internal.reflect.Reflect.Kind))) {
                 _z = stdgo._internal.reflect.Reflect.new_(_typ.elem())?.__copy__();
@@ -225,7 +225,7 @@ function _isZeroValue(_flag:stdgo.Ref<Flag>, _value:stdgo.GoString):{ var _0 : B
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
-                        var _e:stdgo.AnyInterface = ({
+                        var _e = ({
                             final r = stdgo.Go.recover_exception;
                             stdgo.Go.recover_exception = null;
                             r;
@@ -271,14 +271,14 @@ function _isZeroValue(_flag:stdgo.Ref<Flag>, _value:stdgo.GoString):{ var _0 : B
         };
     }
 function unquoteUsage(_flag:stdgo.Ref<Flag>):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
-        var _name:stdgo.GoString = ("" : stdgo.GoString), _usage:stdgo.GoString = ("" : stdgo.GoString);
+        var _name = ("" : stdgo.GoString), _usage = ("" : stdgo.GoString);
         _usage = _flag.usage?.__copy__();
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_usage.length) : Bool), _i++, {
                 if (_usage[(_i : stdgo.GoInt)] == ((96 : stdgo.GoUInt8))) {
                     {
-                        var _j:stdgo.GoInt = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        var _j = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                         stdgo.Go.cfor((_j < (_usage.length) : Bool), _j++, {
                             if (_usage[(_j : stdgo.GoInt)] == ((96 : stdgo.GoUInt8))) {
                                 _name = (_usage.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _j) : stdgo.GoString)?.__copy__();
@@ -600,11 +600,11 @@ class FlagSet_asInterface {
         if ((_f._args.length) == ((0 : stdgo.GoInt))) {
             return { _0 : false, _1 : (null : stdgo.Error) };
         };
-        var _s:stdgo.GoString = _f._args[(0 : stdgo.GoInt)]?.__copy__();
+        var _s = _f._args[(0 : stdgo.GoInt)]?.__copy__();
         if ((((_s.length) < (2 : stdgo.GoInt) : Bool) || (_s[(0 : stdgo.GoInt)] != (45 : stdgo.GoUInt8)) : Bool)) {
             return { _0 : false, _1 : (null : stdgo.Error) };
         };
-        var _numMinuses:stdgo.GoInt = (1 : stdgo.GoInt);
+        var _numMinuses = (1 : stdgo.GoInt);
         if (_s[(1 : stdgo.GoInt)] == ((45 : stdgo.GoUInt8))) {
             _numMinuses++;
             if ((_s.length) == ((2 : stdgo.GoInt))) {
@@ -612,15 +612,15 @@ class FlagSet_asInterface {
                 return { _0 : false, _1 : (null : stdgo.Error) };
             };
         };
-        var _name:stdgo.GoString = (_s.__slice__(_numMinuses) : stdgo.GoString)?.__copy__();
+        var _name = (_s.__slice__(_numMinuses) : stdgo.GoString)?.__copy__();
         if ((((_name.length) == ((0 : stdgo.GoInt)) || _name[(0 : stdgo.GoInt)] == ((45 : stdgo.GoUInt8)) : Bool) || (_name[(0 : stdgo.GoInt)] == (61 : stdgo.GoUInt8)) : Bool)) {
             return { _0 : false, _1 : _f._failf(("bad flag syntax: %s" : stdgo.GoString), stdgo.Go.toInterface(_s)) };
         };
         _f._args = (_f._args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
-        var _hasValue:Bool = false;
-        var _value:stdgo.GoString = stdgo.Go.str()?.__copy__();
+        var _hasValue = false;
+        var _value = stdgo.Go.str()?.__copy__();
         {
-            var _i:stdgo.GoInt = (1 : stdgo.GoInt);
+            var _i = (1 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_name.length) : Bool), _i++, {
                 if (_name[(_i : stdgo.GoInt)] == ((61 : stdgo.GoUInt8))) {
                     _value = (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
@@ -647,14 +647,14 @@ class FlagSet_asInterface {
             if ((_ok && _fv.isBoolFlag() : Bool)) {
                 if (_hasValue) {
                     {
-                        var _err:stdgo.Error = _fv.set(_value?.__copy__());
+                        var _err = _fv.set(_value?.__copy__());
                         if (_err != null) {
                             return { _0 : false, _1 : _f._failf(("invalid boolean value %q for -%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_value), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err)) };
                         };
                     };
                 } else {
                     {
-                        var _err:stdgo.Error = _fv.set(("true" : stdgo.GoString));
+                        var _err = _fv.set(("true" : stdgo.GoString));
                         if (_err != null) {
                             return { _0 : false, _1 : _f._failf(("invalid boolean flag %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err)) };
                         };
@@ -674,7 +674,7 @@ class FlagSet_asInterface {
                     return { _0 : false, _1 : _f._failf(("flag needs an argument: -%s" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
                 };
                 {
-                    var _err:stdgo.Error = _flag.value.set(_value?.__copy__());
+                    var _err = _flag.value.set(_value?.__copy__());
                     if (_err != null) {
                         return { _0 : false, _1 : _f._failf(("invalid value %q for flag -%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_value), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_err)) };
                     };
@@ -685,7 +685,7 @@ class FlagSet_asInterface {
             _f._actual = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.flag.Flag.Flag>>();
                 x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.flag.Flag.Flag>);
-                @:mergeBlock {};
+                {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>);
         };
@@ -705,7 +705,7 @@ class FlagSet_asInterface {
     static public function _failf( _f:stdgo.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.Error {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         @:recv var _f:stdgo.Ref<FlagSet> = _f;
-        var _msg:stdgo.GoString = _f._sprintf(_format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>))?.__copy__();
+        var _msg = _f._sprintf(_format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>))?.__copy__();
         _f._usage();
         return stdgo._internal.errors.Errors.new_(_msg?.__copy__());
     }
@@ -713,7 +713,7 @@ class FlagSet_asInterface {
     static public function _sprintf( _f:stdgo.Ref<FlagSet>, _format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString {
         var _a = new stdgo.Slice<stdgo.AnyInterface>(_a.length, 0, ..._a);
         @:recv var _f:stdgo.Ref<FlagSet> = _f;
-        var _msg:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>))?.__copy__();
+        var _msg = stdgo._internal.fmt.Fmt.sprintf(_format?.__copy__(), ...(_a : Array<stdgo.AnyInterface>))?.__copy__();
         stdgo._internal.fmt.Fmt.fprintln(_f.output(), stdgo.Go.toInterface(_msg));
         return _msg?.__copy__();
     }
@@ -737,7 +737,7 @@ class FlagSet_asInterface {
             throw stdgo.Go.toInterface(_msg);
         };
         {
-            var _pos:stdgo.GoString = (_f._undef[_name] ?? ("" : stdgo.GoString))?.__copy__();
+            var _pos = (_f._undef[_name] ?? ("" : stdgo.GoString))?.__copy__();
             if (_pos != (stdgo.Go.str())) {
                 throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("flag %s set at %s before being defined" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_pos)));
             };
@@ -746,7 +746,7 @@ class FlagSet_asInterface {
             _f._formal = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.flag.Flag.Flag>>();
                 x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.flag.Flag.Flag>);
-                @:mergeBlock {};
+                {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>);
         };
@@ -959,14 +959,14 @@ class FlagSet_asInterface {
                 _f._undef = ({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
                     x.__defaultValue__ = () -> ("" : stdgo.GoString);
-                    @:mergeBlock {};
+                    {};
                     x;
                 } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
             };
             _f._undef[_name] = stdgo._internal.fmt.Fmt.sprintf(("%s:%d" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_line))?.__copy__();
             return stdgo._internal.fmt.Fmt.errorf(("no such flag -%v" : stdgo.GoString), stdgo.Go.toInterface(_name));
         };
-        var _err:stdgo.Error = _flag.value.set(_value?.__copy__());
+        var _err = _flag.value.set(_value?.__copy__());
         if (_err != null) {
             return _err;
         };
@@ -974,7 +974,7 @@ class FlagSet_asInterface {
             _f._actual = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.flag.Flag.Flag>>();
                 x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.flag.Flag.Flag>);
-                @:mergeBlock {};
+                {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag.Flag>>);
         };

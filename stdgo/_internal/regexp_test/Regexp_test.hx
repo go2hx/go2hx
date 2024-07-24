@@ -154,7 +154,7 @@ function exampleRegexp_SubexpNames():Void {
         var _re = stdgo._internal.regexp.Regexp.mustCompile(("(?P<first>[a-zA-Z]+) (?P<last>[a-zA-Z]+)" : stdgo.GoString));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_re.matchString(("Alan Turing" : stdgo.GoString))));
         stdgo._internal.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(_re.subexpNames()));
-        var _reversed:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("${%s} ${%s}" : stdgo.GoString), stdgo.Go.toInterface(_re.subexpNames()[(2 : stdgo.GoInt)]), stdgo.Go.toInterface(_re.subexpNames()[(1 : stdgo.GoInt)]))?.__copy__();
+        var _reversed = stdgo._internal.fmt.Fmt.sprintf(("${%s} ${%s}" : stdgo.GoString), stdgo.Go.toInterface(_re.subexpNames()[(2 : stdgo.GoInt)]), stdgo.Go.toInterface(_re.subexpNames()[(1 : stdgo.GoInt)]))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_reversed));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_re.replaceAllString(("Alan Turing" : stdgo.GoString), _reversed?.__copy__())));
     }
@@ -162,7 +162,7 @@ function exampleRegexp_SubexpIndex():Void {
         var _re = stdgo._internal.regexp.Regexp.mustCompile(("(?P<first>[a-zA-Z]+) (?P<last>[a-zA-Z]+)" : stdgo.GoString));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_re.matchString(("Alan Turing" : stdgo.GoString))));
         var _matches = _re.findStringSubmatch(("Alan Turing" : stdgo.GoString));
-        var _lastIndex:stdgo.GoInt = _re.subexpIndex(("last" : stdgo.GoString));
+        var _lastIndex = _re.subexpIndex(("last" : stdgo.GoString));
         stdgo._internal.fmt.Fmt.printf(("last => %d\n" : stdgo.GoString), stdgo.Go.toInterface(_lastIndex));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_matches[(_lastIndex : stdgo.GoInt)]));
     }
@@ -189,9 +189,9 @@ function exampleRegexp_Expand():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface((_result : stdgo.GoString)));
     }
 function exampleRegexp_ExpandString():Void {
-        var _content:stdgo.GoString = ("\n\t# comment line\n\toption1: value1\n\toption2: value2\n\n\t# another comment line\n\toption3: value3\n" : stdgo.GoString);
+        var _content = ("\n\t# comment line\n\toption1: value1\n\toption2: value2\n\n\t# another comment line\n\toption3: value3\n" : stdgo.GoString);
         var _pattern = stdgo._internal.regexp.Regexp.mustCompile(("(?m)(?P<key>\\w+):\\s+(?P<value>\\w+)$" : stdgo.GoString));
-        var _template:stdgo.GoString = ("$key=$value\n" : stdgo.GoString);
+        var _template = ("$key=$value\n" : stdgo.GoString);
         var _result = (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         for (__0 => _submatches in _pattern.findAllStringSubmatchIndex(_content?.__copy__(), (-1 : stdgo.GoInt))) {
             _result = _pattern.expandString(_result, _template?.__copy__(), _content?.__copy__(), _submatches);

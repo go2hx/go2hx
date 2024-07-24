@@ -13,18 +13,18 @@ var _uint8Array : stdgo._internal.syscall.js.Js.Value = stdgo._internal.syscall.
     }
 }
 function read(_b:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
-        var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
+        var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return stdgo._internal.io.Io.readFull(reader, _b);
     }
 function _batched(_f:stdgo.Slice<stdgo.GoByte> -> stdgo.Error, _readMax:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> -> stdgo.Error {
         return function(_out:stdgo.Slice<stdgo.GoByte>):stdgo.Error {
             while (((_out.length) > (0 : stdgo.GoInt) : Bool)) {
-                var _read:stdgo.GoInt = (_out.length);
+                var _read = (_out.length);
                 if ((_read > _readMax : Bool)) {
                     _read = _readMax;
                 };
                 {
-                    var _err:stdgo.Error = _f((_out.__slice__(0, _read) : stdgo.Slice<stdgo.GoUInt8>));
+                    var _err = _f((_out.__slice__(0, _read) : stdgo.Slice<stdgo.GoUInt8>));
                     if (_err != null) {
                         return _err;
                     };
@@ -35,7 +35,7 @@ function _batched(_f:stdgo.Slice<stdgo.GoByte> -> stdgo.Error, _readMax:stdgo.Go
         };
     }
 function _getRandom(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Error {
-        var _a:stdgo._internal.syscall.js.Js.Value = _uint8Array.new_(stdgo.Go.toInterface((_b.length)))?.__copy__();
+        var _a = _uint8Array.new_(stdgo.Go.toInterface((_b.length)))?.__copy__();
         _jsCrypto.call(("getRandomValues" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)));
         stdgo._internal.syscall.js.Js.copyBytesToGo(_b, _a?.__copy__());
         return (null : stdgo.Error);
@@ -77,7 +77,7 @@ function prime(_rand:stdgo._internal.io.Io.Reader, _bits:stdgo.GoInt):{ var _0 :
             return { _0 : null, _1 : stdgo._internal.errors.Errors.new_(("crypto/rand: prime size must be at least 2-bit" : stdgo.GoString)) };
         };
         stdgo._internal.crypto.internal.randutil.Randutil.maybeReadByte(_rand);
-        var _b:stdgo.GoUInt = ((_bits % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt);
+        var _b = ((_bits % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt);
         if (_b == ((0u32 : stdgo.GoUInt))) {
             _b = (8u32 : stdgo.GoUInt);
         };
@@ -107,18 +107,18 @@ function prime(_rand:stdgo._internal.io.Io.Reader, _bits:stdgo.GoInt):{ var _0 :
         };
     }
 function int_(_rand:stdgo._internal.io.Io.Reader, _max:stdgo.Ref<stdgo._internal.math.big.Big.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big.Int_>; var _1 : stdgo.Error; } {
-        var _n:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big.Int_>), _err:stdgo.Error = (null : stdgo.Error);
+        var _n = (null : stdgo.Ref<stdgo._internal.math.big.Big.Int_>), _err = (null : stdgo.Error);
         if ((_max.sign() <= (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("crypto/rand: argument to Int is <= 0" : stdgo.GoString));
         };
         _n = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
         _n.sub(_max, _n.setUint64((1i64 : stdgo.GoUInt64)));
-        var _bitLen:stdgo.GoInt = _n.bitLen();
+        var _bitLen = _n.bitLen();
         if (_bitLen == ((0 : stdgo.GoInt))) {
             return { _0 : _n, _1 : _err };
         };
-        var _k:stdgo.GoInt = (((_bitLen + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
-        var _b:stdgo.GoUInt = ((_bitLen % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt);
+        var _k = (((_bitLen + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
+        var _b = ((_bitLen % (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt);
         if (_b == ((0u32 : stdgo.GoUInt))) {
             _b = (8u32 : stdgo.GoUInt);
         };
@@ -161,7 +161,7 @@ class T_reader_asInterface {
     static public function read( _r:stdgo.Ref<T_reader>, _b:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<T_reader> = _r;
         {
-            var _err:stdgo.Error = _batchedGetRandom(_b);
+            var _err = _batchedGetRandom(_b);
             if (_err != null) {
                 return { _0 : (0 : stdgo.GoInt), _1 : _err };
             };

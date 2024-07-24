@@ -9,51 +9,47 @@ final _arch32 : Bool = true;
 var _hammer32 : stdgo.GoMap<stdgo.GoString, (stdgo.Pointer<stdgo.GoUInt32>, stdgo.GoInt) -> Void> = ({
         final x = new stdgo.GoMap.GoStringMap<(stdgo.Pointer<stdgo.GoUInt32>, stdgo.GoInt) -> Void>();
         x.__defaultValue__ = () -> null;
-        @:mergeBlock {
-            x.set(("SwapInt32" : stdgo.GoString), _hammerSwapInt32);
-            x.set(("SwapUint32" : stdgo.GoString), _hammerSwapUint32);
-            x.set(("SwapUintptr" : stdgo.GoString), _hammerSwapUintptr32);
-            x.set(("AddInt32" : stdgo.GoString), _hammerAddInt32);
-            x.set(("AddUint32" : stdgo.GoString), _hammerAddUint32);
-            x.set(("AddUintptr" : stdgo.GoString), _hammerAddUintptr32);
-            x.set(("CompareAndSwapInt32" : stdgo.GoString), _hammerCompareAndSwapInt32);
-            x.set(("CompareAndSwapUint32" : stdgo.GoString), _hammerCompareAndSwapUint32);
-            x.set(("CompareAndSwapUintptr" : stdgo.GoString), _hammerCompareAndSwapUintptr32);
-            x.set(("SwapInt32Method" : stdgo.GoString), _hammerSwapInt32Method);
-            x.set(("SwapUint32Method" : stdgo.GoString), _hammerSwapUint32Method);
-            x.set(("SwapUintptrMethod" : stdgo.GoString), _hammerSwapUintptr32Method);
-            x.set(("AddInt32Method" : stdgo.GoString), _hammerAddInt32Method);
-            x.set(("AddUint32Method" : stdgo.GoString), _hammerAddUint32Method);
-            x.set(("AddUintptrMethod" : stdgo.GoString), _hammerAddUintptr32Method);
-            x.set(("CompareAndSwapInt32Method" : stdgo.GoString), _hammerCompareAndSwapInt32Method);
-            x.set(("CompareAndSwapUint32Method" : stdgo.GoString), _hammerCompareAndSwapUint32Method);
-            x.set(("CompareAndSwapUintptrMethod" : stdgo.GoString), _hammerCompareAndSwapUintptr32Method);
-        };
+        x.set(("SwapInt32" : stdgo.GoString), _hammerSwapInt32);
+x.set(("SwapUint32" : stdgo.GoString), _hammerSwapUint32);
+x.set(("SwapUintptr" : stdgo.GoString), _hammerSwapUintptr32);
+x.set(("AddInt32" : stdgo.GoString), _hammerAddInt32);
+x.set(("AddUint32" : stdgo.GoString), _hammerAddUint32);
+x.set(("AddUintptr" : stdgo.GoString), _hammerAddUintptr32);
+x.set(("CompareAndSwapInt32" : stdgo.GoString), _hammerCompareAndSwapInt32);
+x.set(("CompareAndSwapUint32" : stdgo.GoString), _hammerCompareAndSwapUint32);
+x.set(("CompareAndSwapUintptr" : stdgo.GoString), _hammerCompareAndSwapUintptr32);
+x.set(("SwapInt32Method" : stdgo.GoString), _hammerSwapInt32Method);
+x.set(("SwapUint32Method" : stdgo.GoString), _hammerSwapUint32Method);
+x.set(("SwapUintptrMethod" : stdgo.GoString), _hammerSwapUintptr32Method);
+x.set(("AddInt32Method" : stdgo.GoString), _hammerAddInt32Method);
+x.set(("AddUint32Method" : stdgo.GoString), _hammerAddUint32Method);
+x.set(("AddUintptrMethod" : stdgo.GoString), _hammerAddUintptr32Method);
+x.set(("CompareAndSwapInt32Method" : stdgo.GoString), _hammerCompareAndSwapInt32Method);
+x.set(("CompareAndSwapUint32Method" : stdgo.GoString), _hammerCompareAndSwapUint32Method);
+x.set(("CompareAndSwapUintptrMethod" : stdgo.GoString), _hammerCompareAndSwapUintptr32Method);
         x;
     } : stdgo.GoMap<stdgo.GoString, (stdgo.Pointer<stdgo.GoUInt32>, stdgo.GoInt) -> Void>);
 var _hammer64 : stdgo.GoMap<stdgo.GoString, (stdgo.Pointer<stdgo.GoUInt64>, stdgo.GoInt) -> Void> = ({
         final x = new stdgo.GoMap.GoStringMap<(stdgo.Pointer<stdgo.GoUInt64>, stdgo.GoInt) -> Void>();
         x.__defaultValue__ = () -> null;
-        @:mergeBlock {
-            x.set(("SwapInt64" : stdgo.GoString), _hammerSwapInt64);
-            x.set(("SwapUint64" : stdgo.GoString), _hammerSwapUint64);
-            x.set(("SwapUintptr" : stdgo.GoString), _hammerSwapUintptr64);
-            x.set(("AddInt64" : stdgo.GoString), _hammerAddInt64);
-            x.set(("AddUint64" : stdgo.GoString), _hammerAddUint64);
-            x.set(("AddUintptr" : stdgo.GoString), _hammerAddUintptr64);
-            x.set(("CompareAndSwapInt64" : stdgo.GoString), _hammerCompareAndSwapInt64);
-            x.set(("CompareAndSwapUint64" : stdgo.GoString), _hammerCompareAndSwapUint64);
-            x.set(("CompareAndSwapUintptr" : stdgo.GoString), _hammerCompareAndSwapUintptr64);
-            x.set(("SwapInt64Method" : stdgo.GoString), _hammerSwapInt64Method);
-            x.set(("SwapUint64Method" : stdgo.GoString), _hammerSwapUint64Method);
-            x.set(("SwapUintptrMethod" : stdgo.GoString), _hammerSwapUintptr64Method);
-            x.set(("AddInt64Method" : stdgo.GoString), _hammerAddInt64Method);
-            x.set(("AddUint64Method" : stdgo.GoString), _hammerAddUint64Method);
-            x.set(("AddUintptrMethod" : stdgo.GoString), _hammerAddUintptr64Method);
-            x.set(("CompareAndSwapInt64Method" : stdgo.GoString), _hammerCompareAndSwapInt64Method);
-            x.set(("CompareAndSwapUint64Method" : stdgo.GoString), _hammerCompareAndSwapUint64Method);
-            x.set(("CompareAndSwapUintptrMethod" : stdgo.GoString), _hammerCompareAndSwapUintptr64Method);
-        };
+        x.set(("SwapInt64" : stdgo.GoString), _hammerSwapInt64);
+x.set(("SwapUint64" : stdgo.GoString), _hammerSwapUint64);
+x.set(("SwapUintptr" : stdgo.GoString), _hammerSwapUintptr64);
+x.set(("AddInt64" : stdgo.GoString), _hammerAddInt64);
+x.set(("AddUint64" : stdgo.GoString), _hammerAddUint64);
+x.set(("AddUintptr" : stdgo.GoString), _hammerAddUintptr64);
+x.set(("CompareAndSwapInt64" : stdgo.GoString), _hammerCompareAndSwapInt64);
+x.set(("CompareAndSwapUint64" : stdgo.GoString), _hammerCompareAndSwapUint64);
+x.set(("CompareAndSwapUintptr" : stdgo.GoString), _hammerCompareAndSwapUintptr64);
+x.set(("SwapInt64Method" : stdgo.GoString), _hammerSwapInt64Method);
+x.set(("SwapUint64Method" : stdgo.GoString), _hammerSwapUint64Method);
+x.set(("SwapUintptrMethod" : stdgo.GoString), _hammerSwapUintptr64Method);
+x.set(("AddInt64Method" : stdgo.GoString), _hammerAddInt64Method);
+x.set(("AddUint64Method" : stdgo.GoString), _hammerAddUint64Method);
+x.set(("AddUintptrMethod" : stdgo.GoString), _hammerAddUintptr64Method);
+x.set(("CompareAndSwapInt64Method" : stdgo.GoString), _hammerCompareAndSwapInt64Method);
+x.set(("CompareAndSwapUint64Method" : stdgo.GoString), _hammerCompareAndSwapUint64Method);
+x.set(("CompareAndSwapUintptrMethod" : stdgo.GoString), _hammerCompareAndSwapUintptr64Method);
         x;
     } : stdgo.GoMap<stdgo.GoString, (stdgo.Pointer<stdgo.GoUInt64>, stdgo.GoInt) -> Void>);
 var value_SwapTests : stdgo.Slice<T__struct_14> = (new stdgo.Slice<T__struct_14>(4, 4, ...[({ _init : (null : stdgo.AnyInterface), _new : (null : stdgo.AnyInterface), _err : stdgo.Go.toInterface(("sync/atomic: swap of nil value into Value" : stdgo.GoString)), _want : (null : stdgo.AnyInterface) } : T__struct_14), ({ _init : (null : stdgo.AnyInterface), _new : stdgo.Go.toInterface(true), _want : (null : stdgo.AnyInterface), _err : (null : stdgo.AnyInterface) } : T__struct_14), ({ _init : stdgo.Go.toInterface(true), _new : stdgo.Go.toInterface(stdgo.Go.str()), _err : stdgo.Go.toInterface(("sync/atomic: swap of inconsistently typed value into Value" : stdgo.GoString)), _want : (null : stdgo.AnyInterface) } : T__struct_14), ({ _init : stdgo.Go.toInterface(true), _new : stdgo.Go.toInterface(false), _want : stdgo.Go.toInterface(true), _err : (null : stdgo.AnyInterface) } : T__struct_14)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _init : (null : stdgo.AnyInterface), _new : (null : stdgo.AnyInterface), _want : (null : stdgo.AnyInterface), _err : (null : stdgo.AnyInterface) } : T__struct_14)])) : stdgo.Slice<T__struct_14>);
@@ -367,9 +363,9 @@ function testSwapInt32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _x._after = (233684719 : stdgo.GoInt32);
         var _j:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         {
-            var _delta:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _delta = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt32), {
-                var _k:stdgo.GoInt32 = swapInt32(stdgo.Go.pointer(_x._i), _delta);
+                var _k = swapInt32(stdgo.Go.pointer(_x._i), _delta);
                 if (((_x._i != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -386,9 +382,9 @@ function testSwapInt32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         _x._after = (233684719 : stdgo.GoInt32);
         var _j:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         {
-            var _delta:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _delta = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt32), {
-                var _k:stdgo.GoInt32 = _x._i.swap(_delta);
+                var _k = _x._i.swap(_delta);
                 if (((_x._i.load() != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -405,9 +401,9 @@ function testSwapUint32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _x._after = (233684719u32 : stdgo.GoUInt32);
         var _j:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
-            var _delta:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _delta = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt32), {
-                var _k:stdgo.GoUInt32 = swapUint32(stdgo.Go.pointer(_x._i), _delta);
+                var _k = swapUint32(stdgo.Go.pointer(_x._i), _delta);
                 if (((_x._i != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -424,9 +420,9 @@ function testSwapUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         _x._after = (233684719u32 : stdgo.GoUInt32);
         var _j:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
-            var _delta:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _delta = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt32), {
-                var _k:stdgo.GoUInt32 = _x._i.swap(_delta);
+                var _k = _x._i.swap(_delta);
                 if (((_x._i.load() != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -439,14 +435,14 @@ function testSwapUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
     }
 function testSwapInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_4 = ({ _before : (0 : stdgo.GoInt64), _i : (0 : stdgo.GoInt64), _after : (0 : stdgo.GoInt64) } : T__struct_4);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         var _j:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         {
-            var _delta:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _delta = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt64), {
-                var _k:stdgo.GoInt64 = swapInt64(stdgo.Go.pointer(_x._i), _delta);
+                var _k = swapInt64(stdgo.Go.pointer(_x._i), _delta);
                 if (((_x._i != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -459,14 +455,14 @@ function testSwapInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testSwapInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_5 = ({ _before : (0 : stdgo.GoInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Int64_), _after : (0 : stdgo.GoInt64) } : T__struct_5);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         var _j:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         {
-            var _delta:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _delta = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt64), {
-                var _k:stdgo.GoInt64 = _x._i.swap(_delta);
+                var _k = _x._i.swap(_delta);
                 if (((_x._i.load() != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -479,14 +475,14 @@ function testSwapInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
     }
 function testSwapUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_6 = ({ _before : (0 : stdgo.GoUInt64), _i : (0 : stdgo.GoUInt64), _after : (0 : stdgo.GoUInt64) } : T__struct_6);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         var _j:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         {
-            var _delta:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _delta = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt64), {
-                var _k:stdgo.GoUInt64 = swapUint64(stdgo.Go.pointer(_x._i), _delta);
+                var _k = swapUint64(stdgo.Go.pointer(_x._i), _delta);
                 if (((_x._i != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -499,14 +495,14 @@ function testSwapUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testSwapUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_7 = ({ _before : (0 : stdgo.GoUInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uint64), _after : (0 : stdgo.GoUInt64) } : T__struct_7);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         var _j:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         {
-            var _delta:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _delta = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt64), {
-                var _k:stdgo.GoUInt64 = _x._i.swap(_delta);
+                var _k = _x._i.swap(_delta);
                 if (((_x._i.load() != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -520,14 +516,14 @@ function testSwapUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
 function testSwapUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_8 = ({ _before : (0 : stdgo.GoUIntptr), _i : (0 : stdgo.GoUIntptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_8);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _j:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
         {
-            var _delta:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _delta = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUIntptr) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUIntptr), {
-                var _k:stdgo.GoUIntptr = swapUintptr(stdgo.Go.pointer(_x._i), _delta);
+                var _k = swapUintptr(stdgo.Go.pointer(_x._i), _delta);
                 if (((_x._i != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -541,14 +537,14 @@ function testSwapUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function testSwapUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_9 = ({ _before : (0 : stdgo.GoUIntptr), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uintptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_9);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _j:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
         {
-            var _delta:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _delta = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUIntptr) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUIntptr), {
-                var _k:stdgo.GoUIntptr = _x._i.swap(_delta);
+                var _k = _x._i.swap(_delta);
                 if (((_x._i.load() != _delta) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
                 };
@@ -562,7 +558,7 @@ function testSwapUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
 function _testPointers():stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer> {
         var _pointers:stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer> = (null : stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (10 : stdgo.GoInt) : Bool), _i++, {
                 _pointers = (_pointers.__append__((stdgo.Go.toInterface(stdgo.Go.pointer(_global[(((1 : stdgo.GoInt) << _i : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)])) : stdgo._internal.unsafe.Unsafe.UnsafePointer)));
             });
@@ -574,12 +570,12 @@ function _testPointers():stdgo.Slice<stdgo._internal.unsafe.Unsafe.UnsafePointer
 function testSwapPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_10 = ({ _before : (0 : stdgo.GoUIntptr), _i : @:default_value null, _after : (0 : stdgo.GoUIntptr) } : T__struct_10);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _j:stdgo._internal.unsafe.Unsafe.UnsafePointer = @:default_value null;
         for (__34 => _p in _testPointers()) {
-            var _k:stdgo._internal.unsafe.Unsafe.UnsafePointer = swapPointer(stdgo.Go.pointer(_x._i), _p);
+            var _k = swapPointer(stdgo.Go.pointer(_x._i), _p);
             if (((_x._i != _p) || (_k != _j) : Bool)) {
                 _t.fatalf(("p=%p i=%p j=%p k=%p" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
             };
@@ -592,7 +588,7 @@ function testSwapPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function testSwapPointerMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_11 = ({ _before : (0 : stdgo.GoUIntptr), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoUInt8>), _after : (0 : stdgo.GoUIntptr) } : T__struct_11);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _j:stdgo.Pointer<stdgo.GoByte> = (null : stdgo.Pointer<stdgo.GoUInt8>);
@@ -614,9 +610,9 @@ function testAddInt32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _x._after = (233684719 : stdgo.GoInt32);
         var _j:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         {
-            var _delta:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _delta = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt32), {
-                var _k:stdgo.GoInt32 = addInt32(stdgo.Go.pointer(_x._i), _delta);
+                var _k = addInt32(stdgo.Go.pointer(_x._i), _delta);
                 _j = (_j + (_delta) : stdgo.GoInt32);
                 if (((_x._i != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -633,9 +629,9 @@ function testAddInt32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         _x._after = (233684719 : stdgo.GoInt32);
         var _j:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         {
-            var _delta:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _delta = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt32), {
-                var _k:stdgo.GoInt32 = _x._i.add(_delta);
+                var _k = _x._i.add(_delta);
                 _j = (_j + (_delta) : stdgo.GoInt32);
                 if (((_x._i.load() != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -652,9 +648,9 @@ function testAddUint32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _x._after = (233684719u32 : stdgo.GoUInt32);
         var _j:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
-            var _delta:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _delta = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt32), {
-                var _k:stdgo.GoUInt32 = addUint32(stdgo.Go.pointer(_x._i), _delta);
+                var _k = addUint32(stdgo.Go.pointer(_x._i), _delta);
                 _j = (_j + (_delta) : stdgo.GoUInt32);
                 if (((_x._i != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -671,9 +667,9 @@ function testAddUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         _x._after = (233684719u32 : stdgo.GoUInt32);
         var _j:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
-            var _delta:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _delta = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt32), {
-                var _k:stdgo.GoUInt32 = _x._i.add(_delta);
+                var _k = _x._i.add(_delta);
                 _j = (_j + (_delta) : stdgo.GoUInt32);
                 if (((_x._i.load() != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -686,14 +682,14 @@ function testAddUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
     }
 function testAddInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_4 = ({ _before : (0 : stdgo.GoInt64), _i : (0 : stdgo.GoInt64), _after : (0 : stdgo.GoInt64) } : T__struct_4);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         var _j:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         {
-            var _delta:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _delta = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt64), {
-                var _k:stdgo.GoInt64 = addInt64(stdgo.Go.pointer(_x._i), _delta);
+                var _k = addInt64(stdgo.Go.pointer(_x._i), _delta);
                 _j = (_j + (_delta) : stdgo.GoInt64);
                 if (((_x._i != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -706,14 +702,14 @@ function testAddInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testAddInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_5 = ({ _before : (0 : stdgo.GoInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Int64_), _after : (0 : stdgo.GoInt64) } : T__struct_5);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         var _j:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         {
-            var _delta:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _delta = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt64), {
-                var _k:stdgo.GoInt64 = _x._i.add(_delta);
+                var _k = _x._i.add(_delta);
                 _j = (_j + (_delta) : stdgo.GoInt64);
                 if (((_x._i.load() != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -726,14 +722,14 @@ function testAddInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
     }
 function testAddUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_6 = ({ _before : (0 : stdgo.GoUInt64), _i : (0 : stdgo.GoUInt64), _after : (0 : stdgo.GoUInt64) } : T__struct_6);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         var _j:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         {
-            var _delta:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _delta = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt64), {
-                var _k:stdgo.GoUInt64 = addUint64(stdgo.Go.pointer(_x._i), _delta);
+                var _k = addUint64(stdgo.Go.pointer(_x._i), _delta);
                 _j = (_j + (_delta) : stdgo.GoUInt64);
                 if (((_x._i != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -746,14 +742,14 @@ function testAddUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testAddUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_7 = ({ _before : (0 : stdgo.GoUInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uint64), _after : (0 : stdgo.GoUInt64) } : T__struct_7);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         var _j:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         {
-            var _delta:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _delta = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt64), {
-                var _k:stdgo.GoUInt64 = _x._i.add(_delta);
+                var _k = _x._i.add(_delta);
                 _j = (_j + (_delta) : stdgo.GoUInt64);
                 if (((_x._i.load() != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -767,14 +763,14 @@ function testAddUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
 function testAddUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_8 = ({ _before : (0 : stdgo.GoUIntptr), _i : (0 : stdgo.GoUIntptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_8);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _j:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
         {
-            var _delta:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _delta = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUIntptr) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUIntptr), {
-                var _k:stdgo.GoUIntptr = addUintptr(stdgo.Go.pointer(_x._i), _delta);
+                var _k = addUintptr(stdgo.Go.pointer(_x._i), _delta);
                 _j = (_j + (_delta) : stdgo.GoUIntptr);
                 if (((_x._i != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -788,14 +784,14 @@ function testAddUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAddUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_9 = ({ _before : (0 : stdgo.GoUIntptr), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uintptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_9);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _j:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
         {
-            var _delta:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _delta = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUIntptr) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUIntptr), {
-                var _k:stdgo.GoUIntptr = _x._i.add(_delta);
+                var _k = _x._i.add(_delta);
                 _j = (_j + (_delta) : stdgo.GoUIntptr);
                 if (((_x._i.load() != _j) || (_k != _j) : Bool)) {
                     _t.fatalf(("delta=%d i=%d j=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_k));
@@ -811,7 +807,7 @@ function testCompareAndSwapInt32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         _x._before = (233684719 : stdgo.GoInt32);
         _x._after = (233684719 : stdgo.GoInt32);
         {
-            var _val:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _val = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_val + _val : stdgo.GoInt32) > _val : Bool), _val = (_val + (_val) : stdgo.GoInt32), {
                 _x._i = _val;
                 if (!compareAndSwapInt32(stdgo.Go.pointer(_x._i), _val, (_val + (1 : stdgo.GoInt32) : stdgo.GoInt32))) {
@@ -838,7 +834,7 @@ function testCompareAndSwapInt32Method(_t:stdgo.Ref<stdgo._internal.testing.Test
         _x._before = (233684719 : stdgo.GoInt32);
         _x._after = (233684719 : stdgo.GoInt32);
         {
-            var _val:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _val = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_val + _val : stdgo.GoInt32) > _val : Bool), _val = (_val + (_val) : stdgo.GoInt32), {
                 _x._i.store(_val);
                 if (!_x._i.compareAndSwap(_val, (_val + (1 : stdgo.GoInt32) : stdgo.GoInt32))) {
@@ -865,7 +861,7 @@ function testCompareAndSwapUint32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
         _x._before = (233684719u32 : stdgo.GoUInt32);
         _x._after = (233684719u32 : stdgo.GoUInt32);
         {
-            var _val:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _val = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_val + _val : stdgo.GoUInt32) > _val : Bool), _val = (_val + (_val) : stdgo.GoUInt32), {
                 _x._i = _val;
                 if (!compareAndSwapUint32(stdgo.Go.pointer(_x._i), _val, (_val + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32))) {
@@ -892,7 +888,7 @@ function testCompareAndSwapUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Tes
         _x._before = (233684719u32 : stdgo.GoUInt32);
         _x._after = (233684719u32 : stdgo.GoUInt32);
         {
-            var _val:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _val = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_val + _val : stdgo.GoUInt32) > _val : Bool), _val = (_val + (_val) : stdgo.GoUInt32), {
                 _x._i.store(_val);
                 if (!_x._i.compareAndSwap(_val, (_val + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32))) {
@@ -916,11 +912,11 @@ function testCompareAndSwapUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Tes
     }
 function testCompareAndSwapInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_4 = ({ _before : (0 : stdgo.GoInt64), _i : (0 : stdgo.GoInt64), _after : (0 : stdgo.GoInt64) } : T__struct_4);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         {
-            var _val:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _val = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_val + _val : stdgo.GoInt64) > _val : Bool), _val = (_val + (_val) : stdgo.GoInt64), {
                 _x._i = _val;
                 if (!compareAndSwapInt64(stdgo.Go.pointer(_x._i), _val, (_val + (1i64 : stdgo.GoInt64) : stdgo.GoInt64))) {
@@ -944,11 +940,11 @@ function testCompareAndSwapInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
     }
 function testCompareAndSwapInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_5 = ({ _before : (0 : stdgo.GoInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Int64_), _after : (0 : stdgo.GoInt64) } : T__struct_5);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         {
-            var _val:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _val = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_val + _val : stdgo.GoInt64) > _val : Bool), _val = (_val + (_val) : stdgo.GoInt64), {
                 _x._i.store(_val);
                 if (!_x._i.compareAndSwap(_val, (_val + (1i64 : stdgo.GoInt64) : stdgo.GoInt64))) {
@@ -972,11 +968,11 @@ function testCompareAndSwapInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Test
     }
 function _testCompareAndSwapUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _cas:(stdgo.Pointer<stdgo.GoUInt64>, stdgo.GoUInt64, stdgo.GoUInt64) -> Bool):Void {
         var _x:T__struct_6 = ({ _before : (0 : stdgo.GoUInt64), _i : (0 : stdgo.GoUInt64), _after : (0 : stdgo.GoUInt64) } : T__struct_6);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         {
-            var _val:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _val = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_val + _val : stdgo.GoUInt64) > _val : Bool), _val = (_val + (_val) : stdgo.GoUInt64), {
                 _x._i = _val;
                 if (!_cas(stdgo.Go.pointer(_x._i), _val, (_val + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64))) {
@@ -1003,11 +999,11 @@ function testCompareAndSwapUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
     }
 function testCompareAndSwapUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_7 = ({ _before : (0 : stdgo.GoUInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uint64), _after : (0 : stdgo.GoUInt64) } : T__struct_7);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         {
-            var _val:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _val = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_val + _val : stdgo.GoUInt64) > _val : Bool), _val = (_val + (_val) : stdgo.GoUInt64), {
                 _x._i.store(_val);
                 if (!_x._i.compareAndSwap(_val, (_val + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64))) {
@@ -1032,11 +1028,11 @@ function testCompareAndSwapUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Tes
 function testCompareAndSwapUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_8 = ({ _before : (0 : stdgo.GoUIntptr), _i : (0 : stdgo.GoUIntptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_8);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         {
-            var _val:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _val = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_val + _val : stdgo.GoUIntptr) > _val : Bool), _val = (_val + (_val) : stdgo.GoUIntptr), {
                 _x._i = _val;
                 if (!compareAndSwapUintptr(stdgo.Go.pointer(_x._i), _val, (_val + (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr))) {
@@ -1061,11 +1057,11 @@ function testCompareAndSwapUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.
 function testCompareAndSwapUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_9 = ({ _before : (0 : stdgo.GoUIntptr), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uintptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_9);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         {
-            var _val:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _val = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_val + _val : stdgo.GoUIntptr) > _val : Bool), _val = (_val + (_val) : stdgo.GoUIntptr), {
                 _x._i.store(_val);
                 if (!_x._i.compareAndSwap(_val, (_val + (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr))) {
@@ -1090,10 +1086,10 @@ function testCompareAndSwapUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Te
 function testCompareAndSwapPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_10 = ({ _before : (0 : stdgo.GoUIntptr), _i : @:default_value null, _after : (0 : stdgo.GoUIntptr) } : T__struct_10);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
-        var _q:stdgo._internal.unsafe.Unsafe.UnsafePointer = (stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.GoUInt8))) : stdgo._internal.unsafe.Unsafe.UnsafePointer);
+        var _q = (stdgo.Go.toInterface(stdgo.Go.pointer((0 : stdgo.GoUInt8))) : stdgo._internal.unsafe.Unsafe.UnsafePointer);
         for (__34 => _p in _testPointers()) {
             _x._i = _p;
             if (!compareAndSwapPointer(stdgo.Go.pointer(_x._i), _p, _q)) {
@@ -1116,7 +1112,7 @@ function testCompareAndSwapPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.
 function testCompareAndSwapPointerMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_11 = ({ _before : (0 : stdgo.GoUIntptr), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoUInt8>), _after : (0 : stdgo.GoUIntptr) } : T__struct_11);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         var _q = stdgo.Go.pointer((0 : stdgo.GoUInt8));
@@ -1145,9 +1141,9 @@ function testLoadInt32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _x._before = (233684719 : stdgo.GoInt32);
         _x._after = (233684719 : stdgo.GoInt32);
         {
-            var _delta:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _delta = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt32), {
-                var _k:stdgo.GoInt32 = loadInt32(stdgo.Go.pointer(_x._i));
+                var _k = loadInt32(stdgo.Go.pointer(_x._i));
                 if (_k != (_x._i)) {
                     _t.fatalf(("delta=%d i=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_k));
                 };
@@ -1162,11 +1158,11 @@ function testLoadInt32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         var _x:T__struct_1 = ({ _before : (0 : stdgo.GoInt32), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Int32), _after : (0 : stdgo.GoInt32) } : T__struct_1);
         _x._before = (233684719 : stdgo.GoInt32);
         _x._after = (233684719 : stdgo.GoInt32);
-        var _want:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _want = (0 : stdgo.GoInt32);
         {
-            var _delta:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _delta = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt32), {
-                var _k:stdgo.GoInt32 = _x._i.load();
+                var _k = _x._i.load();
                 if (_k != (_want)) {
                     _t.fatalf(("delta=%d i=%d k=%d want=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_want));
                 };
@@ -1183,9 +1179,9 @@ function testLoadUint32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _x._before = (233684719u32 : stdgo.GoUInt32);
         _x._after = (233684719u32 : stdgo.GoUInt32);
         {
-            var _delta:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _delta = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt32), {
-                var _k:stdgo.GoUInt32 = loadUint32(stdgo.Go.pointer(_x._i));
+                var _k = loadUint32(stdgo.Go.pointer(_x._i));
                 if (_k != (_x._i)) {
                     _t.fatalf(("delta=%d i=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_k));
                 };
@@ -1200,11 +1196,11 @@ function testLoadUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         var _x:T__struct_3 = ({ _before : (0 : stdgo.GoUInt32), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uint32), _after : (0 : stdgo.GoUInt32) } : T__struct_3);
         _x._before = (233684719u32 : stdgo.GoUInt32);
         _x._after = (233684719u32 : stdgo.GoUInt32);
-        var _want:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
+        var _want = (0u32 : stdgo.GoUInt32);
         {
-            var _delta:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _delta = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt32), {
-                var _k:stdgo.GoUInt32 = _x._i.load();
+                var _k = _x._i.load();
                 if (_k != (_want)) {
                     _t.fatalf(("delta=%d i=%d k=%d want=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_want));
                 };
@@ -1218,13 +1214,13 @@ function testLoadUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
     }
 function testLoadInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_4 = ({ _before : (0 : stdgo.GoInt64), _i : (0 : stdgo.GoInt64), _after : (0 : stdgo.GoInt64) } : T__struct_4);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         {
-            var _delta:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _delta = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt64), {
-                var _k:stdgo.GoInt64 = loadInt64(stdgo.Go.pointer(_x._i));
+                var _k = loadInt64(stdgo.Go.pointer(_x._i));
                 if (_k != (_x._i)) {
                     _t.fatalf(("delta=%d i=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_k));
                 };
@@ -1237,14 +1233,14 @@ function testLoadInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testLoadInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_5 = ({ _before : (0 : stdgo.GoInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Int64_), _after : (0 : stdgo.GoInt64) } : T__struct_5);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
-        var _want:stdgo.GoInt64 = (0i64 : stdgo.GoInt64);
+        var _want = (0i64 : stdgo.GoInt64);
         {
-            var _delta:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _delta = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt64), {
-                var _k:stdgo.GoInt64 = _x._i.load();
+                var _k = _x._i.load();
                 if (_k != (_want)) {
                     _t.fatalf(("delta=%d i=%d k=%d want=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_want));
                 };
@@ -1258,13 +1254,13 @@ function testLoadInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
     }
 function testLoadUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_6 = ({ _before : (0 : stdgo.GoUInt64), _i : (0 : stdgo.GoUInt64), _after : (0 : stdgo.GoUInt64) } : T__struct_6);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
         {
-            var _delta:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _delta = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt64), {
-                var _k:stdgo.GoUInt64 = loadUint64(stdgo.Go.pointer(_x._i));
+                var _k = loadUint64(stdgo.Go.pointer(_x._i));
                 if (_k != (_x._i)) {
                     _t.fatalf(("delta=%d i=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_k));
                 };
@@ -1277,14 +1273,14 @@ function testLoadUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testLoadUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_7 = ({ _before : (0 : stdgo.GoUInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uint64), _after : (0 : stdgo.GoUInt64) } : T__struct_7);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
-        var _want:stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+        var _want = (0i64 : stdgo.GoUInt64);
         {
-            var _delta:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _delta = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt64), {
-                var _k:stdgo.GoUInt64 = _x._i.load();
+                var _k = _x._i.load();
                 if (_k != (_want)) {
                     _t.fatalf(("delta=%d i=%d k=%d want=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_want));
                 };
@@ -1299,13 +1295,13 @@ function testLoadUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
 function testLoadUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_8 = ({ _before : (0 : stdgo.GoUIntptr), _i : (0 : stdgo.GoUIntptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_8);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         {
-            var _delta:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _delta = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUIntptr) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUIntptr), {
-                var _k:stdgo.GoUIntptr = loadUintptr(stdgo.Go.pointer(_x._i));
+                var _k = loadUintptr(stdgo.Go.pointer(_x._i));
                 if (_k != (_x._i)) {
                     _t.fatalf(("delta=%d i=%d k=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i), stdgo.Go.toInterface(_k));
                 };
@@ -1319,14 +1315,14 @@ function testLoadUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function testLoadUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_9 = ({ _before : (0 : stdgo.GoUIntptr), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uintptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_9);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
-        var _want:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+        var _want = (0 : stdgo.GoUIntptr);
         {
-            var _delta:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _delta = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUIntptr) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUIntptr), {
-                var _k:stdgo.GoUIntptr = _x._i.load();
+                var _k = _x._i.load();
                 if (_k != (_want)) {
                     _t.fatalf(("delta=%d i=%d k=%d want=%d" : stdgo.GoString), stdgo.Go.toInterface(_delta), stdgo.Go.toInterface(_x._i.load()), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_want));
                 };
@@ -1341,12 +1337,12 @@ function testLoadUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
 function testLoadPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_10 = ({ _before : (0 : stdgo.GoUIntptr), _i : @:default_value null, _after : (0 : stdgo.GoUIntptr) } : T__struct_10);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         for (__34 => _p in _testPointers()) {
             _x._i = _p;
-            var _k:stdgo._internal.unsafe.Unsafe.UnsafePointer = loadPointer(stdgo.Go.pointer(_x._i));
+            var _k = loadPointer(stdgo.Go.pointer(_x._i));
             if (_k != (_p)) {
                 _t.fatalf(("p=%x k=%x" : stdgo.GoString), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_k));
             };
@@ -1358,7 +1354,7 @@ function testLoadPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function testLoadPointerMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_11 = ({ _before : (0 : stdgo.GoUIntptr), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoUInt8>), _after : (0 : stdgo.GoUIntptr) } : T__struct_11);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         for (__34 => _p in _testPointers()) {
@@ -1377,9 +1373,9 @@ function testStoreInt32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_0 = ({ _before : (0 : stdgo.GoInt32), _i : (0 : stdgo.GoInt32), _after : (0 : stdgo.GoInt32) } : T__struct_0);
         _x._before = (233684719 : stdgo.GoInt32);
         _x._after = (233684719 : stdgo.GoInt32);
-        var _v:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _v = (0 : stdgo.GoInt32);
         {
-            var _delta:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _delta = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt32), {
                 storeInt32(stdgo.Go.pointer(_x._i), _v);
                 if (_x._i != (_v)) {
@@ -1396,9 +1392,9 @@ function testStoreInt32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         var _x:T__struct_1 = ({ _before : (0 : stdgo.GoInt32), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Int32), _after : (0 : stdgo.GoInt32) } : T__struct_1);
         _x._before = (233684719 : stdgo.GoInt32);
         _x._after = (233684719 : stdgo.GoInt32);
-        var _v:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _v = (0 : stdgo.GoInt32);
         {
-            var _delta:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+            var _delta = (1 : stdgo.GoInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt32), {
                 _x._i.store(_v);
                 if (_x._i.load() != (_v)) {
@@ -1415,9 +1411,9 @@ function testStoreUint32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
         var _x:T__struct_2 = ({ _before : (0 : stdgo.GoUInt32), _i : (0 : stdgo.GoUInt32), _after : (0 : stdgo.GoUInt32) } : T__struct_2);
         _x._before = (233684719u32 : stdgo.GoUInt32);
         _x._after = (233684719u32 : stdgo.GoUInt32);
-        var _v:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
+        var _v = (0u32 : stdgo.GoUInt32);
         {
-            var _delta:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _delta = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt32), {
                 storeUint32(stdgo.Go.pointer(_x._i), _v);
                 if (_x._i != (_v)) {
@@ -1434,9 +1430,9 @@ function testStoreUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
         var _x:T__struct_3 = ({ _before : (0 : stdgo.GoUInt32), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uint32), _after : (0 : stdgo.GoUInt32) } : T__struct_3);
         _x._before = (233684719u32 : stdgo.GoUInt32);
         _x._after = (233684719u32 : stdgo.GoUInt32);
-        var _v:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
+        var _v = (0u32 : stdgo.GoUInt32);
         {
-            var _delta:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32);
+            var _delta = (1u32 : stdgo.GoUInt32);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt32) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt32), {
                 _x._i.store(_v);
                 if (_x._i.load() != (_v)) {
@@ -1451,12 +1447,12 @@ function testStoreUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
     }
 function testStoreInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_4 = ({ _before : (0 : stdgo.GoInt64), _i : (0 : stdgo.GoInt64), _after : (0 : stdgo.GoInt64) } : T__struct_4);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
-        var _v:stdgo.GoInt64 = (0i64 : stdgo.GoInt64);
+        var _v = (0i64 : stdgo.GoInt64);
         {
-            var _delta:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _delta = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt64), {
                 storeInt64(stdgo.Go.pointer(_x._i), _v);
                 if (_x._i != (_v)) {
@@ -1471,12 +1467,12 @@ function testStoreInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testStoreInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_5 = ({ _before : (0 : stdgo.GoInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Int64_), _after : (0 : stdgo.GoInt64) } : T__struct_5);
-        var _magic64:stdgo.GoInt64 = (1003703129787580143i64 : stdgo.GoInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoInt64);
         _x._before = _magic64;
         _x._after = _magic64;
-        var _v:stdgo.GoInt64 = (0i64 : stdgo.GoInt64);
+        var _v = (0i64 : stdgo.GoInt64);
         {
-            var _delta:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+            var _delta = (1i64 : stdgo.GoInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoInt64), {
                 _x._i.store(_v);
                 if (_x._i.load() != (_v)) {
@@ -1491,12 +1487,12 @@ function testStoreInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
     }
 function testStoreUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_6 = ({ _before : (0 : stdgo.GoUInt64), _i : (0 : stdgo.GoUInt64), _after : (0 : stdgo.GoUInt64) } : T__struct_6);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
-        var _v:stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+        var _v = (0i64 : stdgo.GoUInt64);
         {
-            var _delta:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _delta = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt64), {
                 storeUint64(stdgo.Go.pointer(_x._i), _v);
                 if (_x._i != (_v)) {
@@ -1511,12 +1507,12 @@ function testStoreUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
     }
 function testStoreUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_7 = ({ _before : (0 : stdgo.GoUInt64), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uint64), _after : (0 : stdgo.GoUInt64) } : T__struct_7);
-        var _magic64:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
+        var _magic64 = (1003703129787580143i64 : stdgo.GoUInt64);
         _x._before = _magic64;
         _x._after = _magic64;
-        var _v:stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+        var _v = (0i64 : stdgo.GoUInt64);
         {
-            var _delta:stdgo.GoUInt64 = (1i64 : stdgo.GoUInt64);
+            var _delta = (1i64 : stdgo.GoUInt64);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUInt64) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUInt64), {
                 _x._i.store(_v);
                 if (_x._i.load() != (_v)) {
@@ -1532,12 +1528,12 @@ function testStoreUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
 function testStoreUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_8 = ({ _before : (0 : stdgo.GoUIntptr), _i : (0 : stdgo.GoUIntptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_8);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
-        var _v:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+        var _v = (0 : stdgo.GoUIntptr);
         {
-            var _delta:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _delta = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUIntptr) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUIntptr), {
                 storeUintptr(stdgo.Go.pointer(_x._i), _v);
                 if (_x._i != (_v)) {
@@ -1553,12 +1549,12 @@ function testStoreUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 function testStoreUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_9 = ({ _before : (0 : stdgo.GoUIntptr), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uintptr), _after : (0 : stdgo.GoUIntptr) } : T__struct_9);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
-        var _v:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+        var _v = (0 : stdgo.GoUIntptr);
         {
-            var _delta:stdgo.GoUIntptr = (1 : stdgo.GoUIntptr);
+            var _delta = (1 : stdgo.GoUIntptr);
             stdgo.Go.cfor(((_delta + _delta : stdgo.GoUIntptr) > _delta : Bool), _delta = (_delta + (_delta) : stdgo.GoUIntptr), {
                 _x._i.store(_v);
                 if (_x._i.load() != (_v)) {
@@ -1574,7 +1570,7 @@ function testStoreUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
 function testStorePointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_10 = ({ _before : (0 : stdgo.GoUIntptr), _i : @:default_value null, _after : (0 : stdgo.GoUIntptr) } : T__struct_10);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         for (__34 => _p in _testPointers()) {
@@ -1590,7 +1586,7 @@ function testStorePointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 function testStorePointerMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _x:T__struct_11 = ({ _before : (0 : stdgo.GoUIntptr), _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Pointer_<stdgo.GoUInt8>), _after : (0 : stdgo.GoUIntptr) } : T__struct_11);
         var _m:stdgo.GoUInt64 = (1003703129787580143i64 : stdgo.GoUInt64);
-        var _magicptr:stdgo.GoUIntptr = (_m : stdgo.GoUIntptr);
+        var _magicptr = (_m : stdgo.GoUIntptr);
         _x._before = _magicptr;
         _x._after = _magicptr;
         for (__34 => _p in _testPointers()) {
@@ -1606,12 +1602,12 @@ function testStorePointerMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
     }
 function _hammerSwapInt32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind) })) : stdgo.Pointer<stdgo.GoInt32>);
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUInt32 = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
-                var _old:stdgo.GoUInt32 = (swapInt32(_addr, (_new : stdgo.GoInt32)) : stdgo.GoUInt32);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
+                var _old = (swapInt32(_addr, (_new : stdgo.GoInt32)) : stdgo.GoUInt32);
                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapInt32 is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1620,12 +1616,12 @@ function _hammerSwapInt32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoI
     }
 function _hammerSwapInt32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Int32", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Int32>);
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUInt32 = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
-                var _old:stdgo.GoUInt32 = (_addr.swap((_new : stdgo.GoInt32)) : stdgo.GoUInt32);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
+                var _old = (_addr.swap((_new : stdgo.GoInt32)) : stdgo.GoUInt32);
                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapInt32 is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1633,12 +1629,12 @@ function _hammerSwapInt32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:std
         };
     }
 function _hammerSwapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUInt32 = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
-                var _old:stdgo.GoUInt32 = swapUint32(_addr, _new);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
+                var _old = swapUint32(_addr, _new);
                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapUint32 is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1647,12 +1643,12 @@ function _hammerSwapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoI
     }
 function _hammerSwapUint32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uint32", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uint32>);
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUInt32 = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
-                var _old:stdgo.GoUInt32 = _addr.swap(_new);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32);
+                var _old = _addr.swap(_new);
                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapUint32 is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1661,12 +1657,12 @@ function _hammerSwapUint32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:st
     }
 function _hammerSwapUintptr32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) })) : stdgo.Pointer<stdgo.GoUIntptr>);
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUIntptr = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-                var _old:stdgo.GoUIntptr = swapUintptr(_addr, _new);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+                var _old = swapUintptr(_addr, _new);
                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapUintptr is not atomic: %#08x" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1675,12 +1671,12 @@ function _hammerSwapUintptr32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo
     }
 function _hammerSwapUintptr32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uintptr", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uintptr>);
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUIntptr = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-                var _old:stdgo.GoUIntptr = _addr.swap(_new);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+                var _old = _addr.swap(_new);
                 if ((_old >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("Uintptr.Swap is not atomic: %#08x" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1690,7 +1686,7 @@ function _hammerSwapUintptr32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count
 function _hammerAddInt32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind) })) : stdgo.Pointer<stdgo.GoInt32>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 addInt32(_addr, (1 : stdgo.GoInt32));
             });
@@ -1699,7 +1695,7 @@ function _hammerAddInt32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoIn
 function _hammerAddInt32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Int32", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Int32>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 _addr.add((1 : stdgo.GoInt32));
             });
@@ -1707,7 +1703,7 @@ function _hammerAddInt32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdg
     }
 function _hammerAddUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 addUint32(_addr, (1u32 : stdgo.GoUInt32));
             });
@@ -1716,7 +1712,7 @@ function _hammerAddUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoIn
 function _hammerAddUint32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uint32", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uint32>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 _addr.add((1u32 : stdgo.GoUInt32));
             });
@@ -1725,7 +1721,7 @@ function _hammerAddUint32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:std
 function _hammerAddUintptr32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) })) : stdgo.Pointer<stdgo.GoUIntptr>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 addUintptr(_addr, (1 : stdgo.GoUIntptr));
             });
@@ -1734,7 +1730,7 @@ function _hammerAddUintptr32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.
 function _hammerAddUintptr32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uintptr", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uintptr>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 _addr.add((1 : stdgo.GoUIntptr));
             });
@@ -1743,10 +1739,10 @@ function _hammerAddUintptr32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:
 function _hammerCompareAndSwapInt32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind) })) : stdgo.Pointer<stdgo.GoInt32>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoInt32 = loadInt32(_addr);
+                    var _v = loadInt32(_addr);
                     if (compareAndSwapInt32(_addr, _v, (_v + (1 : stdgo.GoInt32) : stdgo.GoInt32))) {
                         break;
                     };
@@ -1757,10 +1753,10 @@ function _hammerCompareAndSwapInt32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count
 function _hammerCompareAndSwapInt32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Int32", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Int32>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoInt32 = _addr.load();
+                    var _v = _addr.load();
                     if (_addr.compareAndSwap(_v, (_v + (1 : stdgo.GoInt32) : stdgo.GoInt32))) {
                         break;
                     };
@@ -1770,10 +1766,10 @@ function _hammerCompareAndSwapInt32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, 
     }
 function _hammerCompareAndSwapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoUInt32 = loadUint32(_addr);
+                    var _v = loadUint32(_addr);
                     if (compareAndSwapUint32(_addr, _v, (_v + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32))) {
                         break;
                     };
@@ -1784,10 +1780,10 @@ function _hammerCompareAndSwapUint32(_addr:stdgo.Pointer<stdgo.GoUInt32>, _count
 function _hammerCompareAndSwapUint32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uint32", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uint32>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoUInt32 = _addr.load();
+                    var _v = _addr.load();
                     if (_addr.compareAndSwap(_v, (_v + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32))) {
                         break;
                     };
@@ -1798,10 +1794,10 @@ function _hammerCompareAndSwapUint32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>,
 function _hammerCompareAndSwapUintptr32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) })) : stdgo.Pointer<stdgo.GoUIntptr>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoUIntptr = loadUintptr(_addr);
+                    var _v = loadUintptr(_addr);
                     if (compareAndSwapUintptr(_addr, _v, (_v + (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr))) {
                         break;
                     };
@@ -1812,10 +1808,10 @@ function _hammerCompareAndSwapUintptr32(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _c
 function _hammerCompareAndSwapUintptr32Method(_uaddr:stdgo.Pointer<stdgo.GoUInt32>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uintptr", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uintptr>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoUIntptr = _addr.load();
+                    var _v = _addr.load();
                     if (_addr.compareAndSwap(_v, (_v + (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr))) {
                         break;
                     };
@@ -1827,7 +1823,7 @@ function testHammer32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {};
-            var _n:stdgo.GoInt = (100000 : stdgo.GoInt);
+            var _n = (100000 : stdgo.GoInt);
             if (stdgo._internal.testing.Testing.short()) {
                 _n = (1000 : stdgo.GoInt);
             };
@@ -1839,7 +1835,7 @@ function testHammer32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
                 var _val:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
                 {
-                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < (4 : stdgo.GoInt) : Bool), _i++, {
                         stdgo.Go.routine(() -> {
                             var a = function():Void {
@@ -1848,7 +1844,7 @@ function testHammer32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                                     __deferstack__.unshift(() -> {
                                         var a = function():Void {
                                             {
-                                                var _err:stdgo.AnyInterface = ({
+                                                var _err = ({
                                                     final r = stdgo.Go.recover_exception;
                                                     stdgo.Go.recover_exception = null;
                                                     r;
@@ -1888,7 +1884,7 @@ function testHammer32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     });
                 };
                 {
-                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < (4 : stdgo.GoInt) : Bool), _i++, {
                         _c.__get__();
                     });
@@ -1920,12 +1916,12 @@ function testHammer32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function _hammerSwapInt64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int64_kind) })) : stdgo.Pointer<stdgo.GoInt64>);
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUInt64 = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
-                var _old:stdgo.GoUInt64 = (swapInt64(_addr, (_new : stdgo.GoInt64)) : stdgo.GoUInt64);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
+                var _old = (swapInt64(_addr, (_new : stdgo.GoInt64)) : stdgo.GoUInt64);
                 if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapInt64 is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1934,12 +1930,12 @@ function _hammerSwapInt64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoI
     }
 function _hammerSwapInt64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Int64_", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_align64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Int64_>);
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUInt64 = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
-                var _old:stdgo.GoUInt64 = (_addr.swap((_new : stdgo.GoInt64)) : stdgo.GoUInt64);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
+                var _old = (_addr.swap((_new : stdgo.GoInt64)) : stdgo.GoUInt64);
                 if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapInt64 is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1947,12 +1943,12 @@ function _hammerSwapInt64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:std
         };
     }
 function _hammerSwapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUInt64 = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
-                var _old:stdgo.GoUInt64 = swapUint64(_addr, _new);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
+                var _old = swapUint64(_addr, _new);
                 if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapUint64 is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1961,12 +1957,12 @@ function _hammerSwapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoI
     }
 function _hammerSwapUint64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uint64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_align64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uint64>);
-        var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+        var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                var _new:stdgo.GoUInt64 = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
-                var _old:stdgo.GoUInt64 = _addr.swap(_new);
+                var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
+                var _old = _addr.swap(_new);
                 if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapUint64 is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                 };
@@ -1976,12 +1972,12 @@ function _hammerSwapUint64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:st
 function _hammerSwapUintptr64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         if (false) {
             var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) })) : stdgo.Pointer<stdgo.GoUIntptr>);
-            var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+            var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
             {
-                var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                var _i = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                    var _new:stdgo.GoUIntptr = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-                    var _old:stdgo.GoUIntptr = swapUintptr(_addr, _new);
+                    var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+                    var _old = swapUintptr(_addr, _new);
                     if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
                         throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapUintptr is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                     };
@@ -1992,12 +1988,12 @@ function _hammerSwapUintptr64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo
 function _hammerSwapUintptr64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         if (false) {
             var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uintptr", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uintptr>);
-            var _seed:stdgo.GoInt = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
+            var _seed = (((stdgo.Go.toInterface(stdgo.Go.pointer(_count)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr) : stdgo.GoInt);
             {
-                var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                var _i = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _count : Bool), _i++, {
-                    var _new:stdgo.GoUIntptr = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-                    var _old:stdgo.GoUIntptr = _addr.swap(_new);
+                    var _new = ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) | ((((_seed + _i : stdgo.GoInt) : stdgo.GoUIntptr) << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+                    var _old = _addr.swap(_new);
                     if ((_old >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) != (((_old << (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr) >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr))) {
                         throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt.sprintf(("SwapUintptr is not atomic: %v" : stdgo.GoString), stdgo.Go.toInterface(_old)));
                     };
@@ -2008,7 +2004,7 @@ function _hammerSwapUintptr64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count
 function _hammerAddInt64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int64_kind) })) : stdgo.Pointer<stdgo.GoInt64>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 addInt64(_addr, (1i64 : stdgo.GoInt64));
             });
@@ -2017,7 +2013,7 @@ function _hammerAddInt64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoIn
 function _hammerAddInt64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Int64_", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_align64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Int64_>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 _addr.add((1i64 : stdgo.GoInt64));
             });
@@ -2025,7 +2021,7 @@ function _hammerAddInt64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdg
     }
 function _hammerAddUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 addUint64(_addr, (1i64 : stdgo.GoUInt64));
             });
@@ -2034,7 +2030,7 @@ function _hammerAddUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoIn
 function _hammerAddUint64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uint64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_align64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uint64>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 _addr.add((1i64 : stdgo.GoUInt64));
             });
@@ -2043,7 +2039,7 @@ function _hammerAddUint64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:std
 function _hammerAddUintptr64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) })) : stdgo.Pointer<stdgo.GoUIntptr>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 addUintptr(_addr, (1 : stdgo.GoUIntptr));
             });
@@ -2052,7 +2048,7 @@ function _hammerAddUintptr64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.
 function _hammerAddUintptr64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uintptr", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uintptr>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 _addr.add((1 : stdgo.GoUIntptr));
             });
@@ -2061,10 +2057,10 @@ function _hammerAddUintptr64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:
 function _hammerCompareAndSwapInt64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int64_kind) })) : stdgo.Pointer<stdgo.GoInt64>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoInt64 = loadInt64(_addr);
+                    var _v = loadInt64(_addr);
                     if (compareAndSwapInt64(_addr, _v, (_v + (1i64 : stdgo.GoInt64) : stdgo.GoInt64))) {
                         break;
                     };
@@ -2075,10 +2071,10 @@ function _hammerCompareAndSwapInt64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count
 function _hammerCompareAndSwapInt64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Int64_", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_align64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Int64_>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoInt64 = _addr.load();
+                    var _v = _addr.load();
                     if (_addr.compareAndSwap(_v, (_v + (1i64 : stdgo.GoInt64) : stdgo.GoInt64))) {
                         break;
                     };
@@ -2088,10 +2084,10 @@ function _hammerCompareAndSwapInt64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, 
     }
 function _hammerCompareAndSwapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoUInt64 = loadUint64(_addr);
+                    var _v = loadUint64(_addr);
                     if (compareAndSwapUint64(_addr, _v, (_v + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64))) {
                         break;
                     };
@@ -2102,10 +2098,10 @@ function _hammerCompareAndSwapUint64(_addr:stdgo.Pointer<stdgo.GoUInt64>, _count
 function _hammerCompareAndSwapUint64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uint64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_align64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uint64>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoUInt64 = _addr.load();
+                    var _v = _addr.load();
                     if (_addr.compareAndSwap(_v, (_v + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64))) {
                         break;
                     };
@@ -2116,10 +2112,10 @@ function _hammerCompareAndSwapUint64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>,
 function _hammerCompareAndSwapUintptr64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) })) : stdgo.Pointer<stdgo.GoUIntptr>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoUIntptr = loadUintptr(_addr);
+                    var _v = loadUintptr(_addr);
                     if (compareAndSwapUintptr(_addr, _v, (_v + (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr))) {
                         break;
                     };
@@ -2130,10 +2126,10 @@ function _hammerCompareAndSwapUintptr64(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _c
 function _hammerCompareAndSwapUintptr64Method(_uaddr:stdgo.Pointer<stdgo.GoUInt64>, _count:stdgo.GoInt):Void {
         var _addr = ((stdgo.Go.toInterface(_uaddr) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uintptr", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uintptr>);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _count : Bool), _i++, {
                 while (true) {
-                    var _v:stdgo.GoUIntptr = _addr.load();
+                    var _v = _addr.load();
                     if (_addr.compareAndSwap(_v, (_v + (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr))) {
                         break;
                     };
@@ -2145,7 +2141,7 @@ function testHammer64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {};
-            var _n:stdgo.GoInt = (100000 : stdgo.GoInt);
+            var _n = (100000 : stdgo.GoInt);
             if (stdgo._internal.testing.Testing.short()) {
                 _n = (1000 : stdgo.GoInt);
             };
@@ -2157,7 +2153,7 @@ function testHammer64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
                 var _val:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
                 {
-                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < (4 : stdgo.GoInt) : Bool), _i++, {
                         stdgo.Go.routine(() -> {
                             var a = function():Void {
@@ -2166,7 +2162,7 @@ function testHammer64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                                     __deferstack__.unshift(() -> {
                                         var a = function():Void {
                                             {
-                                                var _err:stdgo.AnyInterface = ({
+                                                var _err = ({
                                                     final r = stdgo.Go.recover_exception;
                                                     stdgo.Go.recover_exception = null;
                                                     r;
@@ -2206,7 +2202,7 @@ function testHammer64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     });
                 };
                 {
-                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < (4 : stdgo.GoInt) : Bool), _i++, {
                         _c.__get__();
                     });
@@ -2238,13 +2234,13 @@ function testHammer64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function _hammerStoreLoadInt32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind) })) : stdgo.Pointer<stdgo.GoInt32>);
-        var _v:stdgo.GoInt32 = loadInt32(_addr);
-        var _vlo:stdgo.GoInt32 = (_v & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
-        var _vhi:stdgo.GoInt32 = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoInt32);
+        var _v = loadInt32(_addr);
+        var _vlo = (_v & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoInt32);
         if (_vlo != (_vhi)) {
             _t.fatalf(("Int32: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
         };
-        var _new:stdgo.GoInt32 = ((_v + (1 : stdgo.GoInt32) : stdgo.GoInt32) + (65536 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _new = ((_v + (1 : stdgo.GoInt32) : stdgo.GoInt32) + (65536 : stdgo.GoInt32) : stdgo.GoInt32);
         if (_vlo == ((10000 : stdgo.GoInt32))) {
             _new = (0 : stdgo.GoInt32);
         };
@@ -2252,13 +2248,13 @@ function _hammerStoreLoadInt32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>,
     }
 function _hammerStoreLoadInt32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int32_kind) })) : stdgo.Pointer<stdgo.GoInt32>);
-        var _v:stdgo.GoInt32 = loadInt32(_addr);
-        var _vlo:stdgo.GoInt32 = (_v & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
-        var _vhi:stdgo.GoInt32 = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoInt32);
+        var _v = loadInt32(_addr);
+        var _vlo = (_v & (65535 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoInt32);
         if (_vlo != (_vhi)) {
             _t.fatalf(("Int32: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
         };
-        var _new:stdgo.GoInt32 = ((_v + (1 : stdgo.GoInt32) : stdgo.GoInt32) + (65536 : stdgo.GoInt32) : stdgo.GoInt32);
+        var _new = ((_v + (1 : stdgo.GoInt32) : stdgo.GoInt32) + (65536 : stdgo.GoInt32) : stdgo.GoInt32);
         if (_vlo == ((10000 : stdgo.GoInt32))) {
             _new = (0 : stdgo.GoInt32);
         };
@@ -2266,13 +2262,13 @@ function _hammerStoreLoadInt32Method(_t:stdgo.Ref<stdgo._internal.testing.Testin
     }
 function _hammerStoreLoadUint32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint32_kind) })) : stdgo.Pointer<stdgo.GoUInt32>);
-        var _v:stdgo.GoUInt32 = loadUint32(_addr);
-        var _vlo:stdgo.GoUInt32 = (_v & (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-        var _vhi:stdgo.GoUInt32 = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
+        var _v = loadUint32(_addr);
+        var _vlo = (_v & (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         if (_vlo != (_vhi)) {
             _t.fatalf(("Uint32: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
         };
-        var _new:stdgo.GoUInt32 = ((_v + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (65536u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _new = ((_v + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (65536u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         if (_vlo == ((10000u32 : stdgo.GoUInt32))) {
             _new = (0u32 : stdgo.GoUInt32);
         };
@@ -2280,13 +2276,13 @@ function _hammerStoreLoadUint32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
     }
 function _hammerStoreLoadUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uint32", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint32_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uint32>);
-        var _v:stdgo.GoUInt32 = _addr.load();
-        var _vlo:stdgo.GoUInt32 = (_v & (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-        var _vhi:stdgo.GoUInt32 = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
+        var _v = _addr.load();
+        var _vlo = (_v & (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         if (_vlo != (_vhi)) {
             _t.fatalf(("Uint32: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
         };
-        var _new:stdgo.GoUInt32 = ((_v + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (65536u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+        var _new = ((_v + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (65536u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         if (_vlo == ((10000u32 : stdgo.GoUInt32))) {
             _new = (0u32 : stdgo.GoUInt32);
         };
@@ -2294,55 +2290,55 @@ function _hammerStoreLoadUint32Method(_t:stdgo.Ref<stdgo._internal.testing.Testi
     }
 function _hammerStoreLoadInt64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int64_kind) })) : stdgo.Pointer<stdgo.GoInt64>);
-        var _v:stdgo.GoInt64 = loadInt64(_addr);
-        var _vlo:stdgo.GoInt64 = (_v & (4294967295i64 : stdgo.GoInt64) : stdgo.GoInt64);
-        var _vhi:stdgo.GoInt64 = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoInt64);
+        var _v = loadInt64(_addr);
+        var _vlo = (_v & (4294967295i64 : stdgo.GoInt64) : stdgo.GoInt64);
+        var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoInt64);
         if (_vlo != (_vhi)) {
             _t.fatalf(("Int64: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
         };
-        var _new:stdgo.GoInt64 = ((_v + (1i64 : stdgo.GoInt64) : stdgo.GoInt64) + (4294967296i64 : stdgo.GoInt64) : stdgo.GoInt64);
+        var _new = ((_v + (1i64 : stdgo.GoInt64) : stdgo.GoInt64) + (4294967296i64 : stdgo.GoInt64) : stdgo.GoInt64);
         storeInt64(_addr, _new);
     }
 function _hammerStoreLoadInt64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Int64_", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_align64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(int64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Int64_>);
-        var _v:stdgo.GoInt64 = _addr.load();
-        var _vlo:stdgo.GoInt64 = (_v & (4294967295i64 : stdgo.GoInt64) : stdgo.GoInt64);
-        var _vhi:stdgo.GoInt64 = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoInt64);
+        var _v = _addr.load();
+        var _vlo = (_v & (4294967295i64 : stdgo.GoInt64) : stdgo.GoInt64);
+        var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoInt64);
         if (_vlo != (_vhi)) {
             _t.fatalf(("Int64: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
         };
-        var _new:stdgo.GoInt64 = ((_v + (1i64 : stdgo.GoInt64) : stdgo.GoInt64) + (4294967296i64 : stdgo.GoInt64) : stdgo.GoInt64);
+        var _new = ((_v + (1i64 : stdgo.GoInt64) : stdgo.GoInt64) + (4294967296i64 : stdgo.GoInt64) : stdgo.GoInt64);
         _addr.store(_new);
     }
 function _hammerStoreLoadUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint64_kind) })) : stdgo.Pointer<stdgo.GoUInt64>);
-        var _v:stdgo.GoUInt64 = loadUint64(_addr);
-        var _vlo:stdgo.GoUInt64 = (_v & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _vhi:stdgo.GoUInt64 = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _v = loadUint64(_addr);
+        var _vlo = (_v & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         if (_vlo != (_vhi)) {
             _t.fatalf(("Uint64: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
         };
-        var _new:stdgo.GoUInt64 = ((_v + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _new = ((_v + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         storeUint64(_addr, _new);
     }
 function _hammerStoreLoadUint64Method(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uint64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_align64", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint64_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uint64>);
-        var _v:stdgo.GoUInt64 = _addr.load();
-        var _vlo:stdgo.GoUInt64 = (_v & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _vhi:stdgo.GoUInt64 = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _v = _addr.load();
+        var _vlo = (_v & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         if (_vlo != (_vhi)) {
             _t.fatalf(("Uint64: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
         };
-        var _new:stdgo.GoUInt64 = ((_v + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _new = ((_v + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         _addr.store(_new);
     }
 function _hammerStoreLoadUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) })) : stdgo.Pointer<stdgo.GoUIntptr>);
-        var _v:stdgo.GoUIntptr = loadUintptr(_addr);
-        var _new:stdgo.GoUIntptr = _v;
+        var _v = loadUintptr(_addr);
+        var _new = _v;
         if (true) {
-            var _vlo:stdgo.GoUIntptr = (_v & (65535 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-            var _vhi:stdgo.GoUIntptr = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
+            var _vlo = (_v & (65535 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+            var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
             if (_vlo != (_vhi)) {
                 _t.fatalf(("Uintptr: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
             };
@@ -2351,23 +2347,23 @@ function _hammerStoreLoadUintptr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
                 _new = (0 : stdgo.GoUIntptr);
             };
         } else {
-            var _vlo:stdgo.GoUIntptr = (_v & (4294967295 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-            var _vhi:stdgo.GoUIntptr = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
+            var _vlo = (_v & (4294967295 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+            var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
             if (_vlo != (_vhi)) {
                 _t.fatalf(("Uintptr: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
             };
-            var _inc:stdgo.GoUInt64 = (4294967297i64 : stdgo.GoUInt64);
+            var _inc = (4294967297i64 : stdgo.GoUInt64);
             _new = (_v + (_inc : stdgo.GoUIntptr) : stdgo.GoUIntptr);
         };
         storeUintptr(_addr, _new);
     }
 function _hammerStoreLoadUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Uintptr", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__36", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Uintptr>);
-        var _v:stdgo.GoUIntptr = _addr.load();
-        var _new:stdgo.GoUIntptr = _v;
+        var _v = _addr.load();
+        var _new = _v;
         if (true) {
-            var _vlo:stdgo.GoUIntptr = (_v & (65535 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-            var _vhi:stdgo.GoUIntptr = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
+            var _vlo = (_v & (65535 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+            var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
             if (_vlo != (_vhi)) {
                 _t.fatalf(("Uintptr: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
             };
@@ -2376,23 +2372,23 @@ function _hammerStoreLoadUintptrMethod(_t:stdgo.Ref<stdgo._internal.testing.Test
                 _new = (0 : stdgo.GoUIntptr);
             };
         } else {
-            var _vlo:stdgo.GoUIntptr = (_v & (4294967295 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-            var _vhi:stdgo.GoUIntptr = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
+            var _vlo = (_v & (4294967295 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+            var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
             if (_vlo != (_vhi)) {
                 _t.fatalf(("Uintptr: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
             };
-            var _inc:stdgo.GoUInt64 = (4294967297i64 : stdgo.GoUInt64);
+            var _inc = (4294967297i64 : stdgo.GoUInt64);
             _new = (_v + (_inc : stdgo.GoUIntptr) : stdgo.GoUIntptr);
         };
         _addr.store(_new);
     }
 function _hammerStoreLoadPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) })) : stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>);
-        var _v:stdgo.GoUIntptr = (loadPointer(_addr).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr);
-        var _new:stdgo.GoUIntptr = _v;
+        var _v = (loadPointer(_addr).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr);
+        var _new = _v;
         if (true) {
-            var _vlo:stdgo.GoUIntptr = (_v & (65535 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-            var _vhi:stdgo.GoUIntptr = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
+            var _vlo = (_v & (65535 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+            var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
             if (_vlo != (_vhi)) {
                 _t.fatalf(("Pointer: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
             };
@@ -2401,23 +2397,23 @@ function _hammerStoreLoadPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
                 _new = (0 : stdgo.GoUIntptr);
             };
         } else {
-            var _vlo:stdgo.GoUIntptr = (_v & (4294967295 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-            var _vhi:stdgo.GoUIntptr = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
+            var _vlo = (_v & (4294967295 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+            var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
             if (_vlo != (_vhi)) {
                 _t.fatalf(("Pointer: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
             };
-            var _inc:stdgo.GoUInt64 = (4294967297i64 : stdgo.GoUInt64);
+            var _inc = (4294967297i64 : stdgo.GoUInt64);
             _new = (_v + (_inc : stdgo.GoUIntptr) : stdgo.GoUIntptr);
         };
         storePointer(_addr, (stdgo.Go.toInterface(_new) : stdgo._internal.unsafe.Unsafe.UnsafePointer));
     }
 function _hammerStoreLoadPointerMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _paddr:stdgo._internal.unsafe.Unsafe.UnsafePointer):Void {
         var _addr = (_paddr.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.Pointer_", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([{ name : "__38", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.arrayType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) }) }, 0) }, optional : false }, { name : "__39", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.sync.atomic_.Atomic_.T_noCopy", [], stdgo._internal.internal.reflect.Reflect.GoType.structType([]), false, { get : () -> null }) }, optional : false }, { name : "_v", embedded : false, tag : "", type : { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) }, optional : false }]), false, { get : () -> null }) })) : stdgo.Ref<Pointer_<stdgo.GoByte>>);
-        var _v:stdgo.GoUIntptr = ((stdgo.Go.toInterface(_addr.load()) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr);
-        var _new:stdgo.GoUIntptr = _v;
+        var _v = ((stdgo.Go.toInterface(_addr.load()) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.basic(uintptr_kind)) : stdgo.GoUIntptr);
+        var _new = _v;
         if (true) {
-            var _vlo:stdgo.GoUIntptr = (_v & (65535 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-            var _vhi:stdgo.GoUIntptr = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
+            var _vlo = (_v & (65535 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+            var _vhi = (_v >> (16i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
             if (_vlo != (_vhi)) {
                 _t.fatalf(("Pointer: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
             };
@@ -2426,12 +2422,12 @@ function _hammerStoreLoadPointerMethod(_t:stdgo.Ref<stdgo._internal.testing.Test
                 _new = (0 : stdgo.GoUIntptr);
             };
         } else {
-            var _vlo:stdgo.GoUIntptr = (_v & (4294967295 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
-            var _vhi:stdgo.GoUIntptr = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
+            var _vlo = (_v & (4294967295 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
+            var _vhi = (_v >> (32i64 : stdgo.GoUInt64) : stdgo.GoUIntptr);
             if (_vlo != (_vhi)) {
                 _t.fatalf(("Pointer: %#x != %#x" : stdgo.GoString), stdgo.Go.toInterface(_vlo), stdgo.Go.toInterface(_vhi));
             };
-            var _inc:stdgo.GoUInt64 = (4294967297i64 : stdgo.GoUInt64);
+            var _inc = (4294967297i64 : stdgo.GoUInt64);
             _new = (_v + (_inc : stdgo.GoUIntptr) : stdgo.GoUIntptr);
         };
         _addr.store(((stdgo.Go.toInterface(_new) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(uint8_kind) })) : stdgo.Pointer<stdgo.GoByte>));
@@ -2452,7 +2448,7 @@ _hammerStoreLoadInt64,
 _hammerStoreLoadUint64,
 _hammerStoreLoadInt64Method,
 _hammerStoreLoadUint64Method]) : stdgo.Slice<(stdgo.Ref<stdgo._internal.testing.Testing.T_>, stdgo._internal.unsafe.Unsafe.UnsafePointer) -> Void>);
-            var _n:stdgo.GoInt = (1000000 : stdgo.GoInt);
+            var _n = (1000000 : stdgo.GoInt);
             if (stdgo._internal.testing.Testing.short()) {
                 _n = (10000 : stdgo.GoInt);
             };
@@ -2470,12 +2466,12 @@ _hammerStoreLoadUint64Method]) : stdgo.Slice<(stdgo.Ref<stdgo._internal.testing.
                 var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
                 var _val:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
                 {
-                    var _p:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _p = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_p < (8 : stdgo.GoInt) : Bool), _p++, {
                         stdgo.Go.routine(() -> {
                             var a = function():Void {
                                 {
-                                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                                    var _i = (0 : stdgo.GoInt);
                                     stdgo.Go.cfor((_i < _n : Bool), _i++, {
                                         _tt(_t, (stdgo.Go.toInterface(stdgo.Go.pointer(_val)) : stdgo._internal.unsafe.Unsafe.UnsafePointer));
                                     });
@@ -2487,7 +2483,7 @@ _hammerStoreLoadUint64Method]) : stdgo.Slice<(stdgo.Ref<stdgo._internal.testing.
                     });
                 };
                 {
-                    var _p:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _p = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_p < (8 : stdgo.GoInt) : Bool), _p++, {
                         _c.__get__();
                     });
@@ -2524,7 +2520,7 @@ function testStoreLoadSeqCst32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
                 var _a0 = stdgo._internal.runtime.Runtime.gomaxprocs((4 : stdgo.GoInt));
                 __deferstack__.unshift(() -> stdgo._internal.runtime.Runtime.gomaxprocs(_a0));
             };
-            var n:stdgo.GoInt32 = (1000 : stdgo.GoInt32);
+            var n = (1000 : stdgo.GoInt32);
             if (stdgo._internal.testing.Testing.short()) {
                 n = (100 : stdgo.GoInt32);
             };
@@ -2532,26 +2528,26 @@ function testStoreLoadSeqCst32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
             var x = (new stdgo.GoArray<stdgo.GoInt32>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>)?.__copy__();
             var _ack = (new stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>>(2, 2, ...[(new stdgo.GoArray<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (-1 : stdgo.GoInt32), (-1 : stdgo.GoInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>)?.__copy__(), (new stdgo.GoArray<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (-1 : stdgo.GoInt32), (-1 : stdgo.GoInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>)?.__copy__()].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt32>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt32)])])) : stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>>);
             {
-                var _p:stdgo.GoInt = (0 : stdgo.GoInt);
+                var _p = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_p < (2 : stdgo.GoInt) : Bool), _p++, {
                     stdgo.Go.routine(() -> {
                         var a = function(_me:stdgo.GoInt):Void {
-                            var _he:stdgo.GoInt = ((1 : stdgo.GoInt) - _me : stdgo.GoInt);
+                            var _he = ((1 : stdgo.GoInt) - _me : stdgo.GoInt);
                             {
-                                var _i:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+                                var _i = (1 : stdgo.GoInt32);
                                 stdgo.Go.cfor((_i < n : Bool), _i++, {
                                     storeInt32(stdgo.Go.pointer(x[(_me : stdgo.GoInt)]), _i);
-                                    var _my:stdgo.GoInt32 = loadInt32(stdgo.Go.pointer(x[(_he : stdgo.GoInt)]));
+                                    var _my = loadInt32(stdgo.Go.pointer(x[(_he : stdgo.GoInt)]));
                                     storeInt32(stdgo.Go.pointer(_ack[(_me : stdgo.GoInt)][((_i % (3 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)]), _my);
                                     {
-                                        var _w:stdgo.GoInt = (1 : stdgo.GoInt);
+                                        var _w = (1 : stdgo.GoInt);
                                         stdgo.Go.cfor(loadInt32(stdgo.Go.pointer(_ack[(_he : stdgo.GoInt)][((_i % (3 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)])) == ((-1 : stdgo.GoInt32)), _w++, {
                                             if ((_w % (1000 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                                                 stdgo._internal.runtime.Runtime.gosched();
                                             };
                                         });
                                     };
-                                    var _his:stdgo.GoInt32 = loadInt32(stdgo.Go.pointer(_ack[(_he : stdgo.GoInt)][((_i % (3 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)]));
+                                    var _his = loadInt32(stdgo.Go.pointer(_ack[(_he : stdgo.GoInt)][((_i % (3 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)]));
                                     if (((((_my != _i) && (_my != (_i - (1 : stdgo.GoInt32) : stdgo.GoInt32)) : Bool)) || (((_his != _i) && (_his != (_i - (1 : stdgo.GoInt32) : stdgo.GoInt32)) : Bool)) : Bool)) {
                                         _t.errorf(("invalid values: %d/%d (%d)" : stdgo.GoString), stdgo.Go.toInterface(_my), stdgo.Go.toInterface(_his), stdgo.Go.toInterface(_i));
                                         break;
@@ -2602,7 +2598,7 @@ function testStoreLoadSeqCst64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
                 var _a0 = stdgo._internal.runtime.Runtime.gomaxprocs((4 : stdgo.GoInt));
                 __deferstack__.unshift(() -> stdgo._internal.runtime.Runtime.gomaxprocs(_a0));
             };
-            var n:stdgo.GoInt64 = (1000i64 : stdgo.GoInt64);
+            var n = (1000i64 : stdgo.GoInt64);
             if (stdgo._internal.testing.Testing.short()) {
                 n = (100i64 : stdgo.GoInt64);
             };
@@ -2610,26 +2606,26 @@ function testStoreLoadSeqCst64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
             var x = (new stdgo.GoArray<stdgo.GoInt64>(2, 2, ...[]).__setNumber64__() : stdgo.GoArray<stdgo.GoInt64>)?.__copy__();
             var _ack = (new stdgo.GoArray<stdgo.GoArray<stdgo.GoInt64>>(2, 2, ...[(new stdgo.GoArray<stdgo.GoInt64>(3, 3, ...[(-1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoInt64>)?.__copy__(), (new stdgo.GoArray<stdgo.GoInt64>(3, 3, ...[(-1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64), (-1i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoInt64>)?.__copy__()].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoInt64>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt64)])])) : stdgo.GoArray<stdgo.GoArray<stdgo.GoInt64>>);
             {
-                var _p:stdgo.GoInt = (0 : stdgo.GoInt);
+                var _p = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_p < (2 : stdgo.GoInt) : Bool), _p++, {
                     stdgo.Go.routine(() -> {
                         var a = function(_me:stdgo.GoInt):Void {
-                            var _he:stdgo.GoInt = ((1 : stdgo.GoInt) - _me : stdgo.GoInt);
+                            var _he = ((1 : stdgo.GoInt) - _me : stdgo.GoInt);
                             {
-                                var _i:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+                                var _i = (1i64 : stdgo.GoInt64);
                                 stdgo.Go.cfor((_i < n : Bool), _i++, {
                                     storeInt64(stdgo.Go.pointer(x[(_me : stdgo.GoInt)]), _i);
-                                    var _my:stdgo.GoInt64 = loadInt64(stdgo.Go.pointer(x[(_he : stdgo.GoInt)]));
+                                    var _my = loadInt64(stdgo.Go.pointer(x[(_he : stdgo.GoInt)]));
                                     storeInt64(stdgo.Go.pointer(_ack[(_me : stdgo.GoInt)][((_i % (3i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt)]), _my);
                                     {
-                                        var _w:stdgo.GoInt = (1 : stdgo.GoInt);
+                                        var _w = (1 : stdgo.GoInt);
                                         stdgo.Go.cfor(loadInt64(stdgo.Go.pointer(_ack[(_he : stdgo.GoInt)][((_i % (3i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt)])) == ((-1i64 : stdgo.GoInt64)), _w++, {
                                             if ((_w % (1000 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                                                 stdgo._internal.runtime.Runtime.gosched();
                                             };
                                         });
                                     };
-                                    var _his:stdgo.GoInt64 = loadInt64(stdgo.Go.pointer(_ack[(_he : stdgo.GoInt)][((_i % (3i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt)]));
+                                    var _his = loadInt64(stdgo.Go.pointer(_ack[(_he : stdgo.GoInt)][((_i % (3i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt)]));
                                     if (((((_my != _i) && (_my != (_i - (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) : Bool)) || (((_his != _i) && (_his != (_i - (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) : Bool)) : Bool)) {
                                         _t.errorf(("invalid values: %d/%d (%d)" : stdgo.GoString), stdgo.Go.toInterface(_my), stdgo.Go.toInterface(_his), stdgo.Go.toInterface(_i));
                                         break;
@@ -2698,7 +2694,7 @@ function testStoreLoadRelAcq32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
                 var _a0 = stdgo._internal.runtime.Runtime.gomaxprocs((4 : stdgo.GoInt));
                 __deferstack__.unshift(() -> stdgo._internal.runtime.Runtime.gomaxprocs(_a0));
             };
-            var n:stdgo.GoInt32 = (1000 : stdgo.GoInt32);
+            var n = (1000 : stdgo.GoInt32);
             if (stdgo._internal.testing.Testing.short()) {
                 n = (100 : stdgo.GoInt32);
             };
@@ -2706,12 +2702,12 @@ function testStoreLoadRelAcq32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
             {};
             var x:T_testStoreLoadRelAcq32___localname___Data_56337 = ({} : stdgo._internal.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq32___localname___Data_56337);
             {
-                var _p:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+                var _p = (0 : stdgo.GoInt32);
                 stdgo.Go.cfor((_p < (2 : stdgo.GoInt32) : Bool), _p++, {
                     stdgo.Go.routine(() -> {
                         var a = function(_p:stdgo.GoInt32):Void {
                             {
-                                var _i:stdgo.GoInt32 = (1 : stdgo.GoInt32);
+                                var _i = (1 : stdgo.GoInt32);
                                 stdgo.Go.cfor((_i < n : Bool), _i++, {
                                     if ((((_i + _p : stdgo.GoInt32)) % (2 : stdgo.GoInt32) : stdgo.GoInt32) == ((0 : stdgo.GoInt32))) {
                                         x._data1 = _i;
@@ -2719,15 +2715,15 @@ function testStoreLoadRelAcq32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
                                         storeInt32(stdgo.Go.pointer(x._signal), _i);
                                     } else {
                                         {
-                                            var _w:stdgo.GoInt = (1 : stdgo.GoInt);
+                                            var _w = (1 : stdgo.GoInt);
                                             stdgo.Go.cfor(loadInt32(stdgo.Go.pointer(x._signal)) != (_i), _w++, {
                                                 if ((_w % (1000 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                                                     stdgo._internal.runtime.Runtime.gosched();
                                                 };
                                             });
                                         };
-                                        var _d1:stdgo.GoInt32 = x._data1;
-                                        var _d2:stdgo.GoFloat32 = x._data2;
+                                        var _d1 = x._data1;
+                                        var _d2 = x._data2;
                                         if (((_d1 != _i) || (_d2 != (_i : stdgo.GoFloat32)) : Bool)) {
                                             _t.errorf(("incorrect data: %d/%g (%d)" : stdgo.GoString), stdgo.Go.toInterface(_d1), stdgo.Go.toInterface(_d2), stdgo.Go.toInterface(_i));
                                             break;
@@ -2792,7 +2788,7 @@ function testStoreLoadRelAcq64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
                 var _a0 = stdgo._internal.runtime.Runtime.gomaxprocs((4 : stdgo.GoInt));
                 __deferstack__.unshift(() -> stdgo._internal.runtime.Runtime.gomaxprocs(_a0));
             };
-            var n:stdgo.GoInt64 = (1000i64 : stdgo.GoInt64);
+            var n = (1000i64 : stdgo.GoInt64);
             if (stdgo._internal.testing.Testing.short()) {
                 n = (100i64 : stdgo.GoInt64);
             };
@@ -2800,12 +2796,12 @@ function testStoreLoadRelAcq64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
             {};
             var x:T_testStoreLoadRelAcq64___localname___Data_57241 = ({} : stdgo._internal.sync.atomic_test.Atomic_test.T_testStoreLoadRelAcq64___localname___Data_57241);
             {
-                var _p:stdgo.GoInt64 = (0i64 : stdgo.GoInt64);
+                var _p = (0i64 : stdgo.GoInt64);
                 stdgo.Go.cfor((_p < (2i64 : stdgo.GoInt64) : Bool), _p++, {
                     stdgo.Go.routine(() -> {
                         var a = function(_p:stdgo.GoInt64):Void {
                             {
-                                var _i:stdgo.GoInt64 = (1i64 : stdgo.GoInt64);
+                                var _i = (1i64 : stdgo.GoInt64);
                                 stdgo.Go.cfor((_i < n : Bool), _i++, {
                                     if ((((_i + _p : stdgo.GoInt64)) % (2i64 : stdgo.GoInt64) : stdgo.GoInt64) == ((0i64 : stdgo.GoInt64))) {
                                         x._data1 = _i;
@@ -2813,15 +2809,15 @@ function testStoreLoadRelAcq64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
                                         storeInt64(stdgo.Go.pointer(x._signal), _i);
                                     } else {
                                         {
-                                            var _w:stdgo.GoInt = (1 : stdgo.GoInt);
+                                            var _w = (1 : stdgo.GoInt);
                                             stdgo.Go.cfor(loadInt64(stdgo.Go.pointer(x._signal)) != (_i), _w++, {
                                                 if ((_w % (1000 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                                                     stdgo._internal.runtime.Runtime.gosched();
                                                 };
                                             });
                                         };
-                                        var _d1:stdgo.GoInt64 = x._data1;
-                                        var _d2:stdgo.GoFloat64 = x._data2;
+                                        var _d1 = x._data1;
+                                        var _d2 = x._data2;
                                         if (((_d1 != _i) || (_d2 != (_i : stdgo.GoFloat64)) : Bool)) {
                                             _t.errorf(("incorrect data: %d/%g (%d)" : stdgo.GoString), stdgo.Go.toInterface(_d1), stdgo.Go.toInterface(_d2), stdgo.Go.toInterface(_i));
                                             break;
@@ -2864,12 +2860,12 @@ function _shouldPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _name:st
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     stdgo._internal.runtime.Runtime.gc();
-                    var _err:stdgo.AnyInterface = ({
+                    var _err = ({
                         final r = stdgo.Go.recover_exception;
                         stdgo.Go.recover_exception = null;
                         r;
                     });
-                    var _want:stdgo.GoString = ("unaligned 64-bit atomic operation" : stdgo.GoString);
+                    var _want = ("unaligned 64-bit atomic operation" : stdgo.GoString);
                     if (_err == null) {
                         _t.errorf(("%s did not panic" : stdgo.GoString), stdgo.Go.toInterface(_name));
                     } else {
@@ -2941,26 +2937,26 @@ function testUnaligned64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
 function testAutoAligned64(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _signed:T__struct_12 = ({ _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Int64_) } : T__struct_12);
         {
-            var _o:stdgo.GoUIntptr = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_signed) : stdgo.Ref<T__struct_12>)))).elem().field((1 : stdgo.GoInt)).offset;
+            var _o = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_signed) : stdgo.Ref<T__struct_12>)))).elem().field((1 : stdgo.GoInt)).offset;
             if (_o != ((8 : stdgo.GoUIntptr))) {
                 _t.fatalf(("Int64 offset = %d, want 8" : stdgo.GoString), stdgo.Go.toInterface(_o));
             };
         };
         {
-            var _p:stdgo.GoUIntptr = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_signed) : stdgo.Ref<T__struct_12>)))).elem().field((1 : stdgo.GoInt)).addr().pointer();
+            var _p = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_signed) : stdgo.Ref<T__struct_12>)))).elem().field((1 : stdgo.GoInt)).addr().pointer();
             if ((_p & (7 : stdgo.GoUIntptr) : stdgo.GoUIntptr) != ((0 : stdgo.GoUIntptr))) {
                 _t.fatalf(("Int64 pointer = %#x, want 8-aligned" : stdgo.GoString), stdgo.Go.toInterface(_p));
             };
         };
         var _unsigned:T__struct_13 = ({ _i : ({} : stdgo._internal.sync.atomic_.Atomic_.Uint64) } : T__struct_13);
         {
-            var _o:stdgo.GoUIntptr = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_unsigned) : stdgo.Ref<T__struct_13>)))).elem().field((1 : stdgo.GoInt)).offset;
+            var _o = stdgo._internal.reflect.Reflect.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_unsigned) : stdgo.Ref<T__struct_13>)))).elem().field((1 : stdgo.GoInt)).offset;
             if (_o != ((8 : stdgo.GoUIntptr))) {
                 _t.fatalf(("Uint64 offset = %d, want 8" : stdgo.GoString), stdgo.Go.toInterface(_o));
             };
         };
         {
-            var _p:stdgo.GoUIntptr = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_unsigned) : stdgo.Ref<T__struct_13>)))).elem().field((1 : stdgo.GoInt)).addr().pointer();
+            var _p = stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_unsigned) : stdgo.Ref<T__struct_13>)))).elem().field((1 : stdgo.GoInt)).addr().pointer();
             if ((_p & (7 : stdgo.GoUIntptr) : stdgo.GoUIntptr) != ((0 : stdgo.GoUIntptr))) {
                 _t.fatalf(("Int64 pointer = %#x, want 8-aligned" : stdgo.GoString), stdgo.Go.toInterface(_p));
             };
@@ -3188,7 +3184,7 @@ function _loadConfig():stdgo.GoMap<stdgo.GoString, stdgo.GoString> {
         return ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
-            @:mergeBlock {};
+            {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
     }
@@ -3208,12 +3204,12 @@ function exampleValue_config():Void {
             a();
         });
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (10 : stdgo.GoInt) : Bool), _i++, {
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
                         for (_r => _ in _requests()) {
-                            var _c:stdgo.AnyInterface = _config.load();
+                            var _c = _config.load();
                             {
                                 var __blank__ = _r;
                                 var __blank__ = _c;
@@ -3232,25 +3228,25 @@ function exampleValue_readMostly():Void {
         _m.store(stdgo.Go.toInterface((({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
-            @:mergeBlock {};
+            {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly___localname___Map_1290)));
         var _mu:stdgo._internal.sync.Sync.Mutex = ({} : stdgo._internal.sync.Sync.Mutex);
-        var _read:stdgo.GoString -> stdgo.GoString = function(_key:stdgo.GoString):stdgo.GoString {
-            var _val:stdgo.GoString = ("" : stdgo.GoString);
-            var _m1:stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly___localname___Map_1290 = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly___localname___Map_1290)) : T_exampleValue_readMostly___localname___Map_1290);
+        var _read = function(_key:stdgo.GoString):stdgo.GoString {
+            var _val = ("" : stdgo.GoString);
+            var _m1 = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly___localname___Map_1290)) : T_exampleValue_readMostly___localname___Map_1290);
             return (_m1[_key] ?? ("" : stdgo.GoString))?.__copy__();
         };
-        var _insert:(stdgo.GoString, stdgo.GoString) -> Void = function(_key:stdgo.GoString, _val:stdgo.GoString):Void {
+        var _insert = function(_key:stdgo.GoString, _val:stdgo.GoString):Void {
             var __deferstack__:Array<Void -> Void> = [];
             try {
                 _mu.lock();
                 __deferstack__.unshift(() -> _mu.unlock());
-                var _m1:stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly___localname___Map_1290 = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly___localname___Map_1290)) : T_exampleValue_readMostly___localname___Map_1290);
-                var _m2:stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly___localname___Map_1290 = (({
+                var _m1 = (stdgo.Go.typeAssert((_m.load() : T_exampleValue_readMostly___localname___Map_1290)) : T_exampleValue_readMostly___localname___Map_1290);
+                var _m2 = (({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
                     x.__defaultValue__ = () -> ("" : stdgo.GoString);
-                    @:mergeBlock {};
+                    {};
                     x;
                 } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo._internal.sync.atomic_test.Atomic_test.T_exampleValue_readMostly___localname___Map_1290);
                 for (_k => _v in _m1) {
@@ -3290,7 +3286,7 @@ function testValue(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.fatal(stdgo.Go.toInterface(("initial Value is not nil" : stdgo.GoString)));
         };
         _v.store(stdgo.Go.toInterface((42 : stdgo.GoInt)));
-        var _x:stdgo.AnyInterface = _v.load();
+        var _x = _v.load();
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((_x : stdgo.GoInt)) : stdgo.GoInt), _1 : true };
@@ -3317,7 +3313,7 @@ function testValue(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testValueLarge(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _v:Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
         _v.store(stdgo.Go.toInterface(("foo" : stdgo.GoString)));
-        var _x:stdgo.AnyInterface = _v.load();
+        var _x = _v.load();
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((_x : stdgo.GoString)) : stdgo.GoString), _1 : true };
@@ -3351,7 +3347,7 @@ function testValuePanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 try {
                     __deferstack__.unshift(() -> {
                         var a = function():Void {
-                            var _err:stdgo.AnyInterface = ({
+                            var _err = ({
                                 final r = stdgo.Go.recover_exception;
                                 stdgo.Go.recover_exception = null;
                                 r;
@@ -3393,7 +3389,7 @@ function testValuePanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 try {
                     __deferstack__.unshift(() -> {
                         var a = function():Void {
-                            var _err:stdgo.AnyInterface = ({
+                            var _err = ({
                                 final r = stdgo.Go.recover_exception;
                                 stdgo.Go.recover_exception = null;
                                 r;
@@ -3434,7 +3430,7 @@ function testValuePanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 try {
                     __deferstack__.unshift(() -> {
                         var a = function():Void {
-                            var _err:stdgo.AnyInterface = ({
+                            var _err = ({
                                 final r = stdgo.Go.recover_exception;
                                 stdgo.Go.recover_exception = null;
                                 r;
@@ -3472,8 +3468,8 @@ function testValuePanic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testValueConcurrent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<stdgo.Slice<stdgo.AnyInterface>>(4, 4, ...[(new stdgo.Slice<stdgo.AnyInterface>(4, 4, ...[stdgo.Go.toInterface((0 : stdgo.GoUInt16)), stdgo.Go.toInterface((65535 : stdgo.GoUInt16)), stdgo.Go.toInterface((513 : stdgo.GoUInt16)), stdgo.Go.toInterface((1027 : stdgo.GoUInt16))]) : stdgo.Slice<stdgo.AnyInterface>), (new stdgo.Slice<stdgo.AnyInterface>(4, 4, ...[stdgo.Go.toInterface((0u32 : stdgo.GoUInt32)), stdgo.Go.toInterface((-1u32 : stdgo.GoUInt32)), stdgo.Go.toInterface((131073u32 : stdgo.GoUInt32)), stdgo.Go.toInterface((262147u32 : stdgo.GoUInt32))]) : stdgo.Slice<stdgo.AnyInterface>), (new stdgo.Slice<stdgo.AnyInterface>(4, 4, ...[stdgo.Go.toInterface((0i64 : stdgo.GoUInt64)), stdgo.Go.toInterface((-1i64 : stdgo.GoUInt64)), stdgo.Go.toInterface((8589934593i64 : stdgo.GoUInt64)), stdgo.Go.toInterface((17179869187i64 : stdgo.GoUInt64))]) : stdgo.Slice<stdgo.AnyInterface>), (new stdgo.Slice<stdgo.AnyInterface>(4, 4, ...[stdgo.Go.toInterface(new stdgo.GoComplex128((0i64 : stdgo.GoUInt64), (0i64 : stdgo.GoUInt64))), stdgo.Go.toInterface(new stdgo.GoComplex128((1i64 : stdgo.GoUInt64), (2i64 : stdgo.GoUInt64))), stdgo.Go.toInterface(new stdgo.GoComplex128((3i64 : stdgo.GoUInt64), (4i64 : stdgo.GoUInt64))), stdgo.Go.toInterface(new stdgo.GoComplex128((5i64 : stdgo.GoUInt64), (6i64 : stdgo.GoUInt64)))]) : stdgo.Slice<stdgo.AnyInterface>)]) : stdgo.Slice<stdgo.Slice<stdgo.AnyInterface>>);
-        var _p:stdgo.GoInt = ((4 : stdgo.GoInt) * stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)) : stdgo.GoInt);
-        var n:stdgo.GoInt = (100000 : stdgo.GoInt);
+        var _p = ((4 : stdgo.GoInt) * stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)) : stdgo.GoInt);
+        var n = (100000 : stdgo.GoInt);
         if (stdgo._internal.testing.Testing.short()) {
             _p = (_p / ((2 : stdgo.GoInt)) : stdgo.GoInt);
             n = (1000 : stdgo.GoInt);
@@ -3482,16 +3478,16 @@ function testValueConcurrent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
             var _v:Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
             var _done = (new stdgo.Chan<Bool>((_p : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
             {
-                var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                var _i = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _p : Bool), _i++, {
                     stdgo.Go.routine(() -> {
                         var a = function():Void {
                             var _r = stdgo._internal.math.rand.Rand.new_(stdgo._internal.math.rand.Rand.newSource(stdgo._internal.math.rand.Rand.int63()));
-                            var _expected:Bool = true;
+                            var _expected = true;
                             @:label("loop") {
-                                var _j:stdgo.GoInt = (0 : stdgo.GoInt);
+                                var _j = (0 : stdgo.GoInt);
                                 stdgo.Go.cfor((_j < n : Bool), _j++, {
-                                    var _x:stdgo.AnyInterface = _test[(_r.intn((_test.length)) : stdgo.GoInt)];
+                                    var _x = _test[(_r.intn((_test.length)) : stdgo.GoInt)];
                                     _v.store(_x);
                                     _x = _v.load();
                                     for (__35 => _x1 in _test) {
@@ -3511,7 +3507,7 @@ function testValueConcurrent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
                 });
             };
             {
-                var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                var _i = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _p : Bool), _i++, {
                     if (!_done.__get__()) {
                         _t.failNow();
@@ -3543,7 +3539,7 @@ function testValue_Swap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     };
                     __deferstack__.unshift(() -> {
                         var a = function():Void {
-                            var _err:stdgo.AnyInterface = ({
+                            var _err = ({
                                 final r = stdgo.Go.recover_exception;
                                 stdgo.Go.recover_exception = null;
                                 r;
@@ -3557,13 +3553,13 @@ function testValue_Swap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                         a();
                     });
                     {
-                        var _got:stdgo.AnyInterface = _v.swap(_tt._new);
+                        var _got = _v.swap(_tt._new);
                         if (_got != (_tt._want)) {
                             _t.errorf(("got %v, want %v" : stdgo.GoString), _got, _tt._want);
                         };
                     };
                     {
-                        var _got:stdgo.AnyInterface = _v.load();
+                        var _got = _v.load();
                         if (_got != (_tt._new)) {
                             _t.errorf(("got %v, want %v" : stdgo.GoString), _got, _tt._new);
                         };
@@ -3595,24 +3591,25 @@ function testValueSwapConcurrent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         var _v:Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
         var _count:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _g:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup);
-        var __0:stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64), _n:stdgo.GoUInt64 = __1, _m:stdgo.GoUInt64 = __0;
+        var __0:stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (10000i64 : stdgo.GoUInt64);
+var _n = __1, _m = __0;
         if (stdgo._internal.testing.Testing.short()) {
             _m = (1000i64 : stdgo.GoUInt64);
             _n = (1000i64 : stdgo.GoUInt64);
         };
         {
-            var _i:stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+            var _i = (0i64 : stdgo.GoUInt64);
             stdgo.Go.cfor((_i < (_m * _n : stdgo.GoUInt64) : Bool), _i = (_i + (_n) : stdgo.GoUInt64), {
-                var _i:stdgo.GoUInt64 = _i;
+                var _i = _i;
                 _g.add((1 : stdgo.GoInt));
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
                         var _c:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
                         {
-                            var _new:stdgo.GoUInt64 = _i;
+                            var _new = _i;
                             stdgo.Go.cfor((_new < (_i + _n : stdgo.GoUInt64) : Bool), _new++, {
                                 {
-                                    var _old:stdgo.AnyInterface = _v.swap(stdgo.Go.toInterface(_new));
+                                    var _old = _v.swap(stdgo.Go.toInterface(_new));
                                     if (_old != null) {
                                         _c = (_c + ((stdgo.Go.typeAssert((_old : stdgo.GoUInt64)) : stdgo.GoUInt64)) : stdgo.GoUInt64);
                                     };
@@ -3628,7 +3625,8 @@ function testValueSwapConcurrent(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         };
         _g.wait_();
         {
-            var __0:stdgo.GoUInt64 = (((((_m * _n : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) * ((_m * _n : stdgo.GoUInt64)) : stdgo.GoUInt64) / (2i64 : stdgo.GoUInt64) : stdgo.GoUInt64), __1:stdgo.GoUInt64 = (_count + (stdgo.Go.typeAssert((_v.load() : stdgo.GoUInt64)) : stdgo.GoUInt64) : stdgo.GoUInt64), _got:stdgo.GoUInt64 = __1, _want:stdgo.GoUInt64 = __0;
+            var __0 = (((((_m * _n : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) * ((_m * _n : stdgo.GoUInt64)) : stdgo.GoUInt64) / (2i64 : stdgo.GoUInt64) : stdgo.GoUInt64), __1 = (_count + (stdgo.Go.typeAssert((_v.load() : stdgo.GoUInt64)) : stdgo.GoUInt64) : stdgo.GoUInt64);
+var _got = __1, _want = __0;
             if (_got != (_want)) {
                 _t.errorf(("sum from 0 to %d was %d, want %v" : stdgo.GoString), stdgo.Go.toInterface(((_m * _n : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
@@ -3645,7 +3643,7 @@ function testValue_CompareAndSwap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
                     };
                     __deferstack__.unshift(() -> {
                         var a = function():Void {
-                            var _err:stdgo.AnyInterface = ({
+                            var _err = ({
                                 final r = stdgo.Go.recover_exception;
                                 stdgo.Go.recover_exception = null;
                                 r;
@@ -3659,7 +3657,7 @@ function testValue_CompareAndSwap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
                         a();
                     });
                     {
-                        var _got:Bool = _v.compareAndSwap(_tt._old, _tt._new);
+                        var _got = _v.compareAndSwap(_tt._old, _tt._new);
                         if (_got != (_tt._want)) {
                             _t.errorf(("got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
                         };
@@ -3691,20 +3689,21 @@ function testValueCompareAndSwapConcurrent(_t:stdgo.Ref<stdgo._internal.testing.
         var _v:Value = ({} : stdgo._internal.sync.atomic_.Atomic_.Value);
         var _w:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup);
         _v.store(stdgo.Go.toInterface((0 : stdgo.GoInt)));
-        var __0:stdgo.GoInt = (1000 : stdgo.GoInt), __1:stdgo.GoInt = (100 : stdgo.GoInt), _n:stdgo.GoInt = __1, _m:stdgo.GoInt = __0;
+        var __0 = (1000 : stdgo.GoInt), __1 = (100 : stdgo.GoInt);
+var _n = __1, _m = __0;
         if (stdgo._internal.testing.Testing.short()) {
             _m = (100 : stdgo.GoInt);
             _n = (100 : stdgo.GoInt);
         };
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _m : Bool), _i++, {
-                var _i:stdgo.GoInt = _i;
+                var _i = _i;
                 _w.add((1 : stdgo.GoInt));
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
                         {
-                            var _j:stdgo.GoInt = _i;
+                            var _j = _i;
                             stdgo.Go.cfor((_j < (_m * _n : stdgo.GoInt) : Bool), stdgo._internal.runtime.Runtime.gosched(), {
                                 if (_v.compareAndSwap(stdgo.Go.toInterface(_j), stdgo.Go.toInterface((_j + (1 : stdgo.GoInt) : stdgo.GoInt)))) {
                                     _j = (_j + (_m) : stdgo.GoInt);
@@ -3719,7 +3718,7 @@ function testValueCompareAndSwapConcurrent(_t:stdgo.Ref<stdgo._internal.testing.
         };
         _w.wait_();
         {
-            var _stop:stdgo.GoInt = (stdgo.Go.typeAssert((_v.load() : stdgo.GoInt)) : stdgo.GoInt);
+            var _stop = (stdgo.Go.typeAssert((_v.load() : stdgo.GoInt)) : stdgo.GoInt);
             if (_stop != ((_m * _n : stdgo.GoInt))) {
                 _t.errorf(("did not get to %v, stopped at %v" : stdgo.GoString), stdgo.Go.toInterface((_m * _n : stdgo.GoInt)), stdgo.Go.toInterface(_stop));
             };

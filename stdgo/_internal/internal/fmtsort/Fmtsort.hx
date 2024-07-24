@@ -19,7 +19,7 @@ function sort(_mapValue:stdgo._internal.reflect.Reflect.Value):stdgo.Ref<SortedM
         if (_mapValue.type().kind() != ((21u32 : stdgo._internal.reflect.Reflect.Kind))) {
             return null;
         };
-        var _n:stdgo.GoInt = _mapValue.len();
+        var _n = _mapValue.len();
         var _key = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         var _value = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         var _iter = _mapValue.mapRange();
@@ -32,14 +32,16 @@ function sort(_mapValue:stdgo._internal.reflect.Reflect.Value):stdgo.Ref<SortedM
         return _sorted;
     }
 function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._internal.reflect.Reflect.Value):stdgo.GoInt {
-        var __0:stdgo._internal.reflect.Reflect.Type_ = _aVal.type(), __1:stdgo._internal.reflect.Reflect.Type_ = _bVal.type(), _bType:stdgo._internal.reflect.Reflect.Type_ = __1, _aType:stdgo._internal.reflect.Reflect.Type_ = __0;
+        var __0 = _aVal.type(), __1 = _bVal.type();
+var _bType = __1, _aType = __0;
         if (!((_aType.string() : String) == (_bType.string() : String))) {
             return (-1 : stdgo.GoInt);
         };
         {
             final __value__ = _aVal.kind();
             if (__value__ == ((2u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((3u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((4u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((5u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((6u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0:stdgo.GoInt64 = _aVal.int_(), __1:stdgo.GoInt64 = _bVal.int_(), _b:stdgo.GoInt64 = __1, _a:stdgo.GoInt64 = __0;
+                var __0 = _aVal.int_(), __1 = _bVal.int_();
+var _b = __1, _a = __0;
                 if ((_a < _b : Bool)) {
                     return (-1 : stdgo.GoInt);
                 } else if ((_a > _b : Bool)) {
@@ -48,7 +50,8 @@ function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._inte
                     return (0 : stdgo.GoInt);
                 };
             } else if (__value__ == ((7u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((8u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((9u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((10u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((11u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((12u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0:stdgo.GoUInt64 = _aVal.uint(), __1:stdgo.GoUInt64 = _bVal.uint(), _b:stdgo.GoUInt64 = __1, _a:stdgo.GoUInt64 = __0;
+                var __0 = _aVal.uint(), __1 = _bVal.uint();
+var _b = __1, _a = __0;
                 if ((_a < _b : Bool)) {
                     return (-1 : stdgo.GoInt);
                 } else if ((_a > _b : Bool)) {
@@ -57,7 +60,8 @@ function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._inte
                     return (0 : stdgo.GoInt);
                 };
             } else if (__value__ == ((24u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0:stdgo.GoString = (_aVal.string() : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = (_bVal.string() : stdgo.GoString)?.__copy__(), _b:stdgo.GoString = __1, _a:stdgo.GoString = __0;
+                var __0 = (_aVal.string() : stdgo.GoString)?.__copy__(), __1 = (_bVal.string() : stdgo.GoString)?.__copy__();
+var _b = __1, _a = __0;
                 if ((_a < _b : Bool)) {
                     return (-1 : stdgo.GoInt);
                 } else if ((_a > _b : Bool)) {
@@ -68,16 +72,18 @@ function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._inte
             } else if (__value__ == ((13u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((14u32 : stdgo._internal.reflect.Reflect.Kind))) {
                 return _floatCompare(_aVal.float_(), _bVal.float_());
             } else if (__value__ == ((15u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((16u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0:stdgo.GoComplex128 = _aVal.complex(), __1:stdgo.GoComplex128 = _bVal.complex(), _b:stdgo.GoComplex128 = __1, _a:stdgo.GoComplex128 = __0;
+                var __0 = _aVal.complex(), __1 = _bVal.complex();
+var _b = __1, _a = __0;
                 {
-                    var _c:stdgo.GoInt = _floatCompare(_a.real, _b.real);
+                    var _c = _floatCompare(_a.real, _b.real);
                     if (_c != ((0 : stdgo.GoInt))) {
                         return _c;
                     };
                 };
                 return _floatCompare(_a.imag, _b.imag);
             } else if (__value__ == ((1u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0:Bool = _aVal.bool_(), __1:Bool = _bVal.bool_(), _b:Bool = __1, _a:Bool = __0;
+                var __0 = _aVal.bool_(), __1 = _bVal.bool_();
+var _b = __1, _a = __0;
                 if (_a == (_b)) {
                     return (0 : stdgo.GoInt);
                 } else if (_a) {
@@ -86,7 +92,8 @@ function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._inte
                     return (-1 : stdgo.GoInt);
                 };
             } else if (__value__ == ((22u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((26u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0:stdgo.GoUIntptr = _aVal.pointer(), __1:stdgo.GoUIntptr = _bVal.pointer(), _b:stdgo.GoUIntptr = __1, _a:stdgo.GoUIntptr = __0;
+                var __0 = _aVal.pointer(), __1 = _bVal.pointer();
+var _b = __1, _a = __0;
                 if ((_a < _b : Bool)) {
                     return (-1 : stdgo.GoInt);
                 } else if ((_a > _b : Bool)) {
@@ -101,7 +108,8 @@ function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._inte
                         return _c;
                     };
                 };
-                var __0:stdgo.GoUIntptr = _aVal.pointer(), __1:stdgo.GoUIntptr = _bVal.pointer(), _bp:stdgo.GoUIntptr = __1, _ap:stdgo.GoUIntptr = __0;
+                var __0 = _aVal.pointer(), __1 = _bVal.pointer();
+var _bp = __1, _ap = __0;
                 if ((_ap < _bp : Bool)) {
                     return (-1 : stdgo.GoInt);
                 } else if ((_ap > _bp : Bool)) {
@@ -111,10 +119,10 @@ function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._inte
                 };
             } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect.Kind))) {
                 {
-                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _aVal.numField() : Bool), _i++, {
                         {
-                            var _c:stdgo.GoInt = _compare(_aVal.field(_i)?.__copy__(), _bVal.field(_i)?.__copy__());
+                            var _c = _compare(_aVal.field(_i)?.__copy__(), _bVal.field(_i)?.__copy__());
                             if (_c != ((0 : stdgo.GoInt))) {
                                 return _c;
                             };
@@ -124,10 +132,10 @@ function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._inte
                 return (0 : stdgo.GoInt);
             } else if (__value__ == ((17u32 : stdgo._internal.reflect.Reflect.Kind))) {
                 {
-                    var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _aVal.len() : Bool), _i++, {
                         {
-                            var _c:stdgo.GoInt = _compare(_aVal.index(_i)?.__copy__(), _bVal.index(_i)?.__copy__());
+                            var _c = _compare(_aVal.index(_i)?.__copy__(), _bVal.index(_i)?.__copy__());
                             if (_c != ((0 : stdgo.GoInt))) {
                                 return _c;
                             };
@@ -142,7 +150,7 @@ function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._inte
                         return _c;
                     };
                 };
-                var _c:stdgo.GoInt = _compare(stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_aVal.elem().type()))?.__copy__(), stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_bVal.elem().type()))?.__copy__());
+                var _c = _compare(stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_aVal.elem().type()))?.__copy__(), stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_bVal.elem().type()))?.__copy__());
                 if (_c != ((0 : stdgo.GoInt))) {
                     return _c;
                 };

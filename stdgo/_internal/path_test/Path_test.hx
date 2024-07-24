@@ -266,7 +266,7 @@ function exampleMatch():Void {
         });
     }
 function exampleSplit():Void {
-        var _split:stdgo.GoString -> Void = function(_s:stdgo.GoString):Void {
+        var _split = function(_s:stdgo.GoString):Void {
             var __tmp__ = stdgo._internal.path.Path.split(_s?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _file:stdgo.GoString = __tmp__._1;
             stdgo._internal.fmt.Fmt.printf(("path.Split(%q) = dir: %q, file: %q\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_dir), stdgo.Go.toInterface(_file));
         };
@@ -285,13 +285,13 @@ function testMatch(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testClean(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _cleantests) {
             {
-                var _s:stdgo.GoString = clean(_test._path?.__copy__())?.__copy__();
+                var _s = clean(_test._path?.__copy__())?.__copy__();
                 if (_s != (_test._result)) {
                     _t.errorf(("Clean(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
             };
             {
-                var _s:stdgo.GoString = clean(_test._result?.__copy__())?.__copy__();
+                var _s = clean(_test._result?.__copy__())?.__copy__();
                 if (_s != (_test._result)) {
                     _t.errorf(("Clean(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._result), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
@@ -307,7 +307,7 @@ function testCleanMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             return;
         };
         for (__16 => _test in _cleantests) {
-            var _allocs:stdgo.GoFloat64 = stdgo._internal.testing.Testing.allocsPerRun((100 : stdgo.GoInt), function():Void {
+            var _allocs = stdgo._internal.testing.Testing.allocsPerRun((100 : stdgo.GoInt), function():Void {
                 clean(_test._result?.__copy__());
             });
             if ((_allocs > (0 : stdgo.GoFloat64) : Bool)) {
@@ -328,7 +328,7 @@ function testSplit(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testJoin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _jointests) {
             {
-                var _p:stdgo.GoString = join(...(_test._elem : Array<stdgo.GoString>))?.__copy__();
+                var _p = join(...(_test._elem : Array<stdgo.GoString>))?.__copy__();
                 if (_p != (_test._path)) {
                     _t.errorf(("Join(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._elem), stdgo.Go.toInterface(_p), stdgo.Go.toInterface(_test._path));
                 };
@@ -338,7 +338,7 @@ function testJoin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testExt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _exttests) {
             {
-                var _x:stdgo.GoString = ext(_test._path?.__copy__())?.__copy__();
+                var _x = ext(_test._path?.__copy__())?.__copy__();
                 if (_x != (_test._ext)) {
                     _t.errorf(("Ext(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_test._ext));
                 };
@@ -348,7 +348,7 @@ function testExt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testBase(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _basetests) {
             {
-                var _s:stdgo.GoString = base(_test._path?.__copy__())?.__copy__();
+                var _s = base(_test._path?.__copy__())?.__copy__();
                 if (_s != (_test._result)) {
                     _t.errorf(("Base(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
@@ -358,7 +358,7 @@ function testBase(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testDir(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _dirtests) {
             {
-                var _s:stdgo.GoString = dir(_test._path?.__copy__())?.__copy__();
+                var _s = dir(_test._path?.__copy__())?.__copy__();
                 if (_s != (_test._result)) {
                     _t.errorf(("Dir(%q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._result));
                 };
@@ -368,7 +368,7 @@ function testDir(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testIsAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _isAbsTests) {
             {
-                var _r:Bool = isAbs(_test._path?.__copy__());
+                var _r = isAbs(_test._path?.__copy__());
                 if (_r != (_test._isAbs)) {
                     _t.errorf(("IsAbs(%q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_test._isAbs));
                 };

@@ -170,13 +170,13 @@ function testNewEqual(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         if (stdgo.Go.toInterface(stdgo._internal.errors.Errors.new_(("abc" : stdgo.GoString))) == (stdgo.Go.toInterface(stdgo._internal.errors.Errors.new_(("xyz" : stdgo.GoString))))) {
             _t.errorf(("New(\"abc\") == New(\"xyz\")" : stdgo.GoString));
         };
-        var _err:stdgo.Error = stdgo._internal.errors.Errors.new_(("jkl" : stdgo.GoString));
+        var _err = stdgo._internal.errors.Errors.new_(("jkl" : stdgo.GoString));
         if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(_err))) {
             _t.errorf(("err != err" : stdgo.GoString));
         };
     }
 function testErrorMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _err:stdgo.Error = stdgo._internal.errors.Errors.new_(("abc" : stdgo.GoString));
+        var _err = stdgo._internal.errors.Errors.new_(("abc" : stdgo.GoString));
         if (_err.error() != (("abc" : stdgo.GoString))) {
             _t.errorf(("New(\"abc\").Error() = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_err.error()), stdgo.Go.toInterface(("abc" : stdgo.GoString)));
         };
@@ -186,29 +186,29 @@ function _oops():stdgo.Error {
     }
 function example():Void {
         {
-            var _err:stdgo.Error = _oops();
+            var _err = _oops();
             if (_err != null) {
                 stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_err));
             };
         };
     }
 function exampleNew():Void {
-        var _err:stdgo.Error = stdgo._internal.errors.Errors.new_(("emit macho dwarf: elf header corrupted" : stdgo.GoString));
+        var _err = stdgo._internal.errors.Errors.new_(("emit macho dwarf: elf header corrupted" : stdgo.GoString));
         if (_err != null) {
             stdgo._internal.fmt.Fmt.print(stdgo.Go.toInterface(_err));
         };
     }
 function exampleNew_errorf():Void {
         {};
-        var _err:stdgo.Error = stdgo._internal.fmt.Fmt.errorf(("user %q (id %d) not found" : stdgo.GoString), stdgo.Go.toInterface(("bimmler" : stdgo.GoString)), stdgo.Go.toInterface((17 : stdgo.GoInt)));
+        var _err = stdgo._internal.fmt.Fmt.errorf(("user %q (id %d) not found" : stdgo.GoString), stdgo.Go.toInterface(("bimmler" : stdgo.GoString)), stdgo.Go.toInterface((17 : stdgo.GoInt)));
         if (_err != null) {
             stdgo._internal.fmt.Fmt.print(stdgo.Go.toInterface(_err));
         };
     }
 function exampleJoin():Void {
-        var _err1:stdgo.Error = stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString));
-        var _err2:stdgo.Error = stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString));
-        var _err:stdgo.Error = stdgo._internal.errors.Errors.join(_err1, _err2);
+        var _err1 = stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString));
+        var _err2 = stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString));
+        var _err = stdgo._internal.errors.Errors.join(_err1, _err2);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_err));
         if (stdgo._internal.errors.Errors.is_(_err, _err1)) {
             stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("err is err1" : stdgo.GoString)));
@@ -243,34 +243,34 @@ function exampleAs():Void {
         };
     }
 function exampleUnwrap():Void {
-        var _err1:stdgo.Error = stdgo._internal.errors.Errors.new_(("error1" : stdgo.GoString));
-        var _err2:stdgo.Error = stdgo._internal.fmt.Fmt.errorf(("error2: [%w]" : stdgo.GoString), stdgo.Go.toInterface(_err1));
+        var _err1 = stdgo._internal.errors.Errors.new_(("error1" : stdgo.GoString));
+        var _err2 = stdgo._internal.fmt.Fmt.errorf(("error2: [%w]" : stdgo.GoString), stdgo.Go.toInterface(_err1));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_err2));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.errors.Errors.unwrap(_err2)));
     }
 function testJoinReturnsNil(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
-            var _err:stdgo.Error = stdgo._internal.errors.Errors.join();
+            var _err = stdgo._internal.errors.Errors.join();
             if (_err != null) {
                 _t.errorf(("errors.Join() = %v, want nil" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
         {
-            var _err:stdgo.Error = stdgo._internal.errors.Errors.join((null : stdgo.Error));
+            var _err = stdgo._internal.errors.Errors.join((null : stdgo.Error));
             if (_err != null) {
                 _t.errorf(("errors.Join(nil) = %v, want nil" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
         {
-            var _err:stdgo.Error = stdgo._internal.errors.Errors.join((null : stdgo.Error), (null : stdgo.Error));
+            var _err = stdgo._internal.errors.Errors.join((null : stdgo.Error), (null : stdgo.Error));
             if (_err != null) {
                 _t.errorf(("errors.Join(nil, nil) = %v, want nil" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
         };
     }
 function testJoin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _err1:stdgo.Error = stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString));
-        var _err2:stdgo.Error = stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString));
+        var _err1 = stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString));
+        var _err2 = stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString));
         for (__0 => _test in (new stdgo.Slice<T__struct_0>(3, 3, ...[({ _errs : (new stdgo.Slice<stdgo.Error>(1, 1, ...[_err1]) : stdgo.Slice<stdgo.Error>), _want : (new stdgo.Slice<stdgo.Error>(1, 1, ...[_err1]) : stdgo.Slice<stdgo.Error>) } : T__struct_0), ({ _errs : (new stdgo.Slice<stdgo.Error>(2, 2, ...[_err1, _err2]) : stdgo.Slice<stdgo.Error>), _want : (new stdgo.Slice<stdgo.Error>(2, 2, ...[_err1, _err2]) : stdgo.Slice<stdgo.Error>) } : T__struct_0), ({ _errs : (new stdgo.Slice<stdgo.Error>(3, 3, ...[_err1, (null : stdgo.Error), _err2]) : stdgo.Slice<stdgo.Error>), _want : (new stdgo.Slice<stdgo.Error>(2, 2, ...[_err1, _err2]) : stdgo.Slice<stdgo.Error>) } : T__struct_0)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({ _errs : (null : stdgo.Slice<stdgo.Error>), _want : (null : stdgo.Slice<stdgo.Error>) } : T__struct_0)])) : stdgo.Slice<T__struct_0>)) {
             var _got = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.errors.Errors.join(...(_test._errs : Array<stdgo.Error>))) : T__interface_4)) : T__interface_4).unwrap();
             if (!stdgo._internal.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want))) {
@@ -282,20 +282,20 @@ function testJoin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testJoinErrorMethod(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _err1:stdgo.Error = stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString));
-        var _err2:stdgo.Error = stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString));
+        var _err1 = stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString));
+        var _err2 = stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString));
         for (__0 => _test in (new stdgo.Slice<T__struct_1>(3, 3, ...[({ _errs : (new stdgo.Slice<stdgo.Error>(1, 1, ...[_err1]) : stdgo.Slice<stdgo.Error>), _want : ("err1" : stdgo.GoString) } : T__struct_1), ({ _errs : (new stdgo.Slice<stdgo.Error>(2, 2, ...[_err1, _err2]) : stdgo.Slice<stdgo.Error>), _want : ("err1\nerr2" : stdgo.GoString) } : T__struct_1), ({ _errs : (new stdgo.Slice<stdgo.Error>(3, 3, ...[_err1, (null : stdgo.Error), _err2]) : stdgo.Slice<stdgo.Error>), _want : ("err1\nerr2" : stdgo.GoString) } : T__struct_1)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({ _errs : (null : stdgo.Slice<stdgo.Error>), _want : ("" : stdgo.GoString) } : T__struct_1)])) : stdgo.Slice<T__struct_1>)) {
-            var _got:stdgo.GoString = stdgo._internal.errors.Errors.join(...(_test._errs : Array<stdgo.Error>)).error()?.__copy__();
+            var _got = stdgo._internal.errors.Errors.join(...(_test._errs : Array<stdgo.Error>)).error()?.__copy__();
             if (_got != (_test._want)) {
                 _t.errorf(("Join(%v).Error() = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._errs), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
             };
         };
     }
 function testIs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _err1:stdgo.Error = stdgo._internal.errors.Errors.new_(("1" : stdgo.GoString));
-        var _erra:stdgo._internal.errors_test.Errors_test.T_wrapped = (new stdgo._internal.errors_test.Errors_test.T_wrapped(("wrap 2" : stdgo.GoString), _err1) : stdgo._internal.errors_test.Errors_test.T_wrapped);
-        var _errb:stdgo._internal.errors_test.Errors_test.T_wrapped = (new stdgo._internal.errors_test.Errors_test.T_wrapped(("wrap 3" : stdgo.GoString), stdgo.Go.asInterface(_erra)) : stdgo._internal.errors_test.Errors_test.T_wrapped);
-        var _err3:stdgo.Error = stdgo._internal.errors.Errors.new_(("3" : stdgo.GoString));
+        var _err1 = stdgo._internal.errors.Errors.new_(("1" : stdgo.GoString));
+        var _erra = (new stdgo._internal.errors_test.Errors_test.T_wrapped(("wrap 2" : stdgo.GoString), _err1) : stdgo._internal.errors_test.Errors_test.T_wrapped);
+        var _errb = (new stdgo._internal.errors_test.Errors_test.T_wrapped(("wrap 3" : stdgo.GoString), stdgo.Go.asInterface(_erra)) : stdgo._internal.errors_test.Errors_test.T_wrapped);
+        var _err3 = stdgo._internal.errors.Errors.new_(("3" : stdgo.GoString));
         var _poser = (stdgo.Go.setRef((new stdgo._internal.errors_test.Errors_test.T_poser(("either 1 or 3" : stdgo.GoString), function(_err:stdgo.Error):Bool {
             return ((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_err1)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_err3)) : Bool);
         }) : stdgo._internal.errors_test.Errors_test.T_poser)) : stdgo.Ref<stdgo._internal.errors_test.Errors_test.T_poser>);
@@ -332,7 +332,7 @@ function testIs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tc in _testCases) {
             _t.run(stdgo.Go.str()?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 {
-                    var _got:Bool = stdgo._internal.errors.Errors.is_(_tc._err, _tc._target);
+                    var _got = stdgo._internal.errors.Errors.is_(_tc._err, _tc._target);
                     if (_got != (_tc._match)) {
                         _t.errorf(("Is(%v, %v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._err), stdgo.Go.toInterface(_tc._target), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tc._match));
                     };
@@ -367,11 +367,11 @@ function testAs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 ({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(1, 1, ...[stdgo.Go.asInterface((new stdgo._internal.errors_test.Errors_test.T_wrapped(("path error" : stdgo.GoString), _errF) : stdgo._internal.errors_test.Errors_test.T_wrapped))]) : stdgo._internal.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface((stdgo.Go.setRef(_timeout) : stdgo.Ref<T__interface_5>)), _match : true, _want : stdgo.Go.toInterface(_errF) } : T__struct_3),
 ({ _err : stdgo.Go.asInterface((new stdgo.Slice<stdgo.Error>(1, 1, ...[(null : stdgo.Error)]) : stdgo._internal.errors_test.Errors_test.T_multiErr)), _target : stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errT) : stdgo.Ref<stdgo._internal.errors_test.Errors_test.T_errorT>))), _match : false, _want : (null : stdgo.AnyInterface) } : T__struct_3)].concat([for (i in 18 ... (18 > 18 ? 18 : 18 : stdgo.GoInt).toBasic()) ({ _err : (null : stdgo.Error), _target : (null : stdgo.AnyInterface), _match : false, _want : (null : stdgo.AnyInterface) } : T__struct_3)])) : stdgo.Slice<T__struct_3>);
         for (_i => _tc in _testCases) {
-            var _name:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("%d:As(Errorf(..., %v), %v)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tc._err), _tc._target)?.__copy__();
-            var _rtarget:stdgo._internal.reflect.Reflect.Value = stdgo._internal.reflect.Reflect.valueOf(_tc._target)?.__copy__();
+            var _name = stdgo._internal.fmt.Fmt.sprintf(("%d:As(Errorf(..., %v), %v)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tc._err), _tc._target)?.__copy__();
+            var _rtarget = stdgo._internal.reflect.Reflect.valueOf(_tc._target)?.__copy__();
             _rtarget.elem().set(stdgo._internal.reflect.Reflect.zero(stdgo._internal.reflect.Reflect.typeOf(_tc._target).elem())?.__copy__());
             _t.run(_name?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-                var _match:Bool = stdgo._internal.errors.Errors.as(_tc._err, _tc._target);
+                var _match = stdgo._internal.errors.Errors.as(_tc._err, _tc._target);
                 if (_match != (_tc._match)) {
                     _t.fatalf(("match: got %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_match), stdgo.Go.toInterface(_tc._match));
                 };
@@ -379,7 +379,7 @@ function testAs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     return;
                 };
                 {
-                    var _got:stdgo.AnyInterface = _rtarget.elem().interface_();
+                    var _got = _rtarget.elem().interface_();
                     if (_got != (_tc._want)) {
                         _t.fatalf(("got %#v, want %#v" : stdgo.GoString), _got, _tc._want);
                     };
@@ -390,7 +390,7 @@ function testAs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAsValidation(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _s:stdgo.GoString = ("" : stdgo.GoString);
         var _testCases = (new stdgo.Slice<stdgo.AnyInterface>(4, 4, ...[(null : stdgo.AnyInterface), stdgo.Go.toInterface((null : stdgo.Pointer<stdgo.GoInt>)), stdgo.Go.toInterface(("error" : stdgo.GoString)), stdgo.Go.toInterface(stdgo.Go.pointer(_s))]) : stdgo.Slice<stdgo.AnyInterface>);
-        var _err:stdgo.Error = stdgo._internal.errors.Errors.new_(("error" : stdgo.GoString));
+        var _err = stdgo._internal.errors.Errors.new_(("error" : stdgo.GoString));
         for (__0 => _tc in _testCases) {
             _t.run(stdgo._internal.fmt.Fmt.sprintf(("%T(%v)" : stdgo.GoString), _tc, _tc)?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 var __deferstack__:Array<Void -> Void> = [];
@@ -439,12 +439,12 @@ function testAsValidation(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
         };
     }
 function testUnwrap(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _err1:stdgo.Error = stdgo._internal.errors.Errors.new_(("1" : stdgo.GoString));
-        var _erra:stdgo._internal.errors_test.Errors_test.T_wrapped = (new stdgo._internal.errors_test.Errors_test.T_wrapped(("wrap 2" : stdgo.GoString), _err1) : stdgo._internal.errors_test.Errors_test.T_wrapped);
+        var _err1 = stdgo._internal.errors.Errors.new_(("1" : stdgo.GoString));
+        var _erra = (new stdgo._internal.errors_test.Errors_test.T_wrapped(("wrap 2" : stdgo.GoString), _err1) : stdgo._internal.errors_test.Errors_test.T_wrapped);
         var _testCases = (new stdgo.Slice<T__struct_4>(5, 5, ...[({ _err : (null : stdgo.Error), _want : (null : stdgo.Error) } : T__struct_4), ({ _err : stdgo.Go.asInterface((new stdgo._internal.errors_test.Errors_test.T_wrapped(("wrapped" : stdgo.GoString), (null : stdgo.Error)) : stdgo._internal.errors_test.Errors_test.T_wrapped)), _want : (null : stdgo.Error) } : T__struct_4), ({ _err : _err1, _want : (null : stdgo.Error) } : T__struct_4), ({ _err : stdgo.Go.asInterface(_erra), _want : _err1 } : T__struct_4), ({ _err : stdgo.Go.asInterface((new stdgo._internal.errors_test.Errors_test.T_wrapped(("wrap 3" : stdgo.GoString), stdgo.Go.asInterface(_erra)) : stdgo._internal.errors_test.Errors_test.T_wrapped)), _want : stdgo.Go.asInterface(_erra) } : T__struct_4)].concat([for (i in 5 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({ _err : (null : stdgo.Error), _want : (null : stdgo.Error) } : T__struct_4)])) : stdgo.Slice<T__struct_4>);
         for (__0 => _tc in _testCases) {
             {
-                var _got:stdgo.Error = stdgo._internal.errors.Errors.unwrap(_tc._err);
+                var _got = stdgo._internal.errors.Errors.unwrap(_tc._err);
                 if (stdgo.Go.toInterface(_got) != (stdgo.Go.toInterface(_tc._want))) {
                     _t.errorf(("Unwrap(%v) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tc._err), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tc._want));
                 };

@@ -9,16 +9,17 @@ var maxLen : stdgo.GoInt = (0 : stdgo.GoInt);
 final primeRK : stdgo.GoUInt64 = (16777619i64 : stdgo.GoUInt64);
 final maxBruteForce : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _hash:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
+        var _hash = (0u32 : stdgo.GoUInt32);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_sep.length) : Bool), _i++, {
                 _hash = ((_hash * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
-        var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = __1, _pow:stdgo.GoUInt32 = __0;
+        var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
+var _sq = __1, _pow = __0;
         {
-            var _i:stdgo.GoInt = (_sep.length);
+            var _i = (_sep.length);
             stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _pow = (_pow * (_sq) : stdgo.GoUInt32);
@@ -29,16 +30,17 @@ function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt32;
         return { _0 : _hash, _1 : _pow };
     }
 function hashStr(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _hash:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
+        var _hash = (0u32 : stdgo.GoUInt32);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_sep.length) : Bool), _i++, {
                 _hash = ((_hash * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
-        var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = __1, _pow:stdgo.GoUInt32 = __0;
+        var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
+var _sq = __1, _pow = __0;
         {
-            var _i:stdgo.GoInt = (_sep.length);
+            var _i = (_sep.length);
             stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _pow = (_pow * (_sq) : stdgo.GoUInt32);
@@ -49,16 +51,17 @@ function hashStr(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.
         return { _0 : _hash, _1 : _pow };
     }
 function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _hash:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
+        var _hash = (0u32 : stdgo.GoUInt32);
         {
-            var _i:stdgo.GoInt = ((_sep.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+            var _i = ((_sep.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                 _hash = ((_hash * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
-        var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = __1, _pow:stdgo.GoUInt32 = __0;
+        var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
+var _sq = __1, _pow = __0;
         {
-            var _i:stdgo.GoInt = (_sep.length);
+            var _i = (_sep.length);
             stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _pow = (_pow * (_sq) : stdgo.GoUInt32);
@@ -69,16 +72,17 @@ function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt
         return { _0 : _hash, _1 : _pow };
     }
 function hashStrRev(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _hash:stdgo.GoUInt32 = (0u32 : stdgo.GoUInt32);
+        var _hash = (0u32 : stdgo.GoUInt32);
         {
-            var _i:stdgo.GoInt = ((_sep.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+            var _i = ((_sep.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
                 _hash = ((_hash * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_sep[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
         };
-        var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32), _sq:stdgo.GoUInt32 = __1, _pow:stdgo.GoUInt32 = __0;
+        var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
+var _sq = __1, _pow = __0;
         {
-            var _i:stdgo.GoInt = (_sep.length);
+            var _i = (_sep.length);
             stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _pow = (_pow * (_sq) : stdgo.GoUInt32);
@@ -90,10 +94,10 @@ function hashStrRev(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : std
     }
 function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt {
         var __tmp__ = hashStrBytes(_sep), _hashsep:stdgo.GoUInt32 = __tmp__._0, _pow:stdgo.GoUInt32 = __tmp__._1;
-        var _n:stdgo.GoInt = (_sep.length);
+        var _n = (_sep.length);
         var _h:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _n : Bool), _i++, {
                 _h = ((_h * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
@@ -102,7 +106,7 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdg
             return (0 : stdgo.GoInt);
         };
         {
-            var _i:stdgo.GoInt = _n;
+            var _i = _n;
             while ((_i < (_s.length) : Bool)) {
                 _h = (_h * ((16777619u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
                 _h = (_h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
@@ -117,10 +121,10 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdg
     }
 function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt {
         var __tmp__ = hashStr(_substr?.__copy__()), _hashss:stdgo.GoUInt32 = __tmp__._0, _pow:stdgo.GoUInt32 = __tmp__._1;
-        var _n:stdgo.GoInt = (_substr.length);
+        var _n = (_substr.length);
         var _h:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _n : Bool), _i++, {
                 _h = ((_h * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
             });
@@ -129,7 +133,7 @@ function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt {
             return (0 : stdgo.GoInt);
         };
         {
-            var _i:stdgo.GoInt = _n;
+            var _i = _n;
             while ((_i < (_s.length) : Bool)) {
                 _h = (_h * ((16777619u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
                 _h = (_h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);

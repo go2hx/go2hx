@@ -38,7 +38,7 @@ var lstatP : stdgo.Ref<stdgo.GoString -> { var _0 : stdgo._internal.io.fs.Fs.Fil
 @:named typedef WalkFunc = (stdgo.GoString, stdgo._internal.io.fs.Fs.FileInfo, stdgo.Error) -> stdgo.Error;
 function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         stdgo._internal.internal.Macro.controlFlow({
-            var _matched:Bool = false, _err:stdgo.Error = (null : stdgo.Error);
+            var _matched = false, _err = (null : stdgo.Error);
             @:label("Pattern") while (((_pattern.length) > (0 : stdgo.GoInt) : Bool)) {
                 var _star:Bool = false;
                 var _chunk:stdgo.GoString = ("" : stdgo.GoString);
@@ -61,7 +61,7 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                 };
                 if (_star) {
                     {
-                        var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                        var _i = (0 : stdgo.GoInt);
                         stdgo.Go.cfor(((_i < (_name.length) : Bool) && (_name[(_i : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool), _i++, {
                             var __tmp__ = _matchChunk(_chunk?.__copy__(), (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                             if (_ok) {
@@ -85,12 +85,12 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
     }
 function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoString; var _2 : stdgo.GoString; } {
         stdgo._internal.internal.Macro.controlFlow({
-            var _star:Bool = false, _chunk:stdgo.GoString = ("" : stdgo.GoString), _rest:stdgo.GoString = ("" : stdgo.GoString);
+            var _star = false, _chunk = ("" : stdgo.GoString), _rest = ("" : stdgo.GoString);
             while ((((_pattern.length) > (0 : stdgo.GoInt) : Bool) && (_pattern[(0 : stdgo.GoInt)] == (42 : stdgo.GoUInt8)) : Bool)) {
                 _pattern = (_pattern.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                 _star = true;
             };
-            var _inrange:Bool = false;
+            var _inrange = false;
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             @:label("Scan") {
                 _i = (0 : stdgo.GoInt);
@@ -132,8 +132,8 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
         throw "controlFlow did not return";
     }
 function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } {
-        var _rest:stdgo.GoString = ("" : stdgo.GoString), _ok:Bool = false, _err:stdgo.Error = (null : stdgo.Error);
-        var _failed:Bool = false;
+        var _rest = ("" : stdgo.GoString), _ok = false, _err = (null : stdgo.Error);
+        var _failed = false;
         while (((_chunk.length) > (0 : stdgo.GoInt) : Bool)) {
             if ((!_failed && (_s.length == (0 : stdgo.GoInt)) : Bool)) {
                 _failed = true;
@@ -157,19 +157,20 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                                 _s = (_s.__slice__(_n) : stdgo.GoString)?.__copy__();
                             };
                             _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                            var _negated:Bool = false;
+                            var _negated = false;
                             if ((((_chunk.length) > (0 : stdgo.GoInt) : Bool) && (_chunk[(0 : stdgo.GoInt)] == (94 : stdgo.GoUInt8)) : Bool)) {
                                 _negated = true;
                                 _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                             };
-                            var _match:Bool = false;
-                            var _nrange:stdgo.GoInt = (0 : stdgo.GoInt);
+                            var _match = false;
+                            var _nrange = (0 : stdgo.GoInt);
                             while (true) {
                                 if (((((_chunk.length) > (0 : stdgo.GoInt) : Bool) && _chunk[(0 : stdgo.GoInt)] == ((93 : stdgo.GoUInt8)) : Bool) && (_nrange > (0 : stdgo.GoInt) : Bool) : Bool)) {
                                     _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                     break;
                                 };
-                                var __0:stdgo.GoRune = (0 : stdgo.GoInt32), __1:stdgo.GoRune = (0 : stdgo.GoInt32), _hi:stdgo.GoRune = __1, _lo:stdgo.GoRune = __0;
+                                var __0:stdgo.GoRune = (0 : stdgo.GoInt32), __1:stdgo.GoRune = (0 : stdgo.GoInt32);
+var _hi = __1, _lo = __0;
                                 {
                                     {
                                         var __tmp__ = _getEsc(_chunk?.__copy__());
@@ -250,7 +251,7 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
         return { _0 : _s?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
     }
 function _getEsc(_chunk:stdgo.GoString):{ var _0 : stdgo.GoRune; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
-        var _r:stdgo.GoRune = (0 : stdgo.GoInt32), _nchunk:stdgo.GoString = ("" : stdgo.GoString), _err:stdgo.Error = (null : stdgo.Error);
+        var _r = (0 : stdgo.GoInt32), _nchunk = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         if ((((_chunk.length) == ((0 : stdgo.GoInt)) || _chunk[(0 : stdgo.GoInt)] == ((45 : stdgo.GoUInt8)) : Bool) || (_chunk[(0 : stdgo.GoInt)] == (93 : stdgo.GoUInt8)) : Bool)) {
             _err = errBadPattern;
             return { _0 : _r, _1 : _nchunk, _2 : _err };
@@ -273,11 +274,11 @@ function _getEsc(_chunk:stdgo.GoString):{ var _0 : stdgo.GoRune; var _1 : stdgo.
         return { _0 : _r, _1 : _nchunk, _2 : _err };
     }
 function glob(_pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
-        var _matches:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), _err:stdgo.Error = (null : stdgo.Error);
+        var _matches = (null : stdgo.Slice<stdgo.GoString>), _err = (null : stdgo.Error);
         return _globWithLimit(_pattern?.__copy__(), (0 : stdgo.GoInt));
     }
 function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
-        var _matches:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), _err:stdgo.Error = (null : stdgo.Error);
+        var _matches = (null : stdgo.Slice<stdgo.GoString>), _err = (null : stdgo.Error);
         {};
         if (_depth == ((10000 : stdgo.GoInt))) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : errBadPattern };
@@ -301,7 +302,7 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
             return { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = split(_pattern?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _file:stdgo.GoString = __tmp__._1;
-        var _volumeLen:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _volumeLen = (0 : stdgo.GoInt);
         if (false) {
             {
                 var __tmp__ = _cleanGlobPathWindows(_dir?.__copy__());
@@ -351,8 +352,8 @@ function _cleanGlobPath(_path:stdgo.GoString):stdgo.GoString {
         };
     }
 function _cleanGlobPathWindows(_path:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; } {
-        var _prefixLen:stdgo.GoInt = (0 : stdgo.GoInt), _cleaned:stdgo.GoString = ("" : stdgo.GoString);
-        var _vollen:stdgo.GoInt = _volumeNameLen(_path?.__copy__());
+        var _prefixLen = (0 : stdgo.GoInt), _cleaned = ("" : stdgo.GoString);
+        var _vollen = _volumeNameLen(_path?.__copy__());
         if (_path == (stdgo.Go.str())) {
             return { _0 : (0 : stdgo.GoInt), _1 : ("." : stdgo.GoString) };
         } else if ((((_vollen + (1 : stdgo.GoInt) : stdgo.GoInt) == (_path.length)) && stdgo._internal.os.Os.isPathSeparator(_path[((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : Bool)) {
@@ -368,7 +369,7 @@ function _cleanGlobPathWindows(_path:stdgo.GoString):{ var _0 : stdgo.GoInt; var
     }
 function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         var __deferstack__:Array<Void -> Void> = [];
-        var _m:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), _e:stdgo.Error = (null : stdgo.Error);
+        var _m = (null : stdgo.Slice<stdgo.GoString>), _e = (null : stdgo.Error);
         try {
             _m = _matches;
             var __tmp__ = stdgo._internal.os.Os.stat(_dir?.__copy__()), _fi:stdgo._internal.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -431,15 +432,15 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
         };
     }
 function _hasMeta(_path:stdgo.GoString):Bool {
-        var _magicChars:stdgo.GoString = ("*?[" : stdgo.GoString);
+        var _magicChars = ("*?[" : stdgo.GoString);
         if (true) {
             _magicChars = ("*?[\\" : stdgo.GoString);
         };
         return stdgo._internal.strings.Strings.containsAny(_path?.__copy__(), _magicChars?.__copy__());
     }
 function clean(_path:stdgo.GoString):stdgo.GoString {
-        var _originalPath:stdgo.GoString = _path?.__copy__();
-        var _volLen:stdgo.GoInt = _volumeNameLen(_path?.__copy__());
+        var _originalPath = _path?.__copy__();
+        var _volLen = _volumeNameLen(_path?.__copy__());
         _path = (_path.__slice__(_volLen) : stdgo.GoString)?.__copy__();
         if (_path == (stdgo.Go.str())) {
             if ((((_volLen > (1 : stdgo.GoInt) : Bool) && stdgo._internal.os.Os.isPathSeparator(_originalPath[(0 : stdgo.GoInt)]) : Bool) && stdgo._internal.os.Os.isPathSeparator(_originalPath[(1 : stdgo.GoInt)]) : Bool)) {
@@ -447,10 +448,11 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
             };
             return (_originalPath + ("." : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
         };
-        var _rooted:Bool = stdgo._internal.os.Os.isPathSeparator(_path[(0 : stdgo.GoInt)]);
-        var _n:stdgo.GoInt = (_path.length);
-        var _out:stdgo._internal.path.filepath.Filepath.T_lazybuf = ({ _path : _path?.__copy__(), _volAndPath : _originalPath?.__copy__(), _volLen : _volLen } : stdgo._internal.path.filepath.Filepath.T_lazybuf);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), _dotdot:stdgo.GoInt = __1, _r:stdgo.GoInt = __0;
+        var _rooted = stdgo._internal.os.Os.isPathSeparator(_path[(0 : stdgo.GoInt)]);
+        var _n = (_path.length);
+        var _out = ({ _path : _path?.__copy__(), _volAndPath : _originalPath?.__copy__(), _volLen : _volLen } : stdgo._internal.path.filepath.Filepath.T_lazybuf);
+        var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
+var _dotdot = __1, _r = __0;
         if (_rooted) {
             _out._append((47 : stdgo.GoUInt8));
             {
@@ -512,9 +514,9 @@ function _unixIsLocal(_path:stdgo.GoString):Bool {
         if ((isAbs(_path?.__copy__()) || (_path == stdgo.Go.str()) : Bool)) {
             return false;
         };
-        var _hasDots:Bool = false;
+        var _hasDots = false;
         {
-            var _p:stdgo.GoString = _path?.__copy__();
+            var _p = _path?.__copy__();
             while (_p != (stdgo.Go.str())) {
                 var _part:stdgo.GoString = ("" : stdgo.GoString);
                 {
@@ -552,9 +554,9 @@ function splitList(_path:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
         return _splitList(_path?.__copy__());
     }
 function split(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
-        var _dir:stdgo.GoString = ("" : stdgo.GoString), _file:stdgo.GoString = ("" : stdgo.GoString);
-        var _vol:stdgo.GoString = volumeName(_path?.__copy__())?.__copy__();
-        var _i:stdgo.GoInt = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+        var _dir = ("" : stdgo.GoString), _file = ("" : stdgo.GoString);
+        var _vol = volumeName(_path?.__copy__())?.__copy__();
+        var _i = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
         while (((_i >= (_vol.length) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)]) : Bool)) {
             _i--;
         };
@@ -566,7 +568,7 @@ function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
     }
 function ext(_path:stdgo.GoString):stdgo.GoString {
         {
-            var _i:stdgo.GoInt = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+            var _i = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             stdgo.Go.cfor(((_i >= (0 : stdgo.GoInt) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)]) : Bool), _i--, {
                 if (_path[(_i : stdgo.GoInt)] == ((46 : stdgo.GoUInt8))) {
                     return (_path.__slice__(_i) : stdgo.GoString)?.__copy__();
@@ -592,10 +594,10 @@ function _unixAbs(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdg
         return { _0 : join(_wd?.__copy__(), _path?.__copy__())?.__copy__(), _1 : (null : stdgo.Error) };
     }
 function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
-        var _baseVol:stdgo.GoString = volumeName(_basepath?.__copy__())?.__copy__();
-        var _targVol:stdgo.GoString = volumeName(_targpath?.__copy__())?.__copy__();
-        var _base:stdgo.GoString = clean(_basepath?.__copy__())?.__copy__();
-        var _targ:stdgo.GoString = clean(_targpath?.__copy__())?.__copy__();
+        var _baseVol = volumeName(_basepath?.__copy__())?.__copy__();
+        var _targVol = volumeName(_targpath?.__copy__())?.__copy__();
+        var _base = clean(_basepath?.__copy__())?.__copy__();
+        var _targ = clean(_targpath?.__copy__())?.__copy__();
         if (_sameWord(_targ?.__copy__(), _base?.__copy__())) {
             return { _0 : ("." : stdgo.GoString), _1 : (null : stdgo.Error) };
         };
@@ -606,14 +608,15 @@ function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdg
         } else if (((_base == stdgo.Go.str()) && (_volumeNameLen(_baseVol?.__copy__()) > (2 : stdgo.GoInt) : Bool) : Bool)) {
             _base = ((47 : stdgo.GoInt32) : stdgo.GoString);
         };
-        var _baseSlashed:Bool = (((_base.length) > (0 : stdgo.GoInt) : Bool) && (_base[(0 : stdgo.GoInt)] == (47 : stdgo.GoUInt8)) : Bool);
-        var _targSlashed:Bool = (((_targ.length) > (0 : stdgo.GoInt) : Bool) && (_targ[(0 : stdgo.GoInt)] == (47 : stdgo.GoUInt8)) : Bool);
+        var _baseSlashed = (((_base.length) > (0 : stdgo.GoInt) : Bool) && (_base[(0 : stdgo.GoInt)] == (47 : stdgo.GoUInt8)) : Bool);
+        var _targSlashed = (((_targ.length) > (0 : stdgo.GoInt) : Bool) && (_targ[(0 : stdgo.GoInt)] == (47 : stdgo.GoUInt8)) : Bool);
         if (((_baseSlashed != _targSlashed) || !_sameWord(_baseVol?.__copy__(), _targVol?.__copy__()) : Bool)) {
             return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors.new_((((("Rel: can\'t make " : stdgo.GoString) + _targpath?.__copy__() : stdgo.GoString) + (" relative to " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _basepath?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
-        var _bl:stdgo.GoInt = (_base.length);
-        var _tl:stdgo.GoInt = (_targ.length);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt), _ti:stdgo.GoInt = __3, _t0:stdgo.GoInt = __2, _bi:stdgo.GoInt = __1, _b0:stdgo.GoInt = __0;
+        var _bl = (_base.length);
+        var _tl = (_targ.length);
+        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt), __2:stdgo.GoInt = (0 : stdgo.GoInt), __3:stdgo.GoInt = (0 : stdgo.GoInt);
+var _ti = __3, _t0 = __2, _bi = __1, _b0 = __0;
         while (true) {
             while (((_bi < _bl : Bool) && (_base[(_bi : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
                 _bi++;
@@ -637,15 +640,15 @@ function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdg
             return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors.new_((((("Rel: can\'t make " : stdgo.GoString) + _targpath?.__copy__() : stdgo.GoString) + (" relative to " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _basepath?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
         if (_b0 != (_bl)) {
-            var _seps:stdgo.GoInt = stdgo._internal.strings.Strings.count((_base.__slice__(_b0, _bl) : stdgo.GoString)?.__copy__(), ((47 : stdgo.GoInt32) : stdgo.GoString));
-            var _size:stdgo.GoInt = ((2 : stdgo.GoInt) + (_seps * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
+            var _seps = stdgo._internal.strings.Strings.count((_base.__slice__(_b0, _bl) : stdgo.GoString)?.__copy__(), ((47 : stdgo.GoInt32) : stdgo.GoString));
+            var _size = ((2 : stdgo.GoInt) + (_seps * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             if (_tl != (_t0)) {
                 _size = (_size + ((((1 : stdgo.GoInt) + _tl : stdgo.GoInt) - _t0 : stdgo.GoInt)) : stdgo.GoInt);
             };
             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var _n:stdgo.GoInt = stdgo.Go.copySlice(_buf, (".." : stdgo.GoString));
+            var _n = stdgo.Go.copySlice(_buf, (".." : stdgo.GoString));
             {
-                var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                var _i = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _seps : Bool), _i++, {
                     _buf[(_n : stdgo.GoInt)] = (47 : stdgo.GoUInt8);
                     stdgo.Go.copySlice((_buf.__slice__((_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (".." : stdgo.GoString));
@@ -662,7 +665,7 @@ function rel(_basepath:stdgo.GoString, _targpath:stdgo.GoString):{ var _0 : stdg
     }
 function _walkDir(_path:stdgo.GoString, _d:stdgo._internal.io.fs.Fs.DirEntry, _walkDirFn:stdgo._internal.io.fs.Fs.WalkDirFunc):stdgo.Error {
         {
-            var _err:stdgo.Error = _walkDirFn(_path?.__copy__(), _d, (null : stdgo.Error));
+            var _err = _walkDirFn(_path?.__copy__(), _d, (null : stdgo.Error));
             if (((_err != null) || !_d.isDir() : Bool)) {
                 if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) && _d.isDir() : Bool)) {
                     _err = (null : stdgo.Error);
@@ -681,9 +684,9 @@ function _walkDir(_path:stdgo.GoString, _d:stdgo._internal.io.fs.Fs.DirEntry, _w
             };
         };
         for (__0 => _d1 in _dirs) {
-            var _path1:stdgo.GoString = join(_path?.__copy__(), _d1.name()?.__copy__())?.__copy__();
+            var _path1 = join(_path?.__copy__(), _d1.name()?.__copy__())?.__copy__();
             {
-                var _err:stdgo.Error = _walkDir(_path1?.__copy__(), _d1, _walkDirFn);
+                var _err = _walkDir(_path1?.__copy__(), _d1, _walkDirFn);
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(skipDir))) {
                         break;
@@ -699,16 +702,16 @@ function _walk(_path:stdgo.GoString, _info:stdgo._internal.io.fs.Fs.FileInfo, _w
             return _walkFn(_path?.__copy__(), _info, (null : stdgo.Error));
         };
         var __tmp__ = _readDirNames(_path?.__copy__()), _names:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        var _err1:stdgo.Error = _walkFn(_path?.__copy__(), _info, _err);
+        var _err1 = _walkFn(_path?.__copy__(), _info, _err);
         if (((_err != null) || (_err1 != null) : Bool)) {
             return _err1;
         };
         for (__0 => _name in _names) {
-            var _filename:stdgo.GoString = join(_path?.__copy__(), _name?.__copy__())?.__copy__();
+            var _filename = join(_path?.__copy__(), _name?.__copy__())?.__copy__();
             var __tmp__ = _lstat(_filename?.__copy__()), _fileInfo:stdgo._internal.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
-                    var _err:stdgo.Error = _walkFn(_filename?.__copy__(), _fileInfo, _err);
+                    var _err = _walkFn(_filename?.__copy__(), _fileInfo, _err);
                     if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(skipDir)) : Bool)) {
                         return _err;
                     };
@@ -784,7 +787,7 @@ function base(_path:stdgo.GoString):stdgo.GoString {
             _path = (_path.__slice__((0 : stdgo.GoInt), ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
         _path = (_path.__slice__((volumeName(_path?.__copy__()).length)) : stdgo.GoString)?.__copy__();
-        var _i:stdgo.GoInt = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+        var _i = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
         while (((_i >= (0 : stdgo.GoInt) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)]) : Bool)) {
             _i--;
         };
@@ -797,12 +800,12 @@ function base(_path:stdgo.GoString):stdgo.GoString {
         return _path?.__copy__();
     }
 function dir(_path:stdgo.GoString):stdgo.GoString {
-        var _vol:stdgo.GoString = volumeName(_path?.__copy__())?.__copy__();
-        var _i:stdgo.GoInt = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+        var _vol = volumeName(_path?.__copy__())?.__copy__();
+        var _i = ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
         while (((_i >= (_vol.length) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_i : stdgo.GoInt)]) : Bool)) {
             _i--;
         };
-        var _dir:stdgo.GoString = clean((_path.__slice__((_vol.length), (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__())?.__copy__();
+        var _dir = clean((_path.__slice__((_vol.length), (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__())?.__copy__();
         if (((_dir == ("." : stdgo.GoString)) && ((_vol.length) > (2 : stdgo.GoInt) : Bool) : Bool)) {
             return _vol?.__copy__();
         };
@@ -844,16 +847,17 @@ function _sameWord(_a:stdgo.GoString, _b:stdgo.GoString):Bool {
         return _a == (_b);
     }
 function _walkSymlinks(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
-        var _volLen:stdgo.GoInt = _volumeNameLen(_path?.__copy__());
-        var _pathSeparator:stdgo.GoString = ((47 : stdgo.GoInt32) : stdgo.GoString);
+        var _volLen = _volumeNameLen(_path?.__copy__());
+        var _pathSeparator = ((47 : stdgo.GoInt32) : stdgo.GoString);
         if (((_volLen < (_path.length) : Bool) && stdgo._internal.os.Os.isPathSeparator(_path[(_volLen : stdgo.GoInt)]) : Bool)) {
             _volLen++;
         };
-        var _vol:stdgo.GoString = (_path.__slice__(0, _volLen) : stdgo.GoString)?.__copy__();
-        var _dest:stdgo.GoString = _vol?.__copy__();
-        var _linksWalked:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _vol = (_path.__slice__(0, _volLen) : stdgo.GoString)?.__copy__();
+        var _dest = _vol?.__copy__();
+        var _linksWalked = (0 : stdgo.GoInt);
         {
-            var __0:stdgo.GoInt = _volLen, __1:stdgo.GoInt = _volLen, _end:stdgo.GoInt = __1, _start:stdgo.GoInt = __0;
+            var __0 = _volLen, __1 = _volLen;
+var _end = __1, _start = __0;
             stdgo.Go.cfor((_start < (_path.length) : Bool), _start = _end, {
                 while (((_start < (_path.length) : Bool) && stdgo._internal.os.Os.isPathSeparator(_path[(_start : stdgo.GoInt)]) : Bool)) {
                     _start++;
@@ -862,7 +866,7 @@ function _walkSymlinks(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 :
                 while (((_end < (_path.length) : Bool) && !stdgo._internal.os.Os.isPathSeparator(_path[(_end : stdgo.GoInt)]) : Bool)) {
                     _end++;
                 };
-                var _isWindowsDot:Bool = (false && ((_path.__slice__(_volumeNameLen(_path?.__copy__())) : stdgo.GoString) == ("." : stdgo.GoString)) : Bool);
+                var _isWindowsDot = (false && ((_path.__slice__(_volumeNameLen(_path?.__copy__())) : stdgo.GoString) == ("." : stdgo.GoString)) : Bool);
                 if (_end == (_start)) {
                     break;
                 } else if ((((_path.__slice__(_start, _end) : stdgo.GoString) == ("." : stdgo.GoString)) && !_isWindowsDot : Bool)) {
@@ -913,7 +917,7 @@ function _walkSymlinks(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 :
                     break;
                 };
                 _path = (_link + (_path.__slice__(_end) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
-                var _v:stdgo.GoInt = _volumeNameLen(_link?.__copy__());
+                var _v = _volumeNameLen(_link?.__copy__());
                 if ((_v > (0 : stdgo.GoInt) : Bool)) {
                     if (((_v < (_link.length) : Bool) && stdgo._internal.os.Os.isPathSeparator(_link[(_v : stdgo.GoInt)]) : Bool)) {
                         _v++;

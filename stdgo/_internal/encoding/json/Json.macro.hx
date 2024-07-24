@@ -11,12 +11,12 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
             } catch(_) {
                 final f = macro function f(__generic__0:$Bytes, _dst:stdgo.Slice<stdgo.GoByte>, _src:$Bytes, _escapeHTML:Bool) {
                     _dst = (_dst.__append__((34 : stdgo.GoUInt8)));
-                    var _start:stdgo.GoInt = (0 : stdgo.GoInt);
+                    var _start = (0 : stdgo.GoInt);
                     {
-                        var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+                        var _i = (0 : stdgo.GoInt);
                         while ((_i < (_src.length) : Bool)) {
                             {
-                                var _b:stdgo.GoUInt8 = _src[@:param_index _i];
+                                var _b = _src[@:param_index _i];
                                 if ((_b < (128 : stdgo.GoUInt8) : Bool)) {
                                     if ((@:privateAccess stdgo._internal.encoding.json.Json._htmlSafeSet[(_b : stdgo.GoInt)] || ((!_escapeHTML && @:privateAccess stdgo._internal.encoding.json.Json._safeSet[(_b : stdgo.GoInt)] : Bool)) : Bool)) {
                                         _i++;
@@ -42,7 +42,7 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
                                     continue;
                                 };
                             };
-                            var _n:stdgo.GoInt = ((_src.length) - _i : stdgo.GoInt);
+                            var _n = ((_src.length) - _i : stdgo.GoInt);
                             if ((_n > (4 : stdgo.GoInt) : Bool)) {
                                 _n = (4 : stdgo.GoInt);
                             };

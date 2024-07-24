@@ -19,18 +19,16 @@ var _pipeSignal : stdgo._internal.os.Os.Signal = (null : stdgo._internal.os.Os.S
 var _helperCommands : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void> = ({
         final x = new stdgo.GoMap.GoStringMap<haxe.Rest<stdgo.GoString> -> Void>();
         x.__defaultValue__ = () -> null;
-        @:mergeBlock {
-            x.set(("echo" : stdgo.GoString), _cmdEcho);
-            x.set(("echoenv" : stdgo.GoString), _cmdEchoEnv);
-            x.set(("cat" : stdgo.GoString), _cmdCat);
-            x.set(("pipetest" : stdgo.GoString), _cmdPipeTest);
-            x.set(("stdinClose" : stdgo.GoString), _cmdStdinClose);
-            x.set(("exit" : stdgo.GoString), _cmdExit);
-            x.set(("describefiles" : stdgo.GoString), _cmdDescribeFiles);
-            x.set(("stderrfail" : stdgo.GoString), _cmdStderrFail);
-            x.set(("yes" : stdgo.GoString), _cmdYes);
-            x.set(("hang" : stdgo.GoString), _cmdHang);
-        };
+        x.set(("echo" : stdgo.GoString), _cmdEcho);
+x.set(("echoenv" : stdgo.GoString), _cmdEchoEnv);
+x.set(("cat" : stdgo.GoString), _cmdCat);
+x.set(("pipetest" : stdgo.GoString), _cmdPipeTest);
+x.set(("stdinClose" : stdgo.GoString), _cmdStdinClose);
+x.set(("exit" : stdgo.GoString), _cmdExit);
+x.set(("describefiles" : stdgo.GoString), _cmdDescribeFiles);
+x.set(("stderrfail" : stdgo.GoString), _cmdStderrFail);
+x.set(("yes" : stdgo.GoString), _cmdYes);
+x.set(("hang" : stdgo.GoString), _cmdHang);
         x;
     } : stdgo.GoMap<stdgo.GoString, haxe.Rest<stdgo.GoString> -> Void>);
 @:keep class T__interface_0_static_extension {
@@ -147,19 +145,19 @@ function testLookPath(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.internal.testenv.Testenv.mustHaveExec(stdgo.Go.asInterface(_t));
-            var _tmpDir:stdgo.GoString = stdgo._internal.path.filepath.Filepath.join(_t.tempDir()?.__copy__(), ("testdir" : stdgo.GoString))?.__copy__();
+            var _tmpDir = stdgo._internal.path.filepath.Filepath.join(_t.tempDir()?.__copy__(), ("testdir" : stdgo.GoString))?.__copy__();
             {
-                var _err:stdgo.Error = stdgo._internal.os.Os.mkdir(_tmpDir?.__copy__(), (511u32 : stdgo._internal.io.fs.Fs.FileMode));
+                var _err = stdgo._internal.os.Os.mkdir(_tmpDir?.__copy__(), (511u32 : stdgo._internal.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
-            var _executable:stdgo.GoString = ("execabs-test" : stdgo.GoString);
+            var _executable = ("execabs-test" : stdgo.GoString);
             if (false) {
                 _executable = (_executable + ((".exe" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             };
             {
-                var _err:stdgo.Error = stdgo._internal.os.Os.writeFile(stdgo._internal.path.filepath.Filepath.join(_tmpDir?.__copy__(), _executable?.__copy__())?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(1 : stdgo.GoUInt8), (2 : stdgo.GoUInt8), (3 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (511u32 : stdgo._internal.io.fs.Fs.FileMode));
+                var _err = stdgo._internal.os.Os.writeFile(stdgo._internal.path.filepath.Filepath.join(_tmpDir?.__copy__(), _executable?.__copy__())?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(1 : stdgo.GoUInt8), (2 : stdgo.GoUInt8), (3 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (511u32 : stdgo._internal.io.fs.Fs.FileMode));
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
@@ -171,7 +169,7 @@ function testLookPath(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             __deferstack__.unshift(() -> {
                 var a = function():Void {
                     {
-                        var _err:stdgo.Error = stdgo._internal.os.Os.chdir(_cwd?.__copy__());
+                        var _err = stdgo._internal.os.Os.chdir(_cwd?.__copy__());
                         if (_err != null) {
                             throw stdgo.Go.toInterface(_err);
                         };
@@ -187,14 +185,14 @@ function testLookPath(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             };
             _t.setenv(("PWD" : stdgo.GoString), _tmpDir?.__copy__());
             _t.logf((". is %#q" : stdgo.GoString), stdgo.Go.toInterface(_tmpDir));
-            var _origPath:stdgo.GoString = stdgo._internal.os.Os.getenv(_pathVar?.__copy__())?.__copy__();
+            var _origPath = stdgo._internal.os.Os.getenv(_pathVar?.__copy__())?.__copy__();
             for (__56 => _errdot in (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("1" : stdgo.GoString), ("0" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
                 _t.run((("GODEBUG=execerrdot=" : stdgo.GoString) + _errdot?.__copy__() : stdgo.GoString)?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     _t.setenv(("GODEBUG" : stdgo.GoString), ((("execerrdot=" : stdgo.GoString) + _errdot?.__copy__() : stdgo.GoString) + (",execwait=2" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
                     for (__73 => _dir in (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("." : stdgo.GoString), ("../testdir" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
                         _t.run(((_pathVar + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _dir?.__copy__() : stdgo.GoString)?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                             _t.setenv(_pathVar?.__copy__(), ((_dir + ((58 : stdgo.GoInt32) : stdgo.GoString)?.__copy__() : stdgo.GoString) + _origPath?.__copy__() : stdgo.GoString)?.__copy__());
-                            var _good:stdgo.GoString = (_dir + ("/execabs-test" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
+                            var _good = (_dir + ("/execabs-test" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
                             {
                                 var __tmp__ = lookPath(_good?.__copy__()), _found:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (((_err != null) || !stdgo._internal.strings.Strings.hasPrefix(_found?.__copy__(), _good?.__copy__()) : Bool)) {
@@ -236,7 +234,7 @@ function testLookPath(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                                 };
                             };
                             {
-                                var _err:stdgo.Error = _cmd.run();
+                                var _err = _cmd.run();
                                 if (_err == null) {
                                     _t.fatalf(("Run did not fail: expected exec error" : stdgo.GoString));
                                 } else if (stdgo._internal.errors.Errors.is_(_err, errDot)) {
@@ -249,7 +247,7 @@ function testLookPath(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             };
             _t.run((_pathVar + ("=$PWD" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.setenv(_pathVar?.__copy__(), ((_tmpDir + ((58 : stdgo.GoInt32) : stdgo.GoString)?.__copy__() : stdgo.GoString) + _origPath?.__copy__() : stdgo.GoString)?.__copy__());
-                var _good:stdgo.GoString = stdgo._internal.path.filepath.Filepath.join(_tmpDir?.__copy__(), ("execabs-test" : stdgo.GoString))?.__copy__();
+                var _good = stdgo._internal.path.filepath.Filepath.join(_tmpDir?.__copy__(), ("execabs-test" : stdgo.GoString))?.__copy__();
                 {
                     var __tmp__ = lookPath(_good?.__copy__()), _found:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (((_err != null) || !stdgo._internal.strings.Strings.hasPrefix(_found?.__copy__(), _good?.__copy__()) : Bool)) {
@@ -268,7 +266,7 @@ function testLookPath(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 };
             });
             _t.run((_pathVar + ("=$OTHER" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-                var _wantErrDot:Bool = false;
+                var _wantErrDot = false;
                 _t.setenv(_pathVar?.__copy__(), stdgo.Go.str()?.__copy__());
                 {
                     var __tmp__ = lookPath(("execabs-test" : stdgo.GoString)), _found:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -278,13 +276,13 @@ function testLookPath(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                         _t.fatalf(("with PATH=\'\', LookPath(%#q) = %#q; want non-nil error" : stdgo.GoString), stdgo.Go.toInterface(("execabs-test" : stdgo.GoString)), stdgo.Go.toInterface(_found));
                     };
                 };
-                var _dir:stdgo.GoString = _t.tempDir()?.__copy__();
-                var _executable:stdgo.GoString = ("execabs-test" : stdgo.GoString);
+                var _dir = _t.tempDir()?.__copy__();
+                var _executable = ("execabs-test" : stdgo.GoString);
                 if (false) {
                     _executable = (_executable + ((".exe" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                 };
                 {
-                    var _err:stdgo.Error = stdgo._internal.os.Os.writeFile(stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), _executable?.__copy__())?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(1 : stdgo.GoUInt8), (2 : stdgo.GoUInt8), (3 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (511u32 : stdgo._internal.io.fs.Fs.FileMode));
+                    var _err = stdgo._internal.os.Os.writeFile(stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), _executable?.__copy__())?.__copy__(), (new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(1 : stdgo.GoUInt8), (2 : stdgo.GoUInt8), (3 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), (511u32 : stdgo._internal.io.fs.Fs.FileMode));
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
@@ -292,12 +290,12 @@ function testLookPath(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.setenv(_pathVar?.__copy__(), ((_dir + ((58 : stdgo.GoInt32) : stdgo.GoString)?.__copy__() : stdgo.GoString) + _origPath?.__copy__() : stdgo.GoString)?.__copy__());
                 var __tmp__ = lookPath(("execabs-test" : stdgo.GoString)), _found:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_wantErrDot) {
-                    var _wantFound:stdgo.GoString = stdgo._internal.path.filepath.Filepath.join(("." : stdgo.GoString), _executable?.__copy__())?.__copy__();
+                    var _wantFound = stdgo._internal.path.filepath.Filepath.join(("." : stdgo.GoString), _executable?.__copy__())?.__copy__();
                     if (((_found != _wantFound) || !stdgo._internal.errors.Errors.is_(_err, errDot) : Bool)) {
                         _t.fatalf(("LookPath(%#q) = %#q, %v, want %#q, Is ErrDot" : stdgo.GoString), stdgo.Go.toInterface(("execabs-test" : stdgo.GoString)), stdgo.Go.toInterface(_found), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_wantFound));
                     };
                 } else {
-                    var _wantFound:stdgo.GoString = stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), _executable?.__copy__())?.__copy__();
+                    var _wantFound = stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), _executable?.__copy__())?.__copy__();
                     if (((_found != _wantFound) || (_err != null) : Bool)) {
                         _t.fatalf(("LookPath(%#q) = %#q, %v, want %#q, nil" : stdgo.GoString), stdgo.Go.toInterface(("execabs-test" : stdgo.GoString)), stdgo.Go.toInterface(_found), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_wantFound));
                     };
@@ -336,7 +334,7 @@ function exampleCommand():Void {
         _cmd.stdin = stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("some input" : stdgo.GoString)));
         var _out:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
         _cmd.stdout = stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>));
-        var _err:stdgo.Error = _cmd.run();
+        var _err = _cmd.run();
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
         };
@@ -346,7 +344,7 @@ function exampleCommand_environment():Void {
         var _cmd = stdgo._internal.os.exec.Exec.command(("prog" : stdgo.GoString));
         _cmd.env = (stdgo._internal.os.Os.environ_().__append__(("FOO=duplicate_value" : stdgo.GoString), ("FOO=actual_value" : stdgo.GoString)));
         {
-            var _err:stdgo.Error = _cmd.run();
+            var _err = _cmd.run();
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
@@ -362,12 +360,12 @@ function exampleCmd_Output():Void {
 function exampleCmd_Run():Void {
         var _cmd = stdgo._internal.os.exec.Exec.command(("sleep" : stdgo.GoString), ("1" : stdgo.GoString));
         stdgo._internal.log.Log.printf(("Running command and waiting for it to finish..." : stdgo.GoString));
-        var _err:stdgo.Error = _cmd.run();
+        var _err = _cmd.run();
         stdgo._internal.log.Log.printf(("Command finished with error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
     }
 function exampleCmd_Start():Void {
         var _cmd = stdgo._internal.os.exec.Exec.command(("sleep" : stdgo.GoString), ("5" : stdgo.GoString));
-        var _err:stdgo.Error = _cmd.start();
+        var _err = _cmd.start();
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
         };
@@ -382,20 +380,20 @@ function exampleCmd_StdoutPipe():Void {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var _err:stdgo.Error = _cmd.start();
+            var _err = _cmd.start();
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
         };
         var _person:T__struct_0 = ({ name : ("" : stdgo.GoString), age : (0 : stdgo.GoInt) } : T__struct_0);
         {
-            var _err:stdgo.Error = stdgo._internal.encoding.json.Json.newDecoder(_stdout).decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_person) : stdgo.Ref<T__struct_0>))));
+            var _err = stdgo._internal.encoding.json.Json.newDecoder(_stdout).decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_person) : stdgo.Ref<T__struct_0>))));
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
         };
         {
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
@@ -450,7 +448,7 @@ function exampleCmd_StderrPipe():Void {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var _err:stdgo.Error = _cmd.start();
+            var _err = _cmd.start();
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
@@ -458,7 +456,7 @@ function exampleCmd_StderrPipe():Void {
         var __tmp__ = stdgo._internal.io.Io.readAll(_stderr), _slurp:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __12:stdgo.Error = __tmp__._1;
         stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_slurp));
         {
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
@@ -488,7 +486,7 @@ function exampleCommandContext():Void {
             var __tmp__ = stdgo._internal.context.Context.withTimeout(stdgo._internal.context.Context.background(), (100000000i64 : stdgo._internal.time.Time.Duration)), _ctx:stdgo._internal.context.Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context.CancelFunc = __tmp__._1;
             __deferstack__.unshift(() -> _cancel());
             {
-                var _err:stdgo.Error = stdgo._internal.os.exec.Exec.commandContext(_ctx, ("sleep" : stdgo.GoString), ("5" : stdgo.GoString)).run();
+                var _err = stdgo._internal.os.exec.Exec.commandContext(_ctx, ("sleep" : stdgo.GoString), ("5" : stdgo.GoString)).run();
                 if (_err != null) {};
             };
             {
@@ -514,10 +512,10 @@ function exampleCommandContext():Void {
     }
 function testMain(_m:stdgo.Ref<stdgo._internal.testing.Testing.M>):Void {
         stdgo._internal.flag.Flag.parse();
-        var _pid:stdgo.GoInt = stdgo._internal.os.Os.getpid();
+        var _pid = stdgo._internal.os.Os.getpid();
         if (stdgo._internal.os.Os.getenv(("GO_EXEC_TEST_PID" : stdgo.GoString)) == (stdgo.Go.str())) {
             stdgo._internal.os.Os.setenv(("GO_EXEC_TEST_PID" : stdgo.GoString), stdgo._internal.strconv.Strconv.itoa(_pid)?.__copy__());
-            var _code:stdgo.GoInt = _m.run();
+            var _code = _m.run();
             if (((_code == ((0 : stdgo.GoInt)) && (stdgo._internal.flag.Flag.lookup(("test.run" : stdgo.GoString)).value.string() : stdgo.GoString) == (stdgo.Go.str()) : Bool) && ((stdgo._internal.flag.Flag.lookup(("test.list" : stdgo.GoString)).value.string() : stdgo.GoString) == stdgo.Go.str()) : Bool)) {
                 for (_cmd => _ in _helperCommands) {
                     {
@@ -540,7 +538,8 @@ function testMain(_m:stdgo.Ref<stdgo._internal.testing.Testing.M>):Void {
             stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo._internal.os.Os.stderr), ("No command\n" : stdgo.GoString));
             Sys.exit((2 : stdgo.GoInt));
         };
-        var __0:stdgo.GoString = _args[(0 : stdgo.GoInt)]?.__copy__(), __1 = (_args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>), _args = __1, _cmd:stdgo.GoString = __0;
+        var __0 = _args[(0 : stdgo.GoInt)]?.__copy__(), __1 = (_args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
+var _args = __1, _cmd = __0;
         var __tmp__ = (_helperCommands != null && _helperCommands.exists(_cmd?.__copy__()) ? { _0 : _helperCommands[_cmd?.__copy__()], _1 : true } : { _0 : null, _1 : false }), _f:haxe.Rest<stdgo.GoString> -> Void = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo._internal.os.Os.stderr), ("Unknown command %q\n" : stdgo.GoString), stdgo.Go.toInterface(_cmd));
@@ -565,7 +564,7 @@ function _helperCommand(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _name:
     }
 function _helperCommandContext(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _ctx:stdgo._internal.context.Context.Context, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd> {
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
-        var _cmd:stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd> = (null : stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd>);
+        var _cmd = (null : stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd>);
         _helperCommandUsed.loadOrStore(stdgo.Go.toInterface(_name), stdgo.Go.toInterface(true));
         _t.helper();
         stdgo._internal.internal.testenv.Testenv.mustHaveExec(stdgo.Go.asInterface(_t));
@@ -615,7 +614,7 @@ function _cmdCat(_args:haxe.Rest<stdgo.GoString>):Void {
                 stdgo._internal.io.Io.copy(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), stdgo.Go.asInterface(stdgo._internal.os.Os.stdin));
                 return;
             };
-            var _exit:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _exit = (0 : stdgo.GoInt);
             for (__0 => _fn in _args) {
                 var __tmp__ = stdgo._internal.os.Os.open(_fn?.__copy__()), _f:stdgo.Ref<stdgo._internal.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
@@ -677,7 +676,7 @@ function _cmdStdinClose(_0:haxe.Rest<stdgo.GoString>):Void {
             Sys.exit((1 : stdgo.GoInt));
         };
         {
-            var _s:stdgo.GoString = (_b : stdgo.GoString)?.__copy__();
+            var _s = (_b : stdgo.GoString)?.__copy__();
             if (_s != (("Some test string." : stdgo.GoString))) {
                 stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo._internal.os.Os.stderr), ("Error: Read %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(("Some test string." : stdgo.GoString)));
                 Sys.exit((1 : stdgo.GoInt));
@@ -708,7 +707,7 @@ function _cmdYes(_args:haxe.Rest<stdgo.GoString>):Void {
         if ((_args.length) == ((0 : stdgo.GoInt))) {
             _args = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("y" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
         };
-        var _s:stdgo.GoString = (stdgo._internal.strings.Strings.join(_args, (" " : stdgo.GoString)) + ("\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
+        var _s = (stdgo._internal.strings.Strings.join(_args, (" " : stdgo.GoString)) + ("\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
         while (true) {
             var __tmp__ = stdgo._internal.os.Os.stdout.writeString(_s?.__copy__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -723,7 +722,8 @@ function testEcho(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.errorf(("echo: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         {
-            var __0:stdgo.GoString = (_bs : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = ("foo bar baz\n" : stdgo.GoString), _e:stdgo.GoString = __1, _g:stdgo.GoString = __0;
+            var __0 = (_bs : stdgo.GoString)?.__copy__(), __1 = ("foo bar baz\n" : stdgo.GoString);
+var _e = __1, _g = __0;
             if (_g != (_e)) {
                 _t.errorf(("echo: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_g));
             };
@@ -732,13 +732,13 @@ function testEcho(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testCommandRelativeName(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _t.parallel();
         var _cmd = _helperCommand(_t, ("echo" : stdgo.GoString), ("foo" : stdgo.GoString));
-        var _base:stdgo.GoString = stdgo._internal.path.filepath.Filepath.base(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]?.__copy__())?.__copy__();
-        var _dir:stdgo.GoString = stdgo._internal.path.filepath.Filepath.dir(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]?.__copy__())?.__copy__();
+        var _base = stdgo._internal.path.filepath.Filepath.base(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]?.__copy__())?.__copy__();
+        var _dir = stdgo._internal.path.filepath.Filepath.dir(stdgo._internal.os.Os.args[(0 : stdgo.GoInt)]?.__copy__())?.__copy__();
         if (_dir == (("." : stdgo.GoString))) {
             _t.skip(stdgo.Go.toInterface(("skipping; running test at root somehow" : stdgo.GoString)));
         };
-        var _parentDir:stdgo.GoString = stdgo._internal.path.filepath.Filepath.dir(_dir?.__copy__())?.__copy__();
-        var _dirBase:stdgo.GoString = stdgo._internal.path.filepath.Filepath.base(_dir?.__copy__())?.__copy__();
+        var _parentDir = stdgo._internal.path.filepath.Filepath.dir(_dir?.__copy__())?.__copy__();
+        var _dirBase = stdgo._internal.path.filepath.Filepath.base(_dir?.__copy__())?.__copy__();
         if (_dirBase == (("." : stdgo.GoString))) {
             _t.skipf(("skipping; unexpected shallow dir of %q" : stdgo.GoString), stdgo.Go.toInterface(_dir));
         };
@@ -749,7 +749,8 @@ function testCommandRelativeName(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
             _t.errorf(("echo: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         {
-            var __0:stdgo.GoString = (_out : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = ("foo\n" : stdgo.GoString), _e:stdgo.GoString = __1, _g:stdgo.GoString = __0;
+            var __0 = (_out : stdgo.GoString)?.__copy__(), __1 = ("foo\n" : stdgo.GoString);
+var _e = __1, _g = __0;
             if (_g != (_e)) {
                 _t.errorf(("echo: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_g));
             };
@@ -757,14 +758,14 @@ function testCommandRelativeName(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
     }
 function testCatStdin(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _t.parallel();
-        var _input:stdgo.GoString = ("Input string\nLine 2" : stdgo.GoString);
+        var _input = ("Input string\nLine 2" : stdgo.GoString);
         var _p = _helperCommand(_t, ("cat" : stdgo.GoString));
         _p.stdin = stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(_input?.__copy__()));
         var __tmp__ = _p.output(), _bs:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t.errorf(("cat: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
-        var _s:stdgo.GoString = (_bs : stdgo.GoString)?.__copy__();
+        var _s = (_bs : stdgo.GoString)?.__copy__();
         if (_s != (_input)) {
             _t.errorf(("cat: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_input), stdgo.Go.toInterface(_s));
         };
@@ -777,7 +778,7 @@ function testEchoFileRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             _t.fatalf(("StdinPipe: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         {
-            var _err:stdgo.Error = _cmd.start();
+            var _err = _cmd.start();
             if (_err != null) {
                 _t.fatalf(("Start: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -816,7 +817,7 @@ function testEchoFileRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             a();
         });
         {
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             if (_err != null) {
                 _t.fatalf(("Wait: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -849,7 +850,7 @@ function testCatGoodAndBadFile(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
     }
 function testNoExistExecutable(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _t.parallel();
-        var _err:stdgo.Error = stdgo._internal.os.exec.Exec.command(("/no-exist-executable" : stdgo.GoString)).run();
+        var _err = stdgo._internal.os.exec.Exec.command(("/no-exist-executable" : stdgo.GoString)).run();
         if (_err == null) {
             _t.error(stdgo.Go.toInterface(("expected error from /no-exist-executable" : stdgo.GoString)));
         };
@@ -857,8 +858,8 @@ function testNoExistExecutable(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>)
 function testExitStatus(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _t.parallel();
         var _cmd = _helperCommand(_t, ("exit" : stdgo.GoString), ("42" : stdgo.GoString));
-        var _err:stdgo.Error = _cmd.run();
-        var _want:stdgo.GoString = ("exit status 42" : stdgo.GoString);
+        var _err = _cmd.run();
+        var _want = ("exit status 42" : stdgo.GoString);
         {
             final __value__ = ("js" : stdgo.GoString);
             if (__value__ == (("plan9" : stdgo.GoString))) {
@@ -873,7 +874,7 @@ function testExitStatus(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             }, _werr = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 {
-                    var _s:stdgo.GoString = _werr.error()?.__copy__();
+                    var _s = _werr.error()?.__copy__();
                     if (_s != (_want)) {
                         _t.errorf(("from exit 42 got exit %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_want));
                     };
@@ -887,11 +888,11 @@ function testExitCode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _t.parallel();
         var _cmd = _helperCommand(_t, ("exit" : stdgo.GoString), ("42" : stdgo.GoString));
         _cmd.run();
-        var _want:stdgo.GoInt = (42 : stdgo.GoInt);
+        var _want = (42 : stdgo.GoInt);
         if (false) {
             _want = (1 : stdgo.GoInt);
         };
-        var _got:stdgo.GoInt = _cmd.processState.exitCode();
+        var _got = _cmd.processState.exitCode();
         if (_want != (_got)) {
             _t.errorf(("ExitCode got %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
@@ -931,7 +932,7 @@ function testExitCode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testPipes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         _t.parallel();
-        var _check:(stdgo.GoString, stdgo.Error) -> Void = function(_what:stdgo.GoString, _err:stdgo.Error):Void {
+        var _check = function(_what:stdgo.GoString, _err:stdgo.Error):Void {
             if (_err != null) {
                 _t.fatalf(("%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_what), stdgo.Go.toInterface(_err));
             };
@@ -960,7 +961,8 @@ function testPipes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         _check(("first stdin Write" : stdgo.GoString), _err);
         {
-            var __0:stdgo.GoString = _line(("first output line" : stdgo.GoString), _outbr)?.__copy__(), __1:stdgo.GoString = ("O:I am output" : stdgo.GoString), _e:stdgo.GoString = __1, _g:stdgo.GoString = __0;
+            var __0 = _line(("first output line" : stdgo.GoString), _outbr)?.__copy__(), __1 = ("O:I am output" : stdgo.GoString);
+var _e = __1, _g = __0;
             if (_g != (_e)) {
                 _t.errorf(("got %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_e));
             };
@@ -971,7 +973,8 @@ function testPipes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         _check(("second stdin Write" : stdgo.GoString), _err);
         {
-            var __0:stdgo.GoString = _line(("first error line" : stdgo.GoString), _errbr)?.__copy__(), __1:stdgo.GoString = ("E:I am error" : stdgo.GoString), _e:stdgo.GoString = __1, _g:stdgo.GoString = __0;
+            var __0 = _line(("first error line" : stdgo.GoString), _errbr)?.__copy__(), __1 = ("E:I am error" : stdgo.GoString);
+var _e = __1, _g = __0;
             if (_g != (_e)) {
                 _t.errorf(("got %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_e));
             };
@@ -982,7 +985,8 @@ function testPipes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         _check(("third stdin Write 3" : stdgo.GoString), _err);
         {
-            var __0:stdgo.GoString = _line(("second output line" : stdgo.GoString), _outbr)?.__copy__(), __1:stdgo.GoString = ("O:I am output2" : stdgo.GoString), _e:stdgo.GoString = __1, _g:stdgo.GoString = __0;
+            var __0 = _line(("second output line" : stdgo.GoString), _outbr)?.__copy__(), __1 = ("O:I am output2" : stdgo.GoString);
+var _e = __1, _g = __0;
             if (_g != (_e)) {
                 _t.errorf(("got %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_g), stdgo.Go.toInterface(_e));
             };
@@ -995,7 +999,7 @@ function testStdinClose(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t.parallel();
-            var _check:(stdgo.GoString, stdgo.Error) -> Void = function(_what:stdgo.GoString, _err:stdgo.Error):Void {
+            var _check = function(_what:stdgo.GoString, _err:stdgo.Error):Void {
                 if (_err != null) {
                     _t.fatalf(("%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_what), stdgo.Go.toInterface(_err));
                 };
@@ -1025,7 +1029,7 @@ function testStdinClose(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                         var __tmp__ = stdgo._internal.io.Io.copy(_stdin, stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("Some test string." : stdgo.GoString)))), __41:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         _check(("Copy" : stdgo.GoString), _err);
                         {
-                            var _err:stdgo.Error = _stdin.close();
+                            var _err = _stdin.close();
                             if (((_err != null) && !stdgo._internal.errors.Errors.is_(_err, stdgo._internal.os.Os.errClosed) : Bool)) {
                                 _t.errorf(("Close: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                             };
@@ -1085,7 +1089,7 @@ function testStdinCloseRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                 _t.fatalf(("StdinPipe: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             {
-                var _err:stdgo.Error = _cmd.start();
+                var _err = _cmd.start();
                 if (_err != null) {
                     _t.fatalf(("Start: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 };
@@ -1129,7 +1133,7 @@ function testStdinCloseRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                         __deferstack__.unshift(() -> _wg.done());
                         stdgo._internal.io.Io.copy(_stdin, stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("unexpected string" : stdgo.GoString))));
                         {
-                            var _err:stdgo.Error = _stdin.close();
+                            var _err = _stdin.close();
                             if (((_err != null) && !stdgo._internal.errors.Errors.is_(_err, stdgo._internal.os.Os.errClosed) : Bool)) {
                                 _t.errorf(("stdin.Close: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                             };
@@ -1158,7 +1162,7 @@ function testStdinCloseRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                 a();
             });
             {
-                var _err:stdgo.Error = _cmd.wait_();
+                var _err = _cmd.wait_();
                 if (_err == null) {
                     _t.fatalf(("Wait: succeeded unexpectedly" : stdgo.GoString));
                 };
@@ -1191,7 +1195,7 @@ function testPipeLookPathLeak(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         var _openFDs = function():stdgo.Slice<stdgo.GoUIntptr> {
             var _fds:stdgo.Slice<stdgo.GoUIntptr> = (null : stdgo.Slice<stdgo.GoUIntptr>);
             {
-                var _i:stdgo.GoUIntptr = (0 : stdgo.GoUIntptr);
+                var _i = (0 : stdgo.GoUIntptr);
                 stdgo.Go.cfor((_i < (100 : stdgo.GoUIntptr) : Bool), _i++, {
                     if (stdgo._internal.os.exec.internal.fdtest.Fdtest.exists(_i)) {
                         _fds = (_fds.__append__(_i));
@@ -1203,21 +1207,21 @@ function testPipeLookPathLeak(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
         var _old = ({
             final x = new stdgo.GoMap.GoIntMap<Bool>();
             x.__defaultValue__ = () -> false;
-            @:mergeBlock {};
+            {};
             x;
         } : stdgo.GoMap<stdgo.GoUIntptr, Bool>);
         for (__8 => _fd in _openFDs()) {
             _old[_fd] = true;
         };
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (6 : stdgo.GoInt) : Bool), _i++, {
                 var _cmd = stdgo._internal.os.exec.Exec.command(("something-that-does-not-exist-executable" : stdgo.GoString));
                 _cmd.stdoutPipe();
                 _cmd.stderrPipe();
                 _cmd.stdinPipe();
                 {
-                    var _err:stdgo.Error = _cmd.run();
+                    var _err = _cmd.run();
                     if (_err == null) {
                         _t.fatal(stdgo.Go.toInterface(("unexpected success" : stdgo.GoString)));
                     };
@@ -1295,8 +1299,8 @@ function testExtraFiles(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             if (_err != null) {
                 _t.fatalf(("Seek: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
-            var _tempdir:stdgo.GoString = _t.tempDir()?.__copy__();
-            var _exe:stdgo.GoString = stdgo._internal.path.filepath.Filepath.join(_tempdir?.__copy__(), ("read3.exe" : stdgo.GoString))?.__copy__();
+            var _tempdir = _t.tempDir()?.__copy__();
+            var _exe = stdgo._internal.path.filepath.Filepath.join(_tempdir?.__copy__(), ("read3.exe" : stdgo.GoString))?.__copy__();
             var _c = stdgo._internal.internal.testenv.Testenv.command(stdgo.Go.asInterface(_t), stdgo._internal.internal.testenv.Testenv.goToolPath(stdgo.Go.asInterface(_t))?.__copy__(), ("build" : stdgo.GoString), ("-o" : stdgo.GoString), _exe?.__copy__(), ("read3.go" : stdgo.GoString));
             _c.env = (stdgo._internal.os.Os.environ_().__append__(("CGO_ENABLED=0" : stdgo.GoString)));
             {
@@ -1306,7 +1310,7 @@ function testExtraFiles(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     _t.fatalf(("go build failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 };
             };
-            var _ctx:stdgo._internal.context.Context.Context = stdgo._internal.context.Context.background();
+            var _ctx = stdgo._internal.context.Context.background();
             {
                 var __tmp__ = _t.deadline(), _deadline:stdgo._internal.time.Time.Time = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
@@ -1321,7 +1325,8 @@ function testExtraFiles(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 };
             };
             _c = stdgo._internal.os.exec.Exec.commandContext(_ctx, _exe?.__copy__());
-            var __0:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder), __1:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder), _stderr:stdgo._internal.strings.Strings.Builder = __1, _stdout:stdgo._internal.strings.Strings.Builder = __0;
+            var __0:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder), __1:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
+var _stderr = __1, _stdout = __0;
             _c.stdout = stdgo.Go.asInterface((stdgo.Go.setRef(_stdout) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>));
             _c.stderr = stdgo.Go.asInterface((stdgo.Go.setRef(_stderr) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>));
             _c.extraFiles = (new stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>(1, 1, ...[_tf]) : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
@@ -1362,7 +1367,7 @@ function testExtraFilesRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
             _t.skip(stdgo.Go.toInterface(("no operating system support; skipping" : stdgo.GoString)));
         };
         _t.parallel();
-        var _listen:() -> stdgo._internal.net.Net.Listener = function():stdgo._internal.net.Net.Listener {
+        var _listen = function():stdgo._internal.net.Net.Listener {
             var __tmp__ = stdgo._internal.net.Net.listen(("tcp" : stdgo.GoString), ("127.0.0.1:0" : stdgo.GoString)), _ln:stdgo._internal.net.Net.Listener = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
@@ -1385,15 +1390,15 @@ function testExtraFilesRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
             };
         };
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (10 : stdgo.GoInt) : Bool), _i++, {
                 if ((stdgo._internal.testing.Testing.short() && (_i >= (3 : stdgo.GoInt) : Bool) : Bool)) {
                     break;
                 };
-                var _la:stdgo._internal.net.Net.Listener = _listen();
+                var _la = _listen();
                 var _ca = _helperCommand(_t, ("describefiles" : stdgo.GoString));
                 _ca.extraFiles = (new stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>(1, 1, ...[_listenerFile(_la)]) : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
-                var _lb:stdgo._internal.net.Net.Listener = _listen();
+                var _lb = _listen();
                 var _cb = _helperCommand(_t, ("describefiles" : stdgo.GoString));
                 _cb.extraFiles = (new stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>(1, 1, ...[_listenerFile(_lb)]) : stdgo.Slice<stdgo.Ref<stdgo._internal.os.Os.File>>);
                 var _ares = (new stdgo.Chan<stdgo.GoString>(0, () -> ("" : stdgo.GoString)) : stdgo.Chan<stdgo.GoString>);
@@ -1401,13 +1406,15 @@ function testExtraFilesRace(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                 stdgo.Go.routine(() -> _runCommand(_ca, _ares));
                 stdgo.Go.routine(() -> _runCommand(_cb, _bres));
                 {
-                    var __0:stdgo.GoString = _ares.__get__()?.__copy__(), __1:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("fd3: listener %s\n" : stdgo.GoString), stdgo.Go.toInterface(_la.addr()))?.__copy__(), _want:stdgo.GoString = __1, _got:stdgo.GoString = __0;
+                    var __0 = _ares.__get__()?.__copy__(), __1 = stdgo._internal.fmt.Fmt.sprintf(("fd3: listener %s\n" : stdgo.GoString), stdgo.Go.toInterface(_la.addr()))?.__copy__();
+var _want = __1, _got = __0;
                     if (_got != (_want)) {
                         _t.errorf(("iteration %d, process A got:\n%s\nwant:\n%s\n" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                     };
                 };
                 {
-                    var __0:stdgo.GoString = _bres.__get__()?.__copy__(), __1:stdgo.GoString = stdgo._internal.fmt.Fmt.sprintf(("fd3: listener %s\n" : stdgo.GoString), stdgo.Go.toInterface(_lb.addr()))?.__copy__(), _want:stdgo.GoString = __1, _got:stdgo.GoString = __0;
+                    var __0 = _bres.__get__()?.__copy__(), __1 = stdgo._internal.fmt.Fmt.sprintf(("fd3: listener %s\n" : stdgo.GoString), stdgo.Go.toInterface(_lb.addr()))?.__copy__();
+var _want = __1, _got = __0;
                     if (_got != (_want)) {
                         _t.errorf(("iteration %d, process B got:\n%s\nwant:\n%s\n" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                     };
@@ -1433,13 +1440,14 @@ function testIgnorePipeErrorOnSuccess(_t:stdgo.Ref<stdgo._internal.testing.Testi
                 _cmd.stdin = _r;
                 _cmd.stdout = stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>));
                 {
-                    var _err:stdgo.Error = _cmd.run();
+                    var _err = _cmd.run();
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
                 };
                 {
-                    var __0:stdgo.GoString = (_out.string() : stdgo.GoString)?.__copy__(), __1:stdgo.GoString = ("foo\n" : stdgo.GoString), _want:stdgo.GoString = __1, _got:stdgo.GoString = __0;
+                    var __0 = (_out.string() : stdgo.GoString)?.__copy__(), __1 = ("foo\n" : stdgo.GoString);
+var _want = __1, _got = __0;
                     if (_got != (_want)) {
                         _t.errorf(("output = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                     };
@@ -1453,7 +1461,7 @@ function testClosePipeOnCopyError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
         _t.parallel();
         var _cmd = _helperCommand(_t, ("yes" : stdgo.GoString));
         _cmd.stdout = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.os.exec_test.Exec_test.T_badWriter)) : stdgo.Ref<stdgo._internal.os.exec_test.Exec_test.T_badWriter>));
-        var _err:stdgo.Error = _cmd.run();
+        var _err = _cmd.run();
         if (_err == null) {
             _t.errorf(("yes unexpectedly completed successfully" : stdgo.GoString));
         };
@@ -1470,8 +1478,8 @@ function testOutputStderrCapture(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_
         if (!_ok) {
             _t.fatalf(("Output error type = %T; want ExitError" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
-        var _got:stdgo.GoString = (_ee.stderr : stdgo.GoString)?.__copy__();
-        var _want:stdgo.GoString = ("some stderr text\n" : stdgo.GoString);
+        var _got = (_ee.stderr : stdgo.GoString)?.__copy__();
+        var _want = ("some stderr text\n" : stdgo.GoString);
         if (_got != (_want)) {
             _t.errorf(("ExitError.Stderr = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
@@ -1489,7 +1497,7 @@ function testContext(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var _err:stdgo.Error = _c.start();
+            var _err = _c.start();
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -1507,7 +1515,7 @@ function testContext(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         stdgo.Go.routine(() -> _cancel());
         {
-            var _err:stdgo.Error = _c.wait_();
+            var _err = _c.wait_();
             if (_err == null) {
                 _t.fatal(stdgo.Go.toInterface(("expected Wait failure" : stdgo.GoString)));
             };
@@ -1530,7 +1538,7 @@ function testContextCancel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             };
             __deferstack__.unshift(() -> _stdin.close());
             {
-                var _err:stdgo.Error = _c.start();
+                var _err = _c.start();
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
@@ -1542,8 +1550,8 @@ function testContextCancel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                 };
             };
             _cancel();
-            var _start:stdgo._internal.time.Time.Time = stdgo._internal.time.Time.now()?.__copy__();
-            var _delay:stdgo._internal.time.Time.Duration = (1000000i64 : stdgo._internal.time.Time.Duration);
+            var _start = stdgo._internal.time.Time.now()?.__copy__();
+            var _delay = (1000000i64 : stdgo._internal.time.Time.Duration);
             while (true) {
                 {
                     var __tmp__ = stdgo._internal.io.Io.writeString(_stdin, ("echo" : stdgo.GoString)), __45:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1562,7 +1570,7 @@ function testContextCancel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                 stdgo._internal.time.Time.sleep(_delay);
             };
             {
-                var _err:stdgo.Error = _c.wait_();
+                var _err = _c.wait_();
                 if (_err == null) {
                     _t.error(stdgo.Go.toInterface(("program unexpectedly exited successfully" : stdgo.GoString)));
                 } else {
@@ -1599,7 +1607,8 @@ function testDedupEnvEcho(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var __0:stdgo.GoString = stdgo._internal.strings.Strings.trimSpace((_out : stdgo.GoString)?.__copy__())?.__copy__(), __1:stdgo.GoString = ("good" : stdgo.GoString), _want:stdgo.GoString = __1, _got:stdgo.GoString = __0;
+            var __0 = stdgo._internal.strings.Strings.trimSpace((_out : stdgo.GoString)?.__copy__())?.__copy__(), __1 = ("good" : stdgo.GoString);
+var _want = __1, _got = __0;
             if (_got != (_want)) {
                 _t.errorf(("output = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
@@ -1626,7 +1635,7 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__16 => _test in _tests) {
             var _cmd = stdgo._internal.os.exec.Exec.command(_test._path?.__copy__(), ...(_test._args : Array<stdgo.GoString>));
             {
-                var _got:stdgo.GoString = (_cmd.string() : stdgo.GoString)?.__copy__();
+                var _got = (_cmd.string() : stdgo.GoString)?.__copy__();
                 if (_got != (_test._want)) {
                     _t.errorf(("String(%q, %q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._path), stdgo.Go.toInterface(_test._args), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
@@ -1640,17 +1649,17 @@ function testStringPathNotResolved(_t:stdgo.Ref<stdgo._internal.testing.Testing.
             _t.skip(stdgo.Go.toInterface(("wow, thanks" : stdgo.GoString)));
         };
         var _cmd = stdgo._internal.os.exec.Exec.command(("makemeasandwich" : stdgo.GoString), ("-lettuce" : stdgo.GoString));
-        var _want:stdgo.GoString = ("makemeasandwich -lettuce" : stdgo.GoString);
+        var _want = ("makemeasandwich -lettuce" : stdgo.GoString);
         {
-            var _got:stdgo.GoString = (_cmd.string() : stdgo.GoString)?.__copy__();
+            var _got = (_cmd.string() : stdgo.GoString)?.__copy__();
             if (_got != (_want)) {
                 _t.errorf(("String(%q, %q) = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(("makemeasandwich" : stdgo.GoString)), stdgo.Go.toInterface(("-lettuce" : stdgo.GoString)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
             };
         };
     }
 function testNoPath(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _err:stdgo.Error = (stdgo.Go.setRef(({} : stdgo._internal.os.exec.Exec.Cmd)) : stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd>).start();
-        var _want:stdgo.GoString = ("exec: no command" : stdgo.GoString);
+        var _err = (stdgo.Go.setRef(({} : stdgo._internal.os.exec.Exec.Cmd)) : stdgo.Ref<stdgo._internal.os.exec.Exec.Cmd>).start();
+        var _want = ("exec: no command" : stdgo.GoString);
         if (((_err == null) || (_err.error() != _want) : Bool)) {
             _t.errorf(("new(Cmd).Start() = %v, want %q" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_want));
         };
@@ -1667,21 +1676,21 @@ function testDoubleStartLeavesPipesOpen(_t:stdgo.Ref<stdgo._internal.testing.Tes
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var _err:stdgo.Error = _cmd.start();
+            var _err = _cmd.start();
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
         };
         _t.cleanup(function():Void {
             {
-                var _err:stdgo.Error = _cmd.wait_();
+                var _err = _cmd.wait_();
                 if (_err != null) {
                     _t.error(stdgo.Go.toInterface(_err));
                 };
             };
         });
         {
-            var _err:stdgo.Error = _cmd.start();
+            var _err = _cmd.start();
             if (((_err == null) || !stdgo._internal.strings.Strings.hasSuffix(_err.error()?.__copy__(), ("already started" : stdgo.GoString)) : Bool)) {
                 _t.fatalf(("second call to Start returned a nil; want an \'already started\' error" : stdgo.GoString));
             };
@@ -1723,7 +1732,7 @@ function _cmdHang(_args:haxe.Rest<stdgo.GoString>):Void {
         var _probe = _fs.duration(("probe" : stdgo.GoString), (0i64 : stdgo._internal.time.Time.Duration), ("if nonzero, the \'hang\' helper should write to stderr at this interval, and exit nonzero if a write fails" : stdgo.GoString));
         var _read = _fs.bool_(("read" : stdgo.GoString), false, ("if true, the \'hang\' helper should read stdin to completion before sleeping" : stdgo.GoString));
         _fs.parse((_args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>));
-        var _pid:stdgo.GoInt = stdgo._internal.os.Os.getpid();
+        var _pid = stdgo._internal.os.Os.getpid();
         if (_subsleep.value != ((0i64 : stdgo._internal.time.Time.Duration))) {
             var _cmd = stdgo._internal.os.exec.Exec.command(_exePath((null : stdgo._internal.testing.Testing.TB))?.__copy__(), ("hang" : stdgo.GoString), (_subsleep.value.string() : stdgo.GoString)?.__copy__(), ("-read=true" : stdgo.GoString), (("-probe=" : stdgo.GoString) + (_probe.value.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
             _cmd.stdin = stdgo.Go.asInterface(stdgo._internal.os.Os.stdin);
@@ -1752,7 +1761,7 @@ function _cmdHang(_args:haxe.Rest<stdgo.GoString>):Void {
             stdgo._internal.os.signal.Signal.notify(_c, stdgo._internal.os.Os.interrupt);
             stdgo.Go.routine(() -> {
                 var a = function():Void {
-                    var _sig:stdgo._internal.os.Os.Signal = _c.__get__();
+                    var _sig = _c.__get__();
                     stdgo._internal.fmt.Fmt.fprintf(stdgo.Go.asInterface(stdgo._internal.os.Os.stderr), ("%d: received %v\n" : stdgo.GoString), stdgo.Go.toInterface(_pid), stdgo.Go.toInterface(_sig));
                     Sys.exit((0 : stdgo.GoInt));
                 };
@@ -1823,7 +1832,7 @@ function _startHang(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _ctx:stdgo
         };
         _t.log(stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
         {
-            var _err:stdgo.Error = _cmd.start();
+            var _err = _cmd.start();
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -1849,7 +1858,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         _t.run(("Wait" : stdgo.GoString), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.parallel();
             var _cmd = _startHang(_t, stdgo._internal.context.Context.background(), (1000000i64 : stdgo._internal.time.Time.Duration), stdgo._internal.os.Os.kill, (0i64 : stdgo._internal.time.Time.Duration));
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             _t.logf(("stderr:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_cmd.stderr));
             _t.logf(("[%d] %v" : stdgo.GoString), stdgo.Go.toInterface(_cmd.process.pid), stdgo.Go.toInterface(_err));
             if (_err != null) {
@@ -1860,7 +1869,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                 if (!_ps.exited()) {
                     _t.errorf(("cmd did not exit: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_ps)));
                 } else {
-                    var _code:stdgo.GoInt = _ps.exitCode();
+                    var _code = _ps.exitCode();
                     if (_code != ((0 : stdgo.GoInt))) {
                         _t.errorf(("cmd.ProcessState.ExitCode() = %v; want 0" : stdgo.GoString), stdgo.Go.toInterface(_code));
                     };
@@ -1877,12 +1886,12 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             _cancel();
             stdgo._internal.time.Time.sleep((1000000i64 : stdgo._internal.time.Time.Duration));
             {
-                var _err:stdgo.Error = _cmd.process.signal(stdgo._internal.os.Os.interrupt);
+                var _err = _cmd.process.signal(stdgo._internal.os.Os.interrupt);
                 if (_err != null) {
                     _t.error(stdgo.Go.toInterface(_err));
                 };
             };
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             _t.logf(("stderr:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_cmd.stderr));
             _t.logf(("[%d] %v" : stdgo.GoString), stdgo.Go.toInterface(_cmd.process.pid), stdgo.Go.toInterface(_err));
             if (_err != null) {
@@ -1893,7 +1902,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                 if (!_ps.exited()) {
                     _t.errorf(("cmd did not exit: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_ps)));
                 } else {
-                    var _code:stdgo.GoInt = _ps.exitCode();
+                    var _code = _ps.exitCode();
                     if (_code != ((0 : stdgo.GoInt))) {
                         _t.errorf(("cmd.ProcessState.ExitCode() = %v; want 0" : stdgo.GoString), stdgo.Go.toInterface(_code));
                     };
@@ -1905,7 +1914,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             var __tmp__ = stdgo._internal.context.Context.withCancel(stdgo._internal.context.Context.background()), _ctx:stdgo._internal.context.Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context.CancelFunc = __tmp__._1;
             var _cmd = _startHang(_t, _ctx, (600000000000i64 : stdgo._internal.time.Time.Duration), stdgo._internal.os.Os.kill, (10000000i64 : stdgo._internal.time.Time.Duration), ("-subsleep=10m" : stdgo.GoString), ("-probe=1ms" : stdgo.GoString));
             _cancel();
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             _t.logf(("stderr:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_cmd.stderr));
             _t.logf(("[%d] %v" : stdgo.GoString), stdgo.Go.toInterface(_cmd.process.pid), stdgo.Go.toInterface(_err));
             {
@@ -1918,7 +1927,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
         _t.run(("Exit-hang" : stdgo.GoString), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             _t.parallel();
             var _cmd = _startHang(_t, stdgo._internal.context.Context.background(), (1000000i64 : stdgo._internal.time.Time.Duration), (null : stdgo._internal.os.Os.Signal), (10000000i64 : stdgo._internal.time.Time.Duration), ("-subsleep=10m" : stdgo.GoString), ("-probe=1ms" : stdgo.GoString));
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             _t.logf(("stderr:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_cmd.stderr));
             _t.logf(("[%d] %v" : stdgo.GoString), stdgo.Go.toInterface(_cmd.process.pid), stdgo.Go.toInterface(_err));
             if (!stdgo._internal.errors.Errors.is_(_err, stdgo._internal.os.exec.Exec.errWaitDelay)) {
@@ -1933,7 +1942,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             var __tmp__ = stdgo._internal.context.Context.withCancel(stdgo._internal.context.Context.background()), _ctx:stdgo._internal.context.Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context.CancelFunc = __tmp__._1;
             var _cmd = _startHang(_t, _ctx, (600000000000i64 : stdgo._internal.time.Time.Duration), stdgo._internal.os.Os.interrupt, (10000000i64 : stdgo._internal.time.Time.Duration), ("-interrupt=false" : stdgo.GoString));
             _cancel();
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             _t.logf(("stderr:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_cmd.stderr));
             _t.logf(("[%d] %v" : stdgo.GoString), stdgo.Go.toInterface(_cmd.process.pid), stdgo.Go.toInterface(_err));
             {
@@ -1951,7 +1960,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             var __tmp__ = stdgo._internal.context.Context.withCancel(stdgo._internal.context.Context.background()), _ctx:stdgo._internal.context.Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context.CancelFunc = __tmp__._1;
             var _cmd = _startHang(_t, _ctx, (600000000000i64 : stdgo._internal.time.Time.Duration), stdgo._internal.os.Os.interrupt, (0i64 : stdgo._internal.time.Time.Duration), ("-interrupt=true" : stdgo.GoString));
             _cancel();
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             _t.logf(("stderr:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_cmd.stderr));
             _t.logf(("[%d] %v" : stdgo.GoString), stdgo.Go.toInterface(_cmd.process.pid), stdgo.Go.toInterface(_err));
             if (!stdgo._internal.errors.Errors.is_(_err, _ctx.err())) {
@@ -1962,7 +1971,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                 if (!_ps.exited()) {
                     _t.errorf(("cmd did not exit: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_ps)));
                 } else {
-                    var _code:stdgo.GoInt = _ps.exitCode();
+                    var _code = _ps.exitCode();
                     if (_code != ((0 : stdgo.GoInt))) {
                         _t.errorf(("cmd.ProcessState.ExitCode() = %v; want 0" : stdgo.GoString), stdgo.Go.toInterface(_code));
                     };
@@ -1977,7 +1986,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
             var __tmp__ = stdgo._internal.context.Context.withCancel(stdgo._internal.context.Context.background()), _ctx:stdgo._internal.context.Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context.CancelFunc = __tmp__._1;
             var _cmd = _startHang(_t, _ctx, (600000000000i64 : stdgo._internal.time.Time.Duration), _quitSignal, (0i64 : stdgo._internal.time.Time.Duration));
             _cancel();
-            var _err:stdgo.Error = _cmd.wait_();
+            var _err = _cmd.wait_();
             _t.logf(("stderr:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_cmd.stderr));
             _t.logf(("[%d] %v" : stdgo.GoString), stdgo.Go.toInterface(_cmd.process.pid), stdgo.Go.toInterface(_err));
             {
@@ -1991,7 +2000,7 @@ function testWaitInterrupt(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                 if (!_ps.exited()) {
                     _t.errorf(("cmd did not exit: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_ps)));
                 } else {
-                    var _code:stdgo.GoInt = _ps.exitCode();
+                    var _code = _ps.exitCode();
                     if (_code != ((2 : stdgo.GoInt))) {
                         _t.errorf(("cmd.ProcessState.ExitCode() = %v; want 2" : stdgo.GoString), stdgo.Go.toInterface(_code));
                     };
@@ -2015,14 +2024,14 @@ function testCancelErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
-                var _errArbitrary:stdgo.Error = stdgo._internal.errors.Errors.new_(("arbitrary error" : stdgo.GoString));
+                var _errArbitrary = stdgo._internal.errors.Errors.new_(("arbitrary error" : stdgo.GoString));
                 _cmd.cancel = function():stdgo.Error {
                     _stdin.close();
                     _t.logf(("Cancel returning %v" : stdgo.GoString), stdgo.Go.toInterface(_errArbitrary));
                     return _errArbitrary;
                 };
                 {
-                    var _err:stdgo.Error = _cmd.start();
+                    var _err = _cmd.start();
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
@@ -2078,7 +2087,7 @@ function testCancelErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                     return stdgo._internal.fmt.Fmt.errorf(("%w: stdout closed" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.os.Os.errProcessDone));
                 };
                 {
-                    var _err:stdgo.Error = _cmd.start();
+                    var _err = _cmd.start();
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
@@ -2126,7 +2135,7 @@ function testCancelErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
                 __deferstack__.unshift(() -> _stdin.close());
-                var _errArbitrary:stdgo.Error = stdgo._internal.errors.Errors.new_(("arbitrary error" : stdgo.GoString));
+                var _errArbitrary = stdgo._internal.errors.Errors.new_(("arbitrary error" : stdgo.GoString));
                 var _interruptCalled:stdgo._internal.sync.atomic_.Atomic_.Bool_ = ({} : stdgo._internal.sync.atomic_.Atomic_.Bool_);
                 _cmd.cancel = function():stdgo.Error {
                     _t.logf(("Cancel called" : stdgo.GoString));
@@ -2135,7 +2144,7 @@ function testCancelErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 };
                 _cmd.waitDelay = (1000000i64 : stdgo._internal.time.Time.Duration);
                 {
-                    var _err:stdgo.Error = _cmd.start();
+                    var _err = _cmd.start();
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
@@ -2197,7 +2206,7 @@ function testCancelErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 };
                 _cmd.waitDelay = (1000000i64 : stdgo._internal.time.Time.Duration);
                 {
-                    var _err:stdgo.Error = _cmd.start();
+                    var _err = _cmd.start();
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
@@ -2250,14 +2259,14 @@ function testCancelErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
-                var _errArbitrary:stdgo.Error = stdgo._internal.errors.Errors.new_(("arbitrary error" : stdgo.GoString));
+                var _errArbitrary = stdgo._internal.errors.Errors.new_(("arbitrary error" : stdgo.GoString));
                 var _interrupted = (new stdgo.Chan<T_delayedInfiniteReader>(0, () -> ({} : T_delayedInfiniteReader)) : stdgo.Chan<T_delayedInfiniteReader>);
                 _cmd.cancel = function():stdgo.Error {
                     if (_interrupted != null) _interrupted.__close__();
                     return _errArbitrary;
                 };
                 {
-                    var _err:stdgo.Error = _cmd.start();
+                    var _err = _cmd.start();
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(_err));
                     };
@@ -2301,13 +2310,14 @@ function testCancelErrors(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
     }
 function testConcurrentExec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __tmp__ = stdgo._internal.context.Context.withCancel(stdgo._internal.context.Context.background()), _ctx:stdgo._internal.context.Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context.CancelFunc = __tmp__._1;
-        var __0:stdgo.GoInt = stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)), __1:stdgo.GoInt = stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)), __2:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup), __3:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup), _exits:stdgo._internal.sync.Sync.WaitGroup = __3, _hangs:stdgo._internal.sync.Sync.WaitGroup = __2, _nExits:stdgo.GoInt = __1, _nHangs:stdgo.GoInt = __0;
+        var __0:stdgo.GoInt = stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)), __1:stdgo.GoInt = stdgo._internal.runtime.Runtime.gomaxprocs((0 : stdgo.GoInt)), __2:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup), __3:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup);
+var _exits = __3, _hangs = __2, _nExits = __1, _nHangs = __0;
         _hangs.add(_nHangs);
         _exits.add(_nExits);
         var _ready:stdgo._internal.sync.Sync.WaitGroup = ({} : stdgo._internal.sync.Sync.WaitGroup);
         _ready.add((_nHangs + _nExits : stdgo.GoInt));
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _nHangs : Bool), _i++, {
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
@@ -2330,7 +2340,7 @@ function testConcurrentExec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                             _ready.done();
                             _ready.wait_();
                             {
-                                var _err:stdgo.Error = _cmd.start();
+                                var _err = _cmd.start();
                                 if (_err != null) {
                                     if (!stdgo._internal.errors.Errors.is_(_err, stdgo._internal.context.Context.canceled)) {
                                         _t.error(stdgo.Go.toInterface(_err));
@@ -2370,7 +2380,7 @@ function testConcurrentExec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
             });
         };
         {
-            var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _nExits : Bool), _i++, {
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
@@ -2381,7 +2391,7 @@ function testConcurrentExec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                             _ready.done();
                             _ready.wait_();
                             {
-                                var _err:stdgo.Error = _cmd.run();
+                                var _err = _cmd.run();
                                 if (_err != null) {
                                     _t.error(stdgo.Go.toInterface(_err));
                                 };
@@ -2417,7 +2427,7 @@ function testConcurrentExec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
     }
 @:keep var _ = {
         try {
-            var _godebug:stdgo.GoString = stdgo._internal.os.Os.getenv(("GODEBUG" : stdgo.GoString))?.__copy__();
+            var _godebug = stdgo._internal.os.Os.getenv(("GODEBUG" : stdgo.GoString))?.__copy__();
             if (_godebug != (stdgo.Go.str())) {
                 _godebug = (_godebug + (("," : stdgo.GoString))?.__copy__() : stdgo.GoString);
             };
@@ -2430,7 +2440,7 @@ function testConcurrentExec(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                 throw "__return__";
             };
             {
-                var _fd:stdgo.GoUIntptr = (3 : stdgo.GoUIntptr);
+                var _fd = (3 : stdgo.GoUIntptr);
                 stdgo.Go.cfor((_fd <= (100 : stdgo.GoUIntptr) : Bool), _fd++, {
                     if (stdgo._internal.internal.poll.Poll.isPollDescriptor(_fd)) {
                         continue;
@@ -2499,10 +2509,10 @@ class T_tickReader_asInterface {
     @:keep
     static public function read( _r:stdgo.Ref<T_tickReader>, _p:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<T_tickReader> = _r;
-        var _n:stdgo.GoInt = (0 : stdgo.GoInt), _err:stdgo.Error = (null : stdgo.Error);
+        var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_r._s.length) == ((0 : stdgo.GoInt))) {
             {
-                var _d:stdgo._internal.time.Time.Duration = (_r._interval - stdgo._internal.time.Time.since(_r._lastTick?.__copy__()) : stdgo._internal.time.Time.Duration);
+                var _d = (_r._interval - stdgo._internal.time.Time.since(_r._lastTick?.__copy__()) : stdgo._internal.time.Time.Duration);
                 if ((_d > (0i64 : stdgo._internal.time.Time.Duration) : Bool)) {
                     stdgo._internal.time.Time.sleep(_d);
                 };

@@ -3043,22 +3043,22 @@ function rotateLeft(_x:stdgo.GoUInt, _k:stdgo.GoInt):stdgo.GoUInt {
     }
 function rotateLeft8(_x:stdgo.GoUInt8, _k:stdgo.GoInt):stdgo.GoUInt8 {
         {};
-        var _s:stdgo.GoUInt = ((_k : stdgo.GoUInt) & (7u32 : stdgo.GoUInt) : stdgo.GoUInt);
+        var _s = ((_k : stdgo.GoUInt) & (7u32 : stdgo.GoUInt) : stdgo.GoUInt);
         return ((_x << _s : stdgo.GoUInt8) | (_x >> (((8u32 : stdgo.GoUInt) - _s : stdgo.GoUInt)) : stdgo.GoUInt8) : stdgo.GoUInt8);
     }
 function rotateLeft16(_x:stdgo.GoUInt16, _k:stdgo.GoInt):stdgo.GoUInt16 {
         {};
-        var _s:stdgo.GoUInt = ((_k : stdgo.GoUInt) & (15u32 : stdgo.GoUInt) : stdgo.GoUInt);
+        var _s = ((_k : stdgo.GoUInt) & (15u32 : stdgo.GoUInt) : stdgo.GoUInt);
         return ((_x << _s : stdgo.GoUInt16) | (_x >> (((16u32 : stdgo.GoUInt) - _s : stdgo.GoUInt)) : stdgo.GoUInt16) : stdgo.GoUInt16);
     }
 function rotateLeft32(_x:stdgo.GoUInt32, _k:stdgo.GoInt):stdgo.GoUInt32 {
         {};
-        var _s:stdgo.GoUInt = ((_k : stdgo.GoUInt) & (31u32 : stdgo.GoUInt) : stdgo.GoUInt);
+        var _s = ((_k : stdgo.GoUInt) & (31u32 : stdgo.GoUInt) : stdgo.GoUInt);
         return ((_x << _s : stdgo.GoUInt32) | (_x >> (((32u32 : stdgo.GoUInt) - _s : stdgo.GoUInt)) : stdgo.GoUInt32) : stdgo.GoUInt32);
     }
 function rotateLeft64(_x:stdgo.GoUInt64, _k:stdgo.GoInt):stdgo.GoUInt64 {
         {};
-        var _s:stdgo.GoUInt = ((_k : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt);
+        var _s = ((_k : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt);
         return ((_x << _s : stdgo.GoUInt64) | (_x >> (((64u32 : stdgo.GoUInt) - _s : stdgo.GoUInt)) : stdgo.GoUInt64) : stdgo.GoUInt64);
     }
 function reverse(_x:stdgo.GoUInt):stdgo.GoUInt {
@@ -3946,7 +3946,7 @@ function len8(_x:stdgo.GoUInt8):stdgo.GoInt {
 "\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt);
     }
 function len16(_x:stdgo.GoUInt16):stdgo.GoInt {
-        var _n:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n = (0 : stdgo.GoInt);
         if ((_x >= (256 : stdgo.GoUInt16) : Bool)) {
             _x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt16);
             _n = (8 : stdgo.GoInt);
@@ -4018,7 +4018,7 @@ function len16(_x:stdgo.GoUInt16):stdgo.GoInt {
 "\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt);
     }
 function len32(_x:stdgo.GoUInt32):stdgo.GoInt {
-        var _n:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n = (0 : stdgo.GoInt);
         if ((_x >= (65536u32 : stdgo.GoUInt32) : Bool)) {
             _x = (_x >> ((16i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
             _n = (16 : stdgo.GoInt);
@@ -4094,7 +4094,7 @@ function len32(_x:stdgo.GoUInt32):stdgo.GoInt {
 "\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt);
     }
 function len64(_x:stdgo.GoUInt64):stdgo.GoInt {
-        var _n:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n = (0 : stdgo.GoInt);
         if ((_x >= (4294967296i64 : stdgo.GoUInt64) : Bool)) {
             _x = (_x >> ((32i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
             _n = (32 : stdgo.GoInt);
@@ -4174,7 +4174,7 @@ function len64(_x:stdgo.GoUInt64):stdgo.GoInt {
 "\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08")[(_x : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt);
     }
 function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 : stdgo.GoUInt; } {
-        var _sum:stdgo.GoUInt = (0 : stdgo.GoUInt), _carryOut:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _sum = (0 : stdgo.GoUInt), _carryOut = (0 : stdgo.GoUInt);
         if (true) {
             var __tmp__ = add32((_x : stdgo.GoUInt32), (_y : stdgo.GoUInt32), (_carry : stdgo.GoUInt32)), _s32:stdgo.GoUInt32 = __tmp__._0, _c32:stdgo.GoUInt32 = __tmp__._1;
             return { _0 : (_s32 : stdgo.GoUInt), _1 : (_c32 : stdgo.GoUInt) };
@@ -4183,20 +4183,20 @@ function add(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _carry:stdgo.GoUInt):{ var _0 : s
         return { _0 : (_s64 : stdgo.GoUInt), _1 : (_c64 : stdgo.GoUInt) };
     }
 function add32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _carry:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _sum:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _carryOut:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _sum64:stdgo.GoUInt64 = (((_x : stdgo.GoUInt64) + (_y : stdgo.GoUInt64) : stdgo.GoUInt64) + (_carry : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _sum = (0 : stdgo.GoUInt32), _carryOut = (0 : stdgo.GoUInt32);
+        var _sum64 = (((_x : stdgo.GoUInt64) + (_y : stdgo.GoUInt64) : stdgo.GoUInt64) + (_carry : stdgo.GoUInt64) : stdgo.GoUInt64);
         _sum = (_sum64 : stdgo.GoUInt32);
         _carryOut = ((_sum64 >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
         return { _0 : _sum, _1 : _carryOut };
     }
 function add64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _carry:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
-        var _sum:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _carryOut:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _sum = (0 : stdgo.GoUInt64), _carryOut = (0 : stdgo.GoUInt64);
         _sum = ((_x + _y : stdgo.GoUInt64) + _carry : stdgo.GoUInt64);
         _carryOut = (((((_x & _y : stdgo.GoUInt64)) | ((((_x | _y : stdgo.GoUInt64)) & ((_sum ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64)) : stdgo.GoUInt64)) >> (63i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         return { _0 : _sum, _1 : _carryOut };
     }
 function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 : stdgo.GoUInt; } {
-        var _diff:stdgo.GoUInt = (0 : stdgo.GoUInt), _borrowOut:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _diff = (0 : stdgo.GoUInt), _borrowOut = (0 : stdgo.GoUInt);
         if (true) {
             var __tmp__ = sub32((_x : stdgo.GoUInt32), (_y : stdgo.GoUInt32), (_borrow : stdgo.GoUInt32)), _d32:stdgo.GoUInt32 = __tmp__._0, _b32:stdgo.GoUInt32 = __tmp__._1;
             return { _0 : (_d32 : stdgo.GoUInt), _1 : (_b32 : stdgo.GoUInt) };
@@ -4205,19 +4205,19 @@ function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{ var _0 : 
         return { _0 : (_d64 : stdgo.GoUInt), _1 : (_b64 : stdgo.GoUInt) };
     }
 function sub32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _borrow:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _diff:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _borrowOut:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _diff = (0 : stdgo.GoUInt32), _borrowOut = (0 : stdgo.GoUInt32);
         _diff = ((_x - _y : stdgo.GoUInt32) - _borrow : stdgo.GoUInt32);
         _borrowOut = ((((((-1 ^ _x) & _y : stdgo.GoUInt32)) | (((-1 ^ (_x ^ _y : stdgo.GoUInt32)) & _diff : stdgo.GoUInt32)) : stdgo.GoUInt32)) >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
         return { _0 : _diff, _1 : _borrowOut };
     }
 function sub64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64, _borrow:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
-        var _diff:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _borrowOut:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _diff = (0 : stdgo.GoUInt64), _borrowOut = (0 : stdgo.GoUInt64);
         _diff = ((_x - _y : stdgo.GoUInt64) - _borrow : stdgo.GoUInt64);
         _borrowOut = ((((((-1 ^ _x) & _y : stdgo.GoUInt64)) | (((-1 ^ (_x ^ _y : stdgo.GoUInt64)) & _diff : stdgo.GoUInt64)) : stdgo.GoUInt64)) >> (63i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         return { _0 : _diff, _1 : _borrowOut };
     }
 function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 : stdgo.GoUInt; } {
-        var _hi:stdgo.GoUInt = (0 : stdgo.GoUInt), _lo:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _hi = (0 : stdgo.GoUInt), _lo = (0 : stdgo.GoUInt);
         if (true) {
             var __tmp__ = mul32((_x : stdgo.GoUInt32), (_y : stdgo.GoUInt32)), _h:stdgo.GoUInt32 = __tmp__._0, _l:stdgo.GoUInt32 = __tmp__._1;
             return { _0 : (_h : stdgo.GoUInt), _1 : (_l : stdgo.GoUInt) };
@@ -4226,8 +4226,8 @@ function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 :
         return { _0 : (_h : stdgo.GoUInt), _1 : (_l : stdgo.GoUInt) };
     }
 function mul32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _hi:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _lo:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _tmp:stdgo.GoUInt64 = ((_x : stdgo.GoUInt64) * (_y : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _hi = (0 : stdgo.GoUInt32), _lo = (0 : stdgo.GoUInt32);
+        var _tmp = ((_x : stdgo.GoUInt64) * (_y : stdgo.GoUInt64) : stdgo.GoUInt64);
         {
             final __tmp__0 = ((_tmp >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
             final __tmp__1 = (_tmp : stdgo.GoUInt32);
@@ -4237,23 +4237,23 @@ function mul32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; 
         return { _0 : _hi, _1 : _lo };
     }
 function mul64(_x:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
-        var _hi:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _lo:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _hi = (0 : stdgo.GoUInt64), _lo = (0 : stdgo.GoUInt64);
         {};
-        var _x0:stdgo.GoUInt64 = (_x & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _x1:stdgo.GoUInt64 = (_x >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _y0:stdgo.GoUInt64 = (_y & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _y1:stdgo.GoUInt64 = (_y >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _w0:stdgo.GoUInt64 = (_x0 * _y0 : stdgo.GoUInt64);
-        var _t:stdgo.GoUInt64 = ((_x1 * _y0 : stdgo.GoUInt64) + (_w0 >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _w1:stdgo.GoUInt64 = (_t & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _w2:stdgo.GoUInt64 = (_t >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _x0 = (_x & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _x1 = (_x >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _y0 = (_y & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _y1 = (_y >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _w0 = (_x0 * _y0 : stdgo.GoUInt64);
+        var _t = ((_x1 * _y0 : stdgo.GoUInt64) + (_w0 >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _w1 = (_t & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _w2 = (_t >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         _w1 = (_w1 + ((_x0 * _y1 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _hi = (((_x1 * _y1 : stdgo.GoUInt64) + _w2 : stdgo.GoUInt64) + (_w1 >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
         _lo = (_x * _y : stdgo.GoUInt64);
         return { _0 : _hi, _1 : _lo };
     }
 function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 : stdgo.GoUInt; } {
-        var _quo:stdgo.GoUInt = (0 : stdgo.GoUInt), _rem:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _quo = (0 : stdgo.GoUInt), _rem = (0 : stdgo.GoUInt);
         if (true) {
             var __tmp__ = div32((_hi : stdgo.GoUInt32), (_lo : stdgo.GoUInt32), (_y : stdgo.GoUInt32)), _q:stdgo.GoUInt32 = __tmp__._0, _r:stdgo.GoUInt32 = __tmp__._1;
             return { _0 : (_q : stdgo.GoUInt), _1 : (_r : stdgo.GoUInt) };
@@ -4262,11 +4262,11 @@ function div(_hi:stdgo.GoUInt, _lo:stdgo.GoUInt, _y:stdgo.GoUInt):{ var _0 : std
         return { _0 : (_q : stdgo.GoUInt), _1 : (_r : stdgo.GoUInt) };
     }
 function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _quo:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), _rem:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _quo = (0 : stdgo.GoUInt32), _rem = (0 : stdgo.GoUInt32);
         if (((_y != (0u32 : stdgo.GoUInt32)) && (_y <= _hi : Bool) : Bool)) {
             throw stdgo.Go.toInterface(_overflowError);
         };
-        var _z:stdgo.GoUInt64 = (((_hi : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (_lo : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _z = (((_hi : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (_lo : stdgo.GoUInt64) : stdgo.GoUInt64);
         {
             final __tmp__0 = ((_z / (_y : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
             final __tmp__1 = ((_z % (_y : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
@@ -4276,7 +4276,7 @@ function div32(_hi:stdgo.GoUInt32, _lo:stdgo.GoUInt32, _y:stdgo.GoUInt32):{ var 
         return { _0 : _quo, _1 : _rem };
     }
 function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
-        var _quo:stdgo.GoUInt64 = (0 : stdgo.GoUInt64), _rem:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _quo = (0 : stdgo.GoUInt64), _rem = (0 : stdgo.GoUInt64);
         if (_y == ((0i64 : stdgo.GoUInt64))) {
             throw stdgo.Go.toInterface(_divideError);
         };
@@ -4286,17 +4286,17 @@ function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var 
         if (_hi == ((0i64 : stdgo.GoUInt64))) {
             return { _0 : (_lo / _y : stdgo.GoUInt64), _1 : (_lo % _y : stdgo.GoUInt64) };
         };
-        var _s:stdgo.GoUInt = (leadingZeros64(_y) : stdgo.GoUInt);
+        var _s = (leadingZeros64(_y) : stdgo.GoUInt);
         _y = (_y << (_s) : stdgo.GoUInt64);
         {};
-        var _yn1:stdgo.GoUInt64 = (_y >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _yn0:stdgo.GoUInt64 = (_y & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _un32:stdgo.GoUInt64 = ((_hi << _s : stdgo.GoUInt64) | (_lo >> (((64u32 : stdgo.GoUInt) - _s : stdgo.GoUInt)) : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _un10:stdgo.GoUInt64 = (_lo << _s : stdgo.GoUInt64);
-        var _un1:stdgo.GoUInt64 = (_un10 >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _un0:stdgo.GoUInt64 = (_un10 & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _q1:stdgo.GoUInt64 = (_un32 / _yn1 : stdgo.GoUInt64);
-        var _rhat:stdgo.GoUInt64 = (_un32 - (_q1 * _yn1 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _yn1 = (_y >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _yn0 = (_y & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _un32 = ((_hi << _s : stdgo.GoUInt64) | (_lo >> (((64u32 : stdgo.GoUInt) - _s : stdgo.GoUInt)) : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _un10 = (_lo << _s : stdgo.GoUInt64);
+        var _un1 = (_un10 >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _un0 = (_un10 & (4294967295i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _q1 = (_un32 / _yn1 : stdgo.GoUInt64);
+        var _rhat = (_un32 - (_q1 * _yn1 : stdgo.GoUInt64) : stdgo.GoUInt64);
         while (((_q1 >= (4294967296i64 : stdgo.GoUInt64) : Bool) || ((_q1 * _yn0 : stdgo.GoUInt64) > (((4294967296i64 : stdgo.GoUInt64) * _rhat : stdgo.GoUInt64) + _un1 : stdgo.GoUInt64) : Bool) : Bool)) {
             _q1--;
             _rhat = (_rhat + (_yn1) : stdgo.GoUInt64);
@@ -4304,8 +4304,8 @@ function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var 
                 break;
             };
         };
-        var _un21:stdgo.GoUInt64 = (((_un32 * (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + _un1 : stdgo.GoUInt64) - (_q1 * _y : stdgo.GoUInt64) : stdgo.GoUInt64);
-        var _q0:stdgo.GoUInt64 = (_un21 / _yn1 : stdgo.GoUInt64);
+        var _un21 = (((_un32 * (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + _un1 : stdgo.GoUInt64) - (_q1 * _y : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _q0 = (_un21 / _yn1 : stdgo.GoUInt64);
         _rhat = (_un21 - (_q0 * _yn1 : stdgo.GoUInt64) : stdgo.GoUInt64);
         while (((_q0 >= (4294967296i64 : stdgo.GoUInt64) : Bool) || ((_q0 * _yn0 : stdgo.GoUInt64) > (((4294967296i64 : stdgo.GoUInt64) * _rhat : stdgo.GoUInt64) + _un0 : stdgo.GoUInt64) : Bool) : Bool)) {
             _q0--;

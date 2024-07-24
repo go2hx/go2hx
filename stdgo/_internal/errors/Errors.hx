@@ -71,7 +71,7 @@ function new_(_text:stdgo.GoString):stdgo.Error {
     }
 function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error {
         var _errs = new stdgo.Slice<stdgo.Error>(_errs.length, 0, ..._errs);
-        var _n:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n = (0 : stdgo.GoInt);
         for (__0 => _err in _errs) {
             if (_err != null) {
                 _n++;
@@ -103,7 +103,7 @@ function is_(_err:stdgo.Error, _target:stdgo.Error):Bool {
         if (_target == null) {
             return stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(_target));
         };
-        var _isComparable:Bool = stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface(_target)).comparable_();
+        var _isComparable = stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface(_target)).comparable_();
         while (true) {
             if ((_isComparable && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_target)) : Bool)) {
                 return true;
@@ -148,12 +148,12 @@ function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool {
         if (_target == null) {
             throw stdgo.Go.toInterface(("errors: target cannot be nil" : stdgo.GoString));
         };
-        var _val:stdgo._internal.internal.reflectlite.Reflectlite.Value = stdgo._internal.internal.reflectlite.Reflectlite.valueOf(_target)?.__copy__();
-        var _typ:stdgo._internal.internal.reflectlite.Reflectlite.Type_ = _val.type();
+        var _val = stdgo._internal.internal.reflectlite.Reflectlite.valueOf(_target)?.__copy__();
+        var _typ = _val.type();
         if (((_typ.kind() != (22u32 : stdgo._internal.internal.abi.Abi.Kind)) || _val.isNil() : Bool)) {
             throw stdgo.Go.toInterface(("errors: target must be a non-nil pointer" : stdgo.GoString));
         };
-        var _targetType:stdgo._internal.internal.reflectlite.Reflectlite.Type_ = _typ.elem();
+        var _targetType = _typ.elem();
         if (((_targetType.kind() != (20u32 : stdgo._internal.internal.abi.Abi.Kind)) && !_targetType.implements_(_errorType) : Bool)) {
             throw stdgo.Go.toInterface(("errors: *target must be interface or implement error" : stdgo.GoString));
         };

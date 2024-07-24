@@ -18,7 +18,7 @@ function decodeRune(_r1:stdgo.GoRune, _r2:stdgo.GoRune):stdgo.GoRune {
     return (65533 : stdgo.GoInt32);
 }
 function encodeRune(_r:stdgo.GoRune):{ var _0 : stdgo.GoRune; var _1 : stdgo.GoRune; } {
-    var _r1:stdgo.GoRune = (0 : stdgo.GoInt32), _r2:stdgo.GoRune = (0 : stdgo.GoInt32);
+    var _r1 = (0 : stdgo.GoInt32), _r2 = (0 : stdgo.GoInt32);
     if (((_r < (65536 : stdgo.GoInt32) : Bool) || (_r > (1114111 : stdgo.GoInt32) : Bool) : Bool)) {
         return { _0 : (65533 : stdgo.GoInt32), _1 : (65533 : stdgo.GoInt32) };
     };
@@ -26,7 +26,7 @@ function encodeRune(_r:stdgo.GoRune):{ var _0 : stdgo.GoRune; var _1 : stdgo.GoR
     return { _0 : ((55296 : stdgo.GoInt32) + (((_r >> (10i64 : stdgo.GoUInt64) : stdgo.GoInt32)) & (1023 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt32), _1 : ((56320 : stdgo.GoInt32) + (_r & (1023 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt32) };
 }
 function encode(_s:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoUInt16> {
-    var _n:stdgo.GoInt = (_s.length);
+    var _n = (_s.length);
     for (__0 => _v in _s) {
         if ((_v >= (65536 : stdgo.GoInt32) : Bool)) {
             _n++;
@@ -65,11 +65,11 @@ function decode(_s:stdgo.Slice<stdgo.GoUInt16>):stdgo.Slice<stdgo.GoRune> {
 }
 function _decode(_s:stdgo.Slice<stdgo.GoUInt16>, _buf:stdgo.Slice<stdgo.GoRune>):stdgo.Slice<stdgo.GoRune> {
     {
-        var _i:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i = (0 : stdgo.GoInt);
         stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
             var _ar:stdgo.GoRune = (0 : stdgo.GoInt32);
             {
-                var _r:stdgo.GoUInt16 = _s[(_i : stdgo.GoInt)];
+                var _r = _s[(_i : stdgo.GoInt)];
                 if ((_r < (55296 : stdgo.GoUInt16) : Bool) || ((57344 : stdgo.GoUInt16) <= _r : Bool)) {
                     _ar = (_r : stdgo.GoRune);
                 } else if (((((((55296 : stdgo.GoUInt16) <= _r : Bool) && (_r < (56320 : stdgo.GoUInt16) : Bool) : Bool) && ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) < (_s.length) : Bool) : Bool) && ((56320 : stdgo.GoUInt16) <= _s[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : Bool) : Bool) && (_s[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] < (57344 : stdgo.GoUInt16) : Bool) : Bool)) {

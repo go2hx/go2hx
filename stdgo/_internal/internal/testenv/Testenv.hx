@@ -90,7 +90,8 @@ function commandContext(_t:stdgo._internal.testing.Testing.TB, _ctx:stdgo._inter
         var _args = new stdgo.Slice<stdgo.GoString>(_args.length, 0, ..._args);
         _t.helper();
         mustHaveExec(_t);
-        var __0:stdgo._internal.context.Context.CancelFunc = (null : stdgo._internal.context.Context.CancelFunc), __1:stdgo._internal.time.Time.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time.Duration), _gracePeriod:stdgo._internal.time.Time.Duration = __1, _cancelCtx:stdgo._internal.context.Context.CancelFunc = __0;
+        var __0:stdgo._internal.context.Context.CancelFunc = (null : stdgo._internal.context.Context.CancelFunc), __1:stdgo._internal.time.Time.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time.Duration);
+var _gracePeriod = __1, _cancelCtx = __0;
         {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_t) : T__interface_0)) : T__interface_0), _1 : true };
@@ -103,7 +104,7 @@ function commandContext(_t:stdgo._internal.testing.Testing.TB, _ctx:stdgo._inter
                     if (_ok) {
                         _gracePeriod = (100000000i64 : stdgo._internal.time.Time.Duration);
                         {
-                            var _s:stdgo.GoString = stdgo._internal.os.Os.getenv(("GO_TEST_TIMEOUT_SCALE" : stdgo.GoString))?.__copy__();
+                            var _s = stdgo._internal.os.Os.getenv(("GO_TEST_TIMEOUT_SCALE" : stdgo.GoString))?.__copy__();
                             if (_s != (stdgo.Go.str())) {
                                 var __tmp__ = stdgo._internal.strconv.Strconv.atoi(_s?.__copy__()), _scale:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
@@ -112,14 +113,14 @@ function commandContext(_t:stdgo._internal.testing.Testing.TB, _ctx:stdgo._inter
                                 _gracePeriod = (_gracePeriod * ((_scale : stdgo._internal.time.Time.Duration)) : stdgo._internal.time.Time.Duration);
                             };
                         };
-                        var _testTimeout:stdgo._internal.time.Time.Duration = stdgo._internal.time.Time.until(_td?.__copy__());
+                        var _testTimeout = stdgo._internal.time.Time.until(_td?.__copy__());
                         {
-                            var _gp:stdgo._internal.time.Time.Duration = (_testTimeout / (20i64 : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration);
+                            var _gp = (_testTimeout / (20i64 : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration);
                             if ((_gp > _gracePeriod : Bool)) {
                                 _gracePeriod = _gp;
                             };
                         };
-                        var _cmdTimeout:stdgo._internal.time.Time.Duration = (_testTimeout - ((2i64 : stdgo._internal.time.Time.Duration) * _gracePeriod : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration);
+                        var _cmdTimeout = (_testTimeout - ((2i64 : stdgo._internal.time.Time.Duration) * _gracePeriod : stdgo._internal.time.Time.Duration) : stdgo._internal.time.Time.Duration);
                         {
                             var __tmp__ = _ctx.deadline(), _cd:stdgo._internal.time.Time.Time = __tmp__._0, _ok:Bool = __tmp__._1;
                             if ((!_ok || (stdgo._internal.time.Time.until(_cd?.__copy__()) > _cmdTimeout : Bool) : Bool)) {
@@ -208,15 +209,15 @@ function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
                 _gorootErr = stdgo._internal.fmt.Fmt.errorf(("finding GOROOT: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
                 return;
             };
-            var _dir:stdgo.GoString = _cwd?.__copy__();
+            var _dir = _cwd?.__copy__();
             while (true) {
-                var _parent:stdgo.GoString = stdgo._internal.path.filepath.Filepath.dir(_dir?.__copy__())?.__copy__();
+                var _parent = stdgo._internal.path.filepath.Filepath.dir(_dir?.__copy__())?.__copy__();
                 if (_parent == (_dir)) {
                     _gorootErr = stdgo._internal.fmt.Fmt.errorf(("failed to locate GOROOT/src in any parent directory" : stdgo.GoString));
                     return;
                 };
                 {
-                    var _base:stdgo.GoString = stdgo._internal.path.filepath.Filepath.base(_dir?.__copy__())?.__copy__();
+                    var _base = stdgo._internal.path.filepath.Filepath.base(_dir?.__copy__())?.__copy__();
                     if (_base != (("src" : stdgo.GoString))) {
                         _dir = _parent?.__copy__();
                         continue;
@@ -231,7 +232,7 @@ function _findGOROOT():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
                     _gorootErr = stdgo._internal.fmt.Fmt.errorf(("finding GOROOT: %w" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     return;
                 };
-                var _goMod:stdgo.GoString = (_b : stdgo.GoString)?.__copy__();
+                var _goMod = (_b : stdgo.GoString)?.__copy__();
                 while (_goMod != (stdgo.Go.str())) {
                     var _line:stdgo.GoString = ("" : stdgo.GoString);
                     {
@@ -421,7 +422,7 @@ function writeImportcfg(_t:stdgo._internal.testing.Testing.TB, _dstPath:stdgo.Go
             };
         };
         {
-            var _err:stdgo.Error = stdgo._internal.os.Os.writeFile(_dstPath?.__copy__(), _icfg.bytes(), (438u32 : stdgo._internal.io.fs.Fs.FileMode));
+            var _err = stdgo._internal.os.Os.writeFile(_dstPath?.__copy__(), _icfg.bytes(), (438u32 : stdgo._internal.io.fs.Fs.FileMode));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -435,7 +436,7 @@ function _syscallIsNotSupported(_err:stdgo.Error):Bool {
     }
 function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
         var __deferstack__:Array<Void -> Void> = [];
-        var _ok:Bool = false, _reason:stdgo.GoString = ("" : stdgo.GoString);
+        var _ok = false, _reason = ("" : stdgo.GoString);
         try {
             {
                 final __value__ = ("js" : stdgo.GoString);
@@ -452,9 +453,9 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                         };
                         a();
                     });
-                    var _fpath:stdgo.GoString = stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("testfile.txt" : stdgo.GoString))?.__copy__();
+                    var _fpath = stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("testfile.txt" : stdgo.GoString))?.__copy__();
                     {
-                        var _err:stdgo.Error = stdgo._internal.os.Os.writeFile(_fpath?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>), (420u32 : stdgo._internal.io.fs.Fs.FileMode));
+                        var _err = stdgo._internal.os.Os.writeFile(_fpath?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>), (420u32 : stdgo._internal.io.fs.Fs.FileMode));
                         if (_err != null) {
                             {
                                 final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : false, _1 : stdgo.Go.str()?.__copy__() };
@@ -466,7 +467,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                         };
                     };
                     {
-                        var _err:stdgo.Error = stdgo._internal.os.Os.symlink(_fpath?.__copy__(), stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("testlink" : stdgo.GoString))?.__copy__());
+                        var _err = stdgo._internal.os.Os.symlink(_fpath?.__copy__(), stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("testlink" : stdgo.GoString))?.__copy__());
                         if (_err != null) {
                             if (syscallIsNotSupported(_err)) {
                                 {

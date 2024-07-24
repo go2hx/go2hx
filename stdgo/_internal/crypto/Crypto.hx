@@ -148,7 +148,7 @@ class Hash_asInterface {
     static public function new_( _h:Hash):stdgo._internal.hash.Hash.Hash {
         @:recv var _h:Hash = _h;
         if (((_h > (0u32 : stdgo._internal.crypto.Crypto.Hash) : Bool) && (_h < (20u32 : stdgo._internal.crypto.Crypto.Hash) : Bool) : Bool)) {
-            var _f:() -> stdgo._internal.hash.Hash.Hash = _hashes[(_h : stdgo.GoInt)];
+            var _f = _hashes[(_h : stdgo.GoInt)];
             if (_f != null) {
                 return _f();
             };

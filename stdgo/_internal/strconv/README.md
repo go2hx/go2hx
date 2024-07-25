@@ -584,7 +584,7 @@ function _appendEscapedRune(_buf:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune, _qu
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4162>)
+[\(view code\)](<./Strconv.hx#L4177>)
 
 
 ## function \_appendQuotedRuneWith
@@ -595,7 +595,7 @@ function _appendQuotedRuneWith(_buf:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune, 
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4153>)
+[\(view code\)](<./Strconv.hx#L4168>)
 
 
 ## function \_appendQuotedWith
@@ -606,7 +606,7 @@ function _appendQuotedWith(_buf:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString, _q
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4122>)
+[\(view code\)](<./Strconv.hx#L4137>)
 
 
 ## function \_atof32
@@ -700,7 +700,7 @@ function _bigFtoa(_dst:stdgo.Slice<stdgo.GoByte>, _prec:stdgo.GoInt, _fmt:stdgo.
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3205>)
+[\(view code\)](<./Strconv.hx#L3207>)
 
 
 ## function \_bitSizeError
@@ -722,7 +722,7 @@ function _bsearch16(_a:stdgo.Slice<stdgo.GoUInt16>, _x:stdgo.GoUInt16):stdgo.GoI
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4572>)
+[\(view code\)](<./Strconv.hx#L4587>)
 
 
 ## function \_bsearch32
@@ -733,7 +733,7 @@ function _bsearch32(_a:stdgo.Slice<stdgo.GoUInt32>, _x:stdgo.GoUInt32):stdgo.GoI
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4584>)
+[\(view code\)](<./Strconv.hx#L4600>)
 
 
 ## function \_cloneString
@@ -771,7 +771,7 @@ function _computeBounds(_mant:stdgo.GoUInt64, _exp:stdgo.GoInt, _flt:stdgo.Ref<s
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3794>)
+[\(view code\)](<./Strconv.hx#L3806>)
 
 
 ## function \_contains
@@ -782,7 +782,7 @@ function _contains(_s:stdgo.GoString, _c:stdgo.GoByte):Bool
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4113>)
+[\(view code\)](<./Strconv.hx#L4128>)
 
 
 ## function \_convErr
@@ -818,7 +818,7 @@ function _divisibleByPower5(_m:stdgo.GoUInt64, _k:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3947>)
+[\(view code\)](<./Strconv.hx#L3962>)
 
 
 ## function \_divmod1e9
@@ -832,7 +832,7 @@ function _divmod1e9(_x:stdgo.GoUInt64):{
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3962>)
+[\(view code\)](<./Strconv.hx#L3977>)
 
 
 ## function \_eiselLemire32
@@ -846,7 +846,7 @@ function _eiselLemire32(_man:stdgo.GoUInt64, _exp10:stdgo.GoInt, _neg:Bool):{
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3051>)
+[\(view code\)](<./Strconv.hx#L3052>)
 
 
 ## function \_eiselLemire64
@@ -871,7 +871,7 @@ function _fmtB(_dst:stdgo.Slice<stdgo.GoByte>, _neg:Bool, _mant:stdgo.GoUInt64, 
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3413>)
+[\(view code\)](<./Strconv.hx#L3415>)
 
 
 ## function \_fmtE
@@ -882,7 +882,7 @@ function _fmtE(_dst:stdgo.Slice<stdgo.GoByte>, _neg:Bool, _d:stdgo._internal.str
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3340>)
+[\(view code\)](<./Strconv.hx#L3342>)
 
 
 ## function \_fmtF
@@ -893,7 +893,7 @@ function _fmtF(_dst:stdgo.Slice<stdgo.GoByte>, _neg:Bool, _d:stdgo._internal.str
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3382>)
+[\(view code\)](<./Strconv.hx#L3384>)
 
 
 ## function \_fmtX
@@ -904,7 +904,7 @@ function _fmtX(_dst:stdgo.Slice<stdgo.GoByte>, _prec:stdgo.GoInt, _fmt:stdgo.GoB
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3432>)
+[\(view code\)](<./Strconv.hx#L3434>)
 
 
 ## function \_formatBits
@@ -918,7 +918,7 @@ function _formatBits(_dst:stdgo.Slice<stdgo.GoByte>, _u:stdgo.GoUInt64, _base:st
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4032>)
+[\(view code\)](<./Strconv.hx#L4047>)
 
 
 ## function \_formatDecimal
@@ -929,7 +929,7 @@ function _formatDecimal(_d:stdgo.Ref<stdgo._internal.strconv.T_decimalSlice>, _m
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3607>)
+[\(view code\)](<./Strconv.hx#L3611>)
 
 
 ## function \_formatDigits
@@ -940,7 +940,7 @@ function _formatDigits(_dst:stdgo.Slice<stdgo.GoByte>, _shortest:Bool, _neg:Bool
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3242>)
+[\(view code\)](<./Strconv.hx#L3244>)
 
 
 ## function \_genericFtoa
@@ -951,7 +951,7 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoByte>, _val:stdgo.GoFloat64, _fmt
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3110>)
+[\(view code\)](<./Strconv.hx#L3112>)
 
 
 ## function \_index
@@ -973,7 +973,7 @@ function _isInGraphicList(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4633>)
+[\(view code\)](<./Strconv.hx#L4652>)
 
 
 ## function \_isPowerOfTwo
@@ -984,7 +984,7 @@ function _isPowerOfTwo(_x:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4110>)
+[\(view code\)](<./Strconv.hx#L4125>)
 
 
 ## function \_leftShift
@@ -1017,7 +1017,7 @@ function _max(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3506>)
+[\(view code\)](<./Strconv.hx#L3508>)
 
 
 ## function \_min
@@ -1028,7 +1028,7 @@ function _min(_a:stdgo.GoInt, _b:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3500>)
+[\(view code\)](<./Strconv.hx#L3502>)
 
 
 ## function \_mulByLog10Log2
@@ -1039,7 +1039,7 @@ function _mulByLog10Log2(_x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3791>)
+[\(view code\)](<./Strconv.hx#L3803>)
 
 
 ## function \_mulByLog2Log10
@@ -1050,7 +1050,7 @@ function _mulByLog2Log10(_x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3788>)
+[\(view code\)](<./Strconv.hx#L3800>)
 
 
 ## function \_mult128bitPow10
@@ -1065,7 +1065,7 @@ function _mult128bitPow10(_m:stdgo.GoUInt64, _e2:stdgo.GoInt, _q:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3928>)
+[\(view code\)](<./Strconv.hx#L3943>)
 
 
 ## function \_mult64bitPow10
@@ -1080,7 +1080,7 @@ function _mult64bitPow10(_m:stdgo.GoUInt32, _e2:stdgo.GoInt, _q:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3912>)
+[\(view code\)](<./Strconv.hx#L3927>)
 
 
 ## function \_parseFloatPrefix
@@ -1117,7 +1117,7 @@ function _quoteRuneWith(_r:stdgo.GoRune, _quote:stdgo.GoByte, asciionly:Bool, _g
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4119>)
+[\(view code\)](<./Strconv.hx#L4134>)
 
 
 ## function \_quoteWith
@@ -1128,7 +1128,7 @@ function _quoteWith(_s:stdgo.GoString, _quote:stdgo.GoByte, asciionly:Bool, _gra
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4116>)
+[\(view code\)](<./Strconv.hx#L4131>)
 
 
 ## function \_rangeError
@@ -1180,7 +1180,7 @@ function _roundShortest(_d:stdgo.Ref<stdgo._internal.strconv.T_decimal>, _mant:s
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3272>)
+[\(view code\)](<./Strconv.hx#L3274>)
 
 
 ## function \_ryuDigits
@@ -1191,7 +1191,7 @@ function _ryuDigits(_d:stdgo.Ref<stdgo._internal.strconv.T_decimalSlice>, _lower
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3820>)
+[\(view code\)](<./Strconv.hx#L3832>)
 
 
 ## function \_ryuDigits32
@@ -1202,7 +1202,7 @@ function _ryuDigits32(_d:stdgo.Ref<stdgo._internal.strconv.T_decimalSlice>, _low
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3859>)
+[\(view code\)](<./Strconv.hx#L3872>)
 
 
 ## function \_ryuFtoaFixed32
@@ -1213,7 +1213,7 @@ function _ryuFtoaFixed32(_d:stdgo.Ref<stdgo._internal.strconv.T_decimalSlice>, _
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3512>)
+[\(view code\)](<./Strconv.hx#L3514>)
 
 
 ## function \_ryuFtoaFixed64
@@ -1224,7 +1224,7 @@ function _ryuFtoaFixed64(_d:stdgo.Ref<stdgo._internal.strconv.T_decimalSlice>, _
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3561>)
+[\(view code\)](<./Strconv.hx#L3564>)
 
 
 ## function \_ryuFtoaShortest
@@ -1235,7 +1235,7 @@ function _ryuFtoaShortest(_d:stdgo.Ref<stdgo._internal.strconv.T_decimalSlice>, 
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3671>)
+[\(view code\)](<./Strconv.hx#L3677>)
 
 
 ## function \_shouldRoundUp
@@ -1257,7 +1257,7 @@ function _small(_i:stdgo.GoInt):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4026>)
+[\(view code\)](<./Strconv.hx#L4041>)
 
 
 ## function \_special
@@ -1319,7 +1319,7 @@ function _unhex(_b:stdgo.GoByte):{
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4312>)
+[\(view code\)](<./Strconv.hx#L4327>)
 
 
 ## function \_unquote
@@ -1334,7 +1334,7 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4472>)
+[\(view code\)](<./Strconv.hx#L4487>)
 
 
 ## function appendBool
@@ -1399,7 +1399,7 @@ function exampleAppendFloat():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3107>)
+[\(view code\)](<./Strconv.hx#L3109>)
 
 
 ## function appendInt
@@ -1433,7 +1433,7 @@ function exampleAppendInt():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4006>)
+[\(view code\)](<./Strconv.hx#L4021>)
 
 
 ## function appendQuote
@@ -1464,7 +1464,7 @@ function exampleAppendQuote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4260>)
+[\(view code\)](<./Strconv.hx#L4275>)
 
 
 ## function appendQuoteRune
@@ -1495,7 +1495,7 @@ function exampleAppendQuoteRune():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4278>)
+[\(view code\)](<./Strconv.hx#L4293>)
 
 
 ## function appendQuoteRuneToASCII
@@ -1526,7 +1526,7 @@ function exampleAppendQuoteRuneToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4284>)
+[\(view code\)](<./Strconv.hx#L4299>)
 
 
 ## function appendQuoteRuneToGraphic
@@ -1537,7 +1537,7 @@ function appendQuoteRuneToGraphic(_dst:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRun
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4290>)
+[\(view code\)](<./Strconv.hx#L4305>)
 
 
 ## function appendQuoteToASCII
@@ -1568,7 +1568,7 @@ function exampleAppendQuoteToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4266>)
+[\(view code\)](<./Strconv.hx#L4281>)
 
 
 ## function appendQuoteToGraphic
@@ -1579,7 +1579,7 @@ function appendQuoteToGraphic(_dst:stdgo.Slice<stdgo.GoByte>, _s:stdgo.GoString)
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4272>)
+[\(view code\)](<./Strconv.hx#L4287>)
 
 
 ## function appendUint
@@ -1613,7 +1613,7 @@ function exampleAppendUint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4016>)
+[\(view code\)](<./Strconv.hx#L4031>)
 
 
 ## function atoi
@@ -1636,7 +1636,7 @@ function atoi(_s:stdgo.GoString):{
 
 ```haxe
 function exampleAtoi():Void {
-        var _v:stdgo.GoString = ("10" : stdgo.GoString);
+        var _v = ("10" : stdgo.GoString);
         {
             var __tmp__ = stdgo._internal.strconv.Strconv.atoi(_v?.__copy__()), _s:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
@@ -1703,7 +1703,7 @@ function exampleCanBackquote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4293>)
+[\(view code\)](<./Strconv.hx#L4308>)
 
 
 ## function formatBool
@@ -1723,8 +1723,8 @@ function formatBool(_b:Bool):stdgo.GoString
 
 ```haxe
 function exampleFormatBool():Void {
-        var _v:Bool = true;
-        var _s:stdgo.GoString = stdgo._internal.strconv.Strconv.formatBool(_v)?.__copy__();
+        var _v = true;
+        var _s = stdgo._internal.strconv.Strconv.formatBool(_v)?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_s));
     }
 ```
@@ -1765,12 +1765,12 @@ function formatFloat(_f:stdgo.GoFloat64, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _
 
 ```haxe
 function exampleFormatFloat():Void {
-        var _v:stdgo.GoFloat64 = (3.1415926535 : stdgo.GoFloat64);
-        var _s32:stdgo.GoString = stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__();
+        var _v = (3.1415926535 : stdgo.GoFloat64);
+        var _s32 = stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s32), stdgo.Go.toInterface(_s32));
-        var _s64:stdgo.GoString = stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+        var _s64 = stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s64), stdgo.Go.toInterface(_s64));
-        var _fmt64:stdgo.GoString = stdgo._internal.strconv.Strconv.formatFloat(_v, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+        var _fmt64 = stdgo._internal.strconv.Strconv.formatFloat(_v, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_fmt64), stdgo.Go.toInterface(_fmt64));
     }
 ```
@@ -1780,7 +1780,7 @@ function exampleFormatFloat():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3104>)
+[\(view code\)](<./Strconv.hx#L3106>)
 
 
 ## function formatInt
@@ -1800,10 +1800,10 @@ function formatInt(_i:stdgo.GoInt64, _base:stdgo.GoInt):stdgo.GoString
 
 ```haxe
 function exampleFormatInt():Void {
-        var _v:stdgo.GoInt64 = (-42i64 : stdgo.GoInt64);
-        var _s10:stdgo.GoString = stdgo._internal.strconv.Strconv.formatInt(_v, (10 : stdgo.GoInt))?.__copy__();
+        var _v = (-42i64 : stdgo.GoInt64);
+        var _s10 = stdgo._internal.strconv.Strconv.formatInt(_v, (10 : stdgo.GoInt))?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s10), stdgo.Go.toInterface(_s10));
-        var _s16:stdgo.GoString = stdgo._internal.strconv.Strconv.formatInt(_v, (16 : stdgo.GoInt))?.__copy__();
+        var _s16 = stdgo._internal.strconv.Strconv.formatInt(_v, (16 : stdgo.GoInt))?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s16), stdgo.Go.toInterface(_s16));
     }
 ```
@@ -1813,7 +1813,7 @@ function exampleFormatInt():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3996>)
+[\(view code\)](<./Strconv.hx#L4011>)
 
 
 ## function formatUint
@@ -1833,10 +1833,10 @@ function formatUint(_i:stdgo.GoUInt64, _base:stdgo.GoInt):stdgo.GoString
 
 ```haxe
 function exampleFormatUint():Void {
-        var _v:stdgo.GoUInt64 = (42i64 : stdgo.GoUInt64);
-        var _s10:stdgo.GoString = stdgo._internal.strconv.Strconv.formatUint(_v, (10 : stdgo.GoInt))?.__copy__();
+        var _v = (42i64 : stdgo.GoUInt64);
+        var _s10 = stdgo._internal.strconv.Strconv.formatUint(_v, (10 : stdgo.GoInt))?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s10), stdgo.Go.toInterface(_s10));
-        var _s16:stdgo.GoString = stdgo._internal.strconv.Strconv.formatUint(_v, (16 : stdgo.GoInt))?.__copy__();
+        var _s16 = stdgo._internal.strconv.Strconv.formatUint(_v, (16 : stdgo.GoInt))?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s16), stdgo.Go.toInterface(_s16));
     }
 ```
@@ -1846,7 +1846,7 @@ function exampleFormatUint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L3989>)
+[\(view code\)](<./Strconv.hx#L4004>)
 
 
 ## function isGraphic
@@ -1866,11 +1866,11 @@ function isGraphic(_r:stdgo.GoRune):Bool
 
 ```haxe
 function exampleIsGraphic():Void {
-        var _shamrock:Bool = stdgo._internal.strconv.Strconv.isGraphic((9752 : stdgo.GoInt32));
+        var _shamrock = stdgo._internal.strconv.Strconv.isGraphic((9752 : stdgo.GoInt32));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_shamrock));
-        var _a:Bool = stdgo._internal.strconv.Strconv.isGraphic((97 : stdgo.GoInt32));
+        var _a = stdgo._internal.strconv.Strconv.isGraphic((97 : stdgo.GoInt32));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_a));
-        var _bel:Bool = stdgo._internal.strconv.Strconv.isGraphic((7 : stdgo.GoInt32));
+        var _bel = stdgo._internal.strconv.Strconv.isGraphic((7 : stdgo.GoInt32));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_bel));
     }
 ```
@@ -1880,7 +1880,7 @@ function exampleIsGraphic():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4627>)
+[\(view code\)](<./Strconv.hx#L4646>)
 
 
 ## function isPrint
@@ -1900,9 +1900,9 @@ function isPrint(_r:stdgo.GoRune):Bool
 
 ```haxe
 function exampleIsPrint():Void {
-        var _c:Bool = stdgo._internal.strconv.Strconv.isPrint((9786 : stdgo.GoInt32));
+        var _c = stdgo._internal.strconv.Strconv.isPrint((9786 : stdgo.GoInt32));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_c));
-        var _bel:Bool = stdgo._internal.strconv.Strconv.isPrint((7 : stdgo.GoInt32));
+        var _bel = stdgo._internal.strconv.Strconv.isPrint((7 : stdgo.GoInt32));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_bel));
     }
 ```
@@ -1912,7 +1912,7 @@ function exampleIsPrint():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4596>)
+[\(view code\)](<./Strconv.hx#L4613>)
 
 
 ## function itoa
@@ -1932,8 +1932,8 @@ function itoa(_i:stdgo.GoInt):stdgo.GoString
 
 ```haxe
 function exampleItoa():Void {
-        var _i:stdgo.GoInt = (10 : stdgo.GoInt);
-        var _s:stdgo.GoString = stdgo._internal.strconv.Strconv.itoa(_i)?.__copy__();
+        var _i = (10 : stdgo.GoInt);
+        var _s = stdgo._internal.strconv.Strconv.itoa(_i)?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_s));
     }
 ```
@@ -1943,7 +1943,7 @@ function exampleItoa():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4003>)
+[\(view code\)](<./Strconv.hx#L4018>)
 
 
 ## function mulByLog10Log2
@@ -1954,7 +1954,7 @@ function mulByLog10Log2(_x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3986>)
+[\(view code\)](<./Strconv.hx#L4001>)
 
 
 ## function mulByLog2Log10
@@ -1965,7 +1965,7 @@ function mulByLog2Log10(_x:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3983>)
+[\(view code\)](<./Strconv.hx#L3998>)
 
 
 ## function newDecimal
@@ -1976,7 +1976,7 @@ function newDecimal(_i:stdgo.GoUInt64):stdgo.Ref<stdgo._internal.strconv.T_decim
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3970>)
+[\(view code\)](<./Strconv.hx#L3985>)
 
 
 ## function parseBool
@@ -1999,7 +1999,7 @@ function parseBool(_str:stdgo.GoString):{
 
 ```haxe
 function exampleParseBool():Void {
-        var _v:stdgo.GoString = ("true" : stdgo.GoString);
+        var _v = ("true" : stdgo.GoString);
         {
             var __tmp__ = stdgo._internal.strconv.Strconv.parseBool(_v?.__copy__()), _s:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
@@ -2051,7 +2051,7 @@ function parseFloat(_s:stdgo.GoString, _bitSize:stdgo.GoInt):{
 
 ```haxe
 function exampleParseFloat():Void {
-        var _v:stdgo.GoString = ("3.1415926535" : stdgo.GoString);
+        var _v = ("3.1415926535" : stdgo.GoString);
         {
             var __tmp__ = stdgo._internal.strconv.Strconv.parseFloat(_v?.__copy__(), (32 : stdgo.GoInt)), _s:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
@@ -2129,7 +2129,7 @@ function parseFloatPrefix(_s:stdgo.GoString, _bitSize:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3980>)
+[\(view code\)](<./Strconv.hx#L3995>)
 
 
 ## function parseInt
@@ -2152,7 +2152,7 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{
 
 ```haxe
 function exampleParseInt():Void {
-        var _v32:stdgo.GoString = ("-354634382" : stdgo.GoString);
+        var _v32 = ("-354634382" : stdgo.GoString);
         {
             var __tmp__ = stdgo._internal.strconv.Strconv.parseInt(_v32?.__copy__(), (10 : stdgo.GoInt), (32 : stdgo.GoInt)), _s:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
@@ -2165,7 +2165,7 @@ function exampleParseInt():Void {
                 stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_s));
             };
         };
-        var _v64:stdgo.GoString = ("-3546343826724305832" : stdgo.GoString);
+        var _v64 = ("-3546343826724305832" : stdgo.GoString);
         {
             var __tmp__ = stdgo._internal.strconv.Strconv.parseInt(_v64?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _s:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
@@ -2209,7 +2209,7 @@ function parseUint(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{
 
 ```haxe
 function exampleParseUint():Void {
-        var _v:stdgo.GoString = ("42" : stdgo.GoString);
+        var _v = ("42" : stdgo.GoString);
         {
             var __tmp__ = stdgo._internal.strconv.Strconv.parseUint(_v?.__copy__(), (10 : stdgo.GoInt), (32 : stdgo.GoInt)), _s:stdgo.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
@@ -2250,7 +2250,7 @@ function quote(_s:stdgo.GoString):stdgo.GoString
 
 ```haxe
 function exampleQuote():Void {
-        var _s:stdgo.GoString = stdgo._internal.strconv.Strconv.quote(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__();
+        var _s = stdgo._internal.strconv.Strconv.quote(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 ```
@@ -2260,7 +2260,7 @@ function exampleQuote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4257>)
+[\(view code\)](<./Strconv.hx#L4272>)
 
 
 ## function quoteRune
@@ -2280,7 +2280,7 @@ function quoteRune(_r:stdgo.GoRune):stdgo.GoString
 
 ```haxe
 function exampleQuoteRune():Void {
-        var _s:stdgo.GoString = stdgo._internal.strconv.Strconv.quoteRune((9786 : stdgo.GoInt32))?.__copy__();
+        var _s = stdgo._internal.strconv.Strconv.quoteRune((9786 : stdgo.GoInt32))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 ```
@@ -2290,7 +2290,7 @@ function exampleQuoteRune():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4275>)
+[\(view code\)](<./Strconv.hx#L4290>)
 
 
 ## function quoteRuneToASCII
@@ -2310,7 +2310,7 @@ function quoteRuneToASCII(_r:stdgo.GoRune):stdgo.GoString
 
 ```haxe
 function exampleQuoteRuneToASCII():Void {
-        var _s:stdgo.GoString = stdgo._internal.strconv.Strconv.quoteRuneToASCII((9786 : stdgo.GoInt32))?.__copy__();
+        var _s = stdgo._internal.strconv.Strconv.quoteRuneToASCII((9786 : stdgo.GoInt32))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 ```
@@ -2320,7 +2320,7 @@ function exampleQuoteRuneToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4281>)
+[\(view code\)](<./Strconv.hx#L4296>)
 
 
 ## function quoteRuneToGraphic
@@ -2340,7 +2340,7 @@ function quoteRuneToGraphic(_r:stdgo.GoRune):stdgo.GoString
 
 ```haxe
 function exampleQuoteRuneToGraphic():Void {
-        var _s:stdgo.GoString = stdgo._internal.strconv.Strconv.quoteRuneToGraphic((9786 : stdgo.GoInt32))?.__copy__();
+        var _s = stdgo._internal.strconv.Strconv.quoteRuneToGraphic((9786 : stdgo.GoInt32))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
         _s = stdgo._internal.strconv.Strconv.quoteRuneToGraphic((9786 : stdgo.GoInt32))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
@@ -2356,7 +2356,7 @@ function exampleQuoteRuneToGraphic():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4287>)
+[\(view code\)](<./Strconv.hx#L4302>)
 
 
 ## function quoteToASCII
@@ -2376,7 +2376,7 @@ function quoteToASCII(_s:stdgo.GoString):stdgo.GoString
 
 ```haxe
 function exampleQuoteToASCII():Void {
-        var _s:stdgo.GoString = stdgo._internal.strconv.Strconv.quoteToASCII(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__();
+        var _s = stdgo._internal.strconv.Strconv.quoteToASCII(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 ```
@@ -2386,7 +2386,7 @@ function exampleQuoteToASCII():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4263>)
+[\(view code\)](<./Strconv.hx#L4278>)
 
 
 ## function quoteToGraphic
@@ -2406,7 +2406,7 @@ function quoteToGraphic(_s:stdgo.GoString):stdgo.GoString
 
 ```haxe
 function exampleQuoteToGraphic():Void {
-        var _s:stdgo.GoString = stdgo._internal.strconv.Strconv.quoteToGraphic(("☺" : stdgo.GoString))?.__copy__();
+        var _s = stdgo._internal.strconv.Strconv.quoteToGraphic(("☺" : stdgo.GoString))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
         _s = stdgo._internal.strconv.Strconv.quoteToGraphic(("This is a ☺\t\n" : stdgo.GoString))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
@@ -2420,7 +2420,7 @@ function exampleQuoteToGraphic():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4269>)
+[\(view code\)](<./Strconv.hx#L4284>)
 
 
 ## function quotedPrefix
@@ -2434,7 +2434,7 @@ function quotedPrefix(_s:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4461>)
+[\(view code\)](<./Strconv.hx#L4476>)
 
 
 ## function setOptimize
@@ -2445,7 +2445,7 @@ function setOptimize(_b:Bool):Bool
 ```
 
 
-[\(view code\)](<./Strconv.hx#L3975>)
+[\(view code\)](<./Strconv.hx#L3990>)
 
 
 ## function unquote
@@ -2502,7 +2502,7 @@ function exampleUnquote():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4465>)
+[\(view code\)](<./Strconv.hx#L4480>)
 
 
 ## function unquoteChar
@@ -2542,7 +2542,7 @@ function exampleUnquoteChar():Void {
 </details>
 
 
-[\(view code\)](<./Strconv.hx#L4324>)
+[\(view code\)](<./Strconv.hx#L4339>)
 
 
 # Classes
@@ -2590,7 +2590,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4661>)
+[\(view code\)](<./Strconv.hx#L4680>)
 
 
 ### NumError function unwrap
@@ -2601,6 +2601,6 @@ function unwrap():stdgo.Error
 ```
 
 
-[\(view code\)](<./Strconv.hx#L4656>)
+[\(view code\)](<./Strconv.hx#L4675>)
 
 

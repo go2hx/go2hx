@@ -298,7 +298,7 @@ function _cmykModel(_c:stdgo._internal.image.color.Color):stdgo._internal.image.
 ```
 
 
-[\(view code\)](<./Color.hx#L489>)
+[\(view code\)](<./Color.hx#L490>)
 
 
 ## function \_delta
@@ -309,7 +309,7 @@ function _delta(_x:stdgo.GoUInt8, _y:stdgo.GoUInt8):stdgo.GoUInt8
 ```
 
 
-[\(view code\)](<./Color.hx#L504>)
+[\(view code\)](<./Color.hx#L505>)
 
 
 ## function \_eq
@@ -320,7 +320,7 @@ function _eq(_c0:stdgo._internal.image.color.Color, _c1:stdgo._internal.image.co
 ```
 
 
-[\(view code\)](<./Color.hx#L510>)
+[\(view code\)](<./Color.hx#L511>)
 
 
 ## function \_gray16Model
@@ -353,7 +353,7 @@ function _nYCbCrAModel(_c:stdgo._internal.image.color.Color):stdgo._internal.ima
 ```
 
 
-[\(view code\)](<./Color.hx#L443>)
+[\(view code\)](<./Color.hx#L444>)
 
 
 ## function \_nrgba64Model
@@ -419,7 +419,7 @@ function _yCbCrModel(_c:stdgo._internal.image.color.Color):stdgo._internal.image
 ```
 
 
-[\(view code\)](<./Color.hx#L428>)
+[\(view code\)](<./Color.hx#L429>)
 
 
 ## function benchmarkNYCbCrAToRGBA
@@ -430,7 +430,7 @@ function benchmarkNYCbCrAToRGBA(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L838>)
+[\(view code\)](<./Color.hx#L843>)
 
 
 ## function benchmarkRGBToYCbCr
@@ -441,7 +441,7 @@ function benchmarkRGBToYCbCr(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L750>)
+[\(view code\)](<./Color.hx#L755>)
 
 
 ## function benchmarkYCbCrToRGB
@@ -452,7 +452,7 @@ function benchmarkYCbCrToRGB(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L709>)
+[\(view code\)](<./Color.hx#L714>)
 
 
 ## function benchmarkYCbCrToRGBA
@@ -463,7 +463,7 @@ function benchmarkYCbCrToRGBA(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L791>)
+[\(view code\)](<./Color.hx#L796>)
 
 
 ## function cmyktoRGB
@@ -478,7 +478,7 @@ function cmyktoRGB(_c:stdgo.GoUInt8, _m:stdgo.GoUInt8, _y:stdgo.GoUInt8, _k:stdg
 ```
 
 
-[\(view code\)](<./Color.hx#L482>)
+[\(view code\)](<./Color.hx#L483>)
 
 
 ## function modelFunc
@@ -505,7 +505,7 @@ function rgbtoCMYK(_r:stdgo.GoUInt8, _g:stdgo.GoUInt8, _b:stdgo.GoUInt8):{
 ```
 
 
-[\(view code\)](<./Color.hx#L463>)
+[\(view code\)](<./Color.hx#L464>)
 
 
 ## function rgbtoYCbCr
@@ -520,7 +520,7 @@ function rgbtoYCbCr(_r:stdgo.GoUInt8, _g:stdgo.GoUInt8, _b:stdgo.GoUInt8):{
 ```
 
 
-[\(view code\)](<./Color.hx#L385>)
+[\(view code\)](<./Color.hx#L386>)
 
 
 ## function testCMYKGray
@@ -531,7 +531,7 @@ function testCMYKGray(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L682>)
+[\(view code\)](<./Color.hx#L687>)
 
 
 ## function testCMYKRoundtrip
@@ -542,7 +542,7 @@ function testCMYKRoundtrip(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L610>)
+[\(view code\)](<./Color.hx#L613>)
 
 
 ## function testCMYKToRGBConsistency
@@ -553,7 +553,7 @@ function testCMYKToRGBConsistency(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L643>)
+[\(view code\)](<./Color.hx#L647>)
 
 
 ## function testNYCbCrAAlpha
@@ -564,7 +564,7 @@ function testNYCbCrAAlpha(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L580>)
+[\(view code\)](<./Color.hx#L583>)
 
 
 ## function testNYCbCrAYCbCr
@@ -575,7 +575,7 @@ function testNYCbCrAYCbCr(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L595>)
+[\(view code\)](<./Color.hx#L598>)
 
 
 ## function testPalette
@@ -586,7 +586,7 @@ function testPalette(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L695>)
+[\(view code\)](<./Color.hx#L700>)
 
 
 ## function testSqDiff
@@ -608,7 +608,7 @@ function testYCbCrGray(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L565>)
+[\(view code\)](<./Color.hx#L568>)
 
 
 ## function testYCbCrRoundtrip
@@ -619,7 +619,7 @@ function testYCbCrRoundtrip(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Color.hx#L518>)
+[\(view code\)](<./Color.hx#L519>)
 
 
 ## function testYCbCrToRGBConsistency
@@ -630,7 +630,7 @@ function testYCbCrToRGBConsistency(_t:stdgo.Ref<stdgo._internal.testing.T_>):Voi
 ```
 
 
-[\(view code\)](<./Color.hx#L541>)
+[\(view code\)](<./Color.hx#L543>)
 
 
 ## function ycbCrToRGB
@@ -645,7 +645,7 @@ function ycbCrToRGB(_y:stdgo.GoUInt8, _cb:stdgo.GoUInt8, _cr:stdgo.GoUInt8):{
 ```
 
 
-[\(view code\)](<./Color.hx#L404>)
+[\(view code\)](<./Color.hx#L405>)
 
 
 # Classes
@@ -688,7 +688,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1006>)
+[\(view code\)](<./Color.hx#L1011>)
 
 
 ## class Alpha16
@@ -723,7 +723,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1027>)
+[\(view code\)](<./Color.hx#L1032>)
 
 
 ## class CMYK
@@ -773,7 +773,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1185>)
+[\(view code\)](<./Color.hx#L1190>)
 
 
 ## class Gray
@@ -808,7 +808,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1047>)
+[\(view code\)](<./Color.hx#L1052>)
 
 
 ## class Gray16
@@ -843,7 +843,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1068>)
+[\(view code\)](<./Color.hx#L1073>)
 
 
 ## class NRGBA
@@ -893,7 +893,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L944>)
+[\(view code\)](<./Color.hx#L949>)
 
 
 ## class NRGBA64
@@ -943,7 +943,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L977>)
+[\(view code\)](<./Color.hx#L982>)
 
 
 ## class NYCbCrA
@@ -983,7 +983,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1145>)
+[\(view code\)](<./Color.hx#L1150>)
 
 
 ## class RGBA
@@ -1033,7 +1033,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L898>)
+[\(view code\)](<./Color.hx#L903>)
 
 
 ## class RGBA64
@@ -1083,7 +1083,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L925>)
+[\(view code\)](<./Color.hx#L930>)
 
 
 ## class YCbCr
@@ -1128,7 +1128,7 @@ function rgba():{
 ```
 
 
-[\(view code\)](<./Color.hx#L1106>)
+[\(view code\)](<./Color.hx#L1111>)
 
 
 # Typedefs

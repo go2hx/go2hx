@@ -1093,7 +1093,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L814>)
+[\(view code\)](<./Quick.hx#L815>)
 
 
 ## class CheckError
@@ -1128,7 +1128,7 @@ function error():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Quick.hx#L796>)
+[\(view code\)](<./Quick.hx#L797>)
 
 
 ## class Config
@@ -1176,7 +1176,7 @@ function _getMaxCount():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Quick.hx#L761>)
+[\(view code\)](<./Quick.hx#L762>)
 
 
 ### Config function \_getRand
@@ -1187,7 +1187,7 @@ function _getRand():stdgo.Ref<stdgo._internal.math.rand.Rand>
 ```
 
 
-[\(view code\)](<./Quick.hx#L775>)
+[\(view code\)](<./Quick.hx#L776>)
 
 
 ## class T\_testNonZeroSliceAndMap\_\_\_localname\_\_\_Q\_8763

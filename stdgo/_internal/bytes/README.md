@@ -463,7 +463,7 @@ function _containsRune(_s:stdgo.GoString, _r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Bytes.hx#L872>)
+[\(view code\)](<./Bytes.hx#L875>)
 
 
 ## function \_explode
@@ -518,7 +518,7 @@ function _indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool, _tr
 ```
 
 
-[\(view code\)](<./Bytes.hx#L819>)
+[\(view code\)](<./Bytes.hx#L821>)
 
 
 ## function \_isSeparator
@@ -529,7 +529,7 @@ function _isSeparator(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Bytes.hx#L752>)
+[\(view code\)](<./Bytes.hx#L754>)
 
 
 ## function \_lastIndexFunc
@@ -540,7 +540,7 @@ function _lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool,
 ```
 
 
-[\(view code\)](<./Bytes.hx#L838>)
+[\(view code\)](<./Bytes.hx#L840>)
 
 
 ## function \_makeASCIISet
@@ -554,7 +554,7 @@ function _makeASCIISet(_chars:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L858>)
+[\(view code\)](<./Bytes.hx#L861>)
 
 
 ## function \_trimLeftASCII
@@ -565,7 +565,7 @@ function _trimLeftASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo._inter
 ```
 
 
-[\(view code\)](<./Bytes.hx#L925>)
+[\(view code\)](<./Bytes.hx#L928>)
 
 
 ## function \_trimLeftByte
@@ -576,7 +576,7 @@ function _trimLeftByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Slic
 ```
 
 
-[\(view code\)](<./Bytes.hx#L916>)
+[\(view code\)](<./Bytes.hx#L919>)
 
 
 ## function \_trimLeftUnicode
@@ -587,7 +587,7 @@ function _trimLeftUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):
 ```
 
 
-[\(view code\)](<./Bytes.hx#L937>)
+[\(view code\)](<./Bytes.hx#L940>)
 
 
 ## function \_trimRightASCII
@@ -598,7 +598,7 @@ function _trimRightASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<stdgo._inte
 ```
 
 
-[\(view code\)](<./Bytes.hx#L978>)
+[\(view code\)](<./Bytes.hx#L982>)
 
 
 ## function \_trimRightByte
@@ -609,7 +609,7 @@ function _trimRightByte(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.Sli
 ```
 
 
-[\(view code\)](<./Bytes.hx#L972>)
+[\(view code\)](<./Bytes.hx#L976>)
 
 
 ## function \_trimRightUnicode
@@ -620,7 +620,7 @@ function _trimRightUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString)
 ```
 
 
-[\(view code\)](<./Bytes.hx#L987>)
+[\(view code\)](<./Bytes.hx#L991>)
 
 
 ## function clone
@@ -654,7 +654,7 @@ function exampleClone():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1253>)
+[\(view code\)](<./Bytes.hx#L1259>)
 
 
 ## function compare
@@ -674,7 +674,8 @@ function compare(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):std
 
 ```haxe
 function exampleCompare():Void {
-        var __0:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), __1:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), _b:stdgo.Slice<stdgo.GoByte> = __1, _a:stdgo.Slice<stdgo.GoByte> = __0;
+        var __0:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>), __1:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
+var _b = __1, _a = __0;
         if ((stdgo._internal.bytes.Bytes.compare(_a, _b) < (0 : stdgo.GoInt) : Bool)) {};
         if ((stdgo._internal.bytes.Bytes.compare(_a, _b) <= (0 : stdgo.GoInt) : Bool)) {};
         if ((stdgo._internal.bytes.Bytes.compare(_a, _b) > (0 : stdgo.GoInt) : Bool)) {};
@@ -700,7 +701,7 @@ function exampleCompare():Void {
 function exampleCompare_search():Void {
         var _needle:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _haystack:stdgo.Slice<stdgo.Slice<stdgo.GoByte>> = (null : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
-        var _i:stdgo.GoInt = stdgo._internal.sort.Sort.search((_haystack.length), function(_i:stdgo.GoInt):Bool {
+        var _i = stdgo._internal.sort.Sort.search((_haystack.length), function(_i:stdgo.GoInt):Bool {
             return (stdgo._internal.bytes.Bytes.compare(_haystack[(_i : stdgo.GoInt)], _needle) >= (0 : stdgo.GoInt) : Bool);
         });
         if (((_i < (_haystack.length) : Bool) && stdgo._internal.bytes.Bytes.equal(_haystack[(_i : stdgo.GoInt)], _needle) : Bool)) {};
@@ -874,7 +875,7 @@ function cut(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):{
 
 ```haxe
 function exampleCut():Void {
-        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+        var _show = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
             var __tmp__ = stdgo._internal.bytes.Bytes.cut((_s : stdgo.Slice<stdgo.GoByte>), (_sep : stdgo.Slice<stdgo.GoByte>)), _before:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _after:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _found:Bool = __tmp__._2;
             stdgo._internal.fmt.Fmt.printf(("Cut(%q, %q) = %q, %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
         };
@@ -890,7 +891,7 @@ function exampleCut():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1243>)
+[\(view code\)](<./Bytes.hx#L1249>)
 
 
 ## function cutPrefix
@@ -913,7 +914,7 @@ function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByt
 
 ```haxe
 function exampleCutPrefix():Void {
-        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+        var _show = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
             var __tmp__ = stdgo._internal.bytes.Bytes.cutPrefix((_s : stdgo.Slice<stdgo.GoByte>), (_sep : stdgo.Slice<stdgo.GoByte>)), _after:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _found:Bool = __tmp__._1;
             stdgo._internal.fmt.Fmt.printf(("CutPrefix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
         };
@@ -927,7 +928,7 @@ function exampleCutPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1259>)
+[\(view code\)](<./Bytes.hx#L1265>)
 
 
 ## function cutSuffix
@@ -950,7 +951,7 @@ function cutSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByt
 
 ```haxe
 function exampleCutSuffix():Void {
-        var _show:(stdgo.GoString, stdgo.GoString) -> Void = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+        var _show = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
             var __tmp__ = stdgo._internal.bytes.Bytes.cutSuffix((_s : stdgo.Slice<stdgo.GoByte>), (_sep : stdgo.Slice<stdgo.GoByte>)), _before:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _found:Bool = __tmp__._1;
             stdgo._internal.fmt.Fmt.printf(("CutSuffix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_found));
         };
@@ -964,7 +965,7 @@ function exampleCutSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1266>)
+[\(view code\)](<./Bytes.hx#L1272>)
 
 
 ## function equal
@@ -1023,7 +1024,7 @@ function exampleEqualFold():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1078>)
+[\(view code\)](<./Bytes.hx#L1083>)
 
 
 ## function fields
@@ -1072,7 +1073,7 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:()):stdgo.Slice<stdgo.Slice
 
 ```haxe
 function exampleFieldsFunc():Void {
-        var _f:stdgo.GoInt32 -> Bool = function(_c:stdgo.GoRune):Bool {
+        var _f = function(_c:stdgo.GoRune):Bool {
             return (!stdgo._internal.unicode.Unicode.isLetter(_c) && !stdgo._internal.unicode.Unicode.isNumber(_c) : Bool);
         };
         stdgo._internal.fmt.Fmt.printf(("Fields are: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.fieldsFunc((("  foo1;bar2,baz3..." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _f)));
@@ -1177,7 +1178,7 @@ function exampleIndex():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1170>)
+[\(view code\)](<./Bytes.hx#L1176>)
 
 
 ## function indexAny
@@ -1268,7 +1269,7 @@ function indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdg
 
 ```haxe
 function exampleIndexFunc():Void {
-        var _f:stdgo.GoInt32 -> Bool = function(_c:stdgo.GoRune):Bool {
+        var _f = function(_c:stdgo.GoRune):Bool {
             return stdgo._internal.unicode.Unicode.is_(stdgo._internal.unicode.Unicode.han, _c);
         };
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexFunc((("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _f)));
@@ -1281,7 +1282,7 @@ function exampleIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L813>)
+[\(view code\)](<./Bytes.hx#L815>)
 
 
 ## function indexRune
@@ -1465,7 +1466,7 @@ function exampleLastIndexFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L816>)
+[\(view code\)](<./Bytes.hx#L818>)
 
 
 ## function map\_
@@ -1509,7 +1510,7 @@ function newReader(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Ref<stdgo._internal.bytes
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1273>)
+[\(view code\)](<./Bytes.hx#L1279>)
 
 
 ## function repeat
@@ -1568,7 +1569,7 @@ function exampleReplace():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1041>)
+[\(view code\)](<./Bytes.hx#L1046>)
 
 
 ## function replaceAll
@@ -1597,7 +1598,7 @@ function exampleReplaceAll():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1075>)
+[\(view code\)](<./Bytes.hx#L1080>)
 
 
 ## function runes
@@ -1629,7 +1630,7 @@ function exampleRunes():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1030>)
+[\(view code\)](<./Bytes.hx#L1035>)
 
 
 ## function split
@@ -1779,7 +1780,7 @@ function exampleTitle():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L770>)
+[\(view code\)](<./Bytes.hx#L772>)
 
 
 ## function toLower
@@ -1808,7 +1809,7 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L679>)
+[\(view code\)](<./Bytes.hx#L680>)
 
 
 ## function toLowerSpecial
@@ -1840,7 +1841,7 @@ function exampleToLowerSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L717>)
+[\(view code\)](<./Bytes.hx#L719>)
 
 
 ## function toTitle
@@ -1870,7 +1871,7 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L711>)
+[\(view code\)](<./Bytes.hx#L713>)
 
 
 ## function toTitleSpecial
@@ -1902,7 +1903,7 @@ function exampleToTitleSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L720>)
+[\(view code\)](<./Bytes.hx#L722>)
 
 
 ## function toUpper
@@ -1963,7 +1964,7 @@ function exampleToUpperSpecial():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L714>)
+[\(view code\)](<./Bytes.hx#L716>)
 
 
 ## function toValidUTF8
@@ -1994,7 +1995,7 @@ function exampleToValidUTF8():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L723>)
+[\(view code\)](<./Bytes.hx#L725>)
 
 
 ## function trim
@@ -2023,7 +2024,7 @@ function exampleTrim():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L880>)
+[\(view code\)](<./Bytes.hx#L883>)
 
 
 ## function trimFunc
@@ -2055,7 +2056,7 @@ function exampleTrimFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L798>)
+[\(view code\)](<./Bytes.hx#L800>)
 
 
 ## function trimLeft
@@ -2084,7 +2085,7 @@ function exampleTrimLeft():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L898>)
+[\(view code\)](<./Bytes.hx#L901>)
 
 
 ## function trimLeftFunc
@@ -2115,7 +2116,7 @@ function exampleTrimLeftFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L781>)
+[\(view code\)](<./Bytes.hx#L783>)
 
 
 ## function trimPrefix
@@ -2147,7 +2148,7 @@ function exampleTrimPrefix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L801>)
+[\(view code\)](<./Bytes.hx#L803>)
 
 
 ## function trimRight
@@ -2176,7 +2177,7 @@ function exampleTrimRight():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L957>)
+[\(view code\)](<./Bytes.hx#L961>)
 
 
 ## function trimRightFunc
@@ -2207,7 +2208,7 @@ function exampleTrimRightFunc():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L788>)
+[\(view code\)](<./Bytes.hx#L790>)
 
 
 ## function trimSpace
@@ -2236,7 +2237,7 @@ function exampleTrimSpace():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L1004>)
+[\(view code\)](<./Bytes.hx#L1009>)
 
 
 ## function trimSuffix
@@ -2269,7 +2270,7 @@ function exampleTrimSuffix():Void {
 </details>
 
 
-[\(view code\)](<./Bytes.hx#L807>)
+[\(view code\)](<./Bytes.hx#L809>)
 
 
 # Classes
@@ -2317,7 +2318,7 @@ function _empty():Bool
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1641>)
+[\(view code\)](<./Bytes.hx#L1647>)
 
 
 ### Buffer function \_grow
@@ -2328,7 +2329,7 @@ function _grow( _n:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1565>)
+[\(view code\)](<./Bytes.hx#L1571>)
 
 
 ### Buffer function \_readSlice
@@ -2342,7 +2343,7 @@ function _readSlice( _delim:stdgo.GoByte):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1348>)
+[\(view code\)](<./Bytes.hx#L1354>)
 
 
 ### Buffer function \_tryGrowByReslice
@@ -2356,7 +2357,7 @@ function _tryGrowByReslice( _n:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1594>)
+[\(view code\)](<./Bytes.hx#L1600>)
 
 
 ### Buffer function available
@@ -2367,7 +2368,7 @@ function available():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1626>)
+[\(view code\)](<./Bytes.hx#L1632>)
 
 
 ### Buffer function availableBuffer
@@ -2378,7 +2379,7 @@ function availableBuffer():stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1654>)
+[\(view code\)](<./Bytes.hx#L1660>)
 
 
 ### Buffer function bytes
@@ -2389,7 +2390,7 @@ function bytes():stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1659>)
+[\(view code\)](<./Bytes.hx#L1665>)
 
 
 ### Buffer function cap
@@ -2400,7 +2401,7 @@ function cap():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1631>)
+[\(view code\)](<./Bytes.hx#L1637>)
 
 
 ### Buffer function grow
@@ -2411,7 +2412,7 @@ function grow( _n:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1556>)
+[\(view code\)](<./Bytes.hx#L1562>)
 
 
 ### Buffer function len
@@ -2422,7 +2423,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1636>)
+[\(view code\)](<./Bytes.hx#L1642>)
 
 
 ### Buffer function next
@@ -2433,7 +2434,7 @@ function next( _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1426>)
+[\(view code\)](<./Bytes.hx#L1432>)
 
 
 ### Buffer function read
@@ -2447,7 +2448,7 @@ function read( _p:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1441>)
+[\(view code\)](<./Bytes.hx#L1447>)
 
 
 ### Buffer function readByte
@@ -2461,7 +2462,7 @@ function readByte():{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1414>)
+[\(view code\)](<./Bytes.hx#L1420>)
 
 
 ### Buffer function readBytes
@@ -2475,7 +2476,7 @@ function readBytes( _delim:stdgo.GoByte):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1363>)
+[\(view code\)](<./Bytes.hx#L1369>)
 
 
 ### Buffer function readFrom
@@ -2489,7 +2490,7 @@ function readFrom( _r:stdgo._internal.io.Reader):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1512>)
+[\(view code\)](<./Bytes.hx#L1518>)
 
 
 ### Buffer function readRune
@@ -2504,7 +2505,7 @@ function readRune():{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1395>)
+[\(view code\)](<./Bytes.hx#L1401>)
 
 
 ### Buffer function readString
@@ -2518,7 +2519,7 @@ function readString( _delim:stdgo.GoByte):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1341>)
+[\(view code\)](<./Bytes.hx#L1347>)
 
 
 ### Buffer function reset
@@ -2529,7 +2530,7 @@ function reset():Void
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1606>)
+[\(view code\)](<./Bytes.hx#L1612>)
 
 
 ### Buffer function string
@@ -2540,7 +2541,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1646>)
+[\(view code\)](<./Bytes.hx#L1652>)
 
 
 ### Buffer function truncate
@@ -2551,7 +2552,7 @@ function truncate( _n:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1613>)
+[\(view code\)](<./Bytes.hx#L1619>)
 
 
 ### Buffer function unreadByte
@@ -2562,7 +2563,7 @@ function unreadByte():stdgo.Error
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1371>)
+[\(view code\)](<./Bytes.hx#L1377>)
 
 
 ### Buffer function unreadRune
@@ -2573,7 +2574,7 @@ function unreadRune():stdgo.Error
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1383>)
+[\(view code\)](<./Bytes.hx#L1389>)
 
 
 ### Buffer function write
@@ -2587,7 +2588,7 @@ function write( _p:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1545>)
+[\(view code\)](<./Bytes.hx#L1551>)
 
 
 ### Buffer function writeByte
@@ -2598,7 +2599,7 @@ function writeByte( _c:stdgo.GoByte):stdgo.Error
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1476>)
+[\(view code\)](<./Bytes.hx#L1482>)
 
 
 ### Buffer function writeRune
@@ -2612,7 +2613,7 @@ function writeRune( _r:stdgo.GoRune):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1460>)
+[\(view code\)](<./Bytes.hx#L1466>)
 
 
 ### Buffer function writeString
@@ -2626,7 +2627,7 @@ function writeString( _s:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1534>)
+[\(view code\)](<./Bytes.hx#L1540>)
 
 
 ### Buffer function writeTo
@@ -2640,7 +2641,7 @@ function writeTo( _w:stdgo._internal.io.Writer):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1487>)
+[\(view code\)](<./Bytes.hx#L1493>)
 
 
 ## class Reader
@@ -2680,7 +2681,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1841>)
+[\(view code\)](<./Bytes.hx#L1847>)
 
 
 ### Reader function read
@@ -2694,7 +2695,7 @@ function read( _b:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1824>)
+[\(view code\)](<./Bytes.hx#L1830>)
 
 
 ### Reader function readAt
@@ -2708,7 +2709,7 @@ function readAt( _b:stdgo.Slice<stdgo.GoByte>, _off:stdgo.GoInt64):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1808>)
+[\(view code\)](<./Bytes.hx#L1814>)
 
 
 ### Reader function readByte
@@ -2722,7 +2723,7 @@ function readByte():{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1797>)
+[\(view code\)](<./Bytes.hx#L1803>)
 
 
 ### Reader function readRune
@@ -2737,7 +2738,7 @@ function readRune():{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1763>)
+[\(view code\)](<./Bytes.hx#L1769>)
 
 
 ### Reader function reset
@@ -2748,7 +2749,7 @@ function reset( _b:stdgo.Slice<stdgo.GoByte>):Void
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1697>)
+[\(view code\)](<./Bytes.hx#L1703>)
 
 
 ### Reader function seek
@@ -2762,7 +2763,7 @@ function seek( _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1727>)
+[\(view code\)](<./Bytes.hx#L1733>)
 
 
 ### Reader function size
@@ -2773,7 +2774,7 @@ function size():stdgo.GoInt64
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1836>)
+[\(view code\)](<./Bytes.hx#L1842>)
 
 
 ### Reader function unreadByte
@@ -2784,7 +2785,7 @@ function unreadByte():stdgo.Error
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1787>)
+[\(view code\)](<./Bytes.hx#L1793>)
 
 
 ### Reader function unreadRune
@@ -2795,7 +2796,7 @@ function unreadRune():stdgo.Error
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1750>)
+[\(view code\)](<./Bytes.hx#L1756>)
 
 
 ### Reader function writeTo
@@ -2809,7 +2810,7 @@ function writeTo( _w:stdgo._internal.io.Writer):{
 ```
 
 
-[\(view code\)](<./Bytes.hx#L1707>)
+[\(view code\)](<./Bytes.hx#L1713>)
 
 
 ## class T\_fieldsFunc\_\_\_localname\_\_\_span\_11914

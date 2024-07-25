@@ -2768,7 +2768,7 @@ function _is16(_ranges:stdgo.Slice<stdgo._internal.unicode.Range16>, _r:stdgo.Go
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6601>)
+[\(view code\)](<./Unicode.hx#L6591>)
 
 
 ## function \_is32
@@ -2779,7 +2779,7 @@ function _is32(_ranges:stdgo.Slice<stdgo._internal.unicode.Range32>, _r:stdgo.Go
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6630>)
+[\(view code\)](<./Unicode.hx#L6620>)
 
 
 ## function \_isExcludingLatin
@@ -2790,7 +2790,7 @@ function _isExcludingLatin(_rangeTab:stdgo.Ref<stdgo._internal.unicode.RangeTabl
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6670>)
+[\(view code\)](<./Unicode.hx#L6660>)
 
 
 ## function \_to
@@ -2804,7 +2804,7 @@ function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice<stdgo._
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6702>)
+[\(view code\)](<./Unicode.hx#L6692>)
 
 
 ## function in\_
@@ -2815,7 +2815,7 @@ function in_(_r:stdgo.GoRune, _ranges:haxe.Rest<stdgo.Ref<stdgo._internal.unicod
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6547>)
+[\(view code\)](<./Unicode.hx#L6537>)
 
 
 ## function isControl
@@ -2826,7 +2826,7 @@ function isControl(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6556>)
+[\(view code\)](<./Unicode.hx#L6546>)
 
 
 ## function isDigit
@@ -2856,7 +2856,7 @@ function exampleIsDigit():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6521>)
+[\(view code\)](<./Unicode.hx#L6511>)
 
 
 ## function isGraphic
@@ -2867,7 +2867,7 @@ function isGraphic(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6527>)
+[\(view code\)](<./Unicode.hx#L6517>)
 
 
 ## function isLetter
@@ -2897,7 +2897,7 @@ function exampleIsLetter():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6562>)
+[\(view code\)](<./Unicode.hx#L6552>)
 
 
 ## function isLower
@@ -2927,7 +2927,7 @@ function exampleIsLower():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6690>)
+[\(view code\)](<./Unicode.hx#L6680>)
 
 
 ## function isMark
@@ -2938,7 +2938,7 @@ function isMark(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6568>)
+[\(view code\)](<./Unicode.hx#L6558>)
 
 
 ## function isNumber
@@ -2968,7 +2968,7 @@ function exampleIsNumber():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6571>)
+[\(view code\)](<./Unicode.hx#L6561>)
 
 
 ## function isOneOf
@@ -2979,7 +2979,7 @@ function isOneOf(_ranges:stdgo.Slice<stdgo.Ref<stdgo._internal.unicode.RangeTabl
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6539>)
+[\(view code\)](<./Unicode.hx#L6529>)
 
 
 ## function isPrint
@@ -2990,7 +2990,7 @@ function isPrint(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6533>)
+[\(view code\)](<./Unicode.hx#L6523>)
 
 
 ## function isPunct
@@ -3001,7 +3001,7 @@ function isPunct(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6577>)
+[\(view code\)](<./Unicode.hx#L6567>)
 
 
 ## function isSpace
@@ -3033,7 +3033,7 @@ function exampleIsSpace():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6583>)
+[\(view code\)](<./Unicode.hx#L6573>)
 
 
 ## function isSymbol
@@ -3044,7 +3044,7 @@ function isSymbol(_r:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6595>)
+[\(view code\)](<./Unicode.hx#L6585>)
 
 
 ## function isTitle
@@ -3074,7 +3074,7 @@ function exampleIsTitle():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6696>)
+[\(view code\)](<./Unicode.hx#L6686>)
 
 
 ## function isUpper
@@ -3104,7 +3104,7 @@ function exampleIsUpper():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6684>)
+[\(view code\)](<./Unicode.hx#L6674>)
 
 
 ## function is\_
@@ -3115,7 +3115,7 @@ function is_(_rangeTab:stdgo.Ref<stdgo._internal.unicode.RangeTable>, _r:stdgo.G
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6659>)
+[\(view code\)](<./Unicode.hx#L6649>)
 
 
 ## function simpleFold
@@ -3149,7 +3149,7 @@ function exampleSimpleFold():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6761>)
+[\(view code\)](<./Unicode.hx#L6751>)
 
 
 ## function to
@@ -3185,7 +3185,7 @@ function exampleTo():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6727>)
+[\(view code\)](<./Unicode.hx#L6717>)
 
 
 ## function toLower
@@ -3215,7 +3215,7 @@ function exampleToLower():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6743>)
+[\(view code\)](<./Unicode.hx#L6733>)
 
 
 ## function toTitle
@@ -3245,7 +3245,7 @@ function exampleToTitle():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6752>)
+[\(view code\)](<./Unicode.hx#L6742>)
 
 
 ## function toUpper
@@ -3275,7 +3275,7 @@ function exampleToUpper():Void {
 </details>
 
 
-[\(view code\)](<./Unicode.hx#L6734>)
+[\(view code\)](<./Unicode.hx#L6724>)
 
 
 # Classes
@@ -3312,7 +3312,7 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?delta:stdgo._internal.unic
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6497>)
+[\(view code\)](<./Unicode.hx#L6487>)
 
 
 ## class Range16
@@ -3341,7 +3341,7 @@ function new(?lo:stdgo.GoUInt16, ?hi:stdgo.GoUInt16, ?stride:stdgo.GoUInt16):Voi
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6469>)
+[\(view code\)](<./Unicode.hx#L6459>)
 
 
 ## class Range32
@@ -3370,7 +3370,7 @@ function new(?lo:stdgo.GoUInt32, ?hi:stdgo.GoUInt32, ?stride:stdgo.GoUInt32):Voi
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6483>)
+[\(view code\)](<./Unicode.hx#L6473>)
 
 
 ## class RangeTable
@@ -3399,7 +3399,7 @@ function new(?r16:stdgo.Slice<stdgo._internal.unicode.Range16>, ?r32:stdgo.Slice
 ```
 
 
-[\(view code\)](<./Unicode.hx#L6455>)
+[\(view code\)](<./Unicode.hx#L6445>)
 
 
 # Typedefs

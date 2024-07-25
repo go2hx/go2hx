@@ -314,7 +314,7 @@ function _checkNextPos(_t:stdgo.Ref<stdgo._internal.testing.T_>, _s:stdgo.Ref<st
 ```
 
 
-[\(view code\)](<./Scanner.hx#L719>)
+[\(view code\)](<./Scanner.hx#L717>)
 
 
 ## function \_checkPos
@@ -325,7 +325,7 @@ function _checkPos(_t:stdgo.Ref<stdgo._internal.testing.T_>, _got:stdgo._interna
 ```
 
 
-[\(view code\)](<./Scanner.hx#L714>)
+[\(view code\)](<./Scanner.hx#L712>)
 
 
 ## function \_checkScanPos
@@ -336,7 +336,7 @@ function _checkScanPos(_t:stdgo.Ref<stdgo._internal.testing.T_>, _s:stdgo.Ref<st
 ```
 
 
-[\(view code\)](<./Scanner.hx#L729>)
+[\(view code\)](<./Scanner.hx#L727>)
 
 
 ## function \_checkTok
@@ -347,7 +347,7 @@ function _checkTok(_t:stdgo.Ref<stdgo._internal.testing.T_>, _s:stdgo.Ref<stdgo.
 ```
 
 
-[\(view code\)](<./Scanner.hx#L434>)
+[\(view code\)](<./Scanner.hx#L432>)
 
 
 ## function \_checkTokErr
@@ -358,7 +358,7 @@ function _checkTokErr(_t:stdgo.Ref<stdgo._internal.testing.T_>, _s:stdgo.Ref<std
 ```
 
 
-[\(view code\)](<./Scanner.hx#L451>)
+[\(view code\)](<./Scanner.hx#L449>)
 
 
 ## function \_countNewlines
@@ -369,7 +369,7 @@ function _countNewlines(_s:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Scanner.hx#L458>)
+[\(view code\)](<./Scanner.hx#L456>)
 
 
 ## function \_digitVal
@@ -380,7 +380,7 @@ function _digitVal(_ch:stdgo.GoRune):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Scanner.hx#L399>)
+[\(view code\)](<./Scanner.hx#L397>)
 
 
 ## function \_extractInts
@@ -391,7 +391,7 @@ function _extractInts(_t:stdgo.GoString, _mode:stdgo.GoUInt):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1000>)
+[\(view code\)](<./Scanner.hx#L998>)
 
 
 ## function \_invalidSep
@@ -402,7 +402,7 @@ function _invalidSep(_x:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Scanner.hx#L367>)
+[\(view code\)](<./Scanner.hx#L365>)
 
 
 ## function \_isDecimal
@@ -413,7 +413,7 @@ function _isDecimal(_ch:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Scanner.hx#L347>)
+[\(view code\)](<./Scanner.hx#L345>)
 
 
 ## function \_isHex
@@ -424,7 +424,7 @@ function _isHex(_ch:stdgo.GoRune):Bool
 ```
 
 
-[\(view code\)](<./Scanner.hx#L350>)
+[\(view code\)](<./Scanner.hx#L348>)
 
 
 ## function \_litname
@@ -435,7 +435,7 @@ function _litname(_prefix:stdgo.GoRune):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Scanner.hx#L353>)
+[\(view code\)](<./Scanner.hx#L351>)
 
 
 ## function \_lower
@@ -446,7 +446,7 @@ function _lower(_ch:stdgo.GoRune):stdgo.GoRune
 ```
 
 
-[\(view code\)](<./Scanner.hx#L344>)
+[\(view code\)](<./Scanner.hx#L342>)
 
 
 ## function \_makeSource
@@ -457,7 +457,7 @@ function _makeSource(_pattern:stdgo.GoString):stdgo.Ref<stdgo._internal.bytes.Bu
 ```
 
 
-[\(view code\)](<./Scanner.hx#L427>)
+[\(view code\)](<./Scanner.hx#L425>)
 
 
 ## function \_readRuneSegments
@@ -468,7 +468,7 @@ function _readRuneSegments(_t:stdgo.Ref<stdgo._internal.testing.T_>, _segments:s
 ```
 
 
-[\(view code\)](<./Scanner.hx#L407>)
+[\(view code\)](<./Scanner.hx#L405>)
 
 
 ## function \_testError
@@ -479,7 +479,7 @@ function _testError(_t:stdgo.Ref<stdgo._internal.testing.T_>, _src:stdgo.GoStrin
 ```
 
 
-[\(view code\)](<./Scanner.hx#L633>)
+[\(view code\)](<./Scanner.hx#L631>)
 
 
 ## function \_testScan
@@ -490,7 +490,7 @@ function _testScan(_t:stdgo.Ref<stdgo._internal.testing.T_>, _mode:stdgo.GoUInt)
 ```
 
 
-[\(view code\)](<./Scanner.hx#L467>)
+[\(view code\)](<./Scanner.hx#L465>)
 
 
 ## function \_testScanSelectedMode
@@ -501,7 +501,7 @@ function _testScanSelectedMode(_t:stdgo.Ref<stdgo._internal.testing.T_>, _mode:s
 ```
 
 
-[\(view code\)](<./Scanner.hx#L549>)
+[\(view code\)](<./Scanner.hx#L547>)
 
 
 ## function testError
@@ -512,7 +512,7 @@ function testError(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L661>)
+[\(view code\)](<./Scanner.hx#L659>)
 
 
 ## function testIOError
@@ -523,7 +523,7 @@ function testIOError(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L692>)
+[\(view code\)](<./Scanner.hx#L690>)
 
 
 ## function testInvalidExponent
@@ -534,7 +534,7 @@ function testInvalidExponent(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L485>)
+[\(view code\)](<./Scanner.hx#L483>)
 
 
 ## function testIssue29723
@@ -545,7 +545,7 @@ function testIssue29723(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L850>)
+[\(view code\)](<./Scanner.hx#L848>)
 
 
 ## function testIssue30320
@@ -556,7 +556,7 @@ function testIssue30320(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L992>)
+[\(view code\)](<./Scanner.hx#L990>)
 
 
 ## function testIssue50909
@@ -567,7 +567,7 @@ function testIssue50909(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1022>)
+[\(view code\)](<./Scanner.hx#L1020>)
 
 
 ## function testNext
@@ -578,7 +578,7 @@ function testNext(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L422>)
+[\(view code\)](<./Scanner.hx#L420>)
 
 
 ## function testNextEOFHandling
@@ -589,7 +589,7 @@ function testNextEOFHandling(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L820>)
+[\(view code\)](<./Scanner.hx#L818>)
 
 
 ## function testNumbers
@@ -600,7 +600,7 @@ function testNumbers(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L864>)
+[\(view code\)](<./Scanner.hx#L862>)
 
 
 ## function testPos
@@ -611,7 +611,7 @@ function testPos(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L743>)
+[\(view code\)](<./Scanner.hx#L741>)
 
 
 ## function testPosition
@@ -622,7 +622,7 @@ function testPosition(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L505>)
+[\(view code\)](<./Scanner.hx#L503>)
 
 
 ## function testScan
@@ -633,7 +633,7 @@ function testScan(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L481>)
+[\(view code\)](<./Scanner.hx#L479>)
 
 
 ## function testScanCustomIdent
@@ -644,7 +644,7 @@ function testScanCustomIdent(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L572>)
+[\(view code\)](<./Scanner.hx#L570>)
 
 
 ## function testScanEOFHandling
@@ -655,7 +655,7 @@ function testScanEOFHandling(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L835>)
+[\(view code\)](<./Scanner.hx#L833>)
 
 
 ## function testScanNext
@@ -666,7 +666,7 @@ function testScanNext(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L590>)
+[\(view code\)](<./Scanner.hx#L588>)
 
 
 ## function testScanSelectedMask
@@ -677,7 +677,7 @@ function testScanSelectedMask(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L564>)
+[\(view code\)](<./Scanner.hx#L562>)
 
 
 ## function testScanWhitespace
@@ -688,7 +688,7 @@ function testScanWhitespace(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L613>)
+[\(view code\)](<./Scanner.hx#L611>)
 
 
 ## function testScanZeroMode
@@ -699,7 +699,7 @@ function testScanZeroMode(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L529>)
+[\(view code\)](<./Scanner.hx#L527>)
 
 
 ## function tokenString
@@ -710,7 +710,7 @@ function tokenString(_tok:stdgo.GoRune):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Scanner.hx#L335>)
+[\(view code\)](<./Scanner.hx#L333>)
 
 
 # Classes
@@ -752,7 +752,7 @@ function new(?filename:stdgo.GoString, ?offset:stdgo.GoInt, ?line:stdgo.GoInt, ?
 ```
 
 
-[\(view code\)](<./Scanner.hx#L187>)
+[\(view code\)](<./Scanner.hx#L185>)
 
 
 ### Position function isValid
@@ -763,7 +763,7 @@ function isValid():Bool
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1067>)
+[\(view code\)](<./Scanner.hx#L1065>)
 
 
 ### Position function string
@@ -774,7 +774,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1055>)
+[\(view code\)](<./Scanner.hx#L1053>)
 
 
 ## class Scanner
@@ -889,7 +889,7 @@ function isValid():Bool
 ```
 
 
-[\(view code\)](<./Scanner.hx#L242>)
+[\(view code\)](<./Scanner.hx#L240>)
 
 
 ### Scanner function new
@@ -900,7 +900,7 @@ function new(?_src:stdgo._internal.io.Reader, ?_srcBuf:stdgo.GoArray<stdgo.GoUIn
 ```
 
 
-[\(view code\)](<./Scanner.hx#L219>)
+[\(view code\)](<./Scanner.hx#L217>)
 
 
 ### Scanner function string
@@ -911,7 +911,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Scanner.hx#L244>)
+[\(view code\)](<./Scanner.hx#L242>)
 
 
 ### Scanner function \_digits
@@ -925,7 +925,7 @@ function _digits( _ch0:stdgo.GoRune, _base:stdgo.GoInt, _invalid:stdgo.Pointer<s
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1488>)
+[\(view code\)](<./Scanner.hx#L1486>)
 
 
 ### Scanner function \_error
@@ -936,7 +936,7 @@ function _error( _msg:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1543>)
+[\(view code\)](<./Scanner.hx#L1541>)
 
 
 ### Scanner function \_errorf
@@ -947,7 +947,7 @@ function _errorf( _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):V
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1537>)
+[\(view code\)](<./Scanner.hx#L1535>)
 
 
 ### Scanner function \_isIdentRune
@@ -958,7 +958,7 @@ function _isIdentRune( _ch:stdgo.GoRune, _i:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1529>)
+[\(view code\)](<./Scanner.hx#L1527>)
 
 
 ### Scanner function \_next
@@ -969,7 +969,7 @@ function _next():stdgo.GoRune
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1580>)
+[\(view code\)](<./Scanner.hx#L1578>)
 
 
 ### Scanner function \_scanChar
@@ -980,7 +980,7 @@ function _scanChar():Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1300>)
+[\(view code\)](<./Scanner.hx#L1298>)
 
 
 ### Scanner function \_scanComment
@@ -991,7 +991,7 @@ function _scanComment( _ch:stdgo.GoRune):stdgo.GoRune
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1275>)
+[\(view code\)](<./Scanner.hx#L1273>)
 
 
 ### Scanner function \_scanDigits
@@ -1002,7 +1002,7 @@ function _scanDigits( _ch:stdgo.GoRune, _base:stdgo.GoInt, _n:stdgo.GoInt):stdgo
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1360>)
+[\(view code\)](<./Scanner.hx#L1358>)
 
 
 ### Scanner function \_scanEscape
@@ -1013,7 +1013,7 @@ function _scanEscape( _quote:stdgo.GoRune):stdgo.GoRune
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1338>)
+[\(view code\)](<./Scanner.hx#L1336>)
 
 
 ### Scanner function \_scanIdentifier
@@ -1024,7 +1024,7 @@ function _scanIdentifier():stdgo.GoRune
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1517>)
+[\(view code\)](<./Scanner.hx#L1515>)
 
 
 ### Scanner function \_scanNumber
@@ -1038,7 +1038,7 @@ function _scanNumber( _ch:stdgo.GoRune, _seenDot:Bool):{
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1372>)
+[\(view code\)](<./Scanner.hx#L1370>)
 
 
 ### Scanner function \_scanRawString
@@ -1049,7 +1049,7 @@ function _scanRawString():Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1307>)
+[\(view code\)](<./Scanner.hx#L1305>)
 
 
 ### Scanner function \_scanString
@@ -1060,7 +1060,7 @@ function _scanString( _quote:stdgo.GoRune):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1319>)
+[\(view code\)](<./Scanner.hx#L1317>)
 
 
 ### Scanner function init
@@ -1071,7 +1071,7 @@ function init( _src:stdgo._internal.io.Reader):stdgo.Ref<stdgo._internal.text.sc
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1642>)
+[\(view code\)](<./Scanner.hx#L1641>)
 
 
 ### Scanner function isValid
@@ -1082,7 +1082,7 @@ function isValid():Bool
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1665>)
+[\(view code\)](<./Scanner.hx#L1664>)
 
 
 ### Scanner function next
@@ -1093,7 +1093,7 @@ function next():stdgo.GoRune
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1569>)
+[\(view code\)](<./Scanner.hx#L1567>)
 
 
 ### Scanner function peek
@@ -1104,7 +1104,7 @@ function peek():stdgo.GoRune
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1558>)
+[\(view code\)](<./Scanner.hx#L1556>)
 
 
 ### Scanner function pos
@@ -1115,7 +1115,7 @@ function pos():stdgo._internal.text.scanner.Position
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1141>)
+[\(view code\)](<./Scanner.hx#L1139>)
 
 
 ### Scanner function scan
@@ -1126,7 +1126,7 @@ function scan():stdgo.GoRune
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1159>)
+[\(view code\)](<./Scanner.hx#L1157>)
 
 
 ### Scanner function string
@@ -1137,7 +1137,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1663>)
+[\(view code\)](<./Scanner.hx#L1662>)
 
 
 ### Scanner function tokenText
@@ -1148,7 +1148,7 @@ function tokenText():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1125>)
+[\(view code\)](<./Scanner.hx#L1123>)
 
 
 ## class StringReader
@@ -1172,7 +1172,7 @@ function new(?_data:stdgo.Slice<stdgo.GoString>, ?_step:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L271>)
+[\(view code\)](<./Scanner.hx#L269>)
 
 
 ### StringReader function read
@@ -1186,7 +1186,7 @@ function read( _p:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Scanner.hx#L1680>)
+[\(view code\)](<./Scanner.hx#L1679>)
 
 
 # Typedefs

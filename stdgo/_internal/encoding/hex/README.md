@@ -167,7 +167,7 @@ function _toChar(_b:stdgo.GoByte):stdgo.GoByte
 ```
 
 
-[\(view code\)](<./Hex.hx#L1186>)
+[\(view code\)](<./Hex.hx#L1187>)
 
 
 ## function benchmarkDecode
@@ -178,7 +178,7 @@ function benchmarkDecode(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1378>)
+[\(view code\)](<./Hex.hx#L1379>)
 
 
 ## function benchmarkDump
@@ -189,7 +189,7 @@ function benchmarkDump(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1393>)
+[\(view code\)](<./Hex.hx#L1394>)
 
 
 ## function benchmarkEncode
@@ -200,7 +200,7 @@ function benchmarkEncode(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1363>)
+[\(view code\)](<./Hex.hx#L1364>)
 
 
 ## function decode
@@ -275,7 +275,7 @@ function exampleDecodeString():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L1161>)
+[\(view code\)](<./Hex.hx#L1162>)
 
 
 ## function decodedLen
@@ -316,7 +316,7 @@ function exampleDump():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L1166>)
+[\(view code\)](<./Hex.hx#L1167>)
 
 
 ## function dumper
@@ -339,7 +339,7 @@ function exampleDumper():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Go is an open source programming language." : stdgo.GoString), ("\n" : stdgo.GoString), ("We encourage all Go users to subscribe to golang-announce." : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
-            var _stdoutDumper:stdgo._internal.io.Io.WriteCloser = stdgo._internal.encoding.hex.Hex.dumper(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
+            var _stdoutDumper = stdgo._internal.encoding.hex.Hex.dumper(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
             __deferstack__.unshift(() -> _stdoutDumper.close());
             for (__0 => _line in _lines) {
                 _stdoutDumper.write((_line : stdgo.Slice<stdgo.GoByte>));
@@ -372,7 +372,7 @@ function exampleDumper():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L1183>)
+[\(view code\)](<./Hex.hx#L1184>)
 
 
 ## function encode
@@ -425,7 +425,7 @@ function encodeToString(_src:stdgo.Slice<stdgo.GoByte>):stdgo.GoString
 ```haxe
 function exampleEncodeToString():Void {
         var _src = (("Hello" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-        var _encodedStr:stdgo.GoString = stdgo._internal.encoding.hex.Hex.encodeToString(_src)?.__copy__();
+        var _encodedStr = stdgo._internal.encoding.hex.Hex.encodeToString(_src)?.__copy__();
         stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_encodedStr));
     }
 ```
@@ -435,7 +435,7 @@ function exampleEncodeToString():Void {
 </details>
 
 
-[\(view code\)](<./Hex.hx#L1156>)
+[\(view code\)](<./Hex.hx#L1157>)
 
 
 ## function encodedLen
@@ -457,7 +457,7 @@ function newDecoder(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
 ```
 
 
-[\(view code\)](<./Hex.hx#L1180>)
+[\(view code\)](<./Hex.hx#L1181>)
 
 
 ## function newEncoder
@@ -468,7 +468,7 @@ function newEncoder(_w:stdgo._internal.io.Writer):stdgo._internal.io.Writer
 ```
 
 
-[\(view code\)](<./Hex.hx#L1177>)
+[\(view code\)](<./Hex.hx#L1178>)
 
 
 ## function testDecode
@@ -479,7 +479,7 @@ function testDecode(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1204>)
+[\(view code\)](<./Hex.hx#L1205>)
 
 
 ## function testDecodeErr
@@ -490,7 +490,7 @@ function testDecodeErr(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1236>)
+[\(view code\)](<./Hex.hx#L1237>)
 
 
 ## function testDecodeString
@@ -501,7 +501,7 @@ function testDecodeString(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1224>)
+[\(view code\)](<./Hex.hx#L1225>)
 
 
 ## function testDecodeStringErr
@@ -512,7 +512,7 @@ function testDecodeStringErr(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1245>)
+[\(view code\)](<./Hex.hx#L1246>)
 
 
 ## function testDecoderErr
@@ -523,7 +523,7 @@ function testDecoderErr(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1291>)
+[\(view code\)](<./Hex.hx#L1292>)
 
 
 ## function testDump
@@ -534,7 +534,7 @@ function testDump(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1353>)
+[\(view code\)](<./Hex.hx#L1354>)
 
 
 ## function testDumper
@@ -545,7 +545,7 @@ function testDumper(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1304>)
+[\(view code\)](<./Hex.hx#L1305>)
 
 
 ## function testDumper\_doubleclose
@@ -556,7 +556,7 @@ function testDumper_doubleclose(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1330>)
+[\(view code\)](<./Hex.hx#L1331>)
 
 
 ## function testDumper\_earlyclose
@@ -567,7 +567,7 @@ function testDumper_earlyclose(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1343>)
+[\(view code\)](<./Hex.hx#L1344>)
 
 
 ## function testEncode
@@ -578,7 +578,7 @@ function testEncode(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1192>)
+[\(view code\)](<./Hex.hx#L1193>)
 
 
 ## function testEncodeToString
@@ -589,7 +589,7 @@ function testEncodeToString(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1216>)
+[\(view code\)](<./Hex.hx#L1217>)
 
 
 ## function testEncoderDecoder
@@ -600,7 +600,7 @@ function testEncoderDecoder(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Hex.hx#L1253>)
+[\(view code\)](<./Hex.hx#L1254>)
 
 
 # Typedefs

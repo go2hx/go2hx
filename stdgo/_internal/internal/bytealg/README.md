@@ -135,7 +135,7 @@ function _abigen_runtime_cmpstring(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.G
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L166>)
+[\(view code\)](<./Bytealg.hx#L170>)
 
 
 ## function \_abigen\_runtime\_memequal
@@ -146,7 +146,7 @@ function _abigen_runtime_memequal(_a:stdgo._internal.unsafe.UnsafePointer, _b:st
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L187>)
+[\(view code\)](<./Bytealg.hx#L191>)
 
 
 ## function \_abigen\_runtime\_memequal\_varlen
@@ -157,7 +157,7 @@ function _abigen_runtime_memequal_varlen(_a:stdgo._internal.unsafe.UnsafePointer
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L191>)
+[\(view code\)](<./Bytealg.hx#L195>)
 
 
 ## function compare
@@ -168,7 +168,7 @@ function compare(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):std
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L149>)
+[\(view code\)](<./Bytealg.hx#L153>)
 
 
 ## function count
@@ -179,7 +179,7 @@ function count(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L170>)
+[\(view code\)](<./Bytealg.hx#L174>)
 
 
 ## function countString
@@ -190,7 +190,7 @@ function countString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L177>)
+[\(view code\)](<./Bytealg.hx#L181>)
 
 
 ## function cutover
@@ -201,7 +201,7 @@ function cutover(_n:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L234>)
+[\(view code\)](<./Bytealg.hx#L238>)
 
 
 ## function equal
@@ -212,7 +212,7 @@ function equal(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):Bool
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L184>)
+[\(view code\)](<./Bytealg.hx#L188>)
 
 
 ## function hashStr
@@ -226,7 +226,7 @@ function hashStr(_sep:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L31>)
+[\(view code\)](<./Bytealg.hx#L32>)
 
 
 ## function hashStrBytes
@@ -254,7 +254,7 @@ function hashStrRev(_sep:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L71>)
+[\(view code\)](<./Bytealg.hx#L74>)
 
 
 ## function hashStrRevBytes
@@ -268,7 +268,7 @@ function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L51>)
+[\(view code\)](<./Bytealg.hx#L53>)
 
 
 ## function index
@@ -279,7 +279,7 @@ function index(_a:stdgo.Slice<stdgo.GoByte>, _b:stdgo.Slice<stdgo.GoByte>):stdgo
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L195>)
+[\(view code\)](<./Bytealg.hx#L199>)
 
 
 ## function indexByte
@@ -290,7 +290,7 @@ function indexByte(_b:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L237>)
+[\(view code\)](<./Bytealg.hx#L241>)
 
 
 ## function indexByteString
@@ -301,7 +301,7 @@ function indexByteString(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L243>)
+[\(view code\)](<./Bytealg.hx#L247>)
 
 
 ## function indexRabinKarp
@@ -312,7 +312,7 @@ function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L118>)
+[\(view code\)](<./Bytealg.hx#L122>)
 
 
 ## function indexRabinKarpBytes
@@ -323,7 +323,7 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdg
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L91>)
+[\(view code\)](<./Bytealg.hx#L95>)
 
 
 ## function indexString
@@ -334,7 +334,7 @@ function indexString(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L211>)
+[\(view code\)](<./Bytealg.hx#L215>)
 
 
 ## function makeNoZero
@@ -345,6 +345,6 @@ function makeNoZero(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte>
 ```
 
 
-[\(view code\)](<./Bytealg.hx#L145>)
+[\(view code\)](<./Bytealg.hx#L149>)
 
 

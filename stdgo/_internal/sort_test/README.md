@@ -410,7 +410,7 @@ function _bench(_b:stdgo.Ref<stdgo._internal.testing.B>, _size:stdgo.GoInt, _alg
 ```
 
 
-[\(view code\)](<./Sort.hx#L1391>)
+[\(view code\)](<./Sort.hx#L1393>)
 
 
 ## function \_countOps
@@ -421,7 +421,7 @@ function _countOps(_t:stdgo.Ref<stdgo._internal.testing.T_>, _algo:(), _name:std
 ```
 
 
-[\(view code\)](<./Sort.hx#L1365>)
+[\(view code\)](<./Sort.hx#L1367>)
 
 
 ## function \_f
@@ -476,7 +476,7 @@ function _newAdversaryTestingData(_t:stdgo.Ref<stdgo._internal.testing.T_>, _siz
 ```
 
 
-[\(view code\)](<./Sort.hx#L1285>)
+[\(view code\)](<./Sort.hx#L1286>)
 
 
 ## function \_printOrgans
@@ -531,7 +531,7 @@ function benchmarkSort1e2(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1430>)
+[\(view code\)](<./Sort.hx#L1432>)
 
 
 ## function benchmarkSort1e4
@@ -542,7 +542,7 @@ function benchmarkSort1e4(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1436>)
+[\(view code\)](<./Sort.hx#L1438>)
 
 
 ## function benchmarkSort1e6
@@ -553,7 +553,7 @@ function benchmarkSort1e6(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1442>)
+[\(view code\)](<./Sort.hx#L1444>)
 
 
 ## function benchmarkSortInt1K
@@ -652,7 +652,7 @@ function benchmarkStable1e2(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1433>)
+[\(view code\)](<./Sort.hx#L1435>)
 
 
 ## function benchmarkStable1e4
@@ -663,7 +663,7 @@ function benchmarkStable1e4(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1439>)
+[\(view code\)](<./Sort.hx#L1441>)
 
 
 ## function benchmarkStable1e6
@@ -674,7 +674,7 @@ function benchmarkStable1e6(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1445>)
+[\(view code\)](<./Sort.hx#L1447>)
 
 
 ## function benchmarkStableInt1K
@@ -916,7 +916,7 @@ function testAdversary(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1296>)
+[\(view code\)](<./Sort.hx#L1297>)
 
 
 ## function testBreakPatterns
@@ -938,7 +938,7 @@ function testCountSortOps(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1388>)
+[\(view code\)](<./Sort.hx#L1390>)
 
 
 ## function testCountStableOps
@@ -949,7 +949,7 @@ function testCountStableOps(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1385>)
+[\(view code\)](<./Sort.hx#L1387>)
 
 
 ## function testFind
@@ -993,7 +993,7 @@ function testHeapsortBM(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1275>)
+[\(view code\)](<./Sort.hx#L1276>)
 
 
 ## function testInts
@@ -1114,7 +1114,7 @@ function testSortBM(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1270>)
+[\(view code\)](<./Sort.hx#L1271>)
 
 
 ## function testSortFloat64Slice
@@ -1169,7 +1169,7 @@ function testStability(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1314>)
+[\(view code\)](<./Sort.hx#L1315>)
 
 
 ## function testStableBM
@@ -1180,7 +1180,7 @@ function testStableBM(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1280>)
+[\(view code\)](<./Sort.hx#L1281>)
 
 
 ## function testStableInts
@@ -1191,7 +1191,7 @@ function testStableInts(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Sort.hx#L1307>)
+[\(view code\)](<./Sort.hx#L1308>)
 
 
 ## function testStrings
@@ -1273,7 +1273,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1593>)
+[\(view code\)](<./Sort_test.hx#L1596>)
 
 
 ### ByName function less
@@ -1284,7 +1284,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1586>)
+[\(view code\)](<./Sort_test.hx#L1589>)
 
 
 ### ByName function swap
@@ -1295,7 +1295,7 @@ function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1591>)
+[\(view code\)](<./Sort_test.hx#L1594>)
 
 
 ## class ByWeight
@@ -1347,7 +1347,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1619>)
+[\(view code\)](<./Sort_test.hx#L1622>)
 
 
 ### ByWeight function less
@@ -1358,7 +1358,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1612>)
+[\(view code\)](<./Sort_test.hx#L1615>)
 
 
 ### ByWeight function swap
@@ -1369,7 +1369,7 @@ function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1617>)
+[\(view code\)](<./Sort_test.hx#L1620>)
 
 
 ## class Change
@@ -1457,7 +1457,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Sort_test.hx#L1461>)
+[\(view code\)](<./Sort_test.hx#L1463>)
 
 
 ## class Planet

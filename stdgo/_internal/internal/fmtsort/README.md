@@ -62,7 +62,7 @@ function _floatCompare(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L167>)
+[\(view code\)](<./Fmtsort.hx#L175>)
 
 
 ## function \_isNaN
@@ -73,7 +73,7 @@ function _isNaN(_a:stdgo.GoFloat64):Bool
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L179>)
+[\(view code\)](<./Fmtsort.hx#L187>)
 
 
 ## function \_nilCompare
@@ -87,7 +87,7 @@ function _nilCompare(_aVal:stdgo._internal.reflect.Value, _bVal:stdgo._internal.
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L155>)
+[\(view code\)](<./Fmtsort.hx#L163>)
 
 
 ## function compare
@@ -152,7 +152,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L228>)
+[\(view code\)](<./Fmtsort.hx#L236>)
 
 
 ### SortedMap function less
@@ -163,7 +163,7 @@ function less( _i:stdgo.GoInt, _j:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L223>)
+[\(view code\)](<./Fmtsort.hx#L231>)
 
 
 ### SortedMap function swap
@@ -174,6 +174,6 @@ function swap( _i:stdgo.GoInt, _j:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Fmtsort.hx#L199>)
+[\(view code\)](<./Fmtsort.hx#L207>)
 
 

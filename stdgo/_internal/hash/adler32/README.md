@@ -109,7 +109,7 @@ function _checksum(_p:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32
 ```
 
 
-[\(view code\)](<./Adler32.hx#L119>)
+[\(view code\)](<./Adler32.hx#L120>)
 
 
 ## function \_readUint32
@@ -142,7 +142,7 @@ function benchmarkAdler32KB(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Adler32.hx#L178>)
+[\(view code\)](<./Adler32.hx#L180>)
 
 
 ## function checksum
@@ -153,7 +153,7 @@ function checksum(_data:stdgo.Slice<stdgo.GoByte>):stdgo.GoUInt32
 ```
 
 
-[\(view code\)](<./Adler32.hx#L116>)
+[\(view code\)](<./Adler32.hx#L117>)
 
 
 ## function new\_
@@ -175,7 +175,7 @@ function testGolden(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Adler32.hx#L127>)
+[\(view code\)](<./Adler32.hx#L129>)
 
 
 ## function testGoldenMarshal
@@ -186,7 +186,7 @@ function testGoldenMarshal(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Adler32.hx#L150>)
+[\(view code\)](<./Adler32.hx#L152>)
 
 
 # Typedefs

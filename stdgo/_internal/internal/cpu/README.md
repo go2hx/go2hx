@@ -121,7 +121,7 @@ function _doinit():Void
 ```
 
 
-[\(view code\)](<./Cpu.hx#L290>)
+[\(view code\)](<./Cpu.hx#L291>)
 
 
 ## function \_indexByte
@@ -132,7 +132,7 @@ function _indexByte(_s:stdgo.GoString, _c:stdgo.GoByte):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Cpu.hx#L276>)
+[\(view code\)](<./Cpu.hx#L277>)
 
 
 ## function \_processOptions
@@ -165,7 +165,7 @@ function name():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Cpu.hx#L287>)
+[\(view code\)](<./Cpu.hx#L288>)
 
 
 # Classes

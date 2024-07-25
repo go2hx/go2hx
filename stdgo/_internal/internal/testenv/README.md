@@ -207,7 +207,7 @@ function _findGOROOT():{
 ```
 
 
-[\(view code\)](<./Testenv.hx#L200>)
+[\(view code\)](<./Testenv.hx#L201>)
 
 
 ## function \_hasSymlink
@@ -221,7 +221,7 @@ function _hasSymlink():{
 ```
 
 
-[\(view code\)](<./Testenv.hx#L436>)
+[\(view code\)](<./Testenv.hx#L437>)
 
 
 ## function \_syscallIsNotSupported
@@ -232,7 +232,7 @@ function _syscallIsNotSupported(_err:stdgo.Error):Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L433>)
+[\(view code\)](<./Testenv.hx#L434>)
 
 
 ## function \_tryExec
@@ -254,7 +254,7 @@ function builder():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testenv.hx#L165>)
+[\(view code\)](<./Testenv.hx#L166>)
 
 
 ## function canInternalLink
@@ -265,7 +265,7 @@ function canInternalLink(_withCgo:Bool):Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L326>)
+[\(view code\)](<./Testenv.hx#L327>)
 
 
 ## function cleanCmdEnv
@@ -287,7 +287,7 @@ function command(_t:stdgo._internal.testing.TB, _name:stdgo.GoString, _args:haxe
 ```
 
 
-[\(view code\)](<./Testenv.hx#L157>)
+[\(view code\)](<./Testenv.hx#L158>)
 
 
 ## function commandContext
@@ -309,7 +309,7 @@ function cpuisSlow():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L373>)
+[\(view code\)](<./Testenv.hx#L374>)
 
 
 ## function goTool
@@ -323,7 +323,7 @@ function goTool():{
 ```
 
 
-[\(view code\)](<./Testenv.hx#L263>)
+[\(view code\)](<./Testenv.hx#L264>)
 
 
 ## function goToolPath
@@ -334,7 +334,7 @@ function goToolPath(_t:stdgo._internal.testing.TB):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testenv.hx#L189>)
+[\(view code\)](<./Testenv.hx#L190>)
 
 
 ## function goroot
@@ -345,7 +345,7 @@ function goroot(_t:stdgo._internal.testing.TB):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testenv.hx#L252>)
+[\(view code\)](<./Testenv.hx#L253>)
 
 
 ## function hasCGO
@@ -356,7 +356,7 @@ function hasCGO():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L298>)
+[\(view code\)](<./Testenv.hx#L299>)
 
 
 ## function hasExternalNetwork
@@ -367,7 +367,7 @@ function hasExternalNetwork():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L285>)
+[\(view code\)](<./Testenv.hx#L286>)
 
 
 ## function hasGoBuild
@@ -378,7 +378,7 @@ function hasGoBuild():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L166>)
+[\(view code\)](<./Testenv.hx#L167>)
 
 
 ## function hasGoRun
@@ -389,7 +389,7 @@ function hasGoRun():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L177>)
+[\(view code\)](<./Testenv.hx#L178>)
 
 
 ## function hasLink
@@ -400,7 +400,7 @@ function hasLink():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L350>)
+[\(view code\)](<./Testenv.hx#L351>)
 
 
 ## function hasParallelism
@@ -411,7 +411,7 @@ function hasParallelism():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L183>)
+[\(view code\)](<./Testenv.hx#L184>)
 
 
 ## function hasSrc
@@ -422,7 +422,7 @@ function hasSrc():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L276>)
+[\(view code\)](<./Testenv.hx#L277>)
 
 
 ## function hasSymlink
@@ -433,7 +433,7 @@ function hasSymlink():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L340>)
+[\(view code\)](<./Testenv.hx#L341>)
 
 
 ## function mustHaveBuildMode
@@ -444,7 +444,7 @@ function mustHaveBuildMode(_t:stdgo._internal.testing.TB, _buildmode:stdgo.GoStr
 ```
 
 
-[\(view code\)](<./Testenv.hx#L335>)
+[\(view code\)](<./Testenv.hx#L336>)
 
 
 ## function mustHaveCGO
@@ -455,7 +455,7 @@ function mustHaveCGO(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L321>)
+[\(view code\)](<./Testenv.hx#L322>)
 
 
 ## function mustHaveExec
@@ -488,7 +488,7 @@ function mustHaveExternalNetwork(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L288>)
+[\(view code\)](<./Testenv.hx#L289>)
 
 
 ## function mustHaveGoBuild
@@ -499,7 +499,7 @@ function mustHaveGoBuild(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L167>)
+[\(view code\)](<./Testenv.hx#L168>)
 
 
 ## function mustHaveGoRun
@@ -510,7 +510,7 @@ function mustHaveGoRun(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L178>)
+[\(view code\)](<./Testenv.hx#L179>)
 
 
 ## function mustHaveLink
@@ -521,7 +521,7 @@ function mustHaveLink(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L353>)
+[\(view code\)](<./Testenv.hx#L354>)
 
 
 ## function mustHaveParallelism
@@ -532,7 +532,7 @@ function mustHaveParallelism(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L184>)
+[\(view code\)](<./Testenv.hx#L185>)
 
 
 ## function mustHaveSymlink
@@ -543,7 +543,7 @@ function mustHaveSymlink(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L344>)
+[\(view code\)](<./Testenv.hx#L345>)
 
 
 ## function mustInternalLink
@@ -554,7 +554,7 @@ function mustInternalLink(_t:stdgo._internal.testing.TB, _withCgo:Bool):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L327>)
+[\(view code\)](<./Testenv.hx#L328>)
 
 
 ## function optimizationOff
@@ -565,7 +565,7 @@ function optimizationOff():Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L162>)
+[\(view code\)](<./Testenv.hx#L163>)
 
 
 ## function skipFlaky
@@ -576,7 +576,7 @@ function skipFlaky(_t:stdgo._internal.testing.TB, _issue:stdgo.GoInt):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L358>)
+[\(view code\)](<./Testenv.hx#L359>)
 
 
 ## function skipFlakyNet
@@ -587,7 +587,7 @@ function skipFlakyNet(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L364>)
+[\(view code\)](<./Testenv.hx#L365>)
 
 
 ## function skipIfOptimizationOff
@@ -598,7 +598,7 @@ function skipIfOptimizationOff(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L388>)
+[\(view code\)](<./Testenv.hx#L389>)
 
 
 ## function skipIfShortAndSlow
@@ -609,7 +609,7 @@ function skipIfShortAndSlow(_t:stdgo._internal.testing.TB):Void
 ```
 
 
-[\(view code\)](<./Testenv.hx#L382>)
+[\(view code\)](<./Testenv.hx#L383>)
 
 
 ## function syscallIsNotSupported
@@ -620,7 +620,7 @@ function syscallIsNotSupported(_err:stdgo.Error):Bool
 ```
 
 
-[\(view code\)](<./Testenv.hx#L430>)
+[\(view code\)](<./Testenv.hx#L431>)
 
 
 ## function writeImportcfg
@@ -631,7 +631,7 @@ function writeImportcfg(_t:stdgo._internal.testing.TB, _dstPath:stdgo.GoString, 
 ```
 
 
-[\(view code\)](<./Testenv.hx#L394>)
+[\(view code\)](<./Testenv.hx#L395>)
 
 
 # Typedefs

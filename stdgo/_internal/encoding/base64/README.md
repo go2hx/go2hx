@@ -360,7 +360,7 @@ function newEncoder(_enc:stdgo.Ref<stdgo._internal.encoding.base64.Encoding>, _w
 ```haxe
 function exampleNewEncoder():Void {
         var _input = (stdgo.Go.str("foo", 0, "bar") : stdgo.Slice<stdgo.GoByte>);
-        var _encoder:stdgo._internal.io.Io.WriteCloser = stdgo._internal.encoding.base64.Base64.newEncoder(stdgo._internal.encoding.base64.Base64.stdEncoding, stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
+        var _encoder = stdgo._internal.encoding.base64.Base64.newEncoder(stdgo._internal.encoding.base64.Base64.stdEncoding, stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
         _encoder.write(_input);
         _encoder.close();
     }
@@ -709,7 +709,7 @@ function strict():stdgo.Ref<stdgo._internal.encoding.base64.Encoding>
 ```
 
 
-[\(view code\)](<./Base64.hx#L1504>)
+[\(view code\)](<./Base64.hx#L1505>)
 
 
 ### Encoding function withPadding
@@ -720,7 +720,7 @@ function withPadding( _padding:stdgo.GoRune):stdgo.Ref<stdgo._internal.encoding.
 ```
 
 
-[\(view code\)](<./Base64.hx#L1510>)
+[\(view code\)](<./Base64.hx#L1511>)
 
 
 # Typedefs

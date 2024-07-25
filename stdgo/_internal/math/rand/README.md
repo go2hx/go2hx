@@ -1,20 +1,20 @@
 # Module stdgo._internal.math.rand has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/math/rand_test/Rand_test.hx:983: characters 62-65
+[30;41m ERROR [0m stdgo/_internal/math/rand_test/Rand_test.hx:984: characters 62-65
 
-  983 | [2m        var __0:stdgo.GoFloat64 = _rn, __1:stdgo.GoFloat64 = [0m[1m_dn[0m[2m, __2:stdgo.GoFloat64 = (0.00991256303526217 : stdgo.GoFloat64), _vn:stdgo.GoFloat64 = __2, _tn:stdgo.GoFloat64 = __1, _dn:stdgo.GoFloat64 = __0;[0m
+  984 | [2m        var __0:stdgo.GoFloat64 = _rn, __1:stdgo.GoFloat64 = [0m[1m_dn[0m[2m, __2:stdgo.GoFloat64 = (0.00991256303526217 : stdgo.GoFloat64);[0m
       |                                                              [31m^^^[0m
       | Unknown identifier : _dn
 
-[30;41m ERROR [0m stdgo/_internal/math/rand_test/Rand_test.hx:1009: characters 62-65
+[30;41m ERROR [0m stdgo/_internal/math/rand_test/Rand_test.hx:1011: characters 62-65
 
- 1009 | [2m        var __0:stdgo.GoFloat64 = _re, __1:stdgo.GoFloat64 = [0m[1m_de[0m[2m, __2:stdgo.GoFloat64 = (0.003949659822581557 : stdgo.GoFloat64), _ve:stdgo.GoFloat64 = __2, _te:stdgo.GoFloat64 = __1, _de:stdgo.GoFloat64 = __0;[0m
+ 1011 | [2m        var __0:stdgo.GoFloat64 = _re, __1:stdgo.GoFloat64 = [0m[1m_de[0m[2m, __2:stdgo.GoFloat64 = (0.003949659822581557 : stdgo.GoFloat64);[0m
       |                                                              [31m^^^[0m
       | Unknown identifier : _de
 
-[30;41m ERROR [0m stdgo/_internal/math/rand_test/Rand_test.hx:1139: characters 209-216
+[30;41m ERROR [0m stdgo/_internal/math/rand_test/Rand_test.hx:1142: characters 209-216
 
- 1139 | [2m        var __0:stdgo.GoFloat64 = (127.5 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = ((256 : stdgo.GoFloat64) / stdgo._internal.math.Math.sqrt((12 : stdgo.GoFloat64)) : stdgo.GoFloat64), __2:stdgo.GoFloat64 = ([0m[1m_stddev[0m[2m / stdgo._internal.math.Math.sqrt((_n : stdgo.GoFloat64)) : stdgo.GoFloat64), _errorScale:stdgo.GoFloat64 = __2, _stddev:stdgo.GoFloat64 = __1, _mean:stdgo.GoFloat64 = __0;[0m
+ 1142 | [2m        var __0:stdgo.GoFloat64 = (127.5 : stdgo.GoFloat64), __1:stdgo.GoFloat64 = ((256 : stdgo.GoFloat64) / stdgo._internal.math.Math.sqrt((12 : stdgo.GoFloat64)) : stdgo.GoFloat64), __2:stdgo.GoFloat64 = ([0m[1m_stddev[0m[2m / stdgo._internal.math.Math.sqrt((_n : stdgo.GoFloat64)) : stdgo.GoFloat64);[0m
       |                                                                                                                                                                                                                 [31m^^^^^^^[0m
       | Unknown identifier : _stddev
 

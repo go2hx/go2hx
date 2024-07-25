@@ -16,9 +16,9 @@
           |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:886: characters 50-93
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:887: characters 50-93
 
- 886 | [2mstdgo.Go.asInterface(newPaletted(_r?.__copy__(), [0m[1mstdgo._internal.image.color.palette.Palette[0m[2m.plan9)),[0m
+ 887 | [2mstdgo.Go.asInterface(newPaletted(_r?.__copy__(), [0m[1mstdgo._internal.image.color.palette.Palette[0m[2m.plan9)),[0m
      |                                                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | Type not found : stdgo._internal.image.color.palette.Palette
 
@@ -36,71 +36,71 @@
           |
           | Called from here
 
-     [30;41m -> [0m stdgo/_internal/image/Image.hx:886: characters 1-101
+     [30;41m -> [0m stdgo/_internal/image/Image.hx:887: characters 1-101
 
-      886 | [0m[1mstdgo.Go.asInterface(newPaletted(_r?.__copy__(), stdgo._internal.image.color.palette.Palette.plan9))[0m[2m,[0m
+      887 | [0m[1mstdgo.Go.asInterface(newPaletted(_r?.__copy__(), stdgo._internal.image.color.palette.Palette.plan9))[0m[2m,[0m
           | [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
           | For function argument 'args'
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:892: characters 28-38
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:893: characters 28-38
 
- 892 | [2m        for (__0 => _tc in [0m[1m_testCases[0m[2m) {[0m
+ 893 | [2m        for (__0 => _tc in [0m[1m_testCases[0m[2m) {[0m
      |                            [31m^^^^^^^^^^[0m
      | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:899: characters 164-178
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:900: characters 164-178
 
- 899 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.NYCbCrA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.__underlying__().value;[0m
+ 900 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.NYCbCrA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.__underlying__().value;[0m
      |                                                                                                                                                                    [31m^^^^^^^^^^^^^^[0m
      | Any has no field __underlying__
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:899: characters 335-349
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:900: characters 335-349
 
- 899 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.NYCbCrA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
+ 900 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.NYCbCrA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
      |                                                                                                                                                                                                                                                                                                                                               [31m^^^^^^^^^^^^^^[0m
      | Any has no field __underlying__
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:905: characters 164-178
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:906: characters 164-178
 
- 905 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.__underlying__().value;[0m
+ 906 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.__underlying__().value;[0m
      |                                                                                                                                                                    [31m^^^^^^^^^^^^^^[0m
      | Any has no field __underlying__
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:905: characters 335-349
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:906: characters 335-349
 
- 905 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
+ 906 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
      |                                                                                                                                                                                                                                                                                                                                               [31m^^^^^^^^^^^^^^[0m
      | Any has no field __underlying__
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:908: characters 160-174
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:909: characters 160-174
 
- 908 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.__underlying__().value;[0m
+ 909 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.__underlying__().value;[0m
      |                                                                                                                                                                [31m^^^^^^^^^^^^^^[0m
      | Any has no field __underlying__
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:908: characters 327-341
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:909: characters 327-341
 
- 908 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
+ 909 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
      |                                                                                                                                                                                                                                                                                                                                       [31m^^^^^^^^^^^^^^[0m
      | Any has no field __underlying__
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:913: characters 144-158
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:914: characters 144-158
 
- 913 | [2m                    var _tc:stdgo._internal.image.Image.Rectangle = __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.[0m[1m__underlying__[0m[2m() == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.__underlying__().value;[0m
+ 914 | [2m                    var _tc:stdgo._internal.image.Image.Rectangle = __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.[0m[1m__underlying__[0m[2m() == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.__underlying__().value;[0m
      |                                                                                                                                                [31m^^^^^^^^^^^^^^[0m
      | Any has no field __underlying__
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:913: characters 293-307
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:914: characters 293-307
 
- 913 | [2m                    var _tc:stdgo._internal.image.Image.Rectangle = __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.__underlying__() == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
+ 914 | [2m                    var _tc:stdgo._internal.image.Image.Rectangle = __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.__underlying__() == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
      |                                                                                                                                                                                                                                                                                                     [31m^^^^^^^^^^^^^^[0m
      | Any has no field __underlying__
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:930: characters 31-33
+[30;41m ERROR [0m stdgo/_internal/image/Image.hx:931: characters 31-33
 
- 930 | [2m            var __tmp__ = _tc.[0m[1mat[0m[2m((1 : stdgo.GoInt), (1 : stdgo.GoInt)).rgba(), _wantR:stdgo.GoUInt32 = __tmp__._0, _wantG:stdgo.GoUInt32 = __tmp__._1, _wantB:stdgo.GoUInt32 = __tmp__._2, _wantA:stdgo.GoUInt32 = __tmp__._3;[0m
+ 931 | [2m            var __tmp__ = _tc.[0m[1mat[0m[2m((1 : stdgo.GoInt), (1 : stdgo.GoInt)).rgba(), _wantR:stdgo.GoUInt32 = __tmp__._0, _wantG:stdgo.GoUInt32 = __tmp__._1, _wantB:stdgo.GoUInt32 = __tmp__._2, _wantA:stdgo.GoUInt32 = __tmp__._3;[0m
      |                               [31m^^[0m
      | Any has no field at
 

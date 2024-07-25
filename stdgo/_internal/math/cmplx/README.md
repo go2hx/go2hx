@@ -496,7 +496,7 @@ function _alike(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Bool
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L386>)
+[\(view code\)](<./Cmplx.hx#L389>)
 
 
 ## function \_cAlike
@@ -507,7 +507,7 @@ function _cAlike(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128):Bool
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L410>)
+[\(view code\)](<./Cmplx.hx#L413>)
 
 
 ## function \_cSoclose
@@ -518,7 +518,7 @@ function _cSoclose(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128, _e:stdgo.GoFloa
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L404>)
+[\(view code\)](<./Cmplx.hx#L407>)
 
 
 ## function \_cTolerance
@@ -529,7 +529,7 @@ function _cTolerance(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128, _e:stdgo.GoFl
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L394>)
+[\(view code\)](<./Cmplx.hx#L397>)
 
 
 ## function \_cVeryclose
@@ -540,7 +540,7 @@ function _cVeryclose(_a:stdgo.GoComplex128, _b:stdgo.GoComplex128):Bool
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L407>)
+[\(view code\)](<./Cmplx.hx#L410>)
 
 
 ## function \_isExact
@@ -551,7 +551,7 @@ function _isExact(_x:stdgo.GoFloat64):Bool
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L424>)
+[\(view code\)](<./Cmplx.hx#L428>)
 
 
 ## function \_reducePi
@@ -562,7 +562,7 @@ function _reducePi(_x:stdgo.GoFloat64):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1679>)
+[\(view code\)](<./Cmplx.hx#L1700>)
 
 
 ## function \_sinhcosh
@@ -576,7 +576,7 @@ function _sinhcosh(_x:stdgo.GoFloat64):{
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1582>)
+[\(view code\)](<./Cmplx.hx#L1601>)
 
 
 ## function \_tanSeries
@@ -587,7 +587,7 @@ function _tanSeries(_z:stdgo.GoComplex128):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1734>)
+[\(view code\)](<./Cmplx.hx#L1756>)
 
 
 ## function \_tolerance
@@ -598,7 +598,7 @@ function _tolerance(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64, _e:stdgo.GoFloat64):
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L370>)
+[\(view code\)](<./Cmplx.hx#L373>)
 
 
 ## function \_veryclose
@@ -609,7 +609,7 @@ function _veryclose(_a:stdgo.GoFloat64, _b:stdgo.GoFloat64):Bool
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L383>)
+[\(view code\)](<./Cmplx.hx#L386>)
 
 
 ## function abs
@@ -649,7 +649,7 @@ function acos(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L319>)
+[\(view code\)](<./Cmplx.hx#L321>)
 
 
 ## function acosh
@@ -660,7 +660,7 @@ function acosh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L323>)
+[\(view code\)](<./Cmplx.hx#L325>)
 
 
 ## function asin
@@ -682,7 +682,7 @@ function asinh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L288>)
+[\(view code\)](<./Cmplx.hx#L289>)
 
 
 ## function atan
@@ -693,7 +693,7 @@ function atan(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L333>)
+[\(view code\)](<./Cmplx.hx#L335>)
 
 
 ## function atanh
@@ -704,7 +704,7 @@ function atanh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L365>)
+[\(view code\)](<./Cmplx.hx#L368>)
 
 
 ## function benchmarkAbs
@@ -715,7 +715,7 @@ function benchmarkAbs(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1222>)
+[\(view code\)](<./Cmplx.hx#L1235>)
 
 
 ## function benchmarkAcos
@@ -726,7 +726,7 @@ function benchmarkAcos(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1230>)
+[\(view code\)](<./Cmplx.hx#L1243>)
 
 
 ## function benchmarkAcosh
@@ -737,7 +737,7 @@ function benchmarkAcosh(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1238>)
+[\(view code\)](<./Cmplx.hx#L1251>)
 
 
 ## function benchmarkAsin
@@ -748,7 +748,7 @@ function benchmarkAsin(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1246>)
+[\(view code\)](<./Cmplx.hx#L1259>)
 
 
 ## function benchmarkAsinh
@@ -759,7 +759,7 @@ function benchmarkAsinh(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1254>)
+[\(view code\)](<./Cmplx.hx#L1267>)
 
 
 ## function benchmarkAtan
@@ -770,7 +770,7 @@ function benchmarkAtan(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1262>)
+[\(view code\)](<./Cmplx.hx#L1275>)
 
 
 ## function benchmarkAtanh
@@ -781,7 +781,7 @@ function benchmarkAtanh(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1270>)
+[\(view code\)](<./Cmplx.hx#L1283>)
 
 
 ## function benchmarkConj
@@ -792,7 +792,7 @@ function benchmarkConj(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1278>)
+[\(view code\)](<./Cmplx.hx#L1291>)
 
 
 ## function benchmarkCos
@@ -803,7 +803,7 @@ function benchmarkCos(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1286>)
+[\(view code\)](<./Cmplx.hx#L1299>)
 
 
 ## function benchmarkCosh
@@ -814,7 +814,7 @@ function benchmarkCosh(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1294>)
+[\(view code\)](<./Cmplx.hx#L1307>)
 
 
 ## function benchmarkExp
@@ -825,7 +825,7 @@ function benchmarkExp(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1302>)
+[\(view code\)](<./Cmplx.hx#L1315>)
 
 
 ## function benchmarkLog
@@ -836,7 +836,7 @@ function benchmarkLog(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1310>)
+[\(view code\)](<./Cmplx.hx#L1323>)
 
 
 ## function benchmarkLog10
@@ -847,7 +847,7 @@ function benchmarkLog10(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1318>)
+[\(view code\)](<./Cmplx.hx#L1331>)
 
 
 ## function benchmarkPhase
@@ -858,7 +858,7 @@ function benchmarkPhase(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1326>)
+[\(view code\)](<./Cmplx.hx#L1339>)
 
 
 ## function benchmarkPolar
@@ -869,7 +869,7 @@ function benchmarkPolar(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1334>)
+[\(view code\)](<./Cmplx.hx#L1347>)
 
 
 ## function benchmarkPow
@@ -880,7 +880,7 @@ function benchmarkPow(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1342>)
+[\(view code\)](<./Cmplx.hx#L1355>)
 
 
 ## function benchmarkRect
@@ -891,7 +891,7 @@ function benchmarkRect(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1350>)
+[\(view code\)](<./Cmplx.hx#L1363>)
 
 
 ## function benchmarkSin
@@ -902,7 +902,7 @@ function benchmarkSin(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1358>)
+[\(view code\)](<./Cmplx.hx#L1371>)
 
 
 ## function benchmarkSinh
@@ -913,7 +913,7 @@ function benchmarkSinh(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1366>)
+[\(view code\)](<./Cmplx.hx#L1379>)
 
 
 ## function benchmarkSqrt
@@ -924,7 +924,7 @@ function benchmarkSqrt(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1374>)
+[\(view code\)](<./Cmplx.hx#L1387>)
 
 
 ## function benchmarkTan
@@ -935,7 +935,7 @@ function benchmarkTan(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1382>)
+[\(view code\)](<./Cmplx.hx#L1395>)
 
 
 ## function benchmarkTanh
@@ -946,7 +946,7 @@ function benchmarkTanh(_b:stdgo.Ref<stdgo._internal.testing.B>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1390>)
+[\(view code\)](<./Cmplx.hx#L1403>)
 
 
 ## function conj
@@ -957,7 +957,7 @@ function conj(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1398>)
+[\(view code\)](<./Cmplx.hx#L1411>)
 
 
 ## function cos
@@ -968,7 +968,7 @@ function cos(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1544>)
+[\(view code\)](<./Cmplx.hx#L1561>)
 
 
 ## function cosh
@@ -979,7 +979,7 @@ function cosh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1563>)
+[\(view code\)](<./Cmplx.hx#L1581>)
 
 
 ## function cot
@@ -990,7 +990,7 @@ function cot(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1771>)
+[\(view code\)](<./Cmplx.hx#L1793>)
 
 
 ## function exp
@@ -1019,7 +1019,7 @@ function exampleExp():Void {
 </details>
 
 
-[\(view code\)](<./Cmplx.hx#L1401>)
+[\(view code\)](<./Cmplx.hx#L1414>)
 
 
 ## function inf
@@ -1030,7 +1030,7 @@ function inf():stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1440>)
+[\(view code\)](<./Cmplx.hx#L1454>)
 
 
 ## function isInf
@@ -1041,7 +1041,7 @@ function isInf(_x:stdgo.GoComplex128):Bool
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1434>)
+[\(view code\)](<./Cmplx.hx#L1448>)
 
 
 ## function isNaN
@@ -1052,7 +1052,7 @@ function isNaN(_x:stdgo.GoComplex128):Bool
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1444>)
+[\(view code\)](<./Cmplx.hx#L1458>)
 
 
 ## function log
@@ -1063,7 +1063,7 @@ function log(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1456>)
+[\(view code\)](<./Cmplx.hx#L1470>)
 
 
 ## function log10
@@ -1074,7 +1074,7 @@ function log10(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1459>)
+[\(view code\)](<./Cmplx.hx#L1473>)
 
 
 ## function naN
@@ -1085,7 +1085,7 @@ function naN():stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1452>)
+[\(view code\)](<./Cmplx.hx#L1466>)
 
 
 ## function phase
@@ -1096,7 +1096,7 @@ function phase(_x:stdgo.GoComplex128):stdgo.GoFloat64
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1463>)
+[\(view code\)](<./Cmplx.hx#L1477>)
 
 
 ## function polar
@@ -1129,7 +1129,7 @@ function examplePolar():Void {
 </details>
 
 
-[\(view code\)](<./Cmplx.hx#L1466>)
+[\(view code\)](<./Cmplx.hx#L1480>)
 
 
 ## function pow
@@ -1140,7 +1140,7 @@ function pow(_x:stdgo.GoComplex128, _y:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1470>)
+[\(view code\)](<./Cmplx.hx#L1484>)
 
 
 ## function rect
@@ -1151,7 +1151,7 @@ function rect(_r:stdgo.GoFloat64, __952:stdgo.GoFloat64):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1502>)
+[\(view code\)](<./Cmplx.hx#L1517>)
 
 
 ## function sin
@@ -1162,7 +1162,7 @@ function sin(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1506>)
+[\(view code\)](<./Cmplx.hx#L1521>)
 
 
 ## function sinh
@@ -1173,7 +1173,7 @@ function sinh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1525>)
+[\(view code\)](<./Cmplx.hx#L1541>)
 
 
 ## function sqrt
@@ -1184,7 +1184,7 @@ function sqrt(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1592>)
+[\(view code\)](<./Cmplx.hx#L1611>)
 
 
 ## function tan
@@ -1195,7 +1195,7 @@ function tan(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1640>)
+[\(view code\)](<./Cmplx.hx#L1659>)
 
 
 ## function tanh
@@ -1206,7 +1206,7 @@ function tanh(_x:stdgo.GoComplex128):stdgo.GoComplex128
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1661>)
+[\(view code\)](<./Cmplx.hx#L1681>)
 
 
 ## function testAbs
@@ -1217,7 +1217,7 @@ function testAbs(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L427>)
+[\(view code\)](<./Cmplx.hx#L431>)
 
 
 ## function testAcos
@@ -1228,7 +1228,7 @@ function testAcos(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L451>)
+[\(view code\)](<./Cmplx.hx#L455>)
 
 
 ## function testAcosh
@@ -1239,7 +1239,7 @@ function testAcosh(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L489>)
+[\(view code\)](<./Cmplx.hx#L494>)
 
 
 ## function testAsin
@@ -1250,7 +1250,7 @@ function testAsin(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L527>)
+[\(view code\)](<./Cmplx.hx#L533>)
 
 
 ## function testAsinh
@@ -1261,7 +1261,7 @@ function testAsinh(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L574>)
+[\(view code\)](<./Cmplx.hx#L581>)
 
 
 ## function testAtan
@@ -1272,7 +1272,7 @@ function testAtan(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L621>)
+[\(view code\)](<./Cmplx.hx#L629>)
 
 
 ## function testAtanh
@@ -1283,7 +1283,7 @@ function testAtanh(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L668>)
+[\(view code\)](<./Cmplx.hx#L677>)
 
 
 ## function testConj
@@ -1294,7 +1294,7 @@ function testConj(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L715>)
+[\(view code\)](<./Cmplx.hx#L725>)
 
 
 ## function testCos
@@ -1305,7 +1305,7 @@ function testCos(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L739>)
+[\(view code\)](<./Cmplx.hx#L749>)
 
 
 ## function testCosh
@@ -1316,7 +1316,7 @@ function testCosh(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L778>)
+[\(view code\)](<./Cmplx.hx#L788>)
 
 
 ## function testExp
@@ -1327,7 +1327,7 @@ function testExp(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L817>)
+[\(view code\)](<./Cmplx.hx#L827>)
 
 
 ## function testInfiniteLoopIntanSeries
@@ -1338,7 +1338,7 @@ function testInfiniteLoopIntanSeries(_t:stdgo.Ref<stdgo._internal.testing.T_>):V
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1213>)
+[\(view code\)](<./Cmplx.hx#L1226>)
 
 
 ## function testIsNaN
@@ -1349,7 +1349,7 @@ function testIsNaN(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L847>)
+[\(view code\)](<./Cmplx.hx#L857>)
 
 
 ## function testLog
@@ -1360,7 +1360,7 @@ function testLog(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L860>)
+[\(view code\)](<./Cmplx.hx#L870>)
 
 
 ## function testLog10
@@ -1371,7 +1371,7 @@ function testLog10(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L898>)
+[\(view code\)](<./Cmplx.hx#L909>)
 
 
 ## function testPolar
@@ -1382,7 +1382,7 @@ function testPolar(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L928>)
+[\(view code\)](<./Cmplx.hx#L939>)
 
 
 ## function testPow
@@ -1393,7 +1393,7 @@ function testPow(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L952>)
+[\(view code\)](<./Cmplx.hx#L963>)
 
 
 ## function testRect
@@ -1404,7 +1404,7 @@ function testRect(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L995>)
+[\(view code\)](<./Cmplx.hx#L1007>)
 
 
 ## function testSin
@@ -1415,7 +1415,7 @@ function testSin(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1019>)
+[\(view code\)](<./Cmplx.hx#L1031>)
 
 
 ## function testSinh
@@ -1426,7 +1426,7 @@ function testSinh(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1058>)
+[\(view code\)](<./Cmplx.hx#L1070>)
 
 
 ## function testSqrt
@@ -1437,7 +1437,7 @@ function testSqrt(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1097>)
+[\(view code\)](<./Cmplx.hx#L1109>)
 
 
 ## function testTan
@@ -1448,7 +1448,7 @@ function testTan(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1135>)
+[\(view code\)](<./Cmplx.hx#L1148>)
 
 
 ## function testTanHuge
@@ -1459,7 +1459,7 @@ function testTanHuge(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1424>)
+[\(view code\)](<./Cmplx.hx#L1438>)
 
 
 ## function testTanh
@@ -1470,7 +1470,7 @@ function testTanh(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
 ```
 
 
-[\(view code\)](<./Cmplx.hx#L1174>)
+[\(view code\)](<./Cmplx.hx#L1187>)
 
 
 # Typedefs

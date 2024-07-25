@@ -154,7 +154,7 @@ function exampleRegexp_SubexpNames():Void {
         var _re = stdgo._internal.regexp.Regexp.mustCompile(("(?P<first>[a-zA-Z]+) (?P<last>[a-zA-Z]+)" : stdgo.GoString));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_re.matchString(("Alan Turing" : stdgo.GoString))));
         stdgo._internal.fmt.Fmt.printf(("%q\n" : stdgo.GoString), stdgo.Go.toInterface(_re.subexpNames()));
-        var _reversed = stdgo._internal.fmt.Fmt.sprintf(("${%s} ${%s}" : stdgo.GoString), stdgo.Go.toInterface(_re.subexpNames()[(2 : stdgo.GoInt)]), stdgo.Go.toInterface(_re.subexpNames()[(1 : stdgo.GoInt)]))?.__copy__();
+        var _reversed = (stdgo._internal.fmt.Fmt.sprintf(("${%s} ${%s}" : stdgo.GoString), stdgo.Go.toInterface(_re.subexpNames()[(2 : stdgo.GoInt)]), stdgo.Go.toInterface(_re.subexpNames()[(1 : stdgo.GoInt)]))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_reversed));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_re.replaceAllString(("Alan Turing" : stdgo.GoString), _reversed?.__copy__())));
     }
@@ -162,7 +162,7 @@ function exampleRegexp_SubexpIndex():Void {
         var _re = stdgo._internal.regexp.Regexp.mustCompile(("(?P<first>[a-zA-Z]+) (?P<last>[a-zA-Z]+)" : stdgo.GoString));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_re.matchString(("Alan Turing" : stdgo.GoString))));
         var _matches = _re.findStringSubmatch(("Alan Turing" : stdgo.GoString));
-        var _lastIndex = _re.subexpIndex(("last" : stdgo.GoString));
+        var _lastIndex = (_re.subexpIndex(("last" : stdgo.GoString)) : stdgo.GoInt);
         stdgo._internal.fmt.Fmt.printf(("last => %d\n" : stdgo.GoString), stdgo.Go.toInterface(_lastIndex));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_matches[(_lastIndex : stdgo.GoInt)]));
     }

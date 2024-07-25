@@ -1487,7 +1487,7 @@ function testParseBool(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testFormatBool(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_b => _s in _boolString) {
             {
-                var _f = formatBool(_b)?.__copy__();
+                var _f = (formatBool(_b)?.__copy__() : stdgo.GoString);
                 if (_f != (_s)) {
                     _t.errorf(("FormatBool(%v): expected %q but got %q" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_f));
                 };
@@ -1693,17 +1693,17 @@ function _initAtofOnce():Void {
         };
         for (_i => _ in _atofRandomTests) {
             var _n = (((stdgo._internal.math.rand.Rand.uint32() : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (stdgo._internal.math.rand.Rand.uint32() : stdgo.GoUInt64) : stdgo.GoUInt64);
-            var _x = stdgo._internal.math.Math.float64frombits(_n);
-            var _s = formatFloat(_x, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+            var _x = (stdgo._internal.math.Math.float64frombits(_n) : stdgo.GoFloat64);
+            var _s = (formatFloat(_x, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
             _atofRandomTests[(_i : stdgo.GoInt)] = (new stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest(_x, _s?.__copy__()) : stdgo._internal.strconv_test.Strconv_test.T_atofSimpleTest);
         };
         for (_i => _ in _benchmarksRandomBits) {
             var _bits = (((stdgo._internal.math.rand.Rand.uint32() : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (stdgo._internal.math.rand.Rand.uint32() : stdgo.GoUInt64) : stdgo.GoUInt64);
-            var _x = stdgo._internal.math.Math.float64frombits(_bits);
+            var _x = (stdgo._internal.math.Math.float64frombits(_bits) : stdgo.GoFloat64);
             _benchmarksRandomBits[(_i : stdgo.GoInt)] = formatFloat(_x, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
         };
         for (_i => _ in _benchmarksRandomNormal) {
-            var _x = stdgo._internal.math.rand.Rand.normFloat64();
+            var _x = (stdgo._internal.math.rand.Rand.normFloat64() : stdgo.GoFloat64);
             _benchmarksRandomNormal[(_i : stdgo.GoInt)] = formatFloat(_x, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
         };
     }
@@ -1725,7 +1725,7 @@ function testParseFloatPrefix(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
 (")" : stdgo.GoString),
 ("i" : stdgo.GoString),
 ("init" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
-                var _in = (_test._in + _suffix?.__copy__() : stdgo.GoString)?.__copy__();
+                var _in = ((_test._in + _suffix?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 var __tmp__ = parseFloatPrefix(_in?.__copy__(), (64 : stdgo.GoInt)), __1:stdgo.GoFloat64 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (_err != null) {
                     _t.errorf(("ParseFloatPrefix(%q, 64): err = %v; want no error" : stdgo.GoString), stdgo.Go.toInterface(_in), stdgo.Go.toInterface(_err));
@@ -1738,13 +1738,13 @@ function testParseFloatPrefix(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
     }
 function _testAtof(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _opt:Bool):Void {
         _initAtof();
-        var _oldopt = setOptimize(_opt);
+        var _oldopt = (setOptimize(_opt) : Bool);
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_atoftests.length) : Bool), _i++, {
                 var _test = (stdgo.Go.setRef(_atoftests[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.strconv_test.Strconv_test.T_atofTest>);
                 var __tmp__ = parseFloat(_test._in?.__copy__(), (64 : stdgo.GoInt)), _out:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                var _outs = formatFloat(_out, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+                var _outs = (formatFloat(_out, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                 if (((_outs != _test._out) || !stdgo._internal.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._err)) : Bool)) {
                     _t.errorf(("ParseFloat(%v, 64) = %v, %v want %v, %v" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._out), stdgo.Go.toInterface(_test._err));
                 };
@@ -1755,7 +1755,7 @@ function _testAtof(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _opt:Bool):
                         _t.errorf(("ParseFloat(%v, 32) = %v, not a float32 (closest is %v)" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface((_out32 : stdgo.GoFloat64)));
                         continue;
                     };
-                    var _outs = formatFloat((_out32 : stdgo.GoFloat64), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__();
+                    var _outs = (formatFloat((_out32 : stdgo.GoFloat64), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                     if (((_outs != _test._out) || !stdgo._internal.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._err)) : Bool)) {
                         _t.errorf(("ParseFloat(%v, 32) = %v, %v want %v, %v  # %v" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_out32), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._out), stdgo.Go.toInterface(_test._err), stdgo.Go.toInterface(_out));
                     };
@@ -1769,7 +1769,7 @@ function _testAtof(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _opt:Bool):
                 _t.errorf(("ParseFloat(%v, 32) = %v, not a float32 (closest is %v)" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface((_out32 : stdgo.GoFloat64)));
                 continue;
             };
-            var _outs = formatFloat((_out32 : stdgo.GoFloat64), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__();
+            var _outs = (formatFloat((_out32 : stdgo.GoFloat64), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
             if (((_outs != _test._out) || !stdgo._internal.reflect.Reflect.deepEqual(stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._err)) : Bool)) {
                 _t.errorf(("ParseFloat(%v, 32) = %v, %v want %v, %v  # %v" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_out32), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_test._out), stdgo.Go.toInterface(_test._err), stdgo.Go.toInterface(_out));
             };
@@ -1800,8 +1800,8 @@ function testAtofRandom(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testRoundTrip(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _roundTripCases) {
-            var _old = setOptimize(false);
-            var _s = formatFloat(_tt._f, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+            var _old = (setOptimize(false) : Bool);
+            var _s = (formatFloat(_tt._f, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
             if (_s != (_tt._s)) {
                 _t.errorf(("no-opt FormatFloat(%b) = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._f), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt._s));
             };
@@ -1830,19 +1830,19 @@ function testRoundTrip32(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
             trace("testRoundTrip32" + " skip targets: " + "interp, js");
             return;
         } #else null #end;
-        var _step = (997u32 : stdgo.GoUInt32);
+        var _step = ((997u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         if (stdgo._internal.testing.Testing.short()) {
             _step = (99991u32 : stdgo.GoUInt32);
         };
         var _count = (0 : stdgo.GoInt);
         {
-            var _i = (0u32 : stdgo.GoUInt32);
+            var _i = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
             stdgo.Go.cfor((_i < (2139095040u32 : stdgo.GoUInt32) : Bool), _i = (_i + (_step) : stdgo.GoUInt32), {
-                var _f = stdgo._internal.math.Math.float32frombits(_i);
+                var _f = (stdgo._internal.math.Math.float32frombits(_i) : stdgo.GoFloat32);
                 if ((_i & (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) == ((1u32 : stdgo.GoUInt32))) {
                     _f = -_f;
                 };
-                var _s = formatFloat((_f : stdgo.GoFloat64), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__();
+                var _s = (formatFloat((_f : stdgo.GoFloat64), (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                 var __tmp__ = parseFloat(_s?.__copy__(), (32 : stdgo.GoInt)), _parsed:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 var _parsed32 = (_parsed : stdgo.GoFloat32);
                 if (_err != null) {
@@ -1966,7 +1966,7 @@ function benchmarkAtof32FloatExp(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>
         };
     }
 function benchmarkAtof32Random(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _n = (997u32 : stdgo.GoUInt32);
+        var _n = ((997u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         var _float32strings:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(4096, 4096, ...[for (i in 0 ... 4096) ("" : stdgo.GoString)]);
         for (_i => _ in _float32strings) {
             _n = (((((99991u32 : stdgo.GoUInt32) * _n : stdgo.GoUInt32) + (42u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) % (2139095040u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
@@ -1981,7 +1981,7 @@ function benchmarkAtof32Random(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):
         };
     }
 function benchmarkAtof32RandomLong(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-        var _n = (997u32 : stdgo.GoUInt32);
+        var _n = ((997u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         var _float32strings:stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(4096, 4096, ...[for (i in 0 ... 4096) ("" : stdgo.GoString)]);
         for (_i => _ in _float32strings) {
             _n = (((((99991u32 : stdgo.GoUInt32) * _n : stdgo.GoUInt32) + (42u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) % (2139095040u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
@@ -2144,7 +2144,7 @@ function _equalError(_a:stdgo.Error, _b:stdgo.Error):Bool {
 function testParseIntBitSize(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_i => _ in _parseBitSizeTests) {
             var _test = (stdgo.Go.setRef(_parseBitSizeTests[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.strconv_test.Strconv_test.T_parseErrorTest>);
-            var _testErr = _test._errStub(("ParseInt" : stdgo.GoString), _test._arg);
+            var _testErr = (_test._errStub(("ParseInt" : stdgo.GoString), _test._arg) : stdgo.Error);
             var __tmp__ = parseInt(("0" : stdgo.GoString), (0 : stdgo.GoInt), _test._arg), __0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (!_equalError(_testErr, _err)) {
                 _t.errorf(("ParseInt(\"0\", 0, %v) = 0, %v want 0, %v" : stdgo.GoString), stdgo.Go.toInterface(_test._arg), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_testErr));
@@ -2154,7 +2154,7 @@ function testParseIntBitSize(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
 function testParseUintBitSize(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_i => _ in _parseBitSizeTests) {
             var _test = (stdgo.Go.setRef(_parseBitSizeTests[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.strconv_test.Strconv_test.T_parseErrorTest>);
-            var _testErr = _test._errStub(("ParseUint" : stdgo.GoString), _test._arg);
+            var _testErr = (_test._errStub(("ParseUint" : stdgo.GoString), _test._arg) : stdgo.Error);
             var __tmp__ = parseUint(("0" : stdgo.GoString), (0 : stdgo.GoInt), _test._arg), __0:stdgo.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (!_equalError(_testErr, _err)) {
                 _t.errorf(("ParseUint(\"0\", 0, %v) = 0, %v want 0, %v" : stdgo.GoString), stdgo.Go.toInterface(_test._arg), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_testErr));
@@ -2164,7 +2164,7 @@ function testParseUintBitSize(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
 function testParseIntBase(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_i => _ in _parseBaseTests) {
             var _test = (stdgo.Go.setRef(_parseBaseTests[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.strconv_test.Strconv_test.T_parseErrorTest>);
-            var _testErr = _test._errStub(("ParseInt" : stdgo.GoString), _test._arg);
+            var _testErr = (_test._errStub(("ParseInt" : stdgo.GoString), _test._arg) : stdgo.Error);
             var __tmp__ = parseInt(("0" : stdgo.GoString), _test._arg, (0 : stdgo.GoInt)), __0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (!_equalError(_testErr, _err)) {
                 _t.errorf(("ParseInt(\"0\", %v, 0) = 0, %v want 0, %v" : stdgo.GoString), stdgo.Go.toInterface(_test._arg), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_testErr));
@@ -2174,7 +2174,7 @@ function testParseIntBase(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 function testParseUintBase(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_i => _ in _parseBaseTests) {
             var _test = (stdgo.Go.setRef(_parseBaseTests[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.strconv_test.Strconv_test.T_parseErrorTest>);
-            var _testErr = _test._errStub(("ParseUint" : stdgo.GoString), _test._arg);
+            var _testErr = (_test._errStub(("ParseUint" : stdgo.GoString), _test._arg) : stdgo.Error);
             var __tmp__ = parseUint(("0" : stdgo.GoString), _test._arg, (0 : stdgo.GoInt)), __0:stdgo.GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (!_equalError(_testErr, _err)) {
                 _t.errorf(("ParseUint(\"0\", %v, 0) = 0, %v want 0, %v" : stdgo.GoString), stdgo.Go.toInterface(_test._arg), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_testErr));
@@ -2185,7 +2185,7 @@ function testNumError(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _numErrorTests) {
             var _err = (stdgo.Go.setRef(({ func : ("ParseFloat" : stdgo.GoString), num : _test._num?.__copy__(), err : stdgo._internal.errors.Errors.new_(("failed" : stdgo.GoString)) } : stdgo._internal.strconv.Strconv.NumError)) : stdgo.Ref<stdgo._internal.strconv.Strconv.NumError>);
             {
-                var _got = _err.error()?.__copy__();
+                var _got = (_err.error()?.__copy__() : stdgo.GoString);
                 if (_got != (_test._want)) {
                     _t.errorf(("(&NumError{\"ParseFloat\", %q, \"failed\"}).Error() = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._num), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_test._want));
                 };
@@ -2210,7 +2210,7 @@ function _benchmarkParseInt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _ne
         var _cases = (new stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_benchCase>(5, 5, ...[(new stdgo._internal.strconv_test.Strconv_test.T_benchCase(("7bit" : stdgo.GoString), (127i64 : stdgo.GoInt64)) : stdgo._internal.strconv_test.Strconv_test.T_benchCase), (new stdgo._internal.strconv_test.Strconv_test.T_benchCase(("26bit" : stdgo.GoString), (67108863i64 : stdgo.GoInt64)) : stdgo._internal.strconv_test.Strconv_test.T_benchCase), (new stdgo._internal.strconv_test.Strconv_test.T_benchCase(("31bit" : stdgo.GoString), (2147483647i64 : stdgo.GoInt64)) : stdgo._internal.strconv_test.Strconv_test.T_benchCase), (new stdgo._internal.strconv_test.Strconv_test.T_benchCase(("56bit" : stdgo.GoString), (72057594037927935i64 : stdgo.GoInt64)) : stdgo._internal.strconv_test.Strconv_test.T_benchCase), (new stdgo._internal.strconv_test.Strconv_test.T_benchCase(("63bit" : stdgo.GoString), (9223372036854775807i64 : stdgo.GoInt64)) : stdgo._internal.strconv_test.Strconv_test.T_benchCase)].concat([for (i in 5 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.strconv_test.Strconv_test.T_benchCase)])) : stdgo.Slice<stdgo._internal.strconv_test.Strconv_test.T_benchCase>);
         for (__0 => _cs in _cases) {
             _b.run(_cs._name?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-                var _s = stdgo._internal.fmt.Fmt.sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface((_cs._num * (_neg : stdgo.GoInt64) : stdgo.GoInt64)))?.__copy__();
+                var _s = (stdgo._internal.fmt.Fmt.sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface((_cs._num * (_neg : stdgo.GoInt64) : stdgo.GoInt64)))?.__copy__() : stdgo.GoString);
                 {
                     var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -2236,7 +2236,7 @@ function _benchmarkAtoi(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _neg:st
         };
         for (__0 => _cs in _cases) {
             _b.run(_cs._name?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-                var _s = stdgo._internal.fmt.Fmt.sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface((_cs._num * (_neg : stdgo.GoInt64) : stdgo.GoInt64)))?.__copy__();
+                var _s = (stdgo._internal.fmt.Fmt.sprintf(("%d" : stdgo.GoString), stdgo.Go.toInterface((_cs._num * (_neg : stdgo.GoInt64) : stdgo.GoInt64)))?.__copy__() : stdgo.GoString);
                 {
                     var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
@@ -2250,7 +2250,7 @@ function _benchmarkAtoi(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>, _neg:st
 function testFormatComplex(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _tests = (new stdgo.Slice<T__struct_1>(9, 9, ...[({ _c : ((1f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 2f64)), _fmt : (103 : stdgo.GoUInt8), _prec : (-1 : stdgo.GoInt), _bitSize : (128 : stdgo.GoInt), _out : ("(1+2i)" : stdgo.GoString) } : T__struct_1), ({ _c : ((3f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, -4f64)), _fmt : (103 : stdgo.GoUInt8), _prec : (-1 : stdgo.GoInt), _bitSize : (128 : stdgo.GoInt), _out : ("(3-4i)" : stdgo.GoString) } : T__struct_1), ({ _c : ((-5f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 6f64)), _fmt : (103 : stdgo.GoUInt8), _prec : (-1 : stdgo.GoInt), _bitSize : (128 : stdgo.GoInt), _out : ("(-5+6i)" : stdgo.GoString) } : T__struct_1), ({ _c : ((-7f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, -8f64)), _fmt : (103 : stdgo.GoUInt8), _prec : (-1 : stdgo.GoInt), _bitSize : (128 : stdgo.GoInt), _out : ("(-7-8i)" : stdgo.GoString) } : T__struct_1), ({ _c : ((3.14159f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0.00123f64)), _fmt : (101 : stdgo.GoUInt8), _prec : (3 : stdgo.GoInt), _bitSize : (128 : stdgo.GoInt), _out : ("(3.142e+00+1.230e-03i)" : stdgo.GoString) } : T__struct_1), ({ _c : ((3.14159f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0.00123f64)), _fmt : (102 : stdgo.GoUInt8), _prec : (3 : stdgo.GoInt), _bitSize : (128 : stdgo.GoInt), _out : ("(3.142+0.001i)" : stdgo.GoString) } : T__struct_1), ({ _c : ((3.14159f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0.00123f64)), _fmt : (103 : stdgo.GoUInt8), _prec : (3 : stdgo.GoInt), _bitSize : (128 : stdgo.GoInt), _out : ("(3.14+0.00123i)" : stdgo.GoString) } : T__struct_1), ({ _c : ((1.2345678901234567f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 9.876543210987654f64)), _fmt : (102 : stdgo.GoUInt8), _prec : (-1 : stdgo.GoInt), _bitSize : (128 : stdgo.GoInt), _out : ("(1.2345678901234567+9.876543210987654i)" : stdgo.GoString) } : T__struct_1), ({ _c : ((1.2345678901234567f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 9.876543210987654f64)), _fmt : (102 : stdgo.GoUInt8), _prec : (-1 : stdgo.GoInt), _bitSize : (64 : stdgo.GoInt), _out : ("(1.2345679+9.876543i)" : stdgo.GoString) } : T__struct_1)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({ _c : new stdgo.GoComplex128(0, 0), _fmt : (0 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _bitSize : (0 : stdgo.GoInt), _out : ("" : stdgo.GoString) } : T__struct_1)])) : stdgo.Slice<T__struct_1>);
         for (__0 => _test in _tests) {
-            var _out = formatComplex(_test._c, _test._fmt, _test._prec, _test._bitSize)?.__copy__();
+            var _out = (formatComplex(_test._c, _test._fmt, _test._prec, _test._bitSize)?.__copy__() : stdgo.GoString);
             if (_out != (_test._out)) {
                 _t.fatalf(("FormatComplex(%v, %q, %d, %d) = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_test._c), stdgo.Go.toInterface(_test._fmt), stdgo.Go.toInterface(_test._prec), stdgo.Go.toInterface(_test._bitSize), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_test._out));
             };
@@ -2266,7 +2266,7 @@ function testFormatComplexInvalidBitSize(_t:stdgo.Ref<stdgo._internal.testing.Te
                             final r = stdgo.Go.recover_exception;
                             stdgo.Go.recover_exception = null;
                             r;
-                        });
+                        } : stdgo.AnyInterface);
                         if (_r == null) {
                             _t.fatalf(("expected panic due to invalid bitSize" : stdgo.GoString));
                         };
@@ -2303,7 +2303,7 @@ function testDecimalShift(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 var _test = (stdgo.Go.setRef(_shifttests[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.strconv_test.Strconv_test.T_shiftTest>);
                 var _d = newDecimal(_test._i);
                 _d.shift(_test._shift);
-                var _s = (_d.string() : stdgo.GoString)?.__copy__();
+                var _s = ((_d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_s != (_test._out)) {
                     _t.errorf(("Decimal %v << %v = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_test._shift), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._out));
                 };
@@ -2317,7 +2317,7 @@ function testDecimalRound(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 var _test = (stdgo.Go.setRef(_roundtests[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.strconv_test.Strconv_test.T_roundTest>);
                 var _d = newDecimal(_test._i);
                 _d.roundDown(_test._nd);
-                var _s = (_d.string() : stdgo.GoString)?.__copy__();
+                var _s = ((_d.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 if (_s != (_test._down)) {
                     _t.errorf(("Decimal %v RoundDown %d = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_test._nd), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._down));
                 };
@@ -2340,10 +2340,10 @@ function testDecimalRoundedInteger(_t:stdgo.Ref<stdgo._internal.testing.Testing.
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_roundinttests.length) : Bool), _i++, {
-                var _test = _roundinttests[(_i : stdgo.GoInt)];
+                var _test = (_roundinttests[(_i : stdgo.GoInt)] : stdgo._internal.strconv_test.Strconv_test.T_roundIntTest);
                 var _d = newDecimal(_test._i);
                 _d.shift(_test._shift);
-                var _int = _d.roundedInteger();
+                var _int = (_d.roundedInteger() : stdgo.GoUInt64);
                 if (_int != (_test._int)) {
                     _t.errorf(("Decimal %v >> %v RoundedInteger = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._i), stdgo.Go.toInterface(_test._shift), stdgo.Go.toInterface(_int), stdgo.Go.toInterface(_test._int));
                 };
@@ -2413,50 +2413,50 @@ function exampleCanBackquote():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.strconv.Strconv.canBackquote(("`can\'t backquote this`" : stdgo.GoString))));
     }
 function exampleFormatBool():Void {
-        var _v = true;
-        var _s = stdgo._internal.strconv.Strconv.formatBool(_v)?.__copy__();
+        var _v = (true : Bool);
+        var _s = (stdgo._internal.strconv.Strconv.formatBool(_v)?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_s));
     }
 function exampleFormatFloat():Void {
         var _v = (3.1415926535 : stdgo.GoFloat64);
-        var _s32 = stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__();
+        var _s32 = (stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s32), stdgo.Go.toInterface(_s32));
-        var _s64 = stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+        var _s64 = (stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s64), stdgo.Go.toInterface(_s64));
-        var _fmt64 = stdgo._internal.strconv.Strconv.formatFloat(_v, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+        var _fmt64 = (stdgo._internal.strconv.Strconv.formatFloat(_v, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_fmt64), stdgo.Go.toInterface(_fmt64));
     }
 function exampleFormatInt():Void {
-        var _v = (-42i64 : stdgo.GoInt64);
-        var _s10 = stdgo._internal.strconv.Strconv.formatInt(_v, (10 : stdgo.GoInt))?.__copy__();
+        var _v = ((-42i64 : stdgo.GoInt64) : stdgo.GoInt64);
+        var _s10 = (stdgo._internal.strconv.Strconv.formatInt(_v, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s10), stdgo.Go.toInterface(_s10));
-        var _s16 = stdgo._internal.strconv.Strconv.formatInt(_v, (16 : stdgo.GoInt))?.__copy__();
+        var _s16 = (stdgo._internal.strconv.Strconv.formatInt(_v, (16 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s16), stdgo.Go.toInterface(_s16));
     }
 function exampleFormatUint():Void {
-        var _v = (42i64 : stdgo.GoUInt64);
-        var _s10 = stdgo._internal.strconv.Strconv.formatUint(_v, (10 : stdgo.GoInt))?.__copy__();
+        var _v = ((42i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _s10 = (stdgo._internal.strconv.Strconv.formatUint(_v, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s10), stdgo.Go.toInterface(_s10));
-        var _s16 = stdgo._internal.strconv.Strconv.formatUint(_v, (16 : stdgo.GoInt))?.__copy__();
+        var _s16 = (stdgo._internal.strconv.Strconv.formatUint(_v, (16 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s16), stdgo.Go.toInterface(_s16));
     }
 function exampleIsGraphic():Void {
-        var _shamrock = stdgo._internal.strconv.Strconv.isGraphic((9752 : stdgo.GoInt32));
+        var _shamrock = (stdgo._internal.strconv.Strconv.isGraphic((9752 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_shamrock));
-        var _a = stdgo._internal.strconv.Strconv.isGraphic((97 : stdgo.GoInt32));
+        var _a = (stdgo._internal.strconv.Strconv.isGraphic((97 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_a));
-        var _bel = stdgo._internal.strconv.Strconv.isGraphic((7 : stdgo.GoInt32));
+        var _bel = (stdgo._internal.strconv.Strconv.isGraphic((7 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_bel));
     }
 function exampleIsPrint():Void {
-        var _c = stdgo._internal.strconv.Strconv.isPrint((9786 : stdgo.GoInt32));
+        var _c = (stdgo._internal.strconv.Strconv.isPrint((9786 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_c));
-        var _bel = stdgo._internal.strconv.Strconv.isPrint((7 : stdgo.GoInt32));
+        var _bel = (stdgo._internal.strconv.Strconv.isPrint((7 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_bel));
     }
 function exampleItoa():Void {
         var _i = (10 : stdgo.GoInt);
-        var _s = stdgo._internal.strconv.Strconv.itoa(_i)?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.itoa(_i)?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_s));
     }
 function exampleParseBool():Void {
@@ -2569,19 +2569,19 @@ function exampleParseUint():Void {
         };
     }
 function exampleQuote():Void {
-        var _s = stdgo._internal.strconv.Strconv.quote(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quote(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 function exampleQuoteRune():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteRune((9786 : stdgo.GoInt32))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteRune((9786 : stdgo.GoInt32))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 function exampleQuoteRuneToASCII():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteRuneToASCII((9786 : stdgo.GoInt32))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteRuneToASCII((9786 : stdgo.GoInt32))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 function exampleQuoteRuneToGraphic():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteRuneToGraphic((9786 : stdgo.GoInt32))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteRuneToGraphic((9786 : stdgo.GoInt32))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
         _s = stdgo._internal.strconv.Strconv.quoteRuneToGraphic((9786 : stdgo.GoInt32))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
@@ -2591,11 +2591,11 @@ function exampleQuoteRuneToGraphic():Void {
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 function exampleQuoteToASCII():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteToASCII(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteToASCII(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 function exampleQuoteToGraphic():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteToGraphic(("☺" : stdgo.GoString))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteToGraphic(("☺" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
         _s = stdgo._internal.strconv.Strconv.quoteToGraphic(("This is a ☺\t\n" : stdgo.GoString))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
@@ -2743,7 +2743,7 @@ function testFp(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             {
                 var _lineno = (1 : stdgo.GoInt);
                 stdgo.Go.cfor(_s.scan(), _lineno++, {
-                    var _line = _s.text()?.__copy__();
+                    var _line = (_s.text()?.__copy__() : stdgo.GoString);
                     if (((_line.length == (0 : stdgo.GoInt)) || (_line[(0 : stdgo.GoInt)] == (35 : stdgo.GoUInt8)) : Bool)) {
                         continue;
                     };
@@ -2829,7 +2829,7 @@ function testFtoa(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_ftoatests.length) : Bool), _i++, {
                 var _test = (stdgo.Go.setRef(_ftoatests[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.strconv_test.Strconv_test.T_ftoaTest>);
-                var _s = formatFloat(_test._f, _test._fmt, _test._prec, (64 : stdgo.GoInt))?.__copy__();
+                var _s = (formatFloat(_test._f, _test._fmt, _test._prec, (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                 if (_s != (_test._s)) {
                     _t.error(stdgo.Go.toInterface(("testN=64" : stdgo.GoString)), stdgo.Go.toInterface(_test._f), stdgo.Go.toInterface((_test._fmt : stdgo.GoString)), stdgo.Go.toInterface(_test._prec), stdgo.Go.toInterface(("want" : stdgo.GoString)), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(("got" : stdgo.GoString)), stdgo.Go.toInterface(_s));
                 };
@@ -2838,7 +2838,7 @@ function testFtoa(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     _t.error(stdgo.Go.toInterface(("AppendFloat testN=64" : stdgo.GoString)), stdgo.Go.toInterface(_test._f), stdgo.Go.toInterface((_test._fmt : stdgo.GoString)), stdgo.Go.toInterface(_test._prec), stdgo.Go.toInterface(("want" : stdgo.GoString)), stdgo.Go.toInterface((("abc" : stdgo.GoString) + _test._s?.__copy__() : stdgo.GoString)), stdgo.Go.toInterface(("got" : stdgo.GoString)), stdgo.Go.toInterface((_x : stdgo.GoString)));
                 };
                 if (((((_test._f : stdgo.GoFloat32) : stdgo.GoFloat64) == _test._f) && (_test._fmt != (98 : stdgo.GoUInt8)) : Bool)) {
-                    var _s = formatFloat(_test._f, _test._fmt, _test._prec, (32 : stdgo.GoInt))?.__copy__();
+                    var _s = (formatFloat(_test._f, _test._fmt, _test._prec, (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                     if (_s != (_test._s)) {
                         _t.error(stdgo.Go.toInterface(("testN=32" : stdgo.GoString)), stdgo.Go.toInterface(_test._f), stdgo.Go.toInterface((_test._fmt : stdgo.GoString)), stdgo.Go.toInterface(_test._prec), stdgo.Go.toInterface(("want" : stdgo.GoString)), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(("got" : stdgo.GoString)), stdgo.Go.toInterface(_s));
                     };
@@ -2856,9 +2856,9 @@ function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
         {
             var _exp = (-2048 : stdgo.GoInt);
             stdgo.Go.cfor((_exp <= (2048 : stdgo.GoInt) : Bool), _exp++, {
-                var _f = stdgo._internal.math.Math.ldexp((1 : stdgo.GoFloat64), _exp);
+                var _f = (stdgo._internal.math.Math.ldexp((1 : stdgo.GoFloat64), _exp) : stdgo.GoFloat64);
                 if (!stdgo._internal.math.Math.isInf(_f, (0 : stdgo.GoInt))) {
-                    var _s = formatFloat(_f, (101 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+                    var _s = (formatFloat(_f, (101 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                     {
                         var __tmp__ = parseFloat(_s?.__copy__(), (64 : stdgo.GoInt)), _x:stdgo.GoFloat64 = __tmp__._0, __0:stdgo.Error = __tmp__._1;
                         if (_x != (_f)) {
@@ -2868,7 +2868,7 @@ function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
                 };
                 var _f32 = (_f : stdgo.GoFloat32);
                 if (!stdgo._internal.math.Math.isInf((_f32 : stdgo.GoFloat64), (0 : stdgo.GoInt))) {
-                    var _s = formatFloat((_f32 : stdgo.GoFloat64), (101 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__();
+                    var _s = (formatFloat((_f32 : stdgo.GoFloat64), (101 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                     {
                         var __tmp__ = parseFloat(_s?.__copy__(), (32 : stdgo.GoInt)), _x:stdgo.GoFloat64 = __tmp__._0, __9:stdgo.Error = __tmp__._1;
                         if ((_x : stdgo.GoFloat32) != (_f32)) {
@@ -2882,7 +2882,7 @@ function testFtoaPowersOfTwo(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):V
 function testFtoaRandom(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         trace("testFtoaRandom" + " skip function");
         return;
-        var n = (10000 : stdgo.GoInt);
+        var n = ((10000 : stdgo.GoInt) : stdgo.GoInt);
         if (stdgo._internal.testing.Testing.short()) {
             n = (100 : stdgo.GoInt);
         };
@@ -2891,10 +2891,10 @@ function testFtoaRandom(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < n : Bool), _i++, {
                 var _bits = (((stdgo._internal.math.rand.Rand.uint32() : stdgo.GoUInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (stdgo._internal.math.rand.Rand.uint32() : stdgo.GoUInt64) : stdgo.GoUInt64);
-                var _x = stdgo._internal.math.Math.float64frombits(_bits);
-                var _shortFast = formatFloat(_x, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+                var _x = (stdgo._internal.math.Math.float64frombits(_bits) : stdgo.GoFloat64);
+                var _shortFast = (formatFloat(_x, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                 setOptimize(false);
-                var _shortSlow = formatFloat(_x, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+                var _shortSlow = (formatFloat(_x, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                 setOptimize(true);
                 if (_shortSlow != (_shortFast)) {
                     _t.errorf(("%b printed as %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_shortFast), stdgo.Go.toInterface(_shortSlow));
@@ -2920,7 +2920,7 @@ function testFormatFloatInvalidBitSize(_t:stdgo.Ref<stdgo._internal.testing.Test
                             final r = stdgo.Go.recover_exception;
                             stdgo.Go.recover_exception = null;
                             r;
-                        });
+                        } : stdgo.AnyInterface);
                         if (_r == null) {
                             _t.fatalf(("expected panic due to invalid bitSize" : stdgo.GoString));
                         };
@@ -2979,7 +2979,7 @@ function testMulByLog2Log10(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         {
             var _x = (-1600 : stdgo.GoInt);
             stdgo.Go.cfor((_x <= (1600 : stdgo.GoInt) : Bool), _x++, {
-                var _iMath = mulByLog2Log10(_x);
+                var _iMath = (mulByLog2Log10(_x) : stdgo.GoInt);
                 var _fMath = (stdgo._internal.math.Math.floor((((_x : stdgo.GoFloat64) * (0.6931471805599453 : stdgo.GoFloat64) : stdgo.GoFloat64) / (2.302585092994046 : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoInt);
                 if (_iMath != (_fMath)) {
                     _t.errorf(("mulByLog2Log10(%d) failed: %d vs %d\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_iMath), stdgo.Go.toInterface(_fMath));
@@ -2991,7 +2991,7 @@ function testMulByLog10Log2(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         {
             var _x = (-500 : stdgo.GoInt);
             stdgo.Go.cfor((_x <= (500 : stdgo.GoInt) : Bool), _x++, {
-                var _iMath = mulByLog10Log2(_x);
+                var _iMath = (mulByLog10Log2(_x) : stdgo.GoInt);
                 var _fMath = (stdgo._internal.math.Math.floor((((_x : stdgo.GoFloat64) * (2.302585092994046 : stdgo.GoFloat64) : stdgo.GoFloat64) / (0.6931471805599453 : stdgo.GoFloat64) : stdgo.GoFloat64)) : stdgo.GoInt);
                 if (_iMath != (_fMath)) {
                     _t.errorf(("mulByLog10Log2(%d) failed: %d vs %d\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_iMath), stdgo.Go.toInterface(_fMath));
@@ -3003,7 +3003,7 @@ function testItoa(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             for (__0 => _test in _itob64tests) {
-                var _s = formatInt(_test._in, _test._base)?.__copy__();
+                var _s = (formatInt(_test._in, _test._base)?.__copy__() : stdgo.GoString);
                 if (_s != (_test._out)) {
                     _t.errorf(("FormatInt(%v, %v) = %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_test._base), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._out));
                 };
@@ -3012,7 +3012,7 @@ function testItoa(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     _t.errorf(("AppendInt(%q, %v, %v) = %q want %v" : stdgo.GoString), stdgo.Go.toInterface(("abc" : stdgo.GoString)), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_test._base), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_test._out));
                 };
                 if ((_test._in >= (0i64 : stdgo.GoInt64) : Bool)) {
-                    var _s = formatUint((_test._in : stdgo.GoUInt64), _test._base)?.__copy__();
+                    var _s = (formatUint((_test._in : stdgo.GoUInt64), _test._base)?.__copy__() : stdgo.GoString);
                     if (_s != (_test._out)) {
                         _t.errorf(("FormatUint(%v, %v) = %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_test._base), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._out));
                     };
@@ -3022,7 +3022,7 @@ function testItoa(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     };
                 };
                 if (((_test._base == (10 : stdgo.GoInt)) && (((_test._in : stdgo.GoInt) : stdgo.GoInt64) == _test._in) : Bool)) {
-                    var _s = itoa((_test._in : stdgo.GoInt))?.__copy__();
+                    var _s = (itoa((_test._in : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                     if (_s != (_test._out)) {
                         _t.errorf(("Itoa(%v) = %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._out));
                     };
@@ -3035,7 +3035,7 @@ function testItoa(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                             final r = stdgo.Go.recover_exception;
                             stdgo.Go.recover_exception = null;
                             r;
-                        });
+                        } : stdgo.AnyInterface);
                         if (_r == null) {
                             _t.fatalf(("expected panic due to illegal base" : stdgo.GoString));
                         };
@@ -3067,7 +3067,7 @@ function testItoa(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testUitoa(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _uitob64tests) {
-            var _s = formatUint(_test._in, _test._base)?.__copy__();
+            var _s = (formatUint(_test._in, _test._base)?.__copy__() : stdgo.GoString);
             if (_s != (_test._out)) {
                 _t.errorf(("FormatUint(%v, %v) = %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_test._base), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._out));
             };
@@ -3079,7 +3079,7 @@ function testUitoa(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testFormatUintVarlen(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _test in _varlenUints) {
-            var _s = formatUint(_test._in, (10 : stdgo.GoInt))?.__copy__();
+            var _s = (formatUint(_test._in, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
             if (_s != (_test._out)) {
                 _t.errorf(("FormatUint(%v, 10) = %v want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._out));
             };
@@ -3090,7 +3090,7 @@ function benchmarkFormatInt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Voi
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 for (__8 => _test in _itob64tests) {
-                    var _s = formatInt(_test._in, _test._base)?.__copy__();
+                    var _s = (formatInt(_test._in, _test._base)?.__copy__() : stdgo.GoString);
                     benchSink = (benchSink + ((_s.length)) : stdgo.GoInt);
                 };
             });
@@ -3113,7 +3113,7 @@ function benchmarkFormatUint(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Vo
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                 for (__8 => _test in _uitob64tests) {
-                    var _s = formatUint(_test._in, _test._base)?.__copy__();
+                    var _s = (formatUint(_test._in, _test._base)?.__copy__() : stdgo.GoString);
                     benchSink = (benchSink + ((_s.length)) : stdgo.GoInt);
                 };
             });
@@ -3138,7 +3138,7 @@ function benchmarkFormatIntSmall(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>
                 {
                     var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                        var _s = formatInt(_smallInt, (10 : stdgo.GoInt))?.__copy__();
+                        var _s = (formatInt(_smallInt, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
                         benchSink = (benchSink + ((_s.length)) : stdgo.GoInt);
                     });
                 };
@@ -3173,7 +3173,7 @@ function benchmarkAppendUintVarlen(_b:stdgo.Ref<stdgo._internal.testing.Testing.
 function testIsPrint(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _n = (0 : stdgo.GoInt);
         {
-            var _r = ((0 : stdgo.GoInt32) : stdgo.GoRune);
+            var _r = (((0 : stdgo.GoInt32) : stdgo.GoRune) : stdgo.GoInt32);
             stdgo.Go.cfor((_r <= (1114111 : stdgo.GoInt32) : Bool), _r++, {
                 if (isPrint(_r) != (stdgo._internal.unicode.Unicode.isPrint(_r))) {
                     _t.errorf(("IsPrint(%U)=%t incorrect" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(isPrint(_r)));
@@ -3188,7 +3188,7 @@ function testIsPrint(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testIsGraphic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _n = (0 : stdgo.GoInt);
         {
-            var _r = ((0 : stdgo.GoInt32) : stdgo.GoRune);
+            var _r = (((0 : stdgo.GoInt32) : stdgo.GoRune) : stdgo.GoInt32);
             stdgo.Go.cfor((_r <= (1114111 : stdgo.GoInt32) : Bool), _r++, {
                 if (isGraphic(_r) != (stdgo._internal.unicode.Unicode.isGraphic(_r))) {
                     _t.errorf(("IsGraphic(%U)=%t incorrect" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(isGraphic(_r)));
@@ -3203,7 +3203,7 @@ function testIsGraphic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testQuote(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _quotetests) {
             {
-                var _out = quote(_tt._in?.__copy__())?.__copy__();
+                var _out = (quote(_tt._in?.__copy__())?.__copy__() : stdgo.GoString);
                 if (_out != (_tt._out)) {
                     _t.errorf(("Quote(%s) = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
                 };
@@ -3219,7 +3219,7 @@ function testQuote(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testQuoteToASCII(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _quotetests) {
             {
-                var _out = quoteToASCII(_tt._in?.__copy__())?.__copy__();
+                var _out = (quoteToASCII(_tt._in?.__copy__())?.__copy__() : stdgo.GoString);
                 if (_out != (_tt._ascii)) {
                     _t.errorf(("QuoteToASCII(%s) = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._ascii));
                 };
@@ -3235,7 +3235,7 @@ function testQuoteToASCII(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
 function testQuoteToGraphic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _quotetests) {
             {
-                var _out = quoteToGraphic(_tt._in?.__copy__())?.__copy__();
+                var _out = (quoteToGraphic(_tt._in?.__copy__())?.__copy__() : stdgo.GoString);
                 if (_out != (_tt._graphic)) {
                     _t.errorf(("QuoteToGraphic(%s) = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._graphic));
                 };
@@ -3283,7 +3283,7 @@ function benchmarkAppendQuoteRune(_b:stdgo.Ref<stdgo._internal.testing.Testing.B
 function testQuoteRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _quoterunetests) {
             {
-                var _out = quoteRune(_tt._in)?.__copy__();
+                var _out = (quoteRune(_tt._in)?.__copy__() : stdgo.GoString);
                 if (_out != (_tt._out)) {
                     _t.errorf(("QuoteRune(%U) = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
                 };
@@ -3299,7 +3299,7 @@ function testQuoteRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testQuoteRuneToASCII(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _quoterunetests) {
             {
-                var _out = quoteRuneToASCII(_tt._in)?.__copy__();
+                var _out = (quoteRuneToASCII(_tt._in)?.__copy__() : stdgo.GoString);
                 if (_out != (_tt._ascii)) {
                     _t.errorf(("QuoteRuneToASCII(%U) = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._ascii));
                 };
@@ -3315,7 +3315,7 @@ function testQuoteRuneToASCII(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):
 function testQuoteRuneToGraphic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _quoterunetests) {
             {
-                var _out = quoteRuneToGraphic(_tt._in)?.__copy__();
+                var _out = (quoteRuneToGraphic(_tt._in)?.__copy__() : stdgo.GoString);
                 if (_out != (_tt._graphic)) {
                     _t.errorf(("QuoteRuneToGraphic(%U) = %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._graphic));
                 };
@@ -3331,7 +3331,7 @@ function testQuoteRuneToGraphic(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
 function testCanBackquote(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _canbackquotetests) {
             {
-                var _out = canBackquote(_tt._in?.__copy__());
+                var _out = (canBackquote(_tt._in?.__copy__()) : Bool);
                 if (_out != (_tt._out)) {
                     _t.errorf(("CanBackquote(%q) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_tt._in), stdgo.Go.toInterface(_out), stdgo.Go.toInterface(_tt._out));
                 };
@@ -3412,7 +3412,7 @@ function testCountMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
             _oneMB[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
         };
         for (__16 => _mt in _mallocTest) {
-            var _allocs = stdgo._internal.testing.Testing.allocsPerRun((100 : stdgo.GoInt), _mt._fn);
+            var _allocs = (stdgo._internal.testing.Testing.allocsPerRun((100 : stdgo.GoInt), _mt._fn) : stdgo.GoFloat64);
             {
                 var _max = (_mt._count : stdgo.GoFloat64);
                 if ((_allocs > _max : Bool)) {
@@ -3428,7 +3428,7 @@ function testAllocationsFromBytes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T
             return function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _t.helper();
                 {
-                    var _allocs = stdgo._internal.testing.Testing.allocsPerRun((100 : stdgo.GoInt), _f);
+                    var _allocs = (stdgo._internal.testing.Testing.allocsPerRun((100 : stdgo.GoInt), _f) : stdgo.GoFloat64);
                     if (_allocs != (0 : stdgo.GoFloat64)) {
                         _t.errorf(("got %v allocs, want 0 allocs" : stdgo.GoString), stdgo.Go.toInterface(_allocs));
                     };
@@ -3508,7 +3508,7 @@ function testErrorPrefixes(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Voi
                 continue;
             };
             {
-                var _got = _nerr.func?.__copy__();
+                var _got = (_nerr.func?.__copy__() : stdgo.GoString);
                 if (_got != (_v._want)) {
                     _t.errorf(("mismatching Func: got %s, want %s" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_v._want));
                 };

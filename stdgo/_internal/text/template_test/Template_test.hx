@@ -35,7 +35,7 @@ function exampleTemplate():Void {
             stdgo._internal.text.template.Template.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template.Template>), (__tmp__._1 : stdgo.Error));
         });
         for (__8 => _r in _recipients) {
-            var _err = _t.execute(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), stdgo.Go.toInterface(_r));
+            var _err = (_t.execute(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), stdgo.Go.toInterface(_r)) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.log.Log.println(stdgo.Go.toInterface(("executing template:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
@@ -62,13 +62,13 @@ var _guardians = __1, _funcs = __0;
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
         };
         {
-            var _err = _masterTmpl.execute(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), stdgo.Go.toInterface(_guardians));
+            var _err = (_masterTmpl.execute(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), stdgo.Go.toInterface(_guardians)) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
         };
         {
-            var _err = _overlayTmpl.execute(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), stdgo.Go.toInterface(_guardians));
+            var _err = (_overlayTmpl.execute(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), stdgo.Go.toInterface(_guardians)) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
@@ -128,17 +128,17 @@ function _createTestDir(_files:stdgo.Slice<T_templateFile>):stdgo.GoString {
 function exampleTemplate_glob():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _dir = _createTestDir((new stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>(3, 3, ...[(new stdgo._internal.text.template_test.Template_test.T_templateFile(("T0.tmpl" : stdgo.GoString), ("T0 invokes T1: ({{template \"T1\"}})" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile), (new stdgo._internal.text.template_test.Template_test.T_templateFile(("T1.tmpl" : stdgo.GoString), ("{{define \"T1\"}}T1 invokes T2: ({{template \"T2\"}}){{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile), (new stdgo._internal.text.template_test.Template_test.T_templateFile(("T2.tmpl" : stdgo.GoString), ("{{define \"T2\"}}This is T2{{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template_test.Template_test.T_templateFile)])) : stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>))?.__copy__();
+            var _dir = (_createTestDir((new stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>(3, 3, ...[(new stdgo._internal.text.template_test.Template_test.T_templateFile(("T0.tmpl" : stdgo.GoString), ("T0 invokes T1: ({{template \"T1\"}})" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile), (new stdgo._internal.text.template_test.Template_test.T_templateFile(("T1.tmpl" : stdgo.GoString), ("{{define \"T1\"}}T1 invokes T2: ({{template \"T2\"}}){{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile), (new stdgo._internal.text.template_test.Template_test.T_templateFile(("T2.tmpl" : stdgo.GoString), ("{{define \"T2\"}}This is T2{{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile)].concat([for (i in 3 ... (3 > 3 ? 3 : 3 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template_test.Template_test.T_templateFile)])) : stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>))?.__copy__() : stdgo.GoString);
             {
                 var _a0 = _dir;
                 __deferstack__.unshift(() -> stdgo._internal.os.Os.removeAll(_a0?.__copy__()));
             };
-            var _pattern = stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("*.tmpl" : stdgo.GoString))?.__copy__();
+            var _pattern = (stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("*.tmpl" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             var _tmpl = ({
                 var __tmp__ = stdgo._internal.text.template.Template.parseGlob(_pattern?.__copy__());
                 stdgo._internal.text.template.Template.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template.Template>), (__tmp__._1 : stdgo.Error));
             });
-            var _err = _tmpl.execute(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), (null : stdgo.AnyInterface));
+            var _err = (_tmpl.execute(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), (null : stdgo.AnyInterface)) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.log.Log.fatalf(("template execution: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -166,12 +166,12 @@ function exampleTemplate_glob():Void {
 function exampleTemplate_helpers():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _dir = _createTestDir((new stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>(2, 2, ...[(new stdgo._internal.text.template_test.Template_test.T_templateFile(("T1.tmpl" : stdgo.GoString), ("{{define \"T1\"}}T1 invokes T2: ({{template \"T2\"}}){{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile), (new stdgo._internal.text.template_test.Template_test.T_templateFile(("T2.tmpl" : stdgo.GoString), ("{{define \"T2\"}}This is T2{{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template_test.Template_test.T_templateFile)])) : stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>))?.__copy__();
+            var _dir = (_createTestDir((new stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>(2, 2, ...[(new stdgo._internal.text.template_test.Template_test.T_templateFile(("T1.tmpl" : stdgo.GoString), ("{{define \"T1\"}}T1 invokes T2: ({{template \"T2\"}}){{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile), (new stdgo._internal.text.template_test.Template_test.T_templateFile(("T2.tmpl" : stdgo.GoString), ("{{define \"T2\"}}This is T2{{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template_test.Template_test.T_templateFile)])) : stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>))?.__copy__() : stdgo.GoString);
             {
                 var _a0 = _dir;
                 __deferstack__.unshift(() -> stdgo._internal.os.Os.removeAll(_a0?.__copy__()));
             };
-            var _pattern = stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("*.tmpl" : stdgo.GoString))?.__copy__();
+            var _pattern = (stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("*.tmpl" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             var _templates = ({
                 var __tmp__ = stdgo._internal.text.template.Template.parseGlob(_pattern?.__copy__());
                 stdgo._internal.text.template.Template.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template.Template>), (__tmp__._1 : stdgo.Error));
@@ -219,12 +219,12 @@ function exampleTemplate_helpers():Void {
 function exampleTemplate_share():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _dir = _createTestDir((new stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>(2, 2, ...[(new stdgo._internal.text.template_test.Template_test.T_templateFile(("T0.tmpl" : stdgo.GoString), ("T0 ({{.}} version) invokes T1: ({{template `T1`}})\n" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile), (new stdgo._internal.text.template_test.Template_test.T_templateFile(("T1.tmpl" : stdgo.GoString), ("{{define \"T1\"}}T1 invokes T2: ({{template \"T2\"}}){{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template_test.Template_test.T_templateFile)])) : stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>))?.__copy__();
+            var _dir = (_createTestDir((new stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>(2, 2, ...[(new stdgo._internal.text.template_test.Template_test.T_templateFile(("T0.tmpl" : stdgo.GoString), ("T0 ({{.}} version) invokes T1: ({{template `T1`}})\n" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile), (new stdgo._internal.text.template_test.Template_test.T_templateFile(("T1.tmpl" : stdgo.GoString), ("{{define \"T1\"}}T1 invokes T2: ({{template \"T2\"}}){{end}}" : stdgo.GoString)) : stdgo._internal.text.template_test.Template_test.T_templateFile)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template_test.Template_test.T_templateFile)])) : stdgo.Slice<stdgo._internal.text.template_test.Template_test.T_templateFile>))?.__copy__() : stdgo.GoString);
             {
                 var _a0 = _dir;
                 __deferstack__.unshift(() -> stdgo._internal.os.Os.removeAll(_a0?.__copy__()));
             };
-            var _pattern = stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("*.tmpl" : stdgo.GoString))?.__copy__();
+            var _pattern = (stdgo._internal.path.filepath.Filepath.join(_dir?.__copy__(), ("*.tmpl" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             var _drivers = ({
                 var __tmp__ = stdgo._internal.text.template.Template.parseGlob(_pattern?.__copy__());
                 stdgo._internal.text.template.Template.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template.Template>), (__tmp__._1 : stdgo.Error));
@@ -281,12 +281,12 @@ function exampleTemplate_share():Void {
         };
     }
 function exampleTemplate_func():Void {
-        var _funcMap = ({
+        var _funcMap = (({
             final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
             x.set(("title" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.strings.Strings.title));
             x;
-        } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
+        } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>) : stdgo._internal.text.template.Template.FuncMap);
         {};
         var __tmp__ = stdgo._internal.text.template.Template.new_(("titleTest" : stdgo.GoString)).funcs(_funcMap).parse(("\nInput: {{printf \"%q\" .}}\nOutput 0: {{title .}}\nOutput 1: {{title . | printf \"%q\"}}\nOutput 2: {{printf \"%q\" . | title}}\n" : stdgo.GoString)), _tmpl:stdgo.Ref<stdgo._internal.text.template.Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -303,9 +303,9 @@ function testLinkerGC(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
         stdgo._internal.internal.testenv.Testenv.mustHaveGoBuild(stdgo.Go.asInterface(_t));
         {};
-        var _td = _t.tempDir()?.__copy__();
+        var _td = (_t.tempDir()?.__copy__() : stdgo.GoString);
         {
-            var _err = stdgo._internal.os.Os.writeFile(stdgo._internal.path.filepath.Filepath.join(_td?.__copy__(), ("x.go" : stdgo.GoString))?.__copy__(), (("package main\n\nimport (\n\t_ \"text/template\"\n)\n\ntype T struct{}\n\nfunc (t *T) Unused() { println(\"THIS SHOULD BE ELIMINATED\") }\nfunc (t *T) Used() {}\n\nvar sink *T\n\nfunc main() {\n\tvar t T\n\tsink = &t\n\tt.Used()\n}\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (420u32 : stdgo._internal.io.fs.Fs.FileMode));
+            var _err = (stdgo._internal.os.Os.writeFile(stdgo._internal.path.filepath.Filepath.join(_td?.__copy__(), ("x.go" : stdgo.GoString))?.__copy__(), (("package main\n\nimport (\n\t_ \"text/template\"\n)\n\ntype T struct{}\n\nfunc (t *T) Unused() { println(\"THIS SHOULD BE ELIMINATED\") }\nfunc (t *T) Used() {}\n\nvar sink *T\n\nfunc main() {\n\tvar t T\n\tsink = &t\n\tt.Used()\n}\n" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), (420u32 : stdgo._internal.io.fs.Fs.FileMode)) : stdgo.Error);
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };

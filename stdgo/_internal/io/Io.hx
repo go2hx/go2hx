@@ -1275,9 +1275,9 @@ class T_pipe_asInterface {
     @:keep
     static public function _writeCloseError( _p:stdgo.Ref<T_pipe>):stdgo.Error {
         @:recv var _p:stdgo.Ref<T_pipe> = _p;
-        var _werr = _p._werr.load();
+        var _werr = (_p._werr.load() : stdgo.Error);
         {
-            var _rerr = _p._rerr.load();
+            var _rerr = (_p._rerr.load() : stdgo.Error);
             if (((_werr == null) && (_rerr != null) : Bool)) {
                 return _rerr;
             };
@@ -1287,9 +1287,9 @@ class T_pipe_asInterface {
     @:keep
     static public function _readCloseError( _p:stdgo.Ref<T_pipe>):stdgo.Error {
         @:recv var _p:stdgo.Ref<T_pipe> = _p;
-        var _rerr = _p._rerr.load();
+        var _rerr = (_p._rerr.load() : stdgo.Error);
         {
-            var _werr = _p._werr.load();
+            var _werr = (_p._werr.load() : stdgo.Error);
             if (((_rerr == null) && (_werr != null) : Bool)) {
                 return _werr;
             };
@@ -1337,7 +1337,7 @@ class T_pipe_asInterface {
                 };
             };
             {
-                var _once = true;
+                var _once = (true : Bool);
                 stdgo.Go.cfor((_once || ((_b.length) > (0 : stdgo.GoInt) : Bool) : Bool), _once = false, {
                     {
                         var __select__ = true;
@@ -1347,7 +1347,7 @@ class T_pipe_asInterface {
                                 {
                                     _p._wrCh.__send__(_b);
                                     {
-                                        var _nw = _p._rdCh.__get__();
+                                        var _nw = (_p._rdCh.__get__() : stdgo.GoInt);
                                         _b = (_b.__slice__(_nw) : stdgo.Slice<stdgo.GoUInt8>);
                                         _n = (_n + (_nw) : stdgo.GoInt);
                                     };
@@ -1447,7 +1447,7 @@ class T_pipe_asInterface {
                         {
                             var _bw = _p._wrCh.__get__();
                             {
-                                var _nr = stdgo.Go.copySlice(_b, _bw);
+                                var _nr = (stdgo.Go.copySlice(_b, _bw) : stdgo.GoInt);
                                 _p._rdCh.__send__(_nr);
                                 return { _0 : _nr, _1 : (null : stdgo.Error) };
                             };

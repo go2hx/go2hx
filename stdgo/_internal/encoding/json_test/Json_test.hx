@@ -30,7 +30,7 @@ function example_customMarshalJSON():Void {
         var _blob = ("[\"gopher\",\"armadillo\",\"zebra\",\"unknown\",\"gopher\",\"bee\",\"gopher\",\"zebra\"]" : stdgo.GoString);
         var _zoo:stdgo.Slice<Animal> = (null : stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.Animal>);
         {
-            var _err = stdgo._internal.encoding.json.Json.unmarshal((_blob : stdgo.Slice<stdgo.GoByte>), stdgo.Go.toInterface((stdgo.Go.setRef(_zoo) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.Animal>>)));
+            var _err = (stdgo._internal.encoding.json.Json.unmarshal((_blob : stdgo.Slice<stdgo.GoByte>), stdgo.Go.toInterface((stdgo.Go.setRef(_zoo) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.Animal>>))) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
@@ -85,7 +85,7 @@ function exampleUnmarshal():Void {
         var _jsonBlob:stdgo.Slice<stdgo.GoUInt8> = (("[\n\t{\"Name\": \"Platypus\", \"Order\": \"Monotremata\"},\n\t{\"Name\": \"Quoll\",    \"Order\": \"Dasyuromorphia\"}\n]" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         {};
         var _animals:stdgo.Slice<T_exampleUnmarshal___localname___Animal_809> = (null : stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleUnmarshal___localname___Animal_809>);
-        var _err = stdgo._internal.encoding.json.Json.unmarshal(_jsonBlob, stdgo.Go.toInterface((stdgo.Go.setRef(_animals) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleUnmarshal___localname___Animal_809>>)));
+        var _err = (stdgo._internal.encoding.json.Json.unmarshal(_jsonBlob, stdgo.Go.toInterface((stdgo.Go.setRef(_animals) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleUnmarshal___localname___Animal_809>>))) : stdgo.Error);
         if (_err != null) {
             stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -110,7 +110,7 @@ function exampleDecoder():Void {
         while (true) {
             var _m:T_exampleDecoder___localname___Message_1418 = ({} : stdgo._internal.encoding.json_test.Json_test.T_exampleDecoder___localname___Message_1418);
             {
-                var _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_m) : stdgo.Ref<stdgo._internal.encoding.json_test.Json_test.T_exampleDecoder___localname___Message_1418>)));
+                var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_m) : stdgo.Ref<stdgo._internal.encoding.json_test.Json_test.T_exampleDecoder___localname___Message_1418>))) : stdgo.Error);
                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io.eof))) {
                     break;
                 } else if (_err != null) {
@@ -161,7 +161,7 @@ function exampleDecoder_Decode_stream():Void {
         stdgo._internal.fmt.Fmt.printf(("%T: %v\n" : stdgo.GoString), stdgo.Go.toInterface(_t), stdgo.Go.toInterface(_t));
         while (_dec.more()) {
             var _m:T_exampleDecoder_Decode_stream___localname___Message_2956 = ({} : stdgo._internal.encoding.json_test.Json_test.T_exampleDecoder_Decode_stream___localname___Message_2956);
-            var _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_m) : stdgo.Ref<stdgo._internal.encoding.json_test.Json_test.T_exampleDecoder_Decode_stream___localname___Message_2956>)));
+            var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_m) : stdgo.Ref<stdgo._internal.encoding.json_test.Json_test.T_exampleDecoder_Decode_stream___localname___Message_2956>))) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
@@ -223,7 +223,7 @@ function exampleRawMessage_unmarshal():Void {
         {};
         var _j:stdgo.Slice<stdgo.GoUInt8> = (("[\n\t{\"Space\": \"YCbCr\", \"Point\": {\"Y\": 255, \"Cb\": 0, \"Cr\": -10}},\n\t{\"Space\": \"RGB\",   \"Point\": {\"R\": 98, \"G\": 218, \"B\": 255}}\n]" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
         var _colors:stdgo.Slice<T_exampleRawMessage_unmarshal___localname___Color_3769> = (null : stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleRawMessage_unmarshal___localname___Color_3769>);
-        var _err = stdgo._internal.encoding.json.Json.unmarshal(_j, stdgo.Go.toInterface((stdgo.Go.setRef(_colors) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleRawMessage_unmarshal___localname___Color_3769>>)));
+        var _err = (stdgo._internal.encoding.json.Json.unmarshal(_j, stdgo.Go.toInterface((stdgo.Go.setRef(_colors) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.T_exampleRawMessage_unmarshal___localname___Color_3769>>))) : stdgo.Error);
         if (_err != null) {
             stdgo._internal.log.Log.fatalln(stdgo.Go.toInterface(("error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -237,7 +237,7 @@ function exampleRawMessage_unmarshal():Void {
                     _dst = stdgo.Go.toInterface((stdgo.Go.setRef(({} : stdgo._internal.encoding.json_test.Json_test.T_exampleRawMessage_unmarshal___localname___YCbCr_3931)) : stdgo.Ref<stdgo._internal.encoding.json_test.Json_test.T_exampleRawMessage_unmarshal___localname___YCbCr_3931>));
                 };
             };
-            var _err = stdgo._internal.encoding.json.Json.unmarshal(_c.point, _dst);
+            var _err = (stdgo._internal.encoding.json.Json.unmarshal(_c.point, _dst) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.log.Log.fatalln(stdgo.Go.toInterface(("error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
@@ -304,7 +304,7 @@ function example_textMarshalJSON():Void {
         var _blob = ("[\"small\",\"regular\",\"large\",\"unrecognized\",\"small\",\"normal\",\"small\",\"large\"]" : stdgo.GoString);
         var _inventory:stdgo.Slice<Size> = (null : stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.Size>);
         {
-            var _err = stdgo._internal.encoding.json.Json.unmarshal((_blob : stdgo.Slice<stdgo.GoByte>), stdgo.Go.toInterface((stdgo.Go.setRef(_inventory) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.Size>>)));
+            var _err = (stdgo._internal.encoding.json.Json.unmarshal((_blob : stdgo.Slice<stdgo.GoByte>), stdgo.Go.toInterface((stdgo.Go.setRef(_inventory) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.json_test.Json_test.Size>>))) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(_err));
             };
@@ -356,7 +356,7 @@ class Animal_asInterface {
     static public function unmarshalJSON(____:Animal,  _a:stdgo.Pointer<Animal>, _b:stdgo.Slice<stdgo.GoByte>):stdgo.Error {
         var _s:stdgo.GoString = ("" : stdgo.GoString);
         {
-            var _err = stdgo._internal.encoding.json.Json.unmarshal(_b, stdgo.Go.toInterface(stdgo.Go.pointer(_s)));
+            var _err = (stdgo._internal.encoding.json.Json.unmarshal(_b, stdgo.Go.toInterface(stdgo.Go.pointer(_s))) : stdgo.Error);
             if (_err != null) {
                 return _err;
             };

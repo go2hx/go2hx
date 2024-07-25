@@ -19,12 +19,12 @@ function read(_b:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : std
 function _batched(_f:stdgo.Slice<stdgo.GoByte> -> stdgo.Error, _readMax:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> -> stdgo.Error {
         return function(_out:stdgo.Slice<stdgo.GoByte>):stdgo.Error {
             while (((_out.length) > (0 : stdgo.GoInt) : Bool)) {
-                var _read = (_out.length);
+                var _read = (_out.length : stdgo.GoInt);
                 if ((_read > _readMax : Bool)) {
                     _read = _readMax;
                 };
                 {
-                    var _err = _f((_out.__slice__(0, _read) : stdgo.Slice<stdgo.GoUInt8>));
+                    var _err = (_f((_out.__slice__(0, _read) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
@@ -35,7 +35,7 @@ function _batched(_f:stdgo.Slice<stdgo.GoByte> -> stdgo.Error, _readMax:stdgo.Go
         };
     }
 function _getRandom(_b:stdgo.Slice<stdgo.GoByte>):stdgo.Error {
-        var _a = _uint8Array.new_(stdgo.Go.toInterface((_b.length)))?.__copy__();
+        var _a = (_uint8Array.new_(stdgo.Go.toInterface((_b.length)))?.__copy__() : stdgo._internal.syscall.js.Js.Value);
         _jsCrypto.call(("getRandomValues" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)));
         stdgo._internal.syscall.js.Js.copyBytesToGo(_b, _a?.__copy__());
         return (null : stdgo.Error);
@@ -113,7 +113,7 @@ function int_(_rand:stdgo._internal.io.Io.Reader, _max:stdgo.Ref<stdgo._internal
         };
         _n = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big.Int_>);
         _n.sub(_max, _n.setUint64((1i64 : stdgo.GoUInt64)));
-        var _bitLen = _n.bitLen();
+        var _bitLen = (_n.bitLen() : stdgo.GoInt);
         if (_bitLen == ((0 : stdgo.GoInt))) {
             return { _0 : _n, _1 : _err };
         };
@@ -161,7 +161,7 @@ class T_reader_asInterface {
     static public function read( _r:stdgo.Ref<T_reader>, _b:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<T_reader> = _r;
         {
-            var _err = _batchedGetRandom(_b);
+            var _err = (_batchedGetRandom(_b) : stdgo.Error);
             if (_err != null) {
                 return { _0 : (0 : stdgo.GoInt), _1 : _err };
             };

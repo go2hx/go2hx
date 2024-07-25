@@ -823,7 +823,7 @@ x.set(("Xor" : stdgo.GoString), stdgo.Go.toInterface(function(_v:T_bigInt, _x:T_
                     };
                 };
                 {
-                    var _err = stdgo._internal.testing.quick.Quick.check(_f, (stdgo.Go.setRef(({ maxCountScale : _scale } : stdgo._internal.testing.quick.Quick.Config)) : stdgo.Ref<stdgo._internal.testing.quick.Quick.Config>));
+                    var _err = (stdgo._internal.testing.quick.Quick.check(_f, (stdgo.Go.setRef(({ maxCountScale : _scale } : stdgo._internal.testing.quick.Quick.Config)) : stdgo.Ref<stdgo._internal.testing.quick.Quick.Config>)) : stdgo.Error);
                     if (_err != null) {
                         _t.error(stdgo.Go.toInterface(_err));
                     };
@@ -953,7 +953,7 @@ function exampleFloat_shift():Void {
         };
     }
 function exampleFloat_Cmp():Void {
-        var _inf = stdgo._internal.math.Math.inf((1 : stdgo.GoInt));
+        var _inf = (stdgo._internal.math.Math.inf((1 : stdgo.GoInt)) : stdgo.GoFloat64);
         var _zero = (0 : stdgo.GoFloat64);
         var _operands = (new stdgo.Slice<stdgo.GoFloat64>(6, 6, ...[-_inf, (-1.2 : stdgo.GoFloat64), -_zero, (0 : stdgo.GoFloat64), (1.2 : stdgo.GoFloat64), _inf]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("   x     y  cmp" : stdgo.GoString)));

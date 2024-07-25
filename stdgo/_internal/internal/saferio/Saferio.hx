@@ -16,7 +16,7 @@ function readData(_r:stdgo._internal.io.Io.Reader, _n:stdgo.GoUInt64):{ var _0 :
         var _buf:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _buf1 = (new stdgo.Slice<stdgo.GoUInt8>((10485760 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         while ((_n > (0i64 : stdgo.GoUInt64) : Bool)) {
-            var _next = _n;
+            var _next = (_n : stdgo.GoUInt64);
             if ((_next > (10485760i64 : stdgo.GoUInt64) : Bool)) {
                 _next = (10485760i64 : stdgo.GoUInt64);
             };
@@ -49,7 +49,7 @@ function readDataAt(_r:stdgo._internal.io.Io.ReaderAt, _n:stdgo.GoUInt64, _off:s
         var _buf:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _buf1 = (new stdgo.Slice<stdgo.GoUInt8>((10485760 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         while ((_n > (0i64 : stdgo.GoUInt64) : Bool)) {
-            var _next = _n;
+            var _next = (_n : stdgo.GoUInt64);
             if ((_next > (10485760i64 : stdgo.GoUInt64) : Bool)) {
                 _next = (10485760i64 : stdgo.GoUInt64);
             };
@@ -67,7 +67,7 @@ function sliceCap(_v:stdgo.AnyInterface, _c:stdgo.GoUInt64):stdgo.GoInt {
         if ((((_c : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool) || (_c != ((_c : stdgo.GoInt) : stdgo.GoUInt64)) : Bool)) {
             return (-1 : stdgo.GoInt);
         };
-        var _typ = stdgo._internal.reflect.Reflect.typeOf(_v);
+        var _typ = (stdgo._internal.reflect.Reflect.typeOf(_v) : stdgo._internal.reflect.Reflect.Type_);
         if (_typ.kind() != ((22u32 : stdgo._internal.reflect.Reflect.Kind))) {
             throw stdgo.Go.toInterface(("SliceCap called with non-pointer type" : stdgo.GoString));
         };

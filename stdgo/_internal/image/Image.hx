@@ -471,8 +471,8 @@ function _sniff(_r:T_reader):T_format {
         return (new stdgo._internal.image.Image.T_format() : stdgo._internal.image.Image.T_format);
     }
 function decode(_r:stdgo._internal.io.Io.Reader):{ var _0 : Image; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
-        var _rr = _asReader(_r);
-        var _f = _sniff(_rr)?.__copy__();
+        var _rr = (_asReader(_r) : stdgo._internal.image.Image.T_reader);
+        var _f = (_sniff(_rr)?.__copy__() : stdgo._internal.image.Image.T_format);
         if (_f._decode == null) {
             return { _0 : (null : stdgo._internal.image.Image.Image), _1 : stdgo.Go.str()?.__copy__(), _2 : errFormat };
         };
@@ -480,8 +480,8 @@ function decode(_r:stdgo._internal.io.Io.Reader):{ var _0 : Image; var _1 : stdg
         return { _0 : _m, _1 : _f._name?.__copy__(), _2 : _err };
     }
 function decodeConfig(_r:stdgo._internal.io.Io.Reader):{ var _0 : Config; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
-        var _rr = _asReader(_r);
-        var _f = _sniff(_rr)?.__copy__();
+        var _rr = (_asReader(_r) : stdgo._internal.image.Image.T_reader);
+        var _f = (_sniff(_rr)?.__copy__() : stdgo._internal.image.Image.T_format);
         if (_f._decodeConfig == null) {
             return { _0 : (new stdgo._internal.image.Image.Config() : stdgo._internal.image.Image.Config), _1 : stdgo.Go.str()?.__copy__(), _2 : errFormat };
         };
@@ -543,15 +543,15 @@ function _add2NonNeg(_x:stdgo.GoInt, _y:stdgo.GoInt):stdgo.GoInt {
         return _a;
     }
 function testRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _in = function(_f:Rectangle, _g:Rectangle):stdgo.Error {
+        var _in = (function(_f:Rectangle, _g:Rectangle):stdgo.Error {
             if (!_f.in_(_g?.__copy__())) {
                 return stdgo._internal.fmt.Fmt.errorf(("f=%s, f.In(%s): got false, want true" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_f)), stdgo.Go.toInterface(stdgo.Go.asInterface(_g)));
             };
             {
-                var _y = _f.min.y;
+                var _y = (_f.min.y : stdgo.GoInt);
                 stdgo.Go.cfor((_y < _f.max.y : Bool), _y++, {
                     {
-                        var _x = _f.min.x;
+                        var _x = (_f.min.x : stdgo.GoInt);
                         stdgo.Go.cfor((_x < _f.max.x : Bool), _x++, {
                             var _p = (new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point);
                             if (!_p.in_(_g?.__copy__())) {
@@ -562,7 +562,7 @@ function testRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 });
             };
             return (null : stdgo.Error);
-        };
+        } : (stdgo._internal.image.Image.Rectangle, stdgo._internal.image.Image.Rectangle) -> stdgo.Error);
         var _rects = (new stdgo.Slice<stdgo._internal.image.Image.Rectangle>(11, 11, ...[
 rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (10 : stdgo.GoInt), (10 : stdgo.GoInt))?.__copy__(),
 rect((10 : stdgo.GoInt), (0 : stdgo.GoInt), (20 : stdgo.GoInt), (10 : stdgo.GoInt))?.__copy__(),
@@ -577,7 +577,7 @@ rect((88 : stdgo.GoInt), (88 : stdgo.GoInt), (88 : stdgo.GoInt), (88 : stdgo.GoI
 rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))?.__copy__()].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.image.Image.Rectangle)])) : stdgo.Slice<stdgo._internal.image.Image.Rectangle>);
         for (__0 => _r in _rects) {
             for (__1 => _s in _rects) {
-                var _got = _r.eq(_s?.__copy__());
+                var _got = (_r.eq(_s?.__copy__()) : Bool);
                 var _want = ((_in(_r?.__copy__(), _s?.__copy__()) == null) && (_in(_s?.__copy__(), _r?.__copy__()) == null) : Bool);
                 if (_got != (_want)) {
                     _t.errorf(("Eq: r=%s, s=%s: got %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
@@ -586,21 +586,21 @@ rect((6 : stdgo.GoInt), (5 : stdgo.GoInt), (4 : stdgo.GoInt), (3 : stdgo.GoInt))
         };
         for (__10 => _r in _rects) {
             for (__11 => _s in _rects) {
-                var _a = _r.intersect(_s?.__copy__())?.__copy__();
+                var _a = (_r.intersect(_s?.__copy__())?.__copy__() : stdgo._internal.image.Image.Rectangle);
                 {
-                    var _err = _in(_a?.__copy__(), _r?.__copy__());
+                    var _err = (_in(_a?.__copy__(), _r?.__copy__()) : stdgo.Error);
                     if (_err != null) {
                         _t.errorf(("Intersect: r=%s, s=%s, a=%s, a not in r: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
                     };
                 };
                 {
-                    var _err = _in(_a?.__copy__(), _s?.__copy__());
+                    var _err = (_in(_a?.__copy__(), _s?.__copy__()) : stdgo.Error);
                     if (_err != null) {
                         _t.errorf(("Intersect: r=%s, s=%s, a=%s, a not in s: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
                     };
                 };
                 {
-                    var __0 = stdgo.Go.toInterface(_a) == stdgo.Go.toInterface(((new stdgo._internal.image.Image.Rectangle() : stdgo._internal.image.Image.Rectangle))), __1 = _r.overlaps(_s?.__copy__());
+                    var __0 = (stdgo.Go.toInterface(_a) == stdgo.Go.toInterface(((new stdgo._internal.image.Image.Rectangle() : stdgo._internal.image.Image.Rectangle))) : Bool), __1 = (_r.overlaps(_s?.__copy__()) : Bool);
 var _overlaps = __1, _isZero = __0;
                     if (_isZero == (_overlaps)) {
                         _t.errorf(("Intersect: r=%s, s=%s, a=%s: isZero=%t same as overlaps=%t" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_isZero), stdgo.Go.toInterface(_overlaps));
@@ -623,15 +623,15 @@ var _overlaps = __1, _isZero = __0;
         };
         for (__44 => _r in _rects) {
             for (__45 => _s in _rects) {
-                var _a = _r.union(_s?.__copy__())?.__copy__();
+                var _a = (_r.union(_s?.__copy__())?.__copy__() : stdgo._internal.image.Image.Rectangle);
                 {
-                    var _err = _in(_r?.__copy__(), _a?.__copy__());
+                    var _err = (_in(_r?.__copy__(), _a?.__copy__()) : stdgo.Error);
                     if (_err != null) {
                         _t.errorf(("Union: r=%s, s=%s, a=%s, r not in a: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
                     };
                 };
                 {
-                    var _err = _in(_s?.__copy__(), _a?.__copy__());
+                    var _err = (_in(_s?.__copy__(), _a?.__copy__()) : stdgo.Error);
                     if (_err != null) {
                         _t.errorf(("Union: r=%s, s=%s, a=%s, s not in a: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)), stdgo.Go.toInterface(stdgo.Go.asInterface(_a)), stdgo.Go.toInterface(_err));
                     };
@@ -653,7 +653,7 @@ var _overlaps = __1, _isZero = __0;
         };
     }
 function _pixelBufferLength(_bytesPerPixel:stdgo.GoInt, _r:Rectangle, _imageTypeName:stdgo.GoString):stdgo.GoInt {
-        var _totalLength = _mul3NonNeg(_bytesPerPixel, _r.dx(), _r.dy());
+        var _totalLength = (_mul3NonNeg(_bytesPerPixel, _r.dx(), _r.dy()) : stdgo.GoInt);
         if ((_totalLength < (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(((("image: New" : stdgo.GoString) + _imageTypeName?.__copy__() : stdgo.GoString) + (" Rectangle has huge or negative dimensions" : stdgo.GoString)?.__copy__() : stdgo.GoString));
         };
@@ -696,7 +696,7 @@ function _cmp(_cm:stdgo._internal.image.color.Color.Model, _c0:stdgo._internal.i
     }
 function testImage(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tc in _testImages) {
-            var _m = _tc._image();
+            var _m = (_tc._image() : stdgo._internal.image.Image.T_image);
             if (!rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (10 : stdgo.GoInt), (10 : stdgo.GoInt)).eq(_m.bounds()?.__copy__())) {
                 _t.errorf(("%T: want bounds %v, got %v" : stdgo.GoString), stdgo.Go.toInterface(_m), stdgo.Go.toInterface(stdgo.Go.asInterface(rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (10 : stdgo.GoInt), (10 : stdgo.GoInt)))), stdgo.Go.toInterface(stdgo.Go.asInterface(_m.bounds())));
                 continue;
@@ -739,7 +739,7 @@ function testImage(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         };
     }
 function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _call = function(_f:Rectangle -> Void, _r:Rectangle):Bool {
+        var _call = (function(_f:Rectangle -> Void, _r:Rectangle):Bool {
             var __deferstack__:Array<Void -> Void> = [];
             var _ok = false;
             try {
@@ -782,7 +782,7 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                 return _ok;
             };
-        };
+        } : (stdgo._internal.image.Image.Rectangle -> Void, stdgo._internal.image.Image.Rectangle) -> Bool);
         var _testCases = (new stdgo.Slice<T__struct_1>(12, 12, ...[
 ({ _name : ("RGBA" : stdgo.GoString), _f : function(_r:Rectangle):Void {
             newRGBA(_r?.__copy__());
@@ -830,7 +830,7 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
                     if (_negDy) {
                         _r.max.y = (27 : stdgo.GoInt);
                     };
-                    var _got = _call(_tc._f, _r?.__copy__());
+                    var _got = (_call(_tc._f, _r?.__copy__()) : Bool);
                     var _want = (!_negDx && !_negDy : Bool);
                     if (_got != (_want)) {
                         _t.errorf(("New%s: negDx=%t, negDy=%t: got %t, want %t" : stdgo.GoString), stdgo.Go.toInterface(_tc._name), stdgo.Go.toInterface(_negDx), stdgo.Go.toInterface(_negDy), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
@@ -838,10 +838,10 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
                 };
             };
             {
-                var _zeroAsUint = (0u32 : stdgo.GoUInt);
+                var _zeroAsUint = ((0u32 : stdgo.GoUInt) : stdgo.GoUInt);
                 var _maxUint = (_zeroAsUint - (1u32 : stdgo.GoUInt) : stdgo.GoUInt);
                 var _maxInt = ((_maxUint / (2u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt);
-                var _got = _call(_tc._f, ({ min : (new stdgo._internal.image.Image.Point((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.image.Image.Point), max : (new stdgo._internal.image.Image.Point(_maxInt, _maxInt) : stdgo._internal.image.Image.Point) } : stdgo._internal.image.Image.Rectangle));
+                var _got = (_call(_tc._f, ({ min : (new stdgo._internal.image.Image.Point((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.image.Image.Point), max : (new stdgo._internal.image.Image.Point(_maxInt, _maxInt) : stdgo._internal.image.Image.Point) } : stdgo._internal.image.Image.Rectangle)) : Bool);
                 if (_got) {
                     _t.errorf(("New%s: overflow: got ok, want !ok" : stdgo.GoString), stdgo.Go.toInterface(_tc._name));
                 };
@@ -851,7 +851,7 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
 function test16BitsPerColorChannel(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _testColorModel = (new stdgo.Slice<stdgo._internal.image.color.Color.Model>(4, 4, ...[stdgo._internal.image.color.Color.rgba64model, stdgo._internal.image.color.Color.nrgba64model, stdgo._internal.image.color.Color.alpha16Model, stdgo._internal.image.color.Color.gray16Model]) : stdgo.Slice<stdgo._internal.image.color.Color.Model>);
         for (__0 => _cm in _testColorModel) {
-            var _c = _cm.convert(stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA64((4660 : stdgo.GoUInt16), (4660 : stdgo.GoUInt16), (4660 : stdgo.GoUInt16), (4660 : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.RGBA64)));
+            var _c = (_cm.convert(stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA64((4660 : stdgo.GoUInt16), (4660 : stdgo.GoUInt16), (4660 : stdgo.GoUInt16), (4660 : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.RGBA64))) : stdgo._internal.image.color.Color.Color);
             var __tmp__ = _c.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, __1:stdgo.GoUInt32 = __tmp__._1, __2:stdgo.GoUInt32 = __tmp__._2, __3:stdgo.GoUInt32 = __tmp__._3;
             if (_r != ((4660u32 : stdgo.GoUInt32))) {
                 _t.errorf(("%T: want red value 0x%04x got 0x%04x" : stdgo.GoString), stdgo.Go.toInterface(_c), stdgo.Go.toInterface((4660 : stdgo.GoInt)), stdgo.Go.toInterface(_r));
@@ -874,7 +874,7 @@ function testRGBA64Image(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
                 _s[(_i : stdgo.GoInt)] = _v;
             };
         };
-        var _r = rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (3 : stdgo.GoInt), (2 : stdgo.GoInt))?.__copy__();
+        var _r = (rect((0 : stdgo.GoInt), (0 : stdgo.GoInt), (3 : stdgo.GoInt), (2 : stdgo.GoInt))?.__copy__() : stdgo._internal.image.Image.Rectangle);
         var _testCases = (new stdgo.Slice<stdgo._internal.image.Image.Image>(14, 14, ...[
 stdgo.Go.asInterface(newAlpha(_r?.__copy__())),
 stdgo.Go.asInterface(newAlpha16(_r?.__copy__())),
@@ -927,7 +927,7 @@ stdgo.Go.asInterface(_r)]) : stdgo.Slice<stdgo._internal.image.Image.Image>);
                 _t.errorf(("%T is not an RGBA64Image" : stdgo.GoString), stdgo.Go.toInterface(_tc));
                 continue;
             };
-            var _got = _rgba64Image.rgba64at((1 : stdgo.GoInt), (1 : stdgo.GoInt))?.__copy__();
+            var _got = (_rgba64Image.rgba64at((1 : stdgo.GoInt), (1 : stdgo.GoInt))?.__copy__() : stdgo._internal.image.color.Color.RGBA64);
             var __tmp__ = _tc.at((1 : stdgo.GoInt), (1 : stdgo.GoInt)).rgba(), _wantR:stdgo.GoUInt32 = __tmp__._0, _wantG:stdgo.GoUInt32 = __tmp__._1, _wantB:stdgo.GoUInt32 = __tmp__._2, _wantA:stdgo.GoUInt32 = __tmp__._3;
             if ((((((_got.r : stdgo.GoUInt32) != _wantR) || ((_got.g : stdgo.GoUInt32) != _wantG) : Bool) || ((_got.b : stdgo.GoUInt32) != _wantB) : Bool) || ((_got.a : stdgo.GoUInt32) != _wantA) : Bool)) {
                 _t.errorf(("%T:\ngot  (0x%04X, 0x%04X, 0x%04X, 0x%04X)\nwant (0x%04X, 0x%04X, 0x%04X, 0x%04X)" : stdgo.GoString), stdgo.Go.toInterface(_tc), stdgo.Go.toInterface(_got.r), stdgo.Go.toInterface(_got.g), stdgo.Go.toInterface(_got.b), stdgo.Go.toInterface(_got.a), stdgo.Go.toInterface(_wantR), stdgo.Go.toInterface(_wantG), stdgo.Go.toInterface(_wantB), stdgo.Go.toInterface(_wantA));
@@ -938,7 +938,7 @@ stdgo.Go.asInterface(_r)]) : stdgo.Slice<stdgo._internal.image.Image.Image>);
 function benchmarkAt(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         for (__0 => _tc in _testImages) {
             _b.run(_tc._name?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-                var _m = _tc._image();
+                var _m = (_tc._image() : stdgo._internal.image.Image.T_image);
                 _b.reportAllocs();
                 _b.resetTimer();
                 {
@@ -954,7 +954,7 @@ function benchmarkSet(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
         var _c = (new stdgo._internal.image.color.Color.Gray((255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Gray);
         for (__0 => _tc in _testImages) {
             _b.run(_tc._name?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing.B>):Void {
-                var _m = _tc._image();
+                var _m = (_tc._image() : stdgo._internal.image.Image.T_image);
                 _b.reportAllocs();
                 _b.resetTimer();
                 {
@@ -1171,7 +1171,7 @@ function _yCbCrSize(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):{ var _0 
     }
 function newYCbCr(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref<YCbCr> {
         var __tmp__ = _yCbCrSize(_r?.__copy__(), _subsampleRatio), _w:stdgo.GoInt = __tmp__._0, _h:stdgo.GoInt = __tmp__._1, _cw:stdgo.GoInt = __tmp__._2, _ch:stdgo.GoInt = __tmp__._3;
-        var _totalLength = _add2NonNeg(_mul3NonNeg((1 : stdgo.GoInt), _w, _h), _mul3NonNeg((2 : stdgo.GoInt), _cw, _ch));
+        var _totalLength = (_add2NonNeg(_mul3NonNeg((1 : stdgo.GoInt), _w, _h), _mul3NonNeg((2 : stdgo.GoInt), _cw, _ch)) : stdgo.GoInt);
         if ((_totalLength < (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("image: NewYCbCr Rectangle has huge or negative dimensions" : stdgo.GoString));
         };
@@ -1183,7 +1183,7 @@ function newYCbCr(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref<Y
     }
 function newNYCbCrA(_r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio):stdgo.Ref<NYCbCrA> {
         var __tmp__ = _yCbCrSize(_r?.__copy__(), _subsampleRatio), _w:stdgo.GoInt = __tmp__._0, _h:stdgo.GoInt = __tmp__._1, _cw:stdgo.GoInt = __tmp__._2, _ch:stdgo.GoInt = __tmp__._3;
-        var _totalLength = _add2NonNeg(_mul3NonNeg((2 : stdgo.GoInt), _w, _h), _mul3NonNeg((2 : stdgo.GoInt), _cw, _ch));
+        var _totalLength = (_add2NonNeg(_mul3NonNeg((2 : stdgo.GoInt), _w, _h), _mul3NonNeg((2 : stdgo.GoInt), _cw, _ch)) : stdgo.GoInt);
         if ((_totalLength < (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("image: NewNYCbCrA Rectangle has huge or negative dimension" : stdgo.GoString));
         };
@@ -1230,20 +1230,20 @@ rect((10 : stdgo.GoInt), (10 : stdgo.GoInt), (17 : stdgo.GoInt), (17 : stdgo.GoI
         };
     }
 function _testYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _r:Rectangle, _subsampleRatio:YCbCrSubsampleRatio, _delta:Point):Void {
-        var _r1 = _r.add(_delta?.__copy__())?.__copy__();
+        var _r1 = (_r.add(_delta?.__copy__())?.__copy__() : stdgo._internal.image.Image.Rectangle);
         var _m = newYCbCr(_r1?.__copy__(), _subsampleRatio);
         if (((_m.y.length) > (10000 : stdgo.GoInt) : Bool)) {
             _t.errorf(("r=%v, subsampleRatio=%v, delta=%v: image buffer is too large" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_subsampleRatio)), stdgo.Go.toInterface(stdgo.Go.asInterface(_delta)));
             return;
         };
         {
-            var _y = _r1.min.y;
+            var _y = (_r1.min.y : stdgo.GoInt);
             stdgo.Go.cfor((_y < _r1.max.y : Bool), _y++, {
                 {
-                    var _x = _r1.min.x;
+                    var _x = (_r1.min.x : stdgo.GoInt);
                     stdgo.Go.cfor((_x < _r1.max.x : Bool), _x++, {
-                        var _yi = _m.yoffset(_x, _y);
-                        var _ci = _m.coffset(_x, _y);
+                        var _yi = (_m.yoffset(_x, _y) : stdgo.GoInt);
+                        var _ci = (_m.coffset(_x, _y) : stdgo.GoInt);
                         _m.y[(_yi : stdgo.GoInt)] = ((((16 : stdgo.GoInt) * _y : stdgo.GoInt) + _x : stdgo.GoInt) : stdgo.GoUInt8);
                         _m.cb[(_ci : stdgo.GoInt)] = ((_y + ((16 : stdgo.GoInt) * _x : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt8);
                         _m.cr[(_ci : stdgo.GoInt)] = ((_y + ((16 : stdgo.GoInt) * _x : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt8);
@@ -1263,16 +1263,16 @@ function _testYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _r:Rectang
                                 {
                                     var _x1 = (_delta.x + (8 : stdgo.GoInt) : stdgo.GoInt);
                                     stdgo.Go.cfor((_x1 < (_delta.x + (13 : stdgo.GoInt) : stdgo.GoInt) : Bool), _x1++, {
-                                        var _subRect = rect(_x0, _y0, _x1, _y1)?.__copy__();
+                                        var _subRect = (rect(_x0, _y0, _x1, _y1)?.__copy__() : stdgo._internal.image.Image.Rectangle);
                                         var _sub = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.subImage(_subRect?.__copy__())) : stdgo.Ref<YCbCr>)) : stdgo.Ref<YCbCr>);
                                         {
-                                            var _y = _sub.rect.min.y;
+                                            var _y = (_sub.rect.min.y : stdgo.GoInt);
                                             stdgo.Go.cfor((_y < _sub.rect.max.y : Bool), _y++, {
                                                 {
-                                                    var _x = _sub.rect.min.x;
+                                                    var _x = (_sub.rect.min.x : stdgo.GoInt);
                                                     stdgo.Go.cfor((_x < _sub.rect.max.x : Bool), _x++, {
-                                                        var _color0 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.at(_x, _y)) : stdgo._internal.image.color.Color.YCbCr)) : stdgo._internal.image.color.Color.YCbCr)?.__copy__();
-                                                        var _color1 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_sub.at(_x, _y)) : stdgo._internal.image.color.Color.YCbCr)) : stdgo._internal.image.color.Color.YCbCr)?.__copy__();
+                                                        var _color0 = ((stdgo.Go.typeAssert((stdgo.Go.toInterface(_m.at(_x, _y)) : stdgo._internal.image.color.Color.YCbCr)) : stdgo._internal.image.color.Color.YCbCr)?.__copy__() : stdgo._internal.image.color.Color.YCbCr);
+                                                        var _color1 = ((stdgo.Go.typeAssert((stdgo.Go.toInterface(_sub.at(_x, _y)) : stdgo._internal.image.color.Color.YCbCr)) : stdgo._internal.image.color.Color.YCbCr)?.__copy__() : stdgo._internal.image.color.Color.YCbCr);
                                                         if (stdgo.Go.toInterface(_color0) != stdgo.Go.toInterface(_color1)) {
                                                             _t.errorf(("r=%v, subsampleRatio=%v, delta=%v, x=%d, y=%d, color0=%v, color1=%v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)), stdgo.Go.toInterface(stdgo.Go.asInterface(_subsampleRatio)), stdgo.Go.toInterface(stdgo.Go.asInterface(_delta)), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(stdgo.Go.asInterface(_color0)), stdgo.Go.toInterface(stdgo.Go.asInterface(_color1)));
                                                             return;
@@ -1343,7 +1343,7 @@ class Point_asInterface {
     @:keep
     static public function mod( _p:Point, _r:Rectangle):Point {
         @:recv var _p:Point = _p?.__copy__();
-        var __0 = _r.dx(), __1 = _r.dy();
+        var __0 = (_r.dx() : stdgo.GoInt), __1 = (_r.dy() : stdgo.GoInt);
 var _h = __1, _w = __0;
         _p = _p.sub(_r.min?.__copy__())?.__copy__();
         _p.x = (_p.x % _w : stdgo.GoInt);
@@ -1637,10 +1637,10 @@ class RGBA_asInterface {
         var __0 = (3 : stdgo.GoInt), __1 = (_p.rect.dx() * (4 : stdgo.GoInt) : stdgo.GoInt);
 var _i1 = __1, _i0 = __0;
         {
-            var _y = _p.rect.min.y;
+            var _y = (_p.rect.min.y : stdgo.GoInt);
             stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
-                    var _i = _i0;
+                    var _i = (_i0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
                         if (_p.pix[(_i : stdgo.GoInt)] != ((255 : stdgo.GoUInt8))) {
                             return false;
@@ -1660,7 +1660,7 @@ var _i1 = __1, _i0 = __0;
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.image.Image.RGBA() : stdgo._internal.image.Image.RGBA)) : stdgo.Ref<stdgo._internal.image.Image.RGBA>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA)) : stdgo.Ref<stdgo._internal.image.Image.RGBA>));
     }
     @:keep
@@ -1669,7 +1669,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c.r;
         _s[(1 : stdgo.GoInt)] = _c.g;
@@ -1682,7 +1682,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = ((_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = ((_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
@@ -1695,8 +1695,8 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
-        var _c1 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.rgbamodel.convert(_c)) : stdgo._internal.image.color.Color.RGBA)) : stdgo._internal.image.color.Color.RGBA)?.__copy__();
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
+        var _c1 = ((stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.rgbamodel.convert(_c)) : stdgo._internal.image.color.Color.RGBA)) : stdgo._internal.image.color.Color.RGBA)?.__copy__() : stdgo._internal.image.color.Color.RGBA);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c1.r;
         _s[(1 : stdgo.GoInt)] = _c1.g;
@@ -1714,7 +1714,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.RGBA() : stdgo._internal.image.color.Color.RGBA);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return (new stdgo._internal.image.color.Color.RGBA(_s[(0 : stdgo.GoInt)], _s[(1 : stdgo.GoInt)], _s[(2 : stdgo.GoInt)], _s[(3 : stdgo.GoInt)]) : stdgo._internal.image.color.Color.RGBA);
     }
@@ -1724,7 +1724,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.RGBA64() : stdgo._internal.image.color.Color.RGBA64);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _r = (_s[(0 : stdgo.GoInt)] : stdgo.GoUInt16);
         var _g = (_s[(1 : stdgo.GoInt)] : stdgo.GoUInt16);
@@ -1785,10 +1785,10 @@ class RGBA64_asInterface {
         var __0 = (6 : stdgo.GoInt), __1 = (_p.rect.dx() * (8 : stdgo.GoInt) : stdgo.GoInt);
 var _i1 = __1, _i0 = __0;
         {
-            var _y = _p.rect.min.y;
+            var _y = (_p.rect.min.y : stdgo.GoInt);
             stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
-                    var _i = _i0;
+                    var _i = (_i0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((8 : stdgo.GoInt)) : stdgo.GoInt), {
                         if (((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) || (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) : Bool)) {
                             return false;
@@ -1808,7 +1808,7 @@ var _i1 = __1, _i0 = __0;
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.image.Image.RGBA64() : stdgo._internal.image.Image.RGBA64)) : stdgo.Ref<stdgo._internal.image.Image.RGBA64>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _r?.__copy__() } : stdgo._internal.image.Image.RGBA64)) : stdgo.Ref<stdgo._internal.image.Image.RGBA64>));
     }
     @:keep
@@ -1817,7 +1817,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = ((_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_c.r : stdgo.GoUInt8);
@@ -1834,8 +1834,8 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
-        var _c1 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.rgba64model.convert(_c)) : stdgo._internal.image.color.Color.RGBA64)) : stdgo._internal.image.color.Color.RGBA64)?.__copy__();
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
+        var _c1 = ((stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.rgba64model.convert(_c)) : stdgo._internal.image.color.Color.RGBA64)) : stdgo._internal.image.color.Color.RGBA64)?.__copy__() : stdgo._internal.image.color.Color.RGBA64);
         var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = ((_c1.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_c1.r : stdgo.GoUInt8);
@@ -1857,7 +1857,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.RGBA64() : stdgo._internal.image.color.Color.RGBA64);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return (new stdgo._internal.image.color.Color.RGBA64((((_s[(0 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(1 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(2 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(3 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(4 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(5 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(6 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(7 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.RGBA64);
     }
@@ -1918,10 +1918,10 @@ class NRGBA_asInterface {
         var __0 = (3 : stdgo.GoInt), __1 = (_p.rect.dx() * (4 : stdgo.GoInt) : stdgo.GoInt);
 var _i1 = __1, _i0 = __0;
         {
-            var _y = _p.rect.min.y;
+            var _y = (_p.rect.min.y : stdgo.GoInt);
             stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
-                    var _i = _i0;
+                    var _i = (_i0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
                         if (_p.pix[(_i : stdgo.GoInt)] != ((255 : stdgo.GoUInt8))) {
                             return false;
@@ -1941,7 +1941,7 @@ var _i1 = __1, _i0 = __0;
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.image.Image.NRGBA() : stdgo._internal.image.Image.NRGBA)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA>));
     }
     @:keep
@@ -1950,7 +1950,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c.r;
         _s[(1 : stdgo.GoInt)] = _c.g;
@@ -1970,7 +1970,7 @@ var _a = __3, _b = __2, _g = __1, _r = __0;
             _g = (((_g * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
             _b = (((_b * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = ((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = ((_g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
@@ -1983,8 +1983,8 @@ var _a = __3, _b = __2, _g = __1, _r = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
-        var _c1 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.nrgbamodel.convert(_c)) : stdgo._internal.image.color.Color.NRGBA)) : stdgo._internal.image.color.Color.NRGBA)?.__copy__();
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
+        var _c1 = ((stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.nrgbamodel.convert(_c)) : stdgo._internal.image.color.Color.NRGBA)) : stdgo._internal.image.color.Color.NRGBA)?.__copy__() : stdgo._internal.image.color.Color.NRGBA);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c1.r;
         _s[(1 : stdgo.GoInt)] = _c1.g;
@@ -2002,7 +2002,7 @@ var _a = __3, _b = __2, _g = __1, _r = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.NRGBA() : stdgo._internal.image.color.Color.NRGBA);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return (new stdgo._internal.image.color.Color.NRGBA(_s[(0 : stdgo.GoInt)], _s[(1 : stdgo.GoInt)], _s[(2 : stdgo.GoInt)], _s[(3 : stdgo.GoInt)]) : stdgo._internal.image.color.Color.NRGBA);
     }
@@ -2069,10 +2069,10 @@ class NRGBA64_asInterface {
         var __0 = (6 : stdgo.GoInt), __1 = (_p.rect.dx() * (8 : stdgo.GoInt) : stdgo.GoInt);
 var _i1 = __1, _i0 = __0;
         {
-            var _y = _p.rect.min.y;
+            var _y = (_p.rect.min.y : stdgo.GoInt);
             stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
-                    var _i = _i0;
+                    var _i = (_i0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((8 : stdgo.GoInt)) : stdgo.GoInt), {
                         if (((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) || (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) : Bool)) {
                             return false;
@@ -2092,7 +2092,7 @@ var _i1 = __1, _i0 = __0;
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.image.Image.NRGBA64() : stdgo._internal.image.Image.NRGBA64)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA64>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _r?.__copy__() } : stdgo._internal.image.Image.NRGBA64)) : stdgo.Ref<stdgo._internal.image.Image.NRGBA64>));
     }
     @:keep
@@ -2101,7 +2101,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = ((_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_c.r : stdgo.GoUInt8);
@@ -2125,7 +2125,7 @@ var _a = __3, _b = __2, _g = __1, _r = __0;
             _g = (((_g * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
             _b = (((_b * (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / _a : stdgo.GoUInt32);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = ((_r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_r : stdgo.GoUInt8);
@@ -2142,8 +2142,8 @@ var _a = __3, _b = __2, _g = __1, _r = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
-        var _c1 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.nrgba64model.convert(_c)) : stdgo._internal.image.color.Color.NRGBA64)) : stdgo._internal.image.color.Color.NRGBA64)?.__copy__();
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
+        var _c1 = ((stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.nrgba64model.convert(_c)) : stdgo._internal.image.color.Color.NRGBA64)) : stdgo._internal.image.color.Color.NRGBA64)?.__copy__() : stdgo._internal.image.color.Color.NRGBA64);
         var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = ((_c1.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _s[(1 : stdgo.GoInt)] = (_c1.r : stdgo.GoUInt8);
@@ -2165,7 +2165,7 @@ var _a = __3, _b = __2, _g = __1, _r = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.NRGBA64() : stdgo._internal.image.color.Color.NRGBA64);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (8 : stdgo.GoInt) : stdgo.GoInt), (_i + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return (new stdgo._internal.image.color.Color.NRGBA64((((_s[(0 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(1 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(2 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(3 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(4 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(5 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16), (((_s[(6 : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_s[(7 : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.NRGBA64);
     }
@@ -2229,13 +2229,13 @@ class Alpha_asInterface {
         if (_p.rect.empty()) {
             return true;
         };
-        var __0 = (0 : stdgo.GoInt), __1 = _p.rect.dx();
+        var __0 = (0 : stdgo.GoInt), __1 = (_p.rect.dx() : stdgo.GoInt);
 var _i1 = __1, _i0 = __0;
         {
-            var _y = _p.rect.min.y;
+            var _y = (_p.rect.min.y : stdgo.GoInt);
             stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
-                    var _i = _i0;
+                    var _i = (_i0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _i1 : Bool), _i++, {
                         if (_p.pix[(_i : stdgo.GoInt)] != ((255 : stdgo.GoUInt8))) {
                             return false;
@@ -2255,7 +2255,7 @@ var _i1 = __1, _i0 = __0;
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.image.Image.Alpha() : stdgo._internal.image.Image.Alpha)) : stdgo.Ref<stdgo._internal.image.Image.Alpha>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha)) : stdgo.Ref<stdgo._internal.image.Image.Alpha>));
     }
     @:keep
@@ -2264,7 +2264,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i : stdgo.GoInt)] = _c.a;
     }
     @:keep
@@ -2273,7 +2273,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i : stdgo.GoInt)] = ((_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
     }
     @:keep
@@ -2282,7 +2282,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i : stdgo.GoInt)] = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.alphaModel.convert(_c)) : stdgo._internal.image.color.Color.Alpha)) : stdgo._internal.image.color.Color.Alpha).a;
     }
     @:keep
@@ -2296,7 +2296,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.Alpha() : stdgo._internal.image.color.Color.Alpha);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         return (new stdgo._internal.image.color.Color.Alpha(_p.pix[(_i : stdgo.GoInt)]) : stdgo._internal.image.color.Color.Alpha);
     }
     @:keep
@@ -2363,10 +2363,10 @@ class Alpha16_asInterface {
         var __0 = (0 : stdgo.GoInt), __1 = (_p.rect.dx() * (2 : stdgo.GoInt) : stdgo.GoInt);
 var _i1 = __1, _i0 = __0;
         {
-            var _y = _p.rect.min.y;
+            var _y = (_p.rect.min.y : stdgo.GoInt);
             stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 {
-                    var _i = _i0;
+                    var _i = (_i0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
                         if (((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) || (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] != (255 : stdgo.GoUInt8)) : Bool)) {
                             return false;
@@ -2386,7 +2386,7 @@ var _i1 = __1, _i0 = __0;
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.image.Image.Alpha16() : stdgo._internal.image.Image.Alpha16)) : stdgo.Ref<stdgo._internal.image.Image.Alpha16>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _r?.__copy__() } : stdgo._internal.image.Image.Alpha16)) : stdgo.Ref<stdgo._internal.image.Image.Alpha16>));
     }
     @:keep
@@ -2395,7 +2395,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c.a : stdgo.GoUInt8);
     }
@@ -2405,7 +2405,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c.a : stdgo.GoUInt8);
     }
@@ -2415,8 +2415,8 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
-        var _c1 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.alpha16Model.convert(_c)) : stdgo._internal.image.color.Color.Alpha16)) : stdgo._internal.image.color.Color.Alpha16)?.__copy__();
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
+        var _c1 = ((stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.alpha16Model.convert(_c)) : stdgo._internal.image.color.Color.Alpha16)) : stdgo._internal.image.color.Color.Alpha16)?.__copy__() : stdgo._internal.image.color.Color.Alpha16);
         _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c1.a >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c1.a : stdgo.GoUInt8);
     }
@@ -2431,13 +2431,13 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.Alpha16() : stdgo._internal.image.color.Color.Alpha16);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         return (new stdgo._internal.image.color.Color.Alpha16((((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.Alpha16);
     }
     @:keep
     static public function rgba64at( _p:stdgo.Ref<Alpha16>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 {
         @:recv var _p:stdgo.Ref<Alpha16> = _p;
-        var _a = _p.alpha16At(_x, _y).a;
+        var _a = (_p.alpha16At(_x, _y).a : stdgo.GoUInt16);
         return (new stdgo._internal.image.color.Color.RGBA64(_a, _a, _a, _a) : stdgo._internal.image.color.Color.RGBA64);
     }
     @:keep
@@ -2500,7 +2500,7 @@ class Gray_asInterface {
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.image.Image.Gray() : stdgo._internal.image.Image.Gray)) : stdgo.Ref<stdgo._internal.image.Image.Gray>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray)) : stdgo.Ref<stdgo._internal.image.Image.Gray>));
     }
     @:keep
@@ -2509,7 +2509,7 @@ class Gray_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i : stdgo.GoInt)] = _c.y;
     }
     @:keep
@@ -2519,7 +2519,7 @@ class Gray_asInterface {
             return;
         };
         var _gray = (((((((19595u32 : stdgo.GoUInt32) * (_c.r : stdgo.GoUInt32) : stdgo.GoUInt32) + ((38470u32 : stdgo.GoUInt32) * (_c.g : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32) + ((7471u32 : stdgo.GoUInt32) * (_c.b : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32) + (32768u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i : stdgo.GoInt)] = (_gray : stdgo.GoUInt8);
     }
     @:keep
@@ -2528,7 +2528,7 @@ class Gray_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i : stdgo.GoInt)] = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.grayModel.convert(_c)) : stdgo._internal.image.color.Color.Gray)) : stdgo._internal.image.color.Color.Gray).y;
     }
     @:keep
@@ -2542,7 +2542,7 @@ class Gray_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.Gray() : stdgo._internal.image.color.Color.Gray);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         return (new stdgo._internal.image.color.Color.Gray(_p.pix[(_i : stdgo.GoInt)]) : stdgo._internal.image.color.Color.Gray);
     }
     @:keep
@@ -2612,7 +2612,7 @@ class Gray16_asInterface {
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.image.Image.Gray16() : stdgo._internal.image.Image.Gray16)) : stdgo.Ref<stdgo._internal.image.Image.Gray16>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _r?.__copy__() } : stdgo._internal.image.Image.Gray16)) : stdgo.Ref<stdgo._internal.image.Image.Gray16>));
     }
     @:keep
@@ -2621,7 +2621,7 @@ class Gray16_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c.y >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c.y : stdgo.GoUInt8);
     }
@@ -2632,7 +2632,7 @@ class Gray16_asInterface {
             return;
         };
         var _gray = (((((((19595u32 : stdgo.GoUInt32) * (_c.r : stdgo.GoUInt32) : stdgo.GoUInt32) + ((38470u32 : stdgo.GoUInt32) * (_c.g : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32) + ((7471u32 : stdgo.GoUInt32) * (_c.b : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt32) + (32768u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) >> (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_gray >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_gray : stdgo.GoUInt8);
     }
@@ -2642,8 +2642,8 @@ class Gray16_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
-        var _c1 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.gray16Model.convert(_c)) : stdgo._internal.image.color.Color.Gray16)) : stdgo._internal.image.color.Color.Gray16)?.__copy__();
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
+        var _c1 = ((stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.gray16Model.convert(_c)) : stdgo._internal.image.color.Color.Gray16)) : stdgo._internal.image.color.Color.Gray16)?.__copy__() : stdgo._internal.image.color.Color.Gray16);
         _p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ((_c1.y >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8);
         _p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = (_c1.y : stdgo.GoUInt8);
     }
@@ -2658,13 +2658,13 @@ class Gray16_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.Gray16() : stdgo._internal.image.color.Color.Gray16);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         return (new stdgo._internal.image.color.Color.Gray16((((_p.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (_p.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt16) : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.Gray16);
     }
     @:keep
     static public function rgba64at( _p:stdgo.Ref<Gray16>, _x:stdgo.GoInt, _y:stdgo.GoInt):stdgo._internal.image.color.Color.RGBA64 {
         @:recv var _p:stdgo.Ref<Gray16> = _p;
-        var _gray = _p.gray16At(_x, _y).y;
+        var _gray = (_p.gray16At(_x, _y).y : stdgo.GoUInt16);
         return (new stdgo._internal.image.color.Color.RGBA64(_gray, _gray, _gray, (65535 : stdgo.GoUInt16)) : stdgo._internal.image.color.Color.RGBA64);
     }
     @:keep
@@ -2727,7 +2727,7 @@ class CMYK_asInterface {
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.image.Image.CMYK() : stdgo._internal.image.Image.CMYK)) : stdgo.Ref<stdgo._internal.image.Image.CMYK>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _r?.__copy__() } : stdgo._internal.image.Image.CMYK)) : stdgo.Ref<stdgo._internal.image.Image.CMYK>));
     }
     @:keep
@@ -2736,7 +2736,7 @@ class CMYK_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c.c;
         _s[(1 : stdgo.GoInt)] = _c.m;
@@ -2750,7 +2750,7 @@ class CMYK_asInterface {
             return;
         };
         var __tmp__ = stdgo._internal.image.color.Color.rgbtoCMYK(((_c.r >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8), ((_c.g >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8), ((_c.b >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) : stdgo.GoUInt8)), _cc:stdgo.GoUInt8 = __tmp__._0, _mm:stdgo.GoUInt8 = __tmp__._1, _yy:stdgo.GoUInt8 = __tmp__._2, _kk:stdgo.GoUInt8 = __tmp__._3;
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _cc;
         _s[(1 : stdgo.GoInt)] = _mm;
@@ -2763,8 +2763,8 @@ class CMYK_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
-        var _c1 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.cmykmodel.convert(_c)) : stdgo._internal.image.color.Color.CMYK)) : stdgo._internal.image.color.Color.CMYK)?.__copy__();
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
+        var _c1 = ((stdgo.Go.typeAssert((stdgo.Go.toInterface(stdgo._internal.image.color.Color.cmykmodel.convert(_c)) : stdgo._internal.image.color.Color.CMYK)) : stdgo._internal.image.color.Color.CMYK)?.__copy__() : stdgo._internal.image.color.Color.CMYK);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         _s[(0 : stdgo.GoInt)] = _c1.c;
         _s[(1 : stdgo.GoInt)] = _c1.m;
@@ -2782,7 +2782,7 @@ class CMYK_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.CMYK() : stdgo._internal.image.color.Color.CMYK);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         var _s = (_p.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return (new stdgo._internal.image.color.Color.CMYK(_s[(0 : stdgo.GoInt)], _s[(1 : stdgo.GoInt)], _s[(2 : stdgo.GoInt)], _s[(3 : stdgo.GoInt)]) : stdgo._internal.image.color.Color.CMYK);
     }
@@ -2844,10 +2844,10 @@ class Paletted_asInterface {
     static public function opaque( _p:stdgo.Ref<Paletted>):Bool {
         @:recv var _p:stdgo.Ref<Paletted> = _p;
         var _present:stdgo.GoArray<Bool> = new stdgo.GoArray<Bool>(256, 256, ...[for (i in 0 ... 256) false]);
-        var __0 = (0 : stdgo.GoInt), __1 = _p.rect.dx();
+        var __0 = (0 : stdgo.GoInt), __1 = (_p.rect.dx() : stdgo.GoInt);
 var _i1 = __1, _i0 = __0;
         {
-            var _y = _p.rect.min.y;
+            var _y = (_p.rect.min.y : stdgo.GoInt);
             stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
                 for (__0 => _c in (_p.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>)) {
                     _present[(_c : stdgo.GoInt)] = true;
@@ -2874,7 +2874,7 @@ var _i1 = __1, _i0 = __0;
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef(({ palette : _p.palette } : stdgo._internal.image.Image.Paletted)) : stdgo.Ref<stdgo._internal.image.Image.Paletted>));
         };
-        var _i = _p.pixOffset(_r.min.x, _r.min.y);
+        var _i = (_p.pixOffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : (_p.pix.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), stride : _p.stride, rect : _p.rect.intersect(_r?.__copy__())?.__copy__(), palette : _p.palette } : stdgo._internal.image.Image.Paletted)) : stdgo.Ref<stdgo._internal.image.Image.Paletted>));
     }
     @:keep
@@ -2883,7 +2883,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i : stdgo.GoInt)] = _index;
     }
     @:keep
@@ -2892,7 +2892,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (0 : stdgo.GoUInt8);
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         return _p.pix[(_i : stdgo.GoInt)];
     }
     @:keep
@@ -2901,7 +2901,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i : stdgo.GoInt)] = (_p.palette.index(stdgo.Go.asInterface(_c)) : stdgo.GoUInt8);
     }
     @:keep
@@ -2910,7 +2910,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return;
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         _p.pix[(_i : stdgo.GoInt)] = (_p.palette.index(_c) : stdgo.GoUInt8);
     }
     @:keep
@@ -2924,11 +2924,11 @@ var _i1 = __1, _i0 = __0;
         if ((_p.palette.length) == ((0 : stdgo.GoInt))) {
             return (new stdgo._internal.image.color.Color.RGBA64() : stdgo._internal.image.color.Color.RGBA64);
         };
-        var _c = (null : stdgo._internal.image.color.Color.Color);
+        var _c = ((null : stdgo._internal.image.color.Color.Color) : stdgo._internal.image.color.Color.Color);
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             _c = _p.palette[(0 : stdgo.GoInt)];
         } else {
-            var _i = _p.pixOffset(_x, _y);
+            var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
             _c = _p.palette[(_p.pix[(_i : stdgo.GoInt)] : stdgo.GoInt)];
         };
         var __tmp__ = _c.rgba(), _r:stdgo.GoUInt32 = __tmp__._0, _g:stdgo.GoUInt32 = __tmp__._1, _b:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
@@ -2943,7 +2943,7 @@ var _i1 = __1, _i0 = __0;
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return _p.palette[(0 : stdgo.GoInt)];
         };
-        var _i = _p.pixOffset(_x, _y);
+        var _i = (_p.pixOffset(_x, _y) : stdgo.GoInt);
         return _p.palette[(_p.pix[(_i : stdgo.GoInt)] : stdgo.GoInt)];
     }
     @:keep
@@ -3060,8 +3060,8 @@ class YCbCr_asInterface {
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef(({ subsampleRatio : _p.subsampleRatio } : stdgo._internal.image.Image.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image.YCbCr>));
         };
-        var _yi = _p.yoffset(_r.min.x, _r.min.y);
-        var _ci = _p.coffset(_r.min.x, _r.min.y);
+        var _yi = (_p.yoffset(_r.min.x, _r.min.y) : stdgo.GoInt);
+        var _ci = (_p.coffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ y : (_p.y.__slice__(_yi) : stdgo.Slice<stdgo.GoUInt8>), cb : (_p.cb.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), cr : (_p.cr.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _p.subsampleRatio, ystride : _p.ystride, cstride : _p.cstride, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr)) : stdgo.Ref<stdgo._internal.image.Image.YCbCr>));
     }
     @:keep
@@ -3094,8 +3094,8 @@ class YCbCr_asInterface {
         if (!((new stdgo._internal.image.Image.Point(_x, _y) : stdgo._internal.image.Image.Point).in_(_p.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.YCbCr() : stdgo._internal.image.color.Color.YCbCr);
         };
-        var _yi = _p.yoffset(_x, _y);
-        var _ci = _p.coffset(_x, _y);
+        var _yi = (_p.yoffset(_x, _y) : stdgo.GoInt);
+        var _ci = (_p.coffset(_x, _y) : stdgo.GoInt);
         return (new stdgo._internal.image.color.Color.YCbCr(_p.y[(_yi : stdgo.GoInt)], _p.cb[(_ci : stdgo.GoInt)], _p.cr[(_ci : stdgo.GoInt)]) : stdgo._internal.image.color.Color.YCbCr);
     }
     @:keep
@@ -3158,10 +3158,10 @@ class NYCbCrA_asInterface {
         if (_p.ycbCr.rect.empty()) {
             return true;
         };
-        var __0 = (0 : stdgo.GoInt), __1 = _p.ycbCr.rect.dx();
+        var __0 = (0 : stdgo.GoInt), __1 = (_p.ycbCr.rect.dx() : stdgo.GoInt);
 var _i1 = __1, _i0 = __0;
         {
-            var _y = _p.ycbCr.rect.min.y;
+            var _y = (_p.ycbCr.rect.min.y : stdgo.GoInt);
             stdgo.Go.cfor((_y < _p.ycbCr.rect.max.y : Bool), _y++, {
                 for (__0 => _a in (_p.a.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>)) {
                     if (_a != ((255 : stdgo.GoUInt8))) {
@@ -3181,9 +3181,9 @@ var _i1 = __1, _i0 = __0;
         if (_r.empty()) {
             return stdgo.Go.asInterface((stdgo.Go.setRef(({ ycbCr : ({ subsampleRatio : _p.ycbCr.subsampleRatio } : stdgo._internal.image.Image.YCbCr) } : stdgo._internal.image.Image.NYCbCrA)) : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>));
         };
-        var _yi = _p.yoffset(_r.min.x, _r.min.y);
-        var _ci = _p.coffset(_r.min.x, _r.min.y);
-        var _ai = _p.aoffset(_r.min.x, _r.min.y);
+        var _yi = (_p.yoffset(_r.min.x, _r.min.y) : stdgo.GoInt);
+        var _ci = (_p.coffset(_r.min.x, _r.min.y) : stdgo.GoInt);
+        var _ai = (_p.aoffset(_r.min.x, _r.min.y) : stdgo.GoInt);
         return stdgo.Go.asInterface((stdgo.Go.setRef(({ ycbCr : ({ y : (_p.ycbCr.y.__slice__(_yi) : stdgo.Slice<stdgo.GoUInt8>), cb : (_p.ycbCr.cb.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), cr : (_p.ycbCr.cr.__slice__(_ci) : stdgo.Slice<stdgo.GoUInt8>), subsampleRatio : _p.ycbCr.subsampleRatio, ystride : _p.ycbCr.ystride, cstride : _p.ycbCr.cstride, rect : _r?.__copy__() } : stdgo._internal.image.Image.YCbCr), a : (_p.a.__slice__(_ai) : stdgo.Slice<stdgo.GoUInt8>), astride : _p.astride } : stdgo._internal.image.Image.NYCbCrA)) : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>));
     }
     @:keep
@@ -3197,9 +3197,9 @@ var _i1 = __1, _i0 = __0;
         if (!(({ x : _x, y : _y } : stdgo._internal.image.Image.Point).in_(_p.ycbCr.rect?.__copy__()))) {
             return (new stdgo._internal.image.color.Color.NYCbCrA() : stdgo._internal.image.color.Color.NYCbCrA);
         };
-        var _yi = _p.yoffset(_x, _y);
-        var _ci = _p.coffset(_x, _y);
-        var _ai = _p.aoffset(_x, _y);
+        var _yi = (_p.yoffset(_x, _y) : stdgo.GoInt);
+        var _ci = (_p.coffset(_x, _y) : stdgo.GoInt);
+        var _ai = (_p.aoffset(_x, _y) : stdgo.GoInt);
         return (new stdgo._internal.image.color.Color.NYCbCrA(({ y : _p.ycbCr.y[(_yi : stdgo.GoInt)], cb : _p.ycbCr.cb[(_ci : stdgo.GoInt)], cr : _p.ycbCr.cr[(_ci : stdgo.GoInt)] } : stdgo._internal.image.color.Color.YCbCr), _p.a[(_ai : stdgo.GoInt)]) : stdgo._internal.image.color.Color.NYCbCrA);
     }
     @:keep

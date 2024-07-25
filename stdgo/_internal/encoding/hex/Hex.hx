@@ -392,9 +392,9 @@ function decode(_dst:stdgo.Slice<stdgo.GoByte>, _src:stdgo.Slice<stdgo.GoByte>):
         var __0 = (0 : stdgo.GoInt), __1 = (1 : stdgo.GoInt);
 var _j = __1, _i = __0;
         stdgo.Go.cfor((_j < (_src.length) : Bool), _j = (_j + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
-            var _p = _src[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)];
-            var _q = _src[(_j : stdgo.GoInt)];
-            var _a = stdgo.Go.str(255,
+            var _p = (_src[(_j - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
+            var _q = (_src[(_j : stdgo.GoInt)] : stdgo.GoUInt8);
+            var _a = (stdgo.Go.str(255,
 255,
 255,
 255,
@@ -641,8 +641,8 @@ var _j = __1, _i = __0;
 255,
 255,
 255,
-255)[(_p : stdgo.GoInt)];
-            var _b = stdgo.Go.str(255,
+255)[(_p : stdgo.GoInt)] : stdgo.GoUInt8);
+            var _b = (stdgo.Go.str(255,
 255,
 255,
 255,
@@ -889,7 +889,7 @@ var _j = __1, _i = __0;
 255,
 255,
 255,
-255)[(_q : stdgo.GoInt)];
+255)[(_q : stdgo.GoInt)] : stdgo.GoUInt8);
             if ((_a > (15 : stdgo.GoUInt8) : Bool)) {
                 return { _0 : _i, _1 : stdgo.Go.asInterface((_p : InvalidByteError)) };
             };
@@ -1170,7 +1170,7 @@ function dump(_data:stdgo.Slice<stdgo.GoByte>):stdgo.GoString {
         };
         var _buf:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
         _buf.grow(((((1 : stdgo.GoInt) + (((((_data.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) / (16 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt)) * (79 : stdgo.GoInt) : stdgo.GoInt));
-        var _dumper = dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)));
+        var _dumper = (dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>))) : stdgo._internal.io.Io.WriteCloser);
         _dumper.write(_data);
         _dumper.close();
         return (_buf.string() : stdgo.GoString)?.__copy__();
@@ -1193,7 +1193,7 @@ function _toChar(_b:stdgo.GoByte):stdgo.GoByte {
 function testEncode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_i => _test in _encDecTests) {
             var _dst = (new stdgo.Slice<stdgo.GoUInt8>((encodedLen((_test._dec.length)) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var _n = encode(_dst, _test._dec);
+            var _n = (encode(_dst, _test._dec) : stdgo.GoInt);
             if (_n != ((_dst.length))) {
                 _t.errorf(("#%d: bad return value: got: %d want: %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_n), stdgo.Go.toInterface((_dst.length)));
             };
@@ -1216,7 +1216,7 @@ function testDecode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testEncodeToString(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_i => _test in _encDecTests) {
-            var _s = encodeToString(_test._dec)?.__copy__();
+            var _s = (encodeToString(_test._dec)?.__copy__() : stdgo.GoString);
             if (_s != (_test._enc)) {
                 _t.errorf(("#%d got:%s want:%s" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_test._enc));
             };
@@ -1255,9 +1255,9 @@ function testEncoderDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
         for (__0 => _multiplier in (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (128 : stdgo.GoInt), (192 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
             for (__1 => _test in _encDecTests) {
                 var _input = stdgo._internal.bytes.Bytes.repeat(_test._dec, _multiplier);
-                var _output = stdgo._internal.strings.Strings.repeat(_test._enc?.__copy__(), _multiplier)?.__copy__();
+                var _output = (stdgo._internal.strings.Strings.repeat(_test._enc?.__copy__(), _multiplier)?.__copy__() : stdgo.GoString);
                 var _buf:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
-                var _enc = newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
+                var _enc = (newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>))) : stdgo._internal.io.Io.Writer);
                 var _r = ({ reader : stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_input)) } : T__struct_1);
                 {
                     var __tmp__ = stdgo._internal.io.Io.copyBuffer(_enc, stdgo.Go.asInterface(_r), (new stdgo.Slice<stdgo.GoUInt8>((7 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1267,13 +1267,13 @@ function testEncoderDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
                     };
                 };
                 {
-                    var _encDst = (_buf.string() : stdgo.GoString)?.__copy__();
+                    var _encDst = ((_buf.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                     if (_encDst != (_output)) {
                         _t.errorf(("buf(%q*%d) = %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._dec), stdgo.Go.toInterface(_multiplier), stdgo.Go.toInterface(_encDst), stdgo.Go.toInterface(_output));
                         continue;
                     };
                 };
-                var _dec = newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
+                var _dec = (newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>))) : stdgo._internal.io.Io.Reader);
                 var _decBuf:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
                 var _w = ({ writer : stdgo.Go.asInterface((stdgo.Go.setRef(_decBuf) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)) } : T__struct_2);
                 {
@@ -1291,9 +1291,9 @@ function testEncoderDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Vo
     }
 function testDecoderErr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _tt in _errTests) {
-            var _dec = newDecoder(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(_tt._in?.__copy__())));
+            var _dec = (newDecoder(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(_tt._in?.__copy__()))) : stdgo._internal.io.Io.Reader);
             var __tmp__ = stdgo._internal.io.Io.readAll(_dec), _out:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            var _wantErr = _tt._err;
+            var _wantErr = (_tt._err : stdgo.Error);
             if (stdgo.Go.toInterface(_wantErr) == (stdgo.Go.toInterface(errLength))) {
                 _wantErr = stdgo._internal.io.Io.errUnexpectedEOF;
             };
@@ -1311,7 +1311,7 @@ function testDumper(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             var _stride = (1 : stdgo.GoInt);
             stdgo.Go.cfor((_stride < (_in.length) : Bool), _stride++, {
                 var _out:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
-                var _dumper = dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
+                var _dumper = (dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>))) : stdgo._internal.io.Io.WriteCloser);
                 var _done = (0 : stdgo.GoInt);
                 while ((_done < (_in.length) : Bool)) {
                     var _todo = (_done + _stride : stdgo.GoInt);
@@ -1330,7 +1330,7 @@ function testDumper(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testDumper_doubleclose(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _out:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
-        var _dumper = dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)));
+        var _dumper = (dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>))) : stdgo._internal.io.Io.WriteCloser);
         _dumper.write((("gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
         _dumper.close();
         _dumper.close();
@@ -1343,10 +1343,10 @@ function testDumper_doubleclose(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>
     }
 function testDumper_earlyclose(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _out:stdgo._internal.strings.Strings.Builder = ({} : stdgo._internal.strings.Strings.Builder);
-        var _dumper = dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>)));
+        var _dumper = (dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.strings.Strings.Builder>))) : stdgo._internal.io.Io.WriteCloser);
         _dumper.close();
         _dumper.write((("gopher" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
-        var _expected = stdgo.Go.str()?.__copy__();
+        var _expected = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
         if ((_out.string() : stdgo.GoString) != (_expected)) {
             _t.fatalf(("got:\n%#v\nwant:\n%#v" : stdgo.GoString), stdgo.Go.toInterface((_out.string() : stdgo.GoString)), stdgo.Go.toInterface(_expected));
         };
@@ -1427,7 +1427,7 @@ class T_encoder_asInterface {
                 _chunkSize = (_p.length);
             };
             var _written:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _encoded = encode((_e._out.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_p.__slice__(0, _chunkSize) : stdgo.Slice<stdgo.GoUInt8>));
+            var _encoded = (encode((_e._out.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_p.__slice__(0, _chunkSize) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
             {
                 var __tmp__ = _e._w.write((_e._out.__slice__(0, _encoded) : stdgo.Slice<stdgo.GoUInt8>));
                 _written = __tmp__._0;
@@ -1467,7 +1467,7 @@ var _numRead = __1, _numCopy = __0;
             _d._in = (_d._arr.__slice__(0, (_numCopy + _numRead : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             if (((stdgo.Go.toInterface(_d._err) == stdgo.Go.toInterface(stdgo._internal.io.Io.eof)) && (((_d._in.length) % (2 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
                 {
-                    var _a = stdgo.Go.str(255,
+                    var _a = (stdgo.Go.str(255,
 255,
 255,
 255,
@@ -1714,7 +1714,7 @@ var _numRead = __1, _numCopy = __0;
 255,
 255,
 255,
-255)[(_d._in[((_d._in.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt)];
+255)[(_d._in[((_d._in.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.GoUInt8);
                     if ((_a > (15 : stdgo.GoUInt8) : Bool)) {
                         _d._err = stdgo.Go.asInterface((_d._in[((_d._in.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : InvalidByteError));
                     } else {
@@ -1775,7 +1775,7 @@ class T_dumper_asInterface {
         _h._buf[(2 : stdgo.GoInt)] = (32 : stdgo.GoUInt8);
         _h._buf[(3 : stdgo.GoInt)] = (32 : stdgo.GoUInt8);
         _h._buf[(4 : stdgo.GoInt)] = (124 : stdgo.GoUInt8);
-        var _nBytes = _h._used;
+        var _nBytes = (_h._used : stdgo.GoInt);
         while ((_h._used < (16 : stdgo.GoInt) : Bool)) {
             var _l = (3 : stdgo.GoInt);
             if (_h._used == ((7 : stdgo.GoInt))) {

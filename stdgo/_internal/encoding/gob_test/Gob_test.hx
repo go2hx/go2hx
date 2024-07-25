@@ -70,7 +70,7 @@ typedef Pythagoras = stdgo.StructType & {
 function example_encodeDecode():Void {
         var _network:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
         var _enc = stdgo._internal.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_network) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
-        var _err = _enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.gob_test.Gob_test.Vector((3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo._internal.encoding.gob_test.Gob_test.Vector))));
+        var _err = (_enc.encode(stdgo.Go.toInterface(stdgo.Go.asInterface((new stdgo._internal.encoding.gob_test.Gob_test.Vector((3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)) : stdgo._internal.encoding.gob_test.Gob_test.Vector)))) : stdgo.Error);
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(("encode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -96,20 +96,20 @@ function example_interface():Void {
         {
             var _i = (1 : stdgo.GoInt);
             stdgo.Go.cfor((_i <= (3 : stdgo.GoInt) : Bool), _i++, {
-                var _result = _interfaceDecode(_dec);
+                var _result = (_interfaceDecode(_dec) : stdgo._internal.encoding.gob_test.Gob_test.Pythagoras);
                 stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_result.hypotenuse()));
             });
         };
     }
 function _interfaceEncode(_enc:stdgo.Ref<stdgo._internal.encoding.gob.Gob.Encoder>, _p:Pythagoras):Void {
-        var _err = _enc.encode(stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo._internal.encoding.gob_test.Gob_test.Pythagoras>)));
+        var _err = (_enc.encode(stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo._internal.encoding.gob_test.Gob_test.Pythagoras>))) : stdgo.Error);
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(("encode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
     }
 function _interfaceDecode(_dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob.Decoder>):Pythagoras {
         var _p:Pythagoras = (null : stdgo._internal.encoding.gob_test.Gob_test.Pythagoras);
-        var _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo._internal.encoding.gob_test.Gob_test.Pythagoras>)));
+        var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo._internal.encoding.gob_test.Gob_test.Pythagoras>))) : stdgo.Error);
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(("decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -119,7 +119,7 @@ function example_basic():Void {
         var _network:stdgo._internal.bytes.Bytes.Buffer = ({} : stdgo._internal.bytes.Bytes.Buffer);
         var _enc = stdgo._internal.encoding.gob.Gob.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_network) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
         var _dec = stdgo._internal.encoding.gob.Gob.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_network) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)));
-        var _err = _enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob_test.Gob_test.P((3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), ("Pythagoras" : stdgo.GoString)) : stdgo._internal.encoding.gob_test.Gob_test.P)));
+        var _err = (_enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob_test.Gob_test.P((3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt), ("Pythagoras" : stdgo.GoString)) : stdgo._internal.encoding.gob_test.Gob_test.P))) : stdgo.Error);
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

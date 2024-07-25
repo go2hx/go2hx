@@ -123,7 +123,7 @@ function testEncodeRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                         _t.errorf(("EncodeRune(%#x) = %#x, %#x; want %#x, %#x" : stdgo.GoString), stdgo.Go.toInterface(_r), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_tt._out[(_j : stdgo.GoInt)]), stdgo.Go.toInterface(_tt._out[(_j + (1 : stdgo.GoInt) : stdgo.GoInt)]));
                     };
                     _j = (_j + ((2 : stdgo.GoInt)) : stdgo.GoInt);
-                    var _dec = decodeRune(_r1, _r2);
+                    var _dec = (decodeRune(_r1, _r2) : stdgo.GoInt32);
                     if (_dec != (_r)) {
                         _t.errorf(("DecodeRune(%#x, %#x) = %#x; want %#x" : stdgo.GoString), stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2), stdgo.Go.toInterface(_dec), stdgo.Go.toInterface(_r));
                     };
@@ -137,12 +137,12 @@ function testEncodeRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testAllocationsDecode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         stdgo._internal.internal.testenv.Testenv.skipIfOptimizationOff(stdgo.Go.asInterface(_t));
         for (__0 => _tt in _decodeTests) {
-            var _allocs = stdgo._internal.testing.Testing.allocsPerRun((10 : stdgo.GoInt), function():Void {
+            var _allocs = (stdgo._internal.testing.Testing.allocsPerRun((10 : stdgo.GoInt), function():Void {
                 var _out = decode(_tt._in);
                 if (_out == null) {
                     _t.errorf(("Decode(%x) = nil" : stdgo.GoString), stdgo.Go.toInterface(_tt._in));
                 };
-            });
+            }) : stdgo.GoFloat64);
             if ((_allocs > (0 : stdgo.GoFloat64) : Bool)) {
                 _t.errorf(("Decode allocated %v times" : stdgo.GoString), stdgo.Go.toInterface(_allocs));
             };
@@ -158,7 +158,7 @@ function testDecode(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testDecodeRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_i => _tt in _decodeRuneTests) {
-            var _got = decodeRune(_tt._r1, _tt._r2);
+            var _got = (decodeRune(_tt._r1, _tt._r2) : stdgo.GoInt32);
             if (_got != (_tt._want)) {
                 _t.errorf(("%d: DecodeRune(%q, %q) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tt._r1), stdgo.Go.toInterface(_tt._r2), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
             };
@@ -166,7 +166,7 @@ function testDecodeRune(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
     }
 function testIsSurrogate(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (_i => _tt in _surrogateTests) {
-            var _got = isSurrogate(_tt._r);
+            var _got = (isSurrogate(_tt._r) : Bool);
             if (_got != (_tt._want)) {
                 _t.errorf(("%d: IsSurrogate(%q) = %v; want %v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_tt._r), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_tt._want));
             };

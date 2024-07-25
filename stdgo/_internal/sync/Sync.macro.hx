@@ -12,7 +12,7 @@ macro function onceValue<T_>(__generic__0:haxe.macro.Expr.ExprOf<T_>, _f:haxe.ma
                 final f = macro function f(__generic__0:$T_, _f:() -> T_) {
                     var __0:stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once), __1:Bool = false, __2:stdgo.AnyInterface = (null : stdgo.AnyInterface), __3:$T_ = stdgo.Go.defaultValue((cast (null) : $T_));
 var _result = __3, _p = __2, _valid = __1, _once = __0;
-                    var _g = function():stdgo._internal.sync.Sync.Void {
+                    var _g = (function():stdgo._internal.sync.Sync.Void {
                         var __deferstack__:stdgo._internal.sync.Sync.Array<stdgo._internal.sync.Sync.Void -> Void> = [];
                         try {
                             __deferstack__.unshift(() -> {
@@ -50,7 +50,7 @@ var _result = __3, _p = __2, _valid = __1, _once = __0;
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                             return;
                         };
-                    };
+                    } : () -> Void);
                     return function():$T_ {
                         _once.do_(_g);
                         if (!_valid) {
@@ -84,7 +84,7 @@ macro function onceValues<T1, T2>(__generic__0:haxe.macro.Expr.ExprOf<T1>, __gen
                 final f = macro function f(__generic__0:$T1, __generic__1:$T2, _f:() -> { var _0 : T1; var _1 : T2; }) {
                     var __0:stdgo._internal.sync.Sync.Once = ({} : stdgo._internal.sync.Sync.Once), __1:Bool = false, __2:stdgo.AnyInterface = (null : stdgo.AnyInterface), __3:$T1 = stdgo.Go.defaultValue((cast (null) : $T1)), __4:$T2 = stdgo.Go.defaultValue((cast (null) : $T2));
 var _r2 = __4, _r1 = __3, _p = __2, _valid = __1, _once = __0;
-                    var _g = function():stdgo._internal.sync.Sync.Void {
+                    var _g = (function():stdgo._internal.sync.Sync.Void {
                         var __deferstack__:stdgo._internal.sync.Sync.Array<stdgo._internal.sync.Sync.Void -> Void> = [];
                         try {
                             __deferstack__.unshift(() -> {
@@ -126,7 +126,7 @@ var _r2 = __4, _r1 = __3, _p = __2, _valid = __1, _once = __0;
                             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                             return;
                         };
-                    };
+                    } : () -> Void);
                     return function():{ var _0 : T1; var _1 : T2; } {
                         _once.do_(_g);
                         if (!_valid) {

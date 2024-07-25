@@ -343,7 +343,7 @@ function _sqDiff(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.GoUInt32 {
         return (((_d * _d : stdgo.GoUInt32)) >> (2i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
     }
 function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
-        var _orig = function(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.GoUInt32 {
+        var _orig = (function(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32):stdgo.GoUInt32 {
             var _d:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
             if ((_x > _y : Bool)) {
                 _d = (_x - _y : stdgo.GoUInt32);
@@ -351,7 +351,7 @@ function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 _d = (_y - _x : stdgo.GoUInt32);
             };
             return (((_d * _d : stdgo.GoUInt32)) >> (2i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
-        };
+        } : (stdgo.GoUInt32, stdgo.GoUInt32) -> stdgo.GoUInt32);
         var _testCases = (new stdgo.Slice<stdgo.GoUInt32>(12, 12, ...[
 (0u32 : stdgo.GoUInt32),
 (1u32 : stdgo.GoUInt32),
@@ -368,7 +368,7 @@ function testSqDiff(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         for (__0 => _x in _testCases) {
             for (__1 => _y in _testCases) {
                 {
-                    var __0 = _sqDiff(_x, _y), __1 = _orig(_x, _y);
+                    var __0 = (_sqDiff(_x, _y) : stdgo.GoUInt32), __1 = (_orig(_x, _y) : stdgo.GoUInt32);
 var _want = __1, _got = __0;
                     if (_got != (_want)) {
                         _t.fatalf(("sqDiff(%#x, %#x): got %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
@@ -377,7 +377,7 @@ var _want = __1, _got = __0;
             };
         };
         {
-            var _err = stdgo._internal.testing.quick.Quick.checkEqual(stdgo.Go.toInterface(_orig), stdgo.Go.toInterface(_sqDiff), (stdgo.Go.setRef(({ maxCountScale : (10 : stdgo.GoFloat64) } : stdgo._internal.testing.quick.Quick.Config)) : stdgo.Ref<stdgo._internal.testing.quick.Quick.Config>));
+            var _err = (stdgo._internal.testing.quick.Quick.checkEqual(stdgo.Go.toInterface(_orig), stdgo.Go.toInterface(_sqDiff), (stdgo.Go.setRef(({ maxCountScale : (10 : stdgo.GoFloat64) } : stdgo._internal.testing.quick.Quick.Config)) : stdgo.Ref<stdgo._internal.testing.quick.Quick.Config>)) : stdgo.Error);
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -465,7 +465,7 @@ function rgbtoCMYK(_r:stdgo.GoUInt8, _g:stdgo.GoUInt8, _b:stdgo.GoUInt8):{ var _
         var _rr = (_r : stdgo.GoUInt32);
         var _gg = (_g : stdgo.GoUInt32);
         var _bb = (_b : stdgo.GoUInt32);
-        var _w = _rr;
+        var _w = (_rr : stdgo.GoUInt32);
         if ((_w < _gg : Bool)) {
             _w = _gg;
         };
@@ -572,7 +572,7 @@ function testYCbCrGray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                 var _c0 = (new stdgo._internal.image.color.Color.YCbCr((_i : stdgo.GoUInt8), (128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr);
                 var _c1 = (new stdgo._internal.image.color.Color.Gray((_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Gray);
                 {
-                    var _err = _eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1));
+                    var _err = (_eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1)) : stdgo.Error);
                     if (_err != null) {
                         _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
@@ -587,7 +587,7 @@ function testNYCbCrAAlpha(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 var _c0 = (new stdgo._internal.image.color.Color.NYCbCrA((new stdgo._internal.image.color.Color.YCbCr((255 : stdgo.GoUInt8), (128 : stdgo.GoUInt8), (128 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr), (_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NYCbCrA);
                 var _c1 = (new stdgo._internal.image.color.Color.Alpha((_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Alpha);
                 {
-                    var _err = _eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1));
+                    var _err = (_eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1)) : stdgo.Error);
                     if (_err != null) {
                         _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
@@ -602,7 +602,7 @@ function testNYCbCrAYCbCr(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void
                 var _c0 = (new stdgo._internal.image.color.Color.NYCbCrA((new stdgo._internal.image.color.Color.YCbCr((_i : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (192 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.NYCbCrA);
                 var _c1 = (new stdgo._internal.image.color.Color.YCbCr((_i : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (192 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.YCbCr);
                 {
-                    var _err = _eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1));
+                    var _err = (_eq(stdgo.Go.asInterface(_c0), stdgo.Go.asInterface(_c1)) : stdgo.Error);
                     if (_err != null) {
                         _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
@@ -689,7 +689,7 @@ function testCMYKGray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
                 {
-                    var _err = _eq(stdgo.Go.asInterface((new stdgo._internal.image.color.Color.CMYK((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (((255 : stdgo.GoInt) - _i : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.CMYK)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.Gray((_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Gray)));
+                    var _err = (_eq(stdgo.Go.asInterface((new stdgo._internal.image.color.Color.CMYK((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (((255 : stdgo.GoInt) - _i : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.CMYK)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.Gray((_i : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.Gray))) : stdgo.Error);
                     if (_err != null) {
                         _t.errorf(("i=0x%02x:\n%v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                     };
@@ -700,12 +700,12 @@ function testCMYKGray(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
 function testPalette(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         var _p = (new stdgo.Slice<stdgo._internal.image.color.Color.Color>(6, 6, ...[stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((128 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (255 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((127 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (127 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (127 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)), stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((64 : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (64 : stdgo.GoUInt8), (64 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA))]) : stdgo._internal.image.color.Color.Palette);
         for (_i => _c in _p) {
-            var _j = _p.index(_c);
+            var _j = (_p.index(_c) : stdgo.GoInt);
             if (_i != (_j)) {
                 _t.errorf(("Index(%v): got %d (color = %v), want %d" : stdgo.GoString), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_p[(_j : stdgo.GoInt)]), stdgo.Go.toInterface(_i));
             };
         };
-        var _got = _p.convert(stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((128 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (128 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA)));
+        var _got = (_p.convert(stdgo.Go.asInterface((new stdgo._internal.image.color.Color.RGBA((128 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (128 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA))) : stdgo._internal.image.color.Color.Color);
         var _want = (new stdgo._internal.image.color.Color.RGBA((127 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (0 : stdgo.GoUInt8), (127 : stdgo.GoUInt8)) : stdgo._internal.image.color.Color.RGBA);
         if (stdgo.Go.toInterface(_got) != (stdgo.Go.toInterface(stdgo.Go.asInterface(_want)))) {
             _t.errorf(("got %v, want %v" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(stdgo.Go.asInterface(_want)));
@@ -1214,7 +1214,7 @@ class Palette_asInterface {
     static public function index( _p:Palette, _c:Color):stdgo.GoInt {
         @:recv var _p:Palette = _p;
         var __tmp__ = _c.rgba(), _cr:stdgo.GoUInt32 = __tmp__._0, _cg:stdgo.GoUInt32 = __tmp__._1, _cb:stdgo.GoUInt32 = __tmp__._2, _ca:stdgo.GoUInt32 = __tmp__._3;
-        var __0 = (0 : stdgo.GoInt), __1 = (-1u32 : stdgo.GoUInt32);
+        var __0 = (0 : stdgo.GoInt), __1 = ((-1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
 var _bestSum = __1, _ret = __0;
         for (_i => _v in _p) {
             var __tmp__ = _v.rgba(), _vr:stdgo.GoUInt32 = __tmp__._0, _vg:stdgo.GoUInt32 = __tmp__._1, _vb:stdgo.GoUInt32 = __tmp__._2, _va:stdgo.GoUInt32 = __tmp__._3;

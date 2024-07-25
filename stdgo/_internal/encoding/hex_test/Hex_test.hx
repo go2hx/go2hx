@@ -31,7 +31,7 @@ function exampleDumper():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _lines = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Go is an open source programming language." : stdgo.GoString), ("\n" : stdgo.GoString), ("We encourage all Go users to subscribe to golang-announce." : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
-            var _stdoutDumper = stdgo._internal.encoding.hex.Hex.dumper(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
+            var _stdoutDumper = (stdgo._internal.encoding.hex.Hex.dumper(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout)) : stdgo._internal.io.Io.WriteCloser);
             __deferstack__.unshift(() -> _stdoutDumper.close());
             for (__0 => _line in _lines) {
                 _stdoutDumper.write((_line : stdgo.Slice<stdgo.GoByte>));
@@ -59,6 +59,6 @@ function exampleDumper():Void {
     }
 function exampleEncodeToString():Void {
         var _src = (("Hello" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-        var _encodedStr = stdgo._internal.encoding.hex.Hex.encodeToString(_src)?.__copy__();
+        var _encodedStr = (stdgo._internal.encoding.hex.Hex.encodeToString(_src)?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%s\n" : stdgo.GoString), stdgo.Go.toInterface(_encodedStr));
     }

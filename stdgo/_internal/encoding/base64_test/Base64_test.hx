@@ -2,7 +2,7 @@ package stdgo._internal.encoding.base64_test;
 import stdgo._internal.encoding.base64.Base64;
 function example():Void {
         var _msg = ("Hello, 世界" : stdgo.GoString);
-        var _encoded = stdgo._internal.encoding.base64.Base64.stdEncoding.encodeToString((_msg : stdgo.Slice<stdgo.GoByte>))?.__copy__();
+        var _encoded = (stdgo._internal.encoding.base64.Base64.stdEncoding.encodeToString((_msg : stdgo.Slice<stdgo.GoByte>))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_encoded));
         var __tmp__ = stdgo._internal.encoding.base64.Base64.stdEncoding.decodeString(_encoded?.__copy__()), _decoded:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -13,7 +13,7 @@ function example():Void {
     }
 function exampleEncoding_EncodeToString():Void {
         var _data = (("any + old & data" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>);
-        var _str = stdgo._internal.encoding.base64.Base64.stdEncoding.encodeToString(_data)?.__copy__();
+        var _str = (stdgo._internal.encoding.base64.Base64.stdEncoding.encodeToString(_data)?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_str));
     }
 function exampleEncoding_Encode():Void {
@@ -44,7 +44,7 @@ function exampleEncoding_Decode():Void {
     }
 function exampleNewEncoder():Void {
         var _input = (stdgo.Go.str("foo", 0, "bar") : stdgo.Slice<stdgo.GoByte>);
-        var _encoder = stdgo._internal.encoding.base64.Base64.newEncoder(stdgo._internal.encoding.base64.Base64.stdEncoding, stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
+        var _encoder = (stdgo._internal.encoding.base64.Base64.newEncoder(stdgo._internal.encoding.base64.Base64.stdEncoding, stdgo.Go.asInterface(stdgo._internal.os.Os.stdout)) : stdgo._internal.io.Io.WriteCloser);
         _encoder.write(_input);
         _encoder.close();
     }

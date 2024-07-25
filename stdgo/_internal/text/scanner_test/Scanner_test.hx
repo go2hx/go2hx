@@ -6,7 +6,7 @@ function example():Void {
         _s.init(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("\n// This is scanned code.\nif a > 10 {\n\tsomeParsable = text\n}" : stdgo.GoString))));
         _s.position.filename = ("example" : stdgo.GoString);
         {
-            var _tok = _s.scan();
+            var _tok = (_s.scan() : stdgo.GoInt32);
             stdgo.Go.cfor(_tok != ((-1 : stdgo.GoInt32)), _tok = _s.scan(), {
                 stdgo._internal.fmt.Fmt.printf(("%s: %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s.position)), stdgo.Go.toInterface(_s.tokenText()));
             });
@@ -18,7 +18,7 @@ function example_isIdentRune():Void {
         _s.init(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("%var1 var2%" : stdgo.GoString))));
         _s.position.filename = ("default" : stdgo.GoString);
         {
-            var _tok = _s.scan();
+            var _tok = (_s.scan() : stdgo.GoInt32);
             stdgo.Go.cfor(_tok != ((-1 : stdgo.GoInt32)), _tok = _s.scan(), {
                 stdgo._internal.fmt.Fmt.printf(("%s: %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s.position)), stdgo.Go.toInterface(_s.tokenText()));
             });
@@ -30,7 +30,7 @@ function example_isIdentRune():Void {
             return (((_ch == ((37 : stdgo.GoInt32)) && _i == ((0 : stdgo.GoInt)) : Bool) || stdgo._internal.unicode.Unicode.isLetter(_ch) : Bool) || (stdgo._internal.unicode.Unicode.isDigit(_ch) && (_i > (0 : stdgo.GoInt) : Bool) : Bool) : Bool);
         };
         {
-            var _tok = _s.scan();
+            var _tok = (_s.scan() : stdgo.GoInt32);
             stdgo.Go.cfor(_tok != ((-1 : stdgo.GoInt32)), _tok = _s.scan(), {
                 stdgo._internal.fmt.Fmt.printf(("%s: %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s.position)), stdgo.Go.toInterface(_s.tokenText()));
             });
@@ -43,9 +43,9 @@ function example_mode():Void {
         _s.position.filename = ("comments" : stdgo.GoString);
         _s.mode = (_s.mode ^ ((512u32 : stdgo.GoUInt)) : stdgo.GoUInt);
         {
-            var _tok = _s.scan();
+            var _tok = (_s.scan() : stdgo.GoInt32);
             stdgo.Go.cfor(_tok != ((-1 : stdgo.GoInt32)), _tok = _s.scan(), {
-                var _txt = _s.tokenText()?.__copy__();
+                var _txt = (_s.tokenText()?.__copy__() : stdgo.GoString);
                 if ((stdgo._internal.strings.Strings.hasPrefix(_txt?.__copy__(), ("//" : stdgo.GoString)) || stdgo._internal.strings.Strings.hasPrefix(_txt?.__copy__(), ("/*" : stdgo.GoString)) : Bool)) {
                     stdgo._internal.fmt.Fmt.printf(("%s: %s\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s.position)), stdgo.Go.toInterface(_txt));
                 };
@@ -59,7 +59,7 @@ var _tsv = __3, _s = __2, _row = __1, _col = __0;
         _s.init(stdgo.Go.asInterface(stdgo._internal.strings.Strings.newReader(("aa\tab\tac\tad\nba\tbb\tbc\tbd\nca\tcb\tcc\tcd\nda\tdb\tdc\tdd" : stdgo.GoString))));
         _s.whitespace = (_s.whitespace ^ ((1536i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         {
-            var _tok = _s.scan();
+            var _tok = (_s.scan() : stdgo.GoInt32);
             stdgo.Go.cfor(_tok != ((-1 : stdgo.GoInt32)), _tok = _s.scan(), {
                 {
                     final __value__ = _tok;

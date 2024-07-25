@@ -55,7 +55,7 @@ class T__struct_0_asInterface {
 };
 function example_binaryMarshaler():Void {
         {};
-        var _first = stdgo._internal.crypto.sha256.Sha256.new_();
+        var _first = (stdgo._internal.crypto.sha256.Sha256.new_() : stdgo._internal.hash.Hash.Hash);
         _first.write((("The tunneling gopher digs downwards, " : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>));
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_first) : stdgo._internal.encoding.Encoding.BinaryMarshaler)) : stdgo._internal.encoding.Encoding.BinaryMarshaler), _1 : true };
@@ -69,7 +69,7 @@ function example_binaryMarshaler():Void {
         if (_err != null) {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(("unable to marshal hash:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        var _second = stdgo._internal.crypto.sha256.Sha256.new_();
+        var _second = (stdgo._internal.crypto.sha256.Sha256.new_() : stdgo._internal.hash.Hash.Hash);
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_second) : stdgo._internal.encoding.Encoding.BinaryUnmarshaler)) : stdgo._internal.encoding.Encoding.BinaryUnmarshaler), _1 : true };
         } catch(_) {
@@ -79,7 +79,7 @@ function example_binaryMarshaler():Void {
             stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(("second does not implement encoding.BinaryUnmarshaler" : stdgo.GoString)));
         };
         {
-            var _err = _unmarshaler.unmarshalBinary(_state);
+            var _err = (_unmarshaler.unmarshalBinary(_state) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.log.Log.fatal(stdgo.Go.toInterface(("unable to unmarshal hash:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
@@ -103,11 +103,11 @@ function testMarshalHash(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
                 for (_i => _ in _buf) {
                     _buf[(_i : stdgo.GoInt)] = (_i : stdgo.GoByte);
                 };
-                var _h = _tt._new();
+                var _h = (_tt._new() : stdgo._internal.hash.Hash.Hash);
                 _h.write((_buf.__slice__(0, (256 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                 var _sum = _h.sum((null : stdgo.Slice<stdgo.GoUInt8>));
-                var _h2 = _tt._new();
-                var _h3 = _tt._new();
+                var _h2 = (_tt._new() : stdgo._internal.hash.Hash.Hash);
+                var _h3 = (_tt._new() : stdgo._internal.hash.Hash.Hash);
                 {};
                 {
                     var _i = (0 : stdgo.GoInt);
@@ -139,7 +139,7 @@ function testMarshalHash(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void 
                     _t.fatalf(("Hash does not implement UnmarshalBinary" : stdgo.GoString));
                 };
                 {
-                    var _err = _h3u.unmarshalBinary(_enc);
+                    var _err = (_h3u.unmarshalBinary(_enc) : stdgo.Error);
                     if (_err != null) {
                         _t.fatalf(("UnmarshalBinary: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     };

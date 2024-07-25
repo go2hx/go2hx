@@ -6602,7 +6602,7 @@ function _is16(_ranges:stdgo.Slice<Range16>, _r:stdgo.GoUInt16):Bool {
             return false;
         };
         var _lo = (0 : stdgo.GoInt);
-        var _hi = (_ranges.length);
+        var _hi = (_ranges.length : stdgo.GoInt);
         while ((_lo < _hi : Bool)) {
             var _m = (_lo + (((_hi - _lo : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             var _range_ = (stdgo.Go.setRef(_ranges[(_m : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.unicode.Unicode.Range16>);
@@ -6631,10 +6631,10 @@ function _is32(_ranges:stdgo.Slice<Range32>, _r:stdgo.GoUInt32):Bool {
             return false;
         };
         var _lo = (0 : stdgo.GoInt);
-        var _hi = (_ranges.length);
+        var _hi = (_ranges.length : stdgo.GoInt);
         while ((_lo < _hi : Bool)) {
             var _m = (_lo + (((_hi - _lo : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
-            var _range_ = _ranges[(_m : stdgo.GoInt)];
+            var _range_ = (_ranges[(_m : stdgo.GoInt)] : stdgo._internal.unicode.Unicode.Range32);
             if (((_range_.lo <= _r : Bool) && (_r <= _range_.hi : Bool) : Bool)) {
                 return ((_range_.stride == (1u32 : stdgo.GoUInt32)) || ((((_r - _range_.lo : stdgo.GoUInt32)) % _range_.stride : stdgo.GoUInt32) == (0u32 : stdgo.GoUInt32)) : Bool);
             };
@@ -6660,7 +6660,7 @@ function is_(_rangeTab:stdgo.Ref<RangeTable>, _r:stdgo.GoRune):Bool {
 function _isExcludingLatin(_rangeTab:stdgo.Ref<RangeTable>, _r:stdgo.GoRune):Bool {
         var _r16 = _rangeTab.r16;
         {
-            var _off = _rangeTab.latinOffset;
+            var _off = (_rangeTab.latinOffset : stdgo.GoInt);
             if ((((_r16.length) > _off : Bool) && ((_r : stdgo.GoUInt32) <= (_r16[((_r16.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].hi : stdgo.GoUInt32) : Bool) : Bool)) {
                 return _is16((_r16.__slice__(_off) : stdgo.Slice<stdgo._internal.unicode.Unicode.Range16>), (_r : stdgo.GoUInt16));
             };
@@ -6695,12 +6695,12 @@ function _to(__case:stdgo.GoInt, _r:stdgo.GoRune, _caseRange:stdgo.Slice<CaseRan
             return { _0 : (65533 : stdgo.GoInt32), _1 : false };
         };
         var _lo = (0 : stdgo.GoInt);
-        var _hi = (_caseRange.length);
+        var _hi = (_caseRange.length : stdgo.GoInt);
         while ((_lo < _hi : Bool)) {
             var _m = (_lo + (((_hi - _lo : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
-            var _cr = _caseRange[(_m : stdgo.GoInt)];
+            var _cr = (_caseRange[(_m : stdgo.GoInt)] : stdgo._internal.unicode.Unicode.CaseRange);
             if ((((_cr.lo : stdgo.GoRune) <= _r : Bool) && (_r <= (_cr.hi : stdgo.GoRune) : Bool) : Bool)) {
-                var _delta = _cr.delta[(__case : stdgo.GoInt)];
+                var _delta = (_cr.delta[(__case : stdgo.GoInt)] : stdgo.GoInt32);
                 if ((_delta > (1114111 : stdgo.GoInt32) : Bool)) {
                     return { _0 : ((_cr.lo : stdgo.GoRune) + (((((_r - (_cr.lo : stdgo.GoRune) : stdgo.GoInt32)) & (((1 : stdgo.GoInt32) ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt32)) : stdgo.GoInt32) | ((__case & (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoRune) : stdgo.GoInt32)) : stdgo.GoInt32), _1 : true };
                 };
@@ -6756,7 +6756,7 @@ function simpleFold(_r:stdgo.GoRune):stdgo.GoRune {
             return (_asciiFold[(_r : stdgo.GoInt)] : stdgo.GoRune);
         };
         var _lo = (0 : stdgo.GoInt);
-        var _hi = (_caseOrbit.length);
+        var _hi = (_caseOrbit.length : stdgo.GoInt);
         while ((_lo < _hi : Bool)) {
             var _m = (_lo + (((_hi - _lo : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
             if (((_caseOrbit[(_m : stdgo.GoInt)].from : stdgo.GoRune) < _r : Bool)) {
@@ -6769,7 +6769,7 @@ function simpleFold(_r:stdgo.GoRune):stdgo.GoRune {
             return (_caseOrbit[(_lo : stdgo.GoInt)].to : stdgo.GoRune);
         };
         {
-            var _l = toLower(_r);
+            var _l = (toLower(_r) : stdgo.GoInt32);
             if (_l != (_r)) {
                 return _l;
             };

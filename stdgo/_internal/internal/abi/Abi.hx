@@ -836,7 +836,7 @@ function _assertIsAPowerOfTwo(_x:stdgo.GoUInt8):Void {
     }
 function initializedOffset(_off:stdgo.GoInt, _align:stdgo.GoUInt8, _ptrSize:stdgo.GoUInt8, _twoWordAlignSlices:Bool):Offset {
         _assertIsAPowerOfTwo(_align);
-        var _o0 = newOffset(_ptrSize, _twoWordAlignSlices)?.__copy__();
+        var _o0 = (newOffset(_ptrSize, _twoWordAlignSlices)?.__copy__() : stdgo._internal.internal.abi.Abi.Offset);
         _o0._off = (_off : stdgo.GoUInt64);
         _o0._align = _align;
         return _o0?.__copy__();
@@ -859,7 +859,7 @@ function _writeVarint(_buf:stdgo.Slice<stdgo.GoByte>, _n:stdgo.GoInt):stdgo.GoIn
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor(true, _i++, {
-                var _b = ((_n & (127 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoByte);
+                var _b = (((_n & (127 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoByte) : stdgo.GoUInt8);
                 _n = (_n >> ((7i64 : stdgo.GoUInt64)) : stdgo.GoInt);
                 if (_n == ((0 : stdgo.GoInt))) {
                     _buf[(_i : stdgo.GoInt)] = _b;
@@ -878,8 +878,8 @@ function newName(_n:stdgo.GoString, _tag:stdgo.GoString, _exported:Bool, _embedd
         };
         var _nameLen:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10, ...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
         var _tagLen:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(10, 10, ...[for (i in 0 ... 10) (0 : stdgo.GoUInt8)]);
-        var _nameLenLen = _writeVarint((_nameLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_n.length));
-        var _tagLenLen = _writeVarint((_tagLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_tag.length));
+        var _nameLenLen = (_writeVarint((_nameLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_n.length)) : stdgo.GoInt);
+        var _tagLenLen = (_writeVarint((_tagLen.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_tag.length)) : stdgo.GoInt);
         var _bits:stdgo.GoByte = (0 : stdgo.GoUInt8);
         var _l = (((1 : stdgo.GoInt) + _nameLenLen : stdgo.GoInt) + (_n.length) : stdgo.GoInt);
         if (_exported) {
@@ -929,7 +929,7 @@ class RegArgs_asInterface {
         if ((((_argSize > (4 : stdgo.GoUIntptr) : Bool) || _argSize == ((0 : stdgo.GoUIntptr)) : Bool) || ((_argSize & ((_argSize - (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr)) : stdgo.GoUIntptr) != (0 : stdgo.GoUIntptr)) : Bool)) {
             throw stdgo.Go.toInterface(("invalid argSize" : stdgo.GoString));
         };
-        var _offset = (0 : stdgo.GoUIntptr);
+        var _offset = ((0 : stdgo.GoUIntptr) : stdgo.GoUIntptr);
         if (false) {
             _offset = ((4 : stdgo.GoUIntptr) - _argSize : stdgo.GoUIntptr);
         };
@@ -3068,7 +3068,7 @@ class FuncType_asInterface {
         if (_outCount == ((0 : stdgo.GoUInt16))) {
             return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.abi.Abi.Type_>>);
         };
-        var _uadd = stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((_t : stdgo._internal.internal.abi.Abi.FuncType)));
+        var _uadd = (stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((_t : stdgo._internal.internal.abi.Abi.FuncType))) : stdgo.GoUIntptr);
         if ((_t.type.tflag & (1 : stdgo._internal.internal.abi.Abi.TFlag) : stdgo._internal.internal.abi.Abi.TFlag) != ((0 : stdgo._internal.internal.abi.Abi.TFlag))) {
             _uadd = (_uadd + (stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo._internal.internal.abi.Abi.UncommonType() : stdgo._internal.internal.abi.Abi.UncommonType)))) : stdgo.GoUIntptr);
         };
@@ -3088,7 +3088,7 @@ class FuncType_asInterface {
     @:keep
     static public function inSlice( _t:stdgo.Ref<FuncType>):stdgo.Slice<stdgo.Ref<Type_>> {
         @:recv var _t:stdgo.Ref<FuncType> = _t;
-        var _uadd = stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((_t : stdgo._internal.internal.abi.Abi.FuncType)));
+        var _uadd = (stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((_t : stdgo._internal.internal.abi.Abi.FuncType))) : stdgo.GoUIntptr);
         if ((_t.type.tflag & (1 : stdgo._internal.internal.abi.Abi.TFlag) : stdgo._internal.internal.abi.Abi.TFlag) != ((0 : stdgo._internal.internal.abi.Abi.TFlag))) {
             _uadd = (_uadd + (stdgo._internal.unsafe.Unsafe.sizeof(stdgo.Go.toInterface((new stdgo._internal.internal.abi.Abi.UncommonType() : stdgo._internal.internal.abi.Abi.UncommonType)))) : stdgo.GoUIntptr);
         };
@@ -3448,7 +3448,7 @@ class Name_asInterface {
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor(true, _i++, {
-                var _x = _n.dataChecked((_off + _i : stdgo.GoInt), ("read varint" : stdgo.GoString)).value;
+                var _x = (_n.dataChecked((_off + _i : stdgo.GoInt), ("read varint" : stdgo.GoString)).value : stdgo.GoUInt8);
                 _v = (_v + ((((_x & (127 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt) << (((7 : stdgo.GoInt) * _i : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.GoInt);
                 if ((_x & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                     return { _0 : (_i + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : _v };

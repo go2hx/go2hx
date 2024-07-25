@@ -16,7 +16,7 @@ macro function _appendString<Bytes>(__generic__0:haxe.macro.Expr.ExprOf<Bytes>, 
                         var _i = (0 : stdgo.GoInt);
                         while ((_i < (_src.length) : Bool)) {
                             {
-                                var _b = _src[@:param_index _i];
+                                var _b = (_src[@:param_index _i] : stdgo.GoUInt8);
                                 if ((_b < (128 : stdgo.GoUInt8) : Bool)) {
                                     if ((@:privateAccess stdgo._internal.encoding.json.Json._htmlSafeSet[(_b : stdgo.GoInt)] || ((!_escapeHTML && @:privateAccess stdgo._internal.encoding.json.Json._safeSet[(_b : stdgo.GoInt)] : Bool)) : Bool)) {
                                         _i++;

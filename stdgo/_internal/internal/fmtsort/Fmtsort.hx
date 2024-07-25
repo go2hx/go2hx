@@ -19,7 +19,7 @@ function sort(_mapValue:stdgo._internal.reflect.Reflect.Value):stdgo.Ref<SortedM
         if (_mapValue.type().kind() != ((21u32 : stdgo._internal.reflect.Reflect.Kind))) {
             return null;
         };
-        var _n = _mapValue.len();
+        var _n = (_mapValue.len() : stdgo.GoInt);
         var _key = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         var _value = (new stdgo.Slice<stdgo._internal.reflect.Reflect.Value>((0 : stdgo.GoInt).toBasic(), _n, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _n ? (0 : stdgo.GoInt).toBasic() : _n : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect.Value)]) : stdgo.Slice<stdgo._internal.reflect.Reflect.Value>);
         var _iter = _mapValue.mapRange();
@@ -32,7 +32,7 @@ function sort(_mapValue:stdgo._internal.reflect.Reflect.Value):stdgo.Ref<SortedM
         return _sorted;
     }
 function _compare(_aVal:stdgo._internal.reflect.Reflect.Value, _bVal:stdgo._internal.reflect.Reflect.Value):stdgo.GoInt {
-        var __0 = _aVal.type(), __1 = _bVal.type();
+        var __0 = (_aVal.type() : stdgo._internal.reflect.Reflect.Type_), __1 = (_bVal.type() : stdgo._internal.reflect.Reflect.Type_);
 var _bType = __1, _aType = __0;
         if (!((_aType.string() : String) == (_bType.string() : String))) {
             return (-1 : stdgo.GoInt);
@@ -40,7 +40,7 @@ var _bType = __1, _aType = __0;
         {
             final __value__ = _aVal.kind();
             if (__value__ == ((2u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((3u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((4u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((5u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((6u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0 = _aVal.int_(), __1 = _bVal.int_();
+                var __0 = (_aVal.int_() : stdgo.GoInt64), __1 = (_bVal.int_() : stdgo.GoInt64);
 var _b = __1, _a = __0;
                 if ((_a < _b : Bool)) {
                     return (-1 : stdgo.GoInt);
@@ -50,7 +50,7 @@ var _b = __1, _a = __0;
                     return (0 : stdgo.GoInt);
                 };
             } else if (__value__ == ((7u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((8u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((9u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((10u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((11u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((12u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0 = _aVal.uint(), __1 = _bVal.uint();
+                var __0 = (_aVal.uint() : stdgo.GoUInt64), __1 = (_bVal.uint() : stdgo.GoUInt64);
 var _b = __1, _a = __0;
                 if ((_a < _b : Bool)) {
                     return (-1 : stdgo.GoInt);
@@ -60,7 +60,7 @@ var _b = __1, _a = __0;
                     return (0 : stdgo.GoInt);
                 };
             } else if (__value__ == ((24u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0 = (_aVal.string() : stdgo.GoString)?.__copy__(), __1 = (_bVal.string() : stdgo.GoString)?.__copy__();
+                var __0 = ((_aVal.string() : stdgo.GoString)?.__copy__() : stdgo.GoString), __1 = ((_bVal.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
 var _b = __1, _a = __0;
                 if ((_a < _b : Bool)) {
                     return (-1 : stdgo.GoInt);
@@ -72,17 +72,17 @@ var _b = __1, _a = __0;
             } else if (__value__ == ((13u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((14u32 : stdgo._internal.reflect.Reflect.Kind))) {
                 return _floatCompare(_aVal.float_(), _bVal.float_());
             } else if (__value__ == ((15u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((16u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0 = _aVal.complex(), __1 = _bVal.complex();
+                var __0 = (_aVal.complex() : stdgo.GoComplex128), __1 = (_bVal.complex() : stdgo.GoComplex128);
 var _b = __1, _a = __0;
                 {
-                    var _c = _floatCompare(_a.real, _b.real);
+                    var _c = (_floatCompare(_a.real, _b.real) : stdgo.GoInt);
                     if (_c != ((0 : stdgo.GoInt))) {
                         return _c;
                     };
                 };
                 return _floatCompare(_a.imag, _b.imag);
             } else if (__value__ == ((1u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0 = _aVal.bool_(), __1 = _bVal.bool_();
+                var __0 = (_aVal.bool_() : Bool), __1 = (_bVal.bool_() : Bool);
 var _b = __1, _a = __0;
                 if (_a == (_b)) {
                     return (0 : stdgo.GoInt);
@@ -92,7 +92,7 @@ var _b = __1, _a = __0;
                     return (-1 : stdgo.GoInt);
                 };
             } else if (__value__ == ((22u32 : stdgo._internal.reflect.Reflect.Kind)) || __value__ == ((26u32 : stdgo._internal.reflect.Reflect.Kind))) {
-                var __0 = _aVal.pointer(), __1 = _bVal.pointer();
+                var __0 = (_aVal.pointer() : stdgo.GoUIntptr), __1 = (_bVal.pointer() : stdgo.GoUIntptr);
 var _b = __1, _a = __0;
                 if ((_a < _b : Bool)) {
                     return (-1 : stdgo.GoInt);
@@ -108,7 +108,7 @@ var _b = __1, _a = __0;
                         return _c;
                     };
                 };
-                var __0 = _aVal.pointer(), __1 = _bVal.pointer();
+                var __0 = (_aVal.pointer() : stdgo.GoUIntptr), __1 = (_bVal.pointer() : stdgo.GoUIntptr);
 var _bp = __1, _ap = __0;
                 if ((_ap < _bp : Bool)) {
                     return (-1 : stdgo.GoInt);
@@ -122,7 +122,7 @@ var _bp = __1, _ap = __0;
                     var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _aVal.numField() : Bool), _i++, {
                         {
-                            var _c = _compare(_aVal.field(_i)?.__copy__(), _bVal.field(_i)?.__copy__());
+                            var _c = (_compare(_aVal.field(_i)?.__copy__(), _bVal.field(_i)?.__copy__()) : stdgo.GoInt);
                             if (_c != ((0 : stdgo.GoInt))) {
                                 return _c;
                             };
@@ -135,7 +135,7 @@ var _bp = __1, _ap = __0;
                     var _i = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_i < _aVal.len() : Bool), _i++, {
                         {
-                            var _c = _compare(_aVal.index(_i)?.__copy__(), _bVal.index(_i)?.__copy__());
+                            var _c = (_compare(_aVal.index(_i)?.__copy__(), _bVal.index(_i)?.__copy__()) : stdgo.GoInt);
                             if (_c != ((0 : stdgo.GoInt))) {
                                 return _c;
                             };
@@ -150,7 +150,7 @@ var _bp = __1, _ap = __0;
                         return _c;
                     };
                 };
-                var _c = _compare(stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_aVal.elem().type()))?.__copy__(), stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_bVal.elem().type()))?.__copy__());
+                var _c = (_compare(stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_aVal.elem().type()))?.__copy__(), stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface(_bVal.elem().type()))?.__copy__()) : stdgo.GoInt);
                 if (_c != ((0 : stdgo.GoInt))) {
                     return _c;
                 };

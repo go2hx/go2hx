@@ -308,11 +308,11 @@ typedef T__interface_0 = stdgo.StructType & {
 @:named @:using(stdgo._internal.io.fs.Fs.FileMode_static_extension) typedef FileMode = stdgo.GoUInt32;
 @:named typedef WalkDirFunc = (stdgo.GoString, stdgo._internal.io.fs.Fs.DirEntry, stdgo.Error) -> stdgo.Error;
 function formatFileInfo(_info:FileInfo):stdgo.GoString {
-        var _name = _info.name()?.__copy__();
+        var _name = (_info.name()?.__copy__() : stdgo.GoString);
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((40 : stdgo.GoInt) + (_name.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b = (_b.__append__(...((_info.mode().string() : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         _b = (_b.__append__((32 : stdgo.GoUInt8)));
-        var _size = _info.size();
+        var _size = (_info.size() : stdgo.GoInt64);
         var _usize:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         if ((_size >= (0i64 : stdgo.GoInt64) : Bool)) {
             _usize = (_size : stdgo.GoUInt64);
@@ -340,9 +340,9 @@ function formatFileInfo(_info:FileInfo):stdgo.GoString {
         return (_b : stdgo.GoString)?.__copy__();
     }
 function formatDirEntry(_dir:DirEntry):stdgo.GoString {
-        var _name = _dir.name()?.__copy__();
+        var _name = (_dir.name()?.__copy__() : stdgo.GoString);
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((5 : stdgo.GoInt) + (_name.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        var _mode = (_dir.type().string() : stdgo.GoString)?.__copy__();
+        var _mode = ((_dir.type().string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         _mode = (_mode.__slice__(0, ((_mode.length) - (9 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         _b = (_b.__append__(...(_mode : Array<stdgo.GoUInt8>)));
         _b = (_b.__append__((32 : stdgo.GoUInt8)));
@@ -364,7 +364,7 @@ function validPath(_name:stdgo.GoString):Bool {
             while (((_i < (_name.length) : Bool) && (_name[(_i : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
                 _i++;
             };
-            var _elem = (_name.__slice__(0, _i) : stdgo.GoString)?.__copy__();
+            var _elem = ((_name.__slice__(0, _i) : stdgo.GoString)?.__copy__() : stdgo.GoString);
             if (((_elem == (stdgo.Go.str()) || _elem == (("." : stdgo.GoString)) : Bool) || (_elem == (".." : stdgo.GoString)) : Bool)) {
                 return false;
             };
@@ -474,7 +474,7 @@ function _glob(_fs:FS, _dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:st
             return { _0 : _m, _1 : _e };
         };
         for (__0 => _info in _infos) {
-            var _n = _info.name()?.__copy__();
+            var _n = (_info.name()?.__copy__() : stdgo.GoString);
             var __tmp__ = stdgo._internal.path.Path.match(_pattern?.__copy__(), _n?.__copy__()), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : _m, _1 : _err };
@@ -593,7 +593,7 @@ function readFile(_fsys:FS, _name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.G
             {
                 var __tmp__ = _file.stat(), _info:stdgo._internal.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
-                    var _size64 = _info.size();
+                    var _size64 = (_info.size() : stdgo.GoInt64);
                     if (((_size64 : stdgo.GoInt) : stdgo.GoInt64) == (_size64)) {
                         _size = (_size64 : stdgo.GoInt);
                     };
@@ -712,7 +712,7 @@ function sub(_fsys:FS, _dir:stdgo.GoString):{ var _0 : FS; var _1 : stdgo.Error;
     }
 function _walkDir(_fsys:FS, _name:stdgo.GoString, _d:DirEntry, _walkDirFn:WalkDirFunc):stdgo.Error {
         {
-            var _err = _walkDirFn(_name?.__copy__(), _d, (null : stdgo.Error));
+            var _err = (_walkDirFn(_name?.__copy__(), _d, (null : stdgo.Error)) : stdgo.Error);
             if (((_err != null) || !_d.isDir() : Bool)) {
                 if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(skipDir)) && _d.isDir() : Bool)) {
                     _err = (null : stdgo.Error);
@@ -731,9 +731,9 @@ function _walkDir(_fsys:FS, _name:stdgo.GoString, _d:DirEntry, _walkDirFn:WalkDi
             };
         };
         for (__0 => _d1 in _dirs) {
-            var _name1 = stdgo._internal.path.Path.join(_name?.__copy__(), _d1.name()?.__copy__())?.__copy__();
+            var _name1 = (stdgo._internal.path.Path.join(_name?.__copy__(), _d1.name()?.__copy__())?.__copy__() : stdgo.GoString);
             {
-                var _err = _walkDir(_fsys, _name1?.__copy__(), _d1, _walkDirFn);
+                var _err = (_walkDir(_fsys, _name1?.__copy__(), _d1, _walkDirFn) : stdgo.Error);
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(skipDir))) {
                         break;
@@ -889,7 +889,7 @@ class T_subFS_asInterface {
         if (_pattern == (("." : stdgo.GoString))) {
             return { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("." : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
-        var _full = ((_f._dir + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _pattern?.__copy__() : stdgo.GoString)?.__copy__();
+        var _full = (((_f._dir + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _pattern?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var __tmp__ = stdgo._internal.io.fs.Fs.glob(_f._fsys, _full?.__copy__()), _list:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         for (_i => _name in _list) {
             var __tmp__ = _f._shorten(_name?.__copy__()), _name:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;

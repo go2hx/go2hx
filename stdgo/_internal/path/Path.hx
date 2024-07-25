@@ -82,7 +82,7 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
                 _pattern = (_pattern.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                 _star = true;
             };
-            var _inrange = false;
+            var _inrange = (false : Bool);
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             @:label("Scan") {
                 _i = (0 : stdgo.GoInt);
@@ -123,7 +123,7 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
     }
 function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } {
         var _rest = ("" : stdgo.GoString), _ok = false, _err = (null : stdgo.Error);
-        var _failed = false;
+        var _failed = (false : Bool);
         while (((_chunk.length) > (0 : stdgo.GoInt) : Bool)) {
             if ((!_failed && (_s.length == (0 : stdgo.GoInt)) : Bool)) {
                 _failed = true;
@@ -147,12 +147,12 @@ function _matchChunk(_chunk:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.
                                 _s = (_s.__slice__(_n) : stdgo.GoString)?.__copy__();
                             };
                             _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-                            var _negated = false;
+                            var _negated = (false : Bool);
                             if ((((_chunk.length) > (0 : stdgo.GoInt) : Bool) && (_chunk[(0 : stdgo.GoInt)] == (94 : stdgo.GoUInt8)) : Bool)) {
                                 _negated = true;
                                 _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                             };
-                            var _match = false;
+                            var _match = (false : Bool);
                             var _nrange = (0 : stdgo.GoInt);
                             while (true) {
                                 if (((((_chunk.length) > (0 : stdgo.GoInt) : Bool) && _chunk[(0 : stdgo.GoInt)] == ((93 : stdgo.GoUInt8)) : Bool) && (_nrange > (0 : stdgo.GoInt) : Bool) : Bool)) {
@@ -265,8 +265,8 @@ function clean(_path:stdgo.GoString):stdgo.GoString {
         if (_path == (stdgo.Go.str())) {
             return ("." : stdgo.GoString);
         };
-        var _rooted = _path[(0 : stdgo.GoInt)] == ((47 : stdgo.GoUInt8));
-        var _n = (_path.length);
+        var _rooted = (_path[(0 : stdgo.GoInt)] == ((47 : stdgo.GoUInt8)) : Bool);
+        var _n = (_path.length : stdgo.GoInt);
         var _out = ({ _s : _path?.__copy__() } : stdgo._internal.path.Path.T_lazybuf);
         var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
 var _dotdot = __1, _r = __0;
@@ -322,7 +322,7 @@ function _lastSlash(_s:stdgo.GoString):stdgo.GoInt {
     }
 function split(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } {
         var _dir = ("" : stdgo.GoString), _file = ("" : stdgo.GoString);
-        var _i = _lastSlash(_path?.__copy__());
+        var _i = (_lastSlash(_path?.__copy__()) : stdgo.GoInt);
         return { _0 : (_path.__slice__(0, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : (_path.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() };
     }
 function join(_elem:haxe.Rest<stdgo.GoString>):stdgo.GoString {
@@ -364,7 +364,7 @@ function base(_path:stdgo.GoString):stdgo.GoString {
             _path = (_path.__slice__((0 : stdgo.GoInt), ((_path.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
         {
-            var _i = _lastSlash(_path?.__copy__());
+            var _i = (_lastSlash(_path?.__copy__()) : stdgo.GoInt);
             if ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 _path = (_path.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             };

@@ -86,7 +86,7 @@ function testIntReads(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (32 : stdgo.GoInt) : Bool), _i++, {
-                var _max = ((1i64 : stdgo.GoInt64) << (_i : stdgo.GoUInt64) : stdgo.GoInt64);
+                var _max = (((1i64 : stdgo.GoInt64) << (_i : stdgo.GoUInt64) : stdgo.GoInt64) : stdgo.GoInt64);
                 _t.run(stdgo._internal.fmt.Fmt.sprintf(("max=%d" : stdgo.GoString), stdgo.Go.toInterface(_max))?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>):Void {
                     var _reader = (stdgo.Go.setRef(({ _r : stdgo._internal.crypto.rand.Rand.reader } : stdgo._internal.crypto.rand_test.Rand_test.T_countingReader)) : stdgo.Ref<stdgo._internal.crypto.rand_test.Rand_test.T_countingReader>);
                     var __tmp__ = stdgo._internal.crypto.rand.Rand.int_(stdgo.Go.asInterface(_reader), stdgo._internal.math.big.Big.newInt(_max)), __8:stdgo.Ref<stdgo._internal.math.big.Big.Int_> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -137,7 +137,7 @@ function _testIntPanics(_t:stdgo.Ref<stdgo._internal.testing.Testing.T_>, _b:std
                             final r = stdgo.Go.recover_exception;
                             stdgo.Go.recover_exception = null;
                             r;
-                        });
+                        } : stdgo.AnyInterface);
                         if (_err == null) {
                             _t.errorf(("Int should panic when called with max <= 0: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_b)));
                         };

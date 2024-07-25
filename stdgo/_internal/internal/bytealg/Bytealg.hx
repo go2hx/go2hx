@@ -9,7 +9,7 @@ var maxLen : stdgo.GoInt = (0 : stdgo.GoInt);
 final primeRK : stdgo.GoUInt64 = (16777619i64 : stdgo.GoUInt64);
 final maxBruteForce : stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
 function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _hash = (0u32 : stdgo.GoUInt32);
+        var _hash = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_sep.length) : Bool), _i++, {
@@ -19,7 +19,7 @@ function hashStrBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt32;
         var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
 var _sq = __1, _pow = __0;
         {
-            var _i = (_sep.length);
+            var _i = (_sep.length : stdgo.GoInt);
             stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _pow = (_pow * (_sq) : stdgo.GoUInt32);
@@ -30,7 +30,7 @@ var _sq = __1, _pow = __0;
         return { _0 : _hash, _1 : _pow };
     }
 function hashStr(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _hash = (0u32 : stdgo.GoUInt32);
+        var _hash = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_sep.length) : Bool), _i++, {
@@ -40,7 +40,7 @@ function hashStr(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.
         var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
 var _sq = __1, _pow = __0;
         {
-            var _i = (_sep.length);
+            var _i = (_sep.length : stdgo.GoInt);
             stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _pow = (_pow * (_sq) : stdgo.GoUInt32);
@@ -51,7 +51,7 @@ var _sq = __1, _pow = __0;
         return { _0 : _hash, _1 : _pow };
     }
 function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _hash = (0u32 : stdgo.GoUInt32);
+        var _hash = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         {
             var _i = ((_sep.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
@@ -61,7 +61,7 @@ function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.GoUInt
         var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
 var _sq = __1, _pow = __0;
         {
-            var _i = (_sep.length);
+            var _i = (_sep.length : stdgo.GoInt);
             stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _pow = (_pow * (_sq) : stdgo.GoUInt32);
@@ -72,7 +72,7 @@ var _sq = __1, _pow = __0;
         return { _0 : _hash, _1 : _pow };
     }
 function hashStrRev(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
-        var _hash = (0u32 : stdgo.GoUInt32);
+        var _hash = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         {
             var _i = ((_sep.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
@@ -82,7 +82,7 @@ function hashStrRev(_sep:stdgo.GoString):{ var _0 : stdgo.GoUInt32; var _1 : std
         var __0:stdgo.GoUInt32 = (1u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (16777619u32 : stdgo.GoUInt32);
 var _sq = __1, _pow = __0;
         {
-            var _i = (_sep.length);
+            var _i = (_sep.length : stdgo.GoInt);
             stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
                 if ((_i & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     _pow = (_pow * (_sq) : stdgo.GoUInt32);
@@ -94,7 +94,7 @@ var _sq = __1, _pow = __0;
     }
 function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt {
         var __tmp__ = hashStrBytes(_sep), _hashsep:stdgo.GoUInt32 = __tmp__._0, _pow:stdgo.GoUInt32 = __tmp__._1;
-        var _n = (_sep.length);
+        var _n = (_sep.length : stdgo.GoInt);
         var _h:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
             var _i = (0 : stdgo.GoInt);
@@ -106,7 +106,7 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdg
             return (0 : stdgo.GoInt);
         };
         {
-            var _i = _n;
+            var _i = (_n : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {
                 _h = (_h * ((16777619u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
                 _h = (_h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
@@ -121,7 +121,7 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdg
     }
 function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt {
         var __tmp__ = hashStr(_substr?.__copy__()), _hashss:stdgo.GoUInt32 = __tmp__._0, _pow:stdgo.GoUInt32 = __tmp__._1;
-        var _n = (_substr.length);
+        var _n = (_substr.length : stdgo.GoInt);
         var _h:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
             var _i = (0 : stdgo.GoInt);
@@ -133,7 +133,7 @@ function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt {
             return (0 : stdgo.GoInt);
         };
         {
-            var _i = _n;
+            var _i = (_n : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {
                 _h = (_h * ((16777619u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
                 _h = (_h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);

@@ -148,7 +148,7 @@ function count(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
         };
         var _n = (0 : stdgo.GoInt);
         while (true) {
-            var _i = index(_s, _sep);
+            var _i = (index(_s, _sep) : stdgo.GoInt);
             if (_i == ((-1 : stdgo.GoInt))) {
                 return _n;
             };
@@ -180,7 +180,7 @@ function _indexBytePortable(_s:stdgo.Slice<stdgo.GoByte>, _c:stdgo.GoByte):stdgo
         return (-1 : stdgo.GoInt);
     }
 function lastIndex(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt {
-        var _n = (_sep.length);
+        var _n = (_sep.length : stdgo.GoInt);
         if (_n == ((0 : stdgo.GoInt))) {
             return (_s.length);
         } else if (_n == ((1 : stdgo.GoInt))) {
@@ -248,7 +248,7 @@ function indexRune(_s:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.GoInt {
             return (-1 : stdgo.GoInt);
         } else {
             var _b:stdgo.GoArray<stdgo.GoByte> = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
-            var _n = stdgo._internal.unicode.utf8.Utf8.encodeRune((_b.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _r);
+            var _n = (stdgo._internal.unicode.utf8.Utf8.encodeRune((_b.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _r) : stdgo.GoInt);
             return index(_s, (_b.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
         };
     }
@@ -257,7 +257,7 @@ function indexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoI
             return (-1 : stdgo.GoInt);
         };
         if ((_s.length) == ((1 : stdgo.GoInt))) {
-            var _r = (_s[(0 : stdgo.GoInt)] : stdgo.GoRune);
+            var _r = ((_s[(0 : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32);
             if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                 for (__key__ => __value__ in _chars) {
                     _r = __value__;
@@ -273,7 +273,7 @@ function indexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoI
             return (-1 : stdgo.GoInt);
         };
         if ((_chars.length) == ((1 : stdgo.GoInt))) {
-            var _r = (_chars[(0 : stdgo.GoInt)] : stdgo.GoRune);
+            var _r = ((_chars[(0 : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32);
             if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                 _r = (65533 : stdgo.GoInt32);
             };
@@ -296,7 +296,7 @@ function indexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo.GoI
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_s.length) : Bool), _i = (_i + (_width) : stdgo.GoInt), {
-                var _r = (_s[(_i : stdgo.GoInt)] : stdgo.GoRune);
+                var _r = ((_s[(_i : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32);
                 if ((_r < (128 : stdgo.GoInt32) : Bool)) {
                     if ((stdgo._internal.internal.bytealg.Bytealg.indexByteString(_chars?.__copy__(), _s[(_i : stdgo.GoInt)]) >= (0 : stdgo.GoInt) : Bool)) {
                         return _i;
@@ -353,7 +353,7 @@ function lastIndexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo
             };
         };
         if ((_s.length) == ((1 : stdgo.GoInt))) {
-            var _r = (_s[(0 : stdgo.GoInt)] : stdgo.GoRune);
+            var _r = ((_s[(0 : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32);
             if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                 for (__key__ => __value__ in _chars) {
                     _r = __value__;
@@ -369,12 +369,12 @@ function lastIndexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo
             return (-1 : stdgo.GoInt);
         };
         if ((_chars.length) == ((1 : stdgo.GoInt))) {
-            var _cr = (_chars[(0 : stdgo.GoInt)] : stdgo.GoRune);
+            var _cr = ((_chars[(0 : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32);
             if ((_cr >= (128 : stdgo.GoInt32) : Bool)) {
                 _cr = (65533 : stdgo.GoInt32);
             };
             {
-                var _i = (_s.length);
+                var _i = (_s.length : stdgo.GoInt);
                 while ((_i > (0 : stdgo.GoInt) : Bool)) {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeLastRune((_s.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>)), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
                     _i = (_i - (_size) : stdgo.GoInt);
@@ -386,9 +386,9 @@ function lastIndexAny(_s:stdgo.Slice<stdgo.GoByte>, _chars:stdgo.GoString):stdgo
             return (-1 : stdgo.GoInt);
         };
         {
-            var _i = (_s.length);
+            var _i = (_s.length : stdgo.GoInt);
             while ((_i > (0 : stdgo.GoInt) : Bool)) {
-                var _r = (_s[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoRune);
+                var _r = ((_s[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32);
                 if ((_r < (128 : stdgo.GoInt32) : Bool)) {
                     if ((stdgo._internal.internal.bytealg.Bytealg.indexByteString(_chars?.__copy__(), _s[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)]) >= (0 : stdgo.GoInt) : Bool)) {
                         return (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
@@ -438,7 +438,7 @@ function _genSplit(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>,
         _n--;
         var _i = (0 : stdgo.GoInt);
         while ((_i < _n : Bool)) {
-            var _m = index(_s, _sep);
+            var _m = (index(_s, _sep) : stdgo.GoInt);
             if ((_m < (0 : stdgo.GoInt) : Bool)) {
                 break;
             };
@@ -464,11 +464,11 @@ function splitAfter(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>
 function fields(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.Slice<stdgo.GoByte>> {
         var _n = (0 : stdgo.GoInt);
         var _wasSpace = (1 : stdgo.GoInt);
-        var _setBits = (0 : stdgo.GoUInt8);
+        var _setBits = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
-                var _r = _s[(_i : stdgo.GoInt)];
+                var _r = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                 _setBits = (_setBits | (_r) : stdgo.GoUInt8);
                 var _isSpace = (_asciiSpace[(_r : stdgo.GoInt)] : stdgo.GoInt);
                 _n = (_n + ((_wasSpace & (-1 ^ _isSpace) : stdgo.GoInt)) : stdgo.GoInt);
@@ -524,7 +524,7 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:stdgo.GoRune -> Bool):stdgo
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {
                 var _size = (1 : stdgo.GoInt);
-                var _r = (_s[(_i : stdgo.GoInt)] : stdgo.GoRune);
+                var _r = ((_s[(_i : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32);
                 if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                     {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRune((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
@@ -575,7 +575,7 @@ function join(_s:stdgo.Slice<stdgo.Slice<stdgo.GoByte>>, _sep:stdgo.Slice<stdgo.
             _n = (_n + ((_v.length)) : stdgo.GoInt);
         };
         var _b = stdgo._internal.internal.bytealg.Bytealg.makeNoZero(_n);
-        var _bp = stdgo.Go.copySlice(_b, _s[(0 : stdgo.GoInt)]);
+        var _bp = (stdgo.Go.copySlice(_b, _s[(0 : stdgo.GoInt)]) : stdgo.GoInt);
         for (__1 => _v in (_s.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>)) {
             _bp = (_bp + (stdgo.Go.copySlice((_b.__slice__(_bp) : stdgo.Slice<stdgo.GoUInt8>), _sep)) : stdgo.GoInt);
             _bp = (_bp + (stdgo.Go.copySlice((_b.__slice__(_bp) : stdgo.Slice<stdgo.GoUInt8>), _v)) : stdgo.GoInt);
@@ -594,7 +594,7 @@ function map_(_mapping:(_r:stdgo.GoRune) -> stdgo.GoRune, _s:stdgo.Slice<stdgo.G
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {
                 var _wid = (1 : stdgo.GoInt);
-                var _r = (_s[(_i : stdgo.GoInt)] : stdgo.GoRune);
+                var _r = ((_s[(_i : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32);
                 if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                     {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRune((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
@@ -626,7 +626,7 @@ function repeat(_b:stdgo.Slice<stdgo.GoByte>, _count:stdgo.GoInt):stdgo.Slice<st
             return (new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         };
         {};
-        var _chunkMax = _n;
+        var _chunkMax = (_n : stdgo.GoInt);
         if ((_chunkMax > (8192 : stdgo.GoInt) : Bool)) {
             _chunkMax = (((8192 : stdgo.GoInt) / (_b.length) : stdgo.GoInt) * (_b.length) : stdgo.GoInt);
             if (_chunkMax == ((0 : stdgo.GoInt))) {
@@ -634,9 +634,9 @@ function repeat(_b:stdgo.Slice<stdgo.GoByte>, _count:stdgo.GoInt):stdgo.Slice<st
             };
         };
         var _nb = stdgo._internal.internal.bytealg.Bytealg.makeNoZero(_n);
-        var _bp = stdgo.Go.copySlice(_nb, _b);
+        var _bp = (stdgo.Go.copySlice(_nb, _b) : stdgo.GoInt);
         while ((_bp < _n : Bool)) {
-            var _chunk = _bp;
+            var _chunk = (_bp : stdgo.GoInt);
             if ((_chunk > _chunkMax : Bool)) {
                 _chunk = _chunkMax;
             };
@@ -645,12 +645,12 @@ function repeat(_b:stdgo.Slice<stdgo.GoByte>, _count:stdgo.GoInt):stdgo.Slice<st
         return _nb;
     }
 function toUpper(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-        var __0 = true, __1 = false;
+        var __0 = (true : Bool), __1 = (false : Bool);
 var _hasLower = __1, _isASCII = __0;
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
-                var _c = _s[(_i : stdgo.GoInt)];
+                var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                 if ((_c >= (128 : stdgo.GoUInt8) : Bool)) {
                     _isASCII = false;
                     break;
@@ -666,7 +666,7 @@ var _hasLower = __1, _isASCII = __0;
             {
                 var _i = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
-                    var _c = _s[(_i : stdgo.GoInt)];
+                    var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                     if ((((97 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (122 : stdgo.GoUInt8) : Bool) : Bool)) {
                         _c = (_c - ((32 : stdgo.GoUInt8)) : stdgo.GoUInt8);
                     };
@@ -678,12 +678,12 @@ var _hasLower = __1, _isASCII = __0;
         return map_(stdgo._internal.unicode.Unicode.toUpper, _s);
     }
 function toLower(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
-        var __0 = true, __1 = false;
+        var __0 = (true : Bool), __1 = (false : Bool);
 var _hasUpper = __1, _isASCII = __0;
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
-                var _c = _s[(_i : stdgo.GoInt)];
+                var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                 if ((_c >= (128 : stdgo.GoUInt8) : Bool)) {
                     _isASCII = false;
                     break;
@@ -699,7 +699,7 @@ var _hasUpper = __1, _isASCII = __0;
             {
                 var _i = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
-                    var _c = _s[(_i : stdgo.GoInt)];
+                    var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                     if ((((65 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (90 : stdgo.GoUInt8) : Bool) : Bool)) {
                         _c = (_c + ((32 : stdgo.GoUInt8)) : stdgo.GoUInt8);
                     };
@@ -724,11 +724,11 @@ function toTitleSpecial(_c:stdgo._internal.unicode.Unicode.SpecialCase, _s:stdgo
     }
 function toValidUTF8(_s:stdgo.Slice<stdgo.GoByte>, _replacement:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((_s.length) + (_replacement.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        var _invalid = false;
+        var _invalid = (false : Bool);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_s.length) : Bool)) {
-                var _c = _s[(_i : stdgo.GoInt)];
+                var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                 if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
                     _i++;
                     _invalid = false;
@@ -781,14 +781,14 @@ function title(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         }, _s);
     }
 function trimLeftFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune) -> Bool):stdgo.Slice<stdgo.GoByte> {
-        var _i = _indexFunc(_s, _f, false);
+        var _i = (_indexFunc(_s, _f, false) : stdgo.GoInt);
         if (_i == ((-1 : stdgo.GoInt))) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
         return (_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>);
     }
 function trimRightFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune) -> Bool):stdgo.Slice<stdgo.GoByte> {
-        var _i = _lastIndexFunc(_s, _f, false);
+        var _i = (_lastIndexFunc(_s, _f, false) : stdgo.GoInt);
         if (((_i >= (0 : stdgo.GoInt) : Bool) && (_s[(_i : stdgo.GoInt)] >= (128 : stdgo.GoUInt8) : Bool) : Bool)) {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRune((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
             _i = (_i + (_wid) : stdgo.GoInt);
@@ -822,7 +822,7 @@ function _indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune) -> Bool, 
         var _start = (0 : stdgo.GoInt);
         while ((_start < (_s.length) : Bool)) {
             var _wid = (1 : stdgo.GoInt);
-            var _r = (_s[(_start : stdgo.GoInt)] : stdgo.GoRune);
+            var _r = ((_s[(_start : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32);
             if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRune((_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>));
@@ -839,9 +839,9 @@ function _indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune) -> Bool, 
     }
 function _lastIndexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune) -> Bool, _truth:Bool):stdgo.GoInt {
         {
-            var _i = (_s.length);
+            var _i = (_s.length : stdgo.GoInt);
             while ((_i > (0 : stdgo.GoInt) : Bool)) {
-                var __0 = (_s[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoRune), __1 = (1 : stdgo.GoInt);
+                var __0 = ((_s[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32), __1 = (1 : stdgo.GoInt);
 var _size = __1, _r = __0;
                 if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                     {
@@ -863,7 +863,7 @@ function _makeASCIISet(_chars:stdgo.GoString):{ var _0 : T_asciiSet; var _1 : Bo
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (_chars.length) : Bool), _i++, {
-                var _c = _chars[(_i : stdgo.GoInt)];
+                var _c = (_chars[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                 if ((_c >= (128 : stdgo.GoUInt8) : Bool)) {
                     return { _0 : _as?.__copy__(), _1 : false };
                 };
@@ -939,7 +939,7 @@ function _trimLeftASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<T_asciiSet>)
     }
 function _trimLeftUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte> {
         while (((_s.length) > (0 : stdgo.GoInt) : Bool)) {
-            var __0 = (_s[(0 : stdgo.GoInt)] : stdgo.GoRune), __1 = (1 : stdgo.GoInt);
+            var __0 = ((_s[(0 : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32), __1 = (1 : stdgo.GoInt);
 var _n = __1, _r = __0;
             if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                 {
@@ -990,7 +990,7 @@ function _trimRightASCII(_s:stdgo.Slice<stdgo.GoByte>, _as:stdgo.Ref<T_asciiSet>
     }
 function _trimRightUnicode(_s:stdgo.Slice<stdgo.GoByte>, _cutset:stdgo.GoString):stdgo.Slice<stdgo.GoByte> {
         while (((_s.length) > (0 : stdgo.GoInt) : Bool)) {
-            var __0 = (_s[((_s.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoRune), __1 = (1 : stdgo.GoInt);
+            var __0 = ((_s[((_s.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoRune) : stdgo.GoInt32), __1 = (1 : stdgo.GoInt);
 var _n = __1, _r = __0;
             if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                 {
@@ -1009,7 +1009,7 @@ var _n = __1, _r = __0;
 function trimSpace(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
         var _start = (0 : stdgo.GoInt);
         stdgo.Go.cfor((_start < (_s.length) : Bool), _start++, {
-            var _c = _s[(_start : stdgo.GoInt)];
+            var _c = (_s[(_start : stdgo.GoInt)] : stdgo.GoUInt8);
             if ((_c >= (128 : stdgo.GoUInt8) : Bool)) {
                 return trimFunc((_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.unicode.Unicode.isSpace);
             };
@@ -1017,9 +1017,9 @@ function trimSpace(_s:stdgo.Slice<stdgo.GoByte>):stdgo.Slice<stdgo.GoByte> {
                 break;
             };
         });
-        var _stop = (_s.length);
+        var _stop = (_s.length : stdgo.GoInt);
         stdgo.Go.cfor((_stop > _start : Bool), _stop--, {
-            var _c = _s[(_stop - (1 : stdgo.GoInt) : stdgo.GoInt)];
+            var _c = (_s[(_stop - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
             if ((_c >= (128 : stdgo.GoUInt8) : Bool)) {
                 return trimFunc((_s.__slice__(_start, _stop) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.unicode.Unicode.isSpace);
             };
@@ -1060,7 +1060,7 @@ function replace(_s:stdgo.Slice<stdgo.GoByte>, _old:stdgo.Slice<stdgo.GoByte>, _
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _n : Bool), _i++, {
-                var _j = _start;
+                var _j = (_start : stdgo.GoInt);
                 if ((_old.length) == ((0 : stdgo.GoInt))) {
                     if ((_i > (0 : stdgo.GoInt) : Bool)) {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8.decodeRune((_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
@@ -1084,8 +1084,8 @@ function equalFold(_s:stdgo.Slice<stdgo.GoByte>, _t:stdgo.Slice<stdgo.GoByte>):B
         stdgo._internal.internal.Macro.controlFlow({
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor(((_i < (_s.length) : Bool) && (_i < (_t.length) : Bool) : Bool), _i++, {
-                var _sr = _s[(_i : stdgo.GoInt)];
-                var _tr = _t[(_i : stdgo.GoInt)];
+                var _sr = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
+                var _tr = (_t[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                 if (((_sr | _tr : stdgo.GoUInt8) >= (128 : stdgo.GoUInt8) : Bool)) {
                     @:goto "hasUnicode";
                 };
@@ -1160,7 +1160,7 @@ var _tr = __1, _sr = __0;
                     };
                     return false;
                 };
-                var _r = stdgo._internal.unicode.Unicode.simpleFold(_sr);
+                var _r = (stdgo._internal.unicode.Unicode.simpleFold(_sr) : stdgo.GoInt32);
                 while (((_r != _sr) && (_r < _tr : Bool) : Bool)) {
                     _r = stdgo._internal.unicode.Unicode.simpleFold(_r);
                 };
@@ -1174,7 +1174,7 @@ var _tr = __1, _sr = __0;
         throw "controlFlow did not return";
     }
 function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):stdgo.GoInt {
-        var _n = (_sep.length);
+        var _n = (_sep.length : stdgo.GoInt);
         if (_n == ((0 : stdgo.GoInt))) {
             return (0 : stdgo.GoInt);
         } else if (_n == ((1 : stdgo.GoInt))) {
@@ -1190,14 +1190,14 @@ function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
             if (((_s.length) <= (0 : stdgo.GoInt) : Bool)) {
                 return stdgo._internal.internal.bytealg.Bytealg.index(_s, _sep);
             };
-            var _c0 = _sep[(0 : stdgo.GoInt)];
-            var _c1 = _sep[(1 : stdgo.GoInt)];
+            var _c0 = (_sep[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
+            var _c1 = (_sep[(1 : stdgo.GoInt)] : stdgo.GoUInt8);
             var _i = (0 : stdgo.GoInt);
             var _t = (((_s.length) - _n : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
             var _fails = (0 : stdgo.GoInt);
             while ((_i < _t : Bool)) {
                 if (_s[(_i : stdgo.GoInt)] != (_c0)) {
-                    var _o = indexByte((_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _t) : stdgo.Slice<stdgo.GoUInt8>), _c0);
+                    var _o = (indexByte((_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _t) : stdgo.Slice<stdgo.GoUInt8>), _c0) : stdgo.GoInt);
                     if ((_o < (0 : stdgo.GoInt) : Bool)) {
                         return (-1 : stdgo.GoInt);
                     };
@@ -1209,7 +1209,7 @@ function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
                 _fails++;
                 _i++;
                 if ((_fails > stdgo._internal.internal.bytealg.Bytealg.cutover(_i) : Bool)) {
-                    var _r = stdgo._internal.internal.bytealg.Bytealg.index((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), _sep);
+                    var _r = (stdgo._internal.internal.bytealg.Bytealg.index((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), _sep) : stdgo.GoInt);
                     if ((_r >= (0 : stdgo.GoInt) : Bool)) {
                         return (_r + _i : stdgo.GoInt);
                     };
@@ -1218,14 +1218,14 @@ function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
             };
             return (-1 : stdgo.GoInt);
         };
-        var _c0 = _sep[(0 : stdgo.GoInt)];
-        var _c1 = _sep[(1 : stdgo.GoInt)];
+        var _c0 = (_sep[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
+        var _c1 = (_sep[(1 : stdgo.GoInt)] : stdgo.GoUInt8);
         var _i = (0 : stdgo.GoInt);
         var _fails = (0 : stdgo.GoInt);
         var _t = (((_s.length) - _n : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
         while ((_i < _t : Bool)) {
             if (_s[(_i : stdgo.GoInt)] != (_c0)) {
-                var _o = indexByte((_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _t) : stdgo.Slice<stdgo.GoUInt8>), _c0);
+                var _o = (indexByte((_s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _t) : stdgo.Slice<stdgo.GoUInt8>), _c0) : stdgo.GoInt);
                 if ((_o < (0 : stdgo.GoInt) : Bool)) {
                     break;
                 };
@@ -1237,7 +1237,7 @@ function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
             _i++;
             _fails++;
             if (((_fails >= ((4 : stdgo.GoInt) + (_i >> (4i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoInt) : Bool) && (_i < _t : Bool) : Bool)) {
-                var _j = stdgo._internal.internal.bytealg.Bytealg.indexRabinKarpBytes((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), _sep);
+                var _j = (stdgo._internal.internal.bytealg.Bytealg.indexRabinKarpBytes((_s.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), _sep) : stdgo.GoInt);
                 if ((_j < (0 : stdgo.GoInt) : Bool)) {
                     return (-1 : stdgo.GoInt);
                 };
@@ -1249,7 +1249,7 @@ function index(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):std
 function cut(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Slice<stdgo.GoByte>; var _2 : Bool; } {
         var _before = (null : stdgo.Slice<stdgo.GoUInt8>), _after = (null : stdgo.Slice<stdgo.GoUInt8>), _found = false;
         {
-            var _i = index(_s, _sep);
+            var _i = (index(_s, _sep) : stdgo.GoInt);
             if ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 return { _0 : (_s.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>), _1 : (_s.__slice__((_i + (_sep.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _2 : true };
             };
@@ -1354,7 +1354,7 @@ class Buffer_asInterface {
     static public function _readSlice( _b:stdgo.Ref<Buffer>, _delim:stdgo.GoByte):{ var _0 : stdgo.Slice<stdgo.GoByte>; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<Buffer> = _b;
         var _line = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
-        var _i = indexByte((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>), _delim);
+        var _i = (indexByte((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>), _delim) : stdgo.GoInt);
         var _end = ((_b._off + _i : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
         if ((_i < (0 : stdgo.GoInt) : Bool)) {
             _end = (_b._buf.length);
@@ -1405,7 +1405,7 @@ class Buffer_asInterface {
             _b.reset();
             return { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io.eof };
         };
-        var _c = _b._buf[(_b._off : stdgo.GoInt)];
+        var _c = (_b._buf[(_b._off : stdgo.GoInt)] : stdgo.GoUInt8);
         if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
             _b._off++;
             _b._lastRead = (1 : stdgo._internal.bytes.Bytes.T_readOp);
@@ -1423,7 +1423,7 @@ class Buffer_asInterface {
             _b.reset();
             return { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io.eof };
         };
-        var _c = _b._buf[(_b._off : stdgo.GoInt)];
+        var _c = (_b._buf[(_b._off : stdgo.GoInt)] : stdgo.GoUInt8);
         _b._off++;
         _b._lastRead = (-1 : stdgo._internal.bytes.Bytes.T_readOp);
         return { _0 : _c, _1 : (null : stdgo.Error) };
@@ -1432,7 +1432,7 @@ class Buffer_asInterface {
     static public function next( _b:stdgo.Ref<Buffer>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoByte> {
         @:recv var _b:stdgo.Ref<Buffer> = _b;
         _b._lastRead = (0 : stdgo._internal.bytes.Bytes.T_readOp);
-        var _m = _b.len();
+        var _m = (_b.len() : stdgo.GoInt);
         if ((_n > _m : Bool)) {
             _n = _m;
         };
@@ -1495,7 +1495,7 @@ class Buffer_asInterface {
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         _b._lastRead = (0 : stdgo._internal.bytes.Bytes.T_readOp);
         {
-            var _nBytes = _b.len();
+            var _nBytes = (_b.len() : stdgo.GoInt);
             if ((_nBytes > (0 : stdgo.GoInt) : Bool)) {
                 var __tmp__ = _w.write((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>)), _m:stdgo.GoInt = __tmp__._0, _e:stdgo.Error = __tmp__._1;
                 if ((_m > _nBytes : Bool)) {
@@ -1520,7 +1520,7 @@ class Buffer_asInterface {
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         _b._lastRead = (0 : stdgo._internal.bytes.Bytes.T_readOp);
         while (true) {
-            var _i = _b._grow((512 : stdgo.GoInt));
+            var _i = (_b._grow((512 : stdgo.GoInt)) : stdgo.GoInt);
             _b._buf = (_b._buf.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>);
             var __tmp__ = _r.read((_b._buf.__slice__(_i, _b._buf.capacity) : stdgo.Slice<stdgo.GoUInt8>)), _m:stdgo.GoInt = __tmp__._0, _e:stdgo.Error = __tmp__._1;
             if ((_m < (0 : stdgo.GoInt) : Bool)) {
@@ -1564,13 +1564,13 @@ class Buffer_asInterface {
         if ((_n < (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("bytes.Buffer.Grow: negative count" : stdgo.GoString));
         };
-        var _m = _b._grow(_n);
+        var _m = (_b._grow(_n) : stdgo.GoInt);
         _b._buf = (_b._buf.__slice__(0, _m) : stdgo.Slice<stdgo.GoUInt8>);
     }
     @:keep
     static public function _grow( _b:stdgo.Ref<Buffer>, _n:stdgo.GoInt):stdgo.GoInt {
         @:recv var _b:stdgo.Ref<Buffer> = _b;
-        var _m = _b.len();
+        var _m = (_b.len() : stdgo.GoInt);
         if (((_m == (0 : stdgo.GoInt)) && (_b._off != (0 : stdgo.GoInt)) : Bool)) {
             _b.reset();
         };
@@ -1584,7 +1584,7 @@ class Buffer_asInterface {
             _b._buf = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), (64 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             return (0 : stdgo.GoInt);
         };
-        var _c = _b._buf.capacity;
+        var _c = (_b._buf.capacity : stdgo.GoInt);
         if ((_n <= ((_c / (2 : stdgo.GoInt) : stdgo.GoInt) - _m : stdgo.GoInt) : Bool)) {
             stdgo.Go.copySlice(_b._buf, (_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>));
         } else if ((_c > (((2147483647 : stdgo.GoInt) - _c : stdgo.GoInt) - _n : stdgo.GoInt) : Bool)) {
@@ -1600,7 +1600,7 @@ class Buffer_asInterface {
     static public function _tryGrowByReslice( _b:stdgo.Ref<Buffer>, _n:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; } {
         @:recv var _b:stdgo.Ref<Buffer> = _b;
         {
-            var _l = (_b._buf.length);
+            var _l = (_b._buf.length : stdgo.GoInt);
             if ((_n <= (_b._buf.capacity - _l : stdgo.GoInt) : Bool)) {
                 _b._buf = (_b._buf.__slice__(0, (_l + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                 return { _0 : _l, _1 : true };
@@ -1775,7 +1775,7 @@ class Reader_asInterface {
         };
         _r._prevRune = (_r._i : stdgo.GoInt);
         {
-            var _c = _r._s[(_r._i : stdgo.GoInt)];
+            var _c = (_r._s[(_r._i : stdgo.GoInt)] : stdgo.GoUInt8);
             if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
                 _r._i++;
                 return { _0 : (_c : stdgo.GoRune), _1 : (1 : stdgo.GoInt), _2 : (null : stdgo.Error) };
@@ -1806,7 +1806,7 @@ class Reader_asInterface {
         if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
             return { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io.eof };
         };
-        var _b = _r._s[(_r._i : stdgo.GoInt)];
+        var _b = (_r._s[(_r._i : stdgo.GoInt)] : stdgo.GoUInt8);
         _r._i++;
         return { _0 : _b, _1 : (null : stdgo.Error) };
     }

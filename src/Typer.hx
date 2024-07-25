@@ -2787,6 +2787,8 @@ if (p.name == "InvalidType" && p.pack.length == 0 && name == "___f__") {
 					}
 					if (f(ct))
 						ct = null;
+					if (ct != null)
+						expr = macro ($expr : $ct);
 					vars.push({
 						name: name,
 						//type: ct,

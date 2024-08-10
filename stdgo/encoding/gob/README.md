@@ -20,10 +20,10 @@
             |           [31m^^^^^^^^^^^^^^^^^^^^[0m
             | Called from here
 
-      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:3325: characters 38-110
+      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:3325: characters 39-111
 
-       3325 | [2m                var _err = _d.decode([0m[1mstdgo.Go.toInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<T_emptyStruct>))[0m[2m);[0m
-            |                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+       3325 | [2m                var _err = (_d.decode([0m[1mstdgo.Go.toInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<T_emptyStruct>))[0m[2m) : stdgo.Error);[0m
+            |                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
             | Called from here
 
             | For function argument '_e'
@@ -66,10 +66,10 @@
             |           [31m^^^^^^^^^^^^^^^^^^^^[0m
             | Called from here
 
-      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:3408: characters 66-160
+      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:3408: characters 67-161
 
-       3408 | [2m        var _err = newDecoder(stdgo.Go.asInterface(_buf)).decode([0m[1mstdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.Slice<stdgo.Ref<T_emptyStruct>>>))[0m[2m);[0m
-            |                                                                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+       3408 | [2m        var _err = (newDecoder(stdgo.Go.asInterface(_buf)).decode([0m[1mstdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.Slice<stdgo.Ref<T_emptyStruct>>>))[0m[2m) : stdgo.Error);[0m
+            |                                                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
             | Called from here
 
             | For function argument '_e'
@@ -104,14 +104,14 @@
       |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
       | Type not found : stdgo._internal.net.Net
 
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:6668: characters 181-207
+[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:6668: characters 182-208
 
- 6668 | [2m        var _err = newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_enc))).decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<[0m[1mstdgo._internal.net.Net.IP[0m[2m>))));[0m
-      |                                                                                                                                                                                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+ 6668 | [2m        var _err = (newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_enc))).decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<[0m[1mstdgo._internal.net.Net.IP[0m[2m>)))) : stdgo.Error);[0m
+      |                                                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
       | Type not found : stdgo._internal.net.Net
 
-       6668 | [2m        var _err = newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_enc))).decode([0m[1mstdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<stdgo._internal.net.Net.IP>)))[0m[2m);[0m
-            |                                                                                                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+       6668 | [2m        var _err = (newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_enc))).decode([0m[1mstdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<stdgo._internal.net.Net.IP>)))[0m[2m) : stdgo.Error);[0m
+            |                                                                                                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
             | Called from here
 
       [30;41m -> [0m stdgo/Go.macro.hx:640: characters 11-31
@@ -126,10 +126,10 @@
             |          [31m^^^^^^^^^^^^^^^^^^^^[0m
             | Called from here
 
-      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:6668: characters 126-210
+      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:6668: characters 127-211
 
-       6668 | [2m        var _err = newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_enc))).decode(stdgo.Go.toInterface([0m[1mstdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<stdgo._internal.net.Net.IP>))[0m[2m));[0m
-            |                                                                                                                              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+       6668 | [2m        var _err = (newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_enc))).decode(stdgo.Go.toInterface([0m[1mstdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<stdgo._internal.net.Net.IP>))[0m[2m)) : stdgo.Error);[0m
+            |                                                                                                                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
             | Called from here
 
       [30;41m -> [0m stdgo/Go.macro.hx:305: lines 305-310

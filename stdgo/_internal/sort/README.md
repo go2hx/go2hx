@@ -859,9 +859,9 @@ function search(_n:stdgo.GoInt, _f:()):stdgo.GoInt
 function exampleSearch():Void {
         var _a = (new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(1 : stdgo.GoInt), (3 : stdgo.GoInt), (6 : stdgo.GoInt), (10 : stdgo.GoInt), (15 : stdgo.GoInt), (21 : stdgo.GoInt), (28 : stdgo.GoInt), (36 : stdgo.GoInt), (45 : stdgo.GoInt), (55 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         var _x = (6 : stdgo.GoInt);
-        var _i = stdgo._internal.sort.Sort.search((_a.length), function(_i:stdgo.GoInt):Bool {
+        var _i = (stdgo._internal.sort.Sort.search((_a.length), function(_i:stdgo.GoInt):Bool {
             return (_a[(_i : stdgo.GoInt)] >= _x : Bool);
-        });
+        }) : stdgo.GoInt);
         if (((_i < (_a.length) : Bool) && (_a[(_i : stdgo.GoInt)] == _x) : Bool)) {
             stdgo._internal.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
         } else {
@@ -886,9 +886,9 @@ function exampleSearch():Void {
 function exampleSearch_descendingOrder():Void {
         var _a = (new stdgo.Slice<stdgo.GoInt>(10, 10, ...[(55 : stdgo.GoInt), (45 : stdgo.GoInt), (36 : stdgo.GoInt), (28 : stdgo.GoInt), (21 : stdgo.GoInt), (15 : stdgo.GoInt), (10 : stdgo.GoInt), (6 : stdgo.GoInt), (3 : stdgo.GoInt), (1 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         var _x = (6 : stdgo.GoInt);
-        var _i = stdgo._internal.sort.Sort.search((_a.length), function(_i:stdgo.GoInt):Bool {
+        var _i = (stdgo._internal.sort.Sort.search((_a.length), function(_i:stdgo.GoInt):Bool {
             return (_a[(_i : stdgo.GoInt)] <= _x : Bool);
-        });
+        }) : stdgo.GoInt);
         if (((_i < (_a.length) : Bool) && (_a[(_i : stdgo.GoInt)] == _x) : Bool)) {
             stdgo._internal.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
         } else {
@@ -924,7 +924,7 @@ function searchFloat64s(_a:stdgo.Slice<stdgo.GoFloat64>, _x:stdgo.GoFloat64):std
 function exampleSearchFloat64s():Void {
         var _a = (new stdgo.Slice<stdgo.GoFloat64>(7, 7, ...[(1 : stdgo.GoFloat64), (2 : stdgo.GoFloat64), (3.3 : stdgo.GoFloat64), (4.6 : stdgo.GoFloat64), (6.1 : stdgo.GoFloat64), (7.2 : stdgo.GoFloat64), (8 : stdgo.GoFloat64)]).__setNumber32__() : stdgo.Slice<stdgo.GoFloat64>);
         var _x = (2 : stdgo.GoFloat64);
-        var _i = stdgo._internal.sort.Sort.searchFloat64s(_a, _x);
+        var _i = (stdgo._internal.sort.Sort.searchFloat64s(_a, _x) : stdgo.GoInt);
         stdgo._internal.fmt.Fmt.printf(("found %g at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
         _x = (0.5 : stdgo.GoFloat64);
         _i = stdgo._internal.sort.Sort.searchFloat64s(_a, _x);
@@ -959,7 +959,7 @@ function searchInts(_a:stdgo.Slice<stdgo.GoInt>, _x:stdgo.GoInt):stdgo.GoInt
 function exampleSearchInts():Void {
         var _a = (new stdgo.Slice<stdgo.GoInt>(7, 7, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (6 : stdgo.GoInt), (7 : stdgo.GoInt), (8 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         var _x = (2 : stdgo.GoInt);
-        var _i = stdgo._internal.sort.Sort.searchInts(_a, _x);
+        var _i = (stdgo._internal.sort.Sort.searchInts(_a, _x) : stdgo.GoInt);
         stdgo._internal.fmt.Fmt.printf(("found %d at index %d in %v\n" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_a));
         _x = (5 : stdgo.GoInt);
         _i = stdgo._internal.sort.Sort.searchInts(_a, _x);

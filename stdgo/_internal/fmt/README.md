@@ -617,7 +617,7 @@ function errorf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo.
 ```haxe
 function exampleErrorf():Void {
         {};
-        var _err = stdgo._internal.fmt.Fmt.errorf(("user %q (id %d) not found" : stdgo.GoString), stdgo.Go.toInterface(("bueller" : stdgo.GoString)), stdgo.Go.toInterface((17 : stdgo.GoInt)));
+        var _err = (stdgo._internal.fmt.Fmt.errorf(("user %q (id %d) not found" : stdgo.GoString), stdgo.Go.toInterface(("bueller" : stdgo.GoString)), stdgo.Go.toInterface((17 : stdgo.GoInt))) : stdgo.Error);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_err.error()));
     }
 ```
@@ -1037,7 +1037,7 @@ function sprint(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString
 ```haxe
 function exampleSprint():Void {
         {};
-        var _s = stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((" is " : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface((" years old.\n" : stdgo.GoString)))?.__copy__();
+        var _s = (stdgo._internal.fmt.Fmt.sprint(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((" is " : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface((" years old.\n" : stdgo.GoString)))?.__copy__() : stdgo.GoString);
         stdgo._internal.io.Io.writeString(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), _s?.__copy__());
     }
 ```
@@ -1068,7 +1068,7 @@ function sprintf(_format:stdgo.GoString, _a:haxe.Rest<stdgo.AnyInterface>):stdgo
 ```haxe
 function exampleSprintf():Void {
         {};
-        var _s = stdgo._internal.fmt.Fmt.sprintf(("%s is %d years old.\n" : stdgo.GoString), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)))?.__copy__();
+        var _s = (stdgo._internal.fmt.Fmt.sprintf(("%s is %d years old.\n" : stdgo.GoString), stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
         stdgo._internal.io.Io.writeString(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), _s?.__copy__());
     }
 ```
@@ -1099,7 +1099,7 @@ function sprintln(_a:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString
 ```haxe
 function exampleSprintln():Void {
         {};
-        var _s = stdgo._internal.fmt.Fmt.sprintln(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface(("is" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface(("years old." : stdgo.GoString)))?.__copy__();
+        var _s = (stdgo._internal.fmt.Fmt.sprintln(stdgo.Go.toInterface(("Kim" : stdgo.GoString)), stdgo.Go.toInterface(("is" : stdgo.GoString)), stdgo.Go.toInterface((22 : stdgo.GoInt)), stdgo.Go.toInterface(("years old." : stdgo.GoString)))?.__copy__() : stdgo.GoString);
         stdgo._internal.io.Io.writeString(stdgo.Go.asInterface(stdgo._internal.os.Os.stdout), _s?.__copy__());
     }
 ```

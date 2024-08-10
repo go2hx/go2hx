@@ -360,7 +360,7 @@ function newEncoder(_enc:stdgo.Ref<stdgo._internal.encoding.base64.Encoding>, _w
 ```haxe
 function exampleNewEncoder():Void {
         var _input = (stdgo.Go.str("foo", 0, "bar") : stdgo.Slice<stdgo.GoByte>);
-        var _encoder = stdgo._internal.encoding.base64.Base64.newEncoder(stdgo._internal.encoding.base64.Base64.stdEncoding, stdgo.Go.asInterface(stdgo._internal.os.Os.stdout));
+        var _encoder = (stdgo._internal.encoding.base64.Base64.newEncoder(stdgo._internal.encoding.base64.Base64.stdEncoding, stdgo.Go.asInterface(stdgo._internal.os.Os.stdout)) : stdgo._internal.io.Io.WriteCloser);
         _encoder.write(_input);
         _encoder.close();
     }

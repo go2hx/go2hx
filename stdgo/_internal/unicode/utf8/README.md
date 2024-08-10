@@ -487,7 +487,7 @@ function encodeRune(_p:stdgo.Slice<stdgo.GoByte>, _r:stdgo.GoRune):stdgo.GoInt
 function exampleEncodeRune():Void {
         var _r = (19990 : stdgo.GoInt32);
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        var _n = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _r);
+        var _n = (stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _r) : stdgo.GoInt);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_buf));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_n));
     }
@@ -510,7 +510,7 @@ function exampleEncodeRune_outOfRange():Void {
         var _runes = (new stdgo.Slice<stdgo.GoInt32>(3, 3, ...[(-1 : stdgo.GoInt32), (1114112 : stdgo.GoInt32), (65533 : stdgo.GoInt32)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         for (_i => _c in _runes) {
             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((3 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var _size = stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _c);
+            var _size = (stdgo._internal.unicode.utf8.Utf8.encodeRune(_buf, _c) : stdgo.GoInt);
             stdgo._internal.fmt.Fmt.printf(("%d: %d %[2]s %d\n" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_buf), stdgo.Go.toInterface(_size));
         };
     }
@@ -760,7 +760,7 @@ function validRune(_r:stdgo.GoRune):Bool
 ```haxe
 function exampleValidRune():Void {
         var _valid = (97 : stdgo.GoInt32);
-        var _invalid = ((268435455 : stdgo.GoInt32) : stdgo.GoRune);
+        var _invalid = (((268435455 : stdgo.GoInt32) : stdgo.GoRune) : stdgo.GoInt32);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validRune(_valid)));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validRune(_invalid)));
     }
@@ -792,7 +792,7 @@ function validString(_s:stdgo.GoString):Bool
 ```haxe
 function exampleValidString():Void {
         var _valid = ("Hello, 世界" : stdgo.GoString);
-        var _invalid = ((new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
+        var _invalid = (((new stdgo.Slice<stdgo.GoUInt8>(3, 3, ...[(255 : stdgo.GoUInt8), (254 : stdgo.GoUInt8), (253 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validString(_valid?.__copy__())));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.unicode.utf8.Utf8.validString(_invalid?.__copy__())));
     }

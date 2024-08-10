@@ -20,31 +20,53 @@
           |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
-[30;41m ERROR [0m stdgo/sync/atomic_/Atomic_.hx:139: lines 139-143
+[30;41m ERROR [0m stdgo/sync/Sync.hx:783: characters 122-130
 
- 139 | [2m@:structInit @:private @:using(stdgo.sync.atomic_.Atomic_.T_noCopy_static_extension) [0m[1mabstract T_noCopy(stdgo._internal.sync.atomic_.Atomic_.T_noCopy) from stdgo._internal.sync.atomic_.Atomic_.T_noCopy to stdgo._internal.sync.atomic_.Atomic_.T_noCopy {[0m
-   - | [2m  [...][0m
- 143 | [1m}[0m[2m[0m
-     |
-     | stdgo.sync.atomic_._Atomic_.T_noCopy_Impl_ is not ready to be accessed, separate your type declarations in several files
+ 783 | [2m    static public function onceValue<T_>(__generic__0:haxe.macro.Expr<T_>, _f:haxe.macro.Expr<() -> T_>):haxe.macro.Expr<[0m[1m() -> T_[0m[2m> {[0m
+     |                                                                                                                          [31m^^^^^^^^[0m
+     | Too many type parameters for haxe.macro.Expr
 
-[30;41m ERROR [0m stdgo/sync/atomic_/Atomic_.hx:139: lines 139-143
+[30;41m ERROR [0m stdgo/sync/Sync.hx:783: characters 71-73
 
- 139 | [2m@:structInit @:private @:using(stdgo.sync.atomic_.Atomic_.T_noCopy_static_extension) [0m[1mabstract T_noCopy(stdgo._internal.sync.atomic_.Atomic_.T_noCopy) from stdgo._internal.sync.atomic_.Atomic_.T_noCopy to stdgo._internal.sync.atomic_.Atomic_.T_noCopy {[0m
-   - | [2m  [...][0m
- 143 | [1m}[0m[2m[0m
-     |
-     | stdgo.sync.atomic_._Atomic_.T_noCopy_Impl_ is not ready to be accessed, separate your type declarations in several files
+ 783 | [2m    static public function onceValue<T_>(__generic__0:haxe.macro.Expr<[0m[1mT_[0m[2m>, _f:haxe.macro.Expr<() -> T_>):haxe.macro.Expr<() -> T_> {[0m
+     |                                                                       [31m^^[0m
+     | Too many type parameters for haxe.macro.Expr
 
-[30;41m ERROR [0m stdgo/sync/atomic_/Atomic_.hx:139: lines 139-143
+[30;41m ERROR [0m stdgo/sync/Sync.hx:783: characters 95-103
 
- 139 | [2m@:structInit @:private @:using(stdgo.sync.atomic_.Atomic_.T_noCopy_static_extension) [0m[1mabstract T_noCopy(stdgo._internal.sync.atomic_.Atomic_.T_noCopy) from stdgo._internal.sync.atomic_.Atomic_.T_noCopy to stdgo._internal.sync.atomic_.Atomic_.T_noCopy {[0m
-   - | [2m  [...][0m
- 143 | [1m}[0m[2m[0m
-     |
-     | stdgo.sync.atomic_._Atomic_.T_noCopy_Impl_ is not ready to be accessed, separate your type declarations in several files
+ 783 | [2m    static public function onceValue<T_>(__generic__0:haxe.macro.Expr<T_>, _f:haxe.macro.Expr<[0m[1m() -> T_[0m[2m>):haxe.macro.Expr<() -> T_> {[0m
+     |                                                                                               [31m^^^^^^^^[0m
+     | Too many type parameters for haxe.macro.Expr
 
-          | For optional function argument '__2'
+[30;41m ERROR [0m stdgo/sync/Sync.hx:786: characters 188-223
+
+ 786 | [2m    static public function onceValues<T1, T2>(__generic__0:haxe.macro.Expr<T1>, __generic__1:haxe.macro.Expr<T2>, _f:haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }>):haxe.macro.Expr<[0m[1m() -> { var _0 : T1; var _1 : T2; }[0m[2m> {[0m
+     |                                                                                                                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Too many type parameters for haxe.macro.Expr
+
+[30;41m ERROR [0m stdgo/sync/Sync.hx:786: characters 76-78
+
+ 786 | [2m    static public function onceValues<T1, T2>(__generic__0:haxe.macro.Expr<[0m[1mT1[0m[2m>, __generic__1:haxe.macro.Expr<T2>, _f:haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }>):haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }> {[0m
+     |                                                                            [31m^^[0m
+     | Too many type parameters for haxe.macro.Expr
+
+[30;41m ERROR [0m stdgo/sync/Sync.hx:786: characters 110-112
+
+ 786 | [2m    static public function onceValues<T1, T2>(__generic__0:haxe.macro.Expr<T1>, __generic__1:haxe.macro.Expr<[0m[1mT2[0m[2m>, _f:haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }>):haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }> {[0m
+     |                                                                                                              [31m^^[0m
+     | Too many type parameters for haxe.macro.Expr
+
+[30;41m ERROR [0m stdgo/sync/Sync.hx:786: characters 134-169
+
+ 786 | [2m    static public function onceValues<T1, T2>(__generic__0:haxe.macro.Expr<T1>, __generic__1:haxe.macro.Expr<T2>, _f:haxe.macro.Expr<[0m[1m() -> { var _0 : T1; var _1 : T2; }[0m[2m>):haxe.macro.Expr<() -> { var _0 : T1; var _1 : T2; }> {[0m
+     |                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Too many type parameters for haxe.macro.Expr
+
+[30;41m ERROR [0m stdgo/sync/Sync.hx:404: characters 35-41
+
+ 404 | [2m    public var _state(get, set) : [0m[1mUint64[0m[2m;[0m
+     |                                   [31m^^^^^^[0m
+     | Type not found : Uint64
 
 
 ```

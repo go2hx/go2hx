@@ -132,9 +132,9 @@ function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error
 
 ```haxe
 function exampleJoin():Void {
-        var _err1 = stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString));
-        var _err2 = stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString));
-        var _err = stdgo._internal.errors.Errors.join(_err1, _err2);
+        var _err1 = (stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString)) : stdgo.Error);
+        var _err2 = (stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString)) : stdgo.Error);
+        var _err = (stdgo._internal.errors.Errors.join(_err1, _err2) : stdgo.Error);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_err));
         if (stdgo._internal.errors.Errors.is_(_err, _err1)) {
             stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("err is err1" : stdgo.GoString)));
@@ -181,8 +181,8 @@ function unwrap(_err:stdgo.Error):stdgo.Error
 
 ```haxe
 function exampleUnwrap():Void {
-        var _err1 = stdgo._internal.errors.Errors.new_(("error1" : stdgo.GoString));
-        var _err2 = stdgo._internal.fmt.Fmt.errorf(("error2: [%w]" : stdgo.GoString), stdgo.Go.toInterface(_err1));
+        var _err1 = (stdgo._internal.errors.Errors.new_(("error1" : stdgo.GoString)) : stdgo.Error);
+        var _err2 = (stdgo._internal.fmt.Fmt.errorf(("error2: [%w]" : stdgo.GoString), stdgo.Go.toInterface(_err1)) : stdgo.Error);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_err2));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.errors.Errors.unwrap(_err2)));
     }

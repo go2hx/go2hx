@@ -701,9 +701,9 @@ var _b = __1, _a = __0;
 function exampleCompare_search():Void {
         var _needle:stdgo.Slice<stdgo.GoByte> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _haystack:stdgo.Slice<stdgo.Slice<stdgo.GoByte>> = (null : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
-        var _i = stdgo._internal.sort.Sort.search((_haystack.length), function(_i:stdgo.GoInt):Bool {
+        var _i = (stdgo._internal.sort.Sort.search((_haystack.length), function(_i:stdgo.GoInt):Bool {
             return (stdgo._internal.bytes.Bytes.compare(_haystack[(_i : stdgo.GoInt)], _needle) >= (0 : stdgo.GoInt) : Bool);
-        });
+        }) : stdgo.GoInt);
         if (((_i < (_haystack.length) : Bool) && stdgo._internal.bytes.Bytes.equal(_haystack[(_i : stdgo.GoInt)], _needle) : Bool)) {};
     }
 ```
@@ -875,10 +875,10 @@ function cut(_s:stdgo.Slice<stdgo.GoByte>, _sep:stdgo.Slice<stdgo.GoByte>):{
 
 ```haxe
 function exampleCut():Void {
-        var _show = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+        var _show = (function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
             var __tmp__ = stdgo._internal.bytes.Bytes.cut((_s : stdgo.Slice<stdgo.GoByte>), (_sep : stdgo.Slice<stdgo.GoByte>)), _before:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _after:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _found:Bool = __tmp__._2;
             stdgo._internal.fmt.Fmt.printf(("Cut(%q, %q) = %q, %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
-        };
+        } : (stdgo.GoString, stdgo.GoString) -> Void);
         _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
         _show(("Gopher" : stdgo.GoString), ("ph" : stdgo.GoString));
         _show(("Gopher" : stdgo.GoString), ("er" : stdgo.GoString));
@@ -914,10 +914,10 @@ function cutPrefix(_s:stdgo.Slice<stdgo.GoByte>, _prefix:stdgo.Slice<stdgo.GoByt
 
 ```haxe
 function exampleCutPrefix():Void {
-        var _show = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+        var _show = (function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
             var __tmp__ = stdgo._internal.bytes.Bytes.cutPrefix((_s : stdgo.Slice<stdgo.GoByte>), (_sep : stdgo.Slice<stdgo.GoByte>)), _after:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _found:Bool = __tmp__._1;
             stdgo._internal.fmt.Fmt.printf(("CutPrefix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_after), stdgo.Go.toInterface(_found));
-        };
+        } : (stdgo.GoString, stdgo.GoString) -> Void);
         _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
         _show(("Gopher" : stdgo.GoString), ("ph" : stdgo.GoString));
     }
@@ -951,10 +951,10 @@ function cutSuffix(_s:stdgo.Slice<stdgo.GoByte>, _suffix:stdgo.Slice<stdgo.GoByt
 
 ```haxe
 function exampleCutSuffix():Void {
-        var _show = function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
+        var _show = (function(_s:stdgo.GoString, _sep:stdgo.GoString):Void {
             var __tmp__ = stdgo._internal.bytes.Bytes.cutSuffix((_s : stdgo.Slice<stdgo.GoByte>), (_sep : stdgo.Slice<stdgo.GoByte>)), _before:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _found:Bool = __tmp__._1;
             stdgo._internal.fmt.Fmt.printf(("CutSuffix(%q, %q) = %q, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sep), stdgo.Go.toInterface(_before), stdgo.Go.toInterface(_found));
-        };
+        } : (stdgo.GoString, stdgo.GoString) -> Void);
         _show(("Gopher" : stdgo.GoString), ("Go" : stdgo.GoString));
         _show(("Gopher" : stdgo.GoString), ("er" : stdgo.GoString));
     }
@@ -1073,9 +1073,9 @@ function fieldsFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:()):stdgo.Slice<stdgo.Slice
 
 ```haxe
 function exampleFieldsFunc():Void {
-        var _f = function(_c:stdgo.GoRune):Bool {
+        var _f = (function(_c:stdgo.GoRune):Bool {
             return (!stdgo._internal.unicode.Unicode.isLetter(_c) && !stdgo._internal.unicode.Unicode.isNumber(_c) : Bool);
-        };
+        } : stdgo.GoInt32 -> Bool);
         stdgo._internal.fmt.Fmt.printf(("Fields are: %q" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.fieldsFunc((("  foo1;bar2,baz3..." : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _f)));
     }
 ```
@@ -1269,9 +1269,9 @@ function indexFunc(_s:stdgo.Slice<stdgo.GoByte>, _f:(_r:stdgo.GoRune):Bool):stdg
 
 ```haxe
 function exampleIndexFunc():Void {
-        var _f = function(_c:stdgo.GoRune):Bool {
+        var _f = (function(_c:stdgo.GoRune):Bool {
             return stdgo._internal.unicode.Unicode.is_(stdgo._internal.unicode.Unicode.han, _c);
-        };
+        } : stdgo.GoInt32 -> Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexFunc((("Hello, 世界" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _f)));
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.bytes.Bytes.indexFunc((("Hello, world" : stdgo.GoString) : stdgo.Slice<stdgo.GoByte>), _f)));
     }

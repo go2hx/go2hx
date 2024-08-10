@@ -1723,8 +1723,8 @@ function formatBool(_b:Bool):stdgo.GoString
 
 ```haxe
 function exampleFormatBool():Void {
-        var _v = true;
-        var _s = stdgo._internal.strconv.Strconv.formatBool(_v)?.__copy__();
+        var _v = (true : Bool);
+        var _s = (stdgo._internal.strconv.Strconv.formatBool(_v)?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_s));
     }
 ```
@@ -1766,11 +1766,11 @@ function formatFloat(_f:stdgo.GoFloat64, _fmt:stdgo.GoByte, _prec:stdgo.GoInt, _
 ```haxe
 function exampleFormatFloat():Void {
         var _v = (3.1415926535 : stdgo.GoFloat64);
-        var _s32 = stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__();
+        var _s32 = (stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (32 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s32), stdgo.Go.toInterface(_s32));
-        var _s64 = stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+        var _s64 = (stdgo._internal.strconv.Strconv.formatFloat(_v, (69 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s64), stdgo.Go.toInterface(_s64));
-        var _fmt64 = stdgo._internal.strconv.Strconv.formatFloat(_v, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__();
+        var _fmt64 = (stdgo._internal.strconv.Strconv.formatFloat(_v, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt), (64 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_fmt64), stdgo.Go.toInterface(_fmt64));
     }
 ```
@@ -1800,10 +1800,10 @@ function formatInt(_i:stdgo.GoInt64, _base:stdgo.GoInt):stdgo.GoString
 
 ```haxe
 function exampleFormatInt():Void {
-        var _v = (-42i64 : stdgo.GoInt64);
-        var _s10 = stdgo._internal.strconv.Strconv.formatInt(_v, (10 : stdgo.GoInt))?.__copy__();
+        var _v = ((-42i64 : stdgo.GoInt64) : stdgo.GoInt64);
+        var _s10 = (stdgo._internal.strconv.Strconv.formatInt(_v, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s10), stdgo.Go.toInterface(_s10));
-        var _s16 = stdgo._internal.strconv.Strconv.formatInt(_v, (16 : stdgo.GoInt))?.__copy__();
+        var _s16 = (stdgo._internal.strconv.Strconv.formatInt(_v, (16 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s16), stdgo.Go.toInterface(_s16));
     }
 ```
@@ -1833,10 +1833,10 @@ function formatUint(_i:stdgo.GoUInt64, _base:stdgo.GoInt):stdgo.GoString
 
 ```haxe
 function exampleFormatUint():Void {
-        var _v = (42i64 : stdgo.GoUInt64);
-        var _s10 = stdgo._internal.strconv.Strconv.formatUint(_v, (10 : stdgo.GoInt))?.__copy__();
+        var _v = ((42i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+        var _s10 = (stdgo._internal.strconv.Strconv.formatUint(_v, (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s10), stdgo.Go.toInterface(_s10));
-        var _s16 = stdgo._internal.strconv.Strconv.formatUint(_v, (16 : stdgo.GoInt))?.__copy__();
+        var _s16 = (stdgo._internal.strconv.Strconv.formatUint(_v, (16 : stdgo.GoInt))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s16), stdgo.Go.toInterface(_s16));
     }
 ```
@@ -1866,11 +1866,11 @@ function isGraphic(_r:stdgo.GoRune):Bool
 
 ```haxe
 function exampleIsGraphic():Void {
-        var _shamrock = stdgo._internal.strconv.Strconv.isGraphic((9752 : stdgo.GoInt32));
+        var _shamrock = (stdgo._internal.strconv.Strconv.isGraphic((9752 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_shamrock));
-        var _a = stdgo._internal.strconv.Strconv.isGraphic((97 : stdgo.GoInt32));
+        var _a = (stdgo._internal.strconv.Strconv.isGraphic((97 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_a));
-        var _bel = stdgo._internal.strconv.Strconv.isGraphic((7 : stdgo.GoInt32));
+        var _bel = (stdgo._internal.strconv.Strconv.isGraphic((7 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_bel));
     }
 ```
@@ -1900,9 +1900,9 @@ function isPrint(_r:stdgo.GoRune):Bool
 
 ```haxe
 function exampleIsPrint():Void {
-        var _c = stdgo._internal.strconv.Strconv.isPrint((9786 : stdgo.GoInt32));
+        var _c = (stdgo._internal.strconv.Strconv.isPrint((9786 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_c));
-        var _bel = stdgo._internal.strconv.Strconv.isPrint((7 : stdgo.GoInt32));
+        var _bel = (stdgo._internal.strconv.Strconv.isPrint((7 : stdgo.GoInt32)) : Bool);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_bel));
     }
 ```
@@ -1933,7 +1933,7 @@ function itoa(_i:stdgo.GoInt):stdgo.GoString
 ```haxe
 function exampleItoa():Void {
         var _i = (10 : stdgo.GoInt);
-        var _s = stdgo._internal.strconv.Strconv.itoa(_i)?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.itoa(_i)?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.printf(("%T, %v\n" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_s));
     }
 ```
@@ -2250,7 +2250,7 @@ function quote(_s:stdgo.GoString):stdgo.GoString
 
 ```haxe
 function exampleQuote():Void {
-        var _s = stdgo._internal.strconv.Strconv.quote(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quote(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 ```
@@ -2280,7 +2280,7 @@ function quoteRune(_r:stdgo.GoRune):stdgo.GoString
 
 ```haxe
 function exampleQuoteRune():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteRune((9786 : stdgo.GoInt32))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteRune((9786 : stdgo.GoInt32))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 ```
@@ -2310,7 +2310,7 @@ function quoteRuneToASCII(_r:stdgo.GoRune):stdgo.GoString
 
 ```haxe
 function exampleQuoteRuneToASCII():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteRuneToASCII((9786 : stdgo.GoInt32))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteRuneToASCII((9786 : stdgo.GoInt32))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 ```
@@ -2340,7 +2340,7 @@ function quoteRuneToGraphic(_r:stdgo.GoRune):stdgo.GoString
 
 ```haxe
 function exampleQuoteRuneToGraphic():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteRuneToGraphic((9786 : stdgo.GoInt32))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteRuneToGraphic((9786 : stdgo.GoInt32))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
         _s = stdgo._internal.strconv.Strconv.quoteRuneToGraphic((9786 : stdgo.GoInt32))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
@@ -2376,7 +2376,7 @@ function quoteToASCII(_s:stdgo.GoString):stdgo.GoString
 
 ```haxe
 function exampleQuoteToASCII():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteToASCII(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteToASCII(("\"Fran & Freddie\'s Diner\t☺\"" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
     }
 ```
@@ -2406,7 +2406,7 @@ function quoteToGraphic(_s:stdgo.GoString):stdgo.GoString
 
 ```haxe
 function exampleQuoteToGraphic():Void {
-        var _s = stdgo._internal.strconv.Strconv.quoteToGraphic(("☺" : stdgo.GoString))?.__copy__();
+        var _s = (stdgo._internal.strconv.Strconv.quoteToGraphic(("☺" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));
         _s = stdgo._internal.strconv.Strconv.quoteToGraphic(("This is a ☺\t\n" : stdgo.GoString))?.__copy__();
         stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_s));

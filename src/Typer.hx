@@ -326,7 +326,7 @@ info.global.filePath = file.path;
 				}
 				block = mapReturnToThrow(block);
 				data.defs.push({
-					name: "_",
+					name: "__init__",
 					pos: null,
 					pack: [],
 					fields: [],
@@ -469,10 +469,11 @@ info.global.filePath = file.path;
 				wrapper.isExtern = true;
 				wrapper.params = def.params;
 				file.defs.push(wrapper);
-				final fieldExtension = [info.global.filePath, staticExtensionName];
+				var fieldExtension = [info.global.filePath, staticExtensionName];
 				final globalPath = getGlobalPath(info);
 				if (globalPath != "")
 					fieldExtension.unshift(globalPath);
+				fieldExtension = setFieldExtension(fieldExtension);
 				// files check against all TypeSpecs
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				file.defs.push(staticExtension);
@@ -560,6 +561,14 @@ info.global.filePath = file.path;
 	}
 
 	return list;
+}
+
+private function setFieldExtension(fieldExtension:Array<String>):Array<String> {
+	return fieldExtension;
+	// TODO
+	final last = fieldExtension.pop();
+	fieldExtension.push(fieldExtension.pop() + "_" + last);
+	return fieldExtension;
 }
 
 private function createWrapper(wrapperName:String, ct:ComplexType) {
@@ -4573,7 +4582,7 @@ private function toGoType(expr:Expr):Expr {
 
 private function typeRest(expr:Expr, t:GoType, info:Info):Expr {
 	expr = toGoType(expr);
-	t = getElem(t);
+	t = getArrayElem(t);
 	final ct = toComplexType(t, info);
 	return macro...($expr : Array<$ct>);
 }
@@ -7360,10 +7369,11 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				wrapper.isExtern = true;
 				wrapper.params = def.params;
 				info.data.defs.push(wrapper);
-				final fieldExtension = [info.global.filePath, staticExtensionName];
+				var fieldExtension = [info.global.filePath, staticExtensionName];
 				final globalPath = getGlobalPath(info);
 				if (globalPath != "")
 					fieldExtension.unshift(globalPath);
+				fieldExtension = setFieldExtension(fieldExtension);
 				// embedding
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				info.data.defs.push(staticExtension);

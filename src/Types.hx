@@ -121,6 +121,17 @@ function isInvalid(type:GoType):Bool {
 }
 
 
+function getArrayElem(type:GoType):GoType {
+	if (type == null)
+		return type;
+	return switch type {
+		case arrayType(_.get() => elem, _), sliceType(_.get() => elem):
+			elem;
+		default:
+			type;
+	}
+}
+
 function getElem(type:GoType):GoType {
 	if (type == null)
 		return type;

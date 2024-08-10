@@ -21,7 +21,7 @@ jobs:
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
       # non self-host setup
-      - uses: cedx/setup-hashlink@v4.0.1
+      - uses: cedx/setup-hashlink@v4.0.2
         continue-on-error: true
       - uses: actions/setup-go@v3
         continue-on-error: true
@@ -114,7 +114,7 @@ jobs:
     needs: []
     runs-on: ubuntu-latest
     steps:
-      - uses: cedx/setup-hashlink@v4.0.1
+      - uses: cedx/setup-hashlink@v4.0.2
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v3
         with:
@@ -170,7 +170,7 @@ jobs:
       fail-fast: false
     runs-on: [self-hosted]
     steps:
-      - uses: cedx/setup-hashlink@v4.0.1
+      - uses: cedx/setup-hashlink@v4.0.2
       - uses: actions/checkout@v3
       - uses: actions/setup-go@v3
         with:

@@ -952,9 +952,7 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 }
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):ExprDef {
-	info.localIdents = info.localIdents.copy();
-	info.renameIdents = info.renameIdents.copy();
-	info.classNames = info.classNames.copy();
+	final info = info.copy();
 	var exprs:Array<Expr> = [];
 	// add named return values
 	if (isFunc) {
@@ -3269,6 +3267,7 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 		default:
 			trace("unknown expr id: " + expr.id);
 			null;
+			//(macro throw "unknown expr").expr;
 	};
 	if (def == null)
 		throw info.panic() + "expr null: " + expr.id;
@@ -6866,8 +6865,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						final params:Array<FunctionArg> = [];
 						for (i in 0...sigParams.length) {
 							switch sigParams[i] {
-								case _var(name, _.get() => t):
-									final name = nameIdent(name, false, true, info, true);
+								case _var(oldName, _.get() => t):
+									final name = nameIdent(oldName, false, true, info, true);
+									info.renameIdents.remove(oldName);
+									info.localIdents.remove(name);
 									args.push(macro $i{name});
 									params.push({
 										name: name,
@@ -6940,6 +6941,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							}
 						}
 						final methodName = nameIdent(method.name, false, true, info);
+						info.renameIdents.remove(method.name);
 						info.localIdents.remove(methodName);
 						var expr = if (fieldPointerBool) {
 							macro $i{name}.value.$fieldName($a{args});
@@ -7647,7 +7649,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 	}
 	if (overwrite) {
 		//if (oldName != name)
-			info.renameIdents[oldName] = name;
+		info.renameIdents[oldName] = name;
 		info.localIdents.push(name);
 	}
 	return name;

@@ -1076,12 +1076,13 @@ class Go {
 										var type:haxe.macro.Type = ref.type;
 										final underlyingType = gtDecode(type, expr, marked);
 										final methods:Array<Expr> = [];
-										final extensionPath = ref.module + "." + ref.name + "_asInterface";
-										//trace(extensionPath);
+										final extensionPath = ref.module + "_asInterface." + ref.name + "_asInterface";
 										var extensionType = null;
 										try {
 											extensionType = Context.getType(extensionPath);
-										} catch (_) {}
+										} catch (e) {
+											//throw e;
+										}
 										if (extensionType != null) {
 											final extension = switch extensionType {
 												case TInst(_.get() => t, _):
@@ -1268,7 +1269,6 @@ class Go {
 						// patch cache
 						if (Go.nameTypes.exists(path))
 							return getTypeInfoData(path);
-
 						if (ref.meta.has(":using")) {
 							final s = new haxe.macro.Printer().printExpr(ref.meta.extract(":using")[0].params[0]);
 							switch Context.getType(s) {

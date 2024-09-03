@@ -140,9 +140,9 @@ function runTests() {
 		tests = tests.slice(0, tests.length < testCount ? tests.length : testCount);
 	}
 	if (run != "") {
-		trace(tests);
 		tests = tests.filter((v) -> v.indexOf(run) != -1);
 		tasks = tasks.filter((v) -> v.path.indexOf(run) != -1);
+		trace(tests);
 	}
 }
 

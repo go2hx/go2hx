@@ -526,7 +526,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 	}
 	
 	if (instance.hxmlPath != "") {
-		if (paths.length == 0) {
+		if (paths.length == 0 && !instance.noRun) {
 			trace(instance.hxmlPath);
 			throw "No main found";
 		}

@@ -15,7 +15,7 @@ final reserved = [
 	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
 	"else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new", "operator",
 	"overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
-	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic", "map", "comparable", "environ",
+	"construct", "null", "in", "wait", "length", "capacity", "bool", "float", "int", "struct", "offsetof", "alignof", "atomic", "map", "comparable", "environ", "trace", "haxe", "std",
 ];
 
 final reservedClassNames = [
@@ -23,6 +23,7 @@ final reservedClassNames = [
 	"Atomic",
 	"Environ",
 	"Class",
+	"TClass",
 	"Single", // Single is a 32bit float
 	"Array",
 	"Any",
@@ -124,7 +125,11 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		info.global.hashMap = hashMap;
 
 		if (pkg.order != null) {
-			pkg.order = pkg.order.map(s -> nameIdent(s, false, true, info));
+			pkg.order = pkg.order.map(s -> {
+				final name = nameIdent(s, false, true, info);
+				info.localIdents.remove(name);
+				name;
+			});
 		} else {
 			pkg.order = [];
 		}
@@ -135,7 +140,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			if (file.decls == null)
 				continue;
 			file.path = importClassName(normalizePath(Path.withoutExtension(file.path))); // file naming
-info.global.filePath = file.path;
+			// this is a name, without a path
+			info.global.filePath = file.path;
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
@@ -151,7 +157,8 @@ info.global.filePath = file.path;
 			}
 			for (decl in declFuncs) {
 				if (decl.recv == null || decl.recv.list == null || decl.recv.list.length == 0) {
-					nameIdent(decl.name.name, false, true, info); // overwrite name
+					final name = nameIdent(decl.name.name, false, true, info); // overwrite name
+					info.localIdents.remove(name);
 				}
 			}
 		}
@@ -421,7 +428,7 @@ info.global.filePath = file.path;
 					pack: ["stdgo"],
 					params: [
 						TPType(TPath({
-							name: def.name,
+							name: splitDepFullPathName(def.name, info),
 							pack: [],
 							params: def.params == null ? [] : def.params.map(p -> TPType(TPath({
 								name: p.name,
@@ -465,17 +472,13 @@ info.global.filePath = file.path;
 						{name: ":allow", pos: null, params: [toExpr(EConst(CIdent(fieldWrapper.join("."))))]}
 					],
 				};
+				// asInterface
 				final wrapper = createWrapper(wrapperName, ct);
 				wrapper.isExtern = true;
 				wrapper.params = def.params;
 				file.defs.push(wrapper);
-				var fieldExtension = [info.global.filePath, staticExtensionName];
-				final globalPath = getGlobalPath(info);
-				if (globalPath != "")
-					fieldExtension.unshift(globalPath);
-				fieldExtension = setFieldExtension(fieldExtension);
 				// files check against all TypeSpecs
-				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
+				def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				file.defs.push(staticExtension);
 				var embedded = false;
 				for (field in def.fields) { // embedded
@@ -490,7 +493,7 @@ info.global.filePath = file.path;
 						if (embedded) { // embedded method already exists create it for staticExtension
 							switch field.kind {
 								case FFun(fun):
-									final t = TPath({name: def.name, pack: []});
+									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
 									fun.args.unshift({
 										name: "__self__",
 										type: t,
@@ -561,14 +564,6 @@ info.global.filePath = file.path;
 	}
 
 	return list;
-}
-
-private function setFieldExtension(fieldExtension:Array<String>):Array<String> {
-	return fieldExtension;
-	// TODO
-	final last = fieldExtension.pop();
-	fieldExtension.push(fieldExtension.pop() + "_" + last);
-	return fieldExtension;
 }
 
 private function createWrapper(wrapperName:String, ct:ComplexType) {
@@ -706,13 +701,17 @@ private function exprOfType(t:ComplexType):ComplexType {
 
 private function mapReturnToThrow(expr:Expr):Expr {
 	var f = null;
-	f = expr -> return switch expr.expr {
-		case EFunction(_,_):
+	f = expr -> {
+		if (expr == null)
 			return expr;
-		case EReturn(_):
-			macro throw "__return__";
-		default:
-			haxe.macro.ExprTools.map(expr, f);
+		return switch expr.expr {
+			case EFunction(_,_):
+				return expr;
+			case EReturn(_):
+				macro throw "__return__";
+			default:
+				haxe.macro.ExprTools.map(expr, f);
+		}
 	}
 	return f(expr);
 }
@@ -953,7 +952,7 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 }
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):ExprDef {
-	final info = info;
+	info.localIdents = info.localIdents.copy();
 	info.renameIdents = info.renameIdents.copy();
 	info.classNames = info.classNames.copy();
 	var exprs:Array<Expr> = [];
@@ -1060,14 +1059,18 @@ private function escapeParens(expr:Expr):Expr {
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 	info.deferBool = true;
 	var exprs:Array<Expr> = [];
+	final localIdents = [];
 	for (i in 0...stmt.call.args.length) {
 		var arg = typeExpr(stmt.call.args[i], info);
 		var name = "_a" + i;
+		localIdents.push(name);
 		exprs.push(macro var $name = $arg);
 		stmt.call.args[i] = {id: "Ident", name: 'a$i', type: stmt.call.args[i].type}; // switch out call arguments
 	}
+	info.localIdents = info.localIdents.concat(localIdents);
 	// otherwise its Ident, Selector etc
 	var call = toExpr(typeCallExpr(stmt.call, info));
+	info.localIdents = info.localIdents.slice(0, info.localIdents.length - localIdents.length);
 	var e = macro __deferstack__.unshift(() -> $call);
 	if (exprs.length > 0)
 		return EBlock(exprs.concat([e]));
@@ -1157,6 +1160,8 @@ private function className(name:String, info:Info):String {
 
 	if (reservedClassNames.indexOf(name) != -1)
 		name += "_";
+	if (name.length > 255 - 30)
+		name = name.substr(0,255 - 30);
 	return name;
 }
 
@@ -1216,7 +1221,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						for (i in 0...spec.names.length) {
 							final fieldName = "_" + i;
 							final type = toComplexType(tuples[i], info);
-							final name = nameIdent(spec.names[i].name, false, false, info);
+							final name = nameIdent(spec.names[i].name, false, true, info);
 							vars2.push({
 								name: name,
 								expr: macro __tmp__.$fieldName,
@@ -1265,7 +1270,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 		}
 	}
 	if (vars.length > 0) {
-		// here
 		final e = createTempVars(vars);
 		if (vars2.length > 0) {
 			final e2:Expr = {expr: EVars(vars2), pos: null};
@@ -1503,7 +1507,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			switch lhs.id {
 				case "Ident":
 					final lhs:Ast.Ident = lhs;
-					setVar = nameIdent(lhs.name, false, false, info);
+					setVar = nameIdent(lhs.name, false, true, info);
 				default:
 					trace("unknown assign lhs type switch expr: " + rhs.id);
 			}
@@ -1954,30 +1958,35 @@ private function hasBreak(expr:Expr):Bool {
 private function continueInsideSwitch(expr:Expr):Bool {
 	var hasContinue = false;
 	var f = null;
-	f = expr -> return switch expr.expr {
-		case EMeta(s, _):
-			if (s.name == ":fallthrough" || s.name == ":jump") {
+	f = expr -> {
+		if (expr == null)
+			return null;
+		return switch expr.expr {
+			case EMeta(s, _):
+				if (s.name == ":fallthrough" || s.name == ":jump") {
+					expr;
+				} else {
+					haxe.macro.ExprTools.map(expr, f);
+				}
+			case EWhile(_, _, _), EFor(_, _):
+				// new scope
 				expr;
-			} else {
+			case EContinue:
+				hasContinue = true;
+				macro {
+					__continue__ = true;
+					break;
+				};
+			default:
 				haxe.macro.ExprTools.map(expr, f);
-			}
-		case EWhile(_, _, _), EFor(_, _):
-			// new scope
-			expr;
-		case EContinue:
-			hasContinue = true;
-			macro {
-				__continue__ = true;
-				break;
-			};
-		default:
-			haxe.macro.ExprTools.map(expr, f);
+		}
 	}
 	expr.expr = f(expr).expr;
 	return hasContinue;
 }
 
 private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
+	final init = stmt.init == null ? null : typeStmt(stmt.init, info);
 	var cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typeExpr(stmt.cond, info);
 	var body = toExpr(typeBlockStmt(stmt.body, info, false));
 	if (body.expr == null)
@@ -1985,17 +1994,6 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 	if (cond.expr == null || body.expr == null) {
 		trace("for stmt error: " + cond.expr + " body: " + body.expr);
 		return null;
-	}
-	function ret(def:ExprDef):ExprDef {
-		if (stmt.init != null) {
-			var init = typeStmt(stmt.init, info);
-			if (init == null) {
-				trace("for stmt eror init: " + stmt.init);
-				return null;
-			}
-			return EBlock([init, toExpr(def)]);
-		}
-		return def;
 	}
 	var def:Expr = null;
 	if (stmt.post != null) {
@@ -2006,10 +2004,15 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 		}
 		def = macro stdgo.Go.cfor($cond, $ty, $body);
 	} else {
-		def = toExpr(EWhile(cond, body, true));
-		return ret(def.expr);
+		def = macro while ($cond) $body;
 	}
-	return ret(def.expr);
+	if (init != null) {
+		def = macro {
+			$init;
+			$def;
+		};
+	}
+	return def.expr;
 }
 
 private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:Bool} {
@@ -2074,6 +2077,7 @@ private function argsTranslate(args:Array<FunctionArg>, block:Expr, argsFields:A
 		case EBlock(exprs):
 			if (recvArg != null && !isPointer(recvArg.vt)) {
 				final name = recvArg.name;
+				info.localIdents.push(name);
 				final expr = passByCopy(recvArg.vt, macro $i{name}, info);
 				final ct = recvArg.type;
 				exprs.unshift(macro @:recv var $name:$ct = $expr);
@@ -2193,6 +2197,8 @@ private function isRestType(t:ComplexType):Bool {
 }
 
 private function isRestExpr(expr:Expr):Bool {
+	if (expr == null)
+		return false;
 	return switch expr.expr {
 		case EUnop(op, _, _):
 			op == OpSpread;
@@ -2394,8 +2400,9 @@ private function goTypesEqual(a:GoType, b:GoType, depth:Int) {
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	//trace(fromType,toType);
 	if (goTypesEqual(fromType, toType, 0)) {
-		if (passCopy)
+		if (passCopy) {
 			return passByCopy(toType, expr, info);
+		}
 		return expr;
 	}
 	fromType = cleanType(fromType);
@@ -2983,9 +2990,25 @@ function resultsToReturnValue(results:Array<GoType>, info:Info):Expr {
 }
 
 private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the type of an expr
-
+	// typeof -> toComplexType
 	if (expr == null)
 		return null;
+	// prevent typeExprType from being used
+	final t = typeof(expr, info, false);
+	var ct = toComplexType(t, info);
+	switch ct {
+		case TPath(p):
+			if (expr.id == "Ellipsis") {
+				ct = TPath({
+					name: "Rest",
+					pack: ["haxe"],
+					params: p.params,
+				});
+			}
+		default:
+	}
+	return ct;
+
 	var type = switch expr.id {
 		case "UnaryExpr": unaryType(expr, info);
 		case "MapType": mapTypeExpr(expr, info);
@@ -3345,7 +3368,7 @@ private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 }
 
 private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
-	var name = nameIdent(expr.name, true, false, info);
+	var name = nameIdent(expr.name, true, false, info, isSelect);
 	return EConst(CIdent(name));
 }
 
@@ -3462,14 +3485,15 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			//final t = typeof(expr.calle,info,false);
 			var skip = 0;
 			if (expr.typeArgs != null) {
-				skip = expr.typeArgs.length;
+				// TODO: generic funcs
+				/*skip = expr.typeArgs.length;
 				expr.typeArgs.reverse();
 				for (typeArg in expr.typeArgs) {
 					final typeOfTypeArg = typeof(typeArg, info, false);
 					final value = defaultValue(typeOfTypeArg, info);
 					args.unshift(value);
 				}
-				forceType = true;
+				forceType = true;*/
 			}
 			var sig = getSignature(type);
 			if (sig != null) {
@@ -3586,8 +3610,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				a($a{args});
 			}).expr;
 		case "Ident":
-			expr.fun.name = expr.fun.name;
-			if (!info.renameIdents.exists(expr.fun.name)) {
+			if (!info.renameIdents.exists(expr.fun.name) && info.localIdents.indexOf(untitle(expr.fun.name)) == -1) {
 				switch expr.fun.name {
 					case "log.Println":
 						genArgs(false);
@@ -3756,7 +3779,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							case invalidType:
 								macro @:invalid_make null;
 							default:
-								throw info.panic() + "unknown make type: " + type;
+								trace(expr.fun.name, !info.renameIdents.exists(expr.fun.name));
+								//trace(info.renameIdents);
+								//throw info.panic() + "unknown make type: " + type;
+								macro @:invalid_make null;
 						}
 						final ct = toComplexType(type, info);
 						return returnExpr(macro ($e : $ct)).expr;
@@ -3765,8 +3791,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	}
 	var e = typeExpr(expr.fun, info);
 	final type = typeof(expr.fun, info, false);
-	if (args.length == 0)
+	if (args.length == 0) {
 		genArgs(true, 0);
+	}
 	if (debugBool) {
 		e = macro @:define("debug") trace(stdgo.fmt.Fmt.sprintln($a{args}));
 	}else{
@@ -4145,8 +4172,10 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 					for (method in (e.methods : Array<Dynamic>)) {
 						final recv = method.recv;
 						final type = method.type;
+						final name = formatHaxeFieldName(method.name, info);
+						info.renameIdents.remove(method.name);
 						methods.push({
-							name: formatHaxeFieldName(method.name, info),
+							name: name,
 							type: {get: () -> typeof(type, info, false, paths.copy())},
 							recv: {get: () -> typeof(recv, info, false, paths.copy())},
 						});
@@ -4419,9 +4448,13 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}
-	if (last == 0 && split == -1)
-		return {pack: [], name: cl};
+	if (last == 0 && split == -1) {
+		return {pack: [], name: splitDepFullPathName(cl, info)};
+	}
+	// for split deps
 	pack.push(title(pkg));
+	final last = pack.pop();
+	pack.push(last + "_" + cl);
 	return {pack: pack, name: cl};
 }
 
@@ -4465,10 +4498,14 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 				default:
 					throw info.panic() + "unknown kind to complexType: " + kind;
 			}
-		case interfaceType(empty, _):
+		case interfaceType(empty, methods):
 			if (empty)
 				return anyInterfaceType();
-			throw info.panic() + "non empty interface";
+			//trace("methods: " + methods.length, methods.map(method -> method.name));
+			//return TPath({pack: [], name: "FailType"});
+			// only being triggered on extern packages (stdgoExterns.json) in limited circumstances so it's not important.
+			return anyInterfaceType();
+			//throw info.panic() + "non empty interface";
 		case named(path, _, underlying, _, _.get() => params):
 			if (path == "comparable")
 				return null;
@@ -5504,7 +5541,7 @@ private function selectorKind(expr:Ast.SelectorExpr):Int {
 }
 
 private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { // EField
-	var sel = nameIdent(expr.sel.name, false, false, info);
+	var sel = nameIdent(expr.sel.name, false, false, info,false, true);
 	var isStar = false;
 	expr.x = escapeParensRaw(expr.x);
 	final kind = selectorKind(expr);
@@ -5516,19 +5553,27 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			expr.x = expr.x.x;
 		switch expr.x.id {
 			case "Ident":
-				x = macro $i{className(expr.x.name, info) + "_static_extension"};
+				x = macro $i{splitDepFullPathName(className(expr.x.name, info) + "_static_extension", info)};
 			case "SelectorExpr":
-				final sel = nameIdent(expr.x.sel.name, false, false, info);
 				final xType = typeExprType(expr.x, info);
 				switch xType {
 					case TPath(p):
-						final name = p.pack.join(".") + "." + className(expr.x.sel.name, info) + "_static_extension";
+						final name = p.pack.join(".") + "." + splitDepFullPathName(className(expr.x.sel.name, info) + "_static_extension",info);
 						x = macro $i{name};
 					default:
 				}
 			default:
 				throw info.panic() + "expr id: " + expr.x.id;
 		}
+	}
+	switch x.expr {
+		case EConst(CIdent(s)) if (s.indexOf(".") != -1):
+			// special import prefix
+			if (s.substr(0,2) == "..") {
+				s = s.substr(2);
+				x = macro $i{s + "_" + sel};
+			}
+		default:
 	}
 	var typeX = typeof(expr.x, info, false);
 
@@ -5670,11 +5715,13 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.renameClasses = [];
 	info.classNames = data.classNames.copy();
 	info.renameIdents = data.renameIdents.copy();
+	info.localIdents = data.localIdents.copy();
 	info.gotoSystem = false;
 	info.global = data.global;
 	info.locals = data.locals.copy();
 	info.localUnderlyingNames = data.localUnderlyingNames.copy();
-	var name = nameIdent(decl.name.name, false, false, info);
+	var name = nameIdent(decl.name.name, false, true, info);
+	info.localIdents.remove(name);
 	if (decl.name.name == "init" && (decl.recv == null || decl.recv.list == null)) {
 		switch typeBlockStmt(decl.body, info, true) {
 			case EBlock(exprs):
@@ -5695,7 +5742,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		meta.push({name: ":keep", pos: null});
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		var varType = typeof(decl.recv.list[0].type, info, false);
-		final ct = typeExprType(decl.recv.list[0].type, info);
+		final ct = toComplexType(varType, info);//typeExprType(decl.recv.list[0].type, info);
 		switch ct {
 			case TPath(p):
 				var f = null;
@@ -5722,6 +5769,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			default:
 		}
 		if (varName != "") {
+
 			varName = nameIdent(varName, false, true, info);
 			if (isPointer(varType)) {
 				meta.push({name: ":pointer", pos: null});
@@ -5826,403 +5874,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 var identifierNames:Array<String> = [];
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
 	if ((decl.type.typeParams != null || recvGeneric)) {
-		for (arg in args) {
-			arg.type = TPath({
-				name: "Expr",
-				sub: "ExprOf",
-				pack: ["haxe", "macro"],
-				params: [TPType(arg.type)]
-			});
-		}
-		ret = TPath({
-			name: "Expr",
-			sub: "ExprOf",
-			pack: ["haxe", "macro"],
-			params: [TPType(ret)]
-		});
-		var nonGenericTypes = []; // exprs
-		if (!recvGeneric) {
-			params = getParams(decl.type.typeParams, info);
-			for (param in params) {
-				identifierNames.push(param.name);
-			}
-		}
-		access.push(AMacro);
-		final funcArgs = [
-			for (arg in args) {
-				final ct = macro haxe.macro.Context.toComplexType(haxe.macro.Context.typeof($i{arg.name}));
-				macro {
-					var ct = $ct;
-					switch ct {
-						case TPath(p):
-							if (p.name == "StdTypes" && p.sub == "Null" && p.pack.length == 0) {
-								switch p.params[0] {
-									case TPType(t):
-										ct = t;
-									default:
-										var _ = false;
-								}
-							}
-						default:
-							var _ = false;
-					}
-					{
-						name: ${makeString(arg.name)},
-						type: ct,
-					};
-				}
-			}
-		];
-		final retExpr = macro haxe.macro.Context.getExpectedType() == null ? null : haxe.macro.Context.toComplexType(haxe.macro.Context.getExpectedType());
-final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
-		identifierNames = identifierNames.concat(genericNames);
-		final genericTypes = [];
-		var genericIdValue = macro "T_";
-		for (i in 0...genericNames.length) {
-			final genericName = genericNames[i];
-			genericTypes.push(macro final $genericName:haxe.macro.Expr.ComplexType = haxe.macro.Context.toComplexType(haxe.macro.Context.typeof($i{"__generic__" + i})));
-			genericIdValue = macro $genericIdValue + haxe.macro.ComplexTypeTools.toString($i{genericName}) + "_";
-		}
-		if (recvArg != null) {
-			args.remove(recvArg);
-		}
-		if (genericNames.length > 0) {
-			var i = genericNames.length - 1;
-			var len = genericNames.length;
-			genericNames.reverse();
-			for (name in genericNames) {
-				final arg:FunctionArg = {
-					name: "__generic__" + i,
-					type: TPath({
-						name: "Expr",
-						sub: "ExprOf",
-						pack: ["haxe", "macro"],
-						params: [TPType(TPath({name: name, pack: []}))],
-					}),
-				};
-				args.unshift(arg);
-				i--;
-			}
-		}
-		if (recvArg != null) {
-			args.unshift(recvArg);
-		}
-		final locals = args.map(arg -> arg.name);
-		function setGenericParam(t:TypeParamDecl):TypeParamDecl {
-			if (t == null)
-				return t;
-			var name = t.name;
-			if (identifierNames.indexOf(t.name) != -1) {
-				name = "$" + t.name;
-			}
-			return {
-				params: t.params == null ? [] : [for (param in t.params) setGenericParam(param)],
-				name: name,
-				meta: t.meta,
-				constraints: t.constraints,
-			};
-		}
-		function setGenericType(t:ComplexType):ComplexType {
-			if (t == null)
-				return t;
-			switch t {
-				case TNamed(name, param):
-					TNamed(name, setGenericType(param));
-				case TFunction(args, ret):
-					for (i in 0...args.length) {
-						args[i] = setGenericType(args[i]);
-					}
-					TFunction(args, setGenericType(ret));
-				case TPath(p):
-					var params:Array<TypeParam> = [];
-					if (p.params != null) {
-						params = [
-							for (param in p.params) {
-								if (param == null) {
-									null;
-								} else {
-									switch param {
-										case TPType(t):
-											TPType(setGenericType(t));
-										default:
-											param;
-									}
-								}
-							}
-						];
-					}
-					if (p.pack.length == 0 && identifierNames.indexOf(p.name) != -1) {
-						return TPath({
-							name: '$' + p.name,
-							sub: p.sub,
-							pack: [],
-							params: params,
-						});
-					}else{
-						if (p.name == "Bool" || p.pack.length != 0 || p.name.charAt(0) == "$") {
-							return TPath({
-								name: p.name,
-								sub: p.sub,
-								pack: p.pack,
-								params: params,
-							});
-						}
-						final path = [info.global.filePath];
-						final globalPath = getGlobalPath(info);
-						if (globalPath != "")
-							path.unshift(globalPath);
-						return TPath({
-							name: p.name,
-							pack: path,
-							params: params,
-						});
-					}
-				default:
-			}
-			return t;
-		}
-		function findGenericTypes(locals:Array<String>, e:Expr):Expr {
-			//trace(printer.printExpr(e));
-			if (e == null)
-				return e;
-			return switch e.expr {
-				case ENew(p, params):
-					if (p.pack.length == 0 && identifierNames.indexOf(p.name) != -1) {
-						p.name = "$" + p.name;
-					}else{
-						if (p.name == "Bool" || p.pack.length != 0) {
-							
-						}else{
-							final path = [info.global.filePath];
-							final globalPath = getGlobalPath(info);
-							if (globalPath != "")
-								path.unshift(globalPath);
-							p.pack = path;
-						}
-					}
-					if (p.params != null) {
-						p.params = [
-							for (param in p.params)
-								switch param {
-									case TPType(t):
-										TPType(setGenericType(t));
-									default:
-										param;
-								}
-						];
-					}
-					toExpr(ENew(p, [
-						for (i in 0...params.length) {
-							findGenericTypes(locals, params[i]);
-						}
-					]));
-				case EFunction(kind, f):
-					final locals = locals.copy();
-					final args = [
-						for (arg in f.args) {
-							final t = setGenericType(arg.type);
-							locals.push(arg.name);
-							{
-								value: arg.value,
-								opt: arg.opt,
-								name: arg.name,
-								meta: arg.meta,
-								type: t,
-							};
-						}
-					];
-					toExpr(EFunction(kind, {
-						ret: setGenericType(f.ret),
-						args: args,
-						params: f.params == null ? null : [for (param in f.params) setGenericParam(param)],
-						expr: findGenericTypes(locals, f.expr),
-					}));
-				case EIs(e, t):
-					toExpr(EIs(findGenericTypes(locals, e), setGenericType(t)));
-				case ECheckType(e, t):
-					toExpr(ECheckType(findGenericTypes(locals, e), setGenericType(t)));
-				case EVars(vars):
-					toExpr(EVars([
-						for (i in 0... vars.length) {
-							locals.push(vars[i].name);
-							final t = setGenericType(vars[i].type);
-							vars[i].name = vars[i].name;
-							vars[i].type = t;
-							vars[i].expr = findGenericTypes(locals, vars[i].expr);
-							vars[i];
-						}
-					]));
-				case EField({expr: EConst(_), pos: _},_):
-					e;
-				case EField(e2, s):
-					//trace(printer.printExpr(e));
-					toExpr(EField(findGenericTypes(locals, e2), s));
-				case EFor(it,expr):
-					final locals = locals.copy();
-					switch it.expr {
-						case EBinop(op,e1,e2):
-							switch op {
-								case OpInterval:
-									switch e1.expr {
-										case EConst(CIdent(s)):
-											locals.push(s);
-										default:
-									}
-								case OpArrow:
-									switch e1.expr {
-										case EConst(CIdent(s)):
-											locals.push(s);
-										default:
-									}
-									switch e2.expr {
-										case EConst(CIdent(s)):
-											locals.push(s);
-										case EBinop(OpIn, {expr: EConst(CIdent(s)), pos: _}, _):
-											locals.push(s);
-										default:
-									}
-								default:
-							}
-						default:
-					}
-					toExpr(EFor(findGenericTypes(locals,it), findGenericTypes(locals, expr)));
-				case EBinop(op, e1, e2):
-					toExpr(EBinop(op, findGenericTypes(locals, e1), findGenericTypes(locals, e2)));
-				case EConst(CIdent(s)):
-					switch s {
-						case "false","true", "null", "Go", "stdgo", "_":
-							e;
-						case s if (locals.indexOf(s) == -1 && s.indexOf(".") == -1):
-							//trace(s,info.global.path);
-							//trace(scopeVars);
-							final path = [info.global.filePath];
-							final globalPath = getGlobalPath(info);
-							if (globalPath != "")
-								path.unshift(globalPath);
-							path.push(s);
-							macro @:privateAccess $p{path};
-						default:
-							e;
-					}
-				default:
-					mapExprWithData(e, locals, findGenericTypes);
-					//haxe.macro.ExprTools.map(e, findGenericTypes);
-			}
-		}
-		final func = toExpr(EFunction(FNamed("f", false), {
-			args: args.copy(),
-			expr: block,
-		}));
-		final func = findGenericTypes(locals, func);
-		final funcArgs = args.map(arg -> {
-			final t = switch arg.type {
-				case TPath(p):
-					switch p.params[0] {
-						case TPType(t):
-							t;
-						default:
-							throw info.panic() + throw "invalid p param: " + p.params[0];
-					}
-				default:
-					throw info.panic() + "invalid p not TPath: " + arg.type;
-			};
-			({
-				name: arg.name,
-				opt: arg.opt,
-				meta: arg.meta,
-				value: arg.value,
-				type: t,
-			} : FunctionArg);
-		});
-		switch func.expr {
-			case EFunction(_, f):
-				final eFuncArgs = f.args.map(arg -> {
-					final t = switch arg.type {
-						case TPath(p):
-							switch p.params[0] {
-								case TPType(t):
-									t;
-								default:
-									throw info.panic() + "invalid p param: " + p.params[0];
-							}
-						default:
-							throw info.panic() + "invalid p not TPath: " + arg.type;
-					};
-					({
-						name: arg.name,
-						opt: arg.opt,
-						meta: arg.meta,
-						value: arg.value,
-						type: t,
-					} : FunctionArg);
-				});
-				f.args = eFuncArgs;
-				for (arg in f.args) {
-					switch arg.type {
-						case TPath(p):
-							if (p.pack.length == 1 && p.pack[0] == "stdgo" && p.name == "Ref" && p.params != null && p.params.length > 0) {
-								switch p.params[0] {
-									case TPType(TPath(p)):
-										if (p.name.charAt(0) == "$") {
-											switch f.expr.expr {
-												case EBlock(exprs):
-													final argName = arg.name;
-													exprs.unshift(macro var $argName = stdgo.Go.refPointer($i{argName}));
-												default:
-											}
-										}
-									default:
-								}
-							}
-						default:
-					}
-				}
-			default:
-		}
-		final nameArgs = [
-			for (arg in args) {
-				macro $i{"$" + arg.name};
-			}
-		];
-		block = macro $b{
-			genericTypes.concat(nonGenericTypes).concat([
-				macro {
-					var id = "T_" + ${makeExpr(info.global.module.path)} + "_" + ${makeExpr(info.funcName)} + "_" + $genericIdValue;
-					id = StringTools.replace(id, ".", "_");
-       				id = StringTools.replace(id, "<", "_");
-        			id = StringTools.replace(id, ">", "_");
-					try {
-						haxe.macro.Context.getType(id);
-					}catch(_) {
-						final f = @:macro $func;
-						switch f.expr {
-							case EFunction(_, f):
-								final td:haxe.macro.Expr.TypeDefinition = {
-									name: id,
-									pos: haxe.macro.Context.currentPos(),
-									pack: [],
-									kind: TDClass(),
-									fields: [
-										{
-											name: "f",
-											pos: haxe.macro.Context.currentPos(),
-											access: [AStatic, APublic],
-											kind: FFun({
-												args: f.args,
-												expr: f.expr,
-											}),
-										}
-									],
-								};
-								haxe.macro.Context.defineType(td);
-							default:
-								throw "invalid expr: " + f.expr;
-						}
-					}
-					return @:macro stdgo.Go.refPointer($i{'$$p{[id,"f"]}'}($a{nameArgs}));
-				}
-			])
-		};
+		// TODO: generic funcs
+		block = macro throw "generic function"; 
 	}else{
 		//non macro function
 		if (info.global.stackBool)
@@ -6249,8 +5902,6 @@ final genericNames = params == null ? [] : [for (i in 0...params.length) params[
 	if (nonGenericParams.length > 0) {
 		params = params.concat(nonGenericParams);
 	}
-	//if (!isTitle(decl.name.name))
-	//	access.push(APrivate);
 	final def:TypeDefinition = {
 		name: name,
 		pos: null,
@@ -6637,7 +6288,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 			if (name.name == "_") {
 				returnNames.push("_" + returnNames.length);
 			} else {
-				returnNames.push(formatHaxeFieldName(name.name, info));
+				returnNames.push(nameIdent(name.name, false, true,info));
 			}
 			returnTypes.push(t);
 			returnComplexTypes.push(ct);
@@ -6735,9 +6386,10 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 			continue;
 		final doc = getDocComment(field, field);
 		for (n in field.names) {
-			var name = n.name;
+			final name = nameIdent(n.name, false, true, info);
+			info.localIdents.remove(name);
 			fields.push({
-				name: nameIdent(name, true, false, info),
+				name: name,
 				pos: null,
 				doc: doc,
 				access: [APublic],
@@ -7100,8 +6752,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
 			var meta:Metadata = [{name: ":structInit", pos: null}];
-			info.renameIdents[spec.name.name] = name + "_static_extension";
-			info.classNames[spec.name.name] = name + "_static_extension";
+			info.renameIdents[spec.name.name] = splitDepFullPathName(name + "_static_extension", info);
+			info.classNames[spec.name.name] = splitDepFullPathName(name + "_static_extension",info);
 			// add to fields patch structs
 			final patchName = info.global.module.path + ":" + name;
 			final structExpr = Patch.structs[patchName];
@@ -7111,22 +6763,21 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					case EBlock(exprs):
 						// exprs.pop();
 						for (expr in exprs) {
+							var meta:Array<MetadataEntry> = [];
+							switch expr.expr {
+								case EMeta(s, e):
+									meta = [s];
+									expr = e;
+								default:
+							}
 							switch expr.expr {
 								case EFunction(FNamed(name, _), f):
 									fields.push({
 										name: name,
 										pos: null,
 										access: [ADynamic, APublic],
+										meta: meta,
 										kind: FFun(f)
-									});
-								case EMeta(s, {expr: EVars(_[0] => v), pos: _}):
-									if (structAddFieldsIndex == -1)
-										structAddFieldsIndex = fields.length;
-									fields.push({
-										name: v.name,
-										pos: null,
-										kind: FVar(v.type, v.expr),
-										meta: [s],
 									});
 								case EVars(_[0] => v):
 									if (structAddFieldsIndex == -1)
@@ -7134,6 +6785,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 									fields.push({
 										name: v.name,
 										pos: null,
+										meta: meta,
 										kind: FVar(v.type, v.expr),
 									});
 								default:
@@ -7215,7 +6867,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						for (i in 0...sigParams.length) {
 							switch sigParams[i] {
 								case _var(name, _.get() => t):
-									final name = nameIdent(name, true, false, info, true);
+									final name = nameIdent(name, false, true, info, true);
 									args.push(macro $i{name});
 									params.push({
 										name: name,
@@ -7243,7 +6895,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							args.push(macro...${args.pop()});
 							params.push(last);
 						}
-						final fieldName = nameIdent(method.name, false, false, info);
+						final fieldName = nameIdent(method.name, false, true, info);
+						info.localIdents.remove(fieldName); 
 						var ret:ComplexType = null;
 						if (results.length > 0) {
 							if (results.length == 1) {
@@ -7286,7 +6939,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								args.unshift(macro stdgo.Go.pointer($i{name}));
 							}
 						}
-						final methodName = nameIdent(method.name, false, false, info);
+						final methodName = nameIdent(method.name, false, true, info);
+						info.localIdents.remove(methodName);
 						var expr = if (fieldPointerBool) {
 							macro $i{name}.value.$fieldName($a{args});
 						}else{
@@ -7369,13 +7023,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				wrapper.isExtern = true;
 				wrapper.params = def.params;
 				info.data.defs.push(wrapper);
-				var fieldExtension = [info.global.filePath, staticExtensionName];
-				final globalPath = getGlobalPath(info);
-				if (globalPath != "")
-					fieldExtension.unshift(globalPath);
-				fieldExtension = setFieldExtension(fieldExtension);
 				// embedding
-				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
+				def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				info.data.defs.push(staticExtension);
 				var embedded = false;
 				for (field in localEmbeddedFields) { // embedded
@@ -7390,7 +7039,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						if (embedded) { // embedded method already exists create it for staticExtension
 							switch field.kind {
 								case FFun(fun):
-									final t = TPath({name: def.name, pack: []});
+									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
 									fun.args.unshift({
 										name: "__self__",
 										type: t,
@@ -7435,8 +7084,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				return def;
 				// meta.push({name: ":local", pos: null});
 			}
-			if (!externBool)
-				meta.push({name: ":private", pos: null});
+			/*if (!externBool)
+				meta.push({name: ":private", pos: null});*/
 			var cl:TypeDefinition = {
 				name: name,
 				pos: null,
@@ -7460,7 +7109,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}),
 			});
 			return cl;
-		case "InterfaceType":
+		case "InterfaceType": // type interface 
 			var struct:Ast.InterfaceType = spec.type;
 			if (struct.methods.list.length == 0 && !struct.incomplete) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
@@ -7682,13 +7331,13 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 				doc: info.global.noCommentsBool ? "" : doc,
 			});
 		} else {
-			info.renameIdents[alias] = pack.join(".");
+			info.renameIdents[alias] = ".." + pack.join(".");
 		}
 	} else {
 		if (name == "atomic_") {
-			info.renameIdents["atomic"] = pack.join(".");
+			info.renameIdents["atomic"] = ".." + pack.join(".");
 		}
-		info.renameIdents[name] = pack.join(".");
+		info.renameIdents[name] = ".." + pack.join(".");
 	}
 	if (blankAlias) {
 		info.data.imports.push({
@@ -7711,7 +7360,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 	// destructure
 	if (value.names.length > value.values.length && value.values.length > 0) {
 		var t = typeof(value.values[0], info, false);
-		var tmp = "__tmp__" + (info.blankCounter++);
+		var tmp = splitDepFullPathName("__tmp__" + (info.blankCounter++), info);
 		var tmpExpr = macro $i{tmp};
 		var func = typeExpr(value.values[0], info);
 		var data = castTranslate(value.values[0], func, info);
@@ -7736,6 +7385,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 					emptyNames = false;
 			}
 			final name = nameIdent(nameStr, false, true, info);
+			info.localIdents.remove(name);
 			values.push({
 				name: name,
 				pos: {min: posMin, max: 0, file: ""},
@@ -7789,6 +7439,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			if (expr == null)
 				continue;
 			var name = nameIdent(value.names[i].name, false, true, info);
+			info.localIdents.remove(name);
 			// empty name
 			if (value.names[i].name == "_")
 				info.global.order.push(name);
@@ -7891,7 +7542,7 @@ private function getRestrictedName(name:String, info:Info):String { // all funct
 			if (def.name == name) {
 				final pack = info.global.module.path.split(".");
 				pack.unshift("_internal");
-				if (stdgoList.indexOf(toGoPath(info.global.module.path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+				if (stdgoList.indexOf(toGoPath(info.global.module.path)) == -1) { // haxe only type, otherwise the go code refrences Haxe
 					pack.unshift("stdgo");
 				}
 				final name = pack[pack.length - 1];
@@ -7917,8 +7568,10 @@ private function nameAscii(name:String):String {
 	return name;
 }
 
-private function formatHaxeFieldName(name:String, info) {
-	return nameIdent(name, false, false, info);
+private function formatHaxeFieldName(name:String, info:Info) {
+	name = nameIdent(name, false, true, info);
+	info.localIdents.remove(name);
+	return name;
 }
 
 private function untitle(name:String):String {
@@ -7936,7 +7589,7 @@ private function untitle(name:String):String {
 	return name;
 }
 
-private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:Bool = false):String {
+private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:Bool=false, isSelect:Bool=false):String {
 	name = nameAscii(name);
 	if (name == "_")
 		return "__" + info.blankCounter++;
@@ -7945,18 +7598,14 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 	if (name == "main")
 		return name;
 	if (name == "False" || name == "True" || name == "Main")
-		return "_" + name;
+		name = "_" + name;
 	var oldName = name;
 	if (overwrite) { // either an overwrite or a rename has been set
 		if (name == "nil") {
 			name = "_null";
-			info.renameIdents[oldName] = name;
-			return name;
 		}
 		if (name == "false" || name == "true") {
 			name = "_" + name;
-			info.renameIdents[oldName] = name;
-			return name;
 		}
 	} else {
 		if (name == "nil")
@@ -7990,9 +7639,23 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 	if (reserved.indexOf(name) != -1) {
 		name = name + "_";
 	}
-	if (overwrite) {
-		info.renameIdents[oldName] = name;
+	if (!isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
+		if (name.indexOf(".") != -1)
+			return name;
+		// trace(name, isSelect, overwrite, info.localIdents);
+		name = splitDepFullPathName(name, info);
 	}
+	if (overwrite) {
+		//if (oldName != name)
+			info.renameIdents[oldName] = name;
+		info.localIdents.push(name);
+	}
+	return name;
+}
+
+function splitDepFullPathName(name:String, info:Info):String {
+	var path = getGlobalPath(info);
+	name = path + "." + info.global.filePath + "_" + name + "." + name;
 	return name;
 }
 
@@ -8046,6 +7709,24 @@ class Global {
 	}
 }
 
+@:forward
+abstract DebugMap(Map<String,String>) from Map<String,String> to Map<String,String> {
+	public function new() {
+		this = new Map<String,String>();
+	}
+	@:op([])
+	private function get(x:String):String
+		return this[x];
+	@:op([])
+	private function set(key:String,value:String):String {
+		/*if (key == "zone" || key == "_zone") {
+			trace(key,value);
+			throw "issue";
+		}*/
+		return this[key] = value;
+	}
+}
+
 class Info {
 	public var blankCounter:Int = 0;
 	public var restricted:Array<String> = [];
@@ -8068,6 +7749,7 @@ class Info {
 	public var switchTag:Expr = null;
 	public var switchIndex:Int = 0;
 	public var switchTagType:GoType = null;
+	public var localIdents:Array<String> = [];
 
 	public var renameIdents:Map<String, String> = []; // identifiers
 	public var classNames:Map<String, String> = []; // class names named types
@@ -8098,6 +7780,7 @@ class Info {
 		info.data = data;
 		info.global = global.copy(); // imports, types
 		info.renameIdents = renameIdents.copy();
+		info.localIdents = localIdents.copy();
 		info.classNames = classNames.copy();
 		info.renameClasses = renameClasses.copy();
 		info.locals = locals.copy();

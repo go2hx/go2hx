@@ -80,7 +80,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				}
 			default:
 		}
-
 		gt = stdgo._internal.internal.reflect.Reflect.getUnderlying(gt);
 		gt2 = stdgo._internal.internal.reflect.Reflect.getUnderlying(gt2);
 		return switch gt {

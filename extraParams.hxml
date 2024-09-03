@@ -16,3 +16,5 @@
 -D HXCPP_DEBUG=0
 -D HXCPP_COMPILE_THREADS=1
 -D HXCPP_PCH=1
+-D splitdeps
+#--macro include("stdgo", true)

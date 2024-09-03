@@ -697,9 +697,11 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 			return true
 		}
 		node := cursor.Node()
+		//fmt.Println(reflect.TypeOf(node))
 		switch node := node.(type) {
 		case *ast.FuncDecl:
 			funcName = node.Name.Name
+			//fmt.Println(funcName)
 			count = 0
 		case *ast.GenDecl:
 			if node.Tok == token.TYPE {
@@ -757,8 +759,14 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 				checker.Types[name] = tv
 				// replace
 				for key, value := range checker.Defs {
-					if value != nil && value.Type() == t {
-						checker.Defs[key] = namedType.Obj()
+					if value != nil {
+						//log.Println("t:", t)
+						//log.Println("value.Type:", value.Type())
+						t := replaceType(t, value.Type(), t)
+						namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, t), t, nil)
+						if value.Type() == t {
+							checker.Defs[key] = namedType.Obj()
+						}
 					}
 				}
 			}
@@ -814,6 +822,32 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 		return true
 	}
 	file = astutil.Apply(file, apply, nil).(*ast.File)
+}
+
+func replaceType(t types.Type, sub types.Type, by types.Type) types.Type {
+	//fmt.Println("type:", t)
+	//fmt.Println("sub:", sub)
+	//fmt.Println("by:", by)
+	switch t := t.(type) {
+	case *types.Struct:
+		fields := make([]*types.Var, t.NumFields())
+		tags := make([]string, t.NumFields())
+		for i := 0; i < t.NumFields(); i++ {
+			tags[i] = t.Tag(i)
+			v := types.NewVar(t.Field(i).Pos(), t.Field(i).Pkg(), t.Field(i).Name(), replaceType(t.Field(i).Type(), sub, by))
+			fields[i] = v
+		}
+		return types.NewStruct(fields, tags)
+	case *types.Slice:
+		return types.NewSlice(replaceType(t.Elem(), sub, by))
+	case *types.Array:
+		return types.NewArray(replaceType(t.Elem(), sub, by), t.Len())
+	default:
+		if t == sub {
+			return by
+		}
+	}
+	return t
 }
 
 func typeParamsFromType(t *types.Type) []string {
@@ -1493,15 +1527,14 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 		data["kind"] = int(value.Obj.Kind)
 	}
 	instance := checker.Instances[value]
+	obj := checker.ObjectOf(value)
 	if instance.Type != nil {
 		data["type"] = parseType(instance.Type, map[string]bool{})
-		obj := checker.ObjectOf(value)
 		if obj != nil {
 			// find what the generic types will be
 			data["objType"] = parseType(obj.Type(), map[string]bool{})
 		}
 	} else {
-		obj := checker.ObjectOf(value)
 		if obj != nil {
 			switch obj.(type) {
 			case *types.TypeName:

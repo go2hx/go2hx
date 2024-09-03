@@ -77,9 +77,9 @@ class PointerData<T> {
 	public var underlyingIndex:Any = null;
 	public var address:Int = 0;
 
-	public inline function new(?get:()->T, ?set:T->T, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
+	public inline function new(?get:Void->T, ?set:T->T, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
 		if (get == null)
-			get = () -> throw "null pointer dereference";
+			get = () -> {throw "null pointer dereference"; return null;};
 		if (set == null)
 			set = value -> value;
 		this.get = get;

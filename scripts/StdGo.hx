@@ -10,8 +10,16 @@ final path = Sys.getCwd();
 var libCount = 0;
 
 function main() {
-	var list:Array<String> = Json.parse(File.getContent("data/tests.json"));
+	var list:Array<String> = Json.parse(File.getContent("data/stdgo.json"));
 	final excludes:Array<String> = Json.parse(File.getContent("data/excludes.json"));
+	final testList:Array<String> = Json.parse(File.getContent("data/tests.json"));
+	for (pkg in list) {
+		if (!noMain.contains(pkg))
+			noMain.push(pkg);
+	}
+	for (test in testList) {
+		noMain.remove(test);
+	}
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
@@ -22,6 +30,10 @@ function main() {
 	final defineLibs = Compiler.getDefine("libs");
 	if (defineLibs != null) {
 		libs = defineLibs.split(",");
+	}
+	// dot to slashes format: crypto.internal.boring -> crypto/internal/boring
+	for (i in 0...libs.length) {
+		libs[i] = StringTools.replace(libs[i], ".", "/");
 	}
 	for (path in excludes)
 		list.remove(path);
@@ -118,4 +130,5 @@ final noMain = [
 	"context",
 	"internal/platform",
 	"internal/race",
+	"image/color/palette",
 ];

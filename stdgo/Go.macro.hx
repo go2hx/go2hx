@@ -337,6 +337,12 @@ class Go {
 						p.name += s;
 					}
 				}
+				if (p.pack != ["stdgo"] && p.name == "Error") {
+
+				}else{
+					p.name += s;
+				}
+				// trace(new haxe.macro.Printer().printTypePath(p));
 				return p;
 			}
 			final printer = new haxe.macro.Printer();
@@ -1071,6 +1077,7 @@ class Go {
 										final underlyingType = gtDecode(type, expr, marked);
 										final methods:Array<Expr> = [];
 										final extensionPath = ref.module + "." + ref.name + "_asInterface";
+										//trace(extensionPath);
 										var extensionType = null;
 										try {
 											extensionType = Context.getType(extensionPath);

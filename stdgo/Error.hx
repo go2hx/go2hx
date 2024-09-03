@@ -4,7 +4,6 @@ import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
 import stdgo.GoArray;
-import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
@@ -40,7 +39,7 @@ class T_errorString_asInterface {
 	}
 
 	public function __underlying__()
-		return new AnyInterface((__type__.kind() == stdgo._internal.reflect.Reflect.ptr
+		return new AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer
 			&& !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic),
 			__type__);
 

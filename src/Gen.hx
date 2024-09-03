@@ -13,7 +13,7 @@ function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
 	var actualPathExtern = paths.join("/");
-	var externDefBool = !module.isMain;
+	var externDefBool = false; //!module.isMain;
 	var testPath = actualPath;
 	if (paths.length > 0) {
 		if (actualPath == "") {
@@ -40,24 +40,26 @@ function create(outputPath:String, module:Module, root:String) {
 		root += ".";
 	var pkgPath = 'package ${actualPath.split("/").join(".")};\n';
 	var pkgPathExtern = 'package ${actualPathExtern.split("/").join(".")};\n';
-	var content = "";
-	var externContent = "";
-	var externMacroContent = "";
-	var macroContent = "";
+	var content:Array<TypeDefinition> = [];
+	var contentImports:String = "";
+	var externContent:Array<TypeDefinition> = [];
+	var externMacroContent:Array<TypeDefinition> = [];
+	var macroContent:Array<TypeDefinition> = [];
 	var count = module.files.length;
 	var hasMacroDef = false;
 	for (file in module.files) {
-		content = pkgPath;
+		/*content = pkgPath;
 		macroContent = pkgPath;
 		externContent = pkgPathExtern;
-		externMacroContent = pkgPathExtern;
+		externMacroContent = pkgPathExtern;*/
+		contentImports = "";
 		for (imp in file.imports) {
 			if (imp == null)
 				continue;
-			content += "import " + imp.path.join(".");
+			contentImports += "import " + imp.path.join(".");
 			if (imp.alias != "" && imp.alias != null)
-				content += " as " + imp.alias;
-			content += ";\n";
+				contentImports += " as " + imp.alias;
+			contentImports += ";\n";
 		}
 		var macroFields:Array<haxe.macro.Expr.Field> = [];
 		final cl = macro class C {};
@@ -76,8 +78,8 @@ function create(outputPath:String, module:Module, root:String) {
 								def.isExtern = true;
 								hasMacroDef = true;
 								for (td in externGen(def, actualPath, clMacro)) 
-									externMacroContent += Typer.printer.printTypeDefinition(td, false);
-								macroContent += Typer.printer.printTypeDefinition(stripComments(def), false);
+									externMacroContent.push(td);
+								macroContent.push(stripComments(def));
 								def.isExtern = isExtern;
 								f.expr = null;
 							default:
@@ -118,28 +120,28 @@ function create(outputPath:String, module:Module, root:String) {
 				};
 				if (externDefBool) {
 					for (td in externGen(def, actualPath, cl))
-						externMacroContent += Typer.printer.printTypeDefinition(td, false);
+						externMacroContent.push(td);
 				}
-				macroContent += Typer.printer.printTypeDefinition(stripComments(td), false);
+				macroContent.push(stripComments(td));
 			}
 			if (externDefBool) {
 				for (td in externGen(def, actualPath, cl)) {
-					externContent += Typer.printer.printTypeDefinition(td, false);
+					externContent.push(td);
 				}
 			}
-			content += Typer.printer.printTypeDefinition(stripComments(def), false);
+			content.push(stripComments(def));
 		}
 		if (externDefBool) {
-			externContent += Typer.printer.printTypeDefinition(cl,false);
-			save(outputPath + actualPathExtern + "/", file.name, externContent);
+			externContent.push(cl);
+			save(outputPath + actualPathExtern + "/", file.name, externContent, pkgPathExtern);
 		}
-		save(outputPath + actualPath + "/", file.name, content);
+		save(outputPath + actualPath + "/", file.name, content, pkgPath + contentImports);
 		if (hasMacroDef) {
 			if (externDefBool) {
-				externMacroContent += Typer.printer.printTypeDefinition(clMacro,false);
-				save(outputPath + actualPathExtern + "/", file.name, externMacroContent, ".macro");
+				externMacroContent.push(clMacro);
+				save(outputPath + actualPathExtern + "/", file.name, externMacroContent, pkgPath, ".macro");
 			}
-			save(outputPath + actualPath + "/", file.name, macroContent, ".macro");
+			save(outputPath + actualPath + "/", file.name, macroContent, pkgPath, ".macro");
 		}
 	}
 }
@@ -160,12 +162,51 @@ private function runCmd(cmd:String) {
 	#end
 }
 
-private function save(dir:String, name:String, content:String, extension:String = "") {
+private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String = "") {
+	if (content.length == 0)
+		return;
+	if (splitDepsBool)
+		content = splitDeps(dir, name, prefix, extension, content); // clears out content and saves elsewhere
+	final contentString = prefix + content.map(f -> Typer.printer.printTypeDefinition(f, false)).join("");
+	saveRaw(dir,name,contentString, prefix, extension);
+}
+
+function splitDeps(dir:String, name:String, prefix:String, extension:String, content:Array<TypeDefinition>):Array<TypeDefinition> {
+	final newContent = [];
+	for (td in content) {
+		switch td.kind {
+			case TDAbstract(tthis, flags, from, to):
+			case TDClass(_, _, _, _, _):
+			case TDAlias(_):
+			case TDField(kind, access):
+				switch kind {
+					case FFun(_):
+						if (td.name == "main") {
+							newContent.push(td);
+							continue;
+						}
+					case FVar(_, _):
+						if (td.name == "__init__") {
+							newContent.push(td);
+							continue;
+						}
+					default:
+				}
+			default:
+		}
+		// raw save file
+		final contentString = prefix + Typer.printer.printTypeDefinition(td,false);
+		saveRaw(dir,name + "_" + td.name,contentString, prefix, extension);
+	}
+	return newContent;
+}
+
+private function saveRaw(dir:String, name:String, contentString, prefix:String, extension:String) {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	final path = dir + name + extension + ".hx";
-	File.saveContent(path, content);
-	Sys.println("Generated: " + dir + name + extension + ".hx - " + src.Util.kbCount(content) + "kb");
+	File.saveContent(path, contentString);
+	Sys.println("Generated: " + dir + name + extension + ".hx - " + src.Util.kbCount(contentString) + "kb");
 }
 
 function staticExtensionName(name:String,cl:TypeDefinition):String {
@@ -258,6 +299,8 @@ function copyField(field:Field, kind:FieldType):Field {
 	};
 }
 
+var splitDepsBool = true;
+
 function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	final params:Array<TypeParam> = [];
 	final pack = path.split("/");
@@ -341,6 +384,12 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 		if (meta[i].name == ":using") {
 			final usingPath = Typer.printer.printExpr(meta[i].params[0]).split(".");
 			final endUsing = staticExtensionName(usingPath.pop(), cl);
+			final last = usingPath.pop();
+			if (splitDepsBool) {
+				usingPath.push(last + "_" + endUsing);
+			}else{
+				usingPath.push(last);
+			}
 			usingPath.push(endUsing);
 			usingPath.remove("_internal");
 			// remove unneeded pack refrence
@@ -553,12 +602,16 @@ function convertTypeParams(params:Array<haxe.macro.Expr.TypeParam>, path:String)
 	}];
 }
 
+private function toExpr(e:ExprDef):Expr {
+	return {expr: e, pos: null};
+}
+
 function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 	if (ct == null)
 		return null;
 	switch ct {
 		case TAnonymous(fields):
-			final expr = {expr: EObjectDecl([for (field in fields) {
+			final expr = toExpr(EObjectDecl([for (field in fields) {
 				switch field.kind {
 					case FVar(type, e):
 						final fieldName = field.name;
@@ -569,7 +622,7 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 					default:
 						throw "Field kind not supported: " + field.kind;
 				}
-			}]), pos: null};
+			}]));
 			return macro {
 				final obj = $e;
 				$expr;
@@ -585,17 +638,7 @@ function reverseConvertCast(e:Expr, ct:ComplexType):Expr {
 				return macro ([for (i in $e) $i] : $ct);
 		case TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(param)]}):
 		case TPath({name: name, pack: ["stdgo"], params: _}):
-			switch name {
-				case "GoInt", "GoInt32", "GoInt16", "GoInt8", "GoByte", "GoRune":
-				case "GoUInt", "GoUInt32", "GoUInt16", "GoUInt8":
-				case "GoFloat", "GoFloat32", "GoFloat64":
-				case "GoString":
-				case "GoInt64":
-				case "GoUInt64":
-				case "Slice":
-				case "GoArray":
-				case "Ref":
-			}
+			
 		case TFunction(_, _):
 			return e;
 		default:
@@ -609,7 +652,7 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 		return null;
 	switch ct {
 		case TAnonymous(fields):
-			final expr = {expr: EObjectDecl([for (field in fields) {
+			final expr = toExpr(EObjectDecl([for (field in fields) {
 				switch field.kind {
 					case FVar(type, e):
 						final fieldName = field.name;
@@ -620,7 +663,7 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 					default:
 						throw "Field kind not supported: " + field.kind;
 				}
-			}]), pos: null};
+			}]));
 			return macro {
 				final obj = $e;
 				$expr;
@@ -636,17 +679,7 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 		case TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(param)]}):
 			return convertCast(e, param, path) ?? e;
 		case TPath({name: name, pack: ["stdgo"], params: _}):
-			switch name {
-				case "GoInt", "GoInt32", "GoInt16", "GoInt8", "GoByte", "GoRune":
-				case "GoUInt", "GoUInt32", "GoUInt16", "GoUInt8":
-				case "GoFloat", "GoFloat32", "GoFloat64":
-				case "GoString":
-				case "GoInt64":
-				case "GoUInt64":
-				case "Slice":
-				case "GoArray":
-				case "Ref":
-			}
+			
 		case TPath({name: "Void", pack: []}):
 		case TFunction(args, ret):
 			final ret = convertComplexType(ret, path);
@@ -655,22 +688,44 @@ function convertCast(e:Expr, ct:ComplexType, path:String):Expr {
 				convertCast(macro $i{callArgs[i]}, args[i], path) ?? macro $i{"_" + i}
 			];
 			final expr = macro $e($a{exprArgs});
-			return {
-				expr: EFunction(FArrow, {
+			return toExpr(
+				EFunction(FArrow, {
 					args: callArgs.map(arg -> ({
 						name: arg,
 					} : FunctionArg)),
 					expr: expr,
 					//ret: ret,
 				}),
-				pos: null,
-			}
+			);
 		case TNamed(_, t):
 			return convertCast(e, t, path);
 		default:
 			// trace("unknown convert cast: " + new haxe.macro.Printer().printComplexType(ct));
 	}
 	return null;
+}
+
+function stdgoType(name:String) {
+	switch name {
+		case "GoInt", "GoInt32", "GoInt16", "GoInt8", "GoByte", "GoRune":
+		case "GoUInt", "GoUInt32", "GoUInt16", "GoUInt8":
+		case "GoFloat", "GoFloat32", "GoFloat64":
+		case "GoComplex64", "GoComplex128":
+		case "Error":
+		case "GoString":
+		case "GoInt64":
+		case "StructType":
+		case "GoUInt64":
+		case "Slice":
+		case "GoUIntptr":
+		case "GoArray":
+		case "Ref":
+		case "AnyInterface":
+		case "Pointer":
+		default:
+			return false;
+	}
+	return true;
 }
 
 function convertComplexType(ct:ComplexType, path:String):ComplexType {

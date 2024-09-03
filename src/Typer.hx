@@ -3375,6 +3375,7 @@ private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
 }
 
 private function isFunction(expr:Ast.Expr, info:Info):Bool {
+	expr = escapeParensRaw(expr);
 	final ft = typeof(expr, info, false);
 	final sig = isSignature(ft);
 	var kind:Ast.ObjKind = expr.id == "SelectorExpr" ? expr.sel.kind : expr.kind;
@@ -3501,6 +3502,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			if (sig != null) {
 				switch sig {
 					case signature(variadic, _.get() => params, _, _, _):
+						// params:Array<GoType>
+						// args:Array<Expr>
+						// exprArgs:Array<Ast.Expr>
+						// args:Array<Expr>
 						for (i in skip...args.length + (expr.ellipsis > 0 ? -1 : 0)) {
 							final fromType = getVar(typeof(exprArgs[i - skip], info, false));
 							var toType = getVar(params[i - skip]);
@@ -6997,7 +7002,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					pack: ["stdgo"],
 					params: [
 						TPType(TPath({
-							name: def.name,
+							name: splitDepFullPathName(def.name,info),
 							pack: [],
 							params: def.params == null ? [] : def.params.map(p -> TPType(TPath({
 								name: p.name,

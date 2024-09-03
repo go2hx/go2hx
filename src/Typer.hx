@@ -2121,6 +2121,9 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 	}
 	if (!isPointer(fromType) && !isRef(fromType)) {
 		var isNamed = isNamed(fromType);
+		if (fromType == null) {
+			trace(info.panic(), "fromType is null");
+		}
 		switch fromType {
 			case typeParam(_):
 			case basic(basicKind):

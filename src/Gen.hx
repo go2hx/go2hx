@@ -14,7 +14,13 @@ function create(outputPath:String, module:Module, root:String) {
 	final paths = actualPath.split("/");
 	var actualPathExtern = paths.join("/");
 	var externDefBool = false; //!module.isMain;
-	var testPath = actualPath;
+	final cut = actualPath.substring(actualPath.length - 5);
+	final _testStr = "_test";
+	if (cut == _testStr) {
+		actualPath = actualPath.substring(0, actualPath.length - _testStr.length);
+		externDefBool = false;
+	}
+	final stdFormatPath = actualPath;
 	if (paths.length > 0) {
 		if (actualPath == "") {
 			actualPath = "_internal";
@@ -22,12 +28,9 @@ function create(outputPath:String, module:Module, root:String) {
 			actualPath = "_internal/" + actualPath;
 		}
 	}
-	if (testPath.substring(testPath.length - 5) == "_test") {
-		testPath = testPath.substring(0, testPath.length - 5);
-		externDefBool = false;
-	}
+	//trace(actualPath);
 	// if stdgo
-	if (Typer.stdgoList.contains(testPath)) {
+	if (Typer.stdgoList.contains(stdFormatPath)) {
 		root = "stdgo";
 		actualPath = "stdgo/" + actualPath;
 		if (actualPathExtern.length > 0) {
@@ -48,6 +51,9 @@ function create(outputPath:String, module:Module, root:String) {
 	var count = module.files.length;
 	var hasMacroDef = false;
 	for (file in module.files) {
+		if (file.name.substring(file.name.length - _testStr.length) == _testStr) {
+			file.name = file.name.substr(0, file.name.length - _testStr.length);
+		}
 		/*content = pkgPath;
 		macroContent = pkgPath;
 		externContent = pkgPathExtern;

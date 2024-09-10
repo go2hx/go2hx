@@ -349,20 +349,6 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				});
 			}
 			data.imports = data.imports.concat(defaultImports);
-			final _test = "_test";
-			if (StringTools.endsWith(module.path, _test)) {
-				var path = module.path;
-				path = path.substr(0, path.length - _test.length);
-				path = StringTools.replace(path, ".", "/");
-				path = '"$path"';
-				typeImport({
-					path: path,
-					name: ".",
-					endPos: 0,
-					doc: null,
-					comment: null
-				}, info);
-			}
 
 			if (pkgDoc != "")
 				data.defs.unshift({
@@ -952,7 +938,9 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 }
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):ExprDef {
-	final info = info.copy();
+	info.localIdents = info.localIdents.copy(); 
+	info.renameIdents = info.renameIdents.copy();
+	info.classNames = info.classNames.copy();
 	var exprs:Array<Expr> = [];
 	// add named return values
 	if (isFunc) {
@@ -3561,13 +3549,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							final xTypePointer = isPointer(xType);
 							final b = isPointer(type);
 							if (b) {
-								var selExpr = typeExpr(expr.fun.sel, info);
-								final sel = switch selExpr.expr {
-									case EConst(CIdent(s)):
-										s;
-									default:
-										throw info.panic() + "unknown expr: " + expr.fun.sel;
-								}
+								final sel = nameIdent(expr.fun.sel.name, false, false, info, false, true);
+								final selExpr = macro $i{sel};
 								var e:Expr = null;
 								if (selKind == 3) {
 									e = typeExpr(expr.fun,info);
@@ -4425,6 +4408,7 @@ private function toHaxePath(path:String):String {
 
 private function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 	path = StringTools.replace(path, "go-", "");
+	path = StringTools.replace(path, "_test.", ".");
 	final startCommandLineArg = "command-line-arguments.";
 	if (path.substr(0, startCommandLineArg.length) == startCommandLineArg) {
 		path = path.substr(startCommandLineArg.length);
@@ -4574,8 +4558,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case _var(_, _.get() => type):
 			toComplexType(type, info);
 		case typeParam(name, _):
-			final p = namedTypePath(name, info);
-			return TPath(p);
+			return TPath({pack: [], name: "Dynamic"});
 		case tuple(len, _.get() => vars):
 			var fields:Array<Field> = [];
 			for (i in 0...vars.length) {
@@ -5619,6 +5602,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		}
 	}
 	final e = macro $x.$sel;
+	// trace(printer.printExpr(e));
 	return e.expr; // EField
 }
 
@@ -7319,16 +7303,17 @@ private function errorType()
 private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	var doc = getDocComment(imp);
 	imp.path = imp.path.substr(1, imp.path.length - 2); // remove quotes
-	final path = normalizePath(imp.path);
-	final pack = path.split("/");
+	var path = normalizePath(imp.path);
 	var alias = imp.name;
 	var blankAlias = false;
 	if (alias == "_") {
 		blankAlias = true;
 		alias = "";
 	}
+	path = toGoPath(path);
+	final pack = path.split("/");
 	pack.unshift("_internal");
-	if (stdgoList.indexOf(toGoPath(path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}
 	final name = pack[pack.length - 1];
@@ -7665,7 +7650,14 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 
 function splitDepFullPathName(name:String, info:Info):String {
 	var path = getGlobalPath(info);
-	name = path + "." + info.global.filePath + "_" + name + "." + name;
+	if (StringTools.endsWith(path, "_test")) {
+		path = path.substr(0, path.length - "_test".length);
+	}
+	var filePath = info.global.filePath;
+	if (StringTools.endsWith(filePath, "_test")) {
+		filePath = filePath.substr(0, filePath.length - "_test".length);
+	}
+	name = path + "." + filePath + "_" + name + "." + name;
 	return name;
 }
 

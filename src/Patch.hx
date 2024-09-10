@@ -18,6 +18,7 @@ final list = [
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
+	"os:args" => macro stdgo._internal.os.Os__runtime_args._runtime_args(),
 	"os:environ_" => macro {
 		final slice = new stdgo.Slice<stdgo.GoString>(0,0);
 		return slice;
@@ -1195,7 +1196,7 @@ final list = [
 	},
 	"sync.Pool:_pinSlow" => macro return {_0: null, _1: 0},
 	// Atomic -> Atomic_ because of restriction for cpp
-	"sync.atomic_.Bool_:store" => macro stdgo._internal.sync.Atomic__storeUint32.storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0),
+	"sync.atomic_.Bool_:store" => macro stdgo._internal.sync.atomic_.Atomic__storeUint32.storeUint32(stdgo.Go.pointer(_x._v), _val ? 1 : 0),
 	"sync.atomic_.Bool_:load" => macro return @:privateAccess _x._v == 1,
 	// stdgo/sync
 	"sync.Pool:get" => macro {
@@ -1349,6 +1350,79 @@ final list = [
 	"syscall:getpagesize" => macro return 4096,
 	"syscall:mmap" => macro return {_0: null, _1: null},
 	"syscall:mprotect" => macro return null,
+	// testing
+	"testing:mainStart" => macro {
+		final args = Sys.args();
+		var testlist:Array<stdgo._internal.testing.Testing_InternalTest.InternalTest> = [];
+		var runArgBool = false;
+		var excludes:Array<String> = [];
+		for (i in 0...args.length) {
+			if ((args[i] == "-run" || args[i] == "--run") && i < args.length - 1) {
+				final match = args[i + 1];
+				runArgBool = true;
+				for (_ => test in _tests) {
+					if (test.name.toString().indexOf(match) == 0) {
+						testlist.push(test);
+					}
+				}
+				break;
+			}
+		}
+		if (!runArgBool)
+			testlist = _tests.__toArray__();
+		for (i in 0...args.length) {
+			if ((args[i] == "-exclude" || args[i] == "--exclude") && i < args.length - 1) {
+				final excludes = args[i + 1].split(",");
+				for (test in testlist) {
+					if (excludes.indexOf(test.name) != -1)
+						testlist.remove(test);
+				}
+			}
+		}
+		var m = new stdgo._internal.testing.Testing_M.M(_deps, testlist, _benchmarks, _fuzzTargets, _examples);
+		return m;
+	},
+	"testing:coverMode" => macro return "",
+	"testing:short" => macro return true,
+	"testing:allocsPerRun" => macro return 0,
+	"testing:verbose" => macro return false,
+	"testing.M:run" => macro {
+		final chatty = true;
+		// use go version of path for passing go tests
+		stdgo._internal.internal.reflect.Reflect.useHaxePath = false;
+		_m._numRun++;
+		for (test in _m._tests) {
+			var error = false;
+			final output = new StringBuf();
+			var t = new stdgo._internal.testing.Testing_T_.T_(null, null, null, output);
+			final stamp = Sys.time();
+			Sys.println("=== RUN  " + test.name.toString());
+			try {
+				test.f(t);
+			} catch (e) {
+				if (e.message != "__fail__") {
+					Sys.println(e.details());
+				}
+				Sys.exit(1);
+				error = true;
+			}
+			final dstr = Sys.time() - stamp; // duration
+			final format = "--- %s: %s (%s)\n";
+			if (t.failed() || error) {
+				Sys.println('-- FAIL: ${test.name.toString()} ($dstr)');
+				Sys.exit(1);
+			} else if (chatty) {
+				if (t.skipped()) {
+					Sys.println('-- SKIP: ${test.name.toString()} ($dstr)');
+				} else {
+					Sys.println('-- PASS: ${test.name.toString()} ($dstr)');
+				}
+			}
+			Sys.println(output.toString());
+		}
+		return _m._exitCode;
+	},
+	"testing:benchmark" => macro return new stdgo._internal.testing.Testing_BenchmarkResult.BenchmarkResult(),
 	// testing/iotest
 	"testing.iotest:testWriteLogger" => macro {},
 	// testing/fstest
@@ -1393,6 +1467,10 @@ final skipTargets = [
 ];
 
 final structs = [
+	"testing:T_" => macro {
+		@:local
+		var output:StringBuf = null;
+	},
 	"syscall:IPv6Mreq" => macro {
 		@:local
 		var Multiaddr:stdgo.GoUInt8;
@@ -1491,9 +1569,6 @@ final structs = [
 final adds = [
 	"math:negZero" => macro {
 		return copysign(0.0, -1.0);
-	},
-	"os:_init" => macro {
-		args = _runtime_args();
 	},
 ];
 final funcInline = [

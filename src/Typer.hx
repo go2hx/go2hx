@@ -938,9 +938,13 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 }
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):ExprDef {
-	info.localIdents = info.localIdents.copy(); 
-	info.renameIdents = info.renameIdents.copy();
-	info.classNames = info.classNames.copy();
+	if (isFunc) {
+		info.localIdents = info.localIdents.copy(); 
+		info.renameIdents = info.renameIdents.copy();
+		info.classNames = info.classNames.copy();
+	}else{
+		info = info.copy();
+	}
 	var exprs:Array<Expr> = [];
 	// add named return values
 	if (isFunc) {

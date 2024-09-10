@@ -404,8 +404,8 @@ final list = [
 		if (new $newValue(_x).isNil() || new $newValue(_y).isNil()) {
 			return (_x : stdgo.AnyInterface) == (_y : stdgo.AnyInterface);
 		};
-		var v1 = valueOf(_x);
-		var v2 = valueOf(_y);
+		var v1 = stdgo._internal.reflect.Reflect_valueOf.valueOf(_x);
+		var v2 = stdgo._internal.reflect.Reflect_valueOf.valueOf(_y);
 		return stdgo._internal.internal.reflect.Reflect.deepValueEqual(v1, v2, null, 0);
 	},
 	"reflect.Value:canInterface" => macro {

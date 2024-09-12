@@ -963,7 +963,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	if (list != null) {
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	}
-	if (list != null && info.deferBool && isFunc) { // defer system
+	if (list != null && info.global.deferBool && isFunc) { // defer system
 		final ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 		final e = ret;
 		var catchBlock:Array<Expr> = [macro var exe:Dynamic = __exception__.native];
@@ -1047,7 +1047,7 @@ private function escapeParens(expr:Expr):Expr {
 }
 
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
-	info.deferBool = true;
+	info.global.deferBool = true;
 	var exprs:Array<Expr> = [];
 	final localIdents = [];
 	for (i in 0...stmt.call.args.length) {
@@ -2888,7 +2888,7 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	function ret(e:ExprDef) {
-		if (info.deferBool) {
+		if (info.global.deferBool) {
 			final exprs:Array<Expr> = [];
 			switch e {
 				case EReturn(expr):
@@ -3629,7 +3629,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						genArgs(false);
 						return returnExpr(macro throw ${toAnyInterface(args[0], typeof(expr.args[0], info, false), info)}).expr;
 					case "recover":
-						info.recoverBool = true;
+						info.global.recoverBool = true;
 						return returnExpr(macro({
 							final r = stdgo.Go.recover_exception;
 							stdgo.Go.recover_exception = null;
@@ -5284,14 +5284,13 @@ private function complexTypeElem(ct:ComplexType, index:Int = 0):ComplexType {
 }
 
 private function funcReset(info:Info) {
-	info.deferBool = false;
-	info.recoverBool = false;
+	info.global.deferBool = false;
+	info.global.recoverBool = false;
 }
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	final info = info.copy();
-	info.deferBool = false;
-	info.recoverBool = false;
+	funcReset(info);
 
 	var args = typeFieldListArgs(expr.type.params, info);
 	var ret = typeFieldListReturn(expr.type.results, info, true);
@@ -5802,10 +5801,10 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		if (cond != null) {
 			switch block.expr {
 				case EBlock(exprs):
-					final deferBool = info.deferBool;
-					info.deferBool = false;
+					final deferBool = info.global.deferBool;
+					info.global.deferBool = false;
 					final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
-					info.deferBool = deferBool;
+					info.global.deferBool = deferBool;
 					if (cond.length == 0) {
 						exprs.unshift(e);
 						exprs.unshift(macro trace($e{makeExpr(name)} + " skip function"));
@@ -7680,6 +7679,8 @@ function normalizePath(path:String):String {
 }
 
 class Global {
+	public var recoverBool:Bool = false;
+	public var deferBool:Bool = false;
 	public var debugBool:Bool = false;
 	public var varTraceBool:Bool = false;
 	public var funcTraceBool:Bool = false;
@@ -7737,8 +7738,6 @@ class Info {
 	public var blankCounter:Int = 0;
 	public var restricted:Array<String> = [];
 	public var thisName:String = "";
-	public var deferBool:Bool = false;
-	public var recoverBool:Bool = false;
 	public var funcName:String = "";
 	public var gotoSystem:Bool = false;
 	public var returnNames:Array<String> = [];
@@ -7779,12 +7778,10 @@ class Info {
 		info.returnNames = returnNames.copy();
 		info.returnType = returnType;
 		info.returnNamed = returnNamed;
-		info.deferBool = deferBool;
-		info.recoverBool = recoverBool;
 		info.funcName = funcName;
 		info.className = className;
 		info.data = data;
-		info.global = global.copy(); // imports, types
+		info.global = global;//.copy(); // imports, types
 		info.renameIdents = renameIdents.copy();
 		info.localIdents = localIdents.copy();
 		info.classNames = classNames.copy();

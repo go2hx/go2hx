@@ -800,11 +800,14 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	var needsReturn = true;
 	function ifs(i:Int):Expr {
 		final obj:Ast.CommClause = stmt.body.list[i];
+		var varName = "";
+		if (obj != null && obj.comm != null) {
+			varName = nameIdent(obj.comm.lhs[0].name, false, true, info);
+		}
 		var block = (obj == null || obj.body == null) ? macro {} : toExpr(typeStmtList(obj.body, info, false));
 		var cond:Expr = null;
 		if (needsReturn && !exprWillReturn(block))
 			needsReturn = false;
-		var varName = "";
 		if (obj == null || obj.comm == null) { // default true
 			defaultBlock = block;
 		} else {
@@ -824,7 +827,6 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 				if (comm.lhs[0].id != "Ident") {
 					return @:null_select null;
 				}
-				varName = nameIdent(comm.lhs[0].name, false, true, info);
 				comm = comm.rhs[0];
 			} else if (comm.id == "ExprStmt") {
 				comm = comm.x;

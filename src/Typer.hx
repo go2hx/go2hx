@@ -5292,7 +5292,6 @@ private function funcReset(info:Info) {
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	final info = info.copy();
-	funcReset(info);
 
 	var args = typeFieldListArgs(expr.type.params, info);
 	var ret = typeFieldListReturn(expr.type.results, info, true);

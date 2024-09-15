@@ -156,6 +156,7 @@ typedef Ident = {
 	name:String,
 	type:ExprType,
 	?kind:ObjKind,
+	objPath:String,
 }
 
 typedef Ellipsis = {

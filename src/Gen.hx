@@ -17,7 +17,7 @@ function create(outputPath:String, module:Module, root:String) {
 	final cut = actualPath.substring(actualPath.length - 5);
 	final _testStr = "_test";
 	if (cut == _testStr) {
-		actualPath = actualPath.substring(0, actualPath.length - _testStr.length);
+		//actualPath = actualPath.substring(0, actualPath.length - _testStr.length);
 		externDefBool = false;
 	}
 	final stdFormatPath = actualPath;
@@ -30,7 +30,7 @@ function create(outputPath:String, module:Module, root:String) {
 	}
 	//trace(actualPath);
 	// if stdgo
-	if (Typer.stdgoList.contains(stdFormatPath)) {
+	if (Typer.stdgoList.contains(Typer.toGoPath(stdFormatPath))) {
 		root = "stdgo";
 		actualPath = "stdgo/" + actualPath;
 		if (actualPathExtern.length > 0) {

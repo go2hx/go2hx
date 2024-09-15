@@ -900,6 +900,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 		if stdgoExports[list[i].PkgPath] {
 			ast.FileExports(list[i].Syntax[0])
 		}
+		// fmt.Println(list[i].PkgPath, stdgoExterns[list[i].PkgPath])
 		if (stdgoExterns[list[i].PkgPath]) && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
 			for _, file := range list[i].Syntax {
 				for _, d := range file.Decls {
@@ -1528,6 +1529,12 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	}
 	instance := checker.Instances[value]
 	obj := checker.ObjectOf(value)
+	if obj != nil {
+		if obj.Pkg() != nil && obj.Pkg().Scope().Lookup(obj.Name()) == obj {
+			//fmt.Println(value.Name, obj.Pkg().Path())
+			data["objPath"] = obj.Pkg().Path()
+		}
+	}
 	if instance.Type != nil {
 		data["type"] = parseType(instance.Type, map[string]bool{})
 		if obj != nil {

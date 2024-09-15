@@ -3364,7 +3364,7 @@ private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 }
 
 private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
-	var name = nameIdent(expr.name, true, false, info, isSelect);
+	var name = nameIdent(expr.name, true, false, info, isSelect, expr.objPath);
 	return EConst(CIdent(name));
 }
 
@@ -4401,7 +4401,7 @@ private function getGlobalPath(info:Info):String {
 	return globalPath;
 }
 
-private function toGoPath(path:String):String {
+function toGoPath(path:String):String {
 	if (StringTools.endsWith(path, "_test")) {
 		path = path.substr(0, path.length - "_test".length);
 	}
@@ -4414,7 +4414,7 @@ private function toHaxePath(path:String):String {
 
 private function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
 	path = StringTools.replace(path, "go-", "");
-	path = StringTools.replace(path, "_test.", ".");
+	//path = StringTools.replace(path, "_test.", ".");
 	final startCommandLineArg = "command-line-arguments.";
 	if (path.substr(0, startCommandLineArg.length) == startCommandLineArg) {
 		path = path.substr(startCommandLineArg.length);
@@ -7588,7 +7588,7 @@ private function untitle(name:String):String {
 	return name;
 }
 
-private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:Bool=false, isSelect:Bool=false):String {
+private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:Bool=false, isSelect:Bool=false, objPath:String=null):String {
 	name = nameAscii(name);
 	if (name == "_")
 		return "__" + info.blankCounter++;
@@ -7629,7 +7629,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 	if (rename && info.restricted != null && info.restricted.indexOf(name) != -1) {
 		name = getRestrictedName(name, info);
 	}
-	if (unique && setUnique) {
+	if (unique && setUnique && info.restricted != null) {
 		while (info.restricted.indexOf(name) != -1) {
 			name = name + "_";
 		}
@@ -7638,7 +7638,21 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 	if (reserved.indexOf(name) != -1) {
 		name = name + "_";
 	}
-	if (!isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
+	if (objPath != null) {
+		final path = normalizePath(objPath);
+		final pack  = path.split("/");
+		pack.unshift("_internal");
+		final path = toGoPath(path);
+		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
+			pack.unshift("stdgo");
+		}
+		final filePath = pack.pop();
+		pack.push(filePath);
+		pack.push(title(filePath) + "_" + name);
+		pack.push(name);
+		//name = path + "." + filePath + "_" + name + "." + name;
+		name = pack.join(".");
+	}else if (!isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
 		if (name.indexOf(".") != -1)
 			return name;
 		// trace(name, isSelect, overwrite, info.localIdents);
@@ -7654,13 +7668,13 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 
 function splitDepFullPathName(name:String, info:Info):String {
 	var path = getGlobalPath(info);
-	if (StringTools.endsWith(path, "_test")) {
+	/*if (StringTools.endsWith(path, "_test")) {
 		path = path.substr(0, path.length - "_test".length);
-	}
+	}*/
 	var filePath = info.global.filePath;
-	if (StringTools.endsWith(filePath, "_test")) {
+	/*if (StringTools.endsWith(filePath, "_test")) {
 		filePath = filePath.substr(0, filePath.length - "_test".length);
-	}
+	}*/
 	name = path + "." + filePath + "_" + name + "." + name;
 	return name;
 }

@@ -202,11 +202,13 @@ func main() {
 	var excludesData []string
 	var err error
 	var logFile *os.File
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	logFile, err = os.OpenFile("log.out", os.O_RDWR|os.O_CREATE, 0666)
 	if err != nil {
 		fmt.Println(err.Error())
 	} else {
-		log.SetOutput(logFile)
+		_ = logFile
+		//log.SetOutput(logFile)
 	}
 
 	err = json.Unmarshal(excludesBytes, &excludesData)
@@ -890,6 +892,7 @@ func hashType(t types.Type) (value uint32) {
 func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	// merge packages
 	for i := 0; i < len(list); i++ {
+		// fmt.Println(list[i].PkgPath, list[i].GoFiles)
 		if i+1 < len(list) {
 			if list[i].PkgPath == list[i+1].PkgPath {
 				list = append(list[:i], list[i+1:]...)
@@ -1531,8 +1534,9 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	obj := checker.ObjectOf(value)
 	if obj != nil {
 		if obj.Pkg() != nil && obj.Pkg().Scope().Lookup(obj.Name()) == obj {
-			//fmt.Println(value.Name, obj.Pkg().Path())
-			data["objPath"] = obj.Pkg().Path()
+			if obj.Pkg().Path() != "command-line-arguments" {
+				data["objPath"] = obj.Pkg().Path()
+			}
 		}
 	}
 	if instance.Type != nil {

@@ -1149,8 +1149,6 @@ private function className(name:String, info:Info):String {
 
 	if (reservedClassNames.indexOf(name) != -1)
 		name += "_";
-	if (name.length > 255 - 30)
-		name = name.substr(0,255 - 30);
 	return name;
 }
 
@@ -7558,6 +7556,8 @@ private function nameAscii(name:String):String {
 				name = "_" + name;
 		}
 	}
+	if (name.length > 255 - 80)
+		name = name.substr(0,255 - 80);
 	return name;
 }
 

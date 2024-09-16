@@ -51,9 +51,6 @@ function create(outputPath:String, module:Module, root:String) {
 	var count = module.files.length;
 	var hasMacroDef = false;
 	for (file in module.files) {
-		if (file.name.substring(file.name.length - _testStr.length) == _testStr) {
-			file.name = file.name.substr(0, file.name.length - _testStr.length);
-		}
 		/*content = pkgPath;
 		macroContent = pkgPath;
 		externContent = pkgPathExtern;

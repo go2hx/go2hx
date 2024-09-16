@@ -431,13 +431,10 @@ function mainPaths(modules:Array<Typer.Module>):Array<String> {
 
 function mainPkgs(modules:Array<Typer.Module>):Array<String> {
 	final paths:Array<String> = [];
-	final underscoreTestStr = "_test";
 	for (module in modules) {
 		if (module == null || !module.isMain || module.files[0] == null || !module.files[0].isMain)
 			continue;
 		var path = module.path;
-		if (path.substr(path.length - underscoreTestStr.length) == underscoreTestStr)
-			path = path.substr(0, path.length - underscoreTestStr.length);
 		paths.push(path);
 	}
 	return paths;
@@ -558,10 +555,7 @@ private function parseMain(main:String):String {
 		return '_internal.$main';
 	var s = main.substr(0, index);
 	s = StringTools.replace(s, ".", "/");
-	main = StringTools.replace(main, "_test.", ".");
-	if (Typer.stdgoList.indexOf(s) != -1) {
-		return 'stdgo._internal.$main';
-	}
+	//main = StringTools.replace(main, "_test.", ".");
 	return '_internal.$main';
 }
 

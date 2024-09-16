@@ -139,7 +139,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
-			file.path = importClassName(normalizePath(Path.withoutExtension(file.path))); // file naming
+			file.path = importClassName(normalizePath(file.path)); // file naming
 			// this is a name, without a path
 			info.global.filePath = file.path;
 
@@ -4399,9 +4399,6 @@ private function getGlobalPath(info:Info):String {
 }
 
 function toGoPath(path:String):String {
-	if (StringTools.endsWith(path, "_test")) {
-		path = path.substr(0, path.length - "_test".length);
-	}
 	return StringTools.replace(path, ".", "/");
 }
 

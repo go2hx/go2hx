@@ -139,6 +139,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
+			if (StringTools.endsWith(file.path, ".go"))
+				file.path = file.path.substr(0, file.path.length - 3);
 			file.path = importClassName(normalizePath(file.path)); // file naming
 			// this is a name, without a path
 			info.global.filePath = file.path;

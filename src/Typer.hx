@@ -6934,9 +6934,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						info.renameIdents.remove(method.name);
 						info.localIdents.remove(methodName);
 						var expr = if (fieldPointerBool) {
-							macro $i{name}.value.$fieldName($a{args});
+							macro this.$name.value.$fieldName($a{args});
 						}else{
-							macro $i{name}.$fieldName($a{args});
+							macro this.$name.$fieldName($a{args});
 						}
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 							expr = results.length == 1 ? defaultValue(results[0], info) : macro @:typeType null;

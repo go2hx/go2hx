@@ -801,7 +801,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	function ifs(i:Int):Expr {
 		final obj:Ast.CommClause = stmt.body.list[i];
 		var varName = "";
-		if (obj != null && obj.comm != null) {
+		if (obj != null && obj.comm != null && obj.comm.id == "AssignStmt") {
 			varName = nameIdent(obj.comm.lhs[0].name, false, true, info);
 		}
 		var block = (obj == null || obj.body == null) ? macro {} : toExpr(typeStmtList(obj.body, info, false));
@@ -823,9 +823,6 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 						}
 					});
 					return ifs(i + 1);
-				}
-				if (comm.lhs[0].id != "Ident") {
-					return @:null_select null;
 				}
 				comm = comm.rhs[0];
 			} else if (comm.id == "ExprStmt") {

@@ -7801,6 +7801,7 @@ class Info {
 		info.funcName = funcName;
 		info.className = className;
 		info.data = data;
+		info.switchIndex = switchIndex;
 		info.global = global;//.copy(); // imports, types
 		info.renameIdents = renameIdents.copy();
 		info.localIdents = localIdents.copy();

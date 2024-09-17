@@ -153,11 +153,11 @@ final list = [
 		_startTimer(_t);
 	},
 	"time:_runtimeNano" => macro {
-		final x = ((std.Sys.time() * 1000000 * 1000) - Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
+		final x = ((std.Sys.time() * 1000000 * 1000) - std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
 		return x;
 	},
 	"time:_now" => macro {
-		final n = _runtimeNano();
+		final n = stdgo._internal.time.Time__runtimeNano._runtimeNano();
 		return {_0: n / 1000000000, _1: n % 1000000000, _2: n};
 	},
 	"time:_initLocal" => macro {
@@ -182,12 +182,12 @@ final list = [
 	// stdgo/math
 	// func archHypot(p, q float64) float64
 	"math:_archHypot" => macro {
-		if (isInf(_p, 0) || isInf(_q, 0))
-			return inf(1);
+		if (stdgo._internal.math.Math_isInf.isInf(_p, 0) || stdgo._internal.math.Math_isInf.isInf(_q, 0))
+			return stdgo._internal.math.Math_inf.inf(1);
 		if (!std.Math.isFinite(_p.toBasic()) || std.Math.isNaN(_q.toBasic()))
-			return naN();
-		_p = abs(_p);
-		_q = abs(_q);
+			return stdgo._internal.math.Math_naN.naN();
+		_p = stdgo._internal.math.Math_abs.abs(_p);
+		_q = stdgo._internal.math.Math_abs.abs(_q);
 		if (_p < _q) {
 			final temp = _p;
 			_p = _q;
@@ -196,9 +196,9 @@ final list = [
 		if (_p == 0)
 			return 0;
 		_q = _q / _p;
-		return _p * sqrt(1 + _q * _q);
+		return _p * stdgo._internal.math.Math_sqrt.sqrt(1 + _q * _q);
 	},
-	"math:trunc" => macro return _x > 0 ? floor(_x) : ceil(_x),
+	"math:trunc" => macro return _x > 0 ? stdgo._internal.math.Math_floor.floor(_x) : stdgo._internal.math.Math_ceil.ceil(_x),
 	"math:log" => macro return std.Math.log(_x.toBasic()),
 	"math:pow" => macro {
 		@:define("(js || interp)") {
@@ -266,34 +266,34 @@ final list = [
 	"math:ceil" => macro {
 		if (!std.Math.isFinite(_x.toBasic()) || std.Math.isNaN(_x.toBasic())) // special cases
 			return _x;
-		if (_x == 0.0 && signbit(_x))
-			return negZero();
+		if (_x == 0.0 && stdgo._internal.math.Math_signbit.signbit(_x))
+			return stdgo._internal.math.Math_negZero.negZero();
 		if (_x > -1.0 && _x < 0.0) {
 			//-0.0
-			return negZero();
+			return stdgo._internal.math.Math_negZero.negZero();
 		}
 		return std.Math.ceil(_x.toBasic());
 	},
-	"math:sqrt" => macro return _sqrt(_x),
+	"math:sqrt" => macro return stdgo._internal.math.Math__sqrt._sqrt(_x),
 	"math:_sqrt" => macro return std.Math.sqrt(_x.toBasic()),
 	"math:min" => macro {
 		// special cases
 		if (_x < 0 && !std.Math.isFinite(_x.toBasic()) || _y < 0 && !std.Math.isFinite(_y.toBasic()))
-			return inf(-1);
-		if (_x == 0.0 && signbit(_x) && !isNaN(_y) || _y == 0.0 && signbit(_y) && !isNaN(_x))
-			return negZero();
-		if (isNaN(_x) || isNaN(_y))
-			return naN();
+			return stdgo._internal.math.Math_inf.inf(-1);
+		if (_x == 0.0 && stdgo._internal.math.Math_signbit.signbit(_x) && !stdgo._internal.math.Math_isNaN.isNaN(_y) || _y == 0.0 && stdgo._internal.math.Math_signbit.signbit(_y) && !stdgo._internal.math.Math_isNaN.isNaN(_x))
+			return stdgo._internal.math.Math_negZero.negZero();
+		if (stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isNaN.isNaN(_y))
+			return stdgo._internal.math.Math_naN.naN();
 		return std.Math.min(_x.toBasic(), _y.toBasic());
 	},
 	"math:max" => macro {
 		// special cases
 		if (_x > 0 && !std.Math.isFinite(_x.toBasic()) || _y > 0 && !std.Math.isFinite(_y.toBasic()))
-			return inf(1);
-		if (_x == 0.0 && !signbit(_x) && !isNaN(_y) || _y == 0.0 && !signbit(_y) && !isNaN(_x))
+			return stdgo._internal.math.Math_inf.inf(1);
+		if (_x == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_x) && !stdgo._internal.math.Math_isNaN.isNaN(_y) || _y == 0.0 && !stdgo._internal.math.Math_signbit.signbit(_y) && !stdgo._internal.math.Math_isNaN.isNaN(_x))
 			return 0.0;
-		if (isNaN(_x) || isNaN(_y))
-			return naN();
+		if (stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isNaN.isNaN(_y))
+			return stdgo._internal.math.Math_naN.naN();
 		return std.Math.max(_x.toBasic(), _y.toBasic());
 	},
 	"math:sin" => macro return std.Math.sin(_x.toBasic()),
@@ -305,12 +305,12 @@ final list = [
 	"math:atan2" => macro return std.Math.atan2(_y.toBasic(), _x.toBasic()),
 	"math:isInf" => macro return _sign.toBasic() >= 0 && _f == std.Math.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == std.Math.NEGATIVE_INFINITY,
 	"math:hypnot" => macro {
-		if (isInf(_p, 0) || isInf(_q, 0))
-			return inf(1);
+		if (stdgo._internal.math.Math_isInf.isInf(_p, 0) || stdgo._internal.math.Math_isInf.isInf(_q, 0))
+			return stdgo._internal.math.Math_inf.inf(1);
 		if (_p == std.Math.NaN || _q == std.Math.NaN)
-			return naN();
-		_p = abs(_p);
-		_q = abs(_q);
+			return stdgo._internal.math.Math_naN.naN();
+		_p = stdgo._internal.math.Math_abs.abs(_p);
+		_q = stdgo._internal.math.Math_abs.abs(_q);
 		if (_p < _q) {
 			final temp = _p;
 			_p = _q;
@@ -319,13 +319,13 @@ final list = [
 		if (_p == 0)
 			return 0;
 		_q = _q / _p;
-		return _p * sqrt(1 + _q * _q);
+		return _p * stdgo._internal.math.Math_sqrt.sqrt(1 + _q * _q);
 	},
-	"math:_archFloor" => macro return floor(_x),
-	"math:_archCeil" => macro return ceil(_x),
-	"math:_archTrunc" => macro return trunc(_x),
-	"math:_cos" => macro return cos(_x),
-	"math:_sin" => macro return sin(_x),
+	"math:_archFloor" => macro return stdgo._internal.math.Math_floor.floor(_x),
+	"math:_archCeil" => macro return stdgo._internal.math.Math_ceil.ceil(_x),
+	"math:_archTrunc" => macro return stdgo._internal.math.Math_trunc.trunc(_x),
+	"math:_cos" => macro return stdgo._internal.math.Math_cos.cos(_x),
+	"math:_sin" => macro return stdgo._internal.math.Math_sin.sin(_x),
 	// stdgo/os
 	"os:open" => macro {
 		if (!sys.FileSystem.exists(_name))
@@ -1568,7 +1568,7 @@ final structs = [
 
 final adds = [
 	"math:negZero" => macro {
-		return copysign(0.0, -1.0);
+		return stdgo._internal.math.Math_copysign.copysign(0.0, -1.0);
 	},
 ];
 final funcInline = [

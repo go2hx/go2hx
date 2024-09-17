@@ -112,7 +112,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			// test file configure here
 		}
 		var initBlock = [];
-		if (pkg.name == "main") {
+		if (pkg.name == "main" && info != null) {
 			initBlock = info.global.initBlock;
 		}
 		info = new Info();

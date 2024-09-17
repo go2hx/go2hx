@@ -6339,8 +6339,9 @@ private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<Function
 			continue;
 		}
 		for (name in field.names) {
+			final argName = nameIdent(name.name, false, true, info);
 			args.push({
-				name: nameIdent(name.name, false, true, info),
+				name: argName,
 				type: type,
 			});
 		}
@@ -7564,9 +7565,10 @@ private function nameAscii(name:String):String {
 }
 
 private function formatHaxeFieldName(name:String, info:Info) {
-	name = nameIdent(name, false, true, info);
-	info.localIdents.remove(name);
-	return name;
+	final newName = nameIdent(name, false, true, info);
+	info.renameIdents.remove(name);
+	info.localIdents.remove(newName);
+	return  newName;
 }
 
 private function untitle(name:String):String {

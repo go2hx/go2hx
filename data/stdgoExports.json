@@ -1,6 +1,7 @@
 [
     "runtime",
     "runtime/debug",
+    "internal/reflectlite",
     "reflect",
     "net"
 ]

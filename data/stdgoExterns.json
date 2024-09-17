@@ -12,6 +12,7 @@
 	"runtime",
 	"runtime/debug",
 	"reflect",
+	"internal/reflectlite",
 	"sync/atomic",
 	"internal/godebug",
 	"internal/bisect",

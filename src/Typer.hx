@@ -90,6 +90,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 	for (obj in data.typeList) {
 		hashMap[obj.hash] = obj;
 	}
+	var info:Info = null;
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
@@ -110,7 +111,12 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		if (StringTools.endsWith(module.path, "_test")) {
 			// test file configure here
 		}
-		var info = new Info();
+		var initBlock = [];
+		if (pkg.name == "main") {
+			initBlock = info.global.initBlock;
+		}
+		info = new Info();
+		info.global.initBlock = initBlock;
 		info.printGoCode = instance.printGoCode;
 		info.global.path = pkg.path;
 		info.global.externBool = instance.externBool;
@@ -321,7 +327,6 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 			}
 
 			// init system
-			// if (true) {
 			if (info.global.initBlock.length > 0) {
 				// info.global.initBlock.unshift(macro trace(stdgo._internal.internal.type.Type.names));
 				var block = toExpr(EBlock(info.global.initBlock));
@@ -334,8 +339,9 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					}
 				}
 				block = mapReturnToThrow(block);
+				trace(module.path,module.name);
 				data.defs.push({
-					name: "__init__",
+					name: "__init_go2hx__",
 					pos: null,
 					pack: [],
 					fields: [],

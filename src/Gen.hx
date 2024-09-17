@@ -189,7 +189,7 @@ function splitDeps(dir:String, name:String, prefix:String, extension:String, con
 							continue;
 						}
 					case FVar(_, _):
-						if (td.name == "__init__") {
+						if (StringTools.startsWith(td.name,"__init_go2hx__")) {
 							newContent.push(td);
 							continue;
 						}

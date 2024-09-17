@@ -7052,9 +7052,16 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 										return switch expr.expr {
 											case EReturn(expr):
 												macro return ${modify(expr)};
+											case ECall({expr: EField({expr: EField({expr: EConst(CIdent(s)), pos: _}, field), pos: _}, nextField), pos: _}, params):
+												if (s == "this") {
+													macro __self__.$field.$nextField($a{params});
+												}else{
+													macro __self__.$s.$field.$nextField($a{params});
+												}
 											case ECall({expr: EField({expr: EConst(CIdent(s)), pos: _}, field), pos: _}, params):
 												macro __self__.$s.$field($a{params});
 											default:
+												trace(expr.expr);
 												expr;
 										}
 									}

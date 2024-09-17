@@ -977,6 +977,8 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		catchBlock.push(macro if ((exe is haxe.ValueException))
 			exe = exe.value);
 		catchBlock.push(macro if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+			if (__exception__.message == "__return__")
+				throw "__return__";
 			exe = stdgo.Go.toInterface(__exception__.message);
 		});
 		catchBlock.push(macro stdgo.Go.recover_exception = exe);

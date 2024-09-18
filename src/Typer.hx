@@ -971,6 +971,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	if (list != null) {
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	}
+	//trace(list != null, info.global.deferBool, isFunc);
 	if (list != null && info.global.deferBool && isFunc) { // defer system
 		final ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 		final e = ret;
@@ -5716,6 +5717,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.localIdents = data.localIdents.copy();
 	info.gotoSystem = false;
 	info.global = data.global;
+	info.global.deferBool = false;
 	info.locals = data.locals.copy();
 	info.localUnderlyingNames = data.localUnderlyingNames.copy();
 	var name = nameIdent(decl.name.name, false, true, info);

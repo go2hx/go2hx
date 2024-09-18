@@ -7679,7 +7679,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 		pack.push(name);
 		//name = path + "." + filePath + "_" + name + "." + name;
 		name = pack.join(".");
-	}else if (!info.global.module.isMain && !isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
+	}else if (!isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
 		if (name.indexOf(".") != -1)
 			return name;
 		// trace(name, isSelect, overwrite, info.localIdents);

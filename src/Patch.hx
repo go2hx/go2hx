@@ -1394,6 +1394,8 @@ final list = [
 	"testing:allocsPerRun" => macro return 0,
 	"testing:verbose" => macro return false,
 	"testing.T_:run" => macro return true,
+	"testing.T_common:fatal" => macro {},
+	"testing.T_common:fatalf" => macro {},
 	"testing.T_common:tempDir" => macro return "temp",
 	"testing.T_common:skipped" => macro return false,
 	"testing.T_common:fail" => macro _c._failed = true,

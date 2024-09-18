@@ -1494,7 +1494,7 @@ final skipTargets = [
 
 final replace = [
 	"internal.reflectlite:Value" => macro stdgo._internal.reflect.Reflect_Value.Value,
-	"internal.reflectlite:Type_" => macro stdgo._internal.reflect.Reflect_Value.Type_,
+	"internal.reflectlite:Type_" => macro stdgo._internal.reflect.Reflect_Type_.Type_,
 ];
 
 final structs = [

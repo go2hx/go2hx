@@ -15,8 +15,15 @@ final list = [
 			return b */
 		return new stdgo.Slice<stdgo.GoByte>(0, 0).__setNumber32__();
 	},
+	// internal/Reflectlite
+	"internal.reflectlite:typeOf" => macro return stdgo._internal.reflect.Reflect_typeOf.typeOf(_i),
+	"internal.reflectlite:valueOf" => macro return stdgo._internal.reflect.Reflect_valueOf.valueOf(_i),
+	"internal.reflectlite:swapper" => macro {
+		trace("reflectlite swapper");
+		return null;
+	},
 	// stdgo/errors
-	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
+	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite_typeOf.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
 	// stdgo/os
 	"os:args" => macro stdgo._internal.os.Os__runtime_args._runtime_args(),
 	"os:environ_" => macro {
@@ -1386,6 +1393,25 @@ final list = [
 	"testing:short" => macro return true,
 	"testing:allocsPerRun" => macro return 0,
 	"testing:verbose" => macro return false,
+	"testing.T_:run" => macro return true,
+	"testing.T_common:tempDir" => macro return "temp",
+	"testing.T_common:skipped" => macro return false,
+	"testing.T_common:fail" => macro _c._failed = true,
+	"testing.T_common:skip" => macro {},
+	"testing.T_common:helper" => macro {},
+	"testing.T_common:failNow" => macro {
+		_c._failed = true;
+		throw "__fail__";
+	},
+	"testing.T_common:failed" => macro return _c._failed,
+	"testing.T_common:error" => macro {
+		stdgo._internal.fmt.Fmt_println.println(...[for (arg in _args) arg]);
+		_c.fail();
+	},
+	"testing.T_common:errorf" => macro {
+		stdgo._internal.fmt.Fmt_printf.printf(_format, ...[for (arg in _args) arg]);
+		_c.fail();
+	},
 	"testing.M:run" => macro {
 		final chatty = true;
 		// use go version of path for passing go tests
@@ -1464,6 +1490,11 @@ final skipTargets = [
 	"bytes_test:testClone" => [], // uses unsafe sliceData
 	"bytes_test:testReaderLenSize" => [], // TODO: implement - sync
 	"bytes_test:testCompareBytes" => [], // very slow but passes
+];
+
+final replace = [
+	"internal.reflectlite:Value" => macro stdgo._internal.reflect.Reflect_Value.Value,
+	"internal.reflectlite:Type_" => macro stdgo._internal.reflect.Reflect_Value.Type_,
 ];
 
 final structs = [

@@ -472,7 +472,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				wrapper.params = def.params;
 				file.defs.push(wrapper);
 				// files check against all TypeSpecs
-				def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
+				if (def.meta != null)
+					def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				file.defs.push(staticExtension);
 				var embedded = false;
 				for (field in def.fields) { // embedded
@@ -4437,8 +4438,8 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	if (basicType != null)
 		return basicType;
 	path = path.substr(0, last) + pkg;
-	if (path == "command-line-arguments")
-		path = "";
+	//if (path == "command-line-arguments")
+	//	path = "";
 	path = normalizePath(path);
 
 	var pack = path.split("/");
@@ -6745,6 +6746,20 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getDocComment(spec, spec) + getSource(spec, info);
+	final patchName = info.global.module.path + ":" + name;
+	final replaceExpr = Patch.replace[patchName];
+	if (replaceExpr != null) {
+		final td:TypeDefinition = {
+			name: name,
+			pos: null,
+			pack: [],
+			kind: TDAlias(TPath({name: printer.printExpr(replaceExpr), pack: []})),
+			fields: [],
+			meta: null,
+			isExtern: true,
+		};
+		return td; 
+	}
 	switch spec.type.id {
 		case "StructType":
 			var struct:Ast.StructType = spec.type;
@@ -6753,7 +6768,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			info.renameIdents[spec.name.name] = splitDepFullPathName(name + "_static_extension", info);
 			info.classNames[spec.name.name] = splitDepFullPathName(name + "_static_extension",info);
 			// add to fields patch structs
-			final patchName = info.global.module.path + ":" + name;
 			final structExpr = Patch.structs[patchName];
 			var structAddFieldsIndex = -1;
 			if (structExpr != null) { // patch modify struct
@@ -6948,7 +6962,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							macro this.$name.$fieldName($a{args});
 						}
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
-							expr = results.length == 1 ? defaultValue(results[0], info) : macro @:typeType null;
+							//expr = results.length == 1 ? defaultValue(results[0], info) : macro @:typeType null;
 						}
 						final field:Field = {
 							name: methodName,
@@ -7665,7 +7679,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 		pack.push(name);
 		//name = path + "." + filePath + "_" + name + "." + name;
 		name = pack.join(".");
-	}else if (!isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
+	}else if (!info.global.module.isMain && !isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
 		if (name.indexOf(".") != -1)
 			return name;
 		// trace(name, isSelect, overwrite, info.localIdents);
@@ -7693,10 +7707,10 @@ function splitDepFullPathName(name:String, info:Info):String {
 }
 
 function normalizePath(path:String):String {
-	path = StringTools.replace(path, ".", "_");
-	path = StringTools.replace(path, ":", "_");
-	path = StringTools.replace(path, "go-", "");
-	path = StringTools.replace(path, "-", "_");
+	path = StringTools.replace(path, ".", "_dot_");
+	path = StringTools.replace(path, ":", "_colon_");
+	path = StringTools.replace(path, "go-", "_godash_");
+	path = StringTools.replace(path, "-", "_dash_");
 	var path = path.split("/");
 	for (i in 0...path.length) {
 		if (reserved.indexOf(path[i]) != -1) {

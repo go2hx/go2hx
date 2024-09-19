@@ -971,9 +971,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	}
 	if (list != null && info.global.gotoSystem && isFunc) {
-		exprs = [macro {
-			stdgo._internal.internal.Macro.controlFlow($b{exprs});
-		}];
+		exprs = [macro stdgo._internal.internal.Macro.controlFlow($b{exprs})];
 	}
 	//trace(list != null, info.global.deferBool, isFunc);
 	if (list != null && info.global.deferBool && isFunc) { // defer system
@@ -5300,7 +5298,7 @@ private function funcReset(info:Info) {
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	final info = info.copy();
-
+	info.global.gotoSystem = false;
 	var args = typeFieldListArgs(expr.type.params, info);
 	var ret = typeFieldListReturn(expr.type.results, info, true);
 	var block = typeBlockStmt(expr.body, info, true);
@@ -5719,8 +5717,10 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.classNames = data.classNames.copy();
 	info.renameIdents = data.renameIdents.copy();
 	info.localIdents = data.localIdents.copy();
-	info.global.gotoSystem = false;
+	// global set
 	info.global = data.global;
+	// global vars reset
+	info.global.gotoSystem = false;
 	info.global.deferBool = false;
 	info.locals = data.locals.copy();
 	info.localUnderlyingNames = data.localUnderlyingNames.copy();

@@ -147,7 +147,7 @@ jobs:
       #   run: npx haxelib run go2hx hxb .
       # run yaegi easy tests
       - name: clone yaegi
-        run: git clone https://github.com/traefik/yaegi ./tests/yaegi
+        run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: Sort tests
         run: go run ./scripts/sortTests ci
       - name: Run yaegi easy tests
@@ -202,7 +202,7 @@ jobs:
       # - name: Create hxb
       #   run: npx haxelib run go2hx hxb .
       - name: clone go
-        run: git clone https://github.com/golang/go ./tests/go --depth=1
+        run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go
         continue-on-error: true
       - name: Sort tests
         run: go run ./scripts/sortTests ci

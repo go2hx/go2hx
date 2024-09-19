@@ -194,9 +194,9 @@ jobs:
       - name: Build go2hx compiler
         run: haxe --run Run build
       - name: Run stdgo automatic compile
-        run: haxe scripts/stdgo.hxml -D runnerCount=8
         #run: haxe scripts/stdgo.hxml -D runnerCount=8
-        #run: haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+        #run: haxe scripts/stdgo.hxml -D runnerCount=8
+        run: haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Set source
         run: haxelib dev go2hx .
       # - name: Create hxb
@@ -208,7 +208,7 @@ jobs:
         run: go run ./scripts/sortTests ci
       # run go easy tests
       - name: Run go easy tests
-        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=8 -D nologs #-D hxb
+        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       # git pull latest

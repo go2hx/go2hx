@@ -1252,8 +1252,8 @@ final list = [
 	// stdgo/math/rand
 	"math.rand:intn" => macro return std.Std.random(_n),
 	// log
-	"log.logger.setPrefix" => macro {},
-	"log.logger.prefix" => macro return "",
+	"log.Logger:setPrefix" => macro {},
+	"log.Logger:prefix" => macro return "",
 	// stdgo/internal/godebug
 	"internal.godebug:new_" => macro return new stdgo._internal.internal.godebug.Godebug_Setting.Setting(),
 	"internal.godebug.Setting:value" => macro return "",

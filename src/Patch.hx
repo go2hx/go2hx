@@ -19,8 +19,19 @@ final list = [
 	"internal.reflectlite:typeOf" => macro return stdgo._internal.reflect.Reflect_typeOf.typeOf(_i),
 	"internal.reflectlite:valueOf" => macro return stdgo._internal.reflect.Reflect_valueOf.valueOf(_i),
 	"internal.reflectlite:swapper" => macro {
-		trace("reflectlite swapper");
-		return null;
+			var _v:stdgo._internal.reflect.Reflect_Value.Value = (stdgo._internal.reflect.Reflect_valueOf.valueOf(Go.toInterface(_slice)) == null ? null : stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_slice))
+			.__copy__());
+		var _tmp:stdgo._internal.reflect.Reflect_Value.Value = (stdgo._internal.reflect.Reflect_new_.new_(_v.type().elem())
+			.elem() == null ? null : stdgo._internal.reflect.Reflect_new_.new_(_v.type().elem())
+			.elem()
+			.__copy__());
+		return function(_i:stdgo.GoInt, _j:stdgo.GoInt):Void {
+			var _a:stdgo._internal.reflect.Reflect_Value.Value = (_v.index(_i) == null ? null : _v.index(_i).__copy__()),
+				_b:stdgo._internal.reflect.Reflect_Value.Value = (_v.index(_j) == null ? null : _v.index(_j).__copy__());
+			_tmp.set((_a == null ? null : _a.__copy__()));
+			_a.set((_b == null ? null : _b.__copy__()));
+			_b.set((_tmp == null ? null : _tmp.__copy__()));
+		};
 	},
 	// stdgo/errors
 	"errors:_errorType" => macro stdgo._internal.internal.reflectlite.Reflectlite_typeOf.typeOf(stdgo.Go.toInterface((null : stdgo.Ref<stdgo.Error>))).elem(),
@@ -126,7 +137,7 @@ final list = [
 	"time:_startTimer" => macro {
 		final t = _0;
 		t._status = 1;
-		var diff = (t._when - Time._runtimeNano()) / (1000 * 1000);
+		var diff = (t._when - stdgo._internal.time.Time__runtimeNano._runtimeNano()) / (1000 * 1000);
 		if (diff > 1 << 31 - 1)
 			return;
 		if (diff < 0)

@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.json;
+var _samePointerNoCycle : stdgo.Ref<stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle> = (stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle() : stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle)) : stdgo.Ref<stdgo._internal.encoding.json.Json_SamePointerNoCycle.SamePointerNoCycle>);

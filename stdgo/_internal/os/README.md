@@ -1,164 +1,420 @@
 # Module stdgo._internal.os has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1200: characters 25-71
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
- 1200 | [2m                    if ([0m[1mstdgo._internal.os.exec.internal.fdtest.Fdtest[0m[2m.exists(_i)) {[0m
-      |                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.os.exec.internal.fdtest.Fdtest
+   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1252: characters 27-50
+     [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
 
- 1252 | [2m            var __tmp__ = [0m[1mstdgo._internal.net.Net[0m[2m.listen(("tcp" : stdgo.GoString), ("127.0.0.1:0" : stdgo.GoString)), _ln:stdgo._internal.net.Net.Listener = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-      |                           [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+      229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+          |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1252: characters 123-155
+      239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+          |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
 
- 1252 | [2m            var __tmp__ = stdgo._internal.net.Net.listen(("tcp" : stdgo.GoString), ("127.0.0.1:0" : stdgo.GoString)), _ln:[0m[1mstdgo._internal.net.Net.Listener[0m[2m = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-      |                                                                                                                           [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+[30;41m ERROR [0m stdgo/GoString.hx:22: characters 8-53
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1257: characters 138-173
+  22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
 
- 1257 | [2m            var __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_ln) : stdgo.Ref<stdgo._internal.net.Net.TCPListener>)) : stdgo.Ref<[0m[1mstdgo._internal.net.Net.TCPListener[0m[2m>).file(), _f:stdgo.Ref<stdgo._internal.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-      |                                                                                                                                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+[30;41m ERROR [0m stdgo/GoString.hx:157: characters 16-60
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1262: characters 27-50
+ 157 | [2m   final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
+     |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
 
- 1262 | [2m            var __tmp__ = [0m[1mstdgo._internal.net.Net[0m[2m.fileListener(_f), _ln2:stdgo._internal.net.Net.Listener = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-      |                           [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1262: characters 74-106
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
- 1262 | [2m            var __tmp__ = stdgo._internal.net.Net.fileListener(_f), _ln2:[0m[1mstdgo._internal.net.Net.Listener[0m[2m = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-      |                                                                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+          | For function argument 'type'
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1267: characters 23-65
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
- 1267 | [2m            var _ts = [0m[1mstdgo._internal.net.http.httptest.Httptest[0m[2m.newUnstartedServer(stdgo.Go.asInterface((function(_w:stdgo._internal.net.http.Http.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http.Request>):Void {} : stdgo._internal.net.http.Http.HandlerFunc)));[0m
-      |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.http.httptest.Httptest
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1272: characters 31-60
+          | For function argument 'type'
 
- 1272 | [2m                var __tmp__ = [0m[1mstdgo._internal.net.http.Http[0m[2m.get(_ts.url?.__copy__());[0m
-      |                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.http.Http
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1315: characters 34-42
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
- 1315 | [2m                var __tmp__ = _t.[0m[1mdeadline[0m[2m(), _deadline:stdgo._internal.time.Time.Time = __tmp__._0, _ok:Bool = __tmp__._1;[0m
-      |                                  [31m^^^^^^^^[0m
-      | stdgo.Ref<stdgo._internal.testing.T_> has no field deadline
+          | For function argument 'type'
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1376: characters 19-51
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
- 1376 | [2m        } : () -> [0m[1mstdgo._internal.net.Net.Listener[0m[2m);[0m
-      |                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1377: characters 42-74
+          | For function argument 'type'
 
- 1377 | [2m        var _listenerFile = function(_ln:[0m[1mstdgo._internal.net.Net.Listener[0m[2m):stdgo.Ref<stdgo._internal.os.Os.File> {[0m
-      |                                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1398: characters 40-72
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
- 1398 | [2m                var _la = (_listen() : [0m[1mstdgo._internal.net.Net.Listener[0m[2m);[0m
-      |                                        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+          | For function argument 'type'
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1401: characters 40-72
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
- 1401 | [2m                var _lb = (_listen() : [0m[1mstdgo._internal.net.Net.Listener[0m[2m);[0m
-      |                                        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:694: characters 23-46
+          | For function argument 'type'
 
-  694 | [2m        var __tmp__ = [0m[1mstdgo._internal.net.Net[0m[2m.fileListener(_f), _ln:stdgo._internal.net.Net.Listener = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-      |                       [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:694: characters 69-101
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-  694 | [2m        var __tmp__ = stdgo._internal.net.Net.fileListener(_f), _ln:[0m[1mstdgo._internal.net.Net.Listener[0m[2m = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-      |                                                                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
+          | For function argument 'type'
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1761: characters 13-45
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
- 1761 | [2m            [0m[1mstdgo._internal.os.signal.Signal[0m[2m.notify(_c, stdgo._internal.os.Os.interrupt);[0m
-      |             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.os.signal.Signal
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1771: characters 13-45
+          | For function argument 'type'
 
- 1771 | [2m            [0m[1mstdgo._internal.os.signal.Signal[0m[2m.ignore(stdgo._internal.os.Os.interrupt);[0m
-      |             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.os.signal.Signal
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:1776: characters 17-49
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
- 1776 | [2m                [0m[1mstdgo._internal.os.signal.Signal[0m[2m.ignore(_pipeSignal);[0m
-      |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.os.signal.Signal
+          | For function argument 'type'
 
-[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec.hx:42: characters 80-104
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-   42 | [2m        Sys.exit((stdgo._internal.reflect.Reflect.valueOf(stdgo.Go.toInterface([0m[1mstdgo.Go.asInterface(_m)[0m[2m)).elem().fieldByName(("exitCode" : stdgo.GoString)).int_() : stdgo.GoInt));[0m
-      |                                                                                [31m^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.testing.Testing does not define type M_asInterface
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-        42 | [2m        Sys.exit((stdgo._internal.reflect.Reflect.valueOf([0m[1mstdgo.Go.toInterface(stdgo.Go.asInterface(_m))[0m[2m).elem().fieldByName(("exitCode" : stdgo.GoString)).int_() : stdgo.GoInt));[0m
-           |                                                           [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
+          | For function argument 'type'
 
-      [30;41m -> [0m stdgo/Go.macro.hx:640: characters 11-31
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-       640 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-           |           [31m^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:504: characters 10-30
+          | For function argument 'type'
 
-       504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-           |          [31m^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-           | Called from here
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-      [30;41m -> [0m stdgo/Go.macro.hx:459: characters 10-15
+          | For function argument 'type'
 
-       459 | [2m  return [0m[1mrun()[0m[2m;[0m
-           |          [31m^^^^^[0m
-           | Called from here
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-       433 | [2m     [0m[1mf(ct, params)[0m[2m;[0m
-           |      [31m^^^^^^^^^^^^^[0m
-           | Called from here
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-       346 | [2m   final t = [0m[1mContext.getType(printer.printTypePath(p))[0m[2m;[0m
-           |              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
+          | For function argument 'type'
 
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:329: characters 10-35
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-       329 | [2m  return [0m[1mload("get_type", 1)(name)[0m[2m;[0m
-           |          [31m^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-           | For function argument '_i'
+          | For function argument 'type'
 
-[30;41m ERROR [0m [31m(macro) [0m(unknown position)
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:689: characters 78-82
 
-      | Module stdgo._internal.encoding.json.Json does not define type Array
+ 689 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
 
-           | For function argument 'args'
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:689: characters 138-145
+
+ 689 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:689: characters 150-190
+
+ 689 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:708: characters 78-82
+
+ 708 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:708: characters 138-145
+
+ 708 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:708: characters 150-190
+
+ 708 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:731: characters 78-82
+
+ 731 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:731: characters 138-145
+
+ 731 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:731: characters 150-190
+
+ 731 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:754: characters 78-82
+
+ 754 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:754: characters 138-145
+
+ 754 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:754: characters 150-190
+
+ 754 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:787: characters 78-82
+
+ 787 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:787: characters 138-145
+
+ 787 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/Syscall.hx:787: characters 150-190
+
+ 787 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:252: characters 78-82
+
+ 252 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:252: characters 138-145
+
+ 252 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:252: characters 150-190
+
+ 252 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:353: characters 78-82
+
+ 353 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:353: characters 138-145
+
+ 353 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:353: characters 150-190
+
+ 353 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:454: characters 78-82
+
+ 454 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:454: characters 138-145
+
+ 454 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:454: characters 150-190
+
+ 454 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:513: characters 78-82
+
+ 513 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:513: characters 138-145
+
+ 513 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:513: characters 150-190
+
+ 513 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:530: characters 78-82
+
+ 530 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:530: characters 138-145
+
+ 530 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/syscall/js/Js.hx:530: characters 150-190
+
+ 530 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/os/Os.hx:329: lines 329-347
+
+ 329 | [2m@:structInit @:using(stdgo._internal.os.Os.File_static_extension) [0m[1mclass File {[0m
+   - | [2m  [...][0m
+ 347 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.os.File is not ready to be accessed, separate your type declarations in several files
 
 
 ```

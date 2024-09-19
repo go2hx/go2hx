@@ -1,158 +1,126 @@
 # Module stdgo._internal.encoding has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/Go.macro.hx:577: lines 577-579
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
-  577 | [2m   } else [0m[1m{ [0m
-  578 | [1m    $expr;[0m
-  579 | [1m   }[0m[2m[0m
+    7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+      |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.reflect.Reflect_Type_
+
+      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
+
+       229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+           |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+           | Called from here
+
+       231 | [2m      [0m[1minclude(prefix + file, true, ignore, classPaths)[0m[2m;[0m
+           |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+           | Called from here
+
+       239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+           |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+           | Called from here
+
+[30;41m ERROR [0m stdgo/GoString.hx:22: characters 8-53
+
+   22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
+
+[30;41m ERROR [0m stdgo/GoString.hx:157: characters 16-60
+
+  157 | [2m   final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
+      |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:45: characters 16-27
+
+   45 | [2m  if (gt.match([0m[1minvalidType[0m[2m) || gt2.match(invalidType))[0m
+      |                [31m^^^^^^^^^^^[0m
+      | Pattern variables are not allowed in .match patterns
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-21
+
+   47 | [2m  if (gt.match([0m[1mbasic[0m[2m(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))[0m
+      |                [31m^^^^^[0m
+      | Identifier 'basic' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-39
+
+   47 | [2m  if (gt.match([0m[1mbasic(untyped_nil_kind)[0m[2m) || gt2.match(basic(untyped_nil_kind)))[0m
+      |                [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: basic(untyped_nil_kind)
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:50: characters 15-27
+
+   50 | [2m  if (!a.type.[0m[1massignableTo[0m[2m(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {[0m
+      |               [31m^^^^^^^^^^^^[0m
+      | stdgo._internal.internal.reflect._Type has no field assignableTo
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
+
+ 1399 | [2m[0m[1mclass _Type_asInterface {[0m
+    - | [2m  [...][0m
+ 1507 | [1m}[0m[2m[0m
       |
-      | stdgo._internal.encoding.gob.T__struct_0 should be stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>
+      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
 
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:504: characters 10-30
+[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-14
 
-        504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-            |          [31m^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
+   56 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
+      |         [31m^^^^^[0m
+      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
 
-      [30;41m -> [0m stdgo/Go.macro.hx:640: characters 11-31
+[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-29
 
-        640 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-            |           [31m^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
+   56 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: named(path, _, _, _)
 
-      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:3325: characters 39-111
+[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-14
 
-       3325 | [2m                var _err = (_d.decode([0m[1mstdgo.Go.toInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<T_emptyStruct>))[0m[2m) : stdgo.Error);[0m
-            |                                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
+   70 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
+      |         [31m^^^^^[0m
+      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
 
-            | For function argument '_e'
+[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-29
 
-      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:3323: lines 3323-3329
+   70 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: named(path, _, _, _)
 
-       3323 | [2m            [0m[1mstdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {[0m
-          - | [2m              [...][0m
-       3329 | [1m            })[0m[2m;[0m
-            |
-            | Called from macro here
+[30;41m ERROR [0m stdgo/AnyInterface.hx:83: characters 8-48
 
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:3406: characters 9-101
+   83 | [2m  gt = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt);[0m
+      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
 
- 3406 | [2m        [0m[1mvar _v:stdgo.Slice<stdgo.Ref<T__struct_0>> = (null : stdgo.Slice<stdgo.Ref<T_emptyStruct>>);[0m[2m[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | error: stdgo._internal.encoding.gob.T_emptyStruct should be stdgo._internal.encoding.gob.T__struct_0
-      | have: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>>
-      | want: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T__struct_0>>
+[30;41m ERROR [0m stdgo/AnyInterface.hx:84: characters 9-49
 
-[30;41m ERROR [0m stdgo/Go.macro.hx:577: lines 577-579
+   84 | [2m  gt2 = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt2);[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
 
-  577 | [2m   } else [0m[1m{ [0m
-  578 | [1m    $expr;[0m
-  579 | [1m   }[0m[2m[0m
+[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-16
+
+   86 | [2m   case [0m[1mrefType[0m[2m(_):[0m
+      |         [31m^^^^^^^[0m
+      | Identifier 'refType' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-19
+
+   86 | [2m   case [0m[1mrefType(_)[0m[2m:[0m
+      |         [31m^^^^^^^^^^[0m
+      | Unrecognized pattern: refType(_)
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+  930 | [2m[0m[1mclass _Type {[0m
+    - | [2m  [...][0m
+  941 | [1m}[0m[2m[0m
       |
-      | error: stdgo._internal.encoding.gob.T__struct_0 should be stdgo._internal.encoding.gob.T_emptyStruct
-      | have: stdgo.Slice<stdgo.Ref<stdgo._internal.encoding.gob.T__struct_0>>
-      | want: stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.T_emptyStruct>>
+      | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:504: characters 10-30
-
-        504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-            |          [31m^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-      [30;41m -> [0m stdgo/Go.macro.hx:640: characters 11-31
-
-        640 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-            |           [31m^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:3408: characters 67-161
-
-       3408 | [2m        var _err = (newDecoder(stdgo.Go.asInterface(_buf)).decode([0m[1mstdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.Slice<stdgo.Ref<T_emptyStruct>>>))[0m[2m) : stdgo.Error);[0m
-            |                                                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-            | For function argument '_e'
-
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:5842: characters 125-132
-
- 5842 | [2m        } : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>), __2:stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>> = (stdgo.Go.setRef([0m[1m_intMap[0m[2m) : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __3:stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>> = (null : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __4:stdgo.GoInt = (0 : stdgo.GoInt), __5:stdgo.Chan<Bool> = (null : stdgo.Chan<Bool>), __6:stdgo.Ref<stdgo.Chan<Bool>> = (null : stdgo.Ref<stdgo.Chan<Bool>>), __7:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), __8:stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>((1 : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>), __9:stdgo.Ref<stdgo.Slice<stdgo.GoString>> = (null : stdgo.Ref<stdgo.Slice<stdgo.GoString>>);[0m
-      |                                                                                                                             [31m^^^^^^^[0m
-      | Unknown identifier : _intMap
-
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:504: characters 10-30
-
-        504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-            |          [31m^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-      [30;41m -> [0m stdgo/Go.macro.hx:470: characters 11-31
-
-        470 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-            |           [31m^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:5842: characters 109-133
-
-       5842 | [2m        } : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>), __2:stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>> = ([0m[1mstdgo.Go.setRef(_intMap)[0m[2m : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __3:stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>> = (null : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>), __4:stdgo.GoInt = (0 : stdgo.GoInt), __5:stdgo.Chan<Bool> = (null : stdgo.Chan<Bool>), __6:stdgo.Ref<stdgo.Chan<Bool>> = (null : stdgo.Ref<stdgo.Chan<Bool>>), __7:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>), __8:stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>((1 : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>), __9:stdgo.Ref<stdgo.Slice<stdgo.GoString>> = (null : stdgo.Ref<stdgo.Slice<stdgo.GoString>>);[0m
-            |                                                                                                             [31m^^^^^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:6667: characters 17-43
-
- 6667 | [2m        var _ip:[0m[1mstdgo._internal.net.Net.IP[0m[2m = new stdgo._internal.net.Net.IP(0, 0);[0m
-      |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
-
-[30;41m ERROR [0m stdgo/_internal/encoding/gob/Gob.hx:6668: characters 182-208
-
- 6668 | [2m        var _err = (newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_enc))).decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<[0m[1mstdgo._internal.net.Net.IP[0m[2m>)))) : stdgo.Error);[0m
-      |                                                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.net.Net
-
-       6668 | [2m        var _err = (newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_enc))).decode([0m[1mstdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<stdgo._internal.net.Net.IP>)))[0m[2m) : stdgo.Error);[0m
-            |                                                                                                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-      [30;41m -> [0m stdgo/Go.macro.hx:640: characters 11-31
-
-        640 | [2m  var t = [0m[1mContext.typeof(expr)[0m[2m;[0m
-            |           [31m^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:504: characters 10-30
-
-        504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-            |          [31m^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-      [30;41m -> [0m stdgo/_internal/encoding/gob/Gob.hx:6668: characters 127-211
-
-       6668 | [2m        var _err = (newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes.newReader(_enc))).decode(stdgo.Go.toInterface([0m[1mstdgo.Go.asInterface((stdgo.Go.setRef(_ip) : stdgo.Ref<stdgo._internal.net.Net.IP>))[0m[2m)) : stdgo.Error);[0m
-            |                                                                                                                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-      [30;41m -> [0m stdgo/Go.macro.hx:305: lines 305-310
-
-        305 | [2m  final selfType = [0m[1mContext.typeof(switch expr.expr {[0m
-          - | [2m    [...][0m
-        310 | [1m  })[0m[2m;[0m
-            |
-            | Called from here
-
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:504: characters 10-30
-
-        504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-            |          [31m^^^^^^^^^^^^^^^^^^^^[0m
-            | Called from here
-
-            | For function argument '_e'
-
-[30;41m ERROR [0m [31m(macro) [0m(unknown position)
-
-      | Module stdgo._internal.encoding.json.Json does not define type Array
-
-            | For function argument 'args'
+           | For function argument '__type__'
 
 
 ```

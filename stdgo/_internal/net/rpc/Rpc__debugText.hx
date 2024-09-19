@@ -1,0 +1,2 @@
+package stdgo._internal.net.rpc;
+final _debugText : stdgo.GoString = ("<html>\n\t<body>\n\t<title>Services</title>\n\t{{range .}}\n\t<hr>\n\tService {{.Name}}\n\t<hr>\n\t\t<table>\n\t\t<th align=center>Method</th><th align=center>Calls</th>\n\t\t{{range .Method}}\n\t\t\t<tr>\n\t\t\t<td align=left font=fixed>{{.Name}}({{.Type.ArgType}}, {{.Type.ReplyType}}) error</td>\n\t\t\t<td align=center>{{.Type.NumCalls}}</td>\n\t\t\t</tr>\n\t\t{{end}}\n\t\t</table>\n\t{{end}}\n\t</body>\n\t</html>" : stdgo.GoString);

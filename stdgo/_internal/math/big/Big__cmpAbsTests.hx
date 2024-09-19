@@ -1,0 +1,2 @@
+package stdgo._internal.math.big;
+var _cmpAbsTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(8, 8, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("10" : stdgo.GoString), ("10000000" : stdgo.GoString), ("2783678367462374683678456387645876387564783686583485" : stdgo.GoString), ("2783678367462374683678456387645876387564783686583486" : stdgo.GoString), ("32957394867987420967976567076075976570670947609750670956097509670576075067076027578341538" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

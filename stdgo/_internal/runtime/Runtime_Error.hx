@@ -1,0 +1,13 @@
+package stdgo._internal.runtime;
+typedef Error = stdgo.StructType & {
+    > stdgo.Error,
+    /**
+        RuntimeError is a no-op function but
+        serves to distinguish types that are run time
+        errors from ordinary errors: a type is a
+        run time error if it has a RuntimeError method.
+        
+        
+    **/
+    public dynamic function runtimeError():Void;
+};

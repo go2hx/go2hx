@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.json;
+var _umstructXY : stdgo._internal.encoding.json.Json_T_ustructText.T_ustructText = (new stdgo._internal.encoding.json.Json_T_ustructText.T_ustructText((new stdgo._internal.encoding.json.Json_T_unmarshalerText.T_unmarshalerText(("x" : stdgo.GoString), ("y" : stdgo.GoString)) : stdgo._internal.encoding.json.Json_T_unmarshalerText.T_unmarshalerText)) : stdgo._internal.encoding.json.Json_T_ustructText.T_ustructText);

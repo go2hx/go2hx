@@ -1,0 +1,20 @@
+package stdgo._internal.html.template;
+var _regexpPrecederKeywords : stdgo.GoMap<stdgo.GoString, Bool> = ({
+        final x = new stdgo.GoMap.GoStringMap<Bool>();
+        x.__defaultValue__ = () -> false;
+        x.set(("break" : stdgo.GoString), true);
+x.set(("case" : stdgo.GoString), true);
+x.set(("continue" : stdgo.GoString), true);
+x.set(("delete" : stdgo.GoString), true);
+x.set(("do" : stdgo.GoString), true);
+x.set(("else" : stdgo.GoString), true);
+x.set(("finally" : stdgo.GoString), true);
+x.set(("in" : stdgo.GoString), true);
+x.set(("instanceof" : stdgo.GoString), true);
+x.set(("return" : stdgo.GoString), true);
+x.set(("throw" : stdgo.GoString), true);
+x.set(("try" : stdgo.GoString), true);
+x.set(("typeof" : stdgo.GoString), true);
+x.set(("void" : stdgo.GoString), true);
+        x;
+    } : stdgo.GoMap<stdgo.GoString, Bool>);

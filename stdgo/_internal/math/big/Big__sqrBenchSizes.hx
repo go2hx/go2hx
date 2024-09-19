@@ -1,0 +1,20 @@
+package stdgo._internal.math.big;
+var _sqrBenchSizes : stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(18, 18, ...[
+(1 : stdgo.GoInt),
+(2 : stdgo.GoInt),
+(3 : stdgo.GoInt),
+(5 : stdgo.GoInt),
+(8 : stdgo.GoInt),
+(10 : stdgo.GoInt),
+(20 : stdgo.GoInt),
+(30 : stdgo.GoInt),
+(50 : stdgo.GoInt),
+(80 : stdgo.GoInt),
+(100 : stdgo.GoInt),
+(200 : stdgo.GoInt),
+(300 : stdgo.GoInt),
+(500 : stdgo.GoInt),
+(800 : stdgo.GoInt),
+(1000 : stdgo.GoInt),
+(10000 : stdgo.GoInt),
+(100000 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);

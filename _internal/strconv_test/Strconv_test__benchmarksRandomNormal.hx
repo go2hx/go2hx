@@ -1,0 +1,13 @@
+package _internal.strconv_test;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+var _benchmarksRandomNormal : stdgo.GoArray<stdgo.GoString> = new stdgo.GoArray<stdgo.GoString>(1024, 1024, ...[for (i in 0 ... 1024) ("" : stdgo.GoString)]);

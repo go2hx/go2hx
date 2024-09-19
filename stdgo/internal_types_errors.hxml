@@ -1,0 +1,3 @@
+-m _internal.internal.types.errors_dot_test.Errors_dot_test
+-lib go2hx
+-cp .

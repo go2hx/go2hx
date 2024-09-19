@@ -1,0 +1,32 @@
+package _internal.runtime_test;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.unsafe.Unsafe;
+@:keep class Key_static_extension {
+    static public function _name(t:Key):stdgo.GoString return t._name();
+    static public function _hash(t:Key):stdgo.GoUIntptr return t._hash();
+    static public function _flipBit(t:Key, _i:stdgo.GoInt):Void t._flipBit(_i);
+    static public function _bits(t:Key):stdgo.GoInt return t._bits();
+    static public function _random(t:Key, _r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>):Void t._random(_r);
+    static public function _clear(t:Key):Void t._clear();
+}

@@ -1,0 +1,6 @@
+package stdgo._internal.crypto.tls;
+function _newQUICConn(_conn:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):stdgo.Ref<stdgo._internal.crypto.tls.Tls_QUICConn.QUICConn> {
+        _conn._quic = (stdgo.Go.setRef(({ _signalc : (new stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>(0, () -> ({} : stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg)) : stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>), _blockedc : (new stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>(0, () -> ({} : stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg)) : stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>) } : stdgo._internal.crypto.tls.Tls_T_quicState.T_quicState)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_quicState.T_quicState>);
+        _conn._quic._events = (_conn._quic._eventArr.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent>);
+        return (stdgo.Go.setRef(({ _conn : _conn } : stdgo._internal.crypto.tls.Tls_QUICConn.QUICConn)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_QUICConn.QUICConn>);
+    }

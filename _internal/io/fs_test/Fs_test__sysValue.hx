@@ -1,0 +1,10 @@
+package _internal.io.fs_test;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+var _sysValue : stdgo.GoInt = (0 : stdgo.GoInt);

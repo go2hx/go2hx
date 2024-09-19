@@ -1,0 +1,10 @@
+package stdgo._internal.database.sql;
+typedef T_finalCloser = stdgo.StructType & {
+    /**
+        finalClose is called when the reference count of an object
+        goes to zero. (*DB).mu is not held while calling it.
+        
+        
+    **/
+    public dynamic function _finalClose():stdgo.Error;
+};

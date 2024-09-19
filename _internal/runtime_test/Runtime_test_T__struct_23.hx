@@ -1,0 +1,28 @@
+package _internal.runtime_test;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.unsafe.Unsafe;
+@:local @:using(_internal.runtime_test.Runtime_test_T__struct_23_static_extension.T__struct_23_static_extension) typedef T__struct_23 = {
+    public var _init : stdgo.GoMap<stdgo._internal.runtime.Runtime_ChunkIdx.ChunkIdx, stdgo.Slice<stdgo._internal.runtime.Runtime_BitRange.BitRange>>;
+    public var _hits : stdgo.Slice<_internal.runtime_test.Runtime_test_T_hit.T_hit>;
+};

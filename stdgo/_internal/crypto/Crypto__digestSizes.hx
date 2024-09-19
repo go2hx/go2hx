@@ -1,0 +1,24 @@
+package stdgo._internal.crypto;
+var _digestSizes : stdgo.Slice<stdgo.GoUInt8> = {
+        var s = new stdgo.Slice<stdgo.GoUInt8>(20, 0).__setNumber32__();
+        s[1] = (16 : stdgo.GoUInt8);
+        s[2] = (16 : stdgo.GoUInt8);
+        s[3] = (20 : stdgo.GoUInt8);
+        s[4] = (28 : stdgo.GoUInt8);
+        s[5] = (32 : stdgo.GoUInt8);
+        s[6] = (48 : stdgo.GoUInt8);
+        s[7] = (64 : stdgo.GoUInt8);
+        s[14] = (28 : stdgo.GoUInt8);
+        s[15] = (32 : stdgo.GoUInt8);
+        s[10] = (28 : stdgo.GoUInt8);
+        s[11] = (32 : stdgo.GoUInt8);
+        s[12] = (48 : stdgo.GoUInt8);
+        s[13] = (64 : stdgo.GoUInt8);
+        s[8] = (36 : stdgo.GoUInt8);
+        s[9] = (20 : stdgo.GoUInt8);
+        s[16] = (32 : stdgo.GoUInt8);
+        s[17] = (32 : stdgo.GoUInt8);
+        s[18] = (48 : stdgo.GoUInt8);
+        s[19] = (64 : stdgo.GoUInt8);
+        s;
+    };

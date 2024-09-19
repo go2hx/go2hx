@@ -1,0 +1,17 @@
+package _internal.io.fs_dot_test;
+import stdgo._internal.io.fs.Fs;
+var _tests : stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest>(14, 14, ...[
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestFormatFileInfo" : stdgo.GoString), _internal.io.fs_test.Fs_test_testFormatFileInfo.testFormatFileInfo) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestFormatDirEntry" : stdgo.GoString), _internal.io.fs_test.Fs_test_testFormatDirEntry.testFormatDirEntry) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestValidPath" : stdgo.GoString), _internal.io.fs_test.Fs_test_testValidPath.testValidPath) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestGlob" : stdgo.GoString), _internal.io.fs_test.Fs_test_testGlob.testGlob) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestGlobError" : stdgo.GoString), _internal.io.fs_test.Fs_test_testGlobError.testGlobError) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestCVE202230630" : stdgo.GoString), _internal.io.fs_test.Fs_test_testCVE202230630.testCVE202230630) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestGlobMethod" : stdgo.GoString), _internal.io.fs_test.Fs_test_testGlobMethod.testGlobMethod) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestReadDir" : stdgo.GoString), _internal.io.fs_test.Fs_test_testReadDir.testReadDir) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestFileInfoToDirEntry" : stdgo.GoString), _internal.io.fs_test.Fs_test_testFileInfoToDirEntry.testFileInfoToDirEntry) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestReadFile" : stdgo.GoString), _internal.io.fs_test.Fs_test_testReadFile.testReadFile) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestStat" : stdgo.GoString), _internal.io.fs_test.Fs_test_testStat.testStat) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestSub" : stdgo.GoString), _internal.io.fs_test.Fs_test_testSub.testSub) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestWalkDir" : stdgo.GoString), _internal.io.fs_test.Fs_test_testWalkDir.testWalkDir) : stdgo._internal.testing.Testing_InternalTest.InternalTest),
+(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestIssue51617" : stdgo.GoString), _internal.io.fs_test.Fs_test_testIssue51617.testIssue51617) : stdgo._internal.testing.Testing_InternalTest.InternalTest)].concat([for (i in 14 ... (14 > 14 ? 14 : 14 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.testing.Testing_InternalTest.InternalTest)])) : stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest>);

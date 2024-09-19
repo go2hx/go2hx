@@ -1,675 +1,113 @@
-# Module: `stdgo._internal.internal.testenv`
-
-[(view library index)](../../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [Variables](<#variables>)
-
-- [`function _findGOROOT():{
-	_1:stdgo.Error;
-	_0:stdgo.GoString;
-}`](<#function-_findgoroot>)
-
-- [`function _hasSymlink():{
-	_1:stdgo.GoString;
-	_0:Bool;
-}`](<#function-_hassymlink>)
-
-- [`function _syscallIsNotSupported(_err:stdgo.Error):Bool`](<#function-_syscallisnotsupported>)
-
-- [`function _tryExec():stdgo.Error`](<#function-_tryexec>)
-
-- [`function builder():stdgo.GoString`](<#function-builder>)
-
-- [`function canInternalLink(_withCgo:Bool):Bool`](<#function-caninternallink>)
-
-- [`function cleanCmdEnv(_cmd:stdgo.Ref<stdgo._internal.os.exec.Cmd>):stdgo.Ref<stdgo._internal.os.exec.Cmd>`](<#function-cleancmdenv>)
-
-- [`function command(_t:stdgo._internal.testing.TB, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.os.exec.Cmd>`](<#function-command>)
-
-- [`function commandContext(_t:stdgo._internal.testing.TB, _ctx:stdgo._internal.context.Context, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.os.exec.Cmd>`](<#function-commandcontext>)
-
-- [`function cpuisSlow():Bool`](<#function-cpuisslow>)
-
-- [`function goTool():{
-	_1:stdgo.Error;
-	_0:stdgo.GoString;
-}`](<#function-gotool>)
-
-- [`function goToolPath(_t:stdgo._internal.testing.TB):stdgo.GoString`](<#function-gotoolpath>)
-
-- [`function goroot(_t:stdgo._internal.testing.TB):stdgo.GoString`](<#function-goroot>)
-
-- [`function hasCGO():Bool`](<#function-hascgo>)
-
-- [`function hasExternalNetwork():Bool`](<#function-hasexternalnetwork>)
-
-- [`function hasGoBuild():Bool`](<#function-hasgobuild>)
-
-- [`function hasGoRun():Bool`](<#function-hasgorun>)
-
-- [`function hasLink():Bool`](<#function-haslink>)
-
-- [`function hasParallelism():Bool`](<#function-hasparallelism>)
-
-- [`function hasSrc():Bool`](<#function-hassrc>)
-
-- [`function hasSymlink():Bool`](<#function-hassymlink>)
-
-- [`function mustHaveBuildMode(_t:stdgo._internal.testing.TB, _buildmode:stdgo.GoString):Void`](<#function-musthavebuildmode>)
-
-- [`function mustHaveCGO(_t:stdgo._internal.testing.TB):Void`](<#function-musthavecgo>)
-
-- [`function mustHaveExec(_t:stdgo._internal.testing.TB):Void`](<#function-musthaveexec>)
-
-- [`function mustHaveExecPath(_t:stdgo._internal.testing.TB, _path:stdgo.GoString):Void`](<#function-musthaveexecpath>)
-
-- [`function mustHaveExternalNetwork(_t:stdgo._internal.testing.TB):Void`](<#function-musthaveexternalnetwork>)
-
-- [`function mustHaveGoBuild(_t:stdgo._internal.testing.TB):Void`](<#function-musthavegobuild>)
-
-- [`function mustHaveGoRun(_t:stdgo._internal.testing.TB):Void`](<#function-musthavegorun>)
-
-- [`function mustHaveLink(_t:stdgo._internal.testing.TB):Void`](<#function-musthavelink>)
-
-- [`function mustHaveParallelism(_t:stdgo._internal.testing.TB):Void`](<#function-musthaveparallelism>)
-
-- [`function mustHaveSymlink(_t:stdgo._internal.testing.TB):Void`](<#function-musthavesymlink>)
-
-- [`function mustInternalLink(_t:stdgo._internal.testing.TB, _withCgo:Bool):Void`](<#function-mustinternallink>)
-
-- [`function optimizationOff():Bool`](<#function-optimizationoff>)
-
-- [`function skipFlaky(_t:stdgo._internal.testing.TB, _issue:stdgo.GoInt):Void`](<#function-skipflaky>)
-
-- [`function skipFlakyNet(_t:stdgo._internal.testing.TB):Void`](<#function-skipflakynet>)
-
-- [`function skipIfOptimizationOff(_t:stdgo._internal.testing.TB):Void`](<#function-skipifoptimizationoff>)
-
-- [`function skipIfShortAndSlow(_t:stdgo._internal.testing.TB):Void`](<#function-skipifshortandslow>)
-
-- [`function syscallIsNotSupported(_err:stdgo.Error):Bool`](<#function-syscallisnotsupported>)
-
-- [`function writeImportcfg(_t:stdgo._internal.testing.TB, _dstPath:stdgo.GoString, _packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<stdgo.GoString>):Void`](<#function-writeimportcfg>)
-
-- [typedef T\_\_interface\_0](<#typedef-t__interface_0>)
-
-# Variables
-
-
-```haxe
-import stdgo._internal.internal.testenv.Testenv
+# Module stdgo._internal.internal.testenv has compilation errors, please do not use:
 ```
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+
+    7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+      |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.reflect.Reflect_Type_
+
+      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
+
+       229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+           |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+           | Called from here
+
+       239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+           |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+           | Called from here
+
+[30;41m ERROR [0m stdgo/_internal/internal/testenv/Testenv.hx:20: characters 124-132
+
+   20 | [2m    static public function deadline(t:T__interface_0):{ var _0 : stdgo._internal.time.Time.Time; var _1 : Bool; } return t.[0m[1mdeadline[0m[2m();[0m
+      |                                                                                                                            [31m^^^^^^^^[0m
+      | stdgo._internal.internal.testenv.T__interface_0 has no field deadline
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:45: characters 16-27
+
+   45 | [2m  if (gt.match([0m[1minvalidType[0m[2m) || gt2.match(invalidType))[0m
+      |                [31m^^^^^^^^^^^[0m
+      | Pattern variables are not allowed in .match patterns
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-21
+
+   47 | [2m  if (gt.match([0m[1mbasic[0m[2m(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))[0m
+      |                [31m^^^^^[0m
+      | Identifier 'basic' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-39
+
+   47 | [2m  if (gt.match([0m[1mbasic(untyped_nil_kind)[0m[2m) || gt2.match(basic(untyped_nil_kind)))[0m
+      |                [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: basic(untyped_nil_kind)
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:50: characters 15-27
+
+   50 | [2m  if (!a.type.[0m[1massignableTo[0m[2m(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {[0m
+      |               [31m^^^^^^^^^^^^[0m
+      | stdgo._internal.internal.reflect._Type has no field assignableTo
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
+
+ 1399 | [2m[0m[1mclass _Type_asInterface {[0m
+    - | [2m  [...][0m
+ 1507 | [1m}[0m[2m[0m
+      |
+      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-14
+
+   56 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
+      |         [31m^^^^^[0m
+      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-29
+
+   56 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: named(path, _, _, _)
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-14
+
+   70 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
+      |         [31m^^^^^[0m
+      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-29
+
+   70 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: named(path, _, _, _)
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:83: characters 8-48
+
+   83 | [2m  gt = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt);[0m
+      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:84: characters 9-49
+
+   84 | [2m  gt2 = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt2);[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-16
+
+   86 | [2m   case [0m[1mrefType[0m[2m(_):[0m
+      |         [31m^^^^^^^[0m
+      | Identifier 'refType' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-19
+
+   86 | [2m   case [0m[1mrefType(_)[0m[2m:[0m
+      |         [31m^^^^^^^^^^[0m
+      | Unrecognized pattern: refType(_)
+
+[30;41m ERROR [0m [31m(macro) [0mstdgo/GoString.hx:22: characters 8-53
+
+   22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
 
 
-```haxe
-var _execPaths:stdgo._internal.sync.Map_
 ```
-
-
-```haxe
-var _flaky:stdgo.Pointer<Bool>
-```
-
-
-```haxe
-var _goBuildErr:stdgo.Error
-```
-
-
-```haxe
-var _goBuildOnce:stdgo._internal.sync.Once
-```
-
-
-```haxe
-var _goToolErr:stdgo.Error
-```
-
-
-```haxe
-var _goToolOnce:stdgo._internal.sync.Once
-```
-
-
-```haxe
-var _goToolPath:stdgo.GoString
-```
-
-
-```haxe
-var _gorootErr:stdgo.Error
-```
-
-
-```haxe
-var _gorootOnce:stdgo._internal.sync.Once
-```
-
-
-```haxe
-var _gorootPath:stdgo.GoString
-```
-
-
-```haxe
-var _hasCgo:Bool
-```
-
-
-```haxe
-var _hasCgoOnce:stdgo._internal.sync.Once
-```
-
-
-```haxe
-var _origEnv:stdgo.Slice<stdgo.GoString>
-```
-
-
-```haxe
-var _tryExecErr:stdgo.Error
-```
-
-
-```haxe
-var _tryExecOnce:stdgo._internal.sync.Once
-```
-
-
-```haxe
-var sigquit:stdgo._internal.os.Signal
-```
-
-
-# Functions
-
-
-```haxe
-import stdgo._internal.internal.testenv.Testenv
-```
-
-
-## function \_findGOROOT
-
-
-```haxe
-function _findGOROOT():{
-	_1:stdgo.Error;
-	_0:stdgo.GoString;
-}
-```
-
-
-[\(view code\)](<./Testenv.hx#L201>)
-
-
-## function \_hasSymlink
-
-
-```haxe
-function _hasSymlink():{
-	_1:stdgo.GoString;
-	_0:Bool;
-}
-```
-
-
-[\(view code\)](<./Testenv.hx#L437>)
-
-
-## function \_syscallIsNotSupported
-
-
-```haxe
-function _syscallIsNotSupported(_err:stdgo.Error):Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L434>)
-
-
-## function \_tryExec
-
-
-```haxe
-function _tryExec():stdgo.Error
-```
-
-
-[\(view code\)](<./Testenv.hx#L39>)
-
-
-## function builder
-
-
-```haxe
-function builder():stdgo.GoString
-```
-
-
-[\(view code\)](<./Testenv.hx#L166>)
-
-
-## function canInternalLink
-
-
-```haxe
-function canInternalLink(_withCgo:Bool):Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L327>)
-
-
-## function cleanCmdEnv
-
-
-```haxe
-function cleanCmdEnv(_cmd:stdgo.Ref<stdgo._internal.os.exec.Cmd>):stdgo.Ref<stdgo._internal.os.exec.Cmd>
-```
-
-
-[\(view code\)](<./Testenv.hx#L74>)
-
-
-## function command
-
-
-```haxe
-function command(_t:stdgo._internal.testing.TB, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.os.exec.Cmd>
-```
-
-
-[\(view code\)](<./Testenv.hx#L158>)
-
-
-## function commandContext
-
-
-```haxe
-function commandContext(_t:stdgo._internal.testing.TB, _ctx:stdgo._internal.context.Context, _name:stdgo.GoString, _args:haxe.Rest<stdgo.GoString>):stdgo.Ref<stdgo._internal.os.exec.Cmd>
-```
-
-
-[\(view code\)](<./Testenv.hx#L89>)
-
-
-## function cpuisSlow
-
-
-```haxe
-function cpuisSlow():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L374>)
-
-
-## function goTool
-
-
-```haxe
-function goTool():{
-	_1:stdgo.Error;
-	_0:stdgo.GoString;
-}
-```
-
-
-[\(view code\)](<./Testenv.hx#L264>)
-
-
-## function goToolPath
-
-
-```haxe
-function goToolPath(_t:stdgo._internal.testing.TB):stdgo.GoString
-```
-
-
-[\(view code\)](<./Testenv.hx#L190>)
-
-
-## function goroot
-
-
-```haxe
-function goroot(_t:stdgo._internal.testing.TB):stdgo.GoString
-```
-
-
-[\(view code\)](<./Testenv.hx#L253>)
-
-
-## function hasCGO
-
-
-```haxe
-function hasCGO():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L299>)
-
-
-## function hasExternalNetwork
-
-
-```haxe
-function hasExternalNetwork():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L286>)
-
-
-## function hasGoBuild
-
-
-```haxe
-function hasGoBuild():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L167>)
-
-
-## function hasGoRun
-
-
-```haxe
-function hasGoRun():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L178>)
-
-
-## function hasLink
-
-
-```haxe
-function hasLink():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L351>)
-
-
-## function hasParallelism
-
-
-```haxe
-function hasParallelism():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L184>)
-
-
-## function hasSrc
-
-
-```haxe
-function hasSrc():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L277>)
-
-
-## function hasSymlink
-
-
-```haxe
-function hasSymlink():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L341>)
-
-
-## function mustHaveBuildMode
-
-
-```haxe
-function mustHaveBuildMode(_t:stdgo._internal.testing.TB, _buildmode:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L336>)
-
-
-## function mustHaveCGO
-
-
-```haxe
-function mustHaveCGO(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L322>)
-
-
-## function mustHaveExec
-
-
-```haxe
-function mustHaveExec(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L31>)
-
-
-## function mustHaveExecPath
-
-
-```haxe
-function mustHaveExecPath(_t:stdgo._internal.testing.TB, _path:stdgo.GoString):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L57>)
-
-
-## function mustHaveExternalNetwork
-
-
-```haxe
-function mustHaveExternalNetwork(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L289>)
-
-
-## function mustHaveGoBuild
-
-
-```haxe
-function mustHaveGoBuild(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L168>)
-
-
-## function mustHaveGoRun
-
-
-```haxe
-function mustHaveGoRun(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L179>)
-
-
-## function mustHaveLink
-
-
-```haxe
-function mustHaveLink(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L354>)
-
-
-## function mustHaveParallelism
-
-
-```haxe
-function mustHaveParallelism(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L185>)
-
-
-## function mustHaveSymlink
-
-
-```haxe
-function mustHaveSymlink(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L345>)
-
-
-## function mustInternalLink
-
-
-```haxe
-function mustInternalLink(_t:stdgo._internal.testing.TB, _withCgo:Bool):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L328>)
-
-
-## function optimizationOff
-
-
-```haxe
-function optimizationOff():Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L163>)
-
-
-## function skipFlaky
-
-
-```haxe
-function skipFlaky(_t:stdgo._internal.testing.TB, _issue:stdgo.GoInt):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L359>)
-
-
-## function skipFlakyNet
-
-
-```haxe
-function skipFlakyNet(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L365>)
-
-
-## function skipIfOptimizationOff
-
-
-```haxe
-function skipIfOptimizationOff(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L389>)
-
-
-## function skipIfShortAndSlow
-
-
-```haxe
-function skipIfShortAndSlow(_t:stdgo._internal.testing.TB):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L383>)
-
-
-## function syscallIsNotSupported
-
-
-```haxe
-function syscallIsNotSupported(_err:stdgo.Error):Bool
-```
-
-
-[\(view code\)](<./Testenv.hx#L431>)
-
-
-## function writeImportcfg
-
-
-```haxe
-function writeImportcfg(_t:stdgo._internal.testing.TB, _dstPath:stdgo.GoString, _packageFiles:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _pkgs:haxe.Rest<stdgo.GoString>):Void
-```
-
-
-[\(view code\)](<./Testenv.hx#L395>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo._internal.internal.testenv.*
-```
-
-
-## typedef T\_\_interface\_0
-
-
-```haxe
-typedef T__interface_0 = {
-	public function tempDir():stdgo.GoString;
-	public function skipped():Bool;
-	public function skipf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
-	public function skipNow():Void;
-	public function skip(_args:haxe.Rest<stdgo.AnyInterface>):Void;
-	public function setenv(_key:stdgo.GoString, _value:stdgo.GoString):Void;
-	public function name():stdgo.GoString;
-	public function logf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
-	public function log(_args:haxe.Rest<stdgo.AnyInterface>):Void;
-	public function helper():Void;
-	public function fatalf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
-	public function fatal(_args:haxe.Rest<stdgo.AnyInterface>):Void;
-	public function failed():Bool;
-	public function failNow():Void;
-	public function fail():Void;
-	public function errorf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void;
-	public function error(_args:haxe.Rest<stdgo.AnyInterface>):Void;
-	public function deadline():{
-		_1:Bool;
-		_0:stdgo._internal.time.Time;
-	};
-	public function cleanup(_0:():Void):Void;
-};
-```
-
 

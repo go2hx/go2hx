@@ -1,46 +1,11 @@
-# Module: `stdgo._internal.internal.oserror`
-
-[(view library index)](../../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [Variables](<#variables>)
-
-# Variables
-
-
-```haxe
-import stdgo._internal.internal.oserror.Oserror
+# Module stdgo._internal.internal.oserror has compilation errors, please do not use:
 ```
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+
+ 7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+   |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Type not found : stdgo._internal.reflect.Reflect_Type_
 
 
-```haxe
-var errClosed:stdgo.Error
 ```
-
-
-```haxe
-var errExist:stdgo.Error
-```
-
-
-```haxe
-var errInvalid:stdgo.Error
-```
-
-
-```haxe
-var errNotExist:stdgo.Error
-```
-
-
-```haxe
-var errPermission:stdgo.Error
-```
-
 

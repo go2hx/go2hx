@@ -1,3 +1,3 @@
--m stdgo._internal.testing.iotest_test.Iotest
+-m _internal.testing.iotest_dot_test.Iotest_dot_test
 -lib go2hx
 -cp .

@@ -1,0 +1,3 @@
+-m _internal.internal.testenv_dot_test.Testenv_dot_test
+-lib go2hx
+-cp .

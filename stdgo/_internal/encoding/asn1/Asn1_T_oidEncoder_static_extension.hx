@@ -1,0 +1,26 @@
+package stdgo._internal.encoding.asn1;
+@:keep @:allow(stdgo._internal.encoding.asn1.Asn1.T_oidEncoder_asInterface) class T_oidEncoder_static_extension {
+    @:keep
+    static public function encode( _oid:stdgo._internal.encoding.asn1.Asn1_T_oidEncoder.T_oidEncoder, _dst:stdgo.Slice<stdgo.GoUInt8>):Void {
+        @:recv var _oid:stdgo._internal.encoding.asn1.Asn1_T_oidEncoder.T_oidEncoder = _oid;
+        _dst = stdgo._internal.encoding.asn1.Asn1__appendBase128Int._appendBase128Int((_dst.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (((_oid[(0 : stdgo.GoInt)] * (40 : stdgo.GoInt) : stdgo.GoInt) + _oid[(1 : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt64));
+        {
+            var _i = (2 : stdgo.GoInt);
+            stdgo.Go.cfor((_i < (_oid.length) : Bool), _i++, {
+                _dst = stdgo._internal.encoding.asn1.Asn1__appendBase128Int._appendBase128Int(_dst, (_oid[(_i : stdgo.GoInt)] : stdgo.GoInt64));
+            });
+        };
+    }
+    @:keep
+    static public function len( _oid:stdgo._internal.encoding.asn1.Asn1_T_oidEncoder.T_oidEncoder):stdgo.GoInt {
+        @:recv var _oid:stdgo._internal.encoding.asn1.Asn1_T_oidEncoder.T_oidEncoder = _oid;
+        var _l = (stdgo._internal.encoding.asn1.Asn1__base128IntLength._base128IntLength((((_oid[(0 : stdgo.GoInt)] * (40 : stdgo.GoInt) : stdgo.GoInt) + _oid[(1 : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt64)) : stdgo.GoInt);
+        {
+            var _i = (2 : stdgo.GoInt);
+            stdgo.Go.cfor((_i < (_oid.length) : Bool), _i++, {
+                _l = (_l + (stdgo._internal.encoding.asn1.Asn1__base128IntLength._base128IntLength((_oid[(_i : stdgo.GoInt)] : stdgo.GoInt64))) : stdgo.GoInt);
+            });
+        };
+        return _l;
+    }
+}

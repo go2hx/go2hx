@@ -2,115 +2,111 @@
 ```
 [30;41m ERROR [0m stdgo/_internal/image_test/Image_test.hx:2: characters 8-39
 
-   2 | [2mimport [0m[1mstdgo._internal.image.jpeg.Jpeg[0m[2m;[0m
-     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.image.jpeg.Jpeg
+    2 | [2mimport [0m[1mstdgo._internal.image.jpeg.Jpeg[0m[2m;[0m
+      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.image.jpeg.Jpeg
 
-     [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
+      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
 
-      229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
-          |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-          | Called from here
+       229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+           |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+           | Called from here
 
-      239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
-          |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-          | Called from here
+       239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+           |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+           | Called from here
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:887: characters 50-93
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
- 887 | [2mstdgo.Go.asInterface(newPaletted(_r?.__copy__(), [0m[1mstdgo._internal.image.color.palette.Palette[0m[2m.plan9)),[0m
-     |                                                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.image.color.palette.Palette
+    7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+      |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-     [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:504: characters 10-30
+[30;41m ERROR [0m stdgo/AnyInterface.hx:45: characters 16-27
 
-      504 | [2m  return [0m[1mload("typeof", 1)(e)[0m[2m;[0m
-          |          [31m^^^^^^^^^^^^^^^^^^^^[0m
-          | Called from here
+   45 | [2m  if (gt.match([0m[1minvalidType[0m[2m) || gt2.match(invalidType))[0m
+      |                [31m^^^^^^^^^^^[0m
+      | Pattern variables are not allowed in .match patterns
 
-     [30;41m -> [0m stdgo/Go.macro.hx:305: lines 305-310
+[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-21
 
-      305 | [2m  final selfType = [0m[1mContext.typeof(switch expr.expr {[0m
-        - | [2m    [...][0m
-      310 | [1m  })[0m[2m;[0m
-          |
-          | Called from here
+   47 | [2m  if (gt.match([0m[1mbasic[0m[2m(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))[0m
+      |                [31m^^^^^[0m
+      | Identifier 'basic' is not part of stdgo._internal.internal.reflect.GoType
 
-     [30;41m -> [0m stdgo/_internal/image/Image.hx:887: characters 1-101
+[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-39
 
-      887 | [0m[1mstdgo.Go.asInterface(newPaletted(_r?.__copy__(), stdgo._internal.image.color.palette.Palette.plan9))[0m[2m,[0m
-          | [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-          | Called from here
+   47 | [2m  if (gt.match([0m[1mbasic(untyped_nil_kind)[0m[2m) || gt2.match(basic(untyped_nil_kind)))[0m
+      |                [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: basic(untyped_nil_kind)
 
-          | For function argument 'args'
+[30;41m ERROR [0m stdgo/AnyInterface.hx:50: characters 15-27
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:893: characters 28-38
+   50 | [2m  if (!a.type.[0m[1massignableTo[0m[2m(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {[0m
+      |               [31m^^^^^^^^^^^^[0m
+      | stdgo._internal.internal.reflect._Type has no field assignableTo
 
- 893 | [2m        for (__0 => _tc in [0m[1m_testCases[0m[2m) {[0m
-     |                            [31m^^^^^^^^^^[0m
-     | You can't iterate on a Dynamic value, please specify KeyValueIterator or KeyValueIterable
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:900: characters 164-178
+ 1399 | [2m[0m[1mclass _Type_asInterface {[0m
+    - | [2m  [...][0m
+ 1507 | [1m}[0m[2m[0m
+      |
+      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
 
- 900 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.NYCbCrA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.__underlying__().value;[0m
-     |                                                                                                                                                                    [31m^^^^^^^^^^^^^^[0m
-     | Any has no field __underlying__
+[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-14
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:900: characters 335-349
+   56 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
+      |         [31m^^^^^[0m
+      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
 
- 900 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.NYCbCrA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.NYCbCrA>) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
-     |                                                                                                                                                                                                                                                                                                                                               [31m^^^^^^^^^^^^^^[0m
-     | Any has no field __underlying__
+[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-29
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:906: characters 164-178
+   56 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: named(path, _, _, _)
 
- 906 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.__underlying__().value;[0m
-     |                                                                                                                                                                    [31m^^^^^^^^^^^^^^[0m
-     | Any has no field __underlying__
+[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-14
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:906: characters 335-349
+   70 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
+      |         [31m^^^^^[0m
+      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
 
- 906 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.Uniform> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.Uniform>) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
-     |                                                                                                                                                                                                                                                                                                                                               [31m^^^^^^^^^^^^^^[0m
-     | Any has no field __underlying__
+[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-29
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:909: characters 160-174
+   70 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: named(path, _, _, _)
 
- 909 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.[0m[1m__underlying__[0m[2m() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.__underlying__().value;[0m
-     |                                                                                                                                                                [31m^^^^^^^^^^^^^^[0m
-     | Any has no field __underlying__
+[30;41m ERROR [0m stdgo/AnyInterface.hx:83: characters 8-48
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:909: characters 327-341
+   83 | [2m  gt = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt);[0m
+      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
 
- 909 | [2m                    var _tc:stdgo.Ref<stdgo._internal.image.Image.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image.YCbCr>) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
-     |                                                                                                                                                                                                                                                                                                                                       [31m^^^^^^^^^^^^^^[0m
-     | Any has no field __underlying__
+[30;41m ERROR [0m stdgo/AnyInterface.hx:84: characters 9-49
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:914: characters 144-158
+   84 | [2m  gt2 = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt2);[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
 
- 914 | [2m                    var _tc:stdgo._internal.image.Image.Rectangle = __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.[0m[1m__underlying__[0m[2m() == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.__underlying__().value;[0m
-     |                                                                                                                                                [31m^^^^^^^^^^^^^^[0m
-     | Any has no field __underlying__
+[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-16
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:914: characters 293-307
+   86 | [2m   case [0m[1mrefType[0m[2m(_):[0m
+      |         [31m^^^^^^^[0m
+      | Identifier 'refType' is not part of stdgo._internal.internal.reflect.GoType
 
- 914 | [2m                    var _tc:stdgo._internal.image.Image.Rectangle = __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.__underlying__() == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__ == null ? ({} : stdgo._internal.image.Image.Rectangle) : __type__.[0m[1m__underlying__[0m[2m().value;[0m
-     |                                                                                                                                                                                                                                                                                                     [31m^^^^^^^^^^^^^^[0m
-     | Any has no field __underlying__
+[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-19
 
-[30;41m ERROR [0m stdgo/_internal/image/Image.hx:931: characters 31-33
+   86 | [2m   case [0m[1mrefType(_)[0m[2m:[0m
+      |         [31m^^^^^^^^^^[0m
+      | Unrecognized pattern: refType(_)
 
- 931 | [2m            var __tmp__ = _tc.[0m[1mat[0m[2m((1 : stdgo.GoInt), (1 : stdgo.GoInt)).rgba(), _wantR:stdgo.GoUInt32 = __tmp__._0, _wantG:stdgo.GoUInt32 = __tmp__._1, _wantB:stdgo.GoUInt32 = __tmp__._2, _wantA:stdgo.GoUInt32 = __tmp__._3;[0m
-     |                               [31m^^[0m
-     | Any has no field at
+[30;41m ERROR [0m [31m(macro) [0mstdgo/GoString.hx:22: characters 8-53
 
-[30;41m ERROR [0m stdgo/_internal/image_test/Image.hx:3: characters 1532-1569
-
-   3 | [2mvar _tests : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(8, 8, ...[(new stdgo._internal.testing.Testing.InternalTest(("TestRectangle" : stdgo.GoString), stdgo._internal.image.Image.testRectangle) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestImage" : stdgo.GoString), stdgo._internal.image.Image.testImage) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestNewXxxBadRectangle" : stdgo.GoString), stdgo._internal.image.Image.testNewXxxBadRectangle) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("Test16BitsPerColorChannel" : stdgo.GoString), stdgo._internal.image.Image.test16BitsPerColorChannel) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestRGBA64Image" : stdgo.GoString), stdgo._internal.image.Image.testRGBA64Image) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestYCbCr" : stdgo.GoString), stdgo._internal.image.Image.testYCbCr) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestYCbCrSlicesDontOverlap" : stdgo.GoString), stdgo._internal.image.Image.testYCbCrSlicesDontOverlap) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestDecode" : stdgo.GoString), [0m[1mstdgo._internal.image_test.Image_test[0m[2m.testDecode) : stdgo._internal.testing.Testing.InternalTest)].concat([for (i in 8 ... (8 > 8 ? 8 : 8 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.testing.Testing.InternalTest)])) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);[0m
-     |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Module stdgo._internal.image_test.Image_test does not define type Image_test
-
-          | For optional function argument 'f'
+   22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
 
 
 ```

@@ -1,0 +1,13 @@
+package _internal.strconv_test;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+var _uitob64tests : stdgo.Slice<_internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test> = (new stdgo.Slice<_internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test>(6, 6, ...[(new _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test((9223372036854775807i64 : stdgo.GoUInt64), (10 : stdgo.GoInt), ("9223372036854775807" : stdgo.GoString)) : _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test), (new _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test((-9223372036854775808i64 : stdgo.GoUInt64), (10 : stdgo.GoInt), ("9223372036854775808" : stdgo.GoString)) : _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test), (new _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test((-9223372036854775807i64 : stdgo.GoUInt64), (10 : stdgo.GoInt), ("9223372036854775809" : stdgo.GoString)) : _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test), (new _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test((-2i64 : stdgo.GoUInt64), (10 : stdgo.GoInt), ("18446744073709551614" : stdgo.GoString)) : _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test), (new _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test((-1i64 : stdgo.GoUInt64), (10 : stdgo.GoInt), ("18446744073709551615" : stdgo.GoString)) : _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test), (new _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test((-1i64 : stdgo.GoUInt64), (2 : stdgo.GoInt), ("1111111111111111111111111111111111111111111111111111111111111111" : stdgo.GoString)) : _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test)].concat([for (i in 6 ... (6 > 6 ? 6 : 6 : stdgo.GoInt).toBasic()) ({} : _internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test)])) : stdgo.Slice<_internal.strconv_test.Strconv_test_T_uitob64Test.T_uitob64Test>);

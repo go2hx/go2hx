@@ -1,0 +1,13 @@
+package _internal.strconv_test;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+var _nextToOne : stdgo.GoString = ((("1.00000000000000011102230246251565404236316680908203125" : stdgo.GoString) + stdgo._internal.strings.Strings_repeat.repeat(("0" : stdgo.GoString), (10000 : stdgo.GoInt))?.__copy__() : stdgo.GoString) + ("1" : stdgo.GoString)?.__copy__() : stdgo.GoString);

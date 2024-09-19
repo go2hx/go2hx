@@ -1,400 +1,165 @@
-# Module: `stdgo._internal.testing.iotest`
-
-[(view library index)](../../../stdgo.md)
-
-
-# Overview
-
-
-
-# Index
-
-
-- [Variables](<#variables>)
-
-- [`function dataErrReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-dataerrreader>)
-
-- [`function errReader(_err:stdgo.Error):stdgo._internal.io.Reader`](<#function-errreader>)
-
-- [`function halfReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-halfreader>)
-
-- [`function newReadLogger(_prefix:stdgo.GoString, _r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-newreadlogger>)
-
-- [`function newWriteLogger(_prefix:stdgo.GoString, _w:stdgo._internal.io.Writer):stdgo._internal.io.Writer`](<#function-newwritelogger>)
-
-- [`function oneByteReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-onebytereader>)
-
-- [`function testDataErrReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testdataerrreader_emptyreader>)
-
-- [`function testDataErrReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testdataerrreader_nonemptyreader>)
-
-- [`function testErrReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testerrreader>)
-
-- [`function testHalfReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testhalfreader_emptyreader>)
-
-- [`function testHalfReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testhalfreader_nonemptyreader>)
-
-- [`function testOneByteReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testonebytereader_emptyreader>)
-
-- [`function testOneByteReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testonebytereader_nonemptyreader>)
-
-- [`function testReadLogger(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testreadlogger>)
-
-- [`function testReadLogger_errorOnRead(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testreadlogger_erroronread>)
-
-- [`function testReader(_r:stdgo._internal.io.Reader, _content:stdgo.Slice<stdgo.GoByte>):stdgo.Error`](<#function-testreader>)
-
-- [`function testStringsReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-teststringsreader>)
-
-- [`function testTimeOutReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testtimeoutreader_emptyreader>)
-
-- [`function testTimeOutReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testtimeoutreader_nonemptyreader>)
-
-- [`function testTruncateWriter(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testtruncatewriter>)
-
-- [`function testWriteLogger(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testwritelogger>)
-
-- [`function testWriteLogger_errorOnWrite(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void`](<#function-testwritelogger_erroronwrite>)
-
-- [`function timeoutReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-timeoutreader>)
-
-- [`function truncateWriter(_w:stdgo._internal.io.Writer, _n:stdgo.GoInt64):stdgo._internal.io.Writer`](<#function-truncatewriter>)
-
-- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-# Examples
-
-
-- [`exampleErrReader`](<#exampleerrreader>)
-
-# Variables
-
-
-```haxe
-import stdgo._internal.testing.iotest.Iotest
+# Module stdgo._internal.testing.iotest has compilation errors, please do not use:
 ```
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+
+   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.reflect.Reflect_Type_
+
+[30;41m ERROR [0m stdgo/GoString.hx:22: characters 8-53
+
+  22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
+
+[30;41m ERROR [0m stdgo/GoString.hx:157: characters 16-60
+
+ 157 | [2m   final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
+     |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/testing/iotest/Iotest.hx:126: characters 78-82
+
+ 126 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
+
+[30;41m ERROR [0m stdgo/_internal/testing/iotest/Iotest.hx:126: characters 138-145
+
+ 126 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
+
+[30;41m ERROR [0m stdgo/_internal/testing/iotest/Iotest.hx:126: characters 150-190
+
+ 126 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/GoString.hx:283: characters 15-59
+
+ 283 | [2m  final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
+     |               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
+
+[30;41m ERROR [0m stdgo/GoString.hx:312: characters 15-59
+
+ 312 | [2m  final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
+     |               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument '__type__'
 
 
-```haxe
-var _truncateWriterTests:stdgo.Slice<stdgo._internal.testing.iotest.T__struct_0>
 ```
-
-
-```haxe
-var errTimeout:stdgo.Error
-```
-
-
-# Functions
-
-
-```haxe
-import stdgo._internal.testing.iotest.Iotest
-```
-
-
-## function dataErrReader
-
-
-```haxe
-function dataErrReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
-```
-
-
-[\(view code\)](<./Iotest.hx#L147>)
-
-
-## function errReader
-
-
-```haxe
-function errReader(_err:stdgo.Error):stdgo._internal.io.Reader
-```
-
-
-### exampleErrReader
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleErrReader():Void {
-        var _r = (stdgo._internal.testing.iotest.Iotest.errReader(stdgo._internal.errors.Errors.new_(("custom error" : stdgo.GoString))) : stdgo._internal.io.Io.Reader);
-        var __tmp__ = _r.read((null : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        stdgo._internal.fmt.Fmt.printf(("n:   %d\nerr: %q\n" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
-    }
-```
-
-
-</p>
-</details>
-
-
-[\(view code\)](<./Iotest.hx#L149>)
-
-
-## function halfReader
-
-
-```haxe
-function halfReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
-```
-
-
-[\(view code\)](<./Iotest.hx#L146>)
-
-
-## function newReadLogger
-
-
-```haxe
-function newReadLogger(_prefix:stdgo.GoString, _r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
-```
-
-
-[\(view code\)](<./Iotest.hx#L140>)
-
-
-## function newWriteLogger
-
-
-```haxe
-function newWriteLogger(_prefix:stdgo.GoString, _w:stdgo._internal.io.Writer):stdgo._internal.io.Writer
-```
-
-
-[\(view code\)](<./Iotest.hx#L139>)
-
-
-## function oneByteReader
-
-
-```haxe
-function oneByteReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
-```
-
-
-[\(view code\)](<./Iotest.hx#L145>)
-
-
-## function testDataErrReader\_emptyReader
-
-
-```haxe
-function testDataErrReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L158>)
-
-
-## function testDataErrReader\_nonEmptyReader
-
-
-```haxe
-function testDataErrReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L157>)
-
-
-## function testErrReader
-
-
-```haxe
-function testErrReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L159>)
-
-
-## function testHalfReader\_emptyReader
-
-
-```haxe
-function testHalfReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L154>)
-
-
-## function testHalfReader\_nonEmptyReader
-
-
-```haxe
-function testHalfReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L153>)
-
-
-## function testOneByteReader\_emptyReader
-
-
-```haxe
-function testOneByteReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L152>)
-
-
-## function testOneByteReader\_nonEmptyReader
-
-
-```haxe
-function testOneByteReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L151>)
-
-
-## function testReadLogger
-
-
-```haxe
-function testReadLogger(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L143>)
-
-
-## function testReadLogger\_errorOnRead
-
-
-```haxe
-function testReadLogger_errorOnRead(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L144>)
-
-
-## function testReader
-
-
-```haxe
-function testReader(_r:stdgo._internal.io.Reader, _content:stdgo.Slice<stdgo.GoByte>):stdgo.Error
-```
-
-
-[\(view code\)](<./Iotest.hx#L150>)
-
-
-## function testStringsReader
-
-
-```haxe
-function testStringsReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L160>)
-
-
-## function testTimeOutReader\_emptyReader
-
-
-```haxe
-function testTimeOutReader_emptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L156>)
-
-
-## function testTimeOutReader\_nonEmptyReader
-
-
-```haxe
-function testTimeOutReader_nonEmptyReader(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L155>)
-
-
-## function testTruncateWriter
-
-
-```haxe
-function testTruncateWriter(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L162>)
-
-
-## function testWriteLogger
-
-
-```haxe
-function testWriteLogger(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L141>)
-
-
-## function testWriteLogger\_errorOnWrite
-
-
-```haxe
-function testWriteLogger_errorOnWrite(_t:stdgo.Ref<stdgo._internal.testing.T_>):Void
-```
-
-
-[\(view code\)](<./Iotest.hx#L142>)
-
-
-## function timeoutReader
-
-
-```haxe
-function timeoutReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
-```
-
-
-[\(view code\)](<./Iotest.hx#L148>)
-
-
-## function truncateWriter
-
-
-```haxe
-function truncateWriter(_w:stdgo._internal.io.Writer, _n:stdgo.GoInt64):stdgo._internal.io.Writer
-```
-
-
-[\(view code\)](<./Iotest.hx#L161>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo._internal.testing.iotest.*
-```
-
-
-## typedef T\_\_struct\_0
-
-
-```haxe
-typedef T__struct_0 = {
-	_want:stdgo.GoString;
-	_trunc:stdgo.GoInt64;
-	_n:stdgo.GoInt;
-	_in:stdgo.GoString;
-};
-```
-
 

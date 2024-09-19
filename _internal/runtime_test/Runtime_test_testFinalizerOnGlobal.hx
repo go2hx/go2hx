@@ -1,0 +1,30 @@
+package _internal.runtime_test;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.unsafe.Unsafe;
+function testFinalizerOnGlobal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
+        stdgo._internal.runtime.Runtime_setFinalizer.setFinalizer(stdgo.Go.toInterface(_internal.runtime_test.Runtime_test_foo1.foo1), stdgo.Go.toInterface(function(_p:stdgo.Ref<_internal.runtime_test.Runtime_test_Object1.Object1>):Void {}));
+        stdgo._internal.runtime.Runtime_setFinalizer.setFinalizer(stdgo.Go.toInterface(_internal.runtime_test.Runtime_test_foo2.foo2), stdgo.Go.toInterface(function(_p:stdgo.Ref<_internal.runtime_test.Runtime_test_Object2.Object2>):Void {}));
+        stdgo._internal.runtime.Runtime_setFinalizer.setFinalizer(stdgo.Go.toInterface(_internal.runtime_test.Runtime_test_foo1.foo1), (null : stdgo.AnyInterface));
+        stdgo._internal.runtime.Runtime_setFinalizer.setFinalizer(stdgo.Go.toInterface(_internal.runtime_test.Runtime_test_foo2.foo2), (null : stdgo.AnyInterface));
+    }

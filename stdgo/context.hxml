@@ -1,0 +1,3 @@
+-m _internal.context_dot_test.Context_dot_test
+-lib go2hx
+-cp .

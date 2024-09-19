@@ -1,3 +1,3 @@
--m stdgo._internal.bytes_test.Bytes
+-m _internal.bytes_dot_test.Bytes_dot_test
 -lib go2hx
 -cp .

@@ -1,0 +1,2 @@
+package stdgo._internal.net.http.httputil;
+var _hopHeaders : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(9, 9, ...[("Connection" : stdgo.GoString), ("Proxy-Connection" : stdgo.GoString), ("Keep-Alive" : stdgo.GoString), ("Proxy-Authenticate" : stdgo.GoString), ("Proxy-Authorization" : stdgo.GoString), ("Te" : stdgo.GoString), ("Trailer" : stdgo.GoString), ("Transfer-Encoding" : stdgo.GoString), ("Upgrade" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

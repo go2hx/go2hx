@@ -1,0 +1,28 @@
+package _internal.runtime_test;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.unsafe.Unsafe;
+@:local @:using(_internal.runtime_test.Runtime_test_T__struct_18_static_extension.T__struct_18_static_extension) typedef T__struct_18 = {
+    public var _numGC : stdgo.GoUInt64;
+    public var _pauses : stdgo.GoUInt64;
+};

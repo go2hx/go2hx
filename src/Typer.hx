@@ -4440,8 +4440,8 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	if (basicType != null)
 		return basicType;
 	path = path.substr(0, last) + pkg;
-	//if (path == "command-line-arguments")
-	//	path = "";
+	if (path == "command-line-arguments")
+		path = "";
 	path = normalizePath(path);
 
 	var pack = path.split("/");

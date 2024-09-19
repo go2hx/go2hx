@@ -194,7 +194,8 @@ jobs:
       - name: Build go2hx compiler
         run: haxe --run Run build
       - name: Run stdgo automatic compile
-        run: haxe scripts/stdgo.hxml -D runnerCount=8
+        run: haxe scripts/stdgo_interp.hxml -D runnerCount=8
+        #run: haxe scripts/stdgo.hxml -D runnerCount=8
         #run: haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Set source
         run: haxelib dev go2hx .

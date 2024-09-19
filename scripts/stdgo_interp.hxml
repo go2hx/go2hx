@@ -1,0 +1,7 @@
+-cp scripts
+-cp src
+-D no-deprecation-warnings
+-D simulate_num
+-dce full
+-D nolinkstd
+--run StdGo

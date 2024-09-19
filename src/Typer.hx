@@ -7369,8 +7369,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 	// destructure
 	if (value.names.length > value.values.length && value.values.length > 0) {
 		var t = typeof(value.values[0], info, false);
-		var tmp = splitDepFullPathName("__tmp__" + (info.blankCounter++), info);
-		var tmpExpr = macro $i{tmp};
+		var tmp = "__tmp__" + (info.blankCounter++);
+		var tmpExpr = macro $i{splitDepFullPathName(tmp, info)};
 		var func = typeExpr(value.values[0], info);
 		var data = castTranslate(value.values[0], func, info);
 		func = data.expr;

@@ -8,4 +8,4 @@
 #--interp
 -lib hxnodejs
 --js export/stdgo.js
---cmd node export/stdgo.js
+--cmd node export/stdgo.js --input-type commonjs

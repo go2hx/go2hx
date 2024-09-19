@@ -1,48 +1,26 @@
 # Module stdgo._internal.os.exec has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec_test.hx:112: characters 23-53
 
-   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.reflect.Reflect_Type_
+ 112 | [2m    public var once : [0m[1mstdgo._internal.sync.Sync.Once[0m[2m;[0m
+     |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.sync.Sync does not define type Once
 
-[30;41m ERROR [0m stdgo/GoString.hx:22: characters 8-53
+     [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
 
-  22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
-     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
+      229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+          |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
 
-[30;41m ERROR [0m stdgo/GoString.hx:157: characters 16-60
+      239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+          |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
 
- 157 | [2m   final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
-     |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
+[30;41m ERROR [0m stdgo/_internal/os/exec_test/Exec.hx:3: characters 26-70
 
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
-
- 930 | [2m[0m[1mclass _Type {[0m
-   - | [2m  [...][0m
- 941 | [1m}[0m[2m[0m
-     |
-     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
-
-          | For function argument 'type'
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
-
- 930 | [2m[0m[1mclass _Type {[0m
-   - | [2m  [...][0m
- 941 | [1m}[0m[2m[0m
-     |
-     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
-
-          | For function argument 'type'
-
-[30;41m ERROR [0m [31m(macro) [0mstdgo/AnyInterface.hx:45: characters 16-27
-
-  45 | [2m  if (gt.match([0m[1minvalidType[0m[2m) || gt2.match(invalidType))[0m
-     |                [31m^^^^^^^^^^^[0m
-     | Pattern variables are not allowed in .match patterns
+   3 | [2mvar _tests : stdgo.Slice<[0m[1mstdgo._internal.testing.Testing.InternalTest[0m[2m> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(32, 32, ...[[0m
+     |                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.testing.Testing does not define type InternalTest
 
 
 ```

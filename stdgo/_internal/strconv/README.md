@@ -1,16 +1,10 @@
 # Module stdgo._internal.strconv has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+[30;41m ERROR [0m stdgo/_internal/strconv_test/Strconv_test.hx:14: characters 17-47
 
-   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.reflect.Reflect_Type_
-
-[30;41m ERROR [0m stdgo/GoMap.hx:525: characters 15-20
-
- 525 | [2m public var t:[0m[1m_Type[0m[2m;[0m
-     |               [31m^^^^^[0m
-     | Type not found : _Type
+ 14 | [2mvar _atofOnce : [0m[1mstdgo._internal.sync.Sync.Once[0m[2m = ({} : stdgo._internal.sync.Sync.Once);[0m
+    |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Module stdgo._internal.sync.Sync does not define type Once
 
 
 ```

@@ -1,16 +1,10 @@
 # Module stdgo._internal.testing.internal.testdeps has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/regexp/syntax/Syntax__parse.hx:418: characters 138-140
 
-  7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-    |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : stdgo._internal.reflect.Reflect_Type_
-
-[30;41m ERROR [0m [31m(macro) [0mstdgo/AnyInterface.hx:45: characters 16-27
-
- 45 | [2m  if (gt.match([0m[1minvalidType[0m[2m) || gt2.match(invalidType))[0m
-    |                [31m^^^^^^^^^^^[0m
-    | Pattern variables are not allowed in .match patterns
+ 418 | [2m                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>; var _1 : stdgo.Error; } = { _0 : [0m[1m_0[0m[2m, _1 : _err };[0m
+     |                                                                                                                                          [31m^^[0m
+     | Unknown identifier : _0
 
 
 ```

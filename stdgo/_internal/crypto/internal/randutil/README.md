@@ -1,11 +1,71 @@
-# Module stdgo._internal.crypto.internal.randutil has compilation errors, please do not use:
+# Module: `stdgo._internal.crypto.internal.randutil`
+
+[(view library index)](../../../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+- [`function maybeReadByte(_r:stdgo._internal.io.Reader):Void`](<#function-maybereadbyte>)
+
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+# Variables
+
+
+```haxe
+import stdgo._internal.crypto.internal.randutil.Randutil_maybeReadByte
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
-
- 7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-   |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Type not found : stdgo._internal.reflect.Reflect_Type_
 
 
+```haxe
+var _closedChan:stdgo.Chan<stdgo._internal.crypto.internal.randutil.T__struct_0>
 ```
+
+
+```haxe
+var _closedChanOnce:stdgo._internal.sync.Once
+```
+
+
+# Functions
+
+
+```haxe
+import stdgo._internal.crypto.internal.randutil.Randutil_maybeReadByte
+```
+
+
+## function maybeReadByte
+
+
+```haxe
+function maybeReadByte(_r:stdgo._internal.io.Reader):Void
+```
+
+
+[\(view code\)](<./Randutil_maybeReadByte.hx#L2>)
+
+
+# Typedefs
+
+
+```haxe
+import stdgo._internal.crypto.internal.randutil.*
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = {
+};
+```
+
 

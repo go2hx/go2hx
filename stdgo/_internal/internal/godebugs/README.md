@@ -1,11 +1,98 @@
-# Module stdgo._internal.internal.godebugs has compilation errors, please do not use:
+# Module: `stdgo._internal.internal.godebugs`
+
+[(view library index)](../../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+- [`function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.internal.godebugs.Info>`](<#function-lookup>)
+
+- [class Info](<#class-info>)
+
+  - [`function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:stdgo.GoInt, ?old:stdgo.GoString, ?opaque:Bool):Void`](<#info-function-new>)
+
+# Variables
+
+
+```haxe
+import stdgo._internal.internal.godebugs.Godebugs_lookup
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
-
- 7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-   |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Type not found : stdgo._internal.reflect.Reflect_Type_
 
 
+```haxe
+var all:stdgo.Slice<stdgo._internal.internal.godebugs.Info>
 ```
+
+
+# Functions
+
+
+```haxe
+import stdgo._internal.internal.godebugs.Godebugs_lookup
+```
+
+
+## function lookup
+
+
+```haxe
+function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.internal.godebugs.Info>
+```
+
+
+[\(view code\)](<./Godebugs_lookup.hx#L2>)
+
+
+# Classes
+
+
+```haxe
+import stdgo._internal.internal.godebugs.*
+```
+
+
+## class Info
+
+
+```haxe
+var changed:stdgo.GoInt
+```
+
+
+```haxe
+var name:stdgo.GoString
+```
+
+
+```haxe
+var old:stdgo.GoString
+```
+
+
+```haxe
+var opaque:Bool
+```
+
+
+```haxe
+var package_:stdgo.GoString
+```
+
+
+### Info function new
+
+
+```haxe
+function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:stdgo.GoInt, ?old:stdgo.GoString, ?opaque:Bool):Void
+```
+
+
+[\(view code\)](<./Godebugs_Info.hx#L8>)
+
 

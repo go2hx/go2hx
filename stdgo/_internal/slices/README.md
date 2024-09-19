@@ -1,16 +1,10 @@
 # Module stdgo._internal.slices has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+[30;41m ERROR [0m stdgo/_internal/slices_test/Slices.hx:3: characters 26-70
 
-   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.reflect.Reflect_Type_
-
-[30;41m ERROR [0m stdgo/_internal/slices/Slices.hx:423: characters 298-301
-
- 423 | [2mmacro function equalFunc<S1, S2, E1, E2>(__generic__0:haxe.macro.Expr.ExprOf<S1>, __generic__1:haxe.macro.Expr.ExprOf<S2>, __generic__2:haxe.macro.Expr.ExprOf<E1>, __generic__3:haxe.macro.Expr.ExprOf<E2>, _s1:haxe.macro.Expr.ExprOf<S1>, _s2:haxe.macro.Expr.ExprOf<S2>, _eq:haxe.macro.Expr.ExprOf<([0m[1m$E1[0m[2m, $E2) -> Bool>):haxe.macro.Expr.ExprOf<Bool>;[0m
-     |                                                                                                                                                                                                                                                                                                          [31m^^^[0m
-     | Type not found : $E1
+ 3 | [2mvar _tests : stdgo.Slice<[0m[1mstdgo._internal.testing.Testing.InternalTest[0m[2m> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(43, 43, ...[[0m
+   |                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Module stdgo._internal.testing.Testing does not define type InternalTest
 
 
 ```

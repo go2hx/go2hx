@@ -1,16 +1,10 @@
 # Module stdgo._internal.math.big has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+[30;41m ERROR [0m stdgo/_internal/math/big_test/Big_test.hx:613: characters 30-63
 
-  7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-    |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : stdgo._internal.reflect.Reflect_Type_
-
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:17: characters 37-43
-
- 17 | [2m public function __convert__(toType:[0m[1mGoType[0m[2m):Any {[0m
-    |                                     [31m^^^^^^[0m
-    | Type not found : GoType
+ 613 | [2mfunction _equal(_z:stdgo.Ref<[0m[1mstdgo._internal.math.big.Big.Int_[0m[2m>, _x:stdgo.Ref<stdgo._internal.math.big.Big.Int_>):Bool {[0m
+     |                              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.math.big.Big does not define type Int_
 
 
 ```

@@ -970,6 +970,11 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	if (list != null) {
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	}
+	if (list != null && info.global.gotoSystem && isFunc) {
+		exprs = [macro {
+			stdgo._internal.internal.Macro.controlFlow($b{exprs});
+		}];
+	}
 	//trace(list != null, info.global.deferBool, isFunc);
 	if (list != null && info.global.deferBool && isFunc) { // defer system
 		final ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
@@ -1011,7 +1016,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 private function typeLabeledStmt(stmt:Ast.LabeledStmt, info:Info):ExprDef {
 	final name = makeString(stmt.label.name);
 	var stmtExpr = typeStmt(stmt.stmt, info);
-	info.gotoSystem = true;
+	info.global.gotoSystem = true;
 	return (macro @:label($name) $stmtExpr).expr;
 }
 
@@ -5290,6 +5295,7 @@ private function complexTypeElem(ct:ComplexType, index:Int = 0):ComplexType {
 private function funcReset(info:Info) {
 	info.global.deferBool = false;
 	info.global.recoverBool = false;
+	info.global.gotoSystem = false;
 }
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
@@ -5713,7 +5719,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.classNames = data.classNames.copy();
 	info.renameIdents = data.renameIdents.copy();
 	info.localIdents = data.localIdents.copy();
-	info.gotoSystem = false;
+	info.global.gotoSystem = false;
 	info.global = data.global;
 	info.global.deferBool = false;
 	info.locals = data.locals.copy();
@@ -5834,20 +5840,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	block = argsTranslate(args, block, decl.type.params, info, recvArg);
 
 	info.restricted = [];
-	if (info.gotoSystem) {
-		var e = macro stdgo._internal.internal.Macro.controlFlow($block);
-		if (decl.type.results != null && decl.type.results.list.length > 0) {
-			// final ret = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
-			block = macro {
-				$e;
-				throw "controlFlow did not return";
-			};
-		} else {
-			block = macro {
-				$e;
-			};
-		}
-	}
 	var doc = getDocComment(decl);
 	var preamble = "// #go2hx ";
 	var index = doc.indexOf(preamble);
@@ -7713,6 +7705,7 @@ function normalizePath(path:String):String {
 }
 
 class Global {
+	public var gotoSystem:Bool = false;
 	public var recoverBool:Bool = false;
 	public var deferBool:Bool = false;
 	public var debugBool:Bool = false;
@@ -7773,7 +7766,6 @@ class Info {
 	public var restricted:Array<String> = [];
 	public var thisName:String = "";
 	public var funcName:String = "";
-	public var gotoSystem:Bool = false;
 	public var returnNames:Array<String> = [];
 	public var returnType:ComplexType = null;
 	public var returnNamed:Bool;

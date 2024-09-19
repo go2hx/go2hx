@@ -1,0 +1,146 @@
+package stdgo._internal.math.big;
+class Int__asInterface {
+    @:keep
+    public dynamic function _scaleDenom(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _f:stdgo._internal.math.big.Big_T_nat.T_nat):Void __self__.value._scaleDenom(_x, _f);
+    @:keep
+    public dynamic function probablyPrime(_n:stdgo.GoInt):Bool return __self__.value.probablyPrime(_n);
+    @:keep
+    public dynamic function unmarshalJSON(_text:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return __self__.value.unmarshalJSON(_text);
+    @:keep
+    public dynamic function marshalJSON():{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return __self__.value.marshalJSON();
+    @:keep
+    public dynamic function unmarshalText(_text:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return __self__.value.unmarshalText(_text);
+    @:keep
+    public dynamic function marshalText():{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return __self__.value.marshalText();
+    @:keep
+    public dynamic function gobDecode(_buf:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return __self__.value.gobDecode(_buf);
+    @:keep
+    public dynamic function gobEncode():{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return __self__.value.gobEncode();
+    @:keep
+    public dynamic function scan(_s:stdgo._internal.fmt.Fmt_ScanState.ScanState, _ch:stdgo.GoInt32):stdgo.Error return __self__.value.scan(_s, _ch);
+    @:keep
+    public dynamic function _scan(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } return __self__.value._scan(_r, _base);
+    @:keep
+    public dynamic function format(_s:stdgo._internal.fmt.Fmt_State.State, _ch:stdgo.GoInt32):Void __self__.value.format(_s, _ch);
+    @:keep
+    public dynamic function string():stdgo.GoString return __self__.value.string();
+    @:keep
+    public dynamic function append(_buf:stdgo.Slice<stdgo.GoUInt8>, _base:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> return __self__.value.append(_buf, _base);
+    @:keep
+    public dynamic function text(_base:stdgo.GoInt):stdgo.GoString return __self__.value.text(_base);
+    @:keep
+    public dynamic function sqrt(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.sqrt(_x);
+    @:keep
+    public dynamic function not(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.not(_x);
+    @:keep
+    public dynamic function xor(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.xor(_x, _y);
+    @:keep
+    public dynamic function or(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.or(_x, _y);
+    @:keep
+    public dynamic function andNot(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.andNot(_x, _y);
+    @:keep
+    public dynamic function and(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.and(_x, _y);
+    @:keep
+    public dynamic function setBit(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _i:stdgo.GoInt, _b:stdgo.GoUInt):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.setBit(_x, _i, _b);
+    @:keep
+    public dynamic function bit(_i:stdgo.GoInt):stdgo.GoUInt return __self__.value.bit(_i);
+    @:keep
+    public dynamic function rsh(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _n:stdgo.GoUInt):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.rsh(_x, _n);
+    @:keep
+    public dynamic function lsh(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _n:stdgo.GoUInt):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.lsh(_x, _n);
+    @:keep
+    public dynamic function modSqrt(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _p:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.modSqrt(_x, _p);
+    @:keep
+    public dynamic function _modSqrtTonelliShanks(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _p:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value._modSqrtTonelliShanks(_x, _p);
+    @:keep
+    public dynamic function _modSqrt5Mod8Prime(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _p:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value._modSqrt5Mod8Prime(_x, _p);
+    @:keep
+    public dynamic function _modSqrt3Mod4Prime(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _p:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value._modSqrt3Mod4Prime(_x, _p);
+    @:keep
+    public dynamic function modInverse(_g:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _n:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.modInverse(_g, _n);
+    @:keep
+    public dynamic function rand(_rnd:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>, _n:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.rand(_rnd, _n);
+    @:keep
+    public dynamic function _lehmerGCD(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _a:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _b:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value._lehmerGCD(_x, _y, _a, _b);
+    @:keep
+    public dynamic function gcd(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _a:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _b:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.gcd(_x, _y, _a, _b);
+    @:keep
+    public dynamic function _exp(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _m:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _slow:Bool):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value._exp(_x, _y, _m, _slow);
+    @:keep
+    public dynamic function _expSlow(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _m:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value._expSlow(_x, _y, _m);
+    @:keep
+    public dynamic function exp(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _m:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.exp(_x, _y, _m);
+    @:keep
+    public dynamic function trailingZeroBits():stdgo.GoUInt return __self__.value.trailingZeroBits();
+    @:keep
+    public dynamic function bitLen():stdgo.GoInt return __self__.value.bitLen();
+    @:keep
+    public dynamic function fillBytes(_buf:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> return __self__.value.fillBytes(_buf);
+    @:keep
+    public dynamic function bytes():stdgo.Slice<stdgo.GoUInt8> return __self__.value.bytes();
+    @:keep
+    public dynamic function setBytes(_buf:stdgo.Slice<stdgo.GoUInt8>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.setBytes(_buf);
+    @:keep
+    public dynamic function _setFromScanner(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : Bool; } return __self__.value._setFromScanner(_r, _base);
+    @:keep
+    public dynamic function setString(_s:stdgo.GoString, _base:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : Bool; } return __self__.value.setString(_s, _base);
+    @:keep
+    public dynamic function float64():{ var _0 : stdgo.GoFloat64; var _1 : stdgo._internal.math.big.Big_Accuracy.Accuracy; } return __self__.value.float64();
+    @:keep
+    public dynamic function isUint64():Bool return __self__.value.isUint64();
+    @:keep
+    public dynamic function isInt64():Bool return __self__.value.isInt64();
+    @:keep
+    public dynamic function uint64():stdgo.GoUInt64 return __self__.value.uint64();
+    @:keep
+    public dynamic function int64():stdgo.GoInt64 return __self__.value.int64();
+    @:keep
+    public dynamic function cmpAbs(_y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.GoInt return __self__.value.cmpAbs(_y);
+    @:keep
+    public dynamic function cmp(_y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.GoInt return __self__.value.cmp(_y);
+    @:keep
+    public dynamic function divMod(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _m:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return __self__.value.divMod(_x, _y, _m);
+    @:keep
+    public dynamic function mod(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.mod(_x, _y);
+    @:keep
+    public dynamic function div(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.div(_x, _y);
+    @:keep
+    public dynamic function quoRem(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _r:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } return __self__.value.quoRem(_x, _y, _r);
+    @:keep
+    public dynamic function rem(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.rem(_x, _y);
+    @:keep
+    public dynamic function quo(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.quo(_x, _y);
+    @:keep
+    public dynamic function binomial(_n:stdgo.GoInt64, _k:stdgo.GoInt64):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.binomial(_n, _k);
+    @:keep
+    public dynamic function mulRange(_a:stdgo.GoInt64, _b:stdgo.GoInt64):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.mulRange(_a, _b);
+    @:keep
+    public dynamic function mul(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.mul(_x, _y);
+    @:keep
+    public dynamic function sub(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.sub(_x, _y);
+    @:keep
+    public dynamic function add(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.add(_x, _y);
+    @:keep
+    public dynamic function neg(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.neg(_x);
+    @:keep
+    public dynamic function abs(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.abs(_x);
+    @:keep
+    public dynamic function setBits(_abs:stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.setBits(_abs);
+    @:keep
+    public dynamic function bits():stdgo.Slice<stdgo._internal.math.big.Big_Word.Word> return __self__.value.bits();
+    @:keep
+    public dynamic function set(_x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.set(_x);
+    @:keep
+    public dynamic function setUint64(_x:stdgo.GoUInt64):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.setUint64(_x);
+    @:keep
+    public dynamic function setInt64(_x:stdgo.GoInt64):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> return __self__.value.setInt64(_x);
+    @:keep
+    public dynamic function sign():stdgo.GoInt return __self__.value.sign();
+    public function new(__self__, __type__) {
+        this.__self__ = __self__;
+        this.__type__ = __type__;
+    }
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<stdgo._internal.math.big.Big_Int_.Int_>;
+    var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
+}

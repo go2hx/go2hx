@@ -1,0 +1,9 @@
+package _internal.reflect_test;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.reflect.Reflect;
+import stdgo._internal.reflect.Reflect;
+@:local @:using(_internal.reflect_test.Reflect_test_T__struct_56_static_extension.T__struct_56_static_extension) typedef T__struct_56 = {
+    public var _x : stdgo.Ref<stdgo._internal.testing.Testing_T_.T_> -> Void;
+};

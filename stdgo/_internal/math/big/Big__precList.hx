@@ -1,0 +1,22 @@
+package stdgo._internal.math.big;
+var _precList : stdgo.GoArray<stdgo.GoUInt> = (new stdgo.GoArray<stdgo.GoUInt>(20, 20, ...[
+(1u32 : stdgo.GoUInt),
+(2u32 : stdgo.GoUInt),
+(5u32 : stdgo.GoUInt),
+(8u32 : stdgo.GoUInt),
+(10u32 : stdgo.GoUInt),
+(16u32 : stdgo.GoUInt),
+(23u32 : stdgo.GoUInt),
+(24u32 : stdgo.GoUInt),
+(32u32 : stdgo.GoUInt),
+(50u32 : stdgo.GoUInt),
+(53u32 : stdgo.GoUInt),
+(64u32 : stdgo.GoUInt),
+(100u32 : stdgo.GoUInt),
+(128u32 : stdgo.GoUInt),
+(500u32 : stdgo.GoUInt),
+(511u32 : stdgo.GoUInt),
+(512u32 : stdgo.GoUInt),
+(513u32 : stdgo.GoUInt),
+(1000u32 : stdgo.GoUInt),
+(10000u32 : stdgo.GoUInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt>);

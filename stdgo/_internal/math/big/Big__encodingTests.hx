@@ -1,0 +1,2 @@
+package stdgo._internal.math.big;
+var _encodingTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(7, 7, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("2" : stdgo.GoString), ("10" : stdgo.GoString), ("1000" : stdgo.GoString), ("1234567890" : stdgo.GoString), ("298472983472983471903246121093472394872319615612417471234712061" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

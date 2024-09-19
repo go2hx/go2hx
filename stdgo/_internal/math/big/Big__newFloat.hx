@@ -1,0 +1,6 @@
+package stdgo._internal.math.big;
+function _newFloat(_prec2:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> {
+        var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        _z._mant = _z._mant._make((((_prec2 / (32u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt) * (2 : stdgo.GoInt) : stdgo.GoInt));
+        return _z;
+    }

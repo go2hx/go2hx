@@ -1,3 +1,3 @@
--m stdgo._internal.os.exec_test.Exec
+-m _internal.os.exec_dot_test.Exec_dot_test
 -lib go2hx
 -cp .

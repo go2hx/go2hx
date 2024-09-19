@@ -1,0 +1,31 @@
+package stdgo._internal.testing;
+@:keep @:allow(stdgo._internal.testing.Testing.T_matchStringOnly_asInterface) class T_matchStringOnly_static_extension {
+    @:keep
+    static public function snapshotCoverage( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly):Void throw "T_matchStringOnly:testing.snapshotCoverage is not yet implemented";
+    @:keep
+    static public function resetCoverage( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly):Void throw "T_matchStringOnly:testing.resetCoverage is not yet implemented";
+    @:keep
+    static public function checkCorpus( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly, _0:stdgo.Slice<stdgo.AnyInterface>, _1:stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>):stdgo.Error throw "T_matchStringOnly:testing.checkCorpus is not yet implemented";
+    @:keep
+    static public function readCorpus( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly, _0:stdgo.GoString, _1:stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>):{ var _0 : stdgo.Slice<stdgo._internal.testing.Testing_T_corpusEntry.T_corpusEntry>; var _1 : stdgo.Error; } throw "T_matchStringOnly:testing.readCorpus is not yet implemented";
+    @:keep
+    static public function runFuzzWorker( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly, _0:stdgo._internal.testing.Testing_T_corpusEntry.T_corpusEntry -> stdgo.Error):stdgo.Error throw "T_matchStringOnly:testing.runFuzzWorker is not yet implemented";
+    @:keep
+    static public function coordinateFuzzing( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly, _0:stdgo._internal.time.Time_Duration.Duration, _1:stdgo.GoInt64, _2:stdgo._internal.time.Time_Duration.Duration, _3:stdgo.GoInt64, _4:stdgo.GoInt, _5:stdgo.Slice<stdgo._internal.testing.Testing_T_corpusEntry.T_corpusEntry>, _6:stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>, _7:stdgo.GoString, _8:stdgo.GoString):stdgo.Error throw "T_matchStringOnly:testing.coordinateFuzzing is not yet implemented";
+    @:keep
+    static public function setPanicOnExit0( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly, _0:Bool):Void throw "T_matchStringOnly:testing.setPanicOnExit0 is not yet implemented";
+    @:keep
+    static public function stopTestLog( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly):stdgo.Error throw "T_matchStringOnly:testing.stopTestLog is not yet implemented";
+    @:keep
+    static public function startTestLog( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly, _0:stdgo._internal.io.Io_Writer.Writer):Void throw "T_matchStringOnly:testing.startTestLog is not yet implemented";
+    @:keep
+    static public function importPath( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly):stdgo.GoString throw "T_matchStringOnly:testing.importPath is not yet implemented";
+    @:keep
+    static public function writeProfileTo( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly, _0:stdgo.GoString, _1:stdgo._internal.io.Io_Writer.Writer, _2:stdgo.GoInt):stdgo.Error throw "T_matchStringOnly:testing.writeProfileTo is not yet implemented";
+    @:keep
+    static public function stopCPUProfile( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly):Void throw "T_matchStringOnly:testing.stopCPUProfile is not yet implemented";
+    @:keep
+    static public function startCPUProfile( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly, _w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error throw "T_matchStringOnly:testing.startCPUProfile is not yet implemented";
+    @:keep
+    static public function matchString( _f:stdgo._internal.testing.Testing_T_matchStringOnly.T_matchStringOnly, _pat:stdgo.GoString, _str:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } throw "T_matchStringOnly:testing.matchString is not yet implemented";
+}

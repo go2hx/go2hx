@@ -1,0 +1,2 @@
+package stdgo._internal.debug.macho;
+final __RelocTypeGeneric_name : stdgo.GoString = ("GENERIC_RELOC_VANILLAGENERIC_RELOC_PAIRGENERIC_RELOC_SECTDIFFGENERIC_RELOC_PB_LA_PTRGENERIC_RELOC_LOCAL_SECTDIFFGENERIC_RELOC_TLV" : stdgo.GoString);

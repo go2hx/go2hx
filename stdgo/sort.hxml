@@ -1,3 +1,3 @@
--m stdgo._internal.sort_test.Sort
+-m _internal.sort_dot_test.Sort_dot_test
 -lib go2hx
 -cp .

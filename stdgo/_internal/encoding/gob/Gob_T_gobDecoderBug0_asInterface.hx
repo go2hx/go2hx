@@ -1,0 +1,16 @@
+package stdgo._internal.encoding.gob;
+class T_gobDecoderBug0_asInterface {
+    @:keep
+    public dynamic function gobDecode(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error return __self__.value.gobDecode(_b);
+    @:keep
+    public dynamic function gobEncode():{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return __self__.value.gobEncode();
+    @:keep
+    public dynamic function string():stdgo.GoString return __self__.value.string();
+    public function new(__self__, __type__) {
+        this.__self__ = __self__;
+        this.__type__ = __type__;
+    }
+    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);
+    var __self__ : stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0.T_gobDecoderBug0>;
+    var __type__ : stdgo._internal.internal.reflect.Reflect._Type;
+}

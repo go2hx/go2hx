@@ -1,0 +1,2 @@
+package stdgo._internal.encoding.json;
+var _unmarshalSyntaxTests : stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(8, 8, ...[("tru" : stdgo.GoString), ("fals" : stdgo.GoString), ("nul" : stdgo.GoString), ("123e" : stdgo.GoString), ("\"hello" : stdgo.GoString), ("[1,2,3" : stdgo.GoString), ("{\"key\":1" : stdgo.GoString), ("{\"key\":1," : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);

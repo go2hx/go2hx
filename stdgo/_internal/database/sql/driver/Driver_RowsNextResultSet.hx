@@ -1,0 +1,20 @@
+package stdgo._internal.database.sql.driver;
+typedef RowsNextResultSet = stdgo.StructType & {
+    > stdgo._internal.database.sql.driver.Driver_Rows.Rows,
+    /**
+        HasNextResultSet is called at the end of the current result set and
+        reports whether there is another result set after the current one.
+        
+        
+    **/
+    public dynamic function hasNextResultSet():Bool;
+    /**
+        NextResultSet advances the driver to the next result set even
+        if there are remaining rows in the current result set.
+        
+        NextResultSet should return io.EOF when there are no more result sets.
+        
+        
+    **/
+    public dynamic function nextResultSet():stdgo.Error;
+};

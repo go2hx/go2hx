@@ -1,0 +1,12 @@
+package stdgo._internal.io.fs;
+typedef GlobFS = stdgo.StructType & {
+    > stdgo._internal.io.fs.Fs_FS.FS,
+    /**
+        Glob returns the names of all files matching pattern,
+        providing an implementation of the top-level
+        Glob function.
+        
+        
+    **/
+    public dynamic function glob(_pattern:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; };
+};

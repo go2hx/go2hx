@@ -1,0 +1,26 @@
+package _internal.sync.atomic_test;
+import stdgo._internal.sync.atomic_.Atomic_;
+import stdgo._internal.sync.atomic_.Atomic_;
+var _hammer64 : stdgo.GoMap<stdgo.GoString, (stdgo.Pointer<stdgo.GoUInt64>, stdgo.GoInt) -> Void> = ({
+        final x = new stdgo.GoMap.GoStringMap<(stdgo.Pointer<stdgo.GoUInt64>, stdgo.GoInt) -> Void>();
+        x.__defaultValue__ = () -> null;
+        x.set(("SwapInt64" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerSwapInt64._hammerSwapInt64);
+x.set(("SwapUint64" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerSwapUint64._hammerSwapUint64);
+x.set(("SwapUintptr" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerSwapUintptr64._hammerSwapUintptr64);
+x.set(("AddInt64" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerAddInt64._hammerAddInt64);
+x.set(("AddUint64" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerAddUint64._hammerAddUint64);
+x.set(("AddUintptr" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerAddUintptr64._hammerAddUintptr64);
+x.set(("CompareAndSwapInt64" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerCompareAndSwapInt64._hammerCompareAndSwapInt64);
+x.set(("CompareAndSwapUint64" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerCompareAndSwapUint64._hammerCompareAndSwapUint64);
+x.set(("CompareAndSwapUintptr" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerCompareAndSwapUintptr64._hammerCompareAndSwapUintptr64);
+x.set(("SwapInt64Method" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerSwapInt64Method._hammerSwapInt64Method);
+x.set(("SwapUint64Method" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerSwapUint64Method._hammerSwapUint64Method);
+x.set(("SwapUintptrMethod" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerSwapUintptr64Method._hammerSwapUintptr64Method);
+x.set(("AddInt64Method" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerAddInt64Method._hammerAddInt64Method);
+x.set(("AddUint64Method" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerAddUint64Method._hammerAddUint64Method);
+x.set(("AddUintptrMethod" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerAddUintptr64Method._hammerAddUintptr64Method);
+x.set(("CompareAndSwapInt64Method" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerCompareAndSwapInt64Method._hammerCompareAndSwapInt64Method);
+x.set(("CompareAndSwapUint64Method" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerCompareAndSwapUint64Method._hammerCompareAndSwapUint64Method);
+x.set(("CompareAndSwapUintptrMethod" : stdgo.GoString), _internal.sync.atomic_test.Atomic_test__hammerCompareAndSwapUintptr64Method._hammerCompareAndSwapUintptr64Method);
+        x;
+    } : stdgo.GoMap<stdgo.GoString, (stdgo.Pointer<stdgo.GoUInt64>, stdgo.GoInt) -> Void>);

@@ -1,0 +1,31 @@
+package _internal.runtime_test;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.runtime.Runtime;
+import stdgo._internal.unsafe.Unsafe;
+import stdgo._internal.unsafe.Unsafe;
+function _parallelReader(_m:stdgo.Ref<stdgo._internal.runtime.Runtime_RWMutex.RWMutex>, _clocked:stdgo.Chan<Bool>, _cunlock:stdgo.Ref<stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_>, _cdone:stdgo.Chan<Bool>):Void {
+        _m.rlock();
+        _clocked.__send__(true);
+        while (!_cunlock.load()) {};
+        _m.runlock();
+        _cdone.__send__(true);
+    }

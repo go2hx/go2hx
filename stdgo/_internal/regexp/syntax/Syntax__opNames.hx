@@ -1,0 +1,24 @@
+package stdgo._internal.regexp.syntax;
+var _opNames : stdgo.Slice<stdgo.GoString> = {
+        var s = new stdgo.Slice<stdgo.GoString>(20, 0).__setString__();
+        s[1] = ("no" : stdgo.GoString);
+        s[2] = ("emp" : stdgo.GoString);
+        s[3] = ("lit" : stdgo.GoString);
+        s[4] = ("cc" : stdgo.GoString);
+        s[5] = ("dnl" : stdgo.GoString);
+        s[6] = ("dot" : stdgo.GoString);
+        s[7] = ("bol" : stdgo.GoString);
+        s[8] = ("eol" : stdgo.GoString);
+        s[9] = ("bot" : stdgo.GoString);
+        s[10] = ("eot" : stdgo.GoString);
+        s[11] = ("wb" : stdgo.GoString);
+        s[12] = ("nwb" : stdgo.GoString);
+        s[13] = ("cap" : stdgo.GoString);
+        s[14] = ("star" : stdgo.GoString);
+        s[15] = ("plus" : stdgo.GoString);
+        s[16] = ("que" : stdgo.GoString);
+        s[17] = ("rep" : stdgo.GoString);
+        s[18] = ("cat" : stdgo.GoString);
+        s[19] = ("alt" : stdgo.GoString);
+        s;
+    };

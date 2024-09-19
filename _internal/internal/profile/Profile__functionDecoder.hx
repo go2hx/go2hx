@@ -1,0 +1,12 @@
+package _internal.internal.profile;
+var _functionDecoder : stdgo.Slice<_internal.internal.profile.Profile_T_decoder.T_decoder> = (new stdgo.Slice<_internal.internal.profile.Profile_T_decoder.T_decoder>(6, 6, ...[null, function(_b:stdgo.Ref<_internal.internal.profile.Profile_T_buffer.T_buffer>, _m:_internal.internal.profile.Profile_T_message.T_message):stdgo.Error {
+        return _internal.internal.profile.Profile__decodeUint64._decodeUint64(_b, stdgo.Go.pointer((stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>)) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>).id));
+    }, function(_b:stdgo.Ref<_internal.internal.profile.Profile_T_buffer.T_buffer>, _m:_internal.internal.profile.Profile_T_message.T_message):stdgo.Error {
+        return _internal.internal.profile.Profile__decodeInt64._decodeInt64(_b, stdgo.Go.pointer((stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>)) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>)._nameX));
+    }, function(_b:stdgo.Ref<_internal.internal.profile.Profile_T_buffer.T_buffer>, _m:_internal.internal.profile.Profile_T_message.T_message):stdgo.Error {
+        return _internal.internal.profile.Profile__decodeInt64._decodeInt64(_b, stdgo.Go.pointer((stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>)) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>)._systemNameX));
+    }, function(_b:stdgo.Ref<_internal.internal.profile.Profile_T_buffer.T_buffer>, _m:_internal.internal.profile.Profile_T_message.T_message):stdgo.Error {
+        return _internal.internal.profile.Profile__decodeInt64._decodeInt64(_b, stdgo.Go.pointer((stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>)) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>)._filenameX));
+    }, function(_b:stdgo.Ref<_internal.internal.profile.Profile_T_buffer.T_buffer>, _m:_internal.internal.profile.Profile_T_message.T_message):stdgo.Error {
+        return _internal.internal.profile.Profile__decodeInt64._decodeInt64(_b, stdgo.Go.pointer((stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>)) : stdgo.Ref<_internal.internal.profile.Profile_Function.Function>).startLine));
+    }]) : stdgo.Slice<_internal.internal.profile.Profile_T_decoder.T_decoder>);

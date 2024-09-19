@@ -1,0 +1,22 @@
+package stdgo._internal.encoding.gob;
+var _encOpTable : stdgo.GoArray<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = {
+        var s:stdgo.GoArray<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = new stdgo.GoArray<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>(25, 25, ...[for (i in 0 ... 25) (null : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp)]);
+        s[1] = stdgo._internal.encoding.gob.Gob__encBool._encBool;
+        s[2] = stdgo._internal.encoding.gob.Gob__encInt._encInt;
+        s[3] = stdgo._internal.encoding.gob.Gob__encInt._encInt;
+        s[4] = stdgo._internal.encoding.gob.Gob__encInt._encInt;
+        s[5] = stdgo._internal.encoding.gob.Gob__encInt._encInt;
+        s[6] = stdgo._internal.encoding.gob.Gob__encInt._encInt;
+        s[7] = stdgo._internal.encoding.gob.Gob__encUint._encUint;
+        s[8] = stdgo._internal.encoding.gob.Gob__encUint._encUint;
+        s[9] = stdgo._internal.encoding.gob.Gob__encUint._encUint;
+        s[10] = stdgo._internal.encoding.gob.Gob__encUint._encUint;
+        s[11] = stdgo._internal.encoding.gob.Gob__encUint._encUint;
+        s[12] = stdgo._internal.encoding.gob.Gob__encUint._encUint;
+        s[13] = stdgo._internal.encoding.gob.Gob__encFloat._encFloat;
+        s[14] = stdgo._internal.encoding.gob.Gob__encFloat._encFloat;
+        s[15] = stdgo._internal.encoding.gob.Gob__encComplex._encComplex;
+        s[16] = stdgo._internal.encoding.gob.Gob__encComplex._encComplex;
+        s[24] = stdgo._internal.encoding.gob.Gob__encString._encString;
+        s;
+    };

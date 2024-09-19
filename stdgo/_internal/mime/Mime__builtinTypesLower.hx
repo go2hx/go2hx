@@ -1,0 +1,22 @@
+package stdgo._internal.mime;
+var _builtinTypesLower : stdgo.GoMap<stdgo.GoString, stdgo.GoString> = ({
+        final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
+        x.__defaultValue__ = () -> ("" : stdgo.GoString);
+        x.set((".avif" : stdgo.GoString), ("image/avif" : stdgo.GoString));
+x.set((".css" : stdgo.GoString), ("text/css; charset=utf-8" : stdgo.GoString));
+x.set((".gif" : stdgo.GoString), ("image/gif" : stdgo.GoString));
+x.set((".htm" : stdgo.GoString), ("text/html; charset=utf-8" : stdgo.GoString));
+x.set((".html" : stdgo.GoString), ("text/html; charset=utf-8" : stdgo.GoString));
+x.set((".jpeg" : stdgo.GoString), ("image/jpeg" : stdgo.GoString));
+x.set((".jpg" : stdgo.GoString), ("image/jpeg" : stdgo.GoString));
+x.set((".js" : stdgo.GoString), ("text/javascript; charset=utf-8" : stdgo.GoString));
+x.set((".json" : stdgo.GoString), ("application/json" : stdgo.GoString));
+x.set((".mjs" : stdgo.GoString), ("text/javascript; charset=utf-8" : stdgo.GoString));
+x.set((".pdf" : stdgo.GoString), ("application/pdf" : stdgo.GoString));
+x.set((".png" : stdgo.GoString), ("image/png" : stdgo.GoString));
+x.set((".svg" : stdgo.GoString), ("image/svg+xml" : stdgo.GoString));
+x.set((".wasm" : stdgo.GoString), ("application/wasm" : stdgo.GoString));
+x.set((".webp" : stdgo.GoString), ("image/webp" : stdgo.GoString));
+x.set((".xml" : stdgo.GoString), ("text/xml; charset=utf-8" : stdgo.GoString));
+        x;
+    } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);

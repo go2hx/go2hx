@@ -1,0 +1,2 @@
+package _internal.vendor.golang_dot_org.x.net.http2.hpack;
+var _errVarintOverflow : _internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_DecodingError.DecodingError = (new _internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_DecodingError.DecodingError(stdgo._internal.errors.Errors_new_.new_(("varint integer overflow" : stdgo.GoString))) : _internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_DecodingError.DecodingError);

@@ -1,0 +1,2 @@
+package stdgo._internal.runtime.pprof;
+var _mutexProfile : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = (stdgo.Go.setRef(({ _name : ("mutex" : stdgo.GoString), _count : stdgo._internal.runtime.pprof.Pprof__countMutex._countMutex, _write : stdgo._internal.runtime.pprof.Pprof__writeMutex._writeMutex } : stdgo._internal.runtime.pprof.Pprof_Profile.Profile)) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);

@@ -1,0 +1,2 @@
+package stdgo._internal.net.http;
+var _htmlReplacer : stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer> = stdgo._internal.strings.Strings_newReplacer.newReplacer(("&" : stdgo.GoString), ("&amp;" : stdgo.GoString), ("<" : stdgo.GoString), ("&lt;" : stdgo.GoString), (">" : stdgo.GoString), ("&gt;" : stdgo.GoString), ("\"" : stdgo.GoString), ("&#34;" : stdgo.GoString), ("\'" : stdgo.GoString), ("&#39;" : stdgo.GoString));

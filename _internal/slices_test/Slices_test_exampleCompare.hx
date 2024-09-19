@@ -1,0 +1,8 @@
+package _internal.slices_test;
+function exampleCompare():Void {
+        var _names = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Alice" : stdgo.GoString), ("Bob" : stdgo.GoString), ("Vera" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
+        stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(("Equal:" : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.slices.Slices_compare.compare(_names, (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Alice" : stdgo.GoString), ("Bob" : stdgo.GoString), ("Vera" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>))));
+        stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(("V < X:" : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.slices.Slices_compare.compare(_names, (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Alice" : stdgo.GoString), ("Bob" : stdgo.GoString), ("Xena" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>))));
+        stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(("V > C:" : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.slices.Slices_compare.compare(_names, (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("Alice" : stdgo.GoString), ("Bob" : stdgo.GoString), ("Cat" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>))));
+        stdgo._internal.fmt.Fmt_println.println(stdgo.Go.toInterface(("3 > 2:" : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.slices.Slices_compare.compare(_names, (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("Alice" : stdgo.GoString), ("Bob" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>))));
+    }

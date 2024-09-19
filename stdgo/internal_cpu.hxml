@@ -1,0 +1,3 @@
+-m _internal.internal.cpu_dot_test.Cpu_dot_test
+-lib go2hx
+-cp .

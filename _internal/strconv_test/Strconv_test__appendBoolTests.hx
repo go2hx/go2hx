@@ -1,0 +1,13 @@
+package _internal.strconv_test;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+var _appendBoolTests : stdgo.Slice<_internal.strconv_test.Strconv_test_T_appendBoolTest.T_appendBoolTest> = (new stdgo.Slice<_internal.strconv_test.Strconv_test_T_appendBoolTest.T_appendBoolTest>(2, 2, ...[(new _internal.strconv_test.Strconv_test_T_appendBoolTest.T_appendBoolTest(true, (("foo " : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), (("foo true" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) : _internal.strconv_test.Strconv_test_T_appendBoolTest.T_appendBoolTest), (new _internal.strconv_test.Strconv_test_T_appendBoolTest.T_appendBoolTest(false, (("foo " : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), (("foo false" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)) : _internal.strconv_test.Strconv_test_T_appendBoolTest.T_appendBoolTest)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : _internal.strconv_test.Strconv_test_T_appendBoolTest.T_appendBoolTest)])) : stdgo.Slice<_internal.strconv_test.Strconv_test_T_appendBoolTest.T_appendBoolTest>);

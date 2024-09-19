@@ -1,0 +1,11 @@
+package stdgo._internal.net.http;
+@:keep @:allow(stdgo._internal.net.http.Http.T_fakeLocker_asInterface) class T_fakeLocker_static_extension {
+    @:keep
+    static public function unlock( _:stdgo._internal.net.http.Http_T_fakeLocker.T_fakeLocker):Void {
+        @:recv var _:stdgo._internal.net.http.Http_T_fakeLocker.T_fakeLocker = _?.__copy__();
+    }
+    @:keep
+    static public function lock( _:stdgo._internal.net.http.Http_T_fakeLocker.T_fakeLocker):Void {
+        @:recv var _:stdgo._internal.net.http.Http_T_fakeLocker.T_fakeLocker = _?.__copy__();
+    }
+}

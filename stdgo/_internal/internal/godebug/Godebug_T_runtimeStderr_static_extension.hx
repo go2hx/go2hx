@@ -1,0 +1,6 @@
+package stdgo._internal.internal.godebug;
+import stdgo._internal.unsafe.Unsafe;
+@:keep @:allow(stdgo._internal.internal.godebug.Godebug.T_runtimeStderr_asInterface) class T_runtimeStderr_static_extension {
+    @:keep
+    static public function write( _:stdgo.Ref<stdgo._internal.internal.godebug.Godebug_T_runtimeStderr.T_runtimeStderr>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } throw "T_runtimeStderr:internal.godebug.write is not yet implemented";
+}

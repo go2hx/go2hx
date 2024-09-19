@@ -1,0 +1,13 @@
+package _internal.strconv_test;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+import stdgo._internal.strconv.Strconv;
+var _infpm : stdgo.GoComplex128 = new stdgo.GoComplex128(stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)), stdgo._internal.math.Math_inf.inf((-1 : stdgo.GoInt)));

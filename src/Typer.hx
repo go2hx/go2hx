@@ -132,8 +132,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 
 		if (pkg.order != null) {
 			pkg.order = pkg.order.map(s -> {
-				final name = nameIdent(s, false, true, info);
-				info.localIdents.remove(name);
+				final name = formatHaxeFieldName(s,info);
 				name;
 			});
 		} else {
@@ -4176,7 +4175,6 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 						final recv = method.recv;
 						final type = method.type;
 						final name = formatHaxeFieldName(method.name, info);
-						info.renameIdents.remove(method.name);
 						methods.push({
 							name: name,
 							type: {get: () -> typeof(type, info, false, paths.copy())},
@@ -5720,8 +5718,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.global.deferBool = false;
 	info.locals = data.locals.copy();
 	info.localUnderlyingNames = data.localUnderlyingNames.copy();
-	var name = nameIdent(decl.name.name, false, true, info);
-	info.localIdents.remove(name);
+	var name = formatHaxeFieldName(decl.name.name, info);
 	if (decl.name.name == "init" && (decl.recv == null || decl.recv.list == null)) {
 		switch typeBlockStmt(decl.body, info, true) {
 			case EBlock(exprs):
@@ -6387,8 +6384,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 			continue;
 		final doc = getDocComment(field, field);
 		for (n in field.names) {
-			final name = nameIdent(n.name, false, true, info);
-			info.localIdents.remove(name);
+			final name = formatHaxeFieldName(n.name, info);
 			fields.push({
 				name: name,
 				pos: null,
@@ -6881,9 +6877,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						for (i in 0...sigParams.length) {
 							switch sigParams[i] {
 								case _var(oldName, _.get() => t):
-									final name = nameIdent(oldName, false, true, info, true);
-									info.renameIdents.remove(oldName);
-									info.localIdents.remove(name);
+									final name = formatHaxeFieldName(oldName, info);
 									args.push(macro $i{name});
 									params.push({
 										name: name,
@@ -6955,9 +6949,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 								args.unshift(macro stdgo.Go.pointer($i{name}));
 							}
 						}
-						final methodName = nameIdent(method.name, false, true, info);
-						info.renameIdents.remove(method.name);
-						info.localIdents.remove(methodName);
+						final methodName = formatHaxeFieldName(method.name,info);
 						var expr = if (fieldPointerBool) {
 							macro this.$name.value.$fieldName($a{args});
 						}else{
@@ -7596,9 +7588,7 @@ private function nameAscii(name:String):String {
 }
 
 private function formatHaxeFieldName(name:String, info:Info) {
-	final newName = nameIdent(name, false, true, info);
-	info.renameIdents.remove(name);
-	info.localIdents.remove(newName);
+	final newName = nameIdent(name, false, true, info,false,false, null, true);
 	return  newName;
 }
 
@@ -7617,7 +7607,7 @@ private function untitle(name:String):String {
 	return name;
 }
 
-private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:Bool=false, isSelect:Bool=false, objPath:String=null):String {
+private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:Bool=false, isSelect:Bool=false, objPath:String=null, formatField:Bool=false):String {
 	name = nameAscii(name);
 	if (name == "_")
 		return "__" + info.blankCounter++;
@@ -7655,7 +7645,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 			name = untitle(name);
 		}
 	}
-	if (rename && info.restricted != null && info.restricted.indexOf(name) != -1) {
+	if (!formatField && rename && info.restricted != null && info.restricted.indexOf(name) != -1) {
 		name = getRestrictedName(name, info);
 	}
 	if (unique && setUnique && info.restricted != null) {
@@ -7681,13 +7671,13 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 		pack.push(name);
 		//name = path + "." + filePath + "_" + name + "." + name;
 		name = pack.join(".");
-	}else if (!isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
+	}else if (!formatField && !isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
 		if (name.indexOf(".") != -1)
 			return name;
 		// trace(name, isSelect, overwrite, info.localIdents);
 		name = splitDepFullPathName(name, info);
 	}
-	if (overwrite) {
+	if (!formatField && overwrite) {
 		//if (oldName != name)
 		info.renameIdents[oldName] = name;
 		info.localIdents.push(name);

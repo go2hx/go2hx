@@ -1,22 +1,16 @@
 # Module stdgo._internal.crypto.rand has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/crypto/rand/Rand.hx:54: characters 23-59
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
-    54 | [2m        var __tmp__ = [0m[1mstdgo._internal.compress.flate.Flate[0m[2m.newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)), (5 : stdgo.GoInt)), _f:stdgo.Ref<stdgo._internal.compress.flate.Flate.Writer> = __tmp__._0, __20:stdgo.Error = __tmp__._1;[0m
-       |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-       | Type not found : stdgo._internal.compress.flate.Flate
+  7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+    |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-[30;41m ERROR [0m stdgo/_internal/crypto/rand/Rand.hx:54: characters 196-239
+[30;41m ERROR [0m [31m(macro) [0mstdgo/GoString.hx:22: characters 8-53
 
-    54 | [2m        var __tmp__ = stdgo._internal.compress.flate.Flate.newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.bytes.Bytes.Buffer>)), (5 : stdgo.GoInt)), _f:stdgo.Ref<[0m[1mstdgo._internal.compress.flate.Flate.Writer[0m[2m> = __tmp__._0, __20:stdgo.Error = __tmp__._1;[0m
-       |                                                                                                                                                                                                    [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-       | Type not found : stdgo._internal.compress.flate.Flate
-
-[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/math/big/Big.hx:16163: characters 16-25
-
- 16163 | [2m            _q.[0m[1m_divBasic[0m[2m(_u, _v);[0m
-       |                [31m^^^^^^^^^[0m
-       | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+ 22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+    |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
 
 
 ```

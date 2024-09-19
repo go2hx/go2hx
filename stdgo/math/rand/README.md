@@ -1,40 +1,38 @@
 # Module stdgo.math.rand has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:300: characters 33-39
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
- 300 | [2m            { _0 : obj._0, _1 : [0m[1mobj._1[0m[2m, _2 : obj._2, _3 : obj._3 };[0m
-     |                                 [31m^^^^^^[0m
-     | stdgo.GoArray<stdgo.GoUInt32> should be haxe.ds.Vector<UInt>
+  7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+    |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:300: characters 46-52
+    [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
 
- 300 | [2m            { _0 : obj._0, _1 : obj._1, _2 : [0m[1mobj._2[0m[2m, _3 : obj._3 };[0m
-     |                                              [31m^^^^^^[0m
-     | stdgo.GoArray<stdgo.GoFloat32> should be haxe.ds.Vector<Float>
+     229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+         |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:300: characters 59-65
+     239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+         |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
 
- 300 | [2m            { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : [0m[1mobj._3[0m[2m };[0m
-     |                                                           [31m^^^^^^[0m
-     | stdgo.GoArray<stdgo.GoFloat32> should be haxe.ds.Vector<Float>
+[30;41m ERROR [0m stdgo/math/rand/Rand.hx:4: characters 64-68
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:306: characters 33-39
+  4 | [2m        stdgo._internal.math.rand.Rand.Source_static_extension.[0m[1mseed[0m[2m(t, _seed);[0m
+    |                                                                [31m^^^^[0m
+    | Class<stdgo._internal.math.rand.Source_static_extension> has no field seed
 
- 306 | [2m            { _0 : obj._0, _1 : [0m[1mobj._1[0m[2m, _2 : obj._2, _3 : obj._3 };[0m
-     |                                 [31m^^^^^^[0m
-     | stdgo.GoArray<stdgo.GoUInt32> should be haxe.ds.Vector<UInt>
+[30;41m ERROR [0m stdgo/math/rand/Rand.hx:7: characters 71-76
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:306: characters 46-52
+  7 | [2m        return stdgo._internal.math.rand.Rand.Source_static_extension.[0m[1mint63[0m[2m(t);[0m
+    |                                                                       [31m^^^^^[0m
+    | Class<stdgo._internal.math.rand.Source_static_extension> has no field int63
 
- 306 | [2m            { _0 : obj._0, _1 : obj._1, _2 : [0m[1mobj._2[0m[2m, _3 : obj._3 };[0m
-     |                                              [31m^^^^^^[0m
-     | stdgo.GoArray<stdgo.GoFloat32> should be haxe.ds.Vector<Float>
+[30;41m ERROR [0m [31m(macro) [0mstdgo/GoString.hx:22: characters 8-53
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:306: characters 59-65
-
- 306 | [2m            { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : [0m[1mobj._3[0m[2m };[0m
-     |                                                           [31m^^^^^^[0m
-     | stdgo.GoArray<stdgo.GoFloat32> should be haxe.ds.Vector<Float>
+ 22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+    |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
 
 
 ```

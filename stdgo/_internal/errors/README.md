@@ -1,246 +1,97 @@
-# Module: `stdgo._internal.errors`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-
-# Index
-
-
-- [Variables](<#variables>)
-
-- [`function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool`](<#function-as>)
-
-- [`function is_(_err:stdgo.Error, _target:stdgo.Error):Bool`](<#function-is_>)
-
-- [`function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error`](<#function-join>)
-
-- [`function new_(_text:stdgo.GoString):stdgo.Error`](<#function-new_>)
-
-- [`function unwrap(_err:stdgo.Error):stdgo.Error`](<#function-unwrap>)
-
-- [typedef T\_\_interface\_0](<#typedef-t__interface_0>)
-
-- [typedef T\_\_interface\_1](<#typedef-t__interface_1>)
-
-- [typedef T\_\_interface\_2](<#typedef-t__interface_2>)
-
-- [typedef T\_\_interface\_3](<#typedef-t__interface_3>)
-
-# Examples
-
-
-- [`exampleAs`](<#exampleas>)
-
-- [`exampleJoin`](<#examplejoin>)
-
-- [`exampleUnwrap`](<#exampleunwrap>)
-
-# Variables
-
-
-```haxe
-import stdgo._internal.errors.Errors
+# Module stdgo._internal.errors has compilation errors, please do not use:
 ```
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+
+    7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+      |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.reflect.Reflect_Type_
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:45: characters 16-27
+
+   45 | [2m  if (gt.match([0m[1minvalidType[0m[2m) || gt2.match(invalidType))[0m
+      |                [31m^^^^^^^^^^^[0m
+      | Pattern variables are not allowed in .match patterns
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-21
+
+   47 | [2m  if (gt.match([0m[1mbasic[0m[2m(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))[0m
+      |                [31m^^^^^[0m
+      | Identifier 'basic' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-39
+
+   47 | [2m  if (gt.match([0m[1mbasic(untyped_nil_kind)[0m[2m) || gt2.match(basic(untyped_nil_kind)))[0m
+      |                [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: basic(untyped_nil_kind)
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:50: characters 15-27
+
+   50 | [2m  if (!a.type.[0m[1massignableTo[0m[2m(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {[0m
+      |               [31m^^^^^^^^^^^^[0m
+      | stdgo._internal.internal.reflect._Type has no field assignableTo
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
+
+ 1399 | [2m[0m[1mclass _Type_asInterface {[0m
+    - | [2m  [...][0m
+ 1507 | [1m}[0m[2m[0m
+      |
+      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-14
+
+   56 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
+      |         [31m^^^^^[0m
+      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-29
+
+   56 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: named(path, _, _, _)
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-14
+
+   70 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
+      |         [31m^^^^^[0m
+      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-29
+
+   70 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
+      | Unrecognized pattern: named(path, _, _, _)
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:83: characters 8-48
+
+   83 | [2m  gt = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt);[0m
+      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:84: characters 9-49
+
+   84 | [2m  gt2 = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt2);[0m
+      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-16
+
+   86 | [2m   case [0m[1mrefType[0m[2m(_):[0m
+      |         [31m^^^^^^^[0m
+      | Identifier 'refType' is not part of stdgo._internal.internal.reflect.GoType
+
+[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-19
+
+   86 | [2m   case [0m[1mrefType(_)[0m[2m:[0m
+      |         [31m^^^^^^^^^^[0m
+      | Unrecognized pattern: refType(_)
+
+[30;41m ERROR [0m [31m(macro) [0mstdgo/GoString.hx:22: characters 8-53
+
+   22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
 
 
-```haxe
-var _errorType:stdgo._internal.internal.reflectlite.Type_
 ```
-
-
-```haxe
-var errUnsupported:stdgo.Error
-```
-
-
-# Functions
-
-
-```haxe
-import stdgo._internal.errors.Errors
-```
-
-
-## function as
-
-
-```haxe
-function as(_err:stdgo.Error, _target:stdgo.AnyInterface):Bool
-```
-
-
-### exampleAs
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleAs():Void {
-        {
-            var __tmp__ = stdgo._internal.os.Os.open(("non-existing" : stdgo.GoString)), __0:stdgo.Ref<stdgo._internal.os.Os.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (_err != null) {
-                var _pathError:stdgo.Ref<stdgo._internal.io.fs.Fs.PathError> = (null : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>);
-                if (stdgo._internal.errors.Errors.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_pathError) : stdgo.Ref<stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>>)))) {
-                    stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("Failed at path:" : stdgo.GoString)), stdgo.Go.toInterface(_pathError.path));
-                } else {
-                    stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_err));
-                };
-            };
-        };
-    }
-```
-
-
-</p>
-</details>
-
-
-[\(view code\)](<./Errors.hx#L144>)
-
-
-## function is\_
-
-
-```haxe
-function is_(_err:stdgo.Error, _target:stdgo.Error):Bool
-```
-
-
-[\(view code\)](<./Errors.hx#L102>)
-
-
-## function join
-
-
-```haxe
-function join(_errs:haxe.Rest<stdgo.Error>):stdgo.Error
-```
-
-
-### exampleJoin
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleJoin():Void {
-        var _err1 = (stdgo._internal.errors.Errors.new_(("err1" : stdgo.GoString)) : stdgo.Error);
-        var _err2 = (stdgo._internal.errors.Errors.new_(("err2" : stdgo.GoString)) : stdgo.Error);
-        var _err = (stdgo._internal.errors.Errors.join(_err1, _err2) : stdgo.Error);
-        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_err));
-        if (stdgo._internal.errors.Errors.is_(_err, _err1)) {
-            stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("err is err1" : stdgo.GoString)));
-        };
-        if (stdgo._internal.errors.Errors.is_(_err, _err2)) {
-            stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(("err is err2" : stdgo.GoString)));
-        };
-    }
-```
-
-
-</p>
-</details>
-
-
-[\(view code\)](<./Errors.hx#L72>)
-
-
-## function new\_
-
-
-```haxe
-function new_(_text:stdgo.GoString):stdgo.Error
-```
-
-
-[\(view code\)](<./Errors.hx#L69>)
-
-
-## function unwrap
-
-
-```haxe
-function unwrap(_err:stdgo.Error):stdgo.Error
-```
-
-
-### exampleUnwrap
-
-
-<details><summary></summary>
-<p>
-
-
-```haxe
-function exampleUnwrap():Void {
-        var _err1 = (stdgo._internal.errors.Errors.new_(("error1" : stdgo.GoString)) : stdgo.Error);
-        var _err2 = (stdgo._internal.fmt.Fmt.errorf(("error2: [%w]" : stdgo.GoString), stdgo.Go.toInterface(_err1)) : stdgo.Error);
-        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(_err2));
-        stdgo._internal.fmt.Fmt.println(stdgo.Go.toInterface(stdgo._internal.errors.Errors.unwrap(_err2)));
-    }
-```
-
-
-</p>
-</details>
-
-
-[\(view code\)](<./Errors.hx#L91>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo._internal.errors.*
-```
-
-
-## typedef T\_\_interface\_0
-
-
-```haxe
-typedef T__interface_0 = {
-	public function unwrap():stdgo.Error;
-};
-```
-
-
-## typedef T\_\_interface\_1
-
-
-```haxe
-typedef T__interface_1 = {
-	public function is_(_0:stdgo.Error):Bool;
-};
-```
-
-
-## typedef T\_\_interface\_2
-
-
-```haxe
-typedef T__interface_2 = {
-	public function unwrap():stdgo.Slice<stdgo.Error>;
-};
-```
-
-
-## typedef T\_\_interface\_3
-
-
-```haxe
-typedef T__interface_3 = {
-	public function as(_0:stdgo.AnyInterface):Bool;
-};
-```
-
 

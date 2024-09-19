@@ -1,206 +1,29 @@
-# Module: `stdgo._internal.internal`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [Variables](<#variables>)
-
-- [`function generate():Float`](<#function-generate>)
-
-- [`function int(min:Int, max:Int):Int`](<#function-int>)
-
-- [`function shuffle(a:Array<shuffle.T>):Array<shuffle.T>`](<#function-shuffle>)
-
-- [class TypeInfoData\_go2hx\_](<#class-typeinfodatago2hx>)
-
-  - [`function new():Void`](<#typeinfodatago2hx-function-new>)
-
-- [class Async](<#class-async>)
-
-  - [`function tick():Void`](<#async-function-tick>)
-
-- [class HxbTypeInfoData](<#class-hxbtypeinfodata>)
-
-  - [`function new():Void`](<#hxbtypeinfodata-function-new>)
-
-- [class Macro](<#class-macro>)
-
-  - [`function controlFlow(expr:Dynamic):Dynamic`](<#macro-function-controlflow>)
-
-  - [`function stack(expr:Dynamic):Dynamic`](<#macro-function-stack>)
-
-- [class TypeInfo](<#class-typeinfo>)
-
-- [abstract TypeInternalMap](<#abstract-typeinternalmap>)
-
-# Variables
-
-
-```haxe
-import stdgo._internal.internal.Random
+# Module stdgo._internal.internal has compilation errors, please do not use:
 ```
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+
+   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.reflect.Reflect_Type_
+
+     [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
+
+      229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+          |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
+
+      239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+          |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:457: lines 457-474
+
+ 457 | [2m[0m[1mclass FieldType {[0m
+   - | [2m  [...][0m
+ 474 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect.FieldType is not ready to be accessed, separate your type declarations in several files
 
 
-```haxe
-var MAX_VALUE_FLOAT:Float
 ```
-
-
-```haxe
-var MODULUS:Float
-```
-
-
-```haxe
-var MULTIPLIER:Float
-```
-
-
-```haxe
-var seed:Float
-```
-
-
-# Functions
-
-
-```haxe
-import stdgo._internal.internal.Random
-```
-
-
-## function generate
-
-
-```haxe
-function generate():Float
-```
-
-
-[\(view code\)](<./Random.hx#L9>)
-
-
-## function int
-
-
-```haxe
-function int(min:Int, max:Int):Int
-```
-
-
-[\(view code\)](<./Random.hx#L12>)
-
-
-## function shuffle
-
-
-```haxe
-function shuffle(a:Array<shuffle.T>):Array<shuffle.T>
-```
-
-
-[\(view code\)](<./Random.hx#L14>)
-
-
-# Classes
-
-
-```haxe
-import stdgo._internal.internal.*
-```
-
-
-## class TypeInfoData\_go2hx\_
-
-
-```haxe
-var names:haxe.ds.Map<String, stdgo._internal.internal.reflect.GoType>
-```
-
-
-### TypeInfoData\_go2hx\_ function new
-
-
-```haxe
-function new():Void
-```
-
-
-[\(view code\)](<./Macro.macro.hx#L59>)
-
-
-## class Async
-
-
-### Async function tick
-
-
-```haxe
-function tick():Void
-```
-
-
-[\(view code\)](<./Async.hx#L4>)
-
-
-## class HxbTypeInfoData
-
-
-```haxe
-var names:haxe.ds.Map<String, stdgo._internal.internal.reflect.GoType>
-```
-
-
-### HxbTypeInfoData function new
-
-
-```haxe
-function new():Void
-```
-
-
-[\(view code\)](<./HxbTypeInfoData.hx#L4>)
-
-
-## class Macro
-
-
-### Macro function controlFlow
-
-
-```haxe
-function controlFlow(expr:Dynamic):Dynamic
-```
-
-
-### Macro function stack
-
-
-```haxe
-function stack(expr:Dynamic):Dynamic
-```
-
-
-## class TypeInfo
-
-
-```haxe
-var names:stdgo._internal.internal._TypeInfo.TypeInternalMap
-```
-
-
-# Abstracts
-
-
-## abstract TypeInternalMap
-
-
-[\(view file containing code\)](<./TypeInfo.hx>)
-
 

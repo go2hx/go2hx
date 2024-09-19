@@ -576,6 +576,12 @@
      |                                                                                                                               [31m^[0m
      | Too many type parameters for haxe.macro.Expr
 
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+
+   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.reflect.Reflect_Type_
+
 [30;41m ERROR [0m stdgo/slices/Slices.hx:334: characters 144-148
 
  334 | [2m    static public function sort<S, E>(__generic__0:haxe.macro.Expr<S>, __generic__1:haxe.macro.Expr<E>, _x:haxe.macro.Expr<S>):haxe.macro.Expr<[0m[1mVoid[0m[2m> {[0m

@@ -1,85 +1,17 @@
-# Module: `stdgo._internal.internal.saferio`
-
-[(view library index)](../../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [Constants](<#constants>)
-
-- [`function readData(_r:stdgo._internal.io.Reader, _n:stdgo.GoUInt64):{
-	_1:stdgo.Error;
-	_0:stdgo.Slice<stdgo.GoByte>;
-}`](<#function-readdata>)
-
-- [`function readDataAt(_r:stdgo._internal.io.ReaderAt, _n:stdgo.GoUInt64, _off:stdgo.GoInt64):{
-	_1:stdgo.Error;
-	_0:stdgo.Slice<stdgo.GoByte>;
-}`](<#function-readdataat>)
-
-- [`function sliceCap(_v:stdgo.AnyInterface, _c:stdgo.GoUInt64):stdgo.GoInt`](<#function-slicecap>)
-
-# Constants
-
-
-```haxe
-import stdgo._internal.internal.saferio.Saferio
+# Module stdgo._internal.internal.saferio has compilation errors, please do not use:
 ```
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+
+  7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+    |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.reflect.Reflect_Type_
+
+[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:17: characters 37-43
+
+ 17 | [2m public function __convert__(toType:[0m[1mGoType[0m[2m):Any {[0m
+    |                                     [31m^^^^^^[0m
+    | Type not found : GoType
 
 
-```haxe
-final _chunk:stdgo.GoUInt64 = ((10485760i64 : stdgo.GoUInt64))
 ```
-
-
-# Functions
-
-
-```haxe
-import stdgo._internal.internal.saferio.Saferio
-```
-
-
-## function readData
-
-
-```haxe
-function readData(_r:stdgo._internal.io.Reader, _n:stdgo.GoUInt64):{
-	_1:stdgo.Error;
-	_0:stdgo.Slice<stdgo.GoByte>;
-}
-```
-
-
-[\(view code\)](<./Saferio.hx#L4>)
-
-
-## function readDataAt
-
-
-```haxe
-function readDataAt(_r:stdgo._internal.io.ReaderAt, _n:stdgo.GoUInt64, _off:stdgo.GoInt64):{
-	_1:stdgo.Error;
-	_0:stdgo.Slice<stdgo.GoByte>;
-}
-```
-
-
-[\(view code\)](<./Saferio.hx#L35>)
-
-
-## function sliceCap
-
-
-```haxe
-function sliceCap(_v:stdgo.AnyInterface, _c:stdgo.GoUInt64):stdgo.GoInt
-```
-
-
-[\(view code\)](<./Saferio.hx#L66>)
-
 

@@ -1,245 +1,27 @@
-# Module: `stdgo.compress.bzip2`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [class Bzip2](<#class-bzip2>)
-
-  - [`function benchmarkDecodeDigits(_b:stdgo._internal.testing.B):Void`](<#bzip2-function-benchmarkdecodedigits>)
-
-  - [`function benchmarkDecodeNewton(_b:stdgo._internal.testing.B):Void`](<#bzip2-function-benchmarkdecodenewton>)
-
-  - [`function benchmarkDecodeRand(_b:stdgo._internal.testing.B):Void`](<#bzip2-function-benchmarkdecoderand>)
-
-  - [`function newReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#bzip2-function-newreader>)
-
-  - [`function testBitReader(_t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testbitreader>)
-
-  - [`function testMTF(_t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testmtf>)
-
-  - [`function testReader(_t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testreader>)
-
-  - [`function testZeroRead(_t:stdgo._internal.testing.T_):Void`](<#bzip2-function-testzeroread>)
-
-- [typedef StructuralError](<#typedef-structuralerror>)
-
-- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
-
-- [typedef T\_\_struct\_1](<#typedef-t__struct_1>)
-
-- [typedef T\_\_struct\_2](<#typedef-t__struct_2>)
-
-- [typedef T\_moveToFrontDecoder](<#typedef-t_movetofrontdecoder>)
-
-- [abstract T\_bitReader](<#abstract-t_bitreader>)
-
-- [abstract T\_reader](<#abstract-t_reader>)
-
-- [abstract T\_huffmanTree](<#abstract-t_huffmantree>)
-
-- [abstract T\_huffmanNode](<#abstract-t_huffmannode>)
-
-- [abstract T\_huffmanSymbolLengthPair](<#abstract-t_huffmansymbollengthpair>)
-
-- [abstract T\_huffmanCode](<#abstract-t_huffmancode>)
-
-# Classes
-
-
-```haxe
-import
+# Module stdgo.compress.bzip2 has compilation errors, please do not use:
 ```
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
+   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-## class Bzip2
+[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
+          | For function argument 'type'
 
-Package bzip2 implements bzip2 decompression.  
+     [30;41m -> [0m stdgo/_internal/compress/bzip2/Bzip2.hx:528: characters 17-43
 
-### Bzip2 function benchmarkDecodeDigits
-
-
-```haxe
-function benchmarkDecodeDigits(_b:stdgo._internal.testing.B):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L323>)
-
-
-### Bzip2 function benchmarkDecodeNewton
-
-
-```haxe
-function benchmarkDecodeNewton(_b:stdgo._internal.testing.B):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L326>)
-
-
-### Bzip2 function benchmarkDecodeRand
-
-
-```haxe
-function benchmarkDecodeRand(_b:stdgo._internal.testing.B):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L329>)
-
-
-### Bzip2 function newReader
-
-
-```haxe
-function newReader(_r:stdgo._internal.io.Reader):stdgo._internal.io.Reader
-```
+      528 | [2m            if ([0m[1mstdgo.Go.toInterface(_err)[0m[2m == (stdgo.Go.toInterface(stdgo._internal.io.Io.eof))) {[0m
+          |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from macro here
 
 
 ```
-NewReader returns an io.Reader which decompresses bzip2 data from r.
-        If r does not also implement io.ByteReader,
-        the decompressor may read more data than necessary from r.
-```
-[\(view code\)](<./Bzip2.hx#L308>)
-
-
-### Bzip2 function testBitReader
-
-
-```haxe
-function testBitReader(_t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L314>)
-
-
-### Bzip2 function testMTF
-
-
-```haxe
-function testMTF(_t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L317>)
-
-
-### Bzip2 function testReader
-
-
-```haxe
-function testReader(_t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L311>)
-
-
-### Bzip2 function testZeroRead
-
-
-```haxe
-function testZeroRead(_t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Bzip2.hx#L320>)
-
-
-# Typedefs
-
-
-```haxe
-import
-```
-
-
-## typedef StructuralError
-
-
-```haxe
-typedef StructuralError = stdgo._internal.compress.bzip2.StructuralError;
-```
-
-
-## typedef T\_\_struct\_0
-
-
-```haxe
-typedef T__struct_0 = stdgo._internal.compress.bzip2.T__struct_0;
-```
-
-
-## typedef T\_\_struct\_1
-
-
-```haxe
-typedef T__struct_1 = stdgo._internal.compress.bzip2.T__struct_1;
-```
-
-
-## typedef T\_\_struct\_2
-
-
-```haxe
-typedef T__struct_2 = stdgo._internal.compress.bzip2.T__struct_2;
-```
-
-
-## typedef T\_moveToFrontDecoder
-
-
-```haxe
-typedef T_moveToFrontDecoder = stdgo._internal.compress.bzip2.T_moveToFrontDecoder;
-```
-
-
-# Abstracts
-
-
-## abstract T\_bitReader
-
-
-[\(view file containing code\)](<./Bzip2.hx>)
-
-
-## abstract T\_reader
-
-
-[\(view file containing code\)](<./Bzip2.hx>)
-
-
-## abstract T\_huffmanTree
-
-
-[\(view file containing code\)](<./Bzip2.hx>)
-
-
-## abstract T\_huffmanNode
-
-
-[\(view file containing code\)](<./Bzip2.hx>)
-
-
-## abstract T\_huffmanSymbolLengthPair
-
-
-[\(view file containing code\)](<./Bzip2.hx>)
-
-
-## abstract T\_huffmanCode
-
-
-[\(view file containing code\)](<./Bzip2.hx>)
-
 

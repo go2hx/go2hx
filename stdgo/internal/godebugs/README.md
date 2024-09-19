@@ -1,71 +1,11 @@
-# Module: `stdgo.internal.godebugs`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [Variables](<#variables>)
-
-- [class Godebugs](<#class-godebugs>)
-
-  - [`function lookup(_name:String):stdgo.internal.godebugs.Info`](<#godebugs-function-lookup>)
-
-- [abstract Info](<#abstract-info>)
-
-# Variables
-
-
-```haxe
-import stdgo.internal.godebugs.Godebugs
+# Module stdgo.internal.godebugs has compilation errors, please do not use:
 ```
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
-
-```haxe
-var all:Array<stdgo.internal.godebugs.Info>
-```
-
-
-# Classes
-
-
-```haxe
-import stdgo.internal.godebugs.*
-```
-
-
-## class Godebugs
+ 7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+   |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Type not found : stdgo._internal.reflect.Reflect_Type_
 
 
 ```
-Package godebugs provides a table of known GODEBUG settings,
-    for use by a variety of other packages, including internal/godebug,
-    runtime, runtime/metrics, and cmd/go/internal/load.
-```
-### Godebugs function lookup
-
-
-```haxe
-function lookup(_name:String):stdgo.internal.godebugs.Info
-```
-
-
-
-Lookup returns the Info with the given name.  
-
-[\(view code\)](<./Godebugs.hx#L52>)
-
-
-# Abstracts
-
-
-## abstract Info
-
-
-[\(view file containing code\)](<./Godebugs.hx>)
-
 

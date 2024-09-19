@@ -1,46 +1,92 @@
 # Module stdgo.math has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:300: characters 33-39
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
-   300 | [2m            { _0 : obj._0, _1 : [0m[1mobj._1[0m[2m, _2 : obj._2, _3 : obj._3 };[0m
-       |                                 [31m^^^^^^[0m
-       | stdgo.GoArray<stdgo.GoUInt32> should be haxe.ds.Vector<UInt>
+   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:300: characters 46-52
+     [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
 
-   300 | [2m            { _0 : obj._0, _1 : obj._1, _2 : [0m[1mobj._2[0m[2m, _3 : obj._3 };[0m
-       |                                              [31m^^^^^^[0m
-       | stdgo.GoArray<stdgo.GoFloat32> should be haxe.ds.Vector<Float>
+      229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+          |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:300: characters 59-65
+      231 | [2m      [0m[1minclude(prefix + file, true, ignore, classPaths)[0m[2m;[0m
+          |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
 
-   300 | [2m            { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : [0m[1mobj._3[0m[2m };[0m
-       |                                                           [31m^^^^^^[0m
-       | stdgo.GoArray<stdgo.GoFloat32> should be haxe.ds.Vector<Float>
+      239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+          |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+          | Called from here
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:306: characters 33-39
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
 
-   306 | [2m            { _0 : obj._0, _1 : [0m[1mobj._1[0m[2m, _2 : obj._2, _3 : obj._3 };[0m
-       |                                 [31m^^^^^^[0m
-       | stdgo.GoArray<stdgo.GoUInt32> should be haxe.ds.Vector<UInt>
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:306: characters 46-52
+          | For function argument 'type'
 
-   306 | [2m            { _0 : obj._0, _1 : obj._1, _2 : [0m[1mobj._2[0m[2m, _3 : obj._3 };[0m
-       |                                              [31m^^^^^^[0m
-       | stdgo.GoArray<stdgo.GoFloat32> should be haxe.ds.Vector<Float>
+[30;41m ERROR [0m stdgo/_internal/math/cmplx/Cmplx.hx:240: characters 78-82
 
-[30;41m ERROR [0m stdgo/math/rand/Rand.hx:306: characters 59-65
+ 240 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                              [31m^^^^[0m
+     | stdgo._internal.internal.reflect._Type has no field kind
 
-   306 | [2m            { _0 : obj._0, _1 : obj._1, _2 : obj._2, _3 : [0m[1mobj._3[0m[2m };[0m
-       |                                                           [31m^^^^^^[0m
-       | stdgo.GoArray<stdgo.GoFloat32> should be haxe.ds.Vector<Float>
+[30;41m ERROR [0m stdgo/_internal/math/cmplx/Cmplx.hx:240: characters 138-145
 
-[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/math/big/Big.hx:16163: characters 16-25
+ 240 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                          [31m^^^^^^^[0m
+     | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
 
- 16163 | [2m            _q.[0m[1m_divBasic[0m[2m(_u, _v);[0m
-       |                [31m^^^^^^^^^[0m
-       | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+[30;41m ERROR [0m stdgo/_internal/math/cmplx/Cmplx.hx:240: characters 150-190
+
+ 240 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
+     |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
+
+          | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/GoString.hx:22: characters 8-53
+
+  22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
+
+[30;41m ERROR [0m stdgo/GoString.hx:157: characters 16-60
+
+ 157 | [2m   final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
+     |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
+
+[30;41m ERROR [0m stdgo/GoFloat64.hx:84: characters 8-41
+
+  84 | [2m   if ([0m[1mstdgo._internal.math.Math_signbit[0m[2m.signbit(b))[0m
+     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo._internal.math.Math_signbit
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument 'type'
+
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
+
+ 930 | [2m[0m[1mclass _Type {[0m
+   - | [2m  [...][0m
+ 941 | [1m}[0m[2m[0m
+     |
+     | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
+
+          | For function argument '__type__'
 
 
 ```

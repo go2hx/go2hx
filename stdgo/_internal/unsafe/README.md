@@ -1,139 +1,27 @@
-# Module: `stdgo._internal.unsafe`
-
-[(view library index)](../../stdgo.md)
-
-
-# Overview
-
-
-# Index
-
-
-- [`function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr`](<#function-alignof_>)
-
-- [`function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr`](<#function-offsetof_>)
-
-- [`function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr`](<#function-sizeof>)
-
-- [`function slice(_ptr:stdgo.Pointer<Dynamic>, _len:stdgo.GoInt):Array<Dynamic>`](<#function-slice>)
-
-- [`function sliceData(s:stdgo.Slice<sliceData.T>):Dynamic`](<#function-slicedata>)
-
-- [`function string(s:stdgo.Pointer<stdgo.GoByte>, len:stdgo.GoInt):stdgo.GoString`](<#function-string>)
-
-- [`function stringData(s:stdgo.GoString):Dynamic`](<#function-stringdata>)
-
-- [typedef Pointer\_](<#typedef-pointer_>)
-
-- [abstract UnsafePointer](<#abstract-unsafepointer>)
-
-# Functions
-
-
-```haxe
-import stdgo._internal.unsafe.Unsafe
+# Module stdgo._internal.unsafe has compilation errors, please do not use:
 ```
+[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+
+  7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
+    |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.reflect.Reflect_Type_
+
+    [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
+
+     229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
+         |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
+
+     239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
+         |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+         | Called from here
+
+[30;41m ERROR [0m [31m(macro) [0mstdgo/GoString.hx:22: characters 8-53
+
+ 22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
+    |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
 
 
-## function alignof\_
-
-
-```haxe
-function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
-
-
-[\(view code\)](<./Unsafe.hx#L69>)
-
-
-## function offsetof\_
-
-
-```haxe
-function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
-```
-
-
-[\(view code\)](<./Unsafe.hx#L65>)
-
-
-## function sizeof
-
-
-```haxe
-function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr
-```
-
-
-[\(view code\)](<./Unsafe.hx#L61>)
-
-
-## function slice
-
-
-```haxe
-function slice(_ptr:stdgo.Pointer<Dynamic>, _len:stdgo.GoInt):Array<Dynamic>
-```
-
-
-[\(view code\)](<./Unsafe.hx#L83>)
-
-
-## function sliceData
-
-
-```haxe
-function sliceData(s:stdgo.Slice<sliceData.T>):Dynamic
-```
-
-
-[\(view code\)](<./Unsafe.hx#L77>)
-
-
-## function string
-
-
-```haxe
-function string(s:stdgo.Pointer<stdgo.GoByte>, len:stdgo.GoInt):stdgo.GoString
-```
-
-
-[\(view code\)](<./Unsafe.hx#L80>)
-
-
-## function stringData
-
-
-```haxe
-function stringData(s:stdgo.GoString):Dynamic
-```
-
-
-[\(view code\)](<./Unsafe.hx#L74>)
-
-
-# Typedefs
-
-
-```haxe
-import stdgo._internal.unsafe.*
-```
-
-
-## typedef Pointer\_
-
-
-```haxe
-typedef Pointer_ = stdgo._internal.unsafe.UnsafePointer;
-```
-
-
-# Abstracts
-
-
-## abstract UnsafePointer
-
-
-[\(view file containing code\)](<./Unsafe.hx>)
-
 

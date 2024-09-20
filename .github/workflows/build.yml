@@ -154,6 +154,8 @@ jobs:
         run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
+      - name: Remove _internal folder
+        run: rm -r -d _internal
       # git pull latest
       - name: Pull latest
         run: git pull
@@ -211,6 +213,8 @@ jobs:
         run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
+      - name: Remove _internal folder
+        run: rm -r -d _internal
       # git pull latest
       - name: Pull latest
         run: git pull

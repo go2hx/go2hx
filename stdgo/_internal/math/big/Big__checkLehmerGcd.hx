@@ -6,6 +6,6 @@ function _checkLehmerGcd(_aBytes:stdgo.Slice<stdgo.GoUInt8>, _bBytes:stdgo.Slice
             return true;
         };
         var _d = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)._lehmerGCD(null, null, _a, _b);
-        var __tmp__ = stdgo._internal.math.big.Big__euclidExtGCD._euclidExtGCD(_a, _b), _d0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __14:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._1, __15:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._2;
+        var __tmp__ = stdgo._internal.math.big.Big__euclidExtGCD._euclidExtGCD(_a, _b), _d0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __8:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._1, __9:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._2;
         return _d.cmp(_d0) == ((0 : stdgo.GoInt));
     }

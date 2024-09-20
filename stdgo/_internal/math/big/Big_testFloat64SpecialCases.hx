@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloat64SpecialCases(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _input in stdgo._internal.math.big.Big__float64inputs._float64inputs) {
+        for (__8 => _input in stdgo._internal.math.big.Big__float64inputs._float64inputs) {
             if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_input?.__copy__(), ("long:" : stdgo.GoString))) {
                 if (!stdgo._internal.math.big.Big__long._long.value) {
                     continue;
@@ -14,7 +14,7 @@ function testFloat64SpecialCases(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_
             };
             var __tmp__ = _r.float64(), _f:stdgo.GoFloat64 = __tmp__._0, _exact:Bool = __tmp__._1;
             if (!stdgo._internal.strings.Strings_contains.contains(_input?.__copy__(), ("/" : stdgo.GoString))) {
-                var __tmp__ = stdgo._internal.strconv.Strconv_parseFloat.parseFloat(_input?.__copy__(), (64 : stdgo.GoInt)), _e:stdgo.GoFloat64 = __tmp__._0, __15:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.strconv.Strconv_parseFloat.parseFloat(_input?.__copy__(), (64 : stdgo.GoInt)), _e:stdgo.GoFloat64 = __tmp__._0, __9:stdgo.Error = __tmp__._1;
                 if (stdgo._internal.math.Math_float64bits.float64bits(_e) == (stdgo._internal.math.Math_float64bits.float64bits(_f))) {} else if (((_f == (0 : stdgo.GoFloat64)) && (_r.num().bitLen() == (0 : stdgo.GoInt)) : Bool)) {} else {
                     _t.errorf(("strconv.ParseFloat(%q) = %g (%b), want %g (%b); delta = %g" : stdgo.GoString), stdgo.Go.toInterface(_input), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_f), stdgo.Go.toInterface((_f - _e : stdgo.GoFloat64)));
                 };

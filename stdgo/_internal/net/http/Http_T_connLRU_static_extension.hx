@@ -38,7 +38,7 @@ package stdgo._internal.net.http;
         };
         var _ele = _cl._ll.pushFront(stdgo.Go.toInterface(stdgo.Go.asInterface(_pc)));
         {
-            var __tmp__ = (_cl._m != null && _cl._m.exists(_pc) ? { _0 : _cl._m[_pc], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _1 : false }), __36503:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (_cl._m != null && _cl._m.exists(_pc) ? { _0 : _cl._m[_pc], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _1 : false }), __36492:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
                 throw stdgo.Go.toInterface(("persistConn was already in LRU" : stdgo.GoString));
             };

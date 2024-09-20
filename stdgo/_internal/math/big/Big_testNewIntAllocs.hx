@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testNewIntAllocs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         stdgo._internal.internal.testenv.Testenv_skipIfOptimizationOff.skipIfOptimizationOff(stdgo.Go.asInterface(_t));
-        for (__14 => _n in (new stdgo.Slice<stdgo.GoInt64>(7, 7, ...[(0i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (-7i64 : stdgo.GoInt64), (1073741824i64 : stdgo.GoInt64), (-1073741824i64 : stdgo.GoInt64), (1125899906842624i64 : stdgo.GoInt64), (-1125899906842624i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>)) {
+        for (__8 => _n in (new stdgo.Slice<stdgo.GoInt64>(7, 7, ...[(0i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (-7i64 : stdgo.GoInt64), (1073741824i64 : stdgo.GoInt64), (-1073741824i64 : stdgo.GoInt64), (1125899906842624i64 : stdgo.GoInt64), (-1125899906842624i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>)) {
             var _x = stdgo._internal.math.big.Big_newInt.newInt((3i64 : stdgo.GoInt64));
             var _got = (stdgo._internal.testing.Testing_allocsPerRun.allocsPerRun((100 : stdgo.GoInt), function():Void {
                 _x.add(_x, stdgo._internal.math.big.Big_newInt.newInt(_n));

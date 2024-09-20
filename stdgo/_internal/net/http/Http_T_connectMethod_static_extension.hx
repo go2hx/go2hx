@@ -48,7 +48,7 @@ package stdgo._internal.net.http;
             var _u = _cm._proxyURL.user;
             if (_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) {
                 var _username = (_u.username()?.__copy__() : stdgo.GoString);
-                var __tmp__ = _u.password(), _password:stdgo.GoString = __tmp__._0, __35946:Bool = __tmp__._1;
+                var __tmp__ = _u.password(), _password:stdgo.GoString = __tmp__._0, __35935:Bool = __tmp__._1;
                 return (("Basic " : stdgo.GoString) + stdgo._internal.net.http.Http__basicAuth._basicAuth(_username?.__copy__(), _password?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__();
             };
         };

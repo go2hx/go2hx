@@ -14,7 +14,7 @@ import stdgo._internal.sync.Sync;
             { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>)) : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : false };
-        }, _clean = __tmp__._0, __4 = __tmp__._1;
+        }, _clean = __tmp__._0, __2 = __tmp__._1;
         var _dirty = ({
             final x = new stdgo.GoMap.GoAnyInterfaceMap<stdgo.AnyInterface>();
             x.__defaultValue__ = () -> (null : stdgo.AnyInterface);
@@ -33,7 +33,7 @@ import stdgo._internal.sync.Sync;
             { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>)) : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : false };
-        }, _clean = __tmp__._0, __4 = __tmp__._1;
+        }, _clean = __tmp__._0, __2 = __tmp__._1;
         for (_k => _v in _clean) {
             if (!_f(_k, _v)) {
                 break;
@@ -50,7 +50,7 @@ import stdgo._internal.sync.Sync;
                 { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>)) : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : false };
-            }, _clean = __tmp__._0, __4 = __tmp__._1;
+            }, _clean = __tmp__._0, __2 = __tmp__._1;
             {
                 var __tmp__ = (_clean != null && _clean.exists(_key) ? { _0 : _clean[_key], _1 : true } : { _0 : (null : stdgo.AnyInterface), _1 : false }), _previous:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                 if ((!_ok || (_previous != _old) : Bool)) {
@@ -109,7 +109,7 @@ import stdgo._internal.sync.Sync;
                 { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>)) : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : false };
-            }, _clean = __tmp__._0, __4 = __tmp__._1;
+            }, _clean = __tmp__._0, __2 = __tmp__._1;
             {
                 var __tmp__ = (_clean != null && _clean.exists(_key) ? { _0 : _clean[_key], _1 : true } : { _0 : (null : stdgo.AnyInterface), _1 : false }), _previous:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                 if ((!_ok || (_previous != _old) : Bool)) {
@@ -207,7 +207,7 @@ import stdgo._internal.sync.Sync;
             { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>)) : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : false };
-        }, _clean = __tmp__._0, __4 = __tmp__._1;
+        }, _clean = __tmp__._0, __2 = __tmp__._1;
         {
             var __tmp__ = (_clean != null && _clean.exists(_key) ? { _0 : _clean[_key], _1 : true } : { _0 : (null : stdgo.AnyInterface), _1 : false });
             _actual = __tmp__._0;
@@ -256,7 +256,7 @@ import stdgo._internal.sync.Sync;
             { _0 : (stdgo.Go.typeAssert((_m._clean.load() : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>)) : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo.GoMap<stdgo.AnyInterface, stdgo.AnyInterface>), _1 : false };
-        }, _clean = __tmp__._0, __4 = __tmp__._1;
+        }, _clean = __tmp__._0, __2 = __tmp__._1;
         {
             var __tmp__ = (_clean != null && _clean.exists(_key) ? { _0 : _clean[_key], _1 : true } : { _0 : (null : stdgo.AnyInterface), _1 : false });
             _value = __tmp__._0;

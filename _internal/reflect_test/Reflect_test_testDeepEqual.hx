@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function testDeepEqual(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__7 => _test in _internal.reflect_test.Reflect_test__deepEqualTests._deepEqualTests) {
+        for (__6 => _test in _internal.reflect_test.Reflect_test__deepEqualTests._deepEqualTests) {
             if (_test._b == (stdgo.Go.toInterface((new _internal.reflect_test.Reflect_test_T_self.T_self() : _internal.reflect_test.Reflect_test_T_self.T_self)))) {
                 _test._b = _test._a;
             };

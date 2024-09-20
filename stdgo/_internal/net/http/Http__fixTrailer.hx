@@ -15,7 +15,7 @@ function _fixTrailer(_header:stdgo._internal.net.http.Http_Header.Header, _chunk
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
         var _err:stdgo.Error = (null : stdgo.Error);
-        for (__143 => _v in _vv) {
+        for (__132 => _v in _vv) {
             stdgo._internal.net.http.Http__foreachHeaderElement._foreachHeaderElement(_v?.__copy__(), function(_key:stdgo.GoString):Void {
                 _key = stdgo._internal.net.http.Http_canonicalHeaderKey.canonicalHeaderKey(_key?.__copy__())?.__copy__();
                 {

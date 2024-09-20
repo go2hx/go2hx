@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatGobDecodeInvalid(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _tc in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_33.T__struct_33>(2, 2, ...[({ _buf : (new stdgo.Slice<stdgo.GoUInt8>(20, 20, ...[
+        for (__8 => _tc in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_33.T__struct_33>(2, 2, ...[({ _buf : (new stdgo.Slice<stdgo.GoUInt8>(20, 20, ...[
 (1 : stdgo.GoUInt8),
 (42 : stdgo.GoUInt8),
 (32 : stdgo.GoUInt8),

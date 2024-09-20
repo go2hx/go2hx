@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatRound(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_17.T__struct_17>(64, 64, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_17.T__struct_17>(64, 64, ...[
 ({ _prec : (5u32 : stdgo.GoUInt), _x : ("1000" : stdgo.GoString), _zero : ("1000" : stdgo.GoString), _neven : ("1000" : stdgo.GoString), _naway : ("1000" : stdgo.GoString), _away : ("1000" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_17.T__struct_17),
 ({ _prec : (5u32 : stdgo.GoUInt), _x : ("1001" : stdgo.GoString), _zero : ("1001" : stdgo.GoString), _neven : ("1001" : stdgo.GoString), _naway : ("1001" : stdgo.GoString), _away : ("1001" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_17.T__struct_17),
 ({ _prec : (5u32 : stdgo.GoUInt), _x : ("1010" : stdgo.GoString), _zero : ("1010" : stdgo.GoString), _neven : ("1010" : stdgo.GoString), _naway : ("1010" : stdgo.GoString), _away : ("1010" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_17.T__struct_17),

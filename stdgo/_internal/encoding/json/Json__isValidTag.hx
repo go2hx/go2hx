@@ -3,7 +3,7 @@ function _isValidTag(_s:stdgo.GoString):Bool {
         if (_s == (stdgo.Go.str())) {
             return false;
         };
-        for (__8 => _c in _s) {
+        for (__4 => _c in _s) {
             if (stdgo._internal.strings.Strings_containsRune.containsRune(("!#$%&()*+-./:;<=>?@[]^_{|}~ " : stdgo.GoString), _c)) {} else if ((!stdgo._internal.unicode.Unicode_isLetter.isLetter(_c) && !stdgo._internal.unicode.Unicode_isDigit.isDigit(_c) : Bool)) {
                 return false;
             };

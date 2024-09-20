@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testIntXMLEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in stdgo._internal.math.big.Big__encodingTests._encodingTests) {
-            for (__15 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
+        for (__8 => _test in stdgo._internal.math.big.Big__encodingTests._encodingTests) {
+            for (__9 => _sign in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[stdgo.Go.str()?.__copy__(), ("+" : stdgo.GoString), ("-" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
                 var _x = ((_sign + _test?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 var _tx:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
                 _tx.setString(_x?.__copy__(), (0 : stdgo.GoInt));

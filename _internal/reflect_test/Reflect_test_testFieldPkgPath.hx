@@ -9,7 +9,7 @@ function testFieldPkgPath(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
         var _typ = (stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface(({ exported : ("" : stdgo.GoString), _unexported : ("" : stdgo.GoString), otherPkgFields : ({} : stdgo._internal.reflect.Reflect_OtherPkgFields.OtherPkgFields), _int : (0 : stdgo.GoInt), _x : (null : stdgo.Pointer<_internal.reflect_test.Reflect_test_T_testFieldPkgPath___localname___x_77546.T_testFieldPkgPath___localname___x_77546>) } : _internal.reflect_test.Reflect_test_T__struct_68.T__struct_68)))) : stdgo._internal.reflect.Reflect_Type_.Type_);
         {};
         var _checkPkgPath = function(_name:stdgo.GoString, _s:stdgo.Slice<_internal.reflect_test.Reflect_test_T_testFieldPkgPath___localname___pkgpathTest_77688.T_testFieldPkgPath___localname___pkgpathTest_77688>):Void {
-            for (__7 => _test in _s) {
+            for (__6 => _test in _s) {
                 var _f = (_typ.fieldByIndex(_test._index)?.__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
                 {
                     var __0 = (_f.pkgPath?.__copy__() : stdgo.GoString), __1 = (_test._pkgPath?.__copy__() : stdgo.GoString);

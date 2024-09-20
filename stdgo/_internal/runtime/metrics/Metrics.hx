@@ -2,6 +2,7 @@ package stdgo._internal.runtime.metrics;
 import stdgo._internal.runtime.Runtime;
 @:keep var __init_go2hx__ = {
         try {
+            var __tmp__0 = stdgo._internal.runtime.metrics.Metrics__allDesc._allDesc;
             var _i = (0 : stdgo.GoInt);
             while (((_i < (stdgo._internal.runtime.metrics.Metrics__allDesc._allDesc.length) : Bool) && (stdgo._internal.runtime.metrics.Metrics__allDesc._allDesc[(_i : stdgo.GoInt)].name < ("/godebug/" : stdgo.GoString) : Bool) : Bool)) {
                 _i++;

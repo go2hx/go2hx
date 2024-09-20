@@ -2,6 +2,7 @@ package stdgo._internal.internal.fuzz;
 import stdgo._internal.unsafe.Unsafe;
 @:keep var __init_go2hx__ = {
         try {
+            var __tmp__0 = stdgo._internal.internal.fuzz.Fuzz__coverageEnabled._coverageEnabled, __tmp__1 = stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot, __tmp__2 = stdgo._internal.internal.fuzz.Fuzz__encVersion1._encVersion1, __tmp__3 = stdgo._internal.internal.fuzz.Fuzz__zeroVals._zeroVals, __tmp__4 = stdgo._internal.internal.fuzz.Fuzz__debugInfo._debugInfo, __tmp__5 = stdgo._internal.internal.fuzz.Fuzz__interesting8._interesting8, __tmp__6 = stdgo._internal.internal.fuzz.Fuzz__interesting16._interesting16, __tmp__7 = stdgo._internal.internal.fuzz.Fuzz__interesting32._interesting32, __tmp__8 = stdgo._internal.internal.fuzz.Fuzz__byteSliceMutators._byteSliceMutators, __tmp__9 = stdgo._internal.internal.fuzz.Fuzz__errSharedMemClosed._errSharedMemClosed;
             for (__8 => _v in stdgo._internal.internal.fuzz.Fuzz__interesting8._interesting8) {
                 stdgo._internal.internal.fuzz.Fuzz__interesting16._interesting16 = (stdgo._internal.internal.fuzz.Fuzz__interesting16._interesting16.__append__((_v : stdgo.GoInt16)));
             };

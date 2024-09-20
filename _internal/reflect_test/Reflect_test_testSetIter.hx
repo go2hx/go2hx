@@ -61,7 +61,7 @@ x.set(("baz" : stdgo.GoString), (3 : stdgo.GoInt));
         var _y = (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.AnyInterface>))).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         _y.setIterKey(_i);
         {
-            var __tmp__ = (_data != null && _data.exists((stdgo.Go.typeAssert((_x : stdgo.GoString)) : stdgo.GoString)?.__copy__()) ? { _0 : _data[(stdgo.Go.typeAssert((_x : stdgo.GoString)) : stdgo.GoString)?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), __7:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (_data != null && _data.exists((stdgo.Go.typeAssert((_x : stdgo.GoString)) : stdgo.GoString)?.__copy__()) ? { _0 : _data[(stdgo.Go.typeAssert((_x : stdgo.GoString)) : stdgo.GoString)?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoInt), _1 : false }), __6:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("got key %s which is not in map" : stdgo.GoString), _x);
             };

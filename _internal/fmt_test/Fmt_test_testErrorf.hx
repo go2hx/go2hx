@@ -5,7 +5,7 @@ import stdgo._internal.fmt.Fmt;
 function testErrorf(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _noVetErrorf = stdgo._internal.fmt.Fmt_errorf.errorf;
         var _wrapped = (stdgo._internal.errors.Errors_new_.new_(("inner error" : stdgo.GoString)) : stdgo.Error);
-        for (__3 => _test in (new stdgo.Slice<_internal.fmt_test.Fmt_test_T__struct_0.T__struct_0>(16, 16, ...[
+        for (__2 => _test in (new stdgo.Slice<_internal.fmt_test.Fmt_test_T__struct_0.T__struct_0>(16, 16, ...[
 ({ _err : stdgo._internal.fmt.Fmt_errorf.errorf(("%w" : stdgo.GoString), stdgo.Go.toInterface(_wrapped)), _wantText : ("inner error" : stdgo.GoString), _wantUnwrap : _wrapped, _wantSplit : (null : stdgo.Slice<stdgo.Error>) } : _internal.fmt_test.Fmt_test_T__struct_0.T__struct_0),
 ({ _err : stdgo._internal.fmt.Fmt_errorf.errorf(("added context: %w" : stdgo.GoString), stdgo.Go.toInterface(_wrapped)), _wantText : ("added context: inner error" : stdgo.GoString), _wantUnwrap : _wrapped, _wantSplit : (null : stdgo.Slice<stdgo.Error>) } : _internal.fmt_test.Fmt_test_T__struct_0.T__struct_0),
 ({ _err : stdgo._internal.fmt.Fmt_errorf.errorf(("%w with added context" : stdgo.GoString), stdgo.Go.toInterface(_wrapped)), _wantText : ("inner error with added context" : stdgo.GoString), _wantUnwrap : _wrapped, _wantSplit : (null : stdgo.Slice<stdgo.Error>) } : _internal.fmt_test.Fmt_test_T__struct_0.T__struct_0),

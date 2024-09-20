@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function testInterfaceSet(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__8 => _tt in stdgo._internal.encoding.json.Json__interfaceSetTests._interfaceSetTests) {
+        for (__4 => _tt in stdgo._internal.encoding.json.Json__interfaceSetTests._interfaceSetTests) {
             var _b = ({ x : _tt._pre } : stdgo._internal.encoding.json.Json_T__struct_9.T__struct_9);
             var _blob = (((("{\"X\":" : stdgo.GoString) + _tt._json?.__copy__() : stdgo.GoString) + ("}" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
             {

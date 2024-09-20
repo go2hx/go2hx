@@ -6,7 +6,7 @@ function testSumZZ(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var subZZ = function(_z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> {
             return _z.sub(_x, _y);
         };
-        for (__14 => _a in stdgo._internal.math.big.Big__sumZZ._sumZZ) {
+        for (__8 => _a in stdgo._internal.math.big.Big__sumZZ._sumZZ) {
             var _arg = (_a?.__copy__() : stdgo._internal.math.big.Big_T_argZZ.T_argZZ);
             stdgo._internal.math.big.Big__testFunZZ._testFunZZ(_t, ("AddZZ" : stdgo.GoString), addZZ, _arg?.__copy__());
             _arg = (new stdgo._internal.math.big.Big_T_argZZ.T_argZZ(_a._z, _a._y, _a._x) : stdgo._internal.math.big.Big_T_argZZ.T_argZZ);

@@ -7,7 +7,7 @@ import stdgo._internal.fmt.Fmt;
     static public function scan( _s:stdgo.Ref<_internal.fmt_test.Fmt_test_IntString.IntString>, _state:stdgo._internal.fmt.Fmt_ScanState.ScanState, _verb:stdgo.GoInt32):stdgo.Error {
         @:recv var _s:stdgo.Ref<_internal.fmt_test.Fmt_test_IntString.IntString> = _s;
         {
-            var __tmp__ = stdgo._internal.fmt.Fmt_fscan.fscan(_state, stdgo.Go.toInterface(stdgo.Go.pointer(_s._i))), __3:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.fmt.Fmt_fscan.fscan(_state, stdgo.Go.toInterface(stdgo.Go.pointer(_s._i))), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };

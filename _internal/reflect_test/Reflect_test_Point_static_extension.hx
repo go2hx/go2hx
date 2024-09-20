@@ -20,7 +20,7 @@ import stdgo._internal.reflect.Reflect;
         var _points = new stdgo.Slice<_internal.reflect_test.Reflect_test_Point.Point>(_points.length, 0, ..._points);
         @:recv var _p:_internal.reflect_test.Reflect_test_Point.Point = _p?.__copy__();
         var _tot = (0 : stdgo.GoInt);
-        for (__71 => _q in _points) {
+        for (__70 => _q in _points) {
             var _dx = (_q._x - _p._x : stdgo.GoInt);
             var _dy = (_q._y - _p._y : stdgo.GoInt);
             _tot = (_tot + (((_dx * _dx : stdgo.GoInt) + (_dy * _dy : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);

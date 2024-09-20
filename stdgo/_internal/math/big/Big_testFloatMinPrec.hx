@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testFloatMinPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {};
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_12.T__struct_12>(11, 11, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_12.T__struct_12>(11, 11, ...[
 ({ _x : ("0" : stdgo.GoString), _want : (0u32 : stdgo.GoUInt) } : stdgo._internal.math.big.Big_T__struct_12.T__struct_12),
 ({ _x : ("-0" : stdgo.GoString), _want : (0u32 : stdgo.GoUInt) } : stdgo._internal.math.big.Big_T__struct_12.T__struct_12),
 ({ _x : ("+Inf" : stdgo.GoString), _want : (0u32 : stdgo.GoUInt) } : stdgo._internal.math.big.Big_T__struct_12.T__struct_12),

@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testAbsZ(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _zero:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
-        for (__14 => _a in stdgo._internal.math.big.Big__sumZZ._sumZZ) {
+        for (__8 => _a in stdgo._internal.math.big.Big__sumZZ._sumZZ) {
             var _z:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
             _z.abs(_a._z);
             var _e:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);

@@ -9,7 +9,7 @@ function _divWW(_x1:stdgo._internal.math.big.Big_Word.Word, _x0:stdgo._internal.
         };
         var _d = (_y : stdgo.GoUInt);
         var __tmp__ = stdgo._internal.math.bits.Bits_mul.mul((_m : stdgo.GoUInt), (_x1 : stdgo.GoUInt)), _t1:stdgo.GoUInt = __tmp__._0, _t0:stdgo.GoUInt = __tmp__._1;
-        var __tmp__ = stdgo._internal.math.bits.Bits_add.add(_t0, (_x0 : stdgo.GoUInt), (0u32 : stdgo.GoUInt)), __14:stdgo.GoUInt = __tmp__._0, _c:stdgo.GoUInt = __tmp__._1;
+        var __tmp__ = stdgo._internal.math.bits.Bits_add.add(_t0, (_x0 : stdgo.GoUInt), (0u32 : stdgo.GoUInt)), __8:stdgo.GoUInt = __tmp__._0, _c:stdgo.GoUInt = __tmp__._1;
         {
             var __tmp__ = stdgo._internal.math.bits.Bits_add.add(_t1, (_x1 : stdgo.GoUInt), _c);
             _t1 = __tmp__._0;
@@ -17,7 +17,7 @@ function _divWW(_x1:stdgo._internal.math.big.Big_Word.Word, _x0:stdgo._internal.
         var _qq = (_t1 : stdgo.GoUInt);
         var __tmp__ = stdgo._internal.math.bits.Bits_mul.mul(_d, _qq), _dq1:stdgo.GoUInt = __tmp__._0, _dq0:stdgo.GoUInt = __tmp__._1;
         var __tmp__ = stdgo._internal.math.bits.Bits_sub.sub((_x0 : stdgo.GoUInt), _dq0, (0u32 : stdgo.GoUInt)), _r0:stdgo.GoUInt = __tmp__._0, _b:stdgo.GoUInt = __tmp__._1;
-        var __tmp__ = stdgo._internal.math.bits.Bits_sub.sub((_x1 : stdgo.GoUInt), _dq1, _b), _r1:stdgo.GoUInt = __tmp__._0, __15:stdgo.GoUInt = __tmp__._1;
+        var __tmp__ = stdgo._internal.math.bits.Bits_sub.sub((_x1 : stdgo.GoUInt), _dq1, _b), _r1:stdgo.GoUInt = __tmp__._0, __9:stdgo.GoUInt = __tmp__._1;
         if (_r1 != ((0u32 : stdgo.GoUInt))) {
             _qq++;
             _r0 = (_r0 - (_d) : stdgo.GoUInt);

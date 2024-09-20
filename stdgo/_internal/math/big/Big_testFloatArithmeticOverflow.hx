@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatArithmeticOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_26.T__struct_26>(23, 23, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_26.T__struct_26>(23, 23, ...[
 ({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _op : (43 : stdgo.GoUInt8), _x : ("0" : stdgo.GoString), _y : ("0" : stdgo.GoString), _want : ("0" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_26.T__struct_26),
 ({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _op : (43 : stdgo.GoUInt8), _x : ("0x.8p+0" : stdgo.GoString), _y : ("0x.8p+0" : stdgo.GoString), _want : ("0x.8p+1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_26.T__struct_26),
 ({ _prec : (4u32 : stdgo.GoUInt), _mode : (0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _op : (43 : stdgo.GoUInt8), _x : ("0" : stdgo.GoString), _y : ("0x.8p2147483647" : stdgo.GoString), _want : ("0x.8p+2147483647" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_26.T__struct_26),

@@ -5,7 +5,7 @@ function fuzzDecoderToken(_f:stdgo.Ref<stdgo._internal.testing.Testing_F.F>):Voi
             var _r = stdgo._internal.bytes.Bytes_newReader.newReader(_b);
             var _d = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(stdgo.Go.asInterface(_r));
             while (true) {
-                var __tmp__ = _d.token(), __24:stdgo._internal.encoding.json.Json_Token.Token = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _d.token(), __20:stdgo._internal.encoding.json.Json_Token.Token = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                         break;

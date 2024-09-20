@@ -7,8 +7,8 @@ package stdgo._internal.net.http;
         try {
             _p._mu.lock();
             __deferstack__.unshift(() -> _p._mu.unlock());
-            for (__30167 => _vv in _p._conns) {
-                for (__30168 => _cc in _vv) {
+            for (__30156 => _vv in _p._conns) {
+                for (__30157 => _cc in _vv) {
                     _cc._closeIfIdle();
                 };
             };
@@ -41,7 +41,7 @@ package stdgo._internal.net.http;
         try {
             _p._mu.lock();
             __deferstack__.unshift(() -> _p._mu.unlock());
-            for (__30167 => _key in (_p._keys[_cc] ?? (null : stdgo.Slice<stdgo.GoString>))) {
+            for (__30156 => _key in (_p._keys[_cc] ?? (null : stdgo.Slice<stdgo.GoString>))) {
                 var __tmp__ = (_p._conns != null && _p._conns.exists(_key?.__copy__()) ? { _0 : _p._conns[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>>), _1 : false }), _vv:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     continue;
@@ -79,7 +79,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _addConnLocked( _p:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnPool.T_http2clientConnPool>, _key:stdgo.GoString, _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>):Void {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnPool.T_http2clientConnPool> = _p;
-        for (__30151 => _v in (_p._conns[_key] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>>))) {
+        for (__30140 => _v in (_p._conns[_key] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>>))) {
             if (_v == (_cc)) {
                 return;
             };
@@ -107,7 +107,7 @@ package stdgo._internal.net.http;
         @:recv var _p:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnPool.T_http2clientConnPool> = _p;
         var _used = false, _err = (null : stdgo.Error);
         _p._mu.lock();
-        for (__30159 => _cc in (_p._conns[_key] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>>))) {
+        for (__30148 => _cc in (_p._conns[_key] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>>))) {
             if (_cc.canTakeNewRequest()) {
                 _p._mu.unlock();
                 return { _0 : false, _1 : (null : stdgo.Error) };
@@ -170,7 +170,7 @@ package stdgo._internal.net.http;
         };
         while (true) {
             _p._mu.lock();
-            for (__30159 => _cc in (_p._conns[_addr] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>>))) {
+            for (__30148 => _cc in (_p._conns[_addr] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>>))) {
                 if (_cc.reserveNewRequest()) {
                     if (!_cc._getConnCalled) {
                         stdgo._internal.net.http.Http__http2traceGetConn._http2traceGetConn(_req, _addr?.__copy__());

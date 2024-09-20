@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatSetUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _want in (new stdgo.Slice<stdgo.GoUInt64>(8, 8, ...[(0i64 : stdgo.GoUInt64), (1i64 : stdgo.GoUInt64), (2i64 : stdgo.GoUInt64), (10i64 : stdgo.GoUInt64), (100i64 : stdgo.GoUInt64), (4294967295i64 : stdgo.GoUInt64), (4294967296i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoUInt64>)) {
+        for (__8 => _want in (new stdgo.Slice<stdgo.GoUInt64>(8, 8, ...[(0i64 : stdgo.GoUInt64), (1i64 : stdgo.GoUInt64), (2i64 : stdgo.GoUInt64), (10i64 : stdgo.GoUInt64), (100i64 : stdgo.GoUInt64), (4294967295i64 : stdgo.GoUInt64), (4294967296i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoUInt64>)) {
             var _f:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
             _f.setUint64(_want);
             {

@@ -44,7 +44,7 @@ function testUnmarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
             };
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(_v.elem().interface_(), _tt._out)) {
                 _t.errorf(("#%d: mismatch\nhave: %#+v\nwant: %#+v" : stdgo.GoString), stdgo.Go.toInterface(_i), _v.elem().interface_(), _tt._out);
-                var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_v.elem().interface_()), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __8:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_v.elem().interface_()), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __4:stdgo.Error = __tmp__._1;
                 stdgo.Go.println((_data : stdgo.GoString));
                 {
                     var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_tt._out);

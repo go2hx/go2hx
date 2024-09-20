@@ -3,7 +3,7 @@ function testModInverse(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __2:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __3:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _inverse = __3, _gcd = __2, _modulus = __1, _element = __0;
         var _one = stdgo._internal.math.big.Big_newInt.newInt((1i64 : stdgo.GoInt64));
-        for (__14 => _test in stdgo._internal.math.big.Big__modInverseTests._modInverseTests) {
+        for (__8 => _test in stdgo._internal.math.big.Big__modInverseTests._modInverseTests) {
             (stdgo.Go.setRef(_element) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_test._element?.__copy__(), (10 : stdgo.GoInt));
             (stdgo.Go.setRef(_modulus) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_test._modulus?.__copy__(), (10 : stdgo.GoInt));
             (stdgo.Go.setRef(_inverse) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse((stdgo.Go.setRef(_element) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_modulus) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));

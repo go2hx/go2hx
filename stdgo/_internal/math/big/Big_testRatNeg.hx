@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testRatNeg(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _zero = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-        for (__14 => _a in stdgo._internal.math.big.Big__setStringTests._setStringTests) {
+        for (__8 => _a in stdgo._internal.math.big.Big__setStringTests._setStringTests) {
             var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>).setString(_a._in?.__copy__()), _x:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 continue;

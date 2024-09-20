@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function testDeepEqualAllocs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__7 => _tt in _internal.reflect_test.Reflect_test__deepEqualPerfTests._deepEqualPerfTests) {
+        for (__6 => _tt in _internal.reflect_test.Reflect_test__deepEqualPerfTests._deepEqualPerfTests) {
             _t.run((stdgo._internal.reflect.Reflect_valueOf.valueOf(_tt._x).type().string() : stdgo.GoString)?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 var _got = (stdgo._internal.testing.Testing_allocsPerRun.allocsPerRun((100 : stdgo.GoInt), function():Void {
                     if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(_tt._x, _tt._y)) {

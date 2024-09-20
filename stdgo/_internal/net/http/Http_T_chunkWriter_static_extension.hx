@@ -22,7 +22,7 @@ package stdgo._internal.net.http;
                 return;
             };
             {
-                var __tmp__ = (_header != null && _header.exists(_key?.__copy__()) ? { _0 : _header[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __34259:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (_header != null && _header.exists(_key?.__copy__()) ? { _0 : _header[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __34248:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     return;
                 };
@@ -53,7 +53,7 @@ package stdgo._internal.net.http;
                 _trailers = true;
             };
         };
-        for (__34259 => _v in (_cw._header[("Trailer" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>))) {
+        for (__34248 => _v in (_cw._header[("Trailer" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>))) {
             _trailers = true;
             stdgo._internal.net.http.Http__foreachHeaderElement._foreachHeaderElement(_v?.__copy__(), _cw._res._declareTrailer);
         };
@@ -71,7 +71,7 @@ package stdgo._internal.net.http;
         };
         var _hasCL = (_w._contentLength != ((-1i64 : stdgo.GoInt64)) : Bool);
         if ((_w._wants10KeepAlive && (((_isHEAD || _hasCL : Bool) || !stdgo._internal.net.http.Http__bodyAllowedForStatus._bodyAllowedForStatus(_w._status) : Bool)) : Bool)) {
-            var __tmp__ = (_header != null && _header.exists(("Connection" : stdgo.GoString)) ? { _0 : _header[("Connection" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __34467:stdgo.Slice<stdgo.GoString> = __tmp__._0, _connectionHeaderSet:Bool = __tmp__._1;
+            var __tmp__ = (_header != null && _header.exists(("Connection" : stdgo.GoString)) ? { _0 : _header[("Connection" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __34456:stdgo.Slice<stdgo.GoString> = __tmp__._0, _connectionHeaderSet:Bool = __tmp__._1;
             if (!_connectionHeaderSet) {
                 _setHeader._connection = ("keep-alive" : stdgo.GoString);
             };
@@ -120,7 +120,7 @@ var _tooBig = __1, _discard = __0;
                 };
             };
             if (_discard) {
-                var __tmp__ = stdgo._internal.io.Io_copyN.copyN(stdgo._internal.io.Io_discard.discard, _w._reqBody, (262145i64 : stdgo.GoInt64)), __34780:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io_copyN.copyN(stdgo._internal.io.Io_discard.discard, _w._reqBody, (262145i64 : stdgo.GoInt64)), __34769:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 {
                     final __value__ = _err;
                     if (__value__ == null) {
@@ -143,14 +143,14 @@ var _tooBig = __1, _discard = __0;
         };
         var _code = (_w._status : stdgo.GoInt);
         if (stdgo._internal.net.http.Http__bodyAllowedForStatus._bodyAllowedForStatus(_code)) {
-            var __tmp__ = (_header != null && _header.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _header[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __34746:stdgo.Slice<stdgo.GoString> = __tmp__._0, _haveType:Bool = __tmp__._1;
+            var __tmp__ = (_header != null && _header.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _header[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __34735:stdgo.Slice<stdgo.GoString> = __tmp__._0, _haveType:Bool = __tmp__._1;
             var _ce = (_header.get(("Content-Encoding" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             var _hasCE = ((_ce.length) > (0 : stdgo.GoInt) : Bool);
             if ((((!_hasCE && !_haveType : Bool) && !_hasTE : Bool) && ((_p.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                 _setHeader._contentType = stdgo._internal.net.http.Http_detectContentType.detectContentType(_p)?.__copy__();
             };
         } else {
-            for (__34746 => _k in stdgo._internal.net.http.Http__suppressedHeaders._suppressedHeaders(_code)) {
+            for (__34735 => _k in stdgo._internal.net.http.Http__suppressedHeaders._suppressedHeaders(_code)) {
                 _delHeader(_k?.__copy__());
             };
         };

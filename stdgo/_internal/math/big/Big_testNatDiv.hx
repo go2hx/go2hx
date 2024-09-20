@@ -18,8 +18,8 @@ function testNatDiv(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
 (4000 : stdgo.GoInt),
 (6500 : stdgo.GoInt),
 (10000 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-        for (__14 => _i in _sizes) {
-            for (__15 => _j in _sizes) {
+        for (__8 => _i in _sizes) {
+            for (__9 => _j in _sizes) {
                 var _a = (stdgo._internal.math.big.Big__rndNat1._rndNat1(_i) : stdgo._internal.math.big.Big_T_nat.T_nat);
                 var _b = (stdgo._internal.math.big.Big__rndNat1._rndNat1(_j) : stdgo._internal.math.big.Big_T_nat.T_nat);
                 if (((_b.length == (1 : stdgo.GoInt)) && (_b[(0 : stdgo.GoInt)] == (1u32 : stdgo._internal.math.big.Big_Word.Word)) : Bool)) {

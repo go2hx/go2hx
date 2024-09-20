@@ -18,7 +18,7 @@ function _mkState(_w:stdgo.GoInt, _p:stdgo.GoInt, _flags:stdgo.GoString):_intern
             {};
             x;
         } : stdgo.GoMap<stdgo.GoInt, Bool>);
-        for (__3 => _c in _flags) {
+        for (__2 => _c in _flags) {
             _s._flag[(_c : stdgo.GoInt)] = true;
         };
         return _s?.__copy__();

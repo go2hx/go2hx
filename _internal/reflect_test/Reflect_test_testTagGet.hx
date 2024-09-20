@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function testTagGet(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__7 => _tt in _internal.reflect_test.Reflect_test__tagGetTests._tagGetTests) {
+        for (__6 => _tt in _internal.reflect_test.Reflect_test__tagGetTests._tagGetTests) {
             {
                 var _v = (_tt.tag.get(_tt.key?.__copy__())?.__copy__() : stdgo.GoString);
                 if (_v != (_tt.value)) {

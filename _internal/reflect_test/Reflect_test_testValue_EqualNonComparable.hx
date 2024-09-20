@@ -28,7 +28,7 @@ stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(((new stdgo
             {};
             x;
         } : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>))]) : stdgo.GoArray<stdgo.AnyInterface>))]) : stdgo.GoArray<stdgo.AnyInterface>))))?.__copy__()].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.reflect.Reflect_Value.Value)])) : stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>);
-        for (__7 => _value in _values) {
+        for (__6 => _value in _values) {
             _internal.reflect_test.Reflect_test__shouldPanic._shouldPanic(("are not comparable" : stdgo.GoString), function():Void {
                 _value._typ_.equal(_value?.__copy__());
             });

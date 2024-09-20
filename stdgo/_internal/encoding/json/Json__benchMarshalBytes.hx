@@ -7,7 +7,7 @@ function _benchMarshalBytes(_n:stdgo.GoInt):stdgo.Ref<stdgo._internal.testing.Te
                 var _i = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
                     {
-                        var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_v))), __16:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_v))), __12:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             _b.fatal(stdgo.Go.toInterface(("Marshal:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                         };

@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testBitSet(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in stdgo._internal.math.big.Big__bitwiseTests._bitwiseTests) {
+        for (__8 => _test in stdgo._internal.math.big.Big__bitwiseTests._bitwiseTests) {
             var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
             _x.setString(_test._x?.__copy__(), (0 : stdgo.GoInt));
             stdgo._internal.math.big.Big__testBitset._testBitset(_t, _x);

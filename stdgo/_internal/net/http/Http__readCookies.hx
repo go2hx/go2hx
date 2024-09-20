@@ -5,7 +5,7 @@ function _readCookies(_h:stdgo._internal.net.http.Http_Header.Header, _filter:st
             return (new stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>(0, 0, ...[]) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>);
         };
         var _cookies = (new stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>((0 : stdgo.GoInt).toBasic(), ((_lines.length) + stdgo._internal.strings.Strings_count.count(_lines[(0 : stdgo.GoInt)]?.__copy__(), (";" : stdgo.GoString)) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>);
-        for (__143 => _line in _lines) {
+        for (__132 => _line in _lines) {
             _line = stdgo._internal.net.textproto.Textproto_trimString.trimString(_line?.__copy__())?.__copy__();
             var _part:stdgo.GoString = ("" : stdgo.GoString);
             while (((_line.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -18,7 +18,7 @@ function _readCookies(_h:stdgo._internal.net.http.Http_Header.Header, _filter:st
                 if (_part == (stdgo.Go.str())) {
                     continue;
                 };
-                var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_part?.__copy__(), ("=" : stdgo.GoString)), _name:stdgo.GoString = __tmp__._0, _val:stdgo.GoString = __tmp__._1, __144:Bool = __tmp__._2;
+                var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_part?.__copy__(), ("=" : stdgo.GoString)), _name:stdgo.GoString = __tmp__._0, _val:stdgo.GoString = __tmp__._1, __133:Bool = __tmp__._2;
                 _name = stdgo._internal.net.textproto.Textproto_trimString.trimString(_name?.__copy__())?.__copy__();
                 if (!stdgo._internal.net.http.Http__isCookieNameValid._isCookieNameValid(_name?.__copy__())) {
                     continue;

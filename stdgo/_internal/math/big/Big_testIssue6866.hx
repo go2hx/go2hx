@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testIssue6866(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _prec in stdgo._internal.math.big.Big__precList._precList) {
+        for (__8 => _prec in stdgo._internal.math.big.Big__precList._precList) {
             var _two = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setInt64((2i64 : stdgo.GoInt64));
             var _one = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setInt64((1i64 : stdgo.GoInt64));
             var _three = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setInt64((3i64 : stdgo.GoInt64));

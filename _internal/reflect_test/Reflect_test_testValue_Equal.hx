@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function testValue_Equal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__7 => _test in _internal.reflect_test.Reflect_test__valueEqualTests._valueEqualTests) {
+        for (__6 => _test in _internal.reflect_test.Reflect_test__valueEqualTests._valueEqualTests) {
             var __0:stdgo._internal.reflect.Reflect_Value.Value = ({} : stdgo._internal.reflect.Reflect_Value.Value), __1:stdgo._internal.reflect.Reflect_Value.Value = ({} : stdgo._internal.reflect.Reflect_Value.Value);
 var _u = __1, _v = __0;
             {

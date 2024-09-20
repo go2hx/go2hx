@@ -9,7 +9,7 @@ import stdgo._internal.sync.Sync;
 function _testOncePanicWith(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _calls:stdgo.Pointer<stdgo.GoInt>, _f:() -> Void, _check:(stdgo.GoString, stdgo.AnyInterface) -> Void):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            for (__4 => _label in (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("first time" : stdgo.GoString), ("second time" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
+            for (__2 => _label in (new stdgo.Slice<stdgo.GoString>(2, 2, ...[("first time" : stdgo.GoString), ("second time" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
                 var _p:stdgo.AnyInterface = (null : stdgo.AnyInterface);
                 var _panicked = (true : Bool);
                 {

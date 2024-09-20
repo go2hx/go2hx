@@ -19,7 +19,7 @@ function testConvert(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {};
             cast x;
         } : stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, Bool>);
-        for (__7 => _tt in _internal.reflect_test.Reflect_test__convertTests._convertTests) {
+        for (__6 => _tt in _internal.reflect_test.Reflect_test__convertTests._convertTests) {
             var _t1 = (_tt._in.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
             if (!_t1.convertibleTo(_t1)) {
                 _t.errorf(("(%s).ConvertibleTo(%s) = false, want true" : stdgo.GoString), stdgo.Go.toInterface(_t1), stdgo.Go.toInterface(_t1));

@@ -11,7 +11,7 @@ function testPtrToMethods(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             { _0 : (stdgo.Go.typeAssert((_yp : stdgo._internal.fmt.Fmt_Stringer.Stringer)) : stdgo._internal.fmt.Fmt_Stringer.Stringer), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo._internal.fmt.Fmt_Stringer.Stringer), _1 : false };
-        }, __7 = __tmp__._0, _ok = __tmp__._1;
+        }, __6 = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
             _t.fatal(stdgo.Go.toInterface(("does not implement Stringer, but should" : stdgo.GoString)));
         };

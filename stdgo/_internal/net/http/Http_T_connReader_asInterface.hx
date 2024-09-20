@@ -5,7 +5,7 @@ class T_connReader_asInterface {
     @:keep
     public dynamic function _closeNotify():Void __self__.value._closeNotify();
     @:keep
-    public dynamic function _handleReadError(__34303:stdgo.Error):Void __self__.value._handleReadError(__34303);
+    public dynamic function _handleReadError(__34292:stdgo.Error):Void __self__.value._handleReadError(__34292);
     @:keep
     public dynamic function _hitReadLimit():Bool return __self__.value._hitReadLimit();
     @:keep

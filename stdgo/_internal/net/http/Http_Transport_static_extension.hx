@@ -93,7 +93,7 @@ package stdgo._internal.net.http;
                     };
                 };
                 {
-                    var __tmp__ = _d.dialWithConn(_ctx, _conn, ("tcp" : stdgo.GoString), _cm._targetAddr?.__copy__()), __35646:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = _d.dialWithConn(_ctx, _conn, ("tcp" : stdgo.GoString), _cm._targetAddr?.__copy__()), __35635:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         _conn.close();
                         return { _0 : null, _1 : _err };
@@ -251,7 +251,7 @@ var _err = __1, _resp = __0;
                     };
                 };
                 if (_resp.statusCode != ((200 : stdgo.GoInt))) {
-                    var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_resp.status?.__copy__(), (" " : stdgo.GoString)), __35659:stdgo.GoString = __tmp__._0, _text:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;
+                    var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_resp.status?.__copy__(), (" " : stdgo.GoString)), __35648:stdgo.GoString = __tmp__._0, _text:stdgo.GoString = __tmp__._1, _ok:Bool = __tmp__._2;
                     _conn.close();
                     if (!_ok) {
                         {
@@ -828,7 +828,7 @@ var _err = __1, _resp = __0;
         try {
             _t._reqMu.lock();
             __deferstack__.unshift(() -> _t._reqMu.unlock());
-            var __tmp__ = (_t._reqCanceler != null && _t._reqCanceler.exists(_key?.__copy__()) ? { _0 : _t._reqCanceler[_key?.__copy__()], _1 : true } : { _0 : null, _1 : false }), __35639:stdgo.Error -> Void = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = (_t._reqCanceler != null && _t._reqCanceler.exists(_key?.__copy__()) ? { _0 : _t._reqCanceler[_key?.__copy__()], _1 : true } : { _0 : null, _1 : false }), __35628:stdgo.Error -> Void = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {
                     for (defer in __deferstack__) {
@@ -1560,7 +1560,7 @@ var _err = __1, _resp = __0;
                     return stdgo._internal.net.http.Http__errTooManyIdleHost._errTooManyIdleHost;
                 };
             };
-            for (__35683 => _exist in _idles) {
+            for (__35672 => _exist in _idles) {
                 if (_exist == (_pconn)) {
                     stdgo._internal.log.Log_fatalf.fatalf(("dup idle pconn %p in freelist" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_pconn)));
                 };
@@ -1704,8 +1704,8 @@ var _err = __1, _resp = __0;
         _t._closeIdle = true;
         _t._idleLRU = (new stdgo._internal.net.http.Http_T_connLRU.T_connLRU() : stdgo._internal.net.http.Http_T_connLRU.T_connLRU);
         _t._idleMu.unlock();
-        for (__35655 => _conns in _m) {
-            for (__35656 => _pconn in _conns) {
+        for (__35644 => _conns in _m) {
+            for (__35645 => _pconn in _conns) {
                 _pconn._close(stdgo._internal.net.http.Http__errCloseIdleConns._errCloseIdleConns);
             };
         };
@@ -1727,9 +1727,9 @@ var _err = __1, _resp = __0;
                 { _0 : (stdgo.Go.typeAssert((_t._altProto.load() : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>)) : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>), _1 : false };
-            }, _oldMap = __tmp__._0, __35635 = __tmp__._1;
+            }, _oldMap = __tmp__._0, __35624 = __tmp__._1;
             {
-                var __tmp__ = (_oldMap != null && _oldMap.exists(_scheme?.__copy__()) ? { _0 : _oldMap[_scheme?.__copy__()], _1 : true } : { _0 : (null : stdgo._internal.net.http.Http_RoundTripper.RoundTripper), _1 : false }), __35636:stdgo._internal.net.http.Http_RoundTripper.RoundTripper = __tmp__._0, _exists:Bool = __tmp__._1;
+                var __tmp__ = (_oldMap != null && _oldMap.exists(_scheme?.__copy__()) ? { _0 : _oldMap[_scheme?.__copy__()], _1 : true } : { _0 : (null : stdgo._internal.net.http.Http_RoundTripper.RoundTripper), _1 : false }), __35625:stdgo._internal.net.http.Http_RoundTripper.RoundTripper = __tmp__._0, _exists:Bool = __tmp__._1;
                 if (_exists) {
                     throw stdgo.Go.toInterface(((("protocol " : stdgo.GoString) + _scheme?.__copy__() : stdgo.GoString) + (" already registered" : stdgo.GoString)?.__copy__() : stdgo.GoString));
                 };
@@ -1789,7 +1789,7 @@ var _err = __1, _resp = __0;
                     _req._closeBody();
                     return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("net/http: invalid header field name %q" : stdgo.GoString), stdgo.Go.toInterface(_k)) };
                 };
-                for (__35631 => _v in _vv) {
+                for (__35620 => _v in _vv) {
                     if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldValue.validHeaderFieldValue(_v?.__copy__())) {
                         _req._closeBody();
                         return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("net/http: invalid header field value for %q" : stdgo.GoString), stdgo.Go.toInterface(_k)) };
@@ -1942,7 +1942,7 @@ var _err = __1, _resp = __0;
             { _0 : (stdgo.Go.typeAssert((_t._altProto.load() : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>)) : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>), _1 : false };
-        }, _altProto = __tmp__._0, __35631 = __tmp__._1;
+        }, _altProto = __tmp__._0, __35620 = __tmp__._1;
         return (_altProto[_req.url.scheme] ?? (null : stdgo._internal.net.http.Http_RoundTripper.RoundTripper));
     }
     @:keep
@@ -1965,7 +1965,7 @@ var _err = __1, _resp = __0;
             { _0 : (stdgo.Go.typeAssert((_t._altProto.load() : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>)) : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>), _1 : false };
-        }, _altProto = __tmp__._0, __35643 = __tmp__._1;
+        }, _altProto = __tmp__._0, __35632 = __tmp__._1;
         {
             var _rv = (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((_altProto[("https" : stdgo.GoString)] ?? (null : stdgo._internal.net.http.Http_RoundTripper.RoundTripper))))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             if (((_rv.isValid() && _rv.type().kind() == ((25u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) : Bool) && (_rv.type().numField() == (1 : stdgo.GoInt)) : Bool)) {
@@ -2096,7 +2096,7 @@ var _err = __1, _resp = __0;
         };
         var _headers = (stdgo._internal.syscall.js.Js_global.global().get(("Headers" : stdgo.GoString)).new_()?.__copy__() : stdgo._internal.syscall.js.Js_Value.Value);
         for (_key => _values in _req.header) {
-            for (__35672 => _value in _values) {
+            for (__35661 => _value in _values) {
                 _headers.call(("append" : stdgo.GoString), stdgo.Go.toInterface(_key), stdgo.Go.toInterface(_value));
             };
         };

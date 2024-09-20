@@ -24,7 +24,7 @@ package stdgo._internal.crypto.elliptic;
         var bz = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setInt64((1i64 : stdgo.GoInt64));
         var __0 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), __1 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), __2 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
 var _z = __2, _y = __1, _x = __0;
-        for (__2 => _byte in _k) {
+        for (__1 => _byte in _k) {
             {
                 var _bitNum = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_bitNum < (8 : stdgo.GoInt) : Bool), _bitNum++, {

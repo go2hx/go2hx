@@ -70,7 +70,7 @@ function _http2buildCommonHeaderMaps():Void {
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
-        for (__143 => _v in _common) {
+        for (__132 => _v in _common) {
             var _chk = (stdgo._internal.net.http.Http_canonicalHeaderKey.canonicalHeaderKey(_v?.__copy__())?.__copy__() : stdgo.GoString);
             stdgo._internal.net.http.Http__http2commonLowerHeader._http2commonLowerHeader[_chk] = _v?.__copy__();
             stdgo._internal.net.http.Http__http2commonCanonHeader._http2commonCanonHeader[_v] = _chk?.__copy__();

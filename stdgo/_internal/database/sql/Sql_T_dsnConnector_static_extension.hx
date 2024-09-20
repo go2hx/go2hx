@@ -6,7 +6,7 @@ package stdgo._internal.database.sql;
         return _t._driver;
     }
     @:keep
-    static public function connect( _t:stdgo._internal.database.sql.Sql_T_dsnConnector.T_dsnConnector, __22:stdgo._internal.context.Context_Context.Context):{ var _0 : stdgo._internal.database.sql.driver.Driver_Conn.Conn; var _1 : stdgo.Error; } {
+    static public function connect( _t:stdgo._internal.database.sql.Sql_T_dsnConnector.T_dsnConnector, __19:stdgo._internal.context.Context_Context.Context):{ var _0 : stdgo._internal.database.sql.driver.Driver_Conn.Conn; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo._internal.database.sql.Sql_T_dsnConnector.T_dsnConnector = _t?.__copy__();
         return _t._driver.open(_t._dsn?.__copy__());
     }

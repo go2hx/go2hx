@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function _http2readFrameHeader(_buf:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader; var _1 : stdgo.Error; } {
-        var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, (_buf.__slice__(0, (9 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __143:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r, (_buf.__slice__(0, (9 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __132:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (new stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader() : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader), _1 : _err };
         };

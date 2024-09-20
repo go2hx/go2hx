@@ -14,7 +14,7 @@ function benchmarkLoadOrStoreBalanced(_b:stdgo.Ref<stdgo._internal.testing.Testi
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<_internal.sync_test.Sync_test_DeepCopyMap.DeepCopyMap>)) : stdgo.Ref<_internal.sync_test.Sync_test_DeepCopyMap.DeepCopyMap>), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<_internal.sync_test.Sync_test_DeepCopyMap.DeepCopyMap>), _1 : false };
-                }, __4 = __tmp__._0, _ok = __tmp__._1;
+                }, __2 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };
@@ -36,7 +36,7 @@ function benchmarkLoadOrStoreBalanced(_b:stdgo.Ref<stdgo._internal.testing.Testi
                 var _j = (_i % (256 : stdgo.GoInt) : stdgo.GoInt);
                 if ((_j < (128 : stdgo.GoInt) : Bool)) {
                     {
-                        var __tmp__ = _m.loadOrStore(stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i)), __4:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = _m.loadOrStore(stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_i)), __2:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             _b.fatalf(("unexpected miss for %v" : stdgo.GoString), stdgo.Go.toInterface(_j));
                         };

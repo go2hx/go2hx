@@ -365,7 +365,7 @@ package stdgo._internal.net.http;
                 };
             };
         };
-        for (__34251 => _k in _w._trailers) {
+        for (__34240 => _k in _w._trailers) {
             if (_t == null) {
                 _t = (({
                     final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();
@@ -374,7 +374,7 @@ package stdgo._internal.net.http;
                     x;
                 } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
             };
-            for (__34286 => _v in (_w._handlerHeader[_k] ?? (null : stdgo.Slice<stdgo.GoString>))) {
+            for (__34275 => _v in (_w._handlerHeader[_k] ?? (null : stdgo.Slice<stdgo.GoString>))) {
                 _t.add(_k?.__copy__(), _v?.__copy__());
             };
         };

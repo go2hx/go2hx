@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function benchmarkNatSqr(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
-        for (__14 => _n in stdgo._internal.math.big.Big__sqrBenchSizes._sqrBenchSizes) {
+        for (__8 => _n in stdgo._internal.math.big.Big__sqrBenchSizes._sqrBenchSizes) {
             if ((stdgo._internal.math.big.Big__isRaceBuilder._isRaceBuilder && (_n > (1000 : stdgo.GoInt) : Bool) : Bool)) {
                 continue;
             };

@@ -16,7 +16,7 @@ function testUnexported(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         _internal.reflect_test.Reflect_test__isValid._isValid(_v.elem().fieldByName(("Y" : stdgo.GoString))?.__copy__());
         _internal.reflect_test.Reflect_test__isValid._isValid(_v.elem().fieldByName(("Z" : stdgo.GoString))?.__copy__());
         _internal.reflect_test.Reflect_test__isValid._isValid(_v.type().method((0 : stdgo.GoInt)).func?.__copy__());
-        var __tmp__ = _v.type().methodByName(("M" : stdgo.GoString)), _m:stdgo._internal.reflect.Reflect_Method.Method = __tmp__._0, __7:Bool = __tmp__._1;
+        var __tmp__ = _v.type().methodByName(("M" : stdgo.GoString)), _m:stdgo._internal.reflect.Reflect_Method.Method = __tmp__._0, __6:Bool = __tmp__._1;
         _internal.reflect_test.Reflect_test__isValid._isValid(_m.func?.__copy__());
         {
             var __tmp__ = _v.type().methodByName(("P" : stdgo.GoString));

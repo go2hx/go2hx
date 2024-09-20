@@ -2,6 +2,7 @@ package _internal.os.exec_test;
 import stdgo._internal.os.exec.Exec;
 @:keep var __init_go2hx__ = {
         try {
+            var __tmp__0 = _internal.os.exec_test.Exec_test__pathVar._pathVar, __tmp__1 = _internal.os.exec_test.Exec_test__quitSignal._quitSignal, __tmp__2 = _internal.os.exec_test.Exec_test__pipeSignal._pipeSignal, __tmp__3 = _internal.os.exec_test.Exec_test__helperCommands._helperCommands;
             var _godebug = (stdgo._internal.os.Os_getenv.getenv(("GODEBUG" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             if (_godebug != (stdgo.Go.str())) {
                 _godebug = (_godebug + (("," : stdgo.GoString))?.__copy__() : stdgo.GoString);

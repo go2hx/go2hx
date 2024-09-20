@@ -47,7 +47,7 @@ import stdgo._internal.sync.Sync;
             } else if (__value__ == ((("CompareAndDelete" : stdgo.GoString) : _internal.sync_test.Sync_test_T_mapOp.T_mapOp))) {
                 if (_m.compareAndDelete(_c._k, _c._v)) {
                     {
-                        var __tmp__ = _m.load(_c._k), __4:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = _m.load(_c._k), __2:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
                             return { _0 : (null : stdgo.AnyInterface), _1 : true };
                         };

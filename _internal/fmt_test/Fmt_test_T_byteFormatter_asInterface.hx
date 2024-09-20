@@ -4,7 +4,7 @@ import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
 class T_byteFormatter_asInterface {
     @:keep
-    public dynamic function format(_f:stdgo._internal.fmt.Fmt_State.State, __3:stdgo.GoInt32):Void __self__.value.format(_f, __3);
+    public dynamic function format(_f:stdgo._internal.fmt.Fmt_State.State, __2:stdgo.GoInt32):Void __self__.value.format(_f, __2);
     public function new(__self__, __type__) {
         this.__self__ = __self__;
         this.__type__ = __type__;

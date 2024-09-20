@@ -1,8 +1,8 @@
 package stdgo._internal.math.big;
 function benchmarkScan(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         {};
-        for (__14 => _base in (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(2 : stdgo.GoInt), (8 : stdgo.GoInt), (10 : stdgo.GoInt), (16 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
-            for (__15 => _y in (new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>(5, 5, ...[(10u32 : stdgo._internal.math.big.Big_Word.Word), (100u32 : stdgo._internal.math.big.Big_Word.Word), (1000u32 : stdgo._internal.math.big.Big_Word.Word), (10000u32 : stdgo._internal.math.big.Big_Word.Word), (100000u32 : stdgo._internal.math.big.Big_Word.Word)]).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>)) {
+        for (__8 => _base in (new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(2 : stdgo.GoInt), (8 : stdgo.GoInt), (10 : stdgo.GoInt), (16 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
+            for (__9 => _y in (new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>(5, 5, ...[(10u32 : stdgo._internal.math.big.Big_Word.Word), (100u32 : stdgo._internal.math.big.Big_Word.Word), (1000u32 : stdgo._internal.math.big.Big_Word.Word), (10000u32 : stdgo._internal.math.big.Big_Word.Word), (100000u32 : stdgo._internal.math.big.Big_Word.Word)]).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>)) {
                 if ((stdgo._internal.math.big.Big__isRaceBuilder._isRaceBuilder && (_y > (1000u32 : stdgo._internal.math.big.Big_Word.Word) : Bool) : Bool)) {
                     continue;
                 };

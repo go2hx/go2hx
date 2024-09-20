@@ -35,7 +35,7 @@ function testAnonymousFields(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
             {};
             return stdgo.Go.toInterface((new stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_11225.T_testAnonymousFields___localname___S_11225() : stdgo._internal.encoding.json.Json_T_testAnonymousFields___localname___S_11225.T_testAnonymousFields___localname___S_11225));
         }, _want : ("{}" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_23.T__struct_23)].concat([for (i in 10 ... (10 > 10 ? 10 : 10 : stdgo.GoInt).toBasic()) ({ _label : ("" : stdgo.GoString), _makeInput : null, _want : ("" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_23.T__struct_23)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_T__struct_23.T__struct_23>);
-        for (__8 => _tt in _tests) {
+        for (__4 => _tt in _tests) {
             _t.run(_tt._label?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_tt._makeInput()), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {

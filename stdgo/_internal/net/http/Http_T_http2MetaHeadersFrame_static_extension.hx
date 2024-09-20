@@ -17,7 +17,7 @@ var _isResponse = __1, _isRequest = __0;
                     return stdgo.Go.asInterface((_hf.name : stdgo._internal.net.http.Http_T_http2pseudoHeaderError.T_http2pseudoHeaderError));
                 };
             };
-            for (__31223 => _hf2 in (_pf.__slice__(0, _i) : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_HeaderField.HeaderField>)) {
+            for (__31212 => _hf2 in (_pf.__slice__(0, _i) : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_HeaderField.HeaderField>)) {
                 if (_hf.name == (_hf2.name)) {
                     return stdgo.Go.asInterface((_hf.name : stdgo._internal.net.http.Http_T_http2duplicatePseudoHeaderError.T_http2duplicatePseudoHeaderError));
                 };
@@ -51,7 +51,7 @@ var _isResponse = __1, _isRequest = __0;
     @:keep
     static public function pseudoValue( _mh:stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>, _pseudo:stdgo.GoString):stdgo.GoString {
         @:recv var _mh:stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame> = _mh;
-        for (__31223 => _hf in _mh.fields) {
+        for (__31212 => _hf in _mh.fields) {
             if (!_hf.isPseudo()) {
                 return stdgo.Go.str()?.__copy__();
             };

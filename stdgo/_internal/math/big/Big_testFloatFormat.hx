@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatFormat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_31.T__struct_31>(97, 97, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_31.T__struct_31>(97, 97, ...[
 ({ _format : ("%+.3e" : stdgo.GoString), _value : stdgo.Go.toInterface((0 : stdgo.GoFloat64)), _want : ("+0.000e+00" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_31.T__struct_31),
 ({ _format : ("%+.3e" : stdgo.GoString), _value : stdgo.Go.toInterface((1 : stdgo.GoFloat64)), _want : ("+1.000e+00" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_31.T__struct_31),
 ({ _format : ("%+.3f" : stdgo.GoString), _value : stdgo.Go.toInterface((-1 : stdgo.GoFloat64)), _want : ("-1.000" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_31.T__struct_31),

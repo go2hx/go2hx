@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFromBits(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_6.T__struct_6>(11, 11, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_6.T__struct_6>(11, 11, ...[
 ({ _bits : null, _want : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_6.T__struct_6),
 ({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.math.big.Big_Bits.Bits), _want : ("0x.8p+1" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_6.T__struct_6),
 ({ _bits : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]).__setNumber32__() : stdgo._internal.math.big.Big_Bits.Bits), _want : ("0x.8p+2" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_6.T__struct_6),

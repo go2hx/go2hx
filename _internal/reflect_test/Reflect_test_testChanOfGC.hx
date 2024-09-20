@@ -92,7 +92,7 @@ function testChanOfGC(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
                 {
                     var _j = (0 : stdgo.GoInt);
                     stdgo.Go.cfor((_j < (100 : stdgo.GoInt) : Bool), _j++, {
-                        var __tmp__ = _v.recv(), _pv:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, __7:Bool = __tmp__._1;
+                        var __tmp__ = _v.recv(), _pv:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, __6:Bool = __tmp__._1;
                         var _k = (_pv.elem().interface_() : stdgo.AnyInterface);
                         if (_k != (stdgo.Go.toInterface((((_i * (100 : stdgo.GoInt) : stdgo.GoInt) + _j : stdgo.GoInt) : stdgo.GoUIntptr)))) {
                             _t.errorf(("lost x[%d][%d] = %d, want %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_j), _k, stdgo.Go.toInterface(((_i * (100 : stdgo.GoInt) : stdgo.GoInt) + _j : stdgo.GoInt)));

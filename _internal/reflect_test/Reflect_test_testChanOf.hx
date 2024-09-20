@@ -13,8 +13,8 @@ function testChanOf(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         stdgo._internal.runtime.Runtime_gc.gc();
         _v.send(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((("world" : stdgo.GoString) : _internal.reflect_test.Reflect_test_T_testChanOf___localname___T_158542.T_testChanOf___localname___T_158542)))?.__copy__());
         stdgo._internal.runtime.Runtime_gc.gc();
-        var __tmp__ = _v.recv(), _sv1:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, __7:Bool = __tmp__._1;
-        var __tmp__ = _v.recv(), _sv2:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, __8:Bool = __tmp__._1;
+        var __tmp__ = _v.recv(), _sv1:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, __6:Bool = __tmp__._1;
+        var __tmp__ = _v.recv(), _sv2:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, __7:Bool = __tmp__._1;
         var _s1 = ((_sv1.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var _s2 = ((_sv2.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);
         if (((_s1 != ("hello" : stdgo.GoString)) || (_s2 != ("world" : stdgo.GoString)) : Bool)) {

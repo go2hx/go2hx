@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_19.T__struct_19>(15, 15, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_19.T__struct_19>(15, 15, ...[
 ({ _x : ("-Inf" : stdgo.GoString), _out : (0i64 : stdgo.GoUInt64), _acc : (1 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_19.T__struct_19),
 ({ _x : ("-1" : stdgo.GoString), _out : (0i64 : stdgo.GoUInt64), _acc : (1 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_19.T__struct_19),
 ({ _x : ("-1e-1000" : stdgo.GoString), _out : (0i64 : stdgo.GoUInt64), _acc : (1 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_19.T__struct_19),

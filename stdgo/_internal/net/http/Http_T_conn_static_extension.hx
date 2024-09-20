@@ -280,7 +280,7 @@ package stdgo._internal.net.http;
                     };
                 };
                 {
-                    var __tmp__ = _c._bufr.peek((4 : stdgo.GoInt)), __34987:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = _c._bufr.peek((4 : stdgo.GoInt)), __34976:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {
@@ -444,7 +444,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             };
             _c._r._setReadLimit(_c._server._initialReadLimitSize());
             if (_c._lastMethod == (("POST" : stdgo.GoString))) {
-                var __tmp__ = _c._bufr.peek((4 : stdgo.GoInt)), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __34435:stdgo.Error = __tmp__._1;
+                var __tmp__ = _c._bufr.peek((4 : stdgo.GoInt)), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __34424:stdgo.Error = __tmp__._1;
                 _c._bufr.discard(stdgo._internal.net.http.Http__numLeadingCRorLF._numLeadingCRorLF(_peek));
             };
             var __tmp__ = stdgo._internal.net.http.Http__readRequest._readRequest(_c._bufr), _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -507,7 +507,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
                         return __ret__;
                     };
                 };
-                for (__34491 => _v in _vv) {
+                for (__34480 => _v in _vv) {
                     if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldValue.validHeaderFieldValue(_v?.__copy__())) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badRequestError._badRequestError(("invalid header value" : stdgo.GoString)) };
@@ -593,7 +593,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
         _buf = stdgo._internal.bufio.Bufio_newReadWriter.newReadWriter(_c._bufr, stdgo._internal.bufio.Bufio_newWriter.newWriter(_rwc));
         if (_c._r._hasByte) {
             {
-                var __tmp__ = _c._bufr.peek((_c._bufr.buffered() + (1 : stdgo.GoInt) : stdgo.GoInt)), __34327:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _c._bufr.peek((_c._bufr.buffered() + (1 : stdgo.GoInt) : stdgo.GoInt)), __34316:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : null, _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("unexpected Peek failure reading buffered byte: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                 };

@@ -366,7 +366,7 @@ package stdgo._internal.net.http;
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w) : stdgo._internal.io.Io_ByteWriter.ByteWriter)) : stdgo._internal.io.Io_ByteWriter.ByteWriter), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo._internal.io.Io_ByteWriter.ByteWriter), _1 : false };
-                }, __33783 = __tmp__._0, _ok = __tmp__._1;
+                }, __33772 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     _bw = stdgo._internal.bufio.Bufio_newWriter.newWriter(_w);
                     _w = stdgo.Go.asInterface(_bw);
@@ -649,7 +649,7 @@ package stdgo._internal.net.http;
         if (_name == (stdgo.Go.str())) {
             return { _0 : null, _1 : stdgo._internal.net.http.Http_errNoCookie.errNoCookie };
         };
-        for (__33783 => _c in stdgo._internal.net.http.Http__readCookies._readCookies(_r.header, _name?.__copy__())) {
+        for (__33772 => _c in stdgo._internal.net.http.Http__readCookies._readCookies(_r.header, _name?.__copy__())) {
             return { _0 : _c, _1 : (null : stdgo.Error) };
         };
         return { _0 : null, _1 : stdgo._internal.net.http.Http_errNoCookie.errNoCookie };

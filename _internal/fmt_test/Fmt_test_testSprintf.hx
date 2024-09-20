@@ -3,7 +3,7 @@ import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
 function testSprintf(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__3 => _tt in _internal.fmt_test.Fmt_test__fmtTests._fmtTests) {
+        for (__2 => _tt in _internal.fmt_test.Fmt_test__fmtTests._fmtTests) {
             var _s = (stdgo._internal.fmt.Fmt_sprintf.sprintf(_tt._fmt?.__copy__(), _tt._val)?.__copy__() : stdgo.GoString);
             var _i = (stdgo._internal.strings.Strings_index.index(_tt._out?.__copy__(), ("PTR" : stdgo.GoString)) : stdgo.GoInt);
             if (((_i >= (0 : stdgo.GoInt) : Bool) && (_i < (_s.length) : Bool) : Bool)) {
@@ -46,7 +46,7 @@ var _chars = __1, _pattern = __0;
                         { _0 : (stdgo.Go.typeAssert((_tt._val : stdgo.GoString)) : stdgo.GoString), _1 : true };
                     } catch(_) {
                         { _0 : ("" : stdgo.GoString), _1 : false };
-                    }, __4 = __tmp__._0, _ok = __tmp__._1;
+                    }, __3 = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         _t.errorf(("Sprintf(%q, %q) = <%s> want <%s>" : stdgo.GoString), stdgo.Go.toInterface(_tt._fmt), _tt._val, stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_tt._out));
                     } else {

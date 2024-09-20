@@ -364,8 +364,8 @@ package stdgo._internal.net.http;
             };
         };
         var _trailer:stdgo._internal.net.http.Http_Header.Header = (null : stdgo._internal.net.http.Http_Header.Header);
-        for (__31607 => _v in (_rp._header[("Trailer" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>))) {
-            for (__31608 => _key in stdgo._internal.strings.Strings_split.split(_v?.__copy__(), ("," : stdgo.GoString))) {
+        for (__31596 => _v in (_rp._header[("Trailer" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>))) {
+            for (__31597 => _key in stdgo._internal.strings.Strings_split.split(_v?.__copy__(), ("," : stdgo.GoString))) {
                 _key = stdgo._internal.net.http.Http_canonicalHeaderKey.canonicalHeaderKey(stdgo._internal.net.textproto.Textproto_trimString.trimString(_key?.__copy__())?.__copy__())?.__copy__();
                 {
                     final __value__ = _key;
@@ -426,7 +426,7 @@ package stdgo._internal.net.http;
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
-        for (__31607 => _hf in _f.regularFields()) {
+        for (__31596 => _hf in _f.regularFields()) {
             _rp._header.add(_sc._canonicalHeader(_hf.name?.__copy__())?.__copy__(), _hf.value?.__copy__());
         };
         if (_rp._authority == (stdgo.Go.str())) {
@@ -682,7 +682,7 @@ package stdgo._internal.net.http;
         var _old = (_sc._initialStreamSendWindowSize : stdgo.GoInt32);
         _sc._initialStreamSendWindowSize = (_val : stdgo.GoInt32);
         var _growth = ((_val : stdgo.GoInt32) - _old : stdgo.GoInt32);
-        for (__31679 => _st in _sc._streams) {
+        for (__31668 => _st in _sc._streams) {
             if (!_st._flow._add(_growth)) {
                 return _sc._framer._countError(("setting_win_size" : stdgo.GoString), stdgo.Go.asInterface(((3u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)));
             };
@@ -862,7 +862,7 @@ package stdgo._internal.net.http;
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_f) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>), _1 : false };
-                }, __31631 = __tmp__._0, _ok = __tmp__._1;
+                }, __31620 = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     return _sc._framer._countError(("first_settings" : stdgo.GoString), stdgo.Go.asInterface(((1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)));
                 };
@@ -1176,9 +1176,9 @@ package stdgo._internal.net.http;
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_wr._write) : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError)) : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError), _1 : true };
             } catch(_) {
                 { _0 : ({} : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError), _1 : false };
-            }, __31607 = __tmp__._0, _isReset = __tmp__._1;
+            }, __31596 = __tmp__._0, _isReset = __tmp__._1;
             {
-                var __tmp__ = _sc._srv._state(_wr.streamID()), _state:stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState = __tmp__._0, __31632:stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream> = __tmp__._1;
+                var __tmp__ = _sc._srv._state(_wr.streamID()), _state:stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState = __tmp__._0, __31621:stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream> = __tmp__._1;
                 if (((_state == (4 : stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState)) && !_isReset : Bool)) {
                     _ignoreWrite = true;
                 };
@@ -1327,7 +1327,7 @@ package stdgo._internal.net.http;
                 var a = function():Void {
                     var _buf = (new stdgo.Slice<stdgo.GoUInt8>((("PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n" : stdgo.GoString).length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     {
-                        var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_sc._conn, _buf), __31631:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_sc._conn, _buf), __31620:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             _errc.__send__(_err);
                         } else if (!stdgo._internal.bytes.Bytes_equal.equal(_buf, stdgo._internal.net.http.Http__http2clientPreface._http2clientPreface)) {
@@ -1763,7 +1763,7 @@ package stdgo._internal.net.http;
     static public function _closeAllStreamsOnConnClose( _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>):Void {
         @:recv var _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn> = _sc;
         _sc._serveG._check();
-        for (__31631 => _st in _sc._streams) {
+        for (__31620 => _st in _sc._streams) {
             _sc._closeStream(_st, stdgo._internal.net.http.Http__http2errClientDisconnected._http2errClientDisconnected);
         };
     }

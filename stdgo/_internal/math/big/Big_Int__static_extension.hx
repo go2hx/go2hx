@@ -69,7 +69,7 @@ var _rB = __1, _rA = __0;
     static public function unmarshalText( _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _text:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _z;
         {
-            var __tmp__ = _z._setFromScanner(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_text)), (0 : stdgo.GoInt)), __14:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _z._setFromScanner(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_text)), (0 : stdgo.GoInt)), __8:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("math/big: cannot unmarshal %q into a *big.Int" : stdgo.GoString), stdgo.Go.toInterface(_text));
             };
@@ -138,7 +138,7 @@ var _rB = __1, _rA = __0;
                 return stdgo._internal.errors.Errors_new_.new_(("Int.Scan: invalid verb" : stdgo.GoString));
             };
         };
-        var __tmp__ = _z._scan(stdgo.Go.asInterface((new stdgo._internal.math.big.Big_T_byteReader.T_byteReader(_s) : stdgo._internal.math.big.Big_T_byteReader.T_byteReader)), _base), __14:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __15:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _z._scan(stdgo.Go.asInterface((new stdgo._internal.math.big.Big_T_byteReader.T_byteReader(_s) : stdgo._internal.math.big.Big_T_byteReader.T_byteReader)), _base), __8:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __9:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         return _err;
     }
     @:keep
@@ -859,13 +859,13 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
     static public function _setFromScanner( _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : Bool; } {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _z;
         {
-            var __tmp__ = _z._scan(_r, _base), __14:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __15:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            var __tmp__ = _z._scan(_r, _base), __8:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, __9:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 return { _0 : null, _1 : false };
             };
         };
         {
-            var __tmp__ = _r.readByte(), __16:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _r.readByte(), __10:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                 return { _0 : null, _1 : false };
             };

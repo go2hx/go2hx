@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloat64Text(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_29.T__struct_29>(107, 107, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_29.T__struct_29>(107, 107, ...[
 ({ _x : (0 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_29.T__struct_29),
 ({ _x : stdgo._internal.math.Math_copysign.copysign((0 : stdgo.GoFloat64), (-1 : stdgo.GoFloat64)), _format : (102 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("-0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_29.T__struct_29),
 ({ _x : (1 : stdgo.GoFloat64), _format : (102 : stdgo.GoUInt8), _prec : (0 : stdgo.GoInt), _want : ("1" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_29.T__struct_29),

@@ -29,14 +29,14 @@ package stdgo._internal.net.http;
             var _p:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt8)]);
             while (true) {
                 {
-                    var __tmp__ = stdgo._internal.math.rand.Rand_read.read((_p.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __32103:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.math.rand.Rand_read.read((_p.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __32092:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return _err;
                     };
                 };
                 _cc._mu.lock();
                 {
-                    var __tmp__ = (_cc._pings != null && _cc._pings.exists(_p?.__copy__()) ? { _0 : _cc._pings[_p?.__copy__()], _1 : true } : { _0 : (null : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _1 : false }), __32134:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError> = __tmp__._0, _found:Bool = __tmp__._1;
+                    var __tmp__ = (_cc._pings != null && _cc._pings.exists(_p?.__copy__()) ? { _0 : _cc._pings[_p?.__copy__()], _1 : true } : { _0 : (null : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _1 : false }), __32123:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError> = __tmp__._0, _found:Bool = __tmp__._1;
                     if (!_found) {
                         _cc._pings[_p] = _c;
                         _cc._mu.unlock();
@@ -346,7 +346,7 @@ package stdgo._internal.net.http;
         _cc._hbuf.reset();
         var _hlSize = ((0i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         for (_k => _vv in _trailer) {
-            for (__32113 => _v in _vv) {
+            for (__32102 => _v in _vv) {
                 var _hf = ({ name : _k?.__copy__(), value : _v?.__copy__() } : _internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_HeaderField.HeaderField);
                 _hlSize = (_hlSize + ((_hf.size() : stdgo.GoUInt64)) : stdgo.GoUInt64);
             };
@@ -359,7 +359,7 @@ package stdgo._internal.net.http;
             if (!_ascii) {
                 continue;
             };
-            for (__32123 => _v in _vv) {
+            for (__32112 => _v in _vv) {
                 _cc._writeHeader(_lowKey?.__copy__(), _v?.__copy__());
             };
         };
@@ -402,7 +402,7 @@ package stdgo._internal.net.http;
             if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldName.validHeaderFieldName(_k?.__copy__())) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid HTTP header name %q" : stdgo.GoString), stdgo.Go.toInterface(_k)) };
             };
-            for (__32113 => _v in _vv) {
+            for (__32102 => _v in _vv) {
                 if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldValue.validHeaderFieldValue(_v?.__copy__())) {
                     return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("invalid HTTP header value for header %q" : stdgo.GoString), stdgo.Go.toInterface(_k)) };
                 };
@@ -438,7 +438,7 @@ package stdgo._internal.net.http;
                         continue;
                     };
                 } else if (stdgo._internal.net.http.Http__http2asciiEqualFold._http2asciiEqualFold(_k?.__copy__(), ("cookie" : stdgo.GoString))) {
-                    for (__32113 => _v in _vv) {
+                    for (__32102 => _v in _vv) {
                         while (true) {
                             var _p = (stdgo._internal.strings.Strings_indexByte.indexByte(_v?.__copy__(), (59 : stdgo.GoUInt8)) : stdgo.GoInt);
                             if ((_p < (0 : stdgo.GoInt) : Bool)) {
@@ -457,7 +457,7 @@ package stdgo._internal.net.http;
                     };
                     continue;
                 };
-                for (__32113 => _v in _vv) {
+                for (__32102 => _v in _vv) {
                     _f(_k?.__copy__(), _v?.__copy__());
                 };
             };
@@ -761,7 +761,7 @@ package stdgo._internal.net.http;
         @:recv var _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn> = _cc;
         _cc._mu.lock();
         _cc._closed = true;
-        for (__32133 => _cs in _cc._streams) {
+        for (__32122 => _cs in _cc._streams) {
             _cs._abortStreamLocked(_err);
         };
         _cc._cond.broadcast();

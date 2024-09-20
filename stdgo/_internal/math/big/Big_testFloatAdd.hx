@@ -1,13 +1,13 @@
 package stdgo._internal.math.big;
 function testFloatAdd(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _xbits in stdgo._internal.math.big.Big__bitsList._bitsList) {
-            for (__15 => _ybits in stdgo._internal.math.big.Big__bitsList._bitsList) {
+        for (__8 => _xbits in stdgo._internal.math.big.Big__bitsList._bitsList) {
+            for (__9 => _ybits in stdgo._internal.math.big.Big__bitsList._bitsList) {
                 var _x = _xbits.float_();
                 var _y = _ybits.float_();
                 var _zbits = (_xbits._add(_ybits) : stdgo._internal.math.big.Big_Bits.Bits);
                 var _z = _zbits.float_();
                 for (_i => _mode in (new stdgo.GoArray<stdgo._internal.math.big.Big_RoundingMode.RoundingMode>(3, 3, ...[(2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), (0 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), (3 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)]).__setNumber32__() : stdgo.GoArray<stdgo._internal.math.big.Big_RoundingMode.RoundingMode>)) {
-                    for (__16 => _prec in stdgo._internal.math.big.Big__precList._precList) {
+                    for (__10 => _prec in stdgo._internal.math.big.Big__precList._precList) {
                         var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setMode(_mode);
                         _got.add(_x, _y);
                         var _want = _zbits._round(_prec, _mode);

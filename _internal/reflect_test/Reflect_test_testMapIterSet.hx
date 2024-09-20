@@ -11,7 +11,7 @@ function testMapIterSet(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
-        for (__7 => _tt in _internal.reflect_test.Reflect_test__valueTests._valueTests) {
+        for (__6 => _tt in _internal.reflect_test.Reflect_test__valueTests._valueTests) {
             _m[_tt._s] = _tt._i;
         };
         var _v = (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_m))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);

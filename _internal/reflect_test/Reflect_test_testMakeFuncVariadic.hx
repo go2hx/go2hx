@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function testMakeFuncVariadic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _fn = function(__7:stdgo.GoInt, _is:haxe.Rest<stdgo.GoInt>):stdgo.Slice<stdgo.GoInt> {
+        var _fn = function(__6:stdgo.GoInt, _is:haxe.Rest<stdgo.GoInt>):stdgo.Slice<stdgo.GoInt> {
             return (null : stdgo.Slice<stdgo.GoInt>);
         };
         var _fv = (stdgo._internal.reflect.Reflect_makeFunc.makeFunc(stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(_fn)), function(_in:stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>):stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value> {

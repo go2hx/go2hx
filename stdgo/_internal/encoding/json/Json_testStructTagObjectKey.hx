@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function testStructTagObjectKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__8 => _tt in stdgo._internal.encoding.json.Json__structTagObjectKeyTests._structTagObjectKeyTests) {
+        for (__4 => _tt in stdgo._internal.encoding.json.Json__structTagObjectKeyTests._structTagObjectKeyTests) {
             var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(_tt._raw), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatalf(("Marshal(%#q) failed: %v" : stdgo.GoString), _tt._raw, stdgo.Go.toInterface(_err));

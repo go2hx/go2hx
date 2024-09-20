@@ -65,7 +65,7 @@ function benchmarkPoolSTW(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Voi
                 };
             });
             var _total:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-            for (__12 => _ns in _pauses) {
+            for (__10 => _ns in _pauses) {
                 _total = (_total + (_ns) : stdgo.GoUInt64);
             };
             _b.reportMetric(((_total : stdgo.GoFloat64) / (_b.n : stdgo.GoFloat64) : stdgo.GoFloat64), ("ns/op" : stdgo.GoString));

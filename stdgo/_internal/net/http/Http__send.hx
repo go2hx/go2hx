@@ -57,7 +57,7 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
             var _u = _req.url.user;
             if ((((_u != null) && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && (_req.header.get(("Authorization" : stdgo.GoString)) == stdgo.Go.str()) : Bool)) {
                 var _username = (_u.username()?.__copy__() : stdgo.GoString);
-                var __tmp__ = _u.password(), _password:stdgo.GoString = __tmp__._0, __143:Bool = __tmp__._1;
+                var __tmp__ = _u.password(), _password:stdgo.GoString = __tmp__._0, __132:Bool = __tmp__._1;
                 _forkReq();
                 _req.header = stdgo._internal.net.http.Http__cloneOrMakeHeader._cloneOrMakeHeader(_ireq.header);
                 _req.header.set(("Authorization" : stdgo.GoString), (("Basic " : stdgo.GoString) + stdgo._internal.net.http.Http__basicAuth._basicAuth(_username?.__copy__(), _password?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__());

@@ -4,7 +4,7 @@ function _getu4(_s:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt32 {
             return (-1 : stdgo.GoInt32);
         };
         var _r:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        for (__8 => _c in (_s.__slice__((2 : stdgo.GoInt), (6 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) {
+        for (__4 => _c in (_s.__slice__((2 : stdgo.GoInt), (6 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) {
             if ((((48 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
                 _c = (_c - (48 : stdgo.GoUInt8) : stdgo.GoUInt8);
             } else if ((((97 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (102 : stdgo.GoUInt8) : Bool) : Bool)) {

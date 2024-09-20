@@ -110,7 +110,7 @@ function testStructOfWithInterface(_t:stdgo.Ref<stdgo._internal.testing.Testing_
                                 { _0 : (stdgo.Go.typeAssert((_rv.interface_() : _internal.reflect_test.Reflect_test_T_testStructOfWithInterface___localname___Iface_151773.T_testStructOfWithInterface___localname___Iface_151773)) : _internal.reflect_test.Reflect_test_T_testStructOfWithInterface___localname___Iface_151773.T_testStructOfWithInterface___localname___Iface_151773), _1 : true };
                             } catch(_) {
                                 { _0 : (null : _internal.reflect_test.Reflect_test_T_testStructOfWithInterface___localname___Iface_151773.T_testStructOfWithInterface___localname___Iface_151773), _1 : false };
-                            }, __7 = __tmp__._0, _ok = __tmp__._1;
+                            }, __6 = __tmp__._0, _ok = __tmp__._1;
                             if (_ok != (_table._impl)) {
                                 if (_table._impl) {
                                     _t.errorf(("test-%d-%d: type=%v fails to implement Iface.\n" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_j), stdgo.Go.toInterface(_table._typ));

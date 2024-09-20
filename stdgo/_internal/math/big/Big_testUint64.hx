@@ -1,8 +1,8 @@
 package stdgo._internal.math.big;
 function testUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _s in stdgo._internal.math.big.Big__uint64Tests._uint64Tests) {
+        for (__8 => _s in stdgo._internal.math.big.Big__uint64Tests._uint64Tests) {
             var _x:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
-            var __tmp__ = _x.setString(_s?.__copy__(), (0 : stdgo.GoInt)), __15:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _x.setString(_s?.__copy__(), (0 : stdgo.GoInt)), __9:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("SetString(%s, 0) failed" : stdgo.GoString), stdgo.Go.toInterface(_s));
                 continue;

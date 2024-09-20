@@ -204,7 +204,7 @@ package stdgo._internal.net.http;
                                 };
                             };
                             var _delta = ((_s.val : stdgo.GoInt32) - (_cc._initialWindowSize : stdgo.GoInt32) : stdgo.GoInt32);
-                            for (__32475 => _cs in _cc._streams) {
+                            for (__32464 => _cs in _cc._streams) {
                                 _cs._flow._add(_delta);
                             };
                             _cc._cond.broadcast();
@@ -568,7 +568,7 @@ package stdgo._internal.net.http;
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
-        for (__32448 => _hf in _f.regularFields()) {
+        for (__32437 => _hf in _f.regularFields()) {
             var _key = (stdgo._internal.net.http.Http__http2canonicalHeader._http2canonicalHeader(_hf.name?.__copy__())?.__copy__() : stdgo.GoString);
             _trailer[_key] = ((_trailer[_key] ?? (null : stdgo.Slice<stdgo.GoString>)).__append__(_hf.value?.__copy__()));
         };
@@ -599,7 +599,7 @@ package stdgo._internal.net.http;
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header);
         var _res = (stdgo.Go.setRef(({ proto : ("HTTP/2.0" : stdgo.GoString), protoMajor : (2 : stdgo.GoInt), header : _header, statusCode : _statusCode, status : ((_status + (" " : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.net.http.Http_statusText.statusText(_statusCode)?.__copy__() : stdgo.GoString)?.__copy__() } : stdgo._internal.net.http.Http_Response.Response)) : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>);
-        for (__32424 => _hf in _regularFields) {
+        for (__32413 => _hf in _regularFields) {
             var _key = (stdgo._internal.net.http.Http__http2canonicalHeader._http2canonicalHeader(_hf.name?.__copy__())?.__copy__() : stdgo.GoString);
             if (_key == (("Trailer" : stdgo.GoString))) {
                 var _t = (_res.trailer : stdgo._internal.net.http.Http_Header.Header);
@@ -741,7 +741,7 @@ package stdgo._internal.net.http;
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError), _1 : true };
                 } catch(_) {
                     { _0 : ((0 : stdgo.GoUInt32) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError), _1 : false };
-                }, __32486 = __tmp__._0, _ok = __tmp__._1;
+                }, __32475 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     return _err;
                 };
@@ -817,7 +817,7 @@ package stdgo._internal.net.http;
                             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_f) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>), _1 : true };
                         } catch(_) {
                             { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>), _1 : false };
-                        }, __32463 = __tmp__._0, _ok = __tmp__._1;
+                        }, __32452 = __tmp__._0, _ok = __tmp__._1;
                         if (!_ok) {
                             _cc._logf(("protocol error: received %T before a SETTINGS frame" : stdgo.GoString), stdgo.Go.toInterface(_f));
                             {
@@ -921,7 +921,7 @@ package stdgo._internal.net.http;
                 _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
             };
             _cc._closed = true;
-            for (__32533 => _cs in _cc._streams) {
+            for (__32522 => _cs in _cc._streams) {
                 {
                     var __select__ = true;
                     while (__select__) {

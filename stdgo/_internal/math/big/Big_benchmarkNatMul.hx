@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function benchmarkNatMul(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
-        for (__14 => _n in stdgo._internal.math.big.Big__mulBenchSizes._mulBenchSizes) {
+        for (__8 => _n in stdgo._internal.math.big.Big__mulBenchSizes._mulBenchSizes) {
             if ((stdgo._internal.math.big.Big__isRaceBuilder._isRaceBuilder && (_n > (1000 : stdgo.GoInt) : Bool) : Bool)) {
                 continue;
             };

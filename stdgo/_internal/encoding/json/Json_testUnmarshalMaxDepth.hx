@@ -14,8 +14,8 @@ function testUnmarshalMaxDepth(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
             var _v = (new stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler() : stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler);
             return stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler>)));
         } } : stdgo._internal.encoding.json.Json_T__struct_17.T__struct_17)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _newValue : null } : stdgo._internal.encoding.json.Json_T__struct_17.T__struct_17)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_T__struct_17.T__struct_17>);
-        for (__8 => _tc in _testcases) {
-            for (__9 => _target in _targets) {
+        for (__4 => _tc in _testcases) {
+            for (__5 => _target in _targets) {
                 _t.run(((_target._name + ("-" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _tc._name?.__copy__() : stdgo.GoString)?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                     var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_tc._data : stdgo.Slice<stdgo.GoUInt8>), _target._newValue()) : stdgo.Error);
                     if (!_tc._errMaxDepth) {

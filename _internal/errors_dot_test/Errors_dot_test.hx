@@ -6,6 +6,8 @@ function main():Void {
     }
 @:keep var __init_go2hx__ = {
         try {
+            var __tmp__0 = _internal.errors_test.Errors_test__poserPathErr._poserPathErr;
+            var __tmp__0 = _internal.errors_dot_test.Errors_dot_test__tests._tests, __tmp__1 = _internal.errors_dot_test.Errors_dot_test__benchmarks._benchmarks, __tmp__2 = _internal.errors_dot_test.Errors_dot_test__fuzzTargets._fuzzTargets, __tmp__3 = _internal.errors_dot_test.Errors_dot_test__examples._examples;
             stdgo._internal.testing.internal.testdeps.Testdeps_importPath.importPath = ("errors" : stdgo.GoString);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;

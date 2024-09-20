@@ -11,7 +11,7 @@ function testClear(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
-        for (__7 => _tt in _internal.reflect_test.Reflect_test__valueTests._valueTests) {
+        for (__6 => _tt in _internal.reflect_test.Reflect_test__valueTests._valueTests) {
             _m[_tt._s] = _tt._i;
         };
         var _mapTestFn = (function(_v:stdgo._internal.reflect.Reflect_Value.Value):Bool {
@@ -41,7 +41,7 @@ function testClear(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             return true;
         } : stdgo._internal.reflect.Reflect_Value.Value -> Bool);
         var _tests = (new stdgo.Slice<_internal.reflect_test.Reflect_test_T__struct_98.T__struct_98>(4, 4, ...[({ _name : ("map" : stdgo.GoString), _value : stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_m))?.__copy__(), _testFunc : _mapTestFn } : _internal.reflect_test.Reflect_test_T__struct_98.T__struct_98), ({ _name : ("slice no pointer" : stdgo.GoString), _value : stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((new stdgo.Slice<stdgo.GoInt>(5, 5, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt), (4 : stdgo.GoInt), (5 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)))?.__copy__(), _testFunc : _sliceTestFn } : _internal.reflect_test.Reflect_test_T__struct_98.T__struct_98), ({ _name : ("slice has pointer" : stdgo.GoString), _value : stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_s))?.__copy__(), _testFunc : _sliceTestFn } : _internal.reflect_test.Reflect_test_T__struct_98.T__struct_98), ({ _name : ("non-map/slice" : stdgo.GoString), _value : stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((1 : stdgo.GoInt)))?.__copy__(), _testFunc : _panicTestFn } : _internal.reflect_test.Reflect_test_T__struct_98.T__struct_98)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _value : ({} : stdgo._internal.reflect.Reflect_Value.Value), _testFunc : null } : _internal.reflect_test.Reflect_test_T__struct_98.T__struct_98)])) : stdgo.Slice<_internal.reflect_test.Reflect_test_T__struct_98.T__struct_98>);
-        for (__8 => _tc in _tests) {
+        for (__7 => _tc in _tests) {
             var _tc = ({
                 final x = _tc;
                 ({ _name : x._name?.__copy__(), _value : x._value?.__copy__(), _testFunc : x._testFunc } : _internal.reflect_test.Reflect_test_T__struct_98.T__struct_98);

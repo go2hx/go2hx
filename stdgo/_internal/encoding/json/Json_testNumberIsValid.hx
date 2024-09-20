@@ -48,7 +48,7 @@ function testNumberIsValid(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
 ("-0E-0" : stdgo.GoString),
 ("-0e+1" : stdgo.GoString),
 ("-0e-34" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
-        for (__8 => _test in _validTests) {
+        for (__4 => _test in _validTests) {
             if (!stdgo._internal.encoding.json.Json__isValidNumber._isValidNumber(_test?.__copy__())) {
                 _t.errorf(("%s should be valid" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };
@@ -85,7 +85,7 @@ stdgo.Go.str()?.__copy__(),
 ("1." : stdgo.GoString),
 ("01" : stdgo.GoString),
 ("1.e1" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
-        for (__9 => _test in _invalidTests) {
+        for (__5 => _test in _invalidTests) {
             if (stdgo._internal.encoding.json.Json__isValidNumber._isValidNumber(_test?.__copy__())) {
                 _t.errorf(("%s should be invalid" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };

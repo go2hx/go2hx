@@ -3,7 +3,7 @@ import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
 function testScanf(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__3 => _test in _internal.fmt_test.Fmt_test__scanfTests._scanfTests) {
+        for (__2 => _test in _internal.fmt_test.Fmt_test__scanfTests._scanfTests) {
             var __tmp__ = stdgo._internal.fmt.Fmt_sscanf.sscanf(_test._text?.__copy__(), _test._format?.__copy__(), _test._in), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 if (_test._out != null) {

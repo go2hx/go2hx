@@ -19,7 +19,7 @@ function benchmarkCodeEncoderError(_b:stdgo.Ref<stdgo._internal.testing.Testing_
                     };
                 };
                 {
-                    var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(_dummy)), __24:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(_dummy)), __20:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err == null) {
                         _b.fatal(stdgo.Go.toInterface(("expect an error here" : stdgo.GoString)));
                     };

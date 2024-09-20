@@ -50,7 +50,7 @@ function testArrayOf(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {};
             return stdgo.Go.toInterface((new _internal.reflect_test.Reflect_test_T_testArrayOf___localname___TstructUV_131831.T_testArrayOf___localname___TstructUV_131831(_i, (_i : stdgo.GoFloat64)) : _internal.reflect_test.Reflect_test_T_testArrayOf___localname___TstructUV_131831.T_testArrayOf___localname___TstructUV_131831));
         }, _comparable : true, _want : ("[{0 0} {1 1} {2 2} {3 3} {4 4} {5 5} {6 6} {7 7} {8 8} {9 9}]" : stdgo.GoString) } : _internal.reflect_test.Reflect_test_T__struct_79.T__struct_79)].concat([for (i in 11 ... (11 > 11 ? 11 : 11 : stdgo.GoInt).toBasic()) ({ _n : (0 : stdgo.GoInt), _value : null, _comparable : false, _want : ("" : stdgo.GoString) } : _internal.reflect_test.Reflect_test_T__struct_79.T__struct_79)])) : stdgo.Slice<_internal.reflect_test.Reflect_test_T__struct_79.T__struct_79>);
-        for (__7 => _table in _tests) {
+        for (__6 => _table in _tests) {
             var _at = (stdgo._internal.reflect.Reflect_arrayOf.arrayOf(_table._n, stdgo._internal.reflect.Reflect_typeOf.typeOf(_table._value((0 : stdgo.GoInt)))) : stdgo._internal.reflect.Reflect_Type_.Type_);
             var _v = (stdgo._internal.reflect.Reflect_new_.new_(_at).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             var _vok = (stdgo._internal.reflect.Reflect_new_.new_(_at).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);

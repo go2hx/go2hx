@@ -15,7 +15,7 @@ function readResponse(_r:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, _
         };
         _resp.proto = _proto?.__copy__();
         _resp.status = stdgo._internal.strings.Strings_trimLeft.trimLeft(_status?.__copy__(), (" " : stdgo.GoString))?.__copy__();
-        var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_resp.status?.__copy__(), (" " : stdgo.GoString)), _statusCode:stdgo.GoString = __tmp__._0, __143:stdgo.GoString = __tmp__._1, __144:Bool = __tmp__._2;
+        var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_resp.status?.__copy__(), (" " : stdgo.GoString)), _statusCode:stdgo.GoString = __tmp__._0, __132:stdgo.GoString = __tmp__._1, __133:Bool = __tmp__._2;
         if ((_statusCode.length) != ((3 : stdgo.GoInt))) {
             return { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("malformed HTTP status code" : stdgo.GoString), _statusCode?.__copy__()) };
         };

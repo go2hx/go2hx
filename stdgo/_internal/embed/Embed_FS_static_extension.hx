@@ -58,11 +58,11 @@ package stdgo._internal.embed;
         };
         var _files = (_f._files : stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>);
         var _i = (stdgo._internal.embed.Embed__sortSearch._sortSearch((_files.length), function(_i:stdgo.GoInt):Bool {
-            var __tmp__ = stdgo._internal.embed.Embed__split._split(_files[(_i : stdgo.GoInt)]._name?.__copy__()), _idir:stdgo.GoString = __tmp__._0, __12:stdgo.GoString = __tmp__._1, __13:Bool = __tmp__._2;
+            var __tmp__ = stdgo._internal.embed.Embed__split._split(_files[(_i : stdgo.GoInt)]._name?.__copy__()), _idir:stdgo.GoString = __tmp__._0, __6:stdgo.GoString = __tmp__._1, __7:Bool = __tmp__._2;
             return (_idir >= _dir : Bool);
         }) : stdgo.GoInt);
         var _j = (stdgo._internal.embed.Embed__sortSearch._sortSearch((_files.length), function(_j:stdgo.GoInt):Bool {
-            var __tmp__ = stdgo._internal.embed.Embed__split._split(_files[(_j : stdgo.GoInt)]._name?.__copy__()), _jdir:stdgo.GoString = __tmp__._0, __12:stdgo.GoString = __tmp__._1, __13:Bool = __tmp__._2;
+            var __tmp__ = stdgo._internal.embed.Embed__split._split(_files[(_j : stdgo.GoInt)]._name?.__copy__()), _jdir:stdgo.GoString = __tmp__._0, __6:stdgo.GoString = __tmp__._1, __7:Bool = __tmp__._2;
             return (_jdir > _dir : Bool);
         }) : stdgo.GoInt);
         return (_files.__slice__(_i, _j) : stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>);
@@ -79,10 +79,10 @@ package stdgo._internal.embed;
         if (_f._files == null || (_f._files : Dynamic).__nil__) {
             return null;
         };
-        var __tmp__ = stdgo._internal.embed.Embed__split._split(_name?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _elem:stdgo.GoString = __tmp__._1, __12:Bool = __tmp__._2;
+        var __tmp__ = stdgo._internal.embed.Embed__split._split(_name?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _elem:stdgo.GoString = __tmp__._1, __6:Bool = __tmp__._2;
         var _files = (_f._files : stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>);
         var _i = (stdgo._internal.embed.Embed__sortSearch._sortSearch((_files.length), function(_i:stdgo.GoInt):Bool {
-            var __tmp__ = stdgo._internal.embed.Embed__split._split(_files[(_i : stdgo.GoInt)]._name?.__copy__()), _idir:stdgo.GoString = __tmp__._0, _ielem:stdgo.GoString = __tmp__._1, __13:Bool = __tmp__._2;
+            var __tmp__ = stdgo._internal.embed.Embed__split._split(_files[(_i : stdgo.GoInt)]._name?.__copy__()), _idir:stdgo.GoString = __tmp__._0, _ielem:stdgo.GoString = __tmp__._1, __7:Bool = __tmp__._2;
             return ((_idir > _dir : Bool) || (_idir == (_dir) && (_ielem >= _elem : Bool) : Bool) : Bool);
         }) : stdgo.GoInt);
         if (((_i < (_files.length) : Bool) && (stdgo._internal.embed.Embed__trimSlash._trimSlash(_files[(_i : stdgo.GoInt)]._name?.__copy__()) == _name) : Bool)) {

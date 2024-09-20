@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testDecimalInit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_8.T__struct_8>(11, 11, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_8.T__struct_8>(11, 11, ...[
 ({ _x : (0u32 : stdgo._internal.math.big.Big_Word.Word), _shift : (0 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_8.T__struct_8),
 ({ _x : (0u32 : stdgo._internal.math.big.Big_Word.Word), _shift : (-100 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_8.T__struct_8),
 ({ _x : (0u32 : stdgo._internal.math.big.Big_Word.Word), _shift : (100 : stdgo.GoInt), _want : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_8.T__struct_8),

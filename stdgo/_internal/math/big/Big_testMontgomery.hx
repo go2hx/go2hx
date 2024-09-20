@@ -13,11 +13,11 @@ function testMontgomery(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                 _y = (_y.__append__((0u32 : stdgo._internal.math.big.Big_Word.Word)));
             };
             if ((_x._cmp(_m) > (0 : stdgo.GoInt) : Bool)) {
-                var __tmp__ = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._div(null, _x, _m), __14:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._0, _r:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._1;
+                var __tmp__ = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._div(null, _x, _m), __8:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._0, _r:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._1;
                 _t.errorf(("#%d: x > m (0x%s > 0x%s; use 0x%s)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_x._utoa((16 : stdgo.GoInt))), stdgo.Go.toInterface(_m._utoa((16 : stdgo.GoInt))), stdgo.Go.toInterface(_r._utoa((16 : stdgo.GoInt))));
             };
             if ((_y._cmp(_m) > (0 : stdgo.GoInt) : Bool)) {
-                var __tmp__ = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._div(null, _x, _m), __14:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._0, _r:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._1;
+                var __tmp__ = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._div(null, _x, _m), __8:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._0, _r:stdgo._internal.math.big.Big_T_nat.T_nat = __tmp__._1;
                 _t.errorf(("#%d: y > m (0x%s > 0x%s; use 0x%s)" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_y._utoa((16 : stdgo.GoInt))), stdgo.Go.toInterface(_m._utoa((16 : stdgo.GoInt))), stdgo.Go.toInterface(_r._utoa((16 : stdgo.GoInt))));
             };
             var _out:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);

@@ -4,7 +4,7 @@ import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
 function _testScanfMulti(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _f:stdgo.GoString -> stdgo._internal.io.Io_Reader.Reader):Void {
         var _sliceType = (stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((new stdgo.Slice<stdgo.AnyInterface>((1 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.AnyInterface>))) : stdgo._internal.reflect.Reflect_Type_.Type_);
-        for (__3 => _test in _internal.fmt_test.Fmt_test__multiTests._multiTests) {
+        for (__2 => _test in _internal.fmt_test.Fmt_test__multiTests._multiTests) {
             var _r = (_f(_test._text?.__copy__()) : stdgo._internal.io.Io_Reader.Reader);
             var __tmp__ = stdgo._internal.fmt.Fmt_fscanf.fscanf(_r, _test._format?.__copy__(), ...(_test._in : Array<stdgo.AnyInterface>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

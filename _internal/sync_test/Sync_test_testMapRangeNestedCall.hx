@@ -20,7 +20,7 @@ function testMapRangeNestedCall(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                     };
                 };
                 {
-                    var __tmp__ = _m.loadOrStore(stdgo.Go.toInterface((42 : stdgo.GoInt)), stdgo.Go.toInterface(("dummy" : stdgo.GoString))), __20:stdgo.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
+                    var __tmp__ = _m.loadOrStore(stdgo.Go.toInterface((42 : stdgo.GoInt)), stdgo.Go.toInterface(("dummy" : stdgo.GoString))), __18:stdgo.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1;
                     if (_loaded) {
                         _t.fatalf(("Nested Range loads unexpected value, want store a new value" : stdgo.GoString));
                     };

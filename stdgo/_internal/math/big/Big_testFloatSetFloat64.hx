@@ -2,7 +2,7 @@ package stdgo._internal.math.big;
 function testFloatSetFloat64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            for (__14 => _want in (new stdgo.Slice<stdgo.GoFloat64>(16, 16, ...[
+            for (__8 => _want in (new stdgo.Slice<stdgo.GoFloat64>(16, 16, ...[
 (0 : stdgo.GoFloat64),
 (1 : stdgo.GoFloat64),
 (2 : stdgo.GoFloat64),
@@ -38,7 +38,7 @@ stdgo._internal.math.Math_inf.inf((0 : stdgo.GoInt)),
                 var _prec = ((1u32 : stdgo.GoUInt) : stdgo.GoUInt);
                 stdgo.Go.cfor((_prec <= (52u32 : stdgo.GoUInt) : Bool), _prec++, {
                     var _f = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setMode((2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)).setFloat64(((2381903803200024i64 : stdgo.GoUInt64) : stdgo.GoFloat64));
-                    var __tmp__ = _f.float64(), _got:stdgo.GoFloat64 = __tmp__._0, __15:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+                    var __tmp__ = _f.float64(), _got:stdgo.GoFloat64 = __tmp__._0, __9:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
                     var _want = (((2381903803200024i64 : stdgo.GoUInt64) & ((((((1i64 : stdgo.GoUInt64) << (((52u32 : stdgo.GoUInt) - _prec : stdgo.GoUInt)) : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64) : stdgo.GoFloat64);
                     if (_got != (_want)) {
                         _t.errorf(("got %g (%s); want %g" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))), stdgo.Go.toInterface(_want));

@@ -12,7 +12,7 @@ package _internal.vendor.golang_dot_org.x.crypto.chacha20;
             throw stdgo.Go.toInterface(("chacha20: internal error: wrong dst and/or src length" : stdgo.GoString));
         };
         var __0:stdgo.GoUInt32 = (1634760805u32 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (857760878u32 : stdgo.GoUInt32), __2:stdgo.GoUInt32 = (2036477234u32 : stdgo.GoUInt32), __3:stdgo.GoUInt32 = (1797285236u32 : stdgo.GoUInt32), __4:stdgo.GoUInt32 = _s._key[(0 : stdgo.GoInt)], __5:stdgo.GoUInt32 = _s._key[(1 : stdgo.GoInt)], __6:stdgo.GoUInt32 = _s._key[(2 : stdgo.GoInt)], __7:stdgo.GoUInt32 = _s._key[(3 : stdgo.GoInt)], __8:stdgo.GoUInt32 = _s._key[(4 : stdgo.GoInt)], __9:stdgo.GoUInt32 = _s._key[(5 : stdgo.GoInt)], __10:stdgo.GoUInt32 = _s._key[(6 : stdgo.GoInt)], __11:stdgo.GoUInt32 = _s._key[(7 : stdgo.GoInt)], __12:stdgo.GoUInt32 = _s._counter, __13:stdgo.GoUInt32 = _s._nonce[(0 : stdgo.GoInt)], __14:stdgo.GoUInt32 = _s._nonce[(1 : stdgo.GoInt)], __15:stdgo.GoUInt32 = _s._nonce[(2 : stdgo.GoInt)];
-var _c15 = __15, _c14 = __14, _c13 = __13, __2 = __12, _c11 = __11, _c10 = __10, _c9 = __9, _c8 = __8, _c7 = __7, _c6 = __6, _c5 = __5, _c4 = __4, _c3 = __3, _c2 = __2, _c1 = __1, _c0 = __0;
+var _c15 = __15, _c14 = __14, _c13 = __13, __1 = __12, _c11 = __11, _c10 = __10, _c9 = __9, _c8 = __8, _c7 = __7, _c6 = __6, _c5 = __5, _c4 = __4, _c3 = __3, _c2 = __2, _c1 = __1, _c0 = __0;
         if (!_s._precompDone) {
             {
                 var __tmp__ = _internal.vendor.golang_dot_org.x.crypto.chacha20.Chacha20__quarterRound._quarterRound(_c1, _c5, _c9, _c13);

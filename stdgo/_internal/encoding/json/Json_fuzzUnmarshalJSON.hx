@@ -2,7 +2,7 @@ package stdgo._internal.encoding.json;
 function fuzzUnmarshalJSON(_f:stdgo.Ref<stdgo._internal.testing.Testing_F.F>):Void {
         _f.add(stdgo.Go.toInterface((("{\n\"object\": {\n\t\"slice\": [\n\t\t1,\n\t\t2.0,\n\t\t\"3\",\n\t\t[4],\n\t\t{5: {}}\n\t]\n},\n\"slice\": [[]],\n\"string\": \":)\",\n\"int\": 1e5,\n\"float\": 3e-9\"\n}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>)));
         _f.fuzz(stdgo.Go.toInterface(function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _b:stdgo.Slice<stdgo.GoUInt8>):Void {
-            for (__24 => _typ in (new stdgo.Slice<() -> stdgo.AnyInterface>(3, 3, ...[function():stdgo.AnyInterface {
+            for (__20 => _typ in (new stdgo.Slice<() -> stdgo.AnyInterface>(3, 3, ...[function():stdgo.AnyInterface {
                 return stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.AnyInterface)) : stdgo.Ref<stdgo.AnyInterface>));
             }, function():stdgo.AnyInterface {
                 return stdgo.Go.toInterface((stdgo.Go.setRef((null : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>)) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>));

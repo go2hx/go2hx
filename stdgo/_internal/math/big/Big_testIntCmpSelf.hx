@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testIntCmpSelf(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _s in stdgo._internal.math.big.Big__cmpAbsTests._cmpAbsTests) {
+        for (__8 => _s in stdgo._internal.math.big.Big__cmpAbsTests._cmpAbsTests) {
             var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setString(_s?.__copy__(), (0 : stdgo.GoInt)), _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 _t.fatalf(("SetString(%s, 0) failed" : stdgo.GoString), stdgo.Go.toInterface(_s));

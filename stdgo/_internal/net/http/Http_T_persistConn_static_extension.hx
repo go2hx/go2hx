@@ -655,7 +655,7 @@ package stdgo._internal.net.http;
         {
             var _n = (_pc._br.buffered() : stdgo.GoInt);
             if ((_n > (0 : stdgo.GoInt) : Bool)) {
-                var __tmp__ = _pc._br.peek(_n), _buf:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __36035:stdgo.Error = __tmp__._1;
+                var __tmp__ = _pc._br.peek(_n), _buf:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __36024:stdgo.Error = __tmp__._1;
                 if (stdgo._internal.net.http.Http__is408Message._is408Message(_buf)) {
                     _pc._closeLocked(stdgo._internal.net.http.Http__errServerClosedIdle._errServerClosedIdle);
                     return;
@@ -766,7 +766,7 @@ package stdgo._internal.net.http;
             var _alive = (true : Bool);
             while (_alive) {
                 _pc._readLimit = _pc._maxHeaderResponseSize();
-                var __tmp__ = _pc._br.peek((1 : stdgo.GoInt)), __36035:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _pc._br.peek((1 : stdgo.GoInt)), __36024:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _pc._mu.lock();
                 if (_pc._numExpectedResponses == ((0 : stdgo.GoInt))) {
                     _pc._readLoopPeekFailLocked(_err);
@@ -1093,7 +1093,7 @@ package stdgo._internal.net.http;
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo._internal.net.http.Http_T_transportReadFromServerError.T_transportReadFromServerError)) : stdgo._internal.net.http.Http_T_transportReadFromServerError.T_transportReadFromServerError), _1 : true };
             } catch(_) {
                 { _0 : ({} : stdgo._internal.net.http.Http_T_transportReadFromServerError.T_transportReadFromServerError), _1 : false };
-            }, __36031 = __tmp__._0, _ok = __tmp__._1;
+            }, __36020 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 if (_pc._nwrite == (_startBytesWritten)) {
                     return stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_nothingWrittenError.T_nothingWrittenError(_err) : stdgo._internal.net.http.Http_T_nothingWrittenError.T_nothingWrittenError));
@@ -1118,7 +1118,7 @@ package stdgo._internal.net.http;
             _t._idleMu.lock();
             __deferstack__.unshift(() -> _t._idleMu.unlock());
             {
-                var __tmp__ = (_t._idleLRU._m != null && _t._idleLRU._m.exists(_pc) ? { _0 : _t._idleLRU._m[_pc], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _1 : false }), __36043:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (_t._idleLRU._m != null && _t._idleLRU._m.exists(_pc) ? { _0 : _t._idleLRU._m[_pc], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _1 : false }), __36032:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     {
                         for (defer in __deferstack__) {
@@ -1381,7 +1381,7 @@ package stdgo._internal.net.http;
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo._internal.net.http.Http_T_nothingWrittenError.T_nothingWrittenError)) : stdgo._internal.net.http.Http_T_nothingWrittenError.T_nothingWrittenError), _1 : true };
             } catch(_) {
                 { _0 : ({} : stdgo._internal.net.http.Http_T_nothingWrittenError.T_nothingWrittenError), _1 : false };
-            }, __36027 = __tmp__._0, _ok = __tmp__._1;
+            }, __36016 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return ((_req._outgoingLength() == (0i64 : stdgo.GoInt64)) || (_req.getBody != null) : Bool);
             };
@@ -1394,7 +1394,7 @@ package stdgo._internal.net.http;
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo._internal.net.http.Http_T_transportReadFromServerError.T_transportReadFromServerError)) : stdgo._internal.net.http.Http_T_transportReadFromServerError.T_transportReadFromServerError), _1 : true };
             } catch(_) {
                 { _0 : ({} : stdgo._internal.net.http.Http_T_transportReadFromServerError.T_transportReadFromServerError), _1 : false };
-            }, __36028 = __tmp__._0, _ok = __tmp__._1;
+            }, __36017 = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return true;
             };

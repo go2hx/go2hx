@@ -5,6 +5,8 @@ function main():Void {
     }
 @:keep var __init_go2hx__ = {
         try {
+            var __tmp__0 = stdgo._internal.hash.adler32.Adler32__golden._golden;
+            var __tmp__0 = _internal.hash.adler32_dot_test.Adler32_dot_test__tests._tests, __tmp__1 = _internal.hash.adler32_dot_test.Adler32_dot_test__benchmarks._benchmarks, __tmp__2 = _internal.hash.adler32_dot_test.Adler32_dot_test__fuzzTargets._fuzzTargets, __tmp__3 = _internal.hash.adler32_dot_test.Adler32_dot_test__examples._examples;
             stdgo._internal.testing.internal.testdeps.Testdeps_importPath.importPath = ("hash/adler32" : stdgo.GoString);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;

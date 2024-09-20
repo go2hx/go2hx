@@ -14,9 +14,9 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
                 _ctype = stdgo._internal.mime.Mime_typeByExtension.typeByExtension(stdgo._internal.path.filepath.Filepath_ext.ext(_name?.__copy__())?.__copy__())?.__copy__();
                 if (_ctype == (stdgo.Go.str())) {
                     var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(512, 512, ...[for (i in 0 ... 512) (0 : stdgo.GoUInt8)]);
-                    var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_content, (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, __143:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_content, (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, __132:stdgo.Error = __tmp__._1;
                     _ctype = stdgo._internal.net.http.Http_detectContentType.detectContentType((_buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
-                    var __tmp__ = _content.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt)), __144:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = _content.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt)), __133:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         stdgo._internal.net.http.Http_error.error(_w, ("seeker can\'t seek" : stdgo.GoString), (500 : stdgo.GoInt));
                         return;
@@ -74,7 +74,7 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
             if ((_ranges.length) == ((1 : stdgo.GoInt))) {
                 var _ra = (_ranges[(0 : stdgo.GoInt)] : stdgo._internal.net.http.Http_T_httpRange.T_httpRange);
                 {
-                    var __tmp__ = _content.seek(_ra._start, (0 : stdgo.GoInt)), __143:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = _content.seek(_ra._start, (0 : stdgo.GoInt)), __132:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         stdgo._internal.net.http.Http_error.error(_w, _err.error()?.__copy__(), (416 : stdgo.GoInt));
                         return;
@@ -95,7 +95,7 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
-                            for (__143 => _ra in _ranges) {
+                            for (__132 => _ra in _ranges) {
                                 var __tmp__ = _mw.createPart(_ra._mimeHeader(_ctype?.__copy__(), _size)), _part:stdgo._internal.io.Io_Writer.Writer = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                 if (_err != null) {
                                     _pw.closeWithError(_err);
@@ -107,7 +107,7 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
                                     };
                                 };
                                 {
-                                    var __tmp__ = _content.seek(_ra._start, (0 : stdgo.GoInt)), __144:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                    var __tmp__ = _content.seek(_ra._start, (0 : stdgo.GoInt)), __133:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                     if (_err != null) {
                                         _pw.closeWithError(_err);
                                         {
@@ -119,7 +119,7 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
                                     };
                                 };
                                 {
-                                    var __tmp__ = stdgo._internal.io.Io_copyN.copyN(_part, _content, _ra._length), __145:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                    var __tmp__ = stdgo._internal.io.Io_copyN.copyN(_part, _content, _ra._length), __134:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                     if (_err != null) {
                                         _pw.closeWithError(_err);
                                         {

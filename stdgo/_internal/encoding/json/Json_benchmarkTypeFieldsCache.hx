@@ -31,7 +31,7 @@ function benchmarkTypeFieldsCache(_b:stdgo.Ref<stdgo._internal.testing.Testing_B
                                     _wg.add((1 : stdgo.GoInt));
                                     stdgo.Go.routine(() -> {
                                         var a = function(_j:stdgo.GoInt):Void {
-                                            for (__36 => _t in (_ts.__slice__((((_j * (_ts.length) : stdgo.GoInt)) / _nc : stdgo.GoInt), (((((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) * (_ts.length) : stdgo.GoInt)) / _nc : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>)) {
+                                            for (__32 => _t in (_ts.__slice__((((_j * (_ts.length) : stdgo.GoInt)) / _nc : stdgo.GoInt), (((((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) * (_ts.length) : stdgo.GoInt)) / _nc : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>)) {
                                                 stdgo._internal.encoding.json.Json__cachedTypeFields._cachedTypeFields(_t);
                                             };
                                             _wg.done();
@@ -50,7 +50,7 @@ function benchmarkTypeFieldsCache(_b:stdgo.Ref<stdgo._internal.testing.Testing_B
             var _nt = (1 : stdgo.GoInt);
             stdgo.Go.cfor((_nt <= _maxTypes : Bool), _nt = (_nt * ((10 : stdgo.GoInt)) : stdgo.GoInt), {
                 _clearCache();
-                for (__16 => _t in (_types.__slice__(0, _nt) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>)) {
+                for (__12 => _t in (_types.__slice__(0, _nt) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>)) {
                     stdgo._internal.encoding.json.Json__cachedTypeFields._cachedTypeFields(_t);
                 };
                 _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("HitTypes%d" : stdgo.GoString), stdgo.Go.toInterface(_nt))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {

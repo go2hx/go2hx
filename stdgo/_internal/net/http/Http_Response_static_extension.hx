@@ -12,7 +12,7 @@ package stdgo._internal.net.http;
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_r.body) : stdgo._internal.io.Io_Writer.Writer)) : stdgo._internal.io.Io_Writer.Writer), _1 : true };
         } catch(_) {
             { _0 : (null : stdgo._internal.io.Io_Writer.Writer), _1 : false };
-        }, __33943 = __tmp__._0, _ok = __tmp__._1;
+        }, __33932 = __tmp__._0, _ok = __tmp__._1;
         return _ok;
     }
     @:keep
@@ -35,7 +35,7 @@ package stdgo._internal.net.http;
             _text = stdgo._internal.strings.Strings_trimPrefix.trimPrefix(_text?.__copy__(), (stdgo._internal.strconv.Strconv_itoa.itoa(_r.statusCode) + (" " : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__())?.__copy__();
         };
         {
-            var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("HTTP/%d.%d %03d %s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_r.protoMajor), stdgo.Go.toInterface(_r.protoMinor), stdgo.Go.toInterface(_r.statusCode), stdgo.Go.toInterface(_text)), __33943:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("HTTP/%d.%d %03d %s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_r.protoMajor), stdgo.Go.toInterface(_r.protoMinor), stdgo.Go.toInterface(_r.statusCode), stdgo.Go.toInterface(_text)), __33932:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };
@@ -89,14 +89,14 @@ package stdgo._internal.net.http;
         var _contentLengthAlreadySent = (_tw._shouldSendContentLength() : Bool);
         if ((((_r1.contentLength == ((0i64 : stdgo.GoInt64)) && !stdgo._internal.net.http.Http__chunked._chunked(_r1.transferEncoding) : Bool) && !_contentLengthAlreadySent : Bool) && stdgo._internal.net.http.Http__bodyAllowedForStatus._bodyAllowedForStatus(_r.statusCode) : Bool)) {
             {
-                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("Content-Length: 0\r\n" : stdgo.GoString)), __33944:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("Content-Length: 0\r\n" : stdgo.GoString)), __33933:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _err;
                 };
             };
         };
         {
-            var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("\r\n" : stdgo.GoString)), __33944:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("\r\n" : stdgo.GoString)), __33933:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return _err;
             };

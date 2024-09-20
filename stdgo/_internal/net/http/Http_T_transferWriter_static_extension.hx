@@ -223,7 +223,7 @@ package stdgo._internal.net.http;
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_T_transferWriter.T_transferWriter> = _t;
         if ((_t.close && !stdgo._internal.net.http.Http__hasToken._hasToken(_t.header._get(("Connection" : stdgo.GoString))?.__copy__(), ("close" : stdgo.GoString)) : Bool)) {
             {
-                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("Connection: close\r\n" : stdgo.GoString)), __35343:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("Connection: close\r\n" : stdgo.GoString)), __35332:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _err;
                 };
@@ -234,13 +234,13 @@ package stdgo._internal.net.http;
         };
         if (_t._shouldSendContentLength()) {
             {
-                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("Content-Length: " : stdgo.GoString)), __35343:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("Content-Length: " : stdgo.GoString)), __35332:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _err;
                 };
             };
             {
-                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, (stdgo._internal.strconv.Strconv_formatInt.formatInt(_t.contentLength, (10 : stdgo.GoInt)) + ("\r\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()), __35344:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, (stdgo._internal.strconv.Strconv_formatInt.formatInt(_t.contentLength, (10 : stdgo.GoInt)) + ("\r\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()), __35333:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _err;
                 };
@@ -250,7 +250,7 @@ package stdgo._internal.net.http;
             };
         } else if (stdgo._internal.net.http.Http__chunked._chunked(_t.transferEncoding)) {
             {
-                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("Transfer-Encoding: chunked\r\n" : stdgo.GoString)), __35343:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ("Transfer-Encoding: chunked\r\n" : stdgo.GoString)), __35332:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _err;
                 };
@@ -274,7 +274,7 @@ package stdgo._internal.net.http;
             if (((_keys.length) > (0 : stdgo.GoInt) : Bool)) {
                 stdgo._internal.sort.Sort_strings.strings(_keys);
                 {
-                    var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ((("Trailer: " : stdgo.GoString) + stdgo._internal.strings.Strings_join.join(_keys, ("," : stdgo.GoString))?.__copy__() : stdgo.GoString) + ("\r\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()), __35343:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, ((("Trailer: " : stdgo.GoString) + stdgo._internal.strings.Strings_join.join(_keys, ("," : stdgo.GoString))?.__copy__() : stdgo.GoString) + ("\r\n" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()), __35332:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return _err;
                     };

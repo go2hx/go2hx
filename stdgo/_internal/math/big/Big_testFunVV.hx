@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFunVV(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _a in stdgo._internal.math.big.Big__sumVV._sumVV) {
+        for (__8 => _a in stdgo._internal.math.big.Big__sumVV._sumVV) {
             var _arg = (_a?.__copy__() : stdgo._internal.math.big.Big_T_argVV.T_argVV);
             stdgo._internal.math.big.Big__testFunVV._testFunVV(_t, ("addVV_g" : stdgo.GoString), stdgo._internal.math.big.Big__addVV_g._addVV_g, _arg?.__copy__());
             stdgo._internal.math.big.Big__testFunVV._testFunVV(_t, ("addVV" : stdgo.GoString), stdgo._internal.math.big.Big__addVV._addVV, _arg?.__copy__());

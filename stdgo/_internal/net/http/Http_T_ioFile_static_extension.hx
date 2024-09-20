@@ -14,7 +14,7 @@ package stdgo._internal.net.http;
         var _list:stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo> = (null : stdgo.Slice<stdgo._internal.io.fs.Fs_FileInfo.FileInfo>);
         while (true) {
             var __tmp__ = _d.readDir((_count - (_list.length) : stdgo.GoInt)), _dirs:stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            for (__30063 => _dir in _dirs) {
+            for (__30052 => _dir in _dirs) {
                 var __tmp__ = _dir.info(), _info:stdgo._internal.io.fs.Fs_FileInfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     continue;

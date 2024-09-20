@@ -46,7 +46,7 @@ var _b = __1, _a = __0;
 ({ _name : ("space vs newline no-percent 1101" : stdgo.GoString), _text : ("1 \n 2" : stdgo.GoString), _format : ("1\n 2" : stdgo.GoString), _count : (0 : stdgo.GoInt), _ok : true } : _internal.fmt_test.Fmt_test_T__struct_16.T__struct_16),
 ({ _name : ("space vs newline no-percent 1110" : stdgo.GoString), _text : ("1 \n 2" : stdgo.GoString), _format : ("1 \n2" : stdgo.GoString), _count : (0 : stdgo.GoInt), _ok : false } : _internal.fmt_test.Fmt_test_T__struct_16.T__struct_16),
 ({ _name : ("space vs newline no-percent 1111" : stdgo.GoString), _text : ("1 \n 2" : stdgo.GoString), _format : ("1 \n 2" : stdgo.GoString), _count : (0 : stdgo.GoInt), _ok : true } : _internal.fmt_test.Fmt_test_T__struct_16.T__struct_16)].concat([for (i in 40 ... (40 > 40 ? 40 : 40 : stdgo.GoInt).toBasic()) ({ _name : ("" : stdgo.GoString), _text : ("" : stdgo.GoString), _format : ("" : stdgo.GoString), _count : (0 : stdgo.GoInt), _ok : false } : _internal.fmt_test.Fmt_test_T__struct_16.T__struct_16)])) : stdgo.Slice<_internal.fmt_test.Fmt_test_T__struct_16.T__struct_16>);
-        for (__3 => _test in _tests) {
+        for (__2 => _test in _tests) {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
             var _err:stdgo.Error = (null : stdgo.Error);
             if (stdgo._internal.strings.Strings_contains.contains(_test._format?.__copy__(), ("%" : stdgo.GoString))) {

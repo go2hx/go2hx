@@ -43,7 +43,7 @@ function testMethodByNameUnExportedFirst(_t:stdgo.Ref<stdgo._internal.testing.Te
                 a();
             });
             var _typ = (stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(stdgo.Go.asInterface((0 : _internal.reflect_test.Reflect_test_UnExportedFirst.UnExportedFirst)))) : stdgo._internal.reflect.Reflect_Type_.Type_);
-            var __tmp__ = _typ.methodByName(("ΦExported" : stdgo.GoString)), _m:stdgo._internal.reflect.Reflect_Method.Method = __tmp__._0, __7:Bool = __tmp__._1;
+            var __tmp__ = _typ.methodByName(("ΦExported" : stdgo.GoString)), _m:stdgo._internal.reflect.Reflect_Method.Method = __tmp__._0, __6:Bool = __tmp__._1;
             if (_m.name != (("ΦExported" : stdgo.GoString))) {
                 _t.errorf(("got %s, expected ΦExported" : stdgo.GoString), stdgo.Go.toInterface(_m.name));
             };

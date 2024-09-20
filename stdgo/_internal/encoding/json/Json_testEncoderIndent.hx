@@ -3,7 +3,7 @@ function testEncoderIndent(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
         var _enc = stdgo._internal.encoding.json.Json_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)));
         _enc.setIndent((">" : stdgo.GoString), ("." : stdgo.GoString));
-        for (__8 => _v in stdgo._internal.encoding.json.Json__streamTest._streamTest) {
+        for (__4 => _v in stdgo._internal.encoding.json.Json__streamTest._streamTest) {
             _enc.encode(_v);
         };
         {

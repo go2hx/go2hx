@@ -2,6 +2,7 @@ package _internal.math.bits_test;
 import stdgo._internal.math.bits.Bits;
 @:keep var __init_go2hx__ = {
         try {
+            var __tmp__0 = _internal.math.bits_test.Bits_test_input.input;
             _internal.math.bits_test.Bits_test__tab._tab[(0 : stdgo.GoInt)] = ({ _nlz : (8 : stdgo.GoInt), _ntz : (8 : stdgo.GoInt), _pop : (0 : stdgo.GoInt) } : _internal.math.bits_test.Bits_test_T_entry.T_entry);
             {
                 var _i = (1 : stdgo.GoInt);

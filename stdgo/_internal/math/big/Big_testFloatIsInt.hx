@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatIsInt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo.GoString>(14, 14, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo.GoString>(14, 14, ...[
 ("0 int" : stdgo.GoString),
 ("-0 int" : stdgo.GoString),
 ("1 int" : stdgo.GoString),

@@ -16,7 +16,7 @@ package stdgo._internal.math.big;
             _u._exp--;
             return _t.set(_u);
         };
-        var __tmp__ = _x.float64(), _xf:stdgo.GoFloat64 = __tmp__._0, __14:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+        var __tmp__ = _x.float64(), _xf:stdgo.GoFloat64 = __tmp__._0, __8:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
         var _sqi = stdgo._internal.math.big.Big__newFloat._newFloat(_z._prec);
         _sqi.setFloat64(((1 : stdgo.GoFloat64) / stdgo._internal.math.Math_sqrt.sqrt(_xf) : stdgo.GoFloat64));
         {
@@ -355,7 +355,7 @@ package stdgo._internal.math.big;
     @:keep
     static public function unmarshalText( _z:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>, _text:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = _z;
-        var __tmp__ = _z.parse((_text : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt)), __14:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __15:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _z.parse((_text : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt)), __8:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __9:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             _err = stdgo._internal.fmt.Fmt_errorf.errorf(("math/big: cannot unmarshal %q into a *big.Float (%v)" : stdgo.GoString), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_err));
         };
@@ -453,7 +453,7 @@ package stdgo._internal.math.big;
     static public function scan( _z:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>, _s:stdgo._internal.fmt.Fmt_ScanState.ScanState, _ch:stdgo.GoInt32):stdgo.Error {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = _z;
         _s.skipSpace();
-        var __tmp__ = _z._scan(stdgo.Go.asInterface((new stdgo._internal.math.big.Big_T_byteReader.T_byteReader(_s) : stdgo._internal.math.big.Big_T_byteReader.T_byteReader)), (0 : stdgo.GoInt)), __14:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __15:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _z._scan(stdgo.Go.asInterface((new stdgo._internal.math.big.Big_T_byteReader.T_byteReader(_s) : stdgo._internal.math.big.Big_T_byteReader.T_byteReader)), (0 : stdgo.GoInt)), __8:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __9:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         return _err;
     }
     @:keep
@@ -647,7 +647,7 @@ package stdgo._internal.math.big;
     static public function setString( _z:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>, _s:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>; var _1 : Bool; } {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = _z;
         {
-            var __tmp__ = _z.parse(_s?.__copy__(), (0 : stdgo.GoInt)), _f:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __14:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            var __tmp__ = _z.parse(_s?.__copy__(), (0 : stdgo.GoInt)), _f:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __8:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err == null) {
                 return { _0 : _f, _1 : true };
             };

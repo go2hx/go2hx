@@ -54,7 +54,7 @@ var _icookies = __1, _ireqhdr = __0;
                 {};
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>>);
-            for (__29783 => _c in _ireq.cookies()) {
+            for (__29772 => _c in _ireq.cookies()) {
                 _icookies[_c.name] = ((_icookies[_c.name] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>)).__append__(_c));
             };
         };
@@ -63,9 +63,9 @@ var _icookies = __1, _ireqhdr = __0;
             if (((_c.jar != null) && (_icookies != null) : Bool)) {
                 var _changed:Bool = false;
                 var _resp = _req.response;
-                for (__29783 => _c in _resp.cookies()) {
+                for (__29772 => _c in _resp.cookies()) {
                     {
-                        var __tmp__ = (_icookies != null && _icookies.exists(_c.name?.__copy__()) ? { _0 : _icookies[_c.name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>), _1 : false }), __29784:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>> = __tmp__._0, _ok:Bool = __tmp__._1;
+                        var __tmp__ = (_icookies != null && _icookies.exists(_c.name?.__copy__()) ? { _0 : _icookies[_c.name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>), _1 : false }), __29773:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>> = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
                             if (_icookies != null) _icookies.remove(_c.name);
                             _changed = true;
@@ -75,8 +75,8 @@ var _icookies = __1, _ireqhdr = __0;
                 if (_changed) {
                     _ireqhdr.del(("Cookie" : stdgo.GoString));
                     var _ss:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-                    for (__29784 => _cs in _icookies) {
-                        for (__29785 => _c in _cs) {
+                    for (__29773 => _cs in _icookies) {
+                        for (__29774 => _c in _cs) {
                             _ss = (_ss.__append__(((_c.name + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _c.value?.__copy__() : stdgo.GoString)?.__copy__()));
                         };
                     };
@@ -210,7 +210,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                     var _host = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
                     if (((_req.host != stdgo.Go.str()) && (_req.host != _req.url.host) : Bool)) {
                         {
-                            var __tmp__ = stdgo._internal.net.url.Url_parse.parse(_loc?.__copy__()), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, __29783:stdgo.Error = __tmp__._1;
+                            var __tmp__ = stdgo._internal.net.url.Url_parse.parse(_loc?.__copy__()), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, __29772:stdgo.Error = __tmp__._1;
                             if ((((_u != null) && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && !_u.isAbs() : Bool)) {
                                 _host = _req.host?.__copy__();
                             };
@@ -386,7 +386,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client> = _c;
         var _resp = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _didTimeout = null, _err = (null : stdgo.Error);
         if (_c.jar != null) {
-            for (__29783 => _cookie in _c.jar.cookies(_req.url)) {
+            for (__29772 => _cookie in _c.jar.cookies(_req.url)) {
                 _req.addCookie(_cookie);
             };
         };

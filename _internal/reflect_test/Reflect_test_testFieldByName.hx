@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function testFieldByName(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__7 => _test in _internal.reflect_test.Reflect_test__fieldTests._fieldTests) {
+        for (__6 => _test in _internal.reflect_test.Reflect_test__fieldTests._fieldTests) {
             var _s = (stdgo._internal.reflect.Reflect_typeOf.typeOf(_test._s) : stdgo._internal.reflect.Reflect_Type_.Type_);
             var __tmp__ = _s.fieldByName(_test._name?.__copy__()), _f:stdgo._internal.reflect.Reflect_StructField.StructField = __tmp__._0, _found:Bool = __tmp__._1;
             if (_found) {

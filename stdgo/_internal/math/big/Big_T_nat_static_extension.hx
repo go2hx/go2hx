@@ -276,7 +276,7 @@ var _quotient = __2, _y = __1, _x = __0;
         var _temps = (new stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>>((_recDepth : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>>);
         _z._clear();
         _z._divRecursiveStep(_u, _v, (0 : stdgo.GoInt), _tmp, _temps);
-        for (__14 => _n in _temps) {
+        for (__8 => _n in _temps) {
             if (_n != null && ((_n : Dynamic).__nil__ == null || !(_n : Dynamic).__nil__)) {
                 stdgo._internal.math.big.Big__putNat._putNat(_n);
             };
@@ -828,7 +828,7 @@ var _z2 = __1, _z1 = __0;
         @:recv var _z:stdgo._internal.math.big.Big_T_nat.T_nat = _z;
         var _i = (0 : stdgo.GoInt);
         _i = (_buf.length);
-        for (__14 => _d in _z) {
+        for (__8 => _d in _z) {
             {
                 var _j = (0 : stdgo.GoInt);
                 stdgo.Go.cfor((_j < (4 : stdgo.GoInt) : Bool), _j++, {
@@ -1340,7 +1340,7 @@ var _r = __1, _zz = __0;
             };
             return (1u32 : stdgo.GoUInt);
         };
-        for (__14 => _x in (_x.__slice__(0, _j) : stdgo._internal.math.big.Big_T_nat.T_nat)) {
+        for (__8 => _x in (_x.__slice__(0, _j) : stdgo._internal.math.big.Big_T_nat.T_nat)) {
             if (_x != ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
                 return (1u32 : stdgo.GoUInt);
             };

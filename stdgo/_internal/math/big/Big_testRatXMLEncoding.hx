@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testRatXMLEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _num in stdgo._internal.math.big.Big__ratNums._ratNums) {
-            for (__15 => _denom in stdgo._internal.math.big.Big__ratDenoms._ratDenoms) {
+        for (__8 => _num in stdgo._internal.math.big.Big__ratNums._ratNums) {
+            for (__9 => _denom in stdgo._internal.math.big.Big__ratDenoms._ratDenoms) {
                 var _tx:stdgo._internal.math.big.Big_Rat.Rat = ({} : stdgo._internal.math.big.Big_Rat.Rat);
                 _tx.setString(((_num + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _denom?.__copy__() : stdgo.GoString)?.__copy__());
                 var __tmp__ = stdgo._internal.encoding.xml.Xml_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>)))), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

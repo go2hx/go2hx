@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testDecimalRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_9.T__struct_9>(20, 20, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_9.T__struct_9>(20, 20, ...[
 ({ _x : (0i64 : stdgo.GoUInt64), _n : (0 : stdgo.GoInt), _down : ("0" : stdgo.GoString), _even : ("0" : stdgo.GoString), _up : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_9.T__struct_9),
 ({ _x : (0i64 : stdgo.GoUInt64), _n : (1 : stdgo.GoInt), _down : ("0" : stdgo.GoString), _even : ("0" : stdgo.GoString), _up : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_9.T__struct_9),
 ({ _x : (1i64 : stdgo.GoUInt64), _n : (0 : stdgo.GoInt), _down : ("0" : stdgo.GoString), _even : ("0" : stdgo.GoString), _up : ("10" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_9.T__struct_9),

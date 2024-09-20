@@ -423,7 +423,7 @@ package stdgo._internal.encoding.json;
                 if (_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) {
                     _subv = _v?.__copy__();
                     _destring = _f._quoted;
-                    for (__8 => _i in _f._index) {
+                    for (__4 => _i in _f._index) {
                         if (_subv.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                             if (_subv.isNil()) {
                                 if (!_subv.canSet()) {

@@ -14,7 +14,7 @@ function benchmarkCompareAndSwapMostlyHits(_b:stdgo.Ref<stdgo._internal.testing.
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo.Ref<_internal.sync_test.Sync_test_DeepCopyMap.DeepCopyMap>)) : stdgo.Ref<_internal.sync_test.Sync_test_DeepCopyMap.DeepCopyMap>), _1 : true };
                 } catch(_) {
                     { _0 : (null : stdgo.Ref<_internal.sync_test.Sync_test_DeepCopyMap.DeepCopyMap>), _1 : false };
-                }, __4 = __tmp__._0, _ok = __tmp__._1;
+                }, __2 = __tmp__._0, _ok = __tmp__._1;
                 if (_ok) {
                     _b.skip(stdgo.Go.toInterface(("DeepCopyMap has quadratic running time." : stdgo.GoString)));
                 };

@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFunVWW(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _a in stdgo._internal.math.big.Big__prodVWW._prodVWW) {
+        for (__8 => _a in stdgo._internal.math.big.Big__prodVWW._prodVWW) {
             var _arg = (_a?.__copy__() : stdgo._internal.math.big.Big_T_argVWW.T_argVWW);
             stdgo._internal.math.big.Big__testFunVWW._testFunVWW(_t, ("mulAddVWW_g" : stdgo.GoString), stdgo._internal.math.big.Big__mulAddVWW_g._mulAddVWW_g, _arg?.__copy__());
             stdgo._internal.math.big.Big__testFunVWW._testFunVWW(_t, ("mulAddVWW" : stdgo.GoString), stdgo._internal.math.big.Big__mulAddVWW._mulAddVWW, _arg?.__copy__());

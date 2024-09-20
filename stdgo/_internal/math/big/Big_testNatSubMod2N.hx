@@ -1,8 +1,8 @@
 package stdgo._internal.math.big;
 function testNatSubMod2N(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _mode in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("noalias" : stdgo.GoString), ("aliasX" : stdgo.GoString), ("aliasY" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
+        for (__8 => _mode in (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("noalias" : stdgo.GoString), ("aliasX" : stdgo.GoString), ("aliasY" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
             _t.run(_mode?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-                for (__23 => _tt in stdgo._internal.math.big.Big__subMod2NTests._subMod2NTests) {
+                for (__17 => _tt in stdgo._internal.math.big.Big__subMod2NTests._subMod2NTests) {
                     var _x0 = (stdgo._internal.math.big.Big__natFromString._natFromString(_tt._x?.__copy__()) : stdgo._internal.math.big.Big_T_nat.T_nat);
                     var _y0 = (stdgo._internal.math.big.Big__natFromString._natFromString(_tt._y?.__copy__()) : stdgo._internal.math.big.Big_T_nat.T_nat);
                     var _want = (stdgo._internal.math.big.Big__natFromString._natFromString(_tt._z?.__copy__()) : stdgo._internal.math.big.Big_T_nat.T_nat);

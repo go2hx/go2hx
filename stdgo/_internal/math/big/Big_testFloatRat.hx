@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_23.T__struct_23>(14, 14, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_23.T__struct_23>(14, 14, ...[
 ({ _x : ("0" : stdgo.GoString), _want : ("0/1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_23.T__struct_23),
 ({ _x : ("+0" : stdgo.GoString), _want : ("0/1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_23.T__struct_23),
 ({ _x : ("-0" : stdgo.GoString), _want : ("0/1" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_23.T__struct_23),
@@ -36,11 +36,11 @@ function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
                 };
             };
         };
-        for (__15 => _f in (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
+        for (__9 => _f in (new stdgo.Slice<stdgo.GoString>(4, 4, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
             var _x = stdgo._internal.math.big.Big__makeFloat._makeFloat(_f?.__copy__());
             var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
             {
-                var __tmp__ = _x.rat(_r), _res:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, __16:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+                var __tmp__ = _x.rat(_r), _res:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, __10:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
                 if (_res != (_r)) {
                     _t.errorf(("(%s).Rat is not using supplied *Rat" : stdgo.GoString), stdgo.Go.toInterface(_f));
                 };

@@ -1,6 +1,7 @@
 package stdgo._internal.compress.bzip2;
 @:keep var __init_go2hx__ = {
         try {
+            var __tmp__0 = stdgo._internal.compress.bzip2.Bzip2__digits._digits, __tmp__1 = stdgo._internal.compress.bzip2.Bzip2__newton._newton, __tmp__2 = stdgo._internal.compress.bzip2.Bzip2__random._random;
             {};
             for (_i => _ in stdgo._internal.compress.bzip2.Bzip2__crctab._crctab) {
                 var _crc = ((_i : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32);

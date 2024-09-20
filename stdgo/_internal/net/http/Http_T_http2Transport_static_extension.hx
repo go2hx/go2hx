@@ -221,7 +221,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _dialClientConn( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>, _ctx:stdgo._internal.context.Context_Context.Context, _addr:stdgo.GoString, _singleUse:Bool):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>; var _1 : stdgo.Error; } {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport> = _t;
-        var __tmp__ = stdgo._internal.net.Net_splitHostPort.splitHostPort(_addr?.__copy__()), _host:stdgo.GoString = __tmp__._0, __32063:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = stdgo._internal.net.Net_splitHostPort.splitHostPort(_addr?.__copy__()), _host:stdgo.GoString = __tmp__._0, __32052:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };

@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function fuzzEqualFold(_f:stdgo.Ref<stdgo._internal.testing.Testing_F.F>):Void {
-        for (__8 => _ss in (new stdgo.Slice<stdgo.GoArray<stdgo.GoString>>(25, 25, ...[
+        for (__4 => _ss in (new stdgo.Slice<stdgo.GoArray<stdgo.GoString>>(25, 25, ...[
 (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[stdgo.Go.str()?.__copy__(), stdgo.Go.str()?.__copy__()]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("123abc" : stdgo.GoString), ("123ABC" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__(),
 (new stdgo.GoArray<stdgo.GoString>(2, 2, ...[("αβδ" : stdgo.GoString), ("ΑΒΔ" : stdgo.GoString)]).__setString__() : stdgo.GoArray<stdgo.GoString>)?.__copy__(),

@@ -36,7 +36,7 @@ function _driverArgsConnLocked(_ci:stdgo._internal.database.sql.driver.Driver_Co
             };
             var _err:stdgo.Error = (null : stdgo.Error);
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
-            for (__22 => _arg in _args) {
+            for (__19 => _arg in _args) {
                 var _nv = (stdgo.Go.setRef(_nvargs[(_n : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
                 {
                     var __tmp__ = try {

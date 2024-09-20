@@ -14,7 +14,7 @@ function benchmarkSelect(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void
                 _cases = (_cases.__append__(({ dir : (2 : stdgo._internal.reflect.Reflect_SelectDir.SelectDir), chan : stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_channel))?.__copy__() } : stdgo._internal.reflect.Reflect_SelectCase.SelectCase)));
             });
         };
-        for (__7 => _numCases in (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (4 : stdgo.GoInt), (8 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
+        for (__6 => _numCases in (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (4 : stdgo.GoInt), (8 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
             _b.run(stdgo._internal.strconv.Strconv_itoa.itoa(_numCases)?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                 _b.reportAllocs();
                 {

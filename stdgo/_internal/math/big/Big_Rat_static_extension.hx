@@ -4,7 +4,7 @@ package stdgo._internal.math.big;
     static public function unmarshalText( _z:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>, _text:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = _z;
         {
-            var __tmp__ = _z.setString((_text : stdgo.GoString)?.__copy__()), __14:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _z.setString((_text : stdgo.GoString)?.__copy__()), __8:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("math/big: cannot unmarshal %q into a *big.Rat" : stdgo.GoString), stdgo.Go.toInterface(_text));
             };
@@ -159,7 +159,7 @@ package stdgo._internal.math.big;
             var _sep = (stdgo._internal.strings.Strings_index.index(_s?.__copy__(), ("/" : stdgo.GoString)) : stdgo.GoInt);
             if ((_sep >= (0 : stdgo.GoInt) : Bool)) {
                 {
-                    var __tmp__ = _z._a.setString((_s.__slice__(0, _sep) : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt)), __14:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = _z._a.setString((_s.__slice__(0, _sep) : stdgo.GoString)?.__copy__(), (0 : stdgo.GoInt)), __8:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (!_ok) {
                         return { _0 : null, _1 : false };
                     };
@@ -341,7 +341,7 @@ var _exp5 = __1, _exp2 = __0;
             return stdgo._internal.errors.Errors_new_.new_(("Rat.Scan: invalid verb" : stdgo.GoString));
         };
         {
-            var __tmp__ = _z.setString((_tok : stdgo.GoString)?.__copy__()), __14:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _z.setString((_tok : stdgo.GoString)?.__copy__()), __8:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return stdgo._internal.errors.Errors_new_.new_(("Rat.Scan: invalid syntax" : stdgo.GoString));
             };

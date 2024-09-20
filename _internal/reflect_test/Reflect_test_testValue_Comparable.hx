@@ -58,7 +58,7 @@ function testValue_Comparable(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
         } : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>))]) : stdgo.GoArray<stdgo.AnyInterface>)), stdgo.Go.toInterface(stdgo.Go.asInterface(({ i : (1 : stdgo.GoInt) } : _internal.reflect_test.Reflect_test_T__struct_97.T__struct_97)))]) : stdgo.GoArray<stdgo.AnyInterface>)))?.__copy__(), _comparable : false, _deref : false } : _internal.reflect_test.Reflect_test_T__struct_96.T__struct_96),
 ({ _value : stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((stdgo.Go.setRef(_iArrayFalse) : stdgo.Ref<stdgo.AnyInterface>)))?.__copy__(), _comparable : false, _deref : true } : _internal.reflect_test.Reflect_test_T__struct_96.T__struct_96),
 ({ _value : stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((stdgo.Go.setRef(_iArrayTrue) : stdgo.Ref<stdgo.AnyInterface>)))?.__copy__(), _comparable : true, _deref : true } : _internal.reflect_test.Reflect_test_T__struct_96.T__struct_96)].concat([for (i in 31 ... (31 > 31 ? 31 : 31 : stdgo.GoInt).toBasic()) ({ _value : ({} : stdgo._internal.reflect.Reflect_Value.Value), _comparable : false, _deref : false } : _internal.reflect_test.Reflect_test_T__struct_96.T__struct_96)])) : stdgo.Slice<_internal.reflect_test.Reflect_test_T__struct_96.T__struct_96>);
-        for (__7 => _cas in _testcases) {
+        for (__6 => _cas in _testcases) {
             var _v = (_cas._value?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             if (_cas._deref) {
                 _v = _v.elem()?.__copy__();

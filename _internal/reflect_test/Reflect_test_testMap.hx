@@ -23,7 +23,7 @@ x.set(("b" : stdgo.GoString), (2 : stdgo.GoInt));
         var _newmap = (stdgo._internal.reflect.Reflect_makeMap.makeMap(_mv.type())?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         for (_k => _v in _m) {
             var _seen = (false : Bool);
-            for (__7 => _kv in _keys) {
+            for (__6 => _kv in _keys) {
                 if ((_kv.string() : stdgo.GoString) == (_k)) {
                     _seen = true;
                     break;

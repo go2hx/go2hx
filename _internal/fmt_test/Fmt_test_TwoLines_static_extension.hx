@@ -10,7 +10,7 @@ import stdgo._internal.fmt.Fmt;
         {
             var _nlCount = (0 : stdgo.GoInt);
             while ((_nlCount < (2 : stdgo.GoInt) : Bool)) {
-                var __tmp__ = _state.readRune(), _c:stdgo.GoInt32 = __tmp__._0, __3:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                var __tmp__ = _state.readRune(), _c:stdgo.GoInt32 = __tmp__._0, __2:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (_err != null) {
                     return _err;
                 };

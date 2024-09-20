@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function testAssignableTo(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__7 => _tt in (_internal.reflect_test.Reflect_test__assignableTests._assignableTests.__append__(...(_internal.reflect_test.Reflect_test__implementsTests._implementsTests : Array<_internal.reflect_test.Reflect_test_T__struct_105.T__struct_105>)))) {
+        for (__6 => _tt in (_internal.reflect_test.Reflect_test__assignableTests._assignableTests.__append__(...(_internal.reflect_test.Reflect_test__implementsTests._implementsTests : Array<_internal.reflect_test.Reflect_test_T__struct_105.T__struct_105>)))) {
             var _xv = (stdgo._internal.reflect.Reflect_typeOf.typeOf(_tt._x).elem() : stdgo._internal.reflect.Reflect_Type_.Type_);
             var _xt = (stdgo._internal.reflect.Reflect_typeOf.typeOf(_tt._t).elem() : stdgo._internal.reflect.Reflect_Type_.Type_);
             {

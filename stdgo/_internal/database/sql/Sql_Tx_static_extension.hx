@@ -118,7 +118,7 @@ package stdgo._internal.database.sql;
                 };
             } else {
                 _stmt._removeClosedStmtLocked();
-                for (__122 => _v in _stmt._css) {
+                for (__119 => _v in _stmt._css) {
                     if (_v._dc == (_dc)) {
                         _si = _v._ds._si;
                         break;
@@ -306,7 +306,7 @@ package stdgo._internal.database.sql;
         try {
             _tx._stmts.lock();
             __deferstack__.unshift(() -> _tx._stmts.unlock());
-            for (__64 => _stmt in _tx._stmts._v) {
+            for (__61 => _stmt in _tx._stmts._v) {
                 _stmt.close();
             };
             {

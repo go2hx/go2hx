@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_68.T__struct_68>(12, 12, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_68.T__struct_68>(12, 12, ...[
 ({ _x : ("0.03125" : stdgo.GoString), _want : ("0.17677669529663688110021109052621225982120898442211850914708496724884155980776337985629844179095519659187673077886403712811560450698134215158051518713749197892665283324093819909447499381264409775757143376369499645074628431682460775184106467733011114982619404115381053858929018135497032545349940642599871090667456829147610370507757690729404938184321879" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_68.T__struct_68),
 ({ _x : ("0.125" : stdgo.GoString), _want : ("0.35355339059327376220042218105242451964241796884423701829416993449768311961552675971259688358191039318375346155772807425623120901396268430316103037427498395785330566648187639818894998762528819551514286752738999290149256863364921550368212935466022229965238808230762107717858036270994065090699881285199742181334913658295220741015515381458809876368643757" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_68.T__struct_68),
 ({ _x : ("0.5" : stdgo.GoString), _want : ("0.70710678118654752440084436210484903928483593768847403658833986899536623923105351942519376716382078636750692311545614851246241802792536860632206074854996791570661133296375279637789997525057639103028573505477998580298513726729843100736425870932044459930477616461524215435716072541988130181399762570399484362669827316590441482031030762917619752737287514" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_68.T__struct_68),
@@ -13,7 +13,7 @@ function testFloatSqrt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
 ({ _x : ("1p-1024" : stdgo.GoString), _want : ("1p-512" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_68.T__struct_68),
 ({ _x : ("4p-2048" : stdgo.GoString), _want : ("2p-1024" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_68.T__struct_68),
 ({ _x : ("9p-4096" : stdgo.GoString), _want : ("3p-2048" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_68.T__struct_68)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({ _x : ("" : stdgo.GoString), _want : ("" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_68.T__struct_68)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_68.T__struct_68>)) {
-            for (__15 => _prec in (new stdgo.Slice<stdgo.GoUInt>(13, 13, ...[
+            for (__9 => _prec in (new stdgo.Slice<stdgo.GoUInt>(13, 13, ...[
 (24u32 : stdgo.GoUInt),
 (53u32 : stdgo.GoUInt),
 (64u32 : stdgo.GoUInt),

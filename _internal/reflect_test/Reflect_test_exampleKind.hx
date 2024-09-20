@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function exampleKind():Void {
-        for (__7 => _v in (new stdgo.Slice<stdgo.AnyInterface>(3, 3, ...[stdgo.Go.toInterface(("hi" : stdgo.GoString)), stdgo.Go.toInterface((42 : stdgo.GoInt)), stdgo.Go.toInterface(function():Void {})]) : stdgo.Slice<stdgo.AnyInterface>)) {
+        for (__6 => _v in (new stdgo.Slice<stdgo.AnyInterface>(3, 3, ...[stdgo.Go.toInterface(("hi" : stdgo.GoString)), stdgo.Go.toInterface((42 : stdgo.GoInt)), stdgo.Go.toInterface(function():Void {})]) : stdgo.Slice<stdgo.AnyInterface>)) {
             {
                 var _v = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_v)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
                 {

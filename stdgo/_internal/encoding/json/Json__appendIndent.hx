@@ -10,7 +10,7 @@ function _appendIndent(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.G
             };
             var _needIndent = (false : Bool);
             var _depth = (0 : stdgo.GoInt);
-            for (__8 => _c in _src) {
+            for (__4 => _c in _src) {
                 _scan._bytes++;
                 var _v = (_scan._step(_scan, _c) : stdgo.GoInt);
                 if (_v == ((9 : stdgo.GoInt))) {

@@ -6,6 +6,7 @@ function main():Void {
     }
 @:keep var __init_go2hx__ = {
         try {
+            var __tmp__0 = _internal.math.bits_test.Bits_test_input.input;
             _internal.math.bits_test.Bits_test__tab._tab[(0 : stdgo.GoInt)] = ({ _nlz : (8 : stdgo.GoInt), _ntz : (8 : stdgo.GoInt), _pop : (0 : stdgo.GoInt) } : _internal.math.bits_test.Bits_test_T_entry.T_entry);
             {
                 var _i = (1 : stdgo.GoInt);
@@ -33,6 +34,7 @@ function main():Void {
                     _internal.math.bits_test.Bits_test__tab._tab[(_i : stdgo.GoInt)]._pop = _n;
                 });
             };
+            var __tmp__0 = _internal.math.bits_dot_test.Bits_dot_test__tests._tests, __tmp__1 = _internal.math.bits_dot_test.Bits_dot_test__benchmarks._benchmarks, __tmp__2 = _internal.math.bits_dot_test.Bits_dot_test__fuzzTargets._fuzzTargets, __tmp__3 = _internal.math.bits_dot_test.Bits_dot_test__examples._examples;
             stdgo._internal.testing.internal.testdeps.Testdeps_importPath.importPath = ("math/bits" : stdgo.GoString);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;

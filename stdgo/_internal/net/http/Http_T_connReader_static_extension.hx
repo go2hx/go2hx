@@ -55,7 +55,7 @@ package stdgo._internal.net.http;
         };
     }
     @:keep
-    static public function _handleReadError( _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader>, __34303:stdgo.Error):Void {
+    static public function _handleReadError( _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader>, __34292:stdgo.Error):Void {
         @:recv var _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader> = _cr;
         _cr._conn._cancelCtx();
         _cr._closeNotify();

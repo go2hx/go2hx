@@ -8,7 +8,7 @@ package stdgo._internal.database.sql;
             _s._mu.lock();
             __deferstack__.unshift(() -> _s._mu.unlock());
             if (_s._css != null) {
-                for (__70 => _v in _s._css) {
+                for (__67 => _v in _s._css) {
                     _s._db._noteUnusedDriverStatement(_v._dc, _v._ds);
                     _v._dc._removeOpenStmt(_v._ds);
                 };
@@ -332,7 +332,7 @@ package stdgo._internal.database.sql;
             return { _0 : null, _1 : null, _2 : null, _3 : _err };
         };
         _s._mu.lock();
-        for (__138 => _v in _s._css) {
+        for (__135 => _v in _s._css) {
             if (_v._dc == (_dc)) {
                 _s._mu.unlock();
                 return { _0 : _dc, _1 : _dc._releaseConn, _2 : _v._ds, _3 : (null : stdgo.Error) };

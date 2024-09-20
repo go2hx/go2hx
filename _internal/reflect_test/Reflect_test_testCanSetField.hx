@@ -63,11 +63,11 @@ function testCanSetField(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
 (new _internal.reflect_test.Reflect_test_T_testCanSetField___localname___testCase_10676.T_testCanSetField___localname___testCase_10676((new stdgo.Slice<stdgo.GoInt>(4, 4, ...[(0 : stdgo.GoInt), (-1 : stdgo.GoInt), (1 : stdgo.GoInt), (-1 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), true) : _internal.reflect_test.Reflect_test_T_testCanSetField___localname___testCase_10676.T_testCanSetField___localname___testCase_10676),
 (new _internal.reflect_test.Reflect_test_T_testCanSetField___localname___testCase_10676.T_testCanSetField___localname___testCase_10676((new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(1 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), false) : _internal.reflect_test.Reflect_test_T_testCanSetField___localname___testCase_10676.T_testCanSetField___localname___testCase_10676),
 (new _internal.reflect_test.Reflect_test_T_testCanSetField___localname___testCase_10676.T_testCanSetField___localname___testCase_10676((new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(2 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), true) : _internal.reflect_test.Reflect_test_T_testCanSetField___localname___testCase_10676.T_testCanSetField___localname___testCase_10676)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({} : _internal.reflect_test.Reflect_test_T_testCanSetField___localname___testCase_10676.T_testCanSetField___localname___testCase_10676)])) : stdgo.Slice<_internal.reflect_test.Reflect_test_T_testCanSetField___localname___testCase_10676.T_testCanSetField___localname___testCase_10676>) } : _internal.reflect_test.Reflect_test_T__struct_41.T__struct_41)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) ({ _val : ({} : stdgo._internal.reflect.Reflect_Value.Value), _cases : (null : stdgo.Slice<_internal.reflect_test.Reflect_test_T_testCanSetField___localname___testCase_10676.T_testCanSetField___localname___testCase_10676>) } : _internal.reflect_test.Reflect_test_T__struct_41.T__struct_41)])) : stdgo.Slice<_internal.reflect_test.Reflect_test_T__struct_41.T__struct_41>);
-        for (__7 => _tt in _tests) {
+        for (__6 => _tt in _tests) {
             _t.run(_tt._val.type().name()?.__copy__(), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-                for (__16 => _tc in _tt._cases) {
+                for (__15 => _tc in _tt._cases) {
                     var _f = (_tt._val?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                    for (__17 => _i in _tc._index) {
+                    for (__16 => _i in _tc._index) {
                         if (_f.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                             _f = _f.elem()?.__copy__();
                         };

@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function testFields(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__7 => _test in _internal.reflect_test.Reflect_test__fieldsTests._fieldsTests) {
+        for (__6 => _test in _internal.reflect_test.Reflect_test__fieldsTests._fieldsTests) {
             var _test = ({
                 final x = _test;
                 ({ _testName : x._testName?.__copy__(), _val : x._val, _expect : x._expect } : _internal.reflect_test.Reflect_test_T__struct_106.T__struct_106);

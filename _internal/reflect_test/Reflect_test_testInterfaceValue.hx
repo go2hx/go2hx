@@ -18,7 +18,7 @@ function testInterfaceValue(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                 { _0 : (stdgo.Go.typeAssert((_i3 : stdgo.GoFloat64)) : stdgo.GoFloat64), _1 : true };
             } catch(_) {
                 { _0 : (0 : stdgo.GoFloat64), _1 : false };
-            }, __7 = __tmp__._0, _ok = __tmp__._1;
+            }, __6 = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 _t.error(stdgo.Go.toInterface(("v2.Interface() did not return float64, got " : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.reflect.Reflect_typeOf.typeOf(_i3)));
             };

@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatSetMantExp(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_15.T__struct_15>(16, 16, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_15.T__struct_15>(16, 16, ...[
 ({ _frac : ("0" : stdgo.GoString), _exp : (0 : stdgo.GoInt), _z : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_15.T__struct_15),
 ({ _frac : ("+0" : stdgo.GoString), _exp : (0 : stdgo.GoInt), _z : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_15.T__struct_15),
 ({ _frac : ("-0" : stdgo.GoString), _exp : (0 : stdgo.GoInt), _z : ("-0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_15.T__struct_15),

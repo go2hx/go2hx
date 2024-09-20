@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.json;
 function testCompactSeparators(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _tests = (new stdgo.Slice<stdgo._internal.encoding.json.Json_T__struct_37.T__struct_37>(2, 2, ...[({ _in : ("{\"\u2028\": 1}" : stdgo.GoString), _compact : ("{\"\u2028\":1}" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_37.T__struct_37), ({ _in : ("{\"\u2029\" :2}" : stdgo.GoString), _compact : ("{\"\u2029\":2}" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_37.T__struct_37)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({ _in : ("" : stdgo.GoString), _compact : ("" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_37.T__struct_37)])) : stdgo.Slice<stdgo._internal.encoding.json.Json_T__struct_37.T__struct_37>);
-        for (__8 => _tt in _tests) {
+        for (__4 => _tt in _tests) {
             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
             {
                 var _err = (stdgo._internal.encoding.json.Json_compact.compact((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), (_tt._in : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);

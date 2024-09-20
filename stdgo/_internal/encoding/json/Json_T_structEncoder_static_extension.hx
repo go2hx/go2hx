@@ -8,7 +8,7 @@ package stdgo._internal.encoding.json;
             @:label("FieldLoop") for (_i => _ in _se._fields._list) {
                 var _f = (stdgo.Go.setRef(_se._fields._list[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_field.T_field>);
                 var _fv = (_v?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                for (__8 => _i in _f._index) {
+                for (__4 => _i in _f._index) {
                     if (_fv.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                         if (_fv.isNil()) {
                             @:jump("FieldLoop") continue;

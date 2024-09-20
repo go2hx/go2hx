@@ -30,7 +30,7 @@ function testMarshalFloat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             if (_bits == ((64 : stdgo.GoInt))) {
                 _bad = (_bad.__slice__(0, ((_bad.length) - (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>>);
             };
-            for (__8 => _re in _bad) {
+            for (__4 => _re in _bad) {
                 if (_re.matchString(_out?.__copy__())) {
                     _t.errorf(("Marshal(%T(%g)) = %q, must not match /%s/" : stdgo.GoString), _vf, _vf, stdgo.Go.toInterface(_out), stdgo.Go.toInterface(stdgo.Go.asInterface(_re)));
                     _nfail++;
@@ -50,7 +50,7 @@ var _smaller = __1, _bigger = __0;
                 {
                     var _exp = (-30 : stdgo.GoInt);
                     stdgo.Go.cfor((_exp <= (30 : stdgo.GoInt) : Bool), _exp++, {
-                        for (__8 => _sign in ("+-" : stdgo.GoString)) {
+                        for (__4 => _sign in ("+-" : stdgo.GoString)) {
                             {
                                 var _bits = (32 : stdgo.GoInt);
                                 stdgo.Go.cfor((_bits <= (64 : stdgo.GoInt) : Bool), _bits = (_bits + ((32 : stdgo.GoInt)) : stdgo.GoInt), {

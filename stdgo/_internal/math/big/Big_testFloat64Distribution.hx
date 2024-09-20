@@ -11,8 +11,8 @@ var _einc = __1, _winc = __0;
                 _einc = __tmp__1;
             };
         };
-        for (__14 => _sign in ("+-" : stdgo.GoString)) {
-            for (__15 => _a in _add) {
+        for (__8 => _sign in ("+-" : stdgo.GoString)) {
+            for (__9 => _a in _add) {
                 {
                     var _wid = ((0i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
                     stdgo.Go.cfor((_wid < (60i64 : stdgo.GoUInt64) : Bool), _wid = (_wid + (_winc) : stdgo.GoUInt64), {
@@ -31,7 +31,7 @@ var _den = __1, _num = __0;
                                     _den.lsh(_den, (-_exp : stdgo.GoUInt));
                                 };
                                 var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>).setFrac(_num, _den);
-                                var __tmp__ = _r.float64(), _f:stdgo.GoFloat64 = __tmp__._0, __16:Bool = __tmp__._1;
+                                var __tmp__ = _r.float64(), _f:stdgo.GoFloat64 = __tmp__._0, __10:Bool = __tmp__._1;
                                 if (!stdgo._internal.math.big.Big__checkIsBestApprox64._checkIsBestApprox64(_t, _f, _r)) {
                                     _t.errorf(("(input was mantissa %#x, exp %d; f = %g (%b); f ~ %g; r = %v)" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_exp), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(stdgo._internal.math.Math_ldexp.ldexp((_b : stdgo.GoFloat64), _exp)), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)));
                                 };

@@ -35,12 +35,12 @@ package stdgo._internal.database.sql;
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_dc._ci) : stdgo._internal.database.sql.driver.Driver_SessionResetter.SessionResetter)) : stdgo._internal.database.sql.driver.Driver_SessionResetter.SessionResetter), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo._internal.database.sql.driver.Driver_SessionResetter.SessionResetter), _1 : false };
-            }, __30 = __tmp__._0, _hasSessionResetter = __tmp__._1;
+            }, __27 = __tmp__._0, _hasSessionResetter = __tmp__._1;
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_dc._ci) : stdgo._internal.database.sql.driver.Driver_Validator.Validator)) : stdgo._internal.database.sql.driver.Driver_Validator.Validator), _1 : true };
             } catch(_) {
                 { _0 : (null : stdgo._internal.database.sql.driver.Driver_Validator.Validator), _1 : false };
-            }, __39 = __tmp__._0, _hasConnectionValidator = __tmp__._1;
+            }, __36 = __tmp__._0, _hasConnectionValidator = __tmp__._1;
             _keepConnOnRollback = (_hasSessionResetter && _hasConnectionValidator : Bool);
             {
                 var __tmp__ = stdgo._internal.database.sql.Sql__ctxDriverBegin._ctxDriverBegin(_ctx, _opts, _dc._ci);
@@ -641,7 +641,7 @@ package stdgo._internal.database.sql;
         };
         _dc._inUse = false;
         _dc._returnedAt = stdgo._internal.database.sql.Sql__nowFunc._nowFunc()?.__copy__();
-        for (__78 => _fn in _dc._onPut) {
+        for (__75 => _fn in _dc._onPut) {
             _fn();
         };
         _dc._onPut = (null : stdgo.Slice<() -> Void>);
@@ -1084,7 +1084,7 @@ package stdgo._internal.database.sql;
             };
             var __tmp__ = _db._connectionCleanerRunLocked(_d), _d:stdgo._internal.time.Time_Duration.Duration = __tmp__._0, _closing:stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>> = __tmp__._1;
             _db._mu.unlock();
-            for (__78 => _c in _closing) {
+            for (__75 => _c in _closing) {
                 _c.close();
             };
             if ((_d < (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
@@ -1238,7 +1238,7 @@ package stdgo._internal.database.sql;
         };
         _db._maxIdleClosed = (_db._maxIdleClosed + ((_closing.length : stdgo.GoInt64)) : stdgo.GoInt64);
         _db._mu.unlock();
-        for (__94 => _c in _closing) {
+        for (__91 => _c in _closing) {
             _c.close();
         };
     }
@@ -1282,16 +1282,16 @@ package stdgo._internal.database.sql;
         };
         var _err:stdgo.Error = (null : stdgo.Error);
         var _fns = (new stdgo.Slice<() -> stdgo.Error>((0 : stdgo.GoInt).toBasic(), (_db._freeConn.length)) : stdgo.Slice<() -> stdgo.Error>);
-        for (__62 => _dc in _db._freeConn) {
+        for (__59 => _dc in _db._freeConn) {
             _fns = (_fns.__append__(_dc._closeDBLocked()));
         };
         _db._freeConn = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>);
         _db._closed = true;
-        for (__87 => _req in _db._connRequests) {
+        for (__84 => _req in _db._connRequests) {
             if (_req != null) _req.__close__();
         };
         _db._mu.unlock();
-        for (__96 => _fn in _fns) {
+        for (__93 => _fn in _fns) {
             var _err1 = (_fn() : stdgo.Error);
             if (_err1 != null) {
                 _err = _err1;

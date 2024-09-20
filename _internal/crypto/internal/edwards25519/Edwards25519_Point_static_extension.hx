@@ -219,7 +219,7 @@ var _y = __2, _x = __1, _zInv = __0;
         @:recv var _v:stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Point.Point> = _v;
         {
             var __tmp__ = (_u : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)?.__copy__();
-            (_v : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point).__294 = __tmp__.__294;
+            (_v : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point).__291 = __tmp__.__291;
             (_v : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)._x = __tmp__._x;
             (_v : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)._y = __tmp__._y;
             (_v : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)._z = __tmp__._z;

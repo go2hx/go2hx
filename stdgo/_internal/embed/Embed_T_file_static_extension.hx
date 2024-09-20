@@ -31,7 +31,7 @@ package stdgo._internal.embed;
     @:keep
     static public function isDir( _f:stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>):Bool {
         @:recv var _f:stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file> = _f;
-        var __tmp__ = stdgo._internal.embed.Embed__split._split(_f._name?.__copy__()), __12:stdgo.GoString = __tmp__._0, __13:stdgo.GoString = __tmp__._1, _isDir:Bool = __tmp__._2;
+        var __tmp__ = stdgo._internal.embed.Embed__split._split(_f._name?.__copy__()), __6:stdgo.GoString = __tmp__._0, __7:stdgo.GoString = __tmp__._1, _isDir:Bool = __tmp__._2;
         return _isDir;
     }
     @:keep
@@ -47,7 +47,7 @@ package stdgo._internal.embed;
     @:keep
     static public function name( _f:stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file>):stdgo.GoString {
         @:recv var _f:stdgo.Ref<stdgo._internal.embed.Embed_T_file.T_file> = _f;
-        var __tmp__ = stdgo._internal.embed.Embed__split._split(_f._name?.__copy__()), __12:stdgo.GoString = __tmp__._0, _elem:stdgo.GoString = __tmp__._1, __13:Bool = __tmp__._2;
+        var __tmp__ = stdgo._internal.embed.Embed__split._split(_f._name?.__copy__()), __6:stdgo.GoString = __tmp__._0, _elem:stdgo.GoString = __tmp__._1, __7:Bool = __tmp__._2;
         return _elem?.__copy__();
     }
 }

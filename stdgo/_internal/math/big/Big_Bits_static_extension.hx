@@ -13,7 +13,7 @@ package stdgo._internal.math.big;
             };
         };
         var _x = stdgo._internal.math.big.Big_newInt.newInt((0i64 : stdgo.GoInt64));
-        for (__14 => _b in _bits) {
+        for (__8 => _b in _bits) {
             var _badj = (_b - _min : stdgo.GoInt);
             while (_x.bit(_badj) != ((0u32 : stdgo.GoUInt))) {
                 _x.setBit(_x, _badj, (0u32 : stdgo.GoUInt));
@@ -54,7 +54,7 @@ var _max = __1, _min = __0;
 var _sbit = __2, _rbit = __1, _bit0 = __0;
         var _z:stdgo._internal.math.big.Big_Bits.Bits = new stdgo._internal.math.big.Big_Bits.Bits(0, 0);
         var _r = (_max - (_prec : stdgo.GoInt) : stdgo.GoInt);
-        for (__14 => _b in _x) {
+        for (__8 => _b in _x) {
             if (_b == (_r)) {
                 _rbit = (1u32 : stdgo.GoUInt);
             } else if ((_b < _r : Bool)) {
@@ -85,7 +85,7 @@ var _sbit = __2, _rbit = __1, _bit0 = __0;
             {};
             x;
         } : stdgo.GoMap<stdgo.GoInt, Bool>);
-        for (__14 => _b in _x) {
+        for (__8 => _b in _x) {
             while ((_m[_b] ?? false)) {
                 _m[_b] = false;
                 _b++;
@@ -105,8 +105,8 @@ var _sbit = __2, _rbit = __1, _bit0 = __0;
     static public function _mul( _x:stdgo._internal.math.big.Big_Bits.Bits, _y:stdgo._internal.math.big.Big_Bits.Bits):stdgo._internal.math.big.Big_Bits.Bits {
         @:recv var _x:stdgo._internal.math.big.Big_Bits.Bits = _x;
         var _p:stdgo._internal.math.big.Big_Bits.Bits = new stdgo._internal.math.big.Big_Bits.Bits(0, 0);
-        for (__14 => _x in _x) {
-            for (__15 => _y in _y) {
+        for (__8 => _x in _x) {
+            for (__9 => _y in _y) {
                 _p = (_p.__append__((_x + _y : stdgo.GoInt)));
             };
         };

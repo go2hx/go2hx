@@ -485,7 +485,7 @@ package stdgo._internal.net.http;
             _srv._inShutdown.store(true);
             _srv._mu.lock();
             var _lnerr = (_srv._closeListenersLocked() : stdgo.Error);
-            for (__34666 => _f in _srv._onShutdown) {
+            for (__34655 => _f in _srv._onShutdown) {
                 stdgo.Go.routine(() -> _f());
             };
             _srv._mu.unlock();
@@ -615,7 +615,7 @@ package stdgo._internal.net.http;
     static public function _tlsHandshakeTimeout( _srv:stdgo.Ref<stdgo._internal.net.http.Http_Server.Server>):stdgo._internal.time.Time_Duration.Duration {
         @:recv var _srv:stdgo.Ref<stdgo._internal.net.http.Http_Server.Server> = _srv;
         var _ret:stdgo._internal.time.Time_Duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);
-        for (__34643 => _v in (new stdgo.GoArray<stdgo._internal.time.Time_Duration.Duration>(3, 3, ...[_srv.readHeaderTimeout, _srv.readTimeout, _srv.writeTimeout]).__setNumber64__() : stdgo.GoArray<stdgo._internal.time.Time_Duration.Duration>)) {
+        for (__34632 => _v in (new stdgo.GoArray<stdgo._internal.time.Time_Duration.Duration>(3, 3, ...[_srv.readHeaderTimeout, _srv.readTimeout, _srv.writeTimeout]).__setNumber64__() : stdgo.GoArray<stdgo._internal.time.Time_Duration.Duration>)) {
             if ((_v <= (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
                 continue;
             };

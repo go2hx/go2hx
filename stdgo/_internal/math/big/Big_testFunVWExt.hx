@@ -17,7 +17,7 @@ function testFunVWExt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
 (36 : stdgo.GoInt),
 (50 : stdgo.GoInt),
 (120 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-        for (__14 => _n in _vwSizes) {
+        for (__8 => _n in _vwSizes) {
             var _x = stdgo._internal.math.big.Big__rndV._rndV(_n);
             var _y = (stdgo._internal.math.big.Big__rndW._rndW() : stdgo._internal.math.big.Big_Word.Word);
             var _z = (new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big_T_nat.T_nat);

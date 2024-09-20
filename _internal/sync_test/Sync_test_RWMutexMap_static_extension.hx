@@ -16,7 +16,7 @@ import stdgo._internal.sync.Sync;
             _keys = (_keys.__append__(_k));
         };
         _m._mu.runlock();
-        for (__28 => _k in _keys) {
+        for (__26 => _k in _keys) {
             var __tmp__ = _m.load(_k), _v:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 continue;

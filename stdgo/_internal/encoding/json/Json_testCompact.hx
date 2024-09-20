@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.json;
 function testCompact(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        for (__8 => _tt in stdgo._internal.encoding.json.Json__examples._examples) {
+        for (__4 => _tt in stdgo._internal.encoding.json.Json__examples._examples) {
             _buf.reset();
             {
                 var _err = (stdgo._internal.encoding.json.Json_compact.compact((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>), (_tt._compact : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);

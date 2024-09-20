@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatArithmeticRounding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_27.T__struct_27>(12, 12, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_27.T__struct_27>(12, 12, ...[
 ({ _mode : (2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-8i64 : stdgo.GoInt64), _y : (-1i64 : stdgo.GoInt64), _want : (-8i64 : stdgo.GoInt64), _op : (43 : stdgo.GoUInt8) } : stdgo._internal.math.big.Big_T__struct_27.T__struct_27),
 ({ _mode : (3 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-8i64 : stdgo.GoInt64), _y : (-1i64 : stdgo.GoInt64), _want : (-10i64 : stdgo.GoInt64), _op : (43 : stdgo.GoUInt8) } : stdgo._internal.math.big.Big_T__struct_27.T__struct_27),
 ({ _mode : (4 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-8i64 : stdgo.GoInt64), _y : (-1i64 : stdgo.GoInt64), _want : (-10i64 : stdgo.GoInt64), _op : (43 : stdgo.GoUInt8) } : stdgo._internal.math.big.Big_T__struct_27.T__struct_27),

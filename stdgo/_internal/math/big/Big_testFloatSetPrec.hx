@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatSetPrec(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_11.T__struct_11>(14, 14, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_11.T__struct_11>(14, 14, ...[
 ({ _x : ("0" : stdgo.GoString), _prec : (0u32 : stdgo.GoUInt), _want : ("0" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_11.T__struct_11),
 ({ _x : ("-0" : stdgo.GoString), _prec : (0u32 : stdgo.GoUInt), _want : ("-0" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_11.T__struct_11),
 ({ _x : ("-Inf" : stdgo.GoString), _prec : (0u32 : stdgo.GoUInt), _want : ("-Inf" : stdgo.GoString), _acc : (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy) } : stdgo._internal.math.big.Big_T__struct_11.T__struct_11),

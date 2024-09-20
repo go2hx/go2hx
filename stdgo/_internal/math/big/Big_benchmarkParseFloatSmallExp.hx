@@ -3,7 +3,7 @@ function benchmarkParseFloatSmallExp(_b:stdgo.Ref<stdgo._internal.testing.Testin
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                for (__22 => _s in (new stdgo.Slice<stdgo.GoString>(17, 17, ...[
+                for (__16 => _s in (new stdgo.Slice<stdgo.GoString>(17, 17, ...[
 ("1e0" : stdgo.GoString),
 ("1e-1" : stdgo.GoString),
 ("1e-2" : stdgo.GoString),
@@ -22,7 +22,7 @@ function benchmarkParseFloatSmallExp(_b:stdgo.Ref<stdgo._internal.testing.Testin
 ("1e20" : stdgo.GoString),
 ("1e50" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
                     var _x:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
-                    var __tmp__ = _x.parse(_s?.__copy__(), (0 : stdgo.GoInt)), __23:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __24:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                    var __tmp__ = _x.parse(_s?.__copy__(), (0 : stdgo.GoInt)), __17:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __18:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                     if (_err != null) {
                         _b.fatalf(("%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_err));
                     };

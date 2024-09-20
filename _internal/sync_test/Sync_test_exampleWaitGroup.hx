@@ -11,7 +11,7 @@ function exampleWaitGroup():Void {
         try {
             var _wg:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
             var _urls:stdgo.Slice<stdgo.GoString> = (new stdgo.Slice<stdgo.GoString>(3, 3, ...[("http://www.golang.org/" : stdgo.GoString), ("http://www.google.com/" : stdgo.GoString), ("http://www.example.com/" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>);
-            for (__4 => _url in _urls) {
+            for (__2 => _url in _urls) {
                 _wg.add((1 : stdgo.GoInt));
                 stdgo.Go.routine(() -> {
                     var a = function(_url:stdgo.GoString):Void {

@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testIssue34919(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _acc in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_63.T__struct_63>(6, 6, ...[({ _name : ("Float32" : stdgo.GoString), _f : function(_x:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>):Void {
+        for (__8 => _acc in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_63.T__struct_63>(6, 6, ...[({ _name : ("Float32" : stdgo.GoString), _f : function(_x:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>):Void {
             _x.float32();
         } } : stdgo._internal.math.big.Big_T__struct_63.T__struct_63), ({ _name : ("Float64" : stdgo.GoString), _f : function(_x:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>):Void {
             _x.float64();

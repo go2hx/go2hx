@@ -27,7 +27,7 @@ var _h2 = __1, _h1 = __0;
             _s.tlsconfig = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
         } else if (((_s.tlsconfig.cipherSuites != null) && (_s.tlsconfig.minVersion < (772 : stdgo.GoUInt16) : Bool) : Bool)) {
             var _haveRequired = (false : Bool);
-            for (__275 => _cs in _s.tlsconfig.cipherSuites) {
+            for (__264 => _cs in _s.tlsconfig.cipherSuites) {
                 {
                     final __value__ = _cs;
                     if (__value__ == ((49199 : stdgo.GoUInt16)) || __value__ == ((49195 : stdgo.GoUInt16))) {

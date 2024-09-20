@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function testNumberAccessors(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__8 => _tt in stdgo._internal.encoding.json.Json__numberTests._numberTests) {
+        for (__4 => _tt in stdgo._internal.encoding.json.Json__numberTests._numberTests) {
             var _n = (_tt._in : stdgo._internal.encoding.json.Json_Number.Number);
             {
                 var _s = ((_n.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);

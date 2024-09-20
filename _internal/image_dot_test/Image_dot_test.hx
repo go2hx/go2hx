@@ -5,6 +5,8 @@ function main():Void {
     }
 @:keep var __init_go2hx__ = {
         try {
+            var __tmp__0 = _internal.image_test.Image_test__imageTests._imageTests;
+            var __tmp__0 = _internal.image_dot_test.Image_dot_test__tests._tests, __tmp__1 = _internal.image_dot_test.Image_dot_test__benchmarks._benchmarks, __tmp__2 = _internal.image_dot_test.Image_dot_test__fuzzTargets._fuzzTargets, __tmp__3 = _internal.image_dot_test.Image_dot_test__examples._examples;
             stdgo._internal.testing.internal.testdeps.Testdeps_importPath.importPath = ("image" : stdgo.GoString);
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;

@@ -12,7 +12,7 @@ function _scanInts(_r:stdgo.Ref<_internal.fmt_test.Fmt_test_RecursiveInt.Recursi
         if (_err != null) {
             return _err;
         };
-        var __tmp__ = _b.readRune(), _c:stdgo.GoInt32 = __tmp__._0, __3:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _b.readRune(), _c:stdgo.GoInt32 = __tmp__._0, __2:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                 _err = (null : stdgo.Error);

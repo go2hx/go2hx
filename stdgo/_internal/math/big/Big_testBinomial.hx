@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testBinomial(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _z:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_35.T__struct_35>(19, 19, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_35.T__struct_35>(19, 19, ...[
 ({ _n : (0i64 : stdgo.GoInt64), _k : (0i64 : stdgo.GoInt64), _want : ("1" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_35.T__struct_35),
 ({ _n : (0i64 : stdgo.GoInt64), _k : (1i64 : stdgo.GoInt64), _want : ("0" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_35.T__struct_35),
 ({ _n : (1i64 : stdgo.GoInt64), _k : (0i64 : stdgo.GoInt64), _want : ("1" : stdgo.GoString) } : stdgo._internal.math.big.Big_T__struct_35.T__struct_35),

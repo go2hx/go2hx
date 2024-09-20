@@ -54,7 +54,7 @@ package stdgo._internal.net.http;
             while (true) {
                 var _frag = _hc.headerBlockFragment();
                 {
-                    var __tmp__ = _hdec.write(_frag), __30583:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = _hdec.write(_frag), __30572:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         {
                             final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface(((9u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)) };
@@ -319,7 +319,7 @@ package stdgo._internal.net.http;
         var _settings = new stdgo.Slice<stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting>(_settings.length, 0, ..._settings);
         @:recv var _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Framer.T_http2Framer> = _f;
         _f._startWrite((4 : stdgo._internal.net.http.Http_T_http2FrameType.T_http2FrameType), (0 : stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags), (0u32 : stdgo.GoUInt32));
-        for (__30583 => _s in _settings) {
+        for (__30572 => _s in _settings) {
             _f._writeUint16((_s.id : stdgo.GoUInt16));
             _f._writeUint32(_s.val);
         };
@@ -336,7 +336,7 @@ package stdgo._internal.net.http;
                 return stdgo._internal.net.http.Http__http2errPadLength._http2errPadLength;
             };
             if (!_f.allowIllegalWrites) {
-                for (__30583 => _b in _pad) {
+                for (__30572 => _b in _pad) {
                     if (_b != ((0 : stdgo.GoUInt8))) {
                         return stdgo._internal.net.http.Http__http2errPadBytes._http2errPadBytes;
                     };
@@ -427,7 +427,7 @@ package stdgo._internal.net.http;
         };
         var _payload = _fr._getReadBuf(_fh.length_);
         {
-            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_fr._r, _payload), __30583:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_fr._r, _payload), __30572:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : (null : stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame), _1 : _err };
             };

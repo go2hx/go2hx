@@ -5,7 +5,7 @@ function _readSetCookies(_h:stdgo._internal.net.http.Http_Header.Header):stdgo.S
             return (new stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>(0, 0, ...[]) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>);
         };
         var _cookies = (new stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>((0 : stdgo.GoInt).toBasic(), _cookieCount) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>);
-        for (__143 => _line in (_h[("Set-Cookie" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>))) {
+        for (__132 => _line in (_h[("Set-Cookie" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>))) {
             var _parts = stdgo._internal.strings.Strings_split.split(stdgo._internal.net.textproto.Textproto_trimString.trimString(_line?.__copy__())?.__copy__(), (";" : stdgo.GoString));
             if (((_parts.length == (1 : stdgo.GoInt)) && (_parts[(0 : stdgo.GoInt)] == stdgo.Go.str()) : Bool)) {
                 continue;
@@ -35,7 +35,7 @@ function _readSetCookies(_h:stdgo._internal.net.http.Http_Header.Header):stdgo.S
                     if ((_parts[(_i : stdgo.GoInt)].length) == ((0 : stdgo.GoInt))) {
                         continue;
                     };
-                    var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_parts[(_i : stdgo.GoInt)]?.__copy__(), ("=" : stdgo.GoString)), _attr:stdgo.GoString = __tmp__._0, _val:stdgo.GoString = __tmp__._1, __144:Bool = __tmp__._2;
+                    var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_parts[(_i : stdgo.GoInt)]?.__copy__(), ("=" : stdgo.GoString)), _attr:stdgo.GoString = __tmp__._0, _val:stdgo.GoString = __tmp__._1, __133:Bool = __tmp__._2;
                     var __tmp__ = stdgo._internal.net.http.internal.ascii.Ascii_toLower.toLower(_attr?.__copy__()), _lowerAttr:stdgo.GoString = __tmp__._0, _isASCII:Bool = __tmp__._1;
                     if (!_isASCII) {
                         continue;

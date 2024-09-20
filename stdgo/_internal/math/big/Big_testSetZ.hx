@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testSetZ(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__14 => _a in stdgo._internal.math.big.Big__sumZZ._sumZZ) {
+        for (__8 => _a in stdgo._internal.math.big.Big__sumZZ._sumZZ) {
             var _z:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
             _z.set(_a._z);
             if (!stdgo._internal.math.big.Big__isNormalized._isNormalized((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>))) {

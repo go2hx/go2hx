@@ -17,13 +17,13 @@ package stdgo._internal.net.http;
                 _b = (_b.__append__((_up.password.length : stdgo.GoUInt8)));
                 _b = (_b.__append__(...(_up.password : Array<stdgo.GoUInt8>)));
                 {
-                    var __tmp__ = _rw.write(_b), __35223:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = _rw.write(_b), __35212:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return _err;
                     };
                 };
                 {
-                    var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rw, (_b.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __35224:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rw, (_b.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __35213:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return _err;
                     };

@@ -10,7 +10,7 @@ function testCountMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
         } else if (false) {
             _t.skip(stdgo.Go.toInterface(("skipping malloc count under race detector" : stdgo.GoString)));
         };
-        for (__3 => _mt in _internal.fmt_test.Fmt_test__mallocTest._mallocTest) {
+        for (__2 => _mt in _internal.fmt_test.Fmt_test__mallocTest._mallocTest) {
             var _mallocs = (stdgo._internal.testing.Testing_allocsPerRun.allocsPerRun((100 : stdgo.GoInt), _mt._fn) : stdgo.GoFloat64);
             {
                 var __0 = (_mallocs : stdgo.GoFloat64), __1 = (_mt._count : stdgo.GoFloat64);

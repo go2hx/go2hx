@@ -13,16 +13,16 @@ package stdgo._internal.net.http;
         };
         var __tmp__ = _h._sortedKeyValues(_exclude), _kvs:stdgo.Slice<stdgo._internal.net.http.Http_T_keyValues.T_keyValues> = __tmp__._0, _sorter:stdgo.Ref<stdgo._internal.net.http.Http_T_headerSorter.T_headerSorter> = __tmp__._1;
         var _formattedVals:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
-        for (__37703 => _kv in _kvs) {
+        for (__37692 => _kv in _kvs) {
             if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldName.validHeaderFieldName(_kv._key?.__copy__())) {
                 continue;
             };
-            for (__37704 => _v in _kv._values) {
+            for (__37693 => _v in _kv._values) {
                 _v = stdgo._internal.net.http.Http__headerNewlineToSpace._headerNewlineToSpace.replace(_v?.__copy__())?.__copy__();
                 _v = stdgo._internal.net.textproto.Textproto_trimString.trimString(_v?.__copy__())?.__copy__();
-                for (__37705 => _s in (new stdgo.Slice<stdgo.GoString>(4, 4, ...[_kv._key?.__copy__(), (": " : stdgo.GoString), _v?.__copy__(), ("\r\n" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
+                for (__37694 => _s in (new stdgo.Slice<stdgo.GoString>(4, 4, ...[_kv._key?.__copy__(), (": " : stdgo.GoString), _v?.__copy__(), ("\r\n" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
                     {
-                        var __tmp__ = _ws.writeString(_s?.__copy__()), __37706:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = _ws.writeString(_s?.__copy__()), __37695:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             stdgo._internal.net.http.Http__headerSorterPool._headerSorterPool.put(stdgo.Go.toInterface(stdgo.Go.asInterface(_sorter)));
                             return _err;
@@ -71,7 +71,7 @@ package stdgo._internal.net.http;
             return null;
         };
         var _nv = (0 : stdgo.GoInt);
-        for (__37703 => _vv in _h) {
+        for (__37692 => _vv in _h) {
             _nv = (_nv + ((_vv.length)) : stdgo.GoInt);
         };
         var _sv = (new stdgo.Slice<stdgo.GoString>((_nv : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
@@ -110,7 +110,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _has( _h:stdgo._internal.net.http.Http_Header.Header, _key:stdgo.GoString):Bool {
         @:recv var _h:stdgo._internal.net.http.Http_Header.Header = _h;
-        var __tmp__ = (_h != null && _h.exists(_key?.__copy__()) ? { _0 : _h[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __37703:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = (_h != null && _h.exists(_key?.__copy__()) ? { _0 : _h[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __37692:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
         return _ok;
     }
     @:keep

@@ -45,7 +45,7 @@ package stdgo._internal.net.http;
         {
             var _err = (_d._validateTarget(_network?.__copy__(), _address?.__copy__()) : stdgo.Error);
             if (_err != null) {
-                var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35183:stdgo.Error = __tmp__._2;
+                var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
                 return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
             };
         };
@@ -65,11 +65,11 @@ package stdgo._internal.net.http;
             };
         };
         if (_err != null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35183:stdgo.Error = __tmp__._2;
+            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
             return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         {
-            var __tmp__ = _d.dialWithConn(stdgo._internal.context.Context_background.background(), _c, _network?.__copy__(), _address?.__copy__()), __35183:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _d.dialWithConn(stdgo._internal.context.Context_background.background(), _c, _network?.__copy__(), _address?.__copy__()), __35172:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _c.close();
                 return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : _err };
@@ -83,17 +83,17 @@ package stdgo._internal.net.http;
         {
             var _err = (_d._validateTarget(_network?.__copy__(), _address?.__copy__()) : stdgo.Error);
             if (_err != null) {
-                var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35183:stdgo.Error = __tmp__._2;
+                var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
                 return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
             };
         };
         if (_ctx == null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35183:stdgo.Error = __tmp__._2;
+            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
             return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : stdgo._internal.errors.Errors_new_.new_(("nil context" : stdgo.GoString)) } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         var __tmp__ = _d._connect(_ctx, _c, _address?.__copy__()), _a:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35183:stdgo.Error = __tmp__._2;
+            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
             return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         return { _0 : _a, _1 : (null : stdgo.Error) };
@@ -104,12 +104,12 @@ package stdgo._internal.net.http;
         {
             var _err = (_d._validateTarget(_network?.__copy__(), _address?.__copy__()) : stdgo.Error);
             if (_err != null) {
-                var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35183:stdgo.Error = __tmp__._2;
+                var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
                 return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
             };
         };
         if (_ctx == null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35183:stdgo.Error = __tmp__._2;
+            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
             return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : stdgo._internal.errors.Errors_new_.new_(("nil context" : stdgo.GoString)) } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         var _err:stdgo.Error = (null : stdgo.Error);
@@ -129,13 +129,13 @@ package stdgo._internal.net.http;
             };
         };
         if (_err != null) {
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35183:stdgo.Error = __tmp__._2;
+            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
             return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         var __tmp__ = _d._connect(_ctx, _c, _address?.__copy__()), _a:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _c.close();
-            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35183:stdgo.Error = __tmp__._2;
+            var __tmp__ = _d._pathAddrs(_address?.__copy__()), _proxy:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _dst:stdgo._internal.net.Net_Addr.Addr = __tmp__._1, __35172:stdgo.Error = __tmp__._2;
             return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : (_d._cmd.string() : stdgo.GoString)?.__copy__(), net : _network?.__copy__(), source : _proxy, addr : _dst, err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)) };
         };
         return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(({ conn : _c, _boundAddr : _a } : stdgo._internal.net.http.Http_T_socksConn.T_socksConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksConn.T_socksConn>)), _1 : (null : stdgo.Error) };
@@ -265,7 +265,7 @@ package stdgo._internal.net.http;
                     };
                 };
                 _b = (_b.__append__((_ams.length : stdgo.GoUInt8)));
-                for (__35183 => _am in _ams) {
+                for (__35172 => _am in _ams) {
                     _b = (_b.__append__((_am : stdgo.GoUInt8)));
                 };
             };
@@ -446,7 +446,7 @@ package stdgo._internal.net.http;
                     _a.ip = (new stdgo.Slice<stdgo.GoUInt8>((16 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.net.Net_IP.IP);
                 } else if (__value__ == ((3 : stdgo.GoUInt8))) {
                     {
-                        var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c, (_b.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __35183:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c, (_b.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __35172:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             {
                                 final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : _err };

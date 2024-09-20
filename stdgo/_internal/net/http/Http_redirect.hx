@@ -9,7 +9,7 @@ function redirect(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter
                         _oldpath = ("/" : stdgo.GoString);
                     };
                     if (((_url == stdgo.Go.str()) || (_url[(0 : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
-                        var __tmp__ = stdgo._internal.path.Path_split.split(_oldpath?.__copy__()), _olddir:stdgo.GoString = __tmp__._0, __143:stdgo.GoString = __tmp__._1;
+                        var __tmp__ = stdgo._internal.path.Path_split.split(_oldpath?.__copy__()), _olddir:stdgo.GoString = __tmp__._0, __132:stdgo.GoString = __tmp__._1;
                         _url = (_olddir + _url?.__copy__() : stdgo.GoString)?.__copy__();
                     };
                     var _query:stdgo.GoString = ("" : stdgo.GoString);
@@ -34,7 +34,7 @@ function redirect(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter
             };
         };
         var _h = (_w.header() : stdgo._internal.net.http.Http_Header.Header);
-        var __tmp__ = (_h != null && _h.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _h[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __143:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hadCT:Bool = __tmp__._1;
+        var __tmp__ = (_h != null && _h.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _h[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __132:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hadCT:Bool = __tmp__._1;
         _h.set(("Location" : stdgo.GoString), stdgo._internal.net.http.Http__hexEscapeNonASCII._hexEscapeNonASCII(_url?.__copy__())?.__copy__());
         if ((!_hadCT && (((_r.method == ("GET" : stdgo.GoString)) || (_r.method == ("HEAD" : stdgo.GoString)) : Bool)) : Bool)) {
             _h.set(("Content-Type" : stdgo.GoString), ("text/html; charset=utf-8" : stdgo.GoString));

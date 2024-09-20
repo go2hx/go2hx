@@ -8,7 +8,7 @@ function _foreachHeaderElement(_v:stdgo.GoString, _fn:stdgo.GoString -> Void):Vo
             _fn(_v?.__copy__());
             return;
         };
-        for (__143 => _f in stdgo._internal.strings.Strings_split.split(_v?.__copy__(), ("," : stdgo.GoString))) {
+        for (__132 => _f in stdgo._internal.strings.Strings_split.split(_v?.__copy__(), ("," : stdgo.GoString))) {
             {
                 _f = stdgo._internal.net.textproto.Textproto_trimString.trimString(_f?.__copy__())?.__copy__();
                 if (_f != (stdgo.Go.str())) {

@@ -12,7 +12,7 @@ package stdgo._internal.database.sql;
             };
             _dc._openStmt = (null : stdgo.GoMap<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>, Bool>);
         });
-        for (__22 => _ds in _openStmt) {
+        for (__19 => _ds in _openStmt) {
             _ds.close();
         };
         stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {

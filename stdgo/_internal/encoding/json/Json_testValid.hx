@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function testValid(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        for (__8 => _tt in stdgo._internal.encoding.json.Json__validTests._validTests) {
+        for (__4 => _tt in stdgo._internal.encoding.json.Json__validTests._validTests) {
             {
                 var _ok = (stdgo._internal.encoding.json.Json_valid.valid((_tt._data : stdgo.Slice<stdgo.GoUInt8>)) : Bool);
                 if (_ok != (_tt._ok)) {

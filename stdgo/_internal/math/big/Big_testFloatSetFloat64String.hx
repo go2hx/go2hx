@@ -2,7 +2,7 @@ package stdgo._internal.math.big;
 function testFloatSetFloat64String(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _inf = (stdgo._internal.math.Math_inf.inf((0 : stdgo.GoInt)) : stdgo.GoFloat64);
         var _nan = (stdgo._internal.math.Math_naN.naN() : stdgo.GoFloat64);
-        for (__14 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_28.T__struct_28>(117, 117, ...[
+        for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_28.T__struct_28>(117, 117, ...[
 ({ _s : ("0" : stdgo.GoString), _x : (0 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
 ({ _s : ("-0" : stdgo.GoString), _x : -stdgo._internal.math.big.Big__zero_._zero_ } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
 ({ _s : ("+0" : stdgo.GoString), _x : (0 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28),
@@ -122,7 +122,7 @@ function testFloatSetFloat64String(_t:stdgo.Ref<stdgo._internal.testing.Testing_
 ({ _s : ("0x_f0_0d_1eP+0_8" : stdgo.GoString), _x : (4.027391488e+09 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28)].concat([for (i in 117 ... (117 > 117 ? 117 : 117 : stdgo.GoInt).toBasic()) ({ _s : ("" : stdgo.GoString), _x : (0 : stdgo.GoFloat64) } : stdgo._internal.math.big.Big_T__struct_28.T__struct_28)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_28.T__struct_28>)) {
             var _x:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
             _x.setPrec((53u32 : stdgo.GoUInt));
-            var __tmp__ = _x.setString(_test._s?.__copy__()), __15:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _x.setString(_test._s?.__copy__()), __9:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (stdgo._internal.math.Math_isNaN.isNaN(_test._x)) {
                 if (_ok) {
                     _t.errorf(("%s: want parse error" : stdgo.GoString), stdgo.Go.toInterface(_test._s));
@@ -133,7 +133,7 @@ function testFloatSetFloat64String(_t:stdgo.Ref<stdgo._internal.testing.Testing_
                 _t.errorf(("%s: got parse error" : stdgo.GoString), stdgo.Go.toInterface(_test._s));
                 continue;
             };
-            var __tmp__ = _x.float64(), _f:stdgo.GoFloat64 = __tmp__._0, __16:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
+            var __tmp__ = _x.float64(), _f:stdgo.GoFloat64 = __tmp__._0, __10:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
             var _want = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setFloat64(_test._x);
             if (((_x.cmp(_want) != (0 : stdgo.GoInt)) || (_x.signbit() != _want.signbit()) : Bool)) {
                 _t.errorf(("%s: got %v (%v); want %v" : stdgo.GoString), stdgo.Go.toInterface(_test._s), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>))), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_test._x));

@@ -7,7 +7,7 @@ function testFloatCmpSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.Testing_
         {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i < (4 : stdgo.GoInt) : Bool), _i++, {
-                for (__14 => _x in _args) {
+                for (__8 => _x in _args) {
                     _xx.setFloat64(_x);
                     {
                         var __tmp__ = _xx.float64(), _got:stdgo.GoFloat64 = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
@@ -15,7 +15,7 @@ function testFloatCmpSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.Testing_
                             _t.errorf(("Float(%g) == %g (%s)" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)));
                         };
                     };
-                    for (__15 => _y in _args) {
+                    for (__9 => _y in _args) {
                         _yy.setFloat64(_y);
                         var _got = (_xx.cmp(_yy) : stdgo.GoInt);
                         var _want = (0 : stdgo.GoInt);

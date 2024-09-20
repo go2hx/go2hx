@@ -1,2 +1,8 @@
 package stdgo._internal.os;
 import stdgo._internal.unsafe.Unsafe;
+@:keep var __init_go2hx__ = {
+        try {
+            var __tmp__0 = stdgo._internal.os.Os__dirBufPool._dirBufPool, __tmp__1 = stdgo._internal.os.Os_errInvalid.errInvalid, __tmp__2 = stdgo._internal.os.Os_errPermission.errPermission, __tmp__3 = stdgo._internal.os.Os_errExist.errExist, __tmp__4 = stdgo._internal.os.Os_errNotExist.errNotExist, __tmp__5 = stdgo._internal.os.Os_errClosed.errClosed, __tmp__6 = stdgo._internal.os.Os_errNoDeadline.errNoDeadline, __tmp__7 = stdgo._internal.os.Os_errDeadlineExceeded.errDeadlineExceeded, __tmp__8 = stdgo._internal.os.Os_errProcessDone.errProcessDone, __tmp__9 = stdgo._internal.os.Os_interrupt.interrupt, __tmp__10 = stdgo._internal.os.Os_kill.kill, __tmp__11 = stdgo._internal.os.Os__errWriteAtInAppendMode._errWriteAtInAppendMode, __tmp__12 = stdgo._internal.os.Os__checkWrapErr._checkWrapErr, __tmp__13 = stdgo._internal.os.Os_stdin.stdin, __tmp__14 = stdgo._internal.os.Os_stdout.stdout, __tmp__15 = stdgo._internal.os.Os_stderr.stderr, __tmp__16 = stdgo._internal.os.Os__errPatternHasSeparator._errPatternHasSeparator, __tmp__17 = stdgo._internal.os.Os__lstat._lstat, __tmp__18 = stdgo._internal.os.Os_atime.atime, __tmp__19 = stdgo._internal.os.Os_lstatP.lstatP, __tmp__20 = stdgo._internal.os.Os_errWriteAtInAppendMode.errWriteAtInAppendMode, __tmp__21 = stdgo._internal.os.Os_testingForceReadDirLstat.testingForceReadDirLstat, __tmp__22 = stdgo._internal.os.Os_errPatternHasSeparator.errPatternHasSeparator, __tmp__23 = stdgo._internal.os.Os_splitPath.splitPath;
+        } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
+        true;
+    };

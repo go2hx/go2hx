@@ -4,7 +4,7 @@ function testDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _i = (0 : stdgo.GoInt);
             stdgo.Go.cfor((_i <= (stdgo._internal.encoding.json.Json__streamTest._streamTest.length) : Bool), _i++, {
                 var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-                for (__8 => _c in stdgo._internal.encoding.json.Json__nlines._nlines(stdgo._internal.encoding.json.Json__streamEncoded._streamEncoded?.__copy__(), _i)) {
+                for (__4 => _c in stdgo._internal.encoding.json.Json__nlines._nlines(stdgo._internal.encoding.json.Json__streamEncoded._streamEncoded?.__copy__(), _i)) {
                     if (_c != ((10 : stdgo.GoInt32))) {
                         _buf.writeRune(_c);
                     };

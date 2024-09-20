@@ -31,7 +31,7 @@ function testMapOfGCKeys(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         for (_i => _xi in _x) {
             var _v = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_xi).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             var _out:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-            for (__7 => _kv in _v.mapKeys()) {
+            for (__6 => _kv in _v.mapKeys()) {
                 _out = (_out.__append__(((stdgo.Go.typeAssert((_kv.elem().interface_() : stdgo.GoUIntptr)) : stdgo.GoUIntptr) : stdgo.GoInt)));
             };
             stdgo._internal.sort.Sort_ints.ints(_out);

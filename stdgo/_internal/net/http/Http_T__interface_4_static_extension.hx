@@ -1,4 +1,4 @@
 package stdgo._internal.net.http;
 @:keep class T__interface_4_static_extension {
-    static public function enableFullDuplex(t:T__interface_4):stdgo.Error return t.enableFullDuplex();
+    static public function enableFullDuplex(t:stdgo._internal.net.http.Http_T__interface_4.T__interface_4):stdgo.Error return t.enableFullDuplex();
 }

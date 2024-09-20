@@ -1,4 +1,4 @@
 package stdgo._internal.net.url;
 @:keep class T__interface_1_static_extension {
-    static public function temporary(t:T__interface_1):Bool return t.temporary();
+    static public function temporary(t:stdgo._internal.net.url.Url_T__interface_1.T__interface_1):Bool return t.temporary();
 }

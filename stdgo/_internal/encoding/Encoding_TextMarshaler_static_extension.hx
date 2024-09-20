@@ -1,4 +1,4 @@
 package stdgo._internal.encoding;
 @:keep class TextMarshaler_static_extension {
-    static public function marshalText(t:TextMarshaler):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return t.marshalText();
+    static public function marshalText(t:stdgo._internal.encoding.Encoding_TextMarshaler.TextMarshaler):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } return t.marshalText();
 }

@@ -1,4 +1,4 @@
 package stdgo._internal.image.jpeg;
 @:keep class T_writer_static_extension {
-    static public function flush(t:T_writer):stdgo.Error return t.flush();
+    static public function flush(t:stdgo._internal.image.jpeg.Jpeg_T_writer.T_writer):stdgo.Error return t.flush();
 }

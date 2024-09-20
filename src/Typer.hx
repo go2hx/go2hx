@@ -131,10 +131,13 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 		info.global.hashMap = hashMap;
 
 		if (pkg.order != null) {
-			pkg.order = pkg.order.map(s -> {
-				final name = formatHaxeFieldName(s,info);
-				name;
-			});
+			final pkgOrder = pkg.order.copy();
+			pkg.order = [];
+			for (s in pkgOrder) {
+				if (s == "_")
+					continue;
+				pkg.order.push(formatHaxeFieldName(s,info));
+			}
 		} else {
 			pkg.order = [];
 		}
@@ -282,6 +285,14 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					}
 				}
 			}
+			if (info.global.order.length > 0) {
+				final vars:Array<Var> = [];
+				for (i in 0...info.global.order.length) {
+					final o = info.global.order[i];
+					vars.push({name: "__tmp__" + i, expr: macro $i{splitDepFullPathName(o, info)}});
+				}
+				info.global.initBlock.push(toExpr(EVars(vars)));
+			}
 			if (values.length > 0) {
 				// trace("unsorted values left: " + values.length);
 				valuesSorted = values.concat(valuesSorted);
@@ -338,7 +349,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					}
 				}
 				block = mapReturnToThrow(block);
-				trace(module.path,module.name);
+				// trace(module.path,module.name);
 				data.defs.push({
 					name: "__init_go2hx__",
 					pos: null,

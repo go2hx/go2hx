@@ -5569,8 +5569,12 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 				final xType = typeExprType(expr.x, info);
 				switch xType {
 					case TPath(p):
-						final name = p.pack.join(".") + "." + splitDepFullPathName(className(expr.x.sel.name, info) + "_static_extension",info);
-						x = macro $i{name};
+						// p = {pack: [stdgo,_internal,time,Time_Time], name: Time, params: []}
+						// expected = time/Time_Time_static_extension/Time_static_extension 
+						final last = p.pack.pop();
+						p.pack.push(last + "_static_extension");
+						p.pack.push(p.name + "_static_extension");
+						x = macro $p{p.pack};
 					default:
 				}
 			default:

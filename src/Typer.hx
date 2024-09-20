@@ -4384,10 +4384,16 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			structType(typeFieldListFieldTypes(e.fields, info));
 		case "FuncType":
 			final e:Ast.FuncType = e;
-			final params = {get: () -> getTuple(hashTypeToExprType(e.params.list, info), info)};
+			final list = hashTypeToExprType(e.params.list, info);
+			final params = {get: () -> getTuple(list, info)};
 			final results = e.results == null ? {get: () -> []} : {get: () -> getTuple(hashTypeToExprType(e.results.list, info), info)};
 			final recv = {get: () -> typeof(e.type.recv, info, false, paths.copy())};
-			signature(e.type.variadic, params, results, recv, params);
+			var variadic = false;
+			if (e.params.list.length > 0) {
+				if (list[(list.length : Int) - 1].type.id == "Ellipsis")
+					variadic = true;
+			}
+			signature(variadic, params, results, recv, params);
 		// typeof(e.type, info, false, paths.copy());
 		case "Ellipsis":
 			typeof(e.type, info, false, paths.copy());
@@ -6280,6 +6286,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 	for (group in fieldList.list) {
 		final ct = typeExprType(group.type, info);
 		var t = typeof(group.type, info, false);
+		//trace(printer.printComplexType(ct), group.type.id);
 		if (group.names.length == 0) {
 			returnTypes.push(t);
 			returnNames.push("_" + returnNames.length);
@@ -6327,6 +6334,15 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 		info.returnComplexTypes = returnComplexTypes;
 	}
 	return type;
+}
+
+function getId(e:Ast.Expr, info:Info):String {
+	final e = hashTypeToExprType(e, info);
+	return switch e.id {
+		default:
+			trace(e.id);
+			e.id;
+	}
 }
 
 function isVoid(ct:ComplexType):Bool {

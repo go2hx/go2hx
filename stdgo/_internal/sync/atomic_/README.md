@@ -77,19 +77,19 @@
 
 - [class Bool\_](<#class-bool_>)
 
-  - [`function new(?__2:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void`](<#bool_-function-new>)
+  - [`function new(?__1:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void`](<#bool_-function-new>)
 
 - [class Int32](<#class-int32>)
 
-  - [`function new(?__8:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoInt32):Void`](<#int32-function-new>)
+  - [`function new(?__7:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoInt32):Void`](<#int32-function-new>)
 
 - [class Int64\_](<#class-int64_>)
 
-  - [`function new(?__11:stdgo._internal.sync.atomic_.T_noCopy, ?__12:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoInt64):Void`](<#int64_-function-new>)
+  - [`function new(?__10:stdgo._internal.sync.atomic_.T_noCopy, ?__11:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoInt64):Void`](<#int64_-function-new>)
 
 - [class Pointer\_](<#class-pointer_>)
 
-  - [`function new(?__5:stdgo.GoArray<stdgo.Ref<Dynamic>>, ?__6:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo._internal.unsafe.UnsafePointer):Void`](<#pointer_-function-new>)
+  - [`function new(?__4:stdgo.GoArray<stdgo.Ref<Dynamic>>, ?__5:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo._internal.unsafe.UnsafePointer):Void`](<#pointer_-function-new>)
 
 - [class T\_align64](<#class-t_align64>)
 
@@ -105,15 +105,15 @@
 
 - [class Uint32](<#class-uint32>)
 
-  - [`function new(?__13:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void`](<#uint32-function-new>)
+  - [`function new(?__12:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void`](<#uint32-function-new>)
 
 - [class Uint64](<#class-uint64>)
 
-  - [`function new(?__16:stdgo._internal.sync.atomic_.T_noCopy, ?__17:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoUInt64):Void`](<#uint64-function-new>)
+  - [`function new(?__15:stdgo._internal.sync.atomic_.T_noCopy, ?__16:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoUInt64):Void`](<#uint64-function-new>)
 
 - [class Uintptr](<#class-uintptr>)
 
-  - [`function new(?__19:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUIntptr):Void`](<#uintptr-function-new>)
+  - [`function new(?__18:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUIntptr):Void`](<#uintptr-function-new>)
 
 - [class Value](<#class-value>)
 
@@ -124,6 +124,11 @@
 
 ```haxe
 import stdgo._internal.sync.atomic_.Atomic__swapUintptr
+```
+
+
+```haxe
+var __23:stdgo.Ref<stdgo._internal.sync.atomic_.Pointer_<stdgo.GoInt>>
 ```
 
 
@@ -509,7 +514,7 @@ import stdgo._internal.sync.atomic_.*
 
 
 ```haxe
-var __2:stdgo._internal.sync.atomic_.T_noCopy
+var __1:stdgo._internal.sync.atomic_.T_noCopy
 ```
 
 
@@ -522,7 +527,7 @@ var _v:stdgo.GoUInt32
 
 
 ```haxe
-function new(?__2:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void
+function new(?__1:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void
 ```
 
 
@@ -533,7 +538,7 @@ function new(?__2:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Voi
 
 
 ```haxe
-var __8:stdgo._internal.sync.atomic_.T_noCopy
+var __7:stdgo._internal.sync.atomic_.T_noCopy
 ```
 
 
@@ -546,7 +551,7 @@ var _v:stdgo.GoInt32
 
 
 ```haxe
-function new(?__8:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoInt32):Void
+function new(?__7:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoInt32):Void
 ```
 
 
@@ -557,12 +562,12 @@ function new(?__8:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoInt32):Void
 
 
 ```haxe
-var __11:stdgo._internal.sync.atomic_.T_noCopy
+var __10:stdgo._internal.sync.atomic_.T_noCopy
 ```
 
 
 ```haxe
-var __12:stdgo._internal.sync.atomic_.T_align64
+var __11:stdgo._internal.sync.atomic_.T_align64
 ```
 
 
@@ -575,7 +580,7 @@ var _v:stdgo.GoInt64
 
 
 ```haxe
-function new(?__11:stdgo._internal.sync.atomic_.T_noCopy, ?__12:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoInt64):Void
+function new(?__10:stdgo._internal.sync.atomic_.T_noCopy, ?__11:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoInt64):Void
 ```
 
 
@@ -586,12 +591,12 @@ function new(?__11:stdgo._internal.sync.atomic_.T_noCopy, ?__12:stdgo._internal.
 
 
 ```haxe
-var __5:stdgo.GoArray<stdgo.Ref<Dynamic>>
+var __4:stdgo.GoArray<stdgo.Ref<Dynamic>>
 ```
 
 
 ```haxe
-var __6:stdgo._internal.sync.atomic_.T_noCopy
+var __5:stdgo._internal.sync.atomic_.T_noCopy
 ```
 
 
@@ -604,7 +609,7 @@ var _v:stdgo._internal.unsafe.UnsafePointer
 
 
 ```haxe
-function new(?__5:stdgo.GoArray<stdgo.Ref<Dynamic>>, ?__6:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo._internal.unsafe.UnsafePointer):Void
+function new(?__4:stdgo.GoArray<stdgo.Ref<Dynamic>>, ?__5:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 
@@ -667,7 +672,7 @@ function new():Void
 
 
 ```haxe
-var __13:stdgo._internal.sync.atomic_.T_noCopy
+var __12:stdgo._internal.sync.atomic_.T_noCopy
 ```
 
 
@@ -680,7 +685,7 @@ var _v:stdgo.GoUInt32
 
 
 ```haxe
-function new(?__13:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void
+function new(?__12:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Void
 ```
 
 
@@ -691,12 +696,12 @@ function new(?__13:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUInt32):Vo
 
 
 ```haxe
-var __16:stdgo._internal.sync.atomic_.T_noCopy
+var __15:stdgo._internal.sync.atomic_.T_noCopy
 ```
 
 
 ```haxe
-var __17:stdgo._internal.sync.atomic_.T_align64
+var __16:stdgo._internal.sync.atomic_.T_align64
 ```
 
 
@@ -709,7 +714,7 @@ var _v:stdgo.GoUInt64
 
 
 ```haxe
-function new(?__16:stdgo._internal.sync.atomic_.T_noCopy, ?__17:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoUInt64):Void
+function new(?__15:stdgo._internal.sync.atomic_.T_noCopy, ?__16:stdgo._internal.sync.atomic_.T_align64, ?_v:stdgo.GoUInt64):Void
 ```
 
 
@@ -720,7 +725,7 @@ function new(?__16:stdgo._internal.sync.atomic_.T_noCopy, ?__17:stdgo._internal.
 
 
 ```haxe
-var __19:stdgo._internal.sync.atomic_.T_noCopy
+var __18:stdgo._internal.sync.atomic_.T_noCopy
 ```
 
 
@@ -733,7 +738,7 @@ var _v:stdgo.GoUIntptr
 
 
 ```haxe
-function new(?__19:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUIntptr):Void
+function new(?__18:stdgo._internal.sync.atomic_.T_noCopy, ?_v:stdgo.GoUIntptr):Void
 ```
 
 

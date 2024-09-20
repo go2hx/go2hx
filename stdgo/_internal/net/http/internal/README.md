@@ -92,12 +92,12 @@ import stdgo._internal.net.http.internal.Internal_newChunkedWriter
 
 
 ```haxe
-var _semi:stdgo.Slice<stdgo.GoUInt8>
+var errLineTooLong:stdgo.Error
 ```
 
 
 ```haxe
-var errLineTooLong:stdgo.Error
+var _semi:stdgo.Slice<stdgo.GoUInt8>
 ```
 
 

@@ -13,14 +13,14 @@
 
 - [Variables](<#variables>)
 
+- [`function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding.base32.Encoding>`](<#function-newencoding>)
+
 - [`function _readEncodedData(_r:stdgo._internal.io.Reader, _buf:stdgo.Slice<stdgo.GoUInt8>, _min:stdgo.GoInt, _expectsPadding:Bool):{
 	_1:stdgo.Error;
 	_0:stdgo.GoInt;
 }`](<#function-_readencodeddata>)
 
 - [`function _stripNewlines(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt`](<#function-_stripnewlines>)
-
-- [`function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding.base32.Encoding>`](<#function-newencoding>)
 
 - [`function newDecoder(_enc:stdgo.Ref<stdgo._internal.encoding.base32.Encoding>, _r:stdgo._internal.io.Reader):stdgo._internal.io.Reader`](<#function-newdecoder>)
 
@@ -86,12 +86,12 @@ import stdgo._internal.encoding.base32.Base32_stdPadding
 
 
 ```haxe
-var hexEncoding:stdgo.Ref<stdgo._internal.encoding.base32.Encoding>
+var stdEncoding:stdgo.Ref<stdgo._internal.encoding.base32.Encoding>
 ```
 
 
 ```haxe
-var stdEncoding:stdgo.Ref<stdgo._internal.encoding.base32.Encoding>
+var hexEncoding:stdgo.Ref<stdgo._internal.encoding.base32.Encoding>
 ```
 
 
@@ -101,6 +101,17 @@ var stdEncoding:stdgo.Ref<stdgo._internal.encoding.base32.Encoding>
 ```haxe
 import stdgo._internal.encoding.base32.Base32_stdPadding
 ```
+
+
+## function newEncoding
+
+
+```haxe
+function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding.base32.Encoding>
+```
+
+
+[\(view code\)](<./Base32_stdPadding.hx#L2>)
 
 
 ## function \_readEncodedData
@@ -122,17 +133,6 @@ function _readEncodedData(_r:stdgo._internal.io.Reader, _buf:stdgo.Slice<stdgo.G
 
 ```haxe
 function _stripNewlines(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt
-```
-
-
-[\(view code\)](<./Base32_stdPadding.hx#L2>)
-
-
-## function newEncoding
-
-
-```haxe
-function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding.base32.Encoding>
 ```
 
 

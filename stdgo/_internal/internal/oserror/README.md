@@ -15,17 +15,7 @@
 
 
 ```haxe
-import stdgo._internal.internal.oserror.Oserror_errPermission
-```
-
-
-```haxe
-var errClosed:stdgo.Error
-```
-
-
-```haxe
-var errExist:stdgo.Error
+import stdgo._internal.internal.oserror.Oserror___go2hxdoc__package
 ```
 
 
@@ -35,12 +25,22 @@ var errInvalid:stdgo.Error
 
 
 ```haxe
+var errPermission:stdgo.Error
+```
+
+
+```haxe
+var errExist:stdgo.Error
+```
+
+
+```haxe
 var errNotExist:stdgo.Error
 ```
 
 
 ```haxe
-var errPermission:stdgo.Error
+var errClosed:stdgo.Error
 ```
 
 

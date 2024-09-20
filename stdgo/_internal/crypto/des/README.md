@@ -78,17 +78,7 @@ import stdgo._internal.crypto.des.Des_newTripleDESCipher
 
 
 ```haxe
-var _expansionFunction:stdgo.GoArray<stdgo.GoUInt8>
-```
-
-
-```haxe
-var _feistelBox:stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt32>>
-```
-
-
-```haxe
-var _feistelBoxOnce:stdgo._internal.sync.Once
+var _initialPermutation:stdgo.GoArray<stdgo.GoUInt8>
 ```
 
 
@@ -98,12 +88,7 @@ var _finalPermutation:stdgo.GoArray<stdgo.GoUInt8>
 
 
 ```haxe
-var _initialPermutation:stdgo.GoArray<stdgo.GoUInt8>
-```
-
-
-```haxe
-var _ksRotations:stdgo.GoArray<stdgo.GoUInt8>
+var _expansionFunction:stdgo.GoArray<stdgo.GoUInt8>
 ```
 
 
@@ -124,6 +109,21 @@ var _permutedChoice2:stdgo.GoArray<stdgo.GoUInt8>
 
 ```haxe
 var _sBoxes:stdgo.GoArray<stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt8>>>
+```
+
+
+```haxe
+var _ksRotations:stdgo.GoArray<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _feistelBox:stdgo.GoArray<stdgo.GoArray<stdgo.GoUInt32>>
+```
+
+
+```haxe
+var _feistelBoxOnce:stdgo._internal.sync.Once
 ```
 
 

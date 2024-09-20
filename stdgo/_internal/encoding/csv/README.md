@@ -46,17 +46,7 @@ import stdgo._internal.encoding.csv.Csv_newWriter
 
 
 ```haxe
-var _errInvalidDelim:stdgo.Error
-```
-
-
-```haxe
 var errBareQuote:stdgo.Error
-```
-
-
-```haxe
-var errFieldCount:stdgo.Error
 ```
 
 
@@ -66,7 +56,17 @@ var errQuote:stdgo.Error
 
 
 ```haxe
+var errFieldCount:stdgo.Error
+```
+
+
+```haxe
 var errTrailingComma:stdgo.Error
+```
+
+
+```haxe
+var _errInvalidDelim:stdgo.Error
 ```
 
 

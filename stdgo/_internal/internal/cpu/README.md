@@ -65,7 +65,17 @@ import stdgo._internal.internal.cpu.Cpu_x86
 
 
 ```haxe
+var cacheLineSize:stdgo.GoUIntptr
+```
+
+
+```haxe
 var _options:stdgo.Slice<stdgo._internal.internal.cpu.T_option>
+```
+
+
+```haxe
+var options:stdgo.Slice<stdgo._internal.internal.cpu.T_option>
 ```
 
 
@@ -80,22 +90,12 @@ var arm64:stdgo._internal.internal.cpu.T__struct_2
 
 
 ```haxe
-var cacheLineSize:stdgo.GoUIntptr
-```
-
-
-```haxe
 var debugOptions:Bool
 ```
 
 
 ```haxe
 var mips64x:stdgo._internal.internal.cpu.T__struct_3
-```
-
-
-```haxe
-var options:stdgo.Slice<stdgo._internal.internal.cpu.T_option>
 ```
 
 

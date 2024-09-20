@@ -158,7 +158,7 @@
 | [stdgo._internal.runtime](./_internal/runtime/README.md) | ❌ | no |
 | [stdgo._internal.runtime.cgo](./_internal/runtime/cgo/README.md) | ✅ | no |
 | [stdgo._internal.runtime.debug](./_internal/runtime/debug/README.md) | ✅ | no |
-| [stdgo._internal.runtime.metrics](./_internal/runtime/metrics/README.md) | ✅ | no |
+| [stdgo._internal.runtime.metrics](./_internal/runtime/metrics/README.md) | ❌ | no |
 | [stdgo._internal.runtime.pprof](./_internal/runtime/pprof/README.md) | ❌ | no |
 | [stdgo._internal.slices](./_internal/slices/README.md) | ❌ | yes |
 | [stdgo._internal.sort](./_internal/sort/README.md) | ❌ | yes |

@@ -11,13 +11,13 @@
 
 - [Variables](<#variables>)
 
+- [`function _safeMap():stdgo.GoMap<stdgo._internal.internal.intern.T_key, stdgo.Ref<stdgo._internal.internal.intern.Value>>`](<#function-_safemap>)
+
 - [`function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Value>):Void`](<#function-_finalize>)
 
 - [`function _get(_k:stdgo._internal.internal.intern.T_key):stdgo.Ref<stdgo._internal.internal.intern.Value>`](<#function-_get>)
 
 - [`function _keyFor(_cmpVal:stdgo.AnyInterface):stdgo._internal.internal.intern.T_key`](<#function-_keyfor>)
-
-- [`function _safeMap():stdgo.GoMap<stdgo._internal.internal.intern.T_key, stdgo.Ref<stdgo._internal.internal.intern.Value>>`](<#function-_safemap>)
 
 - [`function get(_cmpVal:stdgo.AnyInterface):stdgo.Ref<stdgo._internal.internal.intern.Value>`](<#function-get>)
 
@@ -40,22 +40,22 @@ import stdgo._internal.internal.intern.Intern_getByString
 
 
 ```haxe
-var _intern:stdgo.Ref<stdgo._internal.internal.godebug.Setting>
-```
-
-
-```haxe
-var _mu:stdgo._internal.sync.Mutex
-```
-
-
-```haxe
 var _valMap:stdgo.GoMap<stdgo._internal.internal.intern.T_key, stdgo.GoUIntptr>
 ```
 
 
 ```haxe
+var _intern:stdgo.Ref<stdgo._internal.internal.godebug.Setting>
+```
+
+
+```haxe
 var _valSafe:stdgo.GoMap<stdgo._internal.internal.intern.T_key, stdgo.Ref<stdgo._internal.internal.intern.Value>>
+```
+
+
+```haxe
+var _mu:stdgo._internal.sync.Mutex
 ```
 
 
@@ -65,6 +65,17 @@ var _valSafe:stdgo.GoMap<stdgo._internal.internal.intern.T_key, stdgo.Ref<stdgo.
 ```haxe
 import stdgo._internal.internal.intern.Intern_getByString
 ```
+
+
+## function \_safeMap
+
+
+```haxe
+function _safeMap():stdgo.GoMap<stdgo._internal.internal.intern.T_key, stdgo.Ref<stdgo._internal.internal.intern.Value>>
+```
+
+
+[\(view code\)](<./Intern_getByString.hx#L2>)
 
 
 ## function \_finalize
@@ -94,17 +105,6 @@ function _get(_k:stdgo._internal.internal.intern.T_key):stdgo.Ref<stdgo._interna
 
 ```haxe
 function _keyFor(_cmpVal:stdgo.AnyInterface):stdgo._internal.internal.intern.T_key
-```
-
-
-[\(view code\)](<./Intern_getByString.hx#L2>)
-
-
-## function \_safeMap
-
-
-```haxe
-function _safeMap():stdgo.GoMap<stdgo._internal.internal.intern.T_key, stdgo.Ref<stdgo._internal.internal.intern.Value>>
 ```
 
 

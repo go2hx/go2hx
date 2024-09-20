@@ -13,6 +13,10 @@
 
 - [Variables](<#variables>)
 
+- [`function _simpleMakeTable(_poly:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.hash.crc32.Table>`](<#function-_simplemaketable>)
+
+- [`function _simplePopulateTable(_poly:stdgo.GoUInt32, _t:stdgo.Ref<stdgo._internal.hash.crc32.Table>):Void`](<#function-_simplepopulatetable>)
+
 - [`function _appendUint32(_b:stdgo.Slice<stdgo.GoUInt8>, _x:stdgo.GoUInt32):stdgo.Slice<stdgo.GoUInt8>`](<#function-_appenduint32>)
 
 - [`function _archAvailableCastagnoli():Bool`](<#function-_archavailablecastagnoli>)
@@ -32,10 +36,6 @@
 - [`function _ieeeInit():Void`](<#function-_ieeeinit>)
 
 - [`function _readUint32(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt32`](<#function-_readuint32>)
-
-- [`function _simpleMakeTable(_poly:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.hash.crc32.Table>`](<#function-_simplemaketable>)
-
-- [`function _simplePopulateTable(_poly:stdgo.GoUInt32, _t:stdgo.Ref<stdgo._internal.hash.crc32.Table>):Void`](<#function-_simplepopulatetable>)
 
 - [`function _simpleUpdate(_crc:stdgo.GoUInt32, _tab:stdgo.Ref<stdgo._internal.hash.crc32.Table>, _p:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt32`](<#function-_simpleupdate>)
 
@@ -123,6 +123,11 @@ import stdgo._internal.hash.crc32.Crc32_update
 
 
 ```haxe
+var ieeetable:stdgo.Ref<stdgo._internal.hash.crc32.Table>
+```
+
+
+```haxe
 var _castagnoliOnce:stdgo._internal.sync.Once
 ```
 
@@ -152,17 +157,34 @@ var _ieeeTable8:stdgo.Ref<stdgo._internal.hash.crc32.T_slicing8Table>
 ```
 
 
-```haxe
-var ieeetable:stdgo.Ref<stdgo._internal.hash.crc32.Table>
-```
-
-
 # Functions
 
 
 ```haxe
 import stdgo._internal.hash.crc32.Crc32_update
 ```
+
+
+## function \_simpleMakeTable
+
+
+```haxe
+function _simpleMakeTable(_poly:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.hash.crc32.Table>
+```
+
+
+[\(view code\)](<./Crc32_update.hx#L2>)
+
+
+## function \_simplePopulateTable
+
+
+```haxe
+function _simplePopulateTable(_poly:stdgo.GoUInt32, _t:stdgo.Ref<stdgo._internal.hash.crc32.Table>):Void
+```
+
+
+[\(view code\)](<./Crc32_update.hx#L2>)
 
 
 ## function \_appendUint32
@@ -269,28 +291,6 @@ function _ieeeInit():Void
 
 ```haxe
 function _readUint32(_b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoUInt32
-```
-
-
-[\(view code\)](<./Crc32_update.hx#L2>)
-
-
-## function \_simpleMakeTable
-
-
-```haxe
-function _simpleMakeTable(_poly:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.hash.crc32.Table>
-```
-
-
-[\(view code\)](<./Crc32_update.hx#L2>)
-
-
-## function \_simplePopulateTable
-
-
-```haxe
-function _simplePopulateTable(_poly:stdgo.GoUInt32, _t:stdgo.Ref<stdgo._internal.hash.crc32.Table>):Void
 ```
 
 

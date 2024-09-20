@@ -15,7 +15,7 @@
 
 
 ```haxe
-import stdgo._internal.image.color.palette.Palette_webSafe
+import stdgo._internal.image.color.palette.Palette___go2hxdoc__package
 ```
 
 

@@ -79,11 +79,6 @@ import stdgo._internal.text.tabwriter.Tabwriter_tabIndent
 
 
 ```haxe
-var _hbar:stdgo.Slice<stdgo.GoUInt8>
-```
-
-
-```haxe
 var _newline:stdgo.Slice<stdgo.GoUInt8>
 ```
 
@@ -95,6 +90,11 @@ var _tabs:stdgo.Slice<stdgo.GoUInt8>
 
 ```haxe
 var _vbar:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _hbar:stdgo.Slice<stdgo.GoUInt8>
 ```
 
 

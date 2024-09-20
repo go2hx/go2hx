@@ -54,12 +54,12 @@ import stdgo._internal.internal.platform.Platform_raceDetectorSupported
 
 
 ```haxe
-var _distInfo:stdgo.GoMap<stdgo._internal.internal.platform.OSArch, stdgo._internal.internal.platform.T_osArchInfo>
+var list:stdgo.Slice<stdgo._internal.internal.platform.OSArch>
 ```
 
 
 ```haxe
-var list:stdgo.Slice<stdgo._internal.internal.platform.OSArch>
+var _distInfo:stdgo.GoMap<stdgo._internal.internal.platform.OSArch, stdgo._internal.internal.platform.T_osArchInfo>
 ```
 
 

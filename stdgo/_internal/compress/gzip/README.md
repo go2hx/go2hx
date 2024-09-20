@@ -121,17 +121,17 @@ import stdgo._internal.compress.gzip.Gzip_noCompression
 
 
 ```haxe
-var _le:stdgo._internal.encoding.binary.T_littleEndian
-```
-
-
-```haxe
 var errChecksum:stdgo.Error
 ```
 
 
 ```haxe
 var errHeader:stdgo.Error
+```
+
+
+```haxe
+var _le:stdgo._internal.encoding.binary.T_littleEndian
 ```
 
 

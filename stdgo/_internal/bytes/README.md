@@ -13,6 +13,10 @@
 
 - [Variables](<#variables>)
 
+- [`function _indexBytePortable(_s:stdgo.Slice<stdgo.GoUInt8>, _c:stdgo.GoUInt8):stdgo.GoInt`](<#function-_indexbyteportable>)
+
+- [`function indexBytePortable(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.GoUInt8):stdgo.GoInt`](<#function-indexbyteportable>)
+
 - [`function _containsRune(_s:stdgo.GoString, _r:stdgo.GoInt32):Bool`](<#function-_containsrune>)
 
 - [`function _explode(_s:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>`](<#function-_explode>)
@@ -20,8 +24,6 @@
 - [`function _genSplit(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8>, _sepSave:stdgo.GoInt, _n:stdgo.GoInt):stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>`](<#function-_gensplit>)
 
 - [`function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8>`](<#function-_growslice>)
-
-- [`function _indexBytePortable(_s:stdgo.Slice<stdgo.GoUInt8>, _c:stdgo.GoUInt8):stdgo.GoInt`](<#function-_indexbyteportable>)
 
 - [`function _indexFunc(_s:stdgo.Slice<stdgo.GoUInt8>, _f:(), _truth:Bool):stdgo.GoInt`](<#function-_indexfunc>)
 
@@ -93,8 +95,6 @@
 - [`function indexAny(_s:stdgo.Slice<stdgo.GoUInt8>, _chars:stdgo.GoString):stdgo.GoInt`](<#function-indexany>)
 
 - [`function indexByte(_b:stdgo.Slice<stdgo.GoUInt8>, _c:stdgo.GoUInt8):stdgo.GoInt`](<#function-indexbyte>)
-
-- [`function indexBytePortable(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.GoUInt8):stdgo.GoInt`](<#function-indexbyteportable>)
 
 - [`function indexFunc(_s:stdgo.Slice<stdgo.GoUInt8>, _f:()):stdgo.GoInt`](<#function-indexfunc>)
 
@@ -246,7 +246,7 @@ import stdgo._internal.bytes.Bytes_trimSuffix
 
 
 ```haxe
-var _asciiSpace:stdgo.GoArray<stdgo.GoUInt8>
+var errTooLarge:stdgo.Error
 ```
 
 
@@ -261,7 +261,7 @@ var _errUnreadByte:stdgo.Error
 
 
 ```haxe
-var errTooLarge:stdgo.Error
+var _asciiSpace:stdgo.GoArray<stdgo.GoUInt8>
 ```
 
 
@@ -271,6 +271,28 @@ var errTooLarge:stdgo.Error
 ```haxe
 import stdgo._internal.bytes.Bytes_trimSuffix
 ```
+
+
+## function \_indexBytePortable
+
+
+```haxe
+function _indexBytePortable(_s:stdgo.Slice<stdgo.GoUInt8>, _c:stdgo.GoUInt8):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes_trimSuffix.hx#L2>)
+
+
+## function indexBytePortable
+
+
+```haxe
+function indexBytePortable(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.GoUInt8):stdgo.GoInt
+```
+
+
+[\(view code\)](<./Bytes_trimSuffix.hx#L2>)
 
 
 ## function \_containsRune
@@ -311,17 +333,6 @@ function _genSplit(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8
 
 ```haxe
 function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8>
-```
-
-
-[\(view code\)](<./Bytes_trimSuffix.hx#L2>)
-
-
-## function \_indexBytePortable
-
-
-```haxe
-function _indexBytePortable(_s:stdgo.Slice<stdgo.GoUInt8>, _c:stdgo.GoUInt8):stdgo.GoInt
 ```
 
 
@@ -654,17 +665,6 @@ function indexAny(_s:stdgo.Slice<stdgo.GoUInt8>, _chars:stdgo.GoString):stdgo.Go
 
 ```haxe
 function indexByte(_b:stdgo.Slice<stdgo.GoUInt8>, _c:stdgo.GoUInt8):stdgo.GoInt
-```
-
-
-[\(view code\)](<./Bytes_trimSuffix.hx#L2>)
-
-
-## function indexBytePortable
-
-
-```haxe
-function indexBytePortable(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.GoUInt8):stdgo.GoInt
 ```
 
 

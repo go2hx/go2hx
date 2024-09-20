@@ -205,12 +205,12 @@ import stdgo._internal.debug.gosym.Gosym_newTable
 
 
 ```haxe
-var _bigEndianSymtab:stdgo.Slice<stdgo.GoUInt8>
+var _littleEndianSymtab:stdgo.Slice<stdgo.GoUInt8>
 ```
 
 
 ```haxe
-var _littleEndianSymtab:stdgo.Slice<stdgo.GoUInt8>
+var _bigEndianSymtab:stdgo.Slice<stdgo.GoUInt8>
 ```
 
 

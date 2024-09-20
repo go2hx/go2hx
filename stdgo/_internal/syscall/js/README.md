@@ -289,22 +289,7 @@ import stdgo._internal.syscall.js.Js_valueOf
 
 
 ```haxe
-var _arrayConstructor:stdgo._internal.syscall.js.Value
-```
-
-
-```haxe
 var _funcs:stdgo.GoMap<stdgo.GoUInt32, (:stdgo._internal.syscall.js.Value, :stdgo.Slice<stdgo._internal.syscall.js.Value>):stdgo.AnyInterface>
-```
-
-
-```haxe
-var _funcsMu:stdgo._internal.sync.Mutex
-```
-
-
-```haxe
-var _jsGo:stdgo._internal.syscall.js.Value
 ```
 
 
@@ -314,22 +299,17 @@ var _nextFuncID:stdgo.GoUInt32
 
 
 ```haxe
-var _objectConstructor:stdgo._internal.syscall.js.Value
-```
-
-
-```haxe
-var _valueFalse:stdgo._internal.syscall.js.Value
-```
-
-
-```haxe
-var _valueGlobal:stdgo._internal.syscall.js.Value
+var _valueUndefined:stdgo._internal.syscall.js.Value
 ```
 
 
 ```haxe
 var _valueNaN:stdgo._internal.syscall.js.Value
+```
+
+
+```haxe
+var _valueZero:stdgo._internal.syscall.js.Value
 ```
 
 
@@ -344,17 +324,37 @@ var _valueTrue:stdgo._internal.syscall.js.Value
 
 
 ```haxe
-var _valueUndefined:stdgo._internal.syscall.js.Value
+var _valueFalse:stdgo._internal.syscall.js.Value
 ```
 
 
 ```haxe
-var _valueZero:stdgo._internal.syscall.js.Value
+var _valueGlobal:stdgo._internal.syscall.js.Value
+```
+
+
+```haxe
+var _jsGo:stdgo._internal.syscall.js.Value
+```
+
+
+```haxe
+var _objectConstructor:stdgo._internal.syscall.js.Value
+```
+
+
+```haxe
+var _arrayConstructor:stdgo._internal.syscall.js.Value
 ```
 
 
 ```haxe
 var jsgo:stdgo._internal.syscall.js.Value
+```
+
+
+```haxe
+var _funcsMu:stdgo._internal.sync.Mutex
 ```
 
 

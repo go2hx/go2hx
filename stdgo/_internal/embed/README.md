@@ -46,37 +46,37 @@ import stdgo._internal.embed.Embed__trimSlash
 
 
 ```haxe
-var __10:stdgo._internal.io.Seeker
-```
-
-
-```haxe
-var __11:stdgo._internal.io.ReaderAt
-```
-
-
-```haxe
-var __6:stdgo._internal.io.fs.ReadDirFS
-```
-
-
-```haxe
-var __7:stdgo._internal.io.fs.ReadFileFS
-```
-
-
-```haxe
-var __8:stdgo._internal.io.fs.FileInfo
-```
-
-
-```haxe
-var __9:stdgo._internal.io.fs.DirEntry
-```
-
-
-```haxe
 var _dotFile:stdgo.Ref<stdgo._internal.embed.T_file>
+```
+
+
+```haxe
+var __0:stdgo._internal.io.fs.ReadDirFS
+```
+
+
+```haxe
+var __1:stdgo._internal.io.fs.ReadFileFS
+```
+
+
+```haxe
+var __2:stdgo._internal.io.fs.FileInfo
+```
+
+
+```haxe
+var __3:stdgo._internal.io.fs.DirEntry
+```
+
+
+```haxe
+var __4:stdgo._internal.io.Seeker
+```
+
+
+```haxe
+var __5:stdgo._internal.io.ReaderAt
 ```
 
 

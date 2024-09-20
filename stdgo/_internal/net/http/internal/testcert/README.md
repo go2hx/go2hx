@@ -17,7 +17,7 @@
 
 
 ```haxe
-import stdgo._internal.net.http.internal.testcert.Testcert_localhostKey
+import stdgo._internal.net.http.internal.testcert.Testcert___go2hxdoc__package
 ```
 
 
@@ -35,7 +35,7 @@ var localhostKey:stdgo.Slice<stdgo.GoUInt8>
 
 
 ```haxe
-import stdgo._internal.net.http.internal.testcert.Testcert_localhostKey
+import stdgo._internal.net.http.internal.testcert.Testcert___go2hxdoc__package
 ```
 
 
@@ -47,6 +47,6 @@ function _testingKey(_s:stdgo.GoString):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Testcert_localhostKey.hx#L2>)
+[\(view code\)](<./Testcert___go2hxdoc__package.hx#L2>)
 
 

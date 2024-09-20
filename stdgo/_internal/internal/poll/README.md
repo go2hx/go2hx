@@ -13,6 +13,14 @@
 
 - [Variables](<#variables>)
 
+- [`function testHookDidWritev()`](<#function-testhookdidwritev>)
+
+- [`function closeFunc()`](<#function-closefunc>)
+
+- [`function acceptFunc()`](<#function-acceptfunc>)
+
+- [`function consume(:stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, :stdgo.GoInt64):Void`](<#function-consume>)
+
 - [`function _accept(_s:stdgo.GoInt):{
 	_3:stdgo.Error;
 	_2:stdgo.GoString;
@@ -46,12 +54,6 @@
 
 - [`function _setDeadlineImpl(_fd:stdgo.Ref<stdgo._internal.internal.poll.FD>, _t:stdgo._internal.time.Time, _mode:stdgo.GoInt):stdgo.Error`](<#function-_setdeadlineimpl>)
 
-- [`function acceptFunc()`](<#function-acceptfunc>)
-
-- [`function closeFunc()`](<#function-closefunc>)
-
-- [`function consume(:stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, :stdgo.GoInt64):Void`](<#function-consume>)
-
 - [`function dupCloseOnExec(_fd:stdgo.GoInt):{
 	_2:stdgo.Error;
 	_1:stdgo.GoString;
@@ -59,8 +61,6 @@
 }`](<#function-dupcloseonexec>)
 
 - [`function isPollDescriptor(_fd:stdgo.GoUIntptr):Bool`](<#function-ispolldescriptor>)
-
-- [`function testHookDidWritev()`](<#function-testhookdidwritev>)
 
 - [class DeadlineExceededError](<#class-deadlineexceedederror>)
 
@@ -106,7 +106,7 @@
 
 
 ```haxe
-import stdgo._internal.internal.poll.Poll_testHookDidWritev
+import stdgo._internal.internal.poll.Poll_isPollDescriptor
 ```
 
 
@@ -169,22 +169,7 @@ final _overflowMsg:stdgo.GoString = (("" : stdgo.GoString))
 
 
 ```haxe
-import stdgo._internal.internal.poll.Poll_testHookDidWritev
-```
-
-
-```haxe
-var _dupCloexecUnsupported:stdgo._internal.sync.atomic_.Bool_
-```
-
-
-```haxe
-var errDeadlineExceeded:stdgo.Error
-```
-
-
-```haxe
-var errFileClosing:stdgo.Error
+import stdgo._internal.internal.poll.Poll_isPollDescriptor
 ```
 
 
@@ -194,7 +179,17 @@ var errNetClosing:stdgo._internal.internal.poll.T_errNetClosing
 
 
 ```haxe
+var errFileClosing:stdgo.Error
+```
+
+
+```haxe
 var errNoDeadline:stdgo.Error
+```
+
+
+```haxe
+var errDeadlineExceeded:stdgo.Error
 ```
 
 
@@ -203,12 +198,61 @@ var errNotPollable:stdgo.Error
 ```
 
 
+```haxe
+var _dupCloexecUnsupported:stdgo._internal.sync.atomic_.Bool_
+```
+
+
 # Functions
 
 
 ```haxe
-import stdgo._internal.internal.poll.Poll_testHookDidWritev
+import stdgo._internal.internal.poll.Poll_isPollDescriptor
 ```
+
+
+## function testHookDidWritev
+
+
+```haxe
+function testHookDidWritev()
+```
+
+
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
+
+
+## function closeFunc
+
+
+```haxe
+function closeFunc()
+```
+
+
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
+
+
+## function acceptFunc
+
+
+```haxe
+function acceptFunc()
+```
+
+
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
+
+
+## function consume
+
+
+```haxe
+function consume(:stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, :stdgo.GoInt64):Void
+```
+
+
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function \_accept
@@ -224,7 +268,7 @@ function _accept(_s:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function \_consume
@@ -235,7 +279,7 @@ function _consume(_v:stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, _n:stdg
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function \_dupCloseOnExecOld
@@ -250,7 +294,7 @@ function _dupCloseOnExecOld(_fd:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function \_errClosing
@@ -261,7 +305,7 @@ function _errClosing(_isFile:Bool):stdgo.Error
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function \_ignoringEINTR
@@ -272,7 +316,7 @@ function _ignoringEINTR(_fn:():stdgo.Error):stdgo.Error
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function \_ignoringEINTRIO
@@ -289,7 +333,7 @@ function _ignoringEINTRIO(_fn:(:stdgo.GoInt, :stdgo.Slice<stdgo.GoUInt8>):{
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function \_runtime\_Semacquire
@@ -300,7 +344,7 @@ function _runtime_Semacquire(_sema:stdgo.Pointer<stdgo.GoUInt32>):Void
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function \_runtime\_Semrelease
@@ -311,7 +355,7 @@ function _runtime_Semrelease(_sema:stdgo.Pointer<stdgo.GoUInt32>):Void
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function \_setDeadlineImpl
@@ -322,40 +366,7 @@ function _setDeadlineImpl(_fd:stdgo.Ref<stdgo._internal.internal.poll.FD>, _t:st
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
-
-
-## function acceptFunc
-
-
-```haxe
-function acceptFunc()
-```
-
-
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
-
-
-## function closeFunc
-
-
-```haxe
-function closeFunc()
-```
-
-
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
-
-
-## function consume
-
-
-```haxe
-function consume(:stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, :stdgo.GoInt64):Void
-```
-
-
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function dupCloseOnExec
@@ -370,7 +381,7 @@ function dupCloseOnExec(_fd:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 ## function isPollDescriptor
@@ -381,18 +392,7 @@ function isPollDescriptor(_fd:stdgo.GoUIntptr):Bool
 ```
 
 
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
-
-
-## function testHookDidWritev
-
-
-```haxe
-function testHookDidWritev()
-```
-
-
-[\(view code\)](<./Poll_testHookDidWritev.hx#L2>)
+[\(view code\)](<./Poll_isPollDescriptor.hx#L2>)
 
 
 # Classes

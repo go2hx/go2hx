@@ -153,17 +153,22 @@ import stdgo._internal.os.user.User_lookupId
 
 
 ```haxe
-var _cache:stdgo._internal.os.user.T__struct_0
-```
-
-
-```haxe
 var _colon:stdgo.Slice<stdgo.GoUInt8>
 ```
 
 
 ```haxe
+var _userBuffer:stdgo.GoInt
+```
+
+
+```haxe
 var _groupBuffer:stdgo.GoInt
+```
+
+
+```haxe
+var _userImplemented:Bool
 ```
 
 
@@ -178,12 +183,7 @@ var _groupListImplemented:Bool
 
 
 ```haxe
-var _userBuffer:stdgo.GoInt
-```
-
-
-```haxe
-var _userImplemented:Bool
+var _cache:stdgo._internal.os.user.T__struct_0
 ```
 
 

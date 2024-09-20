@@ -61,12 +61,7 @@ import stdgo._internal.encoding.pem.Pem_encodeToMemory
 
 
 ```haxe
-var _colon:stdgo.Slice<stdgo.GoUInt8>
-```
-
-
-```haxe
-var _nl:stdgo.Slice<stdgo.GoUInt8>
+var _pemStart:stdgo.Slice<stdgo.GoUInt8>
 ```
 
 
@@ -81,7 +76,12 @@ var _pemEndOfLine:stdgo.Slice<stdgo.GoUInt8>
 
 
 ```haxe
-var _pemStart:stdgo.Slice<stdgo.GoUInt8>
+var _colon:stdgo.Slice<stdgo.GoUInt8>
+```
+
+
+```haxe
+var _nl:stdgo.Slice<stdgo.GoUInt8>
 ```
 
 

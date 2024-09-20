@@ -2,7 +2,7 @@ package _internal.fmt_test;
 import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
 import stdgo._internal.fmt.Fmt;
-function _testScan(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _f:stdgo.GoString -> stdgo._internal.io.Io_Reader.Reader, _scan:(stdgo._internal.io.Io_Reader.Reader, stdgo.Slice<stdgo.AnyInterface>) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; }):Void {
+function _testScan(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _f:stdgo.GoString -> stdgo._internal.io.Io_Reader.Reader, _scan:(stdgo._internal.io.Io_Reader.Reader, haxe.Rest<stdgo.AnyInterface>) -> { var _0 : stdgo.GoInt; var _1 : stdgo.Error; }):Void {
         for (__2 => _test in _internal.fmt_test.Fmt_test__scanTests._scanTests) {
             var _r = (_f(_test._text?.__copy__()) : stdgo._internal.io.Io_Reader.Reader);
             var __tmp__ = _scan(_r, _test._in), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;

@@ -28,7 +28,7 @@ function testMakeFuncVariadic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
         if (((_r[(0 : stdgo.GoInt)] != (2 : stdgo.GoInt)) || (_r[(1 : stdgo.GoInt)] != (3 : stdgo.GoInt)) : Bool)) {
             _t.errorf(("Call returned [%v, %v]; want 2, 3" : stdgo.GoString), stdgo.Go.toInterface(_r[(0 : stdgo.GoInt)]), stdgo.Go.toInterface(_r[(1 : stdgo.GoInt)]));
         };
-        var _f = (stdgo.Go.typeAssert((_fv.interface_() : (stdgo.GoInt, stdgo.Slice<stdgo.GoInt>) -> stdgo.Slice<stdgo.GoInt>)) : (stdgo.GoInt, stdgo.Slice<stdgo.GoInt>) -> stdgo.Slice<stdgo.GoInt>);
+        var _f = (stdgo.Go.typeAssert((_fv.interface_() : (stdgo.GoInt, haxe.Rest<stdgo.GoInt>) -> stdgo.Slice<stdgo.GoInt>)) : (stdgo.GoInt, haxe.Rest<stdgo.GoInt>) -> stdgo.Slice<stdgo.GoInt>);
         _r = _f((1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt));
         if (((_r[(0 : stdgo.GoInt)] != (2 : stdgo.GoInt)) || (_r[(1 : stdgo.GoInt)] != (3 : stdgo.GoInt)) : Bool)) {
             _t.errorf(("Call returned [%v, %v]; want 2, 3" : stdgo.GoString), stdgo.Go.toInterface(_r[(0 : stdgo.GoInt)]), stdgo.Go.toInterface(_r[(1 : stdgo.GoInt)]));

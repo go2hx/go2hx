@@ -5,7 +5,7 @@ import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 import stdgo._internal.reflect.Reflect;
 function testVariadicType(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _f:(stdgo.GoInt, stdgo.Slice<stdgo.GoFloat64>) -> Void = null;
+        var _f:(stdgo.GoInt, haxe.Rest<stdgo.GoFloat64>) -> Void = null;
         var _typ = (stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface(_f)) : stdgo._internal.reflect.Reflect_Type_.Type_);
         if (((_typ.numIn() == (2 : stdgo.GoInt)) && ((_typ.in_((0 : stdgo.GoInt)).string() : String) == (stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((0 : stdgo.GoInt))).string() : String)) : Bool)) {
             var _sl = (_typ.in_((1 : stdgo.GoInt)) : stdgo._internal.reflect.Reflect_Type_.Type_);

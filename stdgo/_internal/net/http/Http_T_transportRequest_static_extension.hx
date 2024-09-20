@@ -6,7 +6,7 @@ package stdgo._internal.net.http;
         @:recv var _tr:stdgo.Ref<stdgo._internal.net.http.Http_T_transportRequest.T_transportRequest> = _tr;
         {
             var __tmp__ = try {
-                { _0 : (stdgo.Go.typeAssert((_tr.request.context().value(stdgo.Go.toInterface((new stdgo._internal.net.http.Http_T_tLogKey.T_tLogKey() : stdgo._internal.net.http.Http_T_tLogKey.T_tLogKey))) : (stdgo.GoString, stdgo.Slice<stdgo.AnyInterface>) -> Void)) : (stdgo.GoString, stdgo.Slice<stdgo.AnyInterface>) -> Void), _1 : true };
+                { _0 : (stdgo.Go.typeAssert((_tr.request.context().value(stdgo.Go.toInterface((new stdgo._internal.net.http.Http_T_tLogKey.T_tLogKey() : stdgo._internal.net.http.Http_T_tLogKey.T_tLogKey))) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void)) : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> Void), _1 : true };
             } catch(_) {
                 { _0 : null, _1 : false };
             }, _logf = __tmp__._0, _ok = __tmp__._1;

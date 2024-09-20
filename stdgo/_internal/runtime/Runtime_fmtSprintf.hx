@@ -1,2 +1,2 @@
 package stdgo._internal.runtime;
-var fmtSprintf : (stdgo.GoString, stdgo.Slice<stdgo.AnyInterface>) -> stdgo.GoString = null;
+var fmtSprintf : (stdgo.GoString, haxe.Rest<stdgo.AnyInterface>) -> stdgo.GoString = null;

@@ -7193,7 +7193,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						f.expr = macro t.$fieldName($a{args});
 						if (!isVoid(f.ret))
 							f.expr = macro return ${f.expr};
-						f.args.unshift({name: "t", type: TPath({name: name, pack: []})});
+						f.args.unshift({name: "t", type: TPath({name:splitDepFullPathName(name, info), pack: []})});
 						// interface struct creation
 						addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
 						f.expr = null;

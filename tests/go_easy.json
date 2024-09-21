@@ -266,7 +266,6 @@
  "hl|issue59404part2",
  "hl|issue59572",
  "hl|issue6269",
- "hl|issue63657",
  "hl|issue6866",
  "hl|issue8047b",
  "hl|issue8325",
@@ -293,7 +292,6 @@
  "hl|ptrfun",
  "hl|ptrvar",
  "hl|range",
- "hl|reg_not_ssa",
  "hl|result_regalloc",
  "hl|returntype",
  "hl|rob1",
@@ -313,6 +311,5 @@
  "hl|strvar",
  "hl|turing",
  "hl|varinit",
- "hl|wrapdefer_largetmp",
  "hl|zombie_struct_select"
 ]

@@ -1,0 +1,10 @@
+package _internal.io.fs_test;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+import stdgo._internal.io.fs.Fs;
+var _globTests : stdgo.Slice<_internal.io.fs_test.Fs_test_T__struct_2.T__struct_2> = (new stdgo.Slice<_internal.io.fs_test.Fs_test_T__struct_2.T__struct_2>(5, 5, ...[({ _fs : stdgo._internal.os.Os_dirFS.dirFS(("." : stdgo.GoString)), _pattern : ("glob.go" : stdgo.GoString), _result : ("glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2), ({ _fs : stdgo._internal.os.Os_dirFS.dirFS(("." : stdgo.GoString)), _pattern : ("gl?b.go" : stdgo.GoString), _result : ("glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2), ({ _fs : stdgo._internal.os.Os_dirFS.dirFS(("." : stdgo.GoString)), _pattern : ("gl\\ob.go" : stdgo.GoString), _result : ("glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2), ({ _fs : stdgo._internal.os.Os_dirFS.dirFS(("." : stdgo.GoString)), _pattern : ("*" : stdgo.GoString), _result : ("glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2), ({ _fs : stdgo._internal.os.Os_dirFS.dirFS((".." : stdgo.GoString)), _pattern : ("*/glob.go" : stdgo.GoString), _result : ("fs/glob.go" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2)].concat([for (i in 5 ... (5 > 5 ? 5 : 5 : stdgo.GoInt).toBasic()) ({ _fs : (null : stdgo._internal.io.fs.Fs_FS.FS), _pattern : ("" : stdgo.GoString), _result : ("" : stdgo.GoString) } : _internal.io.fs_test.Fs_test_T__struct_2.T__struct_2)])) : stdgo.Slice<_internal.io.fs_test.Fs_test_T__struct_2.T__struct_2>);

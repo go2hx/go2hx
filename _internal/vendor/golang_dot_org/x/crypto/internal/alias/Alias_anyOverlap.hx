@@ -1,0 +1,4 @@
+package _internal.vendor.golang_dot_org.x.crypto.internal.alias;
+function anyOverlap(_x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>):Bool {
+        return (((((_x.length) > (0 : stdgo.GoInt) : Bool) && ((_y.length) > (0 : stdgo.GoInt) : Bool) : Bool) && (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(stdgo.Go.pointer(_x[(0 : stdgo.GoInt)]))).pointer() <= stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(stdgo.Go.pointer(_y[((_y.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]))).pointer() : Bool) : Bool) && (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(stdgo.Go.pointer(_y[(0 : stdgo.GoInt)]))).pointer() <= stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(stdgo.Go.pointer(_x[((_x.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]))).pointer() : Bool) : Bool);
+    }

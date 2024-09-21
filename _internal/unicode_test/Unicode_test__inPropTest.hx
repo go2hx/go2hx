@@ -1,0 +1,41 @@
+package _internal.unicode_test;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.unicode.Unicode;
+import stdgo._internal.unicode.Unicode;
+var _inPropTest : stdgo.Slice<_internal.unicode_test.Unicode_test_T_.T_> = (new stdgo.Slice<_internal.unicode_test.Unicode_test_T_.T_>(35, 35, ...[
+(new _internal.unicode_test.Unicode_test_T_.T_((70 : stdgo.GoInt32), ("ASCII_Hex_Digit" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((8207 : stdgo.GoInt32), ("Bidi_Control" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((8722 : stdgo.GoInt32), ("Dash" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((917505 : stdgo.GoInt32), ("Deprecated" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((183 : stdgo.GoInt32), ("Diacritic" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((12542 : stdgo.GoInt32), ("Extender" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((65350 : stdgo.GoInt32), ("Hex_Digit" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((11799 : stdgo.GoInt32), ("Hyphen" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((12283 : stdgo.GoInt32), ("IDS_Binary_Operator" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((12275 : stdgo.GoInt32), ("IDS_Trinary_Operator" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((64106 : stdgo.GoInt32), ("Ideographic" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((8205 : stdgo.GoInt32), ("Join_Control" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((3780 : stdgo.GoInt32), ("Logical_Order_Exception" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((196607 : stdgo.GoInt32), ("Noncharacter_Code_Point" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((1630 : stdgo.GoInt32), ("Other_Alphabetic" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((8293 : stdgo.GoInt32), ("Other_Default_Ignorable_Code_Point" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((3031 : stdgo.GoInt32), ("Other_Grapheme_Extend" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((903 : stdgo.GoInt32), ("Other_ID_Continue" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((8494 : stdgo.GoInt32), ("Other_ID_Start" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((8340 : stdgo.GoInt32), ("Other_Lowercase" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((8256 : stdgo.GoInt32), ("Other_Math" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((8559 : stdgo.GoInt32), ("Other_Uppercase" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((39 : stdgo.GoInt32), ("Pattern_Syntax" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((32 : stdgo.GoInt32), ("Pattern_White_Space" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((1757 : stdgo.GoInt32), ("Prepended_Concatenation_Mark" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((12301 : stdgo.GoInt32), ("Quotation_Mark" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((12019 : stdgo.GoInt32), ("Radical" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((127487 : stdgo.GoInt32), ("Regional_Indicator" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((1567 : stdgo.GoInt32), ("STerm" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((1567 : stdgo.GoInt32), ("Sentence_Terminal" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((8305 : stdgo.GoInt32), ("Soft_Dotted" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((58 : stdgo.GoInt32), ("Terminal_Punctuation" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((40899 : stdgo.GoInt32), ("Unified_Ideograph" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((65039 : stdgo.GoInt32), ("Variation_Selector" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_),
+(new _internal.unicode_test.Unicode_test_T_.T_((32 : stdgo.GoInt32), ("White_Space" : stdgo.GoString)) : _internal.unicode_test.Unicode_test_T_.T_)].concat([for (i in 35 ... (35 > 35 ? 35 : 35 : stdgo.GoInt).toBasic()) ({} : _internal.unicode_test.Unicode_test_T_.T_)])) : stdgo.Slice<_internal.unicode_test.Unicode_test_T_.T_>);

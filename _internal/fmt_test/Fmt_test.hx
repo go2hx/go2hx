@@ -1,0 +1,10 @@
+package _internal.fmt_test;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.fmt.Fmt;
+import stdgo._internal.fmt.Fmt;
+@:keep var __init_go2hx__ = {
+        try {
+            var __tmp__0 = _internal.fmt_test.Fmt_test_naN.naN, __tmp__1 = _internal.fmt_test.Fmt_test__posInf._posInf, __tmp__2 = _internal.fmt_test.Fmt_test__negInf._negInf, __tmp__3 = _internal.fmt_test.Fmt_test__intVar._intVar, __tmp__4 = _internal.fmt_test.Fmt_test__array._array, __tmp__5 = _internal.fmt_test.Fmt_test__iarray._iarray, __tmp__6 = _internal.fmt_test.Fmt_test__slice._slice, __tmp__7 = _internal.fmt_test.Fmt_test__islice._islice, __tmp__8 = _internal.fmt_test.Fmt_test__barray._barray, __tmp__9 = _internal.fmt_test.Fmt_test__bslice._bslice, __tmp__10 = _internal.fmt_test.Fmt_test__byteStringerSlice._byteStringerSlice, __tmp__11 = _internal.fmt_test.Fmt_test__byteFormatterSlice._byteFormatterSlice, __tmp__12 = _internal.fmt_test.Fmt_test__fmtTests._fmtTests, __tmp__13 = _internal.fmt_test.Fmt_test__reorderTests._reorderTests, __tmp__14 = _internal.fmt_test.Fmt_test__mallocTest._mallocTest, __tmp__15 = _internal.fmt_test.Fmt_test__flagtests._flagtests, __tmp__16 = _internal.fmt_test.Fmt_test__startests._startests, __tmp__17 = _internal.fmt_test.Fmt_test__panictests._panictests, __tmp__18 = _internal.fmt_test.Fmt_test__recurCount._recurCount, __tmp__19 = _internal.fmt_test.Fmt_test__formatterFlagTests._formatterFlagTests, __tmp__20 = _internal.fmt_test.Fmt_test__scanTests._scanTests, __tmp__21 = _internal.fmt_test.Fmt_test__scanfTests._scanfTests, __tmp__22 = _internal.fmt_test.Fmt_test__overflowTests._overflowTests, __tmp__23 = _internal.fmt_test.Fmt_test__multiTests._multiTests, __tmp__24 = _internal.fmt_test.Fmt_test__readers._readers, __tmp__25 = _internal.fmt_test.Fmt_test__eofTests._eofTests, __tmp__26 = _internal.fmt_test.Fmt_test___0.__0, __tmp__27 = _internal.fmt_test.Fmt_test___1.__1;
+        } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
+        true;
+    };

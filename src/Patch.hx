@@ -371,9 +371,6 @@ final list = [
 	"os:_fastrand" => macro return std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647),
 	"math.rand:_fastrand64" => macro return haxe.Int64.make(std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647),
 		std.Std.random(1) > 0 ? -std.Std.random(2147483647) - 1 : std.Std.random(2147483647)),
-	// stdgo/math_bits
-	"math.bits:_overflowError" => macro @:privateAccess stdgo.Error._overflowError,
-	"math.bits:_divideError" => macro @:privateAccess stdgo.Error._divideError,
 	// stdgo/math_test
 	"math_test:testFloatMinMax" => macro trace("testFloatMinMax not implemented: fmt formatter"),
 	"math:testGamma" => macro @:define("interp") {

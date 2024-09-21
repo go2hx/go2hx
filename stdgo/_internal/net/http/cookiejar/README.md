@@ -1,10 +1,10 @@
 # Module stdgo._internal.net.http.cookiejar has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/net/http/cookiejar/Cookiejar_PublicSuffixList_static_extension.hx:3: characters 37-53
+[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/net/http/Http__isNotToken.hx:3: characters 17-82
 
- 3 | [2m    static public function string(t:[0m[1mPublicSuffixList[0m[2m):stdgo.GoString return t.string();[0m
-   |                                     [31m^^^^^^^^^^^^^^^^[0m
-   | Type not found : PublicSuffixList
+ 3 | [2m        return ![0m[1m_internal.golang_dot_org.x.net.http.httpguts.Httpguts_isTokenRune[0m[2m.isTokenRune(_r);[0m
+   |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Type not found : _internal.golang_dot_org.x.net.http.httpguts.Httpguts_isTokenRune
 
 
 ```

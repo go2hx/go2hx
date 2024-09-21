@@ -1,10 +1,13 @@
 # Module stdgo._internal.text.template.parse has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/text/template/parse/Parse_Node_static_extension.hx:3: characters 39-43
+[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/internal/Macro.macro.hx:370: lines 370-373
 
- 3 | [2m    static public function _writeTo(t:[0m[1mNode[0m[2m, _0:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>):Void t._writeTo(_0);[0m
-   |                                       [31m^^^^[0m
-   | Type not found : Node
+ 370 | [2m   [0m[1mdo {[0m
+ 371 | [1m    $i{exitName} = false;[0m
+ 372 | [1m    $switchStmt;[0m
+ 373 | [1m   } while ($i{selectName} != "")[0m[2m;[0m
+     |
+     | Missing return: stdgo.Ref<stdgo._internal.text.template.parse.PipeNode>
 
 
 ```

@@ -1,10 +1,22 @@
 # Module stdgo._internal.crypto.tls has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/crypto/tls/Tls_T_handshakeMessage_static_extension.hx:3: characters 41-59
+[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/math/big/Big_T_nat_static_extension.hx:365: characters 16-25
 
- 3 | [2m    static public function _unmarshal(t:[0m[1mT_handshakeMessage[0m[2m, _0:stdgo.Slice<stdgo.GoUInt8>):Bool return t._unmarshal(_0);[0m
-   |                                         [31m^^^^^^^^^^^^^^^^^^[0m
-   | Type not found : T_handshakeMessage
+ 365 | [2m            _q.[0m[1m_divBasic[0m[2m(_u, _v);[0m
+     |                [31m^^^^^^^^^[0m
+     | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
+
+     [30;41m -> [0m stdgo/_internal/math/big/Big__divisors.hx:24: lines 24-40
+
+      24 | [2m                [0m[1mstdgo.Go.cfor((_i < _k : Bool), _i++, {[0m
+       - | [2m                  [...][0m
+      40 | [1m                })[0m[2m;[0m
+         |
+         | Called from macro here
+
+         | Called from macro here
+
+         | Called from macro here
 
 
 ```

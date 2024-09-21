@@ -23,7 +23,7 @@ class Macro {
 			final e = macro $a{exprs};
 			final className = "TypeInfoData_go2hx_hxb";
 			final cl = macro class T {
-				public var names = $e;
+				public var names:stdgo._internal.internal.TypeInfo.TypeInternalMap = [];
 				public function new() {}
 			};
 			cl.name = className;
@@ -48,7 +48,7 @@ class Macro {
 			final e = macro $a{exprs};
 			final className = "TypeInfoData_go2hx_";
 			final cl = macro class T {
-				public var names = $e;
+				public var names:stdgo._internal.internal.TypeInfo.TypeInternalMap = $e;
 				public function new() {}
 			};
 			cl.name = className;

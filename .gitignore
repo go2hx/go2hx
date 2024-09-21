@@ -68,3 +68,4 @@ actions-runner
 log.out
 sort_*.json
 prebuild
+./_internal/*

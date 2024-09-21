@@ -3,33 +3,15 @@ package stdgo._internal.internal.reflect;
 import stdgo.Pointer;
 import stdgo.AnyInterface;
 
-#if splitdeps
 @:follow private typedef Type = stdgo._internal.reflect.Reflect_Type_.Type_;
-#else
-@:follow private typedef Type = stdgo._internal.reflect.Reflect_Type_.Type_;
-#end
 
-private typedef ReflectKind = 
-#if splitdeps
-stdgo._internal.reflect.Reflect_Kind.Kind;
-#else
-stdgo._internal.reflect.Reflect_Kind.Kind;
-#end
+private typedef ReflectKind = stdgo._internal.reflect.Reflect_Kind.Kind;
 
-private typedef ReflectMethod = 
-#if splitdeps
-stdgo._internal.reflect.Reflect_Method.Method;
-#else
-stdgo._internal.reflect.Reflect.Method;
-#end
+private typedef ReflectMethod = stdgo._internal.reflect.Reflect_Method.Method;
 
 
 enum abstract KindType(ReflectKind) from Int 
-#if splitdeps
 from stdgo._internal.reflect.Reflect_Kind.Kind to stdgo._internal.reflect.Reflect_Kind.Kind
-#else
-from ReflectKind to ReflectKind
-#end
 {
 	final invalid = 0;
 	final bool;
@@ -90,12 +72,7 @@ function namedUnderlying(obj:AnyInterface):AnyInterface {
 	public function new(?_typ) {}
 }
 
-private typedef ReflectValue = 
-#if splitdeps
-stdgo._internal.reflect.Reflect_Value.Value;
-#else
-stdgo._internal.reflect.Reflect_Value.Value;
-#end
+private typedef ReflectValue = stdgo._internal.reflect.Reflect_Value.Value;
 
 function deepValueEqual(v1:ReflectValue, v2:ReflectValue, visited:Map<Visit, Bool>, depth:GoInt):Bool {
 	if (!v1.isValid() || !v2.isValid()) {
@@ -1382,19 +1359,9 @@ class _Type {
 		throw "not implemented align";
 }
 
-private typedef ReflectStructField = 
-#if splitdeps
-stdgo._internal.reflect.Reflect_StructField.StructField;
-#else
-stdgo._internal.reflect.Reflect.StructField;
-#end
+private typedef ReflectStructField = stdgo._internal.reflect.Reflect_StructField.StructField;
 
-private typedef ReflectChanDir = 
-#if splitdeps
-stdgo._internal.reflect.Reflect_ChanDir.ChanDir;
-#else
-stdgo._internal.reflect.Reflect.ChanDir;
-#end
+private typedef ReflectChanDir = stdgo._internal.reflect.Reflect_ChanDir.ChanDir;
 
 class _Type_asInterface {
 	public dynamic function _uncommon():Dynamic

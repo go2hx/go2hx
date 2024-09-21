@@ -579,11 +579,7 @@ class GoAnyInterfaceMapKey {
 		#if nolinkstd
 		ais = "";
 		#else
-		#if splitdeps
 		ais = stdgo._internal.fmt.Fmt_sprintf.sprintf("%v", k);
-		#else
-		ais = stdgo._internal.fmt.Fmt.sprintf("%v", k);
-		#end
 		#end
 	}
 }

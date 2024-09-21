@@ -21,24 +21,17 @@ class Macro {
 			}
 			//trace("hxb types:", exprs.length);
 			final e = macro $a{exprs};
-			final className = "HxbTypeInfoData";
+			final className = "TypeInfoData_go2hx_hxb";
 			final cl = macro class T {
 				public var names = $e;
 				public function new() {}
 			};
-			cl.pack = ["stdgo", "_internal", "internal"];
 			cl.name = className;
 			var path = haxe.io.Path.join(cl.pack.concat([cl.name + ".hx"]));
 			path = startingPath + "/" + path;
-			sys.io.File.saveContent(path, printer.printTypeDefinition(cl, true));
-			final className = "TypeInfoData_go2hx_";
-			final typeInfoDataCl = macro class T {
-				public var names = [];
-				public function new() {}
-			}
-			typeInfoDataCl.name = className;
-			sys.io.File.saveContent(startingPath + "/" + className + ".hx", printer.printTypeDefinition(cl,true));
 			//Context.defineType(cl);
+			trace("SAVE");
+			sys.io.File.saveContent(path, printer.printTypeDefinition(cl));
 		});
     }
 	public static function init() {

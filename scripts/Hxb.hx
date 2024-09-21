@@ -67,7 +67,7 @@ func main() {
     }
     FileSystem.deleteFile(path);
     FileSystem.deleteDirectory("hxb");
-    final targets = ["hl","js"];//,"jvm"];
+    final targets = ["hl","js","interp"];//,"jvm"];
     for (target in targets) {
         final commands:Array<String> = [];
         // create
@@ -76,7 +76,8 @@ func main() {
         commands.push('\"stdgo._internal.internal.Macro.initHxb(\'$startingPath\')"');
         commands.push('--no-output');
         commands.push('--$target');
-        commands.push('hxb');
+        if (target != "interp")
+            commands.push('hxb');
         if (target == "js") {
             commands.push("-lib");
             commands.push("hxnodejs");
@@ -84,5 +85,6 @@ func main() {
         if (Sys.command("haxe " + commands.join(" ")) != 0) {
             Sys.exit(1);
         }
+        trace("gen: go2hx." + target + ".zip");
     }
 }

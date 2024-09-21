@@ -6,61 +6,11 @@ concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  hxb:
-    timeout-minutes: 26
-    strategy:
-      fail-fast: false
-    runs-on: [ubuntu-latest]
-    steps:
-      - uses: actions/checkout@v3
-      # Get the cores 
-      - name: Get number of cores (Ubuntu)
-        if: startsWith(runner.os, 'Linux')
-        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-      - name: Get number of cores (macOS)
-        if: startsWith(runner.os, 'macOS')
-        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      # non self-host setup
-      - uses: cedx/setup-hashlink@v4.0.2
-        continue-on-error: true
-      - uses: actions/setup-go@v3
-        continue-on-error: true
-        with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
-      - name: Install lix
-        run: npm i lix -g
-      - name: Run lix
-        run: npx lix download
-      # go2hx setup
-      - name: Set source
-        run: npx haxelib dev go2hx .
-      # clean stdgo
-      - name: Clean go2hx
-        run: npx haxelib run go2hx clean
-      - name: Build go2hx compiler
-        run: npx haxelib run go2hx build
-      # compile stdgo
-      - name: Run stdgo automatic compile
-        run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
-      # - name: Create hxb
-      #   run: npx haxelib run go2hx hxb .
-      - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
-      - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
-      - name: Create hxb
-        run: npx haxelib run go2hx hxb .
-      - name: Pull latest
-        run: git pull
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: stdgo + hxb automatic compile
   build:
     timeout-minutes: 26
     strategy:
       fail-fast: false
     runs-on: [ubuntu-latest]
-    needs: [hxb]
     steps:
       - uses: actions/checkout@v3
       # Get the cores 
@@ -77,8 +27,6 @@ jobs:
         continue-on-error: true
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
-      - name: Pull latest for hxb
-        run: git pull
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -94,8 +42,8 @@ jobs:
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
-      # - name: Create hxb
-      #   run: npx haxelib run go2hx hxb .
+      - name: Create hxb
+        run: npx haxelib run go2hx hxb .
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
       - name: Run std
@@ -105,65 +53,9 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: stdgo automatic compile
-  # test-cpp-unit:
-  #   timeout-minutes: 360
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - uses: actions/checkout@v3
-  #     - uses: actions/setup-go@v3
-  #       with:
-  #         go-version: '1.21.3' # The Go version to download (if necessary) and use.
-  #     # Get the cores 
-  #     - name: Get number of cores (Ubuntu)
-  #       if: startsWith(runner.os, 'Linux')
-  #       run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-  #     - name: Get number of cores (macOS)
-  #       if: startsWith(runner.os, 'macOS')
-  #       run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-  #     - name: Install lix
-  #       run: npm i lix -g
-  #     - name: Run lix
-  #       run: npx lix download
-  #     # go2hx setup
-  #     - name: Set source
-  #       run: npx haxelib dev go2hx .
-  #     - name: Build go2hx compiler
-  #       run: npx haxelib run go2hx build
-  #     # run hxcpp tests
-  #     - name: Run unit hxcpp tests
-  #       run: npx haxe tests/tests.hxml -D unit -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
-  # test-cpp-std:
-  #   timeout-minutes: 360
-  #   needs: build
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - uses: actions/setup-go@v3
-  #     with:
-  #       go-version: '1.21.3' # The Go version to download (if necessary) and use.
-  #   # Get the cores 
-  #   - name: Get number of cores (Ubuntu)
-  #     if: startsWith(runner.os, 'Linux')
-  #     run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-  #   - name: Get number of cores (macOS)
-  #     if: startsWith(runner.os, 'macOS')
-  #     run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-  #   - name: Install lix
-  #     run: npm i lix -g
-  #   - name: Run lix
-  #     run: npx lix download
-  #   # go2hx setup
-  #   - name: Set source
-  #     run: npx haxelib dev go2hx .
-  #   - name: Build go2hx compiler
-  #     run: npx haxelib run go2hx build
-  #   # run hxcpp tests
-  #   - name: Run unit hxcpp tests
-  #     run: npx haxe tests/tests.hxml -D std -D ci -D target_hxcpp -D runnerCount=${{ env.CORES }}
   yaegi-easy:
-    timeout-minutes: 90
-    needs: [hxb]
+    timeout-minutes: 25
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: cedx/setup-hashlink@v4.0.2
@@ -178,7 +70,7 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Pull latest for hxb
+      - name: Pull latest from build
         run: git pull
       - name: Install lix
         run: npm i lix -g
@@ -220,8 +112,8 @@ jobs:
             file_pattern: '*.json'
             disable_globbing: true
   go-easy:
-    timeout-minutes: 90
-    needs: [hxb]
+    timeout-minutes: 25
+    needs: build
     strategy:
       fail-fast: false
     runs-on: ubuntu-latest
@@ -238,7 +130,7 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Pull latest for hxb
+      - name: Pull latest from build
         run: git pull
       - name: Install lix
         run: npm i lix -g
@@ -292,6 +184,8 @@ jobs:
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       # Add any additional setup steps required for the documentation generation
+      - name: Pull latest from build
+        run: git pull
       - name: Install lix
         run: npm i lix -g
       - name: Run lix

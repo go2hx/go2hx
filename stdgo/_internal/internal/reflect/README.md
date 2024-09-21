@@ -182,7 +182,7 @@ function _set(value:stdgo._internal.internal.reflect._Reflect.ReflectValue):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L876>)
+[\(view code\)](<./Reflect.hx#L853>)
 
 
 ## function asInterfaceValue
@@ -193,7 +193,7 @@ function asInterfaceValue(value:Dynamic, gt:stdgo._internal.internal.reflect.GoT
 ```
 
 
-[\(view code\)](<./Reflect.hx#L695>)
+[\(view code\)](<./Reflect.hx#L672>)
 
 
 ## function deepValueEqual
@@ -204,7 +204,7 @@ function deepValueEqual(v1:stdgo._internal.internal.reflect._Reflect.ReflectValu
 ```
 
 
-[\(view code\)](<./Reflect.hx#L100>)
+[\(view code\)](<./Reflect.hx#L77>)
 
 
 ## function defaultValue
@@ -215,7 +215,7 @@ function defaultValue(typ:stdgo._internal.internal.reflect._Reflect.Type):Any
 ```
 
 
-[\(view code\)](<./Reflect.hx#L842>)
+[\(view code\)](<./Reflect.hx#L819>)
 
 
 ## function defaultValueInternal
@@ -226,7 +226,7 @@ function defaultValueInternal(typ:stdgo._internal.internal.reflect._Type):Any
 ```
 
 
-[\(view code\)](<./Reflect.hx#L891>)
+[\(view code\)](<./Reflect.hx#L868>)
 
 
 ## function directlyAssignable
@@ -237,7 +237,7 @@ function directlyAssignable(t:stdgo._internal.internal.reflect._Reflect.Type, v:
 ```
 
 
-[\(view code\)](<./Reflect.hx#L188>)
+[\(view code\)](<./Reflect.hx#L165>)
 
 
 ## function formatGoFieldName
@@ -248,7 +248,7 @@ function formatGoFieldName(name:String):String
 ```
 
 
-[\(view code\)](<./Reflect.hx#L69>)
+[\(view code\)](<./Reflect.hx#L51>)
 
 
 ## function getElem
@@ -259,7 +259,7 @@ function getElem(type:stdgo._internal.internal.reflect.GoType):stdgo._internal.i
 ```
 
 
-[\(view code\)](<./Reflect.hx#L576>)
+[\(view code\)](<./Reflect.hx#L553>)
 
 
 ## function getSignature
@@ -270,7 +270,7 @@ function getSignature(type:stdgo._internal.internal.reflect.GoType):stdgo._inter
 ```
 
 
-[\(view code\)](<./Reflect.hx#L607>)
+[\(view code\)](<./Reflect.hx#L584>)
 
 
 ## function getUnderlying
@@ -281,7 +281,7 @@ function getUnderlying(gt:stdgo._internal.internal.reflect.GoType, ?once:Bool):N
 ```
 
 
-[\(view code\)](<./Reflect.hx#L797>)
+[\(view code\)](<./Reflect.hx#L774>)
 
 
 ## function getUnderlyingRefNamed
@@ -292,7 +292,7 @@ function getUnderlyingRefNamed(gt:stdgo._internal.internal.reflect.GoType, ?once
 ```
 
 
-[\(view code\)](<./Reflect.hx#L784>)
+[\(view code\)](<./Reflect.hx#L761>)
 
 
 ## function getVar
@@ -303,7 +303,7 @@ function getVar(type:stdgo._internal.internal.reflect.GoType):stdgo._internal.in
 ```
 
 
-[\(view code\)](<./Reflect.hx#L596>)
+[\(view code\)](<./Reflect.hx#L573>)
 
 
 ## function implementsMethod
@@ -314,7 +314,7 @@ function implementsMethod(t:stdgo._internal.internal.reflect._Reflect.Type, v:st
 ```
 
 
-[\(view code\)](<./Reflect.hx#L392>)
+[\(view code\)](<./Reflect.hx#L369>)
 
 
 ## function isAnyInterface
@@ -325,7 +325,7 @@ function isAnyInterface(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L719>)
+[\(view code\)](<./Reflect.hx#L696>)
 
 
 ## function isExported
@@ -336,7 +336,7 @@ function isExported(name:String):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L65>)
+[\(view code\)](<./Reflect.hx#L47>)
 
 
 ## function isInterface
@@ -347,7 +347,7 @@ function isInterface(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L730>)
+[\(view code\)](<./Reflect.hx#L707>)
 
 
 ## function isInvalid
@@ -358,7 +358,7 @@ function isInvalid(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L556>)
+[\(view code\)](<./Reflect.hx#L533>)
 
 
 ## function isNamed
@@ -369,7 +369,7 @@ function isNamed(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L513>)
+[\(view code\)](<./Reflect.hx#L490>)
 
 
 ## function isPointer
@@ -380,7 +380,7 @@ function isPointer(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L634>)
+[\(view code\)](<./Reflect.hx#L611>)
 
 
 ## function isPointerStruct
@@ -391,7 +391,7 @@ function isPointerStruct(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L549>)
+[\(view code\)](<./Reflect.hx#L526>)
 
 
 ## function isRef
@@ -402,7 +402,7 @@ function isRef(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L649>)
+[\(view code\)](<./Reflect.hx#L626>)
 
 
 ## function isRefValue
@@ -413,7 +413,7 @@ function isRefValue(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L662>)
+[\(view code\)](<./Reflect.hx#L639>)
 
 
 ## function isReflectTypeRef
@@ -424,7 +424,7 @@ function isReflectTypeRef(type:stdgo._internal.internal.reflect._Type):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L658>)
+[\(view code\)](<./Reflect.hx#L635>)
 
 
 ## function isSignature
@@ -435,7 +435,7 @@ function isSignature(type:stdgo._internal.internal.reflect.GoType, ?underlyingBo
 ```
 
 
-[\(view code\)](<./Reflect.hx#L495>)
+[\(view code\)](<./Reflect.hx#L472>)
 
 
 ## function isStruct
@@ -446,7 +446,7 @@ function isStruct(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L537>)
+[\(view code\)](<./Reflect.hx#L514>)
 
 
 ## function isTitle
@@ -457,7 +457,7 @@ function isTitle(string:String):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L533>)
+[\(view code\)](<./Reflect.hx#L510>)
 
 
 ## function isUnsafePointer
@@ -468,7 +468,7 @@ function isUnsafePointer(type:stdgo._internal.internal.reflect.GoType):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L620>)
+[\(view code\)](<./Reflect.hx#L597>)
 
 
 ## function namedUnderlying
@@ -479,7 +479,7 @@ function namedUnderlying(obj:stdgo.AnyInterface):stdgo.AnyInterface
 ```
 
 
-[\(view code\)](<./Reflect.hx#L73>)
+[\(view code\)](<./Reflect.hx#L55>)
 
 
 ## function pointerUnwrap
@@ -490,7 +490,7 @@ function pointerUnwrap(type:stdgo._internal.internal.reflect.GoType):stdgo._inte
 ```
 
 
-[\(view code\)](<./Reflect.hx#L684>)
+[\(view code\)](<./Reflect.hx#L661>)
 
 
 # Classes
@@ -537,7 +537,7 @@ function new(name:String, type:stdgo._internal.internal.reflect._Reflect.Ref<std
 ```
 
 
-[\(view code\)](<./Reflect.hx#L464>)
+[\(view code\)](<./Reflect.hx#L441>)
 
 
 ### FieldType function toString
@@ -548,7 +548,7 @@ function toString():String
 ```
 
 
-[\(view code\)](<./Reflect.hx#L471>)
+[\(view code\)](<./Reflect.hx#L448>)
 
 
 ## class MethodType
@@ -577,7 +577,7 @@ function new(name:String, type:stdgo._internal.internal.reflect._Reflect.Ref<std
 ```
 
 
-[\(view code\)](<./Reflect.hx#L443>)
+[\(view code\)](<./Reflect.hx#L420>)
 
 
 ### MethodType function toString
@@ -588,7 +588,7 @@ function toString():String
 ```
 
 
-[\(view code\)](<./Reflect.hx#L453>)
+[\(view code\)](<./Reflect.hx#L430>)
 
 
 ## class \_Type
@@ -602,7 +602,7 @@ function _common():stdgo._internal.internal.reflect.GoType
 ```
 
 
-[\(view code\)](<./Reflect.hx#L940>)
+[\(view code\)](<./Reflect.hx#L917>)
 
 
 ### \_Type function new
@@ -613,7 +613,7 @@ function new(gt:stdgo._internal.internal.reflect.GoType):Void
 ```
 
 
-[\(view code\)](<./Reflect.hx#L934>)
+[\(view code\)](<./Reflect.hx#L911>)
 
 
 ### \_Type function \_common
@@ -624,7 +624,7 @@ function _common():stdgo._internal.internal.reflect._Reflect.Ref<Dynamic>
 ```
 
 
-[\(view code\)](<./Reflect.hx#L948>)
+[\(view code\)](<./Reflect.hx#L925>)
 
 
 ### \_Type function \_uncommon
@@ -635,7 +635,7 @@ function _uncommon():stdgo._internal.internal.reflect._Reflect.Ref<Dynamic>
 ```
 
 
-[\(view code\)](<./Reflect.hx#L945>)
+[\(view code\)](<./Reflect.hx#L922>)
 
 
 ### \_Type function align
@@ -646,7 +646,7 @@ function align():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1382>)
+[\(view code\)](<./Reflect.hx#L1359>)
 
 
 ### \_Type function assignableTo
@@ -657,7 +657,7 @@ function assignableTo( _u:stdgo._internal.internal.reflect._Reflect.Type):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1090>)
+[\(view code\)](<./Reflect.hx#L1067>)
 
 
 ### \_Type function bits
@@ -668,7 +668,7 @@ function bits():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1057>)
+[\(view code\)](<./Reflect.hx#L1034>)
 
 
 ### \_Type function chanDir
@@ -679,7 +679,7 @@ function chanDir():stdgo._internal.internal.reflect._Reflect.ReflectChanDir
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1055>)
+[\(view code\)](<./Reflect.hx#L1032>)
 
 
 ### \_Type function comparable
@@ -690,7 +690,7 @@ function comparable():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1068>)
+[\(view code\)](<./Reflect.hx#L1045>)
 
 
 ### \_Type function convertibleTo
@@ -701,7 +701,7 @@ function convertibleTo( _u:stdgo._internal.internal.reflect._Reflect.Type):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1088>)
+[\(view code\)](<./Reflect.hx#L1065>)
 
 
 ### \_Type function elem
@@ -712,7 +712,7 @@ function elem():stdgo._internal.internal.reflect._Reflect.Type
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1036>)
+[\(view code\)](<./Reflect.hx#L1013>)
 
 
 ### \_Type function field
@@ -723,7 +723,7 @@ function field( _i:stdgo.GoInt):stdgo._internal.internal.reflect._Reflect.Reflec
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1012>)
+[\(view code\)](<./Reflect.hx#L989>)
 
 
 ### \_Type function fieldAlign
@@ -734,7 +734,7 @@ function fieldAlign():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1379>)
+[\(view code\)](<./Reflect.hx#L1356>)
 
 
 ### \_Type function fieldByIndex
@@ -745,7 +745,7 @@ function fieldByIndex( _index:stdgo.Slice<stdgo.GoInt>):stdgo._internal.internal
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1010>)
+[\(view code\)](<./Reflect.hx#L987>)
 
 
 ### \_Type function fieldByName
@@ -759,7 +759,7 @@ function fieldByName( _name:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1007>)
+[\(view code\)](<./Reflect.hx#L984>)
 
 
 ### \_Type function fieldByNameFunc
@@ -773,7 +773,7 @@ function fieldByNameFunc( _match:()):{
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1004>)
+[\(view code\)](<./Reflect.hx#L981>)
 
 
 ### \_Type function formatGoPath
@@ -784,7 +784,7 @@ function formatGoPath():String
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1160>)
+[\(view code\)](<./Reflect.hx#L1137>)
 
 
 ### \_Type function implements\_
@@ -795,7 +795,7 @@ function implements_( _u:stdgo._internal.internal.reflect._Reflect.Type):Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1106>)
+[\(view code\)](<./Reflect.hx#L1083>)
 
 
 ### \_Type function in\_
@@ -806,7 +806,7 @@ function in_( _i:stdgo.GoInt):stdgo._internal.internal.reflect._Reflect.Type
 ```
 
 
-[\(view code\)](<./Reflect.hx#L992>)
+[\(view code\)](<./Reflect.hx#L969>)
 
 
 ### \_Type function isVariadic
@@ -817,7 +817,7 @@ function isVariadic():Bool
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1052>)
+[\(view code\)](<./Reflect.hx#L1029>)
 
 
 ### \_Type function key
@@ -828,7 +828,7 @@ function key():stdgo._internal.internal.reflect._Reflect.Type
 ```
 
 
-[\(view code\)](<./Reflect.hx#L990>)
+[\(view code\)](<./Reflect.hx#L967>)
 
 
 ### \_Type function kind
@@ -839,7 +839,7 @@ function kind():stdgo._internal.internal.reflect._Reflect.ReflectKind
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1116>)
+[\(view code\)](<./Reflect.hx#L1093>)
 
 
 ### \_Type function len
@@ -850,7 +850,7 @@ function len():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L977>)
+[\(view code\)](<./Reflect.hx#L954>)
 
 
 ### \_Type function method
@@ -861,7 +861,7 @@ function method( _0:stdgo.GoInt):stdgo._internal.internal.reflect._Reflect.Refle
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1376>)
+[\(view code\)](<./Reflect.hx#L1353>)
 
 
 ### \_Type function name
@@ -872,7 +872,7 @@ function name():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1352>)
+[\(view code\)](<./Reflect.hx#L1329>)
 
 
 ### \_Type function numField
@@ -883,7 +883,7 @@ function numField():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L966>)
+[\(view code\)](<./Reflect.hx#L943>)
 
 
 ### \_Type function numIn
@@ -894,7 +894,7 @@ function numIn():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L956>)
+[\(view code\)](<./Reflect.hx#L933>)
 
 
 ### \_Type function numMethod
@@ -905,7 +905,7 @@ function numMethod():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1354>)
+[\(view code\)](<./Reflect.hx#L1331>)
 
 
 ### \_Type function numOut
@@ -916,7 +916,7 @@ function numOut():stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Reflect.hx#L954>)
+[\(view code\)](<./Reflect.hx#L931>)
 
 
 ### \_Type function out
@@ -927,7 +927,7 @@ function out( _i:stdgo.GoInt):stdgo._internal.internal.reflect._Reflect.Type
 ```
 
 
-[\(view code\)](<./Reflect.hx#L951>)
+[\(view code\)](<./Reflect.hx#L928>)
 
 
 ### \_Type function pkgPath
@@ -938,7 +938,7 @@ function pkgPath():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1349>)
+[\(view code\)](<./Reflect.hx#L1326>)
 
 
 ### \_Type function size
@@ -949,7 +949,7 @@ function size():stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1313>)
+[\(view code\)](<./Reflect.hx#L1290>)
 
 
 ### \_Type function string
@@ -960,7 +960,7 @@ function string():stdgo.GoString
 ```
 
 
-[\(view code\)](<./Reflect.hx#L1181>)
+[\(view code\)](<./Reflect.hx#L1158>)
 
 
 # Abstracts

@@ -42,12 +42,12 @@
          |
          | Called from macro here
 
-[30;41m ERROR [0m stdgo/_internal/internal/Macro.macro.hx:370: lines 370-373
+[30;41m ERROR [0m stdgo/_internal/internal/Macro.macro.hx:363: lines 363-366
 
- 370 | [2m   [0m[1mdo {[0m
- 371 | [1m    $i{exitName} = false;[0m
- 372 | [1m    $switchStmt;[0m
- 373 | [1m   } while ($i{selectName} != "")[0m[2m;[0m
+ 363 | [2m   [0m[1mdo {[0m
+ 364 | [1m    $i{exitName} = false;[0m
+ 365 | [1m    $switchStmt;[0m
+ 366 | [1m   } while ($i{selectName} != "")[0m[2m;[0m
      |
      | Missing return: stdgo.Error
 

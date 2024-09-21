@@ -57,7 +57,7 @@ function alignof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Unsafe_stringData.hx#L69>)
+[\(view code\)](<./Unsafe_stringData.hx#L64>)
 
 
 ## function offsetof\_
@@ -68,7 +68,7 @@ function offsetof_(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Unsafe_stringData.hx#L65>)
+[\(view code\)](<./Unsafe_stringData.hx#L60>)
 
 
 ## function sizeof
@@ -79,7 +79,7 @@ function sizeof(x:stdgo.AnyInterface):stdgo.GoUIntptr
 ```
 
 
-[\(view code\)](<./Unsafe_stringData.hx#L61>)
+[\(view code\)](<./Unsafe_stringData.hx#L56>)
 
 
 ## function slice
@@ -90,7 +90,7 @@ function slice(_ptr:stdgo.Pointer<Dynamic>, _len:stdgo.GoInt):Array<Dynamic>
 ```
 
 
-[\(view code\)](<./Unsafe_stringData.hx#L83>)
+[\(view code\)](<./Unsafe_stringData.hx#L78>)
 
 
 ## function sliceData
@@ -101,7 +101,7 @@ function sliceData(s:stdgo.Slice<sliceData.T>):Dynamic
 ```
 
 
-[\(view code\)](<./Unsafe_stringData.hx#L77>)
+[\(view code\)](<./Unsafe_stringData.hx#L72>)
 
 
 ## function string
@@ -112,7 +112,7 @@ function string(s:stdgo.Pointer<stdgo.GoByte>, len:stdgo.GoInt):stdgo.GoString
 ```
 
 
-[\(view code\)](<./Unsafe_stringData.hx#L80>)
+[\(view code\)](<./Unsafe_stringData.hx#L75>)
 
 
 ## function stringData
@@ -123,7 +123,7 @@ function stringData(s:stdgo.GoString):Dynamic
 ```
 
 
-[\(view code\)](<./Unsafe_stringData.hx#L74>)
+[\(view code\)](<./Unsafe_stringData.hx#L69>)
 
 
 ## function alignof\_

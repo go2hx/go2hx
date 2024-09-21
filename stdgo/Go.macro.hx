@@ -413,9 +413,9 @@ class Go {
 						final p = createTypePath();
 						if (!selfPointer)
 							expr = macro stdgo.Go.pointer($expr);
-						final e = macro new $p($expr, $rt);
-						// trace(new haxe.macro.Printer().printExpr(e));
-						return e;
+							final e = macro new $p($expr, $rt);
+							// trace(new haxe.macro.Printer().printExpr(e));
+							return e;
 					}
 				default:
 					Context.error("invalid type f asInterface: " + t, Context.currentPos());
@@ -1431,6 +1431,8 @@ class Go {
 		var underlyingType:haxe.macro.Type = null;
 		var module = parseModule(ref.module);
 		final path = createPath(ref.module, ref.name);
+		if (nameTypes.exists(path))
+			return getTypeInfoData(path);
 		for (field in fs) {
 			if (field.meta.has(":local"))
 				continue;

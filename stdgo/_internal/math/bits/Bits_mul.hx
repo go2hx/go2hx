@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function mul(_x:stdgo.GoUInt, _y:stdgo.GoUInt):{ var _0 : stdgo.GoUInt; var _1 : stdgo.GoUInt; } {
         var _hi = (0 : stdgo.GoUInt), _lo = (0 : stdgo.GoUInt);
         if (true) {

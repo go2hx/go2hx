@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function trailingZeros16(_x:stdgo.GoUInt16):stdgo.GoInt {
         if (_x == ((0 : stdgo.GoUInt16))) {
             return (16 : stdgo.GoInt);

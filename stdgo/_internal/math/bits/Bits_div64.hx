@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt64; } {
         var _quo = (0 : stdgo.GoUInt64), _rem = (0 : stdgo.GoUInt64);
         if (_y == ((0i64 : stdgo.GoUInt64))) {

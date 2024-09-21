@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function sub32(_x:stdgo.GoUInt32, _y:stdgo.GoUInt32, _borrow:stdgo.GoUInt32):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
         var _diff = (0 : stdgo.GoUInt32), _borrowOut = (0 : stdgo.GoUInt32);
         _diff = ((_x - _y : stdgo.GoUInt32) - _borrow : stdgo.GoUInt32);

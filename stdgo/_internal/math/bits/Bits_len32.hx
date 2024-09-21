@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function len32(_x:stdgo.GoUInt32):stdgo.GoInt {
         var _n = (0 : stdgo.GoInt);
         if ((_x >= (65536u32 : stdgo.GoUInt32) : Bool)) {

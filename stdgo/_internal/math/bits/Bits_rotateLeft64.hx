@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function rotateLeft64(_x:stdgo.GoUInt64, _k:stdgo.GoInt):stdgo.GoUInt64 {
         {};
         var _s = ((_k : stdgo.GoUInt) & (63u32 : stdgo.GoUInt) : stdgo.GoUInt);

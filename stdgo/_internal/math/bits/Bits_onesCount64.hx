@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function onesCount64(_x:stdgo.GoUInt64):stdgo.GoInt {
         {};
         _x = (((_x >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) & (6148914691236517205i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + (_x & (6148914691236517205i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);

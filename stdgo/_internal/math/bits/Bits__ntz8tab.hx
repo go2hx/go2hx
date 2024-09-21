@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 final _ntz8tab : stdgo.GoString = stdgo.Go.str("\x08",
 0,
 1,

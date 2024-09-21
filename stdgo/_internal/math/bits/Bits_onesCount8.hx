@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function onesCount8(_x:stdgo.GoUInt8):stdgo.GoInt {
         return (stdgo.Go.str(0,
 1,

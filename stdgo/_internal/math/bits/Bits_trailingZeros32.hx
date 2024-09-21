@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function trailingZeros32(_x:stdgo.GoUInt32):stdgo.GoInt {
         if (_x == ((0u32 : stdgo.GoUInt32))) {
             return (32 : stdgo.GoInt);

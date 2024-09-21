@@ -101,6 +101,7 @@
  "hl|struct2",
  "hl|switch0",
  "hl|switch1",
+ "hl|tagBootstrap",
  "hl|typeswitch0",
  "hl|unary0",
  "hl|unsafe0",

@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function reverseBytes64(_x:stdgo.GoUInt64):stdgo.GoUInt64 {
         {};
         _x = (((_x >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) & (71777214294589695i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | ((_x & (71777214294589695i64 : stdgo.GoUInt64) : stdgo.GoUInt64) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);

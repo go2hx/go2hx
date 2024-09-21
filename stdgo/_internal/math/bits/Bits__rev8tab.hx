@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 final _rev8tab : stdgo.GoString = stdgo.Go.str(0,
 128,
 "@",

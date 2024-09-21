@@ -1,3 +1,2 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
-var _divideError : stdgo.Error = @:privateAccess stdgo.Error._divideError;
+var _divideError : stdgo.Error = stdgo.Go.asInterface((("integer divide by zero" : stdgo.GoString) : stdgo._internal.math.bits.Bits_T_errorString.T_errorString));

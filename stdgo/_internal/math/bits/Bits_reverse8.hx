@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function reverse8(_x:stdgo.GoUInt8):stdgo.GoUInt8 {
         return stdgo.Go.str(0,
 128,

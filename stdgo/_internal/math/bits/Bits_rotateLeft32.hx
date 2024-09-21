@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function rotateLeft32(_x:stdgo.GoUInt32, _k:stdgo.GoInt):stdgo.GoUInt32 {
         {};
         var _s = ((_k : stdgo.GoUInt) & (31u32 : stdgo.GoUInt) : stdgo.GoUInt);

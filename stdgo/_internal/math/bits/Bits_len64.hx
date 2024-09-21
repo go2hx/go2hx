@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 function len64(_x:stdgo.GoUInt64):stdgo.GoInt {
         var _n = (0 : stdgo.GoInt);
         if ((_x >= (4294967296i64 : stdgo.GoUInt64) : Bool)) {

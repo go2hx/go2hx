@@ -1,5 +1,4 @@
 package stdgo._internal.math.bits;
-import stdgo._internal.unsafe.Unsafe;
 var _deBruijn32tab : stdgo.GoArray<stdgo.GoUInt8> = (new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[
 (0 : stdgo.GoUInt8),
 (1 : stdgo.GoUInt8),

@@ -1,2 +1,0 @@
-package _internal.vendor.golang_dot_org.x.net.idna;
-var _idnaSparse : _internal.vendor.golang_dot_org.x.net.idna.Idna_T_sparseBlocks.T_sparseBlocks = ({ _values : (_internal.vendor.golang_dot_org.x.net.idna.Idna__idnaSparseValues._idnaSparseValues.__slice__(0) : stdgo.Slice<_internal.vendor.golang_dot_org.x.net.idna.Idna_T_valueRange.T_valueRange>), _offset : (_internal.vendor.golang_dot_org.x.net.idna.Idna__idnaSparseOffset._idnaSparseOffset.__slice__(0) : stdgo.Slice<stdgo.GoUInt16>) } : _internal.vendor.golang_dot_org.x.net.idna.Idna_T_sparseBlocks.T_sparseBlocks);

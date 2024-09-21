@@ -1,3 +1,0 @@
-package _internal.path.filepath_test;
-import stdgo._internal.path.filepath.Filepath;
-var _nonwindirtests : stdgo.Slice<_internal.path.filepath_test.Filepath_test_PathTest.PathTest> = (new stdgo.Slice<_internal.path.filepath_test.Filepath_test_PathTest.PathTest>(1, 1, ...[(new _internal.path.filepath_test.Filepath_test_PathTest.PathTest(("////" : stdgo.GoString), ("/" : stdgo.GoString)) : _internal.path.filepath_test.Filepath_test_PathTest.PathTest)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : _internal.path.filepath_test.Filepath_test_PathTest.PathTest)])) : stdgo.Slice<_internal.path.filepath_test.Filepath_test_PathTest.PathTest>);

@@ -1,2 +1,0 @@
-package _internal.crypto.internal.edwards25519;
-var _basepointNafTablePrecomp : _internal.crypto.internal.edwards25519.Edwards25519_T__struct_1.T__struct_1 = ({ _table : ({} : _internal.crypto.internal.edwards25519.Edwards25519_T_nafLookupTable8.T_nafLookupTable8), _initOnce : ({} : stdgo._internal.sync.Sync_Once.Once) } : _internal.crypto.internal.edwards25519.Edwards25519_T__struct_1.T__struct_1);

@@ -1,3 +1,0 @@
-package _internal.runtime_dot_test;
-import stdgo._internal.runtime.Runtime;
-var _fuzzTargets : stdgo.Slice<stdgo._internal.testing.Testing_InternalFuzzTarget.InternalFuzzTarget> = (new stdgo.Slice<stdgo._internal.testing.Testing_InternalFuzzTarget.InternalFuzzTarget>(1, 1, ...[(new stdgo._internal.testing.Testing_InternalFuzzTarget.InternalFuzzTarget(("FuzzPIController" : stdgo.GoString), _internal.runtime_test.Runtime_test_fuzzPIController.fuzzPIController) : stdgo._internal.testing.Testing_InternalFuzzTarget.InternalFuzzTarget)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.testing.Testing_InternalFuzzTarget.InternalFuzzTarget)])) : stdgo.Slice<stdgo._internal.testing.Testing_InternalFuzzTarget.InternalFuzzTarget>);

@@ -1,4 +1,0 @@
-package _internal.crypto.internal.nistec;
-function newP521Point():stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P521Point.P521Point> {
-        return (stdgo.Go.setRef(({ _x : (stdgo.Go.setRef(({} : _internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element)) : stdgo.Ref<_internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>), _y : (stdgo.Go.setRef(({} : _internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element)) : stdgo.Ref<_internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>).one(), _z : (stdgo.Go.setRef(({} : _internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element)) : stdgo.Ref<_internal.crypto.internal.nistec.fiat.Fiat_P521Element.P521Element>) } : _internal.crypto.internal.nistec.Nistec_P521Point.P521Point)) : stdgo.Ref<_internal.crypto.internal.nistec.Nistec_P521Point.P521Point>);
-    }

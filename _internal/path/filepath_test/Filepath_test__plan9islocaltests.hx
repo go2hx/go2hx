@@ -1,3 +1,0 @@
-package _internal.path.filepath_test;
-import stdgo._internal.path.filepath.Filepath;
-var _plan9islocaltests : stdgo.Slice<_internal.path.filepath_test.Filepath_test_IsLocalTest.IsLocalTest> = (new stdgo.Slice<_internal.path.filepath_test.Filepath_test_IsLocalTest.IsLocalTest>(1, 1, ...[(new _internal.path.filepath_test.Filepath_test_IsLocalTest.IsLocalTest(("#a" : stdgo.GoString), false) : _internal.path.filepath_test.Filepath_test_IsLocalTest.IsLocalTest)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : _internal.path.filepath_test.Filepath_test_IsLocalTest.IsLocalTest)])) : stdgo.Slice<_internal.path.filepath_test.Filepath_test_IsLocalTest.IsLocalTest>);

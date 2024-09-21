@@ -1,3 +1,0 @@
-package _internal.internal.platform_dot_test;
-import stdgo._internal.internal.platform.Platform;
-var _tests : stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest>(1, 1, ...[(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestGenerated" : stdgo.GoString), _internal.internal.platform_test.Platform_test_testGenerated.testGenerated) : stdgo._internal.testing.Testing_InternalTest.InternalTest)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.testing.Testing_InternalTest.InternalTest)])) : stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest>);

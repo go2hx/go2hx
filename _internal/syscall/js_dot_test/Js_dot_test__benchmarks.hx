@@ -1,3 +1,0 @@
-package _internal.syscall.js_dot_test;
-import stdgo._internal.syscall.js.Js;
-var _benchmarks : stdgo.Slice<stdgo._internal.testing.Testing_InternalBenchmark.InternalBenchmark> = (new stdgo.Slice<stdgo._internal.testing.Testing_InternalBenchmark.InternalBenchmark>(1, 1, ...[(new stdgo._internal.testing.Testing_InternalBenchmark.InternalBenchmark(("BenchmarkDOM" : stdgo.GoString), _internal.syscall.js_test.Js_test_benchmarkDOM.benchmarkDOM) : stdgo._internal.testing.Testing_InternalBenchmark.InternalBenchmark)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.testing.Testing_InternalBenchmark.InternalBenchmark)])) : stdgo.Slice<stdgo._internal.testing.Testing_InternalBenchmark.InternalBenchmark>);

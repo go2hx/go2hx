@@ -1,2 +1,0 @@
-package _internal.crypto.internal.edwards25519;
-var _d2 : stdgo.Ref<_internal.crypto.internal.edwards25519.field.Field_Element.Element> = (stdgo.Go.setRef(({} : _internal.crypto.internal.edwards25519.field.Field_Element.Element)) : stdgo.Ref<_internal.crypto.internal.edwards25519.field.Field_Element.Element>).add(_internal.crypto.internal.edwards25519.Edwards25519__d._d, _internal.crypto.internal.edwards25519.Edwards25519__d._d);

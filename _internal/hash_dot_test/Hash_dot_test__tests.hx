@@ -1,3 +1,0 @@
-package _internal.hash_dot_test;
-import stdgo._internal.hash.Hash;
-var _tests : stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest> = (new stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest>(1, 1, ...[(new stdgo._internal.testing.Testing_InternalTest.InternalTest(("TestMarshalHash" : stdgo.GoString), _internal.hash_test.Hash_test_testMarshalHash.testMarshalHash) : stdgo._internal.testing.Testing_InternalTest.InternalTest)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.testing.Testing_InternalTest.InternalTest)])) : stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest>);

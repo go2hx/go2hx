@@ -494,6 +494,12 @@
      |                                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | Type not found : stdgo._internal.go.token.Token_Token
 
+[30;41m ERROR [0m stdgo/_internal/crypto/internal/boring/Boring_unreachable.hx:3: characters 9-64
+
+   3 | [2m        [0m[1m_internal.crypto.internal.boring.sig.Sig_standardCrypto[0m[2m.standardCrypto();[0m
+     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : _internal.crypto.internal.boring.sig.Sig_standardCrypto
+
 [30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:352: characters 59-67
 
  352 | [2m                        var __tmp__ = _ws._fuzzFn(_entry?.[0m[1m__copy__[0m[2m());[0m

@@ -13,7 +13,7 @@ abstract UnsafePointer(stdgo.AnyInterface) from stdgo.AnyInterface to stdgo.AnyI
 		var fromType:stdgo._internal.internal.reflect.Reflect.GoType = (this.type : Dynamic)._common();
 		var f = null;
 		f = t -> switch t {
-			case refType(_.get() => elem):
+			case stdgo._internal.internal.reflect.Reflect.GoType.refType(_.get() => elem):
 				f(elem);
 			default:
 				t;

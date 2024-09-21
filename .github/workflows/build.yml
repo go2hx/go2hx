@@ -42,8 +42,8 @@ jobs:
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
-      - name: Display _internal/math/bits/Bits_div32.hx
-        run: cat _internal/math/bits/Bits_div32.hx
+      - name: Display stdgo/_internal/math/bits/Bits_div32.hx
+        run: cat stdgo/_internal/math/bits/Bits_div32.hx
       #- name: Create hxb
       #  run: npx haxelib run go2hx hxb .
       - name: Run unit

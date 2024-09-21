@@ -1113,7 +1113,7 @@ function indexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L332>)
+[\(view code\)](<./GoString.hx#L316>)
 
 
 ### GoStringTools function lastIndexOf
@@ -1124,7 +1124,7 @@ function lastIndexOf(s:stdgo.GoString, str:stdgo.GoString, ?startIndex:Int):Int
 ```
 
 
-[\(view code\)](<./GoString.hx#L329>)
+[\(view code\)](<./GoString.hx#L313>)
 
 
 ### GoStringTools function substr
@@ -1135,7 +1135,7 @@ function substr(str:stdgo.GoString, pos:Int, ?len:Int):stdgo.GoString
 ```
 
 
-[\(view code\)](<./GoString.hx#L335>)
+[\(view code\)](<./GoString.hx#L319>)
 
 
 ## class PointerData

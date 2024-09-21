@@ -67,5 +67,4 @@ runrnd
 actions-runner
 log.out
 sort_*.json
-*.zip
 prebuild

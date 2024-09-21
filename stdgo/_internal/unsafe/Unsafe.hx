@@ -1,21 +1,16 @@
 package stdgo._internal.unsafe;
 
-import stdgo.Pointer;
-import stdgo._internal.internal.reflect.Reflect.GoType;
-import stdgo.AnyInterface;
-using GoString.GoStringTools;
-
 @:follow typedef Pointer_ = UnsafePointer;
 
-abstract UnsafePointer(AnyInterface) from AnyInterface to AnyInterface {
+abstract UnsafePointer(stdgo.AnyInterface) from stdgo.AnyInterface to stdgo.AnyInterface {
 	private function new(value) {
 		this = value;
 	}
-	public function __toRef__():Ref<Dynamic>
+	public function __toRef__():stdgo.Ref<Dynamic>
 		return this.value;
 
-	public function __convert__(toType:GoType):Any {
-		var fromType:GoType = (this.type : Dynamic)._common();
+	public function __convert__(toType:stdgo._internal.internal.reflect.Reflect.GoType):Any {
+		var fromType:stdgo._internal.internal.reflect.Reflect.GoType = (this.type : Dynamic)._common();
 		var f = null;
 		f = t -> switch t {
 			case refType(_.get() => elem):
@@ -46,7 +41,7 @@ abstract UnsafePointer(AnyInterface) from AnyInterface to AnyInterface {
 					case basic(uint8_kind):
 						switch toType {
 							case pointerType(_.get() => basic(string_kind)):
-								return Go.pointer(((this.value : Slice<GoUInt8>).toBytes() : GoString));
+								return Go.pointer(((this.value : stdgo.Slice<GoUInt8>).toBytes() : stdgo.GoString));
 							default:
 						}
 					default:

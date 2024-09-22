@@ -3,14 +3,16 @@
 	"targetConfig": {
 		"exclude": [
 			"stdgo._internal.internal",
-			"stdgo._internal.internal.HxbTypeInfoData"
+			"stdgo._internal.internal.HxbTypeInfoData",
+			"stdgo.Go"
 		],
 		"generateDocumentation": false
 	},
 	"macroConfig": {
 		"exclude": [
 			"stdgo._internal.internal",
-			"stdgo._internal.internal.HxbTypeInfoData"
+			"stdgo._internal.internal.HxbTypeInfoData",
+			"stdgo.Go"
         ],
 		"generateDocumentation": false
 	}

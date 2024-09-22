@@ -53,7 +53,7 @@ jobs:
           path: |
             ./_internal/*
             ./stdgo/*
-            ./go2hx.zip.* 
+            ./go2hx.*.zip
           key: ${{ github.sha }}-build-${{ env.cache-name }}
   build:
     timeout-minutes: 26
@@ -93,8 +93,9 @@ jobs:
           path: |
             ./_internal/*
             ./stdgo/*
-            ./go2hx.zip.* 
+            ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
+      - run: ls
       # compile stdgo
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
@@ -139,7 +140,7 @@ jobs:
           path: |
             ./_internal/*
             ./stdgo/*
-            ./go2hx.zip.* 
+            ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       # run yaegi easy tests
       - name: clone yaegi
@@ -199,7 +200,7 @@ jobs:
           path: |
             ./_internal/*
             ./stdgo/*
-            ./go2hx.zip.* 
+            ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go

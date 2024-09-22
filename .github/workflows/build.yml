@@ -100,9 +100,9 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
       - name: Pull latest
         run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
@@ -148,7 +148,7 @@ jobs:
       - name: Sort tests
         run: go run ./scripts/sortTests ci
       - name: Run yaegi easy tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D hxb
+        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -211,7 +211,7 @@ jobs:
         run: cat tests/go_easy.json
       # run go easy tests
       - name: Run go easy tests
-        run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D hxb
+        run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs #-D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder

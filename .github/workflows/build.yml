@@ -153,6 +153,8 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
+      - name: Remove hxb zips
+        run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
         run: git pull
@@ -216,6 +218,8 @@ jobs:
         run: rm -r -d stdgo
       - name: Remove _internal folder
         run: rm -r -d _internal
+      - name: Remove hxb zips
+        run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
         run: git pull

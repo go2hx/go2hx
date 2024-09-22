@@ -20,9 +20,6 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      # non self-host setup
-      - uses: cedx/setup-hashlink@v4.0.2
-        continue-on-error: true
       - uses: actions/setup-go@v3
         continue-on-error: true
         with:
@@ -85,8 +82,10 @@ jobs:
       - name: Run lix
         run: npx lix download
       # go2hx setup
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
       - name: Set source
-        run: npx haxelib dev go2hx .
+        run: haxelib dev go2hx .
       # clean stdgo
       - uses: actions/cache/restore@v4
         id: setup-cache
@@ -96,15 +95,13 @@ jobs:
             ./stdgo/*
             ./go2hx.zip.* 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
-      - name: Build go2hx compiler
-        run: npx haxelib run go2hx build
       # compile stdgo
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D hxb
       - name: Pull latest
         run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
@@ -127,34 +124,30 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Pull latest from build
-        run: git pull
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
         run: npx lix download
       # go2hx setup
+      - name: Build go2hx compiler
+        run: npx haxe --run Run build
       - name: Set source
         run: npx haxelib dev go2hx .
-      # clean stdgo
-      - name: Clean go2hx
-        run: npx haxelib run go2hx clean
-      - name: Build go2hx compiler
-        run: npx haxelib run go2hx build
-      # compile stdgo
-      - name: Run stdgo automatic compile
-        run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
-      - name: Run rnd
-        run: npx haxe rnd/rnd.hxml
-      # - name: Create hxb
-      #   run: npx haxelib run go2hx hxb .
+      - uses: actions/cache/restore@v4
+        id: setup-cache
+        with:
+          path: |
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.zip.* 
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
       # run yaegi easy tests
       - name: clone yaegi
         run: git clone https://github.com/traefik/yaegi -b v0.16.1 --depth=1 ./tests/yaegi
       - name: Sort tests
         run: go run ./scripts/sortTests ci
       - name: Run yaegi easy tests
-        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D yaegi -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -187,8 +180,6 @@ jobs:
       - name: Get number of cores (macOS)
         if: startsWith(runner.os, 'macOS')
         run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Pull latest from build
-        run: git pull
       - name: Install lix
         run: npm i lix -g
       - name: Run lix
@@ -196,18 +187,20 @@ jobs:
       # go2hx setup
       # clean stdgo
       - name: Clean go2hx
-        run: haxe --run Run clean
+        run: npx haxe --run Run clean
       # compile stdgo
       - name: Build go2hx compiler
-        run: haxe --run Run build
-      - name: Run stdgo automatic compile
-        #run: haxe scripts/stdgo.hxml -D runnerCount=8
-        #run: haxe scripts/stdgo.hxml -D runnerCount=8
-        run: haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
+        run: npx haxe --run Run build
       - name: Set source
         run: haxelib dev go2hx .
-      # - name: Create hxb
-      #   run: npx haxelib run go2hx hxb .
+      - uses: actions/cache/restore@v4
+        id: setup-cache
+        with:
+          path: |
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.zip.* 
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: clone go
         run: git clone https://github.com/golang/go -b go1.21.3 --depth=1 ./tests/go
         continue-on-error: true
@@ -217,7 +210,7 @@ jobs:
         run: cat tests/go_easy.json
       # run go easy tests
       - name: Run go easy tests
-        run: haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs #-D hxb
+        run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs -D hxb
       - name: Remove stdgo folder
         run: rm -r -d stdgo
       - name: Remove _internal folder
@@ -241,8 +234,6 @@ jobs:
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       # Add any additional setup steps required for the documentation generation
-      - name: Pull latest from build
-        run: git pull
       - name: Install lix
         run: npm i lix -g
       - name: Run lix

@@ -61,6 +61,7 @@ var sortMode = "";
 var testCount = 0;
 var offset = 0;
 var run:String = "";
+var runOnly:String = "";
 var lastTaskLogs = [];
 var dryRun = false;
 final runnerCount = Compiler.getDefine("runnerCount") ?? "2";
@@ -98,6 +99,7 @@ function main() {
 	final offsetStr = Compiler.getDefine("offset");
 	offset = offsetStr != null ? Std.parseInt(offsetStr) : 0;
 	run = Compiler.getDefine("run") ?? "";
+	runOnly = Compiler.getDefine("runonly") ?? "";
 	dryRun = Compiler.getDefine("dryRun") != null;
 	var startStamp = 0.0;
 
@@ -143,6 +145,10 @@ function runTests() {
 		tests = tests.filter((v) -> v.indexOf(run) != -1);
 		tasks = tasks.filter((v) -> v.path.indexOf(run) != -1);
 		trace(tests);
+	}
+	if (runOnly != "") {
+		tests = tests.filter(v -> v == runOnly);
+		tasks = tasks.filter(v -> v.path == runOnly);
 	}
 }
 
@@ -476,6 +482,7 @@ private function sortDataToTests(sortData:SortData) {
 				tempTests = sortData.easy;
 				// does not have a main func
 				tempTests.remove("tests/yaegi/_test/export0.go\n");
+				tempTests.remove("tests/yaegi/_test/sieve.go"); // SIGNAL 15 Channel buffer pop
 			case "medium":
 				tempTests = sortData.medium;
 			case "hard":

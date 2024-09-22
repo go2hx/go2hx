@@ -100,7 +100,7 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D hxb
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
       - name: Pull latest

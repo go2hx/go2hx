@@ -2,15 +2,4 @@
 -D hxb
 -m _internal.Hxb
 --hxb hxb.json
--D js-es=6
--D message-reporting=pretty
--D source-map
--D shallow-expose
--D keep-inline-positions
--D std-encoding-utf8
--D simulate_num
--D hl-ver=1.11.0
--D no-deprecation-warnings
--D hl_no_opt
--D numberlinkerror
--D numberlinkmath
+extraParams.hxml

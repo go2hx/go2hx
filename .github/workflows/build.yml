@@ -51,6 +51,7 @@ jobs:
         with:
           # npm cache files are stored in `~/.npm` on Linux/macOS
           path: |
+            TypeInfoData_go2hx_hxb.hx
             ./_internal/*
             ./stdgo/*
             ./go2hx.*.zip
@@ -91,6 +92,7 @@ jobs:
         id: setup-cache
         with:
           path: |
+            TypeInfoData_go2hx_hxb.hx
             ./_internal/*
             ./stdgo/*
             ./go2hx.*.zip 
@@ -138,6 +140,7 @@ jobs:
         id: setup-cache
         with:
           path: |
+            TypeInfoData_go2hx_hxb.hx
             ./_internal/*
             ./stdgo/*
             ./go2hx.*.zip 
@@ -200,6 +203,7 @@ jobs:
         id: setup-cache
         with:
           path: |
+            TypeInfoData_go2hx_hxb.hx
             ./_internal/*
             ./stdgo/*
             ./go2hx.*.zip 

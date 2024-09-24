@@ -136,13 +136,13 @@ function create(outputPath:String, module:Module, root:String) {
 		}
 		if (externDefBool) {
 			externContent.push(cl);
-			save(outputPath + actualPathExtern + "/", file.name, externContent, pkgPathExtern);
+			save(outputPath + actualPathExtern + "/", file.name, externContent, pkgPathExtern, "", false);
 		}
 		save(outputPath + actualPath + "/", file.name, content, pkgPath + contentImports);
 		if (hasMacroDef) {
 			if (externDefBool) {
 				externMacroContent.push(clMacro);
-				save(outputPath + actualPathExtern + "/", file.name, externMacroContent, pkgPath, ".macro");
+				save(outputPath + actualPathExtern + "/", file.name, externMacroContent, pkgPath, ".macro", false);
 			}
 			save(outputPath + actualPath + "/", file.name, macroContent, pkgPath, ".macro");
 		}
@@ -165,10 +165,10 @@ private function runCmd(cmd:String) {
 	#end
 }
 
-private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String = "") {
+private function save(dir:String, name:String, content:Array<TypeDefinition>, prefix:String, extension:String = "", splitDepsContent:Bool=true) {
 	if (content.length == 0)
 		return;
-	if (splitDepsBool)
+	if (splitDepsContent && splitDepsBool)
 		content = splitDeps(dir, name, prefix, extension, content); // clears out content and saves elsewhere
 	final contentString = prefix + content.map(f -> Typer.printer.printTypeDefinition(f, false)).join("");
 	saveRaw(dir,name,contentString, prefix, extension);
@@ -307,7 +307,7 @@ var splitDepsBool = true;
 function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
 	final params:Array<TypeParam> = [];
 	final pack = path.split("/");
-	pack.push(Typer.title(pack[pack.length - 1]));
+	pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name);
 	final p:TypePath = {pack: pack, name: td.name, params: params};
 	final ct = TPath(p);
 	var fields = [];
@@ -423,7 +423,7 @@ function externGenAlias(td:TypeDefinition, path:String):TypeDefinition {
 				pos: td.pos,
 				pack: td.pack,
 				fields: td.fields,
-				kind: TDAlias(TPath({sub: td.name, name: Typer.title(pack[pack.length - 1]), pack: pack, params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
+				kind: TDAlias(TPath({sub: td.name, name: Typer.title(pack[pack.length - 1]) + "_" + td.name, pack: pack, params: td.params?.map(f -> TPType(TPath({name: f.name, pack: []})))})),
 				isExtern: td.isExtern,
 			};
 		default:
@@ -464,7 +464,7 @@ function externGenVar(td:TypeDefinition, path:String):Array<TypeDefinition> {
 		case TDField(FVar(type, e), access):
 			final access = access.copy();
 			final pack = path.split("/");
-			pack.push(Typer.title(pack[pack.length - 1]));
+			pack.push(Typer.title(pack[pack.length - 1]) + "_" + td.name);
 			final name = macro $p{pack.concat([td.name])};
 			if (access.indexOf(AFinal) != -1) {
 				return [{
@@ -540,9 +540,11 @@ function externGenFun(name:String, f:Function, path:String, staticExtensionName:
 	
 	final pathArray = path.split("/");
 	var last = Typer.title(pathArray[pathArray.length - 1]);
-	pathArray.push(last);
 	if (staticExtensionName != "") {
+		pathArray.push(last + "_" + staticExtensionName);
 		pathArray.push(staticExtensionName);
+	}else{
+		pathArray.push(last + "_" + name);
 	}
 	pathArray.push(name);
 	var expr = macro $p{pathArray}($a{exprArgs});

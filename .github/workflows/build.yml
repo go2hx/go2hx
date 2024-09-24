@@ -35,7 +35,9 @@ jobs:
       - name: Clean go2hx
         run: npx haxelib run go2hx clean
       - name: Build go2hx compiler
-        run: npx haxelib run go2hx build
+        run: npx haxe --run Run build
+      - name: Create vendor
+        run: go mod vendor
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}

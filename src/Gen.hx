@@ -213,7 +213,7 @@ private function saveRaw(dir:String, name:String, contentString, prefix:String, 
 }
 
 function staticExtensionName(name:String,cl:TypeDefinition):String {
-	return name.indexOf(cl.name) == 0 ? cl.name + "_" + name.substr(cl.name.length) : name;
+	return name;//name.indexOf(cl.name) == 0 ? cl.name + "_" + name.substr(cl.name.length) : name;
 }
 
 function externStaticExtension(td:TypeDefinition, path:String, cl:TypeDefinition):TypeDefinition {
@@ -386,13 +386,12 @@ function externGenClass(td:TypeDefinition, path:String, cl:TypeDefinition):TypeD
 	for (i in 0...meta.length) {
 		if (meta[i].name == ":using") {
 			final usingPath = Typer.printer.printExpr(meta[i].params[0]).split(".");
+
 			final endUsing = staticExtensionName(usingPath.pop(), cl);
-			final last = usingPath.pop();
-			if (splitDepsBool) {
-				usingPath.push(last + "_" + endUsing);
-			}else{
-				usingPath.push(last);
-			}
+			var last = usingPath.pop();
+			// remove splitdeps path from extern static extension
+			last = last.substr(0, last.length - endUsing.length - 1);
+			usingPath.push(last);
 			usingPath.push(endUsing);
 			usingPath.remove("_internal");
 			// remove unneeded pack refrence

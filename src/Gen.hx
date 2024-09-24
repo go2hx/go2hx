@@ -13,7 +13,7 @@ function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
 	final paths = actualPath.split("/");
 	var actualPathExtern = paths.join("/");
-	var externDefBool = false; //!module.isMain;
+	var externDefBool = !module.isMain;
 	final cut = actualPath.substring(actualPath.length - 5);
 	final _testStr = "_test";
 	if (cut == _testStr) {

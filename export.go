@@ -900,9 +900,9 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			}
 		}
 		mergePackage(list[i])
-		if stdgoExports[list[i].PkgPath] {
+		/*if stdgoExports[list[i].PkgPath] {
 			ast.FileExports(list[i].Syntax[0])
-		}
+		}*/
 		// fmt.Println(list[i].PkgPath, stdgoExterns[list[i].PkgPath])
 		if (stdgoExterns[list[i].PkgPath]) && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
 			for _, file := range list[i].Syntax {

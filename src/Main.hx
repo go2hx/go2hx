@@ -145,6 +145,8 @@ function compileArgs(args:Array<String>):InstanceData {
 		@doc("Remove all depedency on go2hx for the compiled code by moving the stdlib into the output")
 		["-nodeps", "--nodeps", "-nodep", "--nodep"] => () -> instance.noDeps = true,
 		["-port", "--port"] => port -> instance.port = Std.parseInt(port),
+		@doc("Version of the compiler")
+		["-version", "--version"] => () -> Sys.println(sys.io.File.getContent("version.txt")),
 	]);
 	argHandler.parse(args);
 	for (i in 0...args.length) {
@@ -160,6 +162,7 @@ function compileArgs(args:Array<String>):InstanceData {
 		for (i in 0...args.length) {
 			if (option.flags.indexOf(args[i]) != -1) {
 				args.remove(args[i]);
+				// removes the args of the flag afterwards
 				for (j in 0...option.args.length)
 					args.remove(args[i]);
 			}
@@ -171,6 +174,10 @@ function compileArgs(args:Array<String>):InstanceData {
 		close();
 		return instance;
 	}
+	if (args.length <= 1) {
+		close();
+	}
+
 	return instance;
 }
 

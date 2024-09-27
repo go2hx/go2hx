@@ -15,33 +15,19 @@
 
 - [class Zlib](<#class-zlib>)
 
-  - [`function newReader(r:stdgo._internal.io.Reader):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>`](<#zlib-function-newreader>)
+  - [`function newReader(_r:stdgo._internal.io.Reader):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>`](<#zlib-function-newreader>)
 
-  - [`function newReaderDict(r:stdgo._internal.io.Reader, dict:Array<Int>):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>`](<#zlib-function-newreaderdict>)
+  - [`function newReaderDict(_r:stdgo._internal.io.Reader, _dict:Array<UInt>):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>`](<#zlib-function-newreaderdict>)
 
-  - [`function newWriter(w:stdgo._internal.io.Writer):stdgo.compress.zlib.Writer`](<#zlib-function-newwriter>)
+  - [`function newWriter(_w:stdgo._internal.io.Writer):stdgo.compress.zlib.Writer`](<#zlib-function-newwriter>)
 
-  - [`function newWriterLevel(w:stdgo._internal.io.Writer, level:Int):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>`](<#zlib-function-newwriterlevel>)
+  - [`function newWriterLevel(_w:stdgo._internal.io.Writer, _level:Int):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>`](<#zlib-function-newwriterlevel>)
 
-  - [`function newWriterLevelDict(w:stdgo._internal.io.Writer, level:Int, dict:Array<Int>):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>`](<#zlib-function-newwriterleveldict>)
-
-  - [`function testDecompressor(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testdecompressor>)
-
-  - [`function testWriter(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriter>)
-
-  - [`function testWriterBig(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriterbig>)
-
-  - [`function testWriterDict(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriterdict>)
-
-  - [`function testWriterDictIsUsed(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriterdictisused>)
-
-  - [`function testWriterReset(t:stdgo._internal.testing.T_):Void`](<#zlib-function-testwriterreset>)
+  - [`function newWriterLevelDict(_w:stdgo._internal.io.Writer, _level:Int, _dict:Array<UInt>):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>`](<#zlib-function-newwriterleveldict>)
 
 - [typedef Resetter](<#typedef-resetter>)
 
 - [abstract T\_reader](<#abstract-t_reader>)
-
-- [abstract T\_zlibTest](<#abstract-t_zlibtest>)
 
 - [abstract Writer](<#abstract-writer>)
 
@@ -54,27 +40,27 @@ import stdgo.compress.zlib.Zlib
 
 
 ```haxe
-final bestCompression:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.bestCompression
+final bestCompression:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib_bestCompression.bestCompression
 ```
 
 
 ```haxe
-final bestSpeed:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.bestSpeed
+final bestSpeed:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib_bestSpeed.bestSpeed
 ```
 
 
 ```haxe
-final defaultCompression:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.defaultCompression
+final defaultCompression:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib_defaultCompression.defaultCompression
 ```
 
 
 ```haxe
-final huffmanOnly:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.huffmanOnly
+final huffmanOnly:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib_huffmanOnly.huffmanOnly
 ```
 
 
 ```haxe
-final noCompression:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib.noCompression
+final noCompression:haxe.UInt64 = stdgo._internal.compress.zlib.Zlib_noCompression.noCompression
 ```
 
 
@@ -139,7 +125,7 @@ and to read that data back:
 
 
 ```haxe
-function newReader(r:stdgo._internal.io.Reader):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>
+function newReader(_r:stdgo._internal.io.Reader):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>
 ```
 
 
@@ -153,14 +139,14 @@ NewReader creates a new ReadCloser.
 
 The ReadCloser returned by NewReader also implements Resetter.  
 
-[\(view code\)](<./Zlib.hx#L223>)
+[\(view code\)](<./Zlib.hx#L188>)
 
 
 ### Zlib function newReaderDict
 
 
 ```haxe
-function newReaderDict(r:stdgo._internal.io.Reader, dict:Array<Int>):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>
+function newReaderDict(_r:stdgo._internal.io.Reader, _dict:Array<UInt>):stdgo.Tuple<stdgo._internal.io.ReadCloser, stdgo.Error>
 ```
 
 
@@ -172,14 +158,14 @@ NewReaderDict is like NewReader but uses a preset dictionary.
 
 The ReadCloser returned by NewReaderDict also implements Resetter.  
 
-[\(view code\)](<./Zlib.hx#L236>)
+[\(view code\)](<./Zlib.hx#L201>)
 
 
 ### Zlib function newWriter
 
 
 ```haxe
-function newWriter(w:stdgo._internal.io.Writer):stdgo.compress.zlib.Writer
+function newWriter(_w:stdgo._internal.io.Writer):stdgo.compress.zlib.Writer
 ```
 
 
@@ -191,14 +177,14 @@ NewWriter creates a new Writer.
 It is the caller's responsibility to call Close on the Writer when done.
 Writes may be buffered and not flushed until Close.  
 
-[\(view code\)](<./Zlib.hx#L253>)
+[\(view code\)](<./Zlib.hx#L215>)
 
 
 ### Zlib function newWriterLevel
 
 
 ```haxe
-function newWriterLevel(w:stdgo._internal.io.Writer, level:Int):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>
+function newWriterLevel(_w:stdgo._internal.io.Writer, _level:Int):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>
 ```
 
 
@@ -211,14 +197,14 @@ The compression level can be DefaultCompression, NoCompression, HuffmanOnly
 or any integer value between BestSpeed and BestCompression inclusive.
 The error returned will be nil if the level is valid.  
 
-[\(view code\)](<./Zlib.hx#L264>)
+[\(view code\)](<./Zlib.hx#L226>)
 
 
 ### Zlib function newWriterLevelDict
 
 
 ```haxe
-function newWriterLevelDict(w:stdgo._internal.io.Writer, level:Int, dict:Array<Int>):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>
+function newWriterLevelDict(_w:stdgo._internal.io.Writer, _level:Int, _dict:Array<UInt>):stdgo.Tuple<stdgo.compress.zlib.Writer, stdgo.Error>
 ```
 
 
@@ -230,73 +216,7 @@ NewWriterLevelDict is like NewWriterLevel but specifies a dictionary to
 The dictionary may be nil. If not, its contents should not be modified until
 the Writer is closed.  
 
-[\(view code\)](<./Zlib.hx#L277>)
-
-
-### Zlib function testDecompressor
-
-
-```haxe
-function testDecompressor(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Zlib.hx#L243>)
-
-
-### Zlib function testWriter
-
-
-```haxe
-function testWriter(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Zlib.hx#L284>)
-
-
-### Zlib function testWriterBig
-
-
-```haxe
-function testWriterBig(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Zlib.hx#L287>)
-
-
-### Zlib function testWriterDict
-
-
-```haxe
-function testWriterDict(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Zlib.hx#L290>)
-
-
-### Zlib function testWriterDictIsUsed
-
-
-```haxe
-function testWriterDictIsUsed(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Zlib.hx#L296>)
-
-
-### Zlib function testWriterReset
-
-
-```haxe
-function testWriterReset(t:stdgo._internal.testing.T_):Void
-```
-
-
-[\(view code\)](<./Zlib.hx#L293>)
+[\(view code\)](<./Zlib.hx#L239>)
 
 
 # Typedefs
@@ -319,12 +239,6 @@ typedef Resetter = stdgo._internal.compress.zlib.Resetter;
 
 
 ## abstract T\_reader
-
-
-[\(view file containing code\)](<./Zlib.hx>)
-
-
-## abstract T\_zlibTest
 
 
 [\(view file containing code\)](<./Zlib.hx>)

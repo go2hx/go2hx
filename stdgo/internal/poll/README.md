@@ -1,17 +1,218 @@
-# Module stdgo.internal.poll has compilation errors, please do not use:
+# Module: `stdgo.internal.poll`
+
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+- [`function acceptFunc()`](<#function-acceptfunc>)
+
+- [`function closeFunc()`](<#function-closefunc>)
+
+- [`function consume(:stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, :stdgo.GoInt64):Void`](<#function-consume>)
+
+- [`function testHookDidWritev()`](<#function-testhookdidwritev>)
+
+- [class Poll](<#class-poll>)
+
+  - [`function dupCloseOnExec(_fd:Int):stdgo.Tuple3<Int, String, stdgo.Error>`](<#poll-function-dupcloseonexec>)
+
+  - [`function isPollDescriptor(_fd:stdgo.GoUIntptr):Bool`](<#poll-function-ispolldescriptor>)
+
+- [abstract XFDMutex](<#abstract-xfdmutex>)
+
+- [abstract T\_errNetClosing](<#abstract-t_errnetclosing>)
+
+- [abstract DeadlineExceededError](<#abstract-deadlineexceedederror>)
+
+- [abstract T\_fdMutex](<#abstract-t_fdmutex>)
+
+- [abstract T\_pollDesc](<#abstract-t_polldesc>)
+
+- [abstract FD](<#abstract-fd>)
+
+- [abstract SysFile](<#abstract-sysfile>)
+
+# Variables
+
+
+```haxe
+import stdgo.internal.poll.Poll
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
-   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-[30;41m ERROR [0m stdgo/GoMap.hx:525: characters 15-20
+```haxe
+var errDeadlineExceeded:stdgo.Error
+```
 
- 525 | [2m public var t:[0m[1m_Type[0m[2m;[0m
-     |               [31m^^^^^[0m
-     | Type not found : _Type
+
+```haxe
+var errFileClosing:stdgo.Error
+```
+
+
+```haxe
+var errNetClosing:stdgo.internal.poll.T_errNetClosing
+```
+
+
+```haxe
+var errNoDeadline:stdgo.Error
+```
+
+
+```haxe
+var errNotPollable:stdgo.Error
+```
+
+
+# Functions
+
+
+```haxe
+import stdgo.internal.poll.Poll
+```
+
+
+## function acceptFunc
+
+
+```haxe
+function acceptFunc()
+```
+
+
+[\(view code\)](<./Poll.hx>)
+
+
+## function closeFunc
+
+
+```haxe
+function closeFunc()
+```
+
+
+[\(view code\)](<./Poll.hx>)
+
+
+## function consume
+
+
+```haxe
+function consume(:stdgo.Ref<stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>>, :stdgo.GoInt64):Void
+```
+
+
+[\(view code\)](<./Poll.hx>)
+
+
+## function testHookDidWritev
+
+
+```haxe
+function testHookDidWritev()
+```
+
+
+[\(view code\)](<./Poll.hx>)
+
+
+# Classes
+
+
+```haxe
+import stdgo.internal.poll.*
+```
+
+
+## class Poll
 
 
 ```
+Package poll supports non-blocking I/O on file descriptors with polling.
+    This supports I/O operations that block only a goroutine, not a thread.
+    This is used by the net and os packages.
+    It uses a poller built into the runtime, with support from the
+    runtime scheduler.
+```
+### Poll function dupCloseOnExec
+
+
+```haxe
+function dupCloseOnExec(_fd:Int):stdgo.Tuple3<Int, String, stdgo.Error>
+```
+
+
+
+DupCloseOnExec dups fd and marks it close\-on\-exec.  
+
+[\(view code\)](<./Poll.hx#L552>)
+
+
+### Poll function isPollDescriptor
+
+
+```haxe
+function isPollDescriptor(_fd:stdgo.GoUIntptr):Bool
+```
+
+
+```
+IsPollDescriptor reports whether fd is the descriptor being used by the poller.
+        This is only used for testing.
+```
+[\(view code\)](<./Poll.hx#L546>)
+
+
+# Abstracts
+
+
+## abstract XFDMutex
+
+
+[\(view file containing code\)](<./Poll.hx>)
+
+
+## abstract T\_errNetClosing
+
+
+[\(view file containing code\)](<./Poll.hx>)
+
+
+## abstract DeadlineExceededError
+
+
+[\(view file containing code\)](<./Poll.hx>)
+
+
+## abstract T\_fdMutex
+
+
+[\(view file containing code\)](<./Poll.hx>)
+
+
+## abstract T\_pollDesc
+
+
+[\(view file containing code\)](<./Poll.hx>)
+
+
+## abstract FD
+
+
+[\(view file containing code\)](<./Poll.hx>)
+
+
+## abstract SysFile
+
+
+[\(view file containing code\)](<./Poll.hx>)
+
 

@@ -6,33 +6,32 @@
 # Overview
 
 
-
-Package safefilepath manipulates operating\-system file paths.  
-
 # Index
 
 
-- [`function fromFS(_path:stdgo.GoString):{
-	_1:stdgo.Error;
-	_0:stdgo.GoString;
-}`](<#function-fromfs>)
+- [class Safefilepath](<#class-safefilepath>)
 
-# Functions
+  - [`function fromFS(_path:String):stdgo.Tuple<String, stdgo.Error>`](<#safefilepath-function-fromfs>)
+
+# Classes
 
 
 ```haxe
-import stdgo.internal.safefilepath.Safefilepath
+import
 ```
 
 
-## function fromFS
+## class Safefilepath
+
+
+
+Package safefilepath manipulates operating\-system file paths.  
+
+### Safefilepath function fromFS
 
 
 ```haxe
-function fromFS(_path:stdgo.GoString):{
-	_1:stdgo.Error;
-	_0:stdgo.GoString;
-}
+function fromFS(_path:String):stdgo.Tuple<String, stdgo.Error>
 ```
 
 
@@ -44,6 +43,6 @@ FromFS returns an error if the path cannot be represented by the operating
 system. For example, paths containing '\\' and ':' characters are rejected
 on Windows.  
 
-[\(view code\)](<./Safefilepath.hx#L28>)
+[\(view code\)](<./Safefilepath.hx#L13>)
 
 

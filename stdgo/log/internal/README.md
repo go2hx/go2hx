@@ -1,11 +1,48 @@
-# Module stdgo.log.internal has compilation errors, please do not use:
+# Module: `stdgo.log.internal`
+
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [`function defaultOutput(:stdgo.GoUIntptr, :stdgo.Slice<stdgo.GoUInt8>):stdgo.Error`](<#function-defaultoutput>)
+
+- [class Internal](<#class-internal>)
+
+# Functions
+
+
+```haxe
+import stdgo.log.internal.Internal
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
-
- 7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-   |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Type not found : stdgo._internal.reflect.Reflect_Type_
 
 
+## function defaultOutput
+
+
+```haxe
+function defaultOutput(:stdgo.GoUIntptr, :stdgo.Slice<stdgo.GoUInt8>):stdgo.Error
 ```
+
+
+[\(view code\)](<./Internal.hx>)
+
+
+# Classes
+
+
+```haxe
+import stdgo.log.internal.*
+```
+
+
+## class Internal
+
+
+
+Package internal contains definitions used by both log and log/slog.  
 

@@ -1,112 +1,84 @@
 # Module stdgo.encoding.binary has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:281: lines 281-284
 
-    7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-      |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.reflect.Reflect_Type_
+ 281 | [2m    function get___7():stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> [0m[1mreturn {[0m
+ 282 | [1m        final obj = this.__7;[0m
+ 283 | [1m        { _f : haxe.ds.Vector.fromArrayCopy([for (i in obj._f) i]) };[0m
+ 284 | [1m    }[0m[2m;[0m
+     |
+     | { _f : haxe.ds.Vector<stdgo.GoFloat32> } should be stdgo.Tuple1<haxe.ds.Vector<Float>>
 
-[30;41m ERROR [0m stdgo/GoString.hx:22: characters 8-53
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:288: characters 36-38
 
-   22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
-      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
+ 288 | [2m            { _f : ([for (i in obj.[0m[1m_f[0m[2m) i] : stdgo.GoArray<stdgo.GoFloat32>) };[0m
+     |                                    [31m^^[0m
+     | stdgo.Tuple1<haxe.ds.Vector<Float>> has no field _f
 
-[30;41m ERROR [0m stdgo/GoString.hx:157: characters 16-60
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:288: characters 32-38
 
-  157 | [2m   final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
-      |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
+ 288 | [2m            { _f : ([for (i in [0m[1mobj._f[0m[2m) i] : stdgo.GoArray<stdgo.GoFloat32>) };[0m
+     |                                [31m^^^^^^[0m
+     | You can't iterate on a Dynamic value, please specify Iterator or Iterable
 
-[30;41m ERROR [0m stdgo/AnyInterface.hx:45: characters 16-27
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:294: characters 32-34
 
-   45 | [2m  if (gt.match([0m[1minvalidType[0m[2m) || gt2.match(invalidType))[0m
-      |                [31m^^^^^^^^^^^[0m
-      | Pattern variables are not allowed in .match patterns
+ 294 | [2m        { _f : ([for (i in obj.[0m[1m_f[0m[2m) i] : stdgo.GoArray<stdgo.GoFloat32>) };[0m
+     |                                [31m^^[0m
+     | Null<stdgo.Tuple1<haxe.ds.Vector<Float>>> has no field _f
 
-[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-21
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:294: characters 28-34
 
-   47 | [2m  if (gt.match([0m[1mbasic[0m[2m(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))[0m
-      |                [31m^^^^^[0m
-      | Identifier 'basic' is not part of stdgo._internal.internal.reflect.GoType
+ 294 | [2m        { _f : ([for (i in [0m[1mobj._f[0m[2m) i] : stdgo.GoArray<stdgo.GoFloat32>) };[0m
+     |                            [31m^^^^^^[0m
+     | You can't iterate on a Dynamic value, please specify Iterator or Iterable
 
-[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-39
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:337: lines 337-340
 
-   47 | [2m  if (gt.match([0m[1mbasic(untyped_nil_kind)[0m[2m) || gt2.match(basic(untyped_nil_kind)))[0m
-      |                [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: basic(untyped_nil_kind)
+ 337 | [2m    function get_p3():stdgo.Tuple.Tuple1<haxe.ds.Vector<StdTypes.Float>> [0m[1mreturn {[0m
+ 338 | [1m        final obj = this.p3;[0m
+ 339 | [1m        { f : haxe.ds.Vector.fromArrayCopy([for (i in obj.f) i]) };[0m
+ 340 | [1m    }[0m[2m;[0m
+     |
+     | { f : haxe.ds.Vector<stdgo.GoFloat32> } should be stdgo.Tuple1<haxe.ds.Vector<Float>>
 
-[30;41m ERROR [0m stdgo/AnyInterface.hx:50: characters 15-27
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:344: characters 35-36
 
-   50 | [2m  if (!a.type.[0m[1massignableTo[0m[2m(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {[0m
-      |               [31m^^^^^^^^^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field assignableTo
+ 344 | [2m            { f : ([for (i in obj.[0m[1mf[0m[2m) i] : stdgo.GoArray<stdgo.GoFloat32>) };[0m
+     |                                   [31m^[0m
+     | stdgo.Tuple1<haxe.ds.Vector<Float>> has no field f
 
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:344: characters 31-36
 
- 1399 | [2m[0m[1mclass _Type_asInterface {[0m
-    - | [2m  [...][0m
- 1507 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
+ 344 | [2m            { f : ([for (i in [0m[1mobj.f[0m[2m) i] : stdgo.GoArray<stdgo.GoFloat32>) };[0m
+     |                               [31m^^^^^[0m
+     | You can't iterate on a Dynamic value, please specify Iterator or Iterable
 
-[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-14
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:350: characters 31-32
 
-   56 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
-      |         [31m^^^^^[0m
-      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
+ 350 | [2m        { f : ([for (i in obj.[0m[1mf[0m[2m) i] : stdgo.GoArray<stdgo.GoFloat32>) };[0m
+     |                               [31m^[0m
+     | Null<stdgo.Tuple1<haxe.ds.Vector<Float>>> has no field f
 
-[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-29
+[30;41m ERROR [0m stdgo/encoding/binary/Binary.hx:350: characters 27-32
 
-   56 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: named(path, _, _, _)
+ 350 | [2m        { f : ([for (i in [0m[1mobj.f[0m[2m) i] : stdgo.GoArray<stdgo.GoFloat32>) };[0m
+     |                           [31m^^^^^[0m
+     | You can't iterate on a Dynamic value, please specify Iterator or Iterable
 
-[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-14
+[30;41m ERROR [0m stdgo/_internal/reflect/Reflect_indirect.hx:3: characters 26-33
 
-   70 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
-      |         [31m^^^^^[0m
-      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
+   3 | [2m        if (_v.kind() != [0m[1mpointer[0m[2m) {[0m
+     |                          [31m^^^^^^^[0m
+     | Unknown identifier : pointer
 
-[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-29
+[30;41m ERROR [0m stdgo/_internal/reflect/Reflect_indirect.hx:2: lines 2-8
 
-   70 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: named(path, _, _, _)
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:83: characters 8-48
-
-   83 | [2m  gt = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt);[0m
-      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:84: characters 9-49
-
-   84 | [2m  gt2 = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt2);[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-16
-
-   86 | [2m   case [0m[1mrefType[0m[2m(_):[0m
-      |         [31m^^^^^^^[0m
-      | Identifier 'refType' is not part of stdgo._internal.internal.reflect.GoType
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-19
-
-   86 | [2m   case [0m[1mrefType(_)[0m[2m:[0m
-      |         [31m^^^^^^^^^^[0m
-      | Unrecognized pattern: refType(_)
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
-
-  930 | [2m[0m[1mclass _Type {[0m
-    - | [2m  [...][0m
-  941 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
-
-           | For function argument '__type__'
+   2 | [2mfunction indirect(_v:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value [0m[1m{[0m
+   - | [2m  [...][0m
+   8 | [1m    }[0m[2m[0m
+     |
+     | Missing return: stdgo._internal.reflect.Value
 
 
 ```

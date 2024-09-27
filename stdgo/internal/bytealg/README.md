@@ -1,85 +1,329 @@
-# Module stdgo.internal.bytealg has compilation errors, please do not use:
+# Module: `stdgo.internal.bytealg`
+
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Constants](<#constants>)
+
+- [Variables](<#variables>)
+
+- [class Bytealg](<#class-bytealg>)
+
+  - [`function compare(_a:Array<UInt>, _b:Array<UInt>):Int`](<#bytealg-function-compare>)
+
+  - [`function count(_b:Array<UInt>, _c:UInt):Int`](<#bytealg-function-count>)
+
+  - [`function countString(_s:String, _c:UInt):Int`](<#bytealg-function-countstring>)
+
+  - [`function cutover(_n:Int):Int`](<#bytealg-function-cutover>)
+
+  - [`function equal(_a:Array<UInt>, _b:Array<UInt>):Bool`](<#bytealg-function-equal>)
+
+  - [`function hashStr(_sep:String):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstr>)
+
+  - [`function hashStrBytes(_sep:Array<UInt>):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstrbytes>)
+
+  - [`function hashStrRev(_sep:String):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstrrev>)
+
+  - [`function hashStrRevBytes(_sep:Array<UInt>):stdgo.Tuple<UInt, UInt>`](<#bytealg-function-hashstrrevbytes>)
+
+  - [`function index(_a:Array<UInt>, _b:Array<UInt>):Int`](<#bytealg-function-index>)
+
+  - [`function indexByte(_b:Array<UInt>, _c:UInt):Int`](<#bytealg-function-indexbyte>)
+
+  - [`function indexByteString(_s:String, _c:UInt):Int`](<#bytealg-function-indexbytestring>)
+
+  - [`function indexRabinKarp(_s:String, _substr:String):Int`](<#bytealg-function-indexrabinkarp>)
+
+  - [`function indexRabinKarpBytes(_s:Array<UInt>, _sep:Array<UInt>):Int`](<#bytealg-function-indexrabinkarpbytes>)
+
+  - [`function indexString(_a:String, _b:String):Int`](<#bytealg-function-indexstring>)
+
+  - [`function makeNoZero(_n:Int):Array<UInt>`](<#bytealg-function-makenozero>)
+
+# Constants
+
+
+```haxe
+import stdgo.internal.bytealg.Bytealg
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
-   7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-     |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-[30;41m ERROR [0m stdgo/GoString.hx:22: characters 8-53
+```haxe
+final maxBruteForce:haxe.UInt64 = stdgo._internal.internal.bytealg.Bytealg_maxBruteForce.maxBruteForce
+```
 
-  22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
-     |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
 
-[30;41m ERROR [0m stdgo/GoString.hx:157: characters 16-60
+```haxe
+final primeRK:haxe.UInt64 = stdgo._internal.internal.bytealg.Bytealg_primeRK.primeRK
+```
 
- 157 | [2m   final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
-     |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
 
-[30;41m ERROR [0m stdgo/GoString.hx:283: characters 15-59
+# Variables
 
- 283 | [2m  final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
-     |               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
 
-[30;41m ERROR [0m stdgo/GoString.hx:312: characters 15-59
+```haxe
+import stdgo.internal.bytealg.Bytealg
+```
 
- 312 | [2m  final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
-     |               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
 
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:18: characters 31-35
+```haxe
+var maxLen:Int
+```
 
-  18 | [2m  var fromType:GoType = (this.[0m[1mtype[0m[2m : Dynamic)._common();[0m
-     |                               [31m^^^^[0m
-     | stdgo.AnyInterface has no field type
 
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:21: characters 9-16
+# Classes
 
-  21 | [2m   case [0m[1mrefType[0m[2m(_.get() => elem):[0m
-     |         [31m^^^^^^^[0m
-     | Unknown identifier : refType
 
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:32: characters 9-14
+```haxe
+import stdgo.internal.bytealg.*
+```
 
-  32 | [2m   case [0m[1mbasic[0m[2m(uintptr_kind):[0m
-     |         [31m^^^^^[0m
-     | Identifier 'basic' is not part of stdgo._internal.internal.reflect.GoType
 
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:32: characters 9-28
+## class Bytealg
 
-  32 | [2m   case [0m[1mbasic(uintptr_kind)[0m[2m:[0m
-     |         [31m^^^^^^^^^^^^^^^^^^^[0m
-     | Unrecognized pattern: basic(uintptr_kind)
 
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:38: characters 9-14
+### Bytealg function compare
 
-  38 | [2m   case [0m[1mbasic[0m[2m(kind):[0m
-     |         [31m^^^^^[0m
-     | Identifier 'basic' is not part of stdgo._internal.internal.reflect.GoType
 
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:38: characters 9-20
+```haxe
+function compare(_a:Array<UInt>, _b:Array<UInt>):Int
+```
 
-  38 | [2m   case [0m[1mbasic(kind)[0m[2m:[0m
-     |         [31m^^^^^^^^^^^[0m
-     | Unrecognized pattern: basic(kind)
 
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:62: characters 11-15
 
-  62 | [2m return x.[0m[1mtype[0m[2m.size();[0m
-     |           [31m^^^^[0m
-     | stdgo.AnyInterface has no field type
+go:noescape  
 
-[30;41m ERROR [0m stdgo/_internal/internal/bytealg/Bytealg.hx:3: characters 86-153
+[\(view code\)](<./Bytealg.hx#L80>)
 
-   3 | [2mfinal _offsetX86HasSSE42 : stdgo.GoUIntptr = stdgo._internal.unsafe.Unsafe.offsetof_([0m[1mstdgo.Go.toInterface(stdgo._internal.internal.cpu.Cpu.x86.hasSSE42)[0m[2m);[0m
-     |                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | stdgo.AnyInterfaceData does not have a constructor
 
-        | For function argument 'x'
+### Bytealg function count
+
+
+```haxe
+function count(_b:Array<UInt>, _c:UInt):Int
+```
+
+
+[\(view code\)](<./Bytealg.hx#L85>)
+
+
+### Bytealg function countString
+
+
+```haxe
+function countString(_s:String, _c:UInt):Int
+```
+
+
+[\(view code\)](<./Bytealg.hx#L89>)
+
+
+### Bytealg function cutover
+
+
+```haxe
+function cutover(_n:Int):Int
+```
 
 
 ```
+Cutover reports the number of failures of IndexByte we should tolerate
+        before switching over to Index.
+        n is the number of bytes processed so far.
+        See the bytes.Index implementation for details.
+```
+[\(view code\)](<./Bytealg.hx#L128>)
+
+
+### Bytealg function equal
+
+
+```haxe
+function equal(_a:Array<UInt>, _b:Array<UInt>):Bool
+```
+
+
+```
+Equal reports whether a and b
+        are the same length and contain the same bytes.
+        A nil argument is equivalent to an empty slice.
+```
+
+Equal is equivalent to bytes.Equal.
+It is provided here for convenience,
+because some packages cannot depend on bytes.  
+
+[\(view code\)](<./Bytealg.hx#L101>)
+
+
+### Bytealg function hashStr
+
+
+```haxe
+function hashStr(_sep:String):stdgo.Tuple<UInt, UInt>
+```
+
+
+```
+HashStr returns the hash and the appropriate multiplicative
+        factor for use in Rabin-Karp algorithm.
+```
+[\(view code\)](<./Bytealg.hx#L26>)
+
+
+### Bytealg function hashStrBytes
+
+
+```haxe
+function hashStrBytes(_sep:Array<UInt>):stdgo.Tuple<UInt, UInt>
+```
+
+
+```
+HashStrBytes returns the hash and the appropriate multiplicative
+        factor for use in Rabin-Karp algorithm.
+```
+[\(view code\)](<./Bytealg.hx#L15>)
+
+
+### Bytealg function hashStrRev
+
+
+```haxe
+function hashStrRev(_sep:String):stdgo.Tuple<UInt, UInt>
+```
+
+
+```
+HashStrRev returns the hash of the reverse of sep and the
+        appropriate multiplicative factor for use in Rabin-Karp algorithm.
+```
+[\(view code\)](<./Bytealg.hx#L47>)
+
+
+### Bytealg function hashStrRevBytes
+
+
+```haxe
+function hashStrRevBytes(_sep:Array<UInt>):stdgo.Tuple<UInt, UInt>
+```
+
+
+```
+HashStrRevBytes returns the hash of the reverse of sep and the
+        appropriate multiplicative factor for use in Rabin-Karp algorithm.
+```
+[\(view code\)](<./Bytealg.hx#L36>)
+
+
+### Bytealg function index
+
+
+```haxe
+function index(_a:Array<UInt>, _b:Array<UInt>):Int
+```
+
+
+```
+Index returns the index of the first instance of b in a, or -1 if b is not present in a.
+        Requires 2 <= len(b) <= MaxLen.
+```
+[\(view code\)](<./Bytealg.hx#L110>)
+
+
+### Bytealg function indexByte
+
+
+```haxe
+function indexByte(_b:Array<UInt>, _c:UInt):Int
+```
+
+
+
+go:noescape  
+
+[\(view code\)](<./Bytealg.hx#L134>)
+
+
+### Bytealg function indexByteString
+
+
+```haxe
+function indexByteString(_s:String, _c:UInt):Int
+```
+
+
+
+go:noescape  
+
+[\(view code\)](<./Bytealg.hx#L141>)
+
+
+### Bytealg function indexRabinKarp
+
+
+```haxe
+function indexRabinKarp(_s:String, _substr:String):Int
+```
+
+
+```
+IndexRabinKarp uses the Rabin-Karp search algorithm to return the index of the
+        first occurrence of substr in s, or -1 if not present.
+```
+[\(view code\)](<./Bytealg.hx#L66>)
+
+
+### Bytealg function indexRabinKarpBytes
+
+
+```haxe
+function indexRabinKarpBytes(_s:Array<UInt>, _sep:Array<UInt>):Int
+```
+
+
+```
+IndexRabinKarpBytes uses the Rabin-Karp search algorithm to return the index of the
+        first occurrence of substr in s, or -1 if not present.
+```
+[\(view code\)](<./Bytealg.hx#L57>)
+
+
+### Bytealg function indexString
+
+
+```haxe
+function indexString(_a:String, _b:String):Int
+```
+
+
+```
+IndexString returns the index of the first instance of b in a, or -1 if b is not present in a.
+        Requires 2 <= len(b) <= MaxLen.
+```
+[\(view code\)](<./Bytealg.hx#L119>)
+
+
+### Bytealg function makeNoZero
+
+
+```haxe
+function makeNoZero(_n:Int):Array<UInt>
+```
+
+
+```
+MakeNoZero makes a slice of length and capacity n without zeroing the bytes.
+        It is the caller's responsibility to ensure uninitialized bytes
+        do not leak to the end user.
+```
+[\(view code\)](<./Bytealg.hx#L74>)
+
 

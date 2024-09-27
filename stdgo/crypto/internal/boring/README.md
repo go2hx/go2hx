@@ -1,6 +1,11 @@
 # Module stdgo.crypto.internal.boring has compilation errors, please do not use:
 ```
-stdgo/crypto/internal/boring/Boring.hx:106: character 17 : `package stdgo.crypto.internal.boring;` in /home/runner/work/go2hx/go2hx/stdgo/crypto/internal/boring/Boring.hx should be `package crypto.internal.boring;`
+[30;41m ERROR [0m stdgo/_internal/crypto/internal/boring/Boring_unreachable.hx:3: characters 9-64
+
+ 3 | [2m        [0m[1m_internal.crypto.internal.boring.sig.Sig_standardCrypto[0m[2m.standardCrypto();[0m
+   |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Type not found : _internal.crypto.internal.boring.sig.Sig_standardCrypto
+
 
 ```
 

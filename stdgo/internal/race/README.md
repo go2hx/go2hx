@@ -1,17 +1,176 @@
-# Module stdgo.internal.race has compilation errors, please do not use:
+# Module: `stdgo.internal.race`
+
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Constants](<#constants>)
+
+- [class Race](<#class-race>)
+
+  - [`function acquire(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-acquire>)
+
+  - [`function disable():Void`](<#race-function-disable>)
+
+  - [`function enable():Void`](<#race-function-enable>)
+
+  - [`function errors():Int`](<#race-function-errors>)
+
+  - [`function read(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-read>)
+
+  - [`function readRange(_addr:stdgo._internal.unsafe.UnsafePointer, _len:Int):Void`](<#race-function-readrange>)
+
+  - [`function release(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-release>)
+
+  - [`function releaseMerge(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-releasemerge>)
+
+  - [`function write(_addr:stdgo._internal.unsafe.UnsafePointer):Void`](<#race-function-write>)
+
+  - [`function writeRange(_addr:stdgo._internal.unsafe.UnsafePointer, _len:Int):Void`](<#race-function-writerange>)
+
+# Constants
+
+
+```haxe
+import stdgo.internal.race.Race
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
-
-  7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-    |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : stdgo._internal.reflect.Reflect_Type_
-
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:17: characters 37-43
-
- 17 | [2m public function __convert__(toType:[0m[1mGoType[0m[2m):Any {[0m
-    |                                     [31m^^^^^^[0m
-    | Type not found : GoType
 
 
+```haxe
+final enabled:Bool = stdgo._internal.internal.race.Race_enabled.enabled
 ```
+
+
+# Classes
+
+
+```haxe
+import stdgo.internal.race.*
+```
+
+
+## class Race
+
+
+
+Package race contains helper functions for manually instrumenting code for the race detector.  
+
+
+The runtime package intentionally exports these functions only in the race build;
+this package exports them unconditionally but without the "race" build tag they are no\-ops.  
+
+### Race function acquire
+
+
+```haxe
+function acquire(_addr:stdgo._internal.unsafe.UnsafePointer):Void
+```
+
+
+[\(view code\)](<./Race.hx#L12>)
+
+
+### Race function disable
+
+
+```haxe
+function disable():Void
+```
+
+
+[\(view code\)](<./Race.hx#L21>)
+
+
+### Race function enable
+
+
+```haxe
+function enable():Void
+```
+
+
+[\(view code\)](<./Race.hx#L24>)
+
+
+### Race function errors
+
+
+```haxe
+function errors():Int
+```
+
+
+[\(view code\)](<./Race.hx#L39>)
+
+
+### Race function read
+
+
+```haxe
+function read(_addr:stdgo._internal.unsafe.UnsafePointer):Void
+```
+
+
+[\(view code\)](<./Race.hx#L27>)
+
+
+### Race function readRange
+
+
+```haxe
+function readRange(_addr:stdgo._internal.unsafe.UnsafePointer, _len:Int):Void
+```
+
+
+[\(view code\)](<./Race.hx#L33>)
+
+
+### Race function release
+
+
+```haxe
+function release(_addr:stdgo._internal.unsafe.UnsafePointer):Void
+```
+
+
+[\(view code\)](<./Race.hx#L15>)
+
+
+### Race function releaseMerge
+
+
+```haxe
+function releaseMerge(_addr:stdgo._internal.unsafe.UnsafePointer):Void
+```
+
+
+[\(view code\)](<./Race.hx#L18>)
+
+
+### Race function write
+
+
+```haxe
+function write(_addr:stdgo._internal.unsafe.UnsafePointer):Void
+```
+
+
+[\(view code\)](<./Race.hx#L30>)
+
+
+### Race function writeRange
+
+
+```haxe
+function writeRange(_addr:stdgo._internal.unsafe.UnsafePointer, _len:Int):Void
+```
+
+
+[\(view code\)](<./Race.hx#L36>)
+
 

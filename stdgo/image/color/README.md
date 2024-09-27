@@ -6,7 +6,7 @@
      |       [31m^^^^^[0m
      | Name Color is already defined in this module
 
-      100 | [2mtypedef [0m[1mColor[0m[2m = stdgo._internal.image.color.Color.Color;[0m
+      100 | [2mtypedef [0m[1mColor[0m[2m = stdgo._internal.image.color.Color_Color.Color;[0m
           |         [31m^^^^^[0m
           | Previous declaration here
 

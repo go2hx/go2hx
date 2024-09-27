@@ -1,197 +1,544 @@
-# Module stdgo.testing.quick has compilation errors, please do not use:
+# Module: `stdgo.testing.quick`
+
+[(view library index)](../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [class Quick](<#class-quick>)
+
+  - [`function check(_f:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):stdgo.Error`](<#quick-function-check>)
+
+  - [`function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):stdgo.Error`](<#quick-function-checkequal>)
+
+  - [`function testCheckEqual(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testcheckequal>)
+
+  - [`function testCheckProperty(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testcheckproperty>)
+
+  - [`function testEmptyStruct(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testemptystruct>)
+
+  - [`function testFailure(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testfailure>)
+
+  - [`function testInt64(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testint64>)
+
+  - [`function testMutuallyRecursive(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testmutuallyrecursive>)
+
+  - [`function testNonZeroSliceAndMap(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testnonzerosliceandmap>)
+
+  - [`function testRecursive(_t:stdgo._internal.testing.T_):Void`](<#quick-function-testrecursive>)
+
+  - [`function value(_t:stdgo._internal.reflect.Type_, _rand:stdgo._internal.math.rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Value, Bool>`](<#quick-function-value>)
+
+- [typedef Generator](<#typedef-generator>)
+
+- [typedef SetupError](<#typedef-setuperror>)
+
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+- [typedef TestArrayAlias](<#typedef-testarrayalias>)
+
+- [typedef TestBoolAlias](<#typedef-testboolalias>)
+
+- [typedef TestComplex128Alias](<#typedef-testcomplex128alias>)
+
+- [typedef TestComplex64Alias](<#typedef-testcomplex64alias>)
+
+- [typedef TestFloat32Alias](<#typedef-testfloat32alias>)
+
+- [typedef TestFloat64Alias](<#typedef-testfloat64alias>)
+
+- [typedef TestInt16Alias](<#typedef-testint16alias>)
+
+- [typedef TestInt32Alias](<#typedef-testint32alias>)
+
+- [typedef TestInt64Alias](<#typedef-testint64alias>)
+
+- [typedef TestInt8Alias](<#typedef-testint8alias>)
+
+- [typedef TestIntAlias](<#typedef-testintalias>)
+
+- [typedef TestMapAlias](<#typedef-testmapalias>)
+
+- [typedef TestPtrAlias](<#typedef-testptralias>)
+
+- [typedef TestSliceAlias](<#typedef-testslicealias>)
+
+- [typedef TestStringAlias](<#typedef-teststringalias>)
+
+- [typedef TestStructAlias](<#typedef-teststructalias>)
+
+- [typedef TestUint16Alias](<#typedef-testuint16alias>)
+
+- [typedef TestUint32Alias](<#typedef-testuint32alias>)
+
+- [typedef TestUint64Alias](<#typedef-testuint64alias>)
+
+- [typedef TestUint8Alias](<#typedef-testuint8alias>)
+
+- [typedef TestUintAlias](<#typedef-testuintalias>)
+
+- [typedef TestUintptrAlias](<#typedef-testuintptralias>)
+
+- [abstract Config](<#abstract-config>)
+
+- [abstract CheckError](<#abstract-checkerror>)
+
+- [abstract CheckEqualError](<#abstract-checkequalerror>)
+
+- [abstract TestStruct](<#abstract-teststruct>)
+
+- [abstract T\_myStruct](<#abstract-t_mystruct>)
+
+- [abstract A](<#abstract-a>)
+
+- [abstract B](<#abstract-b>)
+
+- [abstract T\_testRecursive\_\_\_localname\_\_\_R\_8108](<#abstract-t_testrecursivelocalnamer_8108>)
+
+- [abstract T\_testNonZeroSliceAndMap\_\_\_localname\_\_\_Q\_8763](<#abstract-t_testnonzerosliceandmaplocalnameq_8763>)
+
+# Classes
+
+
+```haxe
+import
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
-    7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-      |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
+## class Quick
 
-       229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
-           |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
 
-       239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
-           |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
 
-[30;41m ERROR [0m stdgo/_internal/testing/quick/Quick.hx:7: characters 170-178
+Package quick implements utility functions to help with black box testing.  
 
-    7 | [2m    static public function generate(t:Generator, _rand:stdgo.Ref<stdgo._internal.math.rand.Rand.Rand>, _size:stdgo.GoInt):stdgo._internal.reflect.Reflect.Value return t.[0m[1mgenerate[0m[2m(_rand, _size);[0m
-      |                                                                                                                                                                          [31m^^^^^^^^[0m
-      | stdgo._internal.testing.quick.Generator has no field generate
 
-[30;41m ERROR [0m stdgo/GoString.hx:22: characters 8-53
+The testing/quick package is frozen and is not accepting new features.  
 
-   22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
-      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
+### Quick function check
 
-[30;41m ERROR [0m stdgo/GoString.hx:157: characters 16-60
 
-  157 | [2m   final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
-      |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
-
-[30;41m ERROR [0m stdgo/GoString.hx:283: characters 15-59
-
-  283 | [2m  final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
-      |               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
-
-[30;41m ERROR [0m stdgo/GoString.hx:312: characters 15-59
-
-  312 | [2m  final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
-      |               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:45: characters 16-27
-
-   45 | [2m  if (gt.match([0m[1minvalidType[0m[2m) || gt2.match(invalidType))[0m
-      |                [31m^^^^^^^^^^^[0m
-      | Pattern variables are not allowed in .match patterns
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-21
-
-   47 | [2m  if (gt.match([0m[1mbasic[0m[2m(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))[0m
-      |                [31m^^^^^[0m
-      | Identifier 'basic' is not part of stdgo._internal.internal.reflect.GoType
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-39
-
-   47 | [2m  if (gt.match([0m[1mbasic(untyped_nil_kind)[0m[2m) || gt2.match(basic(untyped_nil_kind)))[0m
-      |                [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: basic(untyped_nil_kind)
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:50: characters 15-27
-
-   50 | [2m  if (!a.type.[0m[1massignableTo[0m[2m(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {[0m
-      |               [31m^^^^^^^^^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field assignableTo
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
-
- 1399 | [2m[0m[1mclass _Type_asInterface {[0m
-    - | [2m  [...][0m
- 1507 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-14
-
-   56 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
-      |         [31m^^^^^[0m
-      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-29
-
-   56 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: named(path, _, _, _)
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-14
-
-   70 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
-      |         [31m^^^^^[0m
-      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-29
-
-   70 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: named(path, _, _, _)
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:83: characters 8-48
-
-   83 | [2m  gt = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt);[0m
-      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:84: characters 9-49
-
-   84 | [2m  gt2 = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt2);[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-16
-
-   86 | [2m   case [0m[1mrefType[0m[2m(_):[0m
-      |         [31m^^^^^^^[0m
-      | Identifier 'refType' is not part of stdgo._internal.internal.reflect.GoType
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-19
-
-   86 | [2m   case [0m[1mrefType(_)[0m[2m:[0m
-      |         [31m^^^^^^^^^^[0m
-      | Unrecognized pattern: refType(_)
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:379: characters 97-104
-
-  379 | [2m        final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type.[0m[1m_common[0m[2m();[0m
-      |                                                                                                 [31m^^^^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field _common
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:380: characters 13-53
-
-  380 | [2m        if ([0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isNamed(t)) {[0m
-      |             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:389: characters 13-53
-
-  389 | [2m        if ([0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isPointer(t)) {[0m
-      |             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:393: characters 32-72
-
-  393 | [2m        final underlyingType = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(t);[0m
-      |                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:395: characters 66-71
-
-  395 | [2m            case stdgo._internal.internal.reflect.Reflect.GoType.[0m[1mbasic[0m[2m(kind):[0m
-      |                                                                  [31m^^^^^[0m
-      | { invalidType : Unknown<0> } has no field basic
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:395: characters 18-77
-
-  395 | [2m            case [0m[1mstdgo._internal.internal.reflect.Reflect.GoType.basic(kind)[0m[2m:[0m
-      |                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: stdgo._internal.internal.reflect.Reflect.GoType.basic(kind)
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
-
-  930 | [2m[0m[1mclass _Type {[0m
-    - | [2m  [...][0m
-  941 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
-
- 1399 | [2m[0m[1mclass _Type_asInterface {[0m
-    - | [2m  [...][0m
- 1507 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
-
- 1399 | [2m[0m[1mclass _Type_asInterface {[0m
-    - | [2m  [...][0m
- 1507 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
-
-[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/reflect/Reflect.hx:769: characters 97-104
-
-  769 | [2m        final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type.[0m[1m_common[0m[2m();[0m
-      |                                                                                                 [31m^^^^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field _common
+```haxe
+function check(_f:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):stdgo.Error
+```
 
 
 ```
+Check looks for an input to f, any function that returns bool,
+        such that f returns false. It calls f repeatedly, with arbitrary
+        values for each argument. If f returns false on a given input,
+        Check returns that input as a *CheckError.
+        For example:
+```
+```
+        	func TestOddMultipleOfThree(t *testing.T) {
+        		f := func(x int) bool {
+        			y := OddMultipleOfThree(x)
+        			return y%2 == 1 && y%3 == 0
+}
+        		if err := quick.Check(f, nil); err != nil {
+        			t.Error(err)
+}
+}
+```
+[\(view code\)](<./Quick.hx#L280>)
+
+
+### Quick function checkEqual
+
+
+```haxe
+function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.testing.quick.Config):stdgo.Error
+```
+
+
+```
+CheckEqual looks for an input on which f and g return different results.
+        It calls f and g repeatedly with arbitrary values for each argument.
+        If f and g return different answers, CheckEqual returns a *CheckEqualError
+        describing the input and the outputs.
+```
+[\(view code\)](<./Quick.hx#L289>)
+
+
+### Quick function testCheckEqual
+
+
+```haxe
+function testCheckEqual(_t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Quick.hx#L292>)
+
+
+### Quick function testCheckProperty
+
+
+```haxe
+function testCheckProperty(_t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Quick.hx#L295>)
+
+
+### Quick function testEmptyStruct
+
+
+```haxe
+function testEmptyStruct(_t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Quick.hx#L308>)
+
+
+### Quick function testFailure
+
+
+```haxe
+function testFailure(_t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Quick.hx#L298>)
+
+
+### Quick function testInt64
+
+
+```haxe
+function testInt64(_t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Quick.hx#L322>)
+
+
+### Quick function testMutuallyRecursive
+
+
+```haxe
+function testMutuallyRecursive(_t:stdgo._internal.testing.T_):Void
+```
+
+
+[\(view code\)](<./Quick.hx#L311>)
+
+
+### Quick function testNonZeroSliceAndMap
+
+
+```haxe
+function testNonZeroSliceAndMap(_t:stdgo._internal.testing.T_):Void
+```
+
+
+```
+Some serialization formats (e.g. encoding/pem) cannot distinguish
+        between a nil and an empty map or slice, so avoid generating the
+        zero value for these.
+```
+[\(view code\)](<./Quick.hx#L319>)
+
+
+### Quick function testRecursive
+
+
+```haxe
+function testRecursive(_t:stdgo._internal.testing.T_):Void
+```
+
+
+```
+Recursive data structures didn't terminate.
+        Issues 8818 and 11148.
+```
+[\(view code\)](<./Quick.hx#L305>)
+
+
+### Quick function value
+
+
+```haxe
+function value(_t:stdgo._internal.reflect.Type_, _rand:stdgo._internal.math.rand.Rand):stdgo.Tuple<stdgo._internal.reflect.Value, Bool>
+```
+
+
+```
+Value returns an arbitrary value of the given type.
+        If the type implements the Generator interface, that will be used.
+        Note: To create arbitrary values for structs, all the fields must be exported.
+```
+[\(view code\)](<./Quick.hx#L257>)
+
+
+# Typedefs
+
+
+```haxe
+import
+```
+
+
+## typedef Generator
+
+
+```haxe
+typedef Generator = stdgo._internal.testing.quick.Generator;
+```
+
+
+## typedef SetupError
+
+
+```haxe
+typedef SetupError = stdgo._internal.testing.quick.SetupError;
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = stdgo._internal.testing.quick.T__struct_0;
+```
+
+
+## typedef TestArrayAlias
+
+
+```haxe
+typedef TestArrayAlias = stdgo._internal.testing.quick.TestArrayAlias;
+```
+
+
+## typedef TestBoolAlias
+
+
+```haxe
+typedef TestBoolAlias = stdgo._internal.testing.quick.TestBoolAlias;
+```
+
+
+## typedef TestComplex128Alias
+
+
+```haxe
+typedef TestComplex128Alias = stdgo._internal.testing.quick.TestComplex128Alias;
+```
+
+
+## typedef TestComplex64Alias
+
+
+```haxe
+typedef TestComplex64Alias = stdgo._internal.testing.quick.TestComplex64Alias;
+```
+
+
+## typedef TestFloat32Alias
+
+
+```haxe
+typedef TestFloat32Alias = stdgo._internal.testing.quick.TestFloat32Alias;
+```
+
+
+## typedef TestFloat64Alias
+
+
+```haxe
+typedef TestFloat64Alias = stdgo._internal.testing.quick.TestFloat64Alias;
+```
+
+
+## typedef TestInt16Alias
+
+
+```haxe
+typedef TestInt16Alias = stdgo._internal.testing.quick.TestInt16Alias;
+```
+
+
+## typedef TestInt32Alias
+
+
+```haxe
+typedef TestInt32Alias = stdgo._internal.testing.quick.TestInt32Alias;
+```
+
+
+## typedef TestInt64Alias
+
+
+```haxe
+typedef TestInt64Alias = stdgo._internal.testing.quick.TestInt64Alias;
+```
+
+
+## typedef TestInt8Alias
+
+
+```haxe
+typedef TestInt8Alias = stdgo._internal.testing.quick.TestInt8Alias;
+```
+
+
+## typedef TestIntAlias
+
+
+```haxe
+typedef TestIntAlias = stdgo._internal.testing.quick.TestIntAlias;
+```
+
+
+## typedef TestMapAlias
+
+
+```haxe
+typedef TestMapAlias = stdgo._internal.testing.quick.TestMapAlias;
+```
+
+
+## typedef TestPtrAlias
+
+
+```haxe
+typedef TestPtrAlias = stdgo._internal.testing.quick.TestPtrAlias;
+```
+
+
+## typedef TestSliceAlias
+
+
+```haxe
+typedef TestSliceAlias = stdgo._internal.testing.quick.TestSliceAlias;
+```
+
+
+## typedef TestStringAlias
+
+
+```haxe
+typedef TestStringAlias = stdgo._internal.testing.quick.TestStringAlias;
+```
+
+
+## typedef TestStructAlias
+
+
+```haxe
+typedef TestStructAlias = stdgo._internal.testing.quick.TestStructAlias;
+```
+
+
+## typedef TestUint16Alias
+
+
+```haxe
+typedef TestUint16Alias = stdgo._internal.testing.quick.TestUint16Alias;
+```
+
+
+## typedef TestUint32Alias
+
+
+```haxe
+typedef TestUint32Alias = stdgo._internal.testing.quick.TestUint32Alias;
+```
+
+
+## typedef TestUint64Alias
+
+
+```haxe
+typedef TestUint64Alias = stdgo._internal.testing.quick.TestUint64Alias;
+```
+
+
+## typedef TestUint8Alias
+
+
+```haxe
+typedef TestUint8Alias = stdgo._internal.testing.quick.TestUint8Alias;
+```
+
+
+## typedef TestUintAlias
+
+
+```haxe
+typedef TestUintAlias = stdgo._internal.testing.quick.TestUintAlias;
+```
+
+
+## typedef TestUintptrAlias
+
+
+```haxe
+typedef TestUintptrAlias = stdgo._internal.testing.quick.TestUintptrAlias;
+```
+
+
+# Abstracts
+
+
+## abstract Config
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract CheckError
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract CheckEqualError
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract TestStruct
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract T\_myStruct
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract A
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract B
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract T\_testRecursive\_\_\_localname\_\_\_R\_8108
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
+
+## abstract T\_testNonZeroSliceAndMap\_\_\_localname\_\_\_Q\_8763
+
+
+[\(view file containing code\)](<./Quick.hx>)
+
 

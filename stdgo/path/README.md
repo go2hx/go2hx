@@ -1,305 +1,253 @@
-# Module stdgo.path has compilation errors, please do not use:
+# Module: `stdgo.path`
+
+[(view library index)](../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [Variables](<#variables>)
+
+- [class Path](<#class-path>)
+
+  - [`function base(_path:String):String`](<#path-function-base>)
+
+  - [`function clean(_path:String):String`](<#path-function-clean>)
+
+  - [`function dir(_path:String):String`](<#path-function-dir>)
+
+  - [`function ext(_path:String):String`](<#path-function-ext>)
+
+  - [`function isAbs(_path:String):Bool`](<#path-function-isabs>)
+
+  - [`function join(_elem:haxe.Rest<String>):String`](<#path-function-join>)
+
+  - [`function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error>`](<#path-function-match>)
+
+  - [`function split(_path:String):stdgo.Tuple<String, String>`](<#path-function-split>)
+
+- [abstract T\_lazybuf](<#abstract-t_lazybuf>)
+
+# Variables
+
+
+```haxe
+import stdgo.path.Path
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
-    7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-      |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Compiler.hx:229: characters 7-36
+```haxe
+var errBadPattern:stdgo.Error
+```
 
-       229 | [2m      [0m[1mload("include_module", 1)(cl)[0m[2m;[0m
-           |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
 
-       231 | [2m      [0m[1minclude(prefix + file, true, ignore, classPaths)[0m[2m;[0m
-           |       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
+# Classes
 
-       239 | [2m  Context.onAfterInitMacros(() -> [0m[1minclude(pack, rec, ignore, classPaths, strict)[0m[2m);[0m
-           |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
 
-[30;41m ERROR [0m stdgo/GoString.hx:22: characters 8-53
+```haxe
+import stdgo.path.*
+```
 
-   22 | [2m  if (![0m[1mstdgo._internal.unicode.utf8.Utf8_validString[0m[2m.validString((this : GoString)))[0m
-      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.unicode.utf8.Utf8_validString
 
-[30;41m ERROR [0m stdgo/GoString.hx:157: characters 16-60
-
-  157 | [2m   final tmp = [0m[1mstdgo._internal.unicode.utf8.Utf8_decodeRune[0m[2m.decodeRune(bytes);[0m
-      |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Type not found : stdgo._internal.unicode.utf8.Utf8_decodeRune
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
-
-  930 | [2m[0m[1mclass _Type {[0m
-    - | [2m  [...][0m
-  941 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
-
-           | For function argument 'type'
-
-[30;41m ERROR [0m stdgo/_internal/path/Path.hx:395: characters 78-82
-
-  395 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
-      |                                                                              [31m^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field kind
-
-[30;41m ERROR [0m stdgo/_internal/path/Path.hx:395: characters 138-145
-
-  395 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
-      |                                                                                                                                          [31m^^^^^^^[0m
-      | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
-
-[30;41m ERROR [0m stdgo/_internal/path/Path.hx:395: characters 150-190
-
-  395 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
-      |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-           | For function argument 'value'
-
-[30;41m ERROR [0m stdgo/_internal/errors/Errors.hx:70: characters 16-228
-
-   70 | [2m        return [0m[1mstdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.errors.Errors.T_errorString(_text?.__copy__()) : stdgo._internal.errors.Errors.T_errorString)) : stdgo.Ref<stdgo._internal.errors.Errors.T_errorString>))[0m[2m;[0m
-      |                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Uncaught exception Type not found 'stdgo._internal.errors.Errors_asInterface.T_errorString_asInterface'
-
-      [30;41m -> [0m /home/runner/haxe/versions/a97dc16/std/haxe/macro/Context.hx:329: characters 10-35
-
-       329 | [2m  return [0m[1mload("get_type", 1)(name)[0m[2m;[0m
-           |          [31m^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
-
-      [30;41m -> [0m stdgo/Go.macro.hx:352: characters 14-55
-
-       352 | [2m   final t = [0m[1mContext.getType(printer.printTypePath(p))[0m[2m;[0m
-           |              [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-           | Called from here
-
-       439 | [2m     [0m[1mf(ct, params)[0m[2m;[0m
-           |      [31m^^^^^^^^^^^^^[0m
-           | Called from here
-
-       431 | [2m      return [0m[1mrun()[0m[2m;[0m
-           |              [31m^^^^^[0m
-           | Called from here
-
-       465 | [2m  return [0m[1mrun()[0m[2m;[0m
-           |          [31m^^^^^[0m
-           | Called from here
-
-           | Called from here
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
-
-  930 | [2m[0m[1mclass _Type {[0m
-    - | [2m  [...][0m
-  941 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
-
-           | For function argument 'type'
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
-
-  930 | [2m[0m[1mclass _Type {[0m
-    - | [2m  [...][0m
-  941 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
-
-           | For function argument 'type'
-
-[30;41m ERROR [0m stdgo/_internal/errors/Errors.hx:205: characters 78-82
-
-  205 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
-      |                                                                              [31m^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field kind
-
-[30;41m ERROR [0m stdgo/_internal/errors/Errors.hx:205: characters 138-145
-
-  205 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
-      |                                                                                                                                          [31m^^^^^^^[0m
-      | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
-
-[30;41m ERROR [0m stdgo/_internal/errors/Errors.hx:205: characters 150-190
-
-  205 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
-      |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-           | For function argument 'value'
-
-[30;41m ERROR [0m stdgo/_internal/errors/Errors.hx:225: characters 78-82
-
-  225 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.[0m[1mkind[0m[2m() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
-      |                                                                              [31m^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field kind
-
-[30;41m ERROR [0m stdgo/_internal/errors/Errors.hx:225: characters 138-145
-
-  225 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.[0m[1mpointer[0m[2m && !stdgo._internal.internal.reflect.Reflect.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
-      |                                                                                                                                          [31m^^^^^^^[0m
-      | Abstract<stdgo._internal.internal.reflect.KindType> has no field pointer
-
-[30;41m ERROR [0m stdgo/_internal/errors/Errors.hx:225: characters 150-190
-
-  225 | [2m    public function __underlying__() return new stdgo.AnyInterface((__type__.kind() == stdgo._internal.internal.reflect.Reflect.KindType.pointer && ![0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isReflectTypeRef(__type__)) ? (__self__ : Dynamic) : (__self__.value : Dynamic), __type__);[0m
-      |                                                                                                                                                      [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-           | For function argument 'value'
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:45: characters 16-27
-
-   45 | [2m  if (gt.match([0m[1minvalidType[0m[2m) || gt2.match(invalidType))[0m
-      |                [31m^^^^^^^^^^^[0m
-      | Pattern variables are not allowed in .match patterns
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-21
-
-   47 | [2m  if (gt.match([0m[1mbasic[0m[2m(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))[0m
-      |                [31m^^^^^[0m
-      | Identifier 'basic' is not part of stdgo._internal.internal.reflect.GoType
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:47: characters 16-39
-
-   47 | [2m  if (gt.match([0m[1mbasic(untyped_nil_kind)[0m[2m) || gt2.match(basic(untyped_nil_kind)))[0m
-      |                [31m^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: basic(untyped_nil_kind)
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:50: characters 15-27
-
-   50 | [2m  if (!a.type.[0m[1massignableTo[0m[2m(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {[0m
-      |               [31m^^^^^^^^^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field assignableTo
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
-
- 1399 | [2m[0m[1mclass _Type_asInterface {[0m
-    - | [2m  [...][0m
- 1507 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-14
-
-   56 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
-      |         [31m^^^^^[0m
-      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:56: characters 9-29
-
-   56 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: named(path, _, _, _)
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-14
-
-   70 | [2m   case [0m[1mnamed[0m[2m(path, _, _, _):[0m
-      |         [31m^^^^^[0m
-      | Identifier 'named' is not part of stdgo._internal.internal.reflect.GoType
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:70: characters 9-29
-
-   70 | [2m   case [0m[1mnamed(path, _, _, _)[0m[2m:[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: named(path, _, _, _)
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:83: characters 8-48
-
-   83 | [2m  gt = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt);[0m
-      |        [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:84: characters 9-49
-
-   84 | [2m  gt2 = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(gt2);[0m
-      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-16
-
-   86 | [2m   case [0m[1mrefType[0m[2m(_):[0m
-      |         [31m^^^^^^^[0m
-      | Identifier 'refType' is not part of stdgo._internal.internal.reflect.GoType
-
-[30;41m ERROR [0m stdgo/AnyInterface.hx:86: characters 9-19
-
-   86 | [2m   case [0m[1mrefType(_)[0m[2m:[0m
-      |         [31m^^^^^^^^^^[0m
-      | Unrecognized pattern: refType(_)
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:379: characters 97-104
-
-  379 | [2m        final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type.[0m[1m_common[0m[2m();[0m
-      |                                                                                                 [31m^^^^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field _common
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:380: characters 13-53
-
-  380 | [2m        if ([0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isNamed(t)) {[0m
-      |             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:389: characters 13-53
-
-  389 | [2m        if ([0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.isPointer(t)) {[0m
-      |             [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:393: characters 32-72
-
-  393 | [2m        final underlyingType = [0m[1mstdgo._internal.internal.reflect.Reflect[0m[2m.getUnderlying(t);[0m
-      |                                [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Module stdgo._internal.internal.reflect.Reflect does not define type Reflect
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:395: characters 66-71
-
-  395 | [2m            case stdgo._internal.internal.reflect.Reflect.GoType.[0m[1mbasic[0m[2m(kind):[0m
-      |                                                                  [31m^^^^^[0m
-      | { invalidType : Unknown<0> } has no field basic
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect.hx:395: characters 18-77
-
-  395 | [2m            case [0m[1mstdgo._internal.internal.reflect.Reflect.GoType.basic(kind)[0m[2m:[0m
-      |                  [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-      | Unrecognized pattern: stdgo._internal.internal.reflect.Reflect.GoType.basic(kind)
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:930: lines 930-941
-
-  930 | [2m[0m[1mclass _Type {[0m
-    - | [2m  [...][0m
-  941 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type is not ready to be accessed, separate your type declarations in several files
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
-
- 1399 | [2m[0m[1mclass _Type_asInterface {[0m
-    - | [2m  [...][0m
- 1507 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
-
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:1399: lines 1399-1507
-
- 1399 | [2m[0m[1mclass _Type_asInterface {[0m
-    - | [2m  [...][0m
- 1507 | [1m}[0m[2m[0m
-      |
-      | stdgo._internal.internal.reflect._Type_asInterface is not ready to be accessed, separate your type declarations in several files
-
-[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/reflect/Reflect.hx:769: characters 97-104
-
-  769 | [2m        final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type.[0m[1m_common[0m[2m();[0m
-      |                                                                                                 [31m^^^^^^^[0m
-      | stdgo._internal.internal.reflect._Type has no field _common
+## class Path
 
 
 ```
+Package path implements utility routines for manipulating slash-separated
+    paths.
+```
+
+The path package should only be used for paths separated by forward
+slashes, such as the paths in URLs. This package does not deal with
+Windows paths with drive letters or backslashes; to manipulate
+operating system paths, use the path/filepath package.  
+
+### Path function base
+
+
+```haxe
+function base(_path:String):String
+```
+
+
+```
+Base returns the last element of path.
+        Trailing slashes are removed before extracting the last element.
+        If the path is empty, Base returns ".".
+        If the path consists entirely of slashes, Base returns "/".
+```
+[\(view code\)](<./Path.hx#L143>)
+
+
+### Path function clean
+
+
+```haxe
+function clean(_path:String):String
+```
+
+
+```
+Clean returns the shortest path name equivalent to path
+        by purely lexical processing. It applies the following rules
+        iteratively until no further processing can be done:
+```
+```
+         1. Replace multiple slashes with a single slash.
+         2. Eliminate each . path name element (the current directory).
+         3. Eliminate each inner .. path name element (the parent directory)
+            along with the non-.. element that precedes it.
+         4. Eliminate .. elements that begin a rooted path:
+            that is, replace "/.." by "/" at the beginning of a path.
+```
+
+The returned path ends in a slash only if it is the root "/".  
+
+
+If the result of this process is an empty string, Clean
+returns the string ".".  
+
+
+See also Rob Pike, “Lexical File Names in Plan 9 or
+Getting Dot\-Dot Right,”
+https://9p.io/sys/doc/lexnames.html  
+
+[\(view code\)](<./Path.hx#L102>)
+
+
+### Path function dir
+
+
+```haxe
+function dir(_path:String):String
+```
+
+
+```
+Dir returns all but the last element of path, typically the path's directory.
+        After dropping the final element using Split, the path is Cleaned and trailing
+        slashes are removed.
+        If the path is empty, Dir returns ".".
+        If the path consists entirely of slashes followed by non-slash bytes, Dir
+        returns a single slash. In any other case, the returned path does not end in a
+        slash.
+```
+[\(view code\)](<./Path.hx#L161>)
+
+
+### Path function ext
+
+
+```haxe
+function ext(_path:String):String
+```
+
+
+```
+Ext returns the file name extension used by path.
+        The extension is the suffix beginning at the final dot
+        in the final slash-separated element of path;
+        it is empty if there is no dot.
+```
+[\(view code\)](<./Path.hx#L134>)
+
+
+### Path function isAbs
+
+
+```haxe
+function isAbs(_path:String):Bool
+```
+
+
+
+IsAbs reports whether the path is absolute.  
+
+[\(view code\)](<./Path.hx#L149>)
+
+
+### Path function join
+
+
+```haxe
+function join(_elem:haxe.Rest<String>):String
+```
+
+
+```
+Join joins any number of path elements into a single path,
+        separating them with slashes. Empty elements are ignored.
+        The result is Cleaned. However, if the argument list is
+        empty or all its elements are empty, Join returns
+        an empty string.
+```
+[\(view code\)](<./Path.hx#L125>)
+
+
+### Path function match
+
+
+```haxe
+function match(_pattern:String, _name:String):stdgo.Tuple<Bool, stdgo.Error>
+```
+
+
+```
+Match reports whether name matches the shell pattern.
+        The pattern syntax is:
+```
+```
+        	pattern:
+        		{ term }
+        	term:
+        		'*'         matches any sequence of non-/ characters
+        		'?'         matches any single non-/ character
+        		'[' [ '^' ] { character-range } ']'
+        		            character class (must be non-empty)
+        		c           matches character c (c != '*', '?', '\\', '[')
+        		'\\' c      matches character c
+```
+```
+        	character-range:
+        		c           matches character c (c != '\\', '-', ']')
+        		'\\' c      matches character c
+        		lo '-' hi   matches character c for lo <= c <= hi
+```
+
+Match requires pattern to match all of name, not just a substring.
+The only possible returned error is ErrBadPattern, when pattern
+is malformed.  
+
+[\(view code\)](<./Path.hx#L75>)
+
+
+### Path function split
+
+
+```haxe
+function split(_path:String):stdgo.Tuple<String, String>
+```
+
+
+```
+Split splits path immediately following the final slash,
+        separating it into a directory and file name component.
+        If there is no slash in path, Split returns an empty dir and
+        file set to path.
+        The returned values have the property that path = dir+file.
+```
+[\(view code\)](<./Path.hx#L112>)
+
+
+# Abstracts
+
+
+## abstract T\_lazybuf
+
+
+[\(view file containing code\)](<./Path.hx>)
+
 

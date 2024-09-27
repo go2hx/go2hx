@@ -9,55 +9,35 @@
 # Index
 
 
-- [`function isNonblock(_fd:stdgo.GoInt):{
-	_1:stdgo.Error;
-	_0:Bool;
-}`](<#function-isnonblock>)
+- [Constants](<#constants>)
 
-- [`function kernelVersion():{
-	_1:stdgo.GoInt;
-	_0:stdgo.GoInt;
-}`](<#function-kernelversion>)
+- [class Unix](<#class-unix>)
 
-- [`function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}`](<#function-recvfrominet4>)
+  - [`function fcntl(_fd:Int, _cmd:Int, _arg:Int):stdgo.Tuple<Int, stdgo.Error>`](<#unix-function-fcntl>)
 
-- [`function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}`](<#function-recvfrominet6>)
+  - [`function hasNonblockFlag(_flag:Int):Bool`](<#unix-function-hasnonblockflag>)
 
-- [`function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{
-	_3:stdgo.Error;
-	_2:stdgo.GoInt;
-	_1:stdgo.GoInt;
-	_0:stdgo.GoInt;
-}`](<#function-recvmsginet4>)
+  - [`function isNonblock(_fd:Int):stdgo.Tuple<Bool, stdgo.Error>`](<#unix-function-isnonblock>)
 
-- [`function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{
-	_3:stdgo.Error;
-	_2:stdgo.GoInt;
-	_1:stdgo.GoInt;
-	_0:stdgo.GoInt;
-}`](<#function-recvmsginet6>)
+  - [`function kernelVersion():stdgo.Tuple<Int, Int>`](<#unix-function-kernelversion>)
 
-- [`function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet4>, _flags:stdgo.GoInt):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}`](<#function-sendmsgninet4>)
+  - [`function recvfromInet4(_fd:Int, _p:Array<UInt>, _flags:Int, _from:stdgo._internal.syscall.SockaddrInet4):stdgo.Tuple<Int, stdgo.Error>`](<#unix-function-recvfrominet4>)
 
-- [`function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet6>, _flags:stdgo.GoInt):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}`](<#function-sendmsgninet6>)
+  - [`function recvfromInet6(_fd:Int, _p:Array<UInt>, _flags:Int, _from:stdgo._internal.syscall.SockaddrInet6):stdgo.Tuple<Int, stdgo.Error>`](<#unix-function-recvfrominet6>)
 
-- [`function sendtoInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _to:stdgo.Ref<stdgo.syscall.SockaddrInet4>):stdgo.Error`](<#function-sendtoinet4>)
+  - [`function recvmsgInet4(_fd:Int, _p:Array<UInt>, _oob:Array<UInt>, _flags:Int, _from:stdgo._internal.syscall.SockaddrInet4):stdgo.Tuple4<Int, Int, Int, stdgo.Error>`](<#unix-function-recvmsginet4>)
 
-- [`function sendtoInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _to:stdgo.Ref<stdgo.syscall.SockaddrInet6>):stdgo.Error`](<#function-sendtoinet6>)
+  - [`function recvmsgInet6(_fd:Int, _p:Array<UInt>, _oob:Array<UInt>, _flags:Int, _from:stdgo._internal.syscall.SockaddrInet6):stdgo.Tuple4<Int, Int, Int, stdgo.Error>`](<#unix-function-recvmsginet6>)
 
-# Functions
+  - [`function sendmsgNInet4(_fd:Int, _p:Array<UInt>, _oob:Array<UInt>, _to:stdgo._internal.syscall.SockaddrInet4, _flags:Int):stdgo.Tuple<Int, stdgo.Error>`](<#unix-function-sendmsgninet4>)
+
+  - [`function sendmsgNInet6(_fd:Int, _p:Array<UInt>, _oob:Array<UInt>, _to:stdgo._internal.syscall.SockaddrInet6, _flags:Int):stdgo.Tuple<Int, stdgo.Error>`](<#unix-function-sendmsgninet6>)
+
+  - [`function sendtoInet4(_fd:Int, _p:Array<UInt>, _flags:Int, _to:stdgo._internal.syscall.SockaddrInet4):stdgo.Error`](<#unix-function-sendtoinet4>)
+
+  - [`function sendtoInet6(_fd:Int, _p:Array<UInt>, _flags:Int, _to:stdgo._internal.syscall.SockaddrInet6):stdgo.Error`](<#unix-function-sendtoinet6>)
+
+# Constants
 
 
 ```haxe
@@ -65,141 +45,151 @@ import stdgo.internal.syscall.unix.Unix
 ```
 
 
-## function isNonblock
-
-
 ```haxe
-function isNonblock(_fd:stdgo.GoInt):{
-	_1:stdgo.Error;
-	_0:Bool;
-}
+final utime_OMIT:haxe.UInt64 = stdgo._internal.internal.syscall.unix.Unix_utime_OMIT.utime_OMIT
 ```
 
 
-[\(view code\)](<./Unix.hx#L20>)
-
-
-## function kernelVersion
+# Classes
 
 
 ```haxe
-function kernelVersion():{
-	_1:stdgo.GoInt;
-	_0:stdgo.GoInt;
-}
+import stdgo.internal.syscall.unix.*
 ```
 
 
-[\(view code\)](<./Unix.hx#L11>)
+## class Unix
 
 
-## function recvfromInet4
+### Unix function fcntl
 
 
 ```haxe
-function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}
+function fcntl(_fd:Int, _cmd:Int, _arg:Int):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
-[\(view code\)](<./Unix.hx#L12>)
+[\(view code\)](<./Unix.hx#L4>)
 
 
-## function recvfromInet6
+### Unix function hasNonblockFlag
 
 
 ```haxe
-function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}
+function hasNonblockFlag(_flag:Int):Bool
 ```
 
 
-[\(view code\)](<./Unix.hx#L13>)
+[\(view code\)](<./Unix.hx#L76>)
 
 
-## function recvmsgInet4
+### Unix function isNonblock
 
 
 ```haxe
-function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet4>):{
-	_3:stdgo.Error;
-	_2:stdgo.GoInt;
-	_1:stdgo.GoInt;
-	_0:stdgo.GoInt;
-}
+function isNonblock(_fd:Int):stdgo.Tuple<Bool, stdgo.Error>
 ```
 
 
-[\(view code\)](<./Unix.hx#L18>)
+[\(view code\)](<./Unix.hx#L70>)
 
 
-## function recvmsgInet6
+### Unix function kernelVersion
 
 
 ```haxe
-function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _from:stdgo.Ref<stdgo.syscall.SockaddrInet6>):{
-	_3:stdgo.Error;
-	_2:stdgo.GoInt;
-	_1:stdgo.GoInt;
-	_0:stdgo.GoInt;
-}
+function kernelVersion():stdgo.Tuple<Int, Int>
 ```
 
 
-[\(view code\)](<./Unix.hx#L19>)
+[\(view code\)](<./Unix.hx#L10>)
 
 
-## function sendmsgNInet4
+### Unix function recvfromInet4
 
 
 ```haxe
-function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet4>, _flags:stdgo.GoInt):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}
+function recvfromInet4(_fd:Int, _p:Array<UInt>, _flags:Int, _from:stdgo._internal.syscall.SockaddrInet4):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
 [\(view code\)](<./Unix.hx#L16>)
 
 
-## function sendmsgNInet6
+### Unix function recvfromInet6
 
 
 ```haxe
-function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _oob:stdgo.Slice<stdgo.GoByte>, _to:stdgo.Ref<stdgo.syscall.SockaddrInet6>, _flags:stdgo.GoInt):{
-	_1:stdgo.Error;
-	_0:stdgo.GoInt;
-}
+function recvfromInet6(_fd:Int, _p:Array<UInt>, _flags:Int, _from:stdgo._internal.syscall.SockaddrInet6):stdgo.Tuple<Int, stdgo.Error>
 ```
 
 
-[\(view code\)](<./Unix.hx#L17>)
+[\(view code\)](<./Unix.hx#L23>)
 
 
-## function sendtoInet4
+### Unix function recvmsgInet4
 
 
 ```haxe
-function sendtoInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _to:stdgo.Ref<stdgo.syscall.SockaddrInet4>):stdgo.Error
+function recvmsgInet4(_fd:Int, _p:Array<UInt>, _oob:Array<UInt>, _flags:Int, _from:stdgo._internal.syscall.SockaddrInet4):stdgo.Tuple4<Int, Int, Int, stdgo.Error>
 ```
 
 
-[\(view code\)](<./Unix.hx#L14>)
+[\(view code\)](<./Unix.hx#L54>)
 
 
-## function sendtoInet6
+### Unix function recvmsgInet6
 
 
 ```haxe
-function sendtoInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoByte>, _flags:stdgo.GoInt, _to:stdgo.Ref<stdgo.syscall.SockaddrInet6>):stdgo.Error
+function recvmsgInet6(_fd:Int, _p:Array<UInt>, _oob:Array<UInt>, _flags:Int, _from:stdgo._internal.syscall.SockaddrInet6):stdgo.Tuple4<Int, Int, Int, stdgo.Error>
 ```
 
 
-[\(view code\)](<./Unix.hx#L15>)
+[\(view code\)](<./Unix.hx#L62>)
+
+
+### Unix function sendmsgNInet4
+
+
+```haxe
+function sendmsgNInet4(_fd:Int, _p:Array<UInt>, _oob:Array<UInt>, _to:stdgo._internal.syscall.SockaddrInet4, _flags:Int):stdgo.Tuple<Int, stdgo.Error>
+```
+
+
+[\(view code\)](<./Unix.hx#L38>)
+
+
+### Unix function sendmsgNInet6
+
+
+```haxe
+function sendmsgNInet6(_fd:Int, _p:Array<UInt>, _oob:Array<UInt>, _to:stdgo._internal.syscall.SockaddrInet6, _flags:Int):stdgo.Tuple<Int, stdgo.Error>
+```
+
+
+[\(view code\)](<./Unix.hx#L46>)
+
+
+### Unix function sendtoInet4
+
+
+```haxe
+function sendtoInet4(_fd:Int, _p:Array<UInt>, _flags:Int, _to:stdgo._internal.syscall.SockaddrInet4):stdgo.Error
+```
+
+
+[\(view code\)](<./Unix.hx#L30>)
+
+
+### Unix function sendtoInet6
+
+
+```haxe
+function sendtoInet6(_fd:Int, _p:Array<UInt>, _flags:Int, _to:stdgo._internal.syscall.SockaddrInet6):stdgo.Error
+```
+
+
+[\(view code\)](<./Unix.hx#L34>)
 
 

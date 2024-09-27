@@ -1,17 +1,68 @@
-# Module stdgo.crypto.internal.randutil has compilation errors, please do not use:
+# Module: `stdgo.crypto.internal.randutil`
+
+[(view library index)](../../../stdgo.md)
+
+
+# Overview
+
+
+# Index
+
+
+- [class Randutil](<#class-randutil>)
+
+  - [`function maybeReadByte(_r:stdgo._internal.io.Reader):Void`](<#randutil-function-maybereadbyte>)
+
+- [typedef T\_\_struct\_0](<#typedef-t__struct_0>)
+
+# Classes
+
+
+```haxe
+import
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/reflect/Reflect.hx:7: characters 33-76
 
-  7 | [2m@:follow private typedef Type = [0m[1mstdgo._internal.reflect.Reflect_Type_.Type_[0m[2m;[0m
-    |                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : stdgo._internal.reflect.Reflect_Type_
 
-[30;41m ERROR [0m stdgo/_internal/unsafe/Unsafe.hx:17: characters 37-43
-
- 17 | [2m public function __convert__(toType:[0m[1mGoType[0m[2m):Any {[0m
-    |                                     [31m^^^^^^[0m
-    | Type not found : GoType
+## class Randutil
 
 
 ```
+Package randutil contains internal randomness utilities for various
+    crypto packages.
+```
+### Randutil function maybeReadByte
+
+
+```haxe
+function maybeReadByte(_r:stdgo._internal.io.Reader):Void
+```
+
+
+```
+MaybeReadByte reads a single byte from r with ~50% probability. This is used
+        to ensure that callers do not depend on non-guaranteed behaviour, e.g.
+        assuming that rsa.GenerateKey is deterministic w.r.t. a given random stream.
+```
+
+This does not affect tests that pass a stream of fixed bytes as the random
+source \(e.g. a zeroReader\).  
+
+[\(view code\)](<./Randutil.hx#L19>)
+
+
+# Typedefs
+
+
+```haxe
+import
+```
+
+
+## typedef T\_\_struct\_0
+
+
+```haxe
+typedef T__struct_0 = stdgo._internal.crypto.internal.randutil.T__struct_0;
+```
+
 

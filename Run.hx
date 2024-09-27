@@ -72,7 +72,7 @@ function main() {
 		setupInterp(rebuild,args);
 		return;
 	}
-	if ((index = args.indexOf("-compiler_nodejs")) != -1 || (index = args.indexOf("--compiler_nodes")) != -1) {
+	if ((index = args.indexOf("-compiler_nodejs")) != -1 || (index = args.indexOf("--compiler_nodejs")) != -1) {
 		args.remove(args[index]);
 		setupNodeJS(rebuild,args);
 		return;

@@ -1,19 +1,5 @@
 # Module stdgo._internal.debug.pe has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect_indirect.hx:3: characters 26-33
-
-  3 | [2m        if (_v.kind() != [0m[1mpointer[0m[2m) {[0m
-    |                          [31m^^^^^^^[0m
-    | Unknown identifier : pointer
-
-[30;41m ERROR [0m stdgo/_internal/reflect/Reflect_indirect.hx:2: lines 2-8
-
-  2 | [2mfunction indirect(_v:stdgo._internal.reflect.Reflect_Value.Value):stdgo._internal.reflect.Reflect_Value.Value [0m[1m{[0m
-  - | [2m  [...][0m
-  8 | [1m    }[0m[2m[0m
-    |
-    | Missing return: stdgo._internal.reflect.Value
-
 [30;41m ERROR [0m stdgo/_internal/debug/pe/Pe__readOptionalHeader.hx:6: characters 144-152
 
   6 | [2m        var __0:stdgo.GoUInt16 = (0 : stdgo.GoUInt16), __1:stdgo.GoInt = stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface([0m[1m_ohMagic[0m[2m));[0m

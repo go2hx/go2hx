@@ -171,8 +171,10 @@ final list = [
 		_startTimer(_t);
 	},
 	"time:_runtimeNano" => macro {
-		final x = ((std.Sys.time() * 1000000 * 1000) - std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
-		return x;
+		@:define("sys") {
+			return ((std.Sys.time() * 1000000 * 1000) - std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
+		}
+		return 0;
 	},
 	"time:_now" => macro {
 		final n = stdgo._internal.time.Time__runtimeNano._runtimeNano();
@@ -400,7 +402,7 @@ final list = [
 		return new $newValue(_i);
 	},
 	"reflect:indirect" => macro {
-		if (_v.kind() != pointer) {
+		if (_v.kind() != stdgo._internal.reflect.Reflect_pointer.pointer) {
 			return _v;
 		}else{
 			return _v.elem();

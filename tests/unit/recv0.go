@@ -2,7 +2,9 @@ package main
 
 import "time"
 
-func main() {}
+func main() {
+	_, _, _, _ = t, SetMono, setMono2, setMono3
+}
 
 var t = time.Time{}
 var SetMono = t.Add

@@ -13,6 +13,7 @@
  "hl|copy1",
  "hl|defergoto",
  "hl|defergoto2",
+ "hl|divideByZero",
  "hl|divmod0",
  "hl|func0",
  "hl|func1",

@@ -135,7 +135,7 @@ function _abigen_runtime_cmpstring(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.G
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function \_abigen\_runtime\_memequal
@@ -146,7 +146,7 @@ function _abigen_runtime_memequal(_a:stdgo._internal.unsafe.UnsafePointer, _b:st
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function \_abigen\_runtime\_memequal\_varlen
@@ -157,7 +157,7 @@ function _abigen_runtime_memequal_varlen(_a:stdgo._internal.unsafe.UnsafePointer
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function compare
@@ -168,7 +168,7 @@ function compare(_a:stdgo.Slice<stdgo.GoUInt8>, _b:stdgo.Slice<stdgo.GoUInt8>):s
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function count
@@ -179,7 +179,7 @@ function count(_b:stdgo.Slice<stdgo.GoUInt8>, _c:stdgo.GoUInt8):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function countString
@@ -190,7 +190,7 @@ function countString(_s:stdgo.GoString, _c:stdgo.GoUInt8):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function cutover
@@ -201,7 +201,7 @@ function cutover(_n:stdgo.GoInt):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function equal
@@ -212,7 +212,7 @@ function equal(_a:stdgo.Slice<stdgo.GoUInt8>, _b:stdgo.Slice<stdgo.GoUInt8>):Boo
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function hashStr
@@ -226,7 +226,7 @@ function hashStr(_sep:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function hashStrBytes
@@ -240,7 +240,7 @@ function hashStrBytes(_sep:stdgo.Slice<stdgo.GoUInt8>):{
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function hashStrRev
@@ -254,7 +254,7 @@ function hashStrRev(_sep:stdgo.GoString):{
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function hashStrRevBytes
@@ -268,7 +268,7 @@ function hashStrRevBytes(_sep:stdgo.Slice<stdgo.GoUInt8>):{
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function index
@@ -279,7 +279,7 @@ function index(_a:stdgo.Slice<stdgo.GoUInt8>, _b:stdgo.Slice<stdgo.GoUInt8>):std
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function indexByte
@@ -290,7 +290,7 @@ function indexByte(_b:stdgo.Slice<stdgo.GoUInt8>, _c:stdgo.GoUInt8):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function indexByteString
@@ -301,7 +301,7 @@ function indexByteString(_s:stdgo.GoString, _c:stdgo.GoUInt8):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function indexRabinKarp
@@ -312,7 +312,7 @@ function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function indexRabinKarpBytes
@@ -323,7 +323,7 @@ function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<std
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function indexString
@@ -334,7 +334,7 @@ function indexString(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 
 ## function makeNoZero
@@ -345,6 +345,6 @@ function makeNoZero(_n:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8>
 ```
 
 
-[\(view code\)](<./Bytealg_primeRK.hx#L3>)
+[\(view code\)](<./Bytealg_primeRK.hx#L2>)
 
 

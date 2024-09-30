@@ -89,7 +89,7 @@ function _lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.internal.godebu
 ```
 
 
-[\(view code\)](<./Godebug_new_.hx#L3>)
+[\(view code\)](<./Godebug_new_.hx#L2>)
 
 
 ## function \_newIncNonDefault
@@ -100,7 +100,7 @@ function _newIncNonDefault(_name:stdgo.GoString):():Void
 ```
 
 
-[\(view code\)](<./Godebug_new_.hx#L3>)
+[\(view code\)](<./Godebug_new_.hx#L2>)
 
 
 ## function \_parse
@@ -111,7 +111,7 @@ function _parse(_did:stdgo.GoMap<stdgo.GoString, Bool>, _s:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Godebug_new_.hx#L3>)
+[\(view code\)](<./Godebug_new_.hx#L2>)
 
 
 ## function \_registerMetric
@@ -122,7 +122,7 @@ function _registerMetric(_name:stdgo.GoString, _read:():stdgo.GoUInt64):Void
 ```
 
 
-[\(view code\)](<./Godebug_new_.hx#L3>)
+[\(view code\)](<./Godebug_new_.hx#L2>)
 
 
 ## function \_setNewIncNonDefault
@@ -133,7 +133,7 @@ function _setNewIncNonDefault(_newIncNonDefault:()):Void
 ```
 
 
-[\(view code\)](<./Godebug_new_.hx#L3>)
+[\(view code\)](<./Godebug_new_.hx#L2>)
 
 
 ## function \_setUpdate
@@ -144,7 +144,7 @@ function _setUpdate(_update:(:stdgo.GoString, :stdgo.GoString):Void):Void
 ```
 
 
-[\(view code\)](<./Godebug_new_.hx#L3>)
+[\(view code\)](<./Godebug_new_.hx#L2>)
 
 
 ## function \_update
@@ -155,7 +155,7 @@ function _update(_def:stdgo.GoString, _env:stdgo.GoString):Void
 ```
 
 
-[\(view code\)](<./Godebug_new_.hx#L3>)
+[\(view code\)](<./Godebug_new_.hx#L2>)
 
 
 ## function \_write
@@ -166,7 +166,7 @@ function _write(_fd:stdgo.GoUIntptr, _p:stdgo._internal.unsafe.UnsafePointer, _n
 ```
 
 
-[\(view code\)](<./Godebug_new_.hx#L3>)
+[\(view code\)](<./Godebug_new_.hx#L2>)
 
 
 ## function new\_
@@ -177,7 +177,7 @@ function new_(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.internal.godebug.S
 ```
 
 
-[\(view code\)](<./Godebug_new_.hx#L3>)
+[\(view code\)](<./Godebug_new_.hx#L2>)
 
 
 # Classes
@@ -214,7 +214,7 @@ function new(?_name:stdgo.GoString, ?_once:stdgo._internal.sync.Once, ?_setting:
 ```
 
 
-[\(view code\)](<./Godebug_Setting.hx#L8>)
+[\(view code\)](<./Godebug_Setting.hx#L7>)
 
 
 ## class T\_runtimeStderr
@@ -228,7 +228,7 @@ function new():Void
 ```
 
 
-[\(view code\)](<./Godebug_T_runtimeStderr.hx#L4>)
+[\(view code\)](<./Godebug_T_runtimeStderr.hx#L3>)
 
 
 ## class T\_setting
@@ -262,7 +262,7 @@ function new(?_value:stdgo._internal.sync.atomic_.Pointer_<stdgo._internal.inter
 ```
 
 
-[\(view code\)](<./Godebug_T_setting.hx#L8>)
+[\(view code\)](<./Godebug_T_setting.hx#L7>)
 
 
 ## class T\_value
@@ -286,6 +286,6 @@ function new(?_text:stdgo.GoString, ?_bisect:stdgo.Ref<stdgo._internal.internal.
 ```
 
 
-[\(view code\)](<./Godebug_T_value.hx#L6>)
+[\(view code\)](<./Godebug_T_value.hx#L5>)
 
 

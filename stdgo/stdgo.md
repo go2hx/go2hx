@@ -42,10 +42,10 @@
 | [stdgo._internal.crypto.x509.pkix](./_internal/crypto/x509/pkix/README.md) | ❌ | no |
 | [stdgo._internal.database.sql](./_internal/database/sql/README.md) | ❌ | no |
 | [stdgo._internal.database.sql.driver](./_internal/database/sql/driver/README.md) | ✅ | no |
-| [stdgo._internal.debug.dwarf](./_internal/debug/dwarf/README.md) | ❌ | no |
+| [stdgo._internal.debug.dwarf](./_internal/debug/dwarf/README.md) | ✅ | no |
 | [stdgo._internal.debug.elf](./_internal/debug/elf/README.md) | ❌ | no |
 | [stdgo._internal.debug.gosym](./_internal/debug/gosym/README.md) | ✅ | no |
-| [stdgo._internal.debug.macho](./_internal/debug/macho/README.md) | ❌ | no |
+| [stdgo._internal.debug.macho](./_internal/debug/macho/README.md) | ✅ | no |
 | [stdgo._internal.debug.pe](./_internal/debug/pe/README.md) | ❌ | no |
 | [stdgo._internal.debug.plan9obj](./_internal/debug/plan9obj/README.md) | ✅ | no |
 | [stdgo._internal.embed](./_internal/embed/README.md) | ✅ | no |
@@ -110,7 +110,7 @@
 | [stdgo._internal.internal.testenv](./_internal/internal/testenv/README.md) | ✅ | no |
 | [stdgo._internal.internal.types.errors](./_internal/internal/types/errors/README.md) | ✅ | no |
 | [stdgo._internal.internal.unsafeheader](./_internal/internal/unsafeheader/README.md) | ✅ | no |
-| [stdgo._internal.internal.xcoff](./_internal/internal/xcoff/README.md) | ❌ | no |
+| [stdgo._internal.internal.xcoff](./_internal/internal/xcoff/README.md) | ✅ | no |
 | [stdgo._internal.io](./_internal/io/README.md) | ❌ | yes |
 | [stdgo._internal.io.fs](./_internal/io/fs/README.md) | ✅ | no |
 | [stdgo._internal.io.ioutil](./_internal/io/ioutil/README.md) | ✅ | no |
@@ -158,7 +158,7 @@
 | [stdgo._internal.runtime](./_internal/runtime/README.md) | ❌ | no |
 | [stdgo._internal.runtime.cgo](./_internal/runtime/cgo/README.md) | ✅ | no |
 | [stdgo._internal.runtime.debug](./_internal/runtime/debug/README.md) | ✅ | no |
-| [stdgo._internal.runtime.metrics](./_internal/runtime/metrics/README.md) | ❌ | no |
+| [stdgo._internal.runtime.metrics](./_internal/runtime/metrics/README.md) | ✅ | no |
 | [stdgo._internal.runtime.pprof](./_internal/runtime/pprof/README.md) | ❌ | no |
 | [stdgo._internal.slices](./_internal/slices/README.md) | ❌ | yes |
 | [stdgo._internal.sort](./_internal/sort/README.md) | ❌ | yes |
@@ -222,10 +222,10 @@
 | [stdgo.crypto.x509.pkix](./crypto/x509/pkix/README.md) | ❌ | no |
 | [stdgo.database.sql](./database/sql/README.md) | ❌ | no |
 | [stdgo.database.sql.driver](./database/sql/driver/README.md) | ❌ | no |
-| [stdgo.debug.dwarf](./debug/dwarf/README.md) | ❌ | no |
+| [stdgo.debug.dwarf](./debug/dwarf/README.md) | ✅ | no |
 | [stdgo.debug.elf](./debug/elf/README.md) | ❌ | no |
 | [stdgo.debug.gosym](./debug/gosym/README.md) | ✅ | no |
-| [stdgo.debug.macho](./debug/macho/README.md) | ❌ | no |
+| [stdgo.debug.macho](./debug/macho/README.md) | ✅ | no |
 | [stdgo.debug.pe](./debug/pe/README.md) | ❌ | no |
 | [stdgo.debug.plan9obj](./debug/plan9obj/README.md) | ✅ | no |
 | [stdgo.embed](./embed/README.md) | ✅ | no |
@@ -288,7 +288,7 @@
 | [stdgo.internal.testenv](./internal/testenv/README.md) | ✅ | no |
 | [stdgo.internal.types.errors](./internal/types/errors/README.md) | ✅ | no |
 | [stdgo.internal.unsafeheader](./internal/unsafeheader/README.md) | ✅ | no |
-| [stdgo.internal.xcoff](./internal/xcoff/README.md) | ❌ | no |
+| [stdgo.internal.xcoff](./internal/xcoff/README.md) | ✅ | no |
 | [stdgo.io](./io/README.md) | ✅ | no |
 | [stdgo.io.fs](./io/fs/README.md) | ✅ | no |
 | [stdgo.io.ioutil](./io/ioutil/README.md) | ✅ | no |
@@ -336,7 +336,7 @@
 | [stdgo.runtime](./runtime/README.md) | ❌ | no |
 | [stdgo.runtime.cgo](./runtime/cgo/README.md) | ✅ | no |
 | [stdgo.runtime.debug](./runtime/debug/README.md) | ✅ | no |
-| [stdgo.runtime.metrics](./runtime/metrics/README.md) | ❌ | no |
+| [stdgo.runtime.metrics](./runtime/metrics/README.md) | ✅ | no |
 | [stdgo.runtime.pprof](./runtime/pprof/README.md) | ❌ | no |
 | [stdgo.slices](./slices/README.md) | ❌ | no |
 | [stdgo.sort](./sort/README.md) | ✅ | no |

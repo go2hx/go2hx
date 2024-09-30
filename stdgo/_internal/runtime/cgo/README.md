@@ -159,7 +159,7 @@ function _set_crosscall2():Void
 ```
 
 
-[\(view code\)](<./Cgo_newHandle.hx#L3>)
+[\(view code\)](<./Cgo_newHandle.hx#L2>)
 
 
 ## function \_\_set\_crosscall2
@@ -170,7 +170,7 @@ function __set_crosscall2():Void
 ```
 
 
-[\(view code\)](<./Cgo_newHandle.hx#L3>)
+[\(view code\)](<./Cgo_newHandle.hx#L2>)
 
 
 ## function \_\_cgo\_panic
@@ -181,7 +181,7 @@ function __cgo_panic(_a:stdgo.Ref<stdgo._internal.runtime.cgo.T__struct_0>):Void
 ```
 
 
-[\(view code\)](<./Cgo_newHandle.hx#L3>)
+[\(view code\)](<./Cgo_newHandle.hx#L2>)
 
 
 ## function \_\_runtime\_cgo\_panic\_internal
@@ -192,7 +192,7 @@ function __runtime_cgo_panic_internal(_p:stdgo.Pointer<stdgo.GoUInt8>):Void
 ```
 
 
-[\(view code\)](<./Cgo_newHandle.hx#L3>)
+[\(view code\)](<./Cgo_newHandle.hx#L2>)
 
 
 ## function newHandle
@@ -203,7 +203,7 @@ function newHandle(_v:stdgo.AnyInterface):stdgo._internal.runtime.cgo.Handle
 ```
 
 
-[\(view code\)](<./Cgo_newHandle.hx#L3>)
+[\(view code\)](<./Cgo_newHandle.hx#L2>)
 
 
 # Typedefs

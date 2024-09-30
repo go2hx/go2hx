@@ -98,7 +98,7 @@ function fcntl(_fd:stdgo.GoInt, _cmd:stdgo.GoInt, _arg:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function hasNonblockFlag
@@ -109,7 +109,7 @@ function hasNonblockFlag(_flag:stdgo.GoInt):Bool
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function isNonblock
@@ -123,7 +123,7 @@ function isNonblock(_fd:stdgo.GoInt):{
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function kernelVersion
@@ -137,7 +137,7 @@ function kernelVersion():{
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function recvfromInet4
@@ -151,7 +151,7 @@ function recvfromInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoUInt8>, _flags:st
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function recvfromInet6
@@ -165,7 +165,7 @@ function recvfromInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoUInt8>, _flags:st
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function recvmsgInet4
@@ -181,7 +181,7 @@ function recvmsgInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoUInt8>, _oob:stdgo
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function recvmsgInet6
@@ -197,7 +197,7 @@ function recvmsgInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoUInt8>, _oob:stdgo
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function sendmsgNInet4
@@ -211,7 +211,7 @@ function sendmsgNInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoUInt8>, _oob:stdg
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function sendmsgNInet6
@@ -225,7 +225,7 @@ function sendmsgNInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoUInt8>, _oob:stdg
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function sendtoInet4
@@ -236,7 +236,7 @@ function sendtoInet4(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoUInt8>, _flags:stdg
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 
 ## function sendtoInet6
@@ -247,6 +247,6 @@ function sendtoInet6(_fd:stdgo.GoInt, _p:stdgo.Slice<stdgo.GoUInt8>, _flags:stdg
 ```
 
 
-[\(view code\)](<./Unix_utime_OMIT.hx#L3>)
+[\(view code\)](<./Unix_utime_OMIT.hx#L2>)
 
 

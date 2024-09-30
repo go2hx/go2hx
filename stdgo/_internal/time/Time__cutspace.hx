@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _cutspace(_s:stdgo.GoString):stdgo.GoString {
         while ((((_s.length) > (0 : stdgo.GoInt) : Bool) && (_s[(0 : stdgo.GoInt)] == (32 : stdgo.GoUInt8)) : Bool)) {
             _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();

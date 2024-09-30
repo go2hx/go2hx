@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _forEachSAN(_der:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_, _callback:(stdgo.GoInt, stdgo.Slice<stdgo.GoUInt8>) -> stdgo.Error):stdgo.Error {
         if (!_der.readASN1((stdgo.Go.setRef(_der) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
             return stdgo._internal.errors.Errors_new_.new_(("x509: invalid subject alternative names" : stdgo.GoString));

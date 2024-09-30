@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _fmtInt(_buf:stdgo.Slice<stdgo.GoUInt8>, _v:stdgo.GoUInt64):stdgo.GoInt {
         var _w = (_buf.length : stdgo.GoInt);
         if (_v == ((0i64 : stdgo.GoUInt64))) {

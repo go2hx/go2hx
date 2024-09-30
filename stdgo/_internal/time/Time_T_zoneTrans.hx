@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_zoneTrans {
     public var _when : stdgo.GoInt64 = 0;
     public var _index : stdgo.GoUInt8 = 0;

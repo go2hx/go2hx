@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function runFuzzWorker(_ctx:stdgo._internal.context.Context_Context.Context, _fn:stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry -> stdgo.Error):stdgo.Error {
         var __deferstack__:Array<Void -> Void> = [];
         try {

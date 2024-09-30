@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _tzsetOffset(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } {
         var _offset = (0 : stdgo.GoInt), _rest = ("" : stdgo.GoString), _ok = false;
         if ((_s.length) == ((0 : stdgo.GoInt))) {

@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.time.Time.Duration_asInterface) class Duration_static_extension {
     @:keep
     static public function abs( _d:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Duration.Duration {

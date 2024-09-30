@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.os.Os.SyscallError_asInterface) class SyscallError_static_extension {
     @:keep
     static public function timeout( _e:stdgo.Ref<stdgo._internal.os.Os_SyscallError.SyscallError>):Bool throw "SyscallError:os.timeout is not yet implemented";

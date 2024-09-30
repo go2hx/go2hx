@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _parseTimeZone(_value:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : Bool; } {
         var _length = (0 : stdgo.GoInt), _ok = false;
         if (((_value.length) < (3 : stdgo.GoInt) : Bool)) {

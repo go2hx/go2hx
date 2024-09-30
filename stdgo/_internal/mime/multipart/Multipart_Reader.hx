@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.mime.multipart.Multipart_Reader_static_extension.Reader_static_extension) class Reader {
     public var _bufReader : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
     public var _tempDir : stdgo.GoString = "";

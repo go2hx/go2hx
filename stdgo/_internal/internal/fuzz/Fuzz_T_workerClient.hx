@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.fuzz.Fuzz_T_workerClient_static_extension.T_workerClient_static_extension) class T_workerClient {
     @:embedded
     public var _workerComm : stdgo._internal.internal.fuzz.Fuzz_T_workerComm.T_workerComm = ({} : stdgo._internal.internal.fuzz.Fuzz_T_workerComm.T_workerComm);

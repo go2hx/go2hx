@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.os.Os.T_fileWithoutReadFrom_asInterface) class T_fileWithoutReadFrom_static_extension {
     @:keep
     static public function readFrom( _:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom, _0:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):Void throw "T_fileWithoutReadFrom:os.readFrom is not yet implemented";

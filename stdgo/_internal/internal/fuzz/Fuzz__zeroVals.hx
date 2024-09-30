@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 var _zeroVals : stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(17, 17, ...[
 stdgo.Go.toInterface((stdgo.Go.str() : stdgo.Slice<stdgo.GoUInt8>)),
 stdgo.Go.toInterface((stdgo.Go.str() : stdgo.GoString)),

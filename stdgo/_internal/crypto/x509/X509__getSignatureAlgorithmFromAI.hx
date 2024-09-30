@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _getSignatureAlgorithmFromAI(_ai:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier):stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm {
         if (_ai.algorithm.equal(stdgo._internal.crypto.x509.X509__oidSignatureEd25519._oidSignatureEd25519)) {
             if ((_ai.parameters.fullBytes.length) != ((0 : stdgo.GoInt))) {

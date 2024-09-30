@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 class UnknownAuthorityError_asInterface {
     @:keep
     public dynamic function error():stdgo.GoString return __self__.value.error();

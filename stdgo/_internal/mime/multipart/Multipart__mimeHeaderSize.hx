@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 function _mimeHeaderSize(_h:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader):stdgo.GoInt64 {
         var _size = (0 : stdgo.GoInt64);
         _size = (400i64 : stdgo.GoInt64);

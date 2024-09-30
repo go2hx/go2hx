@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function _marshalCorpusFile(_vals:haxe.Rest<stdgo.AnyInterface>):stdgo.Slice<stdgo.GoUInt8> {
         var _vals = new stdgo.Slice<stdgo.AnyInterface>(_vals.length, 0, ..._vals);
         if ((_vals.length) == ((0 : stdgo.GoInt))) {

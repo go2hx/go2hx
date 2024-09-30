@@ -1,5 +1,4 @@
 package stdgo._internal.runtime.cgo;
-import stdgo._internal.unsafe.Unsafe;
 class Handle_asInterface {
     @:keep
     public dynamic function delete():Void __self__.value.delete();

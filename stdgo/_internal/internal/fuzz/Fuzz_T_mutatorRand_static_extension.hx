@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:keep class T_mutatorRand_static_extension {
     static public function _restore(t:stdgo._internal.internal.fuzz.Fuzz_T_mutatorRand.T_mutatorRand, _randState:stdgo.GoUInt64, _randInc:stdgo.GoUInt64):Void t._restore(_randState, _randInc);
     static public function _save(t:stdgo._internal.internal.fuzz.Fuzz_T_mutatorRand.T_mutatorRand, _randState:stdgo.Pointer<stdgo.GoUInt64>, _randInc:stdgo.Pointer<stdgo.GoUInt64>):Void t._save(_randState, _randInc);

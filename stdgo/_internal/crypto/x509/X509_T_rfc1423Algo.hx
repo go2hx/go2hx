@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 @:structInit @:using(stdgo._internal.crypto.x509.X509_T_rfc1423Algo_static_extension.T_rfc1423Algo_static_extension) class T_rfc1423Algo {
     public var _cipher : stdgo._internal.crypto.x509.X509_PEMCipher.PEMCipher = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_PEMCipher.PEMCipher);
     public var _name : stdgo.GoString = "";

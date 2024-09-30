@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class File_asInterface {
     @:keep
     public dynamic function stat():{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } return __self__.value.stat();

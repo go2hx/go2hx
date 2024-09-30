@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 class T_workerClient_asInterface {
     @:keep
     public dynamic function _callLocked(_ctx:stdgo._internal.context.Context_Context.Context, _c:stdgo._internal.internal.fuzz.Fuzz_T_call.T_call, _resp:stdgo.AnyInterface):stdgo.Error return __self__.value._callLocked(_ctx, _c, _resp);

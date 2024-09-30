@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.os.Os_File_static_extension.File_static_extension) class File {
     @:embedded
     public var _file : stdgo.Ref<stdgo._internal.os.Os_T_file.T_file> = (null : stdgo.Ref<stdgo._internal.os.Os_T_file.T_file>);

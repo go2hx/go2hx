@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 class Form_asInterface {
     @:keep
     public dynamic function removeAll():stdgo.Error return __self__.value.removeAll();

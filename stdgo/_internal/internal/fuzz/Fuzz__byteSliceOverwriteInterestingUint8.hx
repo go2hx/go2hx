@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function _byteSliceOverwriteInterestingUint8(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_mutator.T_mutator>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         if ((_b.length) == ((0 : stdgo.GoInt))) {
             return (null : stdgo.Slice<stdgo.GoUInt8>);

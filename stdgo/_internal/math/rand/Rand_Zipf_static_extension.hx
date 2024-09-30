@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.math.rand.Rand.Zipf_asInterface) class Zipf_static_extension {
     @:keep
     static public function uint64( _z:stdgo.Ref<stdgo._internal.math.rand.Rand_Zipf.Zipf>):stdgo.GoUInt64 {

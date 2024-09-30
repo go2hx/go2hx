@@ -1,5 +1,4 @@
 package stdgo._internal.runtime.metrics;
-import stdgo._internal.runtime.Runtime;
 class Value_asInterface {
     @:keep
     public dynamic function float64Histogram():stdgo.Ref<stdgo._internal.runtime.metrics.Metrics_Float64Histogram.Float64Histogram> return __self__.value.float64Histogram();

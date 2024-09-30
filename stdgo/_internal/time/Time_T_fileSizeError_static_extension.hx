@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.time.Time.T_fileSizeError_asInterface) class T_fileSizeError_static_extension {
     @:keep
     static public function error( _f:stdgo._internal.time.Time_T_fileSizeError.T_fileSizeError):stdgo.GoString {

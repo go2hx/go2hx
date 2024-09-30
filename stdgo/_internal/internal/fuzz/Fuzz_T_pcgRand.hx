@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.fuzz.Fuzz_T_pcgRand_static_extension.T_pcgRand_static_extension) class T_pcgRand {
     public var _noCopy : stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy = ({} : stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy);
     public var _state : stdgo.GoUInt64 = 0;

@@ -14,7 +14,7 @@ function _parseFiles(_t:stdgo.Ref<stdgo._internal.text.template.Template_Templat
             if (_t == null || (_t : Dynamic).__nil__) {
                 _t = stdgo._internal.text.template.Template_new_.new_(_name?.__copy__());
             };
-            if (_name == (_t.tree.name())) {
+            if (_name == (_t.name())) {
                 _tmpl = _t;
             } else {
                 _tmpl = _t.new_(_name?.__copy__());

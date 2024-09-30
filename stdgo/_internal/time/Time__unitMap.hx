@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 var _unitMap : stdgo.GoMap<stdgo.GoString, stdgo.GoUInt64> = ({
         final x = new stdgo.GoMap.GoStringMap<stdgo.GoUInt64>();
         x.__defaultValue__ = () -> (0 : stdgo.GoUInt64);

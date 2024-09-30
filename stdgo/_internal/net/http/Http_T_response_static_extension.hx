@@ -67,7 +67,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _sendExpectationFailed( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
-        _w._req.header().set(("Connection" : stdgo.GoString), ("close" : stdgo.GoString));
+        _w.header().set(("Connection" : stdgo.GoString), ("close" : stdgo.GoString));
         _w.writeHeader((417 : stdgo.GoInt));
         _w._finishRequest();
     }
@@ -333,7 +333,7 @@ package stdgo._internal.net.http;
         _w._closeAfterReply = true;
         _w._requestBodyLimitHit = true;
         if (!_w._wroteHeader) {
-            _w._req.header().set(("Connection" : stdgo.GoString), ("close" : stdgo.GoString));
+            _w.header().set(("Connection" : stdgo.GoString), ("close" : stdgo.GoString));
         };
     }
     @:keep

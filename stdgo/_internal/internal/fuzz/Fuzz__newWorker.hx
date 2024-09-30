@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function _newWorker(_c:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_coordinator.T_coordinator>, _dir:stdgo.GoString, _binPath:stdgo.GoString, _args:stdgo.Slice<stdgo.GoString>, _env:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_worker.T_worker>; var _1 : stdgo.Error; } {
         var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__sharedMemTempFile._sharedMemTempFile((104857600 : stdgo.GoInt)), _mem:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_sharedMem.T_sharedMem> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {

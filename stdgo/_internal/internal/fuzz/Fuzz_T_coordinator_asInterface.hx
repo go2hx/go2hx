@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 class T_coordinator_asInterface {
     @:keep
     public dynamic function _debugLogf(_format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void __self__.value._debugLogf(_format, ..._args);

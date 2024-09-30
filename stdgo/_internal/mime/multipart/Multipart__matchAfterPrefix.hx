@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 function _matchAfterPrefix(_buf:stdgo.Slice<stdgo.GoUInt8>, _prefix:stdgo.Slice<stdgo.GoUInt8>, _readErr:stdgo.Error):stdgo.GoInt {
         if ((_buf.length) == ((_prefix.length))) {
             if (_readErr != null) {

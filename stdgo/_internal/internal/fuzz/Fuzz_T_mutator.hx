@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.fuzz.Fuzz_T_mutator_static_extension.T_mutator_static_extension) class T_mutator {
     public var _r : stdgo._internal.internal.fuzz.Fuzz_T_mutatorRand.T_mutatorRand = (null : stdgo._internal.internal.fuzz.Fuzz_T_mutatorRand.T_mutatorRand);
     public var _scratch : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);

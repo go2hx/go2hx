@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _daysSinceEpoch(_year:stdgo.GoInt):stdgo.GoUInt64 {
         var _y = (((_year : stdgo.GoInt64) - (-292277022399i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoUInt64);
         var _n = (_y / (400i64 : stdgo.GoUInt64) : stdgo.GoUInt64);

@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.mime.multipart.Multipart_Part_static_extension.Part_static_extension) class Part {
     public var header : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader = (null : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);
     public var _mr : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader> = (null : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>);

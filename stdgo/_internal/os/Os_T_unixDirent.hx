@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.os.Os_T_unixDirent_static_extension.T_unixDirent_static_extension) class T_unixDirent {
     public var _parent : stdgo.GoString = "";
     public var _name : stdgo.GoString = "";

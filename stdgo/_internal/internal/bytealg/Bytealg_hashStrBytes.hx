@@ -1,5 +1,4 @@
 package stdgo._internal.internal.bytealg;
-import stdgo._internal.unsafe.Unsafe;
 function hashStrBytes(_sep:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; } {
         var _hash = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         {

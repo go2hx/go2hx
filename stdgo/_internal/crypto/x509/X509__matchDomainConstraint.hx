@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _matchDomainConstraint(_domain:stdgo.GoString, _constraint:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         if ((_constraint.length) == ((0 : stdgo.GoInt))) {
             return { _0 : true, _1 : (null : stdgo.Error) };

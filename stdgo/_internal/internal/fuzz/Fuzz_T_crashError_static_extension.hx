@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.fuzz.Fuzz.T_crashError_asInterface) class T_crashError_static_extension {
     @:keep
     static public function crashPath( _e:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError>):stdgo.GoString {

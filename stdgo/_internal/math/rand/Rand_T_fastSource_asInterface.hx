@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 class T_fastSource_asInterface {
     @:keep
     public dynamic function _read(_p:stdgo.Slice<stdgo.GoUInt8>, _readVal:stdgo.Pointer<stdgo.GoInt64>, _readPos:stdgo.Pointer<stdgo.GoInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value._read(_p, _readVal, _readPos);

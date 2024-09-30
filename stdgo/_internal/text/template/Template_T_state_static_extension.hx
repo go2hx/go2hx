@@ -923,14 +923,14 @@ package stdgo._internal.text.template;
     static public function _errorf( _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state> = _s;
-        var _name = (stdgo._internal.text.template.Template__doublePercent._doublePercent(_s._tmpl.tree.name()?.__copy__())?.__copy__() : stdgo.GoString);
+        var _name = (stdgo._internal.text.template.Template__doublePercent._doublePercent(_s._tmpl.name()?.__copy__())?.__copy__() : stdgo.GoString);
         if (_s._node == null) {
             _format = stdgo._internal.fmt.Fmt_sprintf.sprintf(("template: %s: %s" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_format))?.__copy__();
         } else {
             var __tmp__ = _s._tmpl.errorContext(_s._node), _location:stdgo.GoString = __tmp__._0, _context:stdgo.GoString = __tmp__._1;
             _format = stdgo._internal.fmt.Fmt_sprintf.sprintf(("template: %s: executing %q at <%s>: %s" : stdgo.GoString), stdgo.Go.toInterface(_location), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(stdgo._internal.text.template.Template__doublePercent._doublePercent(_context?.__copy__())), stdgo.Go.toInterface(_format))?.__copy__();
         };
-        throw stdgo.Go.toInterface(stdgo.Go.asInterface(({ name : _s._tmpl.tree.name()?.__copy__(), err : stdgo._internal.fmt.Fmt_errorf.errorf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>)) } : stdgo._internal.text.template.Template_ExecError.ExecError)));
+        throw stdgo.Go.toInterface(stdgo.Go.asInterface(({ name : _s._tmpl.name()?.__copy__(), err : stdgo._internal.fmt.Fmt_errorf.errorf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>)) } : stdgo._internal.text.template.Template_ExecError.ExecError)));
     }
     @:keep
     static public function _at( _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state>, _node:stdgo._internal.text.template.parse.Parse_Node.Node):Void {

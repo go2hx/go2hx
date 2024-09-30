@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.fuzz.Fuzz.T_sharedMem_asInterface) class T_sharedMem_static_extension {
     @:keep
     static public function close( _m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_sharedMem.T_sharedMem>):stdgo.Error {

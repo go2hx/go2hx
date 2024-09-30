@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.fuzz.Fuzz_T_crashError_static_extension.T_crashError_static_extension) class T_crashError {
     public var _path : stdgo.GoString = "";
     public var _err : stdgo.Error = (null : stdgo.Error);

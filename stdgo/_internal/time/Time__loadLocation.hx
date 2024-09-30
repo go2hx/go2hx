@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Ref<stdgo._internal.time.Time_Location.Location>; var _1 : stdgo.Error; } {
         var _z = (null : stdgo.Ref<stdgo._internal.time.Time_Location.Location>), _firstErr = (null : stdgo.Error);
         for (__1 => _source in _sources) {

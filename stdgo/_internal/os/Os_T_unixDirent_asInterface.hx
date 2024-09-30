@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class T_unixDirent_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();

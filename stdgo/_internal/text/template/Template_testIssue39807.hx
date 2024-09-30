@@ -25,7 +25,7 @@ function testIssue39807(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                                 {
                                     var _j = (0 : stdgo.GoInt);
                                     stdgo.Go.cfor((_j < _numTemplates : Bool), _j++, {
-                                        var __tmp__ = _tplFoo.addParseTree(_tplBar.tree.name()?.__copy__(), _tplBar.tree), __56:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                        var __tmp__ = _tplFoo.addParseTree(_tplBar.name()?.__copy__(), _tplBar.tree), __56:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                                         if (_err != null) {
                                             _t.error(stdgo.Go.toInterface(_err));
                                         };

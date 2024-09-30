@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 function _globalRand():stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> {
         {
             var _r = stdgo._internal.math.rand.Rand__globalRandGenerator._globalRandGenerator.load();

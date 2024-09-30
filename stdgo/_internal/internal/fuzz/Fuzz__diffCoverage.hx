@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function _diffCoverage(_base:stdgo.Slice<stdgo.GoUInt8>, _snapshot:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {
         if ((_base.length) != ((_snapshot.length))) {
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("the number of coverage bits changed: before=%d, after=%d" : stdgo.GoString), stdgo.Go.toInterface((_base.length)), stdgo.Go.toInterface((_snapshot.length))));

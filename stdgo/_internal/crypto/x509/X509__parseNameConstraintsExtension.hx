@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, _e:stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension):{ var _0 : Bool; var _1 : stdgo.Error; } {
         var _unhandled = false, _err = (null : stdgo.Error);
         var _outer = (_e.value : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);

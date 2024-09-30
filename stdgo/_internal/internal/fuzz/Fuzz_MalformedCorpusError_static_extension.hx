@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.fuzz.Fuzz.MalformedCorpusError_asInterface) class MalformedCorpusError_static_extension {
     @:keep
     static public function error( _e:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_MalformedCorpusError.MalformedCorpusError>):stdgo.GoString {

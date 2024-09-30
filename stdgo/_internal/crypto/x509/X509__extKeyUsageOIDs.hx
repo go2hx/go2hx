@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 var _extKeyUsageOIDs : stdgo.Slice<stdgo._internal.crypto.x509.X509_T__struct_2.T__struct_2> = (new stdgo.Slice<stdgo._internal.crypto.x509.X509_T__struct_2.T__struct_2>(14, 14, ...[
 ({ _extKeyUsage : (0 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage), _oid : stdgo._internal.crypto.x509.X509__oidExtKeyUsageAny._oidExtKeyUsageAny } : stdgo._internal.crypto.x509.X509_T__struct_2.T__struct_2),
 ({ _extKeyUsage : (1 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage), _oid : stdgo._internal.crypto.x509.X509__oidExtKeyUsageServerAuth._oidExtKeyUsageServerAuth } : stdgo._internal.crypto.x509.X509_T__struct_2.T__struct_2),

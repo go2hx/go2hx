@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _marshalCertificatePolicies(_policyIdentifiers:stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>):{ var _0 : stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension; var _1 : stdgo.Error; } {
         var _ext = ({ id : stdgo._internal.crypto.x509.X509__oidExtensionCertificatePolicies._oidExtensionCertificatePolicies } : stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension);
         var _policies = (new stdgo.Slice<stdgo._internal.crypto.x509.X509_T_policyInformation.T_policyInformation>((_policyIdentifiers.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_policyIdentifiers.length : stdgo.GoInt).toBasic() > 0 ? (_policyIdentifiers.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.X509_T_policyInformation.T_policyInformation)]) : stdgo.Slice<stdgo._internal.crypto.x509.X509_T_policyInformation.T_policyInformation>);

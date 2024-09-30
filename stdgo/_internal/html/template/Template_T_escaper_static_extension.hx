@@ -26,7 +26,7 @@ package stdgo._internal.html.template;
         var _tmpl = _e._arbitraryTemplate();
         for (__6 => _t in _e._derived) {
             {
-                var __tmp__ = _tmpl._text.addParseTree(_t.tree.name()?.__copy__(), _t.tree), __39:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = _tmpl._text.addParseTree(_t.name()?.__copy__(), _t.tree), __39:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     throw stdgo.Go.toInterface(("error adding derived template" : stdgo.GoString));
                 };
@@ -182,12 +182,12 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
             if (_c1._state == ((27 : stdgo._internal.html.template.Template_T_state.T_state))) {
                 return false;
             };
-            if (!(_e1._called[_t.tree.name()] ?? false)) {
+            if (!(_e1._called[_t.name()] ?? false)) {
                 return true;
             };
             return _c._eq(_c1?.__copy__());
         };
-        _e._output[_t.tree.name()] = _c?.__copy__();
+        _e._output[_t.name()] = _c?.__copy__();
         return _e._escapeListConditionally(_c?.__copy__(), _t.tree.root, _filter);
     }
     @:keep
@@ -208,7 +208,7 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
             };
         };
         if ((!_ok && (_c1._state != (27 : stdgo._internal.html.template.Template_T_state.T_state)) : Bool)) {
-            return ({ _state : (27 : stdgo._internal.html.template.Template_T_state.T_state), _err : stdgo._internal.html.template.Template__errorf._errorf((6 : stdgo._internal.html.template.Template_ErrorCode.ErrorCode), stdgo.Go.asInterface(_t.tree.root), (0 : stdgo.GoInt), ("cannot compute output context for template %s" : stdgo.GoString), stdgo.Go.toInterface(_t.tree.name())) } : stdgo._internal.html.template.Template_T_context.T_context);
+            return ({ _state : (27 : stdgo._internal.html.template.Template_T_state.T_state), _err : stdgo._internal.html.template.Template__errorf._errorf((6 : stdgo._internal.html.template.Template_ErrorCode.ErrorCode), stdgo.Go.asInterface(_t.tree.root), (0 : stdgo.GoInt), ("cannot compute output context for template %s" : stdgo.GoString), stdgo.Go.toInterface(_t.name())) } : stdgo._internal.html.template.Template_T_context.T_context);
         };
         return _c1?.__copy__();
     }

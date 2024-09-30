@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _byteString(_p:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoString {
         {
             var _i = (0 : stdgo.GoInt);

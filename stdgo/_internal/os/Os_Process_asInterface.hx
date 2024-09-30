@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class Process_asInterface {
     @:keep
     public dynamic function _blockUntilWaitable():{ var _0 : Bool; var _1 : stdgo.Error; } return __self__.value._blockUntilWaitable();

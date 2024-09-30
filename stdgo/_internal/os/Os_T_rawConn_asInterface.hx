@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class T_rawConn_asInterface {
     @:keep
     public dynamic function write(_f:stdgo.GoUIntptr -> Bool):stdgo.Error return __self__.value.write(_f);

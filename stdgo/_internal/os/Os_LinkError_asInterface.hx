@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class LinkError_asInterface {
     @:keep
     public dynamic function unwrap():stdgo.Error return __self__.value.unwrap();

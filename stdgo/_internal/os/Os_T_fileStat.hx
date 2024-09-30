@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.os.Os_T_fileStat_static_extension.T_fileStat_static_extension) class T_fileStat {
     public var _name : stdgo.GoString = "";
     public var _size : stdgo.GoInt64 = 0;

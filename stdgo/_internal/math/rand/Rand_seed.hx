@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 function seed(_seed:stdgo.GoInt64):Void {
         var _orig = stdgo._internal.math.rand.Rand__globalRandGenerator._globalRandGenerator.load();
         if (_orig != null && ((_orig : Dynamic).__nil__ == null || !(_orig : Dynamic).__nil__)) {

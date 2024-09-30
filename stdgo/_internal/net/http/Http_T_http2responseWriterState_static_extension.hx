@@ -9,8 +9,8 @@ package stdgo._internal.net.http;
         stdgo._internal.net.http.Http__http2checkWriteHeaderCode._http2checkWriteHeaderCode(_code);
         if (((_code >= (100 : stdgo.GoInt) : Bool) && (_code <= (199 : stdgo.GoInt) : Bool) : Bool)) {
             var _h = (_rws._handlerHeader : stdgo._internal.net.http.Http_Header.Header);
-            var __tmp__ = (_h != null && _h.exists(("Content-Length" : stdgo.GoString)) ? { _0 : _h[("Content-Length" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32032:stdgo.Slice<stdgo.GoString> = __tmp__._0, _cl:Bool = __tmp__._1;
-            var __tmp__ = (_h != null && _h.exists(("Transfer-Encoding" : stdgo.GoString)) ? { _0 : _h[("Transfer-Encoding" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32033:stdgo.Slice<stdgo.GoString> = __tmp__._0, _te:Bool = __tmp__._1;
+            var __tmp__ = (_h != null && _h.exists(("Content-Length" : stdgo.GoString)) ? { _0 : _h[("Content-Length" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32016:stdgo.Slice<stdgo.GoString> = __tmp__._0, _cl:Bool = __tmp__._1;
+            var __tmp__ = (_h != null && _h.exists(("Transfer-Encoding" : stdgo.GoString)) ? { _0 : _h[("Transfer-Encoding" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32017:stdgo.Slice<stdgo.GoString> = __tmp__._0, _te:Bool = __tmp__._1;
             if ((_cl || _te : Bool)) {
                 _h = _h.clone();
                 _h.del(("Content-Length" : stdgo.GoString));
@@ -73,11 +73,11 @@ var _clen = __1, _ctype = __0;
                     };
                 };
             };
-            var __tmp__ = (_rws._snapHeader != null && _rws._snapHeader.exists(("Content-Length" : stdgo.GoString)) ? { _0 : _rws._snapHeader[("Content-Length" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32332:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hasContentLength:Bool = __tmp__._1;
+            var __tmp__ = (_rws._snapHeader != null && _rws._snapHeader.exists(("Content-Length" : stdgo.GoString)) ? { _0 : _rws._snapHeader[("Content-Length" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32268:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hasContentLength:Bool = __tmp__._1;
             if (((((!_hasContentLength && _clen == (stdgo.Go.str()) : Bool) && _rws._handlerDone : Bool) && stdgo._internal.net.http.Http__http2bodyAllowedForStatus._http2bodyAllowedForStatus(_rws._status) : Bool) && ((((_p.length) > (0 : stdgo.GoInt) : Bool) || !_isHeadResp : Bool)) : Bool)) {
                 _clen = stdgo._internal.strconv.Strconv_itoa.itoa((_p.length))?.__copy__();
             };
-            var __tmp__ = (_rws._snapHeader != null && _rws._snapHeader.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _rws._snapHeader[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32533:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hasContentType:Bool = __tmp__._1;
+            var __tmp__ = (_rws._snapHeader != null && _rws._snapHeader.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _rws._snapHeader[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32437:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hasContentType:Bool = __tmp__._1;
             var _ce = (_rws._snapHeader.get(("Content-Encoding" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             var _hasCE = ((_ce.length) > (0 : stdgo.GoInt) : Bool);
             if ((((!_hasCE && !_hasContentType : Bool) && stdgo._internal.net.http.Http__http2bodyAllowedForStatus._http2bodyAllowedForStatus(_rws._status) : Bool) && ((_p.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
@@ -85,16 +85,16 @@ var _clen = __1, _ctype = __0;
             };
             var _date:stdgo.GoString = ("" : stdgo.GoString);
             {
-                var __tmp__ = (_rws._snapHeader != null && _rws._snapHeader.exists(("Date" : stdgo.GoString)) ? { _0 : _rws._snapHeader[("Date" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32734:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (_rws._snapHeader != null && _rws._snapHeader.exists(("Date" : stdgo.GoString)) ? { _0 : _rws._snapHeader[("Date" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32606:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
                     _date = stdgo._internal.time.Time_now.now().utc().format(("Mon, 02 Jan 2006 15:04:05 GMT" : stdgo.GoString))?.__copy__();
                 };
             };
-            for (__32785 => _v in (_rws._snapHeader[("Trailer" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>))) {
+            for (__32649 => _v in (_rws._snapHeader[("Trailer" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>))) {
                 stdgo._internal.net.http.Http__http2foreachHeaderElement._http2foreachHeaderElement(_v?.__copy__(), _rws._declareTrailer);
             };
             {
-                var __tmp__ = (_rws._snapHeader != null && _rws._snapHeader.exists(("Connection" : stdgo.GoString)) ? { _0 : _rws._snapHeader[("Connection" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32886:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (_rws._snapHeader != null && _rws._snapHeader.exists(("Connection" : stdgo.GoString)) ? { _0 : _rws._snapHeader[("Connection" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32734:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     var _v = (_rws._snapHeader.get(("Connection" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     if (_rws._snapHeader != null) _rws._snapHeader.remove(("Connection" : stdgo.GoString));
@@ -154,9 +154,9 @@ var _clen = __1, _ctype = __0;
     @:keep
     static public function _hasNonemptyTrailers( _rws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriterState.T_http2responseWriterState>):Bool {
         @:recv var _rws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriterState.T_http2responseWriterState> = _rws;
-        for (__31982 => _trailer in _rws._trailers) {
+        for (__31974 => _trailer in _rws._trailers) {
             {
-                var __tmp__ = (_rws._handlerHeader != null && _rws._handlerHeader.exists(_trailer?.__copy__()) ? { _0 : _rws._handlerHeader[_trailer?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32083:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
+                var __tmp__ = (_rws._handlerHeader != null && _rws._handlerHeader.exists(_trailer?.__copy__()) ? { _0 : _rws._handlerHeader[_trailer?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __32059:stdgo.Slice<stdgo.GoString> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
                     return true;
                 };

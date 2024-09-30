@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _appendInt(_b:stdgo.Slice<stdgo.GoUInt8>, _x:stdgo.GoInt, _width:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         var _u = (_x : stdgo.GoUInt);
         if ((_x < (0 : stdgo.GoInt) : Bool)) {

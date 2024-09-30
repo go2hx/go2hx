@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.os.Os_ProcessState_static_extension.ProcessState_static_extension) class ProcessState {
     public var _pid : stdgo.GoInt = 0;
     public var _status : stdgo._internal.syscall.Syscall_WaitStatus.WaitStatus = ((0 : stdgo.GoUInt32) : stdgo._internal.syscall.Syscall_WaitStatus.WaitStatus);

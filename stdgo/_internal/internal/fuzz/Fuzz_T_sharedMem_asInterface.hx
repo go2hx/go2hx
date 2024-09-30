@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 class T_sharedMem_asInterface {
     @:keep
     public dynamic function close():stdgo.Error return __self__.value.close();

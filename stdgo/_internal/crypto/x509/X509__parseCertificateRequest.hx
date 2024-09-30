@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _parseCertificateRequest(_in:stdgo.Ref<stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertificateRequest.CertificateRequest>; var _1 : stdgo.Error; } {
         var _out = (stdgo.Go.setRef(({ raw : _in.raw, rawTBSCertificateRequest : _in.tbscsr.raw, rawSubjectPublicKeyInfo : _in.tbscsr.publicKey.raw, rawSubject : _in.tbscsr.subject.fullBytes, signature : _in.signatureValue.rightAlign(), signatureAlgorithm : stdgo._internal.crypto.x509.X509__getSignatureAlgorithmFromAI._getSignatureAlgorithmFromAI(_in.signatureAlgorithm?.__copy__()), publicKeyAlgorithm : stdgo._internal.crypto.x509.X509__getPublicKeyAlgorithmFromOID._getPublicKeyAlgorithmFromOID(_in.tbscsr.publicKey.algorithm.algorithm), version : _in.tbscsr.version, attributes : stdgo._internal.crypto.x509.X509__parseRawAttributes._parseRawAttributes(_in.tbscsr.rawAttributes) } : stdgo._internal.crypto.x509.X509_CertificateRequest.CertificateRequest)) : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertificateRequest.CertificateRequest>);
         var _err:stdgo.Error = (null : stdgo.Error);

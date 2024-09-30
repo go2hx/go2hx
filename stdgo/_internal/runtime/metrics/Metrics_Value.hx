@@ -1,5 +1,4 @@
 package stdgo._internal.runtime.metrics;
-import stdgo._internal.runtime.Runtime;
 @:structInit @:using(stdgo._internal.runtime.metrics.Metrics_Value_static_extension.Value_static_extension) class Value {
     public var _kind : stdgo._internal.runtime.metrics.Metrics_ValueKind.ValueKind = ((0 : stdgo.GoInt) : stdgo._internal.runtime.metrics.Metrics_ValueKind.ValueKind);
     public var _scalar : stdgo.GoUInt64 = 0;

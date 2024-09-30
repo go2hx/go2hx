@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class T__struct_0_asInterface {
     @:embedded
     public dynamic function _unlockSlow(__0:stdgo.GoInt32):Void __self__.value._unlockSlow(__0);

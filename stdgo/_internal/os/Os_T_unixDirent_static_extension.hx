@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.os.Os.T_unixDirent_asInterface) class T_unixDirent_static_extension {
     @:keep
     static public function string( _d:stdgo.Ref<stdgo._internal.os.Os_T_unixDirent.T_unixDirent>):stdgo.GoString throw "T_unixDirent:os.string is not yet implemented";

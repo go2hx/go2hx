@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.time.Time.ParseError_asInterface) class ParseError_static_extension {
     @:keep
     static public function error( _e:stdgo.Ref<stdgo._internal.time.Time_ParseError.ParseError>):stdgo.GoString {

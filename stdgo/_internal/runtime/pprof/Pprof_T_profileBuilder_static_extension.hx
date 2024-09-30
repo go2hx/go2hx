@@ -37,7 +37,7 @@ package stdgo._internal.runtime.pprof;
             var _start = (_b._pb._startMessage() : stdgo._internal.runtime.pprof.Pprof_T_msgOffset.T_msgOffset);
             _b._pb._uint64Opt((1 : stdgo.GoInt), _id);
             _b._pb._uint64Opt((3 : stdgo.GoInt), (_firstFrame.pc : stdgo.GoUInt64));
-            for (__6 => _frame in _b._deck._frames) {
+            for (__0 => _frame in _b._deck._frames) {
                 var _funcID = (_b._funcs[_frame.function_] ?? (0 : stdgo.GoInt) : stdgo.GoUInt64);
                 if (_funcID == ((0i64 : stdgo.GoUInt64))) {
                     _funcID = ((_b._funcs.length : stdgo.GoUInt64) + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
@@ -56,7 +56,7 @@ package stdgo._internal.runtime.pprof;
                 };
             };
             _b._pb._endMessage((4 : stdgo.GoInt), _start);
-            for (__7 => _fn in _newFuncs) {
+            for (__1 => _fn in _newFuncs) {
                 var _start = (_b._pb._startMessage() : stdgo._internal.runtime.pprof.Pprof_T_msgOffset.T_msgOffset);
                 _b._pb._uint64Opt((1 : stdgo.GoInt), _fn._id);
                 _b._pb._int64Opt((2 : stdgo.GoInt), _b._stringIndex(_fn._name?.__copy__()));

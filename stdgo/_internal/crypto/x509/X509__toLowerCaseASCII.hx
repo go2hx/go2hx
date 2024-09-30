@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _toLowerCaseASCII(_in:stdgo.GoString):stdgo.GoString {
         var _isAlreadyLowerCase = (true : Bool);
         for (__1 => _c in _in) {

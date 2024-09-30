@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 function _maxMIMEHeaders():stdgo.GoInt64 {
         {
             var _s = (stdgo._internal.mime.multipart.Multipart__multipartMaxHeaders._multipartMaxHeaders.value()?.__copy__() : stdgo.GoString);

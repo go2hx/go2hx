@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.mime.multipart.Multipart.Reader_asInterface) class Reader_static_extension {
     @:keep
     static public function _isBoundaryDelimiterLine( _r:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>, _line:stdgo.Slice<stdgo.GoUInt8>):Bool {

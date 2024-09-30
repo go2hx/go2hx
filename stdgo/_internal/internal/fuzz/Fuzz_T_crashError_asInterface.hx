@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 class T_crashError_asInterface {
     @:keep
     public dynamic function crashPath():stdgo.GoString return __self__.value.crashPath();

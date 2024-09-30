@@ -1,5 +1,4 @@
 package stdgo._internal.internal.bytealg;
-import stdgo._internal.unsafe.Unsafe;
 function indexString(_a:stdgo.GoString, _b:stdgo.GoString):stdgo.GoInt {
         if (_a == "") {
             return 0;

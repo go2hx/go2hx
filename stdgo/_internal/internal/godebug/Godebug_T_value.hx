@@ -1,5 +1,4 @@
 package stdgo._internal.internal.godebug;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_value {
     public var _text : stdgo.GoString = "";
     public var _bisect : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_Matcher.Matcher> = (null : stdgo.Ref<stdgo._internal.internal.bisect.Bisect_Matcher.Matcher>);

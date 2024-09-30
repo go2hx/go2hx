@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.os.Os_LinkError_static_extension.LinkError_static_extension) class LinkError {
     public var op : stdgo.GoString = "";
     public var old : stdgo.GoString = "";

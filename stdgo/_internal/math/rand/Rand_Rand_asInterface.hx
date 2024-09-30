@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 class Rand_asInterface {
     @:keep
     public dynamic function read(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.value.read(_p);

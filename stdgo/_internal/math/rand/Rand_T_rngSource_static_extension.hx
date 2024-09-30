@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.math.rand.Rand.T_rngSource_asInterface) class T_rngSource_static_extension {
     @:keep
     static public function uint64( _rng:stdgo.Ref<stdgo._internal.math.rand.Rand_T_rngSource.T_rngSource>):stdgo.GoUInt64 {

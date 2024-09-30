@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.fuzz.Fuzz_T_worker_static_extension.T_worker_static_extension) class T_worker {
     public var _dir : stdgo.GoString = "";
     public var _binPath : stdgo.GoString = "";

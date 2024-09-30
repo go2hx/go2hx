@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 var _fe : stdgo.GoArray<stdgo.GoFloat32> = (new stdgo.GoArray<stdgo.GoFloat32>(256, 256, ...[
 (1 : stdgo.GoFloat64),
 (0.9381436705589294 : stdgo.GoFloat64),

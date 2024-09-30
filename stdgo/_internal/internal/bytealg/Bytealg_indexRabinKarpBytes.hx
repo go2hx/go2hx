@@ -1,5 +1,4 @@
 package stdgo._internal.internal.bytealg;
-import stdgo._internal.unsafe.Unsafe;
 function indexRabinKarpBytes(_s:stdgo.Slice<stdgo.GoUInt8>, _sep:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         var __tmp__ = stdgo._internal.internal.bytealg.Bytealg_hashStrBytes.hashStrBytes(_sep), _hashsep:stdgo.GoUInt32 = __tmp__._0, _pow:stdgo.GoUInt32 = __tmp__._1;
         var _n = (_sep.length : stdgo.GoInt);

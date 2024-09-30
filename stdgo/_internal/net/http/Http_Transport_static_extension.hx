@@ -1567,7 +1567,7 @@ var _err = __1, _resp = __0;
             };
             _t._idleConn[_key] = (_idles.__append__(_pconn));
             _t._idleLRU._add(_pconn);
-            if (((_t.maxIdleConns != (0 : stdgo.GoInt)) && (_t._idleLRU._ll._len() > _t.maxIdleConns : Bool) : Bool)) {
+            if (((_t.maxIdleConns != (0 : stdgo.GoInt)) && (_t._idleLRU._len() > _t.maxIdleConns : Bool) : Bool)) {
                 var _oldest = _t._idleLRU._removeOldest();
                 _oldest._close(stdgo._internal.net.http.Http__errTooManyIdle._errTooManyIdle);
                 _t._removeIdleConnLocked(_oldest);

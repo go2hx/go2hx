@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.os.Os_T_dirInfo_static_extension.T_dirInfo_static_extension) class T_dirInfo {
     public var _buf : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>> = (null : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
     public var _nbuf : stdgo.GoInt = 0;

@@ -1,5 +1,4 @@
 package stdgo._internal.internal.bytealg;
-import stdgo._internal.unsafe.Unsafe;
 function index(_a:stdgo.Slice<stdgo.GoUInt8>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         if (_a.length < _b.length) return -1;
         for (i in 0 ... (_a.length - _b.length + 1)) {

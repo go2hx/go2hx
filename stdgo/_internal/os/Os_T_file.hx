@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.os.Os_T_file_static_extension.T_file_static_extension) class T_file {
     public var _pfd : stdgo._internal.internal.poll.Poll_FD.FD = ({} : stdgo._internal.internal.poll.Poll_FD.FD);
     public var _name : stdgo.GoString = "";

@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.os.Os.Process_asInterface) class Process_static_extension {
     @:keep
     static public function _blockUntilWaitable( _p:stdgo.Ref<stdgo._internal.os.Os_Process.Process>):{ var _0 : Bool; var _1 : stdgo.Error; } throw "Process:os._blockUntilWaitable is not yet implemented";

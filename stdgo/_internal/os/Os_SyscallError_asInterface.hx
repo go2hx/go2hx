@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class SyscallError_asInterface {
     @:keep
     public dynamic function timeout():Bool return __self__.value.timeout();

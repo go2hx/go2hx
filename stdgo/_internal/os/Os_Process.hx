@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.os.Os_Process_static_extension.Process_static_extension) class Process {
     public var pid : stdgo.GoInt = 0;
     public var _handle : stdgo.GoUIntptr = 0;

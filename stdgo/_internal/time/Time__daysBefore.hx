@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 var _daysBefore : stdgo.GoArray<stdgo.GoInt32> = (new stdgo.GoArray<stdgo.GoInt32>(13, 13, ...[
 (0 : stdgo.GoInt32),
 (31 : stdgo.GoInt32),

@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function since(_t:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Duration.Duration {
         var _now:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
         if ((_t._wall & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {

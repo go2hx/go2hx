@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.fuzz.Fuzz.T_mutator_asInterface) class T_mutator_static_extension {
     @:keep
     static public function _mutateBytes( _m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_mutator.T_mutator>, _ptrB:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>):Void {

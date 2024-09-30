@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _matchHostnames(_pattern:stdgo.GoString, _host:stdgo.GoString):Bool {
         _pattern = stdgo._internal.crypto.x509.X509__toLowerCaseASCII._toLowerCaseASCII(_pattern?.__copy__())?.__copy__();
         _host = stdgo._internal.crypto.x509.X509__toLowerCaseASCII._toLowerCaseASCII(stdgo._internal.strings.Strings_trimSuffix.trimSuffix(_host?.__copy__(), ("." : stdgo.GoString))?.__copy__())?.__copy__();

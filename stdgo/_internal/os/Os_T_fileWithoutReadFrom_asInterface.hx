@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class T_fileWithoutReadFrom_asInterface {
     @:keep
     public dynamic function readFrom(_0:stdgo._internal.os.Os_T_fileWithoutReadFrom.T_fileWithoutReadFrom):Void __self__.value.readFrom(_0);

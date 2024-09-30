@@ -70,7 +70,7 @@ package stdgo._internal.html.template;
     @:keep
     static public function name( _t:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>):stdgo.GoString {
         @:recv var _t:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = _t;
-        return _t._text.tree.name()?.__copy__();
+        return _t._text.name()?.__copy__();
     }
     @:keep
     static public function _new( _t:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> {
@@ -79,7 +79,7 @@ package stdgo._internal.html.template;
         {
             var __tmp__ = (_tmpl._nameSpace._set != null && _tmpl._nameSpace._set.exists(_name?.__copy__()) ? { _0 : _tmpl._nameSpace._set[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : false }), _existing:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                var _emptyTmpl = stdgo._internal.html.template.Template_new_.new_(_existing.tree.name()?.__copy__());
+                var _emptyTmpl = stdgo._internal.html.template.Template_new_.new_(_existing.name()?.__copy__());
                 {
                     var __tmp__ = (_emptyTmpl : stdgo._internal.html.template.Template_Template.Template)?.__copy__();
                     (_existing : stdgo._internal.html.template.Template_Template.Template)._escapeErr = __tmp__._escapeErr;
@@ -139,7 +139,7 @@ package stdgo._internal.html.template;
             __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
             if (_t._escapeErr != null) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: cannot Clone %q after it has executed" : stdgo.GoString), stdgo.Go.toInterface(_t.tree.name())) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: cannot Clone %q after it has executed" : stdgo.GoString), stdgo.Go.toInterface(_t.name())) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -164,13 +164,13 @@ package stdgo._internal.html.template;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>) } : stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace)) : stdgo.Ref<stdgo._internal.html.template.Template_T_nameSpace.T_nameSpace>);
             _ns._esc = stdgo._internal.html.template.Template__makeEscaper._makeEscaper(_ns)?.__copy__();
             var _ret = (stdgo.Go.setRef((new stdgo._internal.html.template.Template_Template.Template((null : stdgo.Error), _textClone, _textClone.tree, _ns) : stdgo._internal.html.template.Template_Template.Template)) : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
-            _ret._nameSpace._set[_ret.tree.name()] = _ret;
+            _ret._nameSpace._set[_ret.name()] = _ret;
             for (__78 => _x in _textClone.templates()) {
-                var _name = (_x.tree.name()?.__copy__() : stdgo.GoString);
+                var _name = (_x.name()?.__copy__() : stdgo.GoString);
                 var _src = (_t._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>));
                 if ((((_src == null) || (_src : Dynamic).__nil__) || (_src._escapeErr != null) : Bool)) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: cannot Clone %q after it has executed" : stdgo.GoString), stdgo.Go.toInterface(_t.tree.name())) };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: cannot Clone %q after it has executed" : stdgo.GoString), stdgo.Go.toInterface(_t.name())) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -181,7 +181,7 @@ package stdgo._internal.html.template;
                 _ret._nameSpace._set[_name] = (stdgo.Go.setRef((new stdgo._internal.html.template.Template_Template.Template((null : stdgo.Error), _x, _x.tree, _ret._nameSpace) : stdgo._internal.html.template.Template_Template.Template)) : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : (_ret._nameSpace._set[_ret.tree.name()] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>)), _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : (_ret._nameSpace._set[_ret.name()] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>)), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -285,7 +285,7 @@ package stdgo._internal.html.template;
             _t._nameSpace._mu.lock();
             __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
             for (__54 => _v in _ret.templates()) {
-                var _name = (_v.tree.name()?.__copy__() : stdgo.GoString);
+                var _name = (_v.name()?.__copy__() : stdgo.GoString);
                 var _tmpl = (_t._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>));
                 if (_tmpl == null || (_tmpl : Dynamic).__nil__) {
                     _tmpl = _t._new(_name?.__copy__());
@@ -434,7 +434,7 @@ package stdgo._internal.html.template;
             if (_t._escapeErr == null) {
                 if (_t.tree == null || (_t.tree : Dynamic).__nil__) {
                     {
-                        final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("template: %q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(_t.tree.name()));
+                        final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("template: %q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(_t.name()));
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -442,7 +442,7 @@ package stdgo._internal.html.template;
                     };
                 };
                 {
-                    var _err = (stdgo._internal.html.template.Template__escapeTemplate._escapeTemplate(_t, stdgo.Go.asInterface(_t._text.tree.root), _t.tree.name()?.__copy__()) : stdgo.Error);
+                    var _err = (stdgo._internal.html.template.Template__escapeTemplate._escapeTemplate(_t, stdgo.Go.asInterface(_t._text.tree.root), _t.name()?.__copy__()) : stdgo.Error);
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {

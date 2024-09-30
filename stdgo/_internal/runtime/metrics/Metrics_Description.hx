@@ -1,5 +1,4 @@
 package stdgo._internal.runtime.metrics;
-import stdgo._internal.runtime.Runtime;
 @:structInit class Description {
     public var name : stdgo.GoString = "";
     public var description : stdgo.GoString = "";

@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 class Duration_asInterface {
     @:keep
     public dynamic function abs():stdgo._internal.time.Time_Duration.Duration return __self__.value.abs();

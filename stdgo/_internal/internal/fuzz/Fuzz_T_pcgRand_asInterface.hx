@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 class T_pcgRand_asInterface {
     @:keep
     public dynamic function _bool():Bool return __self__.value._bool();

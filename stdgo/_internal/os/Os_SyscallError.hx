@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.os.Os_SyscallError_static_extension.SyscallError_static_extension) class SyscallError {
     public var syscall : stdgo.GoString = "";
     public var err : stdgo.Error = (null : stdgo.Error);

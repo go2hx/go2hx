@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.mime.multipart.Multipart.T_partReader_asInterface) class T_partReader_static_extension {
     @:keep
     static public function read( _pr:stdgo._internal.mime.multipart.Multipart_T_partReader.T_partReader, _d:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {

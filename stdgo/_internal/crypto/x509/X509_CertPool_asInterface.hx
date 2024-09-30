@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 class CertPool_asInterface {
     @:keep
     public dynamic function equal(_other:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>):Bool return __self__.value.equal(_other);

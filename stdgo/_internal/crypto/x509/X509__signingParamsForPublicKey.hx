@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _signingParamsForPublicKey(_pub:stdgo.AnyInterface, _requestedSigAlgo:stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm):{ var _0 : stdgo._internal.crypto.Crypto_Hash.Hash; var _1 : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier; var _2 : stdgo.Error; } {
         var _hashFunc = ((0 : stdgo.GoUInt) : stdgo._internal.crypto.Crypto_Hash.Hash), _sigAlgo = ({} : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier), _err = (null : stdgo.Error);
         var _pubType:stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm);

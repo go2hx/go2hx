@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.time.Time_Location_static_extension.Location_static_extension) class Location {
     public var _name : stdgo.GoString = "";
     public var _zone : stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone> = (null : stdgo.Slice<stdgo._internal.time.Time_T_zone.T_zone>);

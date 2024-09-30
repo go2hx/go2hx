@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _marshalBasicConstraints(_isCA:Bool, _maxPathLen:stdgo.GoInt, _maxPathLenZero:Bool):{ var _0 : stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension; var _1 : stdgo.Error; } {
         var _ext = ({ id : stdgo._internal.crypto.x509.X509__oidExtensionBasicConstraints._oidExtensionBasicConstraints, critical : true } : stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension);
         if (((_maxPathLen == (0 : stdgo.GoInt)) && !_maxPathLenZero : Bool)) {

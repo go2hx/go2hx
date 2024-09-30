@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 var _rngCooked : stdgo.GoArray<stdgo.GoInt64> = (new stdgo.GoArray<stdgo.GoInt64>(607, 607, ...[
 (-4181792142133755926i64 : stdgo.GoInt64),
 (-4576982950128230565i64 : stdgo.GoInt64),

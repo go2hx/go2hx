@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 @:keep @:allow(stdgo._internal.crypto.x509.X509.CertPool_asInterface) class CertPool_static_extension {
     @:keep
     static public function equal( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>, _other:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>):Bool {

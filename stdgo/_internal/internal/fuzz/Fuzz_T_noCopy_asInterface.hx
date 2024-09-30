@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 class T_noCopy_asInterface {
     @:keep
     public dynamic function _unlock():Void __self__.value._unlock();

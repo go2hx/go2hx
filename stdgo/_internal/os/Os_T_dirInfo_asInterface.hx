@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class T_dirInfo_asInterface {
     @:keep
     public dynamic function _close():Void __self__.value._close();

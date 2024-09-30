@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _match(_s1:stdgo.GoString, _s2:stdgo.GoString):Bool {
         {
             var _i = (0 : stdgo.GoInt);

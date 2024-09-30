@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _tzruleTime(_year:stdgo.GoInt, _r:stdgo._internal.time.Time_T_rule.T_rule, _off:stdgo.GoInt):stdgo.GoInt {
         var _s:stdgo.GoInt = (0 : stdgo.GoInt);
         {

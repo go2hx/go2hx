@@ -77,7 +77,7 @@ package stdgo._internal.archive.tar;
     @:keep
     static public function isDir( _fi:stdgo._internal.archive.tar.Tar_T_headerFileInfo.T_headerFileInfo):Bool {
         @:recv var _fi:stdgo._internal.archive.tar.Tar_T_headerFileInfo.T_headerFileInfo = _fi?.__copy__();
-        return _fi._h.mode().isDir();
+        return _fi.mode().isDir();
     }
     @:keep
     static public function size( _fi:stdgo._internal.archive.tar.Tar_T_headerFileInfo.T_headerFileInfo):stdgo.GoInt64 {

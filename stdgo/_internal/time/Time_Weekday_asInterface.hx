@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 class Weekday_asInterface {
     @:keep
     public dynamic function string():stdgo.GoString return __self__.value.string();

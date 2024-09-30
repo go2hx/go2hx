@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class T_fileStat_asInterface {
     @:keep
     public dynamic function sys():stdgo.AnyInterface return __self__.value.sys();

@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _parseStrictRFC3339(_b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo._internal.time.Time_Time.Time; var _1 : stdgo.Error; } {
         var __tmp__ = stdgo._internal.time.Time__parseRFC3339._parseRFC3339(_b, stdgo._internal.time.Time_local.local), _t:stdgo._internal.time.Time_Time.Time = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {

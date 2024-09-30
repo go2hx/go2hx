@@ -1,5 +1,4 @@
 package stdgo._internal.time.tzdata;
-import stdgo._internal.unsafe.Unsafe;
 final _zipdata : stdgo.GoString = stdgo.Go.str("PK",
 3,
 4,

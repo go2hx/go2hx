@@ -1,5 +1,4 @@
 package stdgo._internal.runtime.metrics;
-import stdgo._internal.runtime.Runtime;
 @:structInit class Sample {
     public var name : stdgo.GoString = "";
     public var value : stdgo._internal.runtime.metrics.Metrics_Value.Value = ({} : stdgo._internal.runtime.metrics.Metrics_Value.Value);

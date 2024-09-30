@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.os.Os.ProcessState_asInterface) class ProcessState_static_extension {
     @:keep
     static public function _systemTime( _p:stdgo.Ref<stdgo._internal.os.Os_ProcessState.ProcessState>):stdgo._internal.time.Time_Duration.Duration throw "ProcessState:os._systemTime is not yet implemented";

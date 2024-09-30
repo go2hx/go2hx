@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function now():stdgo._internal.time.Time_Time.Time {
         var __tmp__ = stdgo._internal.time.Time__now._now(), _sec:stdgo.GoInt64 = __tmp__._0, _nsec:stdgo.GoInt32 = __tmp__._1, _mono:stdgo.GoInt64 = __tmp__._2;
         _mono = (_mono - (stdgo._internal.time.Time__startNano._startNano) : stdgo.GoInt64);

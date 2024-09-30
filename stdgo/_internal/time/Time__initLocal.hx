@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _initLocal():Void {
         stdgo._internal.time.Time__localLoc._localLoc._name = ("Local" : stdgo.GoString);
         final d = new std.Date(0, 0, 0, 0, 0, 0);

@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _sendTime(_c:stdgo.AnyInterface, _seq:stdgo.GoUIntptr):Void {
         {
             var __select__ = true;

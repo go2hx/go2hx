@@ -1,5 +1,4 @@
 package stdgo._internal.runtime.cgo;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.runtime.cgo.Cgo.Handle_asInterface) class Handle_static_extension {
     @:keep
     static public function delete( _h:stdgo._internal.runtime.cgo.Cgo_Handle.Handle):Void {

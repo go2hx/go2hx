@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class ProcessState_asInterface {
     @:keep
     public dynamic function _systemTime():stdgo._internal.time.Time_Duration.Duration return __self__.value._systemTime();

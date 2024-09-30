@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 class T_file_asInterface {
     @:keep
     public dynamic function _close():stdgo.Error return __self__.value._close();

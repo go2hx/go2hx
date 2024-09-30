@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _parseSignedOffset(_value:stdgo.GoString):stdgo.GoInt {
         var _sign = (_value[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
         if (((_sign != (45 : stdgo.GoUInt8)) && (_sign != (43 : stdgo.GoUInt8)) : Bool)) {

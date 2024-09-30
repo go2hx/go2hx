@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.fuzz.Fuzz.T_worker_asInterface) class T_worker_static_extension {
     @:keep
     static public function _stop( _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_worker.T_worker>):stdgo.Error {

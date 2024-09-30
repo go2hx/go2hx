@@ -58,7 +58,7 @@ package stdgo._internal.encoding.xml;
     static public function _nsname( _d:stdgo.Ref<stdgo._internal.encoding.xml.Xml_Decoder.Decoder>):{ var _0 : stdgo._internal.encoding.xml.Xml_Name.Name; var _1 : Bool; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.xml.Xml_Decoder.Decoder> = _d;
         var _name = ({} : stdgo._internal.encoding.xml.Xml_Name.Name), _ok = false;
-        var __tmp__ = _d._stk._name(), _s:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+        var __tmp__ = _d._name(), _s:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {
             return { _0 : _name, _1 : _ok };
         };
@@ -485,7 +485,7 @@ var _b1 = __1, _b0 = __0;
                             var _target:stdgo.GoString = ("" : stdgo.GoString);
                             {
                                 {
-                                    var __tmp__ = _d._stk._name();
+                                    var __tmp__ = _d._name();
                                     _target = __tmp__._0?.__copy__();
                                     _ok = __tmp__._1;
                                 };

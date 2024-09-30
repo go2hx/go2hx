@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.time.Time.Month_asInterface) class Month_static_extension {
     @:keep
     static public function string( _m:stdgo._internal.time.Time_Month.Month):stdgo.GoString {

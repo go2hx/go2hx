@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 class T_dataIO_asInterface {
     @:keep
     public dynamic function _rest():stdgo.Slice<stdgo.GoUInt8> return __self__.value._rest();

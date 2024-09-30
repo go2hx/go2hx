@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class Rule {
     public var kind : stdgo._internal.time.Time_RuleKind.RuleKind = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_RuleKind.RuleKind);
     public var day : stdgo.GoInt = 0;

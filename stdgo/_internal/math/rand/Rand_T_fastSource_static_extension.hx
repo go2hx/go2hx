@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.math.rand.Rand.T_fastSource_asInterface) class T_fastSource_static_extension {
     @:keep
     static public function _read( _fs:stdgo.Ref<stdgo._internal.math.rand.Rand_T_fastSource.T_fastSource>, _p:stdgo.Slice<stdgo.GoUInt8>, _readVal:stdgo.Pointer<stdgo.GoInt64>, _readPos:stdgo.Pointer<stdgo.GoInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {

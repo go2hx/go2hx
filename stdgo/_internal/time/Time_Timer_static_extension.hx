@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.time.Time.Timer_asInterface) class Timer_static_extension {
     @:keep
     static public function reset( _t:stdgo.Ref<stdgo._internal.time.Time_Timer.Timer>, _d:stdgo._internal.time.Time_Duration.Duration):Bool {

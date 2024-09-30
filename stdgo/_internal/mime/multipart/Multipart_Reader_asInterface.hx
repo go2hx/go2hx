@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 class Reader_asInterface {
     @:keep
     public dynamic function _isBoundaryDelimiterLine(_line:stdgo.Slice<stdgo.GoUInt8>):Bool return __self__.value._isBoundaryDelimiterLine(_line);

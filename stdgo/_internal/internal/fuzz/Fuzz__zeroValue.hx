@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function _zeroValue(_t:stdgo._internal.reflect.Reflect_Type_.Type_):stdgo.AnyInterface {
         for (__8 => _v in stdgo._internal.internal.fuzz.Fuzz__zeroVals._zeroVals) {
             if ((stdgo._internal.reflect.Reflect_typeOf.typeOf(_v).string() : String) == (_t.string() : String)) {

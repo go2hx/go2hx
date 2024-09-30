@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _startTimer(_0:stdgo.Ref<stdgo._internal.time.Time_T_runtimeTimer.T_runtimeTimer>):Void {
         final t = _0;
         t._status = 1;

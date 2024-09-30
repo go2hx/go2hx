@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function resetCoverage():Void {
         var _cov = stdgo._internal.internal.fuzz.Fuzz__coverage._coverage();
         for (_i => _ in _cov) {

@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 class T_mutator_asInterface {
     @:keep
     public dynamic function _mutateBytes(_ptrB:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>):Void __self__.value._mutateBytes(_ptrB);

@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function _newCoordinator(_opts:stdgo._internal.internal.fuzz.Fuzz_CoordinateFuzzingOpts.CoordinateFuzzingOpts):{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_coordinator.T_coordinator>; var _1 : stdgo.Error; } {
         for (_i => _ in _opts.seed) {
             if (((_opts.seed[(_i : stdgo.GoInt)].data == null) && (_opts.seed[(_i : stdgo.GoInt)].values != null) : Bool)) {

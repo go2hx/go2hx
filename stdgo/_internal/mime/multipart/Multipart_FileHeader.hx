@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.mime.multipart.Multipart_FileHeader_static_extension.FileHeader_static_extension) class FileHeader {
     public var filename : stdgo.GoString = "";
     public var header : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader = (null : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader);

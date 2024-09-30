@@ -1,5 +1,4 @@
 package stdgo._internal.time.tzdata;
-import stdgo._internal.unsafe.Unsafe;
 function _get4s(_s:stdgo.GoString):stdgo.GoInt {
         if (((_s.length) < (4 : stdgo.GoInt) : Bool)) {
             return (0 : stdgo.GoInt);

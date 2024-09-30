@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.time.Time.Location_asInterface) class Location_static_extension {
     @:keep
     static public function _lookupName( _l:stdgo.Ref<stdgo._internal.time.Time_Location.Location>, _name:stdgo.GoString, _unix:stdgo.GoInt64):{ var _0 : stdgo.GoInt; var _1 : Bool; } {

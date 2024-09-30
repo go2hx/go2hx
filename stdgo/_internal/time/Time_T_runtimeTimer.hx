@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_runtimeTimer {
     public var _pp : stdgo.GoUIntptr = 0;
     public var _when : stdgo.GoInt64 = 0;

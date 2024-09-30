@@ -88,7 +88,7 @@ package stdgo._internal.debug.dwarf;
                     {
                         final __value__ = _fmt;
                         if (__value__ == ((1u32 : stdgo._internal.debug.dwarf.Dwarf_T_format.T_format))) {
-                            _val = stdgo.Go.toInterface(_b._dwarf._addr());
+                            _val = stdgo.Go.toInterface(_b._addr());
                             break;
                         } else if (__value__ == ((27u32 : stdgo._internal.debug.dwarf.Dwarf_T_format.T_format)) || __value__ == ((41u32 : stdgo._internal.debug.dwarf.Dwarf_T_format.T_format)) || __value__ == ((42u32 : stdgo._internal.debug.dwarf.Dwarf_T_format.T_format)) || __value__ == ((43u32 : stdgo._internal.debug.dwarf.Dwarf_T_format.T_format)) || __value__ == ((44u32 : stdgo._internal.debug.dwarf.Dwarf_T_format.T_format))) {
                             var _off:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
@@ -186,7 +186,7 @@ package stdgo._internal.debug.dwarf;
                             if (_vers == ((0 : stdgo.GoInt))) {
                                 _b._error(("unknown version for DW_FORM_ref_addr" : stdgo.GoString));
                             } else if (_vers == ((2 : stdgo.GoInt))) {
-                                _val = stdgo.Go.toInterface((_b._dwarf._addr() : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset));
+                                _val = stdgo.Go.toInterface((_b._addr() : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset));
                             } else {
                                 var __tmp__ = _b._format._dwarf64(), _is64:Bool = __tmp__._0, _known:Bool = __tmp__._1;
                                 if (!_known) {

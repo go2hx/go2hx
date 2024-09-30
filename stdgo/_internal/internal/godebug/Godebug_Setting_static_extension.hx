@@ -1,5 +1,4 @@
 package stdgo._internal.internal.godebug;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.godebug.Godebug.Setting_asInterface) class Setting_static_extension {
     @:keep
     static public function value( _s:stdgo.Ref<stdgo._internal.internal.godebug.Godebug_Setting.Setting>):stdgo.GoString return "";

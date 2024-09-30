@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _preadn(_fd:stdgo.GoUIntptr, _buf:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt):stdgo.Error {
         var _whence = (0 : stdgo.GoInt);
         if ((_off < (0 : stdgo.GoInt) : Bool)) {

@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function checkRuntimeTimerPeriodOverflow():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {

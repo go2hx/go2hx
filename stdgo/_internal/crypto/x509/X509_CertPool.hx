@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 @:structInit @:using(stdgo._internal.crypto.x509.X509_CertPool_static_extension.CertPool_static_extension) class CertPool {
     public var _byName : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>> = (null : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoInt>>);
     public var _lazyCerts : stdgo.Slice<stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert> = (null : stdgo.Slice<stdgo._internal.crypto.x509.X509_T_lazyCert.T_lazyCert>);

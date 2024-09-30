@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function tick(_d:stdgo._internal.time.Time_Duration.Duration):stdgo.Chan<stdgo._internal.time.Time_Time.Time> {
         if ((_d <= (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
             return (null : stdgo.Chan<stdgo._internal.time.Time_Time.Time>);

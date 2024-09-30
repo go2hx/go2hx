@@ -450,7 +450,7 @@ package stdgo._internal.text.template;
             };
             var _state = (stdgo.Go.setRef(({ _tmpl : _t, _wr : _wr, _vars : (new stdgo.Slice<stdgo._internal.text.template.Template_T_variable.T_variable>(1, 1, ...[(new stdgo._internal.text.template.Template_T_variable.T_variable(("$" : stdgo.GoString), _value?.__copy__()) : stdgo._internal.text.template.Template_T_variable.T_variable)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template_T_variable.T_variable)])) : stdgo.Slice<stdgo._internal.text.template.Template_T_variable.T_variable>) } : stdgo._internal.text.template.Template_T_state.T_state)) : stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state>);
             if ((((_t.tree == null) || (_t.tree : Dynamic).__nil__) || ((_t.tree.root == null) || (_t.tree.root : Dynamic).__nil__) : Bool)) {
-                _state._errorf(("%q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(_t.tree.name()));
+                _state._errorf(("%q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(_t.name()));
             };
             _state._walk(_value?.__copy__(), stdgo.Go.asInterface(_t.tree.root));
             {

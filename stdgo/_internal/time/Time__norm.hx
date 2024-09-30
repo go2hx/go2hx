@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _norm(_hi:stdgo.GoInt, _lo:stdgo.GoInt, _base:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } {
         var _nhi = (0 : stdgo.GoInt), _nlo = (0 : stdgo.GoInt);
         if ((_lo < (0 : stdgo.GoInt) : Bool)) {

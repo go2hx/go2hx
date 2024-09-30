@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function newTicker(_d:stdgo._internal.time.Time_Duration.Duration):stdgo.Ref<stdgo._internal.time.Time_Ticker.Ticker> {
         if ((_d <= (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
             throw stdgo.Go.toInterface(("non-positive interval for NewTicker" : stdgo.GoString));

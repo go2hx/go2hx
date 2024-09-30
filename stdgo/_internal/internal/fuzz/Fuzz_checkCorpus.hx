@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function checkCorpus(_vals:stdgo.Slice<stdgo.AnyInterface>, _types:stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>):stdgo.Error {
         if ((_vals.length) != ((_types.length))) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("wrong number of values in corpus entry: %d, want %d" : stdgo.GoString), stdgo.Go.toInterface((_vals.length)), stdgo.Go.toInterface((_types.length)));

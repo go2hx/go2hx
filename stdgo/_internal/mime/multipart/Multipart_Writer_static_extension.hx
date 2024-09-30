@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.mime.multipart.Multipart.Writer_asInterface) class Writer_static_extension {
     @:keep
     static public function close( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>):stdgo.Error {

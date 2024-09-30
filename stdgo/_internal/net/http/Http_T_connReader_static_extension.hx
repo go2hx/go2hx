@@ -4,7 +4,7 @@ package stdgo._internal.net.http;
     static public function read( _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader> = _cr;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        _cr._cond._notify._lock();
+        _cr._lock();
         if (_cr._inRead) {
             _cr._unlock();
             if (_cr._conn._hijacked()) {
@@ -36,7 +36,7 @@ package stdgo._internal.net.http;
             _n = __tmp__._0;
             _err = __tmp__._1;
         };
-        _cr._cond._notify._lock();
+        _cr._lock();
         _cr._inRead = false;
         if (_err != null) {
             _cr._handleReadError(_err);
@@ -80,7 +80,7 @@ package stdgo._internal.net.http;
         @:recv var _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader> = _cr;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _cr._cond._notify._lock();
+            _cr._lock();
             __deferstack__.unshift(() -> _cr._unlock());
             if (!_cr._inRead) {
                 {
@@ -122,7 +122,7 @@ package stdgo._internal.net.http;
     static public function _backgroundRead( _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader>):Void {
         @:recv var _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader> = _cr;
         var __tmp__ = _cr._conn._rwc.read((_cr._byteBuf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        _cr._cond._notify._lock();
+        _cr._lock();
         if (_n == ((1 : stdgo.GoInt))) {
             _cr._hasByte = true;
         };
@@ -146,7 +146,7 @@ package stdgo._internal.net.http;
         @:recv var _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader> = _cr;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            _cr._cond._notify._lock();
+            _cr._lock();
             __deferstack__.unshift(() -> _cr._unlock());
             if (_cr._inRead) {
                 throw stdgo.Go.toInterface(("invalid concurrent Body.Read call" : stdgo.GoString));

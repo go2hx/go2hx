@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.os.Os.File_asInterface) class File_static_extension {
     @:keep
     static public function stat( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>):{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } throw "File:os.stat is not yet implemented";

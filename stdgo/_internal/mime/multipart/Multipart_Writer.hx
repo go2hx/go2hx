@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.mime.multipart.Multipart_Writer_static_extension.Writer_static_extension) class Writer {
     public var _w : stdgo._internal.io.Io_Writer.Writer = (null : stdgo._internal.io.Io_Writer.Writer);
     public var _boundary : stdgo.GoString = "";

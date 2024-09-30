@@ -1,5 +1,4 @@
 package stdgo._internal.internal.godebug;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_setting {
     public var _value : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_T_value.T_value> = ({} : stdgo._internal.sync.atomic_.Atomic__Pointer_.Pointer_<stdgo._internal.internal.godebug.Godebug_T_value.T_value>);
     public var _nonDefaultOnce : stdgo._internal.sync.Sync_Once.Once = ({} : stdgo._internal.sync.Sync_Once.Once);

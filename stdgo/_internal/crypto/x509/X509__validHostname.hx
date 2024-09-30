@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _validHostname(_host:stdgo.GoString, _isPattern:Bool):Bool {
         if (!_isPattern) {
             _host = stdgo._internal.strings.Strings_trimSuffix.trimSuffix(_host?.__copy__(), ("." : stdgo.GoString))?.__copy__();

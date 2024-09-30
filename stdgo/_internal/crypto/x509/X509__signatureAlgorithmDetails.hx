@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 var _signatureAlgorithmDetails : stdgo.Slice<stdgo._internal.crypto.x509.X509_T__struct_1.T__struct_1> = (new stdgo.Slice<stdgo._internal.crypto.x509.X509_T__struct_1.T__struct_1>(17, 17, ...[
 ({ _algo : (1 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm), _name : ("MD2-RSA" : stdgo.GoString), _oid : stdgo._internal.crypto.x509.X509__oidSignatureMD2WithRSA._oidSignatureMD2WithRSA, _pubKeyAlgo : (1 : stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm), _hash : (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash) } : stdgo._internal.crypto.x509.X509_T__struct_1.T__struct_1),
 ({ _algo : (2 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm), _name : ("MD5-RSA" : stdgo.GoString), _oid : stdgo._internal.crypto.x509.X509__oidSignatureMD5WithRSA._oidSignatureMD5WithRSA, _pubKeyAlgo : (1 : stdgo._internal.crypto.x509.X509_PublicKeyAlgorithm.PublicKeyAlgorithm), _hash : (2u32 : stdgo._internal.crypto.Crypto_Hash.Hash) } : stdgo._internal.crypto.x509.X509_T__struct_1.T__struct_1),

@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.fuzz.Fuzz.T_coordinator_asInterface) class T_coordinator_static_extension {
     @:keep
     static public function _debugLogf( _c:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_coordinator.T_coordinator>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
@@ -76,7 +75,7 @@ import stdgo._internal.unsafe.Unsafe;
     @:keep
     static public function _peekMinimizeInput( _c:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_coordinator.T_coordinator>):{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput; var _1 : Bool; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_coordinator.T_coordinator> = _c;
-        if (!_c._crashMinimizing._canMinimize()) {
+        if (!_c._canMinimize()) {
             return { _0 : (new stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput() : stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput), _1 : false };
         };
         var __tmp__ = _c._minimizeQueue._peek(), _v:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;

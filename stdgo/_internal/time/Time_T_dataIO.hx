@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.time.Time_T_dataIO_static_extension.T_dataIO_static_extension) class T_dataIO {
     public var _p : stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
     public var _error : Bool = false;

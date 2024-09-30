@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_minimizeResponse {
     public var wroteToMem : Bool = false;
     public var err : stdgo.GoString = "";

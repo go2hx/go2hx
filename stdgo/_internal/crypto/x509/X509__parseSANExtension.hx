@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _parseSANExtension(_der:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.GoString>; var _2 : stdgo.Slice<stdgo._internal.net.Net_IP.IP>; var _3 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>; var _4 : stdgo.Error; } {
         var _dnsNames = (null : stdgo.Slice<stdgo.GoString>), _emailAddresses = (null : stdgo.Slice<stdgo.GoString>), _ipAddresses = (null : stdgo.Slice<stdgo._internal.net.Net_IP.IP>), _uris = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>>), _err = (null : stdgo.Error);
         _err = stdgo._internal.crypto.x509.X509__forEachSAN._forEachSAN(_der, function(_tag:stdgo.GoInt, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {

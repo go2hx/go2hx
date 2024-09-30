@@ -1,5 +1,4 @@
 package stdgo._internal.runtime.cgo;
-import stdgo._internal.unsafe.Unsafe;
 function newHandle(_v:stdgo.AnyInterface):stdgo._internal.runtime.cgo.Cgo_Handle.Handle {
         var _h = (stdgo._internal.runtime.cgo.Cgo__handleIdx._handleIdx.add((1 : stdgo.GoUIntptr)) : stdgo.GoUIntptr);
         if (_h == ((0 : stdgo.GoUIntptr))) {

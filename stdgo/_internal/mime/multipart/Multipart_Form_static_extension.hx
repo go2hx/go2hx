@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.mime.multipart.Multipart.Form_asInterface) class Form_static_extension {
     @:keep
     static public function removeAll( _f:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>):stdgo.Error {

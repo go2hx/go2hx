@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.time.Time.Weekday_asInterface) class Weekday_static_extension {
     @:keep
     static public function string( _d:stdgo._internal.time.Time_Weekday.Weekday):stdgo.GoString {

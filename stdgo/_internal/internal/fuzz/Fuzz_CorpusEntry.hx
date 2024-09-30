@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:follow typedef CorpusEntry = {
     var parent : stdgo.GoString;
     var path : stdgo.GoString;

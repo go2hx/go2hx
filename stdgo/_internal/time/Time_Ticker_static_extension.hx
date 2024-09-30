@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.time.Time.Ticker_asInterface) class Ticker_static_extension {
     @:keep
     static public function reset( _t:stdgo.Ref<stdgo._internal.time.Time_Ticker.Ticker>, _d:stdgo._internal.time.Time_Duration.Duration):Void {

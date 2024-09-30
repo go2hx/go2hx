@@ -119,7 +119,7 @@ package stdgo._internal.net.http.httptest;
         if (((_str.length) > (512 : stdgo.GoInt) : Bool)) {
             _str = (_str.__slice__(0, (512 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         };
-        var _m = (_rw._result.header() : stdgo._internal.net.http.Http_Header.Header);
+        var _m = (_rw.header() : stdgo._internal.net.http.Http_Header.Header);
         var __tmp__ = (_m != null && _m.exists(("Content-Type" : stdgo.GoString)) ? { _0 : _m[("Content-Type" : stdgo.GoString)], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false }), __0:stdgo.Slice<stdgo.GoString> = __tmp__._0, _hasType:Bool = __tmp__._1;
         var _hasTE = (_m.get(("Transfer-Encoding" : stdgo.GoString)) != (stdgo.Go.str()) : Bool);
         if ((!_hasType && !_hasTE : Bool)) {

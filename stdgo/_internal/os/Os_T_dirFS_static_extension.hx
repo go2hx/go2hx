@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.os.Os.T_dirFS_asInterface) class T_dirFS_static_extension {
     @:keep
     static public function _join( _dir:stdgo._internal.os.Os_T_dirFS.T_dirFS, _name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } throw "T_dirFS:os._join is not yet implemented";

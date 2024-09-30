@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.os.Os.T_fileStat_asInterface) class T_fileStat_static_extension {
     @:keep
     static public function sys( _fs:stdgo.Ref<stdgo._internal.os.Os_T_fileStat.T_fileStat>):stdgo.AnyInterface throw "T_fileStat:os.sys is not yet implemented";

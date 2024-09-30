@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _when(_d:stdgo._internal.time.Time_Duration.Duration):stdgo.GoInt64 {
         if ((_d <= (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
             return stdgo._internal.time.Time__runtimeNano._runtimeNano();

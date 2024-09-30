@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 class Time_asInterface {
     @:keep
     public dynamic function round(_d:stdgo._internal.time.Time_Duration.Duration):stdgo._internal.time.Time_Time.Time return __self__.value.round(_d);

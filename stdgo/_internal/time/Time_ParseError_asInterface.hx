@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 class ParseError_asInterface {
     @:keep
     public dynamic function error():stdgo.GoString return __self__.value.error();

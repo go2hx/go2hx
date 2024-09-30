@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.mime.multipart.Multipart_T_part_static_extension.T_part_static_extension) class T_part {
     public var _mw : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = (null : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>);
     public var _closed : Bool = false;

@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _disablePlatformSources():() -> Void {
         var _undo = null;
         stdgo._internal.time.Time__platformZoneSources._platformZoneSources = (null : stdgo.Slice<stdgo.GoString>);

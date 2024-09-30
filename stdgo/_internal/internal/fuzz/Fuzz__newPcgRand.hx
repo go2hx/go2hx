@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function _newPcgRand():stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pcgRand.T_pcgRand> {
         var _r = (stdgo.Go.setRef(({} : stdgo._internal.internal.fuzz.Fuzz_T_pcgRand.T_pcgRand)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pcgRand.T_pcgRand>);
         var _now = (stdgo._internal.time.Time_now.now().unixNano() : stdgo.GoUInt64);

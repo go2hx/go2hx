@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.internal.fuzz.Fuzz.T_queue_asInterface) class T_queue_static_extension {
     @:keep
     static public function _clear( _q:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue>):Void {

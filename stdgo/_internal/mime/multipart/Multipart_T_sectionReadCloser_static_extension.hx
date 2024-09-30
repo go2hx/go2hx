@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.mime.multipart.Multipart.T_sectionReadCloser_asInterface) class T_sectionReadCloser_static_extension {
     @:keep
     static public function close( _rc:stdgo._internal.mime.multipart.Multipart_T_sectionReadCloser.T_sectionReadCloser):stdgo.Error {

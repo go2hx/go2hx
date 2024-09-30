@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function snapshotCoverage():Void {
         var _cov = stdgo._internal.internal.fuzz.Fuzz__coverage._coverage();
         for (_i => _b in _cov) {

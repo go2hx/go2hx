@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _nextStdChunk(_layout:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; var _2 : stdgo.GoString; } {
         var _prefix = ("" : stdgo.GoString), _std = (0 : stdgo.GoInt), _suffix = ("" : stdgo.GoString);
         {

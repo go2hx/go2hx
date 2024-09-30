@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 class Timer_asInterface {
     @:keep
     public dynamic function reset(_d:stdgo._internal.time.Time_Duration.Duration):Bool return __self__.value.reset(_d);

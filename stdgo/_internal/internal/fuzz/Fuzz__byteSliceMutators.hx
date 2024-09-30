@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 var _byteSliceMutators : stdgo.Slice<stdgo._internal.internal.fuzz.Fuzz_T_byteSliceMutator.T_byteSliceMutator> = (new stdgo.Slice<stdgo._internal.internal.fuzz.Fuzz_T_byteSliceMutator.T_byteSliceMutator>(18, 18, ...[
 stdgo._internal.internal.fuzz.Fuzz__byteSliceRemoveBytes._byteSliceRemoveBytes,
 stdgo._internal.internal.fuzz.Fuzz__byteSliceInsertRandomBytes._byteSliceInsertRandomBytes,

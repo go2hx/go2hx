@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 class FileHeader_asInterface {
     @:keep
     public dynamic function open():{ var _0 : stdgo._internal.mime.multipart.Multipart_File.File; var _1 : stdgo.Error; } return __self__.value.open();

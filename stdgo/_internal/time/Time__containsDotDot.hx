@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _containsDotDot(_s:stdgo.GoString):Bool {
         if (((_s.length) < (2 : stdgo.GoInt) : Bool)) {
             return false;

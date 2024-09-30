@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.time.Time_Location.Location>; var _1 : stdgo.Error; } {
         var _d = (new stdgo._internal.time.Time_T_dataIO.T_dataIO(_data, false) : stdgo._internal.time.Time_T_dataIO.T_dataIO);
         {

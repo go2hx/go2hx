@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit class T_sharedMemHeader {
     public var _count : stdgo.GoInt64 = 0;
     public var _valueLen : stdgo.GoInt = 0;

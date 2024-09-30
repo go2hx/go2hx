@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 @:structInit class T_validity {
     public var notBefore : stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
     public var notAfter : stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);

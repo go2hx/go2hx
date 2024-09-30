@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 @:structInit @:using(stdgo._internal.crypto.x509.X509_CertificateInvalidError_static_extension.CertificateInvalidError_static_extension) class CertificateInvalidError {
     public var cert : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = (null : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
     public var reason : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason);

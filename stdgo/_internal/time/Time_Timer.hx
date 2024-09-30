@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.time.Time_Timer_static_extension.Timer_static_extension) class Timer {
     public var c : stdgo.Chan<stdgo._internal.time.Time_Time.Time> = (null : stdgo.Chan<stdgo._internal.time.Time_Time.Time>);
     public var _r : stdgo._internal.time.Time_T_runtimeTimer.T_runtimeTimer = ({} : stdgo._internal.time.Time_T_runtimeTimer.T_runtimeTimer);

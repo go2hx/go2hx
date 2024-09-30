@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context, _opts:stdgo._internal.internal.fuzz.Fuzz_CoordinateFuzzingOpts.CoordinateFuzzingOpts):stdgo.Error {
         var __deferstack__:Array<Void -> Void> = [];
         var _err = (null : stdgo.Error);
@@ -262,7 +261,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                             _stop(stdgo._internal.errors.Errors_new_.new_(_result._crasherMsg?.__copy__()));
                                             break;
                                         };
-                                        if ((_c._crashMinimizing._canMinimize() && _result._canMinimize : Bool)) {
+                                        if ((_c._canMinimize() && _result._canMinimize : Bool)) {
                                             if (_c._crashMinimizing != null && ((_c._crashMinimizing : Dynamic).__nil__ == null || !(_c._crashMinimizing : Dynamic).__nil__)) {
                                                 if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
                                                     _c._debugLogf(("found unminimized crasher, skipping in favor of minimizable crasher" : stdgo.GoString));
@@ -299,7 +298,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                         } else {
                                             var _keepCoverage = stdgo._internal.internal.fuzz.Fuzz__diffCoverage._diffCoverage(_c._coverageMask, _result._coverageData);
                                             if (_keepCoverage != null) {
-                                                if (((_c._crashMinimizing._canMinimize() && _result._canMinimize : Bool) && (_c._crashMinimizing == null) || (_c._crashMinimizing : Dynamic).__nil__ : Bool)) {
+                                                if (((_c._canMinimize() && _result._canMinimize : Bool) && (_c._crashMinimizing == null) || (_c._crashMinimizing : Dynamic).__nil__ : Bool)) {
                                                     _c._queueForMinimization(_result?.__copy__(), _keepCoverage);
                                                 } else {
                                                     var _inputSize = (_result._entry.data.length : stdgo.GoInt);

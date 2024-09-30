@@ -17,7 +17,7 @@ package stdgo._internal.net.rpc;
     @:keep
     static public function less( _m:stdgo._internal.net.rpc.Rpc_T_methodArray.T_methodArray, _i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
         @:recv var _m:stdgo._internal.net.rpc.Rpc_T_methodArray.T_methodArray = _m;
-        return (_m[(_i : stdgo.GoInt)].name < _m[(_j : stdgo.GoInt)].name : Bool);
+        return (_m[(_i : stdgo.GoInt)].type._method.name < _m[(_j : stdgo.GoInt)].type._method.name : Bool);
     }
     @:keep
     static public function len( _m:stdgo._internal.net.rpc.Rpc_T_methodArray.T_methodArray):stdgo.GoInt {

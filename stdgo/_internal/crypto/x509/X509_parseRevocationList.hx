@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function parseRevocationList(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X509_RevocationList.RevocationList>; var _1 : stdgo.Error; } {
         var _rl = (stdgo.Go.setRef((new stdgo._internal.crypto.x509.X509_RevocationList.RevocationList() : stdgo._internal.crypto.x509.X509_RevocationList.RevocationList)) : stdgo.Ref<stdgo._internal.crypto.x509.X509_RevocationList.RevocationList>);
         var _input = (_der : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);

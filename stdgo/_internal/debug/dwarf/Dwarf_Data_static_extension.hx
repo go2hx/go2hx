@@ -980,7 +980,7 @@ package stdgo._internal.debug.dwarf;
         };
         var _b = (stdgo._internal.debug.dwarf.Dwarf__makeBuf._makeBuf(_d, _format, ("addr" : stdgo.GoString), (0u32 : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset), _d._addr)?.__copy__() : stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf);
         _b._skip((_off : stdgo.GoInt));
-        var _val = (_b._dwarf._addr() : stdgo.GoUInt64);
+        var _val = (_b._addr() : stdgo.GoUInt64);
         if (_b._err != null) {
             return { _0 : (0i64 : stdgo.GoUInt64), _1 : _b._err };
         };
@@ -1050,13 +1050,13 @@ package stdgo._internal.debug.dwarf;
                     var _off2 = (_buf._uint() : stdgo.GoUInt64);
                     _ret = (_ret.__append__((new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[(_base + _off1 : stdgo.GoUInt64), (_base + _off2 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__()));
                 } else if (__value__ == ((5 : stdgo.GoUInt8))) {
-                    _base = _buf._dwarf._addr();
+                    _base = _buf._addr();
                 } else if (__value__ == ((6 : stdgo.GoUInt8))) {
-                    var _start = (_buf._dwarf._addr() : stdgo.GoUInt64);
-                    var _end = (_buf._dwarf._addr() : stdgo.GoUInt64);
+                    var _start = (_buf._addr() : stdgo.GoUInt64);
+                    var _end = (_buf._addr() : stdgo.GoUInt64);
                     _ret = (_ret.__append__((new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[_start, _end]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__()));
                 } else if (__value__ == ((7 : stdgo.GoUInt8))) {
-                    var _start = (_buf._dwarf._addr() : stdgo.GoUInt64);
+                    var _start = (_buf._addr() : stdgo.GoUInt64);
                     var _len = (_buf._uint() : stdgo.GoUInt64);
                     _ret = (_ret.__append__((new stdgo.GoArray<stdgo.GoUInt64>(2, 2, ...[_start, (_start + _len : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__()));
                 };
@@ -1071,8 +1071,8 @@ package stdgo._internal.debug.dwarf;
         };
         var _buf = (stdgo._internal.debug.dwarf.Dwarf__makeBuf._makeBuf(_d, stdgo.Go.asInterface(_u), ("ranges" : stdgo.GoString), (_ranges : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset), (_d._ranges.__slice__(_ranges) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf);
         while (((_buf._data.length) > (0 : stdgo.GoInt) : Bool)) {
-            var _low = (_buf._dwarf._addr() : stdgo.GoUInt64);
-            var _high = (_buf._dwarf._addr() : stdgo.GoUInt64);
+            var _low = (_buf._addr() : stdgo.GoUInt64);
+            var _high = (_buf._addr() : stdgo.GoUInt64);
             if (((_low == (0i64 : stdgo.GoUInt64)) && (_high == (0i64 : stdgo.GoUInt64)) : Bool)) {
                 break;
             };

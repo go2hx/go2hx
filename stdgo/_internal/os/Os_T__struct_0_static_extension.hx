@@ -1,5 +1,4 @@
 package stdgo._internal.os;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.os.Os.T__struct_0_asInterface) class T__struct_0_static_extension {
     @:embedded
     public static function _unlockSlow( __self__:stdgo._internal.os.Os_T__struct_0.T__struct_0, __0:stdgo.GoInt32) __self__.mutex._unlockSlow(__0);

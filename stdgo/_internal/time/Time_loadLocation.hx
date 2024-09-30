@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function loadLocation(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.time.Time_Location.Location>; var _1 : stdgo.Error; } {
         if (((_name == stdgo.Go.str()) || (_name == ("UTC" : stdgo.GoString)) : Bool)) {
             return { _0 : stdgo._internal.time.Time_utc.utc, _1 : (null : stdgo.Error) };

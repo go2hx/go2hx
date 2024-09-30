@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _startsWithLowerCase(_str:stdgo.GoString):Bool {
         if ((_str.length) == ((0 : stdgo.GoInt))) {
             return false;

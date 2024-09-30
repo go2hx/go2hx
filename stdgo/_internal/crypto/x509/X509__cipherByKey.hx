@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _cipherByKey(_key:stdgo._internal.crypto.x509.X509_PEMCipher.PEMCipher):stdgo.Ref<stdgo._internal.crypto.x509.X509_T_rfc1423Algo.T_rfc1423Algo> {
         for (_i => _ in stdgo._internal.crypto.x509.X509__rfc1423Algos._rfc1423Algos) {
             var _alg = (stdgo.Go.setRef(stdgo._internal.crypto.x509.X509__rfc1423Algos._rfc1423Algos[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_rfc1423Algo.T_rfc1423Algo>);

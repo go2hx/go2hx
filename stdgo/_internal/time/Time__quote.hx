@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _quote(_s:stdgo.GoString):stdgo.GoString {
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((1 : stdgo.GoInt).toBasic(), ((_s.length) + (2 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _buf[(0 : stdgo.GoInt)] = (34 : stdgo.GoUInt8);

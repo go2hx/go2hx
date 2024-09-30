@@ -1,5 +1,4 @@
 package stdgo._internal.mime.multipart;
-import stdgo._internal.unsafe.Unsafe;
 class T_sectionReadCloser_asInterface {
     @:keep
     public dynamic function close():stdgo.Error return __self__.value.close();

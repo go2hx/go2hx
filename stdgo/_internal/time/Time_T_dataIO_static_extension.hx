@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:keep @:allow(stdgo._internal.time.Time.T_dataIO_asInterface) class T_dataIO_static_extension {
     @:keep
     static public function _rest( _d:stdgo.Ref<stdgo._internal.time.Time_T_dataIO.T_dataIO>):stdgo.Slice<stdgo.GoUInt8> {

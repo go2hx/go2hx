@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _parsePublicKey(_keyData:stdgo.Ref<stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo>):{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } {
         var _oid = (_keyData.algorithm.algorithm : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier);
         var _params = (_keyData.algorithm.parameters?.__copy__() : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue);

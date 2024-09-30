@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 function _div(_t:stdgo._internal.time.Time_Time.Time, _d:stdgo._internal.time.Time_Duration.Duration):{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.time.Time_Duration.Duration; } {
         var _qmod2 = (0 : stdgo.GoInt), _r = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);
         var _neg = (false : Bool);

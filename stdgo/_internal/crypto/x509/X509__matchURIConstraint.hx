@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 function _matchURIConstraint(_uri:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _constraint:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.Error; } {
         var _host = (_uri.host?.__copy__() : stdgo.GoString);
         if ((_host.length) == ((0 : stdgo.GoInt))) {

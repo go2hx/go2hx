@@ -1,5 +1,4 @@
 package stdgo._internal.runtime.metrics;
-import stdgo._internal.runtime.Runtime;
 @:keep @:allow(stdgo._internal.runtime.metrics.Metrics.Value_asInterface) class Value_static_extension {
     @:keep
     static public function float64Histogram( _v:stdgo._internal.runtime.metrics.Metrics_Value.Value):stdgo.Ref<stdgo._internal.runtime.metrics.Metrics_Float64Histogram.Float64Histogram> {

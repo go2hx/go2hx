@@ -1,5 +1,4 @@
 package stdgo._internal.runtime.cgo;
-import stdgo._internal.unsafe.Unsafe;
 class T__struct_0_asInterface {
     public function new(__self__, __type__) {
         this.__self__ = __self__;

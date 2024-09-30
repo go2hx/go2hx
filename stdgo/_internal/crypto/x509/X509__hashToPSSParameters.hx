@@ -1,7 +1,4 @@
 package stdgo._internal.crypto.x509;
-import stdgo._internal.crypto.sha1.Sha1;
-import stdgo._internal.crypto.sha256.Sha256;
-import stdgo._internal.crypto.sha512.Sha512;
 var _hashToPSSParameters : stdgo.GoMap<stdgo._internal.crypto.Crypto_Hash.Hash, stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue> = ({
         final x = new stdgo.GoMap.GoIntMap<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>();
         x.__defaultValue__ = () -> ({} : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue);

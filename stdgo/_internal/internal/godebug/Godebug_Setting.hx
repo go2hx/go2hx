@@ -1,5 +1,4 @@
 package stdgo._internal.internal.godebug;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.internal.godebug.Godebug_Setting_static_extension.Setting_static_extension) class Setting {
     public var _name : stdgo.GoString = "";
     public var _once : stdgo._internal.sync.Sync_Once.Once = ({} : stdgo._internal.sync.Sync_Once.Once);

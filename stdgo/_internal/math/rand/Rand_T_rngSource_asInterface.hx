@@ -1,5 +1,4 @@
 package stdgo._internal.math.rand;
-import stdgo._internal.unsafe.Unsafe;
 class T_rngSource_asInterface {
     @:keep
     public dynamic function uint64():stdgo.GoUInt64 return __self__.value.uint64();

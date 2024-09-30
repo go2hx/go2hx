@@ -1,5 +1,4 @@
 package stdgo._internal.time;
-import stdgo._internal.unsafe.Unsafe;
 @:structInit @:using(stdgo._internal.time.Time_ParseError_static_extension.ParseError_static_extension) class ParseError {
     public var layout : stdgo.GoString = "";
     public var value : stdgo.GoString = "";

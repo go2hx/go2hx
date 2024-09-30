@@ -1,5 +1,4 @@
 package stdgo._internal.internal.godebug;
-import stdgo._internal.unsafe.Unsafe;
 class Setting_asInterface {
     @:keep
     public dynamic function value():stdgo.GoString return __self__.value.value();

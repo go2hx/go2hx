@@ -1,5 +1,4 @@
 package stdgo._internal.internal.fuzz;
-import stdgo._internal.unsafe.Unsafe;
 class MalformedCorpusError_asInterface {
     @:keep
     public dynamic function error():stdgo.GoString return __self__.value.error();

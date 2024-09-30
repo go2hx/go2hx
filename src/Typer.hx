@@ -457,7 +457,6 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				}
 				if (local.length == 0 && !embedded)
 					continue;
-
 				final staticExtensionName = def.name + "_static_extension";
 				final wrapperName = def.name + "_asInterface";
 				final fieldWrapper = [info.global.filePath, wrapperName];
@@ -482,8 +481,9 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				wrapper.params = def.params;
 				file.defs.push(wrapper);
 				// files check against all TypeSpecs
-				if (def.meta != null)
+				if (def.meta != null) {
 					def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
+				}
 				file.defs.push(staticExtension);
 				var embedded = false;
 				for (field in def.fields) { // embedded
@@ -3011,6 +3011,8 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 	// prevent typeExprType from being used
 	final t = typeof(expr, info, false);
 	var ct = toComplexType(t, info);
+	if (ct == null)
+		return TPath({name: "NullType", pack: []});
 	switch ct {
 		case TPath(p):
 			if (expr.id == "Ellipsis") {
@@ -5521,12 +5523,17 @@ private function typeOp(token:Ast.Token):Binop {
 	}
 }
 
-function getStructFields(type:GoType):Array<FieldType> {
+function getStructFields(type:GoType, restrictedFields:Array<String>):Array<FieldType> {
 	if (type == null)
 		return [];
 	return switch type {
-		case named(_, _, elem, _, _), pointerType(_.get() => elem), refType(_.get() => elem):
-			getStructFields(elem);
+		case named(_, methods, elem, _, _):
+			for (method in methods) {
+				restrictedFields.push(method.name);
+			}
+			getStructFields(elem, restrictedFields);
+		case pointerType(_.get() => elem), refType(_.get() => elem):
+			getStructFields(elem, restrictedFields);
 		case structType(fields):
 			fields;
 		default:
@@ -5602,17 +5609,20 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		if (!isClass(expr.x, info))
 			x = macro $x.value;
 	}
-	final fields = getStructFields(typeX);
+	final restrictedFields:Array<String> = [];
+	final fields = getStructFields(typeX, restrictedFields);
 	if (fields.length > 0) {
 		var chains:Array<String> = []; // chains together a field selectors
 		function recursion(path:String, fields:Array<FieldType>,depth:Int) {
 			if (depth >= 20)
 				return;
 			for (field in fields) {
+				if (restrictedFields.contains(field.name))
+					continue;
 				var setPath = path + field.name;
 				chains.push(setPath);
 				setPath += ".";
-				var structFields = getStructFields(field.type.get());
+				var structFields = getStructFields(field.type.get(), restrictedFields);
 				if (isPointer(field.type.get())) {
 					setPath += "value.";
 				}
@@ -7365,11 +7375,11 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	pack.push(importClassName(name)); // shorten path here
 	if (alias != "") {
 		if (alias == ".") {
-			info.data.imports.push({
+			/*info.data.imports.push({
 				path: pack,
 				alias: "",
 				doc: info.global.noCommentsBool ? "" : doc,
-			});
+			});*/
 		} else {
 			info.renameIdents[alias] = ".." + pack.join(".");
 		}
@@ -7379,13 +7389,13 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 		}
 		info.renameIdents[name] = ".." + pack.join(".");
 	}
-	if (blankAlias) {
+	/*if (blankAlias) {
 		info.data.imports.push({
 			path: pack,
 			alias: alias,
 			doc: info.global.noCommentsBool ? "" : doc,
 		});
-	}
+	}*/
 }
 
 private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<TypeDefinition> {
@@ -7697,7 +7707,6 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 	}else if (!formatField && !isSelect && !overwrite && info.localIdents.indexOf(name) == -1){
 		if (name.indexOf(".") != -1)
 			return name;
-		// trace(name, isSelect, overwrite, info.localIdents);
 		name = splitDepFullPathName(name, info);
 	}
 	if (!formatField && overwrite) {

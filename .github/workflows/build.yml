@@ -84,8 +84,8 @@ jobs:
       # compile stdgo
       - name: Run stdgo automatic compile
         run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
-      - name: Create hxb
-        run: npx haxelib run go2hx hxb .
+      #- name: Create hxb
+      #  run: npx haxelib run go2hx hxb .
       # cache
       - name: Cache setup of stdgo and hxb
         id: cache-setup

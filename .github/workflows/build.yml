@@ -32,6 +32,8 @@ jobs:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       - name: Install lix
         run: npm i lix -g
+      - name: Download haxe specific version
+        run: npx lix install haxe a97dc16
       - name: Run lix
         run: npx lix download
       # go2hx setup

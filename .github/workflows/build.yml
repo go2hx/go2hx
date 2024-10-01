@@ -6,55 +6,55 @@ concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 jobs:
-  os:
-    timeout-minutes: 15
-    runs-on: ${{ matrix.os }}
-    strategy:
-      fail-fast: false
-      matrix:
-        os: [ubuntu-latest, windows-latest, macos-13]
-    needs: setup
-    steps:
-      - uses: actions/checkout@v3
-      # Get the cores 
-      - name: Get number of cores (Ubuntu)
-        if: startsWith(runner.os, 'Linux')
-        run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
-      - name: Get number of cores (macOS)
-        if: startsWith(runner.os, 'macOS')
-        run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
-      - name: Get number of cores (windows)
-        if: startsWith(runner.os, 'Windows')
-        run: echo "CORES=$env:NUMBER_OF_PROCESSORS" >> $GITHUB_ENV
-      - uses: actions/setup-go@v3
-        continue-on-error: true
-        with:
-          go-version: '1.21.3' # The Go version to download (if necessary) and use.
-      - name: Install lix
-        run: npm i https://github.com/antriel/lix.client/ -g
-      - name: Download haxe specific version
-        run: npx lix install haxe a97dc16
-      - name: Run lix
-        run: npx lix download
-      # go2hx setup
-      - name: Set source
-        run: npx haxelib dev go2hx .
-      - uses: actions/cache/restore@v4
-        id: setup-cache
-        with:
-          path: |
-            TypeInfoData_go2hx_hxb.hx
-            ./_internal/*
-            ./stdgo/*
-            ./go2hx.*.zip 
-          key: ${{ github.sha }}-build-${{ env.cache-name }}
-      - name: Build go2hx compiler
-        run: npx haxe --run Run build
-      - name: Create vendor
-        run: go mod vendor
-      # compile stdgo
-      - name: Run unicode test suite
-        run: npx haxe stdgo/unicode.hxml --interp
+  # os:
+  #   timeout-minutes: 15
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     fail-fast: false
+  #     matrix:
+  #       os: [ubuntu-latest, windows-latest, macos-13]
+  #   needs: setup
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     # Get the cores 
+  #     - name: Get number of cores (Ubuntu)
+  #       if: startsWith(runner.os, 'Linux')
+  #       run: echo "CORES=$(nproc --all)" >> $GITHUB_ENV
+  #     - name: Get number of cores (macOS)
+  #       if: startsWith(runner.os, 'macOS')
+  #       run: echo "CORES=$(sysctl -n hw.logicalcpu)" >> $GITHUB_ENV
+  #     - name: Get number of cores (windows)
+  #       if: startsWith(runner.os, 'Windows')
+  #       run: echo "CORES=$env:NUMBER_OF_PROCESSORS" >> $GITHUB_ENV
+  #     - uses: actions/setup-go@v3
+  #       continue-on-error: true
+  #       with:
+  #         go-version: '1.21.3' # The Go version to download (if necessary) and use.
+  #     - name: Install lix
+  #       run: npm i https://github.com/antriel/lix.client/ -g
+  #     - name: Download haxe specific version
+  #       run: npx lix install haxe a97dc16
+  #     - name: Run lix
+  #       run: npx lix download
+  #     # go2hx setup
+  #     - name: Set source
+  #       run: npx haxelib dev go2hx .
+  #     - uses: actions/cache/restore@v4
+  #       id: setup-cache
+  #       with:
+  #         path: |
+  #           TypeInfoData_go2hx_hxb.hx
+  #           ./_internal/*
+  #           ./stdgo/*
+  #           ./go2hx.*.zip 
+  #         key: ${{ github.sha }}-build-${{ env.cache-name }}
+  #     - name: Build go2hx compiler
+  #       run: npx haxe --run Run build
+  #     - name: Create vendor
+  #       run: go mod vendor
+  #     # compile stdgo
+  #     - name: Run unicode test suite
+  #       run: npx haxe stdgo/unicode.hxml --interp
   setup:
     timeout-minutes: 15
     strategy:

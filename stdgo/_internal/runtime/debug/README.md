@@ -51,7 +51,7 @@
 
 - [class GCStats](<#class-gcstats>)
 
-  - [`function new(?lastGC:stdgo._internal.time.Time, ?numGC:stdgo.GoInt64, ?pauseTotal:Null<stdgo._internal.time.Duration>, ?pause:stdgo.Slice<stdgo._internal.time.Duration>, ?pauseEnd:stdgo.Slice<stdgo._internal.time.Time>, ?pauseQuantiles:stdgo.Slice<stdgo._internal.time.Duration>):Void`](<#gcstats-function-new>)
+  - [`function new(?lastGC:stdgo._internal.time.Time, ?numGC:stdgo.GoInt64, ?pauseTotal:stdgo._internal.time.Duration, ?pause:stdgo.Slice<stdgo._internal.time.Duration>, ?pauseEnd:stdgo.Slice<stdgo._internal.time.Time>, ?pauseQuantiles:stdgo.Slice<stdgo._internal.time.Duration>):Void`](<#gcstats-function-new>)
 
 - [class Module](<#class-module>)
 
@@ -322,7 +322,7 @@ var pauseTotal:stdgo._internal.time.Duration
 
 
 ```haxe
-function new(?lastGC:stdgo._internal.time.Time, ?numGC:stdgo.GoInt64, ?pauseTotal:Null<stdgo._internal.time.Duration>, ?pause:stdgo.Slice<stdgo._internal.time.Duration>, ?pauseEnd:stdgo.Slice<stdgo._internal.time.Time>, ?pauseQuantiles:stdgo.Slice<stdgo._internal.time.Duration>):Void
+function new(?lastGC:stdgo._internal.time.Time, ?numGC:stdgo.GoInt64, ?pauseTotal:stdgo._internal.time.Duration, ?pause:stdgo.Slice<stdgo._internal.time.Duration>, ?pauseEnd:stdgo.Slice<stdgo._internal.time.Time>, ?pauseQuantiles:stdgo.Slice<stdgo._internal.time.Duration>):Void
 ```
 
 

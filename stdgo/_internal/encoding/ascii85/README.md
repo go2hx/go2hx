@@ -25,11 +25,11 @@
 
 - [class T\_decoder](<#class-t_decoder>)
 
-  - [`function new(?_err:Null<stdgo.Error>, ?_readErr:Null<stdgo.Error>, ?_r:Null<stdgo._internal.io.Reader>, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_nbuf:stdgo.GoInt, ?_out:stdgo.Slice<stdgo.GoUInt8>, ?_outbuf:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_decoder-function-new>)
+  - [`function new(?_err:stdgo.Error, ?_readErr:stdgo.Error, ?_r:stdgo._internal.io.Reader, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_nbuf:stdgo.GoInt, ?_out:stdgo.Slice<stdgo.GoUInt8>, ?_outbuf:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_decoder-function-new>)
 
 - [class T\_encoder](<#class-t_encoder>)
 
-  - [`function new(?_err:Null<stdgo.Error>, ?_w:Null<stdgo._internal.io.Writer>, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_nbuf:stdgo.GoInt, ?_out:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_encoder-function-new>)
+  - [`function new(?_err:stdgo.Error, ?_w:stdgo._internal.io.Writer, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_nbuf:stdgo.GoInt, ?_out:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_encoder-function-new>)
 
 - [typedef CorruptInputError](<#typedef-corruptinputerror>)
 
@@ -150,7 +150,7 @@ var _readErr:stdgo.Error
 
 
 ```haxe
-function new(?_err:Null<stdgo.Error>, ?_readErr:Null<stdgo.Error>, ?_r:Null<stdgo._internal.io.Reader>, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_nbuf:stdgo.GoInt, ?_out:stdgo.Slice<stdgo.GoUInt8>, ?_outbuf:stdgo.GoArray<stdgo.GoUInt8>):Void
+function new(?_err:stdgo.Error, ?_readErr:stdgo.Error, ?_r:stdgo._internal.io.Reader, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_nbuf:stdgo.GoInt, ?_out:stdgo.Slice<stdgo.GoUInt8>, ?_outbuf:stdgo.GoArray<stdgo.GoUInt8>):Void
 ```
 
 
@@ -189,7 +189,7 @@ var _w:stdgo._internal.io.Writer
 
 
 ```haxe
-function new(?_err:Null<stdgo.Error>, ?_w:Null<stdgo._internal.io.Writer>, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_nbuf:stdgo.GoInt, ?_out:stdgo.GoArray<stdgo.GoUInt8>):Void
+function new(?_err:stdgo.Error, ?_w:stdgo._internal.io.Writer, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_nbuf:stdgo.GoInt, ?_out:stdgo.GoArray<stdgo.GoUInt8>):Void
 ```
 
 

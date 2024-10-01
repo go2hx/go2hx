@@ -25,13 +25,13 @@
 
   - [`function _read()`](<#reader-function-_read>)
 
-  - [`function new(?_r:Null<stdgo._internal.io.ByteReader>, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_read:(), ?_litWidth:stdgo.GoInt, ?_err:Null<stdgo.Error>, ?_clear:stdgo.GoUInt16, ?_eof:stdgo.GoUInt16, ?_hi:stdgo.GoUInt16, ?_overflow:stdgo.GoUInt16, ?_last:stdgo.GoUInt16, ?_suffix:stdgo.GoArray<stdgo.GoUInt8>, ?_prefix:stdgo.GoArray<stdgo.GoUInt16>, ?_output:stdgo.GoArray<stdgo.GoUInt8>, ?_o:stdgo.GoInt, ?_toRead:stdgo.Slice<stdgo.GoUInt8>):Void`](<#reader-function-new>)
+  - [`function new(?_r:stdgo._internal.io.ByteReader, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_read:(), ?_litWidth:stdgo.GoInt, ?_err:stdgo.Error, ?_clear:stdgo.GoUInt16, ?_eof:stdgo.GoUInt16, ?_hi:stdgo.GoUInt16, ?_overflow:stdgo.GoUInt16, ?_last:stdgo.GoUInt16, ?_suffix:stdgo.GoArray<stdgo.GoUInt8>, ?_prefix:stdgo.GoArray<stdgo.GoUInt16>, ?_output:stdgo.GoArray<stdgo.GoUInt8>, ?_o:stdgo.GoInt, ?_toRead:stdgo.Slice<stdgo.GoUInt8>):Void`](<#reader-function-new>)
 
 - [class Writer](<#class-writer>)
 
   - [`function _write(:stdgo.Ref<stdgo._internal.compress.lzw.Writer>, :stdgo.GoUInt32):stdgo.Error`](<#writer-function-_write>)
 
-  - [`function new(?_w:Null<stdgo._internal.compress.lzw.T_writer>, ?_order:Null<stdgo._internal.compress.lzw.Order>, ?_write:(:stdgo.Ref<stdgo._internal.compress.lzw.Writer>, :stdgo.GoUInt32):stdgo.Error, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_litWidth:stdgo.GoUInt, ?_hi:stdgo.GoUInt32, ?_overflow:stdgo.GoUInt32, ?_savedCode:stdgo.GoUInt32, ?_err:Null<stdgo.Error>, ?_table:stdgo.GoArray<stdgo.GoUInt32>):Void`](<#writer-function-new>)
+  - [`function new(?_w:stdgo._internal.compress.lzw.T_writer, ?_order:stdgo._internal.compress.lzw.Order, ?_write:(:stdgo.Ref<stdgo._internal.compress.lzw.Writer>, :stdgo.GoUInt32):stdgo.Error, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_litWidth:stdgo.GoUInt, ?_hi:stdgo.GoUInt32, ?_overflow:stdgo.GoUInt32, ?_savedCode:stdgo.GoUInt32, ?_err:stdgo.Error, ?_table:stdgo.GoArray<stdgo.GoUInt32>):Void`](<#writer-function-new>)
 
 - [typedef Order](<#typedef-order>)
 
@@ -268,7 +268,7 @@ function _read()
 
 
 ```haxe
-function new(?_r:Null<stdgo._internal.io.ByteReader>, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_read:(), ?_litWidth:stdgo.GoInt, ?_err:Null<stdgo.Error>, ?_clear:stdgo.GoUInt16, ?_eof:stdgo.GoUInt16, ?_hi:stdgo.GoUInt16, ?_overflow:stdgo.GoUInt16, ?_last:stdgo.GoUInt16, ?_suffix:stdgo.GoArray<stdgo.GoUInt8>, ?_prefix:stdgo.GoArray<stdgo.GoUInt16>, ?_output:stdgo.GoArray<stdgo.GoUInt8>, ?_o:stdgo.GoInt, ?_toRead:stdgo.Slice<stdgo.GoUInt8>):Void
+function new(?_r:stdgo._internal.io.ByteReader, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_read:(), ?_litWidth:stdgo.GoInt, ?_err:stdgo.Error, ?_clear:stdgo.GoUInt16, ?_eof:stdgo.GoUInt16, ?_hi:stdgo.GoUInt16, ?_overflow:stdgo.GoUInt16, ?_last:stdgo.GoUInt16, ?_suffix:stdgo.GoArray<stdgo.GoUInt8>, ?_prefix:stdgo.GoArray<stdgo.GoUInt16>, ?_output:stdgo.GoArray<stdgo.GoUInt8>, ?_o:stdgo.GoInt, ?_toRead:stdgo.Slice<stdgo.GoUInt8>):Void
 ```
 
 
@@ -345,7 +345,7 @@ function _write(:stdgo.Ref<stdgo._internal.compress.lzw.Writer>, :stdgo.GoUInt32
 
 
 ```haxe
-function new(?_w:Null<stdgo._internal.compress.lzw.T_writer>, ?_order:Null<stdgo._internal.compress.lzw.Order>, ?_write:(:stdgo.Ref<stdgo._internal.compress.lzw.Writer>, :stdgo.GoUInt32):stdgo.Error, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_litWidth:stdgo.GoUInt, ?_hi:stdgo.GoUInt32, ?_overflow:stdgo.GoUInt32, ?_savedCode:stdgo.GoUInt32, ?_err:Null<stdgo.Error>, ?_table:stdgo.GoArray<stdgo.GoUInt32>):Void
+function new(?_w:stdgo._internal.compress.lzw.T_writer, ?_order:stdgo._internal.compress.lzw.Order, ?_write:(:stdgo.Ref<stdgo._internal.compress.lzw.Writer>, :stdgo.GoUInt32):stdgo.Error, ?_bits:stdgo.GoUInt32, ?_nBits:stdgo.GoUInt, ?_width:stdgo.GoUInt, ?_litWidth:stdgo.GoUInt, ?_hi:stdgo.GoUInt32, ?_overflow:stdgo.GoUInt32, ?_savedCode:stdgo.GoUInt32, ?_err:stdgo.Error, ?_table:stdgo.GoArray<stdgo.GoUInt32>):Void
 ```
 
 

@@ -39,7 +39,7 @@
 
 - [class T\_digest](<#class-t_digest>)
 
-  - [`function new(?_crc:stdgo.GoUInt64, ?_tab:Null<stdgo.Ref<stdgo._internal.hash.crc64.Table>>):Void`](<#t_digest-function-new>)
+  - [`function new(?_crc:stdgo.GoUInt64, ?_tab:stdgo.Ref<stdgo._internal.hash.crc64.Table>):Void`](<#t_digest-function-new>)
 
 - [typedef Table](<#typedef-table>)
 
@@ -264,7 +264,7 @@ var _tab:stdgo.Ref<stdgo._internal.hash.crc64.Table>
 
 
 ```haxe
-function new(?_crc:stdgo.GoUInt64, ?_tab:Null<stdgo.Ref<stdgo._internal.hash.crc64.Table>>):Void
+function new(?_crc:stdgo.GoUInt64, ?_tab:stdgo.Ref<stdgo._internal.hash.crc64.Table>):Void
 ```
 
 

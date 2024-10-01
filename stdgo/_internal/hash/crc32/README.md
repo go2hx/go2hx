@@ -65,7 +65,7 @@
 
 - [class T\_digest](<#class-t_digest>)
 
-  - [`function new(?_crc:stdgo.GoUInt32, ?_tab:Null<stdgo.Ref<stdgo._internal.hash.crc32.Table>>):Void`](<#t_digest-function-new>)
+  - [`function new(?_crc:stdgo.GoUInt32, ?_tab:stdgo.Ref<stdgo._internal.hash.crc32.Table>):Void`](<#t_digest-function-new>)
 
 - [typedef T\_slicing8Table](<#typedef-t_slicing8table>)
 
@@ -465,7 +465,7 @@ var _tab:stdgo.Ref<stdgo._internal.hash.crc32.Table>
 
 
 ```haxe
-function new(?_crc:stdgo.GoUInt32, ?_tab:Null<stdgo.Ref<stdgo._internal.hash.crc32.Table>>):Void
+function new(?_crc:stdgo.GoUInt32, ?_tab:stdgo.Ref<stdgo._internal.hash.crc32.Table>):Void
 ```
 
 

@@ -39,23 +39,23 @@
 
 - [class Dylib](<#class-dylib>)
 
-  - [`function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?name:stdgo.GoString, ?time:stdgo.GoUInt32, ?currentVersion:stdgo.GoUInt32, ?compatVersion:stdgo.GoUInt32):Void`](<#dylib-function-new>)
+  - [`function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?name:stdgo.GoString, ?time:stdgo.GoUInt32, ?currentVersion:stdgo.GoUInt32, ?compatVersion:stdgo.GoUInt32):Void`](<#dylib-function-new>)
 
   - [`function raw():stdgo.Slice<stdgo.GoUInt8>`](<#dylib-function-raw>)
 
 - [class DylibCmd](<#class-dylibcmd>)
 
-  - [`function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?name:stdgo.GoUInt32, ?time:stdgo.GoUInt32, ?currentVersion:stdgo.GoUInt32, ?compatVersion:stdgo.GoUInt32):Void`](<#dylibcmd-function-new>)
+  - [`function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?name:stdgo.GoUInt32, ?time:stdgo.GoUInt32, ?currentVersion:stdgo.GoUInt32, ?compatVersion:stdgo.GoUInt32):Void`](<#dylibcmd-function-new>)
 
 - [class Dysymtab](<#class-dysymtab>)
 
-  - [`function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?dysymtabCmd:stdgo._internal.debug.macho.DysymtabCmd, ?indirectSyms:stdgo.Slice<stdgo.GoUInt32>):Void`](<#dysymtab-function-new>)
+  - [`function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?dysymtabCmd:stdgo._internal.debug.macho.DysymtabCmd, ?indirectSyms:stdgo.Slice<stdgo.GoUInt32>):Void`](<#dysymtab-function-new>)
 
   - [`function raw():stdgo.Slice<stdgo.GoUInt8>`](<#dysymtab-function-raw>)
 
 - [class DysymtabCmd](<#class-dysymtabcmd>)
 
-  - [`function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?ilocalsym:stdgo.GoUInt32, ?nlocalsym:stdgo.GoUInt32, ?iextdefsym:stdgo.GoUInt32, ?nextdefsym:stdgo.GoUInt32, ?iundefsym:stdgo.GoUInt32, ?nundefsym:stdgo.GoUInt32, ?tocoffset:stdgo.GoUInt32, ?ntoc:stdgo.GoUInt32, ?modtaboff:stdgo.GoUInt32, ?nmodtab:stdgo.GoUInt32, ?extrefsymoff:stdgo.GoUInt32, ?nextrefsyms:stdgo.GoUInt32, ?indirectsymoff:stdgo.GoUInt32, ?nindirectsyms:stdgo.GoUInt32, ?extreloff:stdgo.GoUInt32, ?nextrel:stdgo.GoUInt32, ?locreloff:stdgo.GoUInt32, ?nlocrel:stdgo.GoUInt32):Void`](<#dysymtabcmd-function-new>)
+  - [`function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?ilocalsym:stdgo.GoUInt32, ?nlocalsym:stdgo.GoUInt32, ?iextdefsym:stdgo.GoUInt32, ?nextdefsym:stdgo.GoUInt32, ?iundefsym:stdgo.GoUInt32, ?nundefsym:stdgo.GoUInt32, ?tocoffset:stdgo.GoUInt32, ?ntoc:stdgo.GoUInt32, ?modtaboff:stdgo.GoUInt32, ?nmodtab:stdgo.GoUInt32, ?extrefsymoff:stdgo.GoUInt32, ?nextrefsyms:stdgo.GoUInt32, ?indirectsymoff:stdgo.GoUInt32, ?nindirectsyms:stdgo.GoUInt32, ?extreloff:stdgo.GoUInt32, ?nextrel:stdgo.GoUInt32, ?locreloff:stdgo.GoUInt32, ?nlocrel:stdgo.GoUInt32):Void`](<#dysymtabcmd-function-new>)
 
 - [class FatArch](<#class-fatarch>)
 
@@ -79,19 +79,19 @@
 
 - [class FatArchHeader](<#class-fatarchheader>)
 
-  - [`function new(?cpu:Null<stdgo._internal.debug.macho.Cpu>, ?subCpu:stdgo.GoUInt32, ?offset:stdgo.GoUInt32, ?size:stdgo.GoUInt32, ?align:stdgo.GoUInt32):Void`](<#fatarchheader-function-new>)
+  - [`function new(?cpu:stdgo._internal.debug.macho.Cpu, ?subCpu:stdgo.GoUInt32, ?offset:stdgo.GoUInt32, ?size:stdgo.GoUInt32, ?align:stdgo.GoUInt32):Void`](<#fatarchheader-function-new>)
 
 - [class FatFile](<#class-fatfile>)
 
-  - [`function new(?magic:stdgo.GoUInt32, ?arches:stdgo.Slice<stdgo._internal.debug.macho.FatArch>, ?_closer:Null<stdgo._internal.io.Closer>):Void`](<#fatfile-function-new>)
+  - [`function new(?magic:stdgo.GoUInt32, ?arches:stdgo.Slice<stdgo._internal.debug.macho.FatArch>, ?_closer:stdgo._internal.io.Closer):Void`](<#fatfile-function-new>)
 
 - [class File](<#class-file>)
 
-  - [`function new(?fileHeader:stdgo._internal.debug.macho.FileHeader, ?byteOrder:Null<stdgo._internal.encoding.binary.ByteOrder>, ?loads:stdgo.Slice<stdgo._internal.debug.macho.Load>, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Section>>, ?symtab:stdgo.Ref<stdgo._internal.debug.macho.Symtab>, ?dysymtab:stdgo.Ref<stdgo._internal.debug.macho.Dysymtab>, ?_closer:Null<stdgo._internal.io.Closer>):Void`](<#file-function-new>)
+  - [`function new(?fileHeader:stdgo._internal.debug.macho.FileHeader, ?byteOrder:stdgo._internal.encoding.binary.ByteOrder, ?loads:stdgo.Slice<stdgo._internal.debug.macho.Load>, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Section>>, ?symtab:stdgo.Ref<stdgo._internal.debug.macho.Symtab>, ?dysymtab:stdgo.Ref<stdgo._internal.debug.macho.Dysymtab>, ?_closer:stdgo._internal.io.Closer):Void`](<#file-function-new>)
 
 - [class FileHeader](<#class-fileheader>)
 
-  - [`function new(?magic:stdgo.GoUInt32, ?cpu:Null<stdgo._internal.debug.macho.Cpu>, ?subCpu:stdgo.GoUInt32, ?type:Null<stdgo._internal.debug.macho.Type_>, ?ncmd:stdgo.GoUInt32, ?cmdsz:stdgo.GoUInt32, ?flags:stdgo.GoUInt32):Void`](<#fileheader-function-new>)
+  - [`function new(?magic:stdgo.GoUInt32, ?cpu:stdgo._internal.debug.macho.Cpu, ?subCpu:stdgo.GoUInt32, ?type:stdgo._internal.debug.macho.Type_, ?ncmd:stdgo.GoUInt32, ?cmdsz:stdgo.GoUInt32, ?flags:stdgo.GoUInt32):Void`](<#fileheader-function-new>)
 
 - [class FormatError](<#class-formaterror>)
 
@@ -119,17 +119,17 @@
 
 - [class Rpath](<#class-rpath>)
 
-  - [`function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?path:stdgo.GoString):Void`](<#rpath-function-new>)
+  - [`function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?path:stdgo.GoString):Void`](<#rpath-function-new>)
 
   - [`function raw():stdgo.Slice<stdgo.GoUInt8>`](<#rpath-function-raw>)
 
 - [class RpathCmd](<#class-rpathcmd>)
 
-  - [`function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?path:stdgo.GoUInt32):Void`](<#rpathcmd-function-new>)
+  - [`function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?path:stdgo.GoUInt32):Void`](<#rpathcmd-function-new>)
 
 - [class Section](<#class-section>)
 
-  - [`function new(?sectionHeader:stdgo._internal.debug.macho.SectionHeader, ?relocs:stdgo.Slice<stdgo._internal.debug.macho.Reloc>, ?readerAt:Null<stdgo._internal.io.ReaderAt>, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void`](<#section-function-new>)
+  - [`function new(?sectionHeader:stdgo._internal.debug.macho.SectionHeader, ?relocs:stdgo.Slice<stdgo._internal.debug.macho.Reloc>, ?readerAt:stdgo._internal.io.ReaderAt, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void`](<#section-function-new>)
 
   - [`function readAt(_p:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#section-function-readat>)
 
@@ -147,7 +147,7 @@
 
 - [class Segment](<#class-segment>)
 
-  - [`function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?segmentHeader:stdgo._internal.debug.macho.SegmentHeader, ?readerAt:Null<stdgo._internal.io.ReaderAt>, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void`](<#segment-function-new>)
+  - [`function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?segmentHeader:stdgo._internal.debug.macho.SegmentHeader, ?readerAt:stdgo._internal.io.ReaderAt, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void`](<#segment-function-new>)
 
   - [`function raw():stdgo.Slice<stdgo.GoUInt8>`](<#segment-function-raw>)
 
@@ -155,15 +155,15 @@
 
 - [class Segment32](<#class-segment32>)
 
-  - [`function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?name:stdgo.GoArray<stdgo.GoUInt8>, ?addr:stdgo.GoUInt32, ?memsz:stdgo.GoUInt32, ?offset:stdgo.GoUInt32, ?filesz:stdgo.GoUInt32, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void`](<#segment32-function-new>)
+  - [`function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?name:stdgo.GoArray<stdgo.GoUInt8>, ?addr:stdgo.GoUInt32, ?memsz:stdgo.GoUInt32, ?offset:stdgo.GoUInt32, ?filesz:stdgo.GoUInt32, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void`](<#segment32-function-new>)
 
 - [class Segment64](<#class-segment64>)
 
-  - [`function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?name:stdgo.GoArray<stdgo.GoUInt8>, ?addr:stdgo.GoUInt64, ?memsz:stdgo.GoUInt64, ?offset:stdgo.GoUInt64, ?filesz:stdgo.GoUInt64, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void`](<#segment64-function-new>)
+  - [`function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?name:stdgo.GoArray<stdgo.GoUInt8>, ?addr:stdgo.GoUInt64, ?memsz:stdgo.GoUInt64, ?offset:stdgo.GoUInt64, ?filesz:stdgo.GoUInt64, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void`](<#segment64-function-new>)
 
 - [class SegmentHeader](<#class-segmentheader>)
 
-  - [`function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?name:stdgo.GoString, ?addr:stdgo.GoUInt64, ?memsz:stdgo.GoUInt64, ?offset:stdgo.GoUInt64, ?filesz:stdgo.GoUInt64, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void`](<#segmentheader-function-new>)
+  - [`function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?name:stdgo.GoString, ?addr:stdgo.GoUInt64, ?memsz:stdgo.GoUInt64, ?offset:stdgo.GoUInt64, ?filesz:stdgo.GoUInt64, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void`](<#segmentheader-function-new>)
 
 - [class Symbol](<#class-symbol>)
 
@@ -171,13 +171,13 @@
 
 - [class Symtab](<#class-symtab>)
 
-  - [`function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?symtabCmd:stdgo._internal.debug.macho.SymtabCmd, ?syms:stdgo.Slice<stdgo._internal.debug.macho.Symbol>):Void`](<#symtab-function-new>)
+  - [`function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?symtabCmd:stdgo._internal.debug.macho.SymtabCmd, ?syms:stdgo.Slice<stdgo._internal.debug.macho.Symbol>):Void`](<#symtab-function-new>)
 
   - [`function raw():stdgo.Slice<stdgo.GoUInt8>`](<#symtab-function-raw>)
 
 - [class SymtabCmd](<#class-symtabcmd>)
 
-  - [`function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?symoff:stdgo.GoUInt32, ?nsyms:stdgo.GoUInt32, ?stroff:stdgo.GoUInt32, ?strsize:stdgo.GoUInt32):Void`](<#symtabcmd-function-new>)
+  - [`function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?symoff:stdgo.GoUInt32, ?nsyms:stdgo.GoUInt32, ?stroff:stdgo.GoUInt32, ?strsize:stdgo.GoUInt32):Void`](<#symtabcmd-function-new>)
 
 - [class T\_intName](<#class-t_intname>)
 
@@ -189,7 +189,7 @@
 
 - [class Thread](<#class-thread>)
 
-  - [`function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?type:stdgo.GoUInt32, ?data:stdgo.Slice<stdgo.GoUInt32>):Void`](<#thread-function-new>)
+  - [`function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?type:stdgo.GoUInt32, ?data:stdgo.Slice<stdgo.GoUInt32>):Void`](<#thread-function-new>)
 
 - [typedef Cpu](<#typedef-cpu>)
 
@@ -858,7 +858,7 @@ var time:stdgo.GoUInt32
 
 
 ```haxe
-function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?name:stdgo.GoString, ?time:stdgo.GoUInt32, ?currentVersion:stdgo.GoUInt32, ?compatVersion:stdgo.GoUInt32):Void
+function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?name:stdgo.GoString, ?time:stdgo.GoUInt32, ?currentVersion:stdgo.GoUInt32, ?compatVersion:stdgo.GoUInt32):Void
 ```
 
 
@@ -913,7 +913,7 @@ var time:stdgo.GoUInt32
 
 
 ```haxe
-function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?name:stdgo.GoUInt32, ?time:stdgo.GoUInt32, ?currentVersion:stdgo.GoUInt32, ?compatVersion:stdgo.GoUInt32):Void
+function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?name:stdgo.GoUInt32, ?time:stdgo.GoUInt32, ?currentVersion:stdgo.GoUInt32, ?compatVersion:stdgo.GoUInt32):Void
 ```
 
 
@@ -942,7 +942,7 @@ var loadBytes:stdgo._internal.debug.macho.LoadBytes
 
 
 ```haxe
-function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?dysymtabCmd:stdgo._internal.debug.macho.DysymtabCmd, ?indirectSyms:stdgo.Slice<stdgo.GoUInt32>):Void
+function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?dysymtabCmd:stdgo._internal.debug.macho.DysymtabCmd, ?indirectSyms:stdgo.Slice<stdgo.GoUInt32>):Void
 ```
 
 
@@ -1067,7 +1067,7 @@ var tocoffset:stdgo.GoUInt32
 
 
 ```haxe
-function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?ilocalsym:stdgo.GoUInt32, ?nlocalsym:stdgo.GoUInt32, ?iextdefsym:stdgo.GoUInt32, ?nextdefsym:stdgo.GoUInt32, ?iundefsym:stdgo.GoUInt32, ?nundefsym:stdgo.GoUInt32, ?tocoffset:stdgo.GoUInt32, ?ntoc:stdgo.GoUInt32, ?modtaboff:stdgo.GoUInt32, ?nmodtab:stdgo.GoUInt32, ?extrefsymoff:stdgo.GoUInt32, ?nextrefsyms:stdgo.GoUInt32, ?indirectsymoff:stdgo.GoUInt32, ?nindirectsyms:stdgo.GoUInt32, ?extreloff:stdgo.GoUInt32, ?nextrel:stdgo.GoUInt32, ?locreloff:stdgo.GoUInt32, ?nlocrel:stdgo.GoUInt32):Void
+function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?ilocalsym:stdgo.GoUInt32, ?nlocalsym:stdgo.GoUInt32, ?iextdefsym:stdgo.GoUInt32, ?nextdefsym:stdgo.GoUInt32, ?iundefsym:stdgo.GoUInt32, ?nundefsym:stdgo.GoUInt32, ?tocoffset:stdgo.GoUInt32, ?ntoc:stdgo.GoUInt32, ?modtaboff:stdgo.GoUInt32, ?nmodtab:stdgo.GoUInt32, ?extrefsymoff:stdgo.GoUInt32, ?nextrefsyms:stdgo.GoUInt32, ?indirectsymoff:stdgo.GoUInt32, ?nindirectsyms:stdgo.GoUInt32, ?extreloff:stdgo.GoUInt32, ?nextrel:stdgo.GoUInt32, ?locreloff:stdgo.GoUInt32, ?nlocrel:stdgo.GoUInt32):Void
 ```
 
 
@@ -1230,7 +1230,7 @@ var subCpu:stdgo.GoUInt32
 
 
 ```haxe
-function new(?cpu:Null<stdgo._internal.debug.macho.Cpu>, ?subCpu:stdgo.GoUInt32, ?offset:stdgo.GoUInt32, ?size:stdgo.GoUInt32, ?align:stdgo.GoUInt32):Void
+function new(?cpu:stdgo._internal.debug.macho.Cpu, ?subCpu:stdgo.GoUInt32, ?offset:stdgo.GoUInt32, ?size:stdgo.GoUInt32, ?align:stdgo.GoUInt32):Void
 ```
 
 
@@ -1259,7 +1259,7 @@ var magic:stdgo.GoUInt32
 
 
 ```haxe
-function new(?magic:stdgo.GoUInt32, ?arches:stdgo.Slice<stdgo._internal.debug.macho.FatArch>, ?_closer:Null<stdgo._internal.io.Closer>):Void
+function new(?magic:stdgo.GoUInt32, ?arches:stdgo.Slice<stdgo._internal.debug.macho.FatArch>, ?_closer:stdgo._internal.io.Closer):Void
 ```
 
 
@@ -1308,7 +1308,7 @@ var symtab:stdgo.Ref<stdgo._internal.debug.macho.Symtab>
 
 
 ```haxe
-function new(?fileHeader:stdgo._internal.debug.macho.FileHeader, ?byteOrder:Null<stdgo._internal.encoding.binary.ByteOrder>, ?loads:stdgo.Slice<stdgo._internal.debug.macho.Load>, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Section>>, ?symtab:stdgo.Ref<stdgo._internal.debug.macho.Symtab>, ?dysymtab:stdgo.Ref<stdgo._internal.debug.macho.Dysymtab>, ?_closer:Null<stdgo._internal.io.Closer>):Void
+function new(?fileHeader:stdgo._internal.debug.macho.FileHeader, ?byteOrder:stdgo._internal.encoding.binary.ByteOrder, ?loads:stdgo.Slice<stdgo._internal.debug.macho.Load>, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.macho.Section>>, ?symtab:stdgo.Ref<stdgo._internal.debug.macho.Symtab>, ?dysymtab:stdgo.Ref<stdgo._internal.debug.macho.Dysymtab>, ?_closer:stdgo._internal.io.Closer):Void
 ```
 
 
@@ -1357,7 +1357,7 @@ var type:stdgo._internal.debug.macho.Type_
 
 
 ```haxe
-function new(?magic:stdgo.GoUInt32, ?cpu:Null<stdgo._internal.debug.macho.Cpu>, ?subCpu:stdgo.GoUInt32, ?type:Null<stdgo._internal.debug.macho.Type_>, ?ncmd:stdgo.GoUInt32, ?cmdsz:stdgo.GoUInt32, ?flags:stdgo.GoUInt32):Void
+function new(?magic:stdgo.GoUInt32, ?cpu:stdgo._internal.debug.macho.Cpu, ?subCpu:stdgo.GoUInt32, ?type:stdgo._internal.debug.macho.Type_, ?ncmd:stdgo.GoUInt32, ?cmdsz:stdgo.GoUInt32, ?flags:stdgo.GoUInt32):Void
 ```
 
 
@@ -1750,7 +1750,7 @@ var path:stdgo.GoString
 
 
 ```haxe
-function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?path:stdgo.GoString):Void
+function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?path:stdgo.GoString):Void
 ```
 
 
@@ -1790,7 +1790,7 @@ var path:stdgo.GoUInt32
 
 
 ```haxe
-function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?path:stdgo.GoUInt32):Void
+function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?path:stdgo.GoUInt32):Void
 ```
 
 
@@ -1824,7 +1824,7 @@ var sectionHeader:stdgo._internal.debug.macho.SectionHeader
 
 
 ```haxe
-function new(?sectionHeader:stdgo._internal.debug.macho.SectionHeader, ?relocs:stdgo.Slice<stdgo._internal.debug.macho.Reloc>, ?readerAt:Null<stdgo._internal.io.ReaderAt>, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void
+function new(?sectionHeader:stdgo._internal.debug.macho.SectionHeader, ?relocs:stdgo.Slice<stdgo._internal.debug.macho.Reloc>, ?readerAt:stdgo._internal.io.ReaderAt, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void
 ```
 
 
@@ -2074,7 +2074,7 @@ var segmentHeader:stdgo._internal.debug.macho.SegmentHeader
 
 
 ```haxe
-function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?segmentHeader:stdgo._internal.debug.macho.SegmentHeader, ?readerAt:Null<stdgo._internal.io.ReaderAt>, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void
+function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?segmentHeader:stdgo._internal.debug.macho.SegmentHeader, ?readerAt:stdgo._internal.io.ReaderAt, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void
 ```
 
 
@@ -2168,7 +2168,7 @@ var prot:stdgo.GoUInt32
 
 
 ```haxe
-function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?name:stdgo.GoArray<stdgo.GoUInt8>, ?addr:stdgo.GoUInt32, ?memsz:stdgo.GoUInt32, ?offset:stdgo.GoUInt32, ?filesz:stdgo.GoUInt32, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void
+function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?name:stdgo.GoArray<stdgo.GoUInt8>, ?addr:stdgo.GoUInt32, ?memsz:stdgo.GoUInt32, ?offset:stdgo.GoUInt32, ?filesz:stdgo.GoUInt32, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void
 ```
 
 
@@ -2237,7 +2237,7 @@ var prot:stdgo.GoUInt32
 
 
 ```haxe
-function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?name:stdgo.GoArray<stdgo.GoUInt8>, ?addr:stdgo.GoUInt64, ?memsz:stdgo.GoUInt64, ?offset:stdgo.GoUInt64, ?filesz:stdgo.GoUInt64, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void
+function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?name:stdgo.GoArray<stdgo.GoUInt8>, ?addr:stdgo.GoUInt64, ?memsz:stdgo.GoUInt64, ?offset:stdgo.GoUInt64, ?filesz:stdgo.GoUInt64, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void
 ```
 
 
@@ -2306,7 +2306,7 @@ var prot:stdgo.GoUInt32
 
 
 ```haxe
-function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?name:stdgo.GoString, ?addr:stdgo.GoUInt64, ?memsz:stdgo.GoUInt64, ?offset:stdgo.GoUInt64, ?filesz:stdgo.GoUInt64, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void
+function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?name:stdgo.GoString, ?addr:stdgo.GoUInt64, ?memsz:stdgo.GoUInt64, ?offset:stdgo.GoUInt64, ?filesz:stdgo.GoUInt64, ?maxprot:stdgo.GoUInt32, ?prot:stdgo.GoUInt32, ?nsect:stdgo.GoUInt32, ?flag:stdgo.GoUInt32):Void
 ```
 
 
@@ -2374,7 +2374,7 @@ var symtabCmd:stdgo._internal.debug.macho.SymtabCmd
 
 
 ```haxe
-function new(?loadBytes:Null<stdgo._internal.debug.macho.LoadBytes>, ?symtabCmd:stdgo._internal.debug.macho.SymtabCmd, ?syms:stdgo.Slice<stdgo._internal.debug.macho.Symbol>):Void
+function new(?loadBytes:stdgo._internal.debug.macho.LoadBytes, ?symtabCmd:stdgo._internal.debug.macho.SymtabCmd, ?syms:stdgo.Slice<stdgo._internal.debug.macho.Symbol>):Void
 ```
 
 
@@ -2429,7 +2429,7 @@ var symoff:stdgo.GoUInt32
 
 
 ```haxe
-function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?symoff:stdgo.GoUInt32, ?nsyms:stdgo.GoUInt32, ?stroff:stdgo.GoUInt32, ?strsize:stdgo.GoUInt32):Void
+function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?symoff:stdgo.GoUInt32, ?nsyms:stdgo.GoUInt32, ?stroff:stdgo.GoUInt32, ?strsize:stdgo.GoUInt32):Void
 ```
 
 
@@ -2511,7 +2511,7 @@ var type:stdgo.GoUInt32
 
 
 ```haxe
-function new(?cmd:Null<stdgo._internal.debug.macho.LoadCmd>, ?len:stdgo.GoUInt32, ?type:stdgo.GoUInt32, ?data:stdgo.Slice<stdgo.GoUInt32>):Void
+function new(?cmd:stdgo._internal.debug.macho.LoadCmd, ?len:stdgo.GoUInt32, ?type:stdgo.GoUInt32, ?data:stdgo.Slice<stdgo.GoUInt32>):Void
 ```
 
 

@@ -21,11 +21,11 @@
 
 - [class T\_osError](<#class-t_oserror>)
 
-  - [`function new(?_err:Null<stdgo.Error>):Void`](<#t_oserror-function-new>)
+  - [`function new(?_err:stdgo.Error):Void`](<#t_oserror-function-new>)
 
 - [class Writer](<#class-writer>)
 
-  - [`function new(?_output:Null<stdgo._internal.io.Writer>, ?_minwidth:stdgo.GoInt, ?_tabwidth:stdgo.GoInt, ?_padding:stdgo.GoInt, ?_padbytes:stdgo.GoArray<stdgo.GoUInt8>, ?_flags:stdgo.GoUInt, ?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_pos:stdgo.GoInt, ?_cell:stdgo._internal.text.tabwriter.T_cell, ?_endChar:stdgo.GoUInt8, ?_lines:stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.T_cell>>, ?_widths:stdgo.Slice<stdgo.GoInt>):Void`](<#writer-function-new>)
+  - [`function new(?_output:stdgo._internal.io.Writer, ?_minwidth:stdgo.GoInt, ?_tabwidth:stdgo.GoInt, ?_padding:stdgo.GoInt, ?_padbytes:stdgo.GoArray<stdgo.GoUInt8>, ?_flags:stdgo.GoUInt, ?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_pos:stdgo.GoInt, ?_cell:stdgo._internal.text.tabwriter.T_cell, ?_endChar:stdgo.GoUInt8, ?_lines:stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.T_cell>>, ?_widths:stdgo.Slice<stdgo.GoInt>):Void`](<#writer-function-new>)
 
 # Constants
 
@@ -166,7 +166,7 @@ var _err:stdgo.Error
 
 
 ```haxe
-function new(?_err:Null<stdgo.Error>):Void
+function new(?_err:stdgo.Error):Void
 ```
 
 
@@ -240,7 +240,7 @@ var _widths:stdgo.Slice<stdgo.GoInt>
 
 
 ```haxe
-function new(?_output:Null<stdgo._internal.io.Writer>, ?_minwidth:stdgo.GoInt, ?_tabwidth:stdgo.GoInt, ?_padding:stdgo.GoInt, ?_padbytes:stdgo.GoArray<stdgo.GoUInt8>, ?_flags:stdgo.GoUInt, ?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_pos:stdgo.GoInt, ?_cell:stdgo._internal.text.tabwriter.T_cell, ?_endChar:stdgo.GoUInt8, ?_lines:stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.T_cell>>, ?_widths:stdgo.Slice<stdgo.GoInt>):Void
+function new(?_output:stdgo._internal.io.Writer, ?_minwidth:stdgo.GoInt, ?_tabwidth:stdgo.GoInt, ?_padding:stdgo.GoInt, ?_padbytes:stdgo.GoArray<stdgo.GoUInt8>, ?_flags:stdgo.GoUInt, ?_buf:stdgo.Slice<stdgo.GoUInt8>, ?_pos:stdgo.GoInt, ?_cell:stdgo._internal.text.tabwriter.T_cell, ?_endChar:stdgo.GoUInt8, ?_lines:stdgo.Slice<stdgo.Slice<stdgo._internal.text.tabwriter.T_cell>>, ?_widths:stdgo.Slice<stdgo.GoInt>):Void
 ```
 
 

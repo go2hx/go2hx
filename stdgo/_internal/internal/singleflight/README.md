@@ -15,11 +15,11 @@
 
 - [class Result](<#class-result>)
 
-  - [`function new(?val:stdgo.AnyInterface, ?err:Null<stdgo.Error>, ?shared:Bool):Void`](<#result-function-new>)
+  - [`function new(?val:stdgo.AnyInterface, ?err:stdgo.Error, ?shared:Bool):Void`](<#result-function-new>)
 
 - [class T\_call](<#class-t_call>)
 
-  - [`function new(?_wg:stdgo._internal.sync.WaitGroup, ?_val:stdgo.AnyInterface, ?_err:Null<stdgo.Error>, ?_dups:stdgo.GoInt, ?_chans:stdgo.Slice<stdgo.Chan<stdgo._internal.internal.singleflight.Result>>):Void`](<#t_call-function-new>)
+  - [`function new(?_wg:stdgo._internal.sync.WaitGroup, ?_val:stdgo.AnyInterface, ?_err:stdgo.Error, ?_dups:stdgo.GoInt, ?_chans:stdgo.Slice<stdgo.Chan<stdgo._internal.internal.singleflight.Result>>):Void`](<#t_call-function-new>)
 
 # Classes
 
@@ -75,7 +75,7 @@ var val:stdgo.AnyInterface
 
 
 ```haxe
-function new(?val:stdgo.AnyInterface, ?err:Null<stdgo.Error>, ?shared:Bool):Void
+function new(?val:stdgo.AnyInterface, ?err:stdgo.Error, ?shared:Bool):Void
 ```
 
 
@@ -114,7 +114,7 @@ var _wg:stdgo._internal.sync.WaitGroup
 
 
 ```haxe
-function new(?_wg:stdgo._internal.sync.WaitGroup, ?_val:stdgo.AnyInterface, ?_err:Null<stdgo.Error>, ?_dups:stdgo.GoInt, ?_chans:stdgo.Slice<stdgo.Chan<stdgo._internal.internal.singleflight.Result>>):Void
+function new(?_wg:stdgo._internal.sync.WaitGroup, ?_val:stdgo.AnyInterface, ?_err:stdgo.Error, ?_dups:stdgo.GoInt, ?_chans:stdgo.Slice<stdgo.Chan<stdgo._internal.internal.singleflight.Result>>):Void
 ```
 
 

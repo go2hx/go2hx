@@ -37,11 +37,11 @@
 
 - [class T\_reader](<#class-t_reader>)
 
-  - [`function new(?_r:Null<stdgo._internal.compress.flate.Reader>, ?_decompressor:Null<stdgo._internal.io.ReadCloser>, ?_digest:Null<stdgo._internal.hash.Hash32>, ?_err:Null<stdgo.Error>, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_reader-function-new>)
+  - [`function new(?_r:stdgo._internal.compress.flate.Reader, ?_decompressor:stdgo._internal.io.ReadCloser, ?_digest:stdgo._internal.hash.Hash32, ?_err:stdgo.Error, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_reader-function-new>)
 
 - [class Writer](<#class-writer>)
 
-  - [`function new(?_w:Null<stdgo._internal.io.Writer>, ?_level:stdgo.GoInt, ?_dict:stdgo.Slice<stdgo.GoUInt8>, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Writer>, ?_digest:Null<stdgo._internal.hash.Hash32>, ?_err:Null<stdgo.Error>, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>, ?_wroteHeader:Bool):Void`](<#writer-function-new>)
+  - [`function new(?_w:stdgo._internal.io.Writer, ?_level:stdgo.GoInt, ?_dict:stdgo.Slice<stdgo.GoUInt8>, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Writer>, ?_digest:stdgo._internal.hash.Hash32, ?_err:stdgo.Error, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>, ?_wroteHeader:Bool):Void`](<#writer-function-new>)
 
 - [typedef Resetter](<#typedef-resetter>)
 
@@ -226,7 +226,7 @@ var _scratch:stdgo.GoArray<stdgo.GoUInt8>
 
 
 ```haxe
-function new(?_r:Null<stdgo._internal.compress.flate.Reader>, ?_decompressor:Null<stdgo._internal.io.ReadCloser>, ?_digest:Null<stdgo._internal.hash.Hash32>, ?_err:Null<stdgo.Error>, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>):Void
+function new(?_r:stdgo._internal.compress.flate.Reader, ?_decompressor:stdgo._internal.io.ReadCloser, ?_digest:stdgo._internal.hash.Hash32, ?_err:stdgo.Error, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>):Void
 ```
 
 
@@ -280,7 +280,7 @@ var _wroteHeader:Bool
 
 
 ```haxe
-function new(?_w:Null<stdgo._internal.io.Writer>, ?_level:stdgo.GoInt, ?_dict:stdgo.Slice<stdgo.GoUInt8>, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Writer>, ?_digest:Null<stdgo._internal.hash.Hash32>, ?_err:Null<stdgo.Error>, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>, ?_wroteHeader:Bool):Void
+function new(?_w:stdgo._internal.io.Writer, ?_level:stdgo.GoInt, ?_dict:stdgo.Slice<stdgo.GoUInt8>, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Writer>, ?_digest:stdgo._internal.hash.Hash32, ?_err:stdgo.Error, ?_scratch:stdgo.GoArray<stdgo.GoUInt8>, ?_wroteHeader:Bool):Void
 ```
 
 

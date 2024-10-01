@@ -19,7 +19,7 @@
 
 - [class ValueError](<#class-valueerror>)
 
-  - [`function new(?method:stdgo.GoString, ?kind:Null<stdgo._internal.internal.abi.Kind>):Void`](<#valueerror-function-new>)
+  - [`function new(?method:stdgo.GoString, ?kind:stdgo._internal.internal.abi.Kind):Void`](<#valueerror-function-new>)
 
 - [typedef Kind](<#typedef-kind>)
 
@@ -126,7 +126,7 @@ var method:stdgo.GoString
 
 
 ```haxe
-function new(?method:stdgo.GoString, ?kind:Null<stdgo._internal.internal.abi.Kind>):Void
+function new(?method:stdgo.GoString, ?kind:stdgo._internal.internal.abi.Kind):Void
 ```
 
 

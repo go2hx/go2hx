@@ -33,11 +33,11 @@
 
 - [class Reader](<#class-reader>)
 
-  - [`function new(?_br:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_rerr:Null<stdgo.Error>, ?_line:stdgo.Slice<stdgo.GoUInt8>):Void`](<#reader-function-new>)
+  - [`function new(?_br:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_rerr:stdgo.Error, ?_line:stdgo.Slice<stdgo.GoUInt8>):Void`](<#reader-function-new>)
 
 - [class Writer](<#class-writer>)
 
-  - [`function new(?binary:Bool, ?_w:Null<stdgo._internal.io.Writer>, ?_i:stdgo.GoInt, ?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_cr:Bool):Void`](<#writer-function-new>)
+  - [`function new(?binary:Bool, ?_w:stdgo._internal.io.Writer, ?_i:stdgo.GoInt, ?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_cr:Bool):Void`](<#writer-function-new>)
 
 # Constants
 
@@ -190,7 +190,7 @@ var _rerr:stdgo.Error
 
 
 ```haxe
-function new(?_br:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_rerr:Null<stdgo.Error>, ?_line:stdgo.Slice<stdgo.GoUInt8>):Void
+function new(?_br:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_rerr:stdgo.Error, ?_line:stdgo.Slice<stdgo.GoUInt8>):Void
 ```
 
 
@@ -229,7 +229,7 @@ var binary:Bool
 
 
 ```haxe
-function new(?binary:Bool, ?_w:Null<stdgo._internal.io.Writer>, ?_i:stdgo.GoInt, ?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_cr:Bool):Void
+function new(?binary:Bool, ?_w:stdgo._internal.io.Writer, ?_i:stdgo.GoInt, ?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_cr:Bool):Void
 ```
 
 

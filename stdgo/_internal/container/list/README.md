@@ -17,7 +17,7 @@
 
 - [class List](<#class-list>)
 
-  - [`function new(?_root:stdgo._internal.container.list.Element, ?_len:Null<stdgo.GoInt>):Void`](<#list-function-new>)
+  - [`function new(?_root:stdgo._internal.container.list.Element, ?_len:stdgo.GoInt):Void`](<#list-function-new>)
 
 # Functions
 
@@ -97,7 +97,7 @@ var _root:stdgo._internal.container.list.Element
 
 
 ```haxe
-function new(?_root:stdgo._internal.container.list.Element, ?_len:Null<stdgo.GoInt>):Void
+function new(?_root:stdgo._internal.container.list.Element, ?_len:stdgo.GoInt):Void
 ```
 
 

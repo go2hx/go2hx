@@ -42,7 +42,7 @@
 
 - [class LineTable](<#class-linetable>)
 
-  - [`function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?pc:stdgo.GoUInt64, ?line:stdgo.GoInt, ?_mu:stdgo._internal.sync.Mutex, ?_version:Null<stdgo._internal.debug.gosym.T_version>, ?_binary:Null<stdgo._internal.encoding.binary.ByteOrder>, ?_quantum:stdgo.GoUInt32, ?_ptrsize:stdgo.GoUInt32, ?_textStart:stdgo.GoUInt64, ?_funcnametab:stdgo.Slice<stdgo.GoUInt8>, ?_cutab:stdgo.Slice<stdgo.GoUInt8>, ?_funcdata:stdgo.Slice<stdgo.GoUInt8>, ?_functab:stdgo.Slice<stdgo.GoUInt8>, ?_nfunctab:stdgo.GoUInt32, ?_filetab:stdgo.Slice<stdgo.GoUInt8>, ?_pctab:stdgo.Slice<stdgo.GoUInt8>, ?_nfiletab:stdgo.GoUInt32, ?_funcNames:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_strings:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_fileMap:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>):Void`](<#linetable-function-new>)
+  - [`function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?pc:stdgo.GoUInt64, ?line:stdgo.GoInt, ?_mu:stdgo._internal.sync.Mutex, ?_version:stdgo._internal.debug.gosym.T_version, ?_binary:stdgo._internal.encoding.binary.ByteOrder, ?_quantum:stdgo.GoUInt32, ?_ptrsize:stdgo.GoUInt32, ?_textStart:stdgo.GoUInt64, ?_funcnametab:stdgo.Slice<stdgo.GoUInt8>, ?_cutab:stdgo.Slice<stdgo.GoUInt8>, ?_funcdata:stdgo.Slice<stdgo.GoUInt8>, ?_functab:stdgo.Slice<stdgo.GoUInt8>, ?_nfunctab:stdgo.GoUInt32, ?_filetab:stdgo.Slice<stdgo.GoUInt8>, ?_pctab:stdgo.Slice<stdgo.GoUInt8>, ?_nfiletab:stdgo.GoUInt32, ?_funcNames:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_strings:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_fileMap:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>):Void`](<#linetable-function-new>)
 
 - [class Obj](<#class-obj>)
 
@@ -50,7 +50,7 @@
 
 - [class Sym](<#class-sym>)
 
-  - [`function new(?value:stdgo.GoUInt64, ?type:stdgo.GoUInt8, ?name:stdgo.GoString, ?goType:stdgo.GoUInt64, ?func:stdgo.Ref<stdgo._internal.debug.gosym.Func>, ?_goVersion:Null<stdgo._internal.debug.gosym.T_version>):Void`](<#sym-function-new>)
+  - [`function new(?value:stdgo.GoUInt64, ?type:stdgo.GoUInt8, ?name:stdgo.GoString, ?goType:stdgo.GoUInt64, ?func:stdgo.Ref<stdgo._internal.debug.gosym.Func>, ?_goVersion:stdgo._internal.debug.gosym.T_version):Void`](<#sym-function-new>)
 
 - [class T\_\_lineFromAline\_\_\_localname\_\_\_stackEnt\_16022](<#class-tlinefromaline_localname___stackent_16022>)
 
@@ -516,7 +516,7 @@ var pc:stdgo.GoUInt64
 
 
 ```haxe
-function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?pc:stdgo.GoUInt64, ?line:stdgo.GoInt, ?_mu:stdgo._internal.sync.Mutex, ?_version:Null<stdgo._internal.debug.gosym.T_version>, ?_binary:Null<stdgo._internal.encoding.binary.ByteOrder>, ?_quantum:stdgo.GoUInt32, ?_ptrsize:stdgo.GoUInt32, ?_textStart:stdgo.GoUInt64, ?_funcnametab:stdgo.Slice<stdgo.GoUInt8>, ?_cutab:stdgo.Slice<stdgo.GoUInt8>, ?_funcdata:stdgo.Slice<stdgo.GoUInt8>, ?_functab:stdgo.Slice<stdgo.GoUInt8>, ?_nfunctab:stdgo.GoUInt32, ?_filetab:stdgo.Slice<stdgo.GoUInt8>, ?_pctab:stdgo.Slice<stdgo.GoUInt8>, ?_nfiletab:stdgo.GoUInt32, ?_funcNames:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_strings:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_fileMap:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>):Void
+function new(?data:stdgo.Slice<stdgo.GoUInt8>, ?pc:stdgo.GoUInt64, ?line:stdgo.GoInt, ?_mu:stdgo._internal.sync.Mutex, ?_version:stdgo._internal.debug.gosym.T_version, ?_binary:stdgo._internal.encoding.binary.ByteOrder, ?_quantum:stdgo.GoUInt32, ?_ptrsize:stdgo.GoUInt32, ?_textStart:stdgo.GoUInt64, ?_funcnametab:stdgo.Slice<stdgo.GoUInt8>, ?_cutab:stdgo.Slice<stdgo.GoUInt8>, ?_funcdata:stdgo.Slice<stdgo.GoUInt8>, ?_functab:stdgo.Slice<stdgo.GoUInt8>, ?_nfunctab:stdgo.GoUInt32, ?_filetab:stdgo.Slice<stdgo.GoUInt8>, ?_pctab:stdgo.Slice<stdgo.GoUInt8>, ?_nfiletab:stdgo.GoUInt32, ?_funcNames:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_strings:stdgo.GoMap<stdgo.GoUInt32, stdgo.GoString>, ?_fileMap:stdgo.GoMap<stdgo.GoString, stdgo.GoUInt32>):Void
 ```
 
 
@@ -584,7 +584,7 @@ var value:stdgo.GoUInt64
 
 
 ```haxe
-function new(?value:stdgo.GoUInt64, ?type:stdgo.GoUInt8, ?name:stdgo.GoString, ?goType:stdgo.GoUInt64, ?func:stdgo.Ref<stdgo._internal.debug.gosym.Func>, ?_goVersion:Null<stdgo._internal.debug.gosym.T_version>):Void
+function new(?value:stdgo.GoUInt64, ?type:stdgo.GoUInt8, ?name:stdgo.GoString, ?goType:stdgo.GoUInt64, ?func:stdgo.Ref<stdgo._internal.debug.gosym.Func>, ?_goVersion:stdgo._internal.debug.gosym.T_version):Void
 ```
 
 

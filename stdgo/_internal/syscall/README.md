@@ -879,17 +879,17 @@ final _sys_write:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 
 
 ```haxe
-final af_INET:Null<Dynamic> = @:invalid_type null
+final af_INET:Null<Any> = @:invalid_type null
 ```
 
 
 ```haxe
-final af_INET6:Null<Dynamic> = @:invalid_type null
+final af_INET6:Null<Any> = @:invalid_type null
 ```
 
 
 ```haxe
-final af_UNIX:Null<Dynamic> = @:invalid_type null
+final af_UNIX:Null<Any> = @:invalid_type null
 ```
 
 
@@ -1519,7 +1519,7 @@ final f_DUPFD:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 
 
 ```haxe
-final f_DUPFD_CLOEXEC:Null<Dynamic> = @:invalid_type null
+final f_DUPFD_CLOEXEC:Null<Any> = @:invalid_type null
 ```
 
 
@@ -1634,7 +1634,7 @@ final ipproto_UDP:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 
 
 ```haxe
-final ipv6_V6ONLY:Null<Dynamic> = @:invalid_type null
+final ipv6_V6ONLY:Null<Any> = @:invalid_type null
 ```
 
 
@@ -1899,22 +1899,22 @@ final sigtrap:stdgo._internal.syscall.Signal = ((((0 : stdgo.GoInt)) : stdgo._in
 
 
 ```haxe
-final so_ERROR:Null<Dynamic> = @:invalid_type null
+final so_ERROR:Null<Any> = @:invalid_type null
 ```
 
 
 ```haxe
-final sock_DGRAM:Null<Dynamic> = @:invalid_type null
+final sock_DGRAM:Null<Any> = @:invalid_type null
 ```
 
 
 ```haxe
-final sock_RAW:Null<Dynamic> = @:invalid_type null
+final sock_RAW:Null<Any> = @:invalid_type null
 ```
 
 
 ```haxe
-final sock_SEQPACKET:Null<Dynamic> = @:invalid_type null
+final sock_SEQPACKET:Null<Any> = @:invalid_type null
 ```
 
 
@@ -1924,7 +1924,7 @@ final sock_STREAM:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 
 
 ```haxe
-final somaxconn:Null<Dynamic> = @:invalid_type null
+final somaxconn:Null<Any> = @:invalid_type null
 ```
 
 

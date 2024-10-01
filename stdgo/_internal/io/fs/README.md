@@ -76,19 +76,19 @@
 
 - [class PathError](<#class-patherror>)
 
-  - [`function new(?op:stdgo.GoString, ?path:stdgo.GoString, ?err:Null<stdgo.Error>):Void`](<#patherror-function-new>)
+  - [`function new(?op:stdgo.GoString, ?path:stdgo.GoString, ?err:stdgo.Error):Void`](<#patherror-function-new>)
 
 - [class T\_dirInfo](<#class-t_dirinfo>)
 
-  - [`function new(?_fileInfo:Null<stdgo._internal.io.fs.FileInfo>):Void`](<#t_dirinfo-function-new>)
+  - [`function new(?_fileInfo:stdgo._internal.io.fs.FileInfo):Void`](<#t_dirinfo-function-new>)
 
 - [class T\_statDirEntry](<#class-t_statdirentry>)
 
-  - [`function new(?_info:Null<stdgo._internal.io.fs.FileInfo>):Void`](<#t_statdirentry-function-new>)
+  - [`function new(?_info:stdgo._internal.io.fs.FileInfo):Void`](<#t_statdirentry-function-new>)
 
 - [class T\_subFS](<#class-t_subfs>)
 
-  - [`function new(?_fsys:Null<stdgo._internal.io.fs.FS>, ?_dir:stdgo.GoString):Void`](<#t_subfs-function-new>)
+  - [`function new(?_fsys:stdgo._internal.io.fs.FS, ?_dir:stdgo.GoString):Void`](<#t_subfs-function-new>)
 
 - [typedef DirEntry](<#typedef-direntry>)
 
@@ -521,7 +521,7 @@ var path:stdgo.GoString
 
 
 ```haxe
-function new(?op:stdgo.GoString, ?path:stdgo.GoString, ?err:Null<stdgo.Error>):Void
+function new(?op:stdgo.GoString, ?path:stdgo.GoString, ?err:stdgo.Error):Void
 ```
 
 
@@ -540,7 +540,7 @@ var _fileInfo:stdgo._internal.io.fs.FileInfo
 
 
 ```haxe
-function new(?_fileInfo:Null<stdgo._internal.io.fs.FileInfo>):Void
+function new(?_fileInfo:stdgo._internal.io.fs.FileInfo):Void
 ```
 
 
@@ -559,7 +559,7 @@ var _info:stdgo._internal.io.fs.FileInfo
 
 
 ```haxe
-function new(?_info:Null<stdgo._internal.io.fs.FileInfo>):Void
+function new(?_info:stdgo._internal.io.fs.FileInfo):Void
 ```
 
 
@@ -583,7 +583,7 @@ var _fsys:stdgo._internal.io.fs.FS
 
 
 ```haxe
-function new(?_fsys:Null<stdgo._internal.io.fs.FS>, ?_dir:stdgo.GoString):Void
+function new(?_fsys:stdgo._internal.io.fs.FS, ?_dir:stdgo.GoString):Void
 ```
 
 

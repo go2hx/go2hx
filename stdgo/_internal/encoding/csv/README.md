@@ -23,7 +23,7 @@
 
 - [class ParseError](<#class-parseerror>)
 
-  - [`function new(?startLine:stdgo.GoInt, ?line:stdgo.GoInt, ?column:stdgo.GoInt, ?err:Null<stdgo.Error>):Void`](<#parseerror-function-new>)
+  - [`function new(?startLine:stdgo.GoInt, ?line:stdgo.GoInt, ?column:stdgo.GoInt, ?err:stdgo.Error):Void`](<#parseerror-function-new>)
 
 - [class Reader](<#class-reader>)
 
@@ -168,7 +168,7 @@ var startLine:stdgo.GoInt
 
 
 ```haxe
-function new(?startLine:stdgo.GoInt, ?line:stdgo.GoInt, ?column:stdgo.GoInt, ?err:Null<stdgo.Error>):Void
+function new(?startLine:stdgo.GoInt, ?line:stdgo.GoInt, ?column:stdgo.GoInt, ?err:stdgo.Error):Void
 ```
 
 

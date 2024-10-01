@@ -17,7 +17,7 @@
 
 - [class T\_pair](<#class-t_pair>)
 
-  - [`function new(?_x:Null<stdgo.GoInt>, ?_y:Null<stdgo.GoInt>):Void`](<#t_pair-function-new>)
+  - [`function new(?_x:stdgo.GoInt, ?_y:stdgo.GoInt):Void`](<#t_pair-function-new>)
 
 # Functions
 
@@ -85,7 +85,7 @@ var _y:stdgo.GoInt
 
 
 ```haxe
-function new(?_x:Null<stdgo.GoInt>, ?_y:Null<stdgo.GoInt>):Void
+function new(?_x:stdgo.GoInt, ?_y:stdgo.GoInt):Void
 ```
 
 

@@ -33,11 +33,11 @@
 
 - [class Reader](<#class-reader>)
 
-  - [`function new(?header:stdgo._internal.compress.gzip.Header, ?_r:Null<stdgo._internal.compress.flate.Reader>, ?_decompressor:Null<stdgo._internal.io.ReadCloser>, ?_digest:stdgo.GoUInt32, ?_size:stdgo.GoUInt32, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_err:Null<stdgo.Error>, ?_multistream:Bool):Void`](<#reader-function-new>)
+  - [`function new(?header:stdgo._internal.compress.gzip.Header, ?_r:stdgo._internal.compress.flate.Reader, ?_decompressor:stdgo._internal.io.ReadCloser, ?_digest:stdgo.GoUInt32, ?_size:stdgo.GoUInt32, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_err:stdgo.Error, ?_multistream:Bool):Void`](<#reader-function-new>)
 
 - [class Writer](<#class-writer>)
 
-  - [`function new(?header:stdgo._internal.compress.gzip.Header, ?_w:Null<stdgo._internal.io.Writer>, ?_level:stdgo.GoInt, ?_wroteHeader:Bool, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Writer>, ?_digest:stdgo.GoUInt32, ?_size:stdgo.GoUInt32, ?_closed:Bool, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_err:Null<stdgo.Error>):Void`](<#writer-function-new>)
+  - [`function new(?header:stdgo._internal.compress.gzip.Header, ?_w:stdgo._internal.io.Writer, ?_level:stdgo.GoInt, ?_wroteHeader:Bool, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Writer>, ?_digest:stdgo.GoUInt32, ?_size:stdgo.GoUInt32, ?_closed:Bool, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_err:stdgo.Error):Void`](<#writer-function-new>)
 
 # Constants
 
@@ -287,7 +287,7 @@ var header:stdgo._internal.compress.gzip.Header
 
 
 ```haxe
-function new(?header:stdgo._internal.compress.gzip.Header, ?_r:Null<stdgo._internal.compress.flate.Reader>, ?_decompressor:Null<stdgo._internal.io.ReadCloser>, ?_digest:stdgo.GoUInt32, ?_size:stdgo.GoUInt32, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_err:Null<stdgo.Error>, ?_multistream:Bool):Void
+function new(?header:stdgo._internal.compress.gzip.Header, ?_r:stdgo._internal.compress.flate.Reader, ?_decompressor:stdgo._internal.io.ReadCloser, ?_digest:stdgo.GoUInt32, ?_size:stdgo.GoUInt32, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_err:stdgo.Error, ?_multistream:Bool):Void
 ```
 
 
@@ -351,7 +351,7 @@ var header:stdgo._internal.compress.gzip.Header
 
 
 ```haxe
-function new(?header:stdgo._internal.compress.gzip.Header, ?_w:Null<stdgo._internal.io.Writer>, ?_level:stdgo.GoInt, ?_wroteHeader:Bool, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Writer>, ?_digest:stdgo.GoUInt32, ?_size:stdgo.GoUInt32, ?_closed:Bool, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_err:Null<stdgo.Error>):Void
+function new(?header:stdgo._internal.compress.gzip.Header, ?_w:stdgo._internal.io.Writer, ?_level:stdgo.GoInt, ?_wroteHeader:Bool, ?_compressor:stdgo.Ref<stdgo._internal.compress.flate.Writer>, ?_digest:stdgo.GoUInt32, ?_size:stdgo.GoUInt32, ?_closed:Bool, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_err:stdgo.Error):Void
 ```
 
 

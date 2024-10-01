@@ -71,7 +71,7 @@
 
 - [class ReadError](<#class-readerror>)
 
-  - [`function new(?offset:stdgo.GoInt64, ?err:Null<stdgo.Error>):Void`](<#readerror-function-new>)
+  - [`function new(?offset:stdgo.GoInt64, ?err:stdgo.Error):Void`](<#readerror-function-new>)
 
 - [class T\_compressionLevel](<#class-t_compressionlevel>)
 
@@ -85,13 +85,13 @@
 
   - [`function _step()`](<#t_compressor-function-_step>)
 
-  - [`function new(?_compressionLevel:stdgo._internal.compress.flate.T_compressionLevel, ?_w:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanBitWriter>, ?_bulkHasher:(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.Slice<stdgo.GoUInt32>):Void, ?_fill:(:stdgo.Ref<stdgo._internal.compress.flate.T_compressor>, :stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt, ?_step:(), ?_sync:Bool, ?_bestSpeed:stdgo.Ref<stdgo._internal.compress.flate.T_deflateFast>, ?_chainHead:Null<stdgo.GoInt>, ?_hashHead:stdgo.GoArray<stdgo.GoUInt32>, ?_hashPrev:stdgo.GoArray<stdgo.GoUInt32>, ?_hashOffset:Null<stdgo.GoInt>, ?_index:Null<stdgo.GoInt>, ?_window:stdgo.Slice<stdgo.GoUInt8>, ?_windowEnd:Null<stdgo.GoInt>, ?_blockStart:Null<stdgo.GoInt>, ?_byteAvailable:Bool, ?_tokens:stdgo.Slice<stdgo._internal.compress.flate.T_token>, ?_length:Null<stdgo.GoInt>, ?_offset:Null<stdgo.GoInt>, ?_maxInsertIndex:Null<stdgo.GoInt>, ?_err:Null<stdgo.Error>, ?_hashMatch:stdgo.GoArray<stdgo.GoUInt32>):Void`](<#t_compressor-function-new>)
+  - [`function new(?_compressionLevel:stdgo._internal.compress.flate.T_compressionLevel, ?_w:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanBitWriter>, ?_bulkHasher:(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.Slice<stdgo.GoUInt32>):Void, ?_fill:(:stdgo.Ref<stdgo._internal.compress.flate.T_compressor>, :stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt, ?_step:(), ?_sync:Bool, ?_bestSpeed:stdgo.Ref<stdgo._internal.compress.flate.T_deflateFast>, ?_chainHead:stdgo.GoInt, ?_hashHead:stdgo.GoArray<stdgo.GoUInt32>, ?_hashPrev:stdgo.GoArray<stdgo.GoUInt32>, ?_hashOffset:stdgo.GoInt, ?_index:stdgo.GoInt, ?_window:stdgo.Slice<stdgo.GoUInt8>, ?_windowEnd:stdgo.GoInt, ?_blockStart:stdgo.GoInt, ?_byteAvailable:Bool, ?_tokens:stdgo.Slice<stdgo._internal.compress.flate.T_token>, ?_length:stdgo.GoInt, ?_offset:stdgo.GoInt, ?_maxInsertIndex:stdgo.GoInt, ?_err:stdgo.Error, ?_hashMatch:stdgo.GoArray<stdgo.GoUInt32>):Void`](<#t_compressor-function-new>)
 
 - [class T\_decompressor](<#class-t_decompressor>)
 
   - [`function _step()`](<#t_decompressor-function-_step>)
 
-  - [`function new(?_r:Null<stdgo._internal.compress.flate.Reader>, ?_rBuf:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_roffset:stdgo.GoInt64, ?_b:stdgo.GoUInt32, ?_nb:stdgo.GoUInt, ?_h1:stdgo._internal.compress.flate.T_huffmanDecoder, ?_h2:stdgo._internal.compress.flate.T_huffmanDecoder, ?_bits:stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>, ?_codebits:stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>, ?_dict:stdgo._internal.compress.flate.T_dictDecoder, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_step:(), ?_stepState:stdgo.GoInt, ?_final:Bool, ?_err:Null<stdgo.Error>, ?_toRead:stdgo.Slice<stdgo.GoUInt8>, ?_hl:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanDecoder>, ?_hd:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanDecoder>, ?_copyLen:stdgo.GoInt, ?_copyDist:stdgo.GoInt):Void`](<#t_decompressor-function-new>)
+  - [`function new(?_r:stdgo._internal.compress.flate.Reader, ?_rBuf:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_roffset:stdgo.GoInt64, ?_b:stdgo.GoUInt32, ?_nb:stdgo.GoUInt, ?_h1:stdgo._internal.compress.flate.T_huffmanDecoder, ?_h2:stdgo._internal.compress.flate.T_huffmanDecoder, ?_bits:stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>, ?_codebits:stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>, ?_dict:stdgo._internal.compress.flate.T_dictDecoder, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_step:(), ?_stepState:stdgo.GoInt, ?_final:Bool, ?_err:stdgo.Error, ?_toRead:stdgo.Slice<stdgo.GoUInt8>, ?_hl:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanDecoder>, ?_hd:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanDecoder>, ?_copyLen:stdgo.GoInt, ?_copyDist:stdgo.GoInt):Void`](<#t_decompressor-function-new>)
 
 - [class T\_deflateFast](<#class-t_deflatefast>)
 
@@ -103,7 +103,7 @@
 
 - [class T\_dictWriter](<#class-t_dictwriter>)
 
-  - [`function new(?_w:Null<stdgo._internal.io.Writer>):Void`](<#t_dictwriter-function-new>)
+  - [`function new(?_w:stdgo._internal.io.Writer):Void`](<#t_dictwriter-function-new>)
 
 - [class T\_hcode](<#class-t_hcode>)
 
@@ -111,7 +111,7 @@
 
 - [class T\_huffmanBitWriter](<#class-t_huffmanbitwriter>)
 
-  - [`function new(?_writer:Null<stdgo._internal.io.Writer>, ?_bits:stdgo.GoUInt64, ?_nbits:stdgo.GoUInt, ?_bytes:stdgo.GoArray<stdgo.GoUInt8>, ?_codegenFreq:stdgo.GoArray<stdgo.GoInt32>, ?_nbytes:stdgo.GoInt, ?_literalFreq:stdgo.Slice<stdgo.GoInt32>, ?_offsetFreq:stdgo.Slice<stdgo.GoInt32>, ?_codegen:stdgo.Slice<stdgo.GoUInt8>, ?_literalEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_offsetEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_codegenEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_err:Null<stdgo.Error>):Void`](<#t_huffmanbitwriter-function-new>)
+  - [`function new(?_writer:stdgo._internal.io.Writer, ?_bits:stdgo.GoUInt64, ?_nbits:stdgo.GoUInt, ?_bytes:stdgo.GoArray<stdgo.GoUInt8>, ?_codegenFreq:stdgo.GoArray<stdgo.GoInt32>, ?_nbytes:stdgo.GoInt, ?_literalFreq:stdgo.Slice<stdgo.GoInt32>, ?_offsetFreq:stdgo.Slice<stdgo.GoInt32>, ?_codegen:stdgo.Slice<stdgo.GoUInt8>, ?_literalEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_offsetEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_codegenEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_err:stdgo.Error):Void`](<#t_huffmanbitwriter-function-new>)
 
 - [class T\_huffmanDecoder](<#class-t_huffmandecoder>)
 
@@ -119,7 +119,7 @@
 
 - [class T\_huffmanEncoder](<#class-t_huffmanencoder>)
 
-  - [`function new(?_codes:stdgo.Slice<stdgo._internal.compress.flate.T_hcode>, ?_freqcache:stdgo.Slice<stdgo._internal.compress.flate.T_literalNode>, ?_bitCount:stdgo.GoArray<stdgo.GoInt32>, ?_lns:Null<stdgo._internal.compress.flate.T_byLiteral>, ?_lfs:Null<stdgo._internal.compress.flate.T_byFreq>):Void`](<#t_huffmanencoder-function-new>)
+  - [`function new(?_codes:stdgo.Slice<stdgo._internal.compress.flate.T_hcode>, ?_freqcache:stdgo.Slice<stdgo._internal.compress.flate.T_literalNode>, ?_bitCount:stdgo.GoArray<stdgo.GoInt32>, ?_lns:stdgo._internal.compress.flate.T_byLiteral, ?_lfs:stdgo._internal.compress.flate.T_byFreq):Void`](<#t_huffmanencoder-function-new>)
 
 - [class T\_levelInfo](<#class-t_levelinfo>)
 
@@ -135,7 +135,7 @@
 
 - [class WriteError](<#class-writeerror>)
 
-  - [`function new(?offset:stdgo.GoInt64, ?err:Null<stdgo.Error>):Void`](<#writeerror-function-new>)
+  - [`function new(?offset:stdgo.GoInt64, ?err:stdgo.Error):Void`](<#writeerror-function-new>)
 
 - [class Writer](<#class-writer>)
 
@@ -805,7 +805,7 @@ var offset:stdgo.GoInt64
 
 
 ```haxe
-function new(?offset:stdgo.GoInt64, ?err:Null<stdgo.Error>):Void
+function new(?offset:stdgo.GoInt64, ?err:stdgo.Error):Void
 ```
 
 
@@ -982,7 +982,7 @@ function _step()
 
 
 ```haxe
-function new(?_compressionLevel:stdgo._internal.compress.flate.T_compressionLevel, ?_w:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanBitWriter>, ?_bulkHasher:(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.Slice<stdgo.GoUInt32>):Void, ?_fill:(:stdgo.Ref<stdgo._internal.compress.flate.T_compressor>, :stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt, ?_step:(), ?_sync:Bool, ?_bestSpeed:stdgo.Ref<stdgo._internal.compress.flate.T_deflateFast>, ?_chainHead:Null<stdgo.GoInt>, ?_hashHead:stdgo.GoArray<stdgo.GoUInt32>, ?_hashPrev:stdgo.GoArray<stdgo.GoUInt32>, ?_hashOffset:Null<stdgo.GoInt>, ?_index:Null<stdgo.GoInt>, ?_window:stdgo.Slice<stdgo.GoUInt8>, ?_windowEnd:Null<stdgo.GoInt>, ?_blockStart:Null<stdgo.GoInt>, ?_byteAvailable:Bool, ?_tokens:stdgo.Slice<stdgo._internal.compress.flate.T_token>, ?_length:Null<stdgo.GoInt>, ?_offset:Null<stdgo.GoInt>, ?_maxInsertIndex:Null<stdgo.GoInt>, ?_err:Null<stdgo.Error>, ?_hashMatch:stdgo.GoArray<stdgo.GoUInt32>):Void
+function new(?_compressionLevel:stdgo._internal.compress.flate.T_compressionLevel, ?_w:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanBitWriter>, ?_bulkHasher:(:stdgo.Slice<stdgo.GoUInt8>, :stdgo.Slice<stdgo.GoUInt32>):Void, ?_fill:(:stdgo.Ref<stdgo._internal.compress.flate.T_compressor>, :stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt, ?_step:(), ?_sync:Bool, ?_bestSpeed:stdgo.Ref<stdgo._internal.compress.flate.T_deflateFast>, ?_chainHead:stdgo.GoInt, ?_hashHead:stdgo.GoArray<stdgo.GoUInt32>, ?_hashPrev:stdgo.GoArray<stdgo.GoUInt32>, ?_hashOffset:stdgo.GoInt, ?_index:stdgo.GoInt, ?_window:stdgo.Slice<stdgo.GoUInt8>, ?_windowEnd:stdgo.GoInt, ?_blockStart:stdgo.GoInt, ?_byteAvailable:Bool, ?_tokens:stdgo.Slice<stdgo._internal.compress.flate.T_token>, ?_length:stdgo.GoInt, ?_offset:stdgo.GoInt, ?_maxInsertIndex:stdgo.GoInt, ?_err:stdgo.Error, ?_hashMatch:stdgo.GoArray<stdgo.GoUInt32>):Void
 ```
 
 
@@ -1099,7 +1099,7 @@ function _step()
 
 
 ```haxe
-function new(?_r:Null<stdgo._internal.compress.flate.Reader>, ?_rBuf:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_roffset:stdgo.GoInt64, ?_b:stdgo.GoUInt32, ?_nb:stdgo.GoUInt, ?_h1:stdgo._internal.compress.flate.T_huffmanDecoder, ?_h2:stdgo._internal.compress.flate.T_huffmanDecoder, ?_bits:stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>, ?_codebits:stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>, ?_dict:stdgo._internal.compress.flate.T_dictDecoder, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_step:(), ?_stepState:stdgo.GoInt, ?_final:Bool, ?_err:Null<stdgo.Error>, ?_toRead:stdgo.Slice<stdgo.GoUInt8>, ?_hl:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanDecoder>, ?_hd:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanDecoder>, ?_copyLen:stdgo.GoInt, ?_copyDist:stdgo.GoInt):Void
+function new(?_r:stdgo._internal.compress.flate.Reader, ?_rBuf:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_roffset:stdgo.GoInt64, ?_b:stdgo.GoUInt32, ?_nb:stdgo.GoUInt, ?_h1:stdgo._internal.compress.flate.T_huffmanDecoder, ?_h2:stdgo._internal.compress.flate.T_huffmanDecoder, ?_bits:stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>, ?_codebits:stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>, ?_dict:stdgo._internal.compress.flate.T_dictDecoder, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_step:(), ?_stepState:stdgo.GoInt, ?_final:Bool, ?_err:stdgo.Error, ?_toRead:stdgo.Slice<stdgo.GoUInt8>, ?_hl:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanDecoder>, ?_hd:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanDecoder>, ?_copyLen:stdgo.GoInt, ?_copyDist:stdgo.GoInt):Void
 ```
 
 
@@ -1181,7 +1181,7 @@ var _w:stdgo._internal.io.Writer
 
 
 ```haxe
-function new(?_w:Null<stdgo._internal.io.Writer>):Void
+function new(?_w:stdgo._internal.io.Writer):Void
 ```
 
 
@@ -1284,7 +1284,7 @@ var _writer:stdgo._internal.io.Writer
 
 
 ```haxe
-function new(?_writer:Null<stdgo._internal.io.Writer>, ?_bits:stdgo.GoUInt64, ?_nbits:stdgo.GoUInt, ?_bytes:stdgo.GoArray<stdgo.GoUInt8>, ?_codegenFreq:stdgo.GoArray<stdgo.GoInt32>, ?_nbytes:stdgo.GoInt, ?_literalFreq:stdgo.Slice<stdgo.GoInt32>, ?_offsetFreq:stdgo.Slice<stdgo.GoInt32>, ?_codegen:stdgo.Slice<stdgo.GoUInt8>, ?_literalEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_offsetEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_codegenEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_err:Null<stdgo.Error>):Void
+function new(?_writer:stdgo._internal.io.Writer, ?_bits:stdgo.GoUInt64, ?_nbits:stdgo.GoUInt, ?_bytes:stdgo.GoArray<stdgo.GoUInt8>, ?_codegenFreq:stdgo.GoArray<stdgo.GoInt32>, ?_nbytes:stdgo.GoInt, ?_literalFreq:stdgo.Slice<stdgo.GoInt32>, ?_offsetFreq:stdgo.Slice<stdgo.GoInt32>, ?_codegen:stdgo.Slice<stdgo.GoUInt8>, ?_literalEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_offsetEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_codegenEncoding:stdgo.Ref<stdgo._internal.compress.flate.T_huffmanEncoder>, ?_err:stdgo.Error):Void
 ```
 
 
@@ -1357,7 +1357,7 @@ var _lns:stdgo._internal.compress.flate.T_byLiteral
 
 
 ```haxe
-function new(?_codes:stdgo.Slice<stdgo._internal.compress.flate.T_hcode>, ?_freqcache:stdgo.Slice<stdgo._internal.compress.flate.T_literalNode>, ?_bitCount:stdgo.GoArray<stdgo.GoInt32>, ?_lns:Null<stdgo._internal.compress.flate.T_byLiteral>, ?_lfs:Null<stdgo._internal.compress.flate.T_byFreq>):Void
+function new(?_codes:stdgo.Slice<stdgo._internal.compress.flate.T_hcode>, ?_freqcache:stdgo.Slice<stdgo._internal.compress.flate.T_literalNode>, ?_bitCount:stdgo.GoArray<stdgo.GoInt32>, ?_lns:stdgo._internal.compress.flate.T_byLiteral, ?_lfs:stdgo._internal.compress.flate.T_byFreq):Void
 ```
 
 
@@ -1468,7 +1468,7 @@ var offset:stdgo.GoInt64
 
 
 ```haxe
-function new(?offset:stdgo.GoInt64, ?err:Null<stdgo.Error>):Void
+function new(?offset:stdgo.GoInt64, ?err:stdgo.Error):Void
 ```
 
 

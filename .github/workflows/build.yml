@@ -14,6 +14,7 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest, macos-13]
         arch: [x64]
+    needs: setup
     steps:
       - uses: actions/checkout@v3
       # Get the cores 
@@ -37,16 +38,20 @@ jobs:
       # go2hx setup
       - name: Set source
         run: npx haxelib dev go2hx .
-      # clean stdgo
-      - name: Clean go2hx
-        run: npx haxelib run go2hx clean
+      - uses: actions/cache/restore@v4
+        id: setup-cache
+        with:
+          path: |
+            TypeInfoData_go2hx_hxb.hx
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.*.zip 
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Build go2hx compiler
         run: npx haxe --run Run build
       - name: Create vendor
         run: go mod vendor
       # compile stdgo
-      - name: Run stdgo automatic compile
-        run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unicode test suite
         run: npx haxe stdgo/unicode.hxml --interp
   setup:

@@ -49,7 +49,7 @@
 
   - [`function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>`](<#arraytype-function-common>)
 
-  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:stdgo._internal.debug.dwarf.Type_, ?strideBitSize:stdgo.GoInt64, ?count:stdgo.GoInt64):Void`](<#arraytype-function-new>)
+  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:Null<stdgo._internal.debug.dwarf.Type_>, ?strideBitSize:stdgo.GoInt64, ?count:stdgo.GoInt64):Void`](<#arraytype-function-new>)
 
 - [class BasicType](<#class-basictype>)
 
@@ -101,11 +101,11 @@
 
 - [class Data](<#class-data>)
 
-  - [`function new(?_abbrev:stdgo.Slice<stdgo.GoUInt8>, ?_aranges:stdgo.Slice<stdgo.GoUInt8>, ?_frame:stdgo.Slice<stdgo.GoUInt8>, ?_info:stdgo.Slice<stdgo.GoUInt8>, ?_line:stdgo.Slice<stdgo.GoUInt8>, ?_pubnames:stdgo.Slice<stdgo.GoUInt8>, ?_ranges:stdgo.Slice<stdgo.GoUInt8>, ?_str:stdgo.Slice<stdgo.GoUInt8>, ?_addr:stdgo.Slice<stdgo.GoUInt8>, ?_lineStr:stdgo.Slice<stdgo.GoUInt8>, ?_strOffsets:stdgo.Slice<stdgo.GoUInt8>, ?_rngLists:stdgo.Slice<stdgo.GoUInt8>, ?_abbrevCache:stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.T_abbrevTable>, ?_bigEndian:Bool, ?_order:stdgo._internal.encoding.binary.ByteOrder, ?_typeCache:stdgo.GoMap<stdgo._internal.debug.dwarf.Offset, stdgo._internal.debug.dwarf.Type_>, ?_typeSigs:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.T_typeUnit>>, ?_unit:stdgo.Slice<stdgo._internal.debug.dwarf.T_unit>):Void`](<#data-function-new>)
+  - [`function new(?_abbrev:stdgo.Slice<stdgo.GoUInt8>, ?_aranges:stdgo.Slice<stdgo.GoUInt8>, ?_frame:stdgo.Slice<stdgo.GoUInt8>, ?_info:stdgo.Slice<stdgo.GoUInt8>, ?_line:stdgo.Slice<stdgo.GoUInt8>, ?_pubnames:stdgo.Slice<stdgo.GoUInt8>, ?_ranges:stdgo.Slice<stdgo.GoUInt8>, ?_str:stdgo.Slice<stdgo.GoUInt8>, ?_addr:stdgo.Slice<stdgo.GoUInt8>, ?_lineStr:stdgo.Slice<stdgo.GoUInt8>, ?_strOffsets:stdgo.Slice<stdgo.GoUInt8>, ?_rngLists:stdgo.Slice<stdgo.GoUInt8>, ?_abbrevCache:stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.T_abbrevTable>, ?_bigEndian:Bool, ?_order:Null<stdgo._internal.encoding.binary.ByteOrder>, ?_typeCache:stdgo.GoMap<stdgo._internal.debug.dwarf.Offset, stdgo._internal.debug.dwarf.Type_>, ?_typeSigs:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.T_typeUnit>>, ?_unit:stdgo.Slice<stdgo._internal.debug.dwarf.T_unit>):Void`](<#data-function-new>)
 
 - [class DecodeError](<#class-decodeerror>)
 
-  - [`function new(?name:stdgo.GoString, ?offset:stdgo._internal.debug.dwarf.Offset, ?err:stdgo.GoString):Void`](<#decodeerror-function-new>)
+  - [`function new(?name:stdgo.GoString, ?offset:Null<stdgo._internal.debug.dwarf.Offset>, ?err:stdgo.GoString):Void`](<#decodeerror-function-new>)
 
 - [class DotDotDotType](<#class-dotdotdottype>)
 
@@ -117,7 +117,7 @@
 
 - [class Entry](<#class-entry>)
 
-  - [`function new(?offset:stdgo._internal.debug.dwarf.Offset, ?tag:stdgo._internal.debug.dwarf.Tag, ?children:Bool, ?field:stdgo.Slice<stdgo._internal.debug.dwarf.Field>):Void`](<#entry-function-new>)
+  - [`function new(?offset:Null<stdgo._internal.debug.dwarf.Offset>, ?tag:Null<stdgo._internal.debug.dwarf.Tag>, ?children:Bool, ?field:stdgo.Slice<stdgo._internal.debug.dwarf.Field>):Void`](<#entry-function-new>)
 
 - [class EnumType](<#class-enumtype>)
 
@@ -133,7 +133,7 @@
 
 - [class Field](<#class-field>)
 
-  - [`function new(?attr:stdgo._internal.debug.dwarf.Attr, ?val:stdgo.AnyInterface, ?class_:stdgo._internal.debug.dwarf.Class_):Void`](<#field-function-new>)
+  - [`function new(?attr:Null<stdgo._internal.debug.dwarf.Attr>, ?val:stdgo.AnyInterface, ?class_:Null<stdgo._internal.debug.dwarf.Class_>):Void`](<#field-function-new>)
 
 - [class FloatType](<#class-floattype>)
 
@@ -151,7 +151,7 @@
 
   - [`function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>`](<#functype-function-common>)
 
-  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?returnType:stdgo._internal.debug.dwarf.Type_, ?paramType:stdgo.Slice<stdgo._internal.debug.dwarf.Type_>):Void`](<#functype-function-new>)
+  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?returnType:Null<stdgo._internal.debug.dwarf.Type_>, ?paramType:stdgo.Slice<stdgo._internal.debug.dwarf.Type_>):Void`](<#functype-function-new>)
 
   - [`function size():stdgo.GoInt64`](<#functype-function-size>)
 
@@ -177,17 +177,17 @@
 
 - [class LineReader](<#class-linereader>)
 
-  - [`function new(?_buf:stdgo._internal.debug.dwarf.T_buf, ?_section:stdgo.Slice<stdgo.GoUInt8>, ?_str:stdgo.Slice<stdgo.GoUInt8>, ?_lineStr:stdgo.Slice<stdgo.GoUInt8>, ?_version:stdgo.GoUInt16, ?_addrsize:stdgo.GoInt, ?_segmentSelectorSize:stdgo.GoInt, ?_minInstructionLength:stdgo.GoInt, ?_maxOpsPerInstruction:stdgo.GoInt, ?_defaultIsStmt:Bool, ?_lineBase:stdgo.GoInt, ?_lineRange:stdgo.GoInt, ?_opcodeBase:stdgo.GoInt, ?_opcodeLengths:stdgo.Slice<stdgo.GoInt>, ?_directories:stdgo.Slice<stdgo.GoString>, ?_fileEntries:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.LineFile>>, ?_programOffset:stdgo._internal.debug.dwarf.Offset, ?_endOffset:stdgo._internal.debug.dwarf.Offset, ?_initialFileEntries:stdgo.GoInt, ?_state:stdgo._internal.debug.dwarf.LineEntry, ?_fileIndex:stdgo.GoInt):Void`](<#linereader-function-new>)
+  - [`function new(?_buf:stdgo._internal.debug.dwarf.T_buf, ?_section:stdgo.Slice<stdgo.GoUInt8>, ?_str:stdgo.Slice<stdgo.GoUInt8>, ?_lineStr:stdgo.Slice<stdgo.GoUInt8>, ?_version:stdgo.GoUInt16, ?_addrsize:stdgo.GoInt, ?_segmentSelectorSize:stdgo.GoInt, ?_minInstructionLength:stdgo.GoInt, ?_maxOpsPerInstruction:stdgo.GoInt, ?_defaultIsStmt:Bool, ?_lineBase:stdgo.GoInt, ?_lineRange:stdgo.GoInt, ?_opcodeBase:stdgo.GoInt, ?_opcodeLengths:stdgo.Slice<stdgo.GoInt>, ?_directories:stdgo.Slice<stdgo.GoString>, ?_fileEntries:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.LineFile>>, ?_programOffset:Null<stdgo._internal.debug.dwarf.Offset>, ?_endOffset:Null<stdgo._internal.debug.dwarf.Offset>, ?_initialFileEntries:stdgo.GoInt, ?_state:stdgo._internal.debug.dwarf.LineEntry, ?_fileIndex:stdgo.GoInt):Void`](<#linereader-function-new>)
 
 - [class LineReaderPos](<#class-linereaderpos>)
 
-  - [`function new(?_off:stdgo._internal.debug.dwarf.Offset, ?_numFileEntries:stdgo.GoInt, ?_state:stdgo._internal.debug.dwarf.LineEntry, ?_fileIndex:stdgo.GoInt):Void`](<#linereaderpos-function-new>)
+  - [`function new(?_off:Null<stdgo._internal.debug.dwarf.Offset>, ?_numFileEntries:stdgo.GoInt, ?_state:stdgo._internal.debug.dwarf.LineEntry, ?_fileIndex:stdgo.GoInt):Void`](<#linereaderpos-function-new>)
 
 - [class PtrType](<#class-ptrtype>)
 
   - [`function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>`](<#ptrtype-function-common>)
 
-  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:stdgo._internal.debug.dwarf.Type_):Void`](<#ptrtype-function-new>)
+  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:Null<stdgo._internal.debug.dwarf.Type_>):Void`](<#ptrtype-function-new>)
 
   - [`function size():stdgo.GoInt64`](<#ptrtype-function-size>)
 
@@ -195,15 +195,15 @@
 
   - [`function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>`](<#qualtype-function-common>)
 
-  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?qual:stdgo.GoString, ?type:stdgo._internal.debug.dwarf.Type_):Void`](<#qualtype-function-new>)
+  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?qual:stdgo.GoString, ?type:Null<stdgo._internal.debug.dwarf.Type_>):Void`](<#qualtype-function-new>)
 
 - [class Reader](<#class-reader>)
 
-  - [`function new(?_b:stdgo._internal.debug.dwarf.T_buf, ?_d:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_err:stdgo.Error, ?_unit:stdgo.GoInt, ?_lastUnit:Bool, ?_lastChildren:Bool, ?_lastSibling:stdgo._internal.debug.dwarf.Offset, ?_cu:stdgo.Ref<stdgo._internal.debug.dwarf.Entry>):Void`](<#reader-function-new>)
+  - [`function new(?_b:stdgo._internal.debug.dwarf.T_buf, ?_d:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_err:Null<stdgo.Error>, ?_unit:stdgo.GoInt, ?_lastUnit:Bool, ?_lastChildren:Bool, ?_lastSibling:Null<stdgo._internal.debug.dwarf.Offset>, ?_cu:stdgo.Ref<stdgo._internal.debug.dwarf.Entry>):Void`](<#reader-function-new>)
 
 - [class StructField](<#class-structfield>)
 
-  - [`function new(?name:stdgo.GoString, ?type:stdgo._internal.debug.dwarf.Type_, ?byteOffset:stdgo.GoInt64, ?byteSize:stdgo.GoInt64, ?bitOffset:stdgo.GoInt64, ?dataBitOffset:stdgo.GoInt64, ?bitSize:stdgo.GoInt64):Void`](<#structfield-function-new>)
+  - [`function new(?name:stdgo.GoString, ?type:Null<stdgo._internal.debug.dwarf.Type_>, ?byteOffset:stdgo.GoInt64, ?byteSize:stdgo.GoInt64, ?bitOffset:stdgo.GoInt64, ?dataBitOffset:stdgo.GoInt64, ?bitSize:stdgo.GoInt64):Void`](<#structfield-function-new>)
 
 - [class StructType](<#class-structtype>)
 
@@ -215,23 +215,23 @@
 
 - [class T\_\_entry\_\_\_localname\_\_\_delayed\_12177](<#class-tentry_localname___delayed_12177>)
 
-  - [`function new(?_idx:stdgo.GoInt, ?_off:stdgo.GoUInt64, ?_fmt:stdgo._internal.debug.dwarf.T_format):Void`](<#tentry_localname___delayed_12177-function-new>)
+  - [`function new(?_idx:stdgo.GoInt, ?_off:stdgo.GoUInt64, ?_fmt:Null<stdgo._internal.debug.dwarf.T_format>):Void`](<#tentry_localname___delayed_12177-function-new>)
 
 - [class T\_abbrev](<#class-t_abbrev>)
 
-  - [`function new(?_tag:stdgo._internal.debug.dwarf.Tag, ?_children:Bool, ?_field:stdgo.Slice<stdgo._internal.debug.dwarf.T_afield>):Void`](<#t_abbrev-function-new>)
+  - [`function new(?_tag:Null<stdgo._internal.debug.dwarf.Tag>, ?_children:Bool, ?_field:stdgo.Slice<stdgo._internal.debug.dwarf.T_afield>):Void`](<#t_abbrev-function-new>)
 
 - [class T\_afield](<#class-t_afield>)
 
-  - [`function new(?_attr:stdgo._internal.debug.dwarf.Attr, ?_fmt:stdgo._internal.debug.dwarf.T_format, ?_class:stdgo._internal.debug.dwarf.Class_, ?_val:stdgo.GoInt64):Void`](<#t_afield-function-new>)
+  - [`function new(?_attr:Null<stdgo._internal.debug.dwarf.Attr>, ?_fmt:Null<stdgo._internal.debug.dwarf.T_format>, ?_class:Null<stdgo._internal.debug.dwarf.Class_>, ?_val:stdgo.GoInt64):Void`](<#t_afield-function-new>)
 
 - [class T\_buf](<#class-t_buf>)
 
-  - [`function new(?_dwarf:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_order:stdgo._internal.encoding.binary.ByteOrder, ?_format:stdgo._internal.debug.dwarf.T_dataFormat, ?_name:stdgo.GoString, ?_off:stdgo._internal.debug.dwarf.Offset, ?_data:stdgo.Slice<stdgo.GoUInt8>, ?_err:stdgo.Error):Void`](<#t_buf-function-new>)
+  - [`function new(?_dwarf:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_order:Null<stdgo._internal.encoding.binary.ByteOrder>, ?_format:Null<stdgo._internal.debug.dwarf.T_dataFormat>, ?_name:stdgo.GoString, ?_off:Null<stdgo._internal.debug.dwarf.Offset>, ?_data:stdgo.Slice<stdgo.GoUInt8>, ?_err:Null<stdgo.Error>):Void`](<#t_buf-function-new>)
 
 - [class T\_lnctForm](<#class-t_lnctform>)
 
-  - [`function new(?_lnct:stdgo.GoInt, ?_form:stdgo._internal.debug.dwarf.T_format):Void`](<#t_lnctform-function-new>)
+  - [`function new(?_lnct:stdgo.GoInt, ?_form:Null<stdgo._internal.debug.dwarf.T_format>):Void`](<#t_lnctform-function-new>)
 
 - [class T\_typeFixer](<#class-t_typefixer>)
 
@@ -245,15 +245,15 @@
 
   - [`function _version():stdgo.GoInt`](<#t_typeunit-function-_version>)
 
-  - [`function new(?_unit:stdgo._internal.debug.dwarf.T_unit, ?_toff:stdgo._internal.debug.dwarf.Offset, ?_name:stdgo.GoString, ?_cache:stdgo._internal.debug.dwarf.Type_):Void`](<#t_typeunit-function-new>)
+  - [`function new(?_unit:stdgo._internal.debug.dwarf.T_unit, ?_toff:Null<stdgo._internal.debug.dwarf.Offset>, ?_name:stdgo.GoString, ?_cache:Null<stdgo._internal.debug.dwarf.Type_>):Void`](<#t_typeunit-function-new>)
 
 - [class T\_typeUnitReader](<#class-t_typeunitreader>)
 
-  - [`function new(?_d:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_tu:stdgo.Ref<stdgo._internal.debug.dwarf.T_typeUnit>, ?_b:stdgo._internal.debug.dwarf.T_buf, ?_err:stdgo.Error):Void`](<#t_typeunitreader-function-new>)
+  - [`function new(?_d:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_tu:stdgo.Ref<stdgo._internal.debug.dwarf.T_typeUnit>, ?_b:stdgo._internal.debug.dwarf.T_buf, ?_err:Null<stdgo.Error>):Void`](<#t_typeunitreader-function-new>)
 
 - [class T\_unit](<#class-t_unit>)
 
-  - [`function new(?_base:stdgo._internal.debug.dwarf.Offset, ?_off:stdgo._internal.debug.dwarf.Offset, ?_data:stdgo.Slice<stdgo.GoUInt8>, ?_atable:stdgo._internal.debug.dwarf.T_abbrevTable, ?_asize:stdgo.GoInt, ?_vers:stdgo.GoInt, ?_utype:stdgo.GoUInt8, ?_is64:Bool):Void`](<#t_unit-function-new>)
+  - [`function new(?_base:Null<stdgo._internal.debug.dwarf.Offset>, ?_off:Null<stdgo._internal.debug.dwarf.Offset>, ?_data:stdgo.Slice<stdgo.GoUInt8>, ?_atable:Null<stdgo._internal.debug.dwarf.T_abbrevTable>, ?_asize:stdgo.GoInt, ?_vers:stdgo.GoInt, ?_utype:stdgo.GoUInt8, ?_is64:Bool):Void`](<#t_unit-function-new>)
 
 - [class T\_unknownFormat](<#class-t_unknownformat>)
 
@@ -263,7 +263,7 @@
 
   - [`function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>`](<#typedeftype-function-common>)
 
-  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:stdgo._internal.debug.dwarf.Type_):Void`](<#typedeftype-function-new>)
+  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:Null<stdgo._internal.debug.dwarf.Type_>):Void`](<#typedeftype-function-new>)
 
 - [class UcharType](<#class-uchartype>)
 
@@ -305,7 +305,7 @@
 
   - [`function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>`](<#unsupportedtype-function-common>)
 
-  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?tag:stdgo._internal.debug.dwarf.Tag):Void`](<#unsupportedtype-function-new>)
+  - [`function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?tag:Null<stdgo._internal.debug.dwarf.Tag>):Void`](<#unsupportedtype-function-new>)
 
   - [`function size():stdgo.GoInt64`](<#unsupportedtype-function-size>)
 
@@ -2590,7 +2590,7 @@ function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>
 
 
 ```haxe
-function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:stdgo._internal.debug.dwarf.Type_, ?strideBitSize:stdgo.GoInt64, ?count:stdgo.GoInt64):Void
+function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:Null<stdgo._internal.debug.dwarf.Type_>, ?strideBitSize:stdgo.GoInt64, ?count:stdgo.GoInt64):Void
 ```
 
 
@@ -2963,7 +2963,7 @@ var _unit:stdgo.Slice<stdgo._internal.debug.dwarf.T_unit>
 
 
 ```haxe
-function new(?_abbrev:stdgo.Slice<stdgo.GoUInt8>, ?_aranges:stdgo.Slice<stdgo.GoUInt8>, ?_frame:stdgo.Slice<stdgo.GoUInt8>, ?_info:stdgo.Slice<stdgo.GoUInt8>, ?_line:stdgo.Slice<stdgo.GoUInt8>, ?_pubnames:stdgo.Slice<stdgo.GoUInt8>, ?_ranges:stdgo.Slice<stdgo.GoUInt8>, ?_str:stdgo.Slice<stdgo.GoUInt8>, ?_addr:stdgo.Slice<stdgo.GoUInt8>, ?_lineStr:stdgo.Slice<stdgo.GoUInt8>, ?_strOffsets:stdgo.Slice<stdgo.GoUInt8>, ?_rngLists:stdgo.Slice<stdgo.GoUInt8>, ?_abbrevCache:stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.T_abbrevTable>, ?_bigEndian:Bool, ?_order:stdgo._internal.encoding.binary.ByteOrder, ?_typeCache:stdgo.GoMap<stdgo._internal.debug.dwarf.Offset, stdgo._internal.debug.dwarf.Type_>, ?_typeSigs:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.T_typeUnit>>, ?_unit:stdgo.Slice<stdgo._internal.debug.dwarf.T_unit>):Void
+function new(?_abbrev:stdgo.Slice<stdgo.GoUInt8>, ?_aranges:stdgo.Slice<stdgo.GoUInt8>, ?_frame:stdgo.Slice<stdgo.GoUInt8>, ?_info:stdgo.Slice<stdgo.GoUInt8>, ?_line:stdgo.Slice<stdgo.GoUInt8>, ?_pubnames:stdgo.Slice<stdgo.GoUInt8>, ?_ranges:stdgo.Slice<stdgo.GoUInt8>, ?_str:stdgo.Slice<stdgo.GoUInt8>, ?_addr:stdgo.Slice<stdgo.GoUInt8>, ?_lineStr:stdgo.Slice<stdgo.GoUInt8>, ?_strOffsets:stdgo.Slice<stdgo.GoUInt8>, ?_rngLists:stdgo.Slice<stdgo.GoUInt8>, ?_abbrevCache:stdgo.GoMap<stdgo.GoUInt64, stdgo._internal.debug.dwarf.T_abbrevTable>, ?_bigEndian:Bool, ?_order:Null<stdgo._internal.encoding.binary.ByteOrder>, ?_typeCache:stdgo.GoMap<stdgo._internal.debug.dwarf.Offset, stdgo._internal.debug.dwarf.Type_>, ?_typeSigs:stdgo.GoMap<stdgo.GoUInt64, stdgo.Ref<stdgo._internal.debug.dwarf.T_typeUnit>>, ?_unit:stdgo.Slice<stdgo._internal.debug.dwarf.T_unit>):Void
 ```
 
 
@@ -2992,7 +2992,7 @@ var offset:stdgo._internal.debug.dwarf.Offset
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?offset:stdgo._internal.debug.dwarf.Offset, ?err:stdgo.GoString):Void
+function new(?name:stdgo.GoString, ?offset:Null<stdgo._internal.debug.dwarf.Offset>, ?err:stdgo.GoString):Void
 ```
 
 
@@ -3067,7 +3067,7 @@ var tag:stdgo._internal.debug.dwarf.Tag
 
 
 ```haxe
-function new(?offset:stdgo._internal.debug.dwarf.Offset, ?tag:stdgo._internal.debug.dwarf.Tag, ?children:Bool, ?field:stdgo.Slice<stdgo._internal.debug.dwarf.Field>):Void
+function new(?offset:Null<stdgo._internal.debug.dwarf.Offset>, ?tag:Null<stdgo._internal.debug.dwarf.Tag>, ?children:Bool, ?field:stdgo.Slice<stdgo._internal.debug.dwarf.Field>):Void
 ```
 
 
@@ -3171,7 +3171,7 @@ var val:stdgo.AnyInterface
 
 
 ```haxe
-function new(?attr:stdgo._internal.debug.dwarf.Attr, ?val:stdgo.AnyInterface, ?class_:stdgo._internal.debug.dwarf.Class_):Void
+function new(?attr:Null<stdgo._internal.debug.dwarf.Attr>, ?val:stdgo.AnyInterface, ?class_:Null<stdgo._internal.debug.dwarf.Class_>):Void
 ```
 
 
@@ -3274,7 +3274,7 @@ function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>
 
 
 ```haxe
-function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?returnType:stdgo._internal.debug.dwarf.Type_, ?paramType:stdgo.Slice<stdgo._internal.debug.dwarf.Type_>):Void
+function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?returnType:Null<stdgo._internal.debug.dwarf.Type_>, ?paramType:stdgo.Slice<stdgo._internal.debug.dwarf.Type_>):Void
 ```
 
 
@@ -3570,7 +3570,7 @@ var _version:stdgo.GoUInt16
 
 
 ```haxe
-function new(?_buf:stdgo._internal.debug.dwarf.T_buf, ?_section:stdgo.Slice<stdgo.GoUInt8>, ?_str:stdgo.Slice<stdgo.GoUInt8>, ?_lineStr:stdgo.Slice<stdgo.GoUInt8>, ?_version:stdgo.GoUInt16, ?_addrsize:stdgo.GoInt, ?_segmentSelectorSize:stdgo.GoInt, ?_minInstructionLength:stdgo.GoInt, ?_maxOpsPerInstruction:stdgo.GoInt, ?_defaultIsStmt:Bool, ?_lineBase:stdgo.GoInt, ?_lineRange:stdgo.GoInt, ?_opcodeBase:stdgo.GoInt, ?_opcodeLengths:stdgo.Slice<stdgo.GoInt>, ?_directories:stdgo.Slice<stdgo.GoString>, ?_fileEntries:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.LineFile>>, ?_programOffset:stdgo._internal.debug.dwarf.Offset, ?_endOffset:stdgo._internal.debug.dwarf.Offset, ?_initialFileEntries:stdgo.GoInt, ?_state:stdgo._internal.debug.dwarf.LineEntry, ?_fileIndex:stdgo.GoInt):Void
+function new(?_buf:stdgo._internal.debug.dwarf.T_buf, ?_section:stdgo.Slice<stdgo.GoUInt8>, ?_str:stdgo.Slice<stdgo.GoUInt8>, ?_lineStr:stdgo.Slice<stdgo.GoUInt8>, ?_version:stdgo.GoUInt16, ?_addrsize:stdgo.GoInt, ?_segmentSelectorSize:stdgo.GoInt, ?_minInstructionLength:stdgo.GoInt, ?_maxOpsPerInstruction:stdgo.GoInt, ?_defaultIsStmt:Bool, ?_lineBase:stdgo.GoInt, ?_lineRange:stdgo.GoInt, ?_opcodeBase:stdgo.GoInt, ?_opcodeLengths:stdgo.Slice<stdgo.GoInt>, ?_directories:stdgo.Slice<stdgo.GoString>, ?_fileEntries:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.LineFile>>, ?_programOffset:Null<stdgo._internal.debug.dwarf.Offset>, ?_endOffset:Null<stdgo._internal.debug.dwarf.Offset>, ?_initialFileEntries:stdgo.GoInt, ?_state:stdgo._internal.debug.dwarf.LineEntry, ?_fileIndex:stdgo.GoInt):Void
 ```
 
 
@@ -3604,7 +3604,7 @@ var _state:stdgo._internal.debug.dwarf.LineEntry
 
 
 ```haxe
-function new(?_off:stdgo._internal.debug.dwarf.Offset, ?_numFileEntries:stdgo.GoInt, ?_state:stdgo._internal.debug.dwarf.LineEntry, ?_fileIndex:stdgo.GoInt):Void
+function new(?_off:Null<stdgo._internal.debug.dwarf.Offset>, ?_numFileEntries:stdgo.GoInt, ?_state:stdgo._internal.debug.dwarf.LineEntry, ?_fileIndex:stdgo.GoInt):Void
 ```
 
 
@@ -3639,7 +3639,7 @@ function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>
 
 
 ```haxe
-function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:stdgo._internal.debug.dwarf.Type_):Void
+function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:Null<stdgo._internal.debug.dwarf.Type_>):Void
 ```
 
 
@@ -3690,7 +3690,7 @@ function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>
 
 
 ```haxe
-function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?qual:stdgo.GoString, ?type:stdgo._internal.debug.dwarf.Type_):Void
+function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?qual:stdgo.GoString, ?type:Null<stdgo._internal.debug.dwarf.Type_>):Void
 ```
 
 
@@ -3744,7 +3744,7 @@ var _unit:stdgo.GoInt
 
 
 ```haxe
-function new(?_b:stdgo._internal.debug.dwarf.T_buf, ?_d:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_err:stdgo.Error, ?_unit:stdgo.GoInt, ?_lastUnit:Bool, ?_lastChildren:Bool, ?_lastSibling:stdgo._internal.debug.dwarf.Offset, ?_cu:stdgo.Ref<stdgo._internal.debug.dwarf.Entry>):Void
+function new(?_b:stdgo._internal.debug.dwarf.T_buf, ?_d:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_err:Null<stdgo.Error>, ?_unit:stdgo.GoInt, ?_lastUnit:Bool, ?_lastChildren:Bool, ?_lastSibling:Null<stdgo._internal.debug.dwarf.Offset>, ?_cu:stdgo.Ref<stdgo._internal.debug.dwarf.Entry>):Void
 ```
 
 
@@ -3793,7 +3793,7 @@ var type:stdgo._internal.debug.dwarf.Type_
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?type:stdgo._internal.debug.dwarf.Type_, ?byteOffset:stdgo.GoInt64, ?byteSize:stdgo.GoInt64, ?bitOffset:stdgo.GoInt64, ?dataBitOffset:stdgo.GoInt64, ?bitSize:stdgo.GoInt64):Void
+function new(?name:stdgo.GoString, ?type:Null<stdgo._internal.debug.dwarf.Type_>, ?byteOffset:stdgo.GoInt64, ?byteSize:stdgo.GoInt64, ?bitOffset:stdgo.GoInt64, ?dataBitOffset:stdgo.GoInt64, ?bitSize:stdgo.GoInt64):Void
 ```
 
 
@@ -3883,7 +3883,7 @@ var _off:stdgo.GoUInt64
 
 
 ```haxe
-function new(?_idx:stdgo.GoInt, ?_off:stdgo.GoUInt64, ?_fmt:stdgo._internal.debug.dwarf.T_format):Void
+function new(?_idx:stdgo.GoInt, ?_off:stdgo.GoUInt64, ?_fmt:Null<stdgo._internal.debug.dwarf.T_format>):Void
 ```
 
 
@@ -3912,7 +3912,7 @@ var _tag:stdgo._internal.debug.dwarf.Tag
 
 
 ```haxe
-function new(?_tag:stdgo._internal.debug.dwarf.Tag, ?_children:Bool, ?_field:stdgo.Slice<stdgo._internal.debug.dwarf.T_afield>):Void
+function new(?_tag:Null<stdgo._internal.debug.dwarf.Tag>, ?_children:Bool, ?_field:stdgo.Slice<stdgo._internal.debug.dwarf.T_afield>):Void
 ```
 
 
@@ -3946,7 +3946,7 @@ var _val:stdgo.GoInt64
 
 
 ```haxe
-function new(?_attr:stdgo._internal.debug.dwarf.Attr, ?_fmt:stdgo._internal.debug.dwarf.T_format, ?_class:stdgo._internal.debug.dwarf.Class_, ?_val:stdgo.GoInt64):Void
+function new(?_attr:Null<stdgo._internal.debug.dwarf.Attr>, ?_fmt:Null<stdgo._internal.debug.dwarf.T_format>, ?_class:Null<stdgo._internal.debug.dwarf.Class_>, ?_val:stdgo.GoInt64):Void
 ```
 
 
@@ -3995,7 +3995,7 @@ var _order:stdgo._internal.encoding.binary.ByteOrder
 
 
 ```haxe
-function new(?_dwarf:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_order:stdgo._internal.encoding.binary.ByteOrder, ?_format:stdgo._internal.debug.dwarf.T_dataFormat, ?_name:stdgo.GoString, ?_off:stdgo._internal.debug.dwarf.Offset, ?_data:stdgo.Slice<stdgo.GoUInt8>, ?_err:stdgo.Error):Void
+function new(?_dwarf:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_order:Null<stdgo._internal.encoding.binary.ByteOrder>, ?_format:Null<stdgo._internal.debug.dwarf.T_dataFormat>, ?_name:stdgo.GoString, ?_off:Null<stdgo._internal.debug.dwarf.Offset>, ?_data:stdgo.Slice<stdgo.GoUInt8>, ?_err:Null<stdgo.Error>):Void
 ```
 
 
@@ -4019,7 +4019,7 @@ var _lnct:stdgo.GoInt
 
 
 ```haxe
-function new(?_lnct:stdgo.GoInt, ?_form:stdgo._internal.debug.dwarf.T_format):Void
+function new(?_lnct:stdgo.GoInt, ?_form:Null<stdgo._internal.debug.dwarf.T_format>):Void
 ```
 
 
@@ -4113,7 +4113,7 @@ function _version():stdgo.GoInt
 
 
 ```haxe
-function new(?_unit:stdgo._internal.debug.dwarf.T_unit, ?_toff:stdgo._internal.debug.dwarf.Offset, ?_name:stdgo.GoString, ?_cache:stdgo._internal.debug.dwarf.Type_):Void
+function new(?_unit:stdgo._internal.debug.dwarf.T_unit, ?_toff:Null<stdgo._internal.debug.dwarf.Offset>, ?_name:stdgo.GoString, ?_cache:Null<stdgo._internal.debug.dwarf.Type_>):Void
 ```
 
 
@@ -4147,7 +4147,7 @@ var _tu:stdgo.Ref<stdgo._internal.debug.dwarf.T_typeUnit>
 
 
 ```haxe
-function new(?_d:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_tu:stdgo.Ref<stdgo._internal.debug.dwarf.T_typeUnit>, ?_b:stdgo._internal.debug.dwarf.T_buf, ?_err:stdgo.Error):Void
+function new(?_d:stdgo.Ref<stdgo._internal.debug.dwarf.Data>, ?_tu:stdgo.Ref<stdgo._internal.debug.dwarf.T_typeUnit>, ?_b:stdgo._internal.debug.dwarf.T_buf, ?_err:Null<stdgo.Error>):Void
 ```
 
 
@@ -4201,7 +4201,7 @@ var _vers:stdgo.GoInt
 
 
 ```haxe
-function new(?_base:stdgo._internal.debug.dwarf.Offset, ?_off:stdgo._internal.debug.dwarf.Offset, ?_data:stdgo.Slice<stdgo.GoUInt8>, ?_atable:stdgo._internal.debug.dwarf.T_abbrevTable, ?_asize:stdgo.GoInt, ?_vers:stdgo.GoInt, ?_utype:stdgo.GoUInt8, ?_is64:Bool):Void
+function new(?_base:Null<stdgo._internal.debug.dwarf.Offset>, ?_off:Null<stdgo._internal.debug.dwarf.Offset>, ?_data:stdgo.Slice<stdgo.GoUInt8>, ?_atable:Null<stdgo._internal.debug.dwarf.T_abbrevTable>, ?_asize:stdgo.GoInt, ?_vers:stdgo.GoInt, ?_utype:stdgo.GoUInt8, ?_is64:Bool):Void
 ```
 
 
@@ -4250,7 +4250,7 @@ function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>
 
 
 ```haxe
-function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:stdgo._internal.debug.dwarf.Type_):Void
+function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?type:Null<stdgo._internal.debug.dwarf.Type_>):Void
 ```
 
 
@@ -4474,7 +4474,7 @@ function common():stdgo.Ref<stdgo._internal.debug.dwarf.CommonType>
 
 
 ```haxe
-function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?tag:stdgo._internal.debug.dwarf.Tag):Void
+function new(?commonType:stdgo._internal.debug.dwarf.CommonType, ?tag:Null<stdgo._internal.debug.dwarf.Tag>):Void
 ```
 
 

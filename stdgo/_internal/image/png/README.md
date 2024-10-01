@@ -49,15 +49,15 @@
 
 - [class Encoder](<#class-encoder>)
 
-  - [`function new(?compressionLevel:stdgo._internal.image.png.CompressionLevel, ?bufferPool:stdgo._internal.image.png.EncoderBufferPool):Void`](<#encoder-function-new>)
+  - [`function new(?compressionLevel:Null<stdgo._internal.image.png.CompressionLevel>, ?bufferPool:Null<stdgo._internal.image.png.EncoderBufferPool>):Void`](<#encoder-function-new>)
 
 - [class T\_decoder](<#class-t_decoder>)
 
-  - [`function new(?_r:stdgo._internal.io.Reader, ?_img:stdgo._internal.image.Image, ?_crc:stdgo._internal.hash.Hash32, ?_width:stdgo.GoInt, ?_height:stdgo.GoInt, ?_depth:stdgo.GoInt, ?_palette:stdgo._internal.image.color.Palette, ?_cb:stdgo.GoInt, ?_stage:stdgo.GoInt, ?_idatLength:stdgo.GoUInt32, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>, ?_interlace:stdgo.GoInt, ?_useTransparent:Bool, ?_transparent:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_decoder-function-new>)
+  - [`function new(?_r:Null<stdgo._internal.io.Reader>, ?_img:Null<stdgo._internal.image.Image>, ?_crc:Null<stdgo._internal.hash.Hash32>, ?_width:stdgo.GoInt, ?_height:stdgo.GoInt, ?_depth:stdgo.GoInt, ?_palette:Null<stdgo._internal.image.color.Palette>, ?_cb:stdgo.GoInt, ?_stage:stdgo.GoInt, ?_idatLength:stdgo.GoUInt32, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>, ?_interlace:stdgo.GoInt, ?_useTransparent:Bool, ?_transparent:stdgo.GoArray<stdgo.GoUInt8>):Void`](<#t_decoder-function-new>)
 
 - [class T\_encoder](<#class-t_encoder>)
 
-  - [`function new(?_enc:stdgo.Ref<stdgo._internal.image.png.Encoder>, ?_w:stdgo._internal.io.Writer, ?_m:stdgo._internal.image.Image, ?_cb:stdgo.GoInt, ?_err:stdgo.Error, ?_header:stdgo.GoArray<stdgo.GoUInt8>, ?_footer:stdgo.GoArray<stdgo.GoUInt8>, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>, ?_cr:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>, ?_pr:stdgo.Slice<stdgo.GoUInt8>, ?_zw:stdgo.Ref<stdgo._internal.compress.zlib.Writer>, ?_zwLevel:stdgo.GoInt, ?_bw:stdgo.Ref<stdgo._internal.bufio.Writer>):Void`](<#t_encoder-function-new>)
+  - [`function new(?_enc:stdgo.Ref<stdgo._internal.image.png.Encoder>, ?_w:Null<stdgo._internal.io.Writer>, ?_m:Null<stdgo._internal.image.Image>, ?_cb:stdgo.GoInt, ?_err:Null<stdgo.Error>, ?_header:stdgo.GoArray<stdgo.GoUInt8>, ?_footer:stdgo.GoArray<stdgo.GoUInt8>, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>, ?_cr:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>, ?_pr:stdgo.Slice<stdgo.GoUInt8>, ?_zw:stdgo.Ref<stdgo._internal.compress.zlib.Writer>, ?_zwLevel:stdgo.GoInt, ?_bw:stdgo.Ref<stdgo._internal.bufio.Writer>):Void`](<#t_encoder-function-new>)
 
 - [class T\_interlaceScan](<#class-t_interlacescan>)
 
@@ -499,7 +499,7 @@ var compressionLevel:stdgo._internal.image.png.CompressionLevel
 
 
 ```haxe
-function new(?compressionLevel:stdgo._internal.image.png.CompressionLevel, ?bufferPool:stdgo._internal.image.png.EncoderBufferPool):Void
+function new(?compressionLevel:Null<stdgo._internal.image.png.CompressionLevel>, ?bufferPool:Null<stdgo._internal.image.png.EncoderBufferPool>):Void
 ```
 
 
@@ -583,7 +583,7 @@ var _width:stdgo.GoInt
 
 
 ```haxe
-function new(?_r:stdgo._internal.io.Reader, ?_img:stdgo._internal.image.Image, ?_crc:stdgo._internal.hash.Hash32, ?_width:stdgo.GoInt, ?_height:stdgo.GoInt, ?_depth:stdgo.GoInt, ?_palette:stdgo._internal.image.color.Palette, ?_cb:stdgo.GoInt, ?_stage:stdgo.GoInt, ?_idatLength:stdgo.GoUInt32, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>, ?_interlace:stdgo.GoInt, ?_useTransparent:Bool, ?_transparent:stdgo.GoArray<stdgo.GoUInt8>):Void
+function new(?_r:Null<stdgo._internal.io.Reader>, ?_img:Null<stdgo._internal.image.Image>, ?_crc:Null<stdgo._internal.hash.Hash32>, ?_width:stdgo.GoInt, ?_height:stdgo.GoInt, ?_depth:stdgo.GoInt, ?_palette:Null<stdgo._internal.image.color.Palette>, ?_cb:stdgo.GoInt, ?_stage:stdgo.GoInt, ?_idatLength:stdgo.GoUInt32, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>, ?_interlace:stdgo.GoInt, ?_useTransparent:Bool, ?_transparent:stdgo.GoArray<stdgo.GoUInt8>):Void
 ```
 
 
@@ -662,7 +662,7 @@ var _zwLevel:stdgo.GoInt
 
 
 ```haxe
-function new(?_enc:stdgo.Ref<stdgo._internal.image.png.Encoder>, ?_w:stdgo._internal.io.Writer, ?_m:stdgo._internal.image.Image, ?_cb:stdgo.GoInt, ?_err:stdgo.Error, ?_header:stdgo.GoArray<stdgo.GoUInt8>, ?_footer:stdgo.GoArray<stdgo.GoUInt8>, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>, ?_cr:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>, ?_pr:stdgo.Slice<stdgo.GoUInt8>, ?_zw:stdgo.Ref<stdgo._internal.compress.zlib.Writer>, ?_zwLevel:stdgo.GoInt, ?_bw:stdgo.Ref<stdgo._internal.bufio.Writer>):Void
+function new(?_enc:stdgo.Ref<stdgo._internal.image.png.Encoder>, ?_w:Null<stdgo._internal.io.Writer>, ?_m:Null<stdgo._internal.image.Image>, ?_cb:stdgo.GoInt, ?_err:Null<stdgo.Error>, ?_header:stdgo.GoArray<stdgo.GoUInt8>, ?_footer:stdgo.GoArray<stdgo.GoUInt8>, ?_tmp:stdgo.GoArray<stdgo.GoUInt8>, ?_cr:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>, ?_pr:stdgo.Slice<stdgo.GoUInt8>, ?_zw:stdgo.Ref<stdgo._internal.compress.zlib.Writer>, ?_zwLevel:stdgo.GoInt, ?_bw:stdgo.Ref<stdgo._internal.bufio.Writer>):Void
 ```
 
 

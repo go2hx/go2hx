@@ -185,7 +185,7 @@
 
 - [class Replacer](<#class-replacer>)
 
-  - [`function new(?_once:stdgo._internal.sync.Once, ?_r:stdgo._internal.strings.T_replacer, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void`](<#replacer-function-new>)
+  - [`function new(?_once:stdgo._internal.sync.Once, ?_r:Null<stdgo._internal.strings.T_replacer>, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void`](<#replacer-function-new>)
 
 - [class T\_byteStringReplacer](<#class-t_bytestringreplacer>)
 
@@ -209,7 +209,7 @@
 
 - [class T\_stringWriter](<#class-t_stringwriter>)
 
-  - [`function new(?_w:stdgo._internal.io.Writer):Void`](<#t_stringwriter-function-new>)
+  - [`function new(?_w:Null<stdgo._internal.io.Writer>):Void`](<#t_stringwriter-function-new>)
 
 - [class T\_trieNode](<#class-t_trienode>)
 
@@ -1164,7 +1164,7 @@ var _r:stdgo._internal.strings.T_replacer
 
 
 ```haxe
-function new(?_once:stdgo._internal.sync.Once, ?_r:stdgo._internal.strings.T_replacer, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void
+function new(?_once:stdgo._internal.sync.Once, ?_r:Null<stdgo._internal.strings.T_replacer>, ?_oldnew:stdgo.Slice<stdgo.GoString>):Void
 ```
 
 
@@ -1313,7 +1313,7 @@ var _w:stdgo._internal.io.Writer
 
 
 ```haxe
-function new(?_w:stdgo._internal.io.Writer):Void
+function new(?_w:Null<stdgo._internal.io.Writer>):Void
 ```
 
 

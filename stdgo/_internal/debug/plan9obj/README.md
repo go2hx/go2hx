@@ -37,7 +37,7 @@
 
 - [class File](<#class-file>)
 
-  - [`function new(?fileHeader:stdgo._internal.debug.plan9obj.FileHeader, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Section>>, ?_closer:stdgo._internal.io.Closer):Void`](<#file-function-new>)
+  - [`function new(?fileHeader:stdgo._internal.debug.plan9obj.FileHeader, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Section>>, ?_closer:Null<stdgo._internal.io.Closer>):Void`](<#file-function-new>)
 
 - [class FileHeader](<#class-fileheader>)
 
@@ -45,7 +45,7 @@
 
 - [class Section](<#class-section>)
 
-  - [`function new(?sectionHeader:stdgo._internal.debug.plan9obj.SectionHeader, ?readerAt:stdgo._internal.io.ReaderAt, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void`](<#section-function-new>)
+  - [`function new(?sectionHeader:stdgo._internal.debug.plan9obj.SectionHeader, ?readerAt:Null<stdgo._internal.io.ReaderAt>, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void`](<#section-function-new>)
 
   - [`function readAt(_p:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#section-function-readat>)
 
@@ -217,7 +217,7 @@ var sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Section>>
 
 
 ```haxe
-function new(?fileHeader:stdgo._internal.debug.plan9obj.FileHeader, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Section>>, ?_closer:stdgo._internal.io.Closer):Void
+function new(?fileHeader:stdgo._internal.debug.plan9obj.FileHeader, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.plan9obj.Section>>, ?_closer:Null<stdgo._internal.io.Closer>):Void
 ```
 
 
@@ -290,7 +290,7 @@ var sectionHeader:stdgo._internal.debug.plan9obj.SectionHeader
 
 
 ```haxe
-function new(?sectionHeader:stdgo._internal.debug.plan9obj.SectionHeader, ?readerAt:stdgo._internal.io.ReaderAt, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void
+function new(?sectionHeader:stdgo._internal.debug.plan9obj.SectionHeader, ?readerAt:Null<stdgo._internal.io.ReaderAt>, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void
 ```
 
 

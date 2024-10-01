@@ -1,47 +1,15 @@
 # Module stdgo.encoding.json has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/encoding/json/Json.hx:1084: characters 50-69
-
- 1084 | [2m    function get_pstring():stdgo.Pointer<String> [0m[1mreturn this.pstring[0m[2m;[0m
-      |                                                  [31m^^^^^^^^^^^^^^^^^^^[0m
-      | error: stdgo.GoString should be String
-      | have: stdgo.Pointer<stdgo.GoString>
-      | want: stdgo.Pointer<String>
-
-[30;41m ERROR [0m stdgo/encoding/json/Json.hx:1086: characters 9-25
-
- 1086 | [2m        [0m[1mthis.pstring = v[0m[2m;[0m
-      |         [31m^^^^^^^^^^^^^^^^[0m
-      | error: String should be stdgo.GoString
-      | have: stdgo.Pointer<String>
-      | want: stdgo.Pointer<stdgo.GoString>
-
-[30;41m ERROR [0m stdgo/encoding/json/Json.hx:1243: characters 1-8
-
- 1243 | [0m[1mpstring[0m[2m,[0m
-      | [31m^^^^^^^[0m
-      | error: String should be stdgo.GoString
-      | have: Null<String>
-      | want: Null<stdgo.GoString>
-
-[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/math/big/Big_T_nat_static_extension.hx:365: characters 16-25
-
-  365 | [2m            _q.[0m[1m_divBasic[0m[2m(_u, _v);[0m
-      |                [31m^^^^^^^^^[0m
-      | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
-
-      [30;41m -> [0m stdgo/_internal/math/big/Big__divisors.hx:24: lines 24-40
-
-       24 | [2m                [0m[1mstdgo.Go.cfor((_i < _k : Bool), _i++, {[0m
-        - | [2m                  [...][0m
-       40 | [1m                })[0m[2m;[0m
-          |
-          | Called from macro here
-
-          | Called from macro here
-
-          | Called from macro here
-
+stdgo/encoding/json/Json.hx:1084: characters 50-69 : error: stdgo.GoString should be String
+stdgo/encoding/json/Json.hx:1084: characters 50-69 : ... have: stdgo.Pointer<stdgo.GoString>
+stdgo/encoding/json/Json.hx:1084: characters 50-69 : ... want: stdgo.Pointer<String>
+stdgo/encoding/json/Json.hx:1086: characters 9-25 : error: String should be stdgo.GoString
+stdgo/encoding/json/Json.hx:1086: characters 9-25 : ... have: stdgo.Pointer<String>
+stdgo/encoding/json/Json.hx:1086: characters 9-25 : ... want: stdgo.Pointer<stdgo.GoString>
+stdgo/encoding/json/Json.hx:1243: characters 1-8 : error: String should be stdgo.GoString
+stdgo/encoding/json/Json.hx:1243: characters 1-8 : ... have: Null<String>
+stdgo/encoding/json/Json.hx:1243: characters 1-8 : ... want: Null<stdgo.GoString>
+stdgo/_internal/math/big/Big_T_nat_static_extension.hx:365: characters 16-25 : stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
 
 ```
 

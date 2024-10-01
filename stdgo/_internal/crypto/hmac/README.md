@@ -15,7 +15,7 @@
 
 - [class T\_hmac](<#class-t_hmac>)
 
-  - [`function new(?_opad:stdgo.Slice<stdgo.GoUInt8>, ?_ipad:stdgo.Slice<stdgo.GoUInt8>, ?_outer:stdgo._internal.hash.Hash, ?_inner:stdgo._internal.hash.Hash, ?_marshaled:Bool):Void`](<#t_hmac-function-new>)
+  - [`function new(?_opad:stdgo.Slice<stdgo.GoUInt8>, ?_ipad:stdgo.Slice<stdgo.GoUInt8>, ?_outer:Null<stdgo._internal.hash.Hash>, ?_inner:Null<stdgo._internal.hash.Hash>, ?_marshaled:Bool):Void`](<#t_hmac-function-new>)
 
 - [typedef T\_marshalable](<#typedef-t_marshalable>)
 
@@ -89,7 +89,7 @@ var _outer:stdgo._internal.hash.Hash
 
 
 ```haxe
-function new(?_opad:stdgo.Slice<stdgo.GoUInt8>, ?_ipad:stdgo.Slice<stdgo.GoUInt8>, ?_outer:stdgo._internal.hash.Hash, ?_inner:stdgo._internal.hash.Hash, ?_marshaled:Bool):Void
+function new(?_opad:stdgo.Slice<stdgo.GoUInt8>, ?_ipad:stdgo.Slice<stdgo.GoUInt8>, ?_outer:Null<stdgo._internal.hash.Hash>, ?_inner:Null<stdgo._internal.hash.Hash>, ?_marshaled:Bool):Void
 ```
 
 

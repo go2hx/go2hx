@@ -64,11 +64,11 @@
 
 - [class T\_chunkedReader](<#class-t_chunkedreader>)
 
-  - [`function new(?_r:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_n:stdgo.GoUInt64, ?_err:stdgo.Error, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_checkEnd:Bool):Void`](<#t_chunkedreader-function-new>)
+  - [`function new(?_r:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_n:stdgo.GoUInt64, ?_err:Null<stdgo.Error>, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_checkEnd:Bool):Void`](<#t_chunkedreader-function-new>)
 
 - [class T\_chunkedWriter](<#class-t_chunkedwriter>)
 
-  - [`function new(?wire:stdgo._internal.io.Writer):Void`](<#t_chunkedwriter-function-new>)
+  - [`function new(?wire:Null<stdgo._internal.io.Writer>):Void`](<#t_chunkedwriter-function-new>)
 
 # Constants
 
@@ -387,7 +387,7 @@ var _r:stdgo.Ref<stdgo._internal.bufio.Reader>
 
 
 ```haxe
-function new(?_r:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_n:stdgo.GoUInt64, ?_err:stdgo.Error, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_checkEnd:Bool):Void
+function new(?_r:stdgo.Ref<stdgo._internal.bufio.Reader>, ?_n:stdgo.GoUInt64, ?_err:Null<stdgo.Error>, ?_buf:stdgo.GoArray<stdgo.GoUInt8>, ?_checkEnd:Bool):Void
 ```
 
 
@@ -406,7 +406,7 @@ var wire:stdgo._internal.io.Writer
 
 
 ```haxe
-function new(?wire:stdgo._internal.io.Writer):Void
+function new(?wire:Null<stdgo._internal.io.Writer>):Void
 ```
 
 

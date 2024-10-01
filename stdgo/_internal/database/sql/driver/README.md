@@ -22,15 +22,15 @@
 
 - [class NamedValue](<#class-namedvalue>)
 
-  - [`function new(?name:stdgo.GoString, ?ordinal:stdgo.GoInt, ?value:stdgo._internal.database.sql.driver.Value):Void`](<#namedvalue-function-new>)
+  - [`function new(?name:stdgo.GoString, ?ordinal:stdgo.GoInt, ?value:Null<stdgo._internal.database.sql.driver.Value>):Void`](<#namedvalue-function-new>)
 
 - [class NotNull](<#class-notnull>)
 
-  - [`function new(?converter:stdgo._internal.database.sql.driver.ValueConverter):Void`](<#notnull-function-new>)
+  - [`function new(?converter:Null<stdgo._internal.database.sql.driver.ValueConverter>):Void`](<#notnull-function-new>)
 
 - [class Null\_](<#class-null_>)
 
-  - [`function new(?converter:stdgo._internal.database.sql.driver.ValueConverter):Void`](<#null_-function-new>)
+  - [`function new(?converter:Null<stdgo._internal.database.sql.driver.ValueConverter>):Void`](<#null_-function-new>)
 
 - [class T\_boolType](<#class-t_booltype>)
 
@@ -54,7 +54,7 @@
 
 - [class TxOptions](<#class-txoptions>)
 
-  - [`function new(?isolation:stdgo._internal.database.sql.driver.IsolationLevel, ?readOnly:Bool):Void`](<#txoptions-function-new>)
+  - [`function new(?isolation:Null<stdgo._internal.database.sql.driver.IsolationLevel>, ?readOnly:Bool):Void`](<#txoptions-function-new>)
 
 - [typedef ColumnConverter](<#typedef-columnconverter>)
 
@@ -274,7 +274,7 @@ var value:stdgo._internal.database.sql.driver.Value
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?ordinal:stdgo.GoInt, ?value:stdgo._internal.database.sql.driver.Value):Void
+function new(?name:stdgo.GoString, ?ordinal:stdgo.GoInt, ?value:Null<stdgo._internal.database.sql.driver.Value>):Void
 ```
 
 
@@ -293,7 +293,7 @@ var converter:stdgo._internal.database.sql.driver.ValueConverter
 
 
 ```haxe
-function new(?converter:stdgo._internal.database.sql.driver.ValueConverter):Void
+function new(?converter:Null<stdgo._internal.database.sql.driver.ValueConverter>):Void
 ```
 
 
@@ -312,7 +312,7 @@ var converter:stdgo._internal.database.sql.driver.ValueConverter
 
 
 ```haxe
-function new(?converter:stdgo._internal.database.sql.driver.ValueConverter):Void
+function new(?converter:Null<stdgo._internal.database.sql.driver.ValueConverter>):Void
 ```
 
 
@@ -406,7 +406,7 @@ var readOnly:Bool
 
 
 ```haxe
-function new(?isolation:stdgo._internal.database.sql.driver.IsolationLevel, ?readOnly:Bool):Void
+function new(?isolation:Null<stdgo._internal.database.sql.driver.IsolationLevel>, ?readOnly:Bool):Void
 ```
 
 

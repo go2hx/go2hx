@@ -15,7 +15,7 @@
 
 - [class Info](<#class-info>)
 
-  - [`function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:stdgo.GoInt, ?old:stdgo.GoString, ?opaque:Bool):Void`](<#info-function-new>)
+  - [`function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:Null<stdgo.GoInt>, ?old:stdgo.GoString, ?opaque:Bool):Void`](<#info-function-new>)
 
 # Variables
 
@@ -89,7 +89,7 @@ var package_:stdgo.GoString
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:stdgo.GoInt, ?old:stdgo.GoString, ?opaque:Bool):Void
+function new(?name:stdgo.GoString, ?package_:stdgo.GoString, ?changed:Null<stdgo.GoInt>, ?old:stdgo.GoString, ?opaque:Bool):Void
 ```
 
 

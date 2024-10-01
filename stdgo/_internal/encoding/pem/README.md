@@ -37,7 +37,7 @@
 
 - [class T\_lineBreaker](<#class-t_linebreaker>)
 
-  - [`function new(?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_used:stdgo.GoInt, ?_out:stdgo._internal.io.Writer):Void`](<#t_linebreaker-function-new>)
+  - [`function new(?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_used:stdgo.GoInt, ?_out:Null<stdgo._internal.io.Writer>):Void`](<#t_linebreaker-function-new>)
 
 # Constants
 
@@ -224,7 +224,7 @@ var _used:stdgo.GoInt
 
 
 ```haxe
-function new(?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_used:stdgo.GoInt, ?_out:stdgo._internal.io.Writer):Void
+function new(?_line:stdgo.GoArray<stdgo.GoUInt8>, ?_used:stdgo.GoInt, ?_out:Null<stdgo._internal.io.Writer>):Void
 ```
 
 

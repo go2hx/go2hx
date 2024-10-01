@@ -133,7 +133,7 @@
 
   - [`function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>`](<#chantype-function-maptype>)
 
-  - [`function new(?type:stdgo._internal.internal.abi.Type_, ?elem:stdgo.Ref<stdgo._internal.internal.abi.Type_>, ?dir:stdgo._internal.internal.abi.ChanDir):Void`](<#chantype-function-new>)
+  - [`function new(?type:stdgo._internal.internal.abi.Type_, ?elem:stdgo.Ref<stdgo._internal.internal.abi.Type_>, ?dir:Null<stdgo._internal.internal.abi.ChanDir>):Void`](<#chantype-function-new>)
 
   - [`function numMethod():stdgo.GoInt`](<#chantype-function-nummethod>)
 
@@ -195,7 +195,7 @@
 
 - [class Imethod](<#class-imethod>)
 
-  - [`function new(?name:stdgo._internal.internal.abi.NameOff, ?typ:stdgo._internal.internal.abi.TypeOff):Void`](<#imethod-function-new>)
+  - [`function new(?name:Null<stdgo._internal.internal.abi.NameOff>, ?typ:Null<stdgo._internal.internal.abi.TypeOff>):Void`](<#imethod-function-new>)
 
 - [class InterfaceType](<#class-interfacetype>)
 
@@ -291,7 +291,7 @@
 
 - [class Method](<#class-method>)
 
-  - [`function new(?name:stdgo._internal.internal.abi.NameOff, ?mtyp:stdgo._internal.internal.abi.TypeOff, ?ifn:stdgo._internal.internal.abi.TextOff, ?tfn:stdgo._internal.internal.abi.TextOff):Void`](<#method-function-new>)
+  - [`function new(?name:Null<stdgo._internal.internal.abi.NameOff>, ?mtyp:Null<stdgo._internal.internal.abi.TypeOff>, ?ifn:Null<stdgo._internal.internal.abi.TextOff>, ?tfn:Null<stdgo._internal.internal.abi.TextOff>):Void`](<#method-function-new>)
 
 - [class Name](<#class-name>)
 
@@ -349,7 +349,7 @@
 
 - [class RegArgs](<#class-regargs>)
 
-  - [`function new(?ints:stdgo.GoArray<stdgo.GoUIntptr>, ?floats:stdgo.GoArray<stdgo.GoUInt64>, ?ptrs:stdgo.GoArray<stdgo._internal.unsafe.UnsafePointer>, ?returnIsPtr:stdgo._internal.internal.abi.IntArgRegBitmap):Void`](<#regargs-function-new>)
+  - [`function new(?ints:stdgo.GoArray<stdgo.GoUIntptr>, ?floats:stdgo.GoArray<stdgo.GoUInt64>, ?ptrs:stdgo.GoArray<stdgo._internal.unsafe.UnsafePointer>, ?returnIsPtr:Null<stdgo._internal.internal.abi.IntArgRegBitmap>):Void`](<#regargs-function-new>)
 
 - [class SliceType](<#class-slicetype>)
 
@@ -885,11 +885,11 @@
 
   - [`function equal(:stdgo._internal.unsafe.UnsafePointer, :stdgo._internal.unsafe.UnsafePointer):Bool`](<#type_-function-equal>)
 
-  - [`function new(?size_:stdgo.GoUIntptr, ?ptrBytes:stdgo.GoUIntptr, ?hash:stdgo.GoUInt32, ?tflag:stdgo._internal.internal.abi.TFlag, ?align_:stdgo.GoUInt8, ?fieldAlign_:stdgo.GoUInt8, ?kind_:stdgo.GoUInt8, ?equal:(:stdgo._internal.unsafe.UnsafePointer, :stdgo._internal.unsafe.UnsafePointer):Bool, ?gcdata:stdgo.Pointer<stdgo.GoUInt8>, ?str:stdgo._internal.internal.abi.NameOff, ?ptrToThis:stdgo._internal.internal.abi.TypeOff):Void`](<#type_-function-new>)
+  - [`function new(?size_:stdgo.GoUIntptr, ?ptrBytes:stdgo.GoUIntptr, ?hash:stdgo.GoUInt32, ?tflag:Null<stdgo._internal.internal.abi.TFlag>, ?align_:stdgo.GoUInt8, ?fieldAlign_:stdgo.GoUInt8, ?kind_:stdgo.GoUInt8, ?equal:(:stdgo._internal.unsafe.UnsafePointer, :stdgo._internal.unsafe.UnsafePointer):Bool, ?gcdata:stdgo.Pointer<stdgo.GoUInt8>, ?str:Null<stdgo._internal.internal.abi.NameOff>, ?ptrToThis:Null<stdgo._internal.internal.abi.TypeOff>):Void`](<#type_-function-new>)
 
 - [class UncommonType](<#class-uncommontype>)
 
-  - [`function new(?pkgPath:stdgo._internal.internal.abi.NameOff, ?mcount:stdgo.GoUInt16, ?xcount:stdgo.GoUInt16, ?moff:stdgo.GoUInt32, ?__1:stdgo.GoUInt32):Void`](<#uncommontype-function-new>)
+  - [`function new(?pkgPath:Null<stdgo._internal.internal.abi.NameOff>, ?mcount:stdgo.GoUInt16, ?xcount:stdgo.GoUInt16, ?moff:stdgo.GoUInt32, ?__1:stdgo.GoUInt32):Void`](<#uncommontype-function-new>)
 
 - [typedef ChanDir](<#typedef-chandir>)
 
@@ -2089,7 +2089,7 @@ function mapType():stdgo.Ref<stdgo._internal.internal.abi.MapType>
 
 
 ```haxe
-function new(?type:stdgo._internal.internal.abi.Type_, ?elem:stdgo.Ref<stdgo._internal.internal.abi.Type_>, ?dir:stdgo._internal.internal.abi.ChanDir):Void
+function new(?type:stdgo._internal.internal.abi.Type_, ?elem:stdgo.Ref<stdgo._internal.internal.abi.Type_>, ?dir:Null<stdgo._internal.internal.abi.ChanDir>):Void
 ```
 
 
@@ -2439,7 +2439,7 @@ var typ:stdgo._internal.internal.abi.TypeOff
 
 
 ```haxe
-function new(?name:stdgo._internal.internal.abi.NameOff, ?typ:stdgo._internal.internal.abi.TypeOff):Void
+function new(?name:Null<stdgo._internal.internal.abi.NameOff>, ?typ:Null<stdgo._internal.internal.abi.TypeOff>):Void
 ```
 
 
@@ -3015,7 +3015,7 @@ var tfn:stdgo._internal.internal.abi.TextOff
 
 
 ```haxe
-function new(?name:stdgo._internal.internal.abi.NameOff, ?mtyp:stdgo._internal.internal.abi.TypeOff, ?ifn:stdgo._internal.internal.abi.TextOff, ?tfn:stdgo._internal.internal.abi.TextOff):Void
+function new(?name:Null<stdgo._internal.internal.abi.NameOff>, ?mtyp:Null<stdgo._internal.internal.abi.TypeOff>, ?ifn:Null<stdgo._internal.internal.abi.TextOff>, ?tfn:Null<stdgo._internal.internal.abi.TextOff>):Void
 ```
 
 
@@ -3357,7 +3357,7 @@ var returnIsPtr:stdgo._internal.internal.abi.IntArgRegBitmap
 
 
 ```haxe
-function new(?ints:stdgo.GoArray<stdgo.GoUIntptr>, ?floats:stdgo.GoArray<stdgo.GoUInt64>, ?ptrs:stdgo.GoArray<stdgo._internal.unsafe.UnsafePointer>, ?returnIsPtr:stdgo._internal.internal.abi.IntArgRegBitmap):Void
+function new(?ints:stdgo.GoArray<stdgo.GoUIntptr>, ?floats:stdgo.GoArray<stdgo.GoUInt64>, ?ptrs:stdgo.GoArray<stdgo._internal.unsafe.UnsafePointer>, ?returnIsPtr:Null<stdgo._internal.internal.abi.IntArgRegBitmap>):Void
 ```
 
 
@@ -6378,7 +6378,7 @@ function equal(:stdgo._internal.unsafe.UnsafePointer, :stdgo._internal.unsafe.Un
 
 
 ```haxe
-function new(?size_:stdgo.GoUIntptr, ?ptrBytes:stdgo.GoUIntptr, ?hash:stdgo.GoUInt32, ?tflag:stdgo._internal.internal.abi.TFlag, ?align_:stdgo.GoUInt8, ?fieldAlign_:stdgo.GoUInt8, ?kind_:stdgo.GoUInt8, ?equal:(:stdgo._internal.unsafe.UnsafePointer, :stdgo._internal.unsafe.UnsafePointer):Bool, ?gcdata:stdgo.Pointer<stdgo.GoUInt8>, ?str:stdgo._internal.internal.abi.NameOff, ?ptrToThis:stdgo._internal.internal.abi.TypeOff):Void
+function new(?size_:stdgo.GoUIntptr, ?ptrBytes:stdgo.GoUIntptr, ?hash:stdgo.GoUInt32, ?tflag:Null<stdgo._internal.internal.abi.TFlag>, ?align_:stdgo.GoUInt8, ?fieldAlign_:stdgo.GoUInt8, ?kind_:stdgo.GoUInt8, ?equal:(:stdgo._internal.unsafe.UnsafePointer, :stdgo._internal.unsafe.UnsafePointer):Bool, ?gcdata:stdgo.Pointer<stdgo.GoUInt8>, ?str:Null<stdgo._internal.internal.abi.NameOff>, ?ptrToThis:Null<stdgo._internal.internal.abi.TypeOff>):Void
 ```
 
 
@@ -6417,7 +6417,7 @@ var xcount:stdgo.GoUInt16
 
 
 ```haxe
-function new(?pkgPath:stdgo._internal.internal.abi.NameOff, ?mcount:stdgo.GoUInt16, ?xcount:stdgo.GoUInt16, ?moff:stdgo.GoUInt32, ?__1:stdgo.GoUInt32):Void
+function new(?pkgPath:Null<stdgo._internal.internal.abi.NameOff>, ?mcount:stdgo.GoUInt16, ?xcount:stdgo.GoUInt16, ?moff:stdgo.GoUInt32, ?__1:stdgo.GoUInt32):Void
 ```
 
 

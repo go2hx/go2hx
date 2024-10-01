@@ -21,7 +21,7 @@
 
 - [class Description](<#class-description>)
 
-  - [`function new(?name:stdgo.GoString, ?description:stdgo.GoString, ?kind:stdgo._internal.runtime.metrics.ValueKind, ?cumulative:Bool):Void`](<#description-function-new>)
+  - [`function new(?name:stdgo.GoString, ?description:stdgo.GoString, ?kind:Null<stdgo._internal.runtime.metrics.ValueKind>, ?cumulative:Bool):Void`](<#description-function-new>)
 
 - [class Float64Histogram](<#class-float64histogram>)
 
@@ -33,7 +33,7 @@
 
 - [class Value](<#class-value>)
 
-  - [`function new(?_kind:stdgo._internal.runtime.metrics.ValueKind, ?_scalar:stdgo.GoUInt64, ?_pointer:stdgo._internal.unsafe.UnsafePointer):Void`](<#value-function-new>)
+  - [`function new(?_kind:Null<stdgo._internal.runtime.metrics.ValueKind>, ?_scalar:stdgo.GoUInt64, ?_pointer:stdgo._internal.unsafe.UnsafePointer):Void`](<#value-function-new>)
 
 - [typedef ValueKind](<#typedef-valuekind>)
 
@@ -154,7 +154,7 @@ var name:stdgo.GoString
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?description:stdgo.GoString, ?kind:stdgo._internal.runtime.metrics.ValueKind, ?cumulative:Bool):Void
+function new(?name:stdgo.GoString, ?description:stdgo.GoString, ?kind:Null<stdgo._internal.runtime.metrics.ValueKind>, ?cumulative:Bool):Void
 ```
 
 
@@ -231,7 +231,7 @@ var _scalar:stdgo.GoUInt64
 
 
 ```haxe
-function new(?_kind:stdgo._internal.runtime.metrics.ValueKind, ?_scalar:stdgo.GoUInt64, ?_pointer:stdgo._internal.unsafe.UnsafePointer):Void
+function new(?_kind:Null<stdgo._internal.runtime.metrics.ValueKind>, ?_scalar:stdgo.GoUInt64, ?_pointer:stdgo._internal.unsafe.UnsafePointer):Void
 ```
 
 

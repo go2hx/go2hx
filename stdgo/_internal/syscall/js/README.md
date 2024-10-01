@@ -192,11 +192,11 @@
 
 - [class Value](<#class-value>)
 
-  - [`function new(?__32:stdgo.GoArray<():Void>, ?_ref:stdgo._internal.syscall.js.T_ref, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.T_ref>):Void`](<#value-function-new>)
+  - [`function new(?__32:stdgo.GoArray<():Void>, ?_ref:Null<stdgo._internal.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.T_ref>):Void`](<#value-function-new>)
 
 - [class ValueError](<#class-valueerror>)
 
-  - [`function new(?method:stdgo.GoString, ?type:stdgo._internal.syscall.js.Type_):Void`](<#valueerror-function-new>)
+  - [`function new(?method:stdgo.GoString, ?type:Null<stdgo._internal.syscall.js.Type_>):Void`](<#valueerror-function-new>)
 
 - [typedef T\_ref](<#typedef-t_ref>)
 
@@ -216,7 +216,7 @@ final _nanHead:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 
 
 ```haxe
-final _typeFlagFunction:Null<Any> = @:invalid_type null
+final _typeFlagFunction:Null<Dynamic> = @:invalid_type null
 ```
 
 
@@ -226,17 +226,17 @@ final _typeFlagNone:stdgo.GoUInt64 = ((0 : stdgo.GoUInt64))
 
 
 ```haxe
-final _typeFlagObject:Null<Any> = @:invalid_type null
+final _typeFlagObject:Null<Dynamic> = @:invalid_type null
 ```
 
 
 ```haxe
-final _typeFlagString:Null<Any> = @:invalid_type null
+final _typeFlagString:Null<Dynamic> = @:invalid_type null
 ```
 
 
 ```haxe
-final _typeFlagSymbol:Null<Any> = @:invalid_type null
+final _typeFlagSymbol:Null<Dynamic> = @:invalid_type null
 ```
 
 
@@ -1274,7 +1274,7 @@ var _ref:stdgo._internal.syscall.js.T_ref
 
 
 ```haxe
-function new(?__32:stdgo.GoArray<():Void>, ?_ref:stdgo._internal.syscall.js.T_ref, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.T_ref>):Void
+function new(?__32:stdgo.GoArray<():Void>, ?_ref:Null<stdgo._internal.syscall.js.T_ref>, ?_gcPtr:stdgo.Pointer<stdgo._internal.syscall.js.T_ref>):Void
 ```
 
 
@@ -1298,7 +1298,7 @@ var type:stdgo._internal.syscall.js.Type_
 
 
 ```haxe
-function new(?method:stdgo.GoString, ?type:stdgo._internal.syscall.js.Type_):Void
+function new(?method:stdgo.GoString, ?type:Null<stdgo._internal.syscall.js.Type_>):Void
 ```
 
 

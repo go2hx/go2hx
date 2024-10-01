@@ -11,7 +11,7 @@
 
 - [class Slice\_](<#class-slice_>)
 
-  - [`function new(?data:stdgo._internal.unsafe.UnsafePointer, ?len:stdgo.GoInt, ?cap:stdgo.GoInt):Void`](<#slice_-function-new>)
+  - [`function new(?data:stdgo._internal.unsafe.UnsafePointer, ?len:Null<stdgo.GoInt>, ?cap:Null<stdgo.GoInt>):Void`](<#slice_-function-new>)
 
 - [class String\_](<#class-string_>)
 
@@ -47,7 +47,7 @@ var len:stdgo.GoInt
 
 
 ```haxe
-function new(?data:stdgo._internal.unsafe.UnsafePointer, ?len:stdgo.GoInt, ?cap:stdgo.GoInt):Void
+function new(?data:stdgo._internal.unsafe.UnsafePointer, ?len:Null<stdgo.GoInt>, ?cap:Null<stdgo.GoInt>):Void
 ```
 
 

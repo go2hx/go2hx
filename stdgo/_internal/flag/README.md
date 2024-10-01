@@ -119,17 +119,17 @@
 
 - [class Flag](<#class-flag>)
 
-  - [`function new(?name:stdgo.GoString, ?usage:stdgo.GoString, ?value:stdgo._internal.flag.Value, ?defValue:stdgo.GoString):Void`](<#flag-function-new>)
+  - [`function new(?name:stdgo.GoString, ?usage:stdgo.GoString, ?value:Null<stdgo._internal.flag.Value>, ?defValue:stdgo.GoString):Void`](<#flag-function-new>)
 
 - [class FlagSet](<#class-flagset>)
 
-  - [`function new(?usage:():Void, ?_name:stdgo.GoString, ?_parsed:Bool, ?_actual:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag>>, ?_formal:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag>>, ?_args:stdgo.Slice<stdgo.GoString>, ?_errorHandling:stdgo._internal.flag.ErrorHandling, ?_output:stdgo._internal.io.Writer, ?_undef:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):Void`](<#flagset-function-new>)
+  - [`function new(?usage:():Void, ?_name:stdgo.GoString, ?_parsed:Bool, ?_actual:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag>>, ?_formal:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag>>, ?_args:stdgo.Slice<stdgo.GoString>, ?_errorHandling:Null<stdgo._internal.flag.ErrorHandling>, ?_output:Null<stdgo._internal.io.Writer>, ?_undef:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):Void`](<#flagset-function-new>)
 
   - [`function usage():Void`](<#flagset-function-usage>)
 
 - [class T\_textValue](<#class-t_textvalue>)
 
-  - [`function new(?_p:stdgo._internal.encoding.TextUnmarshaler):Void`](<#t_textvalue-function-new>)
+  - [`function new(?_p:Null<stdgo._internal.encoding.TextUnmarshaler>):Void`](<#t_textvalue-function-new>)
 
 - [typedef ErrorHandling](<#typedef-errorhandling>)
 
@@ -798,7 +798,7 @@ var value:stdgo._internal.flag.Value
 
 
 ```haxe
-function new(?name:stdgo.GoString, ?usage:stdgo.GoString, ?value:stdgo._internal.flag.Value, ?defValue:stdgo.GoString):Void
+function new(?name:stdgo.GoString, ?usage:stdgo.GoString, ?value:Null<stdgo._internal.flag.Value>, ?defValue:stdgo.GoString):Void
 ```
 
 
@@ -852,7 +852,7 @@ var _undef:stdgo.GoMap<stdgo.GoString, stdgo.GoString>
 
 
 ```haxe
-function new(?usage:():Void, ?_name:stdgo.GoString, ?_parsed:Bool, ?_actual:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag>>, ?_formal:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag>>, ?_args:stdgo.Slice<stdgo.GoString>, ?_errorHandling:stdgo._internal.flag.ErrorHandling, ?_output:stdgo._internal.io.Writer, ?_undef:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):Void
+function new(?usage:():Void, ?_name:stdgo.GoString, ?_parsed:Bool, ?_actual:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag>>, ?_formal:stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.flag.Flag>>, ?_args:stdgo.Slice<stdgo.GoString>, ?_errorHandling:Null<stdgo._internal.flag.ErrorHandling>, ?_output:Null<stdgo._internal.io.Writer>, ?_undef:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):Void
 ```
 
 
@@ -879,7 +879,7 @@ var _p:stdgo._internal.encoding.TextUnmarshaler
 
 
 ```haxe
-function new(?_p:stdgo._internal.encoding.TextUnmarshaler):Void
+function new(?_p:Null<stdgo._internal.encoding.TextUnmarshaler>):Void
 ```
 
 

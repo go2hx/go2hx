@@ -40,7 +40,7 @@
 
 - [class Archive](<#class-archive>)
 
-  - [`function new(?archiveHeader:stdgo._internal.internal.xcoff.ArchiveHeader, ?members:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Member>>, ?_closer:stdgo._internal.io.Closer):Void`](<#archive-function-new>)
+  - [`function new(?archiveHeader:stdgo._internal.internal.xcoff.ArchiveHeader, ?members:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Member>>, ?_closer:Null<stdgo._internal.io.Closer>):Void`](<#archive-function-new>)
 
 - [class ArchiveHeader](<#class-archiveheader>)
 
@@ -80,7 +80,7 @@
 
 - [class File](<#class-file>)
 
-  - [`function new(?fileHeader:stdgo._internal.internal.xcoff.FileHeader, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Section>>, ?symbols:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Symbol>>, ?stringTable:stdgo.Slice<stdgo.GoUInt8>, ?libraryPaths:stdgo.Slice<stdgo.GoString>, ?_closer:stdgo._internal.io.Closer):Void`](<#file-function-new>)
+  - [`function new(?fileHeader:stdgo._internal.internal.xcoff.FileHeader, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Section>>, ?symbols:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Symbol>>, ?stringTable:stdgo.Slice<stdgo.GoUInt8>, ?libraryPaths:stdgo.Slice<stdgo.GoString>, ?_closer:Null<stdgo._internal.io.Closer>):Void`](<#file-function-new>)
 
 - [class FileHeader](<#class-fileheader>)
 
@@ -136,7 +136,7 @@
 
 - [class Section](<#class-section>)
 
-  - [`function new(?sectionHeader:stdgo._internal.internal.xcoff.SectionHeader, ?relocs:stdgo.Slice<stdgo._internal.internal.xcoff.Reloc>, ?readerAt:stdgo._internal.io.ReaderAt, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void`](<#section-function-new>)
+  - [`function new(?sectionHeader:stdgo._internal.internal.xcoff.SectionHeader, ?relocs:stdgo.Slice<stdgo._internal.internal.xcoff.Reloc>, ?readerAt:Null<stdgo._internal.io.ReaderAt>, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void`](<#section-function-new>)
 
   - [`function readAt(_p:stdgo.Slice<stdgo.GoUInt8>, _off:stdgo.GoInt64):{ _1:stdgo.Error; _0:stdgo.GoInt;}`](<#section-function-readat>)
 
@@ -988,7 +988,7 @@ var members:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Member>>
 
 
 ```haxe
-function new(?archiveHeader:stdgo._internal.internal.xcoff.ArchiveHeader, ?members:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Member>>, ?_closer:stdgo._internal.io.Closer):Void
+function new(?archiveHeader:stdgo._internal.internal.xcoff.ArchiveHeader, ?members:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Member>>, ?_closer:Null<stdgo._internal.io.Closer>):Void
 ```
 
 
@@ -1343,7 +1343,7 @@ var symbols:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Symbol>>
 
 
 ```haxe
-function new(?fileHeader:stdgo._internal.internal.xcoff.FileHeader, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Section>>, ?symbols:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Symbol>>, ?stringTable:stdgo.Slice<stdgo.GoUInt8>, ?libraryPaths:stdgo.Slice<stdgo.GoString>, ?_closer:stdgo._internal.io.Closer):Void
+function new(?fileHeader:stdgo._internal.internal.xcoff.FileHeader, ?sections:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Section>>, ?symbols:stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Symbol>>, ?stringTable:stdgo.Slice<stdgo.GoUInt8>, ?libraryPaths:stdgo.Slice<stdgo.GoString>, ?_closer:Null<stdgo._internal.io.Closer>):Void
 ```
 
 
@@ -1894,7 +1894,7 @@ var sectionHeader:stdgo._internal.internal.xcoff.SectionHeader
 
 
 ```haxe
-function new(?sectionHeader:stdgo._internal.internal.xcoff.SectionHeader, ?relocs:stdgo.Slice<stdgo._internal.internal.xcoff.Reloc>, ?readerAt:stdgo._internal.io.ReaderAt, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void
+function new(?sectionHeader:stdgo._internal.internal.xcoff.SectionHeader, ?relocs:stdgo.Slice<stdgo._internal.internal.xcoff.Reloc>, ?readerAt:Null<stdgo._internal.io.ReaderAt>, ?_sr:stdgo.Ref<stdgo._internal.io.SectionReader>):Void
 ```
 
 

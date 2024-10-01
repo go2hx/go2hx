@@ -33,11 +33,11 @@
 
 - [class T\_netConn](<#class-t_netconn>)
 
-  - [`function new(?_local:Bool, ?_conn:stdgo._internal.net.Conn):Void`](<#t_netconn-function-new>)
+  - [`function new(?_local:Bool, ?_conn:Null<stdgo._internal.net.Conn>):Void`](<#t_netconn-function-new>)
 
 - [class Writer](<#class-writer>)
 
-  - [`function new(?_priority:stdgo._internal.log.syslog.Priority, ?_tag:stdgo.GoString, ?_hostname:stdgo.GoString, ?_network:stdgo.GoString, ?_raddr:stdgo.GoString, ?_mu:stdgo._internal.sync.Mutex, ?_conn:stdgo._internal.log.syslog.T_serverConn):Void`](<#writer-function-new>)
+  - [`function new(?_priority:Null<stdgo._internal.log.syslog.Priority>, ?_tag:stdgo.GoString, ?_hostname:stdgo.GoString, ?_network:stdgo.GoString, ?_raddr:stdgo.GoString, ?_mu:stdgo._internal.sync.Mutex, ?_conn:Null<stdgo._internal.log.syslog.T_serverConn>):Void`](<#writer-function-new>)
 
 - [typedef Priority](<#typedef-priority>)
 
@@ -310,7 +310,7 @@ var _local:Bool
 
 
 ```haxe
-function new(?_local:Bool, ?_conn:stdgo._internal.net.Conn):Void
+function new(?_local:Bool, ?_conn:Null<stdgo._internal.net.Conn>):Void
 ```
 
 
@@ -359,7 +359,7 @@ var _tag:stdgo.GoString
 
 
 ```haxe
-function new(?_priority:stdgo._internal.log.syslog.Priority, ?_tag:stdgo.GoString, ?_hostname:stdgo.GoString, ?_network:stdgo.GoString, ?_raddr:stdgo.GoString, ?_mu:stdgo._internal.sync.Mutex, ?_conn:stdgo._internal.log.syslog.T_serverConn):Void
+function new(?_priority:Null<stdgo._internal.log.syslog.Priority>, ?_tag:stdgo.GoString, ?_hostname:stdgo.GoString, ?_network:stdgo.GoString, ?_raddr:stdgo.GoString, ?_mu:stdgo._internal.sync.Mutex, ?_conn:Null<stdgo._internal.log.syslog.T_serverConn>):Void
 ```
 
 

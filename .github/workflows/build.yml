@@ -8,12 +8,11 @@ concurrency:
 jobs:
   os:
     timeout-minutes: 15
-    runs-on: ${{ matrix.os }}${{matrix.arch}}
+    runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-13]
-        arch: [x64]
     needs: setup
     steps:
       - uses: actions/checkout@v3

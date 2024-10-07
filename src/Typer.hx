@@ -2342,7 +2342,7 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 function cforPostContinue(post:Expr, e:Expr):Expr {
 	return switch e.expr {
 		case EContinue:
-			macro @:mergeBlock {
+			macro {
 				$post;
 				$e;
 			};

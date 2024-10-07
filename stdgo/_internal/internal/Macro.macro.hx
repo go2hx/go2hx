@@ -189,9 +189,21 @@ class Macro {
 							final name:Expr= s.params[0];
 							final noJump = label == null ? false : exprToString(name) == exprToString(label);
 							switch e.expr {
+								case EBlock(exprs):
+									if (noJump) {
+										e;
+									}else{
+										macro {
+											$i{selectName} = $name;
+											$i{innerName} = true;
+											$i{breakName} = false;
+											${exprs[0]}
+											break;
+										}
+									}
 								case EContinue:
 									if (noJump) {
-										macro continue;
+										e;
 									}else{
 										macro {
 											$i{selectName} = $name;

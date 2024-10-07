@@ -51,6 +51,7 @@ class Macro {
 				public var names:stdgo._internal.internal.TypeInfo.TypeInternalMap = $e;
 				public function new() {}
 			};
+			cl.meta.push({name: ":keep", pos: haxe.macro.Context.currentPos()});
 			cl.name = className;
 			Context.defineType(cl);
 		});
@@ -211,6 +212,7 @@ class Macro {
 										}
 									}
 								default:
+									trace(Context.currentPos());
 									throw "invalid jump expr: " + new haxe.macro.Printer().printExpr(e);
 							}
 						case ":goto":
@@ -360,11 +362,12 @@ class Macro {
 			var $breakName = false;
 			var $innerName = false;
 			$v;
-			do {
+			@:pos(Context.currentPos()) do {
 				$i{exitName} = false;
 				$switchStmt;
 			} while ($i{selectName} != "");
 		};
+		e.pos = Context.currentPos();
 		if (ret != null) {
 			switch e.expr {
 				case EBlock(exprs):
@@ -373,7 +376,7 @@ class Macro {
 				default:
 			}
 		}
-		//trace(new haxe.macro.Printer().printExpr(e),Context.currentPos());
+		// trace(new haxe.macro.Printer().printExpr(e),Context.currentPos());
 		return e;
 	}
 

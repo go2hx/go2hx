@@ -1010,7 +1010,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		}
 		exprs.push(toExpr(EVars(data.global.vars)));
 		exprs.push(macro while (true) {
-			//trace(__case__);
+			trace(__case__);
 			$switchExpr;
 		});
 		//trace(printer.printExprs(exprs, " "));
@@ -1147,7 +1147,7 @@ private function controlFlowLabels(data:ControlFlowData, e:Expr):Expr {
 			final prevParent = data.parent;
 			data.parent = new ControlFlowCase(data);
 			prevParent.exprs.push(macro __case__ = @:labelconnectjump ${makeExpr(data.parent.index)});
-			data.global.caseMap[labelName] = data.parent.index;
+			data.global.caseMap[labelName] = prevParent.index;
 			e = controlFlowLabels(data, e);
 			e;
 		default:
@@ -1162,6 +1162,7 @@ private function controlFlowJumps(data:ControlFlowData, e:Expr):Expr {
 				case ":goto":
 					final index = data.global.caseMap[exprToStringValue(e)];
 					final e2 = macro {
+						$e;
 						__case__ = @:goto ${makeExpr(index)};
 						continue;
 					};
@@ -3497,7 +3498,6 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 }
 
 function goPosToHaxePos(expr:Dynamic):haxe.macro.Expr.Position {
-	trace("expr.id:", expr.id);
 	if (expr.pos != null && expr.pos != "-" && (expr.pos is String)) {
 		final parts = expr.pos.split(":");
 		final pos:haxe.macro.Expr.Position = {
@@ -3505,10 +3505,7 @@ function goPosToHaxePos(expr:Dynamic):haxe.macro.Expr.Position {
 			min: Std.parseInt(parts[1]),
 			max: Std.parseInt(parts[2]),
 		};
-		trace("valid!:", parts);
 		return pos;
-	}else{
-		trace("not valid");
 	}
 	return null;
 }

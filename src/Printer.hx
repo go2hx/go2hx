@@ -28,7 +28,7 @@ class Printer extends haxe.macro.Printer {
 	override function printExpr(e:Expr):String {
 		if (e == null)
 			return "#NULL_EXPR";
-		return switch (e.expr) {
+		var exprStr = switch (e.expr) {
 			case EField(e1, n, kind): kind == Safe ? '${printExpr(e1)}?.$n' : '${printExpr(e1)}.$n';
 			case EMeta({name: ":macro"}, e): "macro " + printExpr(e);
 			case EMeta({name: ":mergeBlock"}, {expr: EBlock(exprs), pos: _}):
@@ -95,6 +95,10 @@ class Printer extends haxe.macro.Printer {
 				}
 			default: super.printExpr(e);
 		}
+		if (e.pos != null && !e.pos.file.contains(".hx")) {
+			exprStr = "/*" + e.pos.file + ":" + e.pos.min + ":" + e.pos.max + "*/" + exprStr;
+		}
+		return exprStr;
 	}
 
 	public function printBlock(e:Expr):String {

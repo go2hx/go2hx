@@ -361,8 +361,6 @@ func debugPkg(pkg *packages.Package) {
 		debugPkg(val)
 	}
 	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
-	addedLog := false
-	mainBool := false
 	//astutil.App
 	applyAssign := func(cursor *astutil.Cursor) bool {
 		if cursor.Index() == -1 {
@@ -381,7 +379,6 @@ func debugPkg(pkg *packages.Package) {
 						}
 						location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
 						_ = location
-						addedLog = true
 						callExpr := &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: []ast.Expr{&location, expr}}
 						cursor.InsertAfter(&ast.ExprStmt{X: callExpr})
 					}
@@ -431,7 +428,6 @@ func debugPkg(pkg *packages.Package) {
 				cursor.InsertBefore(expr)
 				location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
 				cursor.InsertBefore(&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: append([]ast.Expr{&location}, names...)}})
-				addedLog = true
 				results = append(results, names...)
 			}
 			if len(results) > 0 {
@@ -440,11 +436,6 @@ func debugPkg(pkg *packages.Package) {
 		default:
 		}
 		return true
-	}
-	// TODO: set back to log
-	requiredImports := map[string]bool{"log": true}
-	if pkg.Name == "main" {
-		requiredImports = map[string]bool{"os": true, "log": true, "runtime": true}
 	}
 	newDecls := []ast.Decl{}
 	importDecl := &ast.GenDecl{Tok: token.IMPORT}
@@ -462,7 +453,6 @@ func debugPkg(pkg *packages.Package) {
 		switch decl := decl.(type) {
 		case *ast.FuncDecl:
 			if pkg.Name == "main" && decl.Name.Name == "main" {
-				mainBool = true
 				s := `package main
 				func __debug__() *os.File {
 					__f__, _ := os.
@@ -509,9 +499,6 @@ func debugPkg(pkg *packages.Package) {
 					switch spec := spec.(type) {
 					case *ast.ImportSpec:
 						impName := strings.Trim(spec.Path.Value, `"`)
-						if requiredImports[impName] {
-							delete(requiredImports, impName)
-						}
 						pathValue := spec.Path.Value
 						if !restrictedDebugPkgs[impName] {
 							if stdgoList[impName] {
@@ -539,11 +526,6 @@ func debugPkg(pkg *packages.Package) {
 	}
 	file = astutil.Apply(file, applyAssign, nil).(*ast.File)
 	file = astutil.Apply(file, applyReturn, nil).(*ast.File)
-	if mainBool || addedLog {
-		for imp := range requiredImports {
-			importDecl.Specs = append(importDecl.Specs, &ast.ImportSpec{Path: &ast.BasicLit{Kind: token.STRING, Value: `"` + imp + `"`}})
-		}
-	}
 	oldDecls := file.Decls
 	if len(importDecl.Specs) > 0 {
 		file.Decls = append([]ast.Decl{importDecl}, newDecls...)
@@ -970,7 +952,7 @@ func parsePkg(pkg *packages.Package) packageType {
 	data.Path = pkg.PkgPath
 	typeMap = &typeutil.Map{}
 	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
-	name := pkg.Name
+	name := filepath.Base(data.Path)
 	if name == "main" {
 		if pkg.PkgPath == "command-line-arguments" {
 			if len(pkg.GoFiles) > 0 {
@@ -1085,6 +1067,19 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			name := ""
 			if obj.Name != nil {
 				name = obj.Name.Name
+			} else {
+				importPath, _ := strconv.Unquote(obj.Path.Value)
+				name = path.Base(importPath)
+			}
+			var typeObj types.Object
+			if obj.Name != nil {
+				typeObj = checker.Info.Defs[obj.Name]
+			} else {
+				typeObj = checker.Info.Implicits[obj]
+			}
+			pkgname, ok := typeObj.(*types.PkgName)
+			if ok {
+				name = pkgname.Name()
 			}
 			data[i] = map[string]interface{}{
 				"id":      "ImportSpec",
@@ -1100,6 +1095,14 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 		data[i]["end"] = parsePos(obj.End())
 	}
 	return data
+}
+
+func nameLastPkgPath(name string, path string, endStr string) string {
+	index := strings.LastIndex(path, name)
+	if index != -1 {
+		path = path[:index] + name + endStr
+	}
+	return path
 }
 
 func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int, marked map[string]bool, intuitionBool bool) []map[string]interface{} {
@@ -1150,12 +1153,13 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 		log.Fatal("data does not have id")
 	}
 	isVar := false
+	path := ""
 	switch data["id"] {
 	case "Var", "Pointer": //, "Slice", "Array":
 		isVar = true
 	case "Named":
 		named := node.(*types.Named)
-		path := named.String()
+		path = named.String()
 		if marked[path] {
 			data["path"] = path
 			return data
@@ -1181,7 +1185,6 @@ func parseType(node interface{}, marked2 map[string]bool) map[string]interface{}
 	case "Named":
 		named := node.(*types.Named)
 		isAlias := named.Obj().IsAlias()
-		path := named.String()
 		if isAlias { // alias is type X = Y, equivlant to a typedef
 			data["underlying"] = parseType(named.Underlying(), marked)
 			data["alias"] = true
@@ -1307,6 +1310,10 @@ func copyMap(m map[string]bool) map[string]bool {
 func parseData(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
 	switch node := node.(type) {
+	case ast.Expr:
+		data["pos"] = fset.Position(node.Pos()).String()
+	}
+	switch node := node.(type) {
 	case *ast.BasicLit:
 		return parseBasicLit(node)
 	case *ast.Ident:
@@ -1345,10 +1352,10 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = parseData(value)
 		case *ast.ExprStmt:
 			data[field.Name] = map[string]interface{}{
-				"id":  "ExprStmt",
-				"x":   parseData(value.X),
-				"pos": parsePos(value.X.Pos()),
-				"end": parsePos(value.X.End()),
+				"id":    "ExprStmt",
+				"x":     parseData(value.X),
+				"start": parsePos(value.X.Pos()),
+				"end":   parsePos(value.X.End()),
 			}
 		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
 			data[field.Name] = parseData(value)
@@ -1525,6 +1532,7 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	}
 	data := map[string]interface{}{
 		"id":   "Ident",
+		"pos":  fset.Position(value.Pos()).String(),
 		"name": value.Name,
 	}
 	if value.Obj != nil {
@@ -1571,6 +1579,7 @@ func parseBasicLit(expr *ast.BasicLit) map[string]interface{} {
 		return map[string]interface{}{
 			"id":    "BasicLit",
 			"value": output,
+			"pos":   fset.Position(expr.Pos()).String(),
 			"raw":   raw,
 			"basic": true,
 			"token": expr.Kind.String(),

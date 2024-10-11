@@ -773,10 +773,15 @@ private function compareComplexType(a:ComplexType, b:ComplexType):Bool {
 private function typeStmt(stmt:Dynamic, info:Info):Expr {
 	if (stmt == null)
 		return null;
+	// get pos from expr
+	switch stmt.id {
+		case "ExprStmt":
+			return typeExprStmt(stmt, info);
+		default:
+	}
 	var def = switch stmt.id {
 		case "ReturnStmt": typeReturnStmt(stmt, info);
 		case "IfStmt": typeIfStmt(stmt, info);
-		case "ExprStmt": typeExprStmt(stmt, info);
 		case "AssignStmt": typeAssignStmt(stmt, info);
 		case "ForStmt": typeForStmt(stmt, info);
 		case "SwitchStmt": typeSwitchStmt(stmt, info);
@@ -797,7 +802,7 @@ private function typeStmt(stmt:Dynamic, info:Info):Expr {
 	}
 	if (def == null)
 		throw info.panic() + "stmt null: " + stmt.id;
-	return toExpr(def);
+	return {pos: goPosToHaxePos(stmt), expr: def};
 }
 
 private function typeEmptyStmt(stmt:Ast.EmptyStmt, info:Info):ExprDef {
@@ -982,28 +987,33 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	}
 	if (list != null && info.global.gotoSystem && isFunc) {
-		exprs = [macro stdgo._internal.internal.Macro.controlFlow($b{exprs})];
-		if (false) {
+		//exprs = [macro stdgo._internal.internal.Macro.controlFlow($b{exprs})];
 			// experimental
 			//return EBlock(exprs);
-			final data = new ControlFlowData();
-			data.global.cases.push(data.global.lastCase);
-			var expr = controlFlowLabels(data, macro $b{exprs});
-			expr = controlFlowJumps(data, expr);
-			final ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
-			data.global.cases[data.global.cases.length - 1].push(ret);
-			final cases:Array<haxe.macro.Expr.Case> = [];
-			for (i in 0...data.global.cases.length) {
-				cases[i] = {
-					values: [macro ${makeExpr(i)}],
-					expr: macro $b{data.global.cases[i]},
-				}
+		final data = new ControlFlowData();
+		var expr = controlFlowLabels(data, macro $b{exprs});
+		final ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
+		data.global.cases[data.global.cases.length - 1].exprs.push(ret);
+		final cases:Array<haxe.macro.Expr.Case> = [];
+		for (i in 0...data.global.cases.length) {
+			cases[i] = {
+				values: [macro ${makeExpr(data.global.cases[i].index)}],
+				expr: macro $b{data.global.cases[i].exprs},
 			}
-			final switchExpr = toExpr(ESwitch(macro __case__, cases, macro {throw "control flow failed: " + __case__;}));
-			exprs = [macro var __case__ = 0];
-			exprs.push(macro while (true) $switchExpr);
-			trace(printer.printExprs(exprs, " "));
 		}
+		var switchExpr = toExpr(ESwitch(macro __case__, cases, macro {throw "control flow failed: " + __case__;}));
+		switchExpr = controlFlowJumps(data, switchExpr);
+		exprs = [macro var __case__ = 0];
+		// strip off expr
+		for (v in data.global.vars) {
+			v.expr = macro null;
+		}
+		exprs.push(toExpr(EVars(data.global.vars)));
+		exprs.push(macro while (true) {
+			//trace(__case__);
+			$switchExpr;
+		});
+		//trace(printer.printExprs(exprs, " "));
 	}
 	//trace(list != null, info.global.deferBool, isFunc);
 	if (list != null && info.global.deferBool && isFunc) { // defer system
@@ -1044,29 +1054,37 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 }
 
 class ControlFlowCase {
+	private static var indexCounter:Int = 0;
+	public var index:Int = 0;
 	public var parent:ControlFlowCase;
+	public var scopeIndex:Int = 0;
 	public var exprs:Array<Expr> = [];
+	public var next:ControlFlowCase;
 
-	public function new(exprs:Array<Expr>, parent) {
-		this.exprs = exprs;
-		this.parent = parent;
+	public function new(data:ControlFlowData) {
+		this.index = indexCounter++;
+		this.parent = data.parent;
+		this.scopeIndex = data.scopeIndex;
+		data.global.cases.push(this);
 	}
 }
 
 class GlobalControlFlowData {
-	public var cases:Array<Array<Expr>> = [];
+	public var cases:Array<ControlFlowCase> = [];
 	public var caseMap:Map<String,Int> = [];
-	public var lastCase:Array<Expr> = [];
+	public var vars:Array<haxe.macro.Expr.Var> = [];
 	public function new() {}
 }
 
 class ControlFlowData {
 	public var global = new GlobalControlFlowData();
 	public var scopeIndex:Int = -1;
+	public var parent:ControlFlowCase = null;
 	public function new() {}
 	public function copy() {
 		final data = new ControlFlowData();
 		data.global = global;
+		data.parent = parent;
 		data.scopeIndex = scopeIndex + 1;
 		return data;
 	}
@@ -1079,29 +1097,79 @@ function createCaseIndex(scopeIndex:Int, count:Int):String {
 private function controlFlowLabels(data:ControlFlowData, e:Expr):Expr {
 	return switch e.expr {
 		case EBlock(exprs):
+			data.parent = new ControlFlowCase(data);
+			final initParentIndex = data.parent.index;
+			data.parent.exprs.push(macro "block expr");
+			data.scopeIndex++;
 			for (i in 0...exprs.length) {
-				switch exprs[i].expr {
-					case EFor(it, expr):
-						
-					case EWhile(econd, e, true):
-					default:
-				}
-				if (isLabel(exprs[i])) {
-					data.global.lastCase = [exprs[i]];
-					final labelName = getLabelName(exprs[i]);
-					data.global.caseMap[labelName] = data.global.cases.push(data.global.lastCase) - 1;
+				final parent = data.parent;
+				exprs[i] = controlFlowLabels(data, exprs[i]);
+				parent.exprs.push(exprs[i]);
+			}
+			final nextParent = new ControlFlowCase(data);
+			//nextParent.exprs = [macro __case__ = @:infloopjump ${makeExpr(0)}];
+			data.parent.exprs.push(macro __case__ = @:endblockjump ${makeExpr(nextParent.index)});
+			data.parent = nextParent;
+			macro {
+				__case__ = @:blockjump ${makeExpr(initParentIndex)};
+				continue;
+			};
+		case EFor(it, expr):
+			e;	
+		case EWhile(econd, block, true):
+			//final initParent = data.parent;
+			// creates new case
+			final blockParent = new ControlFlowCase(data);
+			final condParent = new ControlFlowCase(data);
+			condParent.exprs = [
+				macro "cond block",
+				macro if ($econd) {
+					__case__ = ${makeExpr(blockParent.index)};
 					continue;
 				}
-				data.global.lastCase.push(exprs[i]);
-			}
-			return macro null;
+			];
+			block = mapExprWithData(block, data, controlFlowLabels);
+			data.parent.exprs.push(macro __case__ = @:whileblockjump ${makeExpr(condParent.index)});
+			blockParent.exprs = [
+				macro "while block",
+				macro $block,
+				macro __case__ = ${makeExpr(condParent.index)},
+			];
+			data.parent = condParent;
+			macro __case__ = @:jumpcond ${makeExpr(condParent.index)};
+		case EContinue:
+			e;
+		case EVars(vars):
+			data.global.vars = data.global.vars.concat(vars);
+			macro @:mergeBlock $b{vars.map(v -> macro $i{v.name} = ${v.expr})};
+		case EMeta(s, e) if (s.name == ":label"):
+			final labelName = exprToStringValue(s.params[0]);
+			final prevParent = data.parent;
+			data.parent = new ControlFlowCase(data);
+			prevParent.exprs.push(macro __case__ = @:labelconnectjump ${makeExpr(data.parent.index)});
+			data.global.caseMap[labelName] = data.parent.index;
+			e = controlFlowLabels(data, e);
+			e;
 		default:
-			return mapExprWithData(e, data, controlFlowLabels);
+			mapExprWithData(e, data, controlFlowLabels);
 	}
 }
 
 private function controlFlowJumps(data:ControlFlowData, e:Expr):Expr {
 	return switch e.expr {
+		case EMeta(s, e):
+			switch s.name {
+				case ":goto":
+					final index = data.global.caseMap[exprToStringValue(e)];
+					final e2 = macro {
+						__case__ = @:goto ${makeExpr(index)};
+						continue;
+					};
+					e2.pos = e.pos;
+					e2;
+				default:
+					toExpr(EMeta(s, controlFlowJumps(data, e)));
+			}
 		default:
 			return mapExprWithData(e, data, controlFlowJumps);
 	}
@@ -1123,202 +1191,6 @@ private function controlFlow(data:ControlFlowData, e:Expr):Expr {
 			return mapExprWithData(e, data, controlFlow);
 	}
 }
-
-function isLabel(e:Expr):Bool {
-	return switch e.expr {
-		case EMeta(s, _):
-			return s.name == ":label";
-		default:
-			false;
-	}
-}
-
-function getLabelName(e:Expr):String {
-	return switch e.expr {
-		case EMeta(s, e):
-			if (s.name == ":label") {
-				switch e.expr {
-					case EConst(CString(s)):
-						s;
-					default:
-						"";
-				}
-			}else{
-				"";
-			}
-		default:
-			"";
-	}
-}
-/*
-func = function(expr:haxe.macro.Expr, inLoop:Bool, scopeIndex:Int,label:Expr,initLabelSet:Bool,previousLabel:Expr):Expr {
-			return switch (expr.expr) {
-				case EMeta(s, e):
-					switch s.name {
-						case ":recv":
-							expr;
-						case ":label":
-							{
-								expr: EMeta(s, func(e, inLoop, scopeIndex,s.params[0],true,label)),
-								pos: Context.currentPos(),
-							};
-						case ":jump":
-							final name:Expr= s.params[0];
-							final noJump = label == null ? false : exprToString(name) == exprToString(label);
-							switch e.expr {
-								case EContinue:
-									if (noJump) {
-										macro continue;
-									}else{
-										macro {
-											$i{selectName} = $name;
-											$i{innerName} = true;
-											$i{breakName} = false;
-											break;
-										}
-									}
-								case EBreak:
-									if (noJump) {
-										macro break;
-									}else{
-										macro {
-											$i{selectName} = $name;
-											$i{innerName} = true;
-											$i{breakName} = true;
-											break;
-										}
-									}
-								default:
-									throw "invalid jump expr: " + new haxe.macro.Printer().printExpr(e);
-							}
-						case ":goto":
-							macro {
-								$i{selectName} = $e;
-								${inLoop ? macro {$i{exitName} = true; break;} : macro continue};
-							};
-						default:
-							{
-								expr: EMeta(s, func(e, inLoop, scopeIndex,label,initLabelSet,previousLabel)),
-								pos: Context.currentPos(),
-							};
-					}
-				case EWhile(econd, e, normalWhile):
-					expr.expr = EWhile(econd, func(e,true,scopeIndex, initLabelSet ? label : null,false,null), normalWhile);
-					expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
-					expr;
-				case EFor(it, e):
-					expr.expr = EFor(it, func(e,true,scopeIndex, initLabelSet ? label : null,false,null));
-					expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
-					expr;
-				case EBlock(exprs):
-					scopeIndex++;
-					for (i in 0...exprs.length)
-						exprs[i] = func(exprs[i], inLoop, scopeIndex,label,initLabelSet,previousLabel);
-					expr.expr = EBlock(exprs);
-					expr;
-				case EIf(econd, eif, eelse):
-					expr.expr = EIf(econd, func(eif, inLoop, scopeIndex,label,initLabelSet,previousLabel), eelse == null ? null : func(eelse, inLoop, scopeIndex,label,initLabelSet,previousLabel));
-					expr;
-				case EVars(v):
-					if (scopeIndex == 0) {
-						for (obj in v)
-							obj.isFinal = false; // all vars need to be able to be reassigned
-						vars = vars.concat(v);
-						if (v.length == 1) {
-							macro $i{v[0].name} = ${v[0].expr};
-
-						} else {
-							{
-								expr: EBlock([for (v in vars) macro $i{v.name} = ${v.expr}]),
-								pos: Context.currentPos(),
-							};
-						}
-					} else {
-						expr;
-					}
-				case ECall(e, params):
-					var printer = new haxe.macro.Printer();
-					final str = printer.printExpr(e);
-					if (str == "stdgo.Go.cfor" || str == "Go.cfor") {
-						var block = params.pop();
-						block = func(block,true,scopeIndex,initLabelSet ? label : null,false,null);
-						params.push(block);
-						expr.expr = ECall(e, params);
-						expr = loop(expr, inLoop,initLabelSet ? previousLabel : label);
-						expr;
-					}
-					expr;
-					default:
-						expr;
-				}
-			}
-			body = func(body, false, -1, macro "",false,null);
-			switch body.expr {
-				case EBlock(exprs):
-					for (i in 0...exprs.length) {
-						switch exprs[i].expr {
-							case EMeta(s, e):
-								switch s.name {
-									case ":label":
-										if (cases.length == 0) {
-											// first case
-											cases.push({values: [macro ""], expr: {expr: EBlock(exprs.slice(0, i)), pos: Context.currentPos()}});
-										}
-										cases.push({values: [s.params[0]], expr: {expr: EBlock(exprs.slice(i)), pos: Context.currentPos()}});
-	
-										switch e.expr { // takes out labled Vars statement from scoped block
-											case EBlock(exprs2):
-												if (exprs2.length == 1) {
-													switch exprs2[0].expr {
-														case EVars(_):
-															exprs[i].expr = exprs2[0].expr;
-														default:
-													}
-												}
-											default:
-										}
-								}
-							default:
-						}
-					}
-					body.expr = EBlock(exprs);
-				default:
-			}
-			if (cases.length == 0) {
-				cases.push({values: [macro ""], expr: body});
-			}
-			for (i in 0...cases.length) {
-				switch cases[i].expr.expr {
-					case EBlock(exprs):
-						final name = i == cases.length - 1 ? macro "" : cases[i + 1].values[0];
-						exprs.push(macro $i{selectName} = $name);
-						cases[i].expr.expr = EBlock(exprs);
-					default:
-				}
-			}
-			var switchStmt:Expr = {expr: ESwitch(macro $i{selectName}, cases, null), pos: Context.currentPos()};
-			final v:Expr = {expr: EVars(vars), pos: Context.currentPos()};
-			final e = macro {
-				var $selectName = "";
-				var $exitName = false;
-				var $breakName = false;
-				var $innerName = false;
-				$v;
-				@:pos(Context.currentPos()) do {
-					$i{exitName} = false;
-					$switchStmt;
-				} while ($i{selectName} != "");
-			};
-			e.pos = Context.currentPos();
-			if (ret != null) {
-				switch e.expr {
-					case EBlock(exprs):
-						exprs.push(ret);
-						e.expr = EBlock(exprs);
-					default:
-				}
-			}
-*/ 
 
 private function exprToStringValue(e:Expr):String {
 	switch e.expr {
@@ -1638,7 +1510,9 @@ function replaceIdent(names:Map<String, String>, e:Expr):Expr {
 	return switch e.expr {
 		case EConst(CIdent(s)):
 			if (names.exists(s)) {
-				macro $i{names[s]};
+				final e2 = macro $i{names[s]};
+				e2.pos = e.pos;
+				e2;
 			}else{
 				e;
 			}
@@ -2342,10 +2216,12 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 function cforPostContinue(post:Expr, e:Expr):Expr {
 	return switch e.expr {
 		case EContinue:
-			macro {
+			final e2 = macro {
 				$post;
 				$e;
 			};
+			e2.pos = e.pos;
+			e2;
 		default:
 			mapExprWithData(e, post, cforPostContinue);
 	}
@@ -3218,9 +3094,9 @@ private function removeStrParens(s:String):String {
 	return s;
 }
 
-private function typeExprStmt(stmt:Ast.ExprStmt, info:Info):ExprDef {
+private function typeExprStmt(stmt:Ast.ExprStmt, info:Info):Expr {
 	var expr = typeExpr(stmt.x, info);
-	return expr != null ? expr.expr : null;
+	return expr;
 } // written by Eliott issue #17
 
 private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
@@ -3615,7 +3491,26 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 	};
 	if (def == null)
 		throw info.panic() + "expr null: " + expr.id;
-	return toExpr(def);
+	final e = {pos: goPosToHaxePos(expr), expr: def};
+	trace(printer.printExpr(e));
+	return e;
+}
+
+function goPosToHaxePos(expr:Dynamic):haxe.macro.Expr.Position {
+	trace("expr.id:", expr.id);
+	if (expr.pos != null && expr.pos != "-" && (expr.pos is String)) {
+		final parts = expr.pos.split(":");
+		final pos:haxe.macro.Expr.Position = {
+			file: parts[0],
+			min: Std.parseInt(parts[1]),
+			max: Std.parseInt(parts[2]),
+		};
+		trace("valid!:", parts);
+		return pos;
+	}else{
+		trace("not valid");
+	}
+	return null;
 }
 
 private function typeIndexListExpr(expr:Ast.IndexListExpr, info:Info):ExprDef {

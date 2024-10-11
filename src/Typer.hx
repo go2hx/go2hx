@@ -1059,7 +1059,6 @@ class ControlFlowCase {
 	public var parent:ControlFlowCase;
 	public var scopeIndex:Int = 0;
 	public var exprs:Array<Expr> = [];
-	public var next:ControlFlowCase;
 
 	public function new(data:ControlFlowData) {
 		this.index = indexCounter++;
@@ -1073,18 +1072,25 @@ class GlobalControlFlowData {
 	public var cases:Array<ControlFlowCase> = [];
 	public var caseMap:Map<String,Int> = [];
 	public var vars:Array<haxe.macro.Expr.Var> = [];
+	public var parent:ControlFlowCase = null;
 	public function new() {}
 }
 
 class ControlFlowData {
 	public var global = new GlobalControlFlowData();
 	public var scopeIndex:Int = -1;
-	public var parent:ControlFlowCase = null;
+	public var renameIdents:Map<String,String> = [];
+	public var parent(get,set):ControlFlowCase;
+	function get_parent()
+		return global.parent;
+	function set_parent(x)
+		return global.parent = x;
 	public function new() {}
 	public function copy() {
 		final data = new ControlFlowData();
 		data.global = global;
-		data.parent = parent;
+
+		data.renameIdents = renameIdents.copy();
 		data.scopeIndex = scopeIndex + 1;
 		return data;
 	}
@@ -1097,6 +1103,7 @@ function createCaseIndex(scopeIndex:Int, count:Int):String {
 private function controlFlowLabels(data:ControlFlowData, e:Expr):Expr {
 	return switch e.expr {
 		case EBlock(exprs):
+			data = data.copy();
 			data.parent = new ControlFlowCase(data);
 			final initParentIndex = data.parent.index;
 			data.parent.exprs.push(macro "block expr");
@@ -1121,6 +1128,7 @@ private function controlFlowLabels(data:ControlFlowData, e:Expr):Expr {
 			// creates new case
 			final blockParent = new ControlFlowCase(data);
 			final condParent = new ControlFlowCase(data);
+			econd = controlFlowLabels(data, econd);
 			condParent.exprs = [
 				macro "cond block",
 				macro if ($econd) {
@@ -1140,8 +1148,19 @@ private function controlFlowLabels(data:ControlFlowData, e:Expr):Expr {
 		case EContinue:
 			e;
 		case EVars(vars):
+			for (v in vars) {
+				final newName = v.name + "_" + data.parent.index;
+				data.renameIdents[v.name] = newName;
+				v.name = newName;
+				v.expr = controlFlowLabels(data, v.expr);
+			}
 			data.global.vars = data.global.vars.concat(vars);
 			macro @:mergeBlock $b{vars.map(v -> macro $i{v.name} = ${v.expr})};
+		case EConst(CIdent(s)):
+			trace(s, data.renameIdents);
+			if (data.renameIdents.exists(s))
+				s = data.renameIdents[s];
+			{expr: EConst(CIdent(s)), pos: e.pos};
 		case EMeta(s, e) if (s.name == ":label"):
 			final labelName = exprToStringValue(s.params[0]);
 			final prevParent = data.parent;

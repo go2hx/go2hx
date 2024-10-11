@@ -353,6 +353,14 @@ final list = [
 		throw "os.open is not yet implemented";
 		return {_0: null, _1: null};
 	},
+	"os:isPathSeparator" => macro {
+		@:define("sys") {
+			if (Sys.systemName() == "Windows") {
+				return _c == '\\'.code || _c == '/'.code;
+			}
+		}
+		return _c == '/'.code;
+	},
 	/*"regexp:_notab" => macro null,
 	"regexp:_badRe" => macro null,
 	"regexp.syntax:_parseTests" => macro null,

@@ -1252,14 +1252,12 @@ private function controlFlowUniqueName(data:ControlFlowData, varName:String):Str
 private function controlFlowJumps(data:ControlFlowData, e:Expr):Expr {
 	return switch e.expr {
 		case EMeta(s, e):
-			trace("s.name:", s.name);
-			trace("e:", printer.printExpr(e));
 			switch s.name {
 				case ":goto":
 					final index = data.global.caseMap[exprToStringValue(e)];
 					final e2 = macro {
 						$e;
-						__case__ = @:goto ${makeExpr(index)};
+						__case__ = @:goto_jump ${makeExpr(index)};
 						continue;
 					};
 					e2.pos = e.pos;
@@ -1271,7 +1269,7 @@ private function controlFlowJumps(data:ControlFlowData, e:Expr):Expr {
 					switch e.expr {
 						case EContinue, EBlock(_): // normal continue or with increment
 							final e2 = macro @:jump_continue {
-								__case__ = @:goto ${makeExpr(index)};
+								__case__ = @:goto_jump ${makeExpr(index)};
 								$e;
 								continue;
 							};
@@ -1279,7 +1277,7 @@ private function controlFlowJumps(data:ControlFlowData, e:Expr):Expr {
 							e2;
 						case EBreak:
 							final e2 = macro @:jump_break {
-								__case__ = @:goto ${makeExpr(index)};
+								__case__ = @:goto_jump ${makeExpr(index)};
 								$e;
 								continue;
 							};

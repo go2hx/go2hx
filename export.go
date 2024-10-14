@@ -953,6 +953,9 @@ func parsePkg(pkg *packages.Package) packageType {
 	typeMap = &typeutil.Map{}
 	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
 	name := filepath.Base(data.Path)
+	if pkg.PkgPath == "command-line-arguments" {
+		name = pkg.Name
+	}
 	if name == "main" {
 		if pkg.PkgPath == "command-line-arguments" {
 			if len(pkg.GoFiles) > 0 {

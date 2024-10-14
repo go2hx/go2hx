@@ -1253,6 +1253,7 @@ private function controlFlowJumps(data:ControlFlowData, e:Expr):Expr {
 	return switch e.expr {
 		case EMeta(s, e):
 			trace("s.name:", s.name);
+			trace("e:", printer.printExpr(e));
 			switch s.name {
 				case ":goto":
 					final index = data.global.caseMap[exprToStringValue(e)];

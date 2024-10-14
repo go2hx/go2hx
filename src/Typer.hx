@@ -986,6 +986,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	if (list != null) {
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	}
+	//info.global.gotoSystem = false;
 	if (list != null && info.global.gotoSystem && isFunc) {
 		//exprs = [macro stdgo._internal.internal.Macro.controlFlow($b{exprs})];
 			// experimental
@@ -1005,12 +1006,14 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		switchExpr = controlFlowJumps(data, switchExpr);
 		exprs = [macro var __case__ = 0];
 		// strip off expr
-		for (v in data.global.vars) {
-			v.expr = macro null;
+		if (data.global.vars.length > 0) {
+			for (v in data.global.vars) {
+				v.expr = macro null;
+			}
+			exprs.push(toExpr(EVars(data.global.vars)));
 		}
-		exprs.push(toExpr(EVars(data.global.vars)));
 		exprs.push(macro while (true) {
-			trace(__case__);
+			//trace(__case__);
 			$switchExpr;
 		});
 		//trace(printer.printExprs(exprs, " "));
@@ -1062,7 +1065,7 @@ class ControlFlowCase {
 
 	public function new(data:ControlFlowData) {
 		this.index = indexCounter++;
-		this.parent = data.parent;
+		this.parent = data.global.parent;
 		this.scopeIndex = data.scopeIndex;
 		data.global.cases.push(this);
 	}
@@ -1080,16 +1083,16 @@ class ControlFlowData {
 	public var global = new GlobalControlFlowData();
 	public var scopeIndex:Int = -1;
 	public var renameIdents:Map<String,String> = [];
-	public var parent(get,set):ControlFlowCase;
+	public var varCounter = 0;
+	/*public var parent(get,set):ControlFlowCase;
 	function get_parent()
 		return global.parent;
 	function set_parent(x)
-		return global.parent = x;
+		return global.parent = x;*/
 	public function new() {}
 	public function copy() {
 		final data = new ControlFlowData();
 		data.global = global;
-
 		data.renameIdents = renameIdents.copy();
 		data.scopeIndex = scopeIndex + 1;
 		return data;
@@ -1104,25 +1107,73 @@ private function controlFlowLabels(data:ControlFlowData, e:Expr):Expr {
 	return switch e.expr {
 		case EBlock(exprs):
 			data = data.copy();
-			data.parent = new ControlFlowCase(data);
-			final initParentIndex = data.parent.index;
-			data.parent.exprs.push(macro "block expr");
+			data.global.parent = new ControlFlowCase(data);
+			final initParentIndex = data.global.parent.index;
+			data.global.parent.exprs.push(macro "block expr");
 			data.scopeIndex++;
 			for (i in 0...exprs.length) {
-				final parent = data.parent;
+				//final parent = data.global.parent;
 				exprs[i] = controlFlowLabels(data, exprs[i]);
-				parent.exprs.push(exprs[i]);
+				data.global.parent.exprs.push(exprs[i]);
 			}
 			final nextParent = new ControlFlowCase(data);
 			//nextParent.exprs = [macro __case__ = @:infloopjump ${makeExpr(0)}];
-			data.parent.exprs.push(macro __case__ = @:endblockjump ${makeExpr(nextParent.index)});
-			data.parent = nextParent;
+			data.global.parent.exprs.push(macro __case__ = @:endblockjump ${makeExpr(nextParent.index)});
+			data.global.parent = nextParent;
 			macro {
 				__case__ = @:blockjump ${makeExpr(initParentIndex)};
 				continue;
 			};
 		case EFor(it, expr):
-			e;	
+			data = data.copy();
+			data.global.parent = new ControlFlowCase(data);
+			var econd:Expr = macro @:econd_not_set false;
+			var init:Expr = macro @:init_not_set null;
+			switch it.expr {
+				case EBinop(OpArrow, e1, e2):
+					var key:Expr = null;
+					var value:Expr = null;
+					var iterName:String = "";
+					// value and iterator
+					switch e2.expr { // TODO:
+						case EBinop(OpIn, e3, e4): // key value iterator
+							// e3 value
+							// e4 iterator
+							value = e3;
+							iterName = controlFlowUniqueName(data, "__iter__");
+							data.global.vars.push({name: iterName, expr: null});
+							init = macro $i{iterName} = ${e4}.keyValueIterator();
+							//trace("e3:", printer.printExpr(e3));
+							//trace("e4:", printer.printExpr(e4));
+						default:
+							throw "invalid e2: " + e2.expr;
+					}
+					key = e1;
+					// create global variables for key and value
+					final keyName = controlFlowVarName(data, exprToIdentValue(key));
+					data.global.vars.push({name: keyName, expr: macro null});
+
+					final valueName = controlFlowVarName(data, exprToIdentValue(value));
+					data.global.vars.push({name: valueName, expr: macro null});
+					// set key and value in the econd
+					econd = macro if ($i{iterName}.hasNext()) {
+						final obj = $i{iterName}.next();
+						$i{keyName} = obj.key;
+						$i{valueName} = obj.value;
+						true;
+					}else{
+						false;
+					};
+
+					// set return value of econd
+
+				default:
+					trace("not found iterator:", it.expr.getName(), it.expr);
+			}
+			controlFlowLabels(data, macro {
+				$init;
+				while(@:cond $econd) $expr;
+			});
 		case EWhile(econd, block, true):
 			//final initParent = data.parent;
 			// creates new case
@@ -1137,46 +1188,69 @@ private function controlFlowLabels(data:ControlFlowData, e:Expr):Expr {
 				}
 			];
 			block = mapExprWithData(block, data, controlFlowLabels);
-			data.parent.exprs.push(macro __case__ = @:whileblockjump ${makeExpr(condParent.index)});
+			data.global.parent.exprs.push(macro __case__ = @:whileblockjump ${makeExpr(condParent.index)});
 			blockParent.exprs = [
 				macro "while block",
 				macro $block,
 				macro __case__ = ${makeExpr(condParent.index)},
 			];
-			data.parent = condParent;
+			data.global.parent = condParent;
 			macro __case__ = @:jumpcond ${makeExpr(condParent.index)};
-		case EContinue:
-			e;
 		case EVars(vars):
 			for (v in vars) {
-				final newName = v.name + "_" + data.parent.index;
-				data.renameIdents[v.name] = newName;
-				v.name = newName;
+				v.name = controlFlowVarName(data, v.name);
 				v.expr = controlFlowLabels(data, v.expr);
 			}
 			data.global.vars = data.global.vars.concat(vars);
 			macro @:mergeBlock $b{vars.map(v -> macro $i{v.name} = ${v.expr})};
 		case EConst(CIdent(s)):
-			trace(s, data.renameIdents);
+			//trace(s, data.renameIdents);
 			if (data.renameIdents.exists(s))
 				s = data.renameIdents[s];
 			{expr: EConst(CIdent(s)), pos: e.pos};
-		case EMeta(s, e) if (s.name == ":label"):
+		case EMeta(s, e2) if (s.name == ":label"):
+			e = e2;
 			final labelName = exprToStringValue(s.params[0]);
-			final prevParent = data.parent;
-			data.parent = new ControlFlowCase(data);
-			prevParent.exprs.push(macro __case__ = @:labelconnectjump ${makeExpr(data.parent.index)});
-			data.global.caseMap[labelName] = prevParent.index;
+			final prevParent = data.global.parent;
+			data.global.parent = new ControlFlowCase(data);
+			prevParent.exprs.push(macro __case__ = @:labelconnectjump ${makeExpr(data.global.parent.index)});
+			data.global.caseMap[labelName] = data.global.parent.index;
+			trace("labelName:", labelName);
+			//trace(printer.printExpr(e));
 			e = controlFlowLabels(data, e);
+			trace("AFTER:", printer.printExpr(e));
 			e;
+		case EMeta(s,e) if (s.name == ":map" || s.name == ":copystruct" || s.name == ":cond"):
+			e;
+		case EMeta(s,e2) if (s.name == ":jump"):
+			switch e2.expr {
+				case EBlock(exprs):
+					for (i in 0...exprs.length) {
+						exprs[i] = controlFlowLabels(data, exprs[i]);
+					}
+					e;
+				default:
+					e;
+			}
 		default:
 			mapExprWithData(e, data, controlFlowLabels);
 	}
 }
 
+private function controlFlowVarName(data:ControlFlowData, varName:String):String {
+	final newName = controlFlowUniqueName(data, varName);
+	data.renameIdents[varName] = newName;
+	return newName;
+}
+
+private function controlFlowUniqueName(data:ControlFlowData, varName:String):String {
+	return varName + "_" + data.global.parent.index + "_" + (data.varCounter++);
+}
+
 private function controlFlowJumps(data:ControlFlowData, e:Expr):Expr {
 	return switch e.expr {
 		case EMeta(s, e):
+			trace("s.name:", s.name);
 			switch s.name {
 				case ":goto":
 					final index = data.global.caseMap[exprToStringValue(e)];
@@ -1187,6 +1261,30 @@ private function controlFlowJumps(data:ControlFlowData, e:Expr):Expr {
 					};
 					e2.pos = e.pos;
 					e2;
+				case ":jump":
+					trace(data.global.caseMap,exprToStringValue(s.params[0]));
+					final index = data.global.caseMap[exprToStringValue(s.params[0])];
+					trace("e.expr:", printer.printExpr(e));
+					switch e.expr {
+						case EContinue, EBlock(_): // normal continue or with increment
+							final e2 = macro @:jump_continue {
+								__case__ = @:goto ${makeExpr(index)};
+								$e;
+								continue;
+							};
+							e2.pos = e.pos;
+							e2;
+						case EBreak:
+							final e2 = macro @:jump_break {
+								__case__ = @:goto ${makeExpr(index)};
+								$e;
+								continue;
+							};
+							e2.pos = e.pos;
+							e2;
+						default:
+							throw "unknown jump expr: " + e.expr;
+					}
 				default:
 					toExpr(EMeta(s, controlFlowJumps(data, e)));
 			}
@@ -1195,26 +1293,18 @@ private function controlFlowJumps(data:ControlFlowData, e:Expr):Expr {
 	}
 }
 
-private function controlFlow(data:ControlFlowData, e:Expr):Expr {
-	return switch e.expr {
-		case EBlock(exprs):
-			macro $b{[for (expr in exprs) mapExprWithData(expr, data, controlFlow)]};
-		case EMeta(s, e):
-			switch s.name {
-				case ":jump": // special goto for continue and break
-					// labels are found out later
-					//data.caseMap[exprToStringValue(s.params[0])];
-				case ":goto": // jump to label
-			}
-			e;
-		default:
-			return mapExprWithData(e, data, controlFlow);
-	}
-}
-
 private function exprToStringValue(e:Expr):String {
 	switch e.expr {
 		case EConst(CString(s)):
+			return s;
+		default:
+			throw "invalid expr for exprToString: " + e.expr;
+	}
+}
+
+private function exprToIdentValue(e:Expr):String {
+	switch e.expr {
+		case EConst(CIdent(s)):
 			return s;
 		default:
 			throw "invalid expr for exprToString: " + e.expr;
@@ -2389,10 +2479,10 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 				y = macro $y?.__copy__();
 			case structType(fields):
 				final decl = createNamedObjectDecl(fields, (field, type) -> passByCopy(type, macro x.$field, info), info);
-				y = macro {
+				y = macro (@:copystruct {
 					final x = $y;
 					$decl;
-				};
+				});
 			case named(path, _, type, _, _):
 				switch getUnderlying(type) {
 					case pointerType(_), basic(_), signature(_, _, _, _), sliceType(_), mapType(_), chanType(_):
@@ -3512,7 +3602,7 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 	if (def == null)
 		throw info.panic() + "expr null: " + expr.id;
 	final e = {pos: goPosToHaxePos(expr), expr: def};
-	trace(printer.printExpr(e));
+	//trace(printer.printExpr(e));
 	return e;
 }
 
@@ -5398,7 +5488,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 	function createRefPointerMap(name:String) {
 		final keyElemComplexType = keyComplexType;
 		final p:TypePath = {name: "GoMap", sub: name, pack: ["stdgo"], params: [TPType(keyComplexType), TPType(valueComplexType)]};
-		return macro({
+		return macro (@:map{
 			final x = new $p();
 			@:mergeBlock $b{exprs};
 			cast x;
@@ -5411,7 +5501,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 			if (!empty) {
 				isObjectMap = true;
 			} else {
-				return macro({
+				return macro (@:map{
 					final x = new stdgo.GoMap.GoAnyInterfaceMap<$valueComplexType>();
 					x.__defaultValue__ = () -> $defaultValueExpr;
 					@:mergeBlock $b{exprs};
@@ -5445,7 +5535,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 		p.params = [p.params[1]];
 	}
 	if (isObjectMap) {
-		return macro({
+		return macro (@:map{
 			final x = new stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType>();
 			x.t = new stdgo._internal.internal.reflect.Reflect._Type($keyT);
 			x.__defaultValue__ = () -> $defaultValueExpr;
@@ -5453,7 +5543,7 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 			cast x;
 		} : stdgo.GoMap<$keyComplexType, $valueComplexType>);
 	}
-	return macro({
+	return macro (@:map{
 		final x = new $p();
 		x.__defaultValue__ = () -> $defaultValueExpr;
 		@:mergeBlock $b{exprs};

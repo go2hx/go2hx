@@ -1107,14 +1107,17 @@ private function controlFlowLabels(data:ControlFlowData, e:Expr):Expr {
 	return switch e.expr {
 		case EBlock(exprs):
 			data = data.copy();
+			final prevParent = data.global.parent;
 			data.global.parent = new ControlFlowCase(data);
+			if (prevParent != null)
+				prevParent.exprs.push(macro __case__ = @:connecttoblock ${makeExpr(data.global.parent.index)});
 			final initParentIndex = data.global.parent.index;
 			data.global.parent.exprs.push(macro "block expr");
 			data.scopeIndex++;
 			for (i in 0...exprs.length) {
-				//final parent = data.global.parent;
+				final parent = data.global.parent;
 				exprs[i] = controlFlowLabels(data, exprs[i]);
-				data.global.parent.exprs.push(exprs[i]);
+				parent.exprs.push(exprs[i]);
 			}
 			final nextParent = new ControlFlowCase(data);
 			//nextParent.exprs = [macro __case__ = @:infloopjump ${makeExpr(0)}];
@@ -1213,9 +1216,8 @@ private function controlFlowLabels(data:ControlFlowData, e:Expr):Expr {
 			final labelName = exprToStringValue(s.params[0]);
 			final prevParent = data.global.parent;
 			data.global.parent = new ControlFlowCase(data);
-			prevParent.exprs.push(macro __case__ = @:labelconnectjump ${makeExpr(data.global.parent.index)});
 			data.global.caseMap[labelName] = data.global.parent.index;
-			trace("labelName:", labelName);
+			prevParent.exprs.push(macro __case__ = @:labelconnectjump ${makeExpr(data.global.parent.index)});
 			//trace(printer.printExpr(e));
 			e = controlFlowLabels(data, e);
 			trace("AFTER:", printer.printExpr(e));

@@ -13,12 +13,12 @@ import (
 )
 
 type funcScope struct {
-	lastJump     *JumpData
-	tempVars     map[*ast.Object]tempVarData
-	checker      *types.Checker
-	labelMap     map[string]labelData
-	jumps        []*JumpData
-	runAfterNext func()
+	lastJump *JumpData
+	tempVars map[*ast.Object]tempVarData
+	checker  *types.Checker
+	labelMap map[string]labelData
+	jumps    []*JumpData
+	inside   bool
 }
 
 func newFuncScope(checker *types.Checker) *funcScope {
@@ -49,14 +49,6 @@ func (fs *funcScope) elimGotos(stmt ast.Stmt) ast.Stmt {
 	switch stmt := stmt.(type) {
 	case *ast.BlockStmt:
 		for i := range stmt.List {
-			if fs.lastJump.index == -1 {
-				index := int(stmt.List[i].Pos())
-				fs.lastJump.index = index
-			}
-			if fs.runAfterNext != nil {
-				fs.runAfterNext()
-				fs.runAfterNext = nil
-			}
 			stmt.List[i] = fs.elimGotos(stmt.List[i])
 		}
 		return stmt
@@ -81,27 +73,41 @@ func (fs *funcScope) elimGotos(stmt ast.Stmt) ast.Stmt {
 	case *ast.DeferStmt:
 		fs.changeVars(stmt.Call)
 	case *ast.ForStmt:
+		lastJump := fs.lastJump
 		// init
-		// cond
-		// body
 		if stmt.Init != nil {
-			fs.makeJump(stmt.Init.Pos()).stmts = []ast.Stmt{fs.elimGotos(stmt.Init)}
+			fs.makeJump(stmt.Init.Pos(), true).stmts = []ast.Stmt{fs.elimGotos(stmt.Init)}
 			fmt.Println(len(fs.jumps))
 		}
 		if stmt.Cond == nil {
 			stmt.Cond = ast.NewIdent("true")
 		}
-		condJump := fs.makeJump(stmt.Cond.Pos())
-		fs.runAfterNext = func() {
-			fs.changeVars(stmt.Cond)
-			condJump.stmts = []ast.Stmt{
-				makeIf(stmt.Cond, []ast.Stmt{jumpTo(stmt.Body.Pos())}, []ast.Stmt{jumpTo(token.Pos(fs.lastJump.index))}),
-			}
+		condJump := fs.makeJump(stmt.For, true)
+		fs.changeVars(stmt.Cond)
+		// cond
+		endPos := stmt.End()
+		insideBool := fs.inside
+		if insideBool {
+			endPos = token.Pos(lastJump.index)
 		}
-		fs.makeJump(stmt.Body.Pos()).stmts = fs.elimGotos(stmt.Body).(*ast.BlockStmt).List
-		// disconnect the for loop condition case with the next case
-		fs.makeJump(-1)
-		return jumpTo(stmt.Init.Pos())
+		condJump.stmts = []ast.Stmt{
+			makeIf(stmt.Cond, []ast.Stmt{jumpTo(stmt.Body.Pos())}, []ast.Stmt{jumpTo(endPos)}),
+		}
+		// body
+		bodyJump := fs.makeJump(stmt.Body.Pos(), false)
+		post := fs.elimGotos(stmt.Post)
+		fs.inside = true
+		bodyJump.stmts = fs.elimGotos(stmt.Body).(*ast.BlockStmt).List
+		fs.inside = false
+		bodyJump.stmts = append(bodyJump.stmts, jumpTo(stmt.For), post)
+		// next jump
+		if !insideBool {
+			nextJump := fs.makeJump(stmt.End(), false)
+			_ = nextJump
+		}
+		return &ast.BlockStmt{
+			List: []ast.Stmt{jumpTo(stmt.For), &ast.BranchStmt{Tok: token.CONTINUE}},
+		}
 	}
 	// add to last jump
 	fs.lastJump.stmts = append(fs.lastJump.stmts, stmt.(ast.Stmt))
@@ -120,7 +126,10 @@ func assign(ident *ast.Ident, value ast.Expr) ast.Stmt {
 	return &ast.AssignStmt{Lhs: []ast.Expr{ident}, Tok: token.ASSIGN, Rhs: []ast.Expr{value}}
 }
 
-func (fs *funcScope) makeJump(pos token.Pos) *JumpData {
+func (fs *funcScope) makeJump(pos token.Pos, connectJump bool) *JumpData {
+	if connectJump {
+		fs.lastJump.stmts = append(fs.lastJump.stmts, jumpTo(pos))
+	}
 	fs.lastJump = &JumpData{stmts: []ast.Stmt{}, index: int(pos)}
 	fs.jumps = append(fs.jumps, fs.lastJump)
 	return fs.lastJump

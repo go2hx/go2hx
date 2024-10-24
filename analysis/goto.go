@@ -18,7 +18,7 @@ type funcScope struct {
 	checker  *types.Checker
 	labelMap map[string]labelData
 	jumps    []*JumpData
-	inside   bool
+	innerPos token.Pos
 }
 
 func newFuncScope(checker *types.Checker) *funcScope {
@@ -75,9 +75,10 @@ func (fs *funcScope) elimGotos(stmt ast.Stmt) ast.Stmt {
 	case *ast.ForStmt:
 		lastJump := fs.lastJump
 		// init
+		startPos := stmt.For
 		if stmt.Init != nil {
+			startPos = stmt.Init.Pos()
 			fs.makeJump(stmt.Init.Pos(), true).stmts = []ast.Stmt{fs.elimGotos(stmt.Init)}
-			fmt.Println(len(fs.jumps))
 		}
 		if stmt.Cond == nil {
 			stmt.Cond = ast.NewIdent("true")
@@ -86,9 +87,9 @@ func (fs *funcScope) elimGotos(stmt ast.Stmt) ast.Stmt {
 		fs.changeVars(stmt.Cond)
 		// cond
 		endPos := stmt.End()
-		insideBool := fs.inside
-		if insideBool {
-			endPos = token.Pos(lastJump.index)
+		innerPosBool := fs.innerPos != 0
+		if innerPosBool {
+			endPos = fs.innerPos
 		}
 		condJump.stmts = []ast.Stmt{
 			makeIf(stmt.Cond, []ast.Stmt{jumpTo(stmt.Body.Pos())}, []ast.Stmt{jumpTo(endPos)}),
@@ -96,17 +97,20 @@ func (fs *funcScope) elimGotos(stmt ast.Stmt) ast.Stmt {
 		// body
 		bodyJump := fs.makeJump(stmt.Body.Pos(), false)
 		post := fs.elimGotos(stmt.Post)
-		fs.inside = true
+		fs.innerPos = stmt.End()
 		bodyJump.stmts = fs.elimGotos(stmt.Body).(*ast.BlockStmt).List
-		fs.inside = false
+		fs.innerPos = 0
 		bodyJump.stmts = append(bodyJump.stmts, jumpTo(stmt.For), post)
 		// next jump
-		if !insideBool {
+		if !innerPosBool {
 			nextJump := fs.makeJump(stmt.End(), false)
 			_ = nextJump
 		}
+		//return &ast.BlockStmt{}
+		fmt.Println("lastJumps")
+		p(lastJump.stmts)
 		return &ast.BlockStmt{
-			List: []ast.Stmt{jumpTo(stmt.For), &ast.BranchStmt{Tok: token.CONTINUE}},
+			List: []ast.Stmt{jumpTo(startPos), &ast.BranchStmt{Tok: token.CONTINUE}},
 		}
 	}
 	// add to last jump
@@ -249,7 +253,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 		fn.List = append(fn.List, &ast.ForStmt{
 			Body: &ast.BlockStmt{
 				List: []ast.Stmt{
-					&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("println"), Args: []ast.Expr{gotoNextIdent}}},
+					//&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("println"), Args: []ast.Expr{gotoNextIdent}}},
 					switchStmt,
 				},
 			},

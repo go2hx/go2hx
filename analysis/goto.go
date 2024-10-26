@@ -1,6 +1,7 @@
 package analysis
 
 import (
+	"bytes"
 	"fmt"
 	"go/ast"
 	"go/printer"
@@ -8,32 +9,35 @@ import (
 	"go/types"
 	"os"
 	"reflect"
+	"strconv"
 
 	"golang.org/x/tools/go/ast/astutil"
 )
 
 type funcScope struct {
-	lastJump *JumpData
-	tempVars map[*ast.Object]tempVarData
-	checker  *types.Checker
-	labelMap map[string]labelData
-	jumps    []*JumpData
-	innerPos token.Pos
+	tempVars         map[*ast.Object]tempVarData
+	checker          *types.Checker
+	labelMap         map[string]labelData
+	nextJumpFunc     func(token.Pos)
+	loopPost         ast.Stmt
+	loopContinuePos  token.Pos
+	loopBreakPosFunc func(token.Pos)
+}
+
+func (fs *funcScope) nextJumpRun(f func(token.Pos)) {
+	fs.nextJumpFunc = f
 }
 
 func newFuncScope(checker *types.Checker) *funcScope {
 	fs := &funcScope{
-		lastJump: &JumpData{stmts: []ast.Stmt{}},
 		tempVars: map[*ast.Object]tempVarData{},
 		labelMap: map[string]labelData{},
-		jumps:    []*JumpData{},
 		checker:  checker,
 	}
-	fs.jumps = append(fs.jumps, fs.lastJump)
 	return fs
 }
 
-func (fs *funcScope) changeVars(expr ast.Expr) {
+func (fs *funcScope) changeVars(expr ast.Expr) ast.Expr {
 	astutil.Apply(expr, nil, func(c *astutil.Cursor) bool {
 		switch expr := c.Node().(type) {
 		case *ast.Ident:
@@ -43,21 +47,99 @@ func (fs *funcScope) changeVars(expr ast.Expr) {
 		}
 		return true
 	})
+	return expr
 }
 
-func (fs *funcScope) elimGotos(stmt ast.Stmt) ast.Stmt {
+func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 	switch stmt := stmt.(type) {
 	case *ast.BlockStmt:
+		newStmts := []ast.Stmt{} //make([]ast.Stmt, len(stmt.List))
 		for i := range stmt.List {
-			stmt.List[i] = fs.elimGotos(stmt.List[i])
+			if fs.nextJumpFunc != nil {
+				fs.nextJumpFunc(stmt.List[i].Pos())
+				fs.nextJumpFunc = nil
+				newStmts = append(newStmts, jumpTo(stmt.List[i].Pos()))
+				newStmts = append(newStmts, setJump(stmt.List[i].Pos()))
+			}
+			newStmts = append(newStmts, fs.markJumps(stmt.List[i], scopeIndex+1)...)
 		}
-		return stmt
+		stmt.List = newStmts
+		return []ast.Stmt{stmt}
+	case *ast.BranchStmt:
+		if stmt.Label == nil {
+			switch stmt.Tok {
+			case token.BREAK:
+				stmts := []ast.Stmt{jumpTo(0)}
+				fs.loopBreakPosFunc = func(pos token.Pos) {
+					stmts[0].(*ast.AssignStmt).Rhs[0] = ast.NewIdent(fmt.Sprint(pos))
+				}
+				return stmts
+			case token.CONTINUE:
+				post := blank()
+				if fs.loopPost != nil {
+					post = fs.loopPost
+				}
+				return []ast.Stmt{post, jumpTo(fs.loopContinuePos)}
+			}
+		} else {
+
+		}
+		return []ast.Stmt{stmt}
+	case *ast.IfStmt:
+		if stmt.Init != nil {
+			stmt.Init = fs.markJumps(stmt.Init, scopeIndex)[0]
+		}
+		stmt.Body = fs.markJumps(stmt.Body, scopeIndex+1)[0].(*ast.BlockStmt)
+		stmt.Body.List = append(stmt.Body.List, blank())
+		if stmt.Else != nil {
+			stmt.Else.(*ast.BlockStmt).List = append(stmt.Else.(*ast.BlockStmt).List, blank())
+		}
+		fs.nextJumpRun(func(pos token.Pos) {
+			stmt.Body.List[len(stmt.Body.List)-1] = jumpTo(pos)
+			if stmt.Else != nil {
+				stmt.Else.(*ast.BlockStmt).List[len(stmt.Else.(*ast.BlockStmt).List)-1] = jumpTo(pos)
+			}
+		})
+		return []ast.Stmt{
+			stmt,
+		}
+	case *ast.ForStmt:
+		fs.loopContinuePos = stmt.For
+		fs.loopPost = stmt.Post
+		stmt.Body = fs.markJumps(stmt.Body, scopeIndex+1)[0].(*ast.BlockStmt)
+		init := blank()
+		if stmt.Init != nil {
+			init = fs.markJumps(stmt.Init, scopeIndex)[0]
+		}
+		body := fs.markJumps(stmt.Body, scopeIndex+1)[0].(*ast.BlockStmt)
+		body.List = append(body.List, jumpTo(stmt.For))
+		elseStmts := []ast.Stmt{blank()}
+		ifStmt := makeIf(fs.changeVars(stmt.Cond), body.List, elseStmts)
+		fs.nextJumpRun(func(pos token.Pos) {
+			elseStmts[0] = jumpTo(pos)
+			if fs.loopBreakPosFunc != nil {
+				fs.loopBreakPosFunc(pos)
+				fs.loopBreakPosFunc = nil
+			}
+		})
+		return []ast.Stmt{
+			init,
+			jumpTo(stmt.For),
+			setJump(stmt.For),
+			ifStmt,
+		}
 	case *ast.AssignStmt:
 		for i, expr := range stmt.Lhs {
 			switch expr := expr.(type) {
 			case *ast.Ident:
+				if expr.Name == "_" || expr.Name == "gotoNext" {
+					continue
+				}
 				//fmt.Println(checker.TypeOf(expr).String())
-				stmt.Lhs[i] = fs.tempVar(expr.Obj, fs.checker.TypeOf(expr))
+				fmt.Println("expr.Name:", expr.Name)
+				if expr.Obj != nil {
+					stmt.Lhs[i] = fs.tempVar(expr.Obj, fs.checker.TypeOf(expr))
+				}
 			default:
 				panic("unknown expr lhs type: " + reflect.TypeOf(expr).String())
 			}
@@ -72,71 +154,23 @@ func (fs *funcScope) elimGotos(stmt ast.Stmt) ast.Stmt {
 		fs.changeVars(stmt.X)
 	case *ast.DeferStmt:
 		fs.changeVars(stmt.Call)
-	case *ast.ForStmt:
-		lastJump := fs.lastJump
-		// init
-		startPos := stmt.For
-		if stmt.Init != nil {
-			startPos = stmt.Init.Pos()
-			fs.makeJump(stmt.Init.Pos(), true).stmts = []ast.Stmt{fs.elimGotos(stmt.Init)}
-		}
-		if stmt.Cond == nil {
-			stmt.Cond = ast.NewIdent("true")
-		}
-		condJump := fs.makeJump(stmt.For, true)
-		fs.changeVars(stmt.Cond)
-		// cond
-		endPos := stmt.End()
-		innerPosBool := fs.innerPos != 0
-		if innerPosBool {
-			endPos = fs.innerPos
-		}
-		condJump.stmts = []ast.Stmt{
-			makeIf(stmt.Cond, []ast.Stmt{jumpTo(stmt.Body.Pos())}, []ast.Stmt{jumpTo(endPos)}),
-		}
-		// body
-		bodyJump := fs.makeJump(stmt.Body.Pos(), false)
-		post := fs.elimGotos(stmt.Post)
-		fs.innerPos = stmt.End()
-		bodyJump.stmts = fs.elimGotos(stmt.Body).(*ast.BlockStmt).List
-		fs.innerPos = 0
-		bodyJump.stmts = append(bodyJump.stmts, jumpTo(stmt.For), post)
-		// next jump
-		if !innerPosBool {
-			nextJump := fs.makeJump(stmt.End(), false)
-			_ = nextJump
-		}
-		//return &ast.BlockStmt{}
-		fmt.Println("lastJumps")
-		p(lastJump.stmts)
-		return &ast.BlockStmt{
-			List: []ast.Stmt{jumpTo(startPos), &ast.BranchStmt{Tok: token.CONTINUE}},
-		}
 	}
-	// add to last jump
-	fs.lastJump.stmts = append(fs.lastJump.stmts, stmt.(ast.Stmt))
-	return stmt
+	return []ast.Stmt{stmt}
+}
+
+func blank() ast.Stmt {
+	return assign(ast.NewIdent("_"), ast.NewIdent("0"))
 }
 
 func jumpTo(pos token.Pos) ast.Stmt {
 	return assign(ast.NewIdent("gotoNext"), ast.NewIdent(fmt.Sprint(int(pos))))
 }
-
 func makeIf(cond ast.Expr, body []ast.Stmt, elseStmts []ast.Stmt) ast.Stmt {
 	return &ast.IfStmt{Cond: cond, Body: &ast.BlockStmt{List: body}, Else: &ast.BlockStmt{List: elseStmts}}
 }
 
 func assign(ident *ast.Ident, value ast.Expr) ast.Stmt {
 	return &ast.AssignStmt{Lhs: []ast.Expr{ident}, Tok: token.ASSIGN, Rhs: []ast.Expr{value}}
-}
-
-func (fs *funcScope) makeJump(pos token.Pos, connectJump bool) *JumpData {
-	if connectJump {
-		fs.lastJump.stmts = append(fs.lastJump.stmts, jumpTo(pos))
-	}
-	fs.lastJump = &JumpData{stmts: []ast.Stmt{}, index: int(pos)}
-	fs.jumps = append(fs.jumps, fs.lastJump)
-	return fs.lastJump
 }
 
 func (fs *funcScope) tempVar(nameObj *ast.Object, t types.Type) *ast.Ident {
@@ -156,6 +190,10 @@ type labelData struct {
 type JumpData struct {
 	index int
 	stmts []ast.Stmt
+}
+
+func (j *JumpData) connect(pos token.Pos) {
+	j.stmts = append(j.stmts, jumpTo(pos))
 }
 
 type tempVarData struct {
@@ -210,27 +248,68 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 			return false
 		}, nil)
 		// temp vars and flatten control flow
-		fn = fs.elimGotos(fn).(*ast.BlockStmt)
+		fn = fs.markJumps(fn, 0)[0].(*ast.BlockStmt)
 		// create switch stmt
 		gotoNextIdent := ast.NewIdent("gotoNext")
 		switchStmt := &ast.SwitchStmt{
 			Tag:  gotoNextIdent,
 			Body: &ast.BlockStmt{},
 		}
-		if len(fs.jumps) > 0 {
-			fs.lastJump.stmts = append(fs.lastJump.stmts, &ast.BranchStmt{Tok: token.RETURN})
-		}
-		for _, jump := range fs.jumps {
-			switchStmt.Body.List = append(switchStmt.Body.List, &ast.CaseClause{
-				List: []ast.Expr{ast.NewIdent(fmt.Sprint(jump.index))},
-				Body: jump.stmts,
-			})
+		_ = switchStmt
+		secondPass := true
+		if secondPass {
+			buf := bytes.NewBufferString("")
+			printer.Fprint(buf, token.NewFileSet(), fn)
+			file.Doc = &ast.CommentGroup{List: []*ast.Comment{&ast.Comment{Text: "/*" + buf.String() + "*/"}}}
+			jumps := map[int][]ast.Stmt{
+				0: []ast.Stmt{},
+			}
+			astutil.Apply(fn, func(c *astutil.Cursor) bool {
+				fmt.Println(reflect.TypeOf(c.Node()).String())
+				switch stmt := c.Node().(type) {
+				case *ast.BlockStmt:
+					//newStmts := []ast.Stmt{}
+					list := stmt.List
+					startPos := 0
+					for i, stmt := range list {
+						pos, startBool := findGoto(stmt)
+						jumps[pos] = append(jumps[pos], stmt)
+						if pos == -1 {
+							return true
+						}
+						if startBool {
+							startPos = i
+						} else {
+							jumps[pos] = list[startPos:i]
+						}
+						_ = stmt
+					}
+					//stmt.List = newStmts
+				}
+				return true
+			}, nil)
+			//jumps[int(fn.Pos())] = fn.List
+			for index, stmts := range jumps {
+				switchStmt.Body.List = append(switchStmt.Body.List, &ast.CaseClause{
+					List: []ast.Expr{ast.NewIdent(fmt.Sprint(index))},
+					Body: stmts,
+				})
+			}
+			fn.List = []ast.Stmt{switchStmt}
 		}
 		// set as function body
-		fn.List = []ast.Stmt{}
+		//fn.List = []ast.Stmt{}
+		// define of gotoNext
+		startExpr := ast.NewIdent("0")
+		fn.List = append([]ast.Stmt{&ast.AssignStmt{
+			Tok: token.DEFINE,
+			Lhs: []ast.Expr{gotoNextIdent},
+			Rhs: []ast.Expr{startExpr},
+		}, setJump(0)}, fn.List...)
+
 		// add temp vars
 		for _, data := range fs.tempVars {
-			fn.List = append(fn.List, &ast.DeclStmt{
+			fn.List = append([]ast.Stmt{&ast.DeclStmt{
 				Decl: &ast.GenDecl{
 					Tok: token.VAR,
 					Specs: []ast.Spec{
@@ -240,24 +319,19 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 						},
 					},
 				},
-			})
+			}}, fn.List...)
 		}
-		// define of gotoNext
-		startExpr := ast.NewIdent("0")
-		fn.List = append(fn.List, &ast.AssignStmt{
-			Tok: token.DEFINE,
-			Lhs: []ast.Expr{gotoNextIdent},
-			Rhs: []ast.Expr{startExpr},
-		})
-		// for loop inside switch
-		fn.List = append(fn.List, &ast.ForStmt{
-			Body: &ast.BlockStmt{
-				List: []ast.Stmt{
-					//&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("println"), Args: []ast.Expr{gotoNextIdent}}},
-					switchStmt,
+
+		/*
+			// for loop inside switch
+			fn.List = append(fn.List, &ast.ForStmt{
+				Body: &ast.BlockStmt{
+					List: []ast.Stmt{
+						//&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("println"), Args: []ast.Expr{gotoNextIdent}}},
+						//switchStmt,
+					},
 				},
-			},
-		})
+			})*/
 	}
 	// find labels
 
@@ -268,6 +342,48 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 	// turn funcs' blocks into looped switch statement
 
 	// optional print out somewhere and run
+}
+
+func findGoto(stmt ast.Stmt) (pos int, startBool bool) {
+	switch stmt := stmt.(type) {
+	case *ast.AssignStmt:
+		if len(stmt.Lhs) == 1 && len(stmt.Rhs) == 1 {
+			switch ident := stmt.Lhs[0].(type) {
+			case *ast.Ident:
+				if ident.Name == "gotoNext" { // end
+					// execute
+					i, err := strconv.Atoi(stmt.Rhs[0].(*ast.Ident).Name)
+					if err != nil {
+						panic(err)
+					}
+					return i, false
+				} else if ident.Name == "_" { // start
+					switch rhs := stmt.Rhs[0].(type) {
+					case *ast.BinaryExpr:
+						if rhs.Op == token.EQL {
+							switch x := rhs.X.(type) {
+							case *ast.Ident:
+								if x.Name == "gotoNext" {
+									// execute
+									// execute
+									i, err := strconv.Atoi(rhs.Y.(*ast.Ident).Name)
+									if err != nil {
+										panic(err)
+									}
+									return i, true
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	return -1, false
+}
+
+func setJump(pos token.Pos) ast.Stmt {
+	return assign(ast.NewIdent("_"), &ast.BinaryExpr{X: ast.NewIdent("gotoNext"), Y: ast.NewIdent(fmt.Sprint(pos)), Op: token.EQL})
 }
 
 func define(ident *ast.Ident, value ast.Expr) ast.Stmt {

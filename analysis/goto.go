@@ -100,7 +100,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		} else {
 			stmt.Else.(*ast.BlockStmt).List = append([]ast.Stmt{jumpTo(stmt.Else.Pos()), setJump(stmt.Else.Pos())}, stmt.Else.(*ast.BlockStmt).List...)
 		}
-		stmt.Body.List = append([]ast.Stmt{jumpTo(stmt.If), setJump(stmt.If)}, stmt.Body.List...)
+		stmt.Body.List = append([]ast.Stmt{jumpTo(stmt.Body.Pos()), setJump(stmt.Body.Pos())}, stmt.Body.List...)
 		stmt.Else.(*ast.BlockStmt).List = append(stmt.Else.(*ast.BlockStmt).List, blank())
 		stmt.Body.List = append(stmt.Body.List, blank())
 		fs.nextJumpRun(func(pos token.Pos) {

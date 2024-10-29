@@ -100,6 +100,11 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 					assign(ast.NewIdent(stmt.Label.Name+"Break"), ast.NewIdent("true")),
 					jumpTo(pos),
 				}
+			case token.CONTINUE:
+				pos := fs.labelMapContinue[stmt.Label.Name]
+				return []ast.Stmt{
+					jumpTo(pos),
+				}
 			}
 		}
 		return []ast.Stmt{stmt}
@@ -202,25 +207,61 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			setJump(stmt.For),
 			ifStmt,
 		)
-	case *ast.AssignStmt:
-		for i, expr := range stmt.Lhs {
-			switch expr := expr.(type) {
-			case *ast.Ident:
-				if expr.Name == "_" || expr.Name == "gotoNext" {
-					continue
+	case *ast.DeclStmt:
+		switch decl := stmt.Decl.(type) {
+		case *ast.GenDecl:
+			isVar := false
+			stmts := []ast.Stmt{}
+			for _, spec := range decl.Specs {
+				switch spec := spec.(type) {
+				case *ast.ValueSpec:
+					isVar = true
+					names := []ast.Expr{}
+					for i, name := range spec.Names {
+						ident := fs.tempVarWithTypeExpr(name.Obj, spec.Type)
+						if len(spec.Values) > i {
+							names = append(names, ident)
+						}
+					}
+					for i := range spec.Values {
+						spec.Values[i] = fs.changeVars(spec.Values[i])
+					}
+					if len(names) > 0 {
+						stmts = append(stmts, &ast.AssignStmt{Lhs: names, Rhs: spec.Values, Tok: token.ASSIGN})
+					}
+				default:
 				}
-				//fmt.Println(checker.TypeOf(expr).String())
-				if expr.Obj != nil {
-					stmt.Lhs[i] = fs.tempVar(expr.Obj, fs.checker.TypeOf(expr))
-				}
-			default:
-				panic("unknown expr lhs type: " + reflect.TypeOf(expr).String())
+			}
+			if !isVar {
+				return []ast.Stmt{stmt}
+			} else {
+				return stmts
 			}
 		}
-		for i := range stmt.Rhs {
-			fs.changeVars(stmt.Rhs[i])
+	case *ast.AssignStmt:
+		if stmt.Tok == token.DEFINE {
+			for i, expr := range stmt.Lhs {
+				switch expr := expr.(type) {
+				case *ast.Ident:
+					if expr.Name == "_" || expr.Name == "gotoNext" {
+						continue
+					}
+					//fmt.Println(checker.TypeOf(expr).String())
+					if expr.Obj != nil {
+						stmt.Lhs[i] = fs.tempVar(expr.Obj, fs.checker.TypeOf(expr))
+					}
+				default:
+					panic("unknown expr lhs type: " + reflect.TypeOf(expr).String())
+				}
+			}
+			stmt.Tok = token.ASSIGN
 		}
-		stmt.Tok = token.ASSIGN
+		for i := range stmt.Rhs {
+			stmt.Rhs[i] = fs.changeVars(stmt.Rhs[i])
+		}
+		for i := range stmt.Lhs {
+			stmt.Lhs[i] = fs.changeVars(stmt.Lhs[i])
+		}
 	case *ast.ExprStmt:
 		fs.changeVars(stmt.X)
 	case *ast.IncDecStmt:
@@ -248,13 +289,17 @@ func assign(ident *ast.Ident, value ast.Expr) ast.Stmt {
 	return &ast.AssignStmt{Lhs: []ast.Expr{ident}, Tok: token.ASSIGN, Rhs: []ast.Expr{value}}
 }
 
-func (fs *funcScope) tempVar(nameObj *ast.Object, t types.Type) *ast.Ident {
+func (fs *funcScope) tempVarWithTypeExpr(nameObj *ast.Object, t ast.Expr) *ast.Ident {
 	if data, ok := fs.tempVars[nameObj]; ok {
 		return data.Ident
 	}
 	ident := ast.NewIdent(nameObj.Name + "_" + fmt.Sprint(int(nameObj.Pos())))
-	fs.tempVars[nameObj] = tempVarData{Ident: ident, Type: typeToExpr(t)}
+	fs.tempVars[nameObj] = tempVarData{Ident: ident, Type: t}
 	return ident
+}
+
+func (fs *funcScope) tempVar(nameObj *ast.Object, t types.Type) *ast.Ident {
+	return fs.tempVarWithTypeExpr(nameObj, typeToExpr(t))
 }
 
 type labelData struct {
@@ -311,8 +356,6 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 				case *ast.ForStmt:
 					fs.labelMapContinue[labelName] = child.For
 					fs.loopLabelMap[child.Pos()] = labelName
-					fmt.Println("set!")
-					_ = child
 				}
 			}
 			return true

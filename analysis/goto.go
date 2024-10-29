@@ -157,7 +157,12 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		if stmt.Else == nil {
 			stmt.Else = &ast.BlockStmt{List: []ast.Stmt{}, Lbrace: stmt.End()}
 		} else {
-			stmt.Else.(*ast.BlockStmt).List = append([]ast.Stmt{jumpTo(stmt.Else.Pos()), setJump(stmt.Else.Pos())}, stmt.Else.(*ast.BlockStmt).List...)
+			nextJumpFunc := fs.nextJumpFunc
+			fs.nextJumpFunc = make([]func(token.Pos), 0)
+			stmt.Else = fs.markJumps(stmt.Else, scopeIndex)[0]
+			fs.nextJumpFunc = append(fs.nextJumpFunc, nextJumpFunc...)
+			pos := stmt.Else.(*ast.BlockStmt).Pos()
+			stmt.Else.(*ast.BlockStmt).List = append([]ast.Stmt{jumpTo(pos), setJump(pos)}, stmt.Else.(*ast.BlockStmt).List...)
 		}
 		stmt.Body.List = append([]ast.Stmt{jumpTo(stmt.Body.Pos()), setJump(stmt.Body.Pos())}, stmt.Body.List...)
 		stmt.Else.(*ast.BlockStmt).List = append(stmt.Else.(*ast.BlockStmt).List, blank())

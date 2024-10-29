@@ -18,7 +18,7 @@ type funcScope struct {
 	tempVars         map[*ast.Object]tempVarData
 	checker          *types.Checker
 	labelMap         map[string]token.Pos
-	labelMapContinue map[string]token.Pos
+	labelMapLoop     map[string]*ast.ForStmt
 	loopLabelMap     map[token.Pos]string
 	nextJumpFunc     []func(token.Pos)
 	loopPost         ast.Stmt
@@ -32,12 +32,12 @@ func (fs *funcScope) nextJumpRun(f func(token.Pos)) {
 
 func newFuncScope(checker *types.Checker) *funcScope {
 	fs := &funcScope{
-		tempVars:         map[*ast.Object]tempVarData{},
-		labelMap:         map[string]token.Pos{},
-		loopLabelMap:     map[token.Pos]string{},
-		labelMapContinue: map[string]token.Pos{},
-		checker:          checker,
-		nextJumpFunc:     []func(token.Pos){},
+		tempVars:     map[*ast.Object]tempVarData{},
+		labelMap:     map[string]token.Pos{},
+		loopLabelMap: map[token.Pos]string{},
+		labelMapLoop: map[string]*ast.ForStmt{},
+		checker:      checker,
+		nextJumpFunc: []func(token.Pos){},
 	}
 	return fs
 }
@@ -95,15 +95,16 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				pos := fs.labelMap[stmt.Label.Name]
 				return []ast.Stmt{jumpTo(pos)}
 			case token.BREAK:
-				pos := fs.labelMapContinue[stmt.Label.Name]
+				forStmt := fs.labelMapLoop[stmt.Label.Name]
 				return []ast.Stmt{
 					assign(ast.NewIdent(stmt.Label.Name+"Break"), ast.NewIdent("true")),
-					jumpTo(pos),
+					jumpTo(forStmt.For),
 				}
 			case token.CONTINUE:
-				pos := fs.labelMapContinue[stmt.Label.Name]
+				forStmt := fs.labelMapLoop[stmt.Label.Name]
 				return []ast.Stmt{
-					jumpTo(pos),
+					forStmt.Post,
+					jumpTo(forStmt.For),
 				}
 			}
 		}
@@ -354,7 +355,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 				case *ast.LabeledStmt:
 				case *ast.RangeStmt:
 				case *ast.ForStmt:
-					fs.labelMapContinue[labelName] = child.For
+					fs.labelMapLoop[labelName] = child
 					fs.loopLabelMap[child.Pos()] = labelName
 				}
 			}

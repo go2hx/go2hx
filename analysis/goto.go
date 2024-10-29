@@ -117,9 +117,11 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 					stmt.Body.List[i].(*ast.CaseClause).List[j] = fs.changeVars(stmt.Body.List[i].(*ast.CaseClause).List[j])
 				}
 			}
+			newStmts := []ast.Stmt{}
 			for j := range stmt.Body.List[i].(*ast.CaseClause).Body {
-				stmt.Body.List[i].(*ast.CaseClause).Body[j] = fs.markJumps(stmt.Body.List[i].(*ast.CaseClause).Body[j], scopeIndex+1)[0]
+				newStmts = append(newStmts, fs.markJumps(stmt.Body.List[i].(*ast.CaseClause).Body[j], scopeIndex+1)...)
 			}
+			stmt.Body.List[i].(*ast.CaseClause).Body = newStmts
 			stmt.Body.List[i].(*ast.CaseClause).Body = append([]ast.Stmt{jumpTo(stmt.Body.List[i].(*ast.CaseClause).Pos()), setJump(stmt.Body.List[i].(*ast.CaseClause).Pos())}, stmt.Body.List[i].(*ast.CaseClause).Body...)
 			stmt.Body.List[i].(*ast.CaseClause).Body = append(stmt.Body.List[i].(*ast.CaseClause).Body, blank())
 			i := i
@@ -307,7 +309,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 				case *ast.LabeledStmt:
 				case *ast.RangeStmt:
 				case *ast.ForStmt:
-					fs.labelMapContinue[labelName] = child.Cond.Pos()
+					fs.labelMapContinue[labelName] = child.For
 					fs.loopLabelMap[child.Pos()] = labelName
 					fmt.Println("set!")
 					_ = child
@@ -348,33 +350,10 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 					jumpPos = 0
 				}
 				switch stmt := c.Node().(type) {
+				case *ast.CaseClause:
+					stmt.Body = addToBlock(stmt.Body, jumpPos, jumps)
 				case *ast.BlockStmt:
-					newStmts := []ast.Stmt{}
-					addToBlock := true
-					for _, stmt := range stmt.List {
-						pos, labelBool := findGoto(stmt)
-						if pos != -1 && labelBool {
-							// end
-							jumpPos = pos
-							continue
-						}
-						if jumpPos != -1 {
-							jumps[jumpPos] = append(jumps[jumpPos], stmt)
-						}
-						if addToBlock {
-							newStmts = append(newStmts, stmt)
-						}
-						switch stmt.(type) {
-						case *ast.IfStmt:
-							jumpPos = -1
-							addToBlock = false
-						}
-						if pos != -1 && !labelBool {
-							jumpPos = -1
-							addToBlock = false
-						}
-					}
-					stmt.List = newStmts
+					stmt.List = addToBlock(stmt.List, jumpPos, jumps)
 					c.Replace(stmt)
 				}
 				return true
@@ -437,6 +416,35 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 	// turn funcs' blocks into looped switch statement
 
 	// optional print out somewhere and run
+}
+
+func addToBlock(list []ast.Stmt, jumpPos int, jumps map[int][]ast.Stmt) []ast.Stmt {
+	newStmts := []ast.Stmt{}
+	addToBlock := true
+	for _, stmt := range list {
+		pos, labelBool := findGoto(stmt)
+		if pos != -1 && labelBool {
+			// end
+			jumpPos = pos
+			continue
+		}
+		if jumpPos != -1 {
+			jumps[jumpPos] = append(jumps[jumpPos], stmt)
+		}
+		if addToBlock {
+			newStmts = append(newStmts, stmt)
+		}
+		switch stmt.(type) {
+		case *ast.IfStmt, *ast.SwitchStmt:
+			jumpPos = -1
+			addToBlock = false
+		}
+		if pos != -1 && !labelBool {
+			jumpPos = -1
+			addToBlock = false
+		}
+	}
+	return newStmts
 }
 
 func findGoto(stmt ast.Stmt) (pos int, labelBool bool) {

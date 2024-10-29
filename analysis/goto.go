@@ -331,8 +331,11 @@ func typeToExpr(t types.Type) ast.Expr {
 	switch t := t.(type) {
 	case *types.Basic:
 		return ast.NewIdent(t.Name())
+	case *types.Signature:
+		return ast.NewIdent(t.String())
 	default:
-		panic("typeToExpr unsupported type: " + reflect.TypeOf(t).String())
+		return ast.NewIdent(t.String())
+		//panic("typeToExpr unsupported type: " + reflect.TypeOf(t).String())
 	}
 }
 

@@ -14,13 +14,13 @@ import (
 )
 
 func GotoParseTest() {
-	tests := []string{
-		//"goto0",
-		//"break1",
-		"test",
+	dir := "analysis/tests/unit"
+	paths, err := os.ReadDir(dir)
+	if err != nil {
+		panic(err)
 	}
-	for _, test := range tests {
-		create("analysis/tests/unit", test+".go")
+	for _, path := range paths {
+		create(dir, path.Name())
 	}
 }
 
@@ -71,15 +71,17 @@ func create(filePath string, fileName string) {
 }
 
 func run(oldPath, newPath string) {
-	runCmd(oldPath)
-	runCmd(newPath)
+	if runCmd(oldPath) != runCmd(newPath) {
+		panic("output not equal")
+	}
 }
 
-func runCmd(runPath string) {
+func runCmd(runPath string) string {
 	out, err := exec.Command("go", "run", runPath).CombinedOutput()
 	fmt.Println(runPath + ":")
 	fmt.Println(string(out))
 	if err != nil {
-		panic(out)
+		panic(err)
 	}
+	return string(out)
 }

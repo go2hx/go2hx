@@ -2341,6 +2341,10 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 
 function cforPostContinue(post:Expr, e:Expr):Expr {
 	return switch e.expr {
+		case EMeta({pos: _, name: ":fallthrough", params: null}, _):
+			return e;
+		case EFor(_, _), EWhile(_, _, _):
+			return e;
 		case EContinue:
 			macro {
 				$post;

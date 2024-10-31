@@ -24,54 +24,6 @@
     |                                                                                                                                                                                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
     | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Point
 
-[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:12: characters 191-254
-
- 12 | [2m        var __tmp__ = (stdgo.Go.setRef((new _internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Point.Point[0m[2m>).setBytes(_publicKey), a:stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Point.Point> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-    |                                                                                                                                                                                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Point
-
-[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:12: characters 291-354
-
- 12 | [2m        var __tmp__ = (stdgo.Go.setRef((new _internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Point.Point>).setBytes(_publicKey), a:stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Point.Point[0m[2m> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-    |                                                                                                                                                                                                                                                                                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Point
-
-[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:27: characters 23-84
-
- 27 | [2m        var __tmp__ = [0m[1m_internal.crypto.internal.edwards25519.Edwards25519_newScalar[0m[2m.newScalar().setUniformBytes(_hramDigest), _k:stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Scalar.Scalar> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-    |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_newScalar
-
-[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:27: characters 140-205
-
- 27 | [2m        var __tmp__ = _internal.crypto.internal.edwards25519.Edwards25519_newScalar.newScalar().setUniformBytes(_hramDigest), _k:stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Scalar.Scalar[0m[2m> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-    |                                                                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Scalar
-
-[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:31: characters 23-84
-
- 31 | [2m        var __tmp__ = [0m[1m_internal.crypto.internal.edwards25519.Edwards25519_newScalar[0m[2m.newScalar().setCanonicalBytes((_sig.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), s:stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Scalar.Scalar> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-    |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_newScalar
-
-[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:31: characters 195-260
-
- 31 | [2m        var __tmp__ = _internal.crypto.internal.edwards25519.Edwards25519_newScalar.newScalar().setCanonicalBytes((_sig.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), s:stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Scalar.Scalar[0m[2m> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-    |                                                                                                                                                                                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Scalar
-
-[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:35: characters 191-254
-
- 35 | [2m        var _minusA = (stdgo.Go.setRef((new _internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Point.Point[0m[2m>).negate(a);[0m
-    |                                                                                                                                                                                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Point
-
-[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:36: characters 185-248
-
- 36 | [2m        var r = (stdgo.Go.setRef((new _internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Point.Point[0m[2m>).varTimeDoubleScalarBaseMult(_k, _minusA, s);[0m
-    |                                                                                                                                                                                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Point
-
 [30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__sign.hx:12: characters 23-84
 
  12 | [2m        var __tmp__ = [0m[1m_internal.crypto.internal.edwards25519.Edwards25519_newScalar[0m[2m.newScalar().setBytesWithClamping((_h.__slice__(0, (32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _s:stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Scalar.Scalar> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
@@ -119,6 +71,54 @@
  47 | [2m        var s = [0m[1m_internal.crypto.internal.edwards25519.Edwards25519_newScalar[0m[2m.newScalar().multiplyAdd(_k, _s, _r);[0m
     |                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
     | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_newScalar
+
+[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:12: characters 191-254
+
+ 12 | [2m        var __tmp__ = (stdgo.Go.setRef((new _internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Point.Point[0m[2m>).setBytes(_publicKey), a:stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Point.Point> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+    |                                                                                                                                                                                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Point
+
+[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:12: characters 291-354
+
+ 12 | [2m        var __tmp__ = (stdgo.Go.setRef((new _internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Point.Point>).setBytes(_publicKey), a:stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Point.Point[0m[2m> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+    |                                                                                                                                                                                                                                                                                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Point
+
+[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:27: characters 23-84
+
+ 27 | [2m        var __tmp__ = [0m[1m_internal.crypto.internal.edwards25519.Edwards25519_newScalar[0m[2m.newScalar().setUniformBytes(_hramDigest), _k:stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Scalar.Scalar> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+    |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_newScalar
+
+[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:27: characters 140-205
+
+ 27 | [2m        var __tmp__ = _internal.crypto.internal.edwards25519.Edwards25519_newScalar.newScalar().setUniformBytes(_hramDigest), _k:stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Scalar.Scalar[0m[2m> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+    |                                                                                                                                            [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Scalar
+
+[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:31: characters 23-84
+
+ 31 | [2m        var __tmp__ = [0m[1m_internal.crypto.internal.edwards25519.Edwards25519_newScalar[0m[2m.newScalar().setCanonicalBytes((_sig.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), s:stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Scalar.Scalar> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+    |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_newScalar
+
+[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:31: characters 195-260
+
+ 31 | [2m        var __tmp__ = _internal.crypto.internal.edwards25519.Edwards25519_newScalar.newScalar().setCanonicalBytes((_sig.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), s:stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Scalar.Scalar[0m[2m> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+    |                                                                                                                                                                                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Scalar
+
+[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:35: characters 191-254
+
+ 35 | [2m        var _minusA = (stdgo.Go.setRef((new _internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Point.Point[0m[2m>).negate(a);[0m
+    |                                                                                                                                                                                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Point
+
+[30;41m ERROR [0m stdgo/_internal/crypto/ed25519/Ed25519__verify.hx:36: characters 185-248
+
+ 36 | [2m        var r = (stdgo.Go.setRef((new _internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<[0m[1m_internal.crypto.internal.edwards25519.Edwards25519_Point.Point[0m[2m>).varTimeDoubleScalarBaseMult(_k, _minusA, s);[0m
+    |                                                                                                                                                                                         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+    | Type not found : _internal.crypto.internal.edwards25519.Edwards25519_Point
 
 
 ```

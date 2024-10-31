@@ -14,6 +14,10 @@
         |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
         | Called from here
 
+[30;41m ERROR [0m (unknown position)
+
+   | Stack overflow
+
 
 ```
 

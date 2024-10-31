@@ -1,28 +1,60 @@
 # Module stdgo._internal.internal.fuzz has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:22: characters 9-23
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:65: characters 81-83
 
-  22 | [2m        [0m[1m_count.value++[0m[2m;[0m
-     |         [31m^^^^^^^^^^^^^^[0m
-     | stdgo.GoInt64 should be Int
+  65 | [2m            var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__.[0m[1m_0[0m[2m, _ok = __tmp__._1;[0m
+     |                                                                                 [31m^^[0m
+     | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _0
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:22: characters 9-23
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:65: characters 99-101
 
-  22 | [2m        [0m[1m_count.value++[0m[2m;[0m
-     |         [31m^^^^^^^^^^^^^^[0m
-     | Int should be stdgo.GoInt64
+  65 | [2m            var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__._0, _ok = __tmp__.[0m[1m_1[0m[2m;[0m
+     |                                                                                                   [31m^^[0m
+     | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _1
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:50: characters 13-27
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:76: characters 106-114
 
-  50 | [2m            [0m[1m_count.value++[0m[2m;[0m
-     |             [31m^^^^^^^^^^^^^^[0m
-     | stdgo.GoInt64 should be Int
+  76 | [2m            var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__corpusEntryData._corpusEntryData(_entryIn?.[0m[1m__copy__[0m[2m()), _inp:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+     |                                                                                                          [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:50: characters 13-27
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:78: characters 49-53
 
-  50 | [2m            [0m[1m_count.value++[0m[2m;[0m
-     |             [31m^^^^^^^^^^^^^^[0m
-     | Int should be stdgo.GoInt64
+  78 | [2m                _wc._workerComm._memMu.__send__([0m[1m_mem[0m[2m);[0m
+     |                                                 [31m^^^^[0m
+     | stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem> should be { _header : () -> Unknown<0> : { _count : stdgo.GoInt64 } }
+     | stdgo._internal.internal.fuzz.T_sharedMem has no field _header
+     | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:88: characters 45-49
+
+  88 | [2m            _wc._workerComm._memMu.__send__([0m[1m_mem[0m[2m);[0m
+     |                                             [31m^^^^[0m
+     | stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem> should be { _setValue : stdgo.Slice<stdgo.GoUInt8> -> Unknown<1>, _header : () -> Unknown<0> : { _count : stdgo.GoInt64 } }
+     | stdgo._internal.internal.fuzz.T_sharedMem has no field _header
+     | For function argument 'value'
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:102: characters 32-34
+
+ 102 | [2m                _mem = __tmp__.[0m[1m_0[0m[2m;[0m
+     |                                [31m^^[0m
+     | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _0
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:103: characters 31-33
+
+ 103 | [2m                _ok = __tmp__.[0m[1m_1[0m[2m;[0m
+     |                               [31m^^[0m
+     | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _1
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:118: characters 57-61
+
+ 118 | [2m                        _wc._workerComm._memMu.__send__([0m[1m_mem[0m[2m);[0m
+     |                                                         [31m^^^^[0m
+     | stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem> should be { _setValue : stdgo.Slice<stdgo.GoUInt8> -> Unknown<1>, _header : () -> Unknown<0> : { _count : stdgo.GoInt64 } }
+     | stdgo._internal.internal.fuzz.T_sharedMem has no field _header
+     | For function argument 'value'
+
+          | For function argument 'x'
 
 [30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz__parseCorpusValue.hx:3: characters 19-60
 
@@ -500,74 +532,6 @@
      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | Type not found : _internal.crypto.internal.boring.sig.Sig_standardCrypto
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:351: characters 59-67
-
- 351 | [2m                        var __tmp__ = _ws._fuzzFn(_entry?.[0m[1m__copy__[0m[2m());[0m
-     |                                                           [31m^^^^^^^^[0m
-     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
-
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:459: characters 65-73
-
- 459 | [2m                                var __tmp__ = _fuzzOnce(_entry?.[0m[1m__copy__[0m[2m()), _dur:stdgo._internal.time.Time_Duration.Duration = __tmp__._0, _cov:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _errMsg:stdgo.GoString = __tmp__._2;[0m
-     |                                                                 [31m^^^^^^^^[0m
-     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
-
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:65: characters 81-83
-
-  65 | [2m            var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__.[0m[1m_0[0m[2m, _ok = __tmp__._1;[0m
-     |                                                                                 [31m^^[0m
-     | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _0
-
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:65: characters 99-101
-
-  65 | [2m            var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__._0, _ok = __tmp__.[0m[1m_1[0m[2m;[0m
-     |                                                                                                   [31m^^[0m
-     | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _1
-
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:76: characters 106-114
-
-  76 | [2m            var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__corpusEntryData._corpusEntryData(_entryIn?.[0m[1m__copy__[0m[2m()), _inp:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
-     |                                                                                                          [31m^^^^^^^^[0m
-     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
-
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:78: characters 49-53
-
-  78 | [2m                _wc._workerComm._memMu.__send__([0m[1m_mem[0m[2m);[0m
-     |                                                 [31m^^^^[0m
-     | stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem> should be { _header : () -> Unknown<0> : { _count : stdgo.GoInt64 } }
-     | stdgo._internal.internal.fuzz.T_sharedMem has no field _header
-     | For function argument 'value'
-
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:88: characters 45-49
-
-  88 | [2m            _wc._workerComm._memMu.__send__([0m[1m_mem[0m[2m);[0m
-     |                                             [31m^^^^[0m
-     | stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem> should be { _setValue : stdgo.Slice<stdgo.GoUInt8> -> Unknown<1>, _header : () -> Unknown<0> : { _count : stdgo.GoInt64 } }
-     | stdgo._internal.internal.fuzz.T_sharedMem has no field _header
-     | For function argument 'value'
-
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:102: characters 32-34
-
- 102 | [2m                _mem = __tmp__.[0m[1m_0[0m[2m;[0m
-     |                                [31m^^[0m
-     | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _0
-
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:103: characters 31-33
-
- 103 | [2m                _ok = __tmp__.[0m[1m_1[0m[2m;[0m
-     |                               [31m^^[0m
-     | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _1
-
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:118: characters 57-61
-
- 118 | [2m                        _wc._workerComm._memMu.__send__([0m[1m_mem[0m[2m);[0m
-     |                                                         [31m^^^^[0m
-     | stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem> should be { _setValue : stdgo.Slice<stdgo.GoUInt8> -> Unknown<1>, _header : () -> Unknown<0> : { _count : stdgo.GoInt64 } }
-     | stdgo._internal.internal.fuzz.T_sharedMem has no field _header
-     | For function argument 'value'
-
-          | For function argument 'x'
-
 [30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:184: characters 236-244
 
  184 | [2m                final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : _entryOut?.[0m[1m__copy__[0m[2m(), _1 : _resp?.__copy__(), _2 : false, _3 : _callErr };[0m
@@ -622,13 +586,141 @@
      |                                                                                                                                                                                                                                     [31m^^^^^^^^[0m
      | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
-[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/internal/fuzz/Fuzz_T_worker_static_extension.hx:249: characters 69-77
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_worker_static_extension.hx:249: characters 69-77
 
  249 | [2m            var __tmp__ = _w._client._minimize(_ctx, _input._entry?.[0m[1m__copy__[0m[2m(), _args?.__copy__()), _entry:stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry = __tmp__._0, _resp:stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse = __tmp__._1, _err:stdgo.Error = __tmp__._2;[0m
      |                                                                     [31m^^^^^^^^[0m
      | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
-          | For function argument '_entryIn'
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_worker_static_extension.hx:254: characters 172-180
+
+ 254 | [2m                        final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _input._entry?.[0m[1m__copy__[0m[2m(), _crasherMsg : _input._crasherMsg?.__copy__(), _coverageData : _input._keepCoverage, _canMinimize : false, _limit : _input._limit } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : (null : stdgo.Error) };[0m
+     |                                                                                                                                                                            [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_worker_static_extension.hx:262: characters 161-169
+
+ 262 | [2m                    final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _entry?.[0m[1m__copy__[0m[2m(), _crasherMsg : stdgo._internal.fmt.Fmt_sprintf.sprintf(("fuzzing process hung or terminated unexpectedly while minimizing: %v" : stdgo.GoString), stdgo.Go.toInterface(_err))?.__copy__(), _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : (null : stdgo.Error) };[0m
+     |                                                                                                                                                                 [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_worker_static_extension.hx:279: characters 157-165
+
+ 279 | [2m                final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _entry?.[0m[1m__copy__[0m[2m(), _crasherMsg : _resp.err?.__copy__(), _coverageData : _resp.coverageData, _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : (null : stdgo.Error) };[0m
+     |                                                                                                                                                             [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_worker_static_extension.hx:367: characters 85-93
+
+ 367 | [2m                                var __tmp__ = _w._client._fuzz(_ctx, _input._entry?.[0m[1m__copy__[0m[2m(), _args?.__copy__()), _entry:stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry = __tmp__._0, _resp:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = __tmp__._1, _isInternalError:Bool = __tmp__._2, _err:stdgo.Error = __tmp__._3;[0m
+     |                                                                                     [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_worker_static_extension.hx:389: characters 195-203
+
+ 389 | [2m                                var _result = ({ _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.totalDuration, _entryDuration : _resp.interestingDuration, _entry : _entry?.[0m[1m__copy__[0m[2m(), _crasherMsg : _resp.err?.__copy__(), _coverageData : _resp.coverageData, _canMinimize : _canMinimize } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult);[0m
+     |                                                                                                                                                                                                   [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_worker_static_extension.hx:400: characters 74-82
+
+ 400 | [2m                                    _result = ({ _entry : _input._entry?.[0m[1m__copy__[0m[2m(), _crasherMsg : _input._crasherMsg?.__copy__(), _canMinimize : false, _limit : _input._limit } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult);[0m
+     |                                                                          [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_coordinator_static_extension.hx:208: characters 100-108
+
+ 208 | [2m            var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__corpusEntryData._corpusEntryData(_e?.[0m[1m__copy__[0m[2m()), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+     |                                                                                                    [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_coordinator_static_extension.hx:227: characters 71-79
+
+ 227 | [2m            _c._corpus._entries = (_c._corpus._entries.__append__(_e?.[0m[1m__copy__[0m[2m()));[0m
+     |                                                                       [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_coordinateFuzzing.hx:66: characters 21-103
+
+  66 | [2m                    [0m[1m_doneC = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy>)[0m[2m;[0m
+     |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | error: stdgo._internal.internal.fuzz.T_noCopy should be { }
+     | have: stdgo.Chan<stdgo._internal.internal.fuzz.T_noCopy>
+     | want: stdgo.Chan<{ }>
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_coordinator_static_extension.hx:150: characters 189-197
+
+ 150 | [2m        var _input = ({ _entry : (stdgo.Go.typeAssert((_entry : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry)) : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry)?.[0m[1m__copy__[0m[2m(), _timeout : (100000000i64 : stdgo._internal.time.Time_Duration.Duration), _warmup : _c._warmupRun() } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzInput.T_fuzzInput);[0m
+     |                                                                                                                                                                                             [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_coordinator_static_extension.hx:118: characters 50-58
+
+ 118 | [2m        var _input = ({ _entry : _result._entry?.[0m[1m__copy__[0m[2m(), _crasherMsg : _result._crasherMsg?.__copy__(), _keepCoverage : _keepCoverage } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput);[0m
+     |                                                  [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_coordinateFuzzing.hx:305: characters 110-118
+
+ 305 | [2m                                                    var __tmp__ = _c._addCorpusEntries(true, _result._entry?.[0m[1m__copy__[0m[2m()), _entryNew:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+     |                                                                                                              [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:3: characters 9-19
+
+   3 | [2m        [0m[1m_stopTimer[0m[2m(_t);[0m
+     |         [31m^^^^^^^^^^[0m
+     | Unknown identifier : _stopTimer
+
+[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:9: characters 9-20
+
+   9 | [2m        [0m[1m_startTimer[0m[2m(_t);[0m
+     |         [31m^^^^^^^^^^^[0m
+     | Unknown identifier : _startTimer
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_runFuzzWorker.hx:17: characters 41-49
+
+  17 | [2m                    var _err = (_fn(_e?.[0m[1m__copy__[0m[2m()) : stdgo.Error);[0m
+     |                                         [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+          | For function argument ''
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:22: characters 9-23
+
+  22 | [2m        [0m[1m_count.value++[0m[2m;[0m
+     |         [31m^^^^^^^^^^^^^^[0m
+     | stdgo.GoInt64 should be Int
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:22: characters 9-23
+
+  22 | [2m        [0m[1m_count.value++[0m[2m;[0m
+     |         [31m^^^^^^^^^^^^^^[0m
+     | Int should be stdgo.GoInt64
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:50: characters 13-27
+
+  50 | [2m            [0m[1m_count.value++[0m[2m;[0m
+     |             [31m^^^^^^^^^^^^^^[0m
+     | stdgo.GoInt64 should be Int
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:50: characters 13-27
+
+  50 | [2m            [0m[1m_count.value++[0m[2m;[0m
+     |             [31m^^^^^^^^^^^^^^[0m
+     | Int should be stdgo.GoInt64
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:351: characters 59-67
+
+ 351 | [2m                        var __tmp__ = _ws._fuzzFn(_entry?.[0m[1m__copy__[0m[2m());[0m
+     |                                                           [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
+
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerServer_static_extension.hx:459: characters 65-73
+
+ 459 | [2m                                var __tmp__ = _fuzzOnce(_entry?.[0m[1m__copy__[0m[2m()), _dur:stdgo._internal.time.Time_Duration.Duration = __tmp__._0, _cov:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _errMsg:stdgo.GoString = __tmp__._2;[0m
+     |                                                                 [31m^^^^^^^^[0m
+     | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
 
 ```

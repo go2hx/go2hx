@@ -1,10 +1,10 @@
 # Module stdgo._internal.errors has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/errors_test/Errors.hx:4: characters 26-70
+[30;41m ERROR [0m stdgo/_internal/errors_test/Errors_test.hx:3: characters 31-65
 
- 4 | [2mvar _tests : stdgo.Slice<[0m[1mstdgo._internal.testing.Testing.InternalTest[0m[2m> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(9, 9, ...[(new stdgo._internal.testing.Testing.InternalTest(("TestNewEqual" : stdgo.GoString), stdgo._internal.errors_test.Errors_test.testNewEqual) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestErrorMethod" : stdgo.GoString), stdgo._internal.errors_test.Errors_test.testErrorMethod) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestJoinReturnsNil" : stdgo.GoString), stdgo._internal.errors_test.Errors_test.testJoinReturnsNil) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestJoin" : stdgo.GoString), stdgo._internal.errors_test.Errors_test.testJoin) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestJoinErrorMethod" : stdgo.GoString), stdgo._internal.errors_test.Errors_test.testJoinErrorMethod) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestIs" : stdgo.GoString), stdgo._internal.errors_test.Errors_test.testIs) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestAs" : stdgo.GoString), stdgo._internal.errors_test.Errors_test.testAs) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestAsValidation" : stdgo.GoString), stdgo._internal.errors_test.Errors_test.testAsValidation) : stdgo._internal.testing.Testing.InternalTest), (new stdgo._internal.testing.Testing.InternalTest(("TestUnwrap" : stdgo.GoString), stdgo._internal.errors_test.Errors_test.testUnwrap) : stdgo._internal.testing.Testing.InternalTest)].concat([for (i in 9 ... (9 > 9 ? 9 : 9 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.testing.Testing.InternalTest)])) : stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>);[0m
-   |                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Module stdgo._internal.testing.Testing does not define type InternalTest
+ 3 | [2mvar _poserPathErr : stdgo.Ref<[0m[1mstdgo._internal.io.fs.Fs.PathError[0m[2m> = (stdgo.Go.setRef(({ op : ("poser" : stdgo.GoString) } : stdgo._internal.io.fs.Fs.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs.PathError>);[0m
+   |                               [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Module stdgo._internal.io.fs.Fs does not define type PathError
 
 
 ```

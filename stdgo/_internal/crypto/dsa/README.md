@@ -6,11 +6,11 @@
      |                [31m^^^^^^^^^[0m
      | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divBasic
 
-     [30;41m -> [0m stdgo/_internal/crypto/dsa/Dsa_sign.hx:14: lines 14-45
+     [30;41m -> [0m stdgo/_internal/crypto/dsa/Dsa_generateParameters.hx:3: lines 3-85
 
-      14 | [2m            [0m[1mstdgo.Go.cfor((_attempts > (0 : stdgo.GoInt) : Bool), _attempts--, {[0m
-       - | [2m              [...][0m
-      45 | [1m            })[0m[2m;[0m
+       3 | [2m        [0m[1mstdgo._internal.internal.Macro.controlFlow({[0m
+       - | [2m          [...][0m
+      85 | [1m        })[0m[2m;[0m
          |
          | Called from macro here
 
@@ -20,11 +20,11 @@
      |                [31m^^^^^^^^^^^^^[0m
      | stdgo.Slice<stdgo._internal.math.big.Word> has no field _divRecursive
 
-     [30;41m -> [0m stdgo/_internal/crypto/dsa/Dsa_sign.hx:14: lines 14-45
+     [30;41m -> [0m stdgo/_internal/crypto/dsa/Dsa_generateParameters.hx:3: lines 3-85
 
-      14 | [2m            [0m[1mstdgo.Go.cfor((_attempts > (0 : stdgo.GoInt) : Bool), _attempts--, {[0m
-       - | [2m              [...][0m
-      45 | [1m            })[0m[2m;[0m
+       3 | [2m        [0m[1mstdgo._internal.internal.Macro.controlFlow({[0m
+       - | [2m          [...][0m
+      85 | [1m        })[0m[2m;[0m
          |
          | Called from macro here
 
@@ -34,20 +34,19 @@
      |                 [31m^^^^^[0m
      | stdgo.Slice<stdgo._internal.math.big.Word> has no field _norm
 
-     [30;41m -> [0m stdgo/_internal/crypto/dsa/Dsa_sign.hx:14: lines 14-45
+     [30;41m -> [0m stdgo/_internal/crypto/dsa/Dsa_generateParameters.hx:3: lines 3-85
 
-      14 | [2m            [0m[1mstdgo.Go.cfor((_attempts > (0 : stdgo.GoInt) : Bool), _attempts--, {[0m
-       - | [2m              [...][0m
-      45 | [1m            })[0m[2m;[0m
+       3 | [2m        [0m[1mstdgo._internal.internal.Macro.controlFlow({[0m
+       - | [2m          [...][0m
+      85 | [1m        })[0m[2m;[0m
          |
          | Called from macro here
 
-[30;41m ERROR [0m stdgo/_internal/internal/Macro.macro.hx:363: lines 363-366
+[30;41m ERROR [0m stdgo/_internal/crypto/dsa/Dsa_generateParameters.hx:3: lines 3-85
 
- 363 | [2m   [0m[1mdo {[0m
- 364 | [1m    $i{exitName} = false;[0m
- 365 | [1m    $switchStmt;[0m
- 366 | [1m   } while ($i{selectName} != "")[0m[2m;[0m
+   3 | [2m        [0m[1mstdgo._internal.internal.Macro.controlFlow({[0m
+   - | [2m          [...][0m
+  85 | [1m        })[0m[2m;[0m
      |
      | Missing return: stdgo.Error
 

@@ -16,11 +16,11 @@
         |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
         | Called from here
 
-[30;41m ERROR [0m stdgo/_internal/crypto/tls/Tls__readUint24LengthPrefixed.hx:2: characters 49-127
+[30;41m ERROR [0m stdgo/_internal/crypto/tls/Tls__addBytesWithLength.hx:2: characters 43-121
 
- 2 | [2mfunction _readUint24LengthPrefixed(_s:stdgo.Ref<[0m[1m_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_[0m[2m>, _out:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>):Bool {[0m
-   |                                                 [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-   | Type not found : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_
+ 2 | [2mfunction _addBytesWithLength(_b:stdgo.Ref<[0m[1m_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder[0m[2m>, _v:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):Void {[0m
+   |                                           [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+   | Type not found : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder
 
 
 ```

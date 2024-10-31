@@ -10,7 +10,7 @@ function _nonZeroRandomBytes(_s:stdgo.Slice<stdgo.GoUInt8>, _random:stdgo._inter
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 while (_s[(_i : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
                     {
                         var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_random, (_s.__slice__(_i, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
@@ -21,7 +21,8 @@ function _nonZeroRandomBytes(_s:stdgo.Slice<stdgo.GoUInt8>, _random:stdgo._inter
                     };
                     _s[(_i : stdgo.GoInt)] = (_s[(_i : stdgo.GoInt)] ^ ((66 : stdgo.GoUInt8)) : stdgo.GoUInt8);
                 };
-            });
+                _i++;
+            };
         };
         return _err;
     }

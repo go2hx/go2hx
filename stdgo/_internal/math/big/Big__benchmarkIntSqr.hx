@@ -6,8 +6,9 @@ function _benchmarkIntSqr(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>, _nw
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 _t.mul(_x, _x);
-            });
+                _i++;
+            };
         };
     }

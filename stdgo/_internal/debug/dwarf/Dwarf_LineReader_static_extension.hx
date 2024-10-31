@@ -200,9 +200,10 @@ package stdgo._internal.debug.dwarf;
                 } else {
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _r._opcodeLengths[(_opcode : stdgo.GoInt)] : Bool), _i++, {
+                        while ((_i < _r._opcodeLengths[(_opcode : stdgo.GoInt)] : Bool)) {
                             _r._buf._uint();
-                        });
+                            _i++;
+                        };
                     };
                 };
             };
@@ -438,9 +439,10 @@ package stdgo._internal.debug.dwarf;
         _r._opcodeLengths = (new stdgo.Slice<stdgo.GoInt>((_r._opcodeBase : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _r._opcodeBase : Bool), _i++, {
+            while ((_i < _r._opcodeBase : Bool)) {
                 _r._opcodeLengths[(_i : stdgo.GoInt)] = (_buf._uint8() : stdgo.GoInt);
-            });
+                _i++;
+            };
         };
         if (_buf._err != null) {
             return _buf._err;

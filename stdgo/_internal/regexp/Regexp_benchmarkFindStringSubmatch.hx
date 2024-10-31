@@ -8,14 +8,15 @@ function benchmarkFindStringSubmatch(_b:stdgo.Ref<stdgo._internal.testing.Testin
         _b.reportAllocs();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                var _subs = _re.findStringSubmatch(_s?.__copy__());
-                if (_subs[(0 : stdgo.GoInt)] != (_wantSubs)) {
+            while ((_i < _b.n : Bool)) {
+                var _subs = _re.findStringSubmatch(_s.__copy__());
+if (_subs[(0 : stdgo.GoInt)] != (_wantSubs)) {
                     _b.fatalf(("FindStringSubmatch(%q)[0] = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_subs[(0 : stdgo.GoInt)]), stdgo.Go.toInterface(_wantSubs));
                 };
-                if (_subs[(1 : stdgo.GoInt)] != (("aab" : stdgo.GoString))) {
+if (_subs[(1 : stdgo.GoInt)] != (("aab" : stdgo.GoString))) {
                     _b.fatalf(("FindStringSubmatch(%q)[1] = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_subs[(1 : stdgo.GoInt)]), stdgo.Go.toInterface(("aab" : stdgo.GoString)));
                 };
-            });
+                _i++;
+            };
         };
     }

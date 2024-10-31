@@ -6,8 +6,9 @@ function benchmarkExp(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         var _out = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 _out.exp(_x, _y, _n);
-            });
+                _i++;
+            };
         };
     }

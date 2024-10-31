@@ -16,8 +16,9 @@ function _benchmarkDiv(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>, _aSize
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 _x.divMod(_aa, _bb, _y);
-            });
+                _i++;
+            };
         };
     }

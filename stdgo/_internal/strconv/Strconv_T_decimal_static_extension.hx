@@ -10,13 +10,15 @@ package stdgo._internal.strconv;
         var _n = ((0i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         {
             _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(((_i < _a._dp : Bool) && (_i < _a._nd : Bool) : Bool), _i++, {
+            while (((_i < _a._dp : Bool) && (_i < _a._nd : Bool) : Bool)) {
                 _n = ((_n * (10i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + ((_a._d[(_i : stdgo.GoInt)] - (48 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt64) : stdgo.GoUInt64);
-            });
+                _i++;
+            };
         };
-        stdgo.Go.cfor((_i < _a._dp : Bool), _i++, {
+        while ((_i < _a._dp : Bool)) {
             _n = (_n * ((10i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-        });
+            _i++;
+        };
         if (stdgo._internal.strconv.Strconv__shouldRoundUp._shouldRoundUp(_a, _a._dp)) {
             _n++;
         };
@@ -30,14 +32,15 @@ package stdgo._internal.strconv;
         };
         {
             var _i = (_nd - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 var _c = (_a._d[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if ((_c < (57 : stdgo.GoUInt8) : Bool)) {
+if ((_c < (57 : stdgo.GoUInt8) : Bool)) {
                     _a._d[(_i : stdgo.GoInt)]++;
                     _a._nd = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                     return;
                 };
-            });
+                _i--;
+            };
         };
         _a._d[(0 : stdgo.GoInt)] = (49 : stdgo.GoUInt8);
         _a._nd = (1 : stdgo.GoInt);
@@ -96,10 +99,11 @@ package stdgo._internal.strconv;
         _a._nd = (0 : stdgo.GoInt);
         {
             _n--;
-            stdgo.Go.cfor((_n >= (0 : stdgo.GoInt) : Bool), _n--, {
+            while ((_n >= (0 : stdgo.GoInt) : Bool)) {
                 _a._d[(_a._nd : stdgo.GoInt)] = _buf[(_n : stdgo.GoInt)];
-                _a._nd++;
-            });
+_a._nd++;
+                _n--;
+            };
         };
         _a._dp = _a._nd;
         stdgo._internal.strconv.Strconv__trim._trim(_a);
@@ -228,21 +232,30 @@ package stdgo._internal.strconv;
         };
         var _sawdot = (false : Bool);
         var _sawdigits = (false : Bool);
-        stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+        while ((_i < (_s.length) : Bool)) {
             if (_s[(_i : stdgo.GoInt)] == ((95 : stdgo.GoUInt8))) {
-                continue;
+                {
+                    _i++;
+                    continue;
+                };
             } else if (_s[(_i : stdgo.GoInt)] == ((46 : stdgo.GoUInt8))) {
                 if (_sawdot) {
                     return _ok;
                 };
                 _sawdot = true;
                 _b._dp = _b._nd;
-                continue;
+                {
+                    _i++;
+                    continue;
+                };
             } else if ((((48 : stdgo.GoUInt8) <= _s[(_i : stdgo.GoInt)] : Bool) && (_s[(_i : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
                 _sawdigits = true;
                 if (((_s[(_i : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) && (_b._nd == (0 : stdgo.GoInt)) : Bool)) {
                     _b._dp--;
-                    continue;
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
                 if ((_b._nd < (_b._d.length) : Bool)) {
                     _b._d[(_b._nd : stdgo.GoInt)] = _s[(_i : stdgo.GoInt)];
@@ -250,10 +263,14 @@ package stdgo._internal.strconv;
                 } else if (_s[(_i : stdgo.GoInt)] != ((48 : stdgo.GoUInt8))) {
                     _b._trunc = true;
                 };
-                continue;
+                {
+                    _i++;
+                    continue;
+                };
             };
-            break;
-        });
+break;
+            _i++;
+        };
         if (!_sawdigits) {
             return _ok;
         };
@@ -276,14 +293,18 @@ package stdgo._internal.strconv;
                 return _ok;
             };
             var _e = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(((_i < (_s.length) : Bool) && (((((48 : stdgo.GoUInt8) <= _s[(_i : stdgo.GoInt)] : Bool) && (_s[(_i : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool) || (_s[(_i : stdgo.GoInt)] == (95 : stdgo.GoUInt8)) : Bool)) : Bool), _i++, {
+            while (((_i < (_s.length) : Bool) && (((((48 : stdgo.GoUInt8) <= _s[(_i : stdgo.GoInt)] : Bool) && (_s[(_i : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool) || (_s[(_i : stdgo.GoInt)] == (95 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                 if (_s[(_i : stdgo.GoInt)] == ((95 : stdgo.GoUInt8))) {
-                    continue;
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                if ((_e < (10000 : stdgo.GoInt) : Bool)) {
+if ((_e < (10000 : stdgo.GoInt) : Bool)) {
                     _e = (((_e * (10 : stdgo.GoInt) : stdgo.GoInt) + (_s[(_i : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt) - (48 : stdgo.GoInt) : stdgo.GoInt);
                 };
-            });
+                _i++;
+            };
             _b._dp = (_b._dp + ((_e * _esign : stdgo.GoInt)) : stdgo.GoInt);
         };
         if (_i != ((_s.length))) {

@@ -36,28 +36,30 @@ function _writeRegexp(_b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Build
                             _b.writeRune((94 : stdgo.GoInt32));
                             {
                                 var _i = (1 : stdgo.GoInt);
-                                stdgo.Go.cfor((_i < ((_re.rune.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+                                while ((_i < ((_re.rune.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                                     var __0 = (_re.rune[(_i : stdgo.GoInt)] + (1 : stdgo.GoInt32) : stdgo.GoInt32), __1 = (_re.rune[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] - (1 : stdgo.GoInt32) : stdgo.GoInt32);
 var _hi = __1, _lo = __0;
-                                    stdgo._internal.regexp.syntax.Syntax__escape._escape(_b, _lo, _lo == ((45 : stdgo.GoInt32)));
-                                    if (_lo != (_hi)) {
+stdgo._internal.regexp.syntax.Syntax__escape._escape(_b, _lo, _lo == ((45 : stdgo.GoInt32)));
+if (_lo != (_hi)) {
                                         _b.writeRune((45 : stdgo.GoInt32));
                                         stdgo._internal.regexp.syntax.Syntax__escape._escape(_b, _hi, _hi == ((45 : stdgo.GoInt32)));
                                     };
-                                });
+                                    _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                                };
                             };
                         } else {
                             {
                                 var _i = (0 : stdgo.GoInt);
-                                stdgo.Go.cfor((_i < (_re.rune.length) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+                                while ((_i < (_re.rune.length) : Bool)) {
                                     var __0 = (_re.rune[(_i : stdgo.GoInt)] : stdgo.GoInt32), __1 = (_re.rune[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt32);
 var _hi = __1, _lo = __0;
-                                    stdgo._internal.regexp.syntax.Syntax__escape._escape(_b, _lo, _lo == ((45 : stdgo.GoInt32)));
-                                    if (_lo != (_hi)) {
+stdgo._internal.regexp.syntax.Syntax__escape._escape(_b, _lo, _lo == ((45 : stdgo.GoInt32)));
+if (_lo != (_hi)) {
                                         _b.writeRune((45 : stdgo.GoInt32));
                                         stdgo._internal.regexp.syntax.Syntax__escape._escape(_b, _hi, _hi == ((45 : stdgo.GoInt32)));
                                     };
-                                });
+                                    _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                                };
                             };
                         };
                         _b.writeRune((93 : stdgo.GoInt32));

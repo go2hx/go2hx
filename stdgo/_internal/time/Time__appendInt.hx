@@ -19,15 +19,17 @@ function _appendInt(_b:stdgo.Slice<stdgo.GoUInt8>, _x:stdgo.GoInt, _width:stdgo.
         };
         {
             var _u2 = (_u : stdgo.GoUInt);
-            stdgo.Go.cfor((_u2 > (0u32 : stdgo.GoUInt) : Bool), _u2 = (_u2 / ((10u32 : stdgo.GoUInt)) : stdgo.GoUInt), {
+            while ((_u2 > (0u32 : stdgo.GoUInt) : Bool)) {
                 _n++;
-            });
+                _u2 = (_u2 / ((10u32 : stdgo.GoUInt)) : stdgo.GoUInt);
+            };
         };
         {
             var _pad = (_width - _n : stdgo.GoInt);
-            stdgo.Go.cfor((_pad > (0 : stdgo.GoInt) : Bool), _pad--, {
+            while ((_pad > (0 : stdgo.GoInt) : Bool)) {
                 _b = (_b.__append__((48 : stdgo.GoUInt8)));
-            });
+                _pad--;
+            };
         };
         if ((((_b.length) + _n : stdgo.GoInt) <= _b.capacity : Bool)) {
             _b = (_b.__slice__(0, ((_b.length) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);

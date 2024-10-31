@@ -32,16 +32,17 @@ package stdgo._internal.encoding.json;
             var _mi = _v.mapRange();
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(_mi.next(), _i++, {
-                    _sv[(_i : stdgo.GoInt)]._k = _mi.key()?.__copy__();
-                    _sv[(_i : stdgo.GoInt)]._v = _mi.value()?.__copy__();
-                    {
+                while (_mi.next()) {
+                    _sv[(_i : stdgo.GoInt)]._k = _mi.key().__copy__();
+_sv[(_i : stdgo.GoInt)]._v = _mi.value().__copy__();
+{
                         var _err = (_sv[(_i : stdgo.GoInt)]._resolve() : stdgo.Error);
                         if (_err != null) {
                             _e._error(stdgo._internal.fmt.Fmt_errorf.errorf(("json: encoding error for type %q: %q" : stdgo.GoString), stdgo.Go.toInterface((_v.type().string() : stdgo.GoString)), stdgo.Go.toInterface(_err.error())));
                         };
                     };
-                });
+                    _i++;
+                };
             };
             stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_sv), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
                 var __deferstack__:Array<Void -> Void> = [];

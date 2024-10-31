@@ -6,15 +6,16 @@ function _parseArgNumber(_format:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 
         };
         {
             var _i = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_format.length) : Bool), _i++, {
+            while ((_i < (_format.length) : Bool)) {
                 if (_format[(_i : stdgo.GoInt)] == ((93 : stdgo.GoUInt8))) {
-                    var __tmp__ = stdgo._internal.fmt.Fmt__parsenum._parsenum(_format?.__copy__(), (1 : stdgo.GoInt), _i), _width:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1, _newi:stdgo.GoInt = __tmp__._2;
+                    var __tmp__ = stdgo._internal.fmt.Fmt__parsenum._parsenum(_format.__copy__(), (1 : stdgo.GoInt), _i), _width:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1, _newi:stdgo.GoInt = __tmp__._2;
                     if ((!_ok || (_newi != _i) : Bool)) {
                         return { _0 : (0 : stdgo.GoInt), _1 : (_i + (1 : stdgo.GoInt) : stdgo.GoInt), _2 : false };
                     };
                     return { _0 : (_width - (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_i + (1 : stdgo.GoInt) : stdgo.GoInt), _2 : true };
                 };
-            });
+                _i++;
+            };
         };
         return { _0 : (0 : stdgo.GoInt), _1 : (1 : stdgo.GoInt), _2 : false };
     }

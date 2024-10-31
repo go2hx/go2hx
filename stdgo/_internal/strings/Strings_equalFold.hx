@@ -2,16 +2,19 @@ package stdgo._internal.strings;
 function equalFold(_s:stdgo.GoString, _t:stdgo.GoString):Bool {
         stdgo._internal.internal.Macro.controlFlow({
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(((_i < (_s.length) : Bool) && (_i < (_t.length) : Bool) : Bool), _i++, {
+            while (((_i < (_s.length) : Bool) && (_i < (_t.length) : Bool) : Bool)) {
                 var _sr = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                var _tr = (_t[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (((_sr | _tr : stdgo.GoUInt8) >= (128 : stdgo.GoUInt8) : Bool)) {
+var _tr = (_t[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
+if (((_sr | _tr : stdgo.GoUInt8) >= (128 : stdgo.GoUInt8) : Bool)) {
                     @:goto "hasUnicode";
                 };
-                if (_tr == (_sr)) {
-                    continue;
+if (_tr == (_sr)) {
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                if ((_tr < _sr : Bool)) {
+if ((_tr < _sr : Bool)) {
                     {
                         final __tmp__0 = _sr;
                         final __tmp__1 = _tr;
@@ -19,11 +22,15 @@ function equalFold(_s:stdgo.GoString, _t:stdgo.GoString):Bool {
                         _sr = __tmp__1;
                     };
                 };
-                if (((((65 : stdgo.GoUInt8) <= _sr : Bool) && (_sr <= (90 : stdgo.GoUInt8) : Bool) : Bool) && (_tr == ((_sr + (97 : stdgo.GoUInt8) : stdgo.GoUInt8) - (65 : stdgo.GoUInt8) : stdgo.GoUInt8)) : Bool)) {
-                    continue;
+if (((((65 : stdgo.GoUInt8) <= _sr : Bool) && (_sr <= (90 : stdgo.GoUInt8) : Bool) : Bool) && (_tr == ((_sr + (97 : stdgo.GoUInt8) : stdgo.GoUInt8) - (65 : stdgo.GoUInt8) : stdgo.GoUInt8)) : Bool)) {
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                return false;
-            });
+return false;
+                _i++;
+            };
             return (_s.length) == ((_t.length));
             @:label("hasUnicode") _s = (_s.__slice__(_i) : stdgo.GoString)?.__copy__();
             _t = (_t.__slice__(_i) : stdgo.GoString)?.__copy__();

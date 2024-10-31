@@ -121,15 +121,16 @@ package stdgo._internal.fmt;
                 };
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < _newlines : Bool), _j++, {
+                    while ((_j < _newlines : Bool)) {
                         var _inputc = (_s._getRune() : stdgo.GoInt32);
-                        while ((stdgo._internal.fmt.Fmt__isSpace._isSpace(_inputc) && (_inputc != (10 : stdgo.GoInt32)) : Bool)) {
+while ((stdgo._internal.fmt.Fmt__isSpace._isSpace(_inputc) && (_inputc != (10 : stdgo.GoInt32)) : Bool)) {
                             _inputc = _s._getRune();
                         };
-                        if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bool)) {
+if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bool)) {
                             _s._errorString(("newline in format does not match input" : stdgo.GoString));
                         };
-                    });
+                        _j++;
+                    };
                 };
                 if (_trailingSpace) {
                     var _inputc = (_s._getRune() : stdgo.GoInt32);
@@ -341,9 +342,10 @@ package stdgo._internal.fmt;
                             _v.set(stdgo._internal.reflect.Reflect_makeSlice.makeSlice(_typ, (_str.length), (_str.length))?.__copy__());
                             {
                                 var _i = (0 : stdgo.GoInt);
-                                stdgo.Go.cfor((_i < (_str.length) : Bool), _i++, {
+                                while ((_i < (_str.length) : Bool)) {
                                     _v.index(_i).setUint((_str[(_i : stdgo.GoInt)] : stdgo.GoUInt64));
-                                });
+                                    _i++;
+                                };
                             };
                         } else if (__value__ == ((13u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((14u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                             _s.skipSpace();

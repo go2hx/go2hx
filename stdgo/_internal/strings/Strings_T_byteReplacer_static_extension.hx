@@ -8,25 +8,29 @@ package stdgo._internal.strings;
         var _last = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 var _b = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (_r[(_b : stdgo.GoInt)] == (_b)) {
-                    continue;
+if (_r[(_b : stdgo.GoInt)] == (_b)) {
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                if (_last != (_i)) {
-                    var __tmp__ = _sw.writeString((_s.__slice__(_last, _i) : stdgo.GoString)?.__copy__()), _wn:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_last != (_i)) {
+                    var __tmp__ = _sw.writeString((_s.__slice__(_last, _i) : stdgo.GoString).__copy__()), _wn:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     _n = (_n + (_wn) : stdgo.GoInt);
                     if (_err != null) {
                         return { _0 : _n, _1 : _err };
                     };
                 };
-                _last = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                var __tmp__ = _w.write((_r.__slice__(_b, ((_b : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                _n = (_n + (_nw) : stdgo.GoInt);
-                if (_err != null) {
+_last = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+var __tmp__ = _w.write((_r.__slice__(_b, ((_b : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+_n = (_n + (_nw) : stdgo.GoInt);
+if (_err != null) {
                     return { _0 : _n, _1 : _err };
                 };
-            });
+                _i++;
+            };
         };
         if (_last != ((_s.length))) {
             var __tmp__ = _sw.writeString((_s.__slice__(_last) : stdgo.GoString)?.__copy__()), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -43,15 +47,16 @@ package stdgo._internal.strings;
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 var _b = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (_r[(_b : stdgo.GoInt)] != (_b)) {
+if (_r[(_b : stdgo.GoInt)] != (_b)) {
                     if (_buf == null) {
                         _buf = (_s : stdgo.Slice<stdgo.GoUInt8>);
                     };
                     _buf[(_i : stdgo.GoInt)] = _r[(_b : stdgo.GoInt)];
                 };
-            });
+                _i++;
+            };
         };
         if (_buf == null) {
             return _s?.__copy__();

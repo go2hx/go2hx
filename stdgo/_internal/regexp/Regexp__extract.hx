@@ -30,13 +30,14 @@ function _extract(_str:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo
         _num = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_name.length) : Bool), _i++, {
+            while ((_i < (_name.length) : Bool)) {
                 if ((((_name[(_i : stdgo.GoInt)] < (48 : stdgo.GoUInt8) : Bool) || ((57 : stdgo.GoUInt8) < _name[(_i : stdgo.GoInt)] : Bool) : Bool) || (_num >= (100000000 : stdgo.GoInt) : Bool) : Bool)) {
                     _num = (-1 : stdgo.GoInt);
                     break;
                 };
-                _num = (((_num * (10 : stdgo.GoInt) : stdgo.GoInt) + (_name[(_i : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt) - (48 : stdgo.GoInt) : stdgo.GoInt);
-            });
+_num = (((_num * (10 : stdgo.GoInt) : stdgo.GoInt) + (_name[(_i : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt) - (48 : stdgo.GoInt) : stdgo.GoInt);
+                _i++;
+            };
         };
         if (((_name[(0 : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) && ((_name.length) > (1 : stdgo.GoInt) : Bool) : Bool)) {
             _num = (-1 : stdgo.GoInt);

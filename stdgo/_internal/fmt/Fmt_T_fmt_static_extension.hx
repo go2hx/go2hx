@@ -42,7 +42,7 @@ package stdgo._internal.fmt;
             var _sawNonzeroDigit = (false : Bool);
             {
                 var _i = (1 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_num.length) : Bool), _i++, {
+                while ((_i < (_num.length) : Bool)) {
                     {
                         var __switchIndex__ = -1;
                         var __run__ = true;
@@ -84,7 +84,8 @@ package stdgo._internal.fmt;
                             break;
                         };
                     };
-                });
+                    _i++;
+                };
             };
             if (!_hasDecimalPoint) {
                 if (((_num.length == (2 : stdgo.GoInt)) && (_num[(1 : stdgo.GoInt)] == (48 : stdgo.GoUInt8)) : Bool)) {
@@ -195,20 +196,21 @@ package stdgo._internal.fmt;
         var _c:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _length : Bool), _i++, {
+            while ((_i < _length : Bool)) {
                 if ((_f._fmtFlags._space && (_i > (0 : stdgo.GoInt) : Bool) : Bool)) {
                     _buf = (_buf.__append__((32 : stdgo.GoUInt8)));
                     if (_f._fmtFlags._sharp) {
                         _buf = (_buf.__append__((48 : stdgo.GoUInt8), _digits[(16 : stdgo.GoInt)]));
                     };
                 };
-                if (_b != null) {
+if (_b != null) {
                     _c = _b[(_i : stdgo.GoInt)];
                 } else {
                     _c = _s[(_i : stdgo.GoInt)];
                 };
-                _buf = (_buf.__append__(_digits[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)], _digits[((_c & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
-            });
+_buf = (_buf.__append__(_digits[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)], _digits[((_c & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
+                _i++;
+            };
         };
         (_f._buf : stdgo._internal.fmt.Fmt_T_buffer.T_buffer).__setData__(_buf);
         if (((_f._fmtFlags._widPresent && (_f._wid > _width : Bool) : Bool) && _f._fmtFlags._minus : Bool)) {

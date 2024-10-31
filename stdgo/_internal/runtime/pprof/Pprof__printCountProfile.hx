@@ -29,14 +29,15 @@ function _printCountProfile(_w:stdgo._internal.io.Io_Writer.Writer, _debug:stdgo
         var _n = (_p.len() : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
-                var _k = (_key(_p.stack(_i), _p.label(_i))?.__copy__() : stdgo.GoString);
-                if ((_count[_k] ?? (0 : stdgo.GoInt)) == ((0 : stdgo.GoInt))) {
+            while ((_i < _n : Bool)) {
+                var _k = (_key(_p.stack(_i), _p.label(_i)).__copy__() : stdgo.GoString);
+if ((_count[_k] ?? (0 : stdgo.GoInt)) == ((0 : stdgo.GoInt))) {
                     _index[_k] = _i;
-                    _keys = (_keys.__append__(_k?.__copy__()));
+                    _keys = (_keys.__append__(_k.__copy__()));
                 };
-                (_count[_k] != null ? _count[_k]++ : (0 : stdgo.GoInt));
-            });
+(_count[_k] != null ? _count[_k]++ : (0 : stdgo.GoInt));
+                _i++;
+            };
         };
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.runtime.pprof.Pprof_T_keysByCount.T_keysByCount(_keys, _count) : stdgo._internal.runtime.pprof.Pprof_T_keysByCount.T_keysByCount)) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_keysByCount.T_keysByCount>)));
         if ((_debug > (0 : stdgo.GoInt) : Bool)) {

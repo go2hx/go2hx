@@ -26,10 +26,11 @@ function _newGCMWithNonceAndTagSize(_cipher:stdgo._internal.crypto.cipher.Cipher
         _g._productTable[(stdgo._internal.crypto.cipher.Cipher__reverseBits._reverseBits((1 : stdgo.GoInt)) : stdgo.GoInt)] = _x?.__copy__();
         {
             var _i = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (16 : stdgo.GoInt) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
-                _g._productTable[(stdgo._internal.crypto.cipher.Cipher__reverseBits._reverseBits(_i) : stdgo.GoInt)] = stdgo._internal.crypto.cipher.Cipher__gcmDouble._gcmDouble((stdgo.Go.setRef(_g._productTable[(stdgo._internal.crypto.cipher.Cipher__reverseBits._reverseBits((_i / (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>))?.__copy__();
-                _g._productTable[(stdgo._internal.crypto.cipher.Cipher__reverseBits._reverseBits((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt)] = stdgo._internal.crypto.cipher.Cipher__gcmAdd._gcmAdd((stdgo.Go.setRef(_g._productTable[(stdgo._internal.crypto.cipher.Cipher__reverseBits._reverseBits(_i) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>), (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>))?.__copy__();
-            });
+            while ((_i < (16 : stdgo.GoInt) : Bool)) {
+                _g._productTable[(stdgo._internal.crypto.cipher.Cipher__reverseBits._reverseBits(_i) : stdgo.GoInt)] = stdgo._internal.crypto.cipher.Cipher__gcmDouble._gcmDouble((stdgo.Go.setRef(_g._productTable[(stdgo._internal.crypto.cipher.Cipher__reverseBits._reverseBits((_i / (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>)).__copy__();
+_g._productTable[(stdgo._internal.crypto.cipher.Cipher__reverseBits._reverseBits((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt)] = stdgo._internal.crypto.cipher.Cipher__gcmAdd._gcmAdd((stdgo.Go.setRef(_g._productTable[(stdgo._internal.crypto.cipher.Cipher__reverseBits._reverseBits(_i) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>), (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>)).__copy__();
+                _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
         return { _0 : stdgo.Go.asInterface(_g), _1 : (null : stdgo.Error) };
     }

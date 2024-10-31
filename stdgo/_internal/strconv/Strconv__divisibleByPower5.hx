@@ -5,12 +5,13 @@ function _divisibleByPower5(_m:stdgo.GoUInt64, _k:stdgo.GoInt):Bool {
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _k : Bool), _i++, {
+            while ((_i < _k : Bool)) {
                 if ((_m % (5i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
                     return false;
                 };
-                _m = (_m / ((5i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-            });
+_m = (_m / ((5i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                _i++;
+            };
         };
         return true;
     }

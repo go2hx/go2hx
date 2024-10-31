@@ -9,21 +9,22 @@ function _expList(_exp:stdgo.Ref<_internal.internal.goexperiment.Goexperiment_Fl
         var _rt = (_rv.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _rt.numField() : Bool), _i++, {
-                var _name = (stdgo._internal.strings.Strings_toLower.toLower(_rt.field(_i).name?.__copy__())?.__copy__() : stdgo.GoString);
-                var _val = (_rv.field(_i).bool_() : Bool);
-                var _baseVal = (false : Bool);
-                if (_base != null && ((_base : Dynamic).__nil__ == null || !(_base : Dynamic).__nil__)) {
+            while ((_i < _rt.numField() : Bool)) {
+                var _name = (stdgo._internal.strings.Strings_toLower.toLower(_rt.field(_i).name.__copy__()).__copy__() : stdgo.GoString);
+var _val = (_rv.field(_i).bool_() : Bool);
+var _baseVal = (false : Bool);
+if (_base != null && ((_base : Dynamic).__nil__ == null || !(_base : Dynamic).__nil__)) {
                     _baseVal = _rBase.field(_i).bool_();
                 };
-                if ((_all || (_val != _baseVal) : Bool)) {
+if ((_all || (_val != _baseVal) : Bool)) {
                     if (_val) {
-                        _list = (_list.__append__(_name?.__copy__()));
+                        _list = (_list.__append__(_name.__copy__()));
                     } else {
-                        _list = (_list.__append__((("no" : stdgo.GoString) + _name?.__copy__() : stdgo.GoString)?.__copy__()));
+                        _list = (_list.__append__((("no" : stdgo.GoString) + _name.__copy__() : stdgo.GoString).__copy__()));
                     };
                 };
-            });
+                _i++;
+            };
         };
         return _list;
     }

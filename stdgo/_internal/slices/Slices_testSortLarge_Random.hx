@@ -7,9 +7,10 @@ function testSortLarge_Random(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
         var _data = (new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_data.length) : Bool), _i++, {
+            while ((_i < (_data.length) : Bool)) {
                 _data[(_i : stdgo.GoInt)] = stdgo._internal.math.rand.Rand_intn.intn((100 : stdgo.GoInt));
-            });
+                _i++;
+            };
         };
         if (stdgo._internal.slices.Slices_isSorted.isSorted(_data)) {
             _t.fatalf(("terrible rand.rand" : stdgo.GoString));

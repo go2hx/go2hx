@@ -105,21 +105,22 @@ package stdgo._internal.image.gif;
                 {
                     var __0 = (0 : stdgo.GoInt), __1 = (_b.min.y : stdgo.GoInt);
 var _y = __1, _i = __0;
-                    stdgo.Go.cfor((_y < _b.max.y : Bool), {
-                        final __tmp__0 = (_i + _pm.stride : stdgo.GoInt);
-                        final __tmp__1 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        _i = __tmp__0;
-                        _y = __tmp__1;
-                    }, {
+                    while ((_y < _b.max.y : Bool)) {
                         {
                             var __tmp__ = _lzww.write((_pm.pix.__slice__(_i, (_i + _dx : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             _e._err = __tmp__._1;
                         };
-                        if (_e._err != null) {
+if (_e._err != null) {
                             _lzww.close();
                             return;
                         };
-                    });
+                        {
+                            final __tmp__0 = (_i + _pm.stride : stdgo.GoInt);
+                            final __tmp__1 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
+                            _i = __tmp__0;
+                            _y = __tmp__1;
+                        };
+                    };
                 };
             };
         };

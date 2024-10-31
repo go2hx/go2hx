@@ -39,14 +39,15 @@ function _dirList(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter
         {
             var __0 = (0 : stdgo.GoInt), __1 = (_dirs._len() : stdgo.GoInt);
 var _n = __1, _i = __0;
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
-                var _name = (_dirs._name(_i)?.__copy__() : stdgo.GoString);
-                if (_dirs._isDir(_i)) {
-                    _name = (_name + (("/" : stdgo.GoString))?.__copy__() : stdgo.GoString);
+            while ((_i < _n : Bool)) {
+                var _name = (_dirs._name(_i).__copy__() : stdgo.GoString);
+if (_dirs._isDir(_i)) {
+                    _name = (_name + (("/" : stdgo.GoString)).__copy__() : stdgo.GoString);
                 };
-                var _url = ({ path : _name?.__copy__() } : stdgo._internal.net.url.Url_URL.URL);
-                stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("<a href=\"%s\">%s</a>\n" : stdgo.GoString), stdgo.Go.toInterface((_url.string() : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.net.http.Http__htmlReplacer._htmlReplacer.replace(_name?.__copy__())));
-            });
+var _url = ({ path : _name.__copy__() } : stdgo._internal.net.url.Url_URL.URL);
+stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("<a href=\"%s\">%s</a>\n" : stdgo.GoString), stdgo.Go.toInterface((_url.string() : stdgo.GoString)), stdgo.Go.toInterface(stdgo._internal.net.http.Http__htmlReplacer._htmlReplacer.replace(_name.__copy__())));
+                _i++;
+            };
         };
         stdgo._internal.fmt.Fmt_fprintf.fprintf(_w, ("</pre>\n" : stdgo.GoString));
     }

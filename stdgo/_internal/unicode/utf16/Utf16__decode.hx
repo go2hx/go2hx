@@ -2,9 +2,9 @@ package stdgo._internal.unicode.utf16;
 function _decode(_s:stdgo.Slice<stdgo.GoUInt16>, _buf:stdgo.Slice<stdgo.GoInt32>):stdgo.Slice<stdgo.GoInt32> {
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 var _ar:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-                {
+{
                     var _r = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt16);
                     if ((_r < (55296 : stdgo.GoUInt16) : Bool) || ((57344 : stdgo.GoUInt16) <= _r : Bool)) {
                         _ar = (_r : stdgo.GoInt32);
@@ -15,8 +15,9 @@ function _decode(_s:stdgo.Slice<stdgo.GoUInt16>, _buf:stdgo.Slice<stdgo.GoInt32>
                         _ar = (65533 : stdgo.GoInt32);
                     };
                 };
-                _buf = (_buf.__append__(_ar));
-            });
+_buf = (_buf.__append__(_ar));
+                _i++;
+            };
         };
         return _buf;
     }

@@ -17,18 +17,19 @@ function testUintCodec(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
             };
             {
                 var _u = ((0i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-                stdgo.Go.cfor(true, _u = (((_u + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) * (7i64 : stdgo.GoUInt64) : stdgo.GoUInt64), {
+                while (true) {
                     _b.reset();
-                    _encState._encodeUint(_u);
-                    var _decState = stdgo._internal.encoding.gob.Gob__newDecodeState._newDecodeState(stdgo._internal.encoding.gob.Gob__newDecBuffer._newDecBuffer(_b.bytes()));
-                    var _v = (_decState._decodeUint() : stdgo.GoUInt64);
-                    if (_u != (_v)) {
+_encState._encodeUint(_u);
+var _decState = stdgo._internal.encoding.gob.Gob__newDecodeState._newDecodeState(stdgo._internal.encoding.gob.Gob__newDecBuffer._newDecBuffer(_b.bytes()));
+var _v = (_decState._decodeUint() : stdgo.GoUInt64);
+if (_u != (_v)) {
                         _t.errorf(("Encode/Decode: sent %#x received %#x" : stdgo.GoString), stdgo.Go.toInterface(_u), stdgo.Go.toInterface(_v));
                     };
-                    if ((_u & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
+if ((_u & (-9223372036854775808i64 : stdgo.GoUInt64) : stdgo.GoUInt64) != ((0i64 : stdgo.GoUInt64))) {
                         break;
                     };
-                });
+                    _u = (((_u + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) * (7i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
+                };
             };
             {
                 for (defer in __deferstack__) {

@@ -15,14 +15,18 @@ package stdgo._internal.net.http;
         };
         {
             var _st = (8 : stdgo.GoInt);
-            stdgo.Go.cfor((_st < _boxSize : Bool), _st = (_st + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
+            while ((_st < _boxSize : Bool)) {
                 if (_st == ((12 : stdgo.GoInt))) {
-                    continue;
+                    {
+                        _st = (_st + ((4 : stdgo.GoInt)) : stdgo.GoInt);
+                        continue;
+                    };
                 };
-                if (stdgo._internal.bytes.Bytes_equal.equal((_data.__slice__(_st, (_st + (3 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.net.http.Http__mp4._mp4)) {
+if (stdgo._internal.bytes.Bytes_equal.equal((_data.__slice__(_st, (_st + (3 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.net.http.Http__mp4._mp4)) {
                     return ("video/mp4" : stdgo.GoString);
                 };
-            });
+                _st = (_st + ((4 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
         return stdgo.Go.str()?.__copy__();
     }

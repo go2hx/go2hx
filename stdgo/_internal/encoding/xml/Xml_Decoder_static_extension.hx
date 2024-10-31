@@ -613,7 +613,7 @@ var _b1 = __1, _b0 = __0;
                                         } else if (__value__ == ((91 : stdgo.GoUInt8))) {
                                             {
                                                 var _i = (0 : stdgo.GoInt);
-                                                stdgo.Go.cfor((_i < (6 : stdgo.GoInt) : Bool), _i++, {
+                                                while ((_i < (6 : stdgo.GoInt) : Bool)) {
                                                     {
                                                         {
                                                             var __tmp__ = _d._mustgetc();
@@ -624,11 +624,12 @@ var _b1 = __1, _b0 = __0;
                                                             return { _0 : (null : stdgo._internal.encoding.xml.Xml_Token.Token), _1 : _d._err };
                                                         };
                                                     };
-                                                    if (_b != (("CDATA[" : stdgo.GoString)[(_i : stdgo.GoInt)])) {
+if (_b != (("CDATA[" : stdgo.GoString)[(_i : stdgo.GoInt)])) {
                                                         _d._err = _d._syntaxError(("invalid <![ sequence" : stdgo.GoString));
                                                         return { _0 : (null : stdgo._internal.encoding.xml.Xml_Token.Token), _1 : _d._err };
                                                     };
-                                                });
+                                                    _i++;
+                                                };
                                             };
                                             var _data = _d._text((-1 : stdgo.GoInt), true);
                                             if (_data == null) {
@@ -680,7 +681,7 @@ var _b1 = __1, _b0 = __0;
                                             var _s = ("!--" : stdgo.GoString);
                                             {
                                                 var _i = (0 : stdgo.GoInt);
-                                                stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+                                                while ((_i < (_s.length) : Bool)) {
                                                     {
                                                         {
                                                             var __tmp__ = _d._mustgetc();
@@ -691,17 +692,19 @@ var _b1 = __1, _b0 = __0;
                                                             return { _0 : (null : stdgo._internal.encoding.xml.Xml_Token.Token), _1 : _d._err };
                                                         };
                                                     };
-                                                    if (_b != (_s[(_i : stdgo.GoInt)])) {
+if (_b != (_s[(_i : stdgo.GoInt)])) {
                                                         {
                                                             var _j = (0 : stdgo.GoInt);
-                                                            stdgo.Go.cfor((_j < _i : Bool), _j++, {
+                                                            while ((_j < _i : Bool)) {
                                                                 _d._buf.writeByte(_s[(_j : stdgo.GoInt)]);
-                                                            });
+                                                                _j++;
+                                                            };
                                                         };
                                                         _depth++;
                                                         @:goto "HandleB";
                                                     };
-                                                });
+                                                    _i++;
+                                                };
                                             };
                                             _d._buf.truncate((_d._buf.len() - (1 : stdgo.GoInt) : stdgo.GoInt));
                                             var __0:stdgo.GoUInt8 = (0 : stdgo.GoUInt8), __1:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);

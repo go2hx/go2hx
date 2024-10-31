@@ -9,18 +9,21 @@ function _checkChainForKeyUsage(_chain:stdgo.Slice<stdgo.Ref<stdgo._internal.cry
             var _usagesRemaining = (_usages.length : stdgo.GoInt);
             @:label("NextCert") {
                 var _i = ((_chain.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     var _cert = _chain[(_i : stdgo.GoInt)];
-                    if (((_cert.extKeyUsage.length == (0 : stdgo.GoInt)) && (_cert.unknownExtKeyUsage.length == (0 : stdgo.GoInt)) : Bool)) {
-                        continue;
+if (((_cert.extKeyUsage.length == (0 : stdgo.GoInt)) && (_cert.unknownExtKeyUsage.length == (0 : stdgo.GoInt)) : Bool)) {
+                        {
+                            _i--;
+                            continue;
+                        };
                     };
-                    for (__1 => _usage in _cert.extKeyUsage) {
+for (__1 => _usage in _cert.extKeyUsage) {
                         if (_usage == ((0 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage))) {
                             @:jump("NextCert") continue;
                         };
                     };
-                    {};
-                    @:label("NextRequestedUsage") for (_i => _requestedUsage in _usages) {
+{};
+@:label("NextRequestedUsage") for (_i => _requestedUsage in _usages) {
                         if (_requestedUsage == ((-1 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage))) {
                             continue;
                         };
@@ -35,7 +38,8 @@ function _checkChainForKeyUsage(_chain:stdgo.Slice<stdgo.Ref<stdgo._internal.cry
                             return false;
                         };
                     };
-                });
+                    _i--;
+                };
             };
             return true;
         });

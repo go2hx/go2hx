@@ -83,14 +83,15 @@ var _s = __1, _i = __0;
                     };
                     {
                         var _j = (_maxLen : stdgo.GoInt);
-                        stdgo.Go.cfor((_j > (1 : stdgo.GoInt) : Bool), _j--, {
+                        while ((_j > (1 : stdgo.GoInt) : Bool)) {
                             {
                                 var _x = (stdgo._internal.html.Html__entity._entity[((_entityName.__slice__(0, _j) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)] ?? (0 : stdgo.GoInt32) : stdgo.GoInt32);
                                 if (_x != ((0 : stdgo.GoInt32))) {
                                     return { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : ((_src + _j : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
                                 };
                             };
-                        });
+                            _j--;
+                        };
                     };
                 };
             };

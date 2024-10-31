@@ -13,14 +13,17 @@ var _c1 = __1, _c0 = __0;
         _b++;
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_sa.length) : Bool), _i++, {
+            while ((_i < (_sa.length) : Bool)) {
                 var _j = (_sa[(_i : stdgo.GoInt)] : stdgo.GoInt);
-                if ((_j <= (0 : stdgo.GoInt) : Bool)) {
-                    continue;
+if ((_j <= (0 : stdgo.GoInt) : Bool)) {
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                var _k = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
-                var _c1 = (_text[(_k : stdgo.GoInt)] : stdgo.GoInt64);
-                if ((_k > (0 : stdgo.GoInt) : Bool)) {
+var _k = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
+var _c1 = (_text[(_k : stdgo.GoInt)] : stdgo.GoInt64);
+if ((_k > (0 : stdgo.GoInt) : Bool)) {
                     {
                         var _c0 = (_text[(_k - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt64);
                         if ((_c0 < _c1 : Bool)) {
@@ -28,13 +31,14 @@ var _c1 = __1, _c0 = __0;
                         };
                     };
                 };
-                if (_cB != (_c1)) {
+if (_cB != (_c1)) {
                     _bucket[(_cB : stdgo.GoInt)] = _b;
                     _cB = _c1;
                     _b = _bucket[(_cB : stdgo.GoInt)];
                 };
-                _sa[(_b : stdgo.GoInt)] = (_k : stdgo.GoInt64);
-                _b++;
-            });
+_sa[(_b : stdgo.GoInt)] = (_k : stdgo.GoInt64);
+_b++;
+                _i++;
+            };
         };
     }

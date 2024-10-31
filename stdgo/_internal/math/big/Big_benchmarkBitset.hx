@@ -5,8 +5,9 @@ function benchmarkBitset(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void
         _b.resetTimer();
         {
             var _i = (_b.n - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 _z.setBit(_z, (_i & (512 : stdgo.GoInt) : stdgo.GoInt), (1u32 : stdgo.GoUInt));
-            });
+                _i--;
+            };
         };
     }

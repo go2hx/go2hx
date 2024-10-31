@@ -43,9 +43,10 @@ function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action
             if ((_sigs.length) == ((0 : stdgo.GoInt))) {
                 {
                     var _n = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_n < (65 : stdgo.GoInt) : Bool), _n++, {
+                    while ((_n < (65 : stdgo.GoInt) : Bool)) {
                         _remove(_n);
-                    });
+                        _n++;
+                    };
                 };
             } else {
                 for (__0 => _s in _sigs) {

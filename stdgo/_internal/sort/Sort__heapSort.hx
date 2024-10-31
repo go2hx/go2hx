@@ -5,15 +5,17 @@ function _heapSort(_data:stdgo._internal.sort.Sort_Interface.Interface, _a:stdgo
         var _hi = (_b - _a : stdgo.GoInt);
         {
             var _i = (((_hi - (1 : stdgo.GoInt) : stdgo.GoInt)) / (2 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 stdgo._internal.sort.Sort__siftDown._siftDown(_data, _i, _hi, _first);
-            });
+                _i--;
+            };
         };
         {
             var _i = (_hi - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 _data.swap(_first, (_first + _i : stdgo.GoInt));
-                stdgo._internal.sort.Sort__siftDown._siftDown(_data, _lo, _i, _first);
-            });
+stdgo._internal.sort.Sort__siftDown._siftDown(_data, _lo, _i, _first);
+                _i--;
+            };
         };
     }

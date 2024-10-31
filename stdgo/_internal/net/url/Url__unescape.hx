@@ -45,7 +45,7 @@ function _unescape(_s:stdgo.GoString, _mode:stdgo._internal.net.url.Url_T_encodi
         _t.grow(((_s.length) - ((2 : stdgo.GoInt) * _n : stdgo.GoInt) : stdgo.GoInt));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 {
                     final __value__ = _s[(_i : stdgo.GoInt)];
                     if (__value__ == ((37 : stdgo.GoUInt8))) {
@@ -61,7 +61,8 @@ function _unescape(_s:stdgo.GoString, _mode:stdgo._internal.net.url.Url_T_encodi
                         _t.writeByte(_s[(_i : stdgo.GoInt)]);
                     };
                 };
-            });
+                _i++;
+            };
         };
         return { _0 : (_t.string() : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
     }

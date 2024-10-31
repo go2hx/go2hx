@@ -6,14 +6,15 @@ package stdgo._internal.net.http;
         _f._checkValid();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _f.numSettings() : Bool), _i++, {
+            while ((_i < _f.numSettings() : Bool)) {
                 {
-                    var _err = (_fn(_f.setting(_i)?.__copy__()) : stdgo.Error);
+                    var _err = (_fn(_f.setting(_i).__copy__()) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
                 };
-            });
+                _i++;
+            };
         };
         return (null : stdgo.Error);
     }
@@ -27,18 +28,20 @@ package stdgo._internal.net.http;
         if ((_num < (10 : stdgo.GoInt) : Bool)) {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _num : Bool), _i++, {
+                while ((_i < _num : Bool)) {
                     var _idi = (_f.setting(_i).id : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID);
-                    {
+{
                         var _j = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        stdgo.Go.cfor((_j < _num : Bool), _j++, {
+                        while ((_j < _num : Bool)) {
                             var _idj = (_f.setting(_j).id : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID);
-                            if (_idi == (_idj)) {
+if (_idi == (_idj)) {
                                 return true;
                             };
-                        });
+                            _j++;
+                        };
                     };
-                });
+                    _i++;
+                };
             };
             return false;
         };
@@ -50,13 +53,14 @@ package stdgo._internal.net.http;
         } : stdgo.GoMap<stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID, Bool>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _num : Bool), _i++, {
+            while ((_i < _num : Bool)) {
                 var _id = (_f.setting(_i).id : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID);
-                if ((_seen[_id] ?? false)) {
+if ((_seen[_id] ?? false)) {
                     return true;
                 };
-                _seen[_id] = true;
-            });
+_seen[_id] = true;
+                _i++;
+            };
         };
         return false;
     }
@@ -78,14 +82,15 @@ package stdgo._internal.net.http;
         _f._checkValid();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _f.numSettings() : Bool), _i++, {
+            while ((_i < _f.numSettings() : Bool)) {
                 {
-                    var _s = (_f.setting(_i)?.__copy__() : stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting);
+                    var _s = (_f.setting(_i).__copy__() : stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting);
                     if (_s.id == (_id)) {
                         return { _0 : _s.val, _1 : true };
                     };
                 };
-            });
+                _i++;
+            };
         };
         return { _0 : (0u32 : stdgo.GoUInt32), _1 : false };
     }

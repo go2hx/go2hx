@@ -16,20 +16,21 @@ function replace(_s:stdgo.GoString, _old:stdgo.GoString, _new:stdgo.GoString, _n
         var _start = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 var _j = (_start : stdgo.GoInt);
-                if ((_old.length) == ((0 : stdgo.GoInt))) {
+if ((_old.length) == ((0 : stdgo.GoInt))) {
                     if ((_i > (0 : stdgo.GoInt) : Bool)) {
-                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_start) : stdgo.GoString)?.__copy__()), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_start) : stdgo.GoString).__copy__()), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
                         _j = (_j + (_wid) : stdgo.GoInt);
                     };
                 } else {
-                    _j = (_j + (stdgo._internal.strings.Strings_index.index((_s.__slice__(_start) : stdgo.GoString)?.__copy__(), _old?.__copy__())) : stdgo.GoInt);
+                    _j = (_j + (stdgo._internal.strings.Strings_index.index((_s.__slice__(_start) : stdgo.GoString).__copy__(), _old.__copy__())) : stdgo.GoInt);
                 };
-                _b.writeString((_s.__slice__(_start, _j) : stdgo.GoString)?.__copy__());
-                _b.writeString(_new?.__copy__());
-                _start = (_j + (_old.length) : stdgo.GoInt);
-            });
+_b.writeString((_s.__slice__(_start, _j) : stdgo.GoString).__copy__());
+_b.writeString(_new.__copy__());
+_start = (_j + (_old.length) : stdgo.GoInt);
+                _i++;
+            };
         };
         _b.writeString((_s.__slice__(_start) : stdgo.GoString)?.__copy__());
         return (_b.string() : stdgo.GoString)?.__copy__();

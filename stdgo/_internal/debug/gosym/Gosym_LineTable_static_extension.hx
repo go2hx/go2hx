@@ -90,20 +90,22 @@ package stdgo._internal.debug.gosym;
             if (_t._version == ((2 : stdgo._internal.debug.gosym.Gosym_T_version.T_version))) {
                 {
                     var _i = ((1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                    stdgo.Go.cfor((_i < _t._nfiletab : Bool), _i++, {
-                        var _s = (_t._string(_t._binary.uint32((_t._filetab.__slice__(((4u32 : stdgo.GoUInt32) * _i : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__() : stdgo.GoString);
-                        _m[_s] = _i;
-                    });
+                    while ((_i < _t._nfiletab : Bool)) {
+                        var _s = (_t._string(_t._binary.uint32((_t._filetab.__slice__(((4u32 : stdgo.GoUInt32) * _i : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>))).__copy__() : stdgo.GoString);
+_m[_s] = _i;
+                        _i++;
+                    };
                 };
             } else {
                 var _pos:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
                 {
                     var _i = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                    stdgo.Go.cfor((_i < _t._nfiletab : Bool), _i++, {
-                        var _s = (_t._stringFrom(_t._filetab, _pos)?.__copy__() : stdgo.GoString);
-                        _m[_s] = _pos;
-                        _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                    });
+                    while ((_i < _t._nfiletab : Bool)) {
+                        var _s = (_t._stringFrom(_t._filetab, _pos).__copy__() : stdgo.GoString);
+_m[_s] = _pos;
+_pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                        _i++;
+                    };
                 };
             };
             _t._fileMap = _m;
@@ -184,19 +186,22 @@ package stdgo._internal.debug.gosym;
             var _cutab:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var _i = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                stdgo.Go.cfor((_i < _t._nfunctab : Bool), _i++, {
-                    var _f = (_t._funcData(_i)?.__copy__() : stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData);
-                    var _entry = (_f._entryPC() : stdgo.GoUInt64);
-                    var _filetab = (_f._pcfile() : stdgo.GoUInt32);
-                    var _linetab = (_f._pcln() : stdgo.GoUInt32);
-                    if (((_t._version == ((3 : stdgo._internal.debug.gosym.Gosym_T_version.T_version)) || _t._version == ((4 : stdgo._internal.debug.gosym.Gosym_T_version.T_version)) : Bool) || (_t._version == (5 : stdgo._internal.debug.gosym.Gosym_T_version.T_version)) : Bool)) {
+                while ((_i < _t._nfunctab : Bool)) {
+                    var _f = (_t._funcData(_i).__copy__() : stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData);
+var _entry = (_f._entryPC() : stdgo.GoUInt64);
+var _filetab = (_f._pcfile() : stdgo.GoUInt32);
+var _linetab = (_f._pcln() : stdgo.GoUInt32);
+if (((_t._version == ((3 : stdgo._internal.debug.gosym.Gosym_T_version.T_version)) || _t._version == ((4 : stdgo._internal.debug.gosym.Gosym_T_version.T_version)) : Bool) || (_t._version == (5 : stdgo._internal.debug.gosym.Gosym_T_version.T_version)) : Bool)) {
                         if (_f._cuOffset() == ((-1u32 : stdgo.GoUInt32))) {
-                            continue;
+                            {
+                                _i++;
+                                continue;
+                            };
                         };
                         _cutab = (_t._cutab.__slice__((_f._cuOffset() * (4u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>);
                     };
-                    var _pc = (_t._findFileLine(_entry, _filetab, _linetab, (_filenum : stdgo.GoInt32), (_line : stdgo.GoInt32), _cutab) : stdgo.GoUInt64);
-                    if (_pc != ((0i64 : stdgo.GoUInt64))) {
+var _pc = (_t._findFileLine(_entry, _filetab, _linetab, (_filenum : stdgo.GoInt32), (_line : stdgo.GoInt32), _cutab) : stdgo.GoUInt64);
+if (_pc != ((0i64 : stdgo.GoUInt64))) {
                         {
                             for (defer in __deferstack__) {
                                 defer();
@@ -204,7 +209,8 @@ package stdgo._internal.debug.gosym;
                             return _pc;
                         };
                     };
-                });
+                    _i++;
+                };
             };
             {
                 final __ret__:stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
@@ -567,14 +573,15 @@ var _shift = __1, _v = __0;
         var _p = (_pp : stdgo.Slice<stdgo.GoUInt8>);
         {
             _shift = (0u32 : stdgo.GoUInt32);
-            stdgo.Go.cfor(true, _shift = (_shift + ((7u32 : stdgo.GoUInt32)) : stdgo.GoUInt32), {
+            while (true) {
                 var _b = (_p[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
-                _p = (_p.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-                _v = (_v | (((((_b : stdgo.GoUInt32) & (127u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) << _shift : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
+_p = (_p.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+_v = (_v | (((((_b : stdgo.GoUInt32) & (127u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) << _shift : stdgo.GoUInt32)) : stdgo.GoUInt32);
+if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                     break;
                 };
-            });
+                _shift = (_shift + ((7u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
+            };
         };
         (_pp : stdgo.Slice<stdgo.GoUInt8>).__setData__(_p);
         return _v;

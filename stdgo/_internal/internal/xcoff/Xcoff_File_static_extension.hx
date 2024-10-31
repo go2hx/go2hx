@@ -81,11 +81,11 @@ package stdgo._internal.internal.xcoff;
         var _all = (new stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>((0 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > 0 ? (0 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol)]) : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_nsyms : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (_nsyms : stdgo.GoInt) : Bool)) {
                 var _name:stdgo.GoString = ("" : stdgo.GoString);
-                var _ifile:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-                var _ok:Bool = false;
-                {
+var _ifile:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+var _ok:Bool = false;
+{
                     final __value__ = _f.fileHeader.targetMachine;
                     if (__value__ == ((479 : stdgo.GoUInt16))) {
                         var _ldsym = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol32.LoaderSymbol32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_LoaderSymbol32.LoaderSymbol32>);
@@ -96,20 +96,26 @@ package stdgo._internal.internal.xcoff;
                             };
                         };
                         if ((_ldsym.lsmtype & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
-                            continue;
+                            {
+                                _i++;
+                                continue;
+                            };
                         };
                         var _zeroes = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_ldsym.lname.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                         if (_zeroes != ((0u32 : stdgo.GoUInt32))) {
-                            _name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_ldsym.lname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                            _name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_ldsym.lname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                         } else {
                             var _offset = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_ldsym.lname.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                             {
                                 var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_st, _offset);
-                                _name = __tmp__._0?.__copy__();
+                                _name = __tmp__._0.__copy__();
                                 _ok = __tmp__._1;
                             };
                             if (!_ok) {
-                                continue;
+                                {
+                                    _i++;
+                                    continue;
+                                };
                             };
                         };
                         _ifile = _ldsym.lifile;
@@ -122,26 +128,33 @@ package stdgo._internal.internal.xcoff;
                             };
                         };
                         if ((_ldsym.lsmtype & (64 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
-                            continue;
+                            {
+                                _i++;
+                                continue;
+                            };
                         };
                         {
                             var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_st, _ldsym.loffset);
-                            _name = __tmp__._0?.__copy__();
+                            _name = __tmp__._0.__copy__();
                             _ok = __tmp__._1;
                         };
                         if (!_ok) {
-                            continue;
+                            {
+                                _i++;
+                                continue;
+                            };
                         };
                         _ifile = _ldsym.lifile;
                     };
                 };
-                var _sym:stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol = ({} : stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol);
-                _sym.name = _name?.__copy__();
-                if (((_ifile >= (1u32 : stdgo.GoUInt32) : Bool) && ((_ifile : stdgo.GoInt) <= (_libs.length) : Bool) : Bool)) {
-                    _sym.library = _libs[((_ifile - (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)]?.__copy__();
+var _sym:stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol = ({} : stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol);
+_sym.name = _name.__copy__();
+if (((_ifile >= (1u32 : stdgo.GoUInt32) : Bool) && ((_ifile : stdgo.GoInt) <= (_libs.length) : Bool) : Bool)) {
+                    _sym.library = _libs[((_ifile - (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)].__copy__();
                 };
-                _all = (_all.__append__(_sym?.__copy__()));
-            });
+_all = (_all.__append__(_sym.__copy__()));
+                _i++;
+            };
         };
         return { _0 : _all, _1 : (null : stdgo.Error) };
     }
@@ -203,21 +216,22 @@ package stdgo._internal.internal.xcoff;
         var _all = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
         {
             var _i = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_nimpid : stdgo.GoInt) : Bool), _i++, {
-                var _impidpath = (stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_table.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo.GoString);
-                _offset = (_offset + (((_impidpath.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-                var _impidbase = (stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_table.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo.GoString);
-                _offset = (_offset + (((_impidbase.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-                var _impidmem = (stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_table.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo.GoString);
-                _offset = (_offset + (((_impidmem.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-                var _path:stdgo.GoString = ("" : stdgo.GoString);
-                if (((_impidpath.length) > (0 : stdgo.GoInt) : Bool)) {
-                    _path = ((((_impidpath + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _impidbase?.__copy__() : stdgo.GoString) + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _impidmem?.__copy__() : stdgo.GoString)?.__copy__();
+            while ((_i < (_nimpid : stdgo.GoInt) : Bool)) {
+                var _impidpath = (stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_table.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>)).__copy__() : stdgo.GoString);
+_offset = (_offset + (((_impidpath.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+var _impidbase = (stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_table.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>)).__copy__() : stdgo.GoString);
+_offset = (_offset + (((_impidbase.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+var _impidmem = (stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_table.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>)).__copy__() : stdgo.GoString);
+_offset = (_offset + (((_impidmem.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
+var _path:stdgo.GoString = ("" : stdgo.GoString);
+if (((_impidpath.length) > (0 : stdgo.GoInt) : Bool)) {
+                    _path = ((((_impidpath + ("/" : stdgo.GoString).__copy__() : stdgo.GoString) + _impidbase.__copy__() : stdgo.GoString) + ("/" : stdgo.GoString).__copy__() : stdgo.GoString) + _impidmem.__copy__() : stdgo.GoString).__copy__();
                 } else {
-                    _path = ((_impidbase + ("/" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _impidmem?.__copy__() : stdgo.GoString)?.__copy__();
+                    _path = ((_impidbase + ("/" : stdgo.GoString).__copy__() : stdgo.GoString) + _impidmem.__copy__() : stdgo.GoString).__copy__();
                 };
-                _all = (_all.__append__(_path?.__copy__()));
-            });
+_all = (_all.__append__(_path.__copy__()));
+                _i++;
+            };
         };
         return { _0 : _all, _1 : (null : stdgo.Error) };
     }

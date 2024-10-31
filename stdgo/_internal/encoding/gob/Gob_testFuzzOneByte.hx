@@ -18,17 +18,24 @@ function testFuzzOneByte(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             var _indices = (new stdgo.Slice<stdgo.GoInt>((0 : stdgo.GoInt).toBasic(), (_s.length)).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+                while ((_i < (_s.length) : Bool)) {
                     {
                         final __value__ = _i;
                         if (__value__ == ((14 : stdgo.GoInt)) || __value__ == ((167 : stdgo.GoInt)) || __value__ == ((231 : stdgo.GoInt)) || __value__ == ((265 : stdgo.GoInt))) {
-                            continue;
+                            {
+                                _i++;
+                                continue;
+                            };
                         } else if (__value__ == ((248 : stdgo.GoInt))) {
-                            continue;
+                            {
+                                _i++;
+                                continue;
+                            };
                         };
                     };
-                    _indices = (_indices.__append__(_i));
-                });
+_indices = (_indices.__append__(_i));
+                    _i++;
+                };
             };
             if (stdgo._internal.testing.Testing_short.short()) {
                 _indices = (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (111 : stdgo.GoInt), (178 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
@@ -36,11 +43,11 @@ function testFuzzOneByte(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             for (__8 => _i in _indices) {
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < (256 : stdgo.GoInt) : Bool), _j = (_j + ((3 : stdgo.GoInt)) : stdgo.GoInt), {
+                    while ((_j < (256 : stdgo.GoInt) : Bool)) {
                         var _b = (_s : stdgo.Slice<stdgo.GoUInt8>);
-                        _b[(_i : stdgo.GoInt)] = (_b[(_i : stdgo.GoInt)] ^ ((_j : stdgo.GoUInt8)) : stdgo.GoUInt8);
-                        var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.gob.Gob_DT.DT);
-                        {
+_b[(_i : stdgo.GoInt)] = (_b[(_i : stdgo.GoInt)] ^ ((_j : stdgo.GoUInt8)) : stdgo.GoUInt8);
+var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.gob.Gob_DT.DT);
+{
                             var a = function():Void {
                                 var __deferstack__:Array<Void -> Void> = [];
                                 try {
@@ -109,7 +116,8 @@ function testFuzzOneByte(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
                             };
                             a();
                         };
-                    });
+                        _j = (_j + ((3 : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
             };
             {

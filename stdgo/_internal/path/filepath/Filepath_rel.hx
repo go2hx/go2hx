@@ -55,11 +55,12 @@ var _ti = __3, _t0 = __2, _bi = __1, _b0 = __0;
             var _n = (stdgo.Go.copySlice(_buf, (".." : stdgo.GoString)) : stdgo.GoInt);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _seps : Bool), _i++, {
+                while ((_i < _seps : Bool)) {
                     _buf[(_n : stdgo.GoInt)] = (47 : stdgo.GoUInt8);
-                    stdgo.Go.copySlice((_buf.__slice__((_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (".." : stdgo.GoString));
-                    _n = (_n + ((3 : stdgo.GoInt)) : stdgo.GoInt);
-                });
+stdgo.Go.copySlice((_buf.__slice__((_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (".." : stdgo.GoString));
+_n = (_n + ((3 : stdgo.GoInt)) : stdgo.GoInt);
+                    _i++;
+                };
             };
             if (_t0 != (_tl)) {
                 _buf[(_n : stdgo.GoInt)] = (47 : stdgo.GoUInt8);

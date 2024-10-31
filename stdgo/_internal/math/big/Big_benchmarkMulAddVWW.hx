@@ -12,9 +12,10 @@ function benchmarkMulAddVWW(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):V
                 _b.setBytes(((_n * (32 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                    while ((_i < _b.n : Bool)) {
                         stdgo._internal.math.big.Big__mulAddVWW._mulAddVWW(_z, _x, _y, _r);
-                    });
+                        _i++;
+                    };
                 };
             });
         };

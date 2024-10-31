@@ -12,17 +12,19 @@ function benchmarkNonZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B
                 _b.run(("shrVU" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                        while ((_i < _b.n : Bool)) {
                             var __blank__ = stdgo._internal.math.big.Big__shrVU._shrVU(_z, _x, _s);
-                        });
+                            _i++;
+                        };
                     };
                 });
                 _b.run(("shlVU" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                        while ((_i < _b.n : Bool)) {
                             var __blank__ = stdgo._internal.math.big.Big__shlVU._shlVU(_z, _x, _s);
-                        });
+                            _i++;
+                        };
                     };
                 });
             });

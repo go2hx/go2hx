@@ -7,8 +7,9 @@ function benchmarkModInverse(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):
         var _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 _z.modInverse(_x, _p);
-            });
+                _i++;
+            };
         };
     }

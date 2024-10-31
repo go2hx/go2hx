@@ -19,33 +19,36 @@ package stdgo._internal.encoding.binary;
                 var _l = (_v.len() : stdgo.GoInt);
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _l : Bool), _i++, {
-                        _e._value(_v.index(_i)?.__copy__());
-                    });
+                    while ((_i < _l : Bool)) {
+                        _e._value(_v.index(_i).__copy__());
+                        _i++;
+                    };
                 };
             } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                 var _t = (_v.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
                 var _l = (_v.numField() : stdgo.GoInt);
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _l : Bool), _i++, {
+                    while ((_i < _l : Bool)) {
                         {
-                            var _v = (_v.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+                            var _v = (_v.field(_i).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
                             if ((_v.canSet() || (_t.field(_i).name != ("_" : stdgo.GoString)) : Bool)) {
-                                _e._value(_v?.__copy__());
+                                _e._value(_v.__copy__());
                             } else {
-                                _e._skip(_v?.__copy__());
+                                _e._skip(_v.__copy__());
                             };
                         };
-                    });
+                        _i++;
+                    };
                 };
             } else if (__value__ == ((23u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                 var _l = (_v.len() : stdgo.GoInt);
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _l : Bool), _i++, {
-                        _e._value(_v.index(_i)?.__copy__());
-                    });
+                    while ((_i < _l : Bool)) {
+                        _e._value(_v.index(_i).__copy__());
+                        _i++;
+                    };
                 };
             } else if (__value__ == ((1u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                 _e._bool(_v.bool_());

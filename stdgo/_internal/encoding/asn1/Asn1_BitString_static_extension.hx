@@ -11,10 +11,11 @@ package stdgo._internal.encoding.asn1;
         _a[(0 : stdgo.GoInt)] = (_b.bytes[(0 : stdgo.GoInt)] >> _shift : stdgo.GoUInt8);
         {
             var _i = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_b.bytes.length) : Bool), _i++, {
+            while ((_i < (_b.bytes.length) : Bool)) {
                 _a[(_i : stdgo.GoInt)] = (_b.bytes[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] << (((8u32 : stdgo.GoUInt) - _shift : stdgo.GoUInt)) : stdgo.GoUInt8);
-                _a[(_i : stdgo.GoInt)] = (_a[(_i : stdgo.GoInt)] | ((_b.bytes[(_i : stdgo.GoInt)] >> _shift : stdgo.GoUInt8)) : stdgo.GoUInt8);
-            });
+_a[(_i : stdgo.GoInt)] = (_a[(_i : stdgo.GoInt)] | ((_b.bytes[(_i : stdgo.GoInt)] >> _shift : stdgo.GoUInt8)) : stdgo.GoUInt8);
+                _i++;
+            };
         };
         return _a;
     }

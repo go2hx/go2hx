@@ -654,9 +654,10 @@ package stdgo._internal.encoding.json;
         };
         if ((_i < _v.len() : Bool)) {
             if (_v.kind() == ((17u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                stdgo.Go.cfor((_i < _v.len() : Bool), _i++, {
+                while ((_i < _v.len() : Bool)) {
                     _v.index(_i).setZero();
-                });
+                    _i++;
+                };
             } else {
                 _v.setLen(_i);
             };
@@ -748,7 +749,7 @@ var _i = __1, _data = __0;
                     {
                         final __value__ = _data[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)];
                         if (__value__ == ((34 : stdgo.GoUInt8))) {
-                            stdgo.Go.cfor((_i < (_data.length) : Bool), _i++, {
+                            while ((_i < (_data.length) : Bool)) {
                                 {
                                     var __switchIndex__ = -1;
                                     var __run__ = true;
@@ -768,10 +769,11 @@ var _i = __1, _data = __0;
                                         break;
                                     };
                                 };
-                            });
+                                _i++;
+                            };
                             break;
                         } else if (__value__ == ((48 : stdgo.GoUInt8)) || __value__ == ((49 : stdgo.GoUInt8)) || __value__ == ((50 : stdgo.GoUInt8)) || __value__ == ((51 : stdgo.GoUInt8)) || __value__ == ((52 : stdgo.GoUInt8)) || __value__ == ((53 : stdgo.GoUInt8)) || __value__ == ((54 : stdgo.GoUInt8)) || __value__ == ((55 : stdgo.GoUInt8)) || __value__ == ((56 : stdgo.GoUInt8)) || __value__ == ((57 : stdgo.GoUInt8)) || __value__ == ((45 : stdgo.GoUInt8))) {
-                            stdgo.Go.cfor((_i < (_data.length) : Bool), _i++, {
+                            while ((_i < (_data.length) : Bool)) {
                                 {
                                     var __switchIndex__ = -1;
                                     var __run__ = true;
@@ -788,7 +790,8 @@ var _i = __1, _data = __0;
                                         break;
                                     };
                                 };
-                            });
+                                _i++;
+                            };
                             break;
                         } else if (__value__ == ((116 : stdgo.GoUInt8))) {
                             _i = (_i + ((("rue" : stdgo.GoString).length)) : stdgo.GoInt);

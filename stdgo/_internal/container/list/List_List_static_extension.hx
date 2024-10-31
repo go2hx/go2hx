@@ -7,14 +7,15 @@ package stdgo._internal.container.list;
         {
             var __0 = (_other.len() : stdgo.GoInt), __1 = _other.back();
 var _e = __1, _i = __0;
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), {
-                final __tmp__0 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
-                final __tmp__1 = _e.prev();
-                _i = __tmp__0;
-                _e = __tmp__1;
-            }, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _l._insertValue(_e.value, (stdgo.Go.setRef(_l._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>));
-            });
+                {
+                    final __tmp__0 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
+                    final __tmp__1 = _e.prev();
+                    _i = __tmp__0;
+                    _e = __tmp__1;
+                };
+            };
         };
     }
     @:keep
@@ -24,14 +25,15 @@ var _e = __1, _i = __0;
         {
             var __0 = (_other.len() : stdgo.GoInt), __1 = _other.front();
 var _e = __1, _i = __0;
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), {
-                final __tmp__0 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
-                final __tmp__1 = _e.next();
-                _i = __tmp__0;
-                _e = __tmp__1;
-            }, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _l._insertValue(_e.value, _l._root._prev);
-            });
+                {
+                    final __tmp__0 = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
+                    final __tmp__1 = _e.next();
+                    _i = __tmp__0;
+                    _e = __tmp__1;
+                };
+            };
         };
     }
     @:keep

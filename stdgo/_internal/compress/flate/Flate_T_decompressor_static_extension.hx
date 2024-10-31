@@ -334,7 +334,7 @@ var _b = __1, _nb = __0;
         _f._nb = (_f._nb - ((14u32 : stdgo.GoUInt)) : stdgo.GoUInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _nclen : Bool), _i++, {
+            while ((_i < _nclen : Bool)) {
                 while ((_f._nb < (3u32 : stdgo.GoUInt) : Bool)) {
                     {
                         var _err = (_f._moreBits() : stdgo.Error);
@@ -343,16 +343,18 @@ var _b = __1, _nb = __0;
                         };
                     };
                 };
-                _f._codebits[(stdgo._internal.compress.flate.Flate__codeOrder._codeOrder[(_i : stdgo.GoInt)] : stdgo.GoInt)] = ((_f._b & (7u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt);
-                _f._b = (_f._b >> ((3i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
-                _f._nb = (_f._nb - ((3u32 : stdgo.GoUInt)) : stdgo.GoUInt);
-            });
+_f._codebits[(stdgo._internal.compress.flate.Flate__codeOrder._codeOrder[(_i : stdgo.GoInt)] : stdgo.GoInt)] = ((_f._b & (7u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt);
+_f._b = (_f._b >> ((3i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
+_f._nb = (_f._nb - ((3u32 : stdgo.GoUInt)) : stdgo.GoUInt);
+                _i++;
+            };
         };
         {
             var _i = (_nclen : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (stdgo._internal.compress.flate.Flate__codeOrder._codeOrder.length) : Bool), _i++, {
+            while ((_i < (stdgo._internal.compress.flate.Flate__codeOrder._codeOrder.length) : Bool)) {
                 _f._codebits[(stdgo._internal.compress.flate.Flate__codeOrder._codeOrder[(_i : stdgo.GoInt)] : stdgo.GoInt)] = (0 : stdgo.GoInt);
-            });
+                _i++;
+            };
         };
         if (!_f._h1._init((_f._codebits.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>))) {
             return stdgo.Go.asInterface((_f._roffset : stdgo._internal.compress.flate.Flate_CorruptInputError.CorruptInputError));
@@ -410,10 +412,11 @@ var _n = __1, _i = __0;
                 };
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < _rep : Bool), _j++, {
+                    while ((_j < _rep : Bool)) {
                         _f._bits[(_i : stdgo.GoInt)] = _b;
-                        _i++;
-                    });
+_i++;
+                        _j++;
+                    };
                 };
             };
         };

@@ -56,27 +56,32 @@ function generateMultiPrimeKey(_random:stdgo._internal.io.Io_Reader.Reader, _npr
                 };
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _nprimes : Bool), _i++, {
+                    while ((_i < _nprimes : Bool)) {
                         var _err:stdgo.Error = (null : stdgo.Error);
-                        {
+{
                             var __tmp__ = stdgo._internal.crypto.rand.Rand_prime.prime(_random, (_todo / ((_nprimes - _i : stdgo.GoInt)) : stdgo.GoInt));
                             _primes[(_i : stdgo.GoInt)] = __tmp__._0;
                             _err = __tmp__._1;
                         };
-                        if (_err != null) {
+if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
-                        _todo = (_todo - (_primes[(_i : stdgo.GoInt)].bitLen()) : stdgo.GoInt);
-                    });
+_todo = (_todo - (_primes[(_i : stdgo.GoInt)].bitLen()) : stdgo.GoInt);
+                        _i++;
+                    };
                 };
                 for (_i => _prime in _primes) {
                     {
                         var _j = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_j < _i : Bool), _j++, {
+                        while ((_j < _i : Bool)) {
                             if (_prime.cmp(_primes[(_j : stdgo.GoInt)]) == ((0 : stdgo.GoInt))) {
-                                @:jump("NextSetOfPrimes") continue;
+                                @:jump("NextSetOfPrimes") {
+                                    _j++;
+                                    continue;
+                                };
                             };
-                        });
+                            _j++;
+                        };
                     };
                 };
                 var _n = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).set(stdgo._internal.crypto.rsa.Rsa__bigOne._bigOne);

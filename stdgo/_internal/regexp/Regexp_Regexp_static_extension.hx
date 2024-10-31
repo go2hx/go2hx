@@ -808,7 +808,7 @@ var _width1 = __1, _width = __0;
                 };
             } else {
                 var _width = (-1 : stdgo.GoInt);
-                stdgo.Go.cfor(((_pos <= _end : Bool) && (_width != (0 : stdgo.GoInt)) : Bool), _pos = (_pos + (_width) : stdgo.GoInt), {
+                while (((_pos <= _end : Bool) && (_width != (0 : stdgo.GoInt)) : Bool)) {
                     if (((_re._prefix.length) > (0 : stdgo.GoInt) : Bool)) {
                         var _advance = (_i._index(_re, _pos) : stdgo.GoInt);
                         if ((_advance < (0 : stdgo.GoInt) : Bool)) {
@@ -817,17 +817,18 @@ var _width1 = __1, _width = __0;
                         };
                         _pos = (_pos + (_advance) : stdgo.GoInt);
                     };
-                    if (((_b._cap.length) > (0 : stdgo.GoInt) : Bool)) {
+if (((_b._cap.length) > (0 : stdgo.GoInt) : Bool)) {
                         _b._cap[(0 : stdgo.GoInt)] = _pos;
                     };
-                    if (_re._tryBacktrack(_b, _i, (_re._prog.start : stdgo.GoUInt32), _pos)) {
+if (_re._tryBacktrack(_b, _i, (_re._prog.start : stdgo.GoUInt32), _pos)) {
                         @:goto "Match";
                     };
-                    {
+{
                         var __tmp__ = _i._step(_pos);
                         _width = __tmp__._1;
                     };
-                });
+                    _pos = (_pos + (_width) : stdgo.GoInt);
+                };
                 stdgo._internal.regexp.Regexp__freeBitState._freeBitState(_b);
                 return (null : stdgo.Slice<stdgo.GoInt>);
             };

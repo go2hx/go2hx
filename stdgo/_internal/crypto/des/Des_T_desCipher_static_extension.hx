@@ -43,10 +43,11 @@ package stdgo._internal.crypto.des;
         var _rightRotations = stdgo._internal.crypto.des.Des__ksRotate._ksRotate((((_permutedKey << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32) >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt32));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (16 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (16 : stdgo.GoInt) : Bool)) {
                 var _pc2Input = (((_leftRotations[(_i : stdgo.GoInt)] : stdgo.GoUInt64) << (28i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (_rightRotations[(_i : stdgo.GoInt)] : stdgo.GoUInt64) : stdgo.GoUInt64);
-                _c._subkeys[(_i : stdgo.GoInt)] = stdgo._internal.crypto.des.Des__unpack._unpack(stdgo._internal.crypto.des.Des__permuteBlock._permuteBlock(_pc2Input, (stdgo._internal.crypto.des.Des__permutedChoice2._permutedChoice2.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)));
-            });
+_c._subkeys[(_i : stdgo.GoInt)] = stdgo._internal.crypto.des.Des__unpack._unpack(stdgo._internal.crypto.des.Des__permuteBlock._permuteBlock(_pc2Input, (stdgo._internal.crypto.des.Des__permutedChoice2._permutedChoice2.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)));
+                _i++;
+            };
         };
     }
 }

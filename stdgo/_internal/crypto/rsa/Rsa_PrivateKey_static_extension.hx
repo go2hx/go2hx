@@ -49,15 +49,16 @@ package stdgo._internal.crypto.rsa;
         _priv.precomputed.crtvalues = (new stdgo.Slice<stdgo._internal.crypto.rsa.Rsa_CRTValue.CRTValue>(((_priv.primes.length) - (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((_priv.primes.length) - (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? ((_priv.primes.length) - (2 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.rsa.Rsa_CRTValue.CRTValue)]) : stdgo.Slice<stdgo._internal.crypto.rsa.Rsa_CRTValue.CRTValue>);
         {
             var _i = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_priv.primes.length) : Bool), _i++, {
+            while ((_i < (_priv.primes.length) : Bool)) {
                 var _prime = _priv.primes[(_i : stdgo.GoInt)];
-                var _values = (stdgo.Go.setRef(_priv.precomputed.crtvalues[(_i - (2 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_CRTValue.CRTValue>);
-                _values.exp = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).sub(_prime, stdgo._internal.crypto.rsa.Rsa__bigOne._bigOne);
-                _values.exp.mod(_priv.d, _values.exp);
-                _values.r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).set(_r);
-                _values.coeff = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse(_r, _prime);
-                _r.mul(_r, _prime);
-            });
+var _values = (stdgo.Go.setRef(_priv.precomputed.crtvalues[(_i - (2 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_CRTValue.CRTValue>);
+_values.exp = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).sub(_prime, stdgo._internal.crypto.rsa.Rsa__bigOne._bigOne);
+_values.exp.mod(_priv.d, _values.exp);
+_values.r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).set(_r);
+_values.coeff = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse(_r, _prime);
+_r.mul(_r, _prime);
+                _i++;
+            };
         };
     }
     @:keep

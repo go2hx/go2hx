@@ -70,14 +70,15 @@ function unquoteChar(_s:stdgo.GoString, _quote:stdgo.GoUInt8):{ var _0 : stdgo.G
                         };
                         {
                             var _j = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor((_j < _n : Bool), _j++, {
+                            while ((_j < _n : Bool)) {
                                 var __tmp__ = stdgo._internal.strconv.Strconv__unhex._unhex(_s[(_j : stdgo.GoInt)]), _x:stdgo.GoInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
-                                if (!_ok) {
+if (!_ok) {
                                     _err = stdgo._internal.strconv.Strconv_errSyntax.errSyntax;
                                     return { _0 : _value, _1 : _multibyte, _2 : _tail, _3 : _err };
                                 };
-                                _v = ((_v << (4i64 : stdgo.GoUInt64) : stdgo.GoInt32) | _x : stdgo.GoInt32);
-                            });
+_v = ((_v << (4i64 : stdgo.GoUInt64) : stdgo.GoInt32) | _x : stdgo.GoInt32);
+                                _j++;
+                            };
                         };
                         _s = (_s.__slice__(_n) : stdgo.GoString)?.__copy__();
                         if (_c == ((120 : stdgo.GoUInt8))) {
@@ -99,14 +100,15 @@ function unquoteChar(_s:stdgo.GoString, _quote:stdgo.GoUInt8):{ var _0 : stdgo.G
                         };
                         {
                             var _j = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor((_j < (2 : stdgo.GoInt) : Bool), _j++, {
+                            while ((_j < (2 : stdgo.GoInt) : Bool)) {
                                 var _x = ((_s[(_j : stdgo.GoInt)] : stdgo.GoInt32) - (48 : stdgo.GoInt32) : stdgo.GoInt32);
-                                if (((_x < (0 : stdgo.GoInt32) : Bool) || (_x > (7 : stdgo.GoInt32) : Bool) : Bool)) {
+if (((_x < (0 : stdgo.GoInt32) : Bool) || (_x > (7 : stdgo.GoInt32) : Bool) : Bool)) {
                                     _err = stdgo._internal.strconv.Strconv_errSyntax.errSyntax;
                                     return { _0 : _value, _1 : _multibyte, _2 : _tail, _3 : _err };
                                 };
-                                _v = (((_v << (3i64 : stdgo.GoUInt64) : stdgo.GoInt32)) | _x : stdgo.GoInt32);
-                            });
+_v = (((_v << (3i64 : stdgo.GoUInt64) : stdgo.GoInt32)) | _x : stdgo.GoInt32);
+                                _j++;
+                            };
                         };
                         _s = (_s.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         if ((_v > (255 : stdgo.GoInt32) : Bool)) {

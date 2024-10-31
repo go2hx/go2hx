@@ -69,17 +69,18 @@ function _dumpRegexp(_b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builde
                 var _sep = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < (_re.rune.length) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
-                        _b.writeString(_sep?.__copy__());
-                        _sep = (" " : stdgo.GoString);
-                        var __0 = (_re.rune[(_i : stdgo.GoInt)] : stdgo.GoInt32), __1 = (_re.rune[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt32);
+                    while ((_i < (_re.rune.length) : Bool)) {
+                        _b.writeString(_sep.__copy__());
+_sep = (" " : stdgo.GoString);
+var __0 = (_re.rune[(_i : stdgo.GoInt)] : stdgo.GoInt32), __1 = (_re.rune[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt32);
 var _hi = __1, _lo = __0;
-                        if (_lo == (_hi)) {
+if (_lo == (_hi)) {
                             stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b), ("%#x" : stdgo.GoString), stdgo.Go.toInterface(_lo));
                         } else {
                             stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b), ("%#x-%#x" : stdgo.GoString), stdgo.Go.toInterface(_lo), stdgo.Go.toInterface(_hi));
                         };
-                    });
+                        _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
             };
         };

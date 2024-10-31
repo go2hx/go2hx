@@ -53,14 +53,15 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect_Type_.Type_, _rand:stdgo
                     _v.set(stdgo._internal.reflect.Reflect_makeMap.makeMap(_concrete)?.__copy__());
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _numElems : Bool), _i++, {
+                        while ((_i < _numElems : Bool)) {
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.key(), _rand, _size), _key:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok1:Bool = __tmp__._1;
-                            var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.elem(), _rand, _size), _value:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok2:Bool = __tmp__._1;
-                            if ((!_ok1 || !_ok2 : Bool)) {
+var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.elem(), _rand, _size), _value:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok2:Bool = __tmp__._1;
+if ((!_ok1 || !_ok2 : Bool)) {
                                 return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
                             };
-                            _v.setMapIndex(_key?.__copy__(), _value?.__copy__());
-                        });
+_v.setMapIndex(_key.__copy__(), _value.__copy__());
+                            _i++;
+                        };
                     };
                 } else if (__value__ == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                     if (_rand.intn(_size) == ((0 : stdgo.GoInt))) {
@@ -79,33 +80,36 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect_Type_.Type_, _rand:stdgo
                     _v.set(stdgo._internal.reflect.Reflect_makeSlice.makeSlice(_concrete, _numElems, _numElems)?.__copy__());
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _numElems : Bool), _i++, {
+                        while ((_i < _numElems : Bool)) {
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.elem(), _rand, _sizeLeft), _elem:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
-                            if (!_ok) {
+if (!_ok) {
                                 return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
                             };
-                            _v.index(_i).set(_elem?.__copy__());
-                        });
+_v.index(_i).set(_elem.__copy__());
+                            _i++;
+                        };
                     };
                 } else if (__value__ == ((17u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _v.len() : Bool), _i++, {
+                        while ((_i < _v.len() : Bool)) {
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
-                            if (!_ok) {
+if (!_ok) {
                                 return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
                             };
-                            _v.index(_i).set(_elem?.__copy__());
-                        });
+_v.index(_i).set(_elem.__copy__());
+                            _i++;
+                        };
                     };
                 } else if (__value__ == ((24u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                     var _numChars = (_rand.intn((50 : stdgo.GoInt)) : stdgo.GoInt);
                     var _codePoints = (new stdgo.Slice<stdgo.GoInt32>((_numChars : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _numChars : Bool), _i++, {
+                        while ((_i < _numChars : Bool)) {
                             _codePoints[(_i : stdgo.GoInt)] = (_rand.intn((1114111 : stdgo.GoInt)) : stdgo.GoInt32);
-                        });
+                            _i++;
+                        };
                     };
                     _v.setString((_codePoints : stdgo.GoString)?.__copy__());
                 } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
@@ -118,13 +122,14 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect_Type_.Type_, _rand:stdgo
                     };
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                        while ((_i < _n : Bool)) {
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.field(_i).type, _rand, _sizeLeft), _elem:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
-                            if (!_ok) {
+if (!_ok) {
                                 return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
                             };
-                            _v.field(_i).set(_elem?.__copy__());
-                        });
+_v.field(_i).set(_elem.__copy__());
+                            _i++;
+                        };
                     };
                 } else {
                     return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };

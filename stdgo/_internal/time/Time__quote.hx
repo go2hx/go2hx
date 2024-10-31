@@ -15,11 +15,12 @@ function _quote(_s:stdgo.GoString):stdgo.GoString {
                 };
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < _width : Bool), _j++, {
+                    while ((_j < _width : Bool)) {
                         _buf = (_buf.__append__(...(("\\x" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
-                        _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(_i + _j : stdgo.GoInt)] >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)]));
-                        _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(_i + _j : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
-                    });
+_buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(_i + _j : stdgo.GoInt)] >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)]));
+_buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(_i + _j : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
+                        _j++;
+                    };
                 };
             } else {
                 if (((_c == (34 : stdgo.GoInt32)) || (_c == (92 : stdgo.GoInt32)) : Bool)) {

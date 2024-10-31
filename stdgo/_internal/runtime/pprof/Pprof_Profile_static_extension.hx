@@ -20,11 +20,12 @@ package stdgo._internal.runtime.pprof;
 var _u = __1, _t = __0;
             {
                 var _k = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(((_k < (_t.length) : Bool) && (_k < (_u.length) : Bool) : Bool), _k++, {
+                while (((_k < (_t.length) : Bool) && (_k < (_u.length) : Bool) : Bool)) {
                     if (_t[(_k : stdgo.GoInt)] != (_u[(_k : stdgo.GoInt)])) {
                         return (_t[(_k : stdgo.GoInt)] < _u[(_k : stdgo.GoInt)] : Bool);
                     };
-                });
+                    _k++;
+                };
             };
             return ((_t.length) < (_u.length) : Bool);
         });

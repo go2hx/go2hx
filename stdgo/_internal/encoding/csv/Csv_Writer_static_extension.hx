@@ -12,12 +12,13 @@ package stdgo._internal.encoding.csv;
         if ((_w.comma < (128 : stdgo.GoInt32) : Bool)) {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_field.length) : Bool), _i++, {
+                while ((_i < (_field.length) : Bool)) {
                     var _c = (_field[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                    if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _c == ((34 : stdgo.GoUInt8)) : Bool) || (_c == (_w.comma : stdgo.GoUInt8)) : Bool)) {
+if ((((_c == ((10 : stdgo.GoUInt8)) || _c == ((13 : stdgo.GoUInt8)) : Bool) || _c == ((34 : stdgo.GoUInt8)) : Bool) || (_c == (_w.comma : stdgo.GoUInt8)) : Bool)) {
                         return true;
                     };
-                });
+                    _i++;
+                };
             };
         } else {
             if ((stdgo._internal.strings.Strings_containsRune.containsRune(_field?.__copy__(), _w.comma) || stdgo._internal.strings.Strings_containsAny.containsAny(_field?.__copy__(), ("\"\r\n" : stdgo.GoString)) : Bool)) {

@@ -2,14 +2,15 @@ package stdgo._internal.math.cmplx;
 function testTanh(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (stdgo._internal.math.cmplx.Cmplx__vc._vc.length) : Bool), _i++, {
+            while ((_i < (stdgo._internal.math.cmplx.Cmplx__vc._vc.length) : Bool)) {
                 {
                     var _f = (stdgo._internal.math.cmplx.Cmplx_tanh.tanh(stdgo._internal.math.cmplx.Cmplx__vc._vc[(_i : stdgo.GoInt)]) : stdgo.GoComplex128);
                     if (!stdgo._internal.math.cmplx.Cmplx__cSoclose._cSoclose(stdgo._internal.math.cmplx.Cmplx__tanh._tanh[(_i : stdgo.GoInt)], _f, (2e-15 : stdgo.GoFloat64))) {
                         _t.errorf(("Tanh(%g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.math.cmplx.Cmplx__vc._vc[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(stdgo._internal.math.cmplx.Cmplx__tanh._tanh[(_i : stdgo.GoInt)]));
                     };
                 };
-            });
+                _i++;
+            };
         };
         for (__0 => _v in stdgo._internal.math.cmplx.Cmplx__tanhSC._tanhSC) {
             {

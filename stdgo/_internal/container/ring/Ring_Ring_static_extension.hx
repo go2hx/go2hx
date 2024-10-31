@@ -7,9 +7,10 @@ package stdgo._internal.container.ring;
             _f(_r.value);
             {
                 var _p = _r.next();
-                stdgo.Go.cfor(_p != (_r), _p = _p._next, {
+                while (_p != (_r)) {
                     _f(_p.value);
-                });
+                    _p = _p._next;
+                };
             };
         };
     }
@@ -21,9 +22,10 @@ package stdgo._internal.container.ring;
             _n = (1 : stdgo.GoInt);
             {
                 var _p = _r.next();
-                stdgo.Go.cfor(_p != (_r), _p = _p._next, {
+                while (_p != (_r)) {
                     _n++;
-                });
+                    _p = _p._next;
+                };
             };
         };
         return _n;
@@ -56,13 +58,15 @@ package stdgo._internal.container.ring;
             return _r._init();
         };
         if ((_n < (0 : stdgo.GoInt) : Bool)) {
-            stdgo.Go.cfor((_n < (0 : stdgo.GoInt) : Bool), _n++, {
+            while ((_n < (0 : stdgo.GoInt) : Bool)) {
                 _r = _r._prev;
-            });
+                _n++;
+            };
         } else if ((_n > (0 : stdgo.GoInt) : Bool)) {
-            stdgo.Go.cfor((_n > (0 : stdgo.GoInt) : Bool), _n--, {
+            while ((_n > (0 : stdgo.GoInt) : Bool)) {
                 _r = _r._next;
-            });
+                _n--;
+            };
         };
         return _r;
     }

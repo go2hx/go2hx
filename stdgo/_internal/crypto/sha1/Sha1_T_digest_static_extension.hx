@@ -7,9 +7,10 @@ package stdgo._internal.crypto.sha1;
         var _l = (_d._len << (3i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
         {
             var _i = ((0u32 : stdgo.GoUInt) : stdgo.GoUInt);
-            stdgo.Go.cfor((_i < (8u32 : stdgo.GoUInt) : Bool), _i++, {
+            while ((_i < (8u32 : stdgo.GoUInt) : Bool)) {
                 _length[(_i : stdgo.GoInt)] = ((_l >> (((56u32 : stdgo.GoUInt) - ((8u32 : stdgo.GoUInt) * _i : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt64) : stdgo.GoUInt8);
-            });
+                _i++;
+            };
         };
         var _nx = (_d._nx : stdgo.GoUInt8);
         var _t = (_nx - (56 : stdgo.GoUInt8) : stdgo.GoUInt8);
@@ -17,14 +18,15 @@ package stdgo._internal.crypto.sha1;
         var _separator = ((128 : stdgo.GoUInt8) : stdgo.GoUInt8);
         {
             var _i = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
-            stdgo.Go.cfor((_i < (64 : stdgo.GoUInt8) : Bool), _i++, {
+            while ((_i < (64 : stdgo.GoUInt8) : Bool)) {
                 var _mask = ((((_i - _nx : stdgo.GoUInt8) : stdgo.GoInt8) >> (7i64 : stdgo.GoUInt64) : stdgo.GoInt8) : stdgo.GoUInt8);
-                _d._x[(_i : stdgo.GoInt)] = ((((-1 ^ _mask) & _separator : stdgo.GoUInt8)) | ((_mask & _d._x[(_i : stdgo.GoInt)] : stdgo.GoUInt8)) : stdgo.GoUInt8);
-                _separator = (_separator & (_mask) : stdgo.GoUInt8);
-                if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
+_d._x[(_i : stdgo.GoInt)] = ((((-1 ^ _mask) & _separator : stdgo.GoUInt8)) | ((_mask & _d._x[(_i : stdgo.GoInt)] : stdgo.GoUInt8)) : stdgo.GoUInt8);
+_separator = (_separator & (_mask) : stdgo.GoUInt8);
+if ((_i >= (56 : stdgo.GoUInt8) : Bool)) {
                     _d._x[(_i : stdgo.GoInt)] = (_d._x[(_i : stdgo.GoInt)] | ((_mask1b & _length[((_i - (56 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)] : stdgo.GoUInt8)) : stdgo.GoUInt8);
                 };
-            });
+                _i++;
+            };
         };
         stdgo._internal.crypto.sha1.Sha1__block._block(_d, (_d._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         var _digest:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(20, 20, ...[for (i in 0 ... 20) (0 : stdgo.GoUInt8)]);
@@ -36,14 +38,15 @@ package stdgo._internal.crypto.sha1;
         };
         {
             var _i = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
-            stdgo.Go.cfor((_i < (64 : stdgo.GoUInt8) : Bool), _i++, {
+            while ((_i < (64 : stdgo.GoUInt8) : Bool)) {
                 if ((_i < (56 : stdgo.GoUInt8) : Bool)) {
                     _d._x[(_i : stdgo.GoInt)] = _separator;
                     _separator = (0 : stdgo.GoUInt8);
                 } else {
                     _d._x[(_i : stdgo.GoInt)] = _length[((_i - (56 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)];
                 };
-            });
+                _i++;
+            };
         };
         stdgo._internal.crypto.sha1.Sha1__block._block(_d, (_d._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         for (_i => _s in _d._h) {

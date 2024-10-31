@@ -19,17 +19,18 @@ function _parseTimeZone(_value:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : 
         var _nUpper:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             _nUpper = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_nUpper < (6 : stdgo.GoInt) : Bool), _nUpper++, {
+            while ((_nUpper < (6 : stdgo.GoInt) : Bool)) {
                 if ((_nUpper >= (_value.length) : Bool)) {
                     break;
                 };
-                {
+{
                     var _c = (_value[(_nUpper : stdgo.GoInt)] : stdgo.GoUInt8);
                     if (((_c < (65 : stdgo.GoUInt8) : Bool) || ((90 : stdgo.GoUInt8) < _c : Bool) : Bool)) {
                         break;
                     };
                 };
-            });
+                _nUpper++;
+            };
         };
         {
             final __value__ = _nUpper;

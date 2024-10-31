@@ -25,19 +25,26 @@ function match(_pattern:stdgo.GoString, _name:stdgo.GoString):{ var _0 : Bool; v
                 if (_star) {
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor(((_i < (_name.length) : Bool) && (_name[(_i : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool), _i++, {
-                            var __tmp__ = stdgo._internal.path.Path__matchChunk._matchChunk(_chunk?.__copy__(), (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
-                            if (_ok) {
+                        while (((_i < (_name.length) : Bool) && (_name[(_i : stdgo.GoInt)] != (47 : stdgo.GoUInt8)) : Bool)) {
+                            var __tmp__ = stdgo._internal.path.Path__matchChunk._matchChunk(_chunk.__copy__(), (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()), _t:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+if (_ok) {
                                 if (((_pattern.length == (0 : stdgo.GoInt)) && ((_t.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
+                                    {
+                                        _i++;
+                                        continue;
+                                    };
+                                };
+                                _name = _t.__copy__();
+                                @:jump("Pattern") {
+                                    _i++;
                                     continue;
                                 };
-                                _name = _t?.__copy__();
-                                @:jump("Pattern") continue;
                             };
-                            if (_err != null) {
+if (_err != null) {
                                 return { _0 : false, _1 : _err };
                             };
-                        });
+                            _i++;
+                        };
                     };
                 };
                 while (((_pattern.length) > (0 : stdgo.GoInt) : Bool)) {

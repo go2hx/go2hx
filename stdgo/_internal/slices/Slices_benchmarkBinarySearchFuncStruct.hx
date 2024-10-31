@@ -14,9 +14,10 @@ function benchmarkBinarySearchFuncStruct(_b:stdgo.Ref<stdgo._internal.testing.Te
                 _b.resetTimer();
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                    while ((_i < _b.n : Bool)) {
                         stdgo._internal.slices.Slices_binarySearchFunc.binarySearchFunc(_structs, _needle, _lessFunc);
-                    });
+                        _i++;
+                    };
                 };
             });
         };

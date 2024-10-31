@@ -7,13 +7,14 @@ package stdgo._internal.compress.bzip2;
                 var _crc = ((_i : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < (8 : stdgo.GoInt) : Bool), _j++, {
+                    while ((_j < (8 : stdgo.GoInt) : Bool)) {
                         if ((_crc & (-2147483648u32 : stdgo.GoUInt32) : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
                             _crc = (((_crc << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) ^ (79764919u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
                         } else {
                             _crc = (_crc << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
                         };
-                    });
+                        _j++;
+                    };
                 };
                 stdgo._internal.compress.bzip2.Bzip2__crctab._crctab[(_i : stdgo.GoInt)] = _crc;
             };

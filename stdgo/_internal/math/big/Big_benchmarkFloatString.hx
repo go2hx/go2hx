@@ -7,9 +7,10 @@ function benchmarkFloatString(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>)
                 _b.reportAllocs();
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                        stdgo._internal.math.big.Big__sink._sink = (_x.string() : stdgo.GoString)?.__copy__();
-                    });
+                    while ((_i < _b.n : Bool)) {
+                        stdgo._internal.math.big.Big__sink._sink = (_x.string() : stdgo.GoString).__copy__();
+                        _i++;
+                    };
                 };
             });
         };

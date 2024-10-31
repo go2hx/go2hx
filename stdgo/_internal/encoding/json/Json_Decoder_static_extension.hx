@@ -12,14 +12,18 @@ package stdgo._internal.encoding.json;
         while (true) {
             {
                 var _i = (_dec._scanp : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_dec._buf.length) : Bool), _i++, {
+                while ((_i < (_dec._buf.length) : Bool)) {
                     var _c = (_dec._buf[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                    if (stdgo._internal.encoding.json.Json__isSpace._isSpace(_c)) {
-                        continue;
+if (stdgo._internal.encoding.json.Json__isSpace._isSpace(_c)) {
+                        {
+                            _i++;
+                            continue;
+                        };
                     };
-                    _dec._scanp = _i;
-                    return { _0 : _c, _1 : (null : stdgo.Error) };
-                });
+_dec._scanp = _i;
+return { _0 : _c, _1 : (null : stdgo.Error) };
+                    _i++;
+                };
             };
             if (_err != null) {
                 return { _0 : (0 : stdgo.GoUInt8), _1 : _err };
@@ -264,10 +268,10 @@ package stdgo._internal.encoding.json;
             var _scanp = (_dec._scanp : stdgo.GoInt);
             var _err:stdgo.Error = (null : stdgo.Error);
             @:label("Input") while ((_scanp >= (0 : stdgo.GoInt) : Bool)) {
-                stdgo.Go.cfor((_scanp < (_dec._buf.length) : Bool), _scanp++, {
+                while ((_scanp < (_dec._buf.length) : Bool)) {
                     var _c = (_dec._buf[(_scanp : stdgo.GoInt)] : stdgo.GoUInt8);
-                    _dec._scan._bytes++;
-                    {
+_dec._scan._bytes++;
+{
                         var __switchIndex__ = -1;
                         var __run__ = true;
                         while (__run__) {
@@ -293,7 +297,8 @@ package stdgo._internal.encoding.json;
                             break;
                         };
                     };
-                });
+                    _scanp++;
+                };
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                         if (_dec._scan._step((stdgo.Go.setRef(_dec._scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>), (32 : stdgo.GoUInt8)) == ((10 : stdgo.GoInt))) {

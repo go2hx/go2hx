@@ -10,16 +10,17 @@ function _stringName(_i:stdgo.GoUInt32, _names:stdgo.Slice<stdgo._internal.debug
         };
         {
             var _j = ((_names.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_j >= (0 : stdgo.GoInt) : Bool), _j--, {
+            while ((_j >= (0 : stdgo.GoInt) : Bool)) {
                 var _n = (_names[(_j : stdgo.GoInt)] : stdgo._internal.debug.elf.Elf_T_intName.T_intName);
-                if ((_n._i < _i : Bool)) {
-                    var _s = (_n._s?.__copy__() : stdgo.GoString);
+if ((_n._i < _i : Bool)) {
+                    var _s = (_n._s.__copy__() : stdgo.GoString);
                     if (_goSyntax) {
-                        _s = (("elf." : stdgo.GoString) + _s?.__copy__() : stdgo.GoString)?.__copy__();
+                        _s = (("elf." : stdgo.GoString) + _s.__copy__() : stdgo.GoString).__copy__();
                     };
-                    return ((_s + ("+" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strconv.Strconv_formatUint.formatUint(((_i - _n._i : stdgo.GoUInt32) : stdgo.GoUInt64), (10 : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__();
+                    return ((_s + ("+" : stdgo.GoString).__copy__() : stdgo.GoString) + stdgo._internal.strconv.Strconv_formatUint.formatUint(((_i - _n._i : stdgo.GoUInt32) : stdgo.GoUInt64), (10 : stdgo.GoInt)).__copy__() : stdgo.GoString).__copy__();
                 };
-            });
+                _j--;
+            };
         };
         return stdgo._internal.strconv.Strconv_formatUint.formatUint((_i : stdgo.GoUInt64), (10 : stdgo.GoInt))?.__copy__();
     }

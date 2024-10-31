@@ -72,26 +72,28 @@ package stdgo._internal.crypto.cipher;
         var _z:stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement = ({} : stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (2 : stdgo.GoInt) : Bool)) {
                 var _word = (_y._high : stdgo.GoUInt64);
-                if (_i == ((1 : stdgo.GoInt))) {
+if (_i == ((1 : stdgo.GoInt))) {
                     _word = _y._low;
                 };
-                {
+{
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < (64 : stdgo.GoInt) : Bool), _j = (_j + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
+                    while ((_j < (64 : stdgo.GoInt) : Bool)) {
                         var _msw = (_z._high & (15i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-                        _z._high = (_z._high >> ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                        _z._high = (_z._high | ((_z._low << (60i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                        _z._low = (_z._low >> ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                        _z._low = (_z._low ^ (((stdgo._internal.crypto.cipher.Cipher__gcmReductionTable._gcmReductionTable[(_msw : stdgo.GoInt)] : stdgo.GoUInt64) << (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                        var _t = (stdgo.Go.setRef(_g._productTable[((_word & (15i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>);
-                        _z._low = (_z._low ^ (_t._low) : stdgo.GoUInt64);
-                        _z._high = (_z._high ^ (_t._high) : stdgo.GoUInt64);
-                        _word = (_word >> ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                    });
+_z._high = (_z._high >> ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+_z._high = (_z._high | ((_z._low << (60i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+_z._low = (_z._low >> ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+_z._low = (_z._low ^ (((stdgo._internal.crypto.cipher.Cipher__gcmReductionTable._gcmReductionTable[(_msw : stdgo.GoInt)] : stdgo.GoUInt64) << (48i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+var _t = (stdgo.Go.setRef(_g._productTable[((_word & (15i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement>);
+_z._low = (_z._low ^ (_t._low) : stdgo.GoUInt64);
+_z._high = (_z._high ^ (_t._high) : stdgo.GoUInt64);
+_word = (_word >> ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                        _j = (_j + ((4 : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
-            });
+                _i++;
+            };
         };
         {
             var __tmp__ = _z?.__copy__();

@@ -6,9 +6,10 @@ package stdgo._internal.encoding.asn1;
         var _n = (_i.len() : stdgo.GoInt);
         {
             var _j = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_j < _n : Bool), _j++, {
+            while ((_j < _n : Bool)) {
                 _dst[(_j : stdgo.GoInt)] = ((_i >> (((((_n - (1 : stdgo.GoInt) : stdgo.GoInt) - _j : stdgo.GoInt)) * (8 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo._internal.encoding.asn1.Asn1_T_int64Encoder.T_int64Encoder) : stdgo.GoUInt8);
-            });
+                _j++;
+            };
         };
     }
     @:keep

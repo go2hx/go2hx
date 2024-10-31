@@ -259,14 +259,15 @@ package stdgo._internal.compress.flate;
                         var _index = (_d._index : stdgo.GoInt);
                         {
                             _index++;
-                            stdgo.Go.cfor((_index < _newIndex : Bool), _index++, {
+                            while ((_index < _newIndex : Bool)) {
                                 if ((_index < _d._maxInsertIndex : Bool)) {
                                     var _hash = (stdgo._internal.compress.flate.Flate__hash4._hash4((_d._window.__slice__(_index, (_index + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                                     var _hh = stdgo.Go.pointer(_d._hashHead[((_hash & (131071u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)]);
                                     _d._hashPrev[(_index & (32767 : stdgo.GoInt) : stdgo.GoInt)] = _hh.value;
                                     _hh.value = ((_index + _d._hashOffset : stdgo.GoInt) : stdgo.GoUInt32);
                                 };
-                            });
+                                _index++;
+                            };
                         };
                         _d._index = _index;
                         if (_d._compressionLevel._fastSkipHashing == ((2147483647 : stdgo.GoInt))) {
@@ -388,7 +389,7 @@ package stdgo._internal.compress.flate;
         var _minIndex = (_pos - (32768 : stdgo.GoInt) : stdgo.GoInt);
         {
             var _i = (_prevHead : stdgo.GoInt);
-            stdgo.Go.cfor((_tries > (0 : stdgo.GoInt) : Bool), _tries--, {
+            while ((_tries > (0 : stdgo.GoInt) : Bool)) {
                 if (_wEnd == (_win[((_i + _length : stdgo.GoInt) : stdgo.GoInt)])) {
                     var _n = (stdgo._internal.compress.flate.Flate__matchLen._matchLen((_win.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), _wPos, _minMatchLook) : stdgo.GoInt);
                     if (((_n > _length : Bool) && (((_n > (4 : stdgo.GoInt) : Bool) || ((_pos - _i : stdgo.GoInt) <= (4096 : stdgo.GoInt) : Bool) : Bool)) : Bool)) {
@@ -401,14 +402,15 @@ package stdgo._internal.compress.flate;
                         _wEnd = _win[(_pos + _n : stdgo.GoInt)];
                     };
                 };
-                if (_i == (_minIndex)) {
+if (_i == (_minIndex)) {
                     break;
                 };
-                _i = ((_d._hashPrev[(_i & (32767 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt) - _d._hashOffset : stdgo.GoInt);
-                if (((_i < _minIndex : Bool) || (_i < (0 : stdgo.GoInt) : Bool) : Bool)) {
+_i = ((_d._hashPrev[(_i & (32767 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt) - _d._hashOffset : stdgo.GoInt);
+if (((_i < _minIndex : Bool) || (_i < (0 : stdgo.GoInt) : Bool) : Bool)) {
                     break;
                 };
-            });
+                _tries--;
+            };
         };
         return { _0 : _length, _1 : _offset, _2 : _ok };
     }
@@ -428,26 +430,30 @@ package stdgo._internal.compress.flate;
         var _loops = ((((_n + (256 : stdgo.GoInt) : stdgo.GoInt) - (4 : stdgo.GoInt) : stdgo.GoInt)) / (256 : stdgo.GoInt) : stdgo.GoInt);
         {
             var _j = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_j < _loops : Bool), _j++, {
+            while ((_j < _loops : Bool)) {
                 var _index = (_j * (256 : stdgo.GoInt) : stdgo.GoInt);
-                var _end = (((_index + (256 : stdgo.GoInt) : stdgo.GoInt) + (4 : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                if ((_end > _n : Bool)) {
+var _end = (((_index + (256 : stdgo.GoInt) : stdgo.GoInt) + (4 : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
+if ((_end > _n : Bool)) {
                     _end = _n;
                 };
-                var _toCheck = (_d._window.__slice__(_index, _end) : stdgo.Slice<stdgo.GoUInt8>);
-                var _dstSize = (((_toCheck.length) - (4 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
-                if ((_dstSize <= (0 : stdgo.GoInt) : Bool)) {
-                    continue;
+var _toCheck = (_d._window.__slice__(_index, _end) : stdgo.Slice<stdgo.GoUInt8>);
+var _dstSize = (((_toCheck.length) - (4 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
+if ((_dstSize <= (0 : stdgo.GoInt) : Bool)) {
+                    {
+                        _j++;
+                        continue;
+                    };
                 };
-                var _dst = (_d._hashMatch.__slice__(0, _dstSize) : stdgo.Slice<stdgo.GoUInt32>);
-                _d._bulkHasher(_toCheck, _dst);
-                for (_i => _val in _dst) {
+var _dst = (_d._hashMatch.__slice__(0, _dstSize) : stdgo.Slice<stdgo.GoUInt32>);
+_d._bulkHasher(_toCheck, _dst);
+for (_i => _val in _dst) {
                     var _di = (_i + _index : stdgo.GoInt);
                     var _hh = stdgo.Go.pointer(_d._hashHead[((_val & (131071u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)]);
                     _d._hashPrev[(_di & (32767 : stdgo.GoInt) : stdgo.GoInt)] = _hh.value;
                     _hh.value = ((_di + _d._hashOffset : stdgo.GoInt) : stdgo.GoUInt32);
                 };
-            });
+                _j++;
+            };
         };
         _d._windowEnd = _n;
         _d._index = _n;

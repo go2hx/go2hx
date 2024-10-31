@@ -9,14 +9,15 @@ function stop(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>):Void {
         if (stdgo._internal.os.signal.Signal__handlers._handlers._m != null) stdgo._internal.os.signal.Signal__handlers._handlers._m.remove(_c);
         {
             var _n = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_n < (65 : stdgo.GoInt) : Bool), _n++, {
+            while ((_n < (65 : stdgo.GoInt) : Bool)) {
                 if (_h._want(_n)) {
                     stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)]--;
                     if (stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)] == ((0i64 : stdgo.GoInt64))) {
                         stdgo._internal.os.signal.Signal__disableSignal._disableSignal(_n);
                     };
                 };
-            });
+                _n++;
+            };
         };
         stdgo._internal.os.signal.Signal__handlers._handlers._stopping = (stdgo._internal.os.signal.Signal__handlers._handlers._stopping.__append__((new stdgo._internal.os.signal.Signal_T_stopping.T_stopping(_c, _h) : stdgo._internal.os.signal.Signal_T_stopping.T_stopping)));
         stdgo._internal.os.signal.Signal__handlers._handlers.unlock();

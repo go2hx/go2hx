@@ -11,22 +11,29 @@ function _underscoreOK(_s:stdgo.GoString):Bool {
             _saw = (48 : stdgo.GoInt32);
             _hex = stdgo._internal.strconv.Strconv__lower._lower(_s[(1 : stdgo.GoInt)]) == ((120 : stdgo.GoUInt8));
         };
-        stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+        while ((_i < (_s.length) : Bool)) {
             if (((((48 : stdgo.GoUInt8) <= _s[(_i : stdgo.GoInt)] : Bool) && (_s[(_i : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool) || ((_hex && ((97 : stdgo.GoUInt8) <= stdgo._internal.strconv.Strconv__lower._lower(_s[(_i : stdgo.GoInt)]) : Bool) : Bool) && (stdgo._internal.strconv.Strconv__lower._lower(_s[(_i : stdgo.GoInt)]) <= (102 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
                 _saw = (48 : stdgo.GoInt32);
-                continue;
+                {
+                    _i++;
+                    continue;
+                };
             };
-            if (_s[(_i : stdgo.GoInt)] == ((95 : stdgo.GoUInt8))) {
+if (_s[(_i : stdgo.GoInt)] == ((95 : stdgo.GoUInt8))) {
                 if (_saw != ((48 : stdgo.GoInt32))) {
                     return false;
                 };
                 _saw = (95 : stdgo.GoInt32);
-                continue;
+                {
+                    _i++;
+                    continue;
+                };
             };
-            if (_saw == ((95 : stdgo.GoInt32))) {
+if (_saw == ((95 : stdgo.GoInt32))) {
                 return false;
             };
-            _saw = (33 : stdgo.GoInt32);
-        });
+_saw = (33 : stdgo.GoInt32);
+            _i++;
+        };
         return _saw != ((95 : stdgo.GoInt32));
     }

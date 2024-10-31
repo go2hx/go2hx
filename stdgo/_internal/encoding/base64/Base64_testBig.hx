@@ -5,9 +5,10 @@ function testBig(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {};
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 _raw[(_i : stdgo.GoInt)] = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString)[(_i % (("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString).length) : stdgo.GoInt)];
-            });
+                _i++;
+            };
         };
         var _encoded = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         var _w = (stdgo._internal.encoding.base64.Base64_newEncoder.newEncoder(stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, stdgo.Go.asInterface(_encoded)) : stdgo._internal.io.Io_WriteCloser.WriteCloser);
@@ -27,11 +28,12 @@ function testBig(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             {
                 _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(((_i < (_decoded.length) : Bool) && (_i < (_raw.length) : Bool) : Bool), _i++, {
+                while (((_i < (_decoded.length) : Bool) && (_i < (_raw.length) : Bool) : Bool)) {
                     if (_decoded[(_i : stdgo.GoInt)] != (_raw[(_i : stdgo.GoInt)])) {
                         break;
                     };
-                });
+                    _i++;
+                };
             };
             _t.errorf(("Decode(Encode(%d-byte string)) failed at offset %d" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_i));
         };

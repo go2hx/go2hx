@@ -6,21 +6,21 @@ var _b = __1, _written = __0;
 var _w = __1, _r = __0;
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i = (_i + (_w) : stdgo.GoInt), {
+            while ((_i < (_s.length) : Bool)) {
                 {
-                    var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString)?.__copy__());
+                    var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString).__copy__());
                     _r = __tmp__._0;
                     _w = __tmp__._1;
                 };
-                if (((_r : stdgo.GoInt) < (_replacementTable.length) : Bool)) {
+if (((_r : stdgo.GoInt) < (_replacementTable.length) : Bool)) {
                     {
-                        var _repl = (_replacementTable[(_r : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
+                        var _repl = (_replacementTable[(_r : stdgo.GoInt)].__copy__() : stdgo.GoString);
                         if ((_repl.length) != ((0 : stdgo.GoInt))) {
                             if (_written == ((0 : stdgo.GoInt))) {
                                 _b.grow((_s.length));
                             };
-                            _b.writeString((_s.__slice__(_written, _i) : stdgo.GoString)?.__copy__());
-                            _b.writeString(_repl?.__copy__());
+                            _b.writeString((_s.__slice__(_written, _i) : stdgo.GoString).__copy__());
+                            _b.writeString(_repl.__copy__());
                             _written = (_i + _w : stdgo.GoInt);
                         };
                     };
@@ -31,7 +31,8 @@ var _w = __1, _r = __0;
                     stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b), ("%s&#x%x;" : stdgo.GoString), stdgo.Go.toInterface((_s.__slice__(_written, _i) : stdgo.GoString)), stdgo.Go.toInterface(_r));
                     _written = (_i + _w : stdgo.GoInt);
                 };
-            });
+                _i = (_i + (_w) : stdgo.GoInt);
+            };
         };
         if (_written == ((0 : stdgo.GoInt))) {
             return _s?.__copy__();

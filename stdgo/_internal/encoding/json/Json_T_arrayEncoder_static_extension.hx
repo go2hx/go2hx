@@ -7,12 +7,13 @@ package stdgo._internal.encoding.json;
         var _n = (_v.len() : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 if ((_i > (0 : stdgo.GoInt) : Bool)) {
                     _e.writeByte((44 : stdgo.GoUInt8));
                 };
-                _ae._elemEnc(_e, _v.index(_i)?.__copy__(), _opts?.__copy__());
-            });
+_ae._elemEnc(_e, _v.index(_i).__copy__(), _opts.__copy__());
+                _i++;
+            };
         };
         _e.writeByte((93 : stdgo.GoUInt8));
     }

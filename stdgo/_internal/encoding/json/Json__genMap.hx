@@ -15,9 +15,10 @@ function _genMap(_n:stdgo.GoInt):stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>
         } : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _f : Bool), _i++, {
+            while ((_i < _f : Bool)) {
                 _x[stdgo._internal.encoding.json.Json__genString._genString((10 : stdgo.GoFloat64))] = stdgo._internal.encoding.json.Json__genValue._genValue(((((((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) * _n : stdgo.GoInt)) / _f : stdgo.GoInt) - (((_i * _n : stdgo.GoInt)) / _f : stdgo.GoInt) : stdgo.GoInt));
-            });
+                _i++;
+            };
         };
         return _x;
     }

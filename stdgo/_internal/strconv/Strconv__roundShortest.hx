@@ -27,34 +27,34 @@ function _roundShortest(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T
         var _upperdelta:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         {
             var _ui = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(true, _ui++, {
+            while (true) {
                 var _mi = ((_ui - _upper._dp : stdgo.GoInt) + _d._dp : stdgo.GoInt);
-                if ((_mi >= _d._nd : Bool)) {
+if ((_mi >= _d._nd : Bool)) {
                     break;
                 };
-                var _li = ((_ui - _upper._dp : stdgo.GoInt) + _lower._dp : stdgo.GoInt);
-                var _l = ((48 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                if (((_li >= (0 : stdgo.GoInt) : Bool) && (_li < _lower._nd : Bool) : Bool)) {
+var _li = ((_ui - _upper._dp : stdgo.GoInt) + _lower._dp : stdgo.GoInt);
+var _l = ((48 : stdgo.GoUInt8) : stdgo.GoUInt8);
+if (((_li >= (0 : stdgo.GoInt) : Bool) && (_li < _lower._nd : Bool) : Bool)) {
                     _l = _lower._d[(_li : stdgo.GoInt)];
                 };
-                var _m = ((48 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                if ((_mi >= (0 : stdgo.GoInt) : Bool)) {
+var _m = ((48 : stdgo.GoUInt8) : stdgo.GoUInt8);
+if ((_mi >= (0 : stdgo.GoInt) : Bool)) {
                     _m = _d._d[(_mi : stdgo.GoInt)];
                 };
-                var _u = ((48 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                if ((_ui < _upper._nd : Bool)) {
+var _u = ((48 : stdgo.GoUInt8) : stdgo.GoUInt8);
+if ((_ui < _upper._nd : Bool)) {
                     _u = _upper._d[(_ui : stdgo.GoInt)];
                 };
-                var _okdown = ((_l != _m) || (_inclusive && (_li + (1 : stdgo.GoInt) : stdgo.GoInt) == (_lower._nd) : Bool) : Bool);
-                if (((_upperdelta == (0 : stdgo.GoUInt8)) && ((_m + (1 : stdgo.GoUInt8) : stdgo.GoUInt8) < _u : Bool) : Bool)) {
+var _okdown = ((_l != _m) || (_inclusive && (_li + (1 : stdgo.GoInt) : stdgo.GoInt) == (_lower._nd) : Bool) : Bool);
+if (((_upperdelta == (0 : stdgo.GoUInt8)) && ((_m + (1 : stdgo.GoUInt8) : stdgo.GoUInt8) < _u : Bool) : Bool)) {
                     _upperdelta = (2 : stdgo.GoUInt8);
                 } else if (((_upperdelta == (0 : stdgo.GoUInt8)) && (_m != _u) : Bool)) {
                     _upperdelta = (1 : stdgo.GoUInt8);
                 } else if (((_upperdelta == (1 : stdgo.GoUInt8)) && (((_m != (57 : stdgo.GoUInt8)) || (_u != (48 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                     _upperdelta = (2 : stdgo.GoUInt8);
                 };
-                var _okup = ((_upperdelta > (0 : stdgo.GoUInt8) : Bool) && (((_inclusive || (_upperdelta > (1 : stdgo.GoUInt8) : Bool) : Bool) || ((_ui + (1 : stdgo.GoInt) : stdgo.GoInt) < _upper._nd : Bool) : Bool)) : Bool);
-                if ((_okdown && _okup : Bool)) {
+var _okup = ((_upperdelta > (0 : stdgo.GoUInt8) : Bool) && (((_inclusive || (_upperdelta > (1 : stdgo.GoUInt8) : Bool) : Bool) || ((_ui + (1 : stdgo.GoInt) : stdgo.GoInt) < _upper._nd : Bool) : Bool)) : Bool);
+if ((_okdown && _okup : Bool)) {
                     _d.round((_mi + (1 : stdgo.GoInt) : stdgo.GoInt));
                     return;
                 } else if (_okdown) {
@@ -64,6 +64,7 @@ function _roundShortest(_d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T
                     _d.roundUp((_mi + (1 : stdgo.GoInt) : stdgo.GoInt));
                     return;
                 };
-            });
+                _ui++;
+            };
         };
     }

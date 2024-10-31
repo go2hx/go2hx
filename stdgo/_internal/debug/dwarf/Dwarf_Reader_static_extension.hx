@@ -6,34 +6,35 @@ package stdgo._internal.debug.dwarf;
         var _unit = (_r._unit : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_r._d._unit.length) : Bool), _i++, {
+            while ((_i < (_r._d._unit.length) : Bool)) {
                 if ((_unit >= (_r._d._unit.length) : Bool)) {
                     _unit = (0 : stdgo.GoInt);
                 };
-                _r._err = (null : stdgo.Error);
-                _r._lastChildren = false;
-                _r._unit = _unit;
-                _r._cu = null;
-                var _u = (stdgo.Go.setRef(_r._d._unit[(_unit : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_T_unit.T_unit>);
-                _r._b = stdgo._internal.debug.dwarf.Dwarf__makeBuf._makeBuf(_r._d, stdgo.Go.asInterface(_u), ("info" : stdgo.GoString), _u._off, _u._data)?.__copy__();
-                var __tmp__ = _r.next(), _e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
+_r._err = (null : stdgo.Error);
+_r._lastChildren = false;
+_r._unit = _unit;
+_r._cu = null;
+var _u = (stdgo.Go.setRef(_r._d._unit[(_unit : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_T_unit.T_unit>);
+_r._b = stdgo._internal.debug.dwarf.Dwarf__makeBuf._makeBuf(_r._d, stdgo.Go.asInterface(_u), ("info" : stdgo.GoString), _u._off, _u._data).__copy__();
+var __tmp__ = _r.next(), _e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
-                if ((((_e == null) || (_e : Dynamic).__nil__) || (_e.tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) : Bool)) {
+if ((((_e == null) || (_e : Dynamic).__nil__) || (_e.tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) : Bool)) {
                     return { _0 : null, _1 : stdgo._internal.debug.dwarf.Dwarf_errUnknownPC.errUnknownPC };
                 };
-                var __tmp__ = _r._d.ranges(_e), _ranges:stdgo.Slice<stdgo.GoArray<stdgo.GoUInt64>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
+var __tmp__ = _r._d.ranges(_e), _ranges:stdgo.Slice<stdgo.GoArray<stdgo.GoUInt64>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
-                for (__3 => _pcs in _ranges) {
+for (__3 => _pcs in _ranges) {
                     if (((_pcs[(0 : stdgo.GoInt)] <= _pc : Bool) && (_pc < _pcs[(1 : stdgo.GoInt)] : Bool) : Bool)) {
                         return { _0 : _e, _1 : (null : stdgo.Error) };
                     };
                 };
-                _unit++;
-            });
+_unit++;
+                _i++;
+            };
         };
         return { _0 : null, _1 : stdgo._internal.debug.dwarf.Dwarf_errUnknownPC.errUnknownPC };
     }

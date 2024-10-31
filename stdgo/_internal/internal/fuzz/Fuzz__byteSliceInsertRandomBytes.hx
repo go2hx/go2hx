@@ -9,9 +9,10 @@ function _byteSliceInsertRandomBytes(_m:stdgo.Ref<stdgo._internal.internal.fuzz.
         stdgo.Go.copySlice((_b.__slice__((_pos + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__(_pos) : stdgo.Slice<stdgo.GoUInt8>));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 _b[(_pos + _i : stdgo.GoInt)] = (_m._rand((256 : stdgo.GoInt)) : stdgo.GoUInt8);
-            });
+                _i++;
+            };
         };
         return _b;
     }

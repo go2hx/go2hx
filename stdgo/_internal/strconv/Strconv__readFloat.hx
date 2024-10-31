@@ -27,7 +27,7 @@ function _readFloat(_s:stdgo.GoString):{ var _0 : stdgo.GoUInt64; var _1 : stdgo
             var _nd = (0 : stdgo.GoInt);
             var _ndMant = (0 : stdgo.GoInt);
             var _dp = (0 : stdgo.GoInt);
-            @:label("loop") stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            @:label("loop") while ((_i < (_s.length) : Bool)) {
                 {
                     var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                     {
@@ -97,11 +97,15 @@ function _readFloat(_s:stdgo.GoString):{ var _0 : stdgo.GoUInt64; var _1 : stdgo
                             };
                             break;
                         };
-                        if (__continue__) continue;
+                        if (__continue__) {
+                            _i++;
+                            continue;
+                        };
                     };
                 };
-                break;
-            });
+break;
+                _i++;
+            };
             if (!_sawdigits) {
                 return { _0 : _mantissa, _1 : _exp, _2 : _neg, _3 : _trunc, _4 : _hex, _5 : _i, _6 : _ok };
             };
@@ -128,15 +132,19 @@ function _readFloat(_s:stdgo.GoString):{ var _0 : stdgo.GoUInt64; var _1 : stdgo
                     return { _0 : _mantissa, _1 : _exp, _2 : _neg, _3 : _trunc, _4 : _hex, _5 : _i, _6 : _ok };
                 };
                 var _e = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(((_i < (_s.length) : Bool) && (((((48 : stdgo.GoUInt8) <= _s[(_i : stdgo.GoInt)] : Bool) && (_s[(_i : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool) || (_s[(_i : stdgo.GoInt)] == (95 : stdgo.GoUInt8)) : Bool)) : Bool), _i++, {
+                while (((_i < (_s.length) : Bool) && (((((48 : stdgo.GoUInt8) <= _s[(_i : stdgo.GoInt)] : Bool) && (_s[(_i : stdgo.GoInt)] <= (57 : stdgo.GoUInt8) : Bool) : Bool) || (_s[(_i : stdgo.GoInt)] == (95 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                     if (_s[(_i : stdgo.GoInt)] == ((95 : stdgo.GoUInt8))) {
                         _underscores = true;
-                        continue;
+                        {
+                            _i++;
+                            continue;
+                        };
                     };
-                    if ((_e < (10000 : stdgo.GoInt) : Bool)) {
+if ((_e < (10000 : stdgo.GoInt) : Bool)) {
                         _e = (((_e * (10 : stdgo.GoInt) : stdgo.GoInt) + (_s[(_i : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt) - (48 : stdgo.GoInt) : stdgo.GoInt);
                     };
-                });
+                    _i++;
+                };
                 _dp = (_dp + ((_e * _esign : stdgo.GoInt)) : stdgo.GoInt);
             } else if (_base == ((16i64 : stdgo.GoUInt64))) {
                 return { _0 : _mantissa, _1 : _exp, _2 : _neg, _3 : _trunc, _4 : _hex, _5 : _i, _6 : _ok };

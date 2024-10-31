@@ -52,14 +52,15 @@ function yn(_n:stdgo.GoInt, _x:stdgo.GoFloat64):stdgo.GoFloat64 {
             _b = stdgo._internal.math.Math_y1.y1(_x);
             {
                 var _i = (1 : stdgo.GoInt);
-                stdgo.Go.cfor(((_i < _n : Bool) && !stdgo._internal.math.Math_isInf.isInf(_b, (-1 : stdgo.GoInt)) : Bool), _i++, {
+                while (((_i < _n : Bool) && !stdgo._internal.math.Math_isInf.isInf(_b, (-1 : stdgo.GoInt)) : Bool)) {
                     {
                         final __tmp__0 = _b;
                         final __tmp__1 = ((((((_i + _i : stdgo.GoInt) : stdgo.GoFloat64) / _x : stdgo.GoFloat64)) * _b : stdgo.GoFloat64) - _a : stdgo.GoFloat64);
                         _a = __tmp__0;
                         _b = __tmp__1;
                     };
-                });
+                    _i++;
+                };
             };
         };
         if (_sign) {

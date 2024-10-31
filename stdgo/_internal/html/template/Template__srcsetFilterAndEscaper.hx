@@ -18,13 +18,14 @@ function _srcsetFilterAndEscaper(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.GoSt
         var _written = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 if (_s[(_i : stdgo.GoInt)] == ((44 : stdgo.GoUInt8))) {
-                    stdgo._internal.html.template.Template__filterSrcsetElement._filterSrcsetElement(_s?.__copy__(), _written, _i, (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
+                    stdgo._internal.html.template.Template__filterSrcsetElement._filterSrcsetElement(_s.__copy__(), _written, _i, (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
                     _b.writeString(("," : stdgo.GoString));
                     _written = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
                 };
-            });
+                _i++;
+            };
         };
         stdgo._internal.html.template.Template__filterSrcsetElement._filterSrcsetElement(_s?.__copy__(), _written, (_s.length), (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
         return (_b.string() : stdgo.GoString)?.__copy__();

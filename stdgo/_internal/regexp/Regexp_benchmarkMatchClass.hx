@@ -6,10 +6,11 @@ function benchmarkMatchClass(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):
         _b.startTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                if (!_re.matchString(_x?.__copy__())) {
+            while ((_i < _b.n : Bool)) {
+                if (!_re.matchString(_x.__copy__())) {
                     _b.fatalf(("no match!" : stdgo.GoString));
                 };
-            });
+                _i++;
+            };
         };
     }

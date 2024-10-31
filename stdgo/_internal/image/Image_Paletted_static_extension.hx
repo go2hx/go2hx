@@ -8,13 +8,14 @@ package stdgo._internal.image;
 var _i1 = __1, _i0 = __0;
         {
             var _y = (_p.rect.min.y : stdgo.GoInt);
-            stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
+            while ((_y < _p.rect.max.y : Bool)) {
                 for (__0 => _c in (_p.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>)) {
                     _present[(_c : stdgo.GoInt)] = true;
                 };
-                _i0 = (_i0 + (_p.stride) : stdgo.GoInt);
-                _i1 = (_i1 + (_p.stride) : stdgo.GoInt);
-            });
+_i0 = (_i0 + (_p.stride) : stdgo.GoInt);
+_i1 = (_i1 + (_p.stride) : stdgo.GoInt);
+                _y++;
+            };
         };
         for (_i => _c in _p.palette) {
             if (!_present[(_i : stdgo.GoInt)]) {

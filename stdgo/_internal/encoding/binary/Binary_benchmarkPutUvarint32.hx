@@ -4,13 +4,15 @@ function benchmarkPutUvarint32(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>
         _b.setBytes((4i64 : stdgo.GoInt64));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 {
                     var _j = ((0u32 : stdgo.GoUInt) : stdgo.GoUInt);
-                    stdgo.Go.cfor((_j < (5u32 : stdgo.GoUInt) : Bool), _j++, {
+                    while ((_j < (5u32 : stdgo.GoUInt) : Bool)) {
                         stdgo._internal.encoding.binary.Binary_putUvarint.putUvarint(_buf, ((1i64 : stdgo.GoUInt64) << ((_j * (7u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt64));
-                    });
+                        _j++;
+                    };
                 };
-            });
+                _i++;
+            };
         };
     }

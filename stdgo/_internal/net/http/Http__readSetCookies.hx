@@ -30,26 +30,35 @@ function _readSetCookies(_h:stdgo._internal.net.http.Http_Header.Header):stdgo.S
             var _c = (stdgo.Go.setRef(({ name : _name?.__copy__(), value : _value?.__copy__(), raw : _line?.__copy__() } : stdgo._internal.net.http.Http_Cookie.Cookie)) : stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>);
             {
                 var _i = (1 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_parts.length) : Bool), _i++, {
-                    _parts[(_i : stdgo.GoInt)] = stdgo._internal.net.textproto.Textproto_trimString.trimString(_parts[(_i : stdgo.GoInt)]?.__copy__())?.__copy__();
-                    if ((_parts[(_i : stdgo.GoInt)].length) == ((0 : stdgo.GoInt))) {
-                        continue;
+                while ((_i < (_parts.length) : Bool)) {
+                    _parts[(_i : stdgo.GoInt)] = stdgo._internal.net.textproto.Textproto_trimString.trimString(_parts[(_i : stdgo.GoInt)].__copy__()).__copy__();
+if ((_parts[(_i : stdgo.GoInt)].length) == ((0 : stdgo.GoInt))) {
+                        {
+                            _i++;
+                            continue;
+                        };
                     };
-                    var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_parts[(_i : stdgo.GoInt)]?.__copy__(), ("=" : stdgo.GoString)), _attr:stdgo.GoString = __tmp__._0, _val:stdgo.GoString = __tmp__._1, __133:Bool = __tmp__._2;
-                    var __tmp__ = stdgo._internal.net.http.internal.ascii.Ascii_toLower.toLower(_attr?.__copy__()), _lowerAttr:stdgo.GoString = __tmp__._0, _isASCII:Bool = __tmp__._1;
-                    if (!_isASCII) {
-                        continue;
+var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_parts[(_i : stdgo.GoInt)].__copy__(), ("=" : stdgo.GoString)), _attr:stdgo.GoString = __tmp__._0, _val:stdgo.GoString = __tmp__._1, __133:Bool = __tmp__._2;
+var __tmp__ = stdgo._internal.net.http.internal.ascii.Ascii_toLower.toLower(_attr.__copy__()), _lowerAttr:stdgo.GoString = __tmp__._0, _isASCII:Bool = __tmp__._1;
+if (!_isASCII) {
+                        {
+                            _i++;
+                            continue;
+                        };
                     };
-                    {
-                        var __tmp__ = stdgo._internal.net.http.Http__parseCookieValue._parseCookieValue(_val?.__copy__(), false);
-                        _val = __tmp__._0?.__copy__();
+{
+                        var __tmp__ = stdgo._internal.net.http.Http__parseCookieValue._parseCookieValue(_val.__copy__(), false);
+                        _val = __tmp__._0.__copy__();
                         _ok = __tmp__._1;
                     };
-                    if (!_ok) {
-                        _c.unparsed = (_c.unparsed.__append__(_parts[(_i : stdgo.GoInt)]?.__copy__()));
-                        continue;
+if (!_ok) {
+                        _c.unparsed = (_c.unparsed.__append__(_parts[(_i : stdgo.GoInt)].__copy__()));
+                        {
+                            _i++;
+                            continue;
+                        };
                     };
-                    {
+{
                         var __continue__ = false;
                         var __switchIndex__ = -1;
                         var __run__ = true;
@@ -149,10 +158,14 @@ function _readSetCookies(_h:stdgo._internal.net.http.Http_Header.Header):stdgo.S
                             };
                             break;
                         };
-                        if (__continue__) continue;
+                        if (__continue__) {
+                            _i++;
+                            continue;
+                        };
                     };
-                    _c.unparsed = (_c.unparsed.__append__(_parts[(_i : stdgo.GoInt)]?.__copy__()));
-                });
+_c.unparsed = (_c.unparsed.__append__(_parts[(_i : stdgo.GoInt)].__copy__()));
+                    _i++;
+                };
             };
             _cookies = (_cookies.__append__(_c));
         };

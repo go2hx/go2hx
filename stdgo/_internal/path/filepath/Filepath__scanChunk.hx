@@ -10,7 +10,7 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             @:label("Scan") {
                 _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_pattern.length) : Bool), _i++, {
+                while ((_i < (_pattern.length) : Bool)) {
                     {
                         var __switchIndex__ = -1;
                         var __run__ = true;
@@ -41,7 +41,8 @@ function _scanChunk(_pattern:stdgo.GoString):{ var _0 : Bool; var _1 : stdgo.GoS
                             break;
                         };
                     };
-                });
+                    _i++;
+                };
             };
             return { _0 : _star, _1 : (_pattern.__slice__((0 : stdgo.GoInt), _i) : stdgo.GoString)?.__copy__(), _2 : (_pattern.__slice__(_i) : stdgo.GoString)?.__copy__() };
         });

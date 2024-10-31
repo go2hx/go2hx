@@ -13,25 +13,27 @@ function testPow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _a:stdgo.GoComplex128 = new stdgo.GoComplex128((3 : stdgo.GoFloat64), (3 : stdgo.GoFloat64));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (stdgo._internal.math.cmplx.Cmplx__vc._vc.length) : Bool), _i++, {
+            while ((_i < (stdgo._internal.math.cmplx.Cmplx__vc._vc.length) : Bool)) {
                 {
                     var _f = (stdgo._internal.math.cmplx.Cmplx_pow.pow(_a, stdgo._internal.math.cmplx.Cmplx__vc._vc[(_i : stdgo.GoInt)]) : stdgo.GoComplex128);
                     if (!stdgo._internal.math.cmplx.Cmplx__cSoclose._cSoclose(stdgo._internal.math.cmplx.Cmplx__pow._pow[(_i : stdgo.GoInt)], _f, (4e-15 : stdgo.GoFloat64))) {
                         _t.errorf(("Pow(%g, %g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(_a), stdgo.Go.toInterface(stdgo._internal.math.cmplx.Cmplx__vc._vc[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(stdgo._internal.math.cmplx.Cmplx__pow._pow[(_i : stdgo.GoInt)]));
                     };
                 };
-            });
+                _i++;
+            };
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (stdgo._internal.math.cmplx.Cmplx__vcPowSC._vcPowSC.length) : Bool), _i++, {
+            while ((_i < (stdgo._internal.math.cmplx.Cmplx__vcPowSC._vcPowSC.length) : Bool)) {
                 {
                     var _f = (stdgo._internal.math.cmplx.Cmplx_pow.pow(stdgo._internal.math.cmplx.Cmplx__vcPowSC._vcPowSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)], stdgo._internal.math.cmplx.Cmplx__vcPowSC._vcPowSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]) : stdgo.GoComplex128);
                     if (!stdgo._internal.math.cmplx.Cmplx__cAlike._cAlike(stdgo._internal.math.cmplx.Cmplx__powSC._powSC[(_i : stdgo.GoInt)], _f)) {
                         _t.errorf(("Pow(%g, %g) = %g, want %g" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.math.cmplx.Cmplx__vcPowSC._vcPowSC[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)]), stdgo.Go.toInterface(stdgo._internal.math.cmplx.Cmplx__vcPowSC._vcPowSC[(_i : stdgo.GoInt)][(1 : stdgo.GoInt)]), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(stdgo._internal.math.cmplx.Cmplx__powSC._powSC[(_i : stdgo.GoInt)]));
                     };
                 };
-            });
+                _i++;
+            };
         };
         for (__1 => _pt in stdgo._internal.math.cmplx.Cmplx__branchPoints._branchPoints) {
             {

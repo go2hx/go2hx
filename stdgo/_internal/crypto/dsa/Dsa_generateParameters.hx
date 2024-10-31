@@ -43,29 +43,36 @@ var n = __1, l = __0;
                 };
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < ((4 : stdgo.GoInt) * l : stdgo.GoInt) : Bool), _i++, {
+                    while ((_i < ((4 : stdgo.GoInt) * l : stdgo.GoInt) : Bool)) {
                         {
                             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _pBytes), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
                                 return _err;
                             };
                         };
-                        _pBytes[((_pBytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_pBytes[((_pBytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] | ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);
-                        _pBytes[(0 : stdgo.GoInt)] = (_pBytes[(0 : stdgo.GoInt)] | ((128 : stdgo.GoUInt8)) : stdgo.GoUInt8);
-                        _p.setBytes(_pBytes);
-                        _rem.mod(_p, _q);
-                        _rem.sub(_rem, _one);
-                        _p.sub(_p, _rem);
-                        if ((_p.bitLen() < l : Bool)) {
-                            continue;
+_pBytes[((_pBytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_pBytes[((_pBytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] | ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);
+_pBytes[(0 : stdgo.GoInt)] = (_pBytes[(0 : stdgo.GoInt)] | ((128 : stdgo.GoUInt8)) : stdgo.GoUInt8);
+_p.setBytes(_pBytes);
+_rem.mod(_p, _q);
+_rem.sub(_rem, _one);
+_p.sub(_p, _rem);
+if ((_p.bitLen() < l : Bool)) {
+                            {
+                                _i++;
+                                continue;
+                            };
                         };
-                        if (!_p.probablyPrime((64 : stdgo.GoInt))) {
-                            continue;
+if (!_p.probablyPrime((64 : stdgo.GoInt))) {
+                            {
+                                _i++;
+                                continue;
+                            };
                         };
-                        _params.p = _p;
-                        _params.q = _q;
-                        @:jump("GeneratePrimes") break;
-                    });
+_params.p = _p;
+_params.q = _q;
+@:jump("GeneratePrimes") break;
+                        _i++;
+                    };
                 };
             };
             var _h = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);

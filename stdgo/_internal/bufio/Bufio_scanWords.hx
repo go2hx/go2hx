@@ -4,32 +4,34 @@ function scanWords(_data:stdgo.Slice<stdgo.GoUInt8>, _atEOF:Bool):{ var _0 : std
         var _start = (0 : stdgo.GoInt);
         {
             var _width = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_start < (_data.length) : Bool), _start = (_start + (_width) : stdgo.GoInt), {
+            while ((_start < (_data.length) : Bool)) {
                 var _r:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-                {
+{
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_data.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>));
                     _r = __tmp__._0;
                     _width = __tmp__._1;
                 };
-                if (!stdgo._internal.bufio.Bufio__isSpace._isSpace(_r)) {
+if (!stdgo._internal.bufio.Bufio__isSpace._isSpace(_r)) {
                     break;
                 };
-            });
+                _start = (_start + (_width) : stdgo.GoInt);
+            };
         };
         {
             var __0 = (0 : stdgo.GoInt), __1 = (_start : stdgo.GoInt);
 var _i = __1, _width = __0;
-            stdgo.Go.cfor((_i < (_data.length) : Bool), _i = (_i + (_width) : stdgo.GoInt), {
+            while ((_i < (_data.length) : Bool)) {
                 var _r:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-                {
+{
                     var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_data.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>));
                     _r = __tmp__._0;
                     _width = __tmp__._1;
                 };
-                if (stdgo._internal.bufio.Bufio__isSpace._isSpace(_r)) {
+if (stdgo._internal.bufio.Bufio__isSpace._isSpace(_r)) {
                     return { _0 : (_i + _width : stdgo.GoInt), _1 : (_data.__slice__(_start, _i) : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Error) };
                 };
-            });
+                _i = (_i + (_width) : stdgo.GoInt);
+            };
         };
         if ((_atEOF && ((_data.length) > _start : Bool) : Bool)) {
             return { _0 : (_data.length), _1 : (_data.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Error) };

@@ -68,19 +68,25 @@ package stdgo._internal.regexp;
         var _longest = (_m._re._longest : Bool);
         {
             var _j = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_j < (_runq._dense.length) : Bool), _j++, {
+            while ((_j < (_runq._dense.length) : Bool)) {
                 var _d = (stdgo.Go.setRef(_runq._dense[(_j : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.regexp.Regexp_T_entry.T_entry>);
-                var _t = _d._t;
-                if (_t == null || (_t : Dynamic).__nil__) {
-                    continue;
+var _t = _d._t;
+if (_t == null || (_t : Dynamic).__nil__) {
+                    {
+                        _j++;
+                        continue;
+                    };
                 };
-                if ((((_longest && _m._matched : Bool) && ((_t._cap.length) > (0 : stdgo.GoInt) : Bool) : Bool) && (_m._matchcap[(0 : stdgo.GoInt)] < _t._cap[(0 : stdgo.GoInt)] : Bool) : Bool)) {
+if ((((_longest && _m._matched : Bool) && ((_t._cap.length) > (0 : stdgo.GoInt) : Bool) : Bool) && (_m._matchcap[(0 : stdgo.GoInt)] < _t._cap[(0 : stdgo.GoInt)] : Bool) : Bool)) {
                     _m._pool = (_m._pool.__append__(_t));
-                    continue;
+                    {
+                        _j++;
+                        continue;
+                    };
                 };
-                var _i = _t._inst;
-                var _add = (false : Bool);
-                {
+var _i = _t._inst;
+var _add = (false : Bool);
+{
                     final __value__ = _i.op;
                     if (__value__ == ((4 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp))) {
                         if ((((_t._cap.length) > (0 : stdgo.GoInt) : Bool) && (((!_longest || !_m._matched : Bool) || (_m._matchcap[(1 : stdgo.GoInt)] < _pos : Bool) : Bool)) : Bool)) {
@@ -108,13 +114,14 @@ package stdgo._internal.regexp;
                         throw stdgo.Go.toInterface(("bad inst" : stdgo.GoString));
                     };
                 };
-                if (_add) {
+if (_add) {
                     _t = _m._add(_nextq, _i.out, _nextPos, _t._cap, _nextCond, _t);
                 };
-                if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
+if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
                     _m._pool = (_m._pool.__append__(_t));
                 };
-            });
+                _j++;
+            };
         };
         _runq._dense = (_runq._dense.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.regexp.Regexp_T_entry.T_entry>);
     }

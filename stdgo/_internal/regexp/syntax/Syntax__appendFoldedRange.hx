@@ -16,14 +16,15 @@ function _appendFoldedRange(_r:stdgo.Slice<stdgo.GoInt32>, _lo:stdgo.GoInt32, _h
         };
         {
             var _c = (_lo : stdgo.GoInt32);
-            stdgo.Go.cfor((_c <= _hi : Bool), _c++, {
+            while ((_c <= _hi : Bool)) {
                 _r = stdgo._internal.regexp.syntax.Syntax__appendRange._appendRange(_r, _c, _c);
-                var _f = (stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_c) : stdgo.GoInt32);
-                while (_f != (_c)) {
+var _f = (stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_c) : stdgo.GoInt32);
+while (_f != (_c)) {
                     _r = stdgo._internal.regexp.syntax.Syntax__appendRange._appendRange(_r, _f, _f);
                     _f = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_f);
                 };
-            });
+                _c++;
+            };
         };
         return _r;
     }

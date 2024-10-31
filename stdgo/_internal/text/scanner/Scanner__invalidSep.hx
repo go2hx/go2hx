@@ -10,10 +10,10 @@ function _invalidSep(_x:stdgo.GoString):stdgo.GoInt {
                 _i = (2 : stdgo.GoInt);
             };
         };
-        stdgo.Go.cfor((_i < (_x.length) : Bool), _i++, {
+        while ((_i < (_x.length) : Bool)) {
             var _p = (_d : stdgo.GoInt32);
-            _d = (_x[(_i : stdgo.GoInt)] : stdgo.GoInt32);
-            if (_d == ((95 : stdgo.GoInt32))) {
+_d = (_x[(_i : stdgo.GoInt)] : stdgo.GoInt32);
+if (_d == ((95 : stdgo.GoInt32))) {
                 if (_p != ((48 : stdgo.GoInt32))) {
                     return _i;
                 };
@@ -25,7 +25,8 @@ function _invalidSep(_x:stdgo.GoString):stdgo.GoInt {
                 };
                 _d = (46 : stdgo.GoInt32);
             };
-        });
+            _i++;
+        };
         if (_d == ((95 : stdgo.GoInt32))) {
             return ((_x.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
         };

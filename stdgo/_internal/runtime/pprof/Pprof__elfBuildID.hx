@@ -89,12 +89,12 @@ var _shentsize = __1, _shoff = __0;
             };
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _shnum : Bool), _i++, {
+                while ((_i < _shnum : Bool)) {
                     {
                         var __tmp__ = _f.readAt((_buf.__slice__(0, _shentsize) : stdgo.Slice<stdgo.GoUInt8>), (_shoff + ((_i : stdgo.GoInt64) * _shentsize : stdgo.GoInt64) : stdgo.GoInt64)), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             {
-                                final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
+                                final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str().__copy__(), _1 : _err };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
@@ -102,23 +102,26 @@ var _shentsize = __1, _shoff = __0;
                             };
                         };
                     };
-                    {
+{
                         var _typ = (_byteOrder.uint32((_buf.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                         if (_typ != ((7u32 : stdgo.GoUInt32))) {
-                            continue;
+                            {
+                                _i++;
+                                continue;
+                            };
                         };
                     };
-                    var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+var __0:stdgo.GoInt64 = (0 : stdgo.GoInt64), __1:stdgo.GoInt64 = (0 : stdgo.GoInt64);
 var _size = __1, _off = __0;
-                    if (_shentsize == ((40i64 : stdgo.GoInt64))) {
+if (_shentsize == ((40i64 : stdgo.GoInt64))) {
                         _off = (_byteOrder.uint32((_buf.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt64);
                         _size = (_byteOrder.uint32((_buf.__slice__((20 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt64);
                     } else {
                         _off = (_byteOrder.uint64((_buf.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt64);
                         _size = (_byteOrder.uint64((_buf.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt64);
                     };
-                    _size = (_size + (_off) : stdgo.GoInt64);
-                    while ((_off < _size : Bool)) {
+_size = (_size + (_off) : stdgo.GoInt64);
+while ((_off < _size : Bool)) {
                         {
                             var __tmp__ = _f.readAt((_buf.__slice__(0, (16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _off), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
@@ -168,7 +171,8 @@ var _size = __1, _off = __0;
                             return __ret__;
                         };
                     };
-                });
+                    _i++;
+                };
             };
             {
                 final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.runtime.pprof.Pprof__errNoBuildID._errNoBuildID };

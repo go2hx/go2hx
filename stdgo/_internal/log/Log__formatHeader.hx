@@ -35,12 +35,13 @@ function _formatHeader(_buf:stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>, _t:stdgo._int
                 var _short = (_file?.__copy__() : stdgo.GoString);
                 {
                     var _i = ((_file.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                    stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                    while ((_i > (0 : stdgo.GoInt) : Bool)) {
                         if (_file[(_i : stdgo.GoInt)] == ((47 : stdgo.GoUInt8))) {
-                            _short = (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                            _short = (_file.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__();
                             break;
                         };
-                    });
+                        _i--;
+                    };
                 };
                 _file = _short?.__copy__();
             };

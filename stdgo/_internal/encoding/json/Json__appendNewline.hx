@@ -4,9 +4,10 @@ function _appendNewline(_dst:stdgo.Slice<stdgo.GoUInt8>, _prefix:stdgo.GoString,
         _dst = (_dst.__append__(...(_prefix : Array<stdgo.GoUInt8>)));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _depth : Bool), _i++, {
+            while ((_i < _depth : Bool)) {
                 _dst = (_dst.__append__(...(_indent : Array<stdgo.GoUInt8>)));
-            });
+                _i++;
+            };
         };
         return _dst;
     }

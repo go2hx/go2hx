@@ -6,12 +6,12 @@ package stdgo._internal.crypto.x509.pkix;
         var _s = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_r.length) : Bool), _i++, {
+            while ((_i < (_r.length) : Bool)) {
                 var _rdn = (_r[(((_r.length) - (1 : stdgo.GoInt) : stdgo.GoInt) - _i : stdgo.GoInt)] : stdgo._internal.crypto.x509.pkix.Pkix_RelativeDistinguishedNameSET.RelativeDistinguishedNameSET);
-                if ((_i > (0 : stdgo.GoInt) : Bool)) {
-                    _s = (_s + (("," : stdgo.GoString))?.__copy__() : stdgo.GoString);
+if ((_i > (0 : stdgo.GoInt) : Bool)) {
+                    _s = (_s + (("," : stdgo.GoString)).__copy__() : stdgo.GoString);
                 };
-                for (_j => _tv in _rdn) {
+for (_j => _tv in _rdn) {
                     if ((_j > (0 : stdgo.GoInt) : Bool)) {
                         _s = (_s + (("+" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     };
@@ -47,7 +47,8 @@ package stdgo._internal.crypto.x509.pkix;
                     };
                     _s = (_s + (((_typeName + ("=" : stdgo.GoString)?.__copy__() : stdgo.GoString) + (_escaped : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
                 };
-            });
+                _i++;
+            };
         };
         return _s?.__copy__();
     }

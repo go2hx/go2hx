@@ -24,12 +24,13 @@ function _walksymtab(_data:stdgo.Slice<stdgo.GoUInt8>, _ptrsz:stdgo.GoInt, _fn:s
             var _nnul:stdgo.GoInt = (0 : stdgo.GoInt);
             {
                 _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_p.length) : Bool), _i++, {
+                while ((_i < (_p.length) : Bool)) {
                     if (_p[(_i : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
                         _nnul = (1 : stdgo.GoInt);
                         break;
                     };
-                });
+                    _i++;
+                };
             };
             {
                 var __switchIndex__ = -1;
@@ -42,12 +43,13 @@ function _walksymtab(_data:stdgo.Slice<stdgo.GoUInt8>, _ptrsz:stdgo.GoInt, _fn:s
                             _p = (_p.__slice__((_i + _nnul : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                             {
                                 _i = (0 : stdgo.GoInt);
-                                stdgo.Go.cfor(((_i + (2 : stdgo.GoInt) : stdgo.GoInt) <= (_p.length) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+                                while (((_i + (2 : stdgo.GoInt) : stdgo.GoInt) <= (_p.length) : Bool)) {
                                     if (((_p[(_i : stdgo.GoInt)] == (0 : stdgo.GoUInt8)) && (_p[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] == (0 : stdgo.GoUInt8)) : Bool)) {
                                         _nnul = (2 : stdgo.GoInt);
                                         break;
                                     };
-                                });
+                                    _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                                };
                             };
                             break;
                         };

@@ -47,9 +47,10 @@ var _dotdot = __1, _r = __0;
                 if (((_rooted && _out._w != ((1 : stdgo.GoInt)) : Bool) || (!_rooted && _out._w != ((0 : stdgo.GoInt)) : Bool) : Bool)) {
                     _out._append((47 : stdgo.GoUInt8));
                 };
-                stdgo.Go.cfor(((_r < _n : Bool) && !stdgo._internal.os.Os_isPathSeparator.isPathSeparator(_path[(_r : stdgo.GoInt)]) : Bool), _r++, {
+                while (((_r < _n : Bool) && !stdgo._internal.os.Os_isPathSeparator.isPathSeparator(_path[(_r : stdgo.GoInt)]) : Bool)) {
                     _out._append(_path[(_r : stdgo.GoInt)]);
-                });
+                    _r++;
+                };
             };
         };
         if (_out._w == ((0 : stdgo.GoInt))) {

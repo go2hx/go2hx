@@ -4,11 +4,12 @@ function sliceIsSorted(_x:stdgo.AnyInterface, _less:(stdgo.GoInt, stdgo.GoInt) -
         var _n = (_rv.len() : stdgo.GoInt);
         {
             var _i = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 if (_less(_i, (_i - (1 : stdgo.GoInt) : stdgo.GoInt))) {
                     return false;
                 };
-            });
+                _i--;
+            };
         };
         return true;
     }

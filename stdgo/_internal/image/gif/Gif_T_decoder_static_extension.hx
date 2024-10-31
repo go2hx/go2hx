@@ -72,9 +72,10 @@ package stdgo._internal.image.gif;
                         stdgo.Go.copySlice(_p, _m.palette);
                         {
                             var _i = (_m.palette.length : stdgo.GoInt);
-                            stdgo.Go.cfor((_i < (_p.length) : Bool), _i++, {
+                            while ((_i < (_p.length) : Bool)) {
                                 _p[(_i : stdgo.GoInt)] = stdgo.Go.asInterface((new stdgo._internal.image.color.Color_RGBA.RGBA() : stdgo._internal.image.color.Color_RGBA.RGBA));
-                            });
+                                _i++;
+                            };
                         };
                         _m.palette = _p;
                     };

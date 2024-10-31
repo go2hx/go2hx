@@ -307,12 +307,13 @@ function _parseField(_v:stdgo._internal.reflect.Reflect_Value.Value, _bytes:stdg
                     var _structType = (_fieldType : stdgo._internal.reflect.Reflect_Type_.Type_);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _structType.numField() : Bool), _i++, {
+                        while ((_i < _structType.numField() : Bool)) {
                             if (!_structType.field(_i).isExported()) {
                                 _err = stdgo.Go.asInterface((new stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError(("struct contains unexported fields" : stdgo.GoString)) : stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError));
                                 return { _0 : _offset, _1 : _err };
                             };
-                        });
+                            _i++;
+                        };
                     };
                     if (((_structType.numField() > (0 : stdgo.GoInt) : Bool) && ((_structType.field((0 : stdgo.GoInt)).type.string() : String) == (stdgo._internal.encoding.asn1.Asn1__rawContentsType._rawContentsType.string() : String)) : Bool)) {
                         var _bytes = (_bytes.__slice__(_initOffset, _offset) : stdgo.Slice<stdgo.GoUInt8>);
@@ -321,20 +322,24 @@ function _parseField(_v:stdgo._internal.reflect.Reflect_Value.Value, _bytes:stdg
                     var _innerOffset = (0 : stdgo.GoInt);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _structType.numField() : Bool), _i++, {
-                            var _field = (_structType.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
-                            if (((_i == (0 : stdgo.GoInt)) && ((_field.type.string() : String) == (stdgo._internal.encoding.asn1.Asn1__rawContentsType._rawContentsType.string() : String)) : Bool)) {
-                                continue;
+                        while ((_i < _structType.numField() : Bool)) {
+                            var _field = (_structType.field(_i).__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
+if (((_i == (0 : stdgo.GoInt)) && ((_field.type.string() : String) == (stdgo._internal.encoding.asn1.Asn1__rawContentsType._rawContentsType.string() : String)) : Bool)) {
+                                {
+                                    _i++;
+                                    continue;
+                                };
                             };
-                            {
-                                var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseField._parseField(_val.field(_i)?.__copy__(), _innerBytes, _innerOffset, stdgo._internal.encoding.asn1.Asn1__parseFieldParameters._parseFieldParameters(_field.tag.get(("asn1" : stdgo.GoString))?.__copy__())?.__copy__());
+{
+                                var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseField._parseField(_val.field(_i).__copy__(), _innerBytes, _innerOffset, stdgo._internal.encoding.asn1.Asn1__parseFieldParameters._parseFieldParameters(_field.tag.get(("asn1" : stdgo.GoString)).__copy__()).__copy__());
                                 _innerOffset = __tmp__._0;
                                 _err = __tmp__._1;
                             };
-                            if (_err != null) {
+if (_err != null) {
                                 return { _0 : _offset, _1 : _err };
                             };
-                        });
+                            _i++;
+                        };
                     };
                     return { _0 : _offset, _1 : _err };
                 } else if (__value__ == ((23u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {

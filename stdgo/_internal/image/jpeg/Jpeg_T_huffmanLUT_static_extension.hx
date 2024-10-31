@@ -14,18 +14,20 @@ package stdgo._internal.image.jpeg;
 var _k = __1, _code = __0;
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s._count.length) : Bool), _i++, {
+            while ((_i < (_s._count.length) : Bool)) {
                 var _nBits = (((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
-                {
+{
                     var _j = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                    stdgo.Go.cfor((_j < _s._count[(_i : stdgo.GoInt)] : Bool), _j++, {
+                    while ((_j < _s._count[(_i : stdgo.GoInt)] : Bool)) {
                         ((_h : stdgo._internal.image.jpeg.Jpeg_T_huffmanLUT.T_huffmanLUT))[(_s._value[(_k : stdgo.GoInt)] : stdgo.GoInt)] = (_nBits | _code : stdgo.GoUInt32);
-                        _code++;
-                        _k++;
-                    });
+_code++;
+_k++;
+                        _j++;
+                    };
                 };
-                _code = (_code << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
-            });
+_code = (_code << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
+                _i++;
+            };
         };
     }
 }

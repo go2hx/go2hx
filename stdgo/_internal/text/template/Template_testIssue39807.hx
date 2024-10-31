@@ -15,25 +15,26 @@ function testIssue39807(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
             var _numTemplates = (10 : stdgo.GoInt);
             {
                 var _i = (1 : stdgo.GoInt);
-                stdgo.Go.cfor((_i <= _gofuncs : Bool), _i++, {
+                while ((_i <= _gofuncs : Bool)) {
                     _wg.add((1 : stdgo.GoInt));
-                    stdgo.Go.routine(() -> {
+stdgo.Go.routine(() -> {
                         var a = function():Void {
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
                                 __deferstack__.unshift(() -> _wg.done());
                                 {
                                     var _j = (0 : stdgo.GoInt);
-                                    stdgo.Go.cfor((_j < _numTemplates : Bool), _j++, {
-                                        var __tmp__ = _tplFoo.addParseTree(_tplBar.name()?.__copy__(), _tplBar.tree), __56:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                                        if (_err != null) {
+                                    while ((_j < _numTemplates : Bool)) {
+                                        var __tmp__ = _tplFoo.addParseTree(_tplBar.name().__copy__(), _tplBar.tree), __56:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
                                             _t.error(stdgo.Go.toInterface(_err));
                                         };
-                                        _err = _tplFoo.execute(stdgo._internal.io.Io_discard.discard, (null : stdgo.AnyInterface));
-                                        if (_err != null) {
+_err = _tplFoo.execute(stdgo._internal.io.Io_discard.discard, (null : stdgo.AnyInterface));
+if (_err != null) {
                                             _t.error(stdgo.Go.toInterface(_err));
                                         };
-                                    });
+                                        _j++;
+                                    };
                                 };
                                 {
                                     for (defer in __deferstack__) {
@@ -59,7 +60,8 @@ function testIssue39807(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                         };
                         a();
                     });
-                });
+                    _i++;
+                };
             };
             _wg.wait_();
             {

@@ -4,8 +4,9 @@ function benchmarkSlicesSortStrings_Sorted(_b:stdgo.Ref<stdgo._internal.testing.
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 stdgo._internal.slices.Slices_sort.sort(_ss);
-            });
+                _i++;
+            };
         };
     }

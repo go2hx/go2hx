@@ -5,11 +5,12 @@ function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_encoder.length) : Bool), _i++, {
+            while ((_i < (_encoder.length) : Bool)) {
                 if (((_encoder[(_i : stdgo.GoInt)] == (10 : stdgo.GoUInt8)) || (_encoder[(_i : stdgo.GoInt)] == (13 : stdgo.GoUInt8)) : Bool)) {
                     throw stdgo.Go.toInterface(("encoding alphabet contains newline character" : stdgo.GoString));
                 };
-            });
+                _i++;
+            };
         };
         var _e = (stdgo.Go.setRef(({} : stdgo._internal.encoding.base64.Base64_Encoding.Encoding)) : stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>);
         _e._padChar = (61 : stdgo.GoInt32);
@@ -272,9 +273,10 @@ function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding
 255));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_encoder.length) : Bool), _i++, {
+            while ((_i < (_encoder.length) : Bool)) {
                 _e._decodeMap[(_encoder[(_i : stdgo.GoInt)] : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
-            });
+                _i++;
+            };
         };
         return _e;
     }

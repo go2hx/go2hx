@@ -94,9 +94,10 @@ var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
                                 _runes = (_runes.__append__(_r0, _r0));
                                 {
                                     var _r1 = (stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r0) : stdgo.GoInt32);
-                                    stdgo.Go.cfor(_r1 != (_r0), _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1), {
+                                    while (_r1 != (_r0)) {
                                         _runes = (_runes.__append__(_r1, _r1));
-                                    });
+                                        _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1);
+                                    };
                                 };
                                 stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface((_runes : stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice)));
                             } else {
@@ -121,9 +122,10 @@ var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
                                 _runes = (_runes.__append__(_r0, _r0));
                                 {
                                     var _r1 = (stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r0) : stdgo.GoInt32);
-                                    stdgo.Go.cfor(_r1 != (_r0), _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1), {
+                                    while (_r1 != (_r0)) {
                                         _runes = (_runes.__append__(_r1, _r1));
-                                    });
+                                        _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1);
+                                    };
                                 };
                                 stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface((_runes : stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice)));
                             } else {

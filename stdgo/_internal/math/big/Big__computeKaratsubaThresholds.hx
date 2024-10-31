@@ -10,24 +10,25 @@ function _computeKaratsubaThresholds():Void {
         var _deltaOld:stdgo._internal.time.Time_Duration.Duration = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration);
         {
             var _count = (-1 : stdgo.GoInt);
-            stdgo.Go.cfor(((_count != (0 : stdgo.GoInt)) && (_th < (128 : stdgo.GoInt) : Bool) : Bool), _count--, {
+            while (((_count != (0 : stdgo.GoInt)) && (_th < (128 : stdgo.GoInt) : Bool) : Bool)) {
                 var tk = (stdgo._internal.math.big.Big__measureKaratsuba._measureKaratsuba(_th) : stdgo._internal.time.Time_Duration.Duration);
-                var _delta = ((((tb - tk : stdgo._internal.time.Time_Duration.Duration)) * (100i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration) / tb : stdgo._internal.time.Time_Duration.Duration);
-                stdgo._internal.fmt.Fmt_printf.printf(("th = %3d  Tk = %10s  %4d%%" : stdgo.GoString), stdgo.Go.toInterface(_th), stdgo.Go.toInterface(stdgo.Go.asInterface(tk)), stdgo.Go.toInterface(stdgo.Go.asInterface(_delta)));
-                if (((tk < tb : Bool) && (_th1 < (0 : stdgo.GoInt) : Bool) : Bool)) {
+var _delta = ((((tb - tk : stdgo._internal.time.Time_Duration.Duration)) * (100i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration) / tb : stdgo._internal.time.Time_Duration.Duration);
+stdgo._internal.fmt.Fmt_printf.printf(("th = %3d  Tk = %10s  %4d%%" : stdgo.GoString), stdgo.Go.toInterface(_th), stdgo.Go.toInterface(stdgo.Go.asInterface(tk)), stdgo.Go.toInterface(stdgo.Go.asInterface(_delta)));
+if (((tk < tb : Bool) && (_th1 < (0 : stdgo.GoInt) : Bool) : Bool)) {
                     _th1 = _th;
                     stdgo._internal.fmt.Fmt_print.print(stdgo.Go.toInterface(("  break-even point" : stdgo.GoString)));
                 };
-                if (((((0i64 : stdgo._internal.time.Time_Duration.Duration) < _delta : Bool) && (_delta < _deltaOld : Bool) : Bool) && (_th2 < (0 : stdgo.GoInt) : Bool) : Bool)) {
+if (((((0i64 : stdgo._internal.time.Time_Duration.Duration) < _delta : Bool) && (_delta < _deltaOld : Bool) : Bool) && (_th2 < (0 : stdgo.GoInt) : Bool) : Bool)) {
                     _th2 = _th;
                     stdgo._internal.fmt.Fmt_print.print(stdgo.Go.toInterface(("  diminishing return" : stdgo.GoString)));
                 };
-                _deltaOld = _delta;
-                stdgo._internal.fmt.Fmt_println.println();
-                if ((((_th1 >= (0 : stdgo.GoInt) : Bool) && (_th2 >= (0 : stdgo.GoInt) : Bool) : Bool) && (_count < (0 : stdgo.GoInt) : Bool) : Bool)) {
+_deltaOld = _delta;
+stdgo._internal.fmt.Fmt_println.println();
+if ((((_th1 >= (0 : stdgo.GoInt) : Bool) && (_th2 >= (0 : stdgo.GoInt) : Bool) : Bool) && (_count < (0 : stdgo.GoInt) : Bool) : Bool)) {
                     _count = (10 : stdgo.GoInt);
                 };
-                _th++;
-            });
+_th++;
+                _count--;
+            };
         };
     }

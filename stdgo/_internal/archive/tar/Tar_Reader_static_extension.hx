@@ -41,17 +41,18 @@ package stdgo._internal.archive.tar;
         while (true) {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _s._maxEntries() : Bool), _i++, {
+                while ((_i < _s._maxEntries() : Bool)) {
                     if (_s._entry(_i)._offset()[(0 : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
                         break;
                     };
-                    var _offset = (_p._parseNumeric(_s._entry(_i)._offset()) : stdgo.GoInt64);
-                    var _length = (_p._parseNumeric(_s._entry(_i)._length()) : stdgo.GoInt64);
-                    if (_p._err != null) {
+var _offset = (_p._parseNumeric(_s._entry(_i)._offset()) : stdgo.GoInt64);
+var _length = (_p._parseNumeric(_s._entry(_i)._length()) : stdgo.GoInt64);
+if (_p._err != null) {
                         return { _0 : null, _1 : _p._err };
                     };
-                    _spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_T_sparseEntry.T_sparseEntry)));
-                });
+_spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_T_sparseEntry.T_sparseEntry)));
+                    _i++;
+                };
             };
             if ((_s._isExtended()[(0 : stdgo.GoInt)] > (0 : stdgo.GoUInt8) : Bool)) {
                 {

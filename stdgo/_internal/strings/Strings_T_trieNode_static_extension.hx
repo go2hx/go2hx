@@ -12,11 +12,12 @@ package stdgo._internal.strings;
         };
         if (_t._prefix != (stdgo.Go.str())) {
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(((_n < (_t._prefix.length) : Bool) && (_n < (_key.length) : Bool) : Bool), _n++, {
+            while (((_n < (_t._prefix.length) : Bool) && (_n < (_key.length) : Bool) : Bool)) {
                 if (_t._prefix[(_n : stdgo.GoInt)] != (_key[(_n : stdgo.GoInt)])) {
                     break;
                 };
-            });
+                _n++;
+            };
             if (_n == ((_t._prefix.length))) {
                 _t._next._add((_key.__slice__(_n) : stdgo.GoString)?.__copy__(), _val?.__copy__(), _priority, _r);
             } else if (_n == ((0 : stdgo.GoInt))) {

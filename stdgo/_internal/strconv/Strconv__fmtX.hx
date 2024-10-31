@@ -40,10 +40,11 @@ function _fmtX(_dst:stdgo.Slice<stdgo.GoUInt8>, _prec:stdgo.GoInt, _fmt:stdgo.Go
             _dst = (_dst.__append__((46 : stdgo.GoUInt8)));
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _prec : Bool), _i++, {
+                while ((_i < _prec : Bool)) {
                     _dst = (_dst.__append__(_hex[((((_mant >> (60i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) & (15i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt)]));
-                    _mant = (_mant << ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                });
+_mant = (_mant << ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                    _i++;
+                };
             };
         };
         var _ch = ((80 : stdgo.GoUInt8) : stdgo.GoUInt8);

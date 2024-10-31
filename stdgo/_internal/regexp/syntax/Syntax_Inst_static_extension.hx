@@ -44,11 +44,12 @@ package stdgo._internal.regexp.syntax;
                 if (((_i.arg : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) & (1 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) : stdgo._internal.regexp.syntax.Syntax_Flags.Flags) != ((0 : stdgo._internal.regexp.syntax.Syntax_Flags.Flags))) {
                     {
                         var _r1 = (stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r0) : stdgo.GoInt32);
-                        stdgo.Go.cfor(_r1 != (_r0), _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1), {
+                        while (_r1 != (_r0)) {
                             if (_r == (_r1)) {
                                 return (0 : stdgo.GoInt);
                             };
-                        });
+                            _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1);
+                        };
                     };
                 };
                 return (-1 : stdgo.GoInt);
@@ -60,14 +61,15 @@ package stdgo._internal.regexp.syntax;
             } else if (__value__ == ((4 : stdgo.GoInt)) || __value__ == ((6 : stdgo.GoInt)) || __value__ == ((8 : stdgo.GoInt))) {
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < (_rune.length) : Bool), _j = (_j + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+                    while ((_j < (_rune.length) : Bool)) {
                         if ((_r < _rune[(_j : stdgo.GoInt)] : Bool)) {
                             return (-1 : stdgo.GoInt);
                         };
-                        if ((_r <= _rune[(_j + (1 : stdgo.GoInt) : stdgo.GoInt)] : Bool)) {
+if ((_r <= _rune[(_j + (1 : stdgo.GoInt) : stdgo.GoInt)] : Bool)) {
                             return (_j / (2 : stdgo.GoInt) : stdgo.GoInt);
                         };
-                    });
+                        _j = (_j + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
                 return (-1 : stdgo.GoInt);
             };

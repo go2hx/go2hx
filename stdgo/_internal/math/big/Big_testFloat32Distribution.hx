@@ -15,30 +15,32 @@ var _einc = __1, _winc = __0;
             for (__9 => _a in _add) {
                 {
                     var _wid = ((0i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-                    stdgo.Go.cfor((_wid < (30i64 : stdgo.GoUInt64) : Bool), _wid = (_wid + (_winc) : stdgo.GoUInt64), {
+                    while ((_wid < (30i64 : stdgo.GoUInt64) : Bool)) {
                         var _b = (((1i64 : stdgo.GoInt64) << _wid : stdgo.GoInt64) + _a : stdgo.GoInt64);
-                        if (_sign == ((45 : stdgo.GoInt32))) {
+if (_sign == ((45 : stdgo.GoInt32))) {
                             _b = -_b;
                         };
-                        {
+{
                             var _exp = (-150 : stdgo.GoInt);
-                            stdgo.Go.cfor((_exp < (150 : stdgo.GoInt) : Bool), _exp = (_exp + (_einc) : stdgo.GoInt), {
+                            while ((_exp < (150 : stdgo.GoInt) : Bool)) {
                                 var __0 = stdgo._internal.math.big.Big_newInt.newInt(_b), __1 = stdgo._internal.math.big.Big_newInt.newInt((1i64 : stdgo.GoInt64));
 var _den = __1, _num = __0;
-                                if ((_exp > (0 : stdgo.GoInt) : Bool)) {
+if ((_exp > (0 : stdgo.GoInt) : Bool)) {
                                     _num.lsh(_num, (_exp : stdgo.GoUInt));
                                 } else {
                                     _den.lsh(_den, (-_exp : stdgo.GoUInt));
                                 };
-                                var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>).setFrac(_num, _den);
-                                var __tmp__ = _r.float32(), _f:stdgo.GoFloat32 = __tmp__._0, __10:Bool = __tmp__._1;
-                                if (!stdgo._internal.math.big.Big__checkIsBestApprox32._checkIsBestApprox32(_t, _f, _r)) {
+var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>).setFrac(_num, _den);
+var __tmp__ = _r.float32(), _f:stdgo.GoFloat32 = __tmp__._0, __10:Bool = __tmp__._1;
+if (!stdgo._internal.math.big.Big__checkIsBestApprox32._checkIsBestApprox32(_t, _f, _r)) {
                                     _t.errorf(("(input was mantissa %#x, exp %d; f = %g (%b); f ~ %g; r = %v)" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_exp), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(stdgo._internal.math.Math_ldexp.ldexp((_b : stdgo.GoFloat64), _exp)), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)));
                                 };
-                                stdgo._internal.math.big.Big__checkNonLossyRoundtrip32._checkNonLossyRoundtrip32(_t, _f);
-                            });
+stdgo._internal.math.big.Big__checkNonLossyRoundtrip32._checkNonLossyRoundtrip32(_t, _f);
+                                _exp = (_exp + (_einc) : stdgo.GoInt);
+                            };
                         };
-                    });
+                        _wid = (_wid + (_winc) : stdgo.GoUInt64);
+                    };
                 };
             };
         };

@@ -7,9 +7,10 @@ function benchmarkFloatSqrt(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):V
                 _b.reportAllocs();
                 {
                     var _n = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_n < _b.n : Bool), _n++, {
+                    while ((_n < _b.n : Bool)) {
                         _z.sqrt(_x);
-                    });
+                        _n++;
+                    };
                 };
             });
         };

@@ -22,9 +22,10 @@ function testInsert(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 var _s = (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < (50 : stdgo.GoInt) : Bool), _i++, {
+                    while ((_i < (50 : stdgo.GoInt) : Bool)) {
                         _s = stdgo._internal.slices.Slices_insert.insert(_s, (0 : stdgo.GoInt), (1 : stdgo.GoInt));
-                    });
+                        _i++;
+                    };
                 };
             }) : stdgo.GoFloat64);
             if ((_n > (25 : stdgo.GoFloat64) : Bool)) {

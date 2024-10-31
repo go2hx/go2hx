@@ -25,11 +25,12 @@ function _readSlice(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Slice<std
         };
         {
             var _p = (10 : stdgo.GoInt);
-            stdgo.Go.cfor((_p < _size : Bool), _n++, {
+            while ((_p < _size : Bool)) {
                 var __tmp__ = stdgo._internal.encoding.binary.Binary_uvarint.uvarint((_buf.__slice__(_p) : stdgo.Slice<stdgo.GoUInt8>)), _x:stdgo.GoUInt64 = __tmp__._0, _w:stdgo.GoInt = __tmp__._1;
-                _data._set(_n, (_x : stdgo.GoInt64));
-                _p = (_p + (_w) : stdgo.GoInt);
-            });
+_data._set(_n, (_x : stdgo.GoInt64));
+_p = (_p + (_w) : stdgo.GoInt);
+                _n++;
+            };
         };
         return { _0 : _n, _1 : _err };
     }

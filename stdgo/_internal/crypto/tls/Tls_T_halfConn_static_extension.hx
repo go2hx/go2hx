@@ -81,9 +81,10 @@ package stdgo._internal.crypto.tls;
                 stdgo.Go.copySlice((_dst.__slice__((_payload.length)) : stdgo.Slice<stdgo.GoUInt8>), _mac);
                 {
                     var _i = (_plaintextLen : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < (_dst.length) : Bool), _i++, {
+                    while ((_i < (_dst.length) : Bool)) {
                         _dst[(_i : stdgo.GoInt)] = ((_paddingLen - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt8);
-                    });
+                        _i++;
+                    };
                 };
                 if (((_explicitNonce.length) > (0 : stdgo.GoInt) : Bool)) {
                     _c.setIV(_explicitNonce);
@@ -177,16 +178,17 @@ package stdgo._internal.crypto.tls;
                 };
                 {
                     var _i = ((_plaintext.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                    stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                    while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                         if (_plaintext[(_i : stdgo.GoInt)] != ((0 : stdgo.GoUInt8))) {
                             _typ = (_plaintext[(_i : stdgo.GoInt)] : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType);
                             _plaintext = (_plaintext.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>);
                             break;
                         };
-                        if (_i == ((0 : stdgo.GoInt))) {
+if (_i == ((0 : stdgo.GoInt))) {
                             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (0 : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType), _2 : stdgo.Go.asInterface((10 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert)) };
                         };
-                    });
+                        _i--;
+                    };
                 };
             };
         } else {
@@ -243,12 +245,13 @@ package stdgo._internal.crypto.tls;
         @:recv var _hc:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_halfConn.T_halfConn> = _hc;
         {
             var _i = (7 : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 _hc._seq[(_i : stdgo.GoInt)]++;
-                if (_hc._seq[(_i : stdgo.GoInt)] != ((0 : stdgo.GoUInt8))) {
+if (_hc._seq[(_i : stdgo.GoInt)] != ((0 : stdgo.GoUInt8))) {
                     return;
                 };
-            });
+                _i--;
+            };
         };
         throw stdgo.Go.toInterface(("TLS: sequence number wraparound" : stdgo.GoString));
     }

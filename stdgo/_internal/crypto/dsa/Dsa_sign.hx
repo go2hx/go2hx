@@ -11,10 +11,10 @@ function sign(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref<stdgo._
         var _attempts:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             _attempts = (10 : stdgo.GoInt);
-            stdgo.Go.cfor((_attempts > (0 : stdgo.GoInt) : Bool), _attempts--, {
+            while ((_attempts > (0 : stdgo.GoInt) : Bool)) {
                 var _k = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-                var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                while (true) {
+var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+while (true) {
                     {
                         var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _buf);
                         _err = __tmp__._1;
@@ -27,22 +27,26 @@ function sign(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref<stdgo._
                         break;
                     };
                 };
-                var _kInv = stdgo._internal.crypto.dsa.Dsa__fermatInverse._fermatInverse(_k, _priv.publicKey.parameters.q);
-                _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).exp(_priv.publicKey.parameters.g, _k, _priv.publicKey.parameters.p);
-                _r.mod(_r, _priv.publicKey.parameters.q);
-                if (_r.sign() == ((0 : stdgo.GoInt))) {
-                    continue;
+var _kInv = stdgo._internal.crypto.dsa.Dsa__fermatInverse._fermatInverse(_k, _priv.publicKey.parameters.q);
+_r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).exp(_priv.publicKey.parameters.g, _k, _priv.publicKey.parameters.p);
+_r.mod(_r, _priv.publicKey.parameters.q);
+if (_r.sign() == ((0 : stdgo.GoInt))) {
+                    {
+                        _attempts--;
+                        continue;
+                    };
                 };
-                var _z = _k.setBytes(_hash);
-                _s = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).mul(_priv.x, _r);
-                _s.add(_s, _z);
-                _s.mod(_s, _priv.publicKey.parameters.q);
-                _s.mul(_s, _kInv);
-                _s.mod(_s, _priv.publicKey.parameters.q);
-                if (_s.sign() != ((0 : stdgo.GoInt))) {
+var _z = _k.setBytes(_hash);
+_s = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).mul(_priv.x, _r);
+_s.add(_s, _z);
+_s.mod(_s, _priv.publicKey.parameters.q);
+_s.mul(_s, _kInv);
+_s.mod(_s, _priv.publicKey.parameters.q);
+if (_s.sign() != ((0 : stdgo.GoInt))) {
                     break;
                 };
-            });
+                _attempts--;
+            };
         };
         if (_attempts == ((0 : stdgo.GoInt))) {
             return { _0 : null, _1 : null, _2 : stdgo._internal.crypto.dsa.Dsa_errInvalidPublicKey.errInvalidPublicKey };

@@ -13,8 +13,9 @@ var _y = __1, _x = __0;
         _b.startTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).gcd(_x, _y, _aa, _bb);
-            });
+                _i++;
+            };
         };
     }

@@ -370,14 +370,14 @@ package stdgo._internal.encoding.gob;
             } : stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>);
             {
                 var _fieldnum = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_fieldnum < (_wireStruct.field.length) : Bool), _fieldnum++, {
+                while ((_fieldnum < (_wireStruct.field.length) : Bool)) {
                     var _wireField = (_wireStruct.field[(_fieldnum : stdgo.GoInt)] : stdgo._internal.encoding.gob.Gob_T_fieldType.T_fieldType);
-                    if (_wireField.name == (stdgo.Go.str())) {
+if (_wireField.name == (stdgo.Go.str())) {
                         stdgo._internal.encoding.gob.Gob__errorf._errorf(("empty name for remote field of type %s" : stdgo.GoString), stdgo.Go.toInterface(_wireStruct.commonType.name));
                     };
-                    var _ovfl = (stdgo._internal.encoding.gob.Gob__overflow._overflow(_wireField.name?.__copy__()) : stdgo.Error);
-                    var __tmp__ = _srt.fieldByName(_wireField.name?.__copy__()), _localField:stdgo._internal.reflect.Reflect_StructField.StructField = __tmp__._0, _present:Bool = __tmp__._1;
-                    if ((!_present || !stdgo._internal.encoding.gob.Gob__isExported._isExported(_wireField.name?.__copy__()) : Bool)) {
+var _ovfl = (stdgo._internal.encoding.gob.Gob__overflow._overflow(_wireField.name.__copy__()) : stdgo.Error);
+var __tmp__ = _srt.fieldByName(_wireField.name.__copy__()), _localField:stdgo._internal.reflect.Reflect_StructField.StructField = __tmp__._0, _present:Bool = __tmp__._1;
+if ((!_present || !stdgo._internal.encoding.gob.Gob__isExported._isExported(_wireField.name.__copy__()) : Bool)) {
                         var _op = _dec._decIgnoreOpFor(_wireField.id, ({
                             final x = new stdgo.GoMap.GoIntMap<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>();
                             x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>);
@@ -385,9 +385,12 @@ package stdgo._internal.encoding.gob;
                             x;
                         } : stdgo.GoMap<stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>), (0 : stdgo.GoInt));
                         _engine._instr[(_fieldnum : stdgo.GoInt)] = (new stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr((_op : stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp), _fieldnum, (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr);
-                        continue;
+                        {
+                            _fieldnum++;
+                            continue;
+                        };
                     };
-                    if (!_dec._compatibleType(_localField.type, _wireField.id, ({
+if (!_dec._compatibleType(_localField.type, _wireField.id, ({
                         final x = new stdgo.GoMap.GoObjectMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId>();
                         x.t = new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.reflect.Reflect_Type_.Type_", [], stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
                         x.__defaultValue__ = () -> ((0 : stdgo.GoInt32) : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId);
@@ -396,10 +399,11 @@ package stdgo._internal.encoding.gob;
                     } : stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId>))) {
                         stdgo._internal.encoding.gob.Gob__errorf._errorf(("wrong type (%s) for received field %s.%s" : stdgo.GoString), stdgo.Go.toInterface(_localField.type), stdgo.Go.toInterface(_wireStruct.commonType.name), stdgo.Go.toInterface(_wireField.name));
                     };
-                    var _op = _dec._decOpFor(_wireField.id, _localField.type, _localField.name?.__copy__(), _seen);
-                    _engine._instr[(_fieldnum : stdgo.GoInt)] = (new stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr((_op : stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp), _fieldnum, _localField.index, _ovfl) : stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr);
-                    _engine._numInstr++;
-                });
+var _op = _dec._decOpFor(_wireField.id, _localField.type, _localField.name.__copy__(), _seen);
+_engine._instr[(_fieldnum : stdgo.GoInt)] = (new stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr((_op : stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp), _fieldnum, _localField.index, _ovfl) : stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr);
+_engine._numInstr++;
+                    _fieldnum++;
+                };
             };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>; var _1 : stdgo.Error; } = { _0 : _engine, _1 : _err };
@@ -618,9 +622,10 @@ package stdgo._internal.encoding.gob;
         } else if ((_ut._decIndir > (0 : stdgo.GoInt8) : Bool)) {
             {
                 var _i = ((0 : stdgo.GoInt8) : stdgo.GoInt8);
-                stdgo.Go.cfor((_i < _ut._decIndir : Bool), _i++, {
+                while ((_i < _ut._decIndir : Bool)) {
                     _rcvrType = _rcvrType.elem();
-                });
+                    _i++;
+                };
             };
         };
         var _op:stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp = (null : stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp);
@@ -936,10 +941,11 @@ package stdgo._internal.encoding.gob;
         var _elemInstr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr(_elemOp, (0 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), stdgo._internal.errors.Errors_new_.new_(("no error" : stdgo.GoString))) : stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
-                _keyOp(_keyInstr, _state, stdgo._internal.encoding.gob.Gob__noValue._noValue?.__copy__());
-                _elemOp(_elemInstr, _state, stdgo._internal.encoding.gob.Gob__noValue._noValue?.__copy__());
-            });
+            while ((_i < _n : Bool)) {
+                _keyOp(_keyInstr, _state, stdgo._internal.encoding.gob.Gob__noValue._noValue.__copy__());
+_elemOp(_elemInstr, _state, stdgo._internal.encoding.gob.Gob__noValue._noValue.__copy__());
+                _i++;
+            };
         };
     }
     @:keep
@@ -959,12 +965,13 @@ package stdgo._internal.encoding.gob;
         var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr(_elemOp, (0 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), stdgo._internal.errors.Errors_new_.new_(("no error" : stdgo.GoString))) : stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _length : Bool), _i++, {
+            while ((_i < _length : Bool)) {
                 if (_state._b.len() == ((0 : stdgo.GoInt))) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("decoding array or slice: length exceeds input size (%d elements)" : stdgo.GoString), stdgo.Go.toInterface(_length));
                 };
-                _elemOp(_instr, _state, stdgo._internal.encoding.gob.Gob__noValue._noValue?.__copy__());
-            });
+_elemOp(_instr, _state, stdgo._internal.encoding.gob.Gob__noValue._noValue.__copy__());
+                _i++;
+            };
         };
     }
     @:keep
@@ -982,13 +989,14 @@ package stdgo._internal.encoding.gob;
         var _elemP = (stdgo._internal.reflect.Reflect_new_.new_(_mtyp.elem())?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
-                var _key = (stdgo._internal.encoding.gob.Gob__decodeIntoValue._decodeIntoValue(_state, _keyOp, _keyIsPtr, _keyP.elem()?.__copy__(), _keyInstr)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                var _elem = (stdgo._internal.encoding.gob.Gob__decodeIntoValue._decodeIntoValue(_state, _elemOp, _elemIsPtr, _elemP.elem()?.__copy__(), _elemInstr)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                _value.setMapIndex(_key?.__copy__(), _elem?.__copy__());
-                _keyP.elem().setZero();
-                _elemP.elem().setZero();
-            });
+            while ((_i < _n : Bool)) {
+                var _key = (stdgo._internal.encoding.gob.Gob__decodeIntoValue._decodeIntoValue(_state, _keyOp, _keyIsPtr, _keyP.elem().__copy__(), _keyInstr).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+var _elem = (stdgo._internal.encoding.gob.Gob__decodeIntoValue._decodeIntoValue(_state, _elemOp, _elemIsPtr, _elemP.elem().__copy__(), _elemInstr).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+_value.setMapIndex(_key.__copy__(), _elem.__copy__());
+_keyP.elem().setZero();
+_elemP.elem().setZero();
+                _i++;
+            };
         };
     }
     @:keep
@@ -1013,11 +1021,11 @@ package stdgo._internal.encoding.gob;
         var _ln = (_value.len() : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _length : Bool), _i++, {
+            while ((_i < _length : Bool)) {
                 if (_state._b.len() == ((0 : stdgo.GoInt))) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("decoding array or slice: length exceeds input size (%d elements)" : stdgo.GoString), stdgo.Go.toInterface(_length));
                 };
-                if ((_i >= _ln : Bool)) {
+if ((_i >= _ln : Bool)) {
                     _value.grow((1 : stdgo.GoInt));
                     var _cp = (_value.cap() : stdgo.GoInt);
                     if ((_cp > _length : Bool)) {
@@ -1026,12 +1034,13 @@ package stdgo._internal.encoding.gob;
                     _value.setLen(_cp);
                     _ln = _cp;
                 };
-                var _v = (_value.index(_i)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                if (_isPtr) {
-                    _v = stdgo._internal.encoding.gob.Gob__decAlloc._decAlloc(_v?.__copy__())?.__copy__();
+var _v = (_value.index(_i).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+if (_isPtr) {
+                    _v = stdgo._internal.encoding.gob.Gob__decAlloc._decAlloc(_v.__copy__()).__copy__();
                 };
-                _elemOp(_instr, _state, _v?.__copy__());
-            });
+_elemOp(_instr, _state, _v.__copy__());
+                _i++;
+            };
         };
     }
     @:keep

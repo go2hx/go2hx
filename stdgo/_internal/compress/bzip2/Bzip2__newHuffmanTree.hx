@@ -26,15 +26,16 @@ function _newHuffmanTree(_lengths:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo._
         var _codes = (new stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2_T_huffmanCode.T_huffmanCode>((_lengths.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_lengths.length : stdgo.GoInt).toBasic() > 0 ? (_lengths.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.compress.bzip2.Bzip2_T_huffmanCode.T_huffmanCode)]) : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2_T_huffmanCode.T_huffmanCode>);
         {
             var _i = ((_pairs.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 if ((_length > _pairs[(_i : stdgo.GoInt)]._length : Bool)) {
                     _length = _pairs[(_i : stdgo.GoInt)]._length;
                 };
-                _codes[(_i : stdgo.GoInt)]._code = _code;
-                _codes[(_i : stdgo.GoInt)]._codeLen = _length;
-                _codes[(_i : stdgo.GoInt)]._value = _pairs[(_i : stdgo.GoInt)]._value;
-                _code = (_code + (((1u32 : stdgo.GoUInt32) << (((32 : stdgo.GoUInt8) - _length : stdgo.GoUInt8)) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-            });
+_codes[(_i : stdgo.GoInt)]._code = _code;
+_codes[(_i : stdgo.GoInt)]._codeLen = _length;
+_codes[(_i : stdgo.GoInt)]._value = _pairs[(_i : stdgo.GoInt)]._value;
+_code = (_code + (((1u32 : stdgo.GoUInt32) << (((32 : stdgo.GoUInt8) - _length : stdgo.GoUInt8)) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                _i--;
+            };
         };
         stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_codes), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
             return (_codes[(_i : stdgo.GoInt)]._code < _codes[(_j : stdgo.GoInt)]._code : Bool);

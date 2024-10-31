@@ -12,13 +12,14 @@ function testSliceRoundTrip(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
             };
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _src.len() : Bool), _i++, {
+                while ((_i < _src.len() : Bool)) {
                     if (_unsigned) {
                         _src.index(_i).setUint(((_i * (124076833 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt64));
                     } else {
                         _src.index(_i).setInt(((_i * (124076833 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64));
                     };
-                });
+                    _i++;
+                };
             };
             _buf.reset();
             var _srcSlice = (_src.slice((0 : stdgo.GoInt), _src.len())?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);

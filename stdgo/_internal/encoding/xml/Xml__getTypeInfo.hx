@@ -11,12 +11,15 @@ function _getTypeInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_):{ var _0
             var _n = (_typ.numField() : stdgo.GoInt);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _n : Bool), _i++, {
-                    var _f = (_typ.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
-                    if ((((!_f.isExported() && !_f.anonymous : Bool)) || (_f.tag.get(("xml" : stdgo.GoString)) == ("-" : stdgo.GoString)) : Bool)) {
-                        continue;
+                while ((_i < _n : Bool)) {
+                    var _f = (_typ.field(_i).__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
+if ((((!_f.isExported() && !_f.anonymous : Bool)) || (_f.tag.get(("xml" : stdgo.GoString)) == ("-" : stdgo.GoString)) : Bool)) {
+                        {
+                            _i++;
+                            continue;
+                        };
                     };
-                    if (_f.anonymous) {
+if (_f.anonymous) {
                         var _t = (_f.type : stdgo._internal.reflect.Reflect_Type_.Type_);
                         if (_t.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                             _t = _t.elem();
@@ -38,24 +41,31 @@ function _getTypeInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_):{ var _0
                                     };
                                 };
                             };
+                            {
+                                _i++;
+                                continue;
+                            };
+                        };
+                    };
+var __tmp__ = stdgo._internal.encoding.xml.Xml__structFieldInfo._structFieldInfo(_typ, (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>)), _finfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
+                        return { _0 : null, _1 : _err };
+                    };
+if (_f.name == (("XMLName" : stdgo.GoString))) {
+                        _tinfo._xmlname = _finfo;
+                        {
+                            _i++;
                             continue;
                         };
                     };
-                    var __tmp__ = stdgo._internal.encoding.xml.Xml__structFieldInfo._structFieldInfo(_typ, (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>)), _finfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                    if (_err != null) {
-                        return { _0 : null, _1 : _err };
-                    };
-                    if (_f.name == (("XMLName" : stdgo.GoString))) {
-                        _tinfo._xmlname = _finfo;
-                        continue;
-                    };
-                    {
+{
                         var _err = (stdgo._internal.encoding.xml.Xml__addFieldInfo._addFieldInfo(_typ, _tinfo, _finfo) : stdgo.Error);
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
                     };
-                });
+                    _i++;
+                };
             };
         };
         var __tmp__ = stdgo._internal.encoding.xml.Xml__tinfoMap._tinfoMap.loadOrStore(stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(_tinfo)), _ti:stdgo.AnyInterface = __tmp__._0, __8:Bool = __tmp__._1;

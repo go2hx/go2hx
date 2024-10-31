@@ -9,9 +9,10 @@ function _benchmarkDecode(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>, _co
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 var _r = stdgo._internal.bytes.Bytes_newReader.newReader(_compressed);
-                stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, stdgo._internal.compress.bzip2.Bzip2_newReader.newReader(stdgo.Go.asInterface(_r)));
-            });
+stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, stdgo._internal.compress.bzip2.Bzip2_newReader.newReader(stdgo.Go.asInterface(_r)));
+                _i++;
+            };
         };
     }

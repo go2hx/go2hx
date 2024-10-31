@@ -264,9 +264,10 @@ function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding
 255));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_encoder.length) : Bool), _i++, {
+            while ((_i < (_encoder.length) : Bool)) {
                 _e._decodeMap[(_encoder[(_i : stdgo.GoInt)] : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
-            });
+                _i++;
+            };
         };
         return _e;
     }

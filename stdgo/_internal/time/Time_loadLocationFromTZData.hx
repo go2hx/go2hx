@@ -32,16 +32,17 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
         var _n:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(6, 6, ...[for (i in 0 ... 6) (0 : stdgo.GoInt)]);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (6 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (6 : stdgo.GoInt) : Bool)) {
                 var __tmp__ = _d._big4(), _nn:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
-                if (!_ok) {
+if (!_ok) {
                     return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
                 };
-                if (((_nn : stdgo.GoInt) : stdgo.GoUInt32) != (_nn)) {
+if (((_nn : stdgo.GoInt) : stdgo.GoUInt32) != (_nn)) {
                     return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
                 };
-                _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
-            });
+_n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
+                _i++;
+            };
         };
         var _is64 = (false : Bool);
         if ((_version > (1 : stdgo.GoInt) : Bool)) {
@@ -51,16 +52,17 @@ function loadLocationFromTZData(_name:stdgo.GoString, _data:stdgo.Slice<stdgo.Go
             _is64 = true;
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (6 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (6 : stdgo.GoInt) : Bool)) {
                     var __tmp__ = _d._big4(), _nn:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
-                    if (!_ok) {
+if (!_ok) {
                         return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
                     };
-                    if (((_nn : stdgo.GoInt) : stdgo.GoUInt32) != (_nn)) {
+if (((_nn : stdgo.GoInt) : stdgo.GoUInt32) != (_nn)) {
                         return { _0 : null, _1 : stdgo._internal.time.Time__errBadData._errBadData };
                     };
-                    _n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
-                });
+_n[(_i : stdgo.GoInt)] = (_nn : stdgo.GoInt);
+                    _i++;
+                };
             };
         };
         var _size = (4 : stdgo.GoInt);

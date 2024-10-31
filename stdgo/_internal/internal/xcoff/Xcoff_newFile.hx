@@ -92,10 +92,10 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
             _f.sections = (new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>>((0 : stdgo.GoInt).toBasic(), _c) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>>);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_nscns : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (_nscns : stdgo.GoInt) : Bool)) {
                     var _scnptr:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-                    var _s = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_Section.Section)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
-                    {
+var _s = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_Section.Section)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Section.Section>);
+{
                         final __value__ = _f.fileHeader.targetMachine;
                         if (__value__ == ((479 : stdgo.GoUInt16))) {
                             var _shdr = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SectionHeader32.SectionHeader32>);
@@ -105,7 +105,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                                     return { _0 : null, _1 : _err };
                                 };
                             };
-                            _s.sectionHeader.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_shdr.sname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                            _s.sectionHeader.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_shdr.sname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                             _s.sectionHeader.virtualAddress = (_shdr.svaddr : stdgo.GoUInt64);
                             _s.sectionHeader.size = (_shdr.ssize : stdgo.GoUInt64);
                             _scnptr = (_shdr.sscnptr : stdgo.GoUInt64);
@@ -120,7 +120,7 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                                     return { _0 : null, _1 : _err };
                                 };
                             };
-                            _s.sectionHeader.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_shdr.sname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                            _s.sectionHeader.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_shdr.sname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                             _s.sectionHeader.virtualAddress = _shdr.svaddr;
                             _s.sectionHeader.size = _shdr.ssize;
                             _scnptr = _shdr.sscnptr;
@@ -129,14 +129,15 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
                             _s.sectionHeader.nreloc = _shdr.snreloc;
                         };
                     };
-                    var _r2 = (_r : stdgo._internal.io.Io_ReaderAt.ReaderAt);
-                    if (_scnptr == ((0i64 : stdgo.GoUInt64))) {
+var _r2 = (_r : stdgo._internal.io.Io_ReaderAt.ReaderAt);
+if (_scnptr == ((0i64 : stdgo.GoUInt64))) {
                         _r2 = stdgo.Go.asInterface((new stdgo._internal.internal.xcoff.Xcoff_T_zeroReaderAt.T_zeroReaderAt() : stdgo._internal.internal.xcoff.Xcoff_T_zeroReaderAt.T_zeroReaderAt));
                     };
-                    _s._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r2, (_scnptr : stdgo.GoInt64), (_s.sectionHeader.size : stdgo.GoInt64));
-                    _s.readerAt = stdgo.Go.asInterface(_s._sr);
-                    _f.sections = (_f.sections.__append__(_s));
-                });
+_s._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r2, (_scnptr : stdgo.GoInt64), (_s.sectionHeader.size : stdgo.GoInt64));
+_s.readerAt = stdgo.Go.asInterface(_s._sr);
+_f.sections = (_f.sections.__append__(_s));
+                    _i++;
+                };
             };
             var _idxToSym:stdgo.GoMap<stdgo.GoInt, stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>> = ({
                 final x = new stdgo.GoMap.GoIntMap<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>();
@@ -153,12 +154,12 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
             _f.symbols = (new stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>((0 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>>);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_nsyms : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (_nsyms : stdgo.GoInt) : Bool)) {
                     var _numaux:stdgo.GoInt = (0 : stdgo.GoInt);
-                    var __0:Bool = false, __1:Bool = false;
+var __0:Bool = false, __1:Bool = false;
 var _needAuxFcn = __1, _ok = __0;
-                    var _sym = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>);
-                    {
+var _sym = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Symbol.Symbol>);
+{
                         final __value__ = _f.fileHeader.targetMachine;
                         if (__value__ == ((479 : stdgo.GoUInt16))) {
                             var _se = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_SymEnt32.SymEnt32>);
@@ -175,12 +176,12 @@ var _needAuxFcn = __1, _ok = __0;
                             _needAuxFcn = (((_se.ntype & (32 : stdgo.GoUInt16) : stdgo.GoUInt16) != (0 : stdgo.GoUInt16)) && (_numaux > (1 : stdgo.GoInt) : Bool) : Bool);
                             var _zeroes = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_se.nname.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                             if (_zeroes != ((0u32 : stdgo.GoUInt32))) {
-                                _sym.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_se.nname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                                _sym.name = stdgo._internal.internal.xcoff.Xcoff__cstring._cstring((_se.nname.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                             } else {
                                 var _offset = (stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian.uint32((_se.nname.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                                 {
                                     var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_f.stringTable, _offset);
-                                    _sym.name = __tmp__._0?.__copy__();
+                                    _sym.name = __tmp__._0.__copy__();
                                     _ok = __tmp__._1;
                                 };
                                 if (!_ok) {
@@ -202,7 +203,7 @@ var _needAuxFcn = __1, _ok = __0;
                             _needAuxFcn = (((_se.ntype & (32 : stdgo.GoUInt16) : stdgo.GoUInt16) != (0 : stdgo.GoUInt16)) && (_numaux > (1 : stdgo.GoInt) : Bool) : Bool);
                             {
                                 var __tmp__ = stdgo._internal.internal.xcoff.Xcoff__getString._getString(_f.stringTable, _se.noffset);
-                                _sym.name = __tmp__._0?.__copy__();
+                                _sym.name = __tmp__._0.__copy__();
                                 _ok = __tmp__._1;
                             };
                             if (!_ok) {
@@ -210,22 +211,22 @@ var _needAuxFcn = __1, _ok = __0;
                             };
                         };
                     };
-                    if (((_sym.storageClass != ((2 : stdgo.GoInt)) && _sym.storageClass != ((111 : stdgo.GoInt)) : Bool) && (_sym.storageClass != (107 : stdgo.GoInt)) : Bool)) {
+if (((_sym.storageClass != ((2 : stdgo.GoInt)) && _sym.storageClass != ((111 : stdgo.GoInt)) : Bool) && (_sym.storageClass != (107 : stdgo.GoInt)) : Bool)) {
                         @:goto "skip";
                     };
-                    if (((_numaux < (1 : stdgo.GoInt) : Bool) || ((_i + _numaux : stdgo.GoInt) >= (_nsyms : stdgo.GoInt) : Bool) : Bool)) {
+if (((_numaux < (1 : stdgo.GoInt) : Bool) || ((_i + _numaux : stdgo.GoInt) >= (_nsyms : stdgo.GoInt) : Bool) : Bool)) {
                         @:goto "skip";
                     };
-                    if ((_sym.sectionNumber > (_nscns : stdgo.GoInt) : Bool)) {
+if ((_sym.sectionNumber > (_nscns : stdgo.GoInt) : Bool)) {
                         @:goto "skip";
                     };
-                    if (_sym.sectionNumber == ((0 : stdgo.GoInt))) {
+if (_sym.sectionNumber == ((0 : stdgo.GoInt))) {
                         _sym.value = (0i64 : stdgo.GoUInt64);
                     } else {
                         _sym.value = (_sym.value - (_f.sections[(_sym.sectionNumber - (1 : stdgo.GoInt) : stdgo.GoInt)].sectionHeader.virtualAddress) : stdgo.GoUInt64);
                     };
-                    _idxToSym[_i] = _sym;
-                    if (_needAuxFcn) {
+_idxToSym[_i] = _sym;
+if (_needAuxFcn) {
                         {
                             final __value__ = _f.fileHeader.targetMachine;
                             if (__value__ == ((479 : stdgo.GoUInt16))) {
@@ -249,7 +250,7 @@ var _needAuxFcn = __1, _ok = __0;
                             };
                         };
                     };
-                    if (!_needAuxFcn) {
+if (!_needAuxFcn) {
                         {
                             var __tmp__ = _sr.seek((((_numaux - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) * (18i64 : stdgo.GoInt64) : stdgo.GoInt64), (1 : stdgo.GoInt)), __4:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
@@ -257,9 +258,9 @@ var _needAuxFcn = __1, _ok = __0;
                             };
                         };
                     };
-                    _i = (_i + (_numaux) : stdgo.GoInt);
-                    _numaux = (0 : stdgo.GoInt);
-                    {
+_i = (_i + (_numaux) : stdgo.GoInt);
+_numaux = (0 : stdgo.GoInt);
+{
                         final __value__ = _f.fileHeader.targetMachine;
                         if (__value__ == ((479 : stdgo.GoUInt16))) {
                             var _aux = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_AuxCSect32.AuxCSect32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_AuxCSect32.AuxCSect32>);
@@ -285,15 +286,16 @@ var _needAuxFcn = __1, _ok = __0;
                             _sym.auxCSect.length_ = (((_aux.xscnlenhi : stdgo.GoInt64) << (32i64 : stdgo.GoUInt64) : stdgo.GoInt64) | (_aux.xscnlenlo : stdgo.GoInt64) : stdgo.GoInt64);
                         };
                     };
-                    _f.symbols = (_f.symbols.__append__(_sym));
-                    @:label("skip") _i = (_i + (_numaux) : stdgo.GoInt);
-                    {
+_f.symbols = (_f.symbols.__append__(_sym));
+@:label("skip") _i = (_i + (_numaux) : stdgo.GoInt);
+{
                         var __tmp__ = _sr.seek(((_numaux : stdgo.GoInt64) * (18i64 : stdgo.GoInt64) : stdgo.GoInt64), (1 : stdgo.GoInt)), __4:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
                     };
-                });
+                    _i++;
+                };
             };
             for (_sectNum => _sect in _f.sections) {
                 if (((_sect.sectionHeader.type != (32u32 : stdgo.GoUInt32)) && (_sect.sectionHeader.type != (64u32 : stdgo.GoUInt32)) : Bool)) {
@@ -315,9 +317,9 @@ var _needAuxFcn = __1, _ok = __0;
                 };
                 {
                     var _i = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                    stdgo.Go.cfor((_i < _sect.sectionHeader.nreloc : Bool), _i++, {
+                    while ((_i < _sect.sectionHeader.nreloc : Bool)) {
                         var _reloc:stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc = ({} : stdgo._internal.internal.xcoff.Xcoff_Reloc.Reloc);
-                        {
+{
                             final __value__ = _f.fileHeader.targetMachine;
                             if (__value__ == ((479 : stdgo.GoUInt16))) {
                                 var _rel = (stdgo.Go.setRef(({} : stdgo._internal.internal.xcoff.Xcoff_Reloc32.Reloc32)) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_Reloc32.Reloc32>);
@@ -357,8 +359,9 @@ var _needAuxFcn = __1, _ok = __0;
                                 };
                             };
                         };
-                        _sect.relocs = (_sect.relocs.__append__(_reloc?.__copy__()));
-                    });
+_sect.relocs = (_sect.relocs.__append__(_reloc.__copy__()));
+                        _i++;
+                    };
                 };
             };
             return { _0 : _f, _1 : (null : stdgo.Error) };

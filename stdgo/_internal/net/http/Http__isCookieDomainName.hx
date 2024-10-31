@@ -14,9 +14,9 @@ function _isCookieDomainName(_s:stdgo.GoString):Bool {
         var _partlen = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (((((97 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (122 : stdgo.GoUInt8) : Bool) : Bool) || (((65 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (90 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
+if (((((97 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (122 : stdgo.GoUInt8) : Bool) : Bool) || (((65 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (90 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
                     _ok = true;
                     _partlen++;
                 } else if ((((48 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
@@ -37,8 +37,9 @@ function _isCookieDomainName(_s:stdgo.GoString):Bool {
                 } else {
                     return false;
                 };
-                _last = _c;
-            });
+_last = _c;
+                _i++;
+            };
         };
         if (((_last == (45 : stdgo.GoUInt8)) || (_partlen > (63 : stdgo.GoInt) : Bool) : Bool)) {
             return false;

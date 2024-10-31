@@ -4,35 +4,39 @@ function benchmarkZeroShifts(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):
         _b.run(("Shl" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                while ((_i < _b.n : Bool)) {
                     var _z:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-                    _z._shl(_x, (0u32 : stdgo.GoUInt));
-                });
+_z._shl(_x, (0u32 : stdgo.GoUInt));
+                    _i++;
+                };
             };
         });
         _b.run(("ShlSame" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                while ((_i < _b.n : Bool)) {
                     _x._shl(_x, (0u32 : stdgo.GoUInt));
-                });
+                    _i++;
+                };
             };
         });
         _b.run(("Shr" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                while ((_i < _b.n : Bool)) {
                     var _z:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-                    _z._shr(_x, (0u32 : stdgo.GoUInt));
-                });
+_z._shr(_x, (0u32 : stdgo.GoUInt));
+                    _i++;
+                };
             };
         });
         _b.run(("ShrSame" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                while ((_i < _b.n : Bool)) {
                     _x._shr(_x, (0u32 : stdgo.GoUInt));
-                });
+                    _i++;
+                };
             };
         });
     }

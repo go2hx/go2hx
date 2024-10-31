@@ -9,18 +9,19 @@ function _leftShift(_a:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_dec
         var _n:stdgo.GoUInt = (0 : stdgo.GoUInt);
         {
             _r--;
-            stdgo.Go.cfor((_r >= (0 : stdgo.GoInt) : Bool), _r--, {
+            while ((_r >= (0 : stdgo.GoInt) : Bool)) {
                 _n = (_n + (((((_a._d[(_r : stdgo.GoInt)] : stdgo.GoUInt) - (48u32 : stdgo.GoUInt) : stdgo.GoUInt)) << _k : stdgo.GoUInt)) : stdgo.GoUInt);
-                var _quo = (_n / (10u32 : stdgo.GoUInt) : stdgo.GoUInt);
-                var _rem = (_n - ((10u32 : stdgo.GoUInt) * _quo : stdgo.GoUInt) : stdgo.GoUInt);
-                _w--;
-                if ((_w < (_a._d.length) : Bool)) {
+var _quo = (_n / (10u32 : stdgo.GoUInt) : stdgo.GoUInt);
+var _rem = (_n - ((10u32 : stdgo.GoUInt) * _quo : stdgo.GoUInt) : stdgo.GoUInt);
+_w--;
+if ((_w < (_a._d.length) : Bool)) {
                     _a._d[(_w : stdgo.GoInt)] = ((_rem + (48u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoUInt8);
                 } else if (_rem != ((0u32 : stdgo.GoUInt))) {
                     _a._trunc = true;
                 };
-                _n = _quo;
-            });
+_n = _quo;
+                _r--;
+            };
         };
         while ((_n > (0u32 : stdgo.GoUInt) : Bool)) {
             var _quo = (_n / (10u32 : stdgo.GoUInt) : stdgo.GoUInt);

@@ -13,17 +13,19 @@ function _opaque(_m:stdgo._internal.image.Image_Image.Image):Bool {
         var _b = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_Rectangle.Rectangle);
         {
             var _y = (_b.min.y : stdgo.GoInt);
-            stdgo.Go.cfor((_y < _b.max.y : Bool), _y++, {
+            while ((_y < _b.max.y : Bool)) {
                 {
                     var _x = (_b.min.x : stdgo.GoInt);
-                    stdgo.Go.cfor((_x < _b.max.x : Bool), _x++, {
+                    while ((_x < _b.max.x : Bool)) {
                         var __tmp__ = _m.at(_x, _y).rgba(), __0:stdgo.GoUInt32 = __tmp__._0, __1:stdgo.GoUInt32 = __tmp__._1, __2:stdgo.GoUInt32 = __tmp__._2, _a:stdgo.GoUInt32 = __tmp__._3;
-                        if (_a != ((65535u32 : stdgo.GoUInt32))) {
+if (_a != ((65535u32 : stdgo.GoUInt32))) {
                             return false;
                         };
-                    });
+                        _x++;
+                    };
                 };
-            });
+                _y++;
+            };
         };
         return true;
     }

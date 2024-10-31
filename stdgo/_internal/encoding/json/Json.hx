@@ -12,9 +12,10 @@ package stdgo._internal.encoding.json;
             stdgo._internal.encoding.json.Json__sliceNoCycle._sliceNoCycle[(1 : stdgo.GoInt)] = stdgo.Go.toInterface((stdgo._internal.encoding.json.Json__sliceNoCycle._sliceNoCycle.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.AnyInterface>));
             {
                 var _i = (1000 : stdgo.GoInt);
-                stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                while ((_i > (0 : stdgo.GoInt) : Bool)) {
                     stdgo._internal.encoding.json.Json__sliceNoCycle._sliceNoCycle = (new stdgo.Slice<stdgo.AnyInterface>(1, 1, ...[stdgo.Go.toInterface(stdgo._internal.encoding.json.Json__sliceNoCycle._sliceNoCycle)]) : stdgo.Slice<stdgo.AnyInterface>);
-                });
+                    _i--;
+                };
             };
             stdgo._internal.encoding.json.Json__recursiveSliceCycle._recursiveSliceCycle[(0 : stdgo.GoInt)] = stdgo._internal.encoding.json.Json__recursiveSliceCycle._recursiveSliceCycle;
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;

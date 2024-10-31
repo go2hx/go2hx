@@ -397,9 +397,10 @@ package stdgo._internal.text.scanner;
         var _ch = (_s._next() : stdgo.GoInt32);
         {
             var _i = (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_s._isIdentRune(_ch, _i), _i++, {
+            while (_s._isIdentRune(_ch, _i)) {
                 _ch = _s._next();
-            });
+                _i++;
+            };
         };
         return _ch;
     }

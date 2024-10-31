@@ -88,27 +88,29 @@ var _bp = __1, _ap = __0;
             } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _aVal.numField() : Bool), _i++, {
+                    while ((_i < _aVal.numField() : Bool)) {
                         {
-                            var _c = (stdgo._internal.internal.fmtsort.Fmtsort__compare._compare(_aVal.field(_i)?.__copy__(), _bVal.field(_i)?.__copy__()) : stdgo.GoInt);
+                            var _c = (stdgo._internal.internal.fmtsort.Fmtsort__compare._compare(_aVal.field(_i).__copy__(), _bVal.field(_i).__copy__()) : stdgo.GoInt);
                             if (_c != ((0 : stdgo.GoInt))) {
                                 return _c;
                             };
                         };
-                    });
+                        _i++;
+                    };
                 };
                 return (0 : stdgo.GoInt);
             } else if (__value__ == ((17u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _aVal.len() : Bool), _i++, {
+                    while ((_i < _aVal.len() : Bool)) {
                         {
-                            var _c = (stdgo._internal.internal.fmtsort.Fmtsort__compare._compare(_aVal.index(_i)?.__copy__(), _bVal.index(_i)?.__copy__()) : stdgo.GoInt);
+                            var _c = (stdgo._internal.internal.fmtsort.Fmtsort__compare._compare(_aVal.index(_i).__copy__(), _bVal.index(_i).__copy__()) : stdgo.GoInt);
                             if (_c != ((0 : stdgo.GoInt))) {
                                 return _c;
                             };
                         };
-                    });
+                        _i++;
+                    };
                 };
                 return (0 : stdgo.GoInt);
             } else if (__value__ == ((20u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {

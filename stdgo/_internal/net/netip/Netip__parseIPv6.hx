@@ -27,9 +27,9 @@ function _parseIPv6(_in:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Net
         while ((_i < (16 : stdgo.GoInt) : Bool)) {
             var _off = (0 : stdgo.GoInt);
             var _acc = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-            stdgo.Go.cfor((_off < (_s.length) : Bool), _off++, {
+            while ((_off < (_s.length) : Bool)) {
                 var _c = (_s[(_off : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (((_c >= (48 : stdgo.GoUInt8) : Bool) && (_c <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
+if (((_c >= (48 : stdgo.GoUInt8) : Bool) && (_c <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
                     _acc = (((_acc << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) + ((_c - (48 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt32) : stdgo.GoUInt32);
                 } else if (((_c >= (97 : stdgo.GoUInt8) : Bool) && (_c <= (102 : stdgo.GoUInt8) : Bool) : Bool)) {
                     _acc = (((_acc << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) + (((_c - (97 : stdgo.GoUInt8) : stdgo.GoUInt8) + (10 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt32) : stdgo.GoUInt32);
@@ -38,10 +38,11 @@ function _parseIPv6(_in:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Net
                 } else {
                     break;
                 };
-                if ((_acc > (65535u32 : stdgo.GoUInt32) : Bool)) {
-                    return { _0 : (new stdgo._internal.net.netip.Netip_Addr.Addr() : stdgo._internal.net.netip.Netip_Addr.Addr), _1 : stdgo.Go.asInterface(({ _in : _in?.__copy__(), _msg : ("IPv6 field has value >=2^16" : stdgo.GoString), _at : _s?.__copy__() } : stdgo._internal.net.netip.Netip_T_parseAddrError.T_parseAddrError)) };
+if ((_acc > (65535u32 : stdgo.GoUInt32) : Bool)) {
+                    return { _0 : (new stdgo._internal.net.netip.Netip_Addr.Addr() : stdgo._internal.net.netip.Netip_Addr.Addr), _1 : stdgo.Go.asInterface(({ _in : _in.__copy__(), _msg : ("IPv6 field has value >=2^16" : stdgo.GoString), _at : _s.__copy__() } : stdgo._internal.net.netip.Netip_T_parseAddrError.T_parseAddrError)) };
                 };
-            });
+                _off++;
+            };
             if (_off == ((0 : stdgo.GoInt))) {
                 return { _0 : (new stdgo._internal.net.netip.Netip_Addr.Addr() : stdgo._internal.net.netip.Netip_Addr.Addr), _1 : stdgo.Go.asInterface(({ _in : _in?.__copy__(), _msg : ("each colon-separated field must have at least one digit" : stdgo.GoString), _at : _s?.__copy__() } : stdgo._internal.net.netip.Netip_T_parseAddrError.T_parseAddrError)) };
             };
@@ -98,15 +99,17 @@ function _parseIPv6(_in:stdgo.GoString):{ var _0 : stdgo._internal.net.netip.Net
             var _n = ((16 : stdgo.GoInt) - _i : stdgo.GoInt);
             {
                 var _j = (_i - (1 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.cfor((_j >= _ellipsis : Bool), _j--, {
+                while ((_j >= _ellipsis : Bool)) {
                     _ip[(_j + _n : stdgo.GoInt)] = _ip[(_j : stdgo.GoInt)];
-                });
+                    _j--;
+                };
             };
             {
                 var _j = ((_ellipsis + _n : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.cfor((_j >= _ellipsis : Bool), _j--, {
+                while ((_j >= _ellipsis : Bool)) {
                     _ip[(_j : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
-                });
+                    _j--;
+                };
             };
         } else if ((_ellipsis >= (0 : stdgo.GoInt) : Bool)) {
             return { _0 : (new stdgo._internal.net.netip.Netip_Addr.Addr() : stdgo._internal.net.netip.Netip_Addr.Addr), _1 : stdgo.Go.asInterface(({ _in : _in?.__copy__(), _msg : ("the :: must expand to at least one field of zeros" : stdgo.GoString) } : stdgo._internal.net.netip.Netip_T_parseAddrError.T_parseAddrError)) };

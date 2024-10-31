@@ -55,14 +55,15 @@ function jn(_n:stdgo.GoInt, _x:stdgo.GoFloat64):stdgo.GoFloat64 {
                 {
                     var __0 = (1 : stdgo.GoInt), __1 = (stdgo._internal.math.Math_j0.j0(_x) : stdgo.GoFloat64);
 var _a = __1, _i = __0;
-                    stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                    while ((_i < _n : Bool)) {
                         {
                             final __tmp__0 = _b;
                             final __tmp__1 = ((_b * ((((_i + _i : stdgo.GoInt) : stdgo.GoFloat64) / _x : stdgo.GoFloat64)) : stdgo.GoFloat64) - _a : stdgo.GoFloat64);
                             _a = __tmp__0;
                             _b = __tmp__1;
                         };
-                    });
+                        _i++;
+                    };
                 };
             };
         } else {
@@ -75,10 +76,11 @@ var _a = __1, _i = __0;
                     var _a = (1 : stdgo.GoFloat64);
                     {
                         var _i = (2 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i <= _n : Bool), _i++, {
+                        while ((_i <= _n : Bool)) {
                             _a = (_a * ((_i : stdgo.GoFloat64)) : stdgo.GoFloat64);
-                            _b = (_b * (_temp) : stdgo.GoFloat64);
-                        });
+_b = (_b * (_temp) : stdgo.GoFloat64);
+                            _i++;
+                        };
                     };
                     _b = (_b / (_a) : stdgo.GoFloat64);
                 };
@@ -103,9 +105,10 @@ var _a = __1, _i = __0;
                 var _t = (0 : stdgo.GoFloat64);
                 {
                     var _i = ((2 : stdgo.GoInt) * ((_n + _k : stdgo.GoInt)) : stdgo.GoInt);
-                    stdgo.Go.cfor((_i >= _m : Bool), _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+                    while ((_i >= _m : Bool)) {
                         _t = ((1 : stdgo.GoFloat64) / ((((_i : stdgo.GoFloat64) / _x : stdgo.GoFloat64) - _t : stdgo.GoFloat64)) : stdgo.GoFloat64);
-                    });
+                        _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
                 var _a = (_t : stdgo.GoFloat64);
                 _b = (1 : stdgo.GoFloat64);
@@ -115,33 +118,35 @@ var _a = __1, _i = __0;
                 if ((_tmp < (709.782712893384 : stdgo.GoFloat64) : Bool)) {
                     {
                         var _i = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
-                        stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                        while ((_i > (0 : stdgo.GoInt) : Bool)) {
                             var _di = ((_i + _i : stdgo.GoInt) : stdgo.GoFloat64);
-                            {
+{
                                 final __tmp__0 = _b;
                                 final __tmp__1 = (((_b * _di : stdgo.GoFloat64) / _x : stdgo.GoFloat64) - _a : stdgo.GoFloat64);
                                 _a = __tmp__0;
                                 _b = __tmp__1;
                             };
-                        });
+                            _i--;
+                        };
                     };
                 } else {
                     {
                         var _i = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
-                        stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                        while ((_i > (0 : stdgo.GoInt) : Bool)) {
                             var _di = ((_i + _i : stdgo.GoInt) : stdgo.GoFloat64);
-                            {
+{
                                 final __tmp__0 = _b;
                                 final __tmp__1 = (((_b * _di : stdgo.GoFloat64) / _x : stdgo.GoFloat64) - _a : stdgo.GoFloat64);
                                 _a = __tmp__0;
                                 _b = __tmp__1;
                             };
-                            if ((_b > (1e+100 : stdgo.GoFloat64) : Bool)) {
+if ((_b > (1e+100 : stdgo.GoFloat64) : Bool)) {
                                 _a = (_a / (_b) : stdgo.GoFloat64);
                                 _t = (_t / (_b) : stdgo.GoFloat64);
                                 _b = (1 : stdgo.GoFloat64);
                             };
-                        });
+                            _i--;
+                        };
                     };
                 };
                 _b = ((_t * stdgo._internal.math.Math_j0.j0(_x) : stdgo.GoFloat64) / _b : stdgo.GoFloat64);

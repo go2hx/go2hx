@@ -18,9 +18,9 @@ function _readCOFFSymbols(_fh:stdgo.Ref<stdgo._internal.debug.pe.Pe_FileHeader.F
         var _naux = (0 : stdgo.GoInt);
         {
             var _k = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-            stdgo.Go.cfor((_k < _fh.numberOfSymbols : Bool), _k++, {
+            while ((_k < _fh.numberOfSymbols : Bool)) {
                 var _sym:stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol = ({} : stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol);
-                if (_naux == ((0 : stdgo.GoInt))) {
+if (_naux == ((0 : stdgo.GoInt))) {
                     _err = stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_sym) : stdgo.Ref<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>))));
                     if (_err != null) {
                         return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("fail to read symbol table: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
@@ -34,8 +34,9 @@ function _readCOFFSymbols(_fh:stdgo.Ref<stdgo._internal.debug.pe.Pe_FileHeader.F
                         return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("fail to read symbol table: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                     };
                 };
-                _syms = (_syms.__append__(_sym?.__copy__()));
-            });
+_syms = (_syms.__append__(_sym.__copy__()));
+                _k++;
+            };
         };
         if (_naux != ((0 : stdgo.GoInt))) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.pe.Pe_COFFSymbol.COFFSymbol>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("fail to read symbol table: %d aux symbols unread" : stdgo.GoString), stdgo.Go.toInterface(_naux)) };

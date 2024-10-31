@@ -126,11 +126,11 @@ var _wantShentsize = __1, _wantPhentsize = __0;
         _f.progs = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog.Prog>>((_phnum : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog.Prog>>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _phnum : Bool), _i++, {
+            while ((_i < _phnum : Bool)) {
                 var _off = (_phoff + ((_i : stdgo.GoInt64) * (_phentsize : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64);
-                _sr.seek(_off, (0 : stdgo.GoInt));
-                var _p = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Prog.Prog)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog.Prog>);
-                {
+_sr.seek(_off, (0 : stdgo.GoInt));
+var _p = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Prog.Prog)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog.Prog>);
+{
                     final __value__ = _f.fileHeader.class_;
                     if (__value__ == ((1 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                         var _ph = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Prog32.Prog32)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Prog32.Prog32>);
@@ -152,16 +152,17 @@ var _wantShentsize = __1, _wantPhentsize = __0;
                         _p.progHeader = ({ type : (_ph.type : stdgo._internal.debug.elf.Elf_ProgType.ProgType), flags : (_ph.flags : stdgo._internal.debug.elf.Elf_ProgFlag.ProgFlag), off : _ph.off, vaddr : _ph.vaddr, paddr : _ph.paddr, filesz : _ph.filesz, memsz : _ph.memsz, align : _ph.align } : stdgo._internal.debug.elf.Elf_ProgHeader.ProgHeader);
                     };
                 };
-                if (((_p.progHeader.off : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
+if (((_p.progHeader.off : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
                     return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.elf.Elf_FormatError.FormatError(_off, ("invalid program header offset" : stdgo.GoString), stdgo.Go.toInterface(_p.progHeader.off)) : stdgo._internal.debug.elf.Elf_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_FormatError.FormatError>)) };
                 };
-                if (((_p.progHeader.filesz : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
+if (((_p.progHeader.filesz : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
                     return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.elf.Elf_FormatError.FormatError(_off, ("invalid program header file size" : stdgo.GoString), stdgo.Go.toInterface(_p.progHeader.filesz)) : stdgo._internal.debug.elf.Elf_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_FormatError.FormatError>)) };
                 };
-                _p._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (_p.progHeader.off : stdgo.GoInt64), (_p.progHeader.filesz : stdgo.GoInt64));
-                _p.readerAt = stdgo.Go.asInterface(_p._sr);
-                _f.progs[(_i : stdgo.GoInt)] = _p;
-            });
+_p._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (_p.progHeader.off : stdgo.GoInt64), (_p.progHeader.filesz : stdgo.GoInt64));
+_p.readerAt = stdgo.Go.asInterface(_p._sr);
+_f.progs[(_i : stdgo.GoInt)] = _p;
+                _i++;
+            };
         };
         if (((_shoff > (0i64 : stdgo.GoInt64) : Bool) && (_shnum == (0 : stdgo.GoInt)) : Bool)) {
             var __0:stdgo.GoUInt32 = (0 : stdgo.GoUInt32), __1:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
@@ -217,11 +218,11 @@ var _link = __1, _typ = __0;
         var _names = (new stdgo.Slice<stdgo.GoUInt32>((0 : stdgo.GoInt).toBasic(), _c).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _shnum : Bool), _i++, {
+            while ((_i < _shnum : Bool)) {
                 var _off = (_shoff + ((_i : stdgo.GoInt64) * (_shentsize : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64);
-                _sr.seek(_off, (0 : stdgo.GoInt));
-                var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Section.Section)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section.Section>);
-                {
+_sr.seek(_off, (0 : stdgo.GoInt));
+var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Section.Section)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section.Section>);
+{
                     final __value__ = _f.fileHeader.class_;
                     if (__value__ == ((1 : stdgo._internal.debug.elf.Elf_Class_.Class_))) {
                         var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.elf.Elf_Section32.Section32)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Section32.Section32>);
@@ -245,14 +246,14 @@ var _link = __1, _typ = __0;
                         _s.sectionHeader = ({ type : (_sh.type : stdgo._internal.debug.elf.Elf_SectionType.SectionType), flags : (_sh.flags : stdgo._internal.debug.elf.Elf_SectionFlag.SectionFlag), offset : _sh.off, fileSize : _sh.size, addr : _sh.addr, link : _sh.link, info : _sh.info, addralign : _sh.addralign, entsize : _sh.entsize } : stdgo._internal.debug.elf.Elf_SectionHeader.SectionHeader);
                     };
                 };
-                if (((_s.sectionHeader.offset : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
+if (((_s.sectionHeader.offset : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
                     return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.elf.Elf_FormatError.FormatError(_off, ("invalid section offset" : stdgo.GoString), stdgo.Go.toInterface((_s.sectionHeader.offset : stdgo.GoInt64))) : stdgo._internal.debug.elf.Elf_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_FormatError.FormatError>)) };
                 };
-                if (((_s.sectionHeader.fileSize : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
+if (((_s.sectionHeader.fileSize : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
                     return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.elf.Elf_FormatError.FormatError(_off, ("invalid section size" : stdgo.GoString), stdgo.Go.toInterface((_s.sectionHeader.fileSize : stdgo.GoInt64))) : stdgo._internal.debug.elf.Elf_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.elf.Elf_FormatError.FormatError>)) };
                 };
-                _s._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (_s.sectionHeader.offset : stdgo.GoInt64), (_s.sectionHeader.fileSize : stdgo.GoInt64));
-                if ((_s.sectionHeader.flags & (2048u32 : stdgo._internal.debug.elf.Elf_SectionFlag.SectionFlag) : stdgo._internal.debug.elf.Elf_SectionFlag.SectionFlag) == ((0u32 : stdgo._internal.debug.elf.Elf_SectionFlag.SectionFlag))) {
+_s._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (_s.sectionHeader.offset : stdgo.GoInt64), (_s.sectionHeader.fileSize : stdgo.GoInt64));
+if ((_s.sectionHeader.flags & (2048u32 : stdgo._internal.debug.elf.Elf_SectionFlag.SectionFlag) : stdgo._internal.debug.elf.Elf_SectionFlag.SectionFlag) == ((0u32 : stdgo._internal.debug.elf.Elf_SectionFlag.SectionFlag))) {
                     _s.readerAt = stdgo.Go.asInterface(_s._sr);
                     _s.sectionHeader.size = _s.sectionHeader.fileSize;
                 } else {
@@ -285,8 +286,9 @@ var _link = __1, _typ = __0;
                         };
                     };
                 };
-                _f.sections = (_f.sections.__append__(_s));
-            });
+_f.sections = (_f.sections.__append__(_s));
+                _i++;
+            };
         };
         if ((_f.sections.length) == ((0 : stdgo.GoInt))) {
             return { _0 : _f, _1 : (null : stdgo.Error) };

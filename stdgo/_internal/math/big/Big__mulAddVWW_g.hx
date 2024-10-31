@@ -4,13 +4,14 @@ function _mulAddVWW_g(_z:stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>, _x
         _c = _r;
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(((_i < (_z.length) : Bool) && (_i < (_x.length) : Bool) : Bool), _i++, {
+            while (((_i < (_z.length) : Bool) && (_i < (_x.length) : Bool) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.math.big.Big__mulAddWWW_g._mulAddWWW_g(_x[(_i : stdgo.GoInt)], _y, _c);
                     _c = __tmp__._0;
                     _z[(_i : stdgo.GoInt)] = __tmp__._1;
                 };
-            });
+                _i++;
+            };
         };
         return _c;
     }

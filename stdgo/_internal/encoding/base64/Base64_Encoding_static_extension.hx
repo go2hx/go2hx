@@ -94,7 +94,7 @@ package stdgo._internal.encoding.base64;
         var __blank__ = _enc._decodeMap;
         {
             var _j = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_j < (_dbuf.length) : Bool), _j++, {
+            while ((_j < (_dbuf.length) : Bool)) {
                 if ((_src.length) == (_si)) {
                     if (_j == ((0 : stdgo.GoInt))) {
                         return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : (null : stdgo.Error) };
@@ -104,21 +104,27 @@ package stdgo._internal.encoding.base64;
                     _dlen = _j;
                     break;
                 };
-                var _in = (_src[(_si : stdgo.GoInt)] : stdgo.GoUInt8);
-                _si++;
-                var _out = (_enc._decodeMap[(_in : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (_out != ((255 : stdgo.GoUInt8))) {
+var _in = (_src[(_si : stdgo.GoInt)] : stdgo.GoUInt8);
+_si++;
+var _out = (_enc._decodeMap[(_in : stdgo.GoInt)] : stdgo.GoUInt8);
+if (_out != ((255 : stdgo.GoUInt8))) {
                     _dbuf[(_j : stdgo.GoInt)] = _out;
-                    continue;
+                    {
+                        _j++;
+                        continue;
+                    };
                 };
-                if (((_in == (10 : stdgo.GoUInt8)) || (_in == (13 : stdgo.GoUInt8)) : Bool)) {
+if (((_in == (10 : stdgo.GoUInt8)) || (_in == (13 : stdgo.GoUInt8)) : Bool)) {
                     _j--;
-                    continue;
+                    {
+                        _j++;
+                        continue;
+                    };
                 };
-                if ((_in : stdgo.GoInt32) != (_enc._padChar)) {
+if ((_in : stdgo.GoInt32) != (_enc._padChar)) {
                     return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                 };
-                {
+{
                     final __value__ = _j;
                     if (__value__ == ((0 : stdgo.GoInt)) || __value__ == ((1 : stdgo.GoInt))) {
                         return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
@@ -135,15 +141,16 @@ package stdgo._internal.encoding.base64;
                         _si++;
                     };
                 };
-                while (((_si < (_src.length) : Bool) && (((_src[(_si : stdgo.GoInt)] == (10 : stdgo.GoUInt8)) || (_src[(_si : stdgo.GoInt)] == (13 : stdgo.GoUInt8)) : Bool)) : Bool)) {
+while (((_si < (_src.length) : Bool) && (((_src[(_si : stdgo.GoInt)] == (10 : stdgo.GoUInt8)) || (_src[(_si : stdgo.GoInt)] == (13 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                     _si++;
                 };
-                if ((_si < (_src.length) : Bool)) {
+if ((_si < (_src.length) : Bool)) {
                     _err = stdgo.Go.asInterface((_si : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError));
                 };
-                _dlen = _j;
-                break;
-            });
+_dlen = _j;
+break;
+                _j++;
+            };
         };
         var _val = (((((_dbuf[(0 : stdgo.GoInt)] : stdgo.GoUInt) << (18i64 : stdgo.GoUInt64) : stdgo.GoUInt) | ((_dbuf[(1 : stdgo.GoInt)] : stdgo.GoUInt) << (12i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoUInt) | ((_dbuf[(2 : stdgo.GoInt)] : stdgo.GoUInt) << (6i64 : stdgo.GoUInt64) : stdgo.GoUInt) : stdgo.GoUInt) | (_dbuf[(3 : stdgo.GoInt)] : stdgo.GoUInt) : stdgo.GoUInt);
         {
@@ -275,11 +282,12 @@ var _si = __1, _di = __0;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_enc._encode.length) : Bool), _i++, {
+            while ((_i < (_enc._encode.length) : Bool)) {
                 if ((_enc._encode[(_i : stdgo.GoInt)] : stdgo.GoInt32) == (_padding)) {
                     throw stdgo.Go.toInterface(("padding contained in alphabet" : stdgo.GoString));
                 };
-            });
+                _i++;
+            };
         };
         _enc._padChar = _padding;
         return (stdgo.Go.setRef(_enc) : stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>);

@@ -16,11 +16,12 @@ function decodeLastRune(_p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt32;
         };
         {
             _start--;
-            stdgo.Go.cfor((_start >= _lim : Bool), _start--, {
+            while ((_start >= _lim : Bool)) {
                 if (stdgo._internal.unicode.utf8.Utf8_runeStart.runeStart(_p[(_start : stdgo.GoInt)])) {
                     break;
                 };
-            });
+                _start--;
+            };
         };
         if ((_start < (0 : stdgo.GoInt) : Bool)) {
             _start = (0 : stdgo.GoInt);

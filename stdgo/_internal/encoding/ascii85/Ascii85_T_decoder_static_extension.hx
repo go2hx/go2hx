@@ -34,12 +34,13 @@ var _ndst = __2, _nsrc = __1, _nn = __0;
                     var _off = (0 : stdgo.GoInt);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _d._nbuf : Bool), _i++, {
+                        while ((_i < _d._nbuf : Bool)) {
                             if ((_d._buf[(_i : stdgo.GoInt)] > (32 : stdgo.GoUInt8) : Bool)) {
                                 _d._buf[(_off : stdgo.GoInt)] = _d._buf[(_i : stdgo.GoInt)];
                                 _off++;
                             };
-                        });
+                            _i++;
+                        };
                     };
                     _d._nbuf = _off;
                 };

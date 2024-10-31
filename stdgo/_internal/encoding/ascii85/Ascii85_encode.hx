@@ -59,10 +59,11 @@ function encode(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>
             };
             {
                 var _i = (4 : stdgo.GoInt);
-                stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     _dst[(_i : stdgo.GoInt)] = ((33 : stdgo.GoUInt8) + ((_v % (85u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt8) : stdgo.GoUInt8);
-                    _v = (_v / ((85u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                });
+_v = (_v / ((85u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
+                    _i--;
+                };
             };
             var _m = (5 : stdgo.GoInt);
             if (((_src.length) < (4 : stdgo.GoInt) : Bool)) {

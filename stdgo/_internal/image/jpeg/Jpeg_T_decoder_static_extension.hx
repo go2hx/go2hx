@@ -6,9 +6,10 @@ package stdgo._internal.image.jpeg;
         var _qt = (stdgo.Go.setRef(_d._quant[(_d._comp[(_compIndex : stdgo.GoInt)]._tq : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>);
         {
             var _zig = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_zig < (64 : stdgo.GoInt) : Bool), _zig++, {
+            while ((_zig < (64 : stdgo.GoInt) : Bool)) {
                 _b[(stdgo._internal.image.jpeg.Jpeg__unzig._unzig[(_zig : stdgo.GoInt)] : stdgo.GoInt)] = (_b[(stdgo._internal.image.jpeg.Jpeg__unzig._unzig[(_zig : stdgo.GoInt)] : stdgo.GoInt)] * (_qt[(_zig : stdgo.GoInt)]) : stdgo.GoInt32);
-            });
+                _zig++;
+            };
         };
         stdgo._internal.image.jpeg.Jpeg__idct._idct(_b);
         var __0 = (null : stdgo.Slice<stdgo.GoUInt8>), __1 = (0 : stdgo.GoInt);
@@ -58,24 +59,26 @@ var _stride = __1, _dst = __0;
         };
         {
             var _y = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_y < (8 : stdgo.GoInt) : Bool), _y++, {
+            while ((_y < (8 : stdgo.GoInt) : Bool)) {
                 var _y8 = (_y * (8 : stdgo.GoInt) : stdgo.GoInt);
-                var _yStride = (_y * _stride : stdgo.GoInt);
-                {
+var _yStride = (_y * _stride : stdgo.GoInt);
+{
                     var _x = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_x < (8 : stdgo.GoInt) : Bool), _x++, {
+                    while ((_x < (8 : stdgo.GoInt) : Bool)) {
                         var _c = (_b[(_y8 + _x : stdgo.GoInt)] : stdgo.GoInt32);
-                        if ((_c < (-128 : stdgo.GoInt32) : Bool)) {
+if ((_c < (-128 : stdgo.GoInt32) : Bool)) {
                             _c = (0 : stdgo.GoInt32);
                         } else if ((_c > (127 : stdgo.GoInt32) : Bool)) {
                             _c = (255 : stdgo.GoInt32);
                         } else {
                             _c = (_c + ((128 : stdgo.GoInt32)) : stdgo.GoInt32);
                         };
-                        _dst[(_yStride + _x : stdgo.GoInt)] = (_c : stdgo.GoUInt8);
-                    });
+_dst[(_yStride + _x : stdgo.GoInt)] = (_c : stdgo.GoUInt8);
+                        _x++;
+                    };
                 };
-            });
+                _y++;
+            };
         };
         return (null : stdgo.Error);
     }
@@ -86,58 +89,71 @@ var _stride = __1, _dst = __0;
         var _mxx = ((((_d._width + ((8 : stdgo.GoInt) * _h0 : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) / (((8 : stdgo.GoInt) * _h0 : stdgo.GoInt)) : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _d._nComp : Bool), _i++, {
+            while ((_i < _d._nComp : Bool)) {
                 if (_d._progCoeffs[(_i : stdgo.GoInt)] == null) {
-                    continue;
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                var _v = (((8 : stdgo.GoInt) * _d._comp[(0 : stdgo.GoInt)]._v : stdgo.GoInt) / _d._comp[(_i : stdgo.GoInt)]._v : stdgo.GoInt);
-                var _h = (((8 : stdgo.GoInt) * _d._comp[(0 : stdgo.GoInt)]._h : stdgo.GoInt) / _d._comp[(_i : stdgo.GoInt)]._h : stdgo.GoInt);
-                var _stride = (_mxx * _d._comp[(_i : stdgo.GoInt)]._h : stdgo.GoInt);
-                {
+var _v = (((8 : stdgo.GoInt) * _d._comp[(0 : stdgo.GoInt)]._v : stdgo.GoInt) / _d._comp[(_i : stdgo.GoInt)]._v : stdgo.GoInt);
+var _h = (((8 : stdgo.GoInt) * _d._comp[(0 : stdgo.GoInt)]._h : stdgo.GoInt) / _d._comp[(_i : stdgo.GoInt)]._h : stdgo.GoInt);
+var _stride = (_mxx * _d._comp[(_i : stdgo.GoInt)]._h : stdgo.GoInt);
+{
                     var _by = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(((_by * _v : stdgo.GoInt) < _d._height : Bool), _by++, {
+                    while (((_by * _v : stdgo.GoInt) < _d._height : Bool)) {
                         {
                             var _bx = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor(((_bx * _h : stdgo.GoInt) < _d._width : Bool), _bx++, {
+                            while (((_bx * _h : stdgo.GoInt) < _d._width : Bool)) {
                                 {
                                     var _err = (_d._reconstructBlock((stdgo.Go.setRef(_d._progCoeffs[(_i : stdgo.GoInt)][((_by * _stride : stdgo.GoInt) + _bx : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), _bx, _by, _i) : stdgo.Error);
                                     if (_err != null) {
                                         return _err;
                                     };
                                 };
-                            });
+                                _bx++;
+                            };
                         };
-                    });
+                        _by++;
+                    };
                 };
-            });
+                _i++;
+            };
         };
         return (null : stdgo.Error);
     }
     @:keep
     static public function _refineNonZeroes( _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder>, _b:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>, _zig:stdgo.GoInt32, _zigEnd:stdgo.GoInt32, _nz:stdgo.GoInt32, _delta:stdgo.GoInt32):{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_decoder.T_decoder> = _d;
-        stdgo.Go.cfor((_zig <= _zigEnd : Bool), _zig++, {
+        while ((_zig <= _zigEnd : Bool)) {
             var _u = (stdgo._internal.image.jpeg.Jpeg__unzig._unzig[(_zig : stdgo.GoInt)] : stdgo.GoInt);
-            if (_b[(_u : stdgo.GoInt)] == ((0 : stdgo.GoInt32))) {
+if (_b[(_u : stdgo.GoInt)] == ((0 : stdgo.GoInt32))) {
                 if (_nz == ((0 : stdgo.GoInt32))) {
                     break;
                 };
                 _nz--;
-                continue;
+                {
+                    _zig++;
+                    continue;
+                };
             };
-            var __tmp__ = _d._decodeBit(), _bit:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (_err != null) {
+var __tmp__ = _d._decodeBit(), _bit:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
                 return { _0 : (0 : stdgo.GoInt32), _1 : _err };
             };
-            if (!_bit) {
-                continue;
+if (!_bit) {
+                {
+                    _zig++;
+                    continue;
+                };
             };
-            if ((_b[(_u : stdgo.GoInt)] >= (0 : stdgo.GoInt32) : Bool)) {
+if ((_b[(_u : stdgo.GoInt)] >= (0 : stdgo.GoInt32) : Bool)) {
                 _b[(_u : stdgo.GoInt)] = (_b[(_u : stdgo.GoInt)] + (_delta) : stdgo.GoInt32);
             } else {
                 _b[(_u : stdgo.GoInt)] = (_b[(_u : stdgo.GoInt)] - (_delta) : stdgo.GoInt32);
             };
-        });
+            _zig++;
+        };
         return { _0 : _zig, _1 : (null : stdgo.Error) };
     }
     @:keep
@@ -159,15 +175,15 @@ var _stride = __1, _dst = __0;
             };
             var _zig = (_zigStart : stdgo.GoInt32);
             if (_d._eobRun == ((0 : stdgo.GoUInt16))) {
-                @:label("loop") stdgo.Go.cfor((_zig <= _zigEnd : Bool), _zig++, {
+                @:label("loop") while ((_zig <= _zigEnd : Bool)) {
                     var _z = ((0 : stdgo.GoInt32) : stdgo.GoInt32);
-                    var __tmp__ = _d._decodeHuffman(_h), _value:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                    if (_err != null) {
+var __tmp__ = _d._decodeHuffman(_h), _value:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
                         return _err;
                     };
-                    var _val0 = (_value >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
-                    var _val1 = (_value & (15 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                    {
+var _val0 = (_value >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+var _val1 = (_value & (15 : stdgo.GoUInt8) : stdgo.GoUInt8);
+{
                         var __switchIndex__ = -1;
                         var __run__ = true;
                         while (__run__) {
@@ -204,21 +220,22 @@ var _stride = __1, _dst = __0;
                             break;
                         };
                     };
-                    {
+{
                         var __tmp__ = _d._refineNonZeroes(_b, _zig, _zigEnd, (_val0 : stdgo.GoInt32), _delta);
                         _zig = __tmp__._0;
                         _err = __tmp__._1;
                     };
-                    if (_err != null) {
+if (_err != null) {
                         return _err;
                     };
-                    if ((_zig > _zigEnd : Bool)) {
+if ((_zig > _zigEnd : Bool)) {
                         return stdgo.Go.asInterface((("too many coefficients" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError));
                     };
-                    if (_z != ((0 : stdgo.GoInt32))) {
+if (_z != ((0 : stdgo.GoInt32))) {
                         _b[(stdgo._internal.image.jpeg.Jpeg__unzig._unzig[(_zig : stdgo.GoInt)] : stdgo.GoInt)] = _z;
                     };
-                });
+                    _zig++;
+                };
             };
             if ((_d._eobRun > (0 : stdgo.GoUInt16) : Bool)) {
                 _d._eobRun--;
@@ -255,42 +272,44 @@ var _stride = __1, _dst = __0;
         var _totalHV = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _nComp : Bool), _i++, {
+            while ((_i < _nComp : Bool)) {
                 var _cs = (_d._tmp[((1 : stdgo.GoInt) + ((2 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
-                var _compIndex = (-1 : stdgo.GoInt);
-                for (_j => _comp in (_d._comp.__slice__(0, _d._nComp) : stdgo.Slice<stdgo._internal.image.jpeg.Jpeg_T_component.T_component>)) {
+var _compIndex = (-1 : stdgo.GoInt);
+for (_j => _comp in (_d._comp.__slice__(0, _d._nComp) : stdgo.Slice<stdgo._internal.image.jpeg.Jpeg_T_component.T_component>)) {
                     if (_cs == (_comp._c)) {
                         _compIndex = _j;
                     };
                 };
-                if ((_compIndex < (0 : stdgo.GoInt) : Bool)) {
+if ((_compIndex < (0 : stdgo.GoInt) : Bool)) {
                     return stdgo.Go.asInterface((("unknown component selector" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError));
                 };
-                _scan[(_i : stdgo.GoInt)]._compIndex = (_compIndex : stdgo.GoUInt8);
-                {
+_scan[(_i : stdgo.GoInt)]._compIndex = (_compIndex : stdgo.GoUInt8);
+{
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < _i : Bool), _j++, {
+                    while ((_j < _i : Bool)) {
                         if (_scan[(_i : stdgo.GoInt)]._compIndex == (_scan[(_j : stdgo.GoInt)]._compIndex)) {
                             return stdgo.Go.asInterface((("repeated component selector" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError));
                         };
-                    });
+                        _j++;
+                    };
                 };
-                _totalHV = (_totalHV + ((_d._comp[(_compIndex : stdgo.GoInt)]._h * _d._comp[(_compIndex : stdgo.GoInt)]._v : stdgo.GoInt)) : stdgo.GoInt);
-                _scan[(_i : stdgo.GoInt)]._td = (_d._tmp[((2 : stdgo.GoInt) + ((2 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)] >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
-                {
+_totalHV = (_totalHV + ((_d._comp[(_compIndex : stdgo.GoInt)]._h * _d._comp[(_compIndex : stdgo.GoInt)]._v : stdgo.GoInt)) : stdgo.GoInt);
+_scan[(_i : stdgo.GoInt)]._td = (_d._tmp[((2 : stdgo.GoInt) + ((2 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)] >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+{
                     var _t = (_scan[(_i : stdgo.GoInt)]._td : stdgo.GoUInt8);
                     if (((_t > (3 : stdgo.GoUInt8) : Bool) || ((_d._baseline && (_t > (1 : stdgo.GoUInt8) : Bool) : Bool)) : Bool)) {
                         return stdgo.Go.asInterface((("bad Td value" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError));
                     };
                 };
-                _scan[(_i : stdgo.GoInt)]._ta = (_d._tmp[((2 : stdgo.GoInt) + ((2 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                {
+_scan[(_i : stdgo.GoInt)]._ta = (_d._tmp[((2 : stdgo.GoInt) + ((2 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8);
+{
                     var _t = (_scan[(_i : stdgo.GoInt)]._ta : stdgo.GoUInt8);
                     if (((_t > (3 : stdgo.GoUInt8) : Bool) || ((_d._baseline && (_t > (1 : stdgo.GoUInt8) : Bool) : Bool)) : Bool)) {
                         return stdgo.Go.asInterface((("bad Ta value" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError));
                     };
                 };
-            });
+                _i++;
+            };
         };
         if (((_d._nComp > (1 : stdgo.GoInt) : Bool) && (_totalHV > (10 : stdgo.GoInt) : Bool) : Bool)) {
             return stdgo.Go.asInterface((("total sampling factors too large" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError));
@@ -322,12 +341,13 @@ var _v0 = __1, _h0 = __0;
         if (_d._progressive) {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _nComp : Bool), _i++, {
+                while ((_i < _nComp : Bool)) {
                     var _compIndex = (_scan[(_i : stdgo.GoInt)]._compIndex : stdgo.GoUInt8);
-                    if (_d._progCoeffs[(_compIndex : stdgo.GoInt)] == null) {
+if (_d._progCoeffs[(_compIndex : stdgo.GoInt)] == null) {
                         _d._progCoeffs[(_compIndex : stdgo.GoInt)] = (new stdgo.Slice<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>((((_mxx * _myy : stdgo.GoInt) * _d._comp[(_compIndex : stdgo.GoInt)]._h : stdgo.GoInt) * _d._comp[(_compIndex : stdgo.GoInt)]._v : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((((_mxx * _myy : stdgo.GoInt) * _d._comp[(_compIndex : stdgo.GoInt)]._h : stdgo.GoInt) * _d._comp[(_compIndex : stdgo.GoInt)]._v : stdgo.GoInt).toBasic() > 0 ? (((_mxx * _myy : stdgo.GoInt) * _d._comp[(_compIndex : stdgo.GoInt)]._h : stdgo.GoInt) * _d._comp[(_compIndex : stdgo.GoInt)]._v : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) new stdgo._internal.image.jpeg.Jpeg_T_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)])]) : stdgo.Slice<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>);
                     };
-                });
+                    _i++;
+                };
             };
         };
         _d._bits = (new stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits() : stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits);
@@ -337,19 +357,19 @@ var _expectedRST = __1, _mcu = __0;
 var _blockCount = __4, _by = __3, _bx = __2, _dc = __1, _b = __0;
         {
             var _my = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_my < _myy : Bool), _my++, {
+            while ((_my < _myy : Bool)) {
                 {
                     var _mx = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_mx < _mxx : Bool), _mx++, {
+                    while ((_mx < _mxx : Bool)) {
                         {
                             var _i = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor((_i < _nComp : Bool), _i++, {
+                            while ((_i < _nComp : Bool)) {
                                 var _compIndex = (_scan[(_i : stdgo.GoInt)]._compIndex : stdgo.GoUInt8);
-                                var _hi = (_d._comp[(_compIndex : stdgo.GoInt)]._h : stdgo.GoInt);
-                                var _vi = (_d._comp[(_compIndex : stdgo.GoInt)]._v : stdgo.GoInt);
-                                {
+var _hi = (_d._comp[(_compIndex : stdgo.GoInt)]._h : stdgo.GoInt);
+var _vi = (_d._comp[(_compIndex : stdgo.GoInt)]._v : stdgo.GoInt);
+{
                                     var _j = (0 : stdgo.GoInt);
-                                    stdgo.Go.cfor((_j < (_hi * _vi : stdgo.GoInt) : Bool), _j++, {
+                                    while ((_j < (_hi * _vi : stdgo.GoInt) : Bool)) {
                                         if (_nComp != ((1 : stdgo.GoInt))) {
                                             _bx = ((_hi * _mx : stdgo.GoInt) + (_j % _hi : stdgo.GoInt) : stdgo.GoInt);
                                             _by = ((_vi * _my : stdgo.GoInt) + (_j / _hi : stdgo.GoInt) : stdgo.GoInt);
@@ -359,15 +379,18 @@ var _blockCount = __4, _by = __3, _bx = __2, _dc = __1, _b = __0;
                                             _by = (_blockCount / _q : stdgo.GoInt);
                                             _blockCount++;
                                             if ((((_bx * (8 : stdgo.GoInt) : stdgo.GoInt) >= _d._width : Bool) || ((_by * (8 : stdgo.GoInt) : stdgo.GoInt) >= _d._height : Bool) : Bool)) {
-                                                continue;
+                                                {
+                                                    _j++;
+                                                    continue;
+                                                };
                                             };
                                         };
-                                        if (_d._progressive) {
+if (_d._progressive) {
                                             _b = _d._progCoeffs[(_compIndex : stdgo.GoInt)][(((_by * _mxx : stdgo.GoInt) * _hi : stdgo.GoInt) + _bx : stdgo.GoInt)];
                                         } else {
-                                            _b = (new stdgo.GoArray<stdgo.GoInt32>(64, 64, ...[]).__setNumber32__() : stdgo._internal.image.jpeg.Jpeg_T_block.T_block)?.__copy__();
+                                            _b = (new stdgo.GoArray<stdgo.GoInt32>(64, 64, ...[]).__setNumber32__() : stdgo._internal.image.jpeg.Jpeg_T_block.T_block).__copy__();
                                         };
-                                        if (_ah != ((0u32 : stdgo.GoUInt32))) {
+if (_ah != ((0u32 : stdgo.GoUInt32))) {
                                             {
                                                 var _err = (_d._refine((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_d._huff[(1 : stdgo.GoInt)][(_scan[(_i : stdgo.GoInt)]._ta : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman>), _zigStart, _zigEnd, ((1 : stdgo.GoInt32) << _al : stdgo.GoInt32)) : stdgo.Error);
                                                 if (_err != null) {
@@ -396,14 +419,14 @@ var _blockCount = __4, _by = __3, _bx = __2, _dc = __1, _b = __0;
                                                 _d._eobRun--;
                                             } else {
                                                 var _huff = (stdgo.Go.setRef(_d._huff[(1 : stdgo.GoInt)][(_scan[(_i : stdgo.GoInt)]._ta : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_huffman.T_huffman>);
-                                                stdgo.Go.cfor((_zig <= _zigEnd : Bool), _zig++, {
+                                                while ((_zig <= _zigEnd : Bool)) {
                                                     var __tmp__ = _d._decodeHuffman(_huff), _value:stdgo.GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                                                    if (_err != null) {
+if (_err != null) {
                                                         return _err;
                                                     };
-                                                    var _val0 = (_value >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
-                                                    var _val1 = (_value & (15 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                                                    if (_val1 != ((0 : stdgo.GoUInt8))) {
+var _val0 = (_value >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8);
+var _val1 = (_value & (15 : stdgo.GoUInt8) : stdgo.GoUInt8);
+if (_val1 != ((0 : stdgo.GoUInt8))) {
                                                         _zig = (_zig + ((_val0 : stdgo.GoInt32)) : stdgo.GoInt32);
                                                         if ((_zig > _zigEnd : Bool)) {
                                                             break;
@@ -428,25 +451,31 @@ var _blockCount = __4, _by = __3, _bx = __2, _dc = __1, _b = __0;
                                                         };
                                                         _zig = (_zig + ((15 : stdgo.GoInt32)) : stdgo.GoInt32);
                                                     };
-                                                });
+                                                    _zig++;
+                                                };
                                             };
                                         };
-                                        if (_d._progressive) {
-                                            _d._progCoeffs[(_compIndex : stdgo.GoInt)][(((_by * _mxx : stdgo.GoInt) * _hi : stdgo.GoInt) + _bx : stdgo.GoInt)] = _b?.__copy__();
-                                            continue;
+if (_d._progressive) {
+                                            _d._progCoeffs[(_compIndex : stdgo.GoInt)][(((_by * _mxx : stdgo.GoInt) * _hi : stdgo.GoInt) + _bx : stdgo.GoInt)] = _b.__copy__();
+                                            {
+                                                _j++;
+                                                continue;
+                                            };
                                         };
-                                        {
+{
                                             var _err = (_d._reconstructBlock((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), _bx, _by, (_compIndex : stdgo.GoInt)) : stdgo.Error);
                                             if (_err != null) {
                                                 return _err;
                                             };
                                         };
-                                    });
+                                        _j++;
+                                    };
                                 };
-                            });
+                                _i++;
+                            };
                         };
-                        _mcu++;
-                        if ((((_d._ri > (0 : stdgo.GoInt) : Bool) && (_mcu % _d._ri : stdgo.GoInt) == ((0 : stdgo.GoInt)) : Bool) && (_mcu < (_mxx * _myy : stdgo.GoInt) : Bool) : Bool)) {
+_mcu++;
+if ((((_d._ri > (0 : stdgo.GoInt) : Bool) && (_mcu % _d._ri : stdgo.GoInt) == ((0 : stdgo.GoInt)) : Bool) && (_mcu < (_mxx * _myy : stdgo.GoInt) : Bool) : Bool)) {
                             {
                                 var _err = (_d._readFull((_d._tmp.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
                                 if (_err != null) {
@@ -469,12 +498,14 @@ var _blockCount = __4, _by = __3, _bx = __2, _dc = __1, _b = __0;
                                 _expectedRST = (208 : stdgo.GoUInt8);
                             };
                             _d._bits = (new stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits() : stdgo._internal.image.jpeg.Jpeg_T_bits.T_bits);
-                            _dc = (new stdgo.GoArray<stdgo.GoInt32>(4, 4, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>)?.__copy__();
+                            _dc = (new stdgo.GoArray<stdgo.GoInt32>(4, 4, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>).__copy__();
                             _d._eobRun = (0 : stdgo.GoUInt16);
                         };
-                    });
+                        _mx++;
+                    };
                 };
-            });
+                _my++;
+            };
         };
         return (null : stdgo.Error);
     }
@@ -526,21 +557,23 @@ var _v3 = __1, _h3 = __0;
         var _img = stdgo._internal.image.Image_newRGBA.newRGBA(_bounds?.__copy__());
         {
             var _y = (_bounds.min.y : stdgo.GoInt);
-            stdgo.Go.cfor((_y < _bounds.max.y : Bool), _y++, {
+            while ((_y < _bounds.max.y : Bool)) {
                 var _po = (_img.pixOffset(_bounds.min.x, _y) : stdgo.GoInt);
-                var _yo = (_d._img3.yoffset(_bounds.min.x, _y) : stdgo.GoInt);
-                var _co = (_d._img3.coffset(_bounds.min.x, _y) : stdgo.GoInt);
-                {
+var _yo = (_d._img3.yoffset(_bounds.min.x, _y) : stdgo.GoInt);
+var _co = (_d._img3.coffset(_bounds.min.x, _y) : stdgo.GoInt);
+{
                     var __0 = (0 : stdgo.GoInt), __1 = (_bounds.max.x - _bounds.min.x : stdgo.GoInt);
 var _iMax = __1, _i = __0;
-                    stdgo.Go.cfor((_i < _iMax : Bool), _i++, {
+                    while ((_i < _iMax : Bool)) {
                         _img.pix[((_po + ((4 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt) + (0 : stdgo.GoInt) : stdgo.GoInt)] = _d._img3.y[(_yo + _i : stdgo.GoInt)];
-                        _img.pix[((_po + ((4 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)] = _d._img3.cb[(_co + (_i / _cScale : stdgo.GoInt) : stdgo.GoInt)];
-                        _img.pix[((_po + ((4 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt)] = _d._img3.cr[(_co + (_i / _cScale : stdgo.GoInt) : stdgo.GoInt)];
-                        _img.pix[((_po + ((4 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt) + (3 : stdgo.GoInt) : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
-                    });
+_img.pix[((_po + ((4 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)] = _d._img3.cb[(_co + (_i / _cScale : stdgo.GoInt) : stdgo.GoInt)];
+_img.pix[((_po + ((4 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt)] = _d._img3.cr[(_co + (_i / _cScale : stdgo.GoInt) : stdgo.GoInt)];
+_img.pix[((_po + ((4 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt) + (3 : stdgo.GoInt) : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
+                        _i++;
+                    };
                 };
-            });
+                _y++;
+            };
         };
         return { _0 : stdgo.Go.asInterface(_img), _1 : (null : stdgo.Error) };
     }
@@ -568,25 +601,27 @@ var _iMax = __1, _i = __0;
             {
                 var __0 = (0 : stdgo.GoInt), __1 = (_bounds.min.y : stdgo.GoInt);
 var _y = __1, _iBase = __0;
-                stdgo.Go.cfor((_y < _bounds.max.y : Bool), {
-                    final __tmp__0 = (_iBase + _img.stride : stdgo.GoInt);
-                    final __tmp__1 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
-                    _iBase = __tmp__0;
-                    _y = __tmp__1;
-                }, {
+                while ((_y < _bounds.max.y : Bool)) {
                     {
                         var __0 = (_iBase + (3 : stdgo.GoInt) : stdgo.GoInt), __1 = (_bounds.min.x : stdgo.GoInt);
 var _x = __1, _i = __0;
-                        stdgo.Go.cfor((_x < _bounds.max.x : Bool), {
-                            final __tmp__0 = (_i + (4 : stdgo.GoInt) : stdgo.GoInt);
-                            final __tmp__1 = (_x + (1 : stdgo.GoInt) : stdgo.GoInt);
-                            _i = __tmp__0;
-                            _x = __tmp__1;
-                        }, {
+                        while ((_x < _bounds.max.x : Bool)) {
                             _img.pix[(_i : stdgo.GoInt)] = ((255 : stdgo.GoUInt8) - _d._blackPix[((((_y - _bounds.min.y : stdgo.GoInt)) * _d._blackStride : stdgo.GoInt) + ((_x - _bounds.min.x : stdgo.GoInt)) : stdgo.GoInt)] : stdgo.GoUInt8);
-                        });
+                            {
+                                final __tmp__0 = (_i + (4 : stdgo.GoInt) : stdgo.GoInt);
+                                final __tmp__1 = (_x + (1 : stdgo.GoInt) : stdgo.GoInt);
+                                _i = __tmp__0;
+                                _x = __tmp__1;
+                            };
+                        };
                     };
-                });
+                    {
+                        final __tmp__0 = (_iBase + _img.stride : stdgo.GoInt);
+                        final __tmp__1 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        _iBase = __tmp__0;
+                        _y = __tmp__1;
+                    };
+                };
             };
             return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(({ pix : _img.pix, stride : _img.stride, rect : _img.rect?.__copy__() } : stdgo._internal.image.Image_CMYK.CMYK)) : stdgo.Ref<stdgo._internal.image.Image_CMYK.CMYK>)), _1 : (null : stdgo.Error) };
         };
@@ -598,33 +633,35 @@ var _x = __1, _i = __0;
             {
                 var __0 = (0 : stdgo.GoInt), __1 = (_bounds.min.y : stdgo.GoInt);
 var _y = __1, _iBase = __0;
-                stdgo.Go.cfor((_y < _bounds.max.y : Bool), {
-                    final __tmp__0 = (_iBase + _img.stride : stdgo.GoInt);
-                    final __tmp__1 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
-                    _iBase = __tmp__0;
-                    _y = __tmp__1;
-                }, {
+                while ((_y < _bounds.max.y : Bool)) {
                     var _sy = (_y - _bounds.min.y : stdgo.GoInt);
-                    if (_subsample) {
+if (_subsample) {
                         _sy = (_sy / ((2 : stdgo.GoInt)) : stdgo.GoInt);
                     };
-                    {
+{
                         var __0 = (_iBase + _t : stdgo.GoInt), __1 = (_bounds.min.x : stdgo.GoInt);
 var _x = __1, _i = __0;
-                        stdgo.Go.cfor((_x < _bounds.max.x : Bool), {
-                            final __tmp__0 = (_i + (4 : stdgo.GoInt) : stdgo.GoInt);
-                            final __tmp__1 = (_x + (1 : stdgo.GoInt) : stdgo.GoInt);
-                            _i = __tmp__0;
-                            _x = __tmp__1;
-                        }, {
+                        while ((_x < _bounds.max.x : Bool)) {
                             var _sx = (_x - _bounds.min.x : stdgo.GoInt);
-                            if (_subsample) {
+if (_subsample) {
                                 _sx = (_sx / ((2 : stdgo.GoInt)) : stdgo.GoInt);
                             };
-                            _img.pix[(_i : stdgo.GoInt)] = ((255 : stdgo.GoUInt8) - _translation._src[((_sy * _translation._stride : stdgo.GoInt) + _sx : stdgo.GoInt)] : stdgo.GoUInt8);
-                        });
+_img.pix[(_i : stdgo.GoInt)] = ((255 : stdgo.GoUInt8) - _translation._src[((_sy * _translation._stride : stdgo.GoInt) + _sx : stdgo.GoInt)] : stdgo.GoUInt8);
+                            {
+                                final __tmp__0 = (_i + (4 : stdgo.GoInt) : stdgo.GoInt);
+                                final __tmp__1 = (_x + (1 : stdgo.GoInt) : stdgo.GoInt);
+                                _i = __tmp__0;
+                                _x = __tmp__1;
+                            };
+                        };
                     };
-                });
+                    {
+                        final __tmp__0 = (_iBase + _img.stride : stdgo.GoInt);
+                        final __tmp__1 = (_y + (1 : stdgo.GoInt) : stdgo.GoInt);
+                        _iBase = __tmp__0;
+                        _y = __tmp__1;
+                    };
+                };
             };
         };
         return { _0 : stdgo.Go.asInterface(_img), _1 : (null : stdgo.Error) };
@@ -914,30 +951,31 @@ var _x = __1, _i = __0;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _d._nComp : Bool), _i++, {
+            while ((_i < _d._nComp : Bool)) {
                 _d._comp[(_i : stdgo.GoInt)]._c = _d._tmp[((6 : stdgo.GoInt) + ((3 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)];
-                {
+{
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < _i : Bool), _j++, {
+                    while ((_j < _i : Bool)) {
                         if (_d._comp[(_i : stdgo.GoInt)]._c == (_d._comp[(_j : stdgo.GoInt)]._c)) {
                             return stdgo.Go.asInterface((("repeated component identifier" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError));
                         };
-                    });
+                        _j++;
+                    };
                 };
-                _d._comp[(_i : stdgo.GoInt)]._tq = _d._tmp[((8 : stdgo.GoInt) + ((3 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)];
-                if ((_d._comp[(_i : stdgo.GoInt)]._tq > (3 : stdgo.GoUInt8) : Bool)) {
+_d._comp[(_i : stdgo.GoInt)]._tq = _d._tmp[((8 : stdgo.GoInt) + ((3 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)];
+if ((_d._comp[(_i : stdgo.GoInt)]._tq > (3 : stdgo.GoUInt8) : Bool)) {
                     return stdgo.Go.asInterface((("bad Tq value" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError));
                 };
-                var _hv = (_d._tmp[((7 : stdgo.GoInt) + ((3 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
-                var __0 = ((_hv >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt), __1 = ((_hv & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt);
+var _hv = (_d._tmp[((7 : stdgo.GoInt) + ((3 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
+var __0 = ((_hv >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt), __1 = ((_hv & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt);
 var _v = __1, _h = __0;
-                if (((((_h < (1 : stdgo.GoInt) : Bool) || ((4 : stdgo.GoInt) < _h : Bool) : Bool) || (_v < (1 : stdgo.GoInt) : Bool) : Bool) || ((4 : stdgo.GoInt) < _v : Bool) : Bool)) {
+if (((((_h < (1 : stdgo.GoInt) : Bool) || ((4 : stdgo.GoInt) < _h : Bool) : Bool) || (_v < (1 : stdgo.GoInt) : Bool) : Bool) || ((4 : stdgo.GoInt) < _v : Bool) : Bool)) {
                     return stdgo.Go.asInterface((("luma/chroma subsampling ratio" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError));
                 };
-                if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
+if (((_h == (3 : stdgo.GoInt)) || (_v == (3 : stdgo.GoInt)) : Bool)) {
                     return stdgo.Go.asInterface(stdgo._internal.image.jpeg.Jpeg__errUnsupportedSubsamplingRatio._errUnsupportedSubsamplingRatio);
                 };
-                {
+{
                     final __value__ = _d._nComp;
                     if (__value__ == ((1 : stdgo.GoInt))) {
                         {
@@ -982,9 +1020,10 @@ var _v = __1, _h = __0;
                         };
                     };
                 };
-                _d._comp[(_i : stdgo.GoInt)]._h = _h;
-                _d._comp[(_i : stdgo.GoInt)]._v = _v;
-            });
+_d._comp[(_i : stdgo.GoInt)]._h = _h;
+_d._comp[(_i : stdgo.GoInt)]._v = _v;
+                _i++;
+            };
         };
         return (null : stdgo.Error);
     }
@@ -1206,7 +1245,7 @@ var _v = __1, _h = __0;
             @:label("slowPath") {
                 var __0 = (0 : stdgo.GoInt), __1 = ((0 : stdgo.GoInt32) : stdgo.GoInt32);
 var _code = __1, _i = __0;
-                stdgo.Go.cfor((_i < (16 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (16 : stdgo.GoInt) : Bool)) {
                     if (_d._bits._n == ((0 : stdgo.GoInt32))) {
                         {
                             var _err = (_d._ensureNBits((1 : stdgo.GoInt32)) : stdgo.Error);
@@ -1215,16 +1254,17 @@ var _code = __1, _i = __0;
                             };
                         };
                     };
-                    if ((_d._bits._a & _d._bits._m : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
+if ((_d._bits._a & _d._bits._m : stdgo.GoUInt32) != ((0u32 : stdgo.GoUInt32))) {
                         _code = (_code | ((1 : stdgo.GoInt32)) : stdgo.GoInt32);
                     };
-                    _d._bits._n--;
-                    _d._bits._m = (_d._bits._m >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
-                    if ((_code <= _h._maxCodes[(_i : stdgo.GoInt)] : Bool)) {
+_d._bits._n--;
+_d._bits._m = (_d._bits._m >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
+if ((_code <= _h._maxCodes[(_i : stdgo.GoInt)] : Bool)) {
                         return { _0 : _h._vals[(((_h._valsIndices[(_i : stdgo.GoInt)] + _code : stdgo.GoInt32) - _h._minCodes[(_i : stdgo.GoInt)] : stdgo.GoInt32) : stdgo.GoInt)], _1 : (null : stdgo.Error) };
                     };
-                    _code = (_code << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
-                });
+_code = (_code << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt32);
+                    _i++;
+                };
             };
             return { _0 : (0 : stdgo.GoUInt8), _1 : stdgo.Go.asInterface((("bad Huffman code" : stdgo.GoString) : stdgo._internal.image.jpeg.Jpeg_FormatError.FormatError)) };
         });
@@ -1280,24 +1320,27 @@ var _code = __1, _i = __0;
 var _code = __1, _x = __0;
             {
                 var _i = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                stdgo.Go.cfor((_i < (8u32 : stdgo.GoUInt32) : Bool), _i++, {
+                while ((_i < (8u32 : stdgo.GoUInt32) : Bool)) {
                     _code = (_code << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
-                    {
+{
                         var _j = ((0 : stdgo.GoInt32) : stdgo.GoInt32);
-                        stdgo.Go.cfor((_j < _nCodes[(_i : stdgo.GoInt)] : Bool), _j++, {
+                        while ((_j < _nCodes[(_i : stdgo.GoInt)] : Bool)) {
                             var _base = ((_code << (((7u32 : stdgo.GoUInt32) - _i : stdgo.GoUInt32)) : stdgo.GoUInt32) : stdgo.GoUInt8);
-                            var _lutValue = (((_h._vals[(_x : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (((2u32 : stdgo.GoUInt32) + _i : stdgo.GoUInt32) : stdgo.GoUInt16) : stdgo.GoUInt16);
-                            {
+var _lutValue = (((_h._vals[(_x : stdgo.GoInt)] : stdgo.GoUInt16) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt16) | (((2u32 : stdgo.GoUInt32) + _i : stdgo.GoUInt32) : stdgo.GoUInt16) : stdgo.GoUInt16);
+{
                                 var _k = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                                stdgo.Go.cfor((_k < ((1 : stdgo.GoUInt8) << (((7u32 : stdgo.GoUInt32) - _i : stdgo.GoUInt32)) : stdgo.GoUInt8) : Bool), _k++, {
+                                while ((_k < ((1 : stdgo.GoUInt8) << (((7u32 : stdgo.GoUInt32) - _i : stdgo.GoUInt32)) : stdgo.GoUInt8) : Bool)) {
                                     _h._lut[((_base | _k : stdgo.GoUInt8) : stdgo.GoInt)] = _lutValue;
-                                });
+                                    _k++;
+                                };
                             };
-                            _code++;
-                            _x++;
-                        });
+_code++;
+_x++;
+                            _j++;
+                        };
                     };
-                });
+                    _i++;
+                };
             };
             var __0:stdgo.GoInt32 = (0 : stdgo.GoInt32), __1:stdgo.GoInt32 = (0 : stdgo.GoInt32);
 var _index = __1, _c = __0;

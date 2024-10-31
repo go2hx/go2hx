@@ -16,20 +16,20 @@ function benchmarkTypeFieldsCache(_b:stdgo.Ref<stdgo._internal.testing.Testing_B
         } : () -> Void);
         {
             var _nt = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_nt <= _maxTypes : Bool), _nt = (_nt * ((10 : stdgo.GoInt)) : stdgo.GoInt), {
+            while ((_nt <= _maxTypes : Bool)) {
                 var _ts = (_types.__slice__(0, _nt) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>);
-                _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("MissTypes%d" : stdgo.GoString), stdgo.Go.toInterface(_nt))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
+_b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("MissTypes%d" : stdgo.GoString), stdgo.Go.toInterface(_nt)).__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                     var _nc = (stdgo._internal.runtime.Runtime_gomaxprocs.gomaxprocs((0 : stdgo.GoInt)) : stdgo.GoInt);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                        while ((_i < _b.n : Bool)) {
                             _clearCache();
-                            var _wg:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
-                            {
+var _wg:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
+{
                                 var _j = (0 : stdgo.GoInt);
-                                stdgo.Go.cfor((_j < _nc : Bool), _j++, {
+                                while ((_j < _nc : Bool)) {
                                     _wg.add((1 : stdgo.GoInt));
-                                    stdgo.Go.routine(() -> {
+stdgo.Go.routine(() -> {
                                         var a = function(_j:stdgo.GoInt):Void {
                                             for (__32 => _t in (_ts.__slice__((((_j * (_ts.length) : stdgo.GoInt)) / _nc : stdgo.GoInt), (((((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) * (_ts.length) : stdgo.GoInt)) / _nc : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>)) {
                                                 stdgo._internal.encoding.json.Json__cachedTypeFields._cachedTypeFields(_t);
@@ -38,28 +38,32 @@ function benchmarkTypeFieldsCache(_b:stdgo.Ref<stdgo._internal.testing.Testing_B
                                         };
                                         a(_j);
                                     });
-                                });
+                                    _j++;
+                                };
                             };
-                            _wg.wait_();
-                        });
+_wg.wait_();
+                            _i++;
+                        };
                     };
                 });
-            });
+                _nt = (_nt * ((10 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
         {
             var _nt = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_nt <= _maxTypes : Bool), _nt = (_nt * ((10 : stdgo.GoInt)) : stdgo.GoInt), {
+            while ((_nt <= _maxTypes : Bool)) {
                 _clearCache();
-                for (__12 => _t in (_types.__slice__(0, _nt) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>)) {
+for (__12 => _t in (_types.__slice__(0, _nt) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>)) {
                     stdgo._internal.encoding.json.Json__cachedTypeFields._cachedTypeFields(_t);
                 };
-                _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("HitTypes%d" : stdgo.GoString), stdgo.Go.toInterface(_nt))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
+_b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("HitTypes%d" : stdgo.GoString), stdgo.Go.toInterface(_nt)).__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                     _b.runParallel(function(_pb:stdgo.Ref<stdgo._internal.testing.Testing_PB.PB>):Void {
                         while (_pb.next()) {
                             stdgo._internal.encoding.json.Json__cachedTypeFields._cachedTypeFields(_types[(0 : stdgo.GoInt)]);
                         };
                     });
                 });
-            });
+                _nt = (_nt * ((10 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
     }

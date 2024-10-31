@@ -366,13 +366,14 @@ package stdgo._internal.database.sql;
         _s._db._mu.lock();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s._css.length) : Bool), _i++, {
+            while ((_i < (_s._css.length) : Bool)) {
                 if (_s._css[(_i : stdgo.GoInt)]._dc._dbmuClosed) {
                     _s._css[(_i : stdgo.GoInt)] = _s._css[((_s._css.length) - (1 : stdgo.GoInt) : stdgo.GoInt)];
                     _s._css = (_s._css.__slice__(0, ((_s._css.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.database.sql.Sql_T_connStmt.T_connStmt>);
                     _i--;
                 };
-            });
+                _i++;
+            };
         };
         _s._db._mu.unlock();
         _s._lastNumClosed = _dbClosed;

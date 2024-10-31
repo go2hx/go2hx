@@ -18,11 +18,12 @@ function _assignID_64(_text:stdgo.Slice<stdgo.GoInt64>, _sa:stdgo.Slice<stdgo.Go
                     var _last = ((_text.__slice__(_lastPos) : stdgo.Slice<stdgo.GoInt64>).__slice__(0, _n) : stdgo.Slice<stdgo.GoInt64>);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                        while ((_i < _n : Bool)) {
                             if (_this[(_i : stdgo.GoInt)] != (_last[(_i : stdgo.GoInt)])) {
                                 @:goto "New";
                             };
-                        });
+                            _i++;
+                        };
                     };
                     @:goto "Same";
                 };

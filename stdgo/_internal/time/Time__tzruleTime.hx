@@ -35,12 +35,13 @@ function _tzruleTime(_year:stdgo.GoInt, _r:stdgo._internal.time.Time_T_rule.T_ru
                         };
                         {
                             var _i = (1 : stdgo.GoInt);
-                            stdgo.Go.cfor((_i < _r._week : Bool), _i++, {
+                            while ((_i < _r._week : Bool)) {
                                 if (((_d + (7 : stdgo.GoInt) : stdgo.GoInt) >= stdgo._internal.time.Time__daysIn._daysIn((_r._mon : stdgo._internal.time.Time_Month.Month), _year) : Bool)) {
                                     break;
                                 };
-                                _d = (_d + ((7 : stdgo.GoInt)) : stdgo.GoInt);
-                            });
+_d = (_d + ((7 : stdgo.GoInt)) : stdgo.GoInt);
+                                _i++;
+                            };
                         };
                         _d = (_d + ((stdgo._internal.time.Time__daysBefore._daysBefore[(_r._mon - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt)) : stdgo.GoInt);
                         if ((stdgo._internal.time.Time__isLeap._isLeap(_year) && (_r._mon > (2 : stdgo.GoInt) : Bool) : Bool)) {

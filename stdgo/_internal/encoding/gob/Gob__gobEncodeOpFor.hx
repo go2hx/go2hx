@@ -6,9 +6,10 @@ function _gobEncodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTy
         } else if ((_ut._encIndir > (0 : stdgo.GoInt8) : Bool)) {
             {
                 var _i = ((0 : stdgo.GoInt8) : stdgo.GoInt8);
-                stdgo.Go.cfor((_i < _ut._encIndir : Bool), _i++, {
+                while ((_i < _ut._encIndir : Bool)) {
                     _rt = _rt.elem();
-                });
+                    _i++;
+                };
             };
         };
         var _op:stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp = (null : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp);

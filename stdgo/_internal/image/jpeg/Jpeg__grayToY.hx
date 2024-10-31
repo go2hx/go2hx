@@ -6,14 +6,16 @@ function _grayToY(_m:stdgo.Ref<stdgo._internal.image.Image_Gray.Gray>, _p:stdgo.
         var _pix = _m.pix;
         {
             var _j = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_j < (8 : stdgo.GoInt) : Bool), _j++, {
+            while ((_j < (8 : stdgo.GoInt) : Bool)) {
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < (8 : stdgo.GoInt) : Bool), _i++, {
+                    while ((_i < (8 : stdgo.GoInt) : Bool)) {
                         var _idx = (_m.pixOffset(stdgo._internal.image.jpeg.Jpeg__min._min((_p.x + _i : stdgo.GoInt), _xmax), stdgo._internal.image.jpeg.Jpeg__min._min((_p.y + _j : stdgo.GoInt), _ymax)) : stdgo.GoInt);
-                        _yBlock[(((8 : stdgo.GoInt) * _j : stdgo.GoInt) + _i : stdgo.GoInt)] = (_pix[(_idx : stdgo.GoInt)] : stdgo.GoInt32);
-                    });
+_yBlock[(((8 : stdgo.GoInt) * _j : stdgo.GoInt) + _i : stdgo.GoInt)] = (_pix[(_idx : stdgo.GoInt)] : stdgo.GoInt32);
+                        _i++;
+                    };
                 };
-            });
+                _j++;
+            };
         };
     }

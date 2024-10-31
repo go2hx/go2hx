@@ -10,10 +10,11 @@ function benchmarkAdler32KB(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):V
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 _h.reset();
-                _h.write(_data);
-                _h.sum(_in);
-            });
+_h.write(_data);
+_h.sum(_in);
+                _i++;
+            };
         };
     }

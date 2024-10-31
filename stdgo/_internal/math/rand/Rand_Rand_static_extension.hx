@@ -23,14 +23,16 @@ package stdgo._internal.math.rand;
             throw stdgo.Go.toInterface(("invalid argument to Shuffle" : stdgo.GoString));
         };
         var _i = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
-        stdgo.Go.cfor((_i > (2147483646 : stdgo.GoInt) : Bool), _i--, {
+        while ((_i > (2147483646 : stdgo.GoInt) : Bool)) {
             var _j = (_r.int63n(((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64)) : stdgo.GoInt);
-            _swap(_i, _j);
-        });
-        stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+_swap(_i, _j);
+            _i--;
+        };
+        while ((_i > (0 : stdgo.GoInt) : Bool)) {
             var _j = (_r._int31n(((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32)) : stdgo.GoInt);
-            _swap(_i, _j);
-        });
+_swap(_i, _j);
+            _i--;
+        };
     }
     @:keep
     static public function perm( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoInt> {
@@ -38,11 +40,12 @@ package stdgo._internal.math.rand;
         var _m = (new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 var _j = (_r.intn((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-                _m[(_i : stdgo.GoInt)] = _m[(_j : stdgo.GoInt)];
-                _m[(_j : stdgo.GoInt)] = _i;
-            });
+_m[(_i : stdgo.GoInt)] = _m[(_j : stdgo.GoInt)];
+_m[(_j : stdgo.GoInt)] = _i;
+                _i++;
+            };
         };
         return _m;
     }

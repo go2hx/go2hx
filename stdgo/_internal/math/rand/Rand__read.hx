@@ -10,7 +10,7 @@ function _read(_p:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo._internal.math.rand.Ran
         }, _rng = __tmp__._0, __8 = __tmp__._1;
         {
             _n = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_n < (_p.length) : Bool), _n++, {
+            while ((_n < (_p.length) : Bool)) {
                 if (_pos == ((0 : stdgo.GoInt8))) {
                     if (_rng != null && ((_rng : Dynamic).__nil__ == null || !(_rng : Dynamic).__nil__)) {
                         _val = _rng.int63();
@@ -19,10 +19,11 @@ function _read(_p:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo._internal.math.rand.Ran
                     };
                     _pos = (7 : stdgo.GoInt8);
                 };
-                _p[(_n : stdgo.GoInt)] = (_val : stdgo.GoUInt8);
-                _val = (_val >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt64);
-                _pos--;
-            });
+_p[(_n : stdgo.GoInt)] = (_val : stdgo.GoUInt8);
+_val = (_val >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt64);
+_pos--;
+                _n++;
+            };
         };
         _readPos.value = _pos;
         _readVal.value = _val;

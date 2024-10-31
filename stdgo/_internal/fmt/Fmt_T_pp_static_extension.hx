@@ -48,9 +48,9 @@ package stdgo._internal.fmt;
                     };
                     _i++;
                     _p._fmt._clearflags();
-                    @:label("simpleFormat") stdgo.Go.cfor((_i < _end : Bool), _i++, {
+                    @:label("simpleFormat") while ((_i < _end : Bool)) {
                         var _c = (_format[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                        {
+{
                             var __switchIndex__ = -1;
                             var __run__ = true;
                             while (__run__) {
@@ -113,7 +113,8 @@ package stdgo._internal.fmt;
                                 break;
                             };
                         };
-                    });
+                        _i++;
+                    };
                     {
                         var __tmp__ = _p._argNumber(_argNum, _format?.__copy__(), _i, (_a.length));
                         _argNum = __tmp__._0;
@@ -409,7 +410,7 @@ var _size = __1, _verb = __0;
                             _p._buf._writeByte((123 : stdgo.GoUInt8));
                             {
                                 var _i = (0 : stdgo.GoInt);
-                                stdgo.Go.cfor((_i < _f.numField() : Bool), _i++, {
+                                while ((_i < _f.numField() : Bool)) {
                                     if ((_i > (0 : stdgo.GoInt) : Bool)) {
                                         if (_p._fmt._fmtFlags._sharpV) {
                                             _p._buf._writeString((", " : stdgo.GoString));
@@ -417,17 +418,18 @@ var _size = __1, _verb = __0;
                                             _p._buf._writeByte((32 : stdgo.GoUInt8));
                                         };
                                     };
-                                    if ((_p._fmt._fmtFlags._plusV || _p._fmt._fmtFlags._sharpV : Bool)) {
+if ((_p._fmt._fmtFlags._plusV || _p._fmt._fmtFlags._sharpV : Bool)) {
                                         {
-                                            var _name = (_f.type().field(_i).name?.__copy__() : stdgo.GoString);
+                                            var _name = (_f.type().field(_i).name.__copy__() : stdgo.GoString);
                                             if (_name != (stdgo.Go.str())) {
-                                                _p._buf._writeString(_name?.__copy__());
+                                                _p._buf._writeString(_name.__copy__());
                                                 _p._buf._writeByte((58 : stdgo.GoUInt8));
                                             };
                                         };
                                     };
-                                    _p._printValue(stdgo._internal.fmt.Fmt__getField._getField(_f?.__copy__(), _i)?.__copy__(), _verb, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
-                                });
+_p._printValue(stdgo._internal.fmt.Fmt__getField._getField(_f.__copy__(), _i).__copy__(), _verb, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
+                                    _i++;
+                                };
                             };
                             _p._buf._writeByte((125 : stdgo.GoUInt8));
                             break;
@@ -477,24 +479,26 @@ var _size = __1, _verb = __0;
                                 _p._buf._writeByte((123 : stdgo.GoUInt8));
                                 {
                                     var _i = (0 : stdgo.GoInt);
-                                    stdgo.Go.cfor((_i < _f.len() : Bool), _i++, {
+                                    while ((_i < _f.len() : Bool)) {
                                         if ((_i > (0 : stdgo.GoInt) : Bool)) {
                                             _p._buf._writeString((", " : stdgo.GoString));
                                         };
-                                        _p._printValue(_f.index(_i)?.__copy__(), _verb, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
-                                    });
+_p._printValue(_f.index(_i).__copy__(), _verb, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
+                                        _i++;
+                                    };
                                 };
                                 _p._buf._writeByte((125 : stdgo.GoUInt8));
                             } else {
                                 _p._buf._writeByte((91 : stdgo.GoUInt8));
                                 {
                                     var _i = (0 : stdgo.GoInt);
-                                    stdgo.Go.cfor((_i < _f.len() : Bool), _i++, {
+                                    while ((_i < _f.len() : Bool)) {
                                         if ((_i > (0 : stdgo.GoInt) : Bool)) {
                                             _p._buf._writeByte((32 : stdgo.GoUInt8));
                                         };
-                                        _p._printValue(_f.index(_i)?.__copy__(), _verb, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
-                                    });
+_p._printValue(_f.index(_i).__copy__(), _verb, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
+                                        _i++;
+                                    };
                                 };
                                 _p._buf._writeByte((93 : stdgo.GoUInt8));
                             };

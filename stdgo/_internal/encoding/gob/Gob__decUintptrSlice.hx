@@ -10,19 +10,20 @@ function _decUintptrSlice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_de
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _length : Bool), _i++, {
+            while ((_i < _length : Bool)) {
                 if (_state._b.len() == ((0 : stdgo.GoInt))) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("decoding uintptr array or slice: length exceeds input size (%d elements)" : stdgo.GoString), stdgo.Go.toInterface(_length));
                 };
-                if ((_i >= (_slice.length) : Bool)) {
-                    stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v?.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoUIntptr>>), _length);
+if ((_i >= (_slice.length) : Bool)) {
+                    stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoUIntptr>>), _length);
                 };
-                var _x = (_state._decodeUint() : stdgo.GoUInt64);
-                if ((((4294967295 : stdgo.GoUIntptr) : stdgo.GoUInt64) < _x : Bool)) {
+var _x = (_state._decodeUint() : stdgo.GoUInt64);
+if ((((4294967295 : stdgo.GoUIntptr) : stdgo.GoUInt64) < _x : Bool)) {
                     stdgo._internal.encoding.gob.Gob__error_._error_(_ovfl);
                 };
-                _slice[(_i : stdgo.GoInt)] = (_x : stdgo.GoUIntptr);
-            });
+_slice[(_i : stdgo.GoInt)] = (_x : stdgo.GoUIntptr);
+                _i++;
+            };
         };
         return true;
     }

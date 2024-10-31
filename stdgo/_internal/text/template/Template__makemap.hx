@@ -12,9 +12,10 @@ function _makemap(_arg:haxe.Rest<stdgo.GoString>):stdgo.GoMap<stdgo.GoString, st
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_arg.length) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
-                _m[_arg[(_i : stdgo.GoInt)]] = _arg[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]?.__copy__();
-            });
+            while ((_i < (_arg.length) : Bool)) {
+                _m[_arg[(_i : stdgo.GoInt)]] = _arg[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)].__copy__();
+                _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
         return _m;
     }

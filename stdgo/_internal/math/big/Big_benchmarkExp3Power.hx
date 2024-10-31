@@ -6,9 +6,10 @@ function benchmarkExp3Power(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):V
                 var _z:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                    while ((_i < _b.n : Bool)) {
                         _z._expWW((3u32 : stdgo._internal.math.big.Big_Word.Word), _y);
-                    });
+                        _i++;
+                    };
                 };
             });
         };

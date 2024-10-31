@@ -2,7 +2,7 @@ package stdgo._internal.mime;
 function _writeQString(_buf:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>, _s:stdgo.GoString):Void {
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 {
                     var _b = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                     if (_b == ((32 : stdgo.GoUInt8))) {
@@ -15,6 +15,7 @@ function _writeQString(_buf:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Bu
                         _buf.writeByte(("0123456789ABCDEF" : stdgo.GoString)[((_b & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]);
                     };
                 };
-            });
+                _i++;
+            };
         };
     }

@@ -6,9 +6,10 @@ function _divisors(_m:stdgo.GoInt, _b:stdgo._internal.math.big.Big_Word.Word, _n
         var _k = (1 : stdgo.GoInt);
         {
             var _words = (stdgo._internal.math.big.Big__leafSize._leafSize : stdgo.GoInt);
-            stdgo.Go.cfor(((_words < (_m >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt) : Bool) && (_k < (stdgo._internal.math.big.Big__cacheBase10._cacheBase10._table.length) : Bool) : Bool), _words = (_words << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
+            while (((_words < (_m >> (1i64 : stdgo.GoUInt64) : stdgo.GoInt) : Bool) && (_k < (stdgo._internal.math.big.Big__cacheBase10._cacheBase10._table.length) : Bool) : Bool)) {
                 _k++;
-            });
+                _words = (_words << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt);
+            };
         };
         var _table:stdgo.Slice<stdgo._internal.math.big.Big_T_divisor.T_divisor> = (null : stdgo.Slice<stdgo._internal.math.big.Big_T_divisor.T_divisor>);
         if (_b == ((10u32 : stdgo._internal.math.big.Big_Word.Word))) {
@@ -21,7 +22,7 @@ function _divisors(_m:stdgo.GoInt, _b:stdgo._internal.math.big.Big_Word.Word, _n
             var _larger:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _k : Bool), _i++, {
+                while ((_i < _k : Bool)) {
                     if (_table[(_i : stdgo.GoInt)]._ndigits == ((0 : stdgo.GoInt))) {
                         if (_i == ((0 : stdgo.GoInt))) {
                             _table[(0 : stdgo.GoInt)]._bbb = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._expWW(_bb, (stdgo._internal.math.big.Big__leafSize._leafSize : stdgo._internal.math.big.Big_Word.Word));
@@ -37,7 +38,8 @@ function _divisors(_m:stdgo.GoInt, _b:stdgo._internal.math.big.Big_Word.Word, _n
                         };
                         _table[(_i : stdgo.GoInt)]._nbits = _table[(_i : stdgo.GoInt)]._bbb._bitLen();
                     };
-                });
+                    _i++;
+                };
             };
         };
         if (_b == ((10u32 : stdgo._internal.math.big.Big_Word.Word))) {

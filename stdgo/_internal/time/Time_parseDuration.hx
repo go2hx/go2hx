@@ -50,12 +50,13 @@ var _scale = __2, _f = __1, _v = __0;
                 return { _0 : (0i64 : stdgo._internal.time.Time_Duration.Duration), _1 : stdgo._internal.errors.Errors_new_.new_((("time: invalid duration " : stdgo.GoString) + stdgo._internal.time.Time__quote._quote(_orig?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()) };
             };
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (((_c == (46 : stdgo.GoUInt8)) || (((48 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (57 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
+if (((_c == (46 : stdgo.GoUInt8)) || (((48 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (57 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
                     break;
                 };
-            });
+                _i++;
+            };
             if (_i == ((0 : stdgo.GoInt))) {
                 return { _0 : (0i64 : stdgo._internal.time.Time_Duration.Duration), _1 : stdgo._internal.errors.Errors_new_.new_((("time: missing unit in duration " : stdgo.GoString) + stdgo._internal.time.Time__quote._quote(_orig?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__()) };
             };

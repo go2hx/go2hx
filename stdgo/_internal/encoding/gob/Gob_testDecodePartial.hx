@@ -22,17 +22,17 @@ function testDecodePartial(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         var _data = _buf.bytes();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i <= (_data.length) : Bool), _i++, {
+            while ((_i <= (_data.length) : Bool)) {
                 var _bufr = stdgo._internal.bytes.Bytes_newReader.newReader((_data.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>));
-                var __0:stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547 = ({} : stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547), __1:stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547 = ({} : stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547);
+var __0:stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547 = ({} : stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547), __1:stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547 = ({} : stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547);
 var _t2b = __1, _t1b = __0;
-                var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_bufr));
-                var _err:stdgo.Error = (null : stdgo.Error);
-                _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_t1b) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547>)));
-                if (_err == null) {
+var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_bufr));
+var _err:stdgo.Error = (null : stdgo.Error);
+_err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_t1b) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547>)));
+if (_err == null) {
                     _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_t2b) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testDecodePartial___localname___T_28547.T_testDecodePartial___localname___T_28547>)));
                 };
-                {
+{
                     final __value__ = _i;
                     if (__value__ == (_t1start) || __value__ == (_t2start)) {
                         if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
@@ -54,6 +54,7 @@ var _t2b = __1, _t1b = __0;
                         };
                     };
                 };
-            });
+                _i++;
+            };
         };
     }

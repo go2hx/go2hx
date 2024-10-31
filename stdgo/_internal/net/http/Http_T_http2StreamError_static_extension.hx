@@ -16,20 +16,22 @@ package stdgo._internal.net.http;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _numField : Bool), _i++, {
-                var _sf = (_srcType.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
-                var _df = (_dstType.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
-                if (((_sf.name != _df.name) || !_sf.type.convertibleTo(_df.type) : Bool)) {
+            while ((_i < _numField : Bool)) {
+                var _sf = (_srcType.field(_i).__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
+var _df = (_dstType.field(_i).__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
+if (((_sf.name != _df.name) || !_sf.type.convertibleTo(_df.type) : Bool)) {
                     return false;
                 };
-            });
+                _i++;
+            };
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _numField : Bool), _i++, {
-                var _df = (_dst.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                _df.set(_src.field(_i).convert(_df.type())?.__copy__());
-            });
+            while ((_i < _numField : Bool)) {
+                var _df = (_dst.field(_i).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+_df.set(_src.field(_i).convert(_df.type()).__copy__());
+                _i++;
+            };
         };
         return true;
     }

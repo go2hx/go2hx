@@ -66,7 +66,7 @@ package stdgo._internal.io;
             };
             {
                 var _once = (true : Bool);
-                stdgo.Go.cfor((_once || ((_b.length) > (0 : stdgo.GoInt) : Bool) : Bool), _once = false, {
+                while ((_once || ((_b.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                     {
                         var __select__ = true;
                         while (__select__) {
@@ -99,7 +99,8 @@ package stdgo._internal.io;
                             stdgo._internal.internal.Async.tick();
                         };
                     };
-                });
+                    _once = false;
+                };
             };
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };

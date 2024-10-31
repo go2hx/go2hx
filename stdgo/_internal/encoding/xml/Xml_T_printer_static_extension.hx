@@ -89,9 +89,10 @@ package stdgo._internal.encoding.xml;
         if (((_p._indent.length) > (0 : stdgo.GoInt) : Bool)) {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _p._depth : Bool), _i++, {
-                    _p.writeString(_p._indent?.__copy__());
-                });
+                while ((_i < _p._depth : Bool)) {
+                    _p.writeString(_p._indent.__copy__());
+                    _i++;
+                };
             };
         };
         if ((_depthDelta > (0 : stdgo.GoInt) : Bool)) {
@@ -571,14 +572,15 @@ package stdgo._internal.encoding.xml;
             var _n = (_val.len() : stdgo.GoInt);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                while ((_i < _n : Bool)) {
                     {
-                        var _err = (_p._marshalAttr(_start, _name?.__copy__(), _val.index(_i)?.__copy__()) : stdgo.Error);
+                        var _err = (_p._marshalAttr(_start, _name.__copy__(), _val.index(_i).__copy__()) : stdgo.Error);
                         if (_err != null) {
                             return _err;
                         };
                     };
-                });
+                    _i++;
+                };
             };
             return (null : stdgo.Error);
         };
@@ -638,14 +640,15 @@ package stdgo._internal.encoding.xml;
             {
                 var __0 = (0 : stdgo.GoInt), __1 = (_val.len() : stdgo.GoInt);
 var _n = __1, _i = __0;
-                stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                while ((_i < _n : Bool)) {
                     {
-                        var _err = (_p._marshalValue(_val.index(_i)?.__copy__(), _finfo, _startTemplate) : stdgo.Error);
+                        var _err = (_p._marshalValue(_val.index(_i).__copy__(), _finfo, _startTemplate) : stdgo.Error);
                         if (_err != null) {
                             return _err;
                         };
                     };
-                });
+                    _i++;
+                };
             };
             return (null : stdgo.Error);
         };
@@ -818,15 +821,16 @@ var _n = __1, _i = __0;
         if ((_p._attrNS[_prefix] ?? ("" : stdgo.GoString)) != (stdgo.Go.str())) {
             {
                 _p._seq++;
-                stdgo.Go.cfor(true, _p._seq++, {
+                while (true) {
                     {
-                        var _id = (((_prefix + ("_" : stdgo.GoString)?.__copy__() : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa(_p._seq)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
+                        var _id = (((_prefix + ("_" : stdgo.GoString).__copy__() : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa(_p._seq).__copy__() : stdgo.GoString).__copy__() : stdgo.GoString);
                         if ((_p._attrNS[_id] ?? ("" : stdgo.GoString)) == (stdgo.Go.str())) {
-                            _prefix = _id?.__copy__();
+                            _prefix = _id.__copy__();
                             break;
                         };
                     };
-                });
+                    _p._seq++;
+                };
             };
         };
         _p._attrPrefix[_url] = _prefix?.__copy__();

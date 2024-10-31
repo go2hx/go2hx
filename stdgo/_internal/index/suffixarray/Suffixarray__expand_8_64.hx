@@ -9,19 +9,23 @@ function _expand_8_64(_text:stdgo.Slice<stdgo.GoUInt8>, _freq:stdgo.Slice<stdgo.
         _bucket[(_c : stdgo.GoInt)] = _b;
         {
             var _i = ((_sa.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 if (_i != ((_b : stdgo.GoInt))) {
                     _sa[(_i : stdgo.GoInt)] = (0i64 : stdgo.GoInt64);
-                    continue;
+                    {
+                        _i--;
+                        continue;
+                    };
                 };
-                _sa[(_i : stdgo.GoInt)] = _saX;
-                if ((_x > (0 : stdgo.GoInt) : Bool)) {
+_sa[(_i : stdgo.GoInt)] = _saX;
+if ((_x > (0 : stdgo.GoInt) : Bool)) {
                     _x--;
                     _saX = _sa[(_x : stdgo.GoInt)];
                     _c = _text[(_saX : stdgo.GoInt)];
                     _b = (_bucket[(_c : stdgo.GoInt)] - (1i64 : stdgo.GoInt64) : stdgo.GoInt64);
                     _bucket[(_c : stdgo.GoInt)] = _b;
                 };
-            });
+                _i--;
+            };
         };
     }

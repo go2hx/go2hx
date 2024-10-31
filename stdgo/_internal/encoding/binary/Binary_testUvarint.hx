@@ -5,8 +5,9 @@ function testUvarint(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         };
         {
             var _x = ((7i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-            stdgo.Go.cfor(_x != ((0i64 : stdgo.GoUInt64)), _x = (_x << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64), {
+            while (_x != ((0i64 : stdgo.GoUInt64))) {
                 stdgo._internal.encoding.binary.Binary__testUvarint._testUvarint(_t, _x);
-            });
+                _x = (_x << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+            };
         };
     }

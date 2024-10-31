@@ -18,20 +18,22 @@ package stdgo._internal.compress.bzip2;
         var _numSymbols = (0 : stdgo.GoInt);
         {
             var _symRange = ((0u32 : stdgo.GoUInt) : stdgo.GoUInt);
-            stdgo.Go.cfor((_symRange < (16u32 : stdgo.GoUInt) : Bool), _symRange++, {
+            while ((_symRange < (16u32 : stdgo.GoUInt) : Bool)) {
                 if ((_symbolRangeUsedBitmap & (((1 : stdgo.GoInt) << (((15u32 : stdgo.GoUInt) - _symRange : stdgo.GoUInt)) : stdgo.GoInt)) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                     var _bits = (_br.readBits((16u32 : stdgo.GoUInt)) : stdgo.GoInt);
                     {
                         var _symbol = ((0u32 : stdgo.GoUInt) : stdgo.GoUInt);
-                        stdgo.Go.cfor((_symbol < (16u32 : stdgo.GoUInt) : Bool), _symbol++, {
+                        while ((_symbol < (16u32 : stdgo.GoUInt) : Bool)) {
                             if ((_bits & (((1 : stdgo.GoInt) << (((15u32 : stdgo.GoUInt) - _symbol : stdgo.GoUInt)) : stdgo.GoInt)) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                                 _symbolPresent[((((16u32 : stdgo.GoUInt) * _symRange : stdgo.GoUInt) + _symbol : stdgo.GoUInt) : stdgo.GoInt)] = true;
                                 _numSymbols++;
                             };
-                        });
+                            _symbol++;
+                        };
                     };
                 };
-            });
+                _symRange++;
+            };
         };
         if (_numSymbols == ((0 : stdgo.GoInt))) {
             return stdgo.Go.asInterface((("no symbols in input" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
@@ -61,12 +63,13 @@ package stdgo._internal.compress.bzip2;
         var _nextSymbol = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (256 : stdgo.GoInt) : Bool)) {
                 if (_symbolPresent[(_i : stdgo.GoInt)]) {
                     _symbols[(_nextSymbol : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
                     _nextSymbol++;
                 };
-            });
+                _i++;
+            };
         };
         var _mtf = (stdgo._internal.compress.bzip2.Bzip2__newMTFDecoder._newMTFDecoder(_symbols) : stdgo._internal.compress.bzip2.Bzip2_T_moveToFrontDecoder.T_moveToFrontDecoder);
         _numSymbols = (_numSymbols + ((2 : stdgo.GoInt)) : stdgo.GoInt);
@@ -145,12 +148,13 @@ package stdgo._internal.compress.bzip2;
                 };
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _repeat : Bool), _i++, {
+                    while ((_i < _repeat : Bool)) {
                         var _b = (_mtf.first() : stdgo.GoUInt8);
-                        _bz2._tt[(_bufIndex : stdgo.GoInt)] = (_b : stdgo.GoUInt32);
-                        _bz2._c[(_b : stdgo.GoInt)]++;
-                        _bufIndex++;
-                    });
+_bz2._tt[(_bufIndex : stdgo.GoInt)] = (_b : stdgo.GoUInt32);
+_bz2._c[(_b : stdgo.GoInt)]++;
+_bufIndex++;
+                        _i++;
+                    };
                 };
                 _repeat = (0 : stdgo.GoInt);
             };

@@ -17,28 +17,29 @@ function testCmpAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             for (_j => _y in _values) {
                 {
                     var _k = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_k < (4 : stdgo.GoInt) : Bool), _k++, {
+                    while ((_k < (4 : stdgo.GoInt) : Bool)) {
                         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _b = __1, _a = __0;
-                        _a.set(_x);
-                        _b.set(_y);
-                        if ((_k & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+_a.set(_x);
+_b.set(_y);
+if ((_k & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                             _a.neg((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
                         };
-                        if ((_k & (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
+if ((_k & (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
                             _b.neg((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
                         };
-                        var _got = (_a.cmpAbs((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)) : stdgo.GoInt);
-                        var _want = (0 : stdgo.GoInt);
-                        if ((_i > _j : Bool)) {
+var _got = (_a.cmpAbs((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)) : stdgo.GoInt);
+var _want = (0 : stdgo.GoInt);
+if ((_i > _j : Bool)) {
                             _want = (1 : stdgo.GoInt);
                         } else if ((_i < _j : Bool)) {
                             _want = (-1 : stdgo.GoInt);
                         };
-                        if (_got != (_want)) {
+if (_got != (_want)) {
                             _t.errorf(("absCmp |%s|, |%s|: got %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>))), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>))), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                         };
-                    });
+                        _k++;
+                    };
                 };
             };
         };

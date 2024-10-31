@@ -10,10 +10,11 @@ function _mgf1XOR(_out:stdgo.Slice<stdgo.GoUInt8>, _hash:stdgo._internal.hash.Ha
             _hash.reset();
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(((_i < (_digest.length) : Bool) && (_done < (_out.length) : Bool) : Bool), _i++, {
+                while (((_i < (_digest.length) : Bool) && (_done < (_out.length) : Bool) : Bool)) {
                     _out[(_done : stdgo.GoInt)] = (_out[(_done : stdgo.GoInt)] ^ (_digest[(_i : stdgo.GoInt)]) : stdgo.GoUInt8);
-                    _done++;
-                });
+_done++;
+                    _i++;
+                };
             };
             stdgo._internal.crypto.rsa.Rsa__incCounter._incCounter((stdgo.Go.setRef(_counter) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
         };

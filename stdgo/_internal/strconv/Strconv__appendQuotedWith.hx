@@ -8,24 +8,28 @@ function _appendQuotedWith(_buf:stdgo.Slice<stdgo.GoUInt8>, _s:stdgo.GoString, _
         _buf = (_buf.__append__(_quote));
         {
             var _width = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(((_s.length) > (0 : stdgo.GoInt) : Bool), _s = (_s.__slice__(_width) : stdgo.GoString)?.__copy__(), {
+            while (((_s.length) > (0 : stdgo.GoInt) : Bool)) {
                 var _r = (_s[(0 : stdgo.GoInt)] : stdgo.GoInt32);
-                _width = (1 : stdgo.GoInt);
-                if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
+_width = (1 : stdgo.GoInt);
+if ((_r >= (128 : stdgo.GoInt32) : Bool)) {
                     {
-                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(_s?.__copy__());
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(_s.__copy__());
                         _r = __tmp__._0;
                         _width = __tmp__._1;
                     };
                 };
-                if (((_width == (1 : stdgo.GoInt)) && (_r == (65533 : stdgo.GoInt32)) : Bool)) {
+if (((_width == (1 : stdgo.GoInt)) && (_r == (65533 : stdgo.GoInt32)) : Bool)) {
                     _buf = (_buf.__append__(...(("\\x" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                     _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(0 : stdgo.GoInt)] >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)]));
                     _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[((_s[(0 : stdgo.GoInt)] & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]));
-                    continue;
+                    {
+                        _s = (_s.__slice__(_width) : stdgo.GoString)?.__copy__();
+                        continue;
+                    };
                 };
-                _buf = stdgo._internal.strconv.Strconv__appendEscapedRune._appendEscapedRune(_buf, _r, _quote, asciionly, _graphicOnly);
-            });
+_buf = stdgo._internal.strconv.Strconv__appendEscapedRune._appendEscapedRune(_buf, _r, _quote, asciionly, _graphicOnly);
+                _s = (_s.__slice__(_width) : stdgo.GoString)?.__copy__();
+            };
         };
         _buf = (_buf.__append__(_quote));
         return _buf;

@@ -12,17 +12,17 @@ package stdgo._internal.index.suffixarray;
         if (_complete) {
             {
                 var _n1 = (_n : stdgo.GoInt);
-                stdgo.Go.cfor(true, _n1 = (_n1 + (((2 : stdgo.GoInt) * ((_n - (_result.length) : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.GoInt), {
+                while (true) {
                     var _indices = _x.lookup(_lit, _n1);
-                    if ((_indices.length) == ((0 : stdgo.GoInt))) {
+if ((_indices.length) == ((0 : stdgo.GoInt))) {
                         return _result;
                     };
-                    stdgo._internal.sort.Sort_ints.ints(_indices);
-                    var _pairs = (new stdgo.Slice<stdgo.GoInt>(((2 : stdgo.GoInt) * (_indices.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-                    _result = (new stdgo.Slice<stdgo.Slice<stdgo.GoInt>>((_indices.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);
-                    var _count = (0 : stdgo.GoInt);
-                    var _prev = (0 : stdgo.GoInt);
-                    for (__0 => _i in _indices) {
+stdgo._internal.sort.Sort_ints.ints(_indices);
+var _pairs = (new stdgo.Slice<stdgo.GoInt>(((2 : stdgo.GoInt) * (_indices.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
+_result = (new stdgo.Slice<stdgo.Slice<stdgo.GoInt>>((_indices.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);
+var _count = (0 : stdgo.GoInt);
+var _prev = (0 : stdgo.GoInt);
+for (__0 => _i in _indices) {
                         if (_count == (_n)) {
                             break;
                         };
@@ -35,11 +35,12 @@ package stdgo._internal.index.suffixarray;
                             _prev = (_i + (_lit.length) : stdgo.GoInt);
                         };
                     };
-                    _result = (_result.__slice__((0 : stdgo.GoInt), _count) : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);
-                    if ((((_result.length) >= _n : Bool) || (_indices.length != _n1) : Bool)) {
+_result = (_result.__slice__((0 : stdgo.GoInt), _count) : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);
+if ((((_result.length) >= _n : Bool) || (_indices.length != _n1) : Bool)) {
                         break;
                     };
-                });
+                    _n1 = (_n1 + (((2 : stdgo.GoInt) * ((_n - (_result.length) : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.GoInt);
+                };
             };
             if ((_result.length) == ((0 : stdgo.GoInt))) {
                 _result = (null : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);
@@ -49,15 +50,15 @@ package stdgo._internal.index.suffixarray;
         _r = stdgo._internal.regexp.Regexp_mustCompile.mustCompile((("^" : stdgo.GoString) + (_r.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__());
         {
             var _n1 = (_n : stdgo.GoInt);
-            stdgo.Go.cfor(true, _n1 = (_n1 + (((2 : stdgo.GoInt) * ((_n - (_result.length) : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.GoInt), {
+            while (true) {
                 var _indices = _x.lookup(_lit, _n1);
-                if ((_indices.length) == ((0 : stdgo.GoInt))) {
+if ((_indices.length) == ((0 : stdgo.GoInt))) {
                     return _result;
                 };
-                stdgo._internal.sort.Sort_ints.ints(_indices);
-                _result = (_result.__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);
-                var _prev = (0 : stdgo.GoInt);
-                for (__0 => _i in _indices) {
+stdgo._internal.sort.Sort_ints.ints(_indices);
+_result = (_result.__slice__((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);
+var _prev = (0 : stdgo.GoInt);
+for (__0 => _i in _indices) {
                     if ((_result.length) == (_n)) {
                         break;
                     };
@@ -69,10 +70,11 @@ package stdgo._internal.index.suffixarray;
                         _prev = _m[(1 : stdgo.GoInt)];
                     };
                 };
-                if ((((_result.length) >= _n : Bool) || (_indices.length != _n1) : Bool)) {
+if ((((_result.length) >= _n : Bool) || (_indices.length != _n1) : Bool)) {
                     break;
                 };
-            });
+                _n1 = (_n1 + (((2 : stdgo.GoInt) * ((_n - (_result.length) : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
         if ((_result.length) == ((0 : stdgo.GoInt))) {
             _result = (null : stdgo.Slice<stdgo.Slice<stdgo.GoInt>>);

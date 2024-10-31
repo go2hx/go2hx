@@ -10,15 +10,16 @@ function _decBoolSlice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decod
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _length : Bool), _i++, {
+            while ((_i < _length : Bool)) {
                 if (_state._b.len() == ((0 : stdgo.GoInt))) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("decoding bool array or slice: length exceeds input size (%d elements)" : stdgo.GoString), stdgo.Go.toInterface(_length));
                 };
-                if ((_i >= (_slice.length) : Bool)) {
-                    stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v?.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<Bool>>), _length);
+if ((_i >= (_slice.length) : Bool)) {
+                    stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<Bool>>), _length);
                 };
-                _slice[(_i : stdgo.GoInt)] = _state._decodeUint() != ((0i64 : stdgo.GoUInt64));
-            });
+_slice[(_i : stdgo.GoInt)] = _state._decodeUint() != ((0i64 : stdgo.GoUInt64));
+                _i++;
+            };
         };
         return true;
     }

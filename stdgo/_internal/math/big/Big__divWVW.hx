@@ -10,13 +10,14 @@ function _divWVW(_z:stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>, _xn:std
         var _rec = (stdgo._internal.math.big.Big__reciprocalWord._reciprocalWord(_y) : stdgo._internal.math.big.Big_Word.Word);
         {
             var _i = ((_z.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 {
                     var __tmp__ = stdgo._internal.math.big.Big__divWW._divWW(_r, _x[(_i : stdgo.GoInt)], _y, _rec);
                     _z[(_i : stdgo.GoInt)] = __tmp__._0;
                     _r = __tmp__._1;
                 };
-            });
+                _i--;
+            };
         };
         return _r;
     }

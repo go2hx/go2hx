@@ -33,10 +33,10 @@ var _maxVal = __1, _cutoff = __0;
             _maxVal = (((1i64 : stdgo.GoUInt64) << (_bitSize : stdgo.GoUInt) : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+                while ((_i < (_s.length) : Bool)) {
                     var _v:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-                    var _d = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                    if ((((48 : stdgo.GoUInt8) <= _d : Bool) && (_d <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
+var _d = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
+if ((((48 : stdgo.GoUInt8) <= _d : Bool) && (_d <= (57 : stdgo.GoUInt8) : Bool) : Bool)) {
                         _v = (_d - (48 : stdgo.GoUInt8) : stdgo.GoUInt8);
                     } else if ((((97 : stdgo.GoUInt8) <= _d : Bool) && (_d <= (122 : stdgo.GoUInt8) : Bool) : Bool)) {
                         _v = ((_d - (97 : stdgo.GoUInt8) : stdgo.GoUInt8) + (10 : stdgo.GoUInt8) : stdgo.GoUInt8);
@@ -47,25 +47,26 @@ var _maxVal = __1, _cutoff = __0;
                         _err = stdgo._internal.strconv.Strconv_errSyntax.errSyntax;
                         @:goto "Error";
                     };
-                    if (((_v : stdgo.GoInt) >= _base : Bool)) {
+if (((_v : stdgo.GoInt) >= _base : Bool)) {
                         _n = (0i64 : stdgo.GoUInt64);
                         _err = stdgo._internal.strconv.Strconv_errSyntax.errSyntax;
                         @:goto "Error";
                     };
-                    if ((_n >= _cutoff : Bool)) {
+if ((_n >= _cutoff : Bool)) {
                         _n = (-1i64 : stdgo.GoUInt64);
                         _err = stdgo._internal.strconv.Strconv_errRange.errRange;
                         @:goto "Error";
                     };
-                    _n = (_n * ((_base : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                    var _n1 = (_n + (_v : stdgo.GoUInt64) : stdgo.GoUInt64);
-                    if (((_n1 < _n : Bool) || (_n1 > _maxVal : Bool) : Bool)) {
+_n = (_n * ((_base : stdgo.GoUInt64)) : stdgo.GoUInt64);
+var _n1 = (_n + (_v : stdgo.GoUInt64) : stdgo.GoUInt64);
+if (((_n1 < _n : Bool) || (_n1 > _maxVal : Bool) : Bool)) {
                         _n = (-1i64 : stdgo.GoUInt64);
                         _err = stdgo._internal.strconv.Strconv_errRange.errRange;
                         @:goto "Error";
                     };
-                    _n = _n1;
-                });
+_n = _n1;
+                    _i++;
+                };
             };
             return { _0 : _n, _1 : (null : stdgo.Error) };
             @:label("Error") return { _0 : _n, _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ func : ("ParseUint" : stdgo.GoString), num : (_s0 : stdgo.GoString)?.__copy__(), err : _err } : stdgo._internal.strconv.Strconv_NumError.NumError)) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>)) };

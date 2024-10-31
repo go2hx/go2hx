@@ -31,12 +31,13 @@ package stdgo._internal.crypto.cipher;
             _remain = (_remain + (_bs) : stdgo.GoInt);
             {
                 var _i = ((_x._ctr.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     _x._ctr[(_i : stdgo.GoInt)]++;
-                    if (_x._ctr[(_i : stdgo.GoInt)] != ((0 : stdgo.GoUInt8))) {
+if (_x._ctr[(_i : stdgo.GoInt)] != ((0 : stdgo.GoUInt8))) {
                         break;
                     };
-                });
+                    _i--;
+                };
             };
         };
         _x._out = (_x._out.__slice__(0, _remain) : stdgo.Slice<stdgo.GoUInt8>);

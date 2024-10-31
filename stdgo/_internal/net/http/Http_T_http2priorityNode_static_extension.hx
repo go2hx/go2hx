@@ -16,21 +16,23 @@ package stdgo._internal.net.http;
         var _needSort = (false : Bool);
         {
             var _k = _n._kids._next;
-            stdgo.Go.cfor(_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__), _k = _k._next, {
+            while (_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__)) {
                 if (_k._weight != (_w)) {
                     _needSort = true;
                     break;
                 };
-            });
+                _k = _k._next;
+            };
         };
         if (!_needSort) {
             {
                 var _k = _n._kids;
-                stdgo.Go.cfor(_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__), _k = _k._next, {
+                while (_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__)) {
                     if (_k._walkReadyInOrder(_openParent, _tmp, _f)) {
                         return true;
                     };
-                });
+                    _k = _k._next;
+                };
             };
             return false;
         };
@@ -42,17 +44,19 @@ package stdgo._internal.net.http;
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(((_tmp : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>) : stdgo._internal.net.http.Http_T_http2sortPriorityNodeSiblings.T_http2sortPriorityNodeSiblings)));
         {
             var _i = (((_tmp : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>).length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 ((_tmp : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>))[(_i : stdgo.GoInt)]._setParent(_n);
-            });
+                _i--;
+            };
         };
         {
             var _k = _n._kids;
-            stdgo.Go.cfor(_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__), _k = _k._next, {
+            while (_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__)) {
                 if (_k._walkReadyInOrder(_openParent, _tmp, _f)) {
                     return true;
                 };
-            });
+                _k = _k._next;
+            };
         };
         return false;
     }
@@ -60,9 +64,10 @@ package stdgo._internal.net.http;
     static public function _addBytes( _n:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>, _b:stdgo.GoInt64):Void {
         @:recv var _n:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode> = _n;
         _n._bytes = (_n._bytes + (_b) : stdgo.GoInt64);
-        stdgo.Go.cfor(_n != null && ((_n : Dynamic).__nil__ == null || !(_n : Dynamic).__nil__), _n = _n._parent, {
+        while (_n != null && ((_n : Dynamic).__nil__ == null || !(_n : Dynamic).__nil__)) {
             _n._subtreeBytes = (_n._subtreeBytes + (_b) : stdgo.GoInt64);
-        });
+            _n = _n._parent;
+        };
     }
     @:keep
     static public function _setParent( _n:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>, _parent:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>):Void {

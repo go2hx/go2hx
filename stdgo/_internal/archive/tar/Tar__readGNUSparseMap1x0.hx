@@ -43,14 +43,15 @@ var _blk = __2, _buf = __1, _cntNewline = __0;
         var _spd = (new stdgo.Slice<stdgo._internal.archive.tar.Tar_T_sparseEntry.T_sparseEntry>((0 : stdgo.GoInt).toBasic(), _numEntries, ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > _numEntries ? (0 : stdgo.GoInt).toBasic() : _numEntries : stdgo.GoInt).toBasic()) ({} : stdgo._internal.archive.tar.Tar_T_sparseEntry.T_sparseEntry)]) : stdgo._internal.archive.tar.Tar_T_sparseDatas.T_sparseDatas);
         {
             var _i = ((0i64 : stdgo.GoInt64) : stdgo.GoInt64);
-            stdgo.Go.cfor((_i < _numEntries : Bool), _i++, {
-                var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_nextToken()?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _offset:stdgo.GoInt64 = __tmp__._0, _err1:stdgo.Error = __tmp__._1;
-                var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_nextToken()?.__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _length:stdgo.GoInt64 = __tmp__._0, _err2:stdgo.Error = __tmp__._1;
-                if (((_err1 != null) || (_err2 != null) : Bool)) {
+            while ((_i < _numEntries : Bool)) {
+                var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_nextToken().__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _offset:stdgo.GoInt64 = __tmp__._0, _err1:stdgo.Error = __tmp__._1;
+var __tmp__ = stdgo._internal.strconv.Strconv_parseInt.parseInt(_nextToken().__copy__(), (10 : stdgo.GoInt), (64 : stdgo.GoInt)), _length:stdgo.GoInt64 = __tmp__._0, _err2:stdgo.Error = __tmp__._1;
+if (((_err1 != null) || (_err2 != null) : Bool)) {
                     return { _0 : null, _1 : stdgo._internal.archive.tar.Tar_errHeader.errHeader };
                 };
-                _spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_T_sparseEntry.T_sparseEntry)));
-            });
+_spd = (_spd.__append__(({ offset : _offset, length_ : _length } : stdgo._internal.archive.tar.Tar_T_sparseEntry.T_sparseEntry)));
+                _i++;
+            };
         };
         return { _0 : _spd, _1 : (null : stdgo.Error) };
     }

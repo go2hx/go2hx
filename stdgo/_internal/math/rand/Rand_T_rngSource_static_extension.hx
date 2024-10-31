@@ -35,9 +35,9 @@ package stdgo._internal.math.rand;
         var _x = (_seed : stdgo.GoInt32);
         {
             var _i = (-20 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (607 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (607 : stdgo.GoInt) : Bool)) {
                 _x = stdgo._internal.math.rand.Rand__seedrand._seedrand(_x);
-                if ((_i >= (0 : stdgo.GoInt) : Bool)) {
+if ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     var _u:stdgo.GoInt64 = (0 : stdgo.GoInt64);
                     _u = ((_x : stdgo.GoInt64) << (40i64 : stdgo.GoUInt64) : stdgo.GoInt64);
                     _x = stdgo._internal.math.rand.Rand__seedrand._seedrand(_x);
@@ -47,7 +47,8 @@ package stdgo._internal.math.rand;
                     _u = (_u ^ (stdgo._internal.math.rand.Rand__rngCooked._rngCooked[(_i : stdgo.GoInt)]) : stdgo.GoInt64);
                     _rng._vec[(_i : stdgo.GoInt)] = _u;
                 };
-            });
+                _i++;
+            };
         };
     }
 }

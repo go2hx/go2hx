@@ -77,28 +77,29 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
         _f.sections = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>>((_f.fileHeader.numberOfSections : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_f.fileHeader.numberOfSections : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (_f.fileHeader.numberOfSections : stdgo.GoInt) : Bool)) {
                 var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.pe.Pe_SectionHeader32.SectionHeader32)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_SectionHeader32.SectionHeader32>);
-                {
+{
                     var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface(stdgo.Go.asInterface(_sh))) : stdgo.Error);
                     if (_err != null) {
                         return { _0 : null, _1 : _err };
                     };
                 };
-                var __tmp__ = _sh._fullName(_f.stringTable), _name:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
+var __tmp__ = _sh._fullName(_f.stringTable), _name:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
-                var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.pe.Pe_Section.Section)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>);
-                _s.sectionHeader = ({ name : _name?.__copy__(), virtualSize : _sh.virtualSize, virtualAddress : _sh.virtualAddress, size : _sh.sizeOfRawData, offset : _sh.pointerToRawData, pointerToRelocations : _sh.pointerToRelocations, pointerToLineNumbers : _sh.pointerToLineNumbers, numberOfRelocations : _sh.numberOfRelocations, numberOfLineNumbers : _sh.numberOfLineNumbers, characteristics : _sh.characteristics } : stdgo._internal.debug.pe.Pe_SectionHeader.SectionHeader);
-                var _r2 = (_r : stdgo._internal.io.Io_ReaderAt.ReaderAt);
-                if (_sh.pointerToRawData == ((0u32 : stdgo.GoUInt32))) {
+var _s = (stdgo.Go.setRef(({} : stdgo._internal.debug.pe.Pe_Section.Section)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_Section.Section>);
+_s.sectionHeader = ({ name : _name.__copy__(), virtualSize : _sh.virtualSize, virtualAddress : _sh.virtualAddress, size : _sh.sizeOfRawData, offset : _sh.pointerToRawData, pointerToRelocations : _sh.pointerToRelocations, pointerToLineNumbers : _sh.pointerToLineNumbers, numberOfRelocations : _sh.numberOfRelocations, numberOfLineNumbers : _sh.numberOfLineNumbers, characteristics : _sh.characteristics } : stdgo._internal.debug.pe.Pe_SectionHeader.SectionHeader);
+var _r2 = (_r : stdgo._internal.io.Io_ReaderAt.ReaderAt);
+if (_sh.pointerToRawData == ((0u32 : stdgo.GoUInt32))) {
                     _r2 = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.pe.Pe_T_nobitsSectionReader.T_nobitsSectionReader() : stdgo._internal.debug.pe.Pe_T_nobitsSectionReader.T_nobitsSectionReader)) : stdgo.Ref<stdgo._internal.debug.pe.Pe_T_nobitsSectionReader.T_nobitsSectionReader>));
                 };
-                _s._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r2, (_s.sectionHeader.offset : stdgo.GoInt64), (_s.sectionHeader.size : stdgo.GoInt64));
-                _s.readerAt = stdgo.Go.asInterface(_s._sr);
-                _f.sections[(_i : stdgo.GoInt)] = _s;
-            });
+_s._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r2, (_s.sectionHeader.offset : stdgo.GoInt64), (_s.sectionHeader.size : stdgo.GoInt64));
+_s.readerAt = stdgo.Go.asInterface(_s._sr);
+_f.sections[(_i : stdgo.GoInt)] = _s;
+                _i++;
+            };
         };
         for (_i => _ in _f.sections) {
             var _err:stdgo.Error = (null : stdgo.Error);

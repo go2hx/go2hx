@@ -8,11 +8,12 @@ function benchmarkFind(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         _b.reportAllocs();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 var _subs = _re.find(_s);
-                if ((_subs : stdgo.GoString) != (_wantSubs)) {
+if ((_subs : stdgo.GoString) != (_wantSubs)) {
                     _b.fatalf(("Find(%q) = %q; want %q" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_subs), stdgo.Go.toInterface(_wantSubs));
                 };
-            });
+                _i++;
+            };
         };
     }

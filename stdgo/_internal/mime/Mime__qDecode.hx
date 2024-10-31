@@ -4,7 +4,7 @@ function _qDecode(_s:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var 
         var _n = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 {
                     var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                     if (_c == ((95 : stdgo.GoUInt8))) {
@@ -25,8 +25,9 @@ function _qDecode(_s:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var 
                         return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.mime.Mime__errInvalidWord._errInvalidWord };
                     };
                 };
-                _n++;
-            });
+_n++;
+                _i++;
+            };
         };
         return { _0 : (_dec.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
     }

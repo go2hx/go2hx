@@ -7,9 +7,10 @@ function benchmarkDecodeString(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>
             _b.resetTimer();
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                    stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodeString(_data?.__copy__());
-                });
+                while ((_i < _b.n : Bool)) {
+                    stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding.decodeString(_data.__copy__());
+                    _i++;
+                };
             };
         };
         for (__0 => _size in _sizes) {

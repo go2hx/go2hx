@@ -254,16 +254,16 @@ package stdgo._internal.net.http;
         var _addr = (stdgo._internal.net.http.Http__http2authorityAddr._http2authorityAddr(_req.url.scheme?.__copy__(), _req.url.host?.__copy__())?.__copy__() : stdgo.GoString);
         {
             var _retry = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(true, _retry++, {
-                var __tmp__ = _t._connPool().getClientConn(_req, _addr?.__copy__()), _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
+            while (true) {
+                var __tmp__ = _t._connPool().getClientConn(_req, _addr.__copy__()), _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
                     _t._vlogf(("http2: Transport failed to get client conn for %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_addr), stdgo.Go.toInterface(_err));
                     return { _0 : null, _1 : _err };
                 };
-                var _reused = (!stdgo._internal.sync.atomic_.Atomic__compareAndSwapUint32.compareAndSwapUint32(stdgo.Go.pointer(_cc._reused), (0u32 : stdgo.GoUInt32), (1u32 : stdgo.GoUInt32)) : Bool);
-                stdgo._internal.net.http.Http__http2traceGotConn._http2traceGotConn(_req, _cc, _reused);
-                var __tmp__ = _cc.roundTrip(_req), _res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (((_err != null) && (_retry <= (6 : stdgo.GoInt) : Bool) : Bool)) {
+var _reused = (!stdgo._internal.sync.atomic_.Atomic__compareAndSwapUint32.compareAndSwapUint32(stdgo.Go.pointer(_cc._reused), (0u32 : stdgo.GoUInt32), (1u32 : stdgo.GoUInt32)) : Bool);
+stdgo._internal.net.http.Http__http2traceGotConn._http2traceGotConn(_req, _cc, _reused);
+var __tmp__ = _cc.roundTrip(_req), _res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (((_err != null) && (_retry <= (6 : stdgo.GoInt) : Bool) : Bool)) {
                     var _roundTripErr = (_err : stdgo.Error);
                     {
                         {
@@ -274,7 +274,10 @@ package stdgo._internal.net.http;
                         if (_err == null) {
                             if (_retry == ((0 : stdgo.GoInt))) {
                                 _t._vlogf(("RoundTrip retrying after failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_roundTripErr));
-                                continue;
+                                {
+                                    _retry++;
+                                    continue;
+                                };
                             };
                             var _backoff = (((1u32 : stdgo.GoUInt) << (((_retry : stdgo.GoUInt) - (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt) : stdgo.GoFloat64);
                             _backoff = (_backoff + ((_backoff * (((0.1 : stdgo.GoFloat64) * stdgo._internal.math.rand.Rand_float64.float64() : stdgo.GoFloat64)) : stdgo.GoFloat64)) : stdgo.GoFloat64);
@@ -309,12 +312,13 @@ package stdgo._internal.net.http;
                         };
                     };
                 };
-                if (_err != null) {
+if (_err != null) {
                     _t._vlogf(("RoundTrip failure: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     return { _0 : null, _1 : _err };
                 };
-                return { _0 : _res, _1 : (null : stdgo.Error) };
-            });
+return { _0 : _res, _1 : (null : stdgo.Error) };
+                _retry++;
+            };
         };
     }
     @:keep

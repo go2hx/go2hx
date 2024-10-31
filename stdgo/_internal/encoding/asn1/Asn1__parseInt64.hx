@@ -11,10 +11,11 @@ function _parseInt64(_bytes:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt64
         };
         {
             var _bytesRead = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_bytesRead < (_bytes.length) : Bool), _bytesRead++, {
+            while ((_bytesRead < (_bytes.length) : Bool)) {
                 _ret = (_ret << ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt64);
-                _ret = (_ret | ((_bytes[(_bytesRead : stdgo.GoInt)] : stdgo.GoInt64)) : stdgo.GoInt64);
-            });
+_ret = (_ret | ((_bytes[(_bytesRead : stdgo.GoInt)] : stdgo.GoInt64)) : stdgo.GoInt64);
+                _bytesRead++;
+            };
         };
         _ret = (_ret << (((64 : stdgo.GoUInt8) - ((_bytes.length : stdgo.GoUInt8) * (8 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoInt64);
         _ret = (_ret >> (((64 : stdgo.GoUInt8) - ((_bytes.length : stdgo.GoUInt8) * (8 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoInt64);

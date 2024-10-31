@@ -25,9 +25,10 @@ function benchmarkExpMont(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Voi
                 _b.reportAllocs();
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                    while ((_i < _b.n : Bool)) {
                         _out.exp(_x, _y, _n);
-                    });
+                        _i++;
+                    };
                 };
             });
         };

@@ -392,7 +392,6 @@ package stdgo._internal.debug.dwarf;
                     };
                 };
                 {
-                    var __continue__ = false;
                     var __switchIndex__ = -1;
                     var __run__ = true;
                     while (__run__) {
@@ -420,7 +419,7 @@ package stdgo._internal.debug.dwarf;
                                 var _dims:stdgo.Slice<stdgo.GoInt64> = (null : stdgo.Slice<stdgo.GoInt64>);
                                 {
                                     var _kid = _next();
-                                    stdgo.Go.cfor(_kid != null && ((_kid : Dynamic).__nil__ == null || !(_kid : Dynamic).__nil__), _kid = _next(), {
+                                    while (_kid != null && ((_kid : Dynamic).__nil__ == null || !(_kid : Dynamic).__nil__)) {
                                         {
                                             final __value__ = _kid.tag;
                                             if (__value__ == ((33u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
@@ -447,11 +446,12 @@ package stdgo._internal.debug.dwarf;
                                                 };
                                                 _dims = (_dims.__append__(_count));
                                             } else if (__value__ == ((4u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                                _err = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _kid.offset, ("cannot handle enumeration type as array bound" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+                                                _err = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name.__copy__(), _kid.offset, ("cannot handle enumeration type as array bound" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
                                                 @:goto "Error";
                                             };
                                         };
-                                    });
+                                        _kid = _next();
+                                    };
                                 };
                                 if ((_dims.length) == ((0 : stdgo.GoInt))) {
                                     _dims = (new stdgo.Slice<stdgo.GoInt64>(1, 1, ...[(-1i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
@@ -459,9 +459,10 @@ package stdgo._internal.debug.dwarf;
                                 _t.count = _dims[(0 : stdgo.GoInt)];
                                 {
                                     var _i = ((_dims.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                                    stdgo.Go.cfor((_i >= (1 : stdgo.GoInt) : Bool), _i--, {
+                                    while ((_i >= (1 : stdgo.GoInt) : Bool)) {
                                         _t.type = stdgo.Go.asInterface((stdgo.Go.setRef(({ type : _t.type, count : _dims[(_i : stdgo.GoInt)] } : stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType>));
-                                    });
+                                        _i--;
+                                    };
                                 };
                                 break;
                             } else if (__value__ == ((36u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
@@ -584,27 +585,27 @@ package stdgo._internal.debug.dwarf;
                                 var _lastFieldByteOffset:stdgo.GoInt64 = (0 : stdgo.GoInt64);
                                 {
                                     var _kid = _next();
-                                    stdgo.Go.cfor(_kid != null && ((_kid : Dynamic).__nil__ == null || !(_kid : Dynamic).__nil__), _kid = _next(), {
+                                    while (_kid != null && ((_kid : Dynamic).__nil__ == null || !(_kid : Dynamic).__nil__)) {
                                         if (_kid.tag != ((13u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
                                             {
-                                                __continue__ = true;
-                                                break;
+                                                _kid = _next();
+                                                continue;
                                             };
                                         };
-                                        var _f = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_StructField.StructField)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>);
-                                        {
+var _f = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_StructField.StructField)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>);
+{
                                             _f.type = _typeOf(_kid);
                                             if (_err != null) {
                                                 @:goto "Error";
                                             };
                                         };
-                                        {
+{
                                             final __type__ = _kid.val((56u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr));
                                             if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<stdgo.GoUInt8>))) {
                                                 var _loc:stdgo.Slice<stdgo.GoUInt8> = __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__().value;
-                                                var _b = (stdgo._internal.debug.dwarf.Dwarf__makeBuf._makeBuf(_d, stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_T_unknownFormat.T_unknownFormat() : stdgo._internal.debug.dwarf.Dwarf_T_unknownFormat.T_unknownFormat)), ("location" : stdgo.GoString), (0u32 : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset), _loc)?.__copy__() : stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf);
+                                                var _b = (stdgo._internal.debug.dwarf.Dwarf__makeBuf._makeBuf(_d, stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_T_unknownFormat.T_unknownFormat() : stdgo._internal.debug.dwarf.Dwarf_T_unknownFormat.T_unknownFormat)), ("location" : stdgo.GoString), (0u32 : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset), _loc).__copy__() : stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf);
                                                 if (_b._uint8() != ((35 : stdgo.GoUInt8))) {
-                                                    _err = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _kid.offset, ("unexpected opcode" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+                                                    _err = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name.__copy__(), _kid.offset, ("unexpected opcode" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
                                                     @:goto "Error";
                                                 };
                                                 _f.byteOffset = (_b._uint() : stdgo.GoInt64);
@@ -617,15 +618,15 @@ package stdgo._internal.debug.dwarf;
                                                 _f.byteOffset = _loc;
                                             };
                                         };
-                                        {
+{
                                             var __tmp__ = try {
                                                 { _0 : (stdgo.Go.typeAssert((_kid.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
                                             } catch(_) {
                                                 { _0 : ("" : stdgo.GoString), _1 : false };
                                             };
-                                            _f.name = __tmp__._0?.__copy__();
+                                            _f.name = __tmp__._0.__copy__();
                                         };
-                                        {
+{
                                             var __tmp__ = try {
                                                 { _0 : (stdgo.Go.typeAssert((_kid.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                                             } catch(_) {
@@ -633,9 +634,9 @@ package stdgo._internal.debug.dwarf;
                                             };
                                             _f.byteSize = __tmp__._0;
                                         };
-                                        var _haveBitOffset = (false : Bool);
-                                        var _haveDataBitOffset = (false : Bool);
-                                        {
+var _haveBitOffset = (false : Bool);
+var _haveDataBitOffset = (false : Bool);
+{
                                             var __tmp__ = try {
                                                 { _0 : (stdgo.Go.typeAssert((_kid.val((12u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                                             } catch(_) {
@@ -644,7 +645,7 @@ package stdgo._internal.debug.dwarf;
                                             _f.bitOffset = __tmp__._0;
                                             _haveBitOffset = __tmp__._1;
                                         };
-                                        {
+{
                                             var __tmp__ = try {
                                                 { _0 : (stdgo.Go.typeAssert((_kid.val((107u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                                             } catch(_) {
@@ -653,11 +654,11 @@ package stdgo._internal.debug.dwarf;
                                             _f.dataBitOffset = __tmp__._0;
                                             _haveDataBitOffset = __tmp__._1;
                                         };
-                                        if ((_haveBitOffset && _haveDataBitOffset : Bool)) {
-                                            _err = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _e.offset, ("duplicate bit offset attributes" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+if ((_haveBitOffset && _haveDataBitOffset : Bool)) {
+                                            _err = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name.__copy__(), _e.offset, ("duplicate bit offset attributes" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
                                             @:goto "Error";
                                         };
-                                        {
+{
                                             var __tmp__ = try {
                                                 { _0 : (stdgo.Go.typeAssert((_kid.val((13u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                                             } catch(_) {
@@ -665,14 +666,15 @@ package stdgo._internal.debug.dwarf;
                                             };
                                             _f.bitSize = __tmp__._0;
                                         };
-                                        _t.field = (_t.field.__append__(_f));
-                                        if (((_lastFieldBitSize == ((0i64 : stdgo.GoInt64)) && _lastFieldByteOffset == (_f.byteOffset) : Bool) && (_t.kind != ("union" : stdgo.GoString)) : Bool)) {
+_t.field = (_t.field.__append__(_f));
+if (((_lastFieldBitSize == ((0i64 : stdgo.GoInt64)) && _lastFieldByteOffset == (_f.byteOffset) : Bool) && (_t.kind != ("union" : stdgo.GoString)) : Bool)) {
                                             _fixups._recordArrayType(_lastFieldType);
                                         };
-                                        _lastFieldType = (stdgo.Go.setRef(_f.type) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>);
-                                        _lastFieldByteOffset = _f.byteOffset;
-                                        _lastFieldBitSize = _f.bitSize;
-                                    });
+_lastFieldType = (stdgo.Go.setRef(_f.type) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>);
+_lastFieldByteOffset = _f.byteOffset;
+_lastFieldBitSize = _f.bitSize;
+                                        _kid = _next();
+                                    };
                                 };
                                 if (_t.kind != (("union" : stdgo.GoString))) {
                                     var __tmp__ = try {
@@ -721,7 +723,7 @@ package stdgo._internal.debug.dwarf;
                                 _t.val = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
                                 {
                                     var _kid = _next();
-                                    stdgo.Go.cfor(_kid != null && ((_kid : Dynamic).__nil__ == null || !(_kid : Dynamic).__nil__), _kid = _next(), {
+                                    while (_kid != null && ((_kid : Dynamic).__nil__ == null || !(_kid : Dynamic).__nil__)) {
                                         if (_kid.tag == ((40u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
                                             var _f = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>);
                                             {
@@ -730,7 +732,7 @@ package stdgo._internal.debug.dwarf;
                                                 } catch(_) {
                                                     { _0 : ("" : stdgo.GoString), _1 : false };
                                                 };
-                                                _f.name = __tmp__._0?.__copy__();
+                                                _f.name = __tmp__._0.__copy__();
                                             };
                                             {
                                                 var __tmp__ = try {
@@ -749,7 +751,8 @@ package stdgo._internal.debug.dwarf;
                                             _t.val = (_t.val.__slice__((0 : stdgo.GoInt), (_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
                                             _t.val[(_n : stdgo.GoInt)] = _f;
                                         };
-                                    });
+                                        _kid = _next();
+                                    };
                                 };
                                 break;
                             } else if (__value__ == ((15u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
@@ -775,9 +778,9 @@ package stdgo._internal.debug.dwarf;
                                 _t.paramType = (new stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>);
                                 {
                                     var _kid = _next();
-                                    stdgo.Go.cfor(_kid != null && ((_kid : Dynamic).__nil__ == null || !(_kid : Dynamic).__nil__), _kid = _next(), {
+                                    while (_kid != null && ((_kid : Dynamic).__nil__ == null || !(_kid : Dynamic).__nil__)) {
                                         var _tkid:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
-                                        {
+{
                                             final __value__ = _kid.tag;
                                             if (__value__ == ((5u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
                                                 {
@@ -790,13 +793,14 @@ package stdgo._internal.debug.dwarf;
                                                 _tkid = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.dwarf.Dwarf_DotDotDotType.DotDotDotType() : stdgo._internal.debug.dwarf.Dwarf_DotDotDotType.DotDotDotType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_DotDotDotType.DotDotDotType>));
                                             } else {
                                                 {
-                                                    __continue__ = true;
-                                                    break;
+                                                    _kid = _next();
+                                                    continue;
                                                 };
                                             };
                                         };
-                                        _t.paramType = (_t.paramType.__append__(_tkid));
-                                    });
+_t.paramType = (_t.paramType.__append__(_tkid));
+                                        _kid = _next();
+                                    };
                                 };
                                 break;
                             } else if (__value__ == ((22u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
@@ -843,7 +847,6 @@ package stdgo._internal.debug.dwarf;
                         };
                         break;
                     };
-                    if (__continue__) continue;
                 };
                 if (_err != null) {
                     @:goto "Error";

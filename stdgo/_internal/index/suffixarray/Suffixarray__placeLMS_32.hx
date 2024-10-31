@@ -7,14 +7,14 @@ function _placeLMS_32(_text:stdgo.Slice<stdgo.GoInt32>, _sa:stdgo.Slice<stdgo.Go
 var _isTypeS = __2, _c1 = __1, _c0 = __0;
         {
             var _i = ((_text.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 {
                     final __tmp__0 = _text[(_i : stdgo.GoInt)];
                     final __tmp__1 = _c0;
                     _c0 = __tmp__0;
                     _c1 = __tmp__1;
                 };
-                if ((_c0 < _c1 : Bool)) {
+if ((_c0 < _c1 : Bool)) {
                     _isTypeS = true;
                 } else if (((_c0 > _c1 : Bool) && _isTypeS : Bool)) {
                     _isTypeS = false;
@@ -24,7 +24,8 @@ var _isTypeS = __2, _c1 = __1, _c0 = __0;
                     _lastB = _b;
                     _numLMS++;
                 };
-            });
+                _i--;
+            };
         };
         if ((_numLMS > (1 : stdgo.GoInt) : Bool)) {
             _sa[(_lastB : stdgo.GoInt)] = (0 : stdgo.GoInt32);

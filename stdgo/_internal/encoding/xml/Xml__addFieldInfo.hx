@@ -13,11 +13,15 @@ function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:
                 var _minl = (stdgo._internal.encoding.xml.Xml__min._min((_newf._parents.length), (_oldf._parents.length)) : stdgo.GoInt);
                 {
                     var _p = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_p < _minl : Bool), _p++, {
+                    while ((_p < _minl : Bool)) {
                         if (_oldf._parents[(_p : stdgo.GoInt)] != (_newf._parents[(_p : stdgo.GoInt)])) {
-                            @:jump("Loop") continue;
+                            @:jump("Loop") {
+                                _p++;
+                                continue;
+                            };
                         };
-                    });
+                        _p++;
+                    };
                 };
                 if (((_oldf._parents.length) > (_newf._parents.length) : Bool)) {
                     if (_oldf._parents[(_newf._parents.length : stdgo.GoInt)] == (_newf._name)) {
@@ -52,11 +56,12 @@ function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:
             };
             {
                 var _c = ((_conflicts.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.cfor((_c >= (0 : stdgo.GoInt) : Bool), _c--, {
+                while ((_c >= (0 : stdgo.GoInt) : Bool)) {
                     var _i = (_conflicts[(_c : stdgo.GoInt)] : stdgo.GoInt);
-                    stdgo.Go.copySlice((_tinfo._fields.__slice__(_i) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>), (_tinfo._fields.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>));
-                    _tinfo._fields = (_tinfo._fields.__slice__(0, ((_tinfo._fields.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
-                });
+stdgo.Go.copySlice((_tinfo._fields.__slice__(_i) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>), (_tinfo._fields.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>));
+_tinfo._fields = (_tinfo._fields.__slice__(0, ((_tinfo._fields.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
+                    _c--;
+                };
             };
             _tinfo._fields = (_tinfo._fields.__append__((_newf : stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo)?.__copy__()));
             return (null : stdgo.Error);

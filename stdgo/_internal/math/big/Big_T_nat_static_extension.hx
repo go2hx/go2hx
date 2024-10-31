@@ -14,26 +14,27 @@ package stdgo._internal.math.big;
         var _t1 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat);
         var _intD = (stdgo.Go.setRef(({ _abs : _d } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         var _intN = (stdgo.Go.setRef(({ _abs : _n } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        stdgo.Go.cfor(true, _p++, {
+        while (true) {
             if ((_p > (10000u32 : stdgo._internal.math.big.Big_Word.Word) : Bool)) {
-                throw stdgo.Go.toInterface((("math/big: internal error: cannot find (D/n) = -1 for " : stdgo.GoString) + (_intN.string() : stdgo.GoString)?.__copy__() : stdgo.GoString));
+                throw stdgo.Go.toInterface((("math/big: internal error: cannot find (D/n) = -1 for " : stdgo.GoString) + (_intN.string() : stdgo.GoString).__copy__() : stdgo.GoString));
             };
-            _d[(0 : stdgo.GoInt)] = ((_p * _p : stdgo._internal.math.big.Big_Word.Word) - (4u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
-            var _j = (stdgo._internal.math.big.Big_jacobi.jacobi(_intD, _intN) : stdgo.GoInt);
-            if (_j == ((-1 : stdgo.GoInt))) {
+_d[(0 : stdgo.GoInt)] = ((_p * _p : stdgo._internal.math.big.Big_Word.Word) - (4u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
+var _j = (stdgo._internal.math.big.Big_jacobi.jacobi(_intD, _intN) : stdgo.GoInt);
+if (_j == ((-1 : stdgo.GoInt))) {
                 break;
             };
-            if (_j == ((0 : stdgo.GoInt))) {
+if (_j == ((0 : stdgo.GoInt))) {
                 return ((_n.length == (1 : stdgo.GoInt)) && (_n[(0 : stdgo.GoInt)] == (_p + (2u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word)) : Bool);
             };
-            if (_p == ((40u32 : stdgo._internal.math.big.Big_Word.Word))) {
+if (_p == ((40u32 : stdgo._internal.math.big.Big_Word.Word))) {
                 _t1 = _t1._sqrt(_n);
                 _t1 = _t1._sqr(_t1);
                 if (_t1._cmp(_n) == ((0 : stdgo.GoInt))) {
                     return false;
                 };
             };
-        });
+            _p++;
+        };
         var _s = ((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._add(_n, stdgo._internal.math.big.Big__natOne._natOne) : stdgo._internal.math.big.Big_T_nat.T_nat);
         var _r = (_s._trailingZeroBits() : stdgo.GoInt);
         _s = _s._shr(_s, (_r : stdgo.GoUInt));
@@ -44,7 +45,7 @@ package stdgo._internal.math.big;
         var _t2 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat);
         {
             var _i = (_s._bitLen() : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 if (_s._bit((_i : stdgo.GoUInt)) != ((0u32 : stdgo.GoUInt))) {
                     _t1 = _t1._mul(_vk, _vk1);
                     _t1 = _t1._add(_t1, _n);
@@ -78,7 +79,8 @@ package stdgo._internal.math.big;
                         _vk = __tmp__._1;
                     };
                 };
-            });
+                _i--;
+            };
         };
         if (((_vk._cmp(stdgo._internal.math.big.Big__natTwo._natTwo) == (0 : stdgo.GoInt)) || (_vk._cmp(_nm2) == (0 : stdgo.GoInt)) : Bool)) {
             var _t1 = (_t1._mul(_vk, _natP) : stdgo._internal.math.big.Big_T_nat.T_nat);
@@ -106,21 +108,22 @@ package stdgo._internal.math.big;
         };
         {
             var _t = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_t < (_r - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _t++, {
+            while ((_t < (_r - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                 if ((_vk.length) == ((0 : stdgo.GoInt))) {
                     return true;
                 };
-                if (((_vk.length == (1 : stdgo.GoInt)) && (_vk[(0 : stdgo.GoInt)] == (2u32 : stdgo._internal.math.big.Big_Word.Word)) : Bool)) {
+if (((_vk.length == (1 : stdgo.GoInt)) && (_vk[(0 : stdgo.GoInt)] == (2u32 : stdgo._internal.math.big.Big_Word.Word)) : Bool)) {
                     return false;
                 };
-                _t1 = _t1._sqr(_vk);
-                _t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__natTwo._natTwo);
-                {
+_t1 = _t1._sqr(_vk);
+_t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__natTwo._natTwo);
+{
                     var __tmp__ = _t2._div(_vk, _t1, _n);
                     _t2 = __tmp__._0;
                     _vk = __tmp__._1;
                 };
-            });
+                _t++;
+            };
         };
         return false;
     }
@@ -138,36 +141,44 @@ var _quotient = __2, _y = __1, _x = __0;
             var _nm3Len = (_nm3._bitLen() : stdgo.GoInt);
             @:label("NextRandom") {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _reps : Bool), _i++, {
+                while ((_i < _reps : Bool)) {
                     if (((_i == (_reps - (1 : stdgo.GoInt) : stdgo.GoInt)) && _force2 : Bool)) {
                         _x = _x._set(stdgo._internal.math.big.Big__natTwo._natTwo);
                     } else {
                         _x = _x._random(_rand, _nm3, _nm3Len);
                         _x = _x._add(_x, stdgo._internal.math.big.Big__natTwo._natTwo);
                     };
-                    _y = _y._expNN(_x, _q, _n, false);
-                    if (((_y._cmp(stdgo._internal.math.big.Big__natOne._natOne) == (0 : stdgo.GoInt)) || (_y._cmp(_nm1) == (0 : stdgo.GoInt)) : Bool)) {
-                        continue;
+_y = _y._expNN(_x, _q, _n, false);
+if (((_y._cmp(stdgo._internal.math.big.Big__natOne._natOne) == (0 : stdgo.GoInt)) || (_y._cmp(_nm1) == (0 : stdgo.GoInt)) : Bool)) {
+                        {
+                            _i++;
+                            continue;
+                        };
                     };
-                    {
+{
                         var _j = ((1u32 : stdgo.GoUInt) : stdgo.GoUInt);
-                        stdgo.Go.cfor((_j < _k : Bool), _j++, {
+                        while ((_j < _k : Bool)) {
                             _y = _y._sqr(_y);
-                            {
+{
                                 var __tmp__ = _quotient._div(_y, _y, _n);
                                 _quotient = __tmp__._0;
                                 _y = __tmp__._1;
                             };
-                            if (_y._cmp(_nm1) == ((0 : stdgo.GoInt))) {
-                                @:jump("NextRandom") continue;
+if (_y._cmp(_nm1) == ((0 : stdgo.GoInt))) {
+                                @:jump("NextRandom") {
+                                    _j++;
+                                    continue;
+                                };
                             };
-                            if (_y._cmp(stdgo._internal.math.big.Big__natOne._natOne) == ((0 : stdgo.GoInt))) {
+if (_y._cmp(stdgo._internal.math.big.Big__natOne._natOne) == ((0 : stdgo.GoInt))) {
                                 return false;
                             };
-                        });
+                            _j++;
+                        };
                     };
-                    return false;
-                });
+return false;
+                    _i++;
+                };
             };
             return true;
         });
@@ -209,18 +220,19 @@ var _quotient = __2, _y = __1, _x = __0;
             _qhatv = _qhatv._mul(_qhat, (_v.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat));
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (2 : stdgo.GoInt) : Bool)) {
                     var _e = (_qhatv._cmp(_uu._norm()) : stdgo.GoInt);
-                    if ((_e <= (0 : stdgo.GoInt) : Bool)) {
+if ((_e <= (0 : stdgo.GoInt) : Bool)) {
                         break;
                     };
-                    stdgo._internal.math.big.Big__subVW._subVW(_qhat, _qhat, (1u32 : stdgo._internal.math.big.Big_Word.Word));
-                    var _c = (stdgo._internal.math.big.Big__subVV._subVV((_qhatv.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_qhatv.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_v.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat)) : stdgo._internal.math.big.Big_Word.Word);
-                    if (((_qhatv.length) > _s : Bool)) {
+stdgo._internal.math.big.Big__subVW._subVW(_qhat, _qhat, (1u32 : stdgo._internal.math.big.Big_Word.Word));
+var _c = (stdgo._internal.math.big.Big__subVV._subVV((_qhatv.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_qhatv.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_v.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat)) : stdgo._internal.math.big.Big_Word.Word);
+if (((_qhatv.length) > _s : Bool)) {
                         stdgo._internal.math.big.Big__subVW._subVW((_qhatv.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_qhatv.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), _c);
                     };
-                    stdgo._internal.math.big.Big__addAt._addAt((_uu.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_v.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), (0 : stdgo.GoInt));
-                });
+stdgo._internal.math.big.Big__addAt._addAt((_uu.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_v.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), (0 : stdgo.GoInt));
+                    _i++;
+                };
             };
             if ((_qhatv._cmp(_uu._norm()) > (0 : stdgo.GoInt) : Bool)) {
                 throw stdgo.Go.toInterface(("impossible" : stdgo.GoString));
@@ -242,7 +254,7 @@ var _quotient = __2, _y = __1, _x = __0;
         _qhatv = _qhatv._mul(_qhat, (_v.__slice__(0, _s) : stdgo._internal.math.big.Big_T_nat.T_nat));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (2 : stdgo.GoInt) : Bool)) {
                 {
                     var _e = (_qhatv._cmp(_u._norm()) : stdgo.GoInt);
                     if ((_e > (0 : stdgo.GoInt) : Bool)) {
@@ -254,7 +266,8 @@ var _quotient = __2, _y = __1, _x = __0;
                         stdgo._internal.math.big.Big__addAt._addAt((_u.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), (_v.__slice__(_s) : stdgo._internal.math.big.Big_T_nat.T_nat), (0 : stdgo.GoInt));
                     };
                 };
-            });
+                _i++;
+            };
         };
         if ((_qhatv._cmp(_u._norm()) > (0 : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(("impossible" : stdgo.GoString));
@@ -294,13 +307,13 @@ var _quotient = __2, _y = __1, _x = __0;
         var _rec = (stdgo._internal.math.big.Big__reciprocalWord._reciprocalWord(_vn1) : stdgo._internal.math.big.Big_Word.Word);
         {
             var _j = (_m : stdgo.GoInt);
-            stdgo.Go.cfor((_j >= (0 : stdgo.GoInt) : Bool), _j--, {
+            while ((_j >= (0 : stdgo.GoInt) : Bool)) {
                 var _qhat = ((-1u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
-                var _ujn:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
-                if (((_j + _n : stdgo.GoInt) < (_u.length) : Bool)) {
+var _ujn:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
+if (((_j + _n : stdgo.GoInt) < (_u.length) : Bool)) {
                     _ujn = _u[(_j + _n : stdgo.GoInt)];
                 };
-                if (_ujn != (_vn1)) {
+if (_ujn != (_vn1)) {
                     var _rhat:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
                     {
                         var __tmp__ = stdgo._internal.math.big.Big__divWW._divWW(_ujn, _u[((_j + _n : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)], _vn1, _rec);
@@ -324,24 +337,28 @@ var _quotient = __2, _y = __1, _x = __0;
                         };
                     };
                 };
-                _qhatv[(_n : stdgo.GoInt)] = stdgo._internal.math.big.Big__mulAddVWW._mulAddVWW((_qhatv.__slice__((0 : stdgo.GoInt), _n) : stdgo._internal.math.big.Big_T_nat.T_nat), _v, _qhat, (0u32 : stdgo._internal.math.big.Big_Word.Word));
-                var _qhl = (_qhatv.length : stdgo.GoInt);
-                if ((((_j + _qhl : stdgo.GoInt) > (_u.length) : Bool) && (_qhatv[(_n : stdgo.GoInt)] == (0u32 : stdgo._internal.math.big.Big_Word.Word)) : Bool)) {
+_qhatv[(_n : stdgo.GoInt)] = stdgo._internal.math.big.Big__mulAddVWW._mulAddVWW((_qhatv.__slice__((0 : stdgo.GoInt), _n) : stdgo._internal.math.big.Big_T_nat.T_nat), _v, _qhat, (0u32 : stdgo._internal.math.big.Big_Word.Word));
+var _qhl = (_qhatv.length : stdgo.GoInt);
+if ((((_j + _qhl : stdgo.GoInt) > (_u.length) : Bool) && (_qhatv[(_n : stdgo.GoInt)] == (0u32 : stdgo._internal.math.big.Big_Word.Word)) : Bool)) {
                     _qhl--;
                 };
-                var _c = (stdgo._internal.math.big.Big__subVV._subVV((_u.__slice__(_j, (_j + _qhl : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat), (_u.__slice__(_j) : stdgo._internal.math.big.Big_T_nat.T_nat), _qhatv) : stdgo._internal.math.big.Big_Word.Word);
-                if (_c != ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
+var _c = (stdgo._internal.math.big.Big__subVV._subVV((_u.__slice__(_j, (_j + _qhl : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat), (_u.__slice__(_j) : stdgo._internal.math.big.Big_T_nat.T_nat), _qhatv) : stdgo._internal.math.big.Big_Word.Word);
+if (_c != ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
                     var _c = (stdgo._internal.math.big.Big__addVV._addVV((_u.__slice__(_j, (_j + _n : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat), (_u.__slice__(_j) : stdgo._internal.math.big.Big_T_nat.T_nat), _v) : stdgo._internal.math.big.Big_Word.Word);
                     if ((_n < _qhl : Bool)) {
                         _u[(_j + _n : stdgo.GoInt)] = (_u[(_j + _n : stdgo.GoInt)] + (_c) : stdgo._internal.math.big.Big_Word.Word);
                     };
                     _qhat--;
                 };
-                if (((_j == (_m) && _m == ((_q.length)) : Bool) && (_qhat == (0u32 : stdgo._internal.math.big.Big_Word.Word)) : Bool)) {
-                    continue;
+if (((_j == (_m) && _m == ((_q.length)) : Bool) && (_qhat == (0u32 : stdgo._internal.math.big.Big_Word.Word)) : Bool)) {
+                    {
+                        _j--;
+                        continue;
+                    };
                 };
-                _q[(_j : stdgo.GoInt)] = _qhat;
-            });
+_q[(_j : stdgo.GoInt)] = _qhat;
+                _j--;
+            };
         };
         stdgo._internal.math.big.Big__putNat._putNat(_qhatvp);
     }
@@ -485,12 +502,13 @@ var _quotient = __2, _y = __1, _x = __0;
                 };
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(((_j < _ndigits : Bool) && (_i > (0 : stdgo.GoInt) : Bool) : Bool), _j++, {
+                    while (((_j < _ndigits : Bool) && (_i > (0 : stdgo.GoInt) : Bool) : Bool)) {
                         _i--;
-                        var _t = (_r / (10u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
-                        _s[(_i : stdgo.GoInt)] = ((48 : stdgo.GoUInt8) + ((_r - (_t * (10u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoUInt8) : stdgo.GoUInt8);
-                        _r = _t;
-                    });
+var _t = (_r / (10u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
+_s[(_i : stdgo.GoInt)] = ((48 : stdgo.GoUInt8) + ((_r - (_t * (10u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoUInt8) : stdgo.GoUInt8);
+_r = _t;
+                        _j++;
+                    };
                 };
             };
         } else {
@@ -502,11 +520,12 @@ var _quotient = __2, _y = __1, _x = __0;
                 };
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(((_j < _ndigits : Bool) && (_i > (0 : stdgo.GoInt) : Bool) : Bool), _j++, {
+                    while (((_j < _ndigits : Bool) && (_i > (0 : stdgo.GoInt) : Bool) : Bool)) {
                         _i--;
-                        _s[(_i : stdgo.GoInt)] = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString)[((_r % _b : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoInt)];
-                        _r = (_r / (_b) : stdgo._internal.math.big.Big_Word.Word);
-                    });
+_s[(_i : stdgo.GoInt)] = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString)[((_r % _b : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoInt)];
+_r = (_r / (_b) : stdgo._internal.math.big.Big_Word.Word);
+                        _j++;
+                    };
                 };
             };
         };
@@ -538,14 +557,14 @@ var _quotient = __2, _y = __1, _x = __0;
                 var _nbits = ((32u32 : stdgo.GoUInt) : stdgo.GoUInt);
                 {
                     var _k = (1 : stdgo.GoInt);
-                    stdgo.Go.cfor((_k < (_x.length) : Bool), _k++, {
+                    while ((_k < (_x.length) : Bool)) {
                         while ((_nbits >= _shift : Bool)) {
                             _i--;
                             _s[(_i : stdgo.GoInt)] = ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : stdgo.GoString)[((_w & _mask : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoInt)];
                             _w = (_w >> (_shift) : stdgo._internal.math.big.Big_Word.Word);
                             _nbits = (_nbits - (_shift) : stdgo.GoUInt);
                         };
-                        if (_nbits == ((0u32 : stdgo.GoUInt))) {
+if (_nbits == ((0u32 : stdgo.GoUInt))) {
                             _w = _x[(_k : stdgo.GoInt)];
                             _nbits = (32u32 : stdgo.GoUInt);
                         } else {
@@ -555,7 +574,8 @@ var _quotient = __2, _y = __1, _x = __0;
                             _w = (_x[(_k : stdgo.GoInt)] >> ((_shift - _nbits : stdgo.GoUInt)) : stdgo._internal.math.big.Big_Word.Word);
                             _nbits = ((32u32 : stdgo.GoUInt) - ((_shift - _nbits : stdgo.GoUInt)) : stdgo.GoUInt);
                         };
-                    });
+                        _k++;
+                    };
                 };
                 while (_w != ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
                     _i--;
@@ -776,26 +796,27 @@ var _z2 = __1, _z1 = __0;
         _z1 = _z1._shl(_z1, (((_x._bitLen() + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) / (2u32 : stdgo.GoUInt) : stdgo.GoUInt));
         {
             var _n = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(true, _n++, {
+            while (true) {
                 {
                     var __tmp__ = _z2._div(null, _x, _z1);
                     _z2 = __tmp__._0;
                 };
-                _z2 = _z2._add(_z2, _z1);
-                _z2 = _z2._shr(_z2, (1u32 : stdgo.GoUInt));
-                if ((_z2._cmp(_z1) >= (0 : stdgo.GoInt) : Bool)) {
+_z2 = _z2._add(_z2, _z1);
+_z2 = _z2._shr(_z2, (1u32 : stdgo.GoUInt));
+if ((_z2._cmp(_z1) >= (0 : stdgo.GoInt) : Bool)) {
                     if ((_n & (1 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
                         return _z1;
                     };
                     return _z._set(_z1);
                 };
-                {
+{
                     final __tmp__0 = _z2;
                     final __tmp__1 = _z1;
                     _z1 = __tmp__0;
                     _z2 = __tmp__1;
                 };
-            });
+                _n++;
+            };
         };
     }
     @:keep
@@ -805,19 +826,21 @@ var _z2 = __1, _z1 = __0;
         var _i = (_buf.length : stdgo.GoInt);
         {
             var _k = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (4 : stdgo.GoInt) : Bool), _k++, {
+            while ((_i >= (4 : stdgo.GoInt) : Bool)) {
                 _z[(_k : stdgo.GoInt)] = stdgo._internal.math.big.Big__bigEndianWord._bigEndianWord((_buf.__slice__((_i - (4 : stdgo.GoInt) : stdgo.GoInt), _i) : stdgo.Slice<stdgo.GoUInt8>));
-                _i = (_i - ((4 : stdgo.GoInt)) : stdgo.GoInt);
-            });
+_i = (_i - ((4 : stdgo.GoInt)) : stdgo.GoInt);
+                _k++;
+            };
         };
         if ((_i > (0 : stdgo.GoInt) : Bool)) {
             var _d:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
             {
                 var _s = ((0u32 : stdgo.GoUInt) : stdgo.GoUInt);
-                stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _s = (_s + ((8u32 : stdgo.GoUInt)) : stdgo.GoUInt), {
+                while ((_i > (0 : stdgo.GoInt) : Bool)) {
                     _d = (_d | (((_buf[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo._internal.math.big.Big_Word.Word) << _s : stdgo._internal.math.big.Big_Word.Word)) : stdgo._internal.math.big.Big_Word.Word);
-                    _i--;
-                });
+_i--;
+                    _s = (_s + ((8u32 : stdgo.GoUInt)) : stdgo.GoUInt);
+                };
             };
             _z[((_z.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = _d;
         };
@@ -831,15 +854,16 @@ var _z2 = __1, _z1 = __0;
         for (__8 => _d in _z) {
             {
                 var _j = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_j < (4 : stdgo.GoInt) : Bool), _j++, {
+                while ((_j < (4 : stdgo.GoInt) : Bool)) {
                     _i--;
-                    if ((_i >= (0 : stdgo.GoInt) : Bool)) {
+if ((_i >= (0 : stdgo.GoInt) : Bool)) {
                         _buf[(_i : stdgo.GoInt)] = (_d : stdgo.GoUInt8);
                     } else if ((_d : stdgo.GoUInt8) != ((0 : stdgo.GoUInt8))) {
                         throw stdgo.Go.toInterface(("math/big: buffer too small to fit value" : stdgo.GoString));
                     };
-                    _d = (_d >> ((8i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
-                });
+_d = (_d >> ((8i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
+                    _j++;
+                };
             };
         };
         if ((_i < (0 : stdgo.GoInt) : Bool)) {
@@ -869,10 +893,11 @@ var _z2 = __1, _z1 = __0;
         var _t = (_m[(0 : stdgo.GoInt)] - (1u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
         {
             var _i = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (32 : stdgo.GoInt) : Bool), _i = (_i << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt), {
+            while ((_i < (32 : stdgo.GoInt) : Bool)) {
                 _t = (_t * (_t) : stdgo._internal.math.big.Big_Word.Word);
-                _k0 = (_k0 * ((_t + (1u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word)) : stdgo._internal.math.big.Big_Word.Word);
-            });
+_k0 = (_k0 * ((_t + (1u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word)) : stdgo._internal.math.big.Big_Word.Word);
+                _i = (_i << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt);
+            };
         };
         _k0 = -_k0;
         var rr = ((new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._setWord((1u32 : stdgo._internal.math.big.Big_Word.Word)) : stdgo._internal.math.big.Big_T_nat.T_nat);
@@ -894,37 +919,40 @@ var _z2 = __1, _z1 = __0;
         _powers[(1 : stdgo.GoInt)] = _powers[(1 : stdgo.GoInt)]._montgomery(_x, rr, _m, _k0, _numWords);
         {
             var _i = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (16 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (16 : stdgo.GoInt) : Bool)) {
                 _powers[(_i : stdgo.GoInt)] = _powers[(_i : stdgo.GoInt)]._montgomery(_powers[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)], _powers[(1 : stdgo.GoInt)], _m, _k0, _numWords);
-            });
+                _i++;
+            };
         };
         _z = _z._make(_numWords);
         stdgo.Go.copySlice(_z, _powers[(0 : stdgo.GoInt)]);
         _zz = _zz._make(_numWords);
         {
             var _i = ((_y.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 var _yi = (_y[(_i : stdgo.GoInt)] : stdgo._internal.math.big.Big_Word.Word);
-                {
+{
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < (32 : stdgo.GoInt) : Bool), _j = (_j + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
+                    while ((_j < (32 : stdgo.GoInt) : Bool)) {
                         if (((_i != ((_y.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) || (_j != (0 : stdgo.GoInt)) : Bool)) {
                             _zz = _zz._montgomery(_z, _z, _m, _k0, _numWords);
                             _z = _z._montgomery(_zz, _zz, _m, _k0, _numWords);
                             _zz = _zz._montgomery(_z, _z, _m, _k0, _numWords);
                             _z = _z._montgomery(_zz, _zz, _m, _k0, _numWords);
                         };
-                        _zz = _zz._montgomery(_z, _powers[((_yi >> (28i64 : stdgo.GoUInt64) : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoInt)], _m, _k0, _numWords);
-                        {
+_zz = _zz._montgomery(_z, _powers[((_yi >> (28i64 : stdgo.GoUInt64) : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoInt)], _m, _k0, _numWords);
+{
                             final __tmp__0 = _zz;
                             final __tmp__1 = _z;
                             _z = __tmp__0;
                             _zz = __tmp__1;
                         };
-                        _yi = (_yi << ((4i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
-                    });
+_yi = (_yi << ((4i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
+                        _j = (_j + ((4 : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
-            });
+                _i--;
+            };
         };
         _zz = _zz._montgomery(_z, _one, _m, _k0, _numWords);
         if ((_zz._cmp(_m) >= (0 : stdgo.GoInt) : Bool)) {
@@ -962,14 +990,15 @@ var _z2 = __1, _z1 = __0;
         (_powers[(1 : stdgo.GoInt)] : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_powers[(1 : stdgo.GoInt)]._trunc(_x, _logM));
         {
             var _i = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (16 : stdgo.GoInt) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+            while ((_i < (16 : stdgo.GoInt) : Bool)) {
                 var __0 = _powers[(_i / (2 : stdgo.GoInt) : stdgo.GoInt)], __1 = _powers[(_i : stdgo.GoInt)], __2 = _powers[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)];
 var _p1 = __2, _p = __1, _p2 = __0;
-                (_p : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p._sqr((_p2 : stdgo._internal.math.big.Big_T_nat.T_nat)));
-                (_p : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p._trunc((_p : stdgo._internal.math.big.Big_T_nat.T_nat), _logM));
-                (_p1 : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p1._mul((_p : stdgo._internal.math.big.Big_T_nat.T_nat), _x));
-                (_p1 : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p1._trunc((_p1 : stdgo._internal.math.big.Big_T_nat.T_nat), _logM));
-            });
+(_p : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p._sqr((_p2 : stdgo._internal.math.big.Big_T_nat.T_nat)));
+(_p : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p._trunc((_p : stdgo._internal.math.big.Big_T_nat.T_nat), _logM));
+(_p1 : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p1._mul((_p : stdgo._internal.math.big.Big_T_nat.T_nat), _x));
+(_p1 : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_p1._trunc((_p1 : stdgo._internal.math.big.Big_T_nat.T_nat), _logM));
+                _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
         var _i = ((_y.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
         var _mtop = ((((_logM - (2u32 : stdgo.GoUInt) : stdgo.GoUInt)) / (32u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt);
@@ -985,14 +1014,14 @@ var _p1 = __2, _p = __1, _p2 = __0;
         };
         var _advance = (false : Bool);
         _z = _z._setWord((1u32 : stdgo._internal.math.big.Big_Word.Word));
-        stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+        while ((_i >= (0 : stdgo.GoInt) : Bool)) {
             var _yi = (_y[(_i : stdgo.GoInt)] : stdgo._internal.math.big.Big_Word.Word);
-            if (_i == (_mtop)) {
+if (_i == (_mtop)) {
                 _yi = (_yi & (_mmask) : stdgo._internal.math.big.Big_Word.Word);
             };
-            {
+{
                 var _j = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_j < (32 : stdgo.GoInt) : Bool), _j = (_j + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
+                while ((_j < (32 : stdgo.GoInt) : Bool)) {
                     if (_advance) {
                         _zz = _zz._sqr(_z);
                         {
@@ -1027,19 +1056,21 @@ var _p1 = __2, _p = __1, _p2 = __0;
                         };
                         _z = _z._trunc(_z, _logM);
                     };
-                    _zz = _zz._mul(_z, (_powers[((_yi >> (28i64 : stdgo.GoUInt64) : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoInt)] : stdgo._internal.math.big.Big_T_nat.T_nat));
-                    {
+_zz = _zz._mul(_z, (_powers[((_yi >> (28i64 : stdgo.GoUInt64) : stdgo._internal.math.big.Big_Word.Word) : stdgo.GoInt)] : stdgo._internal.math.big.Big_T_nat.T_nat));
+{
                         final __tmp__0 = _z;
                         final __tmp__1 = _zz;
                         _zz = __tmp__0;
                         _z = __tmp__1;
                     };
-                    _z = _z._trunc(_z, _logM);
-                    _yi = (_yi << ((4i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
-                    _advance = true;
-                });
+_z = _z._trunc(_z, _logM);
+_yi = (_yi << ((4i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
+_advance = true;
+                    _j = (_j + ((4 : stdgo.GoInt)) : stdgo.GoInt);
+                };
             };
-        });
+            _i--;
+        };
         (_zzp : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_zz);
         stdgo._internal.math.big.Big__putNat._putNat(_zzp);
         for (_i => _ in _powers) {
@@ -1113,15 +1144,15 @@ var _p1 = __2, _p = __1, _p2 = __0;
 var _r = __1, _zz = __0;
         {
             var _j = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_j < _w : Bool), _j++, {
+            while ((_j < _w : Bool)) {
                 _zz = _zz._sqr(_z);
-                {
+{
                     final __tmp__0 = _z;
                     final __tmp__1 = _zz;
                     _zz = __tmp__0;
                     _z = __tmp__1;
                 };
-                if ((_v & (-2147483648u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) != ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
+if ((_v & (-2147483648u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) != ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
                     _zz = _zz._mul(_z, _x);
                     {
                         final __tmp__0 = _z;
@@ -1130,7 +1161,7 @@ var _r = __1, _zz = __0;
                         _z = __tmp__1;
                     };
                 };
-                if ((_m.length) != ((0 : stdgo.GoInt))) {
+if ((_m.length) != ((0 : stdgo.GoInt))) {
                     {
                         var __tmp__ = _zz._div(_r, _z, _m);
                         _zz = __tmp__._0;
@@ -1147,24 +1178,25 @@ var _r = __1, _zz = __0;
                         _z = __tmp__3;
                     };
                 };
-                _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
-            });
+_v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
+                _j++;
+            };
         };
         {
             var _i = ((_y.length) - (2 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 _v = _y[(_i : stdgo.GoInt)];
-                {
+{
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < (32 : stdgo.GoInt) : Bool), _j++, {
+                    while ((_j < (32 : stdgo.GoInt) : Bool)) {
                         _zz = _zz._sqr(_z);
-                        {
+{
                             final __tmp__0 = _z;
                             final __tmp__1 = _zz;
                             _zz = __tmp__0;
                             _z = __tmp__1;
                         };
-                        if ((_v & (-2147483648u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) != ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
+if ((_v & (-2147483648u32 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word) != ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
                             _zz = _zz._mul(_z, _x);
                             {
                                 final __tmp__0 = _z;
@@ -1173,7 +1205,7 @@ var _r = __1, _zz = __0;
                                 _z = __tmp__1;
                             };
                         };
-                        if ((_m.length) != ((0 : stdgo.GoInt))) {
+if ((_m.length) != ((0 : stdgo.GoInt))) {
                             {
                                 var __tmp__ = _zz._div(_r, _z, _m);
                                 _zz = __tmp__._0;
@@ -1190,10 +1222,12 @@ var _r = __1, _zz = __0;
                                 _z = __tmp__3;
                             };
                         };
-                        _v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
-                    });
+_v = (_v << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.math.big.Big_Word.Word);
+                        _j++;
+                    };
                 };
-            });
+                _i--;
+            };
         };
         return _z._norm();
     }
@@ -1249,9 +1283,10 @@ var _r = __1, _zz = __0;
         _z = _z._make(_m);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 _z[(_i : stdgo.GoInt)] = (_x[(_i : stdgo.GoInt)] ^ _y[(_i : stdgo.GoInt)] : stdgo._internal.math.big.Big_Word.Word);
-            });
+                _i++;
+            };
         };
         stdgo.Go.copySlice((_z.__slice__(_n, _m) : stdgo._internal.math.big.Big_T_nat.T_nat), (_s.__slice__(_n, _m) : stdgo._internal.math.big.Big_T_nat.T_nat));
         return _z._norm();
@@ -1274,9 +1309,10 @@ var _r = __1, _zz = __0;
         _z = _z._make(_m);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 _z[(_i : stdgo.GoInt)] = (_x[(_i : stdgo.GoInt)] | _y[(_i : stdgo.GoInt)] : stdgo._internal.math.big.Big_Word.Word);
-            });
+                _i++;
+            };
         };
         stdgo.Go.copySlice((_z.__slice__(_n, _m) : stdgo._internal.math.big.Big_T_nat.T_nat), (_s.__slice__(_n, _m) : stdgo._internal.math.big.Big_T_nat.T_nat));
         return _z._norm();
@@ -1292,9 +1328,10 @@ var _r = __1, _zz = __0;
         _z = _z._make(_m);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 _z[(_i : stdgo.GoInt)] = (_x[(_i : stdgo.GoInt)] & ((_y[(_i : stdgo.GoInt)] ^ (-1i32 : stdgo.GoInt) : stdgo._internal.math.big.Big_Word.Word)) : stdgo._internal.math.big.Big_Word.Word);
-            });
+                _i++;
+            };
         };
         stdgo.Go.copySlice((_z.__slice__(_n, _m) : stdgo._internal.math.big.Big_T_nat.T_nat), (_x.__slice__(_n, _m) : stdgo._internal.math.big.Big_T_nat.T_nat));
         return _z._norm();
@@ -1324,9 +1361,10 @@ var _r = __1, _zz = __0;
         _z = _z._make(_m);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _m : Bool), _i++, {
+            while ((_i < _m : Bool)) {
                 _z[(_i : stdgo.GoInt)] = (_x[(_i : stdgo.GoInt)] & _y[(_i : stdgo.GoInt)] : stdgo._internal.math.big.Big_Word.Word);
-            });
+                _i++;
+            };
         };
         return _z._norm();
     }
@@ -1573,17 +1611,18 @@ var _r = __1, _zz = __0;
             var _y0 = (_y0._norm() : stdgo._internal.math.big.Big_T_nat.T_nat);
             {
                 var _i = (_k : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_x.length) : Bool), _i = (_i + (_k) : stdgo.GoInt), {
+                while ((_i < (_x.length) : Bool)) {
                     var _xi = (_x.__slice__(_i) : stdgo._internal.math.big.Big_T_nat.T_nat);
-                    if (((_xi.length) > _k : Bool)) {
+if (((_xi.length) > _k : Bool)) {
                         _xi = (_xi.__slice__(0, _k) : stdgo._internal.math.big.Big_T_nat.T_nat);
                     };
-                    _xi = _xi._norm();
-                    _t = _t._mul(_xi, _y0);
-                    stdgo._internal.math.big.Big__addAt._addAt(_z, _t, _i);
-                    _t = _t._mul(_xi, _y1);
-                    stdgo._internal.math.big.Big__addAt._addAt(_z, _t, (_i + _k : stdgo.GoInt));
-                });
+_xi = _xi._norm();
+_t = _t._mul(_xi, _y0);
+stdgo._internal.math.big.Big__addAt._addAt(_z, _t, _i);
+_t = _t._mul(_xi, _y1);
+stdgo._internal.math.big.Big__addAt._addAt(_z, _t, (_i + _k : stdgo.GoInt));
+                    _i = (_i + (_k) : stdgo.GoInt);
+                };
             };
             stdgo._internal.math.big.Big__putNat._putNat(_tp);
         };
@@ -1600,20 +1639,21 @@ var _r = __1, _zz = __0;
         var _c:stdgo._internal.math.big.Big_Word.Word = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 var _d = (_y[(_i : stdgo.GoInt)] : stdgo._internal.math.big.Big_Word.Word);
-                var _c2 = (stdgo._internal.math.big.Big__addMulVVW._addMulVVW((_z.__slice__(_i, (_n + _i : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat), _x, _d) : stdgo._internal.math.big.Big_Word.Word);
-                var _t = (_z[(_i : stdgo.GoInt)] * _k : stdgo._internal.math.big.Big_Word.Word);
-                var _c3 = (stdgo._internal.math.big.Big__addMulVVW._addMulVVW((_z.__slice__(_i, (_n + _i : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat), _m, _t) : stdgo._internal.math.big.Big_Word.Word);
-                var _cx = (_c + _c2 : stdgo._internal.math.big.Big_Word.Word);
-                var _cy = (_cx + _c3 : stdgo._internal.math.big.Big_Word.Word);
-                _z[(_n + _i : stdgo.GoInt)] = _cy;
-                if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
+var _c2 = (stdgo._internal.math.big.Big__addMulVVW._addMulVVW((_z.__slice__(_i, (_n + _i : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat), _x, _d) : stdgo._internal.math.big.Big_Word.Word);
+var _t = (_z[(_i : stdgo.GoInt)] * _k : stdgo._internal.math.big.Big_Word.Word);
+var _c3 = (stdgo._internal.math.big.Big__addMulVVW._addMulVVW((_z.__slice__(_i, (_n + _i : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat), _m, _t) : stdgo._internal.math.big.Big_Word.Word);
+var _cx = (_c + _c2 : stdgo._internal.math.big.Big_Word.Word);
+var _cy = (_cx + _c3 : stdgo._internal.math.big.Big_Word.Word);
+_z[(_n + _i : stdgo.GoInt)] = _cy;
+if (((_cx < _c2 : Bool) || (_cy < _c3 : Bool) : Bool)) {
                     _c = (1u32 : stdgo._internal.math.big.Big_Word.Word);
                 } else {
                     _c = (0u32 : stdgo._internal.math.big.Big_Word.Word);
                 };
-            });
+                _i++;
+            };
         };
         if (_c != ((0u32 : stdgo._internal.math.big.Big_Word.Word))) {
             stdgo._internal.math.big.Big__subVV._subVV((_z.__slice__(0, _n) : stdgo._internal.math.big.Big_T_nat.T_nat), (_z.__slice__(_n) : stdgo._internal.math.big.Big_T_nat.T_nat), _m);

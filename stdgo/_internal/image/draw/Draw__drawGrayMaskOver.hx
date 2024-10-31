@@ -33,45 +33,47 @@ var _dy = __2, _y1 = __1, _y0 = __0;
         var _di = (_dx * (4 : stdgo.GoInt) : stdgo.GoInt);
         {
             var _y = (_y0 : stdgo.GoInt);
-            stdgo.Go.cfor(_y != (_y1), {
-                final __tmp__0 = (_y + _dy : stdgo.GoInt);
-                final __tmp__1 = (_sy + _dy : stdgo.GoInt);
-                final __tmp__2 = (_my + _dy : stdgo.GoInt);
-                _y = __tmp__0;
-                _sy = __tmp__1;
-                _my = __tmp__2;
-            }, {
+            while (_y != (_y1)) {
                 {
                     var __0 = (_i0 : stdgo.GoInt), __1 = (_sx0 : stdgo.GoInt), __2 = (_mx0 : stdgo.GoInt);
 var _mx = __2, _sx = __1, _i = __0;
-                    stdgo.Go.cfor(_sx != (_sx1), {
-                        final __tmp__0 = (_i + _di : stdgo.GoInt);
-                        final __tmp__1 = (_sx + _dx : stdgo.GoInt);
-                        final __tmp__2 = (_mx + _dx : stdgo.GoInt);
-                        _i = __tmp__0;
-                        _sx = __tmp__1;
-                        _mx = __tmp__2;
-                    }, {
+                    while (_sx != (_sx1)) {
                         var _mi = (_mask.pixOffset(_mx, _my) : stdgo.GoInt);
-                        var _ma = (_mask.pix[(_mi : stdgo.GoInt)] : stdgo.GoUInt32);
-                        _ma = (_ma | ((_ma << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                        var _si = (_src.pixOffset(_sx, _sy) : stdgo.GoInt);
-                        var _sy = (_src.pix[(_si : stdgo.GoInt)] : stdgo.GoUInt32);
-                        _sy = (_sy | ((_sy << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                        var _sa = ((65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                        var _d = (_dst.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-                        var _dr = (_d[(0 : stdgo.GoInt)] : stdgo.GoUInt32);
-                        var _dg = (_d[(1 : stdgo.GoInt)] : stdgo.GoUInt32);
-                        var _db = (_d[(2 : stdgo.GoInt)] : stdgo.GoUInt32);
-                        var _da = (_d[(3 : stdgo.GoInt)] : stdgo.GoUInt32);
-                        var _a = ((((65535u32 : stdgo.GoUInt32) - (((_sa * _ma : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32)) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                        _d[(0 : stdgo.GoInt)] = ((((((_dr * _a : stdgo.GoUInt32) + (_sy * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
-                        _d[(1 : stdgo.GoInt)] = ((((((_dg * _a : stdgo.GoUInt32) + (_sy * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
-                        _d[(2 : stdgo.GoInt)] = ((((((_db * _a : stdgo.GoUInt32) + (_sy * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
-                        _d[(3 : stdgo.GoInt)] = ((((((_da * _a : stdgo.GoUInt32) + (_sa * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
-                    });
+var _ma = (_mask.pix[(_mi : stdgo.GoInt)] : stdgo.GoUInt32);
+_ma = (_ma | ((_ma << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+var _si = (_src.pixOffset(_sx, _sy) : stdgo.GoInt);
+var _sy = (_src.pix[(_si : stdgo.GoInt)] : stdgo.GoUInt32);
+_sy = (_sy | ((_sy << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+var _sa = ((65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+var _d = (_dst.pix.__slice__(_i, (_i + (4 : stdgo.GoInt) : stdgo.GoInt), (_i + (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+var _dr = (_d[(0 : stdgo.GoInt)] : stdgo.GoUInt32);
+var _dg = (_d[(1 : stdgo.GoInt)] : stdgo.GoUInt32);
+var _db = (_d[(2 : stdgo.GoInt)] : stdgo.GoUInt32);
+var _da = (_d[(3 : stdgo.GoInt)] : stdgo.GoUInt32);
+var _a = ((((65535u32 : stdgo.GoUInt32) - (((_sa * _ma : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32)) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
+_d[(0 : stdgo.GoInt)] = ((((((_dr * _a : stdgo.GoUInt32) + (_sy * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
+_d[(1 : stdgo.GoInt)] = ((((((_dg * _a : stdgo.GoUInt32) + (_sy * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
+_d[(2 : stdgo.GoInt)] = ((((((_db * _a : stdgo.GoUInt32) + (_sy * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
+_d[(3 : stdgo.GoInt)] = ((((((_da * _a : stdgo.GoUInt32) + (_sa * _ma : stdgo.GoUInt32) : stdgo.GoUInt32)) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
+                        {
+                            final __tmp__0 = (_i + _di : stdgo.GoInt);
+                            final __tmp__1 = (_sx + _dx : stdgo.GoInt);
+                            final __tmp__2 = (_mx + _dx : stdgo.GoInt);
+                            _i = __tmp__0;
+                            _sx = __tmp__1;
+                            _mx = __tmp__2;
+                        };
+                    };
                 };
-                _i0 = (_i0 + ((_dy * _dst.stride : stdgo.GoInt)) : stdgo.GoInt);
-            });
+_i0 = (_i0 + ((_dy * _dst.stride : stdgo.GoInt)) : stdgo.GoInt);
+                {
+                    final __tmp__0 = (_y + _dy : stdgo.GoInt);
+                    final __tmp__1 = (_sy + _dy : stdgo.GoInt);
+                    final __tmp__2 = (_my + _dy : stdgo.GoInt);
+                    _y = __tmp__0;
+                    _sy = __tmp__1;
+                    _my = __tmp__2;
+                };
+            };
         };
     }

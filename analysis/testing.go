@@ -13,13 +13,22 @@ import (
 	"os/exec"
 )
 
+const dir = "analysis/tests/unit"
+
 func GotoParseTest() {
+	all()
+}
+
+func all() {
 	dir := "analysis/tests/unit"
 	paths, err := os.ReadDir(dir)
 	if err != nil {
 		panic(err)
 	}
 	for _, path := range paths {
+		if path.Name() == "test.go" {
+			continue
+		}
 		create(dir, path.Name())
 	}
 }

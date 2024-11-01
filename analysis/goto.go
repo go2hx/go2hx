@@ -270,6 +270,73 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			setJump(stmt.Pos()),
 			ifStmt,
 		)
+	case *ast.RangeStmt:
+		switch t := fs.checker.TypeOf(stmt.X).Underlying().(type) {
+		case *types.Map:
+			_ = t
+			ident := ast.NewIdent("i_" + fmt.Sprint(stmt.Range))
+			ident.Obj = ast.NewObj(ast.Var, ident.Name)
+			ident.NamePos = stmt.Range
+			fs.tempVars[ident.Obj] = tempVarData{
+				Ident: ident,
+				Type:  ast.NewIdent("int"),
+			}
+			lhs := []ast.Expr{ident}
+			rhs := []ast.Expr{createPos(token.Pos(0))}
+			init := &ast.AssignStmt{Lhs: lhs, Tok: token.ASSIGN, TokPos: stmt.TokPos, Rhs: rhs}
+
+			keysExpr := ast.NewIdent("keys_" + fmt.Sprint(stmt.Pos()))
+			forStmt := &ast.ForStmt{For: stmt.Body.Rbrace, Init: init, Body: stmt.Body, Cond: &ast.BinaryExpr{X: lhs[0], Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{keysExpr}}}, Post: &ast.IncDecStmt{X: lhs[0], Tok: token.INC}}
+			getKeyExpr := &ast.IndexExpr{X: keysExpr, Index: lhs[0]}
+			if stmt.Key != nil {
+				assign := defineExpr(stmt.Key, getKeyExpr)
+				forStmt.Body.List = append([]ast.Stmt{assign}, forStmt.Body.List...)
+			}
+			if stmt.Value != nil {
+				assign := defineExpr(stmt.Value, &ast.IndexExpr{X: stmt.X, Index: &ast.IndexExpr{X: keysExpr, Index: lhs[0]}})
+				forStmt.Body.List = append([]ast.Stmt{assign}, forStmt.Body.List...)
+			}
+
+			cond := &ast.BinaryExpr{X: createPos(token.Pos(0)), Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{stmt.X}}}
+			ifStmt := &ast.IfStmt{Cond: cond, Body: &ast.BlockStmt{List: []ast.Stmt{forStmt}, Lbrace: stmt.Body.Rbrace - 1}, If: stmt.X.Pos()}
+			fs.tempVars[ast.NewObj(ast.Var, keysExpr.Name)] = tempVarData{
+				Ident: keysExpr,
+				Type:  typeToExpr(types.NewSlice(t.Key())),
+			}
+			keysStmt := &ast.RangeStmt{For: stmt.For - 1, Key: ast.NewIdent("key"), Tok: token.DEFINE, X: stmt.X, Body: &ast.BlockStmt{
+				List: []ast.Stmt{assign(keysExpr, &ast.CallExpr{Fun: ast.NewIdent("append"), Args: []ast.Expr{keysExpr, ast.NewIdent("key")}})},
+			}}
+			return append([]ast.Stmt{assign(keysExpr, &ast.CompositeLit{Type: typeToExpr(types.NewSlice(t.Key()))}), keysStmt}, fs.markJumps(ifStmt, scopeIndex)...)
+		case *types.Array, *types.Slice:
+			_ = t
+			lhs := []ast.Expr{}
+			if stmt.Key != nil {
+				lhs = append(lhs, fs.changeVars(stmt.Key))
+			} else {
+				lhs = append(lhs, ast.NewIdent("i_"+fmt.Sprint(stmt.Pos())))
+			}
+			if stmt.Value != nil && stmt.Tok == token.DEFINE {
+				lhs = append(lhs, stmt.Value)
+			}
+			rhs := make([]ast.Expr, len(lhs))
+			for i := range lhs {
+				switch i {
+				case 0:
+					rhs[i] = createPos(token.Pos(0))
+				case 1:
+					rhs[i] = &ast.IndexExpr{X: stmt.X, Index: createPos(token.Pos(0))}
+				}
+			}
+			init := &ast.AssignStmt{Lhs: lhs, Tok: stmt.Tok, TokPos: stmt.TokPos, Rhs: rhs}
+			forStmt := &ast.ForStmt{For: stmt.Body.Rbrace, Init: init, Body: stmt.Body, Cond: &ast.BinaryExpr{X: lhs[0], Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{stmt.X}}}, Post: &ast.IncDecStmt{X: lhs[0], Tok: token.INC}}
+			if stmt.Value != nil {
+				assign := assignExpr(stmt.Value, &ast.IndexExpr{X: stmt.X, Index: lhs[0]})
+				forStmt.Body.List = append([]ast.Stmt{assign}, forStmt.Body.List...)
+			}
+			cond := &ast.BinaryExpr{X: createPos(token.Pos(0)), Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{stmt.X}}}
+			ifStmt := &ast.IfStmt{Cond: cond, Body: &ast.BlockStmt{List: []ast.Stmt{forStmt}, Lbrace: stmt.Body.Rbrace - 1}, If: stmt.X.Pos()}
+			return fs.markJumps(ifStmt, scopeIndex)
+		}
 	case *ast.DeclStmt:
 		switch decl := stmt.Decl.(type) {
 		case *ast.GenDecl:
@@ -354,6 +421,14 @@ func createPos(pos token.Pos) ast.Expr {
 }
 func makeIf(cond ast.Expr, body []ast.Stmt, elseStmts []ast.Stmt) *ast.IfStmt {
 	return &ast.IfStmt{Cond: cond, Body: &ast.BlockStmt{List: body}, Else: &ast.BlockStmt{List: elseStmts}}
+}
+
+func assignExpr(key ast.Expr, value ast.Expr) ast.Stmt {
+	return &ast.AssignStmt{Lhs: []ast.Expr{key}, Tok: token.ASSIGN, Rhs: []ast.Expr{value}}
+}
+
+func defineExpr(key ast.Expr, value ast.Expr) ast.Stmt {
+	return &ast.AssignStmt{Lhs: []ast.Expr{key}, Tok: token.DEFINE, Rhs: []ast.Expr{value}}
 }
 
 func assign(ident *ast.Ident, value ast.Expr) ast.Stmt {

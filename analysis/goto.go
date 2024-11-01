@@ -16,16 +16,17 @@ import (
 )
 
 type funcScope struct {
-	tempVars         map[*ast.Object]tempVarData
-	checker          *types.Checker
-	labelMap         map[string]token.Pos
-	labelMapLoop     map[string]ast.Stmt
-	labelMapPost     map[string]ast.Stmt
-	loopLabelMap     map[token.Pos]string
-	nextJumpFunc     []func(token.Pos)
-	loopPost         ast.Stmt
-	loopContinuePos  token.Pos
-	loopBreakPosFunc func(token.Pos)
+	tempVars               map[*ast.Object]tempVarData
+	checker                *types.Checker
+	labelMap               map[string]token.Pos
+	labelMapLoop           map[string]ast.Stmt
+	labelMapPost           map[string]ast.Stmt
+	loopLabelMap           map[token.Pos]string
+	nextJumpFunc           []func(token.Pos)
+	loopPost               ast.Stmt
+	loopContinuePos        token.Pos
+	loopBreakPosFunc       func(token.Pos)
+	loopFallthroughPosFunc func(token.Pos)
 }
 
 func (fs *funcScope) nextJumpRun(f func(token.Pos)) {
@@ -79,6 +80,12 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 	case *ast.BranchStmt:
 		if stmt.Label == nil {
 			switch stmt.Tok {
+			case token.FALLTHROUGH:
+				stmts := []ast.Stmt{jumpTo(0)}
+				fs.loopFallthroughPosFunc = func(pos token.Pos) {
+					stmts[0].(*ast.AssignStmt).Rhs[0] = createPos(pos)
+				}
+				return stmts
 			case token.BREAK:
 				stmts := []ast.Stmt{jumpTo(0)}
 				fs.loopBreakPosFunc = func(pos token.Pos) {
@@ -136,7 +143,10 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				}
 			}
 			newStmts := []ast.Stmt{}
-
+			if fs.loopFallthroughPosFunc != nil {
+				fs.loopFallthroughPosFunc(stmt.Body.List[i].(*ast.CaseClause).Pos())
+				fs.loopFallthroughPosFunc = nil
+			}
 			nextJumpFunc := fs.nextJumpFunc
 			fs.nextJumpFunc = make([]func(token.Pos), 0)
 			newStmts = fs.markJumps(&ast.BlockStmt{List: stmt.Body.List[i].(*ast.CaseClause).Body}, scopeIndex+1)[0].(*ast.BlockStmt).List
@@ -152,6 +162,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				//stmt.Else.(*ast.BlockStmt).List[len(stmt.Else.(*ast.BlockStmt).List)-1] = jumpTo(pos)
 			})
 		}
+		fs.loopFallthroughPosFunc = nil
 		if defaultClause == nil {
 			stmt.Body.List = append(stmt.Body.List, &ast.CaseClause{
 				List: nil,

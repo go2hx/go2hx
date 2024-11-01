@@ -6902,10 +6902,10 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				args.push({opt: true, name: name});
 			}
 			final meta:Metadata = [{name: ":structInit", pos: null}, {name: ":named", pos: null}];
-			final params = []; // getParams(spec.params, info, true); // named struct
+			final params = getParams(spec.params, info, true); // named struct
 			final p:TypePath = {name: name, pack: []};
-			//if (params != null && params.length > 0)
-			//	p.params = typeParamDeclsToTypeParams(params);
+			if (params != null && params.length > 0)
+				p.params = typeParamDeclsToTypeParams(params);
 			final td = macro class $name {
 				public function new() {}
 
@@ -6930,7 +6930,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		case interfaceType(empty, _):
 			if (empty) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
-				final params = []; // getParams(spec.params, info, true); // no meta :genericBuild
+				final params = getParams(spec.params, info, true); // no meta :genericBuild
 				return {
 					name: name,
 					pos: null,
@@ -6944,7 +6944,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				};
 			}
 			final meta:Metadata = [];
-			final params = []; // getParams(spec.params, info, true);
+			final params = getParams(spec.params, info, true);
 			return {
 				name: name,
 				pos: null,
@@ -6980,7 +6980,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	}
 	var uct = t == invalidType ? invalidComplexType() : toComplexType(t, info);
 	final meta:Metadata = [{name: ":named", pos: null}];
-	final params = []; //getParams(spec.params, info, true);
+	final params = getParams(spec.params, info, true);
 	return {
 		name: name,
 		pos: null,
@@ -7210,10 +7210,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					})
 				});
 			}
-			final params = []; //getParams(spec.params, info, true);
+			final params = getParams(spec.params, info, true);
 			var p:TypePath = {name: name, pack: []};
-			//if (params != null && params.length > 0)
-			//	p.params = typeParamDeclsToTypeParams(params);
+			/*if (params != null && params.length > 0)
+				p.params = typeParamDeclsToTypeParams(params);*/
 			var args:Array<Expr> = [];
 			var sets:Array<Expr> = [];
 			for (field in fields) {
@@ -7498,7 +7498,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			var struct:Ast.InterfaceType = spec.type;
 			if (struct.methods.list.length == 0 && !struct.incomplete) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
-				final params = []; //getParams(spec.params, info, true);
+				final params = getParams(spec.params, info, true);
 				return {
 					name: name,
 					pos: null,
@@ -7557,7 +7557,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					if (struct.methods.list[0].type.id == "BinaryExpr") {
 						// union contract interface type
 						final meta:Metadata = [{name: ":union", pos: null}];
-						final params = []; // getParams(spec.params, info, true);
+						final params = getParams(spec.params, info, true);
 						return {
 							name: name,
 							pack: [],
@@ -7646,7 +7646,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 					}
 				}
 			}
-			final params = []; // getParams(spec.params, info, true);
+			final params = getParams(spec.params, info, true);
 			if (struct.incomplete) {
 				switch name {
 					case "Error":

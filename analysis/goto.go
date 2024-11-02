@@ -24,7 +24,7 @@ type funcScope struct {
 	loopLabelMap           map[token.Pos]string
 	nextJumpFunc           []func(token.Pos)
 	loopPost               ast.Stmt
-	loopContinuePos        token.Pos
+	loopContinuePos        [100]token.Pos
 	loopBreakPosFunc       []breakData
 	loopFallthroughPosFunc func(token.Pos)
 }
@@ -102,7 +102,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				if fs.loopPost != nil {
 					post = fs.loopPost
 				}
-				return []ast.Stmt{post, jumpTo(fs.loopContinuePos)}
+				return []ast.Stmt{post, jumpTo(fs.loopContinuePos[scopeIndex])}
 			}
 		} else {
 			switch stmt.Tok {
@@ -249,7 +249,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			stmt,
 		}
 	case *ast.ForStmt:
-		fs.loopContinuePos = stmt.Pos()
+		fs.loopContinuePos[scopeIndex+1] = stmt.Pos()
 		init := []ast.Stmt{blank()}
 		if stmt.Init != nil {
 			init = fs.markJumps(stmt.Init, scopeIndex)

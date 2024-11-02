@@ -25,8 +25,13 @@ type funcScope struct {
 	nextJumpFunc           []func(token.Pos)
 	loopPost               ast.Stmt
 	loopContinuePos        token.Pos
-	loopBreakPosFunc       func(token.Pos)
+	loopBreakPosFunc       []breakData
 	loopFallthroughPosFunc func(token.Pos)
+}
+
+type breakData struct {
+	f          func(token.Pos)
+	scopeIndex int
 }
 
 func (fs *funcScope) nextJumpRun(f func(token.Pos)) {
@@ -73,7 +78,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				//newStmts = append(newStmts, jumpTo(stmt.List[i].Pos()))
 				newStmts = append(newStmts, setJump(stmt.List[i].Pos()))
 			}
-			newStmts = append(newStmts, fs.markJumps(stmt.List[i], scopeIndex+1)...)
+			newStmts = append(newStmts, fs.markJumps(stmt.List[i], scopeIndex)...)
 		}
 		stmt.List = newStmts
 		return []ast.Stmt{stmt}
@@ -88,9 +93,9 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				return stmts
 			case token.BREAK:
 				stmts := []ast.Stmt{jumpTo(0)}
-				fs.loopBreakPosFunc = func(pos token.Pos) {
+				fs.loopBreakPosFunc = append(fs.loopBreakPosFunc, breakData{f: func(pos token.Pos) {
 					stmts[0].(*ast.AssignStmt).Rhs[0] = createPos(pos)
-				}
+				}, scopeIndex: scopeIndex})
 				return stmts
 			case token.CONTINUE:
 				post := blank()
@@ -175,10 +180,15 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		}
 		// switch break
 		fs.nextJumpRun(func(pos token.Pos) {
-			if fs.loopBreakPosFunc != nil {
-				fs.loopBreakPosFunc(pos)
-				fs.loopBreakPosFunc = nil
+			newLoopBreakPosFunc := []breakData{}
+			for _, data := range fs.loopBreakPosFunc {
+				if scopeIndex+1 == data.scopeIndex {
+					data.f(pos)
+				} else {
+					newLoopBreakPosFunc = append(newLoopBreakPosFunc, data)
+				}
 			}
+			fs.loopBreakPosFunc = newLoopBreakPosFunc
 		})
 		if labelName, exists := fs.loopLabelMap[stmt.Pos()]; exists {
 			breakName := labelName + "Break"
@@ -206,7 +216,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			stmt.Init = fs.markJumps(stmt.Init, scopeIndex)[0]
 		}
 		stmt.Cond = fs.changeVars(stmt.Cond)
-		stmt.Body = fs.markJumps(stmt.Body, scopeIndex+1)[0].(*ast.BlockStmt)
+		stmt.Body = fs.markJumps(stmt.Body, scopeIndex)[0].(*ast.BlockStmt)
 		if stmt.Else == nil {
 			stmt.Else = &ast.BlockStmt{List: []ast.Stmt{}, Lbrace: stmt.End()}
 		} else {
@@ -268,13 +278,21 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		}*/
 		stmt.Body.List = append([]ast.Stmt{jumpTo(stmt.Body.Pos()), setJump(stmt.Body.Pos())}, stmt.Body.List...)
 		stmt.Body.List = append(stmt.Body.List, jumpTo(stmt.Pos()))
+		if stmt.Cond == nil {
+			stmt.Cond = ast.NewIdent("true")
+		}
 		var ifStmt *ast.IfStmt = makeIf(fs.changeVars(stmt.Cond), stmt.Body.List, []ast.Stmt{blank()})
 		fs.nextJumpRun(func(pos token.Pos) {
 			ifStmt.Else.(*ast.BlockStmt).List[0] = jumpTo(pos)
-			if fs.loopBreakPosFunc != nil {
-				fs.loopBreakPosFunc(pos)
-				fs.loopBreakPosFunc = nil
+			newLoopBreakPosFunc := []breakData{}
+			for _, data := range fs.loopBreakPosFunc {
+				if scopeIndex+1 == data.scopeIndex {
+					data.f(pos)
+				} else {
+					newLoopBreakPosFunc = append(newLoopBreakPosFunc, data)
+				}
 			}
+			fs.loopBreakPosFunc = newLoopBreakPosFunc
 		})
 		return append(init,
 			jumpTo(stmt.Pos()),
@@ -461,8 +479,8 @@ func (fs *funcScope) tempVar(ident *ast.Ident, t types.Type) *ast.Ident {
 }
 
 type labelData struct {
-	index int
-	stmts []ast.Stmt
+	scopeIndex int
+	stmts      []ast.Stmt
 }
 
 type JumpData struct {

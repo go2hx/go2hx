@@ -16,6 +16,7 @@ import (
 const dir = "analysis/tests/unit"
 
 func GotoParseTest() {
+	//create(dir, "test.go")
 	all()
 }
 
@@ -60,7 +61,7 @@ func create(filePath string, fileName string) {
 	checker := types.NewChecker(&conf, fset, pkg, info)
 
 	// Rewrite the function body without goto statements
-	ParseLocalGotos(file, checker)
+	ParseLocalGotos(file, checker, fset)
 
 	// Print the result
 	config := printer.Config{Mode: printer.UseSpaces, Tabwidth: 4}

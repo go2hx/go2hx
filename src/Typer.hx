@@ -5307,9 +5307,25 @@ private function hasKeyValueExpr(elts:Array<Ast.Expr>) {
 }
 
 private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
-	if (expr.type == null)
-		return (macro @:invalid_compositelit_null null).expr;
+	var setToSliceRune = false;
+	var sliceRuneType:GoType = null;
+	if (expr.type == null) {
+		if (expr.exprType.id == "ArrayType") {
+			setToSliceRune = true;
+			switch expr.exprType.elt.name {
+				case "rune":
+					sliceRuneType = GoType.basic(int32_kind);
+				case "int":
+					sliceRuneType = GoType.basic(int_kind);
+			}
+		}else{
+			return (macro @:invalid_compositelit_null null).expr;
+		}
+	}
 	var type = typeof(expr.type, info, false);
+	if (setToSliceRune) {
+		type = GoType.sliceType({get: () -> sliceRuneType}); 
+	}
 	//var ct = typeExprType(expr.type, info);
 	var ct = toComplexType(type, info);
 	final e = compositeLit(type, ct, expr, info);

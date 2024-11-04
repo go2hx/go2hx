@@ -23,7 +23,7 @@ type funcScope struct {
 	labelMapPost           map[string]ast.Stmt
 	loopLabelMap           map[token.Pos]string
 	nextJumpFunc           []func(token.Pos)
-	loopPost               ast.Stmt
+	loopPost               [100]ast.Stmt
 	loopContinuePos        [100]token.Pos
 	loopBreakPosFunc       []breakData
 	loopFallthroughPosFunc func(token.Pos)
@@ -98,11 +98,12 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				}, scopeIndex: scopeIndex})
 				return stmts
 			case token.CONTINUE:
-				post := blank()
-				if fs.loopPost != nil {
-					post = fs.loopPost
+				post := fs.loopPost[scopeIndex]
+				pos := fs.loopContinuePos[scopeIndex]
+				if pos == 0 {
+					panic("not found continue pos")
 				}
-				return []ast.Stmt{post, jumpTo(fs.loopContinuePos[scopeIndex])}
+				return []ast.Stmt{post, jumpTo(pos)}
 			}
 		} else {
 			switch stmt.Tok {
@@ -193,7 +194,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		if labelName, exists := fs.loopLabelMap[stmt.Pos()]; exists {
 			breakName := labelName + "Break"
 			obj := ast.NewObj(ast.Var, breakName)
-			fs.tempVars[obj] = tempVarData{ast.NewIdent(breakName), ast.NewIdent("bool")}
+			fs.tempVars[obj] = tempVarData{ast.NewIdent(breakName), ast.NewIdent("bool"), ast.NewIdent("false")}
 			init = append(init, assign(ast.NewIdent(breakName), ast.NewIdent("false")))
 			notBreakNameExpr := &ast.UnaryExpr{X: ast.NewIdent(breakName), Op: token.NOT}
 			ifStmt := &ast.IfStmt{Cond: notBreakNameExpr, Body: &ast.BlockStmt{List: []ast.Stmt{stmt}}, Else: &ast.BlockStmt{List: []ast.Stmt{blank()}}}
@@ -257,7 +258,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		if labelName, exists := fs.loopLabelMap[stmt.Pos()]; exists {
 			breakName := labelName + "Break"
 			obj := ast.NewObj(ast.Var, breakName)
-			fs.tempVars[obj] = tempVarData{ast.NewIdent(breakName), ast.NewIdent("bool")}
+			fs.tempVars[obj] = tempVarData{ast.NewIdent(breakName), ast.NewIdent("bool"), ast.NewIdent("false")}
 			init = append(init, assign(ast.NewIdent(breakName), ast.NewIdent("false")))
 			notBreakNameExpr := &ast.UnaryExpr{X: ast.NewIdent(breakName), Op: token.NOT}
 			if stmt.Cond == nil {
@@ -268,9 +269,9 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		}
 		if stmt.Post != nil {
 			stmt.Body.List = append(stmt.Body.List, stmt.Post)
-			fs.loopPost = fs.markJumps(stmt.Post, scopeIndex)[0]
+			fs.loopPost[scopeIndex+1] = fs.markJumps(stmt.Post, scopeIndex)[0]
 		} else {
-			fs.loopPost = nil
+			fs.loopPost[scopeIndex+1] = blank()
 		}
 		stmt.Body = fs.markJumps(stmt.Body, scopeIndex+1)[0].(*ast.BlockStmt)
 		/*if fs.loopPost != nil {
@@ -301,7 +302,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		)
 	case *ast.RangeStmt:
 		switch t := fs.checker.TypeOf(stmt.X).Underlying().(type) {
-		case *types.Map:
+		case *types.Basic:
 			_ = t
 			ident := ast.NewIdent("i_" + fmt.Sprint(stmt.Range))
 			ident.Obj = ast.NewObj(ast.Var, ident.Name)
@@ -310,11 +311,56 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				Ident: ident,
 				Type:  ast.NewIdent("int"),
 			}
+			rhs := []ast.Expr{createPos(token.Pos(0))}
+			init := &ast.AssignStmt{Lhs: []ast.Expr{ident}, Tok: token.ASSIGN, TokPos: stmt.TokPos, Rhs: rhs}
+
+			keysExpr := ast.NewIdent("keys_" + fmt.Sprint(stmt.Pos()))
+			valuesExpr := ast.NewIdent("values_" + fmt.Sprint(stmt.Pos()))
+			forStmt := &ast.ForStmt{For: stmt.Body.Rbrace, Init: init, Body: stmt.Body, Cond: &ast.BinaryExpr{X: ident, Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{keysExpr}}}, Post: &ast.IncDecStmt{X: ident, Tok: token.INC}}
+			if stmt.Key != nil {
+				assign := defineExpr(stmt.Key, &ast.IndexExpr{X: keysExpr, Index: ident})
+				forStmt.Body.List = append([]ast.Stmt{assign}, forStmt.Body.List...)
+			}
+			if stmt.Value != nil {
+				assign := defineExpr(stmt.Value, &ast.IndexExpr{X: valuesExpr, Index: ident})
+				forStmt.Body.List = append([]ast.Stmt{assign}, forStmt.Body.List...)
+			}
+
+			cond := &ast.BinaryExpr{X: createPos(token.Pos(0)), Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{stmt.X}}}
+			ifStmt := &ast.IfStmt{Cond: cond, Body: &ast.BlockStmt{List: []ast.Stmt{forStmt}, Lbrace: stmt.Body.Rbrace - 1}, If: stmt.X.Pos()}
+			clKeysType := &ast.CompositeLit{Type: &ast.ArrayType{Elt: ast.NewIdent("int")}}
+			fs.tempVars[ast.NewObj(ast.Var, keysExpr.Name)] = tempVarData{
+				Ident: keysExpr,
+				Value: clKeysType,
+			}
+			clValuesType := &ast.CompositeLit{Type: &ast.ArrayType{Elt: ast.NewIdent("rune")}}
+			fs.tempVars[ast.NewObj(ast.Var, valuesExpr.Name)] = tempVarData{
+				Ident: valuesExpr,
+				Value: clValuesType,
+			}
+
+			rangeStmt := &ast.RangeStmt{For: stmt.For - 1, Key: ast.NewIdent("key"), Value: ast.NewIdent("value"), Tok: token.DEFINE, X: stmt.X, Body: &ast.BlockStmt{
+				List: []ast.Stmt{
+					assign(keysExpr, &ast.CallExpr{Fun: ast.NewIdent("append"), Args: []ast.Expr{keysExpr, ast.NewIdent("key")}}),
+					assign(valuesExpr, &ast.CallExpr{Fun: ast.NewIdent("append"), Args: []ast.Expr{valuesExpr, ast.NewIdent("value")}}),
+				},
+			}}
+			return append([]ast.Stmt{assign(keysExpr, clKeysType), assign(valuesExpr, clValuesType), rangeStmt}, fs.markJumps(ifStmt, scopeIndex)...)
+		case *types.Map:
+			ident := ast.NewIdent("i_" + fmt.Sprint(stmt.Range))
+			ident.Obj = ast.NewObj(ast.Var, ident.Name)
+			ident.NamePos = stmt.Range
+			fs.tempVars[ident.Obj] = tempVarData{
+				Ident: ident,
+				Type:  ast.NewIdent("int"),
+				Value: createPos(0),
+			}
 			lhs := []ast.Expr{ident}
 			rhs := []ast.Expr{createPos(token.Pos(0))}
 			init := &ast.AssignStmt{Lhs: lhs, Tok: token.ASSIGN, TokPos: stmt.TokPos, Rhs: rhs}
 
 			keysExpr := ast.NewIdent("keys_" + fmt.Sprint(stmt.Pos()))
+			keysExpr.Obj = ast.NewObj(ast.Var, keysExpr.Name)
 			forStmt := &ast.ForStmt{For: stmt.Body.Rbrace, Init: init, Body: stmt.Body, Cond: &ast.BinaryExpr{X: lhs[0], Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{keysExpr}}}, Post: &ast.IncDecStmt{X: lhs[0], Tok: token.INC}}
 			getKeyExpr := &ast.IndexExpr{X: keysExpr, Index: lhs[0]}
 			if stmt.Key != nil {
@@ -328,18 +374,27 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 
 			cond := &ast.BinaryExpr{X: createPos(token.Pos(0)), Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{stmt.X}}}
 			ifStmt := &ast.IfStmt{Cond: cond, Body: &ast.BlockStmt{List: []ast.Stmt{forStmt}, Lbrace: stmt.Body.Rbrace - 1}, If: stmt.X.Pos()}
+			fs.addTypeWithExpr(types.NewSlice(t.Key()), &ast.ArrayType{Elt: fs.typeToExpr(t.Key())})
+			cl := &ast.CompositeLit{Type: fs.typeToExpr(types.NewSlice(t.Key()))}
 			fs.tempVars[ast.NewObj(ast.Var, keysExpr.Name)] = tempVarData{
 				Ident: keysExpr,
-				Type:  typeToExpr(types.NewSlice(t.Key())),
+				Type:  cl.Type,
+				Value: cl,
 			}
 			keysStmt := &ast.RangeStmt{For: stmt.For - 1, Key: ast.NewIdent("key"), Tok: token.DEFINE, X: stmt.X, Body: &ast.BlockStmt{
 				List: []ast.Stmt{assign(keysExpr, &ast.CallExpr{Fun: ast.NewIdent("append"), Args: []ast.Expr{keysExpr, ast.NewIdent("key")}})},
 			}}
-			return append([]ast.Stmt{assign(keysExpr, &ast.CompositeLit{Type: typeToExpr(types.NewSlice(t.Key()))}), keysStmt}, fs.markJumps(ifStmt, scopeIndex)...)
+			return append([]ast.Stmt{assign(keysExpr, cl), keysStmt}, fs.markJumps(ifStmt, scopeIndex)...)
 		case *types.Array, *types.Slice:
 			_ = t
 			lhs := []ast.Expr{}
 			if stmt.Key != nil {
+				switch key := stmt.Key.(type) {
+				case *ast.Ident:
+					if key.Name == "_" {
+						key.Name = "i_" + fmt.Sprint(stmt.Pos())
+					}
+				}
 				lhs = append(lhs, fs.changeVars(stmt.Key))
 			} else {
 				lhs = append(lhs, ast.NewIdent("i_"+fmt.Sprint(stmt.Pos())))
@@ -437,6 +492,11 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 	return []ast.Stmt{stmt}
 }
 
+func (fs *funcScope) addTypeWithExpr(t types.Type, e ast.Expr) {
+	fs.checker.Types[e] = types.TypeAndValue{Type: t}
+	//types.TypeAndValue{Type: types.NewSlice(t.Key())}
+}
+
 func blank() ast.Stmt {
 	return assign(ast.NewIdent("_"), createPos(token.Pos(0)))
 }
@@ -475,7 +535,7 @@ func (fs *funcScope) tempVarWithTypeExpr(ident *ast.Ident, t ast.Expr) *ast.Iden
 }
 
 func (fs *funcScope) tempVar(ident *ast.Ident, t types.Type) *ast.Ident {
-	return fs.tempVarWithTypeExpr(ident, typeToExpr(t))
+	return fs.tempVarWithTypeExpr(ident, fs.typeToExpr(t))
 }
 
 type labelData struct {
@@ -494,19 +554,26 @@ func (j *JumpData) connect(pos token.Pos) {
 
 type tempVarData struct {
 	*ast.Ident
-	Type ast.Expr
+	Type  ast.Expr
+	Value ast.Expr
 }
 
-func typeToExpr(t types.Type) ast.Expr {
-	switch t := t.(type) {
-	case *types.Basic:
-		return ast.NewIdent(t.Name())
-	case *types.Signature:
-		return ast.NewIdent(t.String())
-	default:
-		return ast.NewIdent(t.String())
-		//panic("typeToExpr unsupported type: " + reflect.TypeOf(t).String())
+func (fs *funcScope) typeToExpr(t types.Type) ast.Expr {
+	for expr, data := range fs.checker.Types {
+		if data.Type.Underlying().String() == t.String() { // type equality
+			buf := bytes.NewBufferString("")
+			printer.Fprint(buf, token.NewFileSet(), expr)
+			switch t.(type) {
+			case *types.Basic:
+				return ast.NewIdent(t.String())
+			default:
+				if buf.String() == t.String() { // expr should look the same as the type
+					return expr
+				}
+			}
+		}
 	}
+	panic("not found expr: " + t.String())
 }
 
 func ParseLocalGotos(file *ast.File, checker *types.Checker) {
@@ -650,14 +717,18 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 
 		// add temp vars
 		for _, data := range fs.tempVars {
+			valueSpec := &ast.ValueSpec{
+				Names: []*ast.Ident{data.Ident},
+				Type:  data.Type,
+			}
+			if data.Value != nil {
+				valueSpec.Values = []ast.Expr{data.Value}
+			}
 			fn.List = append([]ast.Stmt{&ast.DeclStmt{
 				Decl: &ast.GenDecl{
 					Tok: token.VAR,
 					Specs: []ast.Spec{
-						&ast.ValueSpec{
-							Names: []*ast.Ident{data.Ident},
-							Type:  data.Type,
-						},
+						valueSpec,
 					},
 				},
 			}}, fn.List...)

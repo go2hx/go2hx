@@ -20,11 +20,31 @@
           |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
-[30;41m ERROR [0m stdgo/sync/Sync.hx:404: characters 35-41
+[30;41m ERROR [0m stdgo/sync/atomic_/Atomic_.hx:139: lines 139-143
 
- 404 | [2m    public var _state(get, set) : [0m[1mUint64[0m[2m;[0m
-     |                                   [31m^^^^^^[0m
-     | Type not found : Uint64
+ 139 | [2m@:structInit @:using(stdgo.sync.atomic_.Atomic_.T_noCopy_static_extension) [0m[1mabstract T_noCopy(stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy) from stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy to stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy {[0m
+   - | [2m  [...][0m
+ 143 | [1m}[0m[2m[0m
+     |
+     | stdgo.sync.atomic_._Atomic_.T_noCopy_Impl_ is not ready to be accessed, separate your type declarations in several files
+
+[30;41m ERROR [0m stdgo/sync/atomic_/Atomic_.hx:139: lines 139-143
+
+ 139 | [2m@:structInit @:using(stdgo.sync.atomic_.Atomic_.T_noCopy_static_extension) [0m[1mabstract T_noCopy(stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy) from stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy to stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy {[0m
+   - | [2m  [...][0m
+ 143 | [1m}[0m[2m[0m
+     |
+     | stdgo.sync.atomic_._Atomic_.T_noCopy_Impl_ is not ready to be accessed, separate your type declarations in several files
+
+[30;41m ERROR [0m stdgo/sync/atomic_/Atomic_.hx:139: lines 139-143
+
+ 139 | [2m@:structInit @:using(stdgo.sync.atomic_.Atomic_.T_noCopy_static_extension) [0m[1mabstract T_noCopy(stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy) from stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy to stdgo._internal.sync.atomic_.Atomic__T_noCopy.T_noCopy {[0m
+   - | [2m  [...][0m
+ 143 | [1m}[0m[2m[0m
+     |
+     | stdgo.sync.atomic_._Atomic_.T_noCopy_Impl_ is not ready to be accessed, separate your type declarations in several files
+
+          | For optional function argument '__1'
 
 
 ```

@@ -16,11 +16,11 @@
           |                                   [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
           | Called from here
 
-[30;41m ERROR [0m stdgo/_internal/bufio_test/Bufio_test.hx:269: characters 23-51
+[30;41m ERROR [0m stdgo/_internal/bufio_test/Bufio.hx:4: characters 26-70
 
- 269 | [2m    public var _buf : [0m[1mstdgo._internal.io.Io.Reader[0m[2m = (null : stdgo._internal.io.Io.Reader);[0m
-     |                       [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Module stdgo._internal.io.Io does not define type Reader
+   4 | [2mvar _tests : stdgo.Slice<[0m[1mstdgo._internal.testing.Testing.InternalTest[0m[2m> = (new stdgo.Slice<stdgo._internal.testing.Testing.InternalTest>(79, 79, ...[[0m
+     |                          [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Module stdgo._internal.testing.Testing does not define type InternalTest
 
 
 ```

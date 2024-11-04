@@ -1,13 +1,12 @@
 # Module stdgo.encoding.xml has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/internal/Macro.macro.hx:363: lines 363-366
+[30;41m ERROR [0m stdgo/_internal/encoding/xml/Xml_Decoder_static_extension.hx:1108: lines 1108-1165
 
- 363 | [2m   [0m[1mdo {[0m
- 364 | [1m    $i{exitName} = false;[0m
- 365 | [1m    $switchStmt;[0m
- 366 | [1m   } while ($i{selectName} != "")[0m[2m;[0m
-     |
-     | Missing return: { _1 : stdgo.Error, _0 : Bool }
+ 1108 | [2m        [0m[1mstdgo._internal.internal.Macro.controlFlow({[0m
+    - | [2m          [...][0m
+ 1165 | [1m        })[0m[2m;[0m
+      |
+      | Missing return: { _1 : stdgo.Error, _0 : Bool }
 
 
 ```

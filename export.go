@@ -317,7 +317,7 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 func parseLocalFile(file *ast.File, pkg *packages.Package) {
 	analysis.ParseLocalTypes(file, pkg, checker, hashType, &countStruct, &countInterface)
 	analysis.ParseLocalConstants(file, pkg, checker)
-	analysis.ParseLocalGotos(file, checker)
+	analysis.ParseLocalGotos(file, checker, pkg.Fset)
 }
 
 func randomIdentifier() *ast.Ident {

@@ -27,6 +27,7 @@ type funcScope struct {
 	loopContinuePos        [100]token.Pos
 	loopBreakPosFunc       []breakData
 	loopFallthroughPosFunc func(token.Pos)
+	fset                   *token.FileSet
 }
 
 type breakData struct {
@@ -101,7 +102,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				post := fs.loopPost[scopeIndex]
 				pos := fs.loopContinuePos[scopeIndex]
 				if pos == 0 {
-					panic("not found continue pos")
+					panic(fmt.Sprint("not found continue pos2:", scopeIndex, fs.fset.Position(stmt.Pos())))
 				}
 				return []ast.Stmt{post, jumpTo(pos)}
 			}
@@ -573,10 +574,10 @@ func (fs *funcScope) typeToExpr(t types.Type) ast.Expr {
 			}
 		}
 	}
-	panic("not found expr: " + t.String())
+	return ast.NewIdent(t.String())
 }
 
-func ParseLocalGotos(file *ast.File, checker *types.Checker) {
+func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet) {
 	// select functions that have gotos in them
 	decls := []*ast.FuncDecl{}
 	for _, decl := range file.Decls {
@@ -602,6 +603,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker) {
 	for _, decl := range decls {
 		fn := decl.Body
 		fs := newFuncScope(checker)
+		fs.fset = fset
 		// get labels
 		astutil.Apply(fn, func(c *astutil.Cursor) bool {
 			switch stmt := c.Node().(type) {

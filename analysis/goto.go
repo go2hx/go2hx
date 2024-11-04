@@ -99,8 +99,18 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				}, scopeIndex: scopeIndex})
 				return stmts
 			case token.CONTINUE:
-				post := fs.loopPost[scopeIndex]
-				pos := fs.loopContinuePos[scopeIndex]
+				var post ast.Stmt = nil
+				pos := token.Pos(0)
+				for i := 0; i < 15; i++ {
+					if scopeIndex-i < 0 {
+						break
+					}
+					pos = fs.loopContinuePos[scopeIndex-i]
+					post = fs.loopPost[scopeIndex-i]
+					if pos != 0 {
+						break
+					}
+				}
 				if pos == 0 {
 					panic(fmt.Sprint("not found continue pos2:", scopeIndex, fs.fset.Position(stmt.Pos())))
 				}
@@ -650,10 +660,10 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 			if commentBool {
 				buf := bytes.NewBufferString("")
 				printer.Fprint(buf, token.NewFileSet(), fn)
-				file.Doc = &ast.CommentGroup{List: []*ast.Comment{&ast.Comment{Text: "/*" + buf.String() + "*/"}}}
+				file.Doc = &ast.CommentGroup{List: []*ast.Comment{{Text: "/*" + buf.String() + "*/"}}}
 			}
 			jumps := map[int][]ast.Stmt{
-				0: []ast.Stmt{},
+				0: {},
 			}
 			astutil.Apply(fn, nil, func(c *astutil.Cursor) bool {
 				//fmt.Println(reflect.TypeOf(c.Node()).String())
@@ -670,11 +680,6 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 				case *ast.BlockStmt:
 					stmt.List = addToBlock(stmt.List, jumpPos, jumps)
 					c.Replace(stmt)
-					/*case *ast.AssignStmt:
-					pos, found := findGotoJump(stmt)
-					if found && pos == -1 {
-						c.Replace(&ast.BranchStmt{Tok: token.BREAK, TokPos: fn.Rbrace})
-					}*/
 				}
 				return true
 			})

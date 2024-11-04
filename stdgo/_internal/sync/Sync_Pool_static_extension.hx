@@ -20,15 +20,16 @@ package stdgo._internal.sync;
         var _locals = (_p._local : stdgo._internal.unsafe.Unsafe.UnsafePointer);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_size : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (_size : stdgo.GoInt) : Bool)) {
                 var _l = stdgo._internal.sync.Sync__indexLocal._indexLocal(_locals, ((((_pid + _i : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) % (_size : stdgo.GoInt) : stdgo.GoInt));
-                {
+{
                     var __tmp__ = _l._poolLocalInternal._shared._popTail(), _x:stdgo.AnyInterface = __tmp__._0, __20:Bool = __tmp__._1;
                     if (_x != null) {
                         return _x;
                     };
                 };
-            });
+                _i++;
+            };
         };
         _size = stdgo._internal.sync.atomic_.Atomic__loadUintptr.loadUintptr(stdgo.Go.pointer(_p._victimSize));
         if (((_pid : stdgo.GoUIntptr) >= _size : Bool)) {
@@ -45,15 +46,16 @@ package stdgo._internal.sync;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_size : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (_size : stdgo.GoInt) : Bool)) {
                 var _l = stdgo._internal.sync.Sync__indexLocal._indexLocal(_locals, (((_pid + _i : stdgo.GoInt)) % (_size : stdgo.GoInt) : stdgo.GoInt));
-                {
+{
                     var __tmp__ = _l._poolLocalInternal._shared._popTail(), _x:stdgo.AnyInterface = __tmp__._0, __20:Bool = __tmp__._1;
                     if (_x != null) {
                         return _x;
                     };
                 };
-            });
+                _i++;
+            };
         };
         stdgo._internal.sync.atomic_.Atomic__storeUintptr.storeUintptr(stdgo.Go.pointer(_p._victimSize), (0 : stdgo.GoUIntptr));
         return (null : stdgo.AnyInterface);

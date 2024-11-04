@@ -15,11 +15,12 @@ function testSubexp(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             if (_c._names != null) {
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < ((1 : stdgo.GoInt) + _n : stdgo.GoInt) : Bool), _i++, {
+                    while ((_i < ((1 : stdgo.GoInt) + _n : stdgo.GoInt) : Bool)) {
                         if (_names[(_i : stdgo.GoInt)] != (_c._names[(_i : stdgo.GoInt)])) {
                             _t.errorf(("%q: SubexpNames[%d] = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_c._input), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_names[(_i : stdgo.GoInt)]), stdgo.Go.toInterface(_c._names[(_i : stdgo.GoInt)]));
                         };
-                    });
+                        _i++;
+                    };
                 };
             };
             for (__1 => _subexp in _c._indices) {

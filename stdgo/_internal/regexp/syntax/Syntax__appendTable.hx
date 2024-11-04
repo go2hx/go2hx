@@ -9,9 +9,10 @@ var _stride = __2, _hi = __1, _lo = __0;
             };
             {
                 var _c = (_lo : stdgo.GoInt32);
-                stdgo.Go.cfor((_c <= _hi : Bool), _c = (_c + (_stride) : stdgo.GoInt32), {
+                while ((_c <= _hi : Bool)) {
                     _r = stdgo._internal.regexp.syntax.Syntax__appendRange._appendRange(_r, _c, _c);
-                });
+                    _c = (_c + (_stride) : stdgo.GoInt32);
+                };
             };
         };
         for (__2 => _xr in _x.r32) {
@@ -23,9 +24,10 @@ var _stride = __2, _hi = __1, _lo = __0;
             };
             {
                 var _c = (_lo : stdgo.GoInt32);
-                stdgo.Go.cfor((_c <= _hi : Bool), _c = (_c + (_stride) : stdgo.GoInt32), {
+                while ((_c <= _hi : Bool)) {
                     _r = stdgo._internal.regexp.syntax.Syntax__appendRange._appendRange(_r, _c, _c);
-                });
+                    _c = (_c + (_stride) : stdgo.GoInt32);
+                };
             };
         };
         return _r;

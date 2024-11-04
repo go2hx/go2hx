@@ -4,16 +4,17 @@ function _escape(_s:stdgo.GoString, _mode:stdgo._internal.net.url.Url_T_encoding
 var _hexCount = __1, _spaceCount = __0;
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (stdgo._internal.net.url.Url__shouldEscape._shouldEscape(_c, _mode)) {
+if (stdgo._internal.net.url.Url__shouldEscape._shouldEscape(_c, _mode)) {
                     if (((_c == (32 : stdgo.GoUInt8)) && (_mode == (6 : stdgo._internal.net.url.Url_T_encoding.T_encoding)) : Bool)) {
                         _spaceCount++;
                     } else {
                         _hexCount++;
                     };
                 };
-            });
+                _i++;
+            };
         };
         if (((_spaceCount == (0 : stdgo.GoInt)) && (_hexCount == (0 : stdgo.GoInt)) : Bool)) {
             return _s?.__copy__();
@@ -30,18 +31,19 @@ var _hexCount = __1, _spaceCount = __0;
             stdgo.Go.copySlice(_t, _s);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+                while ((_i < (_s.length) : Bool)) {
                     if (_s[(_i : stdgo.GoInt)] == ((32 : stdgo.GoUInt8))) {
                         _t[(_i : stdgo.GoInt)] = (43 : stdgo.GoUInt8);
                     };
-                });
+                    _i++;
+                };
             };
             return (_t : stdgo.GoString)?.__copy__();
         };
         var _j = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 {
                     var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
                     if (((_c == (32 : stdgo.GoUInt8)) && (_mode == (6 : stdgo._internal.net.url.Url_T_encoding.T_encoding)) : Bool)) {
@@ -57,7 +59,8 @@ var _hexCount = __1, _spaceCount = __0;
                         _j++;
                     };
                 };
-            });
+                _i++;
+            };
         };
         return (_t : stdgo.GoString)?.__copy__();
     }

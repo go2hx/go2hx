@@ -16,9 +16,10 @@ function _fmtE(_dst:stdgo.Slice<stdgo.GoUInt8>, _neg:Bool, _d:stdgo._internal.st
                 _dst = (_dst.__append__(...((_d._d.__slice__(_i, _m) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
                 _i = _m;
             };
-            stdgo.Go.cfor((_i <= _prec : Bool), _i++, {
+            while ((_i <= _prec : Bool)) {
                 _dst = (_dst.__append__((48 : stdgo.GoUInt8)));
-            });
+                _i++;
+            };
         };
         _dst = (_dst.__append__(_fmt));
         var _exp = (_d._dp - (1 : stdgo.GoInt) : stdgo.GoInt);

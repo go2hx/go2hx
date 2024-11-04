@@ -67,14 +67,15 @@ package stdgo._internal.flag;
         var _value = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
         {
             var _i = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_name.length) : Bool), _i++, {
+            while ((_i < (_name.length) : Bool)) {
                 if (_name[(_i : stdgo.GoInt)] == ((61 : stdgo.GoUInt8))) {
-                    _value = (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                    _value = (_name.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__();
                     _hasValue = true;
-                    _name = (_name.__slice__((0 : stdgo.GoInt), _i) : stdgo.GoString)?.__copy__();
+                    _name = (_name.__slice__((0 : stdgo.GoInt), _i) : stdgo.GoString).__copy__();
                     break;
                 };
-            });
+                _i++;
+            };
         };
         var __tmp__ = (_f._formal != null && _f._formal.exists(_name?.__copy__()) ? { _0 : _f._formal[_name?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>), _1 : false }), _flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag> = __tmp__._0, _ok:Bool = __tmp__._1;
         if (!_ok) {

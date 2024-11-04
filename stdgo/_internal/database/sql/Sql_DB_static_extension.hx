@@ -571,12 +571,13 @@ package stdgo._internal.database.sql;
         @:recv var _db:stdgo.Ref<stdgo._internal.database.sql.Sql_DB.DB> = _db;
         {
             var _i = ((0i64 : stdgo.GoInt64) : stdgo.GoInt64);
-            stdgo.Go.cfor((_i < (2i64 : stdgo.GoInt64) : Bool), _i++, {
+            while ((_i < (2i64 : stdgo.GoInt64) : Bool)) {
                 var _err = (_fn((1 : stdgo._internal.database.sql.Sql_T_connReuseStrategy.T_connReuseStrategy)) : stdgo.Error);
-                if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._internal.database.sql.driver.Driver_errBadConn.errBadConn) : Bool)) {
+if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._internal.database.sql.driver.Driver_errBadConn.errBadConn) : Bool)) {
                     return _err;
                 };
-            });
+                _i++;
+            };
         };
         return _fn((0 : stdgo._internal.database.sql.Sql_T_connReuseStrategy.T_connReuseStrategy));
     }
@@ -999,9 +1000,9 @@ package stdgo._internal.database.sql;
             var _last = ((_db._freeConn.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             {
                 var _i = (_last : stdgo.GoInt);
-                stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     var _c = _db._freeConn[(_i : stdgo.GoInt)];
-                    if (_c._returnedAt.before(_idleSince?.__copy__())) {
+if (_c._returnedAt.before(_idleSince.__copy__())) {
                         _i++;
                         _closing = (_db._freeConn.__slice__(0, _i, _i) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>);
                         _db._freeConn = (_db._freeConn.__slice__(_i) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>);
@@ -1009,7 +1010,8 @@ package stdgo._internal.database.sql;
                         _db._maxIdleTimeClosed = (_db._maxIdleTimeClosed + (_idleClosing) : stdgo.GoInt64);
                         break;
                     };
-                });
+                    _i--;
+                };
             };
             if (((_db._freeConn.length) > (0 : stdgo.GoInt) : Bool)) {
                 var _c = _db._freeConn[(0 : stdgo.GoInt)];
@@ -1025,9 +1027,9 @@ package stdgo._internal.database.sql;
             var _expiredSince = (stdgo._internal.database.sql.Sql__nowFunc._nowFunc().add(-_db._maxLifetime)?.__copy__() : stdgo._internal.time.Time_Time.Time);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_db._freeConn.length) : Bool), _i++, {
+                while ((_i < (_db._freeConn.length) : Bool)) {
                     var _c = _db._freeConn[(_i : stdgo.GoInt)];
-                    if (_c._createdAt.before(_expiredSince?.__copy__())) {
+if (_c._createdAt.before(_expiredSince.__copy__())) {
                         _closing = (_closing.__append__(_c));
                         var _last = ((_db._freeConn.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
                         stdgo.Go.copySlice((_db._freeConn.__slice__(_i) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>), (_db._freeConn.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>));
@@ -1035,12 +1037,13 @@ package stdgo._internal.database.sql;
                         _db._freeConn = (_db._freeConn.__slice__(0, _last) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>);
                         _i--;
                     } else {
-                        var _d2 = (_c._createdAt.sub(_expiredSince?.__copy__()) : stdgo._internal.time.Time_Duration.Duration);
+                        var _d2 = (_c._createdAt.sub(_expiredSince.__copy__()) : stdgo._internal.time.Time_Duration.Duration);
                         if ((_d2 < _d : Bool)) {
                             _d = _d2;
                         };
                     };
-                });
+                    _i++;
+                };
             };
             _db._maxLifetimeClosed = (_db._maxLifetimeClosed + (((_closing.length : stdgo.GoInt64) - _idleClosing : stdgo.GoInt64)) : stdgo.GoInt64);
         };

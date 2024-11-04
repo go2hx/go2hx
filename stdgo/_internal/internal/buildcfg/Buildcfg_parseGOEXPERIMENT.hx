@@ -22,10 +22,11 @@ var _regabiAlwaysOn = __1, _regabiSupported = __0;
             var _rt = (_rv.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _rt.numField() : Bool), _i++, {
-                    var _field = (_rv.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                    _names[stdgo._internal.strings.Strings_toLower.toLower(_rt.field(_i).name?.__copy__())] = _field.setBool;
-                });
+                while ((_i < _rt.numField() : Bool)) {
+                    var _field = (_rv.field(_i).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+_names[stdgo._internal.strings.Strings_toLower.toLower(_rt.field(_i).name.__copy__())] = _field.setBool;
+                    _i++;
+                };
             };
             _names[("regabi" : stdgo.GoString)] = function(_v:Bool):Void {
                 _flags.flags.regabiWrappers = _v;

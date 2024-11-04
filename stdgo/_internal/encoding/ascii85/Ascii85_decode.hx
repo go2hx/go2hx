@@ -37,17 +37,19 @@ function decode(_dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>
                 };
                 {
                     var _i = (_nb : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < (5 : stdgo.GoInt) : Bool), _i++, {
+                    while ((_i < (5 : stdgo.GoInt) : Bool)) {
                         _v = ((_v * (85u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (84u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                    });
+                        _i++;
+                    };
                 };
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < (_nb - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _i++, {
+                    while ((_i < (_nb - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                         _dst[(_ndst : stdgo.GoInt)] = ((_v >> (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt8);
-                        _v = (_v << ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
-                        _ndst++;
-                    });
+_v = (_v << ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
+_ndst++;
+                        _i++;
+                    };
                 };
             };
         };

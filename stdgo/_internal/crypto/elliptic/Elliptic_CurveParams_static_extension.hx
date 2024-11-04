@@ -27,14 +27,14 @@ var _z = __2, _y = __1, _x = __0;
         for (__1 => _byte in _k) {
             {
                 var _bitNum = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_bitNum < (8 : stdgo.GoInt) : Bool), _bitNum++, {
+                while ((_bitNum < (8 : stdgo.GoInt) : Bool)) {
                     {
                         var __tmp__ = _curve._doubleJacobian(_x, _y, _z);
                         _x = __tmp__._0;
                         _y = __tmp__._1;
                         _z = __tmp__._2;
                     };
-                    if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((128 : stdgo.GoUInt8))) {
+if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((128 : stdgo.GoUInt8))) {
                         {
                             var __tmp__ = _curve._addJacobian(bx, by, bz, _x, _y, _z);
                             _x = __tmp__._0;
@@ -42,8 +42,9 @@ var _z = __2, _y = __1, _x = __0;
                             _z = __tmp__._2;
                         };
                     };
-                    _byte = (_byte << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt8);
-                });
+_byte = (_byte << ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt8);
+                    _bitNum++;
+                };
             };
         };
         return _curve._affineFromJacobian(_x, _y, _z);

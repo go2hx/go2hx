@@ -10,18 +10,20 @@ package stdgo._internal.image;
 var _i1 = __1, _i0 = __0;
         {
             var _y = (_p.rect.min.y : stdgo.GoInt);
-            stdgo.Go.cfor((_y < _p.rect.max.y : Bool), _y++, {
+            while ((_y < _p.rect.max.y : Bool)) {
                 {
                     var _i = (_i0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
+                    while ((_i < _i1 : Bool)) {
                         if (_p.pix[(_i : stdgo.GoInt)] != ((255 : stdgo.GoUInt8))) {
                             return false;
                         };
-                    });
+                        _i = (_i + ((4 : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
-                _i0 = (_i0 + (_p.stride) : stdgo.GoInt);
-                _i1 = (_i1 + (_p.stride) : stdgo.GoInt);
-            });
+_i0 = (_i0 + (_p.stride) : stdgo.GoInt);
+_i1 = (_i1 + (_p.stride) : stdgo.GoInt);
+                _y++;
+            };
         };
         return true;
     }

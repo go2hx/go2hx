@@ -216,15 +216,16 @@ var _hintCert = __1, _hintErr = __0;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _opts.intermediates._len() : Bool), _i++, {
+            while ((_i < _opts.intermediates._len() : Bool)) {
                 var __tmp__ = _opts.intermediates._cert(_i), _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
+if (_err != null) {
                     return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("crypto/x509: error fetching intermediate: %w" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                 };
-                if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
+if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
                     return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo._internal.crypto.x509.X509__errNotParsed._errNotParsed };
                 };
-            });
+                _i++;
+            };
         };
         if (false) {
             var _systemPool = stdgo._internal.crypto.x509.X509__systemRootsPool._systemRootsPool();
@@ -421,16 +422,17 @@ var _hintCert = __1, _hintErr = __0;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _excludedValue.len() : Bool), _i++, {
+            while ((_i < _excludedValue.len() : Bool)) {
                 var _constraint = (_excludedValue.index(_i).interface_() : stdgo.AnyInterface);
-                var __tmp__ = _match(_parsedName, _constraint), _match:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
-                    return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (2 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), _err.error()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
+var __tmp__ = _match(_parsedName, _constraint), _match:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
+                    return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (2 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), _err.error().__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
                 };
-                if (_match) {
-                    return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (2 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s %q is excluded by constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_nameType), stdgo.Go.toInterface(_name), _constraint)?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
+if (_match) {
+                    return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (2 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s %q is excluded by constraint %q" : stdgo.GoString), stdgo.Go.toInterface(_nameType), stdgo.Go.toInterface(_name), _constraint).__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
                 };
-            });
+                _i++;
+            };
         };
         var _permittedValue = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_permitted)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
         _count.value = (_count.value + (_permittedValue.len()) : stdgo.GoInt);
@@ -440,23 +442,24 @@ var _hintCert = __1, _hintErr = __0;
         var _ok = (true : Bool);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _permittedValue.len() : Bool), _i++, {
+            while ((_i < _permittedValue.len() : Bool)) {
                 var _constraint = (_permittedValue.index(_i).interface_() : stdgo.AnyInterface);
-                var _err:stdgo.Error = (null : stdgo.Error);
-                {
+var _err:stdgo.Error = (null : stdgo.Error);
+{
                     {
                         var __tmp__ = _match(_parsedName, _constraint);
                         _ok = __tmp__._0;
                         _err = __tmp__._1;
                     };
                     if (_err != null) {
-                        return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (2 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), _err.error()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
+                        return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (2 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), _err.error().__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));
                     };
                 };
-                if (_ok) {
+if (_ok) {
                     break;
                 };
-            });
+                _i++;
+            };
         };
         if (!_ok) {
             return stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (2 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s %q is not permitted by any constraint" : stdgo.GoString), stdgo.Go.toInterface(_nameType), stdgo.Go.toInterface(_name))?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError));

@@ -342901,32 +342901,36 @@ function _loadFromEmbeddedTZData(_name:stdgo.GoString):{ var _0 : stdgo.GoString
         _idx = stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__((_idx + (16 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
-                if (stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__(_idx) : stdgo.GoString)?.__copy__()) != ((33639248 : stdgo.GoInt))) {
+            while ((_i < _n : Bool)) {
+                if (stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__(_idx) : stdgo.GoString).__copy__()) != ((33639248 : stdgo.GoInt))) {
                     break;
                 };
-                var _meth = (stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (10 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo.GoInt);
-                var _size = (stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__((_idx + (24 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo.GoInt);
-                var _namelen = (stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (28 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo.GoInt);
-                var _xlen = (stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (30 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo.GoInt);
-                var _fclen = (stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo.GoInt);
-                var _off = (stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__((_idx + (42 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) : stdgo.GoInt);
-                var _zname = ((_z.__slice__((_idx + (46 : stdgo.GoInt) : stdgo.GoInt), ((_idx + (46 : stdgo.GoInt) : stdgo.GoInt) + _namelen : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString);
-                _idx = (_idx + (((((46 : stdgo.GoInt) + _namelen : stdgo.GoInt) + _xlen : stdgo.GoInt) + _fclen : stdgo.GoInt)) : stdgo.GoInt);
-                if (_zname != (_name)) {
-                    continue;
+var _meth = (stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (10 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) : stdgo.GoInt);
+var _size = (stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__((_idx + (24 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) : stdgo.GoInt);
+var _namelen = (stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (28 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) : stdgo.GoInt);
+var _xlen = (stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (30 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) : stdgo.GoInt);
+var _fclen = (stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) : stdgo.GoInt);
+var _off = (stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__((_idx + (42 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) : stdgo.GoInt);
+var _zname = ((_z.__slice__((_idx + (46 : stdgo.GoInt) : stdgo.GoInt), ((_idx + (46 : stdgo.GoInt) : stdgo.GoInt) + _namelen : stdgo.GoInt)) : stdgo.GoString).__copy__() : stdgo.GoString);
+_idx = (_idx + (((((46 : stdgo.GoInt) + _namelen : stdgo.GoInt) + _xlen : stdgo.GoInt) + _fclen : stdgo.GoInt)) : stdgo.GoInt);
+if (_zname != (_name)) {
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                if (_meth != ((0 : stdgo.GoInt))) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(((("unsupported compression for " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (" in embedded tzdata" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) };
+if (_meth != ((0 : stdgo.GoInt))) {
+                    return { _0 : stdgo.Go.str().__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(((("unsupported compression for " : stdgo.GoString) + _name.__copy__() : stdgo.GoString) + (" in embedded tzdata" : stdgo.GoString).__copy__() : stdgo.GoString).__copy__()) };
                 };
-                _idx = _off;
-                if ((((stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__(_idx) : stdgo.GoString)?.__copy__()) != ((67324752 : stdgo.GoInt)) || stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) != (_meth) : Bool) || stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (26 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__()) != (_namelen) : Bool) || ((_z.__slice__((_idx + (30 : stdgo.GoInt) : stdgo.GoInt), ((_idx + (30 : stdgo.GoInt) : stdgo.GoInt) + _namelen : stdgo.GoInt)) : stdgo.GoString) != _name) : Bool)) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("corrupt embedded tzdata" : stdgo.GoString)) };
+_idx = _off;
+if ((((stdgo._internal.time.tzdata.Tzdata__get4s._get4s((_z.__slice__(_idx) : stdgo.GoString).__copy__()) != ((67324752 : stdgo.GoInt)) || stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) != (_meth) : Bool) || stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (26 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__()) != (_namelen) : Bool) || ((_z.__slice__((_idx + (30 : stdgo.GoInt) : stdgo.GoInt), ((_idx + (30 : stdgo.GoInt) : stdgo.GoInt) + _namelen : stdgo.GoInt)) : stdgo.GoString) != _name) : Bool)) {
+                    return { _0 : stdgo.Go.str().__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("corrupt embedded tzdata" : stdgo.GoString)) };
                 };
-                _xlen = stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (28 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
-                _idx = (_idx + ((((30 : stdgo.GoInt) + _namelen : stdgo.GoInt) + _xlen : stdgo.GoInt)) : stdgo.GoInt);
-                return { _0 : (_z.__slice__(_idx, (_idx + _size : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
-            });
+_xlen = stdgo._internal.time.tzdata.Tzdata__get2s._get2s((_z.__slice__((_idx + (28 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__());
+_idx = (_idx + ((((30 : stdgo.GoInt) + _namelen : stdgo.GoInt) + _xlen : stdgo.GoInt)) : stdgo.GoInt);
+return { _0 : (_z.__slice__(_idx, (_idx + _size : stdgo.GoInt)) : stdgo.GoString).__copy__(), _1 : (null : stdgo.Error) };
+                _i++;
+            };
         };
         return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.asInterface((2 : stdgo._internal.syscall.Syscall_Errno.Errno)) };
     }

@@ -21,21 +21,25 @@ package stdgo._internal.net.http;
             var _set = (0 : stdgo.GoInt);
             {
                 var _i = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
-                stdgo.Go.cfor((_i < (8 : stdgo.GoUInt8) : Bool), _i++, {
+                while ((_i < (8 : stdgo.GoUInt8) : Bool)) {
                     if ((_h.flags & (((1 : stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags) << _i : stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags)) : stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags) == ((0 : stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags))) {
-                        continue;
+                        {
+                            _i++;
+                            continue;
+                        };
                     };
-                    _set++;
-                    if ((_set > (1 : stdgo.GoInt) : Bool)) {
+_set++;
+if ((_set > (1 : stdgo.GoInt) : Bool)) {
                         _buf.writeByte((124 : stdgo.GoUInt8));
                     };
-                    var _name = (((stdgo._internal.net.http.Http__http2flagName._http2flagName[_h.type] ?? (null : stdgo.GoMap<stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags, stdgo.GoString>))[((1 : stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags) << _i : stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
-                    if (_name != (stdgo.Go.str())) {
-                        _buf.writeString(_name?.__copy__());
+var _name = (((stdgo._internal.net.http.Http__http2flagName._http2flagName[_h.type] ?? (null : stdgo.GoMap<stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags, stdgo.GoString>))[((1 : stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags) << _i : stdgo._internal.net.http.Http_T_http2Flags.T_http2Flags)] ?? ("" : stdgo.GoString)).__copy__() : stdgo.GoString);
+if (_name != (stdgo.Go.str())) {
+                        _buf.writeString(_name.__copy__());
                     } else {
                         stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_buf), ("0x%x" : stdgo.GoString), stdgo.Go.toInterface(((1 : stdgo.GoInt) << _i : stdgo.GoInt)));
                     };
-                });
+                    _i++;
+                };
             };
         };
         if (_h.streamID != ((0u32 : stdgo.GoUInt32))) {

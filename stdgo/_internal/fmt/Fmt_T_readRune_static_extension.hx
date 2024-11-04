@@ -36,20 +36,21 @@ package stdgo._internal.fmt;
         var _n:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             _n = (1 : stdgo.GoInt);
-            stdgo.Go.cfor(!stdgo._internal.unicode.utf8.Utf8_fullRune.fullRune((_r._buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>)), _n++, {
+            while (!stdgo._internal.unicode.utf8.Utf8_fullRune.fullRune((_r._buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>))) {
                 {
                     var __tmp__ = _r._readByte();
                     _r._buf[(_n : stdgo.GoInt)] = __tmp__._0;
                     _err = __tmp__._1;
                 };
-                if (_err != null) {
+if (_err != null) {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                         _err = (null : stdgo.Error);
                         break;
                     };
                     return { _0 : _rr, _1 : _size, _2 : _err };
                 };
-            });
+                _n++;
+            };
         };
         {
             var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_r._buf.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));

@@ -5,11 +5,12 @@ function _getString(_section:stdgo.Slice<stdgo.GoUInt8>, _start:stdgo.GoInt):{ v
         };
         {
             var _end = (_start : stdgo.GoInt);
-            stdgo.Go.cfor((_end < (_section.length) : Bool), _end++, {
+            while ((_end < (_section.length) : Bool)) {
                 if (_section[(_end : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
-                    return { _0 : ((_section.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__(), _1 : true };
+                    return { _0 : ((_section.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString).__copy__(), _1 : true };
                 };
-            });
+                _end++;
+            };
         };
         return { _0 : stdgo.Go.str()?.__copy__(), _1 : false };
     }

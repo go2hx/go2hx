@@ -9,24 +9,26 @@ var _right = __1, _left = __0;
         if (_decrypt) {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (8 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (8 : stdgo.GoInt) : Bool)) {
                     {
                         var __tmp__ = stdgo._internal.crypto.des.Des__feistel._feistel(_left, _right, _subkeys[((15 : stdgo.GoInt) - ((2 : stdgo.GoInt) * _i : stdgo.GoInt) : stdgo.GoInt)], _subkeys[((15 : stdgo.GoInt) - ((((2 : stdgo.GoInt) * _i : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt)]);
                         _left = __tmp__._0;
                         _right = __tmp__._1;
                     };
-                });
+                    _i++;
+                };
             };
         } else {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (8 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (8 : stdgo.GoInt) : Bool)) {
                     {
                         var __tmp__ = stdgo._internal.crypto.des.Des__feistel._feistel(_left, _right, _subkeys[((2 : stdgo.GoInt) * _i : stdgo.GoInt)], _subkeys[(((2 : stdgo.GoInt) * _i : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)]);
                         _left = __tmp__._0;
                         _right = __tmp__._1;
                     };
-                });
+                    _i++;
+                };
             };
         };
         _left = (((_left << (31i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) | ((_left >> (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);

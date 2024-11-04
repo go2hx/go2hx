@@ -14,9 +14,10 @@ function _shlVU_g(_z:stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>, _x:std
         _c = (_x[((_z.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] >> __349 : stdgo._internal.math.big.Big_Word.Word);
         {
             var _i = ((_z.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _z[(_i : stdgo.GoInt)] = ((_x[(_i : stdgo.GoInt)] << _s : stdgo._internal.math.big.Big_Word.Word) | (_x[(_i - (1 : stdgo.GoInt) : stdgo.GoInt)] >> __349 : stdgo._internal.math.big.Big_Word.Word) : stdgo._internal.math.big.Big_Word.Word);
-            });
+                _i--;
+            };
         };
         _z[(0 : stdgo.GoInt)] = (_x[(0 : stdgo.GoInt)] << _s : stdgo._internal.math.big.Big_Word.Word);
         return _c;

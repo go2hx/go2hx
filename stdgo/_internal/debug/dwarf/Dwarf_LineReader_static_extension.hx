@@ -102,132 +102,258 @@ package stdgo._internal.debug.dwarf;
     @:keep
     static public function _step( _r:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineReader.LineReader>, _entry:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry>):Bool {
         @:recv var _r:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineReader.LineReader> = _r;
-        stdgo._internal.internal.Macro.controlFlow({
-            var _opcode = (_r._buf._uint8() : stdgo.GoInt);
-            if ((_opcode >= _r._opcodeBase : Bool)) {
-                var _adjustedOpcode = (_opcode - _r._opcodeBase : stdgo.GoInt);
-                _r._advancePC((_adjustedOpcode / _r._lineRange : stdgo.GoInt));
-                var _lineDelta = (_r._lineBase + (_adjustedOpcode % _r._lineRange : stdgo.GoInt) : stdgo.GoInt);
-                _r._state.line = (_r._state.line + (_lineDelta) : stdgo.GoInt);
-                @:goto "emit";
-            };
+        var _i_3655190:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _done_3653865:Bool = false;
+        var _opcode_3653384:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _startOff_3653360:stdgo._internal.debug.dwarf.Dwarf_Offset.Offset = ((0 : stdgo.GoUInt32) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
+        var _adjustedOpcode_3653078:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _opcode_3652964:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3653871:stdgo.Error = (null : stdgo.Error);
+        var _length_3653327:stdgo._internal.debug.dwarf.Dwarf_Offset.Offset = ((0 : stdgo.GoUInt32) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
+        var _lineDelta_3653164:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _gotoNext = 0i32;
+        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
-                final __value__ = _opcode;
-                if (__value__ == ((0 : stdgo.GoInt))) {
-                    var _length = (_r._buf._uint() : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
-                    var _startOff = (_r._buf._off : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
-                    var _opcode = (_r._buf._uint8() : stdgo.GoUInt8);
+                final __value__ = _gotoNext;
+                if (__value__ == (0i32)) {
+                    _opcode_3652964 = (_r._buf._uint8() : stdgo.GoInt);
+                    if ((_opcode_3652964 >= _r._opcodeBase : Bool)) {
+                        _gotoNext = 3653021i32;
+                    } else {
+                        _gotoNext = 3653262i32;
+                    };
+                } else if (__value__ == (3653021i32)) {
+                    _adjustedOpcode_3653078 = (_opcode_3652964 - _r._opcodeBase : stdgo.GoInt);
+                    _r._advancePC((_adjustedOpcode_3653078 / _r._lineRange : stdgo.GoInt));
+                    _lineDelta_3653164 = (_r._lineBase + (_adjustedOpcode_3653078 % _r._lineRange : stdgo.GoInt) : stdgo.GoInt);
+                    _r._state.line = (_r._state.line + (_lineDelta_3653164) : stdgo.GoInt);
+                    _gotoNext = 3655271i32;
+                } else if (__value__ == (3653262i32)) {
+                    var __blank__ = 0i32;
+                    _gotoNext = 3653262i32;
                     {
-                        final __value__ = _opcode;
-                        if (__value__ == ((1 : stdgo.GoUInt8))) {
-                            _r._state.endSequence = true;
-                            {
-                                var __tmp__ = _r._state?.__copy__();
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).address = __tmp__.address;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).opIndex = __tmp__.opIndex;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).file = __tmp__.file;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).line = __tmp__.line;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).column = __tmp__.column;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).isStmt = __tmp__.isStmt;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).basicBlock = __tmp__.basicBlock;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).prologueEnd = __tmp__.prologueEnd;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).epilogueBegin = __tmp__.epilogueBegin;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).isa = __tmp__.isa;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).discriminator = __tmp__.discriminator;
-                                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).endSequence = __tmp__.endSequence;
-                            };
-                            _r._resetState();
-                        } else if (__value__ == ((2 : stdgo.GoUInt8))) {
-                            {
-                                final __value__ = _r._addrsize;
-                                if (__value__ == ((1 : stdgo.GoInt))) {
-                                    _r._state.address = (_r._buf._uint8() : stdgo.GoUInt64);
-                                } else if (__value__ == ((2 : stdgo.GoInt))) {
-                                    _r._state.address = (_r._buf._uint16() : stdgo.GoUInt64);
-                                } else if (__value__ == ((4 : stdgo.GoInt))) {
-                                    _r._state.address = (_r._buf._uint32() : stdgo.GoUInt64);
-                                } else if (__value__ == ((8 : stdgo.GoInt))) {
-                                    _r._state.address = _r._buf._uint64();
-                                } else {
-                                    _r._buf._error(("unknown address size" : stdgo.GoString));
-                                };
-                            };
-                        } else if (__value__ == ((3 : stdgo.GoUInt8))) {
-                            {
-                                var __tmp__ = _r._readFileEntry(), _done:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                                if (_err != null) {
-                                    _r._buf._err = _err;
-                                    return false;
-                                } else if (_done) {
-                                    _r._buf._err = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(("line" : stdgo.GoString), _startOff, ("malformed DW_LNE_define_file operation" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
-                                    return false;
-                                };
-                            };
-                            _r._updateFile();
-                        } else if (__value__ == ((4 : stdgo.GoUInt8))) {
-                            _r._state.discriminator = (_r._buf._uint() : stdgo.GoInt);
+                        final __value__ = _opcode_3652964;
+                        if (__value__ == ((0 : stdgo.GoInt))) {
+                            _gotoNext = 3653279i32;
+                        } else if (__value__ == ((1 : stdgo.GoInt))) {
+                            _gotoNext = 3654338i32;
+                        } else if (__value__ == ((2 : stdgo.GoInt))) {
+                            _gotoNext = 3654366i32;
+                        } else if (__value__ == ((3 : stdgo.GoInt))) {
+                            _gotoNext = 3654420i32;
+                        } else if (__value__ == ((4 : stdgo.GoInt))) {
+                            _gotoNext = 3654478i32;
+                        } else if (__value__ == ((5 : stdgo.GoInt))) {
+                            _gotoNext = 3654548i32;
+                        } else if (__value__ == ((6 : stdgo.GoInt))) {
+                            _gotoNext = 3654606i32;
+                        } else if (__value__ == ((7 : stdgo.GoInt))) {
+                            _gotoNext = 3654663i32;
+                        } else if (__value__ == ((8 : stdgo.GoInt))) {
+                            _gotoNext = 3654716i32;
+                        } else if (__value__ == ((9 : stdgo.GoInt))) {
+                            _gotoNext = 3654788i32;
+                        } else if (__value__ == ((10 : stdgo.GoInt))) {
+                            _gotoNext = 3654903i32;
+                        } else if (__value__ == ((11 : stdgo.GoInt))) {
+                            _gotoNext = 3654958i32;
+                        } else if (__value__ == ((12 : stdgo.GoInt))) {
+                            _gotoNext = 3655017i32;
+                        } else {
+                            _gotoNext = 3655069i32;
                         };
                     };
-                    _r._buf._skip((((_startOff + _length : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset) - _r._buf._off : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset) : stdgo.GoInt));
-                    if (_opcode == ((1 : stdgo.GoUInt8))) {
-                        return true;
+                } else if (__value__ == (3653279i32)) {
+                    _length_3653327 = (_r._buf._uint() : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
+                    _startOff_3653360 = _r._buf._off;
+                    _opcode_3653384 = _r._buf._uint8();
+                    var __blank__ = 0i32;
+                    _gotoNext = 3653411i32;
+                } else if (__value__ == (3653411i32)) {
+                    {
+                        final __value__ = _opcode_3653384;
+                        if (__value__ == ((1 : stdgo.GoUInt8))) {
+                            _gotoNext = 3653429i32;
+                        } else if (__value__ == ((2 : stdgo.GoUInt8))) {
+                            _gotoNext = 3653521i32;
+                        } else if (__value__ == ((3 : stdgo.GoUInt8))) {
+                            _gotoNext = 3653839i32;
+                        } else if (__value__ == ((4 : stdgo.GoUInt8))) {
+                            _gotoNext = 3654098i32;
+                        } else {
+                            _gotoNext = 3654199i32;
+                        };
                     };
-                } else if (__value__ == ((1 : stdgo.GoInt))) {
-                    @:goto "emit";
-                } else if (__value__ == ((2 : stdgo.GoInt))) {
+                } else if (__value__ == (3653429i32)) {
+                    _r._state.endSequence = true;
+                    {
+                        var __tmp__ = _r._state?.__copy__();
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).address = __tmp__.address;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).opIndex = __tmp__.opIndex;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).file = __tmp__.file;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).line = __tmp__.line;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).column = __tmp__.column;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).isStmt = __tmp__.isStmt;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).basicBlock = __tmp__.basicBlock;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).prologueEnd = __tmp__.prologueEnd;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).epilogueBegin = __tmp__.epilogueBegin;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).isa = __tmp__.isa;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).discriminator = __tmp__.discriminator;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).endSequence = __tmp__.endSequence;
+                    };
+                    _r._resetState();
+                    _gotoNext = 3654199i32;
+                } else if (__value__ == (3653521i32)) {
+                    var __blank__ = 0i32;
+                    _gotoNext = 3653544i32;
+                } else if (__value__ == (3653544i32)) {
+                    {
+                        final __value__ = _r._addrsize;
+                        if (__value__ == ((1 : stdgo.GoInt))) {
+                            _gotoNext = 3653567i32;
+                        } else if (__value__ == ((2 : stdgo.GoInt))) {
+                            _gotoNext = 3653622i32;
+                        } else if (__value__ == ((4 : stdgo.GoInt))) {
+                            _gotoNext = 3653678i32;
+                        } else if (__value__ == ((8 : stdgo.GoInt))) {
+                            _gotoNext = 3653734i32;
+                        } else {
+                            _gotoNext = 3653782i32;
+                        };
+                    };
+                } else if (__value__ == (3653567i32)) {
+                    _r._state.address = (_r._buf._uint8() : stdgo.GoUInt64);
+                    _gotoNext = 3654199i32;
+                } else if (__value__ == (3653622i32)) {
+                    _r._state.address = (_r._buf._uint16() : stdgo.GoUInt64);
+                    _gotoNext = 3654199i32;
+                } else if (__value__ == (3653678i32)) {
+                    _r._state.address = (_r._buf._uint32() : stdgo.GoUInt64);
+                    _gotoNext = 3654199i32;
+                } else if (__value__ == (3653734i32)) {
+                    _r._state.address = _r._buf._uint64();
+                    _gotoNext = 3654199i32;
+                } else if (__value__ == (3653782i32)) {
+                    _r._buf._error(("unknown address size" : stdgo.GoString));
+                    _gotoNext = 3654199i32;
+                } else if (__value__ == (3653839i32)) {
+                    {
+                        {
+                            var __tmp__ = _r._readFileEntry();
+                            _done_3653865 = __tmp__._0;
+                            _err_3653871 = __tmp__._1;
+                        };
+                        if (_err_3653871 != null) {
+                            _gotoNext = 3653908i32;
+                        } else if (_done_3653865) {
+                            _gotoNext = 3653965i32;
+                        } else {
+                            _gotoNext = 3654080i32;
+                        };
+                    };
+                } else if (__value__ == (3653908i32)) {
+                    _r._buf._err = _err_3653871;
+                    return false;
+                    _gotoNext = 3654080i32;
+                } else if (__value__ == (3653965i32)) {
+                    _r._buf._err = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(("line" : stdgo.GoString), _startOff_3653360, ("malformed DW_LNE_define_file operation" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+                    return false;
+                    _gotoNext = 3654080i32;
+                } else if (__value__ == (3654080i32)) {
+                    _r._updateFile();
+                    _gotoNext = 3654199i32;
+                } else if (__value__ == (3654098i32)) {
+                    _r._state.discriminator = (_r._buf._uint() : stdgo.GoInt);
+                    _gotoNext = 3654199i32;
+                } else if (__value__ == (3654199i32)) {
+                    _r._buf._skip((((_startOff_3653360 + _length_3653327 : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset) - _r._buf._off : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset) : stdgo.GoInt));
+                    if (_opcode_3653384 == ((1 : stdgo.GoUInt8))) {
+                        _gotoNext = 3654277i32;
+                    } else {
+                        _gotoNext = 3655257i32;
+                    };
+                } else if (__value__ == (3654277i32)) {
+                    return true;
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654338i32)) {
+                    _gotoNext = 3655271i32;
+                } else if (__value__ == (3654366i32)) {
                     _r._advancePC((_r._buf._uint() : stdgo.GoInt));
-                } else if (__value__ == ((3 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654420i32)) {
                     _r._state.line = (_r._state.line + ((_r._buf._int() : stdgo.GoInt)) : stdgo.GoInt);
-                } else if (__value__ == ((4 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654478i32)) {
                     _r._fileIndex = (_r._buf._uint() : stdgo.GoInt);
                     _r._updateFile();
-                } else if (__value__ == ((5 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654548i32)) {
                     _r._state.column = (_r._buf._uint() : stdgo.GoInt);
-                } else if (__value__ == ((6 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654606i32)) {
                     _r._state.isStmt = !_r._state.isStmt;
-                } else if (__value__ == ((7 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654663i32)) {
                     _r._state.basicBlock = true;
-                } else if (__value__ == ((8 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654716i32)) {
                     _r._advancePC(((((255 : stdgo.GoInt) - _r._opcodeBase : stdgo.GoInt)) / _r._lineRange : stdgo.GoInt));
-                } else if (__value__ == ((9 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654788i32)) {
                     _r._state.address = (_r._state.address + ((_r._buf._uint16() : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                } else if (__value__ == ((10 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654903i32)) {
                     _r._state.prologueEnd = true;
-                } else if (__value__ == ((11 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3654958i32)) {
                     _r._state.epilogueBegin = true;
-                } else if (__value__ == ((12 : stdgo.GoInt))) {
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3655017i32)) {
                     _r._state.isa = (_r._buf._uint() : stdgo.GoInt);
-                } else {
-                    {
-                        var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _r._opcodeLengths[(_opcode : stdgo.GoInt)] : Bool), _i++, {
-                            _r._buf._uint();
-                        });
+                    _gotoNext = 3655257i32;
+                } else if (__value__ == (3655069i32)) {
+                    _i_3655190 = (0 : stdgo.GoInt);
+                    _gotoNext = 3655186i32;
+                } else if (__value__ == (3655186i32)) {
+                    if ((_i_3655190 < _r._opcodeLengths[(_opcode_3652964 : stdgo.GoInt)] : Bool)) {
+                        _gotoNext = 3655231i32;
+                    } else {
+                        _gotoNext = 3655257i32;
                     };
+                } else if (__value__ == (3655231i32)) {
+                    _r._buf._uint();
+                    _i_3655190++;
+                    _gotoNext = 3655186i32;
+                } else if (__value__ == (3655257i32)) {
+                    return false;
+                    _gotoNext = 3655271i32;
+                } else if (__value__ == (3655271i32)) {
+                    {
+                        var __tmp__ = _r._state?.__copy__();
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).address = __tmp__.address;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).opIndex = __tmp__.opIndex;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).file = __tmp__.file;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).line = __tmp__.line;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).column = __tmp__.column;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).isStmt = __tmp__.isStmt;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).basicBlock = __tmp__.basicBlock;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).prologueEnd = __tmp__.prologueEnd;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).epilogueBegin = __tmp__.epilogueBegin;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).isa = __tmp__.isa;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).discriminator = __tmp__.discriminator;
+                        (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).endSequence = __tmp__.endSequence;
+                    };
+                    _r._state.basicBlock = false;
+                    _r._state.prologueEnd = false;
+                    _r._state.epilogueBegin = false;
+                    _r._state.discriminator = (0 : stdgo.GoInt);
+                    return true;
+                    _gotoNext = -1i32;
                 };
             };
-            return false;
-            @:label("emit") {
-                var __tmp__ = _r._state?.__copy__();
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).address = __tmp__.address;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).opIndex = __tmp__.opIndex;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).file = __tmp__.file;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).line = __tmp__.line;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).column = __tmp__.column;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).isStmt = __tmp__.isStmt;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).basicBlock = __tmp__.basicBlock;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).prologueEnd = __tmp__.prologueEnd;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).epilogueBegin = __tmp__.epilogueBegin;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).isa = __tmp__.isa;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).discriminator = __tmp__.discriminator;
-                (_entry : stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry).endSequence = __tmp__.endSequence;
-            };
-            _r._state.basicBlock = false;
-            _r._state.prologueEnd = false;
-            _r._state.epilogueBegin = false;
-            _r._state.discriminator = (0 : stdgo.GoInt);
-            return true;
-        });
+        };
+        throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
     static public function next( _r:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineReader.LineReader>, _entry:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_LineEntry.LineEntry>):stdgo.Error {
@@ -438,9 +564,10 @@ package stdgo._internal.debug.dwarf;
         _r._opcodeLengths = (new stdgo.Slice<stdgo.GoInt>((_r._opcodeBase : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _r._opcodeBase : Bool), _i++, {
+            while ((_i < _r._opcodeBase : Bool)) {
                 _r._opcodeLengths[(_i : stdgo.GoInt)] = (_buf._uint8() : stdgo.GoInt);
-            });
+                _i++;
+            };
         };
         if (_buf._err != null) {
             return _buf._err;

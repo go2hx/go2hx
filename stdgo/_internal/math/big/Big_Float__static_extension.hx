@@ -176,9 +176,10 @@ package stdgo._internal.math.big;
                 _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _prec : Bool), _i++, {
+                    while ((_i < _prec : Bool)) {
                         _buf = (_buf.__append__((48 : stdgo.GoUInt8)));
-                    });
+                        _i++;
+                    };
                 };
             };
             _buf = (_buf.__append__(...(("p+00" : stdgo.GoString) : Array<stdgo.GoUInt8>)));

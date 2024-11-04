@@ -9,14 +9,15 @@ function benchmarkUnicodeDecoder(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 {
                     var _err = (_dec.decode(stdgo.Go.toInterface(stdgo.Go.pointer(_out))) : stdgo.Error);
                     if (_err != null) {
                         _b.fatal(stdgo.Go.toInterface(("Decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                     };
                 };
-                _r.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
-            });
+_r.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt));
+                _i++;
+            };
         };
     }

@@ -7,11 +7,12 @@ function _parseKeyUsageExtension(_der:_internal.vendor.golang_dot_org.x.crypto.c
         var _usage:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (9 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (9 : stdgo.GoInt) : Bool)) {
                 if (_usageBits.at(_i) != ((0 : stdgo.GoInt))) {
                     _usage = (_usage | (((1 : stdgo.GoInt) << (_i : stdgo.GoUInt) : stdgo.GoInt)) : stdgo.GoInt);
                 };
-            });
+                _i++;
+            };
         };
         return { _0 : (_usage : stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage), _1 : (null : stdgo.Error) };
     }

@@ -12,12 +12,13 @@ package stdgo._internal.archive.tar;
         var _err = (_tw.flush() : stdgo.Error);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(((_i < (2 : stdgo.GoInt) : Bool) && (_err == null) : Bool), _i++, {
+            while (((_i < (2 : stdgo.GoInt) : Bool) && (_err == null) : Bool)) {
                 {
                     var __tmp__ = _tw._w.write((stdgo._internal.archive.tar.Tar__zeroBlock._zeroBlock.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
                     _err = __tmp__._1;
                 };
-            });
+                _i++;
+            };
         };
         _tw._err = stdgo._internal.archive.tar.Tar_errWriteAfterClose.errWriteAfterClose;
         return _err;

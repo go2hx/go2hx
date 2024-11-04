@@ -16,17 +16,18 @@ function benchmarkDecoderStream(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B
         _b.startTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 if ((_i % (300000 : stdgo.GoInt) : stdgo.GoInt) == ((0 : stdgo.GoInt))) {
-                    _buf.writeString(_ones?.__copy__());
+                    _buf.writeString(_ones.__copy__());
                 };
-                _x = (null : stdgo.AnyInterface);
-                {
+_x = (null : stdgo.AnyInterface);
+{
                     var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.AnyInterface>))) : stdgo.Error);
                     if (((_err != null) || (_x != stdgo.Go.toInterface((1 : stdgo.GoFloat64))) : Bool)) {
                         _b.fatalf(("Decode: %v after %d" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_i));
                     };
                 };
-            });
+                _i++;
+            };
         };
     }

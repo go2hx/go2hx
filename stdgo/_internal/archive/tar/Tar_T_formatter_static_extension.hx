@@ -26,10 +26,11 @@ package stdgo._internal.archive.tar;
         if (stdgo._internal.archive.tar.Tar__fitsInBase256._fitsInBase256((_b.length), _x)) {
             {
                 var _i = ((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     _b[(_i : stdgo.GoInt)] = (_x : stdgo.GoUInt8);
-                    _x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt64);
-                });
+_x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt64);
+                    _i--;
+                };
             };
             _b[(0 : stdgo.GoInt)] = (_b[(0 : stdgo.GoInt)] | ((128 : stdgo.GoUInt8)) : stdgo.GoUInt8);
             return;

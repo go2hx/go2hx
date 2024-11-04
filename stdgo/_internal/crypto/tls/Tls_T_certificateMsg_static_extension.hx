@@ -29,11 +29,12 @@ package stdgo._internal.crypto.tls;
         _d = (_data.__slice__((7 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _numCerts : Bool), _i++, {
+            while ((_i < _numCerts : Bool)) {
                 var _certLen = ((((_d[(0 : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((_d[(1 : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | (_d[(2 : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
-                _m._certificates[(_i : stdgo.GoInt)] = (_d.__slice__((3 : stdgo.GoInt), ((3u32 : stdgo.GoUInt32) + _certLen : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>);
-                _d = (_d.__slice__(((3u32 : stdgo.GoUInt32) + _certLen : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>);
-            });
+_m._certificates[(_i : stdgo.GoInt)] = (_d.__slice__((3 : stdgo.GoInt), ((3u32 : stdgo.GoUInt32) + _certLen : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>);
+_d = (_d.__slice__(((3u32 : stdgo.GoUInt32) + _certLen : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>);
+                _i++;
+            };
         };
         return true;
     }

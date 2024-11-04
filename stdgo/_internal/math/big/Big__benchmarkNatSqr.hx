@@ -5,8 +5,9 @@ function _benchmarkNatSqr(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>, _nw
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 _z._sqr(_x);
-            });
+                _i++;
+            };
         };
     }

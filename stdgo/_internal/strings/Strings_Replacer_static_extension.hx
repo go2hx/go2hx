@@ -23,14 +23,15 @@ package stdgo._internal.strings;
         var _allNewBytes = (true : Bool);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_oldnew.length) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+            while ((_i < (_oldnew.length) : Bool)) {
                 if ((_oldnew[(_i : stdgo.GoInt)].length) != ((1 : stdgo.GoInt))) {
                     return stdgo.Go.asInterface(stdgo._internal.strings.Strings__makeGenericReplacer._makeGenericReplacer(_oldnew));
                 };
-                if ((_oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)].length) != ((1 : stdgo.GoInt))) {
+if ((_oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)].length) != ((1 : stdgo.GoInt))) {
                     _allNewBytes = false;
                 };
-            });
+                _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
         if (_allNewBytes) {
             var _r = ((new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[]).__setNumber32__() : stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer)?.__copy__() : stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer);
@@ -39,25 +40,27 @@ package stdgo._internal.strings;
             };
             {
                 var _i = ((_oldnew.length) - (2 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+                while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                     var _o = (_oldnew[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)] : stdgo.GoUInt8);
-                    var _n = (_oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] : stdgo.GoUInt8);
-                    _r[(_o : stdgo.GoInt)] = _n;
-                });
+var _n = (_oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] : stdgo.GoUInt8);
+_r[(_o : stdgo.GoInt)] = _n;
+                    _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                };
             };
             return stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>));
         };
         var _r = ({ _toReplace : (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((_oldnew.length) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setString__() : stdgo.Slice<stdgo.GoString>) } : stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer);
         {
             var _i = ((_oldnew.length) - (2 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 var _o = (_oldnew[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)] : stdgo.GoUInt8);
-                var _n = (_oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
-                if (_r._replacements[(_o : stdgo.GoInt)] == null) {
-                    _r._toReplace = (_r._toReplace.__append__(((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[_o]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__()));
+var _n = (_oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)].__copy__() : stdgo.GoString);
+if (_r._replacements[(_o : stdgo.GoInt)] == null) {
+                    _r._toReplace = (_r._toReplace.__append__(((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[_o]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString).__copy__()));
                 };
-                _r._replacements[(_o : stdgo.GoInt)] = (_n : stdgo.Slice<stdgo.GoUInt8>);
-            });
+_r._replacements[(_o : stdgo.GoInt)] = (_n : stdgo.Slice<stdgo.GoUInt8>);
+                _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
         return stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer>));
     }

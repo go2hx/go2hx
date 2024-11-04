@@ -5,15 +5,16 @@ function _fmtFrac(_buf:stdgo.Slice<stdgo.GoUInt8>, _v:stdgo.GoUInt64, _prec:stdg
         var _print = (false : Bool);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _prec : Bool), _i++, {
+            while ((_i < _prec : Bool)) {
                 var _digit = (_v % (10i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
-                _print = (_print || (_digit != (0i64 : stdgo.GoUInt64)) : Bool);
-                if (_print) {
+_print = (_print || (_digit != (0i64 : stdgo.GoUInt64)) : Bool);
+if (_print) {
                     _w--;
                     _buf[(_w : stdgo.GoInt)] = ((_digit : stdgo.GoUInt8) + (48 : stdgo.GoUInt8) : stdgo.GoUInt8);
                 };
-                _v = (_v / ((10i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-            });
+_v = (_v / ((10i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                _i++;
+            };
         };
         if (_print) {
             _w--;

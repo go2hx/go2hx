@@ -14,20 +14,22 @@ package stdgo._internal.net.http;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_c.value.length) : Bool), _i++, {
+            while ((_i < (_c.value.length) : Bool)) {
                 if (!stdgo._internal.net.http.Http__validCookieValueByte._validCookieValueByte(_c.value[(_i : stdgo.GoInt)])) {
                     return stdgo._internal.fmt.Fmt_errorf.errorf(("http: invalid byte %q in Cookie.Value" : stdgo.GoString), stdgo.Go.toInterface(_c.value[(_i : stdgo.GoInt)]));
                 };
-            });
+                _i++;
+            };
         };
         if (((_c.path.length) > (0 : stdgo.GoInt) : Bool)) {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_c.path.length) : Bool), _i++, {
+                while ((_i < (_c.path.length) : Bool)) {
                     if (!stdgo._internal.net.http.Http__validCookiePathByte._validCookiePathByte(_c.path[(_i : stdgo.GoInt)])) {
                         return stdgo._internal.fmt.Fmt_errorf.errorf(("http: invalid byte %q in Cookie.Path" : stdgo.GoString), stdgo.Go.toInterface(_c.path[(_i : stdgo.GoInt)]));
                     };
-                });
+                    _i++;
+                };
             };
         };
         if (((_c.domain.length) > (0 : stdgo.GoInt) : Bool)) {

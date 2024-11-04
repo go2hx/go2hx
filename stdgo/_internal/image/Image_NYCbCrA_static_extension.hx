@@ -10,15 +10,16 @@ package stdgo._internal.image;
 var _i1 = __1, _i0 = __0;
         {
             var _y = (_p.ycbCr.rect.min.y : stdgo.GoInt);
-            stdgo.Go.cfor((_y < _p.ycbCr.rect.max.y : Bool), _y++, {
+            while ((_y < _p.ycbCr.rect.max.y : Bool)) {
                 for (__0 => _a in (_p.a.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>)) {
                     if (_a != ((255 : stdgo.GoUInt8))) {
                         return false;
                     };
                 };
-                _i0 = (_i0 + (_p.astride) : stdgo.GoInt);
-                _i1 = (_i1 + (_p.astride) : stdgo.GoInt);
-            });
+_i0 = (_i0 + (_p.astride) : stdgo.GoInt);
+_i1 = (_i1 + (_p.astride) : stdgo.GoInt);
+                _y++;
+            };
         };
         return true;
     }

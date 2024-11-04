@@ -3,14 +3,16 @@ function _newHilbert(_n:stdgo.GoInt):stdgo.Ref<stdgo._internal.math.big.Big_T_ma
         var _a = stdgo._internal.math.big.Big__newMatrix._newMatrix(_n, _n);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < _n : Bool), _j++, {
+                    while ((_j < _n : Bool)) {
                         _a._set(_i, _j, stdgo._internal.math.big.Big_newRat.newRat((1i64 : stdgo.GoInt64), (((_i + _j : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64)));
-                    });
+                        _j++;
+                    };
                 };
-            });
+                _i++;
+            };
         };
         return _a;
     }

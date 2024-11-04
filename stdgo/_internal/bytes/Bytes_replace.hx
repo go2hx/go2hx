@@ -15,9 +15,9 @@ function replace(_s:stdgo.Slice<stdgo.GoUInt8>, _old:stdgo.Slice<stdgo.GoUInt8>,
         var _start = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 var _j = (_start : stdgo.GoInt);
-                if ((_old.length) == ((0 : stdgo.GoInt))) {
+if ((_old.length) == ((0 : stdgo.GoInt))) {
                     if ((_i > (0 : stdgo.GoInt) : Bool)) {
                         var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt32 = __tmp__._0, _wid:stdgo.GoInt = __tmp__._1;
                         _j = (_j + (_wid) : stdgo.GoInt);
@@ -25,10 +25,11 @@ function replace(_s:stdgo.Slice<stdgo.GoUInt8>, _old:stdgo.Slice<stdgo.GoUInt8>,
                 } else {
                     _j = (_j + (stdgo._internal.bytes.Bytes_index.index((_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>), _old)) : stdgo.GoInt);
                 };
-                _w = (_w + (stdgo.Go.copySlice((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>), (_s.__slice__(_start, _j) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
-                _w = (_w + (stdgo.Go.copySlice((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>), _new)) : stdgo.GoInt);
-                _start = (_j + (_old.length) : stdgo.GoInt);
-            });
+_w = (_w + (stdgo.Go.copySlice((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>), (_s.__slice__(_start, _j) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
+_w = (_w + (stdgo.Go.copySlice((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>), _new)) : stdgo.GoInt);
+_start = (_j + (_old.length) : stdgo.GoInt);
+                _i++;
+            };
         };
         _w = (_w + (stdgo.Go.copySlice((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>), (_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
         return (_t.__slice__((0 : stdgo.GoInt), _w) : stdgo.Slice<stdgo.GoUInt8>);

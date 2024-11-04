@@ -54,9 +54,10 @@ package stdgo._internal.regexp.syntax;
                     _nre.sub = (_nre.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>>);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < (_re.min - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _i++, {
+                        while ((_i < (_re.min - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                             _nre.sub = (_nre.sub.__append__(_sub));
-                        });
+                            _i++;
+                        };
                     };
                     _nre.sub = (_nre.sub.__append__(stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((15 : stdgo._internal.regexp.syntax.Syntax_Op.Op), _re.flags, _sub, null)));
                     return _nre;
@@ -70,20 +71,22 @@ package stdgo._internal.regexp.syntax;
                     _prefix.sub = (_prefix.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>>);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _re.min : Bool), _i++, {
+                        while ((_i < _re.min : Bool)) {
                             _prefix.sub = (_prefix.sub.__append__(_sub));
-                        });
+                            _i++;
+                        };
                     };
                 };
                 if ((_re.max > _re.min : Bool)) {
                     var _suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo._internal.regexp.syntax.Syntax_Op.Op), _re.flags, _sub, null);
                     {
                         var _i = (_re.min + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _re.max : Bool), _i++, {
+                        while ((_i < _re.max : Bool)) {
                             var _nre2 = (stdgo.Go.setRef(({ op : (18 : stdgo._internal.regexp.syntax.Syntax_Op.Op) } : stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>);
-                            _nre2.sub = ((_nre2.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>>).__append__(_sub, _suffix));
-                            _suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo._internal.regexp.syntax.Syntax_Op.Op), _re.flags, _nre2, null);
-                        });
+_nre2.sub = ((_nre2.sub0.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>>).__append__(_sub, _suffix));
+_suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo._internal.regexp.syntax.Syntax_Op.Op), _re.flags, _nre2, null);
+                            _i++;
+                        };
                     };
                     if (_prefix == null || (_prefix : Dynamic).__nil__) {
                         return _suffix;

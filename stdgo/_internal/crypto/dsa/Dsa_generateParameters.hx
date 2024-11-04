@@ -1,86 +1,194 @@
 package stdgo._internal.crypto.dsa;
 function generateParameters(_params:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters>, _rand:stdgo._internal.io.Io_Reader.Reader, _sizes:stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes):stdgo.Error {
-        stdgo._internal.internal.Macro.controlFlow({
-            var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
-var n = __1, l = __0;
+        var _i_3978143:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _rem_3977857:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _qBytes_3977760:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _g_3978569:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _h_3978535:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _pm1_3978589:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var generatePrimesBreak = false;
+        var _p_3977838:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _e_3978622:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _err_3977947:stdgo.Error = (null : stdgo.Error);
+        var n_3977513:stdgo.GoInt = (0 : stdgo.GoInt);
+        var l_3977510:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _err_3978175:stdgo.Error = (null : stdgo.Error);
+        var _one_3977878:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _q_3977819:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _pBytes_3977789:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _gotoNext = 0i32;
+        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
-                final __value__ = _sizes;
-                if (__value__ == ((0 : stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes))) {
-                    l = (1024 : stdgo.GoInt);
-                    n = (160 : stdgo.GoInt);
-                } else if (__value__ == ((1 : stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes))) {
-                    l = (2048 : stdgo.GoInt);
-                    n = (224 : stdgo.GoInt);
-                } else if (__value__ == ((2 : stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes))) {
-                    l = (2048 : stdgo.GoInt);
-                    n = (256 : stdgo.GoInt);
-                } else if (__value__ == ((3 : stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes))) {
-                    l = (3072 : stdgo.GoInt);
-                    n = (256 : stdgo.GoInt);
-                } else {
-                    return stdgo._internal.errors.Errors_new_.new_(("crypto/dsa: invalid ParameterSizes" : stdgo.GoString));
-                };
-            };
-            var _qBytes = (new stdgo.Slice<stdgo.GoUInt8>((n / (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var _pBytes = (new stdgo.Slice<stdgo.GoUInt8>((l / (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var _q = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-            var _p = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-            var _rem = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-            var _one = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-            _one.setInt64((1i64 : stdgo.GoInt64));
-            @:label("GeneratePrimes") while (true) {
-                {
-                    var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _qBytes), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                    if (_err != null) {
-                        return _err;
+                final __value__ = _gotoNext;
+                if (__value__ == (0i32)) {
+                    var __blank__ = 0i32;
+                    _gotoNext = 3977520i32;
+                } else if (__value__ == (3977520i32)) {
+                    {
+                        final __value__ = _sizes;
+                        if (__value__ == ((0 : stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes))) {
+                            _gotoNext = 3977536i32;
+                        } else if (__value__ == ((1 : stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes))) {
+                            _gotoNext = 3977574i32;
+                        } else if (__value__ == ((2 : stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes))) {
+                            _gotoNext = 3977612i32;
+                        } else if (__value__ == ((3 : stdgo._internal.crypto.dsa.Dsa_ParameterSizes.ParameterSizes))) {
+                            _gotoNext = 3977650i32;
+                        } else {
+                            _gotoNext = 3977688i32;
+                        };
                     };
-                };
-                _qBytes[((_qBytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_qBytes[((_qBytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] | ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);
-                _qBytes[(0 : stdgo.GoInt)] = (_qBytes[(0 : stdgo.GoInt)] | ((128 : stdgo.GoUInt8)) : stdgo.GoUInt8);
-                _q.setBytes(_qBytes);
-                if (!_q.probablyPrime((64 : stdgo.GoInt))) {
-                    continue;
-                };
-                {
-                    var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < ((4 : stdgo.GoInt) * l : stdgo.GoInt) : Bool), _i++, {
+                } else if (__value__ == (3977536i32)) {
+                    l_3977510 = (1024 : stdgo.GoInt);
+                    n_3977513 = (160 : stdgo.GoInt);
+                    _gotoNext = 3977760i32;
+                } else if (__value__ == (3977574i32)) {
+                    l_3977510 = (2048 : stdgo.GoInt);
+                    n_3977513 = (224 : stdgo.GoInt);
+                    _gotoNext = 3977760i32;
+                } else if (__value__ == (3977612i32)) {
+                    l_3977510 = (2048 : stdgo.GoInt);
+                    n_3977513 = (256 : stdgo.GoInt);
+                    _gotoNext = 3977760i32;
+                } else if (__value__ == (3977650i32)) {
+                    l_3977510 = (3072 : stdgo.GoInt);
+                    n_3977513 = (256 : stdgo.GoInt);
+                    _gotoNext = 3977760i32;
+                } else if (__value__ == (3977688i32)) {
+                    return stdgo._internal.errors.Errors_new_.new_(("crypto/dsa: invalid ParameterSizes" : stdgo.GoString));
+                    _gotoNext = 3977760i32;
+                } else if (__value__ == (3977760i32)) {
+                    _qBytes_3977760 = (new stdgo.Slice<stdgo.GoUInt8>((n_3977513 / (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+                    _pBytes_3977789 = (new stdgo.Slice<stdgo.GoUInt8>((l_3977510 / (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+                    _q_3977819 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+                    _p_3977838 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+                    _rem_3977857 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+                    _one_3977878 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+                    _one_3977878.setInt64((1i64 : stdgo.GoInt64));
+                    _gotoNext = 3977916i32;
+                } else if (__value__ == (3977916i32)) {
+                    var __blank__ = 0i32;
+                    generatePrimesBreak = false;
+                    _gotoNext = 3977933i32;
+                } else if (__value__ == (3977933i32)) {
+                    if (!generatePrimesBreak) {
+                        _gotoNext = 3977937i32;
+                    } else {
+                        _gotoNext = 3978535i32;
+                    };
+                } else if (__value__ == (3977937i32)) {
+                    {
                         {
-                            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _pBytes), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                            if (_err != null) {
-                                return _err;
-                            };
+                            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _qBytes_3977760);
+                            _err_3977947 = __tmp__._1;
                         };
-                        _pBytes[((_pBytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_pBytes[((_pBytes.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] | ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);
-                        _pBytes[(0 : stdgo.GoInt)] = (_pBytes[(0 : stdgo.GoInt)] | ((128 : stdgo.GoUInt8)) : stdgo.GoUInt8);
-                        _p.setBytes(_pBytes);
-                        _rem.mod(_p, _q);
-                        _rem.sub(_rem, _one);
-                        _p.sub(_p, _rem);
-                        if ((_p.bitLen() < l : Bool)) {
-                            continue;
+                        if (_err_3977947 != null) {
+                            _gotoNext = 3977992i32;
+                        } else {
+                            _gotoNext = 3978015i32;
                         };
-                        if (!_p.probablyPrime((64 : stdgo.GoInt))) {
-                            continue;
+                    };
+                } else if (__value__ == (3977992i32)) {
+                    return _err_3977947;
+                    _gotoNext = 3978015i32;
+                } else if (__value__ == (3978015i32)) {
+                    _qBytes_3977760[((_qBytes_3977760.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_qBytes_3977760[((_qBytes_3977760.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] | ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);
+                    _qBytes_3977760[(0 : stdgo.GoInt)] = (_qBytes_3977760[(0 : stdgo.GoInt)] | ((128 : stdgo.GoUInt8)) : stdgo.GoUInt8);
+                    _q_3977819.setBytes(_qBytes_3977760);
+                    if (!_q_3977819.probablyPrime((64 : stdgo.GoInt))) {
+                        _gotoNext = 3978118i32;
+                    } else {
+                        _gotoNext = 3978139i32;
+                    };
+                } else if (__value__ == (3978118i32)) {
+                    var __blank__ = 0i32;
+                    _gotoNext = 3977933i32;
+                } else if (__value__ == (3978139i32)) {
+                    _i_3978143 = (0 : stdgo.GoInt);
+                    _gotoNext = 3978139i32;
+                    if ((_i_3978143 < ((4 : stdgo.GoInt) * l_3977510 : stdgo.GoInt) : Bool)) {
+                        _gotoNext = 3978164i32;
+                    } else {
+                        _gotoNext = 3978535i32;
+                    };
+                } else if (__value__ == (3978164i32)) {
+                    {
+                        {
+                            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _pBytes_3977789);
+                            _err_3978175 = __tmp__._1;
                         };
-                        _params.p = _p;
-                        _params.q = _q;
-                        @:jump("GeneratePrimes") break;
-                    });
+                        if (_err_3978175 != null) {
+                            _gotoNext = 3978220i32;
+                        } else {
+                            _gotoNext = 3978246i32;
+                        };
+                    };
+                } else if (__value__ == (3978220i32)) {
+                    return _err_3978175;
+                    _gotoNext = 3978246i32;
+                } else if (__value__ == (3978246i32)) {
+                    _pBytes_3977789[((_pBytes_3977789.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (_pBytes_3977789[((_pBytes_3977789.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] | ((1 : stdgo.GoUInt8)) : stdgo.GoUInt8);
+                    _pBytes_3977789[(0 : stdgo.GoInt)] = (_pBytes_3977789[(0 : stdgo.GoInt)] | ((128 : stdgo.GoUInt8)) : stdgo.GoUInt8);
+                    _p_3977838.setBytes(_pBytes_3977789);
+                    _rem_3977857.mod(_p_3977838, _q_3977819);
+                    _rem_3977857.sub(_rem_3977857, _one_3977878);
+                    _p_3977838.sub(_p_3977838, _rem_3977857);
+                    if ((_p_3977838.bitLen() < l_3977510 : Bool)) {
+                        _gotoNext = 3978393i32;
+                    } else {
+                        _gotoNext = 3978417i32;
+                    };
+                } else if (__value__ == (3978393i32)) {
+                    _i_3978143++;
+                    _gotoNext = 3978139i32;
+                } else if (__value__ == (3978417i32)) {
+                    if (!_p_3977838.probablyPrime((64 : stdgo.GoInt))) {
+                        _gotoNext = 3978449i32;
+                    } else {
+                        _gotoNext = 3978473i32;
+                    };
+                } else if (__value__ == (3978449i32)) {
+                    _i_3978143++;
+                    _gotoNext = 3978139i32;
+                } else if (__value__ == (3978473i32)) {
+                    _params.p = _p_3977838;
+                    _params.q = _q_3977819;
+                    generatePrimesBreak = true;
+                    _gotoNext = 3977933i32;
+                } else if (__value__ == (3978535i32)) {
+                    _h_3978535 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+                    _h_3978535.setInt64((2i64 : stdgo.GoInt64));
+                    _g_3978569 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+                    _pm1_3978589 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).sub(_p_3977838, _one_3977878);
+                    _e_3978622 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).div(_pm1_3978589, _q_3977819);
+                    var __blank__ = 0i32;
+                    _gotoNext = 3978654i32;
+                } else if (__value__ == (3978654i32)) {
+                    if (true) {
+                        _gotoNext = 3978658i32;
+                    } else {
+                        _gotoNext = 3978765i32;
+                    };
+                } else if (__value__ == (3978658i32)) {
+                    _g_3978569.exp(_h_3978535, _e_3978622, _p_3977838);
+                    if (_g_3978569.cmp(_one_3977878) == ((0 : stdgo.GoInt))) {
+                        _gotoNext = 3978698i32;
+                    } else {
+                        _gotoNext = 3978736i32;
+                    };
+                } else if (__value__ == (3978698i32)) {
+                    _h_3978535.add(_h_3978535, _one_3977878);
+                    var __blank__ = 0i32;
+                    _gotoNext = 3978654i32;
+                } else if (__value__ == (3978736i32)) {
+                    _params.g = _g_3978569;
+                    return (null : stdgo.Error);
+                    _gotoNext = 3978654i32;
+                } else if (__value__ == (3978765i32)) {
+                    _gotoNext = -1i32;
                 };
             };
-            var _h = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-            _h.setInt64((2i64 : stdgo.GoInt64));
-            var _g = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-            var _pm1 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).sub(_p, _one);
-            var _e = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).div(_pm1, _q);
-            while (true) {
-                _g.exp(_h, _e, _p);
-                if (_g.cmp(_one) == ((0 : stdgo.GoInt))) {
-                    _h.add(_h, _one);
-                    continue;
-                };
-                _params.g = _g;
-                return (null : stdgo.Error);
-            };
-        });
+        };
+        throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }

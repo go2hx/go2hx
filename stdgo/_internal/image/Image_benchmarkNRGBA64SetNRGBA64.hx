@@ -5,8 +5,9 @@ function benchmarkNRGBA64SetNRGBA64(_b:stdgo.Ref<stdgo._internal.testing.Testing
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
-                _m.setNRGBA64((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c?.__copy__());
-            });
+            while ((_i < _b.n : Bool)) {
+                _m.setNRGBA64((4 : stdgo.GoInt), (5 : stdgo.GoInt), _c.__copy__());
+                _i++;
+            };
         };
     }

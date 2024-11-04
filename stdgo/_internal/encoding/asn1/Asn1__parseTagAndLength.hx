@@ -43,24 +43,25 @@ function _parseTagAndLength(_bytes:stdgo.Slice<stdgo.GoUInt8>, _initOffset:stdgo
             _ret._length = (0 : stdgo.GoInt);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _numBytes : Bool), _i++, {
+                while ((_i < _numBytes : Bool)) {
                     if ((_offset >= (_bytes.length) : Bool)) {
                         _err = stdgo.Go.asInterface((new stdgo._internal.encoding.asn1.Asn1_SyntaxError.SyntaxError(("truncated tag or length" : stdgo.GoString)) : stdgo._internal.encoding.asn1.Asn1_SyntaxError.SyntaxError));
                         return { _0 : _ret, _1 : _offset, _2 : _err };
                     };
-                    _b = _bytes[(_offset : stdgo.GoInt)];
-                    _offset++;
-                    if ((_ret._length >= (8388608 : stdgo.GoInt) : Bool)) {
+_b = _bytes[(_offset : stdgo.GoInt)];
+_offset++;
+if ((_ret._length >= (8388608 : stdgo.GoInt) : Bool)) {
                         _err = stdgo.Go.asInterface((new stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError(("length too large" : stdgo.GoString)) : stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError));
                         return { _0 : _ret, _1 : _offset, _2 : _err };
                     };
-                    _ret._length = (_ret._length << ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt);
-                    _ret._length = (_ret._length | ((_b : stdgo.GoInt)) : stdgo.GoInt);
-                    if (_ret._length == ((0 : stdgo.GoInt))) {
+_ret._length = (_ret._length << ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt);
+_ret._length = (_ret._length | ((_b : stdgo.GoInt)) : stdgo.GoInt);
+if (_ret._length == ((0 : stdgo.GoInt))) {
                         _err = stdgo.Go.asInterface((new stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError(("superfluous leading zeros in length" : stdgo.GoString)) : stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError));
                         return { _0 : _ret, _1 : _offset, _2 : _err };
                     };
-                });
+                    _i++;
+                };
             };
             if ((_ret._length < (128 : stdgo.GoInt) : Bool)) {
                 _err = stdgo.Go.asInterface((new stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError(("non-minimal length" : stdgo.GoString)) : stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError));

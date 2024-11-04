@@ -5,11 +5,12 @@ function benchmarkSortFuncStructs(_b:stdgo.Ref<stdgo._internal.testing.Testing_B
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 _b.stopTimer();
-                var _ss = (stdgo._internal.slices.Slices__makeRandomStructs._makeRandomStructs((100000 : stdgo.GoInt)) : stdgo._internal.slices.Slices_T_myStructs.T_myStructs);
-                _b.startTimer();
-                stdgo._internal.slices.Slices_sortFunc.sortFunc(_ss, _cmpFunc);
-            });
+var _ss = (stdgo._internal.slices.Slices__makeRandomStructs._makeRandomStructs((100000 : stdgo.GoInt)) : stdgo._internal.slices.Slices_T_myStructs.T_myStructs);
+_b.startTimer();
+stdgo._internal.slices.Slices_sortFunc.sortFunc(_ss, _cmpFunc);
+                _i++;
+            };
         };
     }

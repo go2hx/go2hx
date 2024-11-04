@@ -134,11 +134,12 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                         } else if (__value__ == ((266 : stdgo.GoInt)) || __value__ == ((267 : stdgo.GoInt))) {
                             {
                                 var _i = (0 : stdgo.GoInt);
-                                stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
+                                while ((_i < (2 : stdgo.GoInt) : Bool)) {
                                     if (((_std == ((266 : stdgo.GoInt)) && ((_value.length) > (0 : stdgo.GoInt) : Bool) : Bool) && (_value[(0 : stdgo.GoInt)] == (32 : stdgo.GoUInt8)) : Bool)) {
-                                        _value = (_value.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                                        _value = (_value.__slice__((1 : stdgo.GoInt)) : stdgo.GoString).__copy__();
                                     };
-                                });
+                                    _i++;
+                                };
                             };
                             {
                                 var __tmp__ = stdgo._internal.time.Time__getnum3._getnum3(_value?.__copy__(), _std == ((267 : stdgo.GoInt)));
@@ -204,7 +205,10 @@ var _zoneName = __10, _zoneOffset = __9, _z = __8, _nsec = __7, _sec = __6, _min
                                     break;
                                 };
                                 var _n = (2 : stdgo.GoInt);
-                                stdgo.Go.cfor(((_n < (_value.length) : Bool) && stdgo._internal.time.Time__isDigit._isDigit(_value?.__copy__(), _n) : Bool), _n++, {});
+                                while (((_n < (_value.length) : Bool) && stdgo._internal.time.Time__isDigit._isDigit(_value?.__copy__(), _n) : Bool)) {
+                                    {};
+                                    _n++;
+                                };
                                 {
                                     var __tmp__ = stdgo._internal.time.Time__parseNanoseconds._parseNanoseconds(_value?.__copy__(), _n);
                                     _nsec = __tmp__._0;

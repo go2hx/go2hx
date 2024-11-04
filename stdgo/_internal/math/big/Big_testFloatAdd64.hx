@@ -3,7 +3,7 @@ function testFloatAdd64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         {};
         {
             var _d = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_d <= (16 : stdgo.GoInt) : Bool), _d++, {
+            while ((_d <= (16 : stdgo.GoInt) : Bool)) {
                 for (_i => _ in (new stdgo.GoArray<stdgo.GoInt>(2, 2, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)) {
                     var __0 = (3.602879701896395e+16 : stdgo.GoFloat64), __1 = (_d : stdgo.GoFloat64);
 var _y0 = __1, _x0 = __0;
@@ -35,6 +35,7 @@ var _y0 = __1, _x0 = __0;
                         _t.errorf(("d = %d: %g - %g = %g (%s); want %g (Exact)" : stdgo.GoString), stdgo.Go.toInterface(_d), stdgo.Go.toInterface((_x0 + _y0 : stdgo.GoFloat64)), stdgo.Go.toInterface(_y0), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(_want));
                     };
                 };
-            });
+                _d++;
+            };
         };
     }

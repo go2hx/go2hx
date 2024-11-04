@@ -186,20 +186,21 @@ package stdgo._internal.runtime.pprof;
         var _locs:stdgo.Slice<stdgo.GoUInt64> = (null : stdgo.Slice<stdgo.GoUInt64>);
         {
             var _e = _b._m._all;
-            stdgo.Go.cfor(_e != null && ((_e : Dynamic).__nil__ == null || !(_e : Dynamic).__nil__), _e = _e._nextAll, {
+            while (_e != null && ((_e : Dynamic).__nil__ == null || !(_e : Dynamic).__nil__)) {
                 _values[(0 : stdgo.GoInt)] = _e._count;
-                _values[(1 : stdgo.GoInt)] = (_e._count * _b._period : stdgo.GoInt64);
-                var _labels:() -> Void = null;
-                if (_e._tag != null) {
+_values[(1 : stdgo.GoInt)] = (_e._count * _b._period : stdgo.GoInt64);
+var _labels:() -> Void = null;
+if (_e._tag != null) {
                     _labels = function():Void {
                         for (_k => _v in ((_e._tag.__convert__(stdgo._internal.internal.reflect.Reflect.GoType.refType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap", [], stdgo._internal.internal.reflect.Reflect.GoType.mapType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(string_kind) }, { get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(string_kind) }), false, { get : () -> null }) })) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap>) : stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap)) {
                             _b._pbLabel((3 : stdgo.GoInt), _k?.__copy__(), _v?.__copy__(), (0i64 : stdgo.GoInt64));
                         };
                     };
                 };
-                _locs = _b._appendLocsForStack((_locs.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt64>), _e._stk);
-                _b._pbSample(_values, _locs, _labels);
-            });
+_locs = _b._appendLocsForStack((_locs.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt64>), _e._stk);
+_b._pbSample(_values, _locs, _labels);
+                _e = _e._nextAll;
+            };
         };
         for (_i => _m in _b._mem) {
             var _hasFunctions = (_m._funcs == ((1 : stdgo._internal.runtime.pprof.Pprof_T_symbolizeFlag.T_symbolizeFlag)) : Bool);

@@ -10,9 +10,9 @@ function _byteSliceShuffleBytes(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_
         };
         {
             var _i = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 var _j = (_m._rand((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-                {
+{
                     final __tmp__0 = _b[(_dst + _j : stdgo.GoInt)];
                     final __tmp__1 = _b[(_dst + _i : stdgo.GoInt)];
                     final __tmp__2 = _b;
@@ -22,7 +22,8 @@ function _byteSliceShuffleBytes(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_
                     __tmp__2[__tmp__3] = __tmp__0;
                     __tmp__4[__tmp__5] = __tmp__1;
                 };
-            });
+                _i--;
+            };
         };
         return _b;
     }

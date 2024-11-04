@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.json;
 function testMarshalRawMessageValue(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {};
-        var __0:stdgo._internal.encoding.json.Json_RawMessage.RawMessage = (new stdgo._internal.encoding.json.Json_RawMessage.RawMessage(0, 0) : stdgo._internal.encoding.json.Json_RawMessage.RawMessage), __1:stdgo._internal.encoding.json.Json_RawMessage.RawMessage = ((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo._internal.encoding.json.Json_RawMessage.RawMessage), __2:stdgo._internal.encoding.json.Json_RawMessage.RawMessage = ((("\"foo\"" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>) : stdgo._internal.encoding.json.Json_RawMessage.RawMessage);
+        var __0 = (new stdgo._internal.encoding.json.Json_RawMessage.RawMessage(0, 0) : stdgo._internal.encoding.json.Json_RawMessage.RawMessage), __1 = ((new stdgo.Slice<stdgo.GoUInt8>(0, 0, ...[]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo._internal.encoding.json.Json_RawMessage.RawMessage), __2 = ((("\"foo\"" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>) : stdgo._internal.encoding.json.Json_RawMessage.RawMessage);
 var _rawText = __2, _rawEmpty = __1, _rawNil = __0;
         var _tests = (new stdgo.Slice<stdgo._internal.encoding.json.Json_T__struct_29.T__struct_29>(54, 54, ...[
 ({ _in : stdgo.Go.toInterface(stdgo.Go.asInterface(_rawNil)), _want : ("null" : stdgo.GoString), _ok : true } : stdgo._internal.encoding.json.Json_T__struct_29.T__struct_29),

@@ -5,26 +5,29 @@ function benchmarkProbablyPrime(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B
             _b.run(stdgo._internal.fmt.Fmt_sprintf.sprintf(("n=%d" : stdgo.GoString), stdgo.Go.toInterface(_n))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                    while ((_i < _b.n : Bool)) {
                         _p.probablyPrime(_n);
-                    });
+                        _i++;
+                    };
                 };
             });
         };
         _b.run(("Lucas" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                while ((_i < _b.n : Bool)) {
                     _p._abs._probablyPrimeLucas();
-                });
+                    _i++;
+                };
             };
         });
         _b.run(("MillerRabinBase2" : stdgo.GoString), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                while ((_i < _b.n : Bool)) {
                     _p._abs._probablyPrimeMillerRabin((1 : stdgo.GoInt), true);
-                });
+                    _i++;
+                };
             };
         });
     }

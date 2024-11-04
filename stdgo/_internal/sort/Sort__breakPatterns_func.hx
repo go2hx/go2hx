@@ -6,13 +6,14 @@ function _breakPatterns_func(_data:stdgo._internal.sort.Sort_T_lessSwap.T_lessSw
             var _modulus = (stdgo._internal.sort.Sort__nextPowerOfTwo._nextPowerOfTwo(_length) : stdgo.GoUInt);
             {
                 var _idx = ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.cfor((_idx <= ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _idx++, {
+                while ((_idx <= ((_a + (((_length / (4 : stdgo.GoInt) : stdgo.GoInt)) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                     var _other = (((_random.next(stdgo.Go.pointer(_random)) : stdgo.GoUInt) & ((_modulus - (1u32 : stdgo.GoUInt) : stdgo.GoUInt)) : stdgo.GoUInt) : stdgo.GoInt);
-                    if ((_other >= _length : Bool)) {
+if ((_other >= _length : Bool)) {
                         _other = (_other - (_length) : stdgo.GoInt);
                     };
-                    _data.swap(_idx, (_a + _other : stdgo.GoInt));
-                });
+_data.swap(_idx, (_a + _other : stdgo.GoInt));
+                    _idx++;
+                };
             };
         };
     }

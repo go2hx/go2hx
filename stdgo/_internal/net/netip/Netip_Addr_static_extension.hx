@@ -123,12 +123,13 @@ package stdgo._internal.net.netip;
         var _ret = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (39 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
-            stdgo.Go.cfor((_i < (8 : stdgo.GoUInt8) : Bool), _i++, {
+            while ((_i < (8 : stdgo.GoUInt8) : Bool)) {
                 if ((_i > (0 : stdgo.GoUInt8) : Bool)) {
                     _ret = (_ret.__append__((58 : stdgo.GoUInt8)));
                 };
-                _ret = stdgo._internal.net.netip.Netip__appendHexPad._appendHexPad(_ret, _ip._v6u16(_i));
-            });
+_ret = stdgo._internal.net.netip.Netip__appendHexPad._appendHexPad(_ret, _ip._v6u16(_i));
+                _i++;
+            };
         };
         if (_ip._z != (stdgo._internal.net.netip.Netip__z6noz._z6noz)) {
             _ret = (_ret.__append__((37 : stdgo.GoUInt8)));
@@ -143,12 +144,12 @@ package stdgo._internal.net.netip;
 var _zeroEnd = __1, _zeroStart = __0;
         {
             var _i = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
-            stdgo.Go.cfor((_i < (8 : stdgo.GoUInt8) : Bool), _i++, {
+            while ((_i < (8 : stdgo.GoUInt8) : Bool)) {
                 var _j = (_i : stdgo.GoUInt8);
-                while (((_j < (8 : stdgo.GoUInt8) : Bool) && (_ip._v6u16(_j) == (0 : stdgo.GoUInt16)) : Bool)) {
+while (((_j < (8 : stdgo.GoUInt8) : Bool) && (_ip._v6u16(_j) == (0 : stdgo.GoUInt16)) : Bool)) {
                     _j++;
                 };
-                {
+{
                     var _l = (_j - _i : stdgo.GoUInt8);
                     if (((_l >= (2 : stdgo.GoUInt8) : Bool) && (_l > (_zeroEnd - _zeroStart : stdgo.GoUInt8) : Bool) : Bool)) {
                         {
@@ -159,11 +160,12 @@ var _zeroEnd = __1, _zeroStart = __0;
                         };
                     };
                 };
-            });
+                _i++;
+            };
         };
         {
             var _i = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
-            stdgo.Go.cfor((_i < (8 : stdgo.GoUInt8) : Bool), _i++, {
+            while ((_i < (8 : stdgo.GoUInt8) : Bool)) {
                 if (_i == (_zeroStart)) {
                     _ret = (_ret.__append__((58 : stdgo.GoUInt8), (58 : stdgo.GoUInt8)));
                     _i = _zeroEnd;
@@ -173,8 +175,9 @@ var _zeroEnd = __1, _zeroStart = __0;
                 } else if ((_i > (0 : stdgo.GoUInt8) : Bool)) {
                     _ret = (_ret.__append__((58 : stdgo.GoUInt8)));
                 };
-                _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i));
-            });
+_ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i));
+                _i++;
+            };
         };
         if (_ip._z != (stdgo._internal.net.netip.Netip__z6noz._z6noz)) {
             _ret = (_ret.__append__((37 : stdgo.GoUInt8)));

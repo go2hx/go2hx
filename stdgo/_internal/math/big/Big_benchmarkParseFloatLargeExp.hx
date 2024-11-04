@@ -2,7 +2,7 @@ package stdgo._internal.math.big;
 function benchmarkParseFloatLargeExp(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 for (__16 => _s in (new stdgo.Slice<stdgo.GoString>(21, 21, ...[
 ("1e0" : stdgo.GoString),
 ("1e-10" : stdgo.GoString),
@@ -31,6 +31,7 @@ function benchmarkParseFloatLargeExp(_b:stdgo.Ref<stdgo._internal.testing.Testin
                         _b.fatalf(("%s: %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_err));
                     };
                 };
-            });
+                _i++;
+            };
         };
     }

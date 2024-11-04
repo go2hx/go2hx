@@ -10,7 +10,7 @@ function testFloatArithmeticSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.T
             var _want = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (4 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (4 : stdgo.GoInt) : Bool)) {
                     for (__8 => _x in _args) {
                         _xx.setFloat64(_x);
                         {
@@ -130,7 +130,8 @@ var _f = __2, _z = __1, _op = __0;
                             };
                         };
                     };
-                });
+                    _i++;
+                };
             };
             {
                 for (defer in __deferstack__) {

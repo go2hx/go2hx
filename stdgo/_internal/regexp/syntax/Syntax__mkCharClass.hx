@@ -4,7 +4,7 @@ function _mkCharClass(_f:stdgo.GoInt32 -> Bool):stdgo.GoString {
         var _lo = ((-1 : stdgo.GoInt32) : stdgo.GoInt32);
         {
             var _i = ((0 : stdgo.GoInt32) : stdgo.GoInt32);
-            stdgo.Go.cfor((_i <= (1114111 : stdgo.GoInt32) : Bool), _i++, {
+            while ((_i <= (1114111 : stdgo.GoInt32) : Bool)) {
                 if (_f(_i)) {
                     if ((_lo < (0 : stdgo.GoInt32) : Bool)) {
                         _lo = _i;
@@ -15,7 +15,8 @@ function _mkCharClass(_f:stdgo.GoInt32 -> Bool):stdgo.GoString {
                         _lo = (-1 : stdgo.GoInt32);
                     };
                 };
-            });
+                _i++;
+            };
         };
         if ((_lo >= (0 : stdgo.GoInt32) : Bool)) {
             _re.rune = (_re.rune.__append__(_lo, (1114111 : stdgo.GoInt32)));

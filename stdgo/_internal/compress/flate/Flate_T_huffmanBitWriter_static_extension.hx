@@ -160,20 +160,22 @@ package stdgo._internal.compress.flate;
         if (_storable) {
             {
                 var _lengthCode = (265 : stdgo.GoInt);
-                stdgo.Go.cfor((_lengthCode < _numLiterals : Bool), _lengthCode++, {
+                while ((_lengthCode < _numLiterals : Bool)) {
                     _extraBits = (_extraBits + (((_w._literalFreq[(_lengthCode : stdgo.GoInt)] : stdgo.GoInt) * (stdgo._internal.compress.flate.Flate__lengthExtraBits._lengthExtraBits[(_lengthCode - (257 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-                });
+                    _lengthCode++;
+                };
             };
             {
                 var _offsetCode = (4 : stdgo.GoInt);
-                stdgo.Go.cfor((_offsetCode < _numOffsets : Bool), _offsetCode++, {
+                while ((_offsetCode < _numOffsets : Bool)) {
                     _extraBits = (_extraBits + (((_w._offsetFreq[(_offsetCode : stdgo.GoInt)] : stdgo.GoInt) * (stdgo._internal.compress.flate.Flate__offsetExtraBits._offsetExtraBits[(_offsetCode : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-                });
+                    _offsetCode++;
+                };
             };
         };
-        var _literalEncoding:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder> = stdgo._internal.compress.flate.Flate__fixedLiteralEncoding._fixedLiteralEncoding;
-        var _offsetEncoding:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder> = stdgo._internal.compress.flate.Flate__fixedOffsetEncoding._fixedOffsetEncoding;
-        var _size:stdgo.GoInt = _w._fixedSize(_extraBits);
+        var _literalEncoding = stdgo._internal.compress.flate.Flate__fixedLiteralEncoding._fixedLiteralEncoding;
+        var _offsetEncoding = stdgo._internal.compress.flate.Flate__fixedOffsetEncoding._fixedOffsetEncoding;
+        var _size = _w._fixedSize(_extraBits);
         var _numCodegens:stdgo.GoInt = (0 : stdgo.GoInt);
         _w._generateCodegen(_numLiterals, _numOffsets, _w._literalEncoding, _w._offsetEncoding);
         _w._codegenEncoding._generate((_w._codegenFreq.__slice__(0) : stdgo.Slice<stdgo.GoInt32>), (7 : stdgo.GoInt32));
@@ -238,10 +240,11 @@ package stdgo._internal.compress.flate;
         _w._writeBits(((_numCodegens - (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32), (4u32 : stdgo.GoUInt));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _numCodegens : Bool), _i++, {
+            while ((_i < _numCodegens : Bool)) {
                 var _value = (_w._codegenEncoding._codes[(stdgo._internal.compress.flate.Flate__codegenOrder._codegenOrder[(_i : stdgo.GoInt)] : stdgo.GoInt)]._len : stdgo.GoUInt);
-                _w._writeBits((_value : stdgo.GoInt32), (3u32 : stdgo.GoUInt));
-            });
+_w._writeBits((_value : stdgo.GoInt32), (3u32 : stdgo.GoUInt));
+                _i++;
+            };
         };
         var _i = (0 : stdgo.GoInt);
         while (true) {
@@ -343,13 +346,16 @@ package stdgo._internal.compress.flate;
         var _outIndex = (0 : stdgo.GoInt);
         {
             var _inIndex = (1 : stdgo.GoInt);
-            stdgo.Go.cfor(_size != ((255 : stdgo.GoUInt8)), _inIndex++, {
+            while (_size != ((255 : stdgo.GoUInt8))) {
                 var _nextSize = (_codegen[(_inIndex : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (_nextSize == (_size)) {
+if (_nextSize == (_size)) {
                     _count++;
-                    continue;
+                    {
+                        _inIndex++;
+                        continue;
+                    };
                 };
-                if (_size != ((0 : stdgo.GoUInt8))) {
+if (_size != ((0 : stdgo.GoUInt8))) {
                     _codegen[(_outIndex : stdgo.GoInt)] = _size;
                     _outIndex++;
                     _w._codegenFreq[(_size : stdgo.GoInt)]++;
@@ -388,15 +394,17 @@ package stdgo._internal.compress.flate;
                         _count = (0 : stdgo.GoInt);
                     };
                 };
-                _count--;
-                stdgo.Go.cfor((_count >= (0 : stdgo.GoInt) : Bool), _count--, {
+_count--;
+while ((_count >= (0 : stdgo.GoInt) : Bool)) {
                     _codegen[(_outIndex : stdgo.GoInt)] = _size;
-                    _outIndex++;
-                    _w._codegenFreq[(_size : stdgo.GoInt)]++;
-                });
-                _size = _nextSize;
-                _count = (1 : stdgo.GoInt);
-            });
+_outIndex++;
+_w._codegenFreq[(_size : stdgo.GoInt)]++;
+                    _count--;
+                };
+_size = _nextSize;
+_count = (1 : stdgo.GoInt);
+                _inIndex++;
+            };
         };
         _codegen[(_outIndex : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
     }

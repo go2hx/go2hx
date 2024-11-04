@@ -13,9 +13,10 @@ function _symMerge(_data:stdgo._internal.sort.Sort_Interface.Interface, _a:stdgo
             };
             {
                 var _k = (_a : stdgo.GoInt);
-                stdgo.Go.cfor((_k < (_i - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _k++, {
+                while ((_k < (_i - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                     _data.swap(_k, (_k + (1 : stdgo.GoInt) : stdgo.GoInt));
-                });
+                    _k++;
+                };
             };
             return;
         };
@@ -32,9 +33,10 @@ function _symMerge(_data:stdgo._internal.sort.Sort_Interface.Interface, _a:stdgo
             };
             {
                 var _k = (_m : stdgo.GoInt);
-                stdgo.Go.cfor((_k > _i : Bool), _k--, {
+                while ((_k > _i : Bool)) {
                     _data.swap(_k, (_k - (1 : stdgo.GoInt) : stdgo.GoInt));
-                });
+                    _k--;
+                };
             };
             return;
         };

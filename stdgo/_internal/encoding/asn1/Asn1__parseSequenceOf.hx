@@ -45,16 +45,17 @@ function _parseSequenceOf(_bytes:stdgo.Slice<stdgo.GoUInt8>, _sliceType:stdgo._i
         var _offset = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _numElements : Bool), _i++, {
+            while ((_i < _numElements : Bool)) {
                 {
-                    var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseField._parseField(_ret.index(_i)?.__copy__(), _bytes, _offset, _params?.__copy__());
+                    var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseField._parseField(_ret.index(_i).__copy__(), _bytes, _offset, _params.__copy__());
                     _offset = __tmp__._0;
                     _err = __tmp__._1;
                 };
-                if (_err != null) {
+if (_err != null) {
                     return { _0 : _ret, _1 : _err };
                 };
-            });
+                _i++;
+            };
         };
         return { _0 : _ret, _1 : _err };
     }

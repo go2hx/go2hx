@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testRatSetUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _testCases:stdgo.Slice<stdgo.GoUInt64> = (new stdgo.Slice<stdgo.GoUInt64>(4, 4, ...[(0i64 : stdgo.GoUInt64), (1i64 : stdgo.GoUInt64), (12345i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoUInt64>);
-        var _r:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
+        var _testCases = (new stdgo.Slice<stdgo.GoUInt64>(4, 4, ...[(0i64 : stdgo.GoUInt64), (1i64 : stdgo.GoUInt64), (12345i64 : stdgo.GoUInt64), (-1i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoUInt64>);
+        var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
         for (_i => _want in _testCases) {
             _r.setUint64(_want);
             if (!_r.isInt()) {

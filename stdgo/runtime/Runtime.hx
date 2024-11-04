@@ -1907,11 +1907,11 @@ class Runtime {
         final _e = ([for (i in _e) i] : stdgo.Slice<stdgo.GoString>);
         stdgo._internal.runtime.Runtime_setEnvs.setEnvs(_e);
     }
-    static public function benchSetType<T_>(_n:StdTypes.Int, _resetTimer:() -> Void):Void {
+    static public function benchSetType(_n:StdTypes.Int, _resetTimer:() -> Void):Void {
         final _resetTimer = _resetTimer;
         stdgo._internal.runtime.Runtime_benchSetType.benchSetType(_n, _resetTimer);
     }
-    static public function benchSetTypeSlice<T_>(_n:StdTypes.Int, _resetTimer:() -> Void, _len:StdTypes.Int):Void {
+    static public function benchSetTypeSlice(_n:StdTypes.Int, _resetTimer:() -> Void, _len:StdTypes.Int):Void {
         final _resetTimer = _resetTimer;
         stdgo._internal.runtime.Runtime_benchSetTypeSlice.benchSetTypeSlice(_n, _resetTimer, _len);
     }
@@ -2194,7 +2194,7 @@ class Runtime {
     static public function newGCController(_gcPercent:StdTypes.Int, _memoryLimit:haxe.Int64):GCController {
         return stdgo._internal.runtime.Runtime_newGCController.newGCController(_gcPercent, _memoryLimit);
     }
-    static public function escape<T_>(_x:Dynamic):Dynamic {
+    static public function escape(_x:Dynamic):Dynamic {
         return stdgo._internal.runtime.Runtime_escape.escape(_x);
     }
     /**
@@ -2224,7 +2224,7 @@ class Runtime {
     static public function globalWaitingArenaChunks():StdTypes.Int {
         return stdgo._internal.runtime.Runtime_globalWaitingArenaChunks.globalWaitingArenaChunks();
     }
-    static public function userArenaClone<T_>(_s:Dynamic):Dynamic {
+    static public function userArenaClone(_s:Dynamic):Dynamic {
         return stdgo._internal.runtime.Runtime_userArenaClone.userArenaClone(_s);
     }
     /**

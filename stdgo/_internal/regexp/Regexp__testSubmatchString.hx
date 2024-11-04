@@ -6,18 +6,22 @@ function _testSubmatchString(_test:stdgo.Ref<stdgo._internal.regexp.Regexp_FindT
         };
         {
             var _k = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_k < (_submatches.length) : Bool), _k = (_k + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+            while ((_k < (_submatches.length) : Bool)) {
                 if (_submatches[(_k : stdgo.GoInt)] == ((-1 : stdgo.GoInt))) {
                     if (_result[(_k / (2 : stdgo.GoInt) : stdgo.GoInt)] != (stdgo.Go.str())) {
                         _t.errorf(("match %d: expected nil got %q: %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_result), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)));
                     };
-                    continue;
+                    {
+                        _k = (_k + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                        continue;
+                    };
                 };
-                var _expect = ((_test._text.__slice__(_submatches[(_k : stdgo.GoInt)], _submatches[(_k + (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoString)?.__copy__() : stdgo.GoString);
-                if (_expect != (_result[((_k / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)])) {
+var _expect = ((_test._text.__slice__(_submatches[(_k : stdgo.GoInt)], _submatches[(_k + (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoString).__copy__() : stdgo.GoString);
+if (_expect != (_result[((_k / (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)])) {
                     _t.errorf(("match %d: expected %q got %q: %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_expect), stdgo.Go.toInterface(_result), stdgo.Go.toInterface(stdgo.Go.asInterface(_test)));
                     return;
                 };
-            });
+                _k = (_k + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
     }

@@ -6,9 +6,10 @@ package stdgo._internal.encoding.asn1;
         _dst = stdgo._internal.encoding.asn1.Asn1__appendBase128Int._appendBase128Int((_dst.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (((_oid[(0 : stdgo.GoInt)] * (40 : stdgo.GoInt) : stdgo.GoInt) + _oid[(1 : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt64));
         {
             var _i = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_oid.length) : Bool), _i++, {
+            while ((_i < (_oid.length) : Bool)) {
                 _dst = stdgo._internal.encoding.asn1.Asn1__appendBase128Int._appendBase128Int(_dst, (_oid[(_i : stdgo.GoInt)] : stdgo.GoInt64));
-            });
+                _i++;
+            };
         };
     }
     @:keep
@@ -17,9 +18,10 @@ package stdgo._internal.encoding.asn1;
         var _l = (stdgo._internal.encoding.asn1.Asn1__base128IntLength._base128IntLength((((_oid[(0 : stdgo.GoInt)] * (40 : stdgo.GoInt) : stdgo.GoInt) + _oid[(1 : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt64)) : stdgo.GoInt);
         {
             var _i = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_oid.length) : Bool), _i++, {
+            while ((_i < (_oid.length) : Bool)) {
                 _l = (_l + (stdgo._internal.encoding.asn1.Asn1__base128IntLength._base128IntLength((_oid[(_i : stdgo.GoInt)] : stdgo.GoInt64))) : stdgo.GoInt);
-            });
+                _i++;
+            };
         };
         return _l;
     }

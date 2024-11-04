@@ -5,11 +5,12 @@ function _parseCookieValue(_raw:stdgo.GoString, _allowDoubleQuote:Bool):{ var _0
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_raw.length) : Bool), _i++, {
+            while ((_i < (_raw.length) : Bool)) {
                 if (!stdgo._internal.net.http.Http__validCookieValueByte._validCookieValueByte(_raw[(_i : stdgo.GoInt)])) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : false };
+                    return { _0 : stdgo.Go.str().__copy__(), _1 : false };
                 };
-            });
+                _i++;
+            };
         };
         return { _0 : _raw?.__copy__(), _1 : true };
     }

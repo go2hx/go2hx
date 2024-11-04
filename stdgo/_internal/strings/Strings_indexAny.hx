@@ -16,11 +16,12 @@ function indexAny(_s:stdgo.GoString, _chars:stdgo.GoString):stdgo.GoInt {
                 if (_isASCII) {
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+                        while ((_i < (_s.length) : Bool)) {
                             if (_as._contains(_s[(_i : stdgo.GoInt)])) {
                                 return _i;
                             };
-                        });
+                            _i++;
+                        };
                     };
                     return (-1 : stdgo.GoInt);
                 };

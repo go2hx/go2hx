@@ -109,23 +109,25 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
                 if (_c1._state != (_c._state)) {
                     {
                         var _j = (_end - (1 : stdgo.GoInt) : stdgo.GoInt);
-                        stdgo.Go.cfor((_j >= _i : Bool), _j--, {
+                        while ((_j >= _i : Bool)) {
                             if (_s[(_j : stdgo.GoInt)] == ((60 : stdgo.GoUInt8))) {
                                 _end = _j;
                                 break;
                             };
-                        });
+                            _j--;
+                        };
                     };
                 };
                 {
                     var _j = (_i : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < _end : Bool), _j++, {
+                    while ((_j < _end : Bool)) {
                         if (((_s[(_j : stdgo.GoInt)] == (60 : stdgo.GoUInt8)) && !stdgo._internal.bytes.Bytes_hasPrefix.hasPrefix(stdgo._internal.bytes.Bytes_toUpper.toUpper((_s.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>)), stdgo._internal.html.template.Template__doctypeBytes._doctypeBytes) : Bool)) {
                             _b.write((_s.__slice__(_written, _j) : stdgo.Slice<stdgo.GoUInt8>));
                             _b.writeString(("&lt;" : stdgo.GoString));
                             _written = (_j + (1 : stdgo.GoInt) : stdgo.GoInt);
                         };
-                    });
+                        _j++;
+                    };
                 };
             } else if ((stdgo._internal.html.template.Template__isComment._isComment(_c._state) && (_c._delim == (0 : stdgo._internal.html.template.Template_T_delim.T_delim)) : Bool)) {
                 {

@@ -13,9 +13,10 @@ function _byteSliceInsertConstantBytes(_m:stdgo.Ref<stdgo._internal.internal.fuz
         var _rb = (_m._rand((256 : stdgo.GoInt)) : stdgo.GoUInt8);
         {
             var _i = (_dst : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_dst + _n : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (_dst + _n : stdgo.GoInt) : Bool)) {
                 _b[(_i : stdgo.GoInt)] = _rb;
-            });
+                _i++;
+            };
         };
         return _b;
     }

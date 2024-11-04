@@ -60,20 +60,20 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
         var _out = ({ a : (65535 : stdgo.GoUInt16) } : stdgo._internal.image.color.Color_RGBA64.RGBA64);
         {
             var _y = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(_y != (_r.dy()), _y++, {
+            while (_y != (_r.dy())) {
                 {
                     var _x = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(_x != (_r.dx()), _x++, {
+                    while (_x != (_r.dx())) {
                         var __tmp__ = _pxRGBA((_sp.x + _x : stdgo.GoInt), (_sp.y + _y : stdgo.GoInt)), _sr:stdgo.GoUInt32 = __tmp__._0, _sg:stdgo.GoUInt32 = __tmp__._1, _sb:stdgo.GoUInt32 = __tmp__._2, _sa:stdgo.GoUInt32 = __tmp__._3;
-                        var __0 = (_sr : stdgo.GoInt32), __1 = (_sg : stdgo.GoInt32), __2 = (_sb : stdgo.GoInt32), __3 = (_sa : stdgo.GoInt32);
+var __0 = (_sr : stdgo.GoInt32), __1 = (_sg : stdgo.GoInt32), __2 = (_sb : stdgo.GoInt32), __3 = (_sa : stdgo.GoInt32);
 var _ea = __3, _eb = __2, _eg = __1, _er = __0;
-                        if (_floydSteinberg) {
+if (_floydSteinberg) {
                             _er = stdgo._internal.image.draw.Draw__clamp._clamp((_er + (_quantErrorCurr[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] / (16 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt32));
                             _eg = stdgo._internal.image.draw.Draw__clamp._clamp((_eg + (_quantErrorCurr[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] / (16 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt32));
                             _eb = stdgo._internal.image.draw.Draw__clamp._clamp((_eb + (_quantErrorCurr[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] / (16 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt32));
                             _ea = stdgo._internal.image.draw.Draw__clamp._clamp((_ea + (_quantErrorCurr[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] / (16 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt32));
                         };
-                        if (_palette != null) {
+if (_palette != null) {
                             var __0 = (0 : stdgo.GoInt), __1 = ((-1u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
 var _bestSum = __1, _bestIndex = __0;
                             for (_index => _p in _palette) {
@@ -92,7 +92,10 @@ var _bestSum = __1, _bestIndex = __0;
                             };
                             _pix[((_y * _stride : stdgo.GoInt) + _x : stdgo.GoInt)] = (_bestIndex : stdgo.GoUInt8);
                             if (!_floydSteinberg) {
-                                continue;
+                                {
+                                    _x++;
+                                    continue;
+                                };
                             };
                             _er = (_er - (_palette[(_bestIndex : stdgo.GoInt)][((0 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoInt32);
                             _eg = (_eg - (_palette[(_bestIndex : stdgo.GoInt)][((1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoInt32);
@@ -105,7 +108,10 @@ var _bestSum = __1, _bestIndex = __0;
                             _out.a = (_ea : stdgo.GoUInt16);
                             _dst.set((_r.min.x + _x : stdgo.GoInt), (_r.min.y + _y : stdgo.GoInt), stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.image.color.Color_RGBA64.RGBA64>)));
                             if (!_floydSteinberg) {
-                                continue;
+                                {
+                                    _x++;
+                                    continue;
+                                };
                             };
                             {
                                 var __tmp__ = _dst.at((_r.min.x + _x : stdgo.GoInt), (_r.min.y + _y : stdgo.GoInt)).rgba();
@@ -119,25 +125,26 @@ var _bestSum = __1, _bestIndex = __0;
                             _eb = (_eb - ((_sb : stdgo.GoInt32)) : stdgo.GoInt32);
                             _ea = (_ea - ((_sa : stdgo.GoInt32)) : stdgo.GoInt32);
                         };
-                        _quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] + ((_er * (3 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] = (_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] + ((_eg * (3 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] = (_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] + ((_eb * (3 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] = (_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] + ((_ea * (3 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] + ((_er * (5 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] = (_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] + ((_eg * (5 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] = (_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] + ((_eb * (5 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] = (_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] + ((_ea * (5 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] + ((_er * (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] = (_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] + ((_eg * (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] = (_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] + ((_eb * (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] = (_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] + ((_ea * (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] + ((_er * (7 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] = (_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] + ((_eg * (7 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] = (_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] + ((_eb * (7 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                        _quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] = (_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] + ((_ea * (7 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
-                    });
+_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] + ((_er * (3 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] = (_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] + ((_eg * (3 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] = (_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] + ((_eb * (3 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] = (_quantErrorNext[(_x + (0 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] + ((_ea * (3 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] + ((_er * (5 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] = (_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] + ((_eg * (5 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] = (_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] + ((_eb * (5 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] = (_quantErrorNext[(_x + (1 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] + ((_ea * (5 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] + ((_er * (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] = (_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] + ((_eg * (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] = (_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] + ((_eb * (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] = (_quantErrorNext[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] + ((_ea * (1 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(0 : stdgo.GoInt)] + ((_er * (7 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] = (_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(1 : stdgo.GoInt)] + ((_eg * (7 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] = (_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(2 : stdgo.GoInt)] + ((_eb * (7 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] = (_quantErrorCurr[(_x + (2 : stdgo.GoInt) : stdgo.GoInt)][(3 : stdgo.GoInt)] + ((_ea * (7 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.GoInt32);
+                        _x++;
+                    };
                 };
-                if (_floydSteinberg) {
+if (_floydSteinberg) {
                     {
                         final __tmp__0 = _quantErrorNext;
                         final __tmp__1 = _quantErrorCurr;
@@ -148,6 +155,7 @@ var _bestSum = __1, _bestIndex = __0;
                         _quantErrorNext[(_i : stdgo.GoInt)] = (new stdgo.GoArray<stdgo.GoInt32>(4, 4, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt32>)?.__copy__();
                     };
                 };
-            });
+                _y++;
+            };
         };
     }

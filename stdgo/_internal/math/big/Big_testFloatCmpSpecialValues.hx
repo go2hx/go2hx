@@ -6,7 +6,7 @@ function testFloatCmpSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.Testing_
         var _yy = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (4 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (4 : stdgo.GoInt) : Bool)) {
                 for (__8 => _x in _args) {
                     _xx.setFloat64(_x);
                     {
@@ -29,6 +29,7 @@ function testFloatCmpSpecialValues(_t:stdgo.Ref<stdgo._internal.testing.Testing_
                         };
                     };
                 };
-            });
+                _i++;
+            };
         };
     }

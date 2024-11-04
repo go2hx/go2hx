@@ -4,10 +4,11 @@ function testScanWhitespace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         var _ws:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         {
             var _ch = ((1 : stdgo.GoUInt8) : stdgo.GoUInt8);
-            stdgo.Go.cfor((_ch < (32 : stdgo.GoUInt8) : Bool), _ch++, {
+            while ((_ch < (32 : stdgo.GoUInt8) : Bool)) {
                 _buf.writeByte(_ch);
-                _ws = (_ws | (((1i64 : stdgo.GoUInt64) << _ch : stdgo.GoUInt64)) : stdgo.GoUInt64);
-            });
+_ws = (_ws | (((1i64 : stdgo.GoUInt64) << _ch : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                _ch++;
+            };
         };
         {};
         _buf.writeByte((120 : stdgo.GoUInt8));

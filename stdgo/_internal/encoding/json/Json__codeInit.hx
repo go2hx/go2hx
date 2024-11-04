@@ -36,14 +36,15 @@ function _codeInit():Void {
                 stdgo.Go.println(("different lengths" : stdgo.GoString), (_data.length), (stdgo._internal.encoding.json.Json__codeJSON._codeJSON.length));
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor(((_i < (_data.length) : Bool) && (_i < (stdgo._internal.encoding.json.Json__codeJSON._codeJSON.length) : Bool) : Bool), _i++, {
+                    while (((_i < (_data.length) : Bool) && (_i < (stdgo._internal.encoding.json.Json__codeJSON._codeJSON.length) : Bool) : Bool)) {
                         if (_data[(_i : stdgo.GoInt)] != (stdgo._internal.encoding.json.Json__codeJSON._codeJSON[(_i : stdgo.GoInt)])) {
                             stdgo.Go.println(("re-marshal: changed at byte" : stdgo.GoString), _i);
                             stdgo.Go.println(("orig: " : stdgo.GoString), ((stdgo._internal.encoding.json.Json__codeJSON._codeJSON.__slice__((_i - (10 : stdgo.GoInt) : stdgo.GoInt), (_i + (10 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString));
                             stdgo.Go.println(("new: " : stdgo.GoString), ((_data.__slice__((_i - (10 : stdgo.GoInt) : stdgo.GoInt), (_i + (10 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString));
                             break;
                         };
-                    });
+                        _i++;
+                    };
                 };
                 throw stdgo.Go.toInterface(("re-marshal code.json: different result" : stdgo.GoString));
             };

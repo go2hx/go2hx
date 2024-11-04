@@ -19,17 +19,18 @@ function checkEqual(_f:stdgo.AnyInterface, _g:stdgo.AnyInterface, _config:stdgo.
         var _maxCount = (_config._getMaxCount() : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _maxCount : Bool), _i++, {
+            while ((_i < _maxCount : Bool)) {
                 var _err = (stdgo._internal.testing.quick.Quick__arbitraryValues._arbitraryValues(_arguments, _xType, _config, _rand) : stdgo.Error);
-                if (_err != null) {
+if (_err != null) {
                     return _err;
                 };
-                var _xOut = stdgo._internal.testing.quick.Quick__toInterfaces._toInterfaces(_x.call(_arguments));
-                var _yOut = stdgo._internal.testing.quick.Quick__toInterfaces._toInterfaces(_y.call(_arguments));
-                if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_xOut), stdgo.Go.toInterface(_yOut))) {
+var _xOut = stdgo._internal.testing.quick.Quick__toInterfaces._toInterfaces(_x.call(_arguments));
+var _yOut = stdgo._internal.testing.quick.Quick__toInterfaces._toInterfaces(_y.call(_arguments));
+if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_xOut), stdgo.Go.toInterface(_yOut))) {
                     return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.testing.quick.Quick_CheckEqualError.CheckEqualError((new stdgo._internal.testing.quick.Quick_CheckError.CheckError((_i + (1 : stdgo.GoInt) : stdgo.GoInt), stdgo._internal.testing.quick.Quick__toInterfaces._toInterfaces(_arguments)) : stdgo._internal.testing.quick.Quick_CheckError.CheckError), _xOut, _yOut) : stdgo._internal.testing.quick.Quick_CheckEqualError.CheckEqualError)) : stdgo.Ref<stdgo._internal.testing.quick.Quick_CheckEqualError.CheckEqualError>));
                 };
-            });
+                _i++;
+            };
         };
         return (null : stdgo.Error);
     }

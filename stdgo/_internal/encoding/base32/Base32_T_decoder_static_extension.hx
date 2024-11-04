@@ -71,9 +71,10 @@ package stdgo._internal.encoding.base32;
         _d._nbuf = (_d._nbuf - (_nr) : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _d._nbuf : Bool), _i++, {
+            while ((_i < _d._nbuf : Bool)) {
                 _d._buf[(_i : stdgo.GoInt)] = _d._buf[(_i + _nr : stdgo.GoInt)];
-            });
+                _i++;
+            };
         };
         if (((_err != null) && (((_d._err == null) || (stdgo.Go.toInterface(_d._err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) : Bool)) {
             _d._err = _err;

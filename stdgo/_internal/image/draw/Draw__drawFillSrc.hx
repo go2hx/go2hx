@@ -8,20 +8,22 @@ function _drawFillSrc(_dst:stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>, _r:
         var _i1 = (_i0 + (_r.dx() * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
         {
             var _i = (_i0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _i1 : Bool), _i = (_i + ((4 : stdgo.GoInt)) : stdgo.GoInt), {
+            while ((_i < _i1 : Bool)) {
                 _dst.pix[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = _sr8;
-                _dst.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = _sg8;
-                _dst.pix[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] = _sb8;
-                _dst.pix[(_i + (3 : stdgo.GoInt) : stdgo.GoInt)] = _sa8;
-            });
+_dst.pix[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = _sg8;
+_dst.pix[(_i + (2 : stdgo.GoInt) : stdgo.GoInt)] = _sb8;
+_dst.pix[(_i + (3 : stdgo.GoInt) : stdgo.GoInt)] = _sa8;
+                _i = (_i + ((4 : stdgo.GoInt)) : stdgo.GoInt);
+            };
         };
         var _firstRow = (_dst.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _y = (_r.min.y + (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_y < _r.max.y : Bool), _y++, {
+            while ((_y < _r.max.y : Bool)) {
                 _i0 = (_i0 + (_dst.stride) : stdgo.GoInt);
-                _i1 = (_i1 + (_dst.stride) : stdgo.GoInt);
-                stdgo.Go.copySlice((_dst.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>), _firstRow);
-            });
+_i1 = (_i1 + (_dst.stride) : stdgo.GoInt);
+stdgo.Go.copySlice((_dst.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>), _firstRow);
+                _y++;
+            };
         };
     }

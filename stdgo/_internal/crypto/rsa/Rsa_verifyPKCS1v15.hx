@@ -36,9 +36,10 @@ function verifyPKCS1v15(_pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.
         _ok = (_ok & (stdgo._internal.crypto.subtle.Subtle_constantTimeByteEq.constantTimeByteEq(_em[((_k - _tLen : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)], (0 : stdgo.GoUInt8))) : stdgo.GoInt);
         {
             var _i = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < ((_k - _tLen : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < ((_k - _tLen : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                 _ok = (_ok & (stdgo._internal.crypto.subtle.Subtle_constantTimeByteEq.constantTimeByteEq(_em[(_i : stdgo.GoInt)], (255 : stdgo.GoUInt8))) : stdgo.GoInt);
-            });
+                _i++;
+            };
         };
         if (_ok != ((1 : stdgo.GoInt))) {
             return stdgo._internal.crypto.rsa.Rsa_errVerification.errVerification;

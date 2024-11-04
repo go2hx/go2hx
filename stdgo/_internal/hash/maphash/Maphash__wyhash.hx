@@ -9,18 +9,20 @@ var _b = __1, _a = __0;
             if ((_i > (48i64 : stdgo.GoUInt64) : Bool)) {
                 var _seed1 = (_seed : stdgo.GoUInt64);
                 var _seed2 = (_seed : stdgo.GoUInt64);
-                stdgo.Go.cfor((_i > (48i64 : stdgo.GoUInt64) : Bool), _i = (_i - ((48i64 : stdgo.GoUInt64)) : stdgo.GoUInt64), {
+                while ((_i > (48i64 : stdgo.GoUInt64) : Bool)) {
                     _seed = stdgo._internal.hash.maphash.Maphash__mix._mix((stdgo._internal.hash.maphash.Maphash__r8._r8(_p) ^ (-1800455987208640293i64 : stdgo.GoUInt64) : stdgo.GoUInt64), (stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ _seed : stdgo.GoUInt64));
-                    _seed1 = stdgo._internal.hash.maphash.Maphash__mix._mix((stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ (-8161530843051276573i64 : stdgo.GoUInt64) : stdgo.GoUInt64), (stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ _seed1 : stdgo.GoUInt64));
-                    _seed2 = stdgo._internal.hash.maphash.Maphash__mix._mix((stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ (6384245875588680899i64 : stdgo.GoUInt64) : stdgo.GoUInt64), (stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((40 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ _seed2 : stdgo.GoUInt64));
-                    _p = (_p.__slice__((48 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-                });
+_seed1 = stdgo._internal.hash.maphash.Maphash__mix._mix((stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ (-8161530843051276573i64 : stdgo.GoUInt64) : stdgo.GoUInt64), (stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ _seed1 : stdgo.GoUInt64));
+_seed2 = stdgo._internal.hash.maphash.Maphash__mix._mix((stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ (6384245875588680899i64 : stdgo.GoUInt64) : stdgo.GoUInt64), (stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((40 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ _seed2 : stdgo.GoUInt64));
+_p = (_p.__slice__((48 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+                    _i = (_i - ((48i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                };
                 _seed = (_seed ^ ((_seed1 ^ _seed2 : stdgo.GoUInt64)) : stdgo.GoUInt64);
             };
-            stdgo.Go.cfor((_i > (16i64 : stdgo.GoUInt64) : Bool), _i = (_i - ((16i64 : stdgo.GoUInt64)) : stdgo.GoUInt64), {
+            while ((_i > (16i64 : stdgo.GoUInt64) : Bool)) {
                 _seed = stdgo._internal.hash.maphash.Maphash__mix._mix((stdgo._internal.hash.maphash.Maphash__r8._r8(_p) ^ (-1800455987208640293i64 : stdgo.GoUInt64) : stdgo.GoUInt64), (stdgo._internal.hash.maphash.Maphash__r8._r8((_p.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) ^ _seed : stdgo.GoUInt64));
-                _p = (_p.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-            });
+_p = (_p.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+                _i = (_i - ((16i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+            };
         };
         if (_i == ((0i64 : stdgo.GoUInt64))) {
             return _seed;

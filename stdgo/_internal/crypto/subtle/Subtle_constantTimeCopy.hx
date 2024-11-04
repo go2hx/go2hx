@@ -7,8 +7,9 @@ function constantTimeCopy(_v:stdgo.GoInt, _x:stdgo.Slice<stdgo.GoUInt8>, _y:stdg
         var _ymask = (-1 ^ ((_v - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoUInt8);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_x.length) : Bool), _i++, {
+            while ((_i < (_x.length) : Bool)) {
                 _x[(_i : stdgo.GoInt)] = ((_x[(_i : stdgo.GoInt)] & _xmask : stdgo.GoUInt8) | (_y[(_i : stdgo.GoInt)] & _ymask : stdgo.GoUInt8) : stdgo.GoUInt8);
-            });
+                _i++;
+            };
         };
     }

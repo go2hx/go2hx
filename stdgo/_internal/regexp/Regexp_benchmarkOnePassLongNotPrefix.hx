@@ -6,8 +6,9 @@ function benchmarkOnePassLongNotPrefix(_b:stdgo.Ref<stdgo._internal.testing.Test
         _b.startTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 _re.match(_x);
-            });
+                _i++;
+            };
         };
     }

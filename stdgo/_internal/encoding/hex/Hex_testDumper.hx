@@ -6,11 +6,11 @@ function testDumper(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         };
         {
             var _stride = (1 : stdgo.GoInt);
-            stdgo.Go.cfor((_stride < (_in.length) : Bool), _stride++, {
+            while ((_stride < (_in.length) : Bool)) {
                 var _out:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-                var _dumper = (stdgo._internal.encoding.hex.Hex_dumper.dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>))) : stdgo._internal.io.Io_WriteCloser.WriteCloser);
-                var _done = (0 : stdgo.GoInt);
-                while ((_done < (_in.length) : Bool)) {
+var _dumper = (stdgo._internal.encoding.hex.Hex_dumper.dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>))) : stdgo._internal.io.Io_WriteCloser.WriteCloser);
+var _done = (0 : stdgo.GoInt);
+while ((_done < (_in.length) : Bool)) {
                     var _todo = (_done + _stride : stdgo.GoInt);
                     if ((_todo > (_in.length) : Bool)) {
                         _todo = (_in.length);
@@ -18,10 +18,11 @@ function testDumper(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                     _dumper.write((_in.__slice__(_done, _todo) : stdgo.Slice<stdgo.GoUInt8>));
                     _done = _todo;
                 };
-                _dumper.close();
-                if (!stdgo._internal.bytes.Bytes_equal.equal(_out.bytes(), stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump)) {
+_dumper.close();
+if (!stdgo._internal.bytes.Bytes_equal.equal(_out.bytes(), stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump)) {
                     _t.errorf(("stride: %d failed. got:\n%s\nwant:\n%s" : stdgo.GoString), stdgo.Go.toInterface(_stride), stdgo.Go.toInterface(_out.bytes()), stdgo.Go.toInterface(stdgo._internal.encoding.hex.Hex__expectedHexDump._expectedHexDump));
                 };
-            });
+                _stride++;
+            };
         };
     }

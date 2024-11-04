@@ -34,13 +34,14 @@ package stdgo._internal.internal.abi;
         var _v = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(true, _i++, {
+            while (true) {
                 var _x = (_n.dataChecked((_off + _i : stdgo.GoInt), ("read varint" : stdgo.GoString)).value : stdgo.GoUInt8);
-                _v = (_v + ((((_x & (127 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt) << (((7 : stdgo.GoInt) * _i : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.GoInt);
-                if ((_x & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
+_v = (_v + ((((_x & (127 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt) << (((7 : stdgo.GoInt) * _i : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.GoInt);
+if ((_x & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                     return { _0 : (_i + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : _v };
                 };
-            });
+                _i++;
+            };
         };
     }
     @:keep

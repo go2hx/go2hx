@@ -241,39 +241,44 @@ package stdgo._internal.text.tabwriter;
         var _column = (_b._widths.length : stdgo.GoInt);
         {
             var _this = (_line0 : stdgo.GoInt);
-            stdgo.Go.cfor((_this < _line1 : Bool), _this++, {
+            while ((_this < _line1 : Bool)) {
                 var _line = _b._lines[(_this : stdgo.GoInt)];
-                if ((_column >= ((_line.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
-                    continue;
+if ((_column >= ((_line.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
+                    {
+                        _this++;
+                        continue;
+                    };
                 };
-                _pos = _b._writeLines(_pos, _line0, _this);
-                _line0 = _this;
-                var _width = (_b._minwidth : stdgo.GoInt);
-                var _discardable = (true : Bool);
-                stdgo.Go.cfor((_this < _line1 : Bool), _this++, {
+_pos = _b._writeLines(_pos, _line0, _this);
+_line0 = _this;
+var _width = (_b._minwidth : stdgo.GoInt);
+var _discardable = (true : Bool);
+while ((_this < _line1 : Bool)) {
                     _line = _b._lines[(_this : stdgo.GoInt)];
-                    if ((_column >= ((_line.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
+if ((_column >= ((_line.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                         break;
                     };
-                    var _c = (_line[(_column : stdgo.GoInt)] : stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell);
-                    {
+var _c = (_line[(_column : stdgo.GoInt)] : stdgo._internal.text.tabwriter.Tabwriter_T_cell.T_cell);
+{
                         var _w = (_c._width + _b._padding : stdgo.GoInt);
                         if ((_w > _width : Bool)) {
                             _width = _w;
                         };
                     };
-                    if (((_c._width > (0 : stdgo.GoInt) : Bool) || _c._htab : Bool)) {
+if (((_c._width > (0 : stdgo.GoInt) : Bool) || _c._htab : Bool)) {
                         _discardable = false;
                     };
-                });
-                if ((_discardable && ((_b._flags & (8u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
+                    _this++;
+                };
+if ((_discardable && ((_b._flags & (8u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
                     _width = (0 : stdgo.GoInt);
                 };
-                _b._widths = (_b._widths.__append__(_width));
-                _pos = _b._format(_pos, _line0, _this);
-                _b._widths = (_b._widths.__slice__((0 : stdgo.GoInt), ((_b._widths.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
-                _line0 = _this;
-            });
+_b._widths = (_b._widths.__append__(_width));
+_pos = _b._format(_pos, _line0, _this);
+_b._widths = (_b._widths.__slice__((0 : stdgo.GoInt), ((_b._widths.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt>);
+_line0 = _this;
+                _this++;
+            };
         };
         return _b._writeLines(_pos, _line0, _line1);
     }
@@ -284,10 +289,10 @@ package stdgo._internal.text.tabwriter;
         _pos = _pos0;
         {
             var _i = (_line0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _line1 : Bool), _i++, {
+            while ((_i < _line1 : Bool)) {
                 var _line = _b._lines[(_i : stdgo.GoInt)];
-                var _useTabs = ((_b._flags & (16u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt)) : Bool);
-                for (_j => _c in _line) {
+var _useTabs = ((_b._flags & (16u32 : stdgo.GoUInt) : stdgo.GoUInt) != ((0u32 : stdgo.GoUInt)) : Bool);
+for (_j => _c in _line) {
                     if (((_j > (0 : stdgo.GoInt) : Bool) && ((_b._flags & (32u32 : stdgo.GoUInt) : stdgo.GoUInt) != (0u32 : stdgo.GoUInt)) : Bool)) {
                         _b._write0(stdgo._internal.text.tabwriter.Tabwriter__vbar._vbar);
                     };
@@ -312,13 +317,14 @@ package stdgo._internal.text.tabwriter;
                         };
                     };
                 };
-                if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == ((_b._lines.length))) {
+if ((_i + (1 : stdgo.GoInt) : stdgo.GoInt) == ((_b._lines.length))) {
                     _b._write0((_b._buf.__slice__(_pos, (_pos + _b._cell._size : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                     _pos = (_pos + (_b._cell._size) : stdgo.GoInt);
                 } else {
                     _b._write0(stdgo._internal.text.tabwriter.Tabwriter__newline._newline);
                 };
-            });
+                _i++;
+            };
         };
         return _pos;
     }

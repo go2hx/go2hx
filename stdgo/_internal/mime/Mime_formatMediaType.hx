@@ -40,16 +40,17 @@ function formatMediaType(_t:stdgo.GoString, _param:stdgo.GoMap<stdgo.GoString, s
                 var _offset = (0 : stdgo.GoInt);
                 {
                     var _index = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_index < (_value.length) : Bool), _index++, {
+                    while ((_index < (_value.length) : Bool)) {
                         var _ch = (_value[(_index : stdgo.GoInt)] : stdgo.GoUInt8);
-                        if (((((((_ch <= (32 : stdgo.GoUInt8) : Bool) || (_ch >= (127 : stdgo.GoUInt8) : Bool) : Bool) || _ch == ((42 : stdgo.GoUInt8)) : Bool) || _ch == ((39 : stdgo.GoUInt8)) : Bool) || _ch == ((37 : stdgo.GoUInt8)) : Bool) || stdgo._internal.mime.Mime__isTSpecial._isTSpecial((_ch : stdgo.GoInt32)) : Bool)) {
-                            _b.writeString((_value.__slice__(_offset, _index) : stdgo.GoString)?.__copy__());
+if (((((((_ch <= (32 : stdgo.GoUInt8) : Bool) || (_ch >= (127 : stdgo.GoUInt8) : Bool) : Bool) || _ch == ((42 : stdgo.GoUInt8)) : Bool) || _ch == ((39 : stdgo.GoUInt8)) : Bool) || _ch == ((37 : stdgo.GoUInt8)) : Bool) || stdgo._internal.mime.Mime__isTSpecial._isTSpecial((_ch : stdgo.GoInt32)) : Bool)) {
+                            _b.writeString((_value.__slice__(_offset, _index) : stdgo.GoString).__copy__());
                             _offset = (_index + (1 : stdgo.GoInt) : stdgo.GoInt);
                             _b.writeByte((37 : stdgo.GoUInt8));
                             _b.writeByte(("0123456789ABCDEF" : stdgo.GoString)[((_ch >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8) : stdgo.GoInt)]);
                             _b.writeByte(("0123456789ABCDEF" : stdgo.GoString)[((_ch & (15 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)]);
                         };
-                    });
+                        _index++;
+                    };
                 };
                 _b.writeString((_value.__slice__(_offset) : stdgo.GoString)?.__copy__());
                 continue;
@@ -62,14 +63,15 @@ function formatMediaType(_t:stdgo.GoString, _param:stdgo.GoMap<stdgo.GoString, s
             var _offset = (0 : stdgo.GoInt);
             {
                 var _index = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_index < (_value.length) : Bool), _index++, {
+                while ((_index < (_value.length) : Bool)) {
                     var _character = (_value[(_index : stdgo.GoInt)] : stdgo.GoUInt8);
-                    if (((_character == (34 : stdgo.GoUInt8)) || (_character == (92 : stdgo.GoUInt8)) : Bool)) {
-                        _b.writeString((_value.__slice__(_offset, _index) : stdgo.GoString)?.__copy__());
+if (((_character == (34 : stdgo.GoUInt8)) || (_character == (92 : stdgo.GoUInt8)) : Bool)) {
+                        _b.writeString((_value.__slice__(_offset, _index) : stdgo.GoString).__copy__());
                         _offset = _index;
                         _b.writeByte((92 : stdgo.GoUInt8));
                     };
-                });
+                    _index++;
+                };
             };
             _b.writeString((_value.__slice__(_offset) : stdgo.GoString)?.__copy__());
             _b.writeByte((34 : stdgo.GoUInt8));

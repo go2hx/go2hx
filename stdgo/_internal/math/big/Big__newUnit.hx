@@ -3,18 +3,20 @@ function _newUnit(_n:stdgo.GoInt):stdgo.Ref<stdgo._internal.math.big.Big_T_matri
         var _a = stdgo._internal.math.big.Big__newMatrix._newMatrix(_n, _n);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 {
                     var _j = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < _n : Bool), _j++, {
+                    while ((_j < _n : Bool)) {
                         var _x = stdgo._internal.math.big.Big_newRat.newRat((0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64));
-                        if (_i == (_j)) {
+if (_i == (_j)) {
                             _x.setInt64((1i64 : stdgo.GoInt64));
                         };
-                        _a._set(_i, _j, _x);
-                    });
+_a._set(_i, _j, _x);
+                        _j++;
+                    };
                 };
-            });
+                _i++;
+            };
         };
         return _a;
     }

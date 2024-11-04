@@ -1,2 +1,2 @@
 package stdgo._internal.slices;
-function compact<S, E>(_s:Dynamic):Dynamic throw "generic function";
+function compact(_s:Dynamic):Dynamic throw "generic function is not supported";

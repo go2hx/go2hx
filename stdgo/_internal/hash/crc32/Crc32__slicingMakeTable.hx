@@ -4,16 +4,18 @@ function _slicingMakeTable(_poly:stdgo.GoUInt32):stdgo.Ref<stdgo._internal.hash.
         stdgo._internal.hash.crc32.Crc32__simplePopulateTable._simplePopulateTable(_poly, (stdgo.Go.setRef(_t[(0 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.hash.crc32.Crc32_Table.Table>));
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (256 : stdgo.GoInt) : Bool)) {
                 var _crc = (_t[(0 : stdgo.GoInt)][(_i : stdgo.GoInt)] : stdgo.GoUInt32);
-                {
+{
                     var _j = (1 : stdgo.GoInt);
-                    stdgo.Go.cfor((_j < (8 : stdgo.GoInt) : Bool), _j++, {
+                    while ((_j < (8 : stdgo.GoInt) : Bool)) {
                         _crc = (_t[(0 : stdgo.GoInt)][((_crc & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] ^ ((_crc >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                        _t[(_j : stdgo.GoInt)][(_i : stdgo.GoInt)] = _crc;
-                    });
+_t[(_j : stdgo.GoInt)][(_i : stdgo.GoInt)] = _crc;
+                        _j++;
+                    };
                 };
-            });
+                _i++;
+            };
         };
         return _t;
     }

@@ -40,17 +40,18 @@ function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._inter
             if (((_v != null) || (_err != null) : Bool)) {
                 return { _0 : _v, _1 : _err };
             };
-            stdgo.Go.cfor(_isPrefix, {
-                var __tmp__ = _rd.readLine();
-                _isPrefix = __tmp__._1;
-                _err = __tmp__._2;
-            }, {
+            while (_isPrefix) {
                 if (_err != null) {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                         _err = (null : stdgo.Error);
                     };
                     return { _0 : (null : stdgo.AnyInterface), _1 : _err };
                 };
-            });
+                {
+                    var __tmp__ = _rd.readLine();
+                    _isPrefix = __tmp__._1;
+                    _err = __tmp__._2;
+                };
+            };
         };
     }

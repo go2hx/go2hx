@@ -7,9 +7,10 @@ function benchmarkDecode(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void
                 _b.setBytes((_size : stdgo.GoInt64));
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                    while ((_i < _b.n : Bool)) {
                         stdgo._internal.encoding.hex.Hex_decode.decode(stdgo._internal.encoding.hex.Hex__sink._sink, _src);
-                    });
+                        _i++;
+                    };
                 };
             });
         };

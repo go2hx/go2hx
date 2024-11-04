@@ -13,13 +13,14 @@ function testFloatSetUint64(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         {};
         {
             var _prec = ((1u32 : stdgo.GoUInt) : stdgo.GoUInt);
-            stdgo.Go.cfor((_prec <= (64u32 : stdgo.GoUInt) : Bool), _prec++, {
+            while ((_prec <= (64u32 : stdgo.GoUInt) : Bool)) {
                 var _f = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec(_prec).setMode((2 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode)).setUint64((-8690466094656961759i64 : stdgo.GoUInt64));
-                var _got = (_f._uint64() : stdgo.GoUInt64);
-                var _want = ((-8690466094656961759i64 : stdgo.GoUInt64) & ((((((1i64 : stdgo.GoUInt64) << (((64u32 : stdgo.GoUInt) - _prec : stdgo.GoUInt)) : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                if (_got != (_want)) {
+var _got = (_f._uint64() : stdgo.GoUInt64);
+var _want = ((-8690466094656961759i64 : stdgo.GoUInt64) & ((((((1i64 : stdgo.GoUInt64) << (((64u32 : stdgo.GoUInt) - _prec : stdgo.GoUInt)) : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+if (_got != (_want)) {
                     _t.errorf(("got %#x (%s); want %#x" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))), stdgo.Go.toInterface(_want));
                 };
-            });
+                _prec++;
+            };
         };
     }

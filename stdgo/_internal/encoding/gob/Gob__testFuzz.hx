@@ -6,9 +6,10 @@ function _testFuzz(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _seed:st
             var _rng = stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newSource.newSource(_seed));
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _n : Bool), _i++, {
+                while ((_i < _n : Bool)) {
                     stdgo._internal.encoding.gob.Gob__encFuzzDec._encFuzzDec(_rng, _e);
-                });
+                    _i++;
+                };
             };
         };
     }

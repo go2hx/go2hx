@@ -462,16 +462,17 @@ package stdgo._internal.debug.dwarf;
         var _c = (0 : stdgo.GoUInt64), _bits = (0 : stdgo.GoUInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_b._data.length) : Bool), _i++, {
+            while ((_i < (_b._data.length) : Bool)) {
                 var _byte = (_b._data[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                _c = (_c | ((((_byte & (127 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt64) << _bits : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                _bits = (_bits + ((7u32 : stdgo.GoUInt)) : stdgo.GoUInt);
-                if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
+_c = (_c | ((((_byte & (127 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoUInt64) << _bits : stdgo.GoUInt64)) : stdgo.GoUInt64);
+_bits = (_bits + ((7u32 : stdgo.GoUInt)) : stdgo.GoUInt);
+if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                     _b._off = (_b._off + (((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset)) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
                     _b._data = (_b._data.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     return { _0 : _c, _1 : _bits };
                 };
-            });
+                _i++;
+            };
         };
         return { _0 : (0i64 : stdgo.GoUInt64), _1 : (0u32 : stdgo.GoUInt) };
     }

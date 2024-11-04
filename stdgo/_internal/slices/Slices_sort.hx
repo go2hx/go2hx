@@ -1,2 +1,2 @@
 package stdgo._internal.slices;
-function sort<S, E>(_x:Dynamic):Void throw "generic function";
+function sort(_x:Dynamic):Void throw "generic function is not supported";

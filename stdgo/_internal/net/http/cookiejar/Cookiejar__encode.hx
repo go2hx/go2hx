@@ -44,19 +44,20 @@ var _remaining = __1, _b = __0;
                 var _q = (_delta : stdgo.GoInt32);
                 {
                     var _k = (36 : stdgo.GoInt32);
-                    stdgo.Go.cfor(true, _k = (_k + ((36 : stdgo.GoInt32)) : stdgo.GoInt32), {
+                    while (true) {
                         var _t = (_k - _bias : stdgo.GoInt32);
-                        if ((_t < (1 : stdgo.GoInt32) : Bool)) {
+if ((_t < (1 : stdgo.GoInt32) : Bool)) {
                             _t = (1 : stdgo.GoInt32);
                         } else if ((_t > (26 : stdgo.GoInt32) : Bool)) {
                             _t = (26 : stdgo.GoInt32);
                         };
-                        if ((_q < _t : Bool)) {
+if ((_q < _t : Bool)) {
                             break;
                         };
-                        _output = (_output.__append__(stdgo._internal.net.http.cookiejar.Cookiejar__encodeDigit._encodeDigit((_t + (((_q - _t : stdgo.GoInt32)) % (((36 : stdgo.GoInt32) - _t : stdgo.GoInt32)) : stdgo.GoInt32) : stdgo.GoInt32))));
-                        _q = (((_q - _t : stdgo.GoInt32)) / (((36 : stdgo.GoInt32) - _t : stdgo.GoInt32)) : stdgo.GoInt32);
-                    });
+_output = (_output.__append__(stdgo._internal.net.http.cookiejar.Cookiejar__encodeDigit._encodeDigit((_t + (((_q - _t : stdgo.GoInt32)) % (((36 : stdgo.GoInt32) - _t : stdgo.GoInt32)) : stdgo.GoInt32) : stdgo.GoInt32))));
+_q = (((_q - _t : stdgo.GoInt32)) / (((36 : stdgo.GoInt32) - _t : stdgo.GoInt32)) : stdgo.GoInt32);
+                        _k = (_k + ((36 : stdgo.GoInt32)) : stdgo.GoInt32);
+                    };
                 };
                 _output = (_output.__append__(stdgo._internal.net.http.cookiejar.Cookiejar__encodeDigit._encodeDigit(_q)));
                 _bias = stdgo._internal.net.http.cookiejar.Cookiejar__adapt._adapt(_delta, (_h + (1 : stdgo.GoInt32) : stdgo.GoInt32), _h == (_b));

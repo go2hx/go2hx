@@ -133,29 +133,30 @@ package stdgo._internal.debug.elf;
             var _j = (_i + (_aux : stdgo.GoInt) : stdgo.GoInt);
             {
                 var _c = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_c < (_cnt : stdgo.GoInt) : Bool), _c++, {
+                while ((_c < (_cnt : stdgo.GoInt) : Bool)) {
                     if (((_j + (16 : stdgo.GoInt) : stdgo.GoInt) > (_d.length) : Bool)) {
                         break;
                     };
-                    var _other = (_f.fileHeader.byteOrder.uint16((_d.__slice__((_j + (6 : stdgo.GoInt) : stdgo.GoInt), (_j + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt16);
-                    var _nameoff = (_f.fileHeader.byteOrder.uint32((_d.__slice__((_j + (8 : stdgo.GoInt) : stdgo.GoInt), (_j + (12 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
-                    var _next = (_f.fileHeader.byteOrder.uint32((_d.__slice__((_j + (12 : stdgo.GoInt) : stdgo.GoInt), (_j + (16 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
-                    {
+var _other = (_f.fileHeader.byteOrder.uint16((_d.__slice__((_j + (6 : stdgo.GoInt) : stdgo.GoInt), (_j + (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt16);
+var _nameoff = (_f.fileHeader.byteOrder.uint32((_d.__slice__((_j + (8 : stdgo.GoInt) : stdgo.GoInt), (_j + (12 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
+var _next = (_f.fileHeader.byteOrder.uint32((_d.__slice__((_j + (12 : stdgo.GoInt) : stdgo.GoInt), (_j + (16 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
+{
                         var __tmp__ = stdgo._internal.debug.elf.Elf__getString._getString(_str, (_nameoff : stdgo.GoInt));
-                        _name = __tmp__._0?.__copy__();
+                        _name = __tmp__._0.__copy__();
                     };
-                    var _ndx = (_other : stdgo.GoInt);
-                    if ((_ndx >= (_need.length) : Bool)) {
+var _ndx = (_other : stdgo.GoInt);
+if ((_ndx >= (_need.length) : Bool)) {
                         var _a = (new stdgo.Slice<stdgo._internal.debug.elf.Elf_T_verneed.T_verneed>(((2 : stdgo.GoInt) * ((_ndx + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((2 : stdgo.GoInt) * ((_ndx + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt).toBasic() > 0 ? ((2 : stdgo.GoInt) * ((_ndx + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.elf.Elf_T_verneed.T_verneed)]) : stdgo.Slice<stdgo._internal.debug.elf.Elf_T_verneed.T_verneed>);
                         stdgo.Go.copySlice(_a, _need);
                         _need = _a;
                     };
-                    _need[(_ndx : stdgo.GoInt)] = (new stdgo._internal.debug.elf.Elf_T_verneed.T_verneed(_file?.__copy__(), _name?.__copy__()) : stdgo._internal.debug.elf.Elf_T_verneed.T_verneed);
-                    if (_next == ((0u32 : stdgo.GoUInt32))) {
+_need[(_ndx : stdgo.GoInt)] = (new stdgo._internal.debug.elf.Elf_T_verneed.T_verneed(_file.__copy__(), _name.__copy__()) : stdgo._internal.debug.elf.Elf_T_verneed.T_verneed);
+if (_next == ((0u32 : stdgo.GoUInt32))) {
                         break;
                     };
-                    _j = (_j + ((_next : stdgo.GoInt)) : stdgo.GoInt);
-                });
+_j = (_j + ((_next : stdgo.GoInt)) : stdgo.GoInt);
+                    _c++;
+                };
             };
             if (_next == ((0u32 : stdgo.GoUInt32))) {
                 break;
@@ -258,7 +259,7 @@ package stdgo._internal.debug.elf;
             };
             return { _0 : _b, _1 : (null : stdgo.Error) };
         };
-        var _dat:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>> = ({
+        var _dat = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoUInt8>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoUInt8>);
             x.set(("abbrev" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));

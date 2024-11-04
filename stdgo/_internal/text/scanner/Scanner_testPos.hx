@@ -9,9 +9,10 @@ function testPos(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         stdgo._internal.text.scanner.Scanner__checkNextPos._checkNextPos(_t, _s, (1 : stdgo.GoInt), (2 : stdgo.GoInt), (1 : stdgo.GoInt), (10 : stdgo.GoInt32));
         {
             var _i = (10 : stdgo.GoInt);
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 stdgo._internal.text.scanner.Scanner__checkScanPos._checkScanPos(_t, _s, (1 : stdgo.GoInt), (2 : stdgo.GoInt), (1 : stdgo.GoInt), (-1 : stdgo.GoInt32));
-            });
+                _i--;
+            };
         };
         if (_s.errorCount != ((0 : stdgo.GoInt))) {
             _t.errorf(("%d errors" : stdgo.GoString), stdgo.Go.toInterface(_s.errorCount));
@@ -21,9 +22,10 @@ function testPos(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         stdgo._internal.text.scanner.Scanner__checkNextPos._checkNextPos(_t, _s, (3 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt), (26412 : stdgo.GoInt32));
         {
             var _i = (10 : stdgo.GoInt);
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 stdgo._internal.text.scanner.Scanner__checkScanPos._checkScanPos(_t, _s, (3 : stdgo.GoInt), (1 : stdgo.GoInt), (2 : stdgo.GoInt), (-1 : stdgo.GoInt32));
-            });
+                _i--;
+            };
         };
         if (_s.errorCount != ((0 : stdgo.GoInt))) {
             _t.errorf(("%d errors" : stdgo.GoString), stdgo.Go.toInterface(_s.errorCount));
@@ -46,9 +48,10 @@ function testPos(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         stdgo._internal.text.scanner.Scanner__checkNextPos._checkNextPos(_t, _s, (22 : stdgo.GoInt), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (10 : stdgo.GoInt32));
         {
             var _i = (10 : stdgo.GoInt);
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 stdgo._internal.text.scanner.Scanner__checkScanPos._checkScanPos(_t, _s, (22 : stdgo.GoInt), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (-1 : stdgo.GoInt32));
-            });
+                _i--;
+            };
         };
         if (_s.errorCount != ((0 : stdgo.GoInt))) {
             _t.errorf(("%d errors" : stdgo.GoString), stdgo.Go.toInterface(_s.errorCount));
@@ -68,9 +71,10 @@ function testPos(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         stdgo._internal.text.scanner.Scanner__checkScanPos._checkScanPos(_t, _s, (12 : stdgo.GoInt), (4 : stdgo.GoInt), (1 : stdgo.GoInt), (120 : stdgo.GoInt32));
         {
             var _i = (10 : stdgo.GoInt);
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 stdgo._internal.text.scanner.Scanner__checkScanPos._checkScanPos(_t, _s, (13 : stdgo.GoInt), (4 : stdgo.GoInt), (2 : stdgo.GoInt), (-1 : stdgo.GoInt32));
-            });
+                _i--;
+            };
         };
         if (_s.errorCount != ((0 : stdgo.GoInt))) {
             _t.errorf(("%d errors" : stdgo.GoString), stdgo.Go.toInterface(_s.errorCount));

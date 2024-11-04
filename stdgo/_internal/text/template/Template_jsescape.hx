@@ -3,13 +3,16 @@ function jsescape(_w:stdgo._internal.io.Io_Writer.Writer, _b:stdgo.Slice<stdgo.G
         var _last = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_b.length) : Bool), _i++, {
+            while ((_i < (_b.length) : Bool)) {
                 var _c = (_b[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (!stdgo._internal.text.template.Template__jsIsSpecial._jsIsSpecial((_c : stdgo.GoInt32))) {
-                    continue;
+if (!stdgo._internal.text.template.Template__jsIsSpecial._jsIsSpecial((_c : stdgo.GoInt32))) {
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                _w.write((_b.__slice__(_last, _i) : stdgo.Slice<stdgo.GoUInt8>));
-                if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
+_w.write((_b.__slice__(_last, _i) : stdgo.Slice<stdgo.GoUInt8>));
+if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
                     {
                         final __value__ = _c;
                         if (__value__ == ((92 : stdgo.GoUInt8))) {
@@ -43,8 +46,9 @@ var _b = __1, _t = __0;
                     };
                     _i = (_i + ((_size - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
                 };
-                _last = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-            });
+_last = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+                _i++;
+            };
         };
         _w.write((_b.__slice__(_last) : stdgo.Slice<stdgo.GoUInt8>));
     }

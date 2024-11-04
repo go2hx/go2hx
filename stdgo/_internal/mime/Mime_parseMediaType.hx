@@ -86,34 +86,38 @@ function parseMediaType(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
             var _valid = (false : Bool);
             {
                 var _n = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(true, _n++, {
-                    var _simplePart = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s*%d" : stdgo.GoString), stdgo.Go.toInterface(_key), stdgo.Go.toInterface(_n))?.__copy__() : stdgo.GoString);
-                    {
-                        var __tmp__ = (_pieceMap != null && _pieceMap.exists(_simplePart?.__copy__()) ? { _0 : _pieceMap[_simplePart?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _v:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                while (true) {
+                    var _simplePart = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s*%d" : stdgo.GoString), stdgo.Go.toInterface(_key), stdgo.Go.toInterface(_n)).__copy__() : stdgo.GoString);
+{
+                        var __tmp__ = (_pieceMap != null && _pieceMap.exists(_simplePart.__copy__()) ? { _0 : _pieceMap[_simplePart.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _v:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
                             _valid = true;
-                            _buf.writeString(_v?.__copy__());
-                            continue;
+                            _buf.writeString(_v.__copy__());
+                            {
+                                _n++;
+                                continue;
+                            };
                         };
                     };
-                    var _encodedPart = ((_simplePart + ("*" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-                    var __tmp__ = (_pieceMap != null && _pieceMap.exists(_encodedPart?.__copy__()) ? { _0 : _pieceMap[_encodedPart?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _v:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
-                    if (!_ok) {
+var _encodedPart = ((_simplePart + ("*" : stdgo.GoString).__copy__() : stdgo.GoString).__copy__() : stdgo.GoString);
+var __tmp__ = (_pieceMap != null && _pieceMap.exists(_encodedPart.__copy__()) ? { _0 : _pieceMap[_encodedPart.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _v:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+if (!_ok) {
                         break;
                     };
-                    _valid = true;
-                    if (_n == ((0 : stdgo.GoInt))) {
+_valid = true;
+if (_n == ((0 : stdgo.GoInt))) {
                         {
-                            var __tmp__ = stdgo._internal.mime.Mime__decode2231Enc._decode2231Enc(_v?.__copy__()), _decv:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                            var __tmp__ = stdgo._internal.mime.Mime__decode2231Enc._decode2231Enc(_v.__copy__()), _decv:stdgo.GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
-                                _buf.writeString(_decv?.__copy__());
+                                _buf.writeString(_decv.__copy__());
                             };
                         };
                     } else {
-                        var __tmp__ = stdgo._internal.mime.Mime__percentHexUnescape._percentHexUnescape(_v?.__copy__()), _decv:stdgo.GoString = __tmp__._0, __2:stdgo.Error = __tmp__._1;
-                        _buf.writeString(_decv?.__copy__());
+                        var __tmp__ = stdgo._internal.mime.Mime__percentHexUnescape._percentHexUnescape(_v.__copy__()), _decv:stdgo.GoString = __tmp__._0, __2:stdgo.Error = __tmp__._1;
+                        _buf.writeString(_decv.__copy__());
                     };
-                });
+                    _n++;
+                };
             };
             if (_valid) {
                 _params[_key] = (_buf.string() : stdgo.GoString)?.__copy__();

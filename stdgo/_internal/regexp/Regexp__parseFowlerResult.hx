@@ -36,7 +36,7 @@ function _parseFowlerResult(_s:stdgo.GoString):{ var _0 : Bool; var _1 : Bool; v
                 _ok = false;
                 return { _0 : _ok, _1 : _compiled, _2 : _matched, _3 : _pos };
             };
-            var _v:stdgo.GoInt = (-1 : stdgo.GoInt);
+            var _v = (-1 : stdgo.GoInt);
             var _err:stdgo.Error = (null : stdgo.Error);
             if ((_s.__slice__(0, _i) : stdgo.GoString) != (("?" : stdgo.GoString))) {
                 {

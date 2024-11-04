@@ -4,27 +4,31 @@ function _fixedHuffmanDecoderInit():Void {
             var _bits:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(288, 288, ...[for (i in 0 ... 288) (0 : stdgo.GoInt)]);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (144 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (144 : stdgo.GoInt) : Bool)) {
                     _bits[(_i : stdgo.GoInt)] = (8 : stdgo.GoInt);
-                });
+                    _i++;
+                };
             };
             {
                 var _i = (144 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (256 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (256 : stdgo.GoInt) : Bool)) {
                     _bits[(_i : stdgo.GoInt)] = (9 : stdgo.GoInt);
-                });
+                    _i++;
+                };
             };
             {
                 var _i = (256 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (280 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (280 : stdgo.GoInt) : Bool)) {
                     _bits[(_i : stdgo.GoInt)] = (7 : stdgo.GoInt);
-                });
+                    _i++;
+                };
             };
             {
                 var _i = (280 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (288 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (288 : stdgo.GoInt) : Bool)) {
                     _bits[(_i : stdgo.GoInt)] = (8 : stdgo.GoInt);
-                });
+                    _i++;
+                };
             };
             stdgo._internal.compress.flate.Flate__fixedHuffmanDecoder._fixedHuffmanDecoder._init((_bits.__slice__(0) : stdgo.Slice<stdgo.GoInt>));
         });

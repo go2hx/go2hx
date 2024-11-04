@@ -1,7 +1,7 @@
 package stdgo._internal.sort;
 function _pdqsort(_data:stdgo._internal.sort.Sort_Interface.Interface, _a:stdgo.GoInt, _b:stdgo.GoInt, _limit:stdgo.GoInt):Void {
         {};
-        var __0:Bool = true, __1:Bool = true;
+        var __0 = true, __1 = true;
 var _wasPartitioned = __1, _wasBalanced = __0;
         while (true) {
             var _length = (_b - _a : stdgo.GoInt);

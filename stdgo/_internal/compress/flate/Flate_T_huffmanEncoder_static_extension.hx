@@ -61,13 +61,14 @@ package stdgo._internal.compress.flate;
         var _leafCounts:stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>> = new stdgo.GoArray<stdgo.GoArray<stdgo.GoInt32>>(16, 16, ...[for (i in 0 ... 16) new stdgo.GoArray<stdgo.GoInt32>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoInt32)])]);
         {
             var _level = ((1 : stdgo.GoInt32) : stdgo.GoInt32);
-            stdgo.Go.cfor((_level <= _maxBits : Bool), _level++, {
+            while ((_level <= _maxBits : Bool)) {
                 _levels[(_level : stdgo.GoInt)] = ({ _level : _level, _lastFreq : _list[(1 : stdgo.GoInt)]._freq, _nextCharFreq : _list[(2 : stdgo.GoInt)]._freq, _nextPairFreq : (_list[(0 : stdgo.GoInt)]._freq + _list[(1 : stdgo.GoInt)]._freq : stdgo.GoInt32) } : stdgo._internal.compress.flate.Flate_T_levelInfo.T_levelInfo);
-                _leafCounts[(_level : stdgo.GoInt)][(_level : stdgo.GoInt)] = (2 : stdgo.GoInt32);
-                if (_level == ((1 : stdgo.GoInt32))) {
+_leafCounts[(_level : stdgo.GoInt)][(_level : stdgo.GoInt)] = (2 : stdgo.GoInt32);
+if (_level == ((1 : stdgo.GoInt32))) {
                     _levels[(_level : stdgo.GoInt)]._nextPairFreq = (2147483647 : stdgo.GoInt32);
                 };
-            });
+                _level++;
+            };
         };
         _levels[(_maxBits : stdgo.GoInt)]._needed = (((2 : stdgo.GoInt32) * _n : stdgo.GoInt32) - (4 : stdgo.GoInt32) : stdgo.GoInt32);
         var _level = (_maxBits : stdgo.GoInt32);
@@ -113,10 +114,11 @@ package stdgo._internal.compress.flate;
         var _counts = (stdgo.Go.setRef(_leafCounts[(_maxBits : stdgo.GoInt)]) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt32>>);
         {
             var _level = (_maxBits : stdgo.GoInt32);
-            stdgo.Go.cfor((_level > (0 : stdgo.GoInt32) : Bool), _level--, {
+            while ((_level > (0 : stdgo.GoInt32) : Bool)) {
                 _bitCount[(_bits : stdgo.GoInt)] = (_counts[(_level : stdgo.GoInt)] - _counts[((_level - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)] : stdgo.GoInt32);
-                _bits++;
-            });
+_bits++;
+                _level--;
+            };
         };
         return _bitCount;
     }

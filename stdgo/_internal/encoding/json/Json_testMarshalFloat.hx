@@ -38,45 +38,48 @@ function testMarshalFloat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
                 };
             };
         } : (stdgo.GoFloat64, stdgo.GoInt) -> Void);
-        var __0:stdgo.GoFloat64 = stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)), __1:stdgo.GoFloat64 = stdgo._internal.math.Math_inf.inf((-1 : stdgo.GoInt));
+        var __0 = stdgo._internal.math.Math_inf.inf((1 : stdgo.GoInt)), __1 = stdgo._internal.math.Math_inf.inf((-1 : stdgo.GoInt));
 var _smaller = __1, _bigger = __0;
-        var _digits:stdgo.GoString = ("1.2345678901234567890123" : stdgo.GoString);
+        var _digits = ("1.2345678901234567890123" : stdgo.GoString);
         {
             var _i = (_digits.length : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (2 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (2 : stdgo.GoInt) : Bool)) {
                 if ((stdgo._internal.testing.Testing_short.short() && (_i < ((_digits.length) - (4 : stdgo.GoInt) : stdgo.GoInt) : Bool) : Bool)) {
                     break;
                 };
-                {
+{
                     var _exp = (-30 : stdgo.GoInt);
-                    stdgo.Go.cfor((_exp <= (30 : stdgo.GoInt) : Bool), _exp++, {
+                    while ((_exp <= (30 : stdgo.GoInt) : Bool)) {
                         for (__4 => _sign in ("+-" : stdgo.GoString)) {
                             {
                                 var _bits = (32 : stdgo.GoInt);
-                                stdgo.Go.cfor((_bits <= (64 : stdgo.GoInt) : Bool), _bits = (_bits + ((32 : stdgo.GoInt)) : stdgo.GoInt), {
-                                    var _s = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%c%se%d" : stdgo.GoString), stdgo.Go.toInterface(_sign), stdgo.Go.toInterface((_digits.__slice__(0, _i) : stdgo.GoString)), stdgo.Go.toInterface(_exp))?.__copy__() : stdgo.GoString);
-                                    var __tmp__ = stdgo._internal.strconv.Strconv_parseFloat.parseFloat(_s?.__copy__(), _bits), _f:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                                    if (_err != null) {
+                                while ((_bits <= (64 : stdgo.GoInt) : Bool)) {
+                                    var _s = (stdgo._internal.fmt.Fmt_sprintf.sprintf(("%c%se%d" : stdgo.GoString), stdgo.Go.toInterface(_sign), stdgo.Go.toInterface((_digits.__slice__(0, _i) : stdgo.GoString)), stdgo.Go.toInterface(_exp)).__copy__() : stdgo.GoString);
+var __tmp__ = stdgo._internal.strconv.Strconv_parseFloat.parseFloat(_s.__copy__(), _bits), _f:stdgo.GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
                                         stdgo._internal.log.Log_fatal.fatal(stdgo.Go.toInterface(_err));
                                     };
-                                    var _next = (stdgo._internal.math.Math_nextafter.nextafter : (stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64);
-                                    if (_bits == ((32 : stdgo.GoInt))) {
+var _next = (stdgo._internal.math.Math_nextafter.nextafter : (stdgo.GoFloat64, stdgo.GoFloat64) -> stdgo.GoFloat64);
+if (_bits == ((32 : stdgo.GoInt))) {
                                         _next = function(_g:stdgo.GoFloat64, _h:stdgo.GoFloat64):stdgo.GoFloat64 {
                                             return (stdgo._internal.math.Math_nextafter32.nextafter32((_g : stdgo.GoFloat32), (_h : stdgo.GoFloat32)) : stdgo.GoFloat64);
                                         };
                                     };
-                                    _test(_f, _bits);
-                                    _test(_next(_f, _bigger), _bits);
-                                    _test(_next(_f, _smaller), _bits);
-                                    if ((_nfail > (50 : stdgo.GoInt) : Bool)) {
+_test(_f, _bits);
+_test(_next(_f, _bigger), _bits);
+_test(_next(_f, _smaller), _bits);
+if ((_nfail > (50 : stdgo.GoInt) : Bool)) {
                                         _t.fatalf(("stopping test early" : stdgo.GoString));
                                     };
-                                });
+                                    _bits = (_bits + ((32 : stdgo.GoInt)) : stdgo.GoInt);
+                                };
                             };
                         };
-                    });
+                        _exp++;
+                    };
                 };
-            });
+                _i--;
+            };
         };
         _test((0 : stdgo.GoFloat64), (64 : stdgo.GoInt));
         _test(stdgo._internal.math.Math_copysign.copysign((0 : stdgo.GoFloat64), (-1 : stdgo.GoFloat64)), (64 : stdgo.GoInt));

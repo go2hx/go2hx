@@ -19,7 +19,7 @@ package stdgo._internal.net.http;
             };
             if (!_r._read) {
                 _r._read = true;
-                var __0:stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>> = (new stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>), __1:stdgo.Chan<stdgo.Error> = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
+                var __0 = (new stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>), __1 = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
 var _errCh = __1, _bCh = __0;
                 var _success = (stdgo._internal.syscall.js.Js_funcOf.funcOf(function(_this:stdgo._internal.syscall.js.Js_Value.Value, _args:stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>):stdgo.AnyInterface {
                     var _uint8arrayWrapper = (stdgo._internal.net.http.Http__uint8Array._uint8Array.new_(stdgo.Go.toInterface(stdgo.Go.asInterface(_args[(0 : stdgo.GoInt)])))?.__copy__() : stdgo._internal.syscall.js.Js_Value.Value);

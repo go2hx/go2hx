@@ -20,12 +20,13 @@ var _initKaratsubaSqr = __1, _initBasicSqr = __0;
         var _testval:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _nruns : Bool), _i++, {
+            while ((_i < _nruns : Bool)) {
                 var _res = (stdgo._internal.testing.Testing_benchmark.benchmark(function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                     stdgo._internal.math.big.Big__benchmarkNatSqr._benchmarkNatSqr(_b, _words);
-                })?.__copy__() : stdgo._internal.testing.Testing_BenchmarkResult.BenchmarkResult);
-                _testval = (_testval + (_res.nsPerOp()) : stdgo.GoInt64);
-            });
+                }).__copy__() : stdgo._internal.testing.Testing_BenchmarkResult.BenchmarkResult);
+_testval = (_testval + (_res.nsPerOp()) : stdgo.GoInt64);
+                _i++;
+            };
         };
         _testval = (_testval / ((_nruns : stdgo.GoInt64)) : stdgo.GoInt64);
         {

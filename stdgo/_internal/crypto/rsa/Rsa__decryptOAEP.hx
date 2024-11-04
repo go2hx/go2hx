@@ -41,13 +41,14 @@ var _invalid = __2, _index = __1, _lookingForIndex = __0;
         var _rest = (_db.__slice__(_hash.size()) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_rest.length) : Bool), _i++, {
+            while ((_i < (_rest.length) : Bool)) {
                 var _equals0 = (stdgo._internal.crypto.subtle.Subtle_constantTimeByteEq.constantTimeByteEq(_rest[(_i : stdgo.GoInt)], (0 : stdgo.GoUInt8)) : stdgo.GoInt);
-                var _equals1 = (stdgo._internal.crypto.subtle.Subtle_constantTimeByteEq.constantTimeByteEq(_rest[(_i : stdgo.GoInt)], (1 : stdgo.GoUInt8)) : stdgo.GoInt);
-                _index = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect((_lookingForIndex & _equals1 : stdgo.GoInt), _i, _index);
-                _lookingForIndex = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect(_equals1, (0 : stdgo.GoInt), _lookingForIndex);
-                _invalid = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect((_lookingForIndex & ((_equals0 ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt), (1 : stdgo.GoInt), _invalid);
-            });
+var _equals1 = (stdgo._internal.crypto.subtle.Subtle_constantTimeByteEq.constantTimeByteEq(_rest[(_i : stdgo.GoInt)], (1 : stdgo.GoUInt8)) : stdgo.GoInt);
+_index = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect((_lookingForIndex & _equals1 : stdgo.GoInt), _i, _index);
+_lookingForIndex = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect(_equals1, (0 : stdgo.GoInt), _lookingForIndex);
+_invalid = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect((_lookingForIndex & ((_equals0 ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt), (1 : stdgo.GoInt), _invalid);
+                _i++;
+            };
         };
         if ((((_firstByteIsZero & _lHash2Good : stdgo.GoInt) & ((_invalid ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) & ((_lookingForIndex ^ (-1i32 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) != ((1 : stdgo.GoInt))) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.rsa.Rsa_errDecryption.errDecryption };

@@ -26,11 +26,12 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (((_end - (("`" : stdgo.GoString).length) : stdgo.GoInt) - (("\r" : stdgo.GoString).length) : stdgo.GoInt) - (("`" : stdgo.GoString).length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                             {
                                 var _i = (("`" : stdgo.GoString).length : stdgo.GoInt);
-                                stdgo.Go.cfor((_i < (_end - (("`" : stdgo.GoString).length) : stdgo.GoInt) : Bool), _i++, {
+                                while ((_i < (_end - (("`" : stdgo.GoString).length) : stdgo.GoInt) : Bool)) {
                                     if (_in[(_i : stdgo.GoInt)] != ((13 : stdgo.GoUInt8))) {
                                         _buf = (_buf.__append__(_in[(_i : stdgo.GoInt)]));
                                     };
-                                });
+                                    _i++;
+                                };
                             };
                             _out = (_buf : stdgo.GoString)?.__copy__();
                         };

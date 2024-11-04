@@ -5,10 +5,10 @@ function _generateFixedLiteralEncoding():stdgo.Ref<stdgo._internal.compress.flat
         var _ch:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         {
             _ch = (0 : stdgo.GoUInt16);
-            stdgo.Go.cfor((_ch < (286 : stdgo.GoUInt16) : Bool), _ch++, {
+            while ((_ch < (286 : stdgo.GoUInt16) : Bool)) {
                 var _bits:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-                var _size:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-                if ((_ch < (144 : stdgo.GoUInt16) : Bool)) {
+var _size:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+if ((_ch < (144 : stdgo.GoUInt16) : Bool)) {
                     _bits = (_ch + (48 : stdgo.GoUInt16) : stdgo.GoUInt16);
                     _size = (8 : stdgo.GoUInt16);
                 } else if ((_ch < (256 : stdgo.GoUInt16) : Bool)) {
@@ -21,8 +21,9 @@ function _generateFixedLiteralEncoding():stdgo.Ref<stdgo._internal.compress.flat
                     _bits = ((_ch + (192 : stdgo.GoUInt16) : stdgo.GoUInt16) - (280 : stdgo.GoUInt16) : stdgo.GoUInt16);
                     _size = (8 : stdgo.GoUInt16);
                 };
-                _codes[(_ch : stdgo.GoInt)] = ({ _code : stdgo._internal.compress.flate.Flate__reverseBits._reverseBits(_bits, (_size : stdgo.GoUInt8)), _len : _size } : stdgo._internal.compress.flate.Flate_T_hcode.T_hcode);
-            });
+_codes[(_ch : stdgo.GoInt)] = ({ _code : stdgo._internal.compress.flate.Flate__reverseBits._reverseBits(_bits, (_size : stdgo.GoUInt8)), _len : _size } : stdgo._internal.compress.flate.Flate_T_hcode.T_hcode);
+                _ch++;
+            };
         };
         return _h;
     }

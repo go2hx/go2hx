@@ -9,11 +9,12 @@ function _uninterlace(_m:stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted
             var _nOffset = (_pass._start * _dx : stdgo.GoInt);
             {
                 var _y = (_pass._start : stdgo.GoInt);
-                stdgo.Go.cfor((_y < _dy : Bool), _y = (_y + (_pass._skip) : stdgo.GoInt), {
+                while ((_y < _dy : Bool)) {
                     stdgo.Go.copySlice((_nPix.__slice__(_nOffset, (_nOffset + _dx : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_m.pix.__slice__(_offset, (_offset + _dx : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    _offset = (_offset + (_dx) : stdgo.GoInt);
-                    _nOffset = (_nOffset + ((_dx * _pass._skip : stdgo.GoInt)) : stdgo.GoInt);
-                });
+_offset = (_offset + (_dx) : stdgo.GoInt);
+_nOffset = (_nOffset + ((_dx * _pass._skip : stdgo.GoInt)) : stdgo.GoInt);
+                    _y = (_y + (_pass._skip) : stdgo.GoInt);
+                };
             };
         };
         _m.pix = _nPix;

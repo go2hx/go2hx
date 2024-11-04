@@ -186,11 +186,12 @@ package stdgo._internal.encoding.gob;
                 if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _st.numField() : Bool), _i++, {
-                            if (stdgo._internal.encoding.gob.Gob__isExported._isExported(_st.field(_i).name?.__copy__())) {
+                        while ((_i < _st.numField() : Bool)) {
+                            if (stdgo._internal.encoding.gob.Gob__isExported._isExported(_st.field(_i).name.__copy__())) {
                                 _enc._sendType(_w, _state, _st.field(_i).type);
                             };
-                        });
+                            _i++;
+                        };
                     };
                 } else if (__value__ == ((17u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || __value__ == ((23u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                     _enc._sendType(_w, _state, _st.elem());
@@ -260,9 +261,10 @@ package stdgo._internal.encoding.gob;
             };
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _indir : Bool), _i++, {
-                    _value = stdgo._internal.reflect.Reflect_indirect.indirect(_value?.__copy__())?.__copy__();
-                });
+                while ((_i < _indir : Bool)) {
+                    _value = stdgo._internal.reflect.Reflect_indirect.indirect(_value.__copy__()).__copy__();
+                    _i++;
+                };
             };
             if (((_ut._externalEnc == (0 : stdgo.GoInt)) && (_value.type().kind() == (25u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) : Bool)) {
                 _enc._encodeStruct(_b, _engine, _value?.__copy__());
@@ -404,16 +406,17 @@ package stdgo._internal.encoding.gob;
             };
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _length : Bool), _i++, {
-                    var _elem = (_value.index(_i)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                    if ((_elemIndir > (0 : stdgo.GoInt) : Bool)) {
-                        _elem = stdgo._internal.encoding.gob.Gob__encIndirect._encIndirect(_elem?.__copy__(), _elemIndir)?.__copy__();
-                        if (!stdgo._internal.encoding.gob.Gob__valid._valid(_elem?.__copy__())) {
+                while ((_i < _length : Bool)) {
+                    var _elem = (_value.index(_i).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+if ((_elemIndir > (0 : stdgo.GoInt) : Bool)) {
+                        _elem = stdgo._internal.encoding.gob.Gob__encIndirect._encIndirect(_elem.__copy__(), _elemIndir).__copy__();
+                        if (!stdgo._internal.encoding.gob.Gob__valid._valid(_elem.__copy__())) {
                             stdgo._internal.encoding.gob.Gob__errorf._errorf(("encodeArray: nil element" : stdgo.GoString));
                         };
                     };
-                    _op(null, _state, _elem?.__copy__());
-                });
+_op(null, _state, _elem.__copy__());
+                    _i++;
+                };
             };
             {
                 for (defer in __deferstack__) {
@@ -453,21 +456,25 @@ package stdgo._internal.encoding.gob;
             _state._fieldnum = (-1 : stdgo.GoInt);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_engine._instr.length) : Bool), _i++, {
+                while ((_i < (_engine._instr.length) : Bool)) {
                     var _instr = (stdgo.Go.setRef(_engine._instr[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr>);
-                    if ((_i >= _value.numField() : Bool)) {
+if ((_i >= _value.numField() : Bool)) {
                         _instr._op(_instr, _state, (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value));
                         break;
                     };
-                    var _field = (_value.fieldByIndex(_instr._index)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                    if ((_instr._indir > (0 : stdgo.GoInt) : Bool)) {
-                        _field = stdgo._internal.encoding.gob.Gob__encIndirect._encIndirect(_field?.__copy__(), _instr._indir)?.__copy__();
-                        if (!stdgo._internal.encoding.gob.Gob__valid._valid(_field?.__copy__())) {
-                            continue;
+var _field = (_value.fieldByIndex(_instr._index).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+if ((_instr._indir > (0 : stdgo.GoInt) : Bool)) {
+                        _field = stdgo._internal.encoding.gob.Gob__encIndirect._encIndirect(_field.__copy__(), _instr._indir).__copy__();
+                        if (!stdgo._internal.encoding.gob.Gob__valid._valid(_field.__copy__())) {
+                            {
+                                _i++;
+                                continue;
+                            };
                         };
                     };
-                    _instr._op(_instr, _state, _field?.__copy__());
-                });
+_instr._op(_instr, _state, _field.__copy__());
+                    _i++;
+                };
             };
             {
                 for (defer in __deferstack__) {

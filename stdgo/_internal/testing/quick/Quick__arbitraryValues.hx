@@ -7,18 +7,19 @@ function _arbitraryValues(_args:stdgo.Slice<stdgo._internal.reflect.Reflect_Valu
         };
         {
             var _j = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_j < (_args.length) : Bool), _j++, {
+            while ((_j < (_args.length) : Bool)) {
                 var _ok:Bool = false;
-                {
+{
                     var __tmp__ = stdgo._internal.testing.quick.Quick_value.value(_f.in_(_j), _rand);
-                    _args[(_j : stdgo.GoInt)] = __tmp__._0?.__copy__();
+                    _args[(_j : stdgo.GoInt)] = __tmp__._0.__copy__();
                     _ok = __tmp__._1;
                 };
-                if (!_ok) {
+if (!_ok) {
                     _err = stdgo.Go.asInterface((stdgo._internal.fmt.Fmt_sprintf.sprintf(("cannot create arbitrary value of type %s for argument %d" : stdgo.GoString), stdgo.Go.toInterface(_f.in_(_j)), stdgo.Go.toInterface(_j)) : stdgo._internal.testing.quick.Quick_SetupError.SetupError));
                     return _err;
                 };
-            });
+                _j++;
+            };
         };
         return _err;
     }

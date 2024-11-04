@@ -6,17 +6,18 @@ function benchmarkConcurrent(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):
             var _group:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
             {
                 var _i = (stdgo._internal.runtime.Runtime_numCPU.numCPU() : stdgo.GoInt);
-                stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                while ((_i > (0 : stdgo.GoInt) : Bool)) {
                     _group.add((1 : stdgo.GoInt));
-                    stdgo.Go.routine(() -> {
+stdgo.Go.routine(() -> {
                         var a = function():Void {
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
                                 {
                                     var _i = (0 : stdgo.GoInt);
-                                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                                    while ((_i < _b.n : Bool)) {
                                         _l.output((0 : stdgo.GoInt), ("hello, world!" : stdgo.GoString));
-                                    });
+                                        _i++;
+                                    };
                                 };
                                 __deferstack__.unshift(() -> _group.done());
                                 {
@@ -43,7 +44,8 @@ function benchmarkConcurrent(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):
                         };
                         a();
                     });
-                });
+                    _i--;
+                };
             };
             _group.wait_();
             {

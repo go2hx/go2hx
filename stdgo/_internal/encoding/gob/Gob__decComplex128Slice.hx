@@ -10,17 +10,18 @@ function _decComplex128Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _length : Bool), _i++, {
+            while ((_i < _length : Bool)) {
                 if (_state._b.len() == ((0 : stdgo.GoInt))) {
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("decoding complex128 array or slice: length exceeds input size (%d elements)" : stdgo.GoString), stdgo.Go.toInterface(_length));
                 };
-                if ((_i >= (_slice.length) : Bool)) {
-                    stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v?.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoComplex128>>), _length);
+if ((_i >= (_slice.length) : Bool)) {
+                    stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoComplex128>>), _length);
                 };
-                var _real = (stdgo._internal.encoding.gob.Gob__float64FromBits._float64FromBits(_state._decodeUint()) : stdgo.GoFloat64);
-                var _imag = (stdgo._internal.encoding.gob.Gob__float64FromBits._float64FromBits(_state._decodeUint()) : stdgo.GoFloat64);
-                _slice[(_i : stdgo.GoInt)] = new stdgo.GoComplex128(_real, _imag);
-            });
+var _real = (stdgo._internal.encoding.gob.Gob__float64FromBits._float64FromBits(_state._decodeUint()) : stdgo.GoFloat64);
+var _imag = (stdgo._internal.encoding.gob.Gob__float64FromBits._float64FromBits(_state._decodeUint()) : stdgo.GoFloat64);
+_slice[(_i : stdgo.GoInt)] = new stdgo.GoComplex128(_real, _imag);
+                _i++;
+            };
         };
         return true;
     }

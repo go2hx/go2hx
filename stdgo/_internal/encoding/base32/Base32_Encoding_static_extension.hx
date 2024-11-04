@@ -62,11 +62,12 @@ package stdgo._internal.encoding.base32;
                         };
                         {
                             var _k = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor((_k < ((7 : stdgo.GoInt) - _j : stdgo.GoInt) : Bool), _k++, {
+                            while ((_k < ((7 : stdgo.GoInt) - _j : stdgo.GoInt) : Bool)) {
                                 if ((((_src.length) > _k : Bool) && (_src[(_k : stdgo.GoInt)] != (_enc._padChar : stdgo.GoUInt8)) : Bool)) {
                                     return { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface(((((_olen - (_src.length) : stdgo.GoInt) + _k : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
                                 };
-                            });
+                                _k++;
+                            };
                         };
                         {
                             final __tmp__0 = _j;
@@ -230,9 +231,10 @@ package stdgo._internal.encoding.base32;
             } else {
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _size : Bool), _i++, {
+                    while ((_i < _size : Bool)) {
                         _dst[(_i : stdgo.GoInt)] = _enc._encode[((_b[(_i : stdgo.GoInt)] & (31 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)];
-                    });
+                        _i++;
+                    };
                 };
             };
             if (((_src.length) < (5 : stdgo.GoInt) : Bool)) {
@@ -265,11 +267,12 @@ package stdgo._internal.encoding.base32;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_enc._encode.length) : Bool), _i++, {
+            while ((_i < (_enc._encode.length) : Bool)) {
                 if ((_enc._encode[(_i : stdgo.GoInt)] : stdgo.GoInt32) == (_padding)) {
                     throw stdgo.Go.toInterface(("padding contained in alphabet" : stdgo.GoString));
                 };
-            });
+                _i++;
+            };
         };
         _enc._padChar = _padding;
         return (stdgo.Go.setRef(_enc) : stdgo.Ref<stdgo._internal.encoding.base32.Base32_Encoding.Encoding>);

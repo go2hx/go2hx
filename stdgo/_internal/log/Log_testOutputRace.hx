@@ -8,14 +8,14 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
             _wg.add((100 : stdgo.GoInt));
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (100 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (100 : stdgo.GoInt) : Bool)) {
                     stdgo.Go.routine(() -> {
                         var a = function():Void {
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
                                 __deferstack__.unshift(() -> _wg.done());
                                 _l.setFlags((0 : stdgo.GoInt));
-                                _l.output((0 : stdgo.GoInt), stdgo.Go.str()?.__copy__());
+                                _l.output((0 : stdgo.GoInt), stdgo.Go.str().__copy__());
                                 {
                                     for (defer in __deferstack__) {
                                         defer();
@@ -40,7 +40,8 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                         };
                         a();
                     });
-                });
+                    _i++;
+                };
             };
             _wg.wait_();
             {

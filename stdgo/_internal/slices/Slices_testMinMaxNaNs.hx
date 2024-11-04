@@ -9,17 +9,18 @@ function testMinMaxNaNs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_fs.length) : Bool), _i++, {
+            while ((_i < (_fs.length) : Bool)) {
                 var _testfs = stdgo._internal.slices.Slices_clone.clone(_fs);
-                _testfs[(_i : stdgo.GoInt)] = stdgo._internal.math.Math_naN.naN();
-                var _fmin = (stdgo._internal.slices.Slices_min.min(_testfs) : stdgo.GoFloat64);
-                if (!stdgo._internal.math.Math_isNaN.isNaN(_fmin)) {
+_testfs[(_i : stdgo.GoInt)] = stdgo._internal.math.Math_naN.naN();
+var _fmin = (stdgo._internal.slices.Slices_min.min(_testfs) : stdgo.GoFloat64);
+if (!stdgo._internal.math.Math_isNaN.isNaN(_fmin)) {
                     _t.errorf(("got min %v, want NaN" : stdgo.GoString), stdgo.Go.toInterface(_fmin));
                 };
-                var _fmax = (stdgo._internal.slices.Slices_max.max(_testfs) : stdgo.GoFloat64);
-                if (!stdgo._internal.math.Math_isNaN.isNaN(_fmax)) {
+var _fmax = (stdgo._internal.slices.Slices_max.max(_testfs) : stdgo.GoFloat64);
+if (!stdgo._internal.math.Math_isNaN.isNaN(_fmax)) {
                     _t.errorf(("got max %v, want NaN" : stdgo.GoString), stdgo.Go.toInterface(_fmax));
                 };
-            });
+                _i++;
+            };
         };
     }

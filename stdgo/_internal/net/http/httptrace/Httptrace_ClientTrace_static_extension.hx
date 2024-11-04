@@ -19,27 +19,37 @@ package stdgo._internal.net.http.httptrace;
         var _structType = (_tv.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _structType.numField() : Bool), _i++, {
-                var _tf = (_tv.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                var _hookType = (_tf.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
-                if (_hookType.kind() != ((19u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                    continue;
+            while ((_i < _structType.numField() : Bool)) {
+                var _tf = (_tv.field(_i).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+var _hookType = (_tf.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
+if (_hookType.kind() != ((19u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                var _of = (_ov.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                if (_of.isNil()) {
-                    continue;
+var _of = (_ov.field(_i).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+if (_of.isNil()) {
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                if (_tf.isNil()) {
-                    _tf.set(_of?.__copy__());
-                    continue;
+if (_tf.isNil()) {
+                    _tf.set(_of.__copy__());
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                var _tfCopy = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_tf.interface_())?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                var _newFunc = (stdgo._internal.reflect.Reflect_makeFunc.makeFunc(_hookType, function(_args:stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>):stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value> {
+var _tfCopy = (stdgo._internal.reflect.Reflect_valueOf.valueOf(_tf.interface_()).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+var _newFunc = (stdgo._internal.reflect.Reflect_makeFunc.makeFunc(_hookType, function(_args:stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value>):stdgo.Slice<stdgo._internal.reflect.Reflect_Value.Value> {
                     _tfCopy.call(_args);
                     return _of.call(_args);
-                })?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
-                _tv.field(_i).set(_newFunc?.__copy__());
-            });
+                }).__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
+_tv.field(_i).set(_newFunc.__copy__());
+                _i++;
+            };
         };
     }
 }

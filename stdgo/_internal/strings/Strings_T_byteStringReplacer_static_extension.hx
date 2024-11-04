@@ -8,25 +8,29 @@ package stdgo._internal.strings;
         var _last = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 var _b = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (_r._replacements[(_b : stdgo.GoInt)] == null) {
-                    continue;
+if (_r._replacements[(_b : stdgo.GoInt)] == null) {
+                    {
+                        _i++;
+                        continue;
+                    };
                 };
-                if (_last != (_i)) {
-                    var __tmp__ = _sw.writeString((_s.__slice__(_last, _i) : stdgo.GoString)?.__copy__()), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_last != (_i)) {
+                    var __tmp__ = _sw.writeString((_s.__slice__(_last, _i) : stdgo.GoString).__copy__()), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     _n = (_n + (_nw) : stdgo.GoInt);
                     if (_err != null) {
                         return { _0 : _n, _1 : _err };
                     };
                 };
-                _last = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                var __tmp__ = _w.write(_r._replacements[(_b : stdgo.GoInt)]), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                _n = (_n + (_nw) : stdgo.GoInt);
-                if (_err != null) {
+_last = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
+var __tmp__ = _w.write(_r._replacements[(_b : stdgo.GoInt)]), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+_n = (_n + (_nw) : stdgo.GoInt);
+if (_err != null) {
                     return { _0 : _n, _1 : _err };
                 };
-            });
+                _i++;
+            };
         };
         if (_last != ((_s.length))) {
             var _nw:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -57,13 +61,14 @@ package stdgo._internal.strings;
         } else {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+                while ((_i < (_s.length) : Bool)) {
                     var _b = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                    if (_r._replacements[(_b : stdgo.GoInt)] != null) {
+if (_r._replacements[(_b : stdgo.GoInt)] != null) {
                         _newSize = (_newSize + (((_r._replacements[(_b : stdgo.GoInt)].length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
                         _anyChanges = true;
                     };
-                });
+                    _i++;
+                };
             };
         };
         if (!_anyChanges) {
@@ -73,15 +78,16 @@ package stdgo._internal.strings;
         var _j = (0 : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 var _b = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if (_r._replacements[(_b : stdgo.GoInt)] != null) {
+if (_r._replacements[(_b : stdgo.GoInt)] != null) {
                     _j = (_j + (stdgo.Go.copySlice((_buf.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>), _r._replacements[(_b : stdgo.GoInt)])) : stdgo.GoInt);
                 } else {
                     _buf[(_j : stdgo.GoInt)] = _b;
                     _j++;
                 };
-            });
+                _i++;
+            };
         };
         return (_buf : stdgo.GoString)?.__copy__();
     }

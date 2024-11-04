@@ -211,7 +211,7 @@ package stdgo._internal.net.http.httptest;
             __deferstack__.unshift(() -> _timer.stop());
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < _nconn : Bool), _i++, {
+                while ((_i < _nconn : Bool)) {
                     {
                         var __select__ = true;
                         while (__select__) {
@@ -239,7 +239,8 @@ package stdgo._internal.net.http.httptest;
                             stdgo._internal.internal.Async.tick();
                         };
                     };
-                });
+                    _i++;
+                };
             };
             {
                 for (defer in __deferstack__) {

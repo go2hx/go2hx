@@ -786,7 +786,7 @@ class Sync {
         
         If f panics, the returned function will panic with the same value on every call.
     **/
-    static public function onceValue<T_>(_f:() -> Dynamic):() -> Dynamic {
+    static public function onceValue(_f:() -> Dynamic):() -> Dynamic {
         final _f = _f;
         return () -> stdgo._internal.sync.Sync_onceValue.onceValue(_f)();
     }
@@ -796,7 +796,7 @@ class Sync {
         
         If f panics, the returned function will panic with the same value on every call.
     **/
-    static public function onceValues<T1, T2>(_f:() -> { var _0 : Dynamic; var _1 : Dynamic; }):() -> { var _0 : Dynamic; var _1 : Dynamic; } {
+    static public function onceValues(_f:() -> { var _0 : Dynamic; var _1 : Dynamic; }):() -> { var _0 : Dynamic; var _1 : Dynamic; } {
         final _f = _f;
         return () -> stdgo._internal.sync.Sync_onceValues.onceValues(_f)();
     }

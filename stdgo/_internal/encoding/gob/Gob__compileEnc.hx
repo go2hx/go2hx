@@ -17,15 +17,19 @@ function _compileEnc(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeIn
             {
                 var __0 = (0 : stdgo.GoInt), __1 = (0 : stdgo.GoInt);
 var _wireFieldNum = __1, _fieldNum = __0;
-                stdgo.Go.cfor((_fieldNum < _srt.numField() : Bool), _fieldNum++, {
-                    var _f = (_srt.field(_fieldNum)?.__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
-                    if (!stdgo._internal.encoding.gob.Gob__isSent._isSent((stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>))) {
-                        continue;
+                while ((_fieldNum < _srt.numField() : Bool)) {
+                    var _f = (_srt.field(_fieldNum).__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
+if (!stdgo._internal.encoding.gob.Gob__isSent._isSent((stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>))) {
+                        {
+                            _fieldNum++;
+                            continue;
+                        };
                     };
-                    var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_f.type, _seen, _building), _op:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _indir:stdgo.GoInt = __tmp__._1;
-                    _engine._instr = (_engine._instr.__append__((new stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr((_op : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp), _wireFieldNum, _f.index, _indir) : stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr)));
-                    _wireFieldNum++;
-                });
+var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_f.type, _seen, _building), _op:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _indir:stdgo.GoInt = __tmp__._1;
+_engine._instr = (_engine._instr.__append__((new stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr((_op : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp), _wireFieldNum, _f.index, _indir) : stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr)));
+_wireFieldNum++;
+                    _fieldNum++;
+                };
             };
             if (((_srt.numField() > (0 : stdgo.GoInt) : Bool) && (_engine._instr.length == (0 : stdgo.GoInt)) : Bool)) {
                 stdgo._internal.encoding.gob.Gob__errorf._errorf(("type %s has no exported fields" : stdgo.GoString), stdgo.Go.toInterface(_rt));

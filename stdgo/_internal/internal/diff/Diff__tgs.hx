@@ -48,13 +48,14 @@ var _inv = __2, _yi = __1, _xi = __0;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 var _k = (stdgo._internal.sort.Sort_search.search(_n, function(_k:stdgo.GoInt):Bool {
                     return (t[(_k : stdgo.GoInt)] >= j[(_i : stdgo.GoInt)] : Bool);
                 }) : stdgo.GoInt);
-                t[(_k : stdgo.GoInt)] = j[(_i : stdgo.GoInt)];
-                l[(_i : stdgo.GoInt)] = (_k + (1 : stdgo.GoInt) : stdgo.GoInt);
-            });
+t[(_k : stdgo.GoInt)] = j[(_i : stdgo.GoInt)];
+l[(_i : stdgo.GoInt)] = (_k + (1 : stdgo.GoInt) : stdgo.GoInt);
+                _i++;
+            };
         };
         var _k = (0 : stdgo.GoInt);
         for (__2 => _v in l) {
@@ -67,12 +68,13 @@ var _inv = __2, _yi = __1, _xi = __0;
         var _lastj = (_n : stdgo.GoInt);
         {
             var _i = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 if (((l[(_i : stdgo.GoInt)] == _k) && (j[(_i : stdgo.GoInt)] < _lastj : Bool) : Bool)) {
                     _seq[(_k : stdgo.GoInt)] = (new stdgo._internal.internal.diff.Diff_T_pair.T_pair(_xi[(_i : stdgo.GoInt)], _yi[(j[(_i : stdgo.GoInt)] : stdgo.GoInt)]) : stdgo._internal.internal.diff.Diff_T_pair.T_pair);
                     _k--;
                 };
-            });
+                _i--;
+            };
         };
         _seq[(0 : stdgo.GoInt)] = (new stdgo._internal.internal.diff.Diff_T_pair.T_pair((0 : stdgo.GoInt), (0 : stdgo.GoInt)) : stdgo._internal.internal.diff.Diff_T_pair.T_pair);
         return _seq;

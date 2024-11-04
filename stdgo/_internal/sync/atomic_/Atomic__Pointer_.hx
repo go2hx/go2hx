@@ -12,6 +12,6 @@ package stdgo._internal.sync.atomic_;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new Pointer_<T_>(__4, __5, _v);
+        return new Pointer_(__4, __5, _v);
     }
 }

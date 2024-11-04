@@ -20,9 +20,10 @@ function signPKCS1v15(_random:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.R
         _em[(1 : stdgo.GoInt)] = (1 : stdgo.GoUInt8);
         {
             var _i = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < ((_k - _tLen : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < ((_k - _tLen : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                 _em[(_i : stdgo.GoInt)] = (255 : stdgo.GoUInt8);
-            });
+                _i++;
+            };
         };
         stdgo.Go.copySlice((_em.__slice__((_k - _tLen : stdgo.GoInt), (_k - _hashLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _prefix);
         stdgo.Go.copySlice((_em.__slice__((_k - _hashLen : stdgo.GoInt), _k) : stdgo.Slice<stdgo.GoUInt8>), _hashed);

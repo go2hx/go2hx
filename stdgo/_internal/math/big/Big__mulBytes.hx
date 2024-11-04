@@ -4,16 +4,16 @@ function _mulBytes(_x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>)
         var _k0 = ((_z.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
         {
             var _j = ((_y.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_j >= (0 : stdgo.GoInt) : Bool), _j--, {
+            while ((_j >= (0 : stdgo.GoInt) : Bool)) {
                 var _d = (_y[(_j : stdgo.GoInt)] : stdgo.GoInt);
-                if (_d != ((0 : stdgo.GoInt))) {
+if (_d != ((0 : stdgo.GoInt))) {
                     var _k = (_k0 : stdgo.GoInt);
                     var _carry = (0 : stdgo.GoInt);
                     {
                         var _i = ((_x.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                        stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                        while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                             var _t = (((_z[(_k : stdgo.GoInt)] : stdgo.GoInt) + ((_x[(_i : stdgo.GoInt)] : stdgo.GoInt) * _d : stdgo.GoInt) : stdgo.GoInt) + _carry : stdgo.GoInt);
-                            {
+{
                                 final __tmp__0 = (_t : stdgo.GoUInt8);
                                 final __tmp__1 = (_t >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt);
                                 final __tmp__2 = _z;
@@ -21,13 +21,15 @@ function _mulBytes(_x:stdgo.Slice<stdgo.GoUInt8>, _y:stdgo.Slice<stdgo.GoUInt8>)
                                 __tmp__2[__tmp__3] = __tmp__0;
                                 _carry = __tmp__1;
                             };
-                            _k--;
-                        });
+_k--;
+                            _i--;
+                        };
                     };
                     _z[(_k : stdgo.GoInt)] = (_carry : stdgo.GoUInt8);
                 };
-                _k0--;
-            });
+_k0--;
+                _j--;
+            };
         };
         var _i = (0 : stdgo.GoInt);
         while (((_i < (_z.length) : Bool) && (_z[(_i : stdgo.GoInt)] == (0 : stdgo.GoUInt8)) : Bool)) {

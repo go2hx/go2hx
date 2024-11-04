@@ -27,10 +27,10 @@ package stdgo._internal.mime;
 var _runeLen = __1, _currentLen = __0;
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i = (_i + (_runeLen) : stdgo.GoInt), {
+            while ((_i < (_s.length) : Bool)) {
                 var _b = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                var _encLen:stdgo.GoInt = (0 : stdgo.GoInt);
-                if ((((((_b >= (32 : stdgo.GoUInt8) : Bool) && (_b <= (126 : stdgo.GoUInt8) : Bool) : Bool) && _b != ((61 : stdgo.GoUInt8)) : Bool) && _b != ((63 : stdgo.GoUInt8)) : Bool) && (_b != (95 : stdgo.GoUInt8)) : Bool)) {
+var _encLen:stdgo.GoInt = (0 : stdgo.GoInt);
+if ((((((_b >= (32 : stdgo.GoUInt8) : Bool) && (_b <= (126 : stdgo.GoUInt8) : Bool) : Bool) && _b != ((61 : stdgo.GoUInt8)) : Bool) && _b != ((63 : stdgo.GoUInt8)) : Bool) && (_b != (95 : stdgo.GoUInt8)) : Bool)) {
                     {
                         final __tmp__0 = (1 : stdgo.GoInt);
                         final __tmp__1 = (1 : stdgo.GoInt);
@@ -39,18 +39,19 @@ var _runeLen = __1, _currentLen = __0;
                     };
                 } else {
                     {
-                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString)?.__copy__());
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString).__copy__());
                         _runeLen = __tmp__._1;
                     };
                     _encLen = ((3 : stdgo.GoInt) * _runeLen : stdgo.GoInt);
                 };
-                if (((_currentLen + _encLen : stdgo.GoInt) > (63 : stdgo.GoInt) : Bool)) {
-                    _e._splitWord(_buf, _charset?.__copy__());
+if (((_currentLen + _encLen : stdgo.GoInt) > (63 : stdgo.GoInt) : Bool)) {
+                    _e._splitWord(_buf, _charset.__copy__());
                     _currentLen = (0 : stdgo.GoInt);
                 };
-                stdgo._internal.mime.Mime__writeQString._writeQString(_buf, (_s.__slice__(_i, (_i + _runeLen : stdgo.GoInt)) : stdgo.GoString)?.__copy__());
-                _currentLen = (_currentLen + (_encLen) : stdgo.GoInt);
-            });
+stdgo._internal.mime.Mime__writeQString._writeQString(_buf, (_s.__slice__(_i, (_i + _runeLen : stdgo.GoInt)) : stdgo.GoString).__copy__());
+_currentLen = (_currentLen + (_encLen) : stdgo.GoInt);
+                _i = (_i + (_runeLen) : stdgo.GoInt);
+            };
         };
     }
     @:keep
@@ -66,21 +67,22 @@ var _runeLen = __1, _currentLen = __0;
 var _runeLen = __2, _last = __1, _currentLen = __0;
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i = (_i + (_runeLen) : stdgo.GoInt), {
+            while ((_i < (_s.length) : Bool)) {
                 {
-                    var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString)?.__copy__());
+                    var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString).__copy__());
                     _runeLen = __tmp__._1;
                 };
-                if (((_currentLen + _runeLen : stdgo.GoInt) <= stdgo._internal.mime.Mime__maxBase64Len._maxBase64Len : Bool)) {
+if (((_currentLen + _runeLen : stdgo.GoInt) <= stdgo._internal.mime.Mime__maxBase64Len._maxBase64Len : Bool)) {
                     _currentLen = (_currentLen + (_runeLen) : stdgo.GoInt);
                 } else {
-                    stdgo._internal.io.Io_writeString.writeString(_w, (_s.__slice__(_last, _i) : stdgo.GoString)?.__copy__());
+                    stdgo._internal.io.Io_writeString.writeString(_w, (_s.__slice__(_last, _i) : stdgo.GoString).__copy__());
                     _w.close();
-                    _e._splitWord(_buf, _charset?.__copy__());
+                    _e._splitWord(_buf, _charset.__copy__());
                     _last = _i;
                     _currentLen = _runeLen;
                 };
-            });
+                _i = (_i + (_runeLen) : stdgo.GoInt);
+            };
         };
         stdgo._internal.io.Io_writeString.writeString(_w, (_s.__slice__(_last) : stdgo.GoString)?.__copy__());
         _w.close();

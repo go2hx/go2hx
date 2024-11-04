@@ -68,9 +68,10 @@ function _appendEscapedRune(_buf:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo.GoInt32, _
                                     _buf = (_buf.__append__(...(("\\u" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                                     {
                                         var _s = (12 : stdgo.GoInt);
-                                        stdgo.Go.cfor((_s >= (0 : stdgo.GoInt) : Bool), _s = (_s - ((4 : stdgo.GoInt)) : stdgo.GoInt), {
+                                        while ((_s >= (0 : stdgo.GoInt) : Bool)) {
                                             _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[(((_r >> (_s : stdgo.GoUInt) : stdgo.GoInt32) & (15 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)]));
-                                        });
+                                            _s = (_s - ((4 : stdgo.GoInt)) : stdgo.GoInt);
+                                        };
                                     };
                                     break;
                                     break;
@@ -78,9 +79,10 @@ function _appendEscapedRune(_buf:stdgo.Slice<stdgo.GoUInt8>, _r:stdgo.GoInt32, _
                                     _buf = (_buf.__append__(...(("\\U" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
                                     {
                                         var _s = (28 : stdgo.GoInt);
-                                        stdgo.Go.cfor((_s >= (0 : stdgo.GoInt) : Bool), _s = (_s - ((4 : stdgo.GoInt)) : stdgo.GoInt), {
+                                        while ((_s >= (0 : stdgo.GoInt) : Bool)) {
                                             _buf = (_buf.__append__(("0123456789abcdef" : stdgo.GoString)[(((_r >> (_s : stdgo.GoUInt) : stdgo.GoInt32) & (15 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)]));
-                                        });
+                                            _s = (_s - ((4 : stdgo.GoInt)) : stdgo.GoInt);
+                                        };
                                     };
                                     break;
                                 };

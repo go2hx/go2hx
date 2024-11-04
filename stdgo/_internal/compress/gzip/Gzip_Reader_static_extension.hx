@@ -164,33 +164,34 @@ package stdgo._internal.compress.gzip;
         var _needConv = (false : Bool);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor(true, _i++, {
+            while (true) {
                 if ((_i >= (_z._buf.length) : Bool)) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errHeader.errHeader };
+                    return { _0 : stdgo.Go.str().__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errHeader.errHeader };
                 };
-                {
+{
                     var __tmp__ = _z._r.readByte();
                     _z._buf[(_i : stdgo.GoInt)] = __tmp__._0;
                     _err = __tmp__._1;
                 };
-                if (_err != null) {
-                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
+if (_err != null) {
+                    return { _0 : stdgo.Go.str().__copy__(), _1 : _err };
                 };
-                if ((_z._buf[(_i : stdgo.GoInt)] > (127 : stdgo.GoUInt8) : Bool)) {
+if ((_z._buf[(_i : stdgo.GoInt)] > (127 : stdgo.GoUInt8) : Bool)) {
                     _needConv = true;
                 };
-                if (_z._buf[(_i : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
+if (_z._buf[(_i : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
                     _z._digest = stdgo._internal.hash.crc32.Crc32_update.update(_z._digest, stdgo._internal.hash.crc32.Crc32_ieeetable.ieeetable, (_z._buf.__slice__(0, (_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                     if (_needConv) {
                         var _s = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), _i).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
                         for (__0 => _v in (_z._buf.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>)) {
                             _s = (_s.__append__((_v : stdgo.GoInt32)));
                         };
-                        return { _0 : (_s : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
+                        return { _0 : (_s : stdgo.GoString).__copy__(), _1 : (null : stdgo.Error) };
                     };
-                    return { _0 : ((_z._buf.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
+                    return { _0 : ((_z._buf.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString).__copy__(), _1 : (null : stdgo.Error) };
                 };
-            });
+                _i++;
+            };
         };
     }
     @:keep

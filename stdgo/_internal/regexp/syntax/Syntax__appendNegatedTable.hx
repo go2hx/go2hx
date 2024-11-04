@@ -13,12 +13,13 @@ var _stride = __2, _hi = __1, _lo = __0;
             };
             {
                 var _c = (_lo : stdgo.GoInt32);
-                stdgo.Go.cfor((_c <= _hi : Bool), _c = (_c + (_stride) : stdgo.GoInt32), {
+                while ((_c <= _hi : Bool)) {
                     if ((_nextLo <= (_c - (1 : stdgo.GoInt32) : stdgo.GoInt32) : Bool)) {
                         _r = stdgo._internal.regexp.syntax.Syntax__appendRange._appendRange(_r, _nextLo, (_c - (1 : stdgo.GoInt32) : stdgo.GoInt32));
                     };
-                    _nextLo = (_c + (1 : stdgo.GoInt32) : stdgo.GoInt32);
-                });
+_nextLo = (_c + (1 : stdgo.GoInt32) : stdgo.GoInt32);
+                    _c = (_c + (_stride) : stdgo.GoInt32);
+                };
             };
         };
         for (__2 => _xr in _x.r32) {
@@ -33,12 +34,13 @@ var _stride = __2, _hi = __1, _lo = __0;
             };
             {
                 var _c = (_lo : stdgo.GoInt32);
-                stdgo.Go.cfor((_c <= _hi : Bool), _c = (_c + (_stride) : stdgo.GoInt32), {
+                while ((_c <= _hi : Bool)) {
                     if ((_nextLo <= (_c - (1 : stdgo.GoInt32) : stdgo.GoInt32) : Bool)) {
                         _r = stdgo._internal.regexp.syntax.Syntax__appendRange._appendRange(_r, _nextLo, (_c - (1 : stdgo.GoInt32) : stdgo.GoInt32));
                     };
-                    _nextLo = (_c + (1 : stdgo.GoInt32) : stdgo.GoInt32);
-                });
+_nextLo = (_c + (1 : stdgo.GoInt32) : stdgo.GoInt32);
+                    _c = (_c + (_stride) : stdgo.GoInt32);
+                };
             };
         };
         if ((_nextLo <= (1114111 : stdgo.GoInt32) : Bool)) {

@@ -3,7 +3,7 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_T_onePassProg.T
         if (((_p.inst.length) >= (1000 : stdgo.GoInt) : Bool)) {
             return null;
         };
-        var __0:stdgo.Ref<stdgo._internal.regexp.Regexp_T_queueOnePass.T_queueOnePass> = stdgo._internal.regexp.Regexp__newQueue._newQueue((_p.inst.length)), __1:stdgo.Ref<stdgo._internal.regexp.Regexp_T_queueOnePass.T_queueOnePass> = stdgo._internal.regexp.Regexp__newQueue._newQueue((_p.inst.length)), __2:(stdgo.GoUInt32, stdgo.Slice<Bool>) -> Bool = null, __3:stdgo.Slice<stdgo.Slice<stdgo.GoInt32>> = (new stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>((_p.inst.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>);
+        var __0 = stdgo._internal.regexp.Regexp__newQueue._newQueue((_p.inst.length)), __1 = stdgo._internal.regexp.Regexp__newQueue._newQueue((_p.inst.length)), __2:(stdgo.GoUInt32, stdgo.Slice<Bool>) -> Bool = null, __3 = (new stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>((_p.inst.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>);
 var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
         _check = function(_pc:stdgo.GoUInt32, _m:stdgo.Slice<Bool>):Bool {
             var _ok = false;
@@ -94,9 +94,10 @@ var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
                                 _runes = (_runes.__append__(_r0, _r0));
                                 {
                                     var _r1 = (stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r0) : stdgo.GoInt32);
-                                    stdgo.Go.cfor(_r1 != (_r0), _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1), {
+                                    while (_r1 != (_r0)) {
                                         _runes = (_runes.__append__(_r1, _r1));
-                                    });
+                                        _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1);
+                                    };
                                 };
                                 stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface((_runes : stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice)));
                             } else {
@@ -121,9 +122,10 @@ var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
                                 _runes = (_runes.__append__(_r0, _r0));
                                 {
                                     var _r1 = (stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r0) : stdgo.GoInt32);
-                                    stdgo.Go.cfor(_r1 != (_r0), _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1), {
+                                    while (_r1 != (_r0)) {
                                         _runes = (_runes.__append__(_r1, _r1));
-                                    });
+                                        _r1 = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r1);
+                                    };
                                 };
                                 stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface((_runes : stdgo._internal.regexp.Regexp_T_runeSlice.T_runeSlice)));
                             } else {

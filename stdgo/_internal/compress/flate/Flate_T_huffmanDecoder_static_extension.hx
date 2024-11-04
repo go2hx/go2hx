@@ -35,11 +35,12 @@ var _max = __1, _min = __0;
         var _nextcode:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoInt)]);
         {
             var _i = (_min : stdgo.GoInt);
-            stdgo.Go.cfor((_i <= _max : Bool), _i++, {
+            while ((_i <= _max : Bool)) {
                 _code = (_code << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt);
-                _nextcode[(_i : stdgo.GoInt)] = _code;
-                _code = (_code + (_count[(_i : stdgo.GoInt)]) : stdgo.GoInt);
-            });
+_nextcode[(_i : stdgo.GoInt)] = _code;
+_code = (_code + (_count[(_i : stdgo.GoInt)]) : stdgo.GoInt);
+                _i++;
+            };
         };
         if (((_code != ((1 : stdgo.GoInt) << (_max : stdgo.GoUInt) : stdgo.GoInt)) && !(((_code == (1 : stdgo.GoInt)) && (_max == (1 : stdgo.GoInt)) : Bool)) : Bool)) {
             return false;
@@ -52,16 +53,17 @@ var _max = __1, _min = __0;
             _h._links = (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt32>>(((512 : stdgo.GoInt) - _link : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt32>>);
             {
                 var _j = (_link : stdgo.GoUInt);
-                stdgo.Go.cfor((_j < (512u32 : stdgo.GoUInt) : Bool), _j++, {
+                while ((_j < (512u32 : stdgo.GoUInt) : Bool)) {
                     var _reverse = (stdgo._internal.math.bits.Bits_reverse16.reverse16((_j : stdgo.GoUInt16)) : stdgo.GoInt);
-                    _reverse = (_reverse >> ((7u32 : stdgo.GoUInt)) : stdgo.GoInt);
-                    var _off = (_j - (_link : stdgo.GoUInt) : stdgo.GoUInt);
-                    if ((false && (_h._chunks[(_reverse : stdgo.GoInt)] != (0u32 : stdgo.GoUInt32)) : Bool)) {
+_reverse = (_reverse >> ((7u32 : stdgo.GoUInt)) : stdgo.GoInt);
+var _off = (_j - (_link : stdgo.GoUInt) : stdgo.GoUInt);
+if ((false && (_h._chunks[(_reverse : stdgo.GoInt)] != (0u32 : stdgo.GoUInt32)) : Bool)) {
                         throw stdgo.Go.toInterface(("impossible: overwriting existing chunk" : stdgo.GoString));
                     };
-                    _h._chunks[(_reverse : stdgo.GoInt)] = (((_off << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt) | (10u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoUInt32);
-                    _h._links[(_off : stdgo.GoInt)] = (new stdgo.Slice<stdgo.GoUInt32>((_numLinks : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
-                });
+_h._chunks[(_reverse : stdgo.GoInt)] = (((_off << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt) | (10u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoUInt32);
+_h._links[(_off : stdgo.GoInt)] = (new stdgo.Slice<stdgo.GoUInt32>((_numLinks : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
+                    _j++;
+                };
             };
         };
         for (_i => _n in _lengths) {
@@ -76,12 +78,13 @@ var _max = __1, _min = __0;
             if ((_n <= (9 : stdgo.GoInt) : Bool)) {
                 {
                     var _off = (_reverse : stdgo.GoInt);
-                    stdgo.Go.cfor((_off < (_h._chunks.length) : Bool), _off = (_off + (((1 : stdgo.GoInt) << (_n : stdgo.GoUInt) : stdgo.GoInt)) : stdgo.GoInt), {
+                    while ((_off < (_h._chunks.length) : Bool)) {
                         if ((false && (_h._chunks[(_off : stdgo.GoInt)] != (0u32 : stdgo.GoUInt32)) : Bool)) {
                             throw stdgo.Go.toInterface(("impossible: overwriting existing chunk" : stdgo.GoString));
                         };
-                        _h._chunks[(_off : stdgo.GoInt)] = _chunk;
-                    });
+_h._chunks[(_off : stdgo.GoInt)] = _chunk;
+                        _off = (_off + (((1 : stdgo.GoInt) << (_n : stdgo.GoUInt) : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
             } else {
                 var _j = (_reverse & (511 : stdgo.GoInt) : stdgo.GoInt);
@@ -93,12 +96,13 @@ var _max = __1, _min = __0;
                 _reverse = (_reverse >> ((9i64 : stdgo.GoUInt64)) : stdgo.GoInt);
                 {
                     var _off = (_reverse : stdgo.GoInt);
-                    stdgo.Go.cfor((_off < (_linktab.length) : Bool), _off = (_off + (((1 : stdgo.GoInt) << ((_n - (9 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo.GoInt)) : stdgo.GoInt), {
+                    while ((_off < (_linktab.length) : Bool)) {
                         if ((false && (_linktab[(_off : stdgo.GoInt)] != (0u32 : stdgo.GoUInt32)) : Bool)) {
                             throw stdgo.Go.toInterface(("impossible: overwriting existing chunk" : stdgo.GoString));
                         };
-                        _linktab[(_off : stdgo.GoInt)] = _chunk;
-                    });
+_linktab[(_off : stdgo.GoInt)] = _chunk;
+                        _off = (_off + (((1 : stdgo.GoInt) << ((_n - (9 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
             };
         };

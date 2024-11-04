@@ -4,7 +4,7 @@ function testScanPiParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (2 : stdgo.GoInt) : Bool)) {
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
                         stdgo._internal.math.big.Big_testScanPi.testScanPi(_t);
@@ -12,12 +12,14 @@ function testScanPiParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                     };
                     a();
                 });
-            });
+                _i++;
+            };
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (2 : stdgo.GoInt) : Bool)) {
                 _c.__get__();
-            });
+                _i++;
+            };
         };
     }

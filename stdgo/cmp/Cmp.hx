@@ -15,7 +15,7 @@ class Cmp {
         For floating-point types, a NaN is considered less than any non-NaN,
         and -0.0 is not less than (is equal to) 0.0.
     **/
-    static public function less<T_>(_x:Dynamic, _y:Dynamic):Bool {
+    static public function less(_x:Dynamic, _y:Dynamic):Bool {
         return stdgo._internal.cmp.Cmp_less.less(_x, _y);
     }
     /**
@@ -28,7 +28,7 @@ class Cmp {
         For floating-point types, a NaN is considered less than any non-NaN,
         a NaN is considered equal to a NaN, and -0.0 is equal to 0.0.
     **/
-    static public function compare<T_>(_x:Dynamic, _y:Dynamic):StdTypes.Int {
+    static public function compare(_x:Dynamic, _y:Dynamic):StdTypes.Int {
         return stdgo._internal.cmp.Cmp_compare.compare(_x, _y);
     }
 }

@@ -23,9 +23,10 @@ package stdgo._internal.sync;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_r : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (_r : stdgo.GoInt) : Bool)) {
                 stdgo._internal.sync.Sync__runtime_Semrelease._runtime_Semrelease(stdgo.Go.pointer(_rw._readerSem), false, (0 : stdgo.GoInt));
-            });
+                _i++;
+            };
         };
         _rw._w.unlock();
         if (false) {

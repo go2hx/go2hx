@@ -13,12 +13,13 @@ function _extractPadding(_payload:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.G
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _toCheck : Bool), _i++, {
+            while ((_i < _toCheck : Bool)) {
                 var _t = ((_paddingLen : stdgo.GoUInt) - (_i : stdgo.GoUInt) : stdgo.GoUInt);
-                var _mask = (((-1 ^ _t : stdgo.GoInt32) >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32) : stdgo.GoUInt8);
-                var _b = (_payload[(((_payload.length) - (1 : stdgo.GoInt) : stdgo.GoInt) - _i : stdgo.GoInt)] : stdgo.GoUInt8);
-                _good = (_good & (((((_mask & _paddingLen : stdgo.GoUInt8) ^ (_mask & _b : stdgo.GoUInt8) : stdgo.GoUInt8)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo.GoUInt8);
-            });
+var _mask = (((-1 ^ _t : stdgo.GoInt32) >> (31i64 : stdgo.GoUInt64) : stdgo.GoInt32) : stdgo.GoUInt8);
+var _b = (_payload[(((_payload.length) - (1 : stdgo.GoInt) : stdgo.GoInt) - _i : stdgo.GoInt)] : stdgo.GoUInt8);
+_good = (_good & (((((_mask & _paddingLen : stdgo.GoUInt8) ^ (_mask & _b : stdgo.GoUInt8) : stdgo.GoUInt8)) ^ (-1i32 : stdgo.GoInt) : stdgo.GoUInt8)) : stdgo.GoUInt8);
+                _i++;
+            };
         };
         _good = (_good & ((_good << (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) : stdgo.GoUInt8);
         _good = (_good & ((_good << (2i64 : stdgo.GoUInt64) : stdgo.GoUInt8)) : stdgo.GoUInt8);

@@ -39,11 +39,12 @@ function _decryptPKCS1v15(_priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_Private
         var _lookingForIndex = (1 : stdgo.GoInt);
         {
             var _i = (2 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_em.length) : Bool), _i++, {
+            while ((_i < (_em.length) : Bool)) {
                 var _equals0 = (stdgo._internal.crypto.subtle.Subtle_constantTimeByteEq.constantTimeByteEq(_em[(_i : stdgo.GoInt)], (0 : stdgo.GoUInt8)) : stdgo.GoInt);
-                _index = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect((_lookingForIndex & _equals0 : stdgo.GoInt), _i, _index);
-                _lookingForIndex = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect(_equals0, (0 : stdgo.GoInt), _lookingForIndex);
-            });
+_index = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect((_lookingForIndex & _equals0 : stdgo.GoInt), _i, _index);
+_lookingForIndex = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect(_equals0, (0 : stdgo.GoInt), _lookingForIndex);
+                _i++;
+            };
         };
         var _validPS = (stdgo._internal.crypto.subtle.Subtle_constantTimeLessOrEq.constantTimeLessOrEq((10 : stdgo.GoInt), _index) : stdgo.GoInt);
         _valid = (((_firstByteIsZero & _secondByteIsTwo : stdgo.GoInt) & (((-1 ^ _lookingForIndex) & (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) & _validPS : stdgo.GoInt);

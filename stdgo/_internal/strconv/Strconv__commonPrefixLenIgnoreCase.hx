@@ -6,15 +6,16 @@ function _commonPrefixLenIgnoreCase(_s:stdgo.GoString, _prefix:stdgo.GoString):s
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                if ((((65 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (90 : stdgo.GoUInt8) : Bool) : Bool)) {
+if ((((65 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (90 : stdgo.GoUInt8) : Bool) : Bool)) {
                     _c = (_c + ((32 : stdgo.GoUInt8)) : stdgo.GoUInt8);
                 };
-                if (_c != (_prefix[(_i : stdgo.GoInt)])) {
+if (_c != (_prefix[(_i : stdgo.GoInt)])) {
                     return _i;
                 };
-            });
+                _i++;
+            };
         };
         return _n;
     }

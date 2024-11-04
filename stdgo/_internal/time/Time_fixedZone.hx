@@ -8,9 +8,10 @@ function fixedZone(_name:stdgo.GoString, _offset:stdgo.GoInt):stdgo.Ref<stdgo._i
                 stdgo._internal.time.Time__unnamedFixedZones._unnamedFixedZones = (new stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time_Location.Location>>((27 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Ref<stdgo._internal.time.Time_Location.Location>>);
                 {
                     var _hr = (-12 : stdgo.GoInt);
-                    stdgo.Go.cfor((_hr <= (14 : stdgo.GoInt) : Bool), _hr++, {
-                        stdgo._internal.time.Time__unnamedFixedZones._unnamedFixedZones[(_hr + (12 : stdgo.GoInt) : stdgo.GoInt)] = stdgo._internal.time.Time__fixedZone._fixedZone(stdgo.Go.str()?.__copy__(), ((_hr * (60 : stdgo.GoInt) : stdgo.GoInt) * (60 : stdgo.GoInt) : stdgo.GoInt));
-                    });
+                    while ((_hr <= (14 : stdgo.GoInt) : Bool)) {
+                        stdgo._internal.time.Time__unnamedFixedZones._unnamedFixedZones[(_hr + (12 : stdgo.GoInt) : stdgo.GoInt)] = stdgo._internal.time.Time__fixedZone._fixedZone(stdgo.Go.str().__copy__(), ((_hr * (60 : stdgo.GoInt) : stdgo.GoInt) * (60 : stdgo.GoInt) : stdgo.GoInt));
+                        _hr++;
+                    };
                 };
             });
             return stdgo._internal.time.Time__unnamedFixedZones._unnamedFixedZones[(_hour + (12 : stdgo.GoInt) : stdgo.GoInt)];

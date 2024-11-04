@@ -45,25 +45,25 @@ function newFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Re
         var _bo = (_f.byteOrder : stdgo._internal.encoding.binary.Binary_ByteOrder.ByteOrder);
         {
             var _i = ((0u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-            stdgo.Go.cfor((_i < _f.fileHeader.ncmd : Bool), _i++, {
+            while ((_i < _f.fileHeader.ncmd : Bool)) {
                 if (((_dat.length) < (8 : stdgo.GoInt) : Bool)) {
                     return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("command block too small" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                 };
-                var __0 = (_bo.uint32((_dat.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd), __1 = (_bo.uint32((_dat.__slice__((4 : stdgo.GoInt), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
+var __0 = (_bo.uint32((_dat.__slice__((0 : stdgo.GoInt), (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd), __1 = (_bo.uint32((_dat.__slice__((4 : stdgo.GoInt), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
 var _siz = __1, _cmd = __0;
-                if (((_siz < (8u32 : stdgo.GoUInt32) : Bool) || (_siz > (_dat.length : stdgo.GoUInt32) : Bool) : Bool)) {
+if (((_siz < (8u32 : stdgo.GoUInt32) : Bool) || (_siz > (_dat.length : stdgo.GoUInt32) : Bool) : Bool)) {
                     return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("invalid command block size" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                 };
-                var _cmddat:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-                {
+var _cmddat:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+{
                     final __tmp__0 = (_dat.__slice__((0 : stdgo.GoInt), _siz) : stdgo.Slice<stdgo.GoUInt8>);
                     final __tmp__1 = (_dat.__slice__(_siz) : stdgo.Slice<stdgo.GoUInt8>);
                     _cmddat = __tmp__0;
                     _dat = __tmp__1;
                 };
-                _offset = (_offset + ((_siz : stdgo.GoInt64)) : stdgo.GoInt64);
-                var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment>);
-                {
+_offset = (_offset + ((_siz : stdgo.GoInt64)) : stdgo.GoInt64);
+var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment>);
+{
                     final __value__ = _cmd;
                     if (__value__ == ((-2147483620u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd))) {
                         var _hdr:stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd = ({} : stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd);
@@ -78,7 +78,7 @@ var _siz = __1, _cmd = __0;
                         if ((_hdr.path >= (_cmddat.length : stdgo.GoUInt32) : Bool)) {
                             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("invalid path in rpath command" : stdgo.GoString), stdgo.Go.toInterface(_hdr.path)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                         };
-                        _l.path = stdgo._internal.debug.macho.Macho__cstring._cstring((_cmddat.__slice__(_hdr.path) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                        _l.path = stdgo._internal.debug.macho.Macho__cstring._cstring((_cmddat.__slice__(_hdr.path) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                         _l.loadBytes = (_cmddat : stdgo._internal.debug.macho.Macho_LoadBytes.LoadBytes);
                         _f.loads = (_f.loads.__append__(stdgo.Go.asInterface(_l)));
                     } else if (__value__ == ((12u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd))) {
@@ -94,7 +94,7 @@ var _siz = __1, _cmd = __0;
                         if ((_hdr.name >= (_cmddat.length : stdgo.GoUInt32) : Bool)) {
                             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("invalid name in dynamic library command" : stdgo.GoString), stdgo.Go.toInterface(_hdr.name)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                         };
-                        _l.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_cmddat.__slice__(_hdr.name) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                        _l.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_cmddat.__slice__(_hdr.name) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                         _l.time = _hdr.time;
                         _l.currentVersion = _hdr.currentVersion;
                         _l.compatVersion = _hdr.compatVersion;
@@ -141,9 +141,9 @@ var _siz = __1, _cmd = __0;
                         if (_f.symtab == null || (_f.symtab : Dynamic).__nil__) {
                             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("dynamic symbol table seen before any ordinary symbol table" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                         } else if ((_hdr.iundefsym > (_f.symtab.syms.length : stdgo.GoUInt32) : Bool)) {
-                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, stdgo._internal.fmt.Fmt_sprintf.sprintf(("undefined symbols index in dynamic symbol table command is greater than symbol table length (%d > %d)" : stdgo.GoString), stdgo.Go.toInterface(_hdr.iundefsym), stdgo.Go.toInterface((_f.symtab.syms.length)))?.__copy__(), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
+                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, stdgo._internal.fmt.Fmt_sprintf.sprintf(("undefined symbols index in dynamic symbol table command is greater than symbol table length (%d > %d)" : stdgo.GoString), stdgo.Go.toInterface(_hdr.iundefsym), stdgo.Go.toInterface((_f.symtab.syms.length))).__copy__(), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                         } else if (((_hdr.iundefsym + _hdr.nundefsym : stdgo.GoUInt32) > (_f.symtab.syms.length : stdgo.GoUInt32) : Bool)) {
-                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, stdgo._internal.fmt.Fmt_sprintf.sprintf(("number of undefined symbols after index in dynamic symbol table command is greater than symbol table length (%d > %d)" : stdgo.GoString), stdgo.Go.toInterface((_hdr.iundefsym + _hdr.nundefsym : stdgo.GoUInt32)), stdgo.Go.toInterface((_f.symtab.syms.length)))?.__copy__(), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
+                            return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, stdgo._internal.fmt.Fmt_sprintf.sprintf(("number of undefined symbols after index in dynamic symbol table command is greater than symbol table length (%d > %d)" : stdgo.GoString), stdgo.Go.toInterface((_hdr.iundefsym + _hdr.nundefsym : stdgo.GoUInt32)), stdgo.Go.toInterface((_f.symtab.syms.length))).__copy__(), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                         };
                         var __tmp__ = stdgo._internal.internal.saferio.Saferio_readDataAt.readDataAt(_r, ((_hdr.nindirectsyms : stdgo.GoUInt64) * (4i64 : stdgo.GoUInt64) : stdgo.GoUInt64), (_hdr.indirectsymoff : stdgo.GoInt64)), _dat:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
@@ -158,7 +158,7 @@ var _siz = __1, _cmd = __0;
                         };
                         var _st = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_Dysymtab.Dysymtab)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Dysymtab.Dysymtab>);
                         _st.loadBytes = (_cmddat : stdgo._internal.debug.macho.Macho_LoadBytes.LoadBytes);
-                        _st.dysymtabCmd = _hdr?.__copy__();
+                        _st.dysymtabCmd = _hdr.__copy__();
                         _st.indirectSyms = _x;
                         _f.loads = (_f.loads.__append__(stdgo.Go.asInterface(_st)));
                         _f.dysymtab = _st;
@@ -175,7 +175,7 @@ var _siz = __1, _cmd = __0;
                         _s.loadBytes = _cmddat;
                         _s.segmentHeader.cmd = _cmd;
                         _s.segmentHeader.len = _siz;
-                        _s.segmentHeader.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_seg32.name.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                        _s.segmentHeader.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_seg32.name.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                         _s.segmentHeader.addr = (_seg32.addr : stdgo.GoUInt64);
                         _s.segmentHeader.memsz = (_seg32.memsz : stdgo.GoUInt64);
                         _s.segmentHeader.offset = (_seg32.offset : stdgo.GoUInt64);
@@ -187,31 +187,32 @@ var _siz = __1, _cmd = __0;
                         _f.loads = (_f.loads.__append__(stdgo.Go.asInterface(_s)));
                         {
                             var _i = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor((_i < (_s.segmentHeader.nsect : stdgo.GoInt) : Bool), _i++, {
+                            while ((_i < (_s.segmentHeader.nsect : stdgo.GoInt) : Bool)) {
                                 var _sh32:stdgo._internal.debug.macho.Macho_Section32.Section32 = ({} : stdgo._internal.debug.macho.Macho_Section32.Section32);
-                                {
+{
                                     var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_sh32) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section32.Section32>))) : stdgo.Error);
                                     if (_err != null) {
                                         return { _0 : null, _1 : _err };
                                     };
                                 };
-                                var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_Section.Section)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>);
-                                _sh.sectionHeader.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_sh32.name.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
-                                _sh.sectionHeader.seg = stdgo._internal.debug.macho.Macho__cstring._cstring((_sh32.seg.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
-                                _sh.sectionHeader.addr = (_sh32.addr : stdgo.GoUInt64);
-                                _sh.sectionHeader.size = (_sh32.size : stdgo.GoUInt64);
-                                _sh.sectionHeader.offset = _sh32.offset;
-                                _sh.sectionHeader.align = _sh32.align;
-                                _sh.sectionHeader.reloff = _sh32.reloff;
-                                _sh.sectionHeader.nreloc = _sh32.nreloc;
-                                _sh.sectionHeader.flags = _sh32.flags;
-                                {
+var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_Section.Section)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>);
+_sh.sectionHeader.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_sh32.name.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
+_sh.sectionHeader.seg = stdgo._internal.debug.macho.Macho__cstring._cstring((_sh32.seg.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
+_sh.sectionHeader.addr = (_sh32.addr : stdgo.GoUInt64);
+_sh.sectionHeader.size = (_sh32.size : stdgo.GoUInt64);
+_sh.sectionHeader.offset = _sh32.offset;
+_sh.sectionHeader.align = _sh32.align;
+_sh.sectionHeader.reloff = _sh32.reloff;
+_sh.sectionHeader.nreloc = _sh32.nreloc;
+_sh.sectionHeader.flags = _sh32.flags;
+{
                                     var _err = (_f._pushSection(_sh, _r) : stdgo.Error);
                                     if (_err != null) {
                                         return { _0 : null, _1 : _err };
                                     };
                                 };
-                            });
+                                _i++;
+                            };
                         };
                     } else if (__value__ == ((25u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd))) {
                         var _seg64:stdgo._internal.debug.macho.Macho_Segment64.Segment64 = ({} : stdgo._internal.debug.macho.Macho_Segment64.Segment64);
@@ -226,7 +227,7 @@ var _siz = __1, _cmd = __0;
                         _s.loadBytes = _cmddat;
                         _s.segmentHeader.cmd = _cmd;
                         _s.segmentHeader.len = _siz;
-                        _s.segmentHeader.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_seg64.name.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
+                        _s.segmentHeader.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_seg64.name.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
                         _s.segmentHeader.addr = _seg64.addr;
                         _s.segmentHeader.memsz = _seg64.memsz;
                         _s.segmentHeader.offset = _seg64.offset;
@@ -238,37 +239,38 @@ var _siz = __1, _cmd = __0;
                         _f.loads = (_f.loads.__append__(stdgo.Go.asInterface(_s)));
                         {
                             var _i = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor((_i < (_s.segmentHeader.nsect : stdgo.GoInt) : Bool), _i++, {
+                            while ((_i < (_s.segmentHeader.nsect : stdgo.GoInt) : Bool)) {
                                 var _sh64:stdgo._internal.debug.macho.Macho_Section64.Section64 = ({} : stdgo._internal.debug.macho.Macho_Section64.Section64);
-                                {
+{
                                     var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_sh64) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section64.Section64>))) : stdgo.Error);
                                     if (_err != null) {
                                         return { _0 : null, _1 : _err };
                                     };
                                 };
-                                var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_Section.Section)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>);
-                                _sh.sectionHeader.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_sh64.name.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
-                                _sh.sectionHeader.seg = stdgo._internal.debug.macho.Macho__cstring._cstring((_sh64.seg.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
-                                _sh.sectionHeader.addr = _sh64.addr;
-                                _sh.sectionHeader.size = _sh64.size;
-                                _sh.sectionHeader.offset = _sh64.offset;
-                                _sh.sectionHeader.align = _sh64.align;
-                                _sh.sectionHeader.reloff = _sh64.reloff;
-                                _sh.sectionHeader.nreloc = _sh64.nreloc;
-                                _sh.sectionHeader.flags = _sh64.flags;
-                                {
+var _sh = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_Section.Section)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section.Section>);
+_sh.sectionHeader.name = stdgo._internal.debug.macho.Macho__cstring._cstring((_sh64.name.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
+_sh.sectionHeader.seg = stdgo._internal.debug.macho.Macho__cstring._cstring((_sh64.seg.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)).__copy__();
+_sh.sectionHeader.addr = _sh64.addr;
+_sh.sectionHeader.size = _sh64.size;
+_sh.sectionHeader.offset = _sh64.offset;
+_sh.sectionHeader.align = _sh64.align;
+_sh.sectionHeader.reloff = _sh64.reloff;
+_sh.sectionHeader.nreloc = _sh64.nreloc;
+_sh.sectionHeader.flags = _sh64.flags;
+{
                                     var _err = (_f._pushSection(_sh, _r) : stdgo.Error);
                                     if (_err != null) {
                                         return { _0 : null, _1 : _err };
                                     };
                                 };
-                            });
+                                _i++;
+                            };
                         };
                     } else {
                         _f.loads = (_f.loads.__append__(stdgo.Go.asInterface((_cmddat : stdgo._internal.debug.macho.Macho_LoadBytes.LoadBytes))));
                     };
                 };
-                if (_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) {
+if (_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) {
                     if (((_s.segmentHeader.offset : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
                         return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("invalid section offset" : stdgo.GoString), stdgo.Go.toInterface(_s.segmentHeader.offset)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                     };
@@ -278,7 +280,8 @@ var _siz = __1, _cmd = __0;
                     _s._sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (_s.segmentHeader.offset : stdgo.GoInt64), (_s.segmentHeader.filesz : stdgo.GoInt64));
                     _s.readerAt = stdgo.Go.asInterface(_s._sr);
                 };
-            });
+                _i++;
+            };
         };
         return { _0 : _f, _1 : (null : stdgo.Error) };
     }

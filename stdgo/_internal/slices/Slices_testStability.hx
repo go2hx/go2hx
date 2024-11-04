@@ -13,9 +13,10 @@ var _m = __1, _n = __0;
         var _data = (new stdgo.Slice<stdgo._internal.slices.Slices_T_intPair.T_intPair>((_n : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_n : stdgo.GoInt).toBasic() > 0 ? (_n : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.slices.Slices_T_intPair.T_intPair)]) : stdgo._internal.slices.Slices_T_intPairs.T_intPairs);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_data.length) : Bool), _i++, {
+            while ((_i < (_data.length) : Bool)) {
                 _data[(_i : stdgo.GoInt)]._a = stdgo._internal.math.rand.Rand_intn.intn(_m);
-            });
+                _i++;
+            };
         };
         if (stdgo._internal.slices.Slices_isSortedFunc.isSortedFunc(_data, stdgo._internal.slices.Slices__intPairCmp._intPairCmp)) {
             _t.fatalf(("terrible rand.rand" : stdgo.GoString));
@@ -38,9 +39,10 @@ var _m = __1, _n = __0;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_data.length) : Bool), _i++, {
+            while ((_i < (_data.length) : Bool)) {
                 _data[(_i : stdgo.GoInt)]._a = ((_data.length) - _i : stdgo.GoInt);
-            });
+                _i++;
+            };
         };
         _data._initB();
         stdgo._internal.slices.Slices_sortStableFunc.sortStableFunc(_data, stdgo._internal.slices.Slices__intPairCmp._intPairCmp);

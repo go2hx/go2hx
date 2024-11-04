@@ -281,18 +281,22 @@ package stdgo._internal.net.http;
         _sc._curHandlers--;
         var _i = (0 : stdgo.GoInt);
         var _maxHandlers = (_sc._advMaxStreams : stdgo.GoUInt32);
-        stdgo.Go.cfor((_i < (_sc._unstartedHandlers.length) : Bool), _i++, {
+        while ((_i < (_sc._unstartedHandlers.length) : Bool)) {
             var _u = (_sc._unstartedHandlers[(_i : stdgo.GoInt)] : stdgo._internal.net.http.Http_T_http2unstartedHandler.T_http2unstartedHandler);
-            if ((_sc._streams[_u._streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>)) == null || (_sc._streams[_u._streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>) : Dynamic).__nil__) {
-                continue;
+if ((_sc._streams[_u._streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>)) == null || (_sc._streams[_u._streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>) : Dynamic).__nil__) {
+                {
+                    _i++;
+                    continue;
+                };
             };
-            if ((_sc._curHandlers >= _maxHandlers : Bool)) {
+if ((_sc._curHandlers >= _maxHandlers : Bool)) {
                 break;
             };
-            _sc._curHandlers++;
-            stdgo.Go.routine(() -> _sc._runHandler(_u._rw, _u._req, _u._handler));
-            _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_T_http2unstartedHandler.T_http2unstartedHandler() : stdgo._internal.net.http.Http_T_http2unstartedHandler.T_http2unstartedHandler);
-        });
+_sc._curHandlers++;
+stdgo.Go.routine(() -> _sc._runHandler(_u._rw, _u._req, _u._handler));
+_sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_T_http2unstartedHandler.T_http2unstartedHandler() : stdgo._internal.net.http.Http_T_http2unstartedHandler.T_http2unstartedHandler);
+            _i++;
+        };
         _sc._unstartedHandlers = (_sc._unstartedHandlers.__slice__(_i) : stdgo.Slice<stdgo._internal.net.http.Http_T_http2unstartedHandler.T_http2unstartedHandler>);
         if ((_sc._unstartedHandlers.length) == ((0 : stdgo.GoInt))) {
             _sc._unstartedHandlers = (null : stdgo.Slice<stdgo._internal.net.http.Http_T_http2unstartedHandler.T_http2unstartedHandler>);

@@ -52,9 +52,10 @@ package stdgo._internal.internal.fuzz;
         var _oldLen = (_q._len : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _oldLen : Bool), _i++, {
+            while ((_i < _oldLen : Bool)) {
                 _newElems[(_i : stdgo.GoInt)] = _q._elems[(((_q._head + _i : stdgo.GoInt)) % _oldCap : stdgo.GoInt)];
-            });
+                _i++;
+            };
         };
         _q._elems = _newElems;
         _q._head = (0 : stdgo.GoInt);

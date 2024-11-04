@@ -72,7 +72,7 @@ package stdgo._internal.debug.macho;
             };
             return { _0 : _b, _1 : (null : stdgo.Error) };
         };
-        var _dat:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>> = ({
+        var _dat = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoUInt8>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoUInt8>);
             x.set(("abbrev" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
@@ -224,9 +224,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_symdat);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_hdr.nsyms : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (_hdr.nsyms : stdgo.GoInt) : Bool)) {
                 var _n:stdgo._internal.debug.macho.Macho_Nlist64.Nlist64 = ({} : stdgo._internal.debug.macho.Macho_Nlist64.Nlist64);
-                if (_f.fileHeader.magic == ((-17958193u32 : stdgo.GoUInt32))) {
+if (_f.fileHeader.magic == ((-17958193u32 : stdgo.GoUInt32))) {
                     {
                         var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Nlist64.Nlist64>))) : stdgo.Error);
                         if (_err != null) {
@@ -247,15 +247,16 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
                     _n.desc = _n32.desc;
                     _n.value = (_n32.value : stdgo.GoUInt64);
                 };
-                if ((_n.name >= (_strtab.length : stdgo.GoUInt32) : Bool)) {
+if ((_n.name >= (_strtab.length : stdgo.GoUInt32) : Bool)) {
                     return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("invalid name in symbol table" : stdgo.GoString), stdgo.Go.toInterface(_n.name)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                 };
-                var _name = (stdgo._internal.debug.macho.Macho__cstring._cstring((_strtab.__slice__(_n.name) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__() : stdgo.GoString);
-                if ((stdgo._internal.strings.Strings_contains.contains(_name?.__copy__(), ("." : stdgo.GoString)) && (_name[(0 : stdgo.GoInt)] == (95 : stdgo.GoUInt8)) : Bool)) {
-                    _name = (_name.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+var _name = (stdgo._internal.debug.macho.Macho__cstring._cstring((_strtab.__slice__(_n.name) : stdgo.Slice<stdgo.GoUInt8>)).__copy__() : stdgo.GoString);
+if ((stdgo._internal.strings.Strings_contains.contains(_name.__copy__(), ("." : stdgo.GoString)) && (_name[(0 : stdgo.GoInt)] == (95 : stdgo.GoUInt8)) : Bool)) {
+                    _name = (_name.__slice__((1 : stdgo.GoInt)) : stdgo.GoString).__copy__();
                 };
-                _symtab = (_symtab.__append__(({ name : _name?.__copy__(), type : _n.type, sect : _n.sect, desc : _n.desc, value : _n.value } : stdgo._internal.debug.macho.Macho_Symbol.Symbol)));
-            });
+_symtab = (_symtab.__append__(({ name : _name.__copy__(), type : _n.type, sect : _n.sect, desc : _n.desc, value : _n.value } : stdgo._internal.debug.macho.Macho_Symbol.Symbol)));
+                _i++;
+            };
         };
         var _st = (stdgo.Go.setRef(({} : stdgo._internal.debug.macho.Macho_Symtab.Symtab)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Symtab.Symtab>);
         _st.loadBytes = (_cmddat : stdgo._internal.debug.macho.Macho_LoadBytes.LoadBytes);

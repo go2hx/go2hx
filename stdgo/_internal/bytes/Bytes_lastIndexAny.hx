@@ -9,11 +9,12 @@ function lastIndexAny(_s:stdgo.Slice<stdgo.GoUInt8>, _chars:stdgo.GoString):stdg
                 if (_isASCII) {
                     {
                         var _i = ((_s.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                        stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+                        while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                             if (_as._contains(_s[(_i : stdgo.GoInt)])) {
                                 return _i;
                             };
-                        });
+                            _i--;
+                        };
                     };
                     return (-1 : stdgo.GoInt);
                 };

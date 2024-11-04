@@ -394,20 +394,21 @@ package stdgo._internal.bufio;
         };
         {
             var _i = (100 : stdgo.GoInt);
-            stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 var __tmp__ = _b._rd.read((_b._buf.__slice__(_b._w) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if ((_n < (0 : stdgo.GoInt) : Bool)) {
+if ((_n < (0 : stdgo.GoInt) : Bool)) {
                     throw stdgo.Go.toInterface(stdgo._internal.bufio.Bufio__errNegativeRead._errNegativeRead);
                 };
-                _b._w = (_b._w + (_n) : stdgo.GoInt);
-                if (_err != null) {
+_b._w = (_b._w + (_n) : stdgo.GoInt);
+if (_err != null) {
                     _b._err = _err;
                     return;
                 };
-                if ((_n > (0 : stdgo.GoInt) : Bool)) {
+if ((_n > (0 : stdgo.GoInt) : Bool)) {
                     return;
                 };
-            });
+                _i--;
+            };
         };
         _b._err = stdgo._internal.io.Io_errNoProgress.errNoProgress;
     }

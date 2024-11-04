@@ -8,18 +8,20 @@ function _gogoarchTags():stdgo.Slice<stdgo.GoString> {
                 var _list:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 {
                     var _i = (1 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i <= stdgo._internal.internal.buildcfg.Buildcfg_goamd64.goamd64 : Bool), _i++, {
-                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.v%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.goarch), stdgo.Go.toInterface(_i))?.__copy__()));
-                    });
+                    while ((_i <= stdgo._internal.internal.buildcfg.Buildcfg_goamd64.goamd64 : Bool)) {
+                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.v%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.goarch), stdgo.Go.toInterface(_i)).__copy__()));
+                        _i++;
+                    };
                 };
                 return _list;
             } else if (__value__ == (("arm" : stdgo.GoString))) {
                 var _list:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 {
                     var _i = (5 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i <= stdgo._internal.internal.buildcfg.Buildcfg_goarm.goarm : Bool), _i++, {
-                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.goarch), stdgo.Go.toInterface(_i))?.__copy__()));
-                    });
+                    while ((_i <= stdgo._internal.internal.buildcfg.Buildcfg_goarm.goarm : Bool)) {
+                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.goarch), stdgo.Go.toInterface(_i)).__copy__()));
+                        _i++;
+                    };
                 };
                 return _list;
             } else if (__value__ == (("mips" : stdgo.GoString)) || __value__ == (("mipsle" : stdgo.GoString))) {
@@ -30,9 +32,10 @@ function _gogoarchTags():stdgo.Slice<stdgo.GoString> {
                 var _list:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 {
                     var _i = (8 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i <= stdgo._internal.internal.buildcfg.Buildcfg_goppc64.goppc64 : Bool), _i++, {
-                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.power%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.goarch), stdgo.Go.toInterface(_i))?.__copy__()));
-                    });
+                    while ((_i <= stdgo._internal.internal.buildcfg.Buildcfg_goppc64.goppc64 : Bool)) {
+                        _list = (_list.__append__(stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s.power%d" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.internal.buildcfg.Buildcfg_goarch.goarch), stdgo.Go.toInterface(_i)).__copy__()));
+                        _i++;
+                    };
                 };
                 return _list;
             } else if (__value__ == (("wasm" : stdgo.GoString))) {

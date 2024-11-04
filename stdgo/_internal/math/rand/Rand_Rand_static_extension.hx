@@ -23,14 +23,16 @@ package stdgo._internal.math.rand;
             throw stdgo.Go.toInterface(("invalid argument to Shuffle" : stdgo.GoString));
         };
         var _i = (_n - (1 : stdgo.GoInt) : stdgo.GoInt);
-        stdgo.Go.cfor((_i > (2147483646 : stdgo.GoInt) : Bool), _i--, {
+        while ((_i > (2147483646 : stdgo.GoInt) : Bool)) {
             var _j = (_r.int63n(((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64)) : stdgo.GoInt);
-            _swap(_i, _j);
-        });
-        stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+_swap(_i, _j);
+            _i--;
+        };
+        while ((_i > (0 : stdgo.GoInt) : Bool)) {
             var _j = (_r._int31n(((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32)) : stdgo.GoInt);
-            _swap(_i, _j);
-        });
+_swap(_i, _j);
+            _i--;
+        };
     }
     @:keep
     static public function perm( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>, _n:stdgo.GoInt):stdgo.Slice<stdgo.GoInt> {
@@ -38,35 +40,70 @@ package stdgo._internal.math.rand;
         var _m = (new stdgo.Slice<stdgo.GoInt>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 var _j = (_r.intn((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
-                _m[(_i : stdgo.GoInt)] = _m[(_j : stdgo.GoInt)];
-                _m[(_j : stdgo.GoInt)] = _i;
-            });
+_m[(_i : stdgo.GoInt)] = _m[(_j : stdgo.GoInt)];
+_m[(_j : stdgo.GoInt)] = _i;
+                _i++;
+            };
         };
         return _m;
     }
     @:keep
     static public function float32( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>):stdgo.GoFloat32 {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> = _r;
-        stdgo._internal.internal.Macro.controlFlow({
-            @:label("again") var _f = (_r.float64() : stdgo.GoFloat32);
-            if (_f == (1 : stdgo.GoFloat64)) {
-                @:goto "again";
+        var _f_2998042:stdgo.GoFloat32 = (0 : stdgo.GoFloat32);
+        var _gotoNext = 0i32;
+        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
+            {
+                final __value__ = _gotoNext;
+                if (__value__ == (0i32)) {
+                    _gotoNext = 2998034i32;
+                } else if (__value__ == (2998034i32)) {
+                    _f_2998042 = (_r.float64() : stdgo.GoFloat32);
+                    if (_f_2998042 == (1 : stdgo.GoFloat64)) {
+                        _gotoNext = 2998079i32;
+                    } else {
+                        _gotoNext = 2998147i32;
+                    };
+                } else if (__value__ == (2998079i32)) {
+                    _gotoNext = 2998034i32;
+                } else if (__value__ == (2998147i32)) {
+                    return _f_2998042;
+                    _gotoNext = -1i32;
+                };
             };
-            return _f;
-        });
+        };
+        throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
     static public function float64( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>):stdgo.GoFloat64 {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> = _r;
-        stdgo._internal.internal.Macro.controlFlow({
-            @:label("again") var _f = ((_r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
-            if (_f == (1 : stdgo.GoFloat64)) {
-                @:goto "again";
+        var _f_2997574:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+        var _gotoNext = 0i32;
+        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
+            {
+                final __value__ = _gotoNext;
+                if (__value__ == (0i32)) {
+                    _gotoNext = 2997566i32;
+                } else if (__value__ == (2997566i32)) {
+                    _f_2997574 = ((_r.int63() : stdgo.GoFloat64) / (9.223372036854776e+18 : stdgo.GoFloat64) : stdgo.GoFloat64);
+                    if (_f_2997574 == (1 : stdgo.GoFloat64)) {
+                        _gotoNext = 2997621i32;
+                    } else {
+                        _gotoNext = 2997683i32;
+                    };
+                } else if (__value__ == (2997621i32)) {
+                    _gotoNext = 2997566i32;
+                } else if (__value__ == (2997683i32)) {
+                    return _f_2997574;
+                    _gotoNext = -1i32;
+                };
             };
-            return _f;
-        });
+        };
+        throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
     static public function intn( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>, _n:stdgo.GoInt):stdgo.GoInt {

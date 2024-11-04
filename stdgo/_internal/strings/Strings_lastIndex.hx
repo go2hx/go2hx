@@ -18,23 +18,25 @@ function lastIndex(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt {
         var _h:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
             var _i = ((_s.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= _last : Bool), _i--, {
+            while ((_i >= _last : Bool)) {
                 _h = ((_h * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
-            });
+                _i--;
+            };
         };
         if (((_h == _hashss) && ((_s.__slice__(_last) : stdgo.GoString) == _substr) : Bool)) {
             return _last;
         };
         {
             var _i = (_last - (1 : stdgo.GoInt) : stdgo.GoInt);
-            stdgo.Go.cfor((_i >= (0 : stdgo.GoInt) : Bool), _i--, {
+            while ((_i >= (0 : stdgo.GoInt) : Bool)) {
                 _h = (_h * ((16777619u32 : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                _h = (_h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                _h = (_h - ((_pow * (_s[(_i + _n : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                if (((_h == _hashss) && ((_s.__slice__(_i, (_i + _n : stdgo.GoInt)) : stdgo.GoString) == _substr) : Bool)) {
+_h = (_h + ((_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32)) : stdgo.GoUInt32);
+_h = (_h - ((_pow * (_s[(_i + _n : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+if (((_h == _hashss) && ((_s.__slice__(_i, (_i + _n : stdgo.GoInt)) : stdgo.GoString) == _substr) : Bool)) {
                     return _i;
                 };
-            });
+                _i--;
+            };
         };
         return (-1 : stdgo.GoInt);
     }

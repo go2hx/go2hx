@@ -25,10 +25,11 @@ package stdgo._internal.encoding.base32;
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
             {
                 _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor(((_i < (_p.length) : Bool) && (_e._nbuf < (5 : stdgo.GoInt) : Bool) : Bool), _i++, {
+                while (((_i < (_p.length) : Bool) && (_e._nbuf < (5 : stdgo.GoInt) : Bool) : Bool)) {
                     _e._buf[(_e._nbuf : stdgo.GoInt)] = _p[(_i : stdgo.GoInt)];
-                    _e._nbuf++;
-                });
+_e._nbuf++;
+                    _i++;
+                };
             };
             _n = (_n + (_i) : stdgo.GoInt);
             _p = (_p.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>);

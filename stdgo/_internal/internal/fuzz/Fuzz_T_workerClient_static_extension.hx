@@ -167,9 +167,10 @@ package stdgo._internal.internal.fuzz;
                     var _numMutations = (((((_resp.count - (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) % (5i64 : stdgo.GoInt64) : stdgo.GoInt64)) + (1i64 : stdgo.GoInt64) : stdgo.GoInt64);
                     {
                         var _i = ((0i64 : stdgo.GoInt64) : stdgo.GoInt64);
-                        stdgo.Go.cfor((_i < _numMutations : Bool), _i++, {
+                        while ((_i < _numMutations : Bool)) {
                             _wc._m._mutate(_valuesOut, _mem._valueRef().capacity);
-                        });
+                            _i++;
+                        };
                     };
                 };
                 var _dataOut = stdgo._internal.internal.fuzz.Fuzz__marshalCorpusFile._marshalCorpusFile(...(_valuesOut : Array<stdgo.AnyInterface>));

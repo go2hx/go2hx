@@ -5,9 +5,10 @@ function indexRabinKarp(_s:stdgo.GoString, _substr:stdgo.GoString):stdgo.GoInt {
         var _h:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _n : Bool), _i++, {
+            while ((_i < _n : Bool)) {
                 _h = ((_h * (16777619u32 : stdgo.GoUInt32) : stdgo.GoUInt32) + (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
-            });
+                _i++;
+            };
         };
         if (((_h == _hashss) && ((_s.__slice__(0, _n) : stdgo.GoString) == _substr) : Bool)) {
             return (0 : stdgo.GoInt);

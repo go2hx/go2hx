@@ -6,17 +6,19 @@ function testRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
             };
             {
                 var _y = (_f.min.y : stdgo.GoInt);
-                stdgo.Go.cfor((_y < _f.max.y : Bool), _y++, {
+                while ((_y < _f.max.y : Bool)) {
                     {
                         var _x = (_f.min.x : stdgo.GoInt);
-                        stdgo.Go.cfor((_x < _f.max.x : Bool), _x++, {
+                        while ((_x < _f.max.x : Bool)) {
                             var _p = (new stdgo._internal.image.Image_Point.Point(_x, _y) : stdgo._internal.image.Image_Point.Point);
-                            if (!_p.in_(_g?.__copy__())) {
+if (!_p.in_(_g.__copy__())) {
                                 return stdgo._internal.fmt.Fmt_errorf.errorf(("p=%s, p.In(%s): got false, want true" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)), stdgo.Go.toInterface(stdgo.Go.asInterface(_g)));
                             };
-                        });
+                            _x++;
+                        };
                     };
-                });
+                    _y++;
+                };
             };
             return (null : stdgo.Error);
         } : (stdgo._internal.image.Image_Rectangle.Rectangle, stdgo._internal.image.Image_Rectangle.Rectangle) -> stdgo.Error);

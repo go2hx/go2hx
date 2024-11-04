@@ -18,15 +18,16 @@ function check(_f:stdgo.AnyInterface, _config:stdgo.Ref<stdgo._internal.testing.
         var _maxCount = (_config._getMaxCount() : stdgo.GoInt);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _maxCount : Bool), _i++, {
+            while ((_i < _maxCount : Bool)) {
                 var _err = (stdgo._internal.testing.quick.Quick__arbitraryValues._arbitraryValues(_arguments, _fType, _config, _rand) : stdgo.Error);
-                if (_err != null) {
+if (_err != null) {
                     return _err;
                 };
-                if (!_fVal.call(_arguments)[(0 : stdgo.GoInt)].bool_()) {
+if (!_fVal.call(_arguments)[(0 : stdgo.GoInt)].bool_()) {
                     return stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.testing.quick.Quick_CheckError.CheckError((_i + (1 : stdgo.GoInt) : stdgo.GoInt), stdgo._internal.testing.quick.Quick__toInterfaces._toInterfaces(_arguments)) : stdgo._internal.testing.quick.Quick_CheckError.CheckError)) : stdgo.Ref<stdgo._internal.testing.quick.Quick_CheckError.CheckError>));
                 };
-            });
+                _i++;
+            };
         };
         return (null : stdgo.Error);
     }

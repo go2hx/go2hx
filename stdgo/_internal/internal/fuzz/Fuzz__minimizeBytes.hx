@@ -10,7 +10,7 @@ function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.Go
             };
             {
                 var _n = (1024 : stdgo.GoInt);
-                stdgo.Go.cfor(_n != ((0 : stdgo.GoInt)), _n = (_n / ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+                while (_n != ((0 : stdgo.GoInt))) {
                     while (((_v.length) > _n : Bool)) {
                         if (_shouldStop()) {
                             {
@@ -26,11 +26,12 @@ function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.Go
                         };
                         _v = _candidate;
                     };
-                });
+                    _n = (_n / ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                };
             };
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < ((_v.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < ((_v.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                     if (_shouldStop()) {
                         {
                             for (defer in __deferstack__) {
@@ -39,24 +40,28 @@ function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.Go
                             return;
                         };
                     };
-                    var _candidate = (_tmp.__slice__(0, ((_v.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-                    stdgo.Go.copySlice((_candidate.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>));
-                    stdgo.Go.copySlice((_candidate.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    if (!_try(_candidate)) {
-                        continue;
+var _candidate = (_tmp.__slice__(0, ((_v.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+stdgo.Go.copySlice((_candidate.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>));
+stdgo.Go.copySlice((_candidate.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+if (!_try(_candidate)) {
+                        {
+                            _i++;
+                            continue;
+                        };
                     };
-                    stdgo.Go.copySlice((_v.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                    _v = (_v.__slice__(0, (_candidate.length)) : stdgo.Slice<stdgo.GoUInt8>);
-                    _i--;
-                });
+stdgo.Go.copySlice((_v.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+_v = (_v.__slice__(0, (_candidate.length)) : stdgo.Slice<stdgo.GoUInt8>);
+_i--;
+                    _i++;
+                };
             };
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < ((_v.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < ((_v.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                     stdgo.Go.copySlice(_tmp, (_v.__slice__(0, _i) : stdgo.Slice<stdgo.GoUInt8>));
-                    {
+{
                         var _j = (_v.length : stdgo.GoInt);
-                        stdgo.Go.cfor((_j > (_i + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool), _j--, {
+                        while ((_j > (_i + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
                             if (_shouldStop()) {
                                 {
                                     for (defer in __deferstack__) {
@@ -65,17 +70,22 @@ function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.Go
                                     return;
                                 };
                             };
-                            var _candidate = (_tmp.__slice__(0, (((_v.length) - _j : stdgo.GoInt) + _i : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-                            stdgo.Go.copySlice((_candidate.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>));
-                            if (!_try(_candidate)) {
-                                continue;
+var _candidate = (_tmp.__slice__(0, (((_v.length) - _j : stdgo.GoInt) + _i : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
+stdgo.Go.copySlice((_candidate.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>));
+if (!_try(_candidate)) {
+                                {
+                                    _j--;
+                                    continue;
+                                };
                             };
-                            stdgo.Go.copySlice((_v.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>));
-                            _v = (_v.__slice__(0, (_candidate.length)) : stdgo.Slice<stdgo.GoUInt8>);
-                            _j = (_v.length);
-                        });
+stdgo.Go.copySlice((_v.__slice__(_i) : stdgo.Slice<stdgo.GoUInt8>), (_v.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>));
+_v = (_v.__slice__(0, (_candidate.length)) : stdgo.Slice<stdgo.GoUInt8>);
+_j = (_v.length);
+                            _j--;
+                        };
                     };
-                });
+                    _i++;
+                };
             };
             var _printableChars = (("012789ABCXYZabcxyz !\"#$%&\'()*+,." : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
             for (_i => _b in _v) {

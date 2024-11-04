@@ -7,11 +7,12 @@ function _minFoldRune(_r:stdgo.GoInt32):stdgo.GoInt32 {
         var _r0 = (_r : stdgo.GoInt32);
         {
             _r = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r);
-            stdgo.Go.cfor(_r != (_r0), _r = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r), {
+            while (_r != (_r0)) {
                 if ((_min > _r : Bool)) {
                     _min = _r;
                 };
-            });
+                _r = stdgo._internal.unicode.Unicode_simpleFold.simpleFold(_r);
+            };
         };
         return _min;
     }

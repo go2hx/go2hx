@@ -13,21 +13,23 @@ function benchmarkReplace(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Voi
             _b.run((("naive-" : stdgo.GoString) + _c._name?.__copy__() : stdgo.GoString)?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                 {
                     var _k = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_k < _b.n : Bool), _k++, {
+                    while ((_k < _b.n : Bool)) {
                         var _s = _c._s();
-                        var _v = _c._v();
-                        var __blank__ = stdgo._internal.slices.Slices__naiveReplace._naiveReplace(_s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
-                    });
+var _v = _c._v();
+var __blank__ = stdgo._internal.slices.Slices__naiveReplace._naiveReplace(_s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
+                        _k++;
+                    };
                 };
             });
             _b.run((("optimized-" : stdgo.GoString) + _c._name?.__copy__() : stdgo.GoString)?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                 {
                     var _k = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_k < _b.n : Bool), _k++, {
+                    while ((_k < _b.n : Bool)) {
                         var _s = _c._s();
-                        var _v = _c._v();
-                        var __blank__ = stdgo._internal.slices.Slices_replace.replace(_s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
-                    });
+var _v = _c._v();
+var __blank__ = stdgo._internal.slices.Slices_replace.replace(_s, _c._i, _c._j, ...(_v : Array<stdgo.GoInt>));
+                        _k++;
+                    };
                 };
             });
         };

@@ -7,11 +7,12 @@ function _matchRune(_re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Re
             } else if (__value__ == ((4 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < (_re.rune.length) : Bool), _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt), {
+                    while ((_i < (_re.rune.length) : Bool)) {
                         if (((_re.rune[(_i : stdgo.GoInt)] <= _r : Bool) && (_r <= _re.rune[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] : Bool) : Bool)) {
                             return true;
                         };
-                    });
+                        _i = (_i + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                    };
                 };
                 return false;
             } else if (__value__ == ((5 : stdgo._internal.regexp.syntax.Syntax_Op.Op))) {

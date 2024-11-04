@@ -22,11 +22,12 @@ package stdgo._internal.encoding.asn1;
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_oi.length) : Bool), _i++, {
+            while ((_i < (_oi.length) : Bool)) {
                 if (_oi[(_i : stdgo.GoInt)] != (_other[(_i : stdgo.GoInt)])) {
                     return false;
                 };
-            });
+                _i++;
+            };
         };
         return true;
     }

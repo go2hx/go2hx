@@ -22,9 +22,10 @@ function encryptPEMBlock(_rand:stdgo._internal.io.Io_Reader.Reader, _blockType:s
         stdgo.Go.copySlice(_encrypted, _data);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _pad : Bool), _i++, {
+            while ((_i < _pad : Bool)) {
                 _encrypted = (_encrypted.__append__((_pad : stdgo.GoUInt8)));
-            });
+                _i++;
+            };
         };
         _enc.cryptBlocks(_encrypted, _encrypted);
         return { _0 : (stdgo.Go.setRef(({ type : _blockType?.__copy__(), headers : ({

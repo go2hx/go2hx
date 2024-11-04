@@ -1,2 +1,2 @@
 package stdgo._internal.runtime;
-function escape<T_>(_x:Dynamic):Dynamic throw "generic function";
+function escape(_x:Dynamic):Dynamic throw "generic function is not supported";

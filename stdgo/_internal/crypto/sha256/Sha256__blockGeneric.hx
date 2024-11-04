@@ -6,37 +6,40 @@ var _h7 = __7, _h6 = __6, _h5 = __5, _h4 = __4, _h3 = __3, _h2 = __2, _h1 = __1,
         while (((_p.length) >= (64 : stdgo.GoInt) : Bool)) {
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (16 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (16 : stdgo.GoInt) : Bool)) {
                     var _j = (_i * (4 : stdgo.GoInt) : stdgo.GoInt);
-                    _w[(_i : stdgo.GoInt)] = (((((_p[(_j : stdgo.GoInt)] : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((_p[(_j + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_p[(_j + (2 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | (_p[(_j + (3 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
-                });
+_w[(_i : stdgo.GoInt)] = (((((_p[(_j : stdgo.GoInt)] : stdgo.GoUInt32) << (24i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | ((_p[(_j + (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32) << (16i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | ((_p[(_j + (2 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32) << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32) | (_p[(_j + (3 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32) : stdgo.GoUInt32);
+                    _i++;
+                };
             };
             {
                 var _i = (16 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (64 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (64 : stdgo.GoInt) : Bool)) {
                     var _v1 = (_w[(_i - (2 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32);
-                    var _t1 = (((stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_v1, (-17 : stdgo.GoInt))) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_v1, (-19 : stdgo.GoInt))) : stdgo.GoUInt32) ^ ((_v1 >> (10i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                    var _v2 = (_w[(_i - (15 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32);
-                    var _t2 = (((stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_v2, (-7 : stdgo.GoInt))) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_v2, (-18 : stdgo.GoInt))) : stdgo.GoUInt32) ^ ((_v2 >> (3i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                    _w[(_i : stdgo.GoInt)] = (((_t1 + _w[(_i - (7 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32) + _t2 : stdgo.GoUInt32) + _w[(_i - (16 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32);
-                });
+var _t1 = (((stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_v1, (-17 : stdgo.GoInt))) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_v1, (-19 : stdgo.GoInt))) : stdgo.GoUInt32) ^ ((_v1 >> (10i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+var _v2 = (_w[(_i - (15 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32);
+var _t2 = (((stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_v2, (-7 : stdgo.GoInt))) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_v2, (-18 : stdgo.GoInt))) : stdgo.GoUInt32) ^ ((_v2 >> (3i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+_w[(_i : stdgo.GoInt)] = (((_t1 + _w[(_i - (7 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32) + _t2 : stdgo.GoUInt32) + _w[(_i - (16 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt32);
+                    _i++;
+                };
             };
             var __0 = (_h0 : stdgo.GoUInt32), __1 = (_h1 : stdgo.GoUInt32), __2 = (_h2 : stdgo.GoUInt32), __3 = (_h3 : stdgo.GoUInt32), __4 = (_h4 : stdgo.GoUInt32), __5 = (_h5 : stdgo.GoUInt32), __6 = (_h6 : stdgo.GoUInt32), __7 = (_h7 : stdgo.GoUInt32);
 var _h = __7, _g = __6, _f = __5, _e = __4, _d = __3, _c = __2, _b = __1, _a = __0;
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (64 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (64 : stdgo.GoInt) : Bool)) {
                     var _t1 = ((((_h + ((((stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_e, (-6 : stdgo.GoInt))) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_e, (-11 : stdgo.GoInt))) : stdgo.GoUInt32) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_e, (-25 : stdgo.GoInt))) : stdgo.GoUInt32)) : stdgo.GoUInt32) + ((((_e & _f : stdgo.GoUInt32)) ^ (((-1 ^ _e) & _g : stdgo.GoUInt32)) : stdgo.GoUInt32)) : stdgo.GoUInt32) + stdgo._internal.crypto.sha256.Sha256___K.__K[(_i : stdgo.GoInt)] : stdgo.GoUInt32) + _w[(_i : stdgo.GoInt)] : stdgo.GoUInt32);
-                    var _t2 = (((((stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_a, (-2 : stdgo.GoInt))) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_a, (-13 : stdgo.GoInt))) : stdgo.GoUInt32) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_a, (-22 : stdgo.GoInt))) : stdgo.GoUInt32)) + (((((_a & _b : stdgo.GoUInt32)) ^ ((_a & _c : stdgo.GoUInt32)) : stdgo.GoUInt32) ^ ((_b & _c : stdgo.GoUInt32)) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-                    _h = _g;
-                    _g = _f;
-                    _f = _e;
-                    _e = (_d + _t1 : stdgo.GoUInt32);
-                    _d = _c;
-                    _c = _b;
-                    _b = _a;
-                    _a = (_t1 + _t2 : stdgo.GoUInt32);
-                });
+var _t2 = (((((stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_a, (-2 : stdgo.GoInt))) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_a, (-13 : stdgo.GoInt))) : stdgo.GoUInt32) ^ (stdgo._internal.math.bits.Bits_rotateLeft32.rotateLeft32(_a, (-22 : stdgo.GoInt))) : stdgo.GoUInt32)) + (((((_a & _b : stdgo.GoUInt32)) ^ ((_a & _c : stdgo.GoUInt32)) : stdgo.GoUInt32) ^ ((_b & _c : stdgo.GoUInt32)) : stdgo.GoUInt32)) : stdgo.GoUInt32);
+_h = _g;
+_g = _f;
+_f = _e;
+_e = (_d + _t1 : stdgo.GoUInt32);
+_d = _c;
+_c = _b;
+_b = _a;
+_a = (_t1 + _t2 : stdgo.GoUInt32);
+                    _i++;
+                };
             };
             _h0 = (_h0 + (_a) : stdgo.GoUInt32);
             _h1 = (_h1 + (_b) : stdgo.GoUInt32);

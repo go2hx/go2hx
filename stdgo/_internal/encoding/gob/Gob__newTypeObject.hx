@@ -203,19 +203,22 @@ var _type1 = __1, _type0 = __0;
                         stdgo._internal.encoding.gob.Gob__idToTypeSlice._idToTypeSlice[(_st._id() : stdgo.GoInt)] = stdgo.Go.asInterface(_st);
                         {
                             var _i = (0 : stdgo.GoInt);
-                            stdgo.Go.cfor((_i < _t.numField() : Bool), _i++, {
-                                var _f = (_t.field(_i)?.__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
-                                if (!stdgo._internal.encoding.gob.Gob__isSent._isSent((stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>))) {
-                                    continue;
+                            while ((_i < _t.numField() : Bool)) {
+                                var _f = (_t.field(_i).__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
+if (!stdgo._internal.encoding.gob.Gob__isSent._isSent((stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>))) {
+                                    {
+                                        _i++;
+                                        continue;
+                                    };
                                 };
-                                var _typ = (stdgo._internal.encoding.gob.Gob__userType._userType(_f.type)._base : stdgo._internal.reflect.Reflect_Type_.Type_);
-                                var _tname = (_typ.name()?.__copy__() : stdgo.GoString);
-                                if (_tname == (stdgo.Go.str())) {
+var _typ = (stdgo._internal.encoding.gob.Gob__userType._userType(_f.type)._base : stdgo._internal.reflect.Reflect_Type_.Type_);
+var _tname = (_typ.name().__copy__() : stdgo.GoString);
+if (_tname == (stdgo.Go.str())) {
                                     var _t = (stdgo._internal.encoding.gob.Gob__userType._userType(_f.type)._base : stdgo._internal.reflect.Reflect_Type_.Type_);
-                                    _tname = (_t.string() : stdgo.GoString)?.__copy__();
+                                    _tname = (_t.string() : stdgo.GoString).__copy__();
                                 };
-                                var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(_tname?.__copy__(), _f.type), _gt:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                                if (_err != null) {
+var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(_tname.__copy__(), _f.type), _gt:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+if (_err != null) {
                                     {
                                         final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : _err };
                                         for (defer in __deferstack__) {
@@ -224,11 +227,12 @@ var _type1 = __1, _type0 = __0;
                                         return __ret__;
                                     };
                                 };
-                                if (_gt._id() == ((0 : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId))) {
+if (_gt._id() == ((0 : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId))) {
                                     stdgo._internal.encoding.gob.Gob__setTypeId._setTypeId(_gt);
                                 };
-                                _st.field = (_st.field.__append__((new stdgo._internal.encoding.gob.Gob_T_fieldType.T_fieldType(_f.name?.__copy__(), _gt._id()) : stdgo._internal.encoding.gob.Gob_T_fieldType.T_fieldType)));
-                            });
+_st.field = (_st.field.__append__((new stdgo._internal.encoding.gob.Gob_T_fieldType.T_fieldType(_f.name.__copy__(), _gt._id()) : stdgo._internal.encoding.gob.Gob_T_fieldType.T_fieldType)));
+                                _i++;
+                            };
                         };
                         {
                             final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_st), _1 : (null : stdgo.Error) };

@@ -13,7 +13,7 @@ function _reducePi(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
         var _exp = (((((_ix >> (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64) & (2047i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt) - (1023 : stdgo.GoInt) : stdgo.GoInt) - (52 : stdgo.GoInt) : stdgo.GoInt);
         _ix = (_ix & ((4503599627370495i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _ix = (_ix | ((4503599627370496i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-        var _mPi:stdgo.GoArray<stdgo.GoUInt64> = (new stdgo.GoArray<stdgo.GoUInt64>(20, 20, ...[
+        var _mPi = (new stdgo.GoArray<stdgo.GoUInt64>(20, 20, ...[
 (0i64 : stdgo.GoUInt64),
 (5871781006564002452i64 : stdgo.GoUInt64),
 (-138578146393166112i64 : stdgo.GoUInt64),
@@ -33,7 +33,7 @@ function _reducePi(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
 (-5002411339680646979i64 : stdgo.GoUInt64),
 (-7024598388609300107i64 : stdgo.GoUInt64),
 (3890458997777936004i64 : stdgo.GoUInt64),
-(3098925296816862677i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>);
+(3098925296816862677i64 : stdgo.GoUInt64)]).__setNumber64__() : stdgo.GoArray<stdgo.GoUInt64>)?.__copy__();
         var __0 = (((_exp + (64 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) / (64u32 : stdgo.GoUInt) : stdgo.GoUInt), __1 = (((_exp + (64 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) % (64u32 : stdgo.GoUInt) : stdgo.GoUInt);
 var _bitshift = __1, _digit = __0;
         var _z0 = (((_mPi[(_digit : stdgo.GoInt)] << _bitshift : stdgo.GoUInt64)) | ((_mPi[((_digit + (1u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)] >> (((64u32 : stdgo.GoUInt) - _bitshift : stdgo.GoUInt)) : stdgo.GoUInt64)) : stdgo.GoUInt64);

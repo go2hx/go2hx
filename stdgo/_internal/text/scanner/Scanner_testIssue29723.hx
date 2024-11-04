@@ -10,6 +10,9 @@ function testIssue29723(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         };
         {
             var _r = (_s.scan() : stdgo.GoInt32);
-            stdgo.Go.cfor(_r != ((-1 : stdgo.GoInt32)), _r = _s.scan(), {});
+            while (_r != ((-1 : stdgo.GoInt32))) {
+                {};
+                _r = _s.scan();
+            };
         };
     }

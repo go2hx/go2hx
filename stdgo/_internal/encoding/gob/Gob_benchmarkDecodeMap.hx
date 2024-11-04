@@ -9,9 +9,10 @@ function benchmarkDecodeMap(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):V
         } : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _count : Bool), _i++, {
+            while ((_i < _count : Bool)) {
                 _m[_i] = _i;
-            });
+                _i++;
+            };
         };
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
@@ -24,14 +25,15 @@ function benchmarkDecodeMap(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):V
         _b.reportAllocs();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 var _rm:stdgo.GoMap<stdgo.GoInt, stdgo.GoInt> = (null : stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>);
-                _bbuf._reset();
-                var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_bbuf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_benchmarkBuf.T_benchmarkBuf>)));
-                var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_rm) : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>))) : stdgo.Error);
-                if (_err != null) {
+_bbuf._reset();
+var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_bbuf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_benchmarkBuf.T_benchmarkBuf>)));
+var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_rm) : stdgo.Ref<stdgo.GoMap<stdgo.GoInt, stdgo.GoInt>>))) : stdgo.Error);
+if (_err != null) {
                     _b.fatal(stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));
                 };
-            });
+                _i++;
+            };
         };
     }

@@ -8,9 +8,10 @@ function benchmarkNatSetBytes(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>)
             _b.run(stdgo._internal.fmt.Fmt_sprint.sprint(stdgo.Go.toInterface(_l))?.__copy__(), function(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
                 {
                     var _i = (0 : stdgo.GoInt);
-                    stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                    while ((_i < _b.n : Bool)) {
                         _n._setBytes((_buf.__slice__(0, _l) : stdgo.Slice<stdgo.GoUInt8>));
-                    });
+                        _i++;
+                    };
                 };
             });
         };

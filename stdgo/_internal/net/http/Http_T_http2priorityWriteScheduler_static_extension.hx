@@ -5,9 +5,10 @@ package stdgo._internal.net.http;
         @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler> = _ws;
         {
             var _k = _n._kids;
-            stdgo.Go.cfor(_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__), _k = _k._next, {
+            while (_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__)) {
                 _k._setParent(_n._parent);
-            });
+                _k = _k._next;
+            };
         };
         _n._setParent(null);
         if (_ws._nodes != null) _ws._nodes.remove(_n._id);
@@ -102,12 +103,13 @@ package stdgo._internal.net.http;
         };
         {
             var _x = _parent._parent;
-            stdgo.Go.cfor(_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__), _x = _x._parent, {
+            while (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
                 if (_x == (_n)) {
                     _parent._setParent(_n._parent);
                     break;
                 };
-            });
+                _x = _x._parent;
+            };
         };
         if (_priority.exclusive) {
             var _k = _parent._kids;

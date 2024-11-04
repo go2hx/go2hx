@@ -16,9 +16,9 @@ function _writeHeapProto(_w:stdgo._internal.io.Io_Writer.Writer, _p:stdgo.Slice<
             var _hideRuntime = (true : Bool);
             {
                 var _tries = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_tries < (2 : stdgo.GoInt) : Bool), _tries++, {
+                while ((_tries < (2 : stdgo.GoInt) : Bool)) {
                     var _stk = _r.stack();
-                    if (_hideRuntime) {
+if (_hideRuntime) {
                         for (_i => _addr in _stk) {
                             {
                                 var _f = stdgo._internal.runtime.Runtime_funcForPC.funcForPC(_addr);
@@ -30,12 +30,13 @@ function _writeHeapProto(_w:stdgo._internal.io.Io_Writer.Writer, _p:stdgo.Slice<
                             break;
                         };
                     };
-                    _locs = _b._appendLocsForStack((_locs.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt64>), _stk);
-                    if (((_locs.length) > (0 : stdgo.GoInt) : Bool)) {
+_locs = _b._appendLocsForStack((_locs.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt64>), _stk);
+if (((_locs.length) > (0 : stdgo.GoInt) : Bool)) {
                         break;
                     };
-                    _hideRuntime = false;
-                });
+_hideRuntime = false;
+                    _tries++;
+                };
             };
             {
                 var __tmp__ = stdgo._internal.runtime.pprof.Pprof__scaleHeapSample._scaleHeapSample(_r.allocObjects, _r.allocBytes, _rate);

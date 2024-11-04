@@ -6,11 +6,12 @@ function benchmarkFindAllNoMatches(_b:stdgo.Ref<stdgo._internal.testing.Testing_
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+            while ((_i < _b.n : Bool)) {
                 var _all = _re.findAll(_s, (-1 : stdgo.GoInt));
-                if (_all != null) {
+if (_all != null) {
                     _b.fatalf(("FindAll(%q) = %q; want nil" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_all));
                 };
-            });
+                _i++;
+            };
         };
     }

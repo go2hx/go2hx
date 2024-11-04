@@ -45,20 +45,21 @@ function _ensurePipelineContains(_p:stdgo.Ref<stdgo._internal.text.template.pars
         } : stdgo.GoMap<stdgo.GoString, Bool>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < _pipelineLen : Bool), _i++, {
+            while ((_i < _pipelineLen : Bool)) {
                 var _cmd = _p.cmds[(_i : stdgo.GoInt)];
-                _newCmds[(_i : stdgo.GoInt)] = _cmd;
-                {
+_newCmds[(_i : stdgo.GoInt)] = _cmd;
+{
                     var __tmp__ = try {
                         { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_cmd.args[(0 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>), _1 : true };
                     } catch(_) {
                         { _0 : (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_IdentifierNode.IdentifierNode>), _1 : false };
                     }, _idNode = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
-                        _insertedIdents[stdgo._internal.html.template.Template__normalizeEscFn._normalizeEscFn(_idNode.ident?.__copy__())] = true;
+                        _insertedIdents[stdgo._internal.html.template.Template__normalizeEscFn._normalizeEscFn(_idNode.ident.__copy__())] = true;
                     };
                 };
-            });
+                _i++;
+            };
         };
         for (__6 => _name in _s) {
             if (!(_insertedIdents[stdgo._internal.html.template.Template__normalizeEscFn._normalizeEscFn(_name?.__copy__())] ?? false)) {

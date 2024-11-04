@@ -41,11 +41,12 @@ package stdgo._internal.time;
         if ((((_l._tx.length) > (0 : stdgo.GoInt) : Bool) && _l._zone[(_l._tx[(0 : stdgo.GoInt)]._index : stdgo.GoInt)]._isDST : Bool)) {
             {
                 var _zi = ((_l._tx[(0 : stdgo.GoInt)]._index : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.cfor((_zi >= (0 : stdgo.GoInt) : Bool), _zi--, {
+                while ((_zi >= (0 : stdgo.GoInt) : Bool)) {
                     if (!_l._zone[(_zi : stdgo.GoInt)]._isDST) {
                         return _zi;
                     };
-                });
+                    _zi--;
+                };
             };
         };
         for (_zi => _ in _l._zone) {

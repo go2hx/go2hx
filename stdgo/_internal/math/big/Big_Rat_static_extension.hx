@@ -84,9 +84,10 @@ package stdgo._internal.math.big;
                 _buf = (_buf.__append__((46 : stdgo.GoUInt8)));
                 {
                     var _i = (_prec : stdgo.GoInt);
-                    stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                    while ((_i > (0 : stdgo.GoInt) : Bool)) {
                         _buf = (_buf.__append__((48 : stdgo.GoUInt8)));
-                    });
+                        _i--;
+                    };
                 };
             };
             return (_buf : stdgo.GoString)?.__copy__();
@@ -115,9 +116,10 @@ package stdgo._internal.math.big;
             var _rs = _r._utoa((10 : stdgo.GoInt));
             {
                 var _i = (_prec - (_rs.length) : stdgo.GoInt);
-                stdgo.Go.cfor((_i > (0 : stdgo.GoInt) : Bool), _i--, {
+                while ((_i > (0 : stdgo.GoInt) : Bool)) {
                     _buf = (_buf.__append__((48 : stdgo.GoUInt8)));
-                });
+                    _i--;
+                };
             };
             _buf = (_buf.__append__(...(_rs : Array<stdgo.GoUInt8>)));
         };

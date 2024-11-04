@@ -6,9 +6,9 @@ function testTypeRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
             var _wg:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sync.Sync_WaitGroup.WaitGroup);
             {
                 var _i = (0 : stdgo.GoInt);
-                stdgo.Go.cfor((_i < (2 : stdgo.GoInt) : Bool), _i++, {
+                while ((_i < (2 : stdgo.GoInt) : Bool)) {
                     _wg.add((1 : stdgo.GoInt));
-                    stdgo.Go.routine(() -> {
+stdgo.Go.routine(() -> {
                         var a = function(_i:stdgo.GoInt):Void {
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
@@ -100,7 +100,8 @@ function testTypeRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
                         };
                         a(_i);
                     });
-                });
+                    _i++;
+                };
             };
             if (_c != null) _c.__close__();
             _wg.wait_();

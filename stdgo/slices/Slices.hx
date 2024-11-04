@@ -182,7 +182,7 @@ class Slices {
         comparison stops at the first unequal pair.
         Floating point NaNs are not considered equal.
     **/
-    static public function equal<S, E>(_s1:Dynamic, _s2:Dynamic):Bool {
+    static public function equal(_s1:Dynamic, _s2:Dynamic):Bool {
         return stdgo._internal.slices.Slices_equal.equal(_s1, _s2);
     }
     /**
@@ -192,7 +192,7 @@ class Slices {
         increasing index order, and the comparison stops at the first index
         for which eq returns false.
     **/
-    static public function equalFunc<S1, S2, E1, E2>(_s1:Dynamic, _s2:Dynamic, _eq:(Dynamic, Dynamic) -> Bool):Bool {
+    static public function equalFunc(_s1:Dynamic, _s2:Dynamic, _eq:(Dynamic, Dynamic) -> Bool):Bool {
         final _eq = _eq;
         return stdgo._internal.slices.Slices_equalFunc.equalFunc(_s1, _s2, _eq);
     }
@@ -205,7 +205,7 @@ class Slices {
         considered less than the longer one.
         The result is 0 if s1 == s2, -1 if s1 < s2, and +1 if s1 > s2.
     **/
-    static public function compare<S, E>(_s1:Dynamic, _s2:Dynamic):StdTypes.Int {
+    static public function compare(_s1:Dynamic, _s2:Dynamic):StdTypes.Int {
         return stdgo._internal.slices.Slices_compare.compare(_s1, _s2);
     }
     /**
@@ -215,7 +215,7 @@ class Slices {
         returns 0 the result is 0 if len(s1) == len(s2), -1 if len(s1) < len(s2),
         and +1 if len(s1) > len(s2).
     **/
-    static public function compareFunc<S1, S2, E1, E2>(_s1:Dynamic, _s2:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):StdTypes.Int {
+    static public function compareFunc(_s1:Dynamic, _s2:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):StdTypes.Int {
         final _cmp = _cmp;
         return stdgo._internal.slices.Slices_compareFunc.compareFunc(_s1, _s2, _cmp);
     }
@@ -223,28 +223,28 @@ class Slices {
         Index returns the index of the first occurrence of v in s,
         or -1 if not present.
     **/
-    static public function index<S, E>(_s:Dynamic, _v:Dynamic):StdTypes.Int {
+    static public function index(_s:Dynamic, _v:Dynamic):StdTypes.Int {
         return stdgo._internal.slices.Slices_index.index(_s, _v);
     }
     /**
         IndexFunc returns the first index i satisfying f(s[i]),
         or -1 if none do.
     **/
-    static public function indexFunc<S, E>(_s:Dynamic, _f:Dynamic -> Bool):StdTypes.Int {
+    static public function indexFunc(_s:Dynamic, _f:Dynamic -> Bool):StdTypes.Int {
         final _f = _f;
         return stdgo._internal.slices.Slices_indexFunc.indexFunc(_s, _f);
     }
     /**
         Contains reports whether v is present in s.
     **/
-    static public function contains<S, E>(_s:Dynamic, _v:Dynamic):Bool {
+    static public function contains(_s:Dynamic, _v:Dynamic):Bool {
         return stdgo._internal.slices.Slices_contains.contains(_s, _v);
     }
     /**
         ContainsFunc reports whether at least one
         element e of s satisfies f(e).
     **/
-    static public function containsFunc<S, E>(_s:Dynamic, _f:Dynamic -> Bool):Bool {
+    static public function containsFunc(_s:Dynamic, _f:Dynamic -> Bool):Bool {
         final _f = _f;
         return stdgo._internal.slices.Slices_containsFunc.containsFunc(_s, _f);
     }
@@ -257,7 +257,7 @@ class Slices {
         Insert panics if i is out of range.
         This function is O(len(s) + len(v)).
     **/
-    static public function insert<S, E>(_s:Dynamic, _i:StdTypes.Int, _v:haxe.Rest<Dynamic>):Dynamic {
+    static public function insert(_s:Dynamic, _i:StdTypes.Int, _v:haxe.Rest<Dynamic>):Dynamic {
         return stdgo._internal.slices.Slices_insert.insert(_s, _i, ...[for (i in _v) i]);
     }
     /**
@@ -269,7 +269,7 @@ class Slices {
         elements contain pointers you might consider zeroing those elements so that
         objects they reference can be garbage collected.
     **/
-    static public function delete<S, E>(_s:Dynamic, _i:StdTypes.Int, _j:StdTypes.Int):Dynamic {
+    static public function delete(_s:Dynamic, _i:StdTypes.Int, _j:StdTypes.Int):Dynamic {
         return stdgo._internal.slices.Slices_delete.delete(_s, _i, _j);
     }
     /**
@@ -280,7 +280,7 @@ class Slices {
         zeroing those elements so that objects they reference can be garbage
         collected.
     **/
-    static public function deleteFunc<S, E>(_s:Dynamic, _del:Dynamic -> Bool):Dynamic {
+    static public function deleteFunc(_s:Dynamic, _del:Dynamic -> Bool):Dynamic {
         final _del = _del;
         return stdgo._internal.slices.Slices_deleteFunc.deleteFunc(_s, _del);
     }
@@ -288,14 +288,14 @@ class Slices {
         Replace replaces the elements s[i:j] by the given v, and returns the
         modified slice. Replace panics if s[i:j] is not a valid slice of s.
     **/
-    static public function replace<S, E>(_s:Dynamic, _i:StdTypes.Int, _j:StdTypes.Int, _v:haxe.Rest<Dynamic>):Dynamic {
+    static public function replace(_s:Dynamic, _i:StdTypes.Int, _j:StdTypes.Int, _v:haxe.Rest<Dynamic>):Dynamic {
         return stdgo._internal.slices.Slices_replace.replace(_s, _i, _j, ...[for (i in _v) i]);
     }
     /**
         Clone returns a copy of the slice.
         The elements are copied using assignment, so this is a shallow clone.
     **/
-    static public function clone<S, E>(_s:Dynamic):Dynamic {
+    static public function clone(_s:Dynamic):Dynamic {
         return stdgo._internal.slices.Slices_clone.clone(_s);
     }
     /**
@@ -307,14 +307,14 @@ class Slices {
         s[len(s)-m:len(s)]. If those elements contain pointers you might consider
         zeroing those elements so that objects they reference can be garbage collected.
     **/
-    static public function compact<S, E>(_s:Dynamic):Dynamic {
+    static public function compact(_s:Dynamic):Dynamic {
         return stdgo._internal.slices.Slices_compact.compact(_s);
     }
     /**
         CompactFunc is like [Compact] but uses an equality function to compare elements.
         For runs of elements that compare equal, CompactFunc keeps the first one.
     **/
-    static public function compactFunc<S, E>(_s:Dynamic, _eq:(Dynamic, Dynamic) -> Bool):Dynamic {
+    static public function compactFunc(_s:Dynamic, _eq:(Dynamic, Dynamic) -> Bool):Dynamic {
         final _eq = _eq;
         return stdgo._internal.slices.Slices_compactFunc.compactFunc(_s, _eq);
     }
@@ -324,19 +324,19 @@ class Slices {
         to the slice without another allocation. If n is negative or too large to
         allocate the memory, Grow panics.
     **/
-    static public function grow<S, E>(_s:Dynamic, _n:StdTypes.Int):Dynamic {
+    static public function grow(_s:Dynamic, _n:StdTypes.Int):Dynamic {
         return stdgo._internal.slices.Slices_grow.grow(_s, _n);
     }
     /**
         Clip removes unused capacity from the slice, returning s[:len(s):len(s)].
     **/
-    static public function clip<S, E>(_s:Dynamic):Dynamic {
+    static public function clip(_s:Dynamic):Dynamic {
         return stdgo._internal.slices.Slices_clip.clip(_s);
     }
     /**
         Reverse reverses the elements of the slice in place.
     **/
-    static public function reverse<S, E>(_s:Dynamic):Void {
+    static public function reverse(_s:Dynamic):Void {
         stdgo._internal.slices.Slices_reverse.reverse(_s);
     }
     static public function testEqual(_t:stdgo._internal.testing.Testing_T_.T_):Void {
@@ -445,7 +445,7 @@ class Slices {
         Sort sorts a slice of any ordered type in ascending order.
         When sorting floating-point numbers, NaNs are ordered before other values.
     **/
-    static public function sort<S, E>(_x:Dynamic):Void {
+    static public function sort(_x:Dynamic):Void {
         stdgo._internal.slices.Slices_sort.sort(_x);
     }
     /**
@@ -457,7 +457,7 @@ class Slices {
         SortFunc requires that cmp is a strict weak ordering.
         See https://en.wikipedia.org/wiki/Weak_ordering#Strict_weak_orderings.
     **/
-    static public function sortFunc<S, E>(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Void {
+    static public function sortFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Void {
         final _cmp = _cmp;
         stdgo._internal.slices.Slices_sortFunc.sortFunc(_x, _cmp);
     }
@@ -465,21 +465,21 @@ class Slices {
         SortStableFunc sorts the slice x while keeping the original order of equal
         elements, using cmp to compare elements in the same way as [SortFunc].
     **/
-    static public function sortStableFunc<S, E>(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Void {
+    static public function sortStableFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Void {
         final _cmp = _cmp;
         stdgo._internal.slices.Slices_sortStableFunc.sortStableFunc(_x, _cmp);
     }
     /**
         IsSorted reports whether x is sorted in ascending order.
     **/
-    static public function isSorted<S, E>(_x:Dynamic):Bool {
+    static public function isSorted(_x:Dynamic):Bool {
         return stdgo._internal.slices.Slices_isSorted.isSorted(_x);
     }
     /**
         IsSortedFunc reports whether x is sorted in ascending order, with cmp as the
         comparison function as defined by [SortFunc].
     **/
-    static public function isSortedFunc<S, E>(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Bool {
+    static public function isSortedFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Bool {
         final _cmp = _cmp;
         return stdgo._internal.slices.Slices_isSortedFunc.isSortedFunc(_x, _cmp);
     }
@@ -488,7 +488,7 @@ class Slices {
         For floating-point numbers, Min propagates NaNs (any NaN value in x
         forces the output to be NaN).
     **/
-    static public function min<S, E>(_x:Dynamic):Dynamic {
+    static public function min(_x:Dynamic):Dynamic {
         return stdgo._internal.slices.Slices_min.min(_x);
     }
     /**
@@ -496,7 +496,7 @@ class Slices {
         It panics if x is empty. If there is more than one minimal element
         according to the cmp function, MinFunc returns the first one.
     **/
-    static public function minFunc<S, E>(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Dynamic {
+    static public function minFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Dynamic {
         final _cmp = _cmp;
         return stdgo._internal.slices.Slices_minFunc.minFunc(_x, _cmp);
     }
@@ -505,7 +505,7 @@ class Slices {
         For floating-point E, Max propagates NaNs (any NaN value in x
         forces the output to be NaN).
     **/
-    static public function max<S, E>(_x:Dynamic):Dynamic {
+    static public function max(_x:Dynamic):Dynamic {
         return stdgo._internal.slices.Slices_max.max(_x);
     }
     /**
@@ -513,7 +513,7 @@ class Slices {
         It panics if x is empty. If there is more than one maximal element
         according to the cmp function, MaxFunc returns the first one.
     **/
-    static public function maxFunc<S, E>(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Dynamic {
+    static public function maxFunc(_x:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):Dynamic {
         final _cmp = _cmp;
         return stdgo._internal.slices.Slices_maxFunc.maxFunc(_x, _cmp);
     }
@@ -523,7 +523,7 @@ class Slices {
         sort order; it also returns a bool saying whether the target is really found
         in the slice. The slice must be sorted in increasing order.
     **/
-    static public function binarySearch<S, E>(_x:Dynamic, _target:Dynamic):stdgo.Tuple<StdTypes.Int, Bool> {
+    static public function binarySearch(_x:Dynamic, _target:Dynamic):stdgo.Tuple<StdTypes.Int, Bool> {
         return {
             final obj = stdgo._internal.slices.Slices_binarySearch.binarySearch(_x, _target);
             { _0 : obj._0, _1 : obj._1 };
@@ -538,7 +538,7 @@ class Slices {
         cmp must implement the same ordering as the slice, such that if
         cmp(a, t) < 0 and cmp(b, t) >= 0, then a must precede b in the slice.
     **/
-    static public function binarySearchFunc<S, E, T_>(_x:Dynamic, _target:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):stdgo.Tuple<StdTypes.Int, Bool> {
+    static public function binarySearchFunc(_x:Dynamic, _target:Dynamic, _cmp:(Dynamic, Dynamic) -> stdgo.GoInt):stdgo.Tuple<StdTypes.Int, Bool> {
         final _cmp = _cmp;
         return {
             final obj = stdgo._internal.slices.Slices_binarySearchFunc.binarySearchFunc(_x, _target, _cmp);

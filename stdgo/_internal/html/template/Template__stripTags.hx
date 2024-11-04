@@ -16,12 +16,13 @@ var _allText = __3, _i = __2, _c = __1, _s = __0;
                     if (_d._state != (_c._state)) {
                         {
                             var _j1 = (_j - (1 : stdgo.GoInt) : stdgo.GoInt);
-                            stdgo.Go.cfor((_j1 >= _i : Bool), _j1--, {
+                            while ((_j1 >= _i : Bool)) {
                                 if (_s[(_j1 : stdgo.GoInt)] == ((60 : stdgo.GoUInt8))) {
                                     _j = _j1;
                                     break;
                                 };
-                            });
+                                _j1--;
+                            };
                         };
                     };
                     _b.write((_s.__slice__(_i, _j) : stdgo.Slice<stdgo.GoUInt8>));

@@ -6,11 +6,12 @@ package stdgo._internal.archive.tar;
         var _ss:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         {
             var _f2 = ((1 : stdgo._internal.archive.tar.Tar_Format.Format) : stdgo._internal.archive.tar.Tar_Format.Format);
-            stdgo.Go.cfor((_f2 < (32 : stdgo._internal.archive.tar.Tar_Format.Format) : Bool), _f2 = (_f2 << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.archive.tar.Tar_Format.Format), {
+            while ((_f2 < (32 : stdgo._internal.archive.tar.Tar_Format.Format) : Bool)) {
                 if (_f._has(_f2)) {
-                    _ss = (_ss.__append__((stdgo._internal.archive.tar.Tar__formatNames._formatNames[_f2] ?? ("" : stdgo.GoString))?.__copy__()));
+                    _ss = (_ss.__append__((stdgo._internal.archive.tar.Tar__formatNames._formatNames[_f2] ?? ("" : stdgo.GoString)).__copy__()));
                 };
-            });
+                _f2 = (_f2 << ((1i64 : stdgo.GoUInt64)) : stdgo._internal.archive.tar.Tar_Format.Format);
+            };
         };
         {
             final __value__ = (_ss.length);

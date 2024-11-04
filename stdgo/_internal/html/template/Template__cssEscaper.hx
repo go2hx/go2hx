@@ -7,28 +7,32 @@ function _cssEscaper(_args:haxe.Rest<stdgo.AnyInterface>):stdgo.GoString {
 var _written = __2, _w = __1, _r = __0;
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i = (_i + (_w) : stdgo.GoInt), {
+            while ((_i < (_s.length) : Bool)) {
                 {
-                    var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString)?.__copy__());
+                    var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_s.__slice__(_i) : stdgo.GoString).__copy__());
                     _r = __tmp__._0;
                     _w = __tmp__._1;
                 };
-                var _repl:stdgo.GoString = ("" : stdgo.GoString);
-                if ((((_r : stdgo.GoInt) < (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable.length) : Bool) && (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable[(_r : stdgo.GoInt)] != stdgo.Go.str()) : Bool)) {
-                    _repl = stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable[(_r : stdgo.GoInt)]?.__copy__();
+var _repl:stdgo.GoString = ("" : stdgo.GoString);
+if ((((_r : stdgo.GoInt) < (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable.length) : Bool) && (stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable[(_r : stdgo.GoInt)] != stdgo.Go.str()) : Bool)) {
+                    _repl = stdgo._internal.html.template.Template__cssReplacementTable._cssReplacementTable[(_r : stdgo.GoInt)].__copy__();
                 } else {
-                    continue;
+                    {
+                        _i = (_i + (_w) : stdgo.GoInt);
+                        continue;
+                    };
                 };
-                if (_written == ((0 : stdgo.GoInt))) {
+if (_written == ((0 : stdgo.GoInt))) {
                     _b.grow((_s.length));
                 };
-                _b.writeString((_s.__slice__(_written, _i) : stdgo.GoString)?.__copy__());
-                _b.writeString(_repl?.__copy__());
-                _written = (_i + _w : stdgo.GoInt);
-                if (((_repl != ("\\\\" : stdgo.GoString)) && (((_written == ((_s.length)) || stdgo._internal.html.template.Template__isHex._isHex(_s[(_written : stdgo.GoInt)]) : Bool) || stdgo._internal.html.template.Template__isCSSSpace._isCSSSpace(_s[(_written : stdgo.GoInt)]) : Bool)) : Bool)) {
+_b.writeString((_s.__slice__(_written, _i) : stdgo.GoString).__copy__());
+_b.writeString(_repl.__copy__());
+_written = (_i + _w : stdgo.GoInt);
+if (((_repl != ("\\\\" : stdgo.GoString)) && (((_written == ((_s.length)) || stdgo._internal.html.template.Template__isHex._isHex(_s[(_written : stdgo.GoInt)]) : Bool) || stdgo._internal.html.template.Template__isCSSSpace._isCSSSpace(_s[(_written : stdgo.GoInt)]) : Bool)) : Bool)) {
                     _b.writeByte((32 : stdgo.GoUInt8));
                 };
-            });
+                _i = (_i + (_w) : stdgo.GoInt);
+            };
         };
         if (_written == ((0 : stdgo.GoInt))) {
             return _s?.__copy__();

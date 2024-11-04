@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.json;
 function testNumberIsValid(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _jsonNumberRegexp:stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp> = stdgo._internal.regexp.Regexp_mustCompile.mustCompile(("^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$" : stdgo.GoString));
+        var _jsonNumberRegexp = stdgo._internal.regexp.Regexp_mustCompile.mustCompile(("^-?(?:0|[1-9]\\d*)(?:\\.\\d+)?(?:[eE][+-]?\\d+)?$" : stdgo.GoString));
         var _validTests = (new stdgo.Slice<stdgo.GoString>(46, 46, ...[
 ("0" : stdgo.GoString),
 ("-0" : stdgo.GoString),

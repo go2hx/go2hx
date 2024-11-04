@@ -16,13 +16,14 @@ function _formatBits(_dst:stdgo.Slice<stdgo.GoUInt8>, _u:stdgo.GoUInt64, _base:s
                     var _us = ((_u - (_q * (1000000000i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt);
                     {
                         var _j = (4 : stdgo.GoInt);
-                        stdgo.Go.cfor((_j > (0 : stdgo.GoInt) : Bool), _j--, {
+                        while ((_j > (0 : stdgo.GoInt) : Bool)) {
                             var _is = ((_us % (100u32 : stdgo.GoUInt) : stdgo.GoUInt) * (2u32 : stdgo.GoUInt) : stdgo.GoUInt);
-                            _us = (_us / ((100u32 : stdgo.GoUInt)) : stdgo.GoUInt);
-                            _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt);
-                            _a[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = ("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString)[((_is + (1u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
-                            _a[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString)[((_is + (0u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
-                        });
+_us = (_us / ((100u32 : stdgo.GoUInt)) : stdgo.GoUInt);
+_i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt);
+_a[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)] = ("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString)[((_is + (1u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
+_a[(_i + (0 : stdgo.GoInt) : stdgo.GoInt)] = ("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString)[((_is + (0u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];
+                            _j--;
+                        };
                     };
                     _i--;
                     _a[(_i : stdgo.GoInt)] = ("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899" : stdgo.GoString)[(((_us * (2u32 : stdgo.GoUInt) : stdgo.GoUInt) + (1u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt)];

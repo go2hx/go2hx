@@ -5,13 +5,14 @@ function fields(_s:stdgo.GoString):stdgo.Slice<stdgo.GoString> {
         var _setBits = ((0 : stdgo.GoUInt8) : stdgo.GoUInt8);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_s.length) : Bool), _i++, {
+            while ((_i < (_s.length) : Bool)) {
                 var _r = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
-                _setBits = (_setBits | (_r) : stdgo.GoUInt8);
-                var _isSpace = (stdgo._internal.strings.Strings__asciiSpace._asciiSpace[(_r : stdgo.GoInt)] : stdgo.GoInt);
-                _n = (_n + ((_wasSpace & (-1 ^ _isSpace) : stdgo.GoInt)) : stdgo.GoInt);
-                _wasSpace = _isSpace;
-            });
+_setBits = (_setBits | (_r) : stdgo.GoUInt8);
+var _isSpace = (stdgo._internal.strings.Strings__asciiSpace._asciiSpace[(_r : stdgo.GoInt)] : stdgo.GoInt);
+_n = (_n + ((_wasSpace & (-1 ^ _isSpace) : stdgo.GoInt)) : stdgo.GoInt);
+_wasSpace = _isSpace;
+                _i++;
+            };
         };
         if ((_setBits >= (128 : stdgo.GoUInt8) : Bool)) {
             return stdgo._internal.strings.Strings_fieldsFunc.fieldsFunc(_s?.__copy__(), stdgo._internal.unicode.Unicode_isSpace.isSpace);

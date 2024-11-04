@@ -5,7 +5,7 @@ function testDenomRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
         var _c = (new stdgo.Chan<Bool>((3 : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (3 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (3 : stdgo.GoInt) : Bool)) {
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
                         _x.denom();
@@ -14,12 +14,14 @@ function testDenomRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
                     };
                     a();
                 });
-            });
+                _i++;
+            };
         };
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (3 : stdgo.GoInt) : Bool), _i++, {
+            while ((_i < (3 : stdgo.GoInt) : Bool)) {
                 _c.__get__();
-            });
+                _i++;
+            };
         };
     }

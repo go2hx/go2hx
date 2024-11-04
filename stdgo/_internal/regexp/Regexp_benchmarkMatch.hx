@@ -12,11 +12,12 @@ function benchmarkMatch(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void 
                     _b.setBytes((_size._n : stdgo.GoInt64));
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _b.n : Bool), _i++, {
+                        while ((_i < _b.n : Bool)) {
                             if (_r.match(_t)) {
                                 _b.fatal(stdgo.Go.toInterface(("match!" : stdgo.GoString)));
                             };
-                        });
+                            _i++;
+                        };
                     };
                 });
             };

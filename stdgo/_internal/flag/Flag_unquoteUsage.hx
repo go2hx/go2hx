@@ -4,21 +4,23 @@ function unquoteUsage(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>):{ va
         _usage = _flag.usage?.__copy__();
         {
             var _i = (0 : stdgo.GoInt);
-            stdgo.Go.cfor((_i < (_usage.length) : Bool), _i++, {
+            while ((_i < (_usage.length) : Bool)) {
                 if (_usage[(_i : stdgo.GoInt)] == ((96 : stdgo.GoUInt8))) {
                     {
                         var _j = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
-                        stdgo.Go.cfor((_j < (_usage.length) : Bool), _j++, {
+                        while ((_j < (_usage.length) : Bool)) {
                             if (_usage[(_j : stdgo.GoInt)] == ((96 : stdgo.GoUInt8))) {
-                                _name = (_usage.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _j) : stdgo.GoString)?.__copy__();
-                                _usage = (((_usage.__slice__(0, _i) : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (_usage.__slice__((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();
-                                return { _0 : _name?.__copy__(), _1 : _usage?.__copy__() };
+                                _name = (_usage.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt), _j) : stdgo.GoString).__copy__();
+                                _usage = (((_usage.__slice__(0, _i) : stdgo.GoString) + _name.__copy__() : stdgo.GoString) + (_usage.__slice__((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString).__copy__() : stdgo.GoString).__copy__();
+                                return { _0 : _name.__copy__(), _1 : _usage.__copy__() };
                             };
-                        });
+                            _j++;
+                        };
                     };
                     break;
                 };
-            });
+                _i++;
+            };
         };
         _name = ("value" : stdgo.GoString);
         {

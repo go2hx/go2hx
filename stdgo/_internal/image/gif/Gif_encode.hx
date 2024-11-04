@@ -30,14 +30,16 @@ function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image
                     _pm = stdgo._internal.image.Image_newPaletted.newPaletted(_b?.__copy__(), _cp);
                     {
                         var _y = (_b.min.y : stdgo.GoInt);
-                        stdgo.Go.cfor((_y < _b.max.y : Bool), _y++, {
+                        while ((_y < _b.max.y : Bool)) {
                             {
                                 var _x = (_b.min.x : stdgo.GoInt);
-                                stdgo.Go.cfor((_x < _b.max.x : Bool), _x++, {
+                                while ((_x < _b.max.x : Bool)) {
                                     _pm.set(_x, _y, _cp.convert(_m.at(_x, _y)));
-                                });
+                                    _x++;
+                                };
                             };
-                        });
+                            _y++;
+                        };
                     };
                 };
             };

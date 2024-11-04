@@ -37,11 +37,12 @@ function _makeBody(_value:stdgo._internal.reflect.Reflect_Value.Value, _params:s
                     var _t = (_v.type() : stdgo._internal.reflect.Reflect_Type_.Type_);
                     {
                         var _i = (0 : stdgo.GoInt);
-                        stdgo.Go.cfor((_i < _t.numField() : Bool), _i++, {
+                        while ((_i < _t.numField() : Bool)) {
                             if (!_t.field(_i).isExported()) {
                                 return { _0 : (null : stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder), _1 : stdgo.Go.asInterface((new stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError(("struct contains unexported fields" : stdgo.GoString)) : stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError)) };
                             };
-                        });
+                            _i++;
+                        };
                     };
                     var _startingField = (0 : stdgo.GoInt);
                     var _n = (_t.numField() : stdgo.GoInt);
@@ -68,16 +69,17 @@ function _makeBody(_value:stdgo._internal.reflect.Reflect_Value.Value, _params:s
                                 var _m = (new stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder>((_n1 : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder>);
                                 {
                                     var _i = (0 : stdgo.GoInt);
-                                    stdgo.Go.cfor((_i < _n1 : Bool), _i++, {
+                                    while ((_i < _n1 : Bool)) {
                                         {
-                                            var __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeField._makeField(_v.field((_i + _startingField : stdgo.GoInt))?.__copy__(), stdgo._internal.encoding.asn1.Asn1__parseFieldParameters._parseFieldParameters(_t.field((_i + _startingField : stdgo.GoInt)).tag.get(("asn1" : stdgo.GoString))?.__copy__())?.__copy__());
+                                            var __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeField._makeField(_v.field((_i + _startingField : stdgo.GoInt)).__copy__(), stdgo._internal.encoding.asn1.Asn1__parseFieldParameters._parseFieldParameters(_t.field((_i + _startingField : stdgo.GoInt)).tag.get(("asn1" : stdgo.GoString)).__copy__()).__copy__());
                                             _m[(_i : stdgo.GoInt)] = __tmp__._0;
                                             _err = __tmp__._1;
                                         };
-                                        if (_err != null) {
+if (_err != null) {
                                             return { _0 : (null : stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder), _1 : _err };
                                         };
-                                    });
+                                        _i++;
+                                    };
                                 };
                                 return { _0 : stdgo.Go.asInterface((_m : stdgo._internal.encoding.asn1.Asn1_T_multiEncoder.T_multiEncoder)), _1 : (null : stdgo.Error) };
                             };
@@ -101,16 +103,17 @@ function _makeBody(_value:stdgo._internal.reflect.Reflect_Value.Value, _params:s
                                 var _m = (new stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder>((_l : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder>);
                                 {
                                     var _i = (0 : stdgo.GoInt);
-                                    stdgo.Go.cfor((_i < _l : Bool), _i++, {
+                                    while ((_i < _l : Bool)) {
                                         {
-                                            var __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeField._makeField(_v.index(_i)?.__copy__(), _fp?.__copy__());
+                                            var __tmp__ = stdgo._internal.encoding.asn1.Asn1__makeField._makeField(_v.index(_i).__copy__(), _fp.__copy__());
                                             _m[(_i : stdgo.GoInt)] = __tmp__._0;
                                             _err = __tmp__._1;
                                         };
-                                        if (_err != null) {
+if (_err != null) {
                                             return { _0 : (null : stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder), _1 : _err };
                                         };
-                                    });
+                                        _i++;
+                                    };
                                 };
                                 if (_params._set) {
                                     return { _0 : stdgo.Go.asInterface((_m : stdgo._internal.encoding.asn1.Asn1_T_setEncoder.T_setEncoder)), _1 : (null : stdgo.Error) };

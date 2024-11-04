@@ -98,9 +98,10 @@ package stdgo._internal.archive.zip;
                 };
                 {
                     var _dir = (stdgo._internal.path.Path_dir.dir(_name?.__copy__())?.__copy__() : stdgo.GoString);
-                    stdgo.Go.cfor(_dir != (("." : stdgo.GoString)), _dir = stdgo._internal.path.Path_dir.dir(_dir?.__copy__())?.__copy__(), {
+                    while (_dir != (("." : stdgo.GoString))) {
                         _dirs[_dir] = true;
-                    });
+                        _dir = stdgo._internal.path.Path_dir.dir(_dir?.__copy__())?.__copy__();
+                    };
                 };
                 var _idx = (_r._fileList.length : stdgo.GoInt);
                 var _entry = ({ _name : _name?.__copy__(), _file : _file, _isDir : _isDir } : stdgo._internal.archive.zip.Zip_T_fileListEntry.T_fileListEntry);

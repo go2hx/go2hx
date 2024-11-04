@@ -65,22 +65,23 @@ function _pow(_x:stdgo.GoFloat64, _y:stdgo.GoFloat64):stdgo.GoFloat64 {
         var __tmp__ = stdgo._internal.math.Math_frexp.frexp(_x), _x1:stdgo.GoFloat64 = __tmp__._0, _xe:stdgo.GoInt = __tmp__._1;
         {
             var _i = (_yi : stdgo.GoInt64);
-            stdgo.Go.cfor(_i != ((0i64 : stdgo.GoInt64)), _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt64), {
+            while (_i != ((0i64 : stdgo.GoInt64))) {
                 if (((_xe < (-4096 : stdgo.GoInt) : Bool) || ((4096 : stdgo.GoInt) < _xe : Bool) : Bool)) {
                     _ae = (_ae + (_xe) : stdgo.GoInt);
                     break;
                 };
-                if ((_i & (1i64 : stdgo.GoInt64) : stdgo.GoInt64) == ((1i64 : stdgo.GoInt64))) {
+if ((_i & (1i64 : stdgo.GoInt64) : stdgo.GoInt64) == ((1i64 : stdgo.GoInt64))) {
                     _a1 = (_a1 * (_x1) : stdgo.GoFloat64);
                     _ae = (_ae + (_xe) : stdgo.GoInt);
                 };
-                _x1 = (_x1 * (_x1) : stdgo.GoFloat64);
-                _xe = (_xe << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt);
-                if ((_x1 < (0.5 : stdgo.GoFloat64) : Bool)) {
+_x1 = (_x1 * (_x1) : stdgo.GoFloat64);
+_xe = (_xe << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt);
+if ((_x1 < (0.5 : stdgo.GoFloat64) : Bool)) {
                     _x1 = (_x1 + (_x1) : stdgo.GoFloat64);
                     _xe--;
                 };
-            });
+                _i = (_i >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt64);
+            };
         };
         if ((_y < (0 : stdgo.GoFloat64) : Bool)) {
             _a1 = ((1 : stdgo.GoFloat64) / _a1 : stdgo.GoFloat64);

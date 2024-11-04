@@ -185,6 +185,7 @@ typedef FuncLit = {
 typedef CompositeLit = {
 	// > Node,
 	type:Expr,
+	exprType:Expr,
 	lbrace:Pos,
 	elts:Array<Expr>,
 	rbrace:Pos,

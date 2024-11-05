@@ -3,13 +3,13 @@ package stdgo._internal.debug.gosym;
     @:keep
     static public function _alineFromLine( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>, _path:stdgo.GoString, _line:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = _o;
-        var _val_3667399:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _s_3667371:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
-        var _i_3667364_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3667376_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _incstart_3667315:stdgo.GoInt = (0 : stdgo.GoInt);
         var _depth_3667298:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3667176:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _i_3667173:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _val_3667399:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_3667371:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -51,10 +51,10 @@ package stdgo._internal.debug.gosym;
                         _gotoNext = 3667709i32;
                     };
                 } else if (__value__ == (3667368i32)) {
-                    _i_3667364_0++;
+                    _i_3667376_0++;
                     _gotoNext = 3667705i32;
                 } else if (__value__ == (3667394i32)) {
-                    _s_3667371 = (_o.paths.__slice__(_i_3667173) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>)[(_i_3667364_0 : stdgo.GoInt)];
+                    _s_3667371 = (_o.paths.__slice__(_i_3667173) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>)[(_i_3667376_0 : stdgo.GoInt)];
                     _val_3667399 = (_s_3667371.value : stdgo.GoInt);
                     var __blank__ = 0i32;
                     _gotoNext = 3667422i32;
@@ -80,7 +80,7 @@ package stdgo._internal.debug.gosym;
                     };
                 } else if (__value__ == (3667544i32)) {
                     stdgo._internal.debug.gosym.Gosym__pathloopBreak._pathloopBreak = true;
-                    _gotoNext = 3667364i32;
+                    _gotoNext = 3667705i32;
                 } else if (__value__ == (3667591i32)) {
                     _line = (_line + ((_val_3667399 - _incstart_3667315 : stdgo.GoInt)) : stdgo.GoInt);
                     _gotoNext = 3667368i32;
@@ -100,12 +100,12 @@ package stdgo._internal.debug.gosym;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (_o.paths.__slice__(_i_3667173) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>)[(0i32 : stdgo.GoInt)];
-                        _i_3667364_0 = __tmp__0;
+                        _i_3667376_0 = __tmp__0;
                         _s_3667371 = __tmp__1;
                     };
                     _gotoNext = 3667705i32;
                 } else if (__value__ == (3667705i32)) {
-                    if (_i_3667364_0 < ((_o.paths.__slice__(_i_3667173) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>).length)) {
+                    if (_i_3667376_0 < ((_o.paths.__slice__(_i_3667173) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Sym.Sym>).length)) {
                         _gotoNext = 3667394i32;
                     } else {
                         _gotoNext = 3667709i32;
@@ -139,11 +139,11 @@ package stdgo._internal.debug.gosym;
     @:keep
     static public function _lineFromAline( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>, _aline:stdgo.GoInt):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = _o;
-        var _i_3666536_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _tos_3666510:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
-        var _noPath_3666474:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
         var _val_3666566:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3666543:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
+        var _i_3666548_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _tos_3666510:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
+        var _noPath_3666474:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -161,10 +161,10 @@ package stdgo._internal.debug.gosym;
                         _gotoNext = 3666948i32;
                     };
                 } else if (__value__ == (3666540i32)) {
-                    _i_3666536_0++;
+                    _i_3666548_0++;
                     _gotoNext = 3666944i32;
                 } else if (__value__ == (3666562i32)) {
-                    _s_3666543 = _o.paths[(_i_3666536_0 : stdgo.GoInt)];
+                    _s_3666543 = _o.paths[(_i_3666548_0 : stdgo.GoInt)];
                     _val_3666566 = (_s_3666543.value : stdgo.GoInt);
                     var __blank__ = 0i32;
                     _gotoNext = 3666588i32;
@@ -180,7 +180,7 @@ package stdgo._internal.debug.gosym;
                     };
                 } else if (__value__ == (3666599i32)) {
                     stdgo._internal.debug.gosym.Gosym__pathloopBreak._pathloopBreak = true;
-                    _gotoNext = 3666536i32;
+                    _gotoNext = 3666944i32;
                 } else if (__value__ == (3666638i32)) {
                     _tos_3666510 = (stdgo.Go.setRef((new stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt(_s_3666543.name?.__copy__(), _val_3666566, (0 : stdgo.GoInt), _noPath_3666474) : stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt)) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
                     _gotoNext = 3666540i32;
@@ -204,12 +204,12 @@ package stdgo._internal.debug.gosym;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _o.paths[(0i32 : stdgo.GoInt)];
-                        _i_3666536_0 = __tmp__0;
+                        _i_3666548_0 = __tmp__0;
                         _s_3666543 = __tmp__1;
                     };
                     _gotoNext = 3666944i32;
                 } else if (__value__ == (3666944i32)) {
-                    if (_i_3666536_0 < (_o.paths.length)) {
+                    if (_i_3666548_0 < (_o.paths.length)) {
                         _gotoNext = 3666562i32;
                     } else {
                         _gotoNext = 3666948i32;

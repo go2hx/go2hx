@@ -848,8 +848,353 @@ class Directive_static_extension {
     }
 }
 /**
-    Package xml implements a simple XML 1.0 parser that
-    understands XML name spaces.
+    /|*{
+    	d.buf.Reset()
+    	gotoNext = 3668861
+    	_ = gotoNext == 3668861
+    	_ = 0
+    	InputBreak = false
+    	gotoNext = 3668869
+    	_ = gotoNext == 3668869
+    	if !InputBreak {
+    		gotoNext = 3668873
+    		_ = gotoNext == 3668873
+    		b_3668877, ok_3668880 = d.getc()
+    		if !ok_3668880 {
+    			gotoNext = 3668904
+    			_ = gotoNext == 3668904
+    			if cdata {
+    				gotoNext = 3668918
+    				_ = gotoNext == 3668918
+    				if d.err == io.EOF {
+    					gotoNext = 3668943
+    					_ = gotoNext == 3668943
+    					d.err = d.syntaxError("unexpected EOF in CDATA section")
+    					gotoNext = 3669017
+    				} else {
+    					gotoNext = 3669017
+    				}
+    				_ = gotoNext == 3669017
+    				return nil
+    				gotoNext = 3669036
+    			} else {
+    				gotoNext = 3669036
+    			}
+    			_ = gotoNext == 3669036
+    			InputBreak = true
+    			gotoNext = 3668869
+    			gotoNext = 3669149
+    		} else {
+    			gotoNext = 3669149
+    		}
+    		_ = gotoNext == 3669149
+    		if b0_3668819 == 93 && b1_3668823 == 93 && b_3668877 == 62 {
+    			gotoNext = 3669187
+    			_ = gotoNext == 3669187
+    			if cdata {
+    				gotoNext = 3669201
+    				_ = gotoNext == 3669201
+    				trunc_3668836 = 2
+    				InputBreak = true
+    				gotoNext = 3668869
+    				gotoNext = 3669241
+    			} else {
+    				gotoNext = 3669241
+    			}
+    			_ = gotoNext == 3669241
+    			d.err = d.syntaxError("unescaped ]]> not in CDATA section")
+    			return nil
+    			gotoNext = 3669360
+    		} else {
+    			gotoNext = 3669360
+    		}
+    		_ = gotoNext == 3669360
+    		if b_3668877 == 60 && !cdata {
+    			gotoNext = 3669382
+    			_ = gotoNext == 3669382
+    			if quote >= 0 {
+    				gotoNext = 3669401
+    				_ = gotoNext == 3669401
+    				d.err = d.syntaxError("unescaped < inside quoted string")
+    				return nil
+    				gotoNext = 3669488
+    			} else {
+    				gotoNext = 3669488
+    			}
+    			_ = gotoNext == 3669488
+    			d.ungetc(60)
+    			InputBreak = true
+    			gotoNext = 3668869
+    			gotoNext = 3669523
+    		} else {
+    			gotoNext = 3669523
+    		}
+    		_ = gotoNext == 3669523
+    		if quote >= 0 && b_3668877 == byte(quote) {
+    			gotoNext = 3669557
+    			_ = gotoNext == 3669557
+    			InputBreak = true
+    			gotoNext = 3668869
+    			gotoNext = 3669580
+    		} else {
+    			gotoNext = 3669580
+    		}
+    		_ = gotoNext == 3669580
+    		if b_3668877 == 38 && !cdata {
+    			gotoNext = 3669602
+    			_ = gotoNext == 3669602
+    			before_3669899 = d.buf.Len()
+    			d.buf.WriteByte(38)
+    			if b_3668877, ok_3669952 = d.mustgetc(); !ok_3669952 {
+    				gotoNext = 3670032
+    				_ = gotoNext == 3670032
+    				return nil
+    				gotoNext = 3670057
+    			} else {
+    				gotoNext = 3670057
+    			}
+    			_ = gotoNext == 3670057
+    			if b_3668877 == 35 {
+    				gotoNext = 3670069
+    				_ = gotoNext == 3670069
+    				d.buf.WriteByte(b_3668877)
+    				if b_3668877, ok_3669952 = d.mustgetc(); !ok_3669952 {
+    					gotoNext = 3670127
+    					_ = gotoNext == 3670127
+    					return nil
+    					gotoNext = 3670155
+    				} else {
+    					gotoNext = 3670155
+    				}
+    				_ = gotoNext == 3670155
+    				base_3670155 = 10
+    				if b_3668877 == 120 {
+    					gotoNext = 3670182
+    					_ = gotoNext == 3670182
+    					base_3670155 = 16
+    					d.buf.WriteByte(b_3668877)
+    					if b_3668877, ok_3669952 = d.mustgetc(); !ok_3669952 {
+    						gotoNext = 3670257
+    						_ = gotoNext == 3670257
+    						return nil
+    						gotoNext = 3670293
+    					} else {
+    						gotoNext = 3670293
+    					}
+    					gotoNext = 3670293
+    				} else {
+    					gotoNext = 3670293
+    				}
+    				_ = gotoNext == 3670293
+    				start_3670293 = d.buf.Len()
+    				_ = 0
+    				gotoNext = 3670318
+    				_ = gotoNext == 3670318
+    				if 48 <= b_3668877 && b_3668877 <= 57 || base_3670155 == 16 && 97 <= b_3668877 && b_3668877 <= 102 || base_3670155 == 16 && 65 <= b_3668877 && b_3668877 <= 70 {
+    					gotoNext = 3670429
+    					_ = gotoNext == 3670429
+    					d.buf.WriteByte(b_3668877)
+    					if b_3668877, ok_3669952 = d.mustgetc(); !ok_3669952 {
+    						gotoNext = 3670489
+    						_ = gotoNext == 3670489
+    						return nil
+    						gotoNext = 3670525
+    					} else {
+    						gotoNext = 3670525
+    					}
+    					gotoNext = 3670318
+    				} else {
+    					gotoNext = 3670525
+    				}
+    				_ = gotoNext == 3670525
+    				if b_3668877 != 59 {
+    					gotoNext = 3670537
+    					_ = gotoNext == 3670537
+    					d.ungetc(b_3668877)
+    					gotoNext = 3671291
+    				} else {
+    					gotoNext = 3670567
+    					_ = gotoNext == 3670567
+    					s_3670574 = string(d.buf.Bytes()[start_3670293:])
+    					d.buf.WriteByte(59)
+    					n_3670640, err_3670643 = strconv.ParseUint(s_3670574, base_3670155, 64)
+    					if err_3670643 == nil && n_3670640 <= 1114111 {
+    						gotoNext = 3670724
+    						_ = gotoNext == 3670724
+    						text_3669967 = string(rune(n_3670640))
+    						haveText_3669986 = true
+    						gotoNext = 3671291
+    					} else {
+    						gotoNext = 3671291
+    					}
+    					gotoNext = 3671291
+    				}
+    				gotoNext = 3671291
+    			} else {
+    				gotoNext = 3670800
+    				_ = gotoNext == 3670800
+    				d.ungetc(b_3668877)
+    				if !d.readName() {
+    					gotoNext = 3670839
+    					_ = gotoNext == 3670839
+    					if d.err != nil {
+    						gotoNext = 3670862
+    						_ = gotoNext == 3670862
+    						return nil
+    						gotoNext = 3670898
+    					} else {
+    						gotoNext = 3670898
+    					}
+    					gotoNext = 3670898
+    				} else {
+    					gotoNext = 3670898
+    				}
+    				_ = gotoNext == 3670898
+    				if b_3668877, ok_3669952 = d.mustgetc(); !ok_3669952 {
+    					gotoNext = 3670927
+    					_ = gotoNext == 3670927
+    					return nil
+    					gotoNext = 3670955
+    				} else {
+    					gotoNext = 3670955
+    				}
+    				_ = gotoNext == 3670955
+    				if b_3668877 != 59 {
+    					gotoNext = 3670967
+    					_ = gotoNext == 3670967
+    					d.ungetc(b_3668877)
+    					gotoNext = 3671291
+    				} else {
+    					gotoNext = 3670997
+    					_ = gotoNext == 3670997
+    					name_3671004 = d.buf.Bytes()[before_3669899+1:]
+    					d.buf.WriteByte(59)
+    					if isName(name_3671004) {
+    						gotoNext = 3671084
+    						_ = gotoNext == 3671084
+    						s_3671092 = string(name_3671004)
+    						if r_3671119, ok_3671122 = entity[s_3671092]; ok_3671122 {
+    							gotoNext = 3671142
+    							_ = gotoNext == 3671142
+    							text_3669967 = string(r_3671119)
+    							haveText_3669986 = true
+    							gotoNext = 3671291
+    						} else if d.Entity != nil {
+    							gotoNext = 3671223
+    							_ = gotoNext == 3671223
+    							text_3669967, haveText_3669986 = d.Entity[s_3671092]
+    							gotoNext = 3671291
+    						} else {
+    							gotoNext = 3671291
+    						}
+    						gotoNext = 3671291
+    					} else {
+    						gotoNext = 3671291
+    					}
+    					gotoNext = 3671291
+    				}
+    				gotoNext = 3671291
+    			}
+    			_ = gotoNext == 3671291
+    			if haveText_3669986 {
+    				gotoNext = 3671303
+    				_ = gotoNext == 3671303
+    				d.buf.Truncate(before_3669899)
+    				d.buf.WriteString(text_3669967)
+    				b0_3668819, b1_3668823 = 0, 0
+    				gotoNext = 3668869
+    				gotoNext = 3671405
+    			} else {
+    				gotoNext = 3671405
+    			}
+    			_ = gotoNext == 3671405
+    			if !d.Strict {
+    				gotoNext = 3671418
+    				_ = gotoNext == 3671418
+    				b0_3668819, b1_3668823 = 0, 0
+    				gotoNext = 3668869
+    				gotoNext = 3671465
+    			} else {
+    				gotoNext = 3671465
+    			}
+    			_ = gotoNext == 3671465
+    			ent_3671465 = string(d.buf.Bytes()[before_3669899:])
+    			if ent_3671465[len(ent_3671465)-1] != 59 {
+    				gotoNext = 3671532
+    				_ = gotoNext == 3671532
+    				ent_3671465 += " (no semicolon)"
+    				gotoNext = 3671571
+    			} else {
+    				gotoNext = 3671571
+    			}
+    			_ = gotoNext == 3671571
+    			d.err = d.syntaxError("invalid character entity " + ent_3671465)
+    			return nil
+    			gotoNext = 3671701
+    		} else {
+    			gotoNext = 3671701
+    		}
+    		_ = gotoNext == 3671701
+    		if b_3668877 == 13 {
+    			gotoNext = 3671714
+    			_ = gotoNext == 3671714
+    			d.buf.WriteByte(10)
+    			gotoNext = 3671857
+    		} else if b1_3668823 == 13 && b_3668877 == 10 {
+    			gotoNext = 3671777
+    			_ = gotoNext == 3671777
+    			gotoNext = 3671857
+    		} else {
+    			gotoNext = 3671826
+    			_ = gotoNext == 3671826
+    			d.buf.WriteByte(b_3668877)
+    			gotoNext = 3671857
+    		}
+    		_ = gotoNext == 3671857
+    		b0_3668819, b1_3668823 = b1_3668823, b_3668877
+    		gotoNext = 3668869
+    	} else {
+    		gotoNext = 3671876
+    	}
+    	_ = gotoNext == 3671876
+    	data_3671876 = d.buf.Bytes()
+    	data_3671876 = data_3671876[0 : len(data_3671876)-trunc_3668836]
+    	buf_3671990 = data_3671876
+    	_ = 0
+    	gotoNext = 3672003
+    	_ = gotoNext == 3672003
+    	if len(buf_3671990) > 0 {
+    		gotoNext = 3672020
+    		_ = gotoNext == 3672020
+    		r_3672024, size_3672027 = utf8.DecodeRune(buf_3671990)
+    		if r_3672024 == 65533 && size_3672027 == 1 {
+    			gotoNext = 3672094
+    			_ = gotoNext == 3672094
+    			d.err = d.syntaxError("invalid UTF-8")
+    			return nil
+    			gotoNext = 3672158
+    		} else {
+    			gotoNext = 3672158
+    		}
+    		_ = gotoNext == 3672158
+    		buf_3671990 = buf_3671990[size_3672027:]
+    		if !isInCharacterRange(r_3672024) {
+    			gotoNext = 3672203
+    			_ = gotoNext == 3672203
+    			d.err = d.syntaxError(fmt.Sprintf("illegal character code %U", r_3672024))
+    			return nil
+    			gotoNext = 3672298
+    		} else {
+    			gotoNext = 3672298
+    		}
+    		gotoNext = 3672003
+    	} else {
+    		gotoNext = 3672298
+    	}
+    	_ = gotoNext == 3672298
+    	return data_3671876
+    	gotoNext = -1
+    }*|/
 **/
 class Xml {
     /**

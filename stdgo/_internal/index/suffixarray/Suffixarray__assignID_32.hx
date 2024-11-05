@@ -1,15 +1,15 @@
 package stdgo._internal.index.suffixarray;
 function _assignID_32(_text:stdgo.Slice<stdgo.GoInt32>, _sa:stdgo.Slice<stdgo.GoInt32>, _numLMS:stdgo.GoInt):stdgo.GoInt {
-        var _this_3362346:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
-        var _n_3362128:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _id_3361936:stdgo.GoInt = (0 : stdgo.GoInt);
         var _last_3362370:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
-        var _i_3362002_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3362128:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _j_3362009:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _i_3362014_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _lastPos_3361981:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _lastLen_3361945:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _i_3362404:stdgo.GoInt = (0 : stdgo.GoInt);
         var _n_3362331:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _j_3362009:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _i_3362404:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _this_3362346:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -25,7 +25,7 @@ function _assignID_32(_text:stdgo.Slice<stdgo.GoInt32>, _sa:stdgo.Slice<stdgo.Go
                         _gotoNext = 3362569i32;
                     };
                 } else if (__value__ == (3362040i32)) {
-                    _j_3362009 = (_sa.__slice__(((_sa.length) - _numLMS : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>)[(_i_3362002_0 : stdgo.GoInt)];
+                    _j_3362009 = (_sa.__slice__(((_sa.length) - _numLMS : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>)[(_i_3362014_0 : stdgo.GoInt)];
                     _n_3362128 = _sa[((_j_3362009 / (2 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)];
                     if (_n_3362128 != (_lastLen_3361945)) {
                         _gotoNext = 3362159i32;
@@ -77,18 +77,18 @@ function _assignID_32(_text:stdgo.Slice<stdgo.GoInt32>, _sa:stdgo.Slice<stdgo.Go
                     _gotoNext = 3362537i32;
                 } else if (__value__ == (3362537i32)) {
                     _sa[((_j_3362009 / (2 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)] = (_id_3361936 : stdgo.GoInt32);
-                    _i_3362002_0++;
+                    _i_3362014_0++;
                     _gotoNext = 3362566i32;
                 } else if (__value__ == (3362565i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = (_sa.__slice__(((_sa.length) - _numLMS : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>)[(0i32 : stdgo.GoInt)];
-                        _i_3362002_0 = __tmp__0;
+                        _i_3362014_0 = __tmp__0;
                         _j_3362009 = __tmp__1;
                     };
                     _gotoNext = 3362566i32;
                 } else if (__value__ == (3362566i32)) {
-                    if (_i_3362002_0 < ((_sa.__slice__(((_sa.length) - _numLMS : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>).length)) {
+                    if (_i_3362014_0 < ((_sa.__slice__(((_sa.length) - _numLMS : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>).length)) {
                         _gotoNext = 3362040i32;
                     } else {
                         _gotoNext = 3362569i32;

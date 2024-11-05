@@ -1710,22 +1710,152 @@ class InsecureAlgorithmError_static_extension {
     }
 }
 /**
-    Package x509 implements a subset of the X.509 standard.
-    
-    It allows parsing and generating certificates, certificate signing
-    requests, certificate revocation lists, and encoded public and private keys.
-    It provides a certificate verifier, complete with a chain builder.
-    
-    The package targets the X.509 technical profile defined by the IETF (RFC
-    2459/3280/5280), and as further restricted by the CA/Browser Forum Baseline
-    Requirements. There is minimal support for features outside of these
-    profiles, as the primary goal of the package is to provide compatibility
-    with the publicly trusted TLS certificate ecosystem and its policies and
-    constraints.
-    
-    On macOS and Windows, certificate verification is handled by system APIs, but
-    the package aims to apply consistent validation rules across operating
-    systems.
+    /|*{
+    	usages_5634714 = make([]ExtKeyUsage, len(keyUsages))
+    	copy(usages_5634714, keyUsages)
+    	if len(chain) == 0 {
+    		gotoNext = 5634806
+    		_ = gotoNext == 5634806
+    		return false
+    		gotoNext = 5634828
+    	} else {
+    		gotoNext = 5634828
+    	}
+    	_ = gotoNext == 5634828
+    	usagesRemaining_5634828 = len(usages_5634714)
+    	gotoNext = 5635027
+    	_ = gotoNext == 5635027
+    	i_5635042 = len(chain) - 1
+    	NextCertBreak = false
+    	gotoNext = 5635038
+    	_ = gotoNext == 5635038
+    	if !NextCertBreak && (i_5635042 >= 0) {
+    		gotoNext = 5635075
+    		_ = gotoNext == 5635075
+    		cert_5635079 = chain[i_5635042]
+    		if len(cert_5635079.ExtKeyUsage) == 0 && len(cert_5635079.UnknownExtKeyUsage) == 0 {
+    			gotoNext = 5635165
+    			_ = gotoNext == 5635165
+    			i_5635042--
+    			gotoNext = 5635038
+    			gotoNext = 5635255
+    		} else {
+    			gotoNext = 5635255
+    		}
+    		_ = gotoNext == 5635255
+    		if 0 < len(cert_5635079.ExtKeyUsage) {
+    			gotoNext = 5635413
+    			_ = gotoNext == 5635413
+    			i_5635271_0, usage_5635262 = 0, cert_5635079.ExtKeyUsage[0]
+    			gotoNext = 5635414
+    			_ = gotoNext == 5635414
+    			if i_5635271_0 < len(cert_5635079.ExtKeyUsage) {
+    				gotoNext = 5635294
+    				_ = gotoNext == 5635294
+    				usage_5635262 = cert_5635079.ExtKeyUsage[i_5635271_0]
+    				if usage_5635262 == 0 {
+    					gotoNext = 5635326
+    					_ = gotoNext == 5635326
+    					i_5635042--
+    					gotoNext = 5635038
+    					gotoNext = 5635259
+    				} else {
+    					gotoNext = 5635259
+    				}
+    				_ = gotoNext == 5635259
+    				i_5635271_0++
+    				gotoNext = 5635414
+    			} else {
+    				gotoNext = 5635419
+    			}
+    			gotoNext = 5635419
+    		} else {
+    			gotoNext = 5635419
+    		}
+    		_ = gotoNext == 5635419
+    		invalidUsage_5635425 = -1
+    		gotoNext = 5635457
+    		_ = gotoNext == 5635457
+    		if 0 < len(usages_5634714) {
+    			gotoNext = 5635800
+    			_ = gotoNext == 5635800
+    			i_5635483, requestedUsage_5635486 = 0, usages_5634714[0]
+    			gotoNext = 5635801
+    			_ = gotoNext == 5635801
+    			if i_5635483 < len(usages_5634714) {
+    				gotoNext = 5635517
+    				_ = gotoNext == 5635517
+    				requestedUsage_5635486 = usages_5634714[i_5635483]
+    				if requestedUsage_5635486 == -1 {
+    					gotoNext = 5635556
+    					_ = gotoNext == 5635556
+    					i_5635483++
+    					gotoNext = 5635801
+    					gotoNext = 5635580
+    				} else {
+    					gotoNext = 5635580
+    				}
+    				_ = gotoNext == 5635580
+    				if 0 < len(cert_5635079.ExtKeyUsage) {
+    					gotoNext = 5635695
+    					_ = gotoNext == 5635695
+    					i_5635596_0, usage_5635587 = 0, cert_5635079.ExtKeyUsage[0]
+    					gotoNext = 5635696
+    					_ = gotoNext == 5635696
+    					if i_5635596_0 < len(cert_5635079.ExtKeyUsage) {
+    						gotoNext = 5635619
+    						_ = gotoNext == 5635619
+    						usage_5635587 = cert_5635079.ExtKeyUsage[i_5635596_0]
+    						if requestedUsage_5635486 == usage_5635587 {
+    							gotoNext = 5635652
+    							_ = gotoNext == 5635652
+    							i_5635483++
+    							gotoNext = 5635801
+    							gotoNext = 5635584
+    						} else {
+    							gotoNext = 5635584
+    						}
+    						_ = gotoNext == 5635584
+    						i_5635596_0++
+    						gotoNext = 5635696
+    					} else {
+    						gotoNext = 5635702
+    					}
+    					gotoNext = 5635702
+    				} else {
+    					gotoNext = 5635702
+    				}
+    				_ = gotoNext == 5635702
+    				usages_5634714[i_5635483] = -1
+    				usagesRemaining_5634828--
+    				if usagesRemaining_5634828 == 0 {
+    					gotoNext = 5635775
+    					_ = gotoNext == 5635775
+    					return false
+    					gotoNext = 5635483
+    				} else {
+    					gotoNext = 5635483
+    				}
+    				_ = gotoNext == 5635483
+    				i_5635483++
+    				gotoNext = 5635801
+    			} else {
+    				gotoNext = 5635071
+    			}
+    			gotoNext = 5635071
+    		} else {
+    			gotoNext = 5635071
+    		}
+    		_ = gotoNext == 5635071
+    		i_5635042--
+    		gotoNext = 5635038
+    	} else {
+    		gotoNext = 5635808
+    	}
+    	_ = gotoNext == 5635808
+    	return true
+    	gotoNext = -1
+    }*|/
 **/
 class X509 {
     /**

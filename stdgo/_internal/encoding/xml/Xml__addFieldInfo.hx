@@ -1,19 +1,19 @@
 package stdgo._internal.encoding.xml;
 function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo>, _newf:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>):stdgo.Error {
-        var _f1_3755994:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
         var _oldf_3755928:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
-        var _i_3755896_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _p_3754972:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3756342:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3755903:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3755729:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _oldf_3754741:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
-        var _i_3755722_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _minl_3754916:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3755908_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3755734_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3754713:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _c_3756301:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3756342:stdgo.GoInt = (0 : stdgo.GoInt);
         var _f2_3756030:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
+        var _i_3755729:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _p_3754972:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _minl_3754916:stdgo.GoInt = (0 : stdgo.GoInt);
         var _conflicts_3754619:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
+        var _c_3756301:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _f1_3755994:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
+        var _i_3755903:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _oldf_3754741:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -69,7 +69,8 @@ function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:
                         _gotoNext = 3754990i32;
                     };
                 } else if (__value__ == (3755037i32)) {
-                    _gotoNext = 3754709i32;
+                    _i_3754713++;
+                    _gotoNext = 3755470i32;
                 } else if (__value__ == (3755068i32)) {
                     if (((_oldf_3754741._parents.length) > (_newf._parents.length) : Bool)) {
                         _gotoNext = 3755109i32;
@@ -131,10 +132,10 @@ function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:
                         _gotoNext = 3755896i32;
                     };
                 } else if (__value__ == (3755726i32)) {
-                    _i_3755722_0++;
+                    _i_3755734_0++;
                     _gotoNext = 3755819i32;
                 } else if (__value__ == (3755750i32)) {
-                    _i_3755729 = _conflicts_3754619[(_i_3755722_0 : stdgo.GoInt)];
+                    _i_3755729 = _conflicts_3754619[(_i_3755734_0 : stdgo.GoInt)];
                     if (((_tinfo._fields[(_i_3755729 : stdgo.GoInt)]._idx.length) < (_newf._idx.length) : Bool)) {
                         _gotoNext = 3755798i32;
                     } else {
@@ -147,12 +148,12 @@ function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _conflicts_3754619[(0i32 : stdgo.GoInt)];
-                        _i_3755722_0 = __tmp__0;
+                        _i_3755734_0 = __tmp__0;
                         _i_3755729 = __tmp__1;
                     };
                     _gotoNext = 3755819i32;
                 } else if (__value__ == (3755819i32)) {
-                    if (_i_3755722_0 < (_conflicts_3754619.length)) {
+                    if (_i_3755734_0 < (_conflicts_3754619.length)) {
                         _gotoNext = 3755750i32;
                     } else {
                         _gotoNext = 3755896i32;
@@ -164,10 +165,10 @@ function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:
                         _gotoNext = 3756297i32;
                     };
                 } else if (__value__ == (3755900i32)) {
-                    _i_3755896_0++;
+                    _i_3755908_0++;
                     _gotoNext = 3756153i32;
                 } else if (__value__ == (3755924i32)) {
-                    _i_3755903 = _conflicts_3754619[(_i_3755896_0 : stdgo.GoInt)];
+                    _i_3755903 = _conflicts_3754619[(_i_3755908_0 : stdgo.GoInt)];
                     _oldf_3755928 = (stdgo.Go.setRef(_tinfo._fields[(_i_3755903 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
                     if ((_oldf_3755928._idx.length) == ((_newf._idx.length))) {
                         _gotoNext = 3755989i32;
@@ -183,12 +184,12 @@ function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _conflicts_3754619[(0i32 : stdgo.GoInt)];
-                        _i_3755896_0 = __tmp__0;
+                        _i_3755908_0 = __tmp__0;
                         _i_3755903 = __tmp__1;
                     };
                     _gotoNext = 3756153i32;
                 } else if (__value__ == (3756153i32)) {
-                    if (_i_3755896_0 < (_conflicts_3754619.length)) {
+                    if (_i_3755908_0 < (_conflicts_3754619.length)) {
                         _gotoNext = 3755924i32;
                     } else {
                         _gotoNext = 3756297i32;

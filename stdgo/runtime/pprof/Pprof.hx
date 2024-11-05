@@ -647,74 +647,169 @@ class T_stackProfile_static_extension {
     }
 }
 /**
-    Package pprof writes runtime profiling data in the format expected
-    by the pprof visualization tool.
-    
-    # Profiling a Go program
-    
-    The first step to profiling a Go program is to enable profiling.
-    Support for profiling benchmarks built with the standard testing
-    package is built into go test. For example, the following command
-    runs benchmarks in the current directory and writes the CPU and
-    memory profiles to cpu.prof and mem.prof:
-    
-    	go test -cpuprofile cpu.prof -memprofile mem.prof -bench .
-    
-    To add equivalent profiling support to a standalone program, add
-    code like the following to your main function:
-    
-    	var cpuprofile = flag.String("cpuprofile", "", "write cpu profile to `file`")
-    	var memprofile = flag.String("memprofile", "", "write memory profile to `file`")
-    
-    	func main() {
-    	    flag.Parse()
-    	    if *cpuprofile != "" {
-    	        f, err := os.Create(*cpuprofile)
-    	        if err != nil {
-    	            log.Fatal("could not create CPU profile: ", err)
-    	        }
-    	        defer f.Close() // error handling omitted for example
-    	        if err := pprof.StartCPUProfile(f); err != nil {
-    	            log.Fatal("could not start CPU profile: ", err)
-    	        }
-    	        defer pprof.StopCPUProfile()
-    	    }
-    
-    	    // ... rest of the program ...
-    
-    	    if *memprofile != "" {
-    	        f, err := os.Create(*memprofile)
-    	        if err != nil {
-    	            log.Fatal("could not create memory profile: ", err)
-    	        }
-    	        defer f.Close() // error handling omitted for example
-    	        runtime.GC() // get up-to-date statistics
-    	        if err := pprof.WriteHeapProfile(f); err != nil {
-    	            log.Fatal("could not write memory profile: ", err)
-    	        }
-    	    }
+    /|*{
+    	h_3861854 = uintptr(0)
+    	if 0 < len(stk) {
+    		gotoNext = 3861967
+    		_ = gotoNext == 3861967
+    		i_3861883_0, x_3861878 = 0, stk[0]
+    		gotoNext = 3861968
+    		_ = gotoNext == 3861968
+    		if i_3861883_0 < len(stk) {
+    			gotoNext = 3861893
+    			_ = gotoNext == 3861893
+    			x_3861878 = stk[i_3861883_0]
+    			h_3861854 = h_3861854<<8 | (h_3861854 >> 24)
+    			h_3861854 += uintptr(x_3861878) * 41
+    			i_3861883_0++
+    			gotoNext = 3861968
+    		} else {
+    			gotoNext = 3861971
+    		}
+    		gotoNext = 3861971
+    	} else {
+    		gotoNext = 3861971
     	}
-    
-    There is also a standard HTTP interface to profiling data. Adding
-    the following line will install handlers under the /debug/pprof/
-    URL to download live profiles:
-    
-    	import _ "net/http/pprof"
-    
-    See the net/http/pprof package for more details.
-    
-    Profiles can then be visualized with the pprof tool:
-    
-    	go tool pprof cpu.prof
-    
-    There are many commands available from the pprof command line.
-    Commonly used commands include "top", which prints a summary of the
-    top program hot-spots, and "web", which opens an interactive graph
-    of hot-spots and their call graphs. Use "help" for information on
-    all pprof commands.
-    
-    For more information about pprof, see
-    https://github.com/google/pprof/blob/master/doc/README.md.
+    	_ = gotoNext == 3861971
+    	h_3861854 = h_3861854<<8 | (h_3861854 >> 24)
+    	h_3861854 += uintptr(tag) * 41
+    	gotoNext = 3862094
+    	_ = gotoNext == 3862094
+    	e_3862107 = m.hash[h_3861854]
+    	SearchBreak = false
+    	gotoNext = 3862103
+    	_ = gotoNext == 3862103
+    	if !SearchBreak && (e_3862107 != nil) {
+    		gotoNext = 3862157
+    		_ = gotoNext == 3862157
+    		if len(e_3862107.stk) != len(stk) || e_3862107.tag != tag {
+    			gotoNext = 3862203
+    			_ = gotoNext == 3862203
+    			last_3862075, e_3862107 = e_3862107, e_3862107.nextHash
+    			gotoNext = 3862103
+    			gotoNext = 3862223
+    		} else {
+    			gotoNext = 3862223
+    		}
+    		_ = gotoNext == 3862223
+    		if 0 < len(stk) {
+    			gotoNext = 3862306
+    			_ = gotoNext == 3862306
+    			j_3862227 = 0
+    			gotoNext = 3862307
+    			_ = gotoNext == 3862307
+    			if j_3862227 < len(stk) {
+    				gotoNext = 3862242
+    				_ = gotoNext == 3862242
+    				if e_3862107.stk[j_3862227] != uintptr(stk[j_3862227]) {
+    					gotoNext = 3862278
+    					_ = gotoNext == 3862278
+    					last_3862075, e_3862107 = e_3862107, e_3862107.nextHash
+    					gotoNext = 3862103
+    					gotoNext = 3862227
+    				} else {
+    					gotoNext = 3862227
+    				}
+    				_ = gotoNext == 3862227
+    				j_3862227++
+    				gotoNext = 3862307
+    			} else {
+    				gotoNext = 3862331
+    			}
+    			gotoNext = 3862331
+    		} else {
+    			gotoNext = 3862331
+    		}
+    		_ = gotoNext == 3862331
+    		if last_3862075 != nil {
+    			gotoNext = 3862346
+    			_ = gotoNext == 3862346
+    			last_3862075.nextHash = e_3862107.nextHash
+    			e_3862107.nextHash = m.hash[h_3861854]
+    			m.hash[h_3861854] = e_3862107
+    			gotoNext = 3862427
+    		} else {
+    			gotoNext = 3862427
+    		}
+    		_ = gotoNext == 3862427
+    		return e_3862107
+    		last_3862075, e_3862107 = e_3862107, e_3862107.nextHash
+    		gotoNext = 3862103
+    	} else {
+    		gotoNext = 3862460
+    	}
+    	_ = gotoNext == 3862460
+    	if len(m.free) < 1 {
+    		gotoNext = 3862479
+    		_ = gotoNext == 3862479
+    		m.free = make([]profMapEntry, 128)
+    		gotoNext = 3862522
+    	} else {
+    		gotoNext = 3862522
+    	}
+    	_ = gotoNext == 3862522
+    	e_3862522 = &m.free[0]
+    	m.free = m.free[1:]
+    	e_3862522.nextHash = m.hash[h_3861854]
+    	e_3862522.tag = tag
+    	if len(m.freeStk) < len(stk) {
+    		gotoNext = 3862627
+    		_ = gotoNext == 3862627
+    		m.freeStk = make([]uintptr, 1024)
+    		gotoNext = 3862726
+    	} else {
+    		gotoNext = 3862726
+    	}
+    	_ = gotoNext == 3862726
+    	e_3862522.stk = m.freeStk[:len(stk):len(stk)]
+    	m.freeStk = m.freeStk[len(stk):]
+    	if 0 < len(stk) {
+    		gotoNext = 3862850
+    		_ = gotoNext == 3862850
+    		j_3862804 = 0
+    		gotoNext = 3862851
+    		_ = gotoNext == 3862851
+    		if j_3862804 < len(stk) {
+    			gotoNext = 3862819
+    			_ = gotoNext == 3862819
+    			e_3862522.stk[j_3862804] = uintptr(stk[j_3862804])
+    			j_3862804++
+    			gotoNext = 3862851
+    		} else {
+    			gotoNext = 3862854
+    		}
+    		gotoNext = 3862854
+    	} else {
+    		gotoNext = 3862854
+    	}
+    	_ = gotoNext == 3862854
+    	if m.hash == nil {
+    		gotoNext = 3862871
+    		_ = gotoNext == 3862871
+    		m.hash = make(map[uintptr]*profMapEntry)
+    		gotoNext = 3862920
+    	} else {
+    		gotoNext = 3862920
+    	}
+    	_ = gotoNext == 3862920
+    	m.hash[h_3861854] = e_3862522
+    	if m.all == nil {
+    		gotoNext = 3862951
+    		_ = gotoNext == 3862951
+    		m.all = e_3862522
+    		m.last = e_3862522
+    		gotoNext = 3863026
+    	} else {
+    		gotoNext = 3862986
+    		_ = gotoNext == 3862986
+    		m.last.nextAll = e_3862522
+    		m.last = e_3862522
+    		gotoNext = 3863026
+    	}
+    	_ = gotoNext == 3863026
+    	return e_3862522
+    	gotoNext = -1
+    }*|/
 **/
 class Pprof {
     /**

@@ -40,13 +40,82 @@ class T_lazybuf_static_extension {
     }
 }
 /**
-    Package path implements utility routines for manipulating slash-separated
-    paths.
-    
-    The path package should only be used for paths separated by forward
-    slashes, such as the paths in URLs. This package does not deal with
-    Windows paths with drive letters or backslashes; to manipulate
-    operating system paths, use the path/filepath package.
+    /|*{
+    	_ = 0
+    	gotoNext = 2612207
+    	_ = gotoNext == 2612207
+    	if len(pattern) > 0 && pattern[0] == 42 {
+    		gotoNext = 2612249
+    		_ = gotoNext == 2612249
+    		pattern = pattern[1:]
+    		star = true
+    		gotoNext = 2612207
+    	} else {
+    		gotoNext = 2612293
+    	}
+    	_ = gotoNext == 2612293
+    	inrange_2612293 = false
+    	gotoNext = 2612321
+    	_ = gotoNext == 2612321
+    	i_2612315 = 0
+    	ScanBreak = false
+    	gotoNext = 2612328
+    	_ = gotoNext == 2612328
+    	if !ScanBreak && (i_2612315 < len(pattern)) {
+    		gotoNext = 2612361
+    		_ = gotoNext == 2612361
+    		_ = 0
+    		gotoNext = 2612365
+    		_ = gotoNext == 2612365
+    		switch pattern[i_2612315] {
+    		case 92:
+    			gotoNext = 2612387
+    			_ = gotoNext == 2612387
+    			if i_2612315+1 < len(pattern) {
+    				gotoNext = 2612477
+    				_ = gotoNext == 2612477
+    				i_2612315++
+    				gotoNext = 2612357
+    			} else {
+    				gotoNext = 2612357
+    			}
+    			gotoNext = 2612357
+    		case 91:
+    			gotoNext = 2612494
+    			_ = gotoNext == 2612494
+    			inrange_2612293 = true
+    			gotoNext = 2612357
+    		case 93:
+    			gotoNext = 2612524
+    			_ = gotoNext == 2612524
+    			inrange_2612293 = false
+    			gotoNext = 2612357
+    		case 42:
+    			gotoNext = 2612555
+    			_ = gotoNext == 2612555
+    			if !inrange_2612293 {
+    				gotoNext = 2612580
+    				_ = gotoNext == 2612580
+    				ScanBreak = true
+    				gotoNext = 2612328
+    				gotoNext = 2612357
+    			} else {
+    				gotoNext = 2612357
+    			}
+    			gotoNext = 2612357
+    		default:
+    			gotoNext = 2612357
+    		}
+    		_ = gotoNext == 2612357
+    		i_2612315++
+    		gotoNext = 2612328
+    	} else {
+    		gotoNext = 2612610
+    	}
+    	_ = gotoNext == 2612610
+    	return star, pattern[0:i_2612315], pattern[i_2612315:]
+    	gotoNext = -1
+    }*|/
 **/
 class Path {
     /**

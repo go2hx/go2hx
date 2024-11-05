@@ -527,9 +527,195 @@ class T_huffmanLUT_static_extension {
     }
 }
 /**
-    Package jpeg implements a JPEG image decoder and encoder.
-    
-    JPEG is defined in ITU-T T.81: https://www.w3.org/Graphics/JPEG/itu-t81.pdf.
+    /|*{
+    	if zigStart == 0 {
+    		gotoNext = 2984892
+    		_ = gotoNext == 2984892
+    		if zigEnd != 0 {
+    			gotoNext = 2984911
+    			_ = gotoNext == 2984911
+    			panic("unreachable")
+    			gotoNext = 2984943
+    		} else {
+    			gotoNext = 2984943
+    		}
+    		_ = gotoNext == 2984943
+    		bit_2984943, err_2984948 = d.decodeBit()
+    		if err_2984948 != nil {
+    			gotoNext = 2984985
+    			_ = gotoNext == 2984985
+    			return err_2984948
+    			gotoNext = 2985007
+    		} else {
+    			gotoNext = 2985007
+    		}
+    		_ = gotoNext == 2985007
+    		if bit_2984943 {
+    			gotoNext = 2985014
+    			_ = gotoNext == 2985014
+    			b[0] |= delta
+    			gotoNext = 2985039
+    		} else {
+    			gotoNext = 2985039
+    		}
+    		_ = gotoNext == 2985039
+    		return nil
+    		gotoNext = 2985137
+    	} else {
+    		gotoNext = 2985137
+    	}
+    	_ = gotoNext == 2985137
+    	zig_2985137 = zigStart
+    	if d.eobRun == 0 {
+    		gotoNext = 2985171
+    		_ = gotoNext == 2985171
+    		gotoNext = 2985174
+    		_ = gotoNext == 2985174
+    		_ = 0
+    		loopBreak = false
+    		gotoNext = 2985182
+    		_ = gotoNext == 2985182
+    		if !loopBreak && (zig_2985137 <= zigEnd) {
+    			gotoNext = 2985209
+    			_ = gotoNext == 2985209
+    			z_2985214 = int32(0)
+    			value_2985231, err_2985238 = d.decodeHuffman(h)
+    			if err_2985238 != nil {
+    				gotoNext = 2985281
+    				_ = gotoNext == 2985281
+    				return err_2985238
+    				gotoNext = 2985306
+    			} else {
+    				gotoNext = 2985306
+    			}
+    			_ = gotoNext == 2985306
+    			val0_2985306 = value_2985231 >> 4
+    			val1_2985328 = value_2985231 & 15
+    			_ = 0
+    			gotoNext = 2985353
+    			_ = gotoNext == 2985353
+    			switch val1_2985328 {
+    			case 0:
+    				gotoNext = 2985370
+    				_ = gotoNext == 2985370
+    				if val0_2985306 != 15 {
+    					gotoNext = 2985398
+    					_ = gotoNext == 2985398
+    					d.eobRun = uint16(1 << val0_2985306)
+    					if val0_2985306 != 0 {
+    						gotoNext = 2985452
+    						_ = gotoNext == 2985452
+    						bits_2985460, err_2985466 = d.decodeBits(int32(val0_2985306))
+    						if err_2985466 != nil {
+    							gotoNext = 2985519
+    							_ = gotoNext == 2985519
+    							return err_2985466
+    							gotoNext = 2985553
+    						} else {
+    							gotoNext = 2985553
+    						}
+    						_ = gotoNext == 2985553
+    						d.eobRun |= uint16(bits_2985460)
+    						gotoNext = 2985590
+    					} else {
+    						gotoNext = 2985590
+    					}
+    					_ = gotoNext == 2985590
+    					loopBreak = true
+    					gotoNext = 2985182
+    					gotoNext = 2985807
+    				} else {
+    					gotoNext = 2985807
+    				}
+    				gotoNext = 2985807
+    			case 1:
+    				gotoNext = 2985610
+    				_ = gotoNext == 2985610
+    				z_2985214 = delta
+    				bit_2985636, err_2985641 = d.decodeBit()
+    				if err_2985641 != nil {
+    					gotoNext = 2985680
+    					_ = gotoNext == 2985680
+    					return err_2985641
+    					gotoNext = 2985708
+    				} else {
+    					gotoNext = 2985708
+    				}
+    				_ = gotoNext == 2985708
+    				if !bit_2985636 {
+    					gotoNext = 2985716
+    					_ = gotoNext == 2985716
+    					z_2985214 = -z_2985214
+    					gotoNext = 2985807
+    				} else {
+    					gotoNext = 2985807
+    				}
+    				gotoNext = 2985807
+    			default:
+    				gotoNext = 2985739
+    				_ = gotoNext == 2985739
+    				return FormatError("unexpected Huffman code")
+    				gotoNext = 2985807
+    			}
+    			_ = gotoNext == 2985807
+    			zig_2985137, err_2985238 = d.refineNonZeroes(b, zig_2985137, zigEnd, int32(val0_2985306), delta)
+    			if err_2985238 != nil {
+    				gotoNext = 2985889
+    				_ = gotoNext == 2985889
+    				return err_2985238
+    				gotoNext = 2985914
+    			} else {
+    				gotoNext = 2985914
+    			}
+    			_ = gotoNext == 2985914
+    			if zig_2985137 > zigEnd {
+    				gotoNext = 2985930
+    				_ = gotoNext == 2985930
+    				return FormatError("too many coefficients")
+    				gotoNext = 2985988
+    			} else {
+    				gotoNext = 2985988
+    			}
+    			_ = gotoNext == 2985988
+    			if z_2985214 != 0 {
+    				gotoNext = 2985998
+    				_ = gotoNext == 2985998
+    				b[unzig[zig_2985137]] = z_2985214
+    				gotoNext = 2985203
+    			} else {
+    				gotoNext = 2985203
+    			}
+    			_ = gotoNext == 2985203
+    			zig_2985137++
+    			gotoNext = 2985182
+    		} else {
+    			gotoNext = 2986035
+    		}
+    		gotoNext = 2986035
+    	} else {
+    		gotoNext = 2986035
+    	}
+    	_ = gotoNext == 2986035
+    	if d.eobRun > 0 {
+    		gotoNext = 2986051
+    		_ = gotoNext == 2986051
+    		d.eobRun--
+    		if _, err_2986074 = d.refineNonZeroes(b, zig_2985137, zigEnd, -1, delta); err_2986074 != nil {
+    			gotoNext = 2986138
+    			_ = gotoNext == 2986138
+    			return err_2986074
+    			gotoNext = 2986162
+    		} else {
+    			gotoNext = 2986162
+    		}
+    		gotoNext = 2986162
+    	} else {
+    		gotoNext = 2986162
+    	}
+    	_ = gotoNext == 2986162
+    	return nil
+    	gotoNext = -1
+    }*|/
 **/
 class Jpeg {
     /**

@@ -111,19 +111,19 @@ package stdgo._internal.compress.lzw;
     static public function write( _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Writer.Writer> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        var _t_3655250:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _maxLit_3654152:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _err1_3655751:stdgo.Error = (null : stdgo.Error);
         var _h_3655247:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _hash_3655205:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _key_3655072:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _maxLit_3654152:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _x_3655032:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _i_3655025_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _clear_3654777:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _x_3654214:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _literal_3655049:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _i_3654207_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err1_3655751:stdgo.Error = (null : stdgo.Error);
+        var _i_3655037_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err_3654815:stdgo.Error = (null : stdgo.Error);
+        var _x_3654214:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _clear_3654777:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _key_3655072:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _literal_3655049:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _i_3654219_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _t_3655250:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _x_3655032:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _code_3654362:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
@@ -164,10 +164,10 @@ package stdgo._internal.compress.lzw;
                         _gotoNext = 3654350i32;
                     };
                 } else if (__value__ == (3654211i32)) {
-                    _i_3654207_0++;
+                    _i_3654219_0++;
                     _gotoNext = 3654344i32;
                 } else if (__value__ == (3654227i32)) {
-                    _x_3654214 = _p[(_i_3654207_0 : stdgo.GoInt)];
+                    _x_3654214 = _p[(_i_3654219_0 : stdgo.GoInt)];
                     if ((_x_3654214 > _maxLit_3654152 : Bool)) {
                         _gotoNext = 3654246i32;
                     } else {
@@ -181,12 +181,12 @@ package stdgo._internal.compress.lzw;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _p[(0i32 : stdgo.GoInt)];
-                        _i_3654207_0 = __tmp__0;
+                        _i_3654219_0 = __tmp__0;
                         _x_3654214 = __tmp__1;
                     };
                     _gotoNext = 3654344i32;
                 } else if (__value__ == (3654344i32)) {
-                    if (_i_3654207_0 < (_p.length)) {
+                    if (_i_3654219_0 < (_p.length)) {
                         _gotoNext = 3654227i32;
                     } else {
                         _gotoNext = 3654350i32;
@@ -228,10 +228,10 @@ package stdgo._internal.compress.lzw;
                         _gotoNext = 3656085i32;
                     };
                 } else if (__value__ == (3655029i32)) {
-                    _i_3655025_0++;
+                    _i_3655037_0++;
                     _gotoNext = 3656082i32;
                 } else if (__value__ == (3655045i32)) {
-                    _x_3655032 = _p[(_i_3655025_0 : stdgo.GoInt)];
+                    _x_3655032 = _p[(_i_3655037_0 : stdgo.GoInt)];
                     _literal_3655049 = (_x_3655032 : stdgo.GoUInt32);
                     _key_3655072 = ((_code_3654362 << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | _literal_3655049 : stdgo.GoUInt32);
                     _hash_3655205 = ((((_key_3655072 >> (12i64 : stdgo.GoUInt64) : stdgo.GoUInt32) ^ _key_3655072 : stdgo.GoUInt32)) & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
@@ -256,7 +256,8 @@ package stdgo._internal.compress.lzw;
                     };
                 } else if (__value__ == (3655316i32)) {
                     _code_3654362 = (_t_3655250 & (4095u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
-                    _gotoNext = 3655025i32;
+                    stdgo._internal.compress.lzw.Lzw__i_3655037._i_3655037++;
+                    _gotoNext = 3656082i32;
                 } else if (__value__ == (3655367i32)) {
                     _h_3655247 = (((_h_3655247 + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
                     _t_3655250 = _w._table[(_h_3655247 : stdgo.GoInt)];
@@ -290,7 +291,7 @@ package stdgo._internal.compress.lzw;
                         _gotoNext = 3655835i32;
                     };
                 } else if (__value__ == (3655812i32)) {
-                    _i_3655025_0++;
+                    _i_3655037_0++;
                     _gotoNext = 3656082i32;
                 } else if (__value__ == (3655835i32)) {
                     _w._err = _err1_3655751;
@@ -320,12 +321,12 @@ package stdgo._internal.compress.lzw;
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _p[(0i32 : stdgo.GoInt)];
-                        _i_3655025_0 = __tmp__0;
+                        _i_3655037_0 = __tmp__0;
                         _x_3655032 = __tmp__1;
                     };
                     _gotoNext = 3656082i32;
                 } else if (__value__ == (3656082i32)) {
-                    if (_i_3655025_0 < (_p.length)) {
+                    if (_i_3655037_0 < (_p.length)) {
                         _gotoNext = 3655045i32;
                     } else {
                         _gotoNext = 3656085i32;

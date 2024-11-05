@@ -65,6 +65,19 @@ func (fs *funcScope) changeVars(expr ast.Expr) ast.Expr {
 	return expr
 }
 
+func (fs *funcScope) changeVarsStmtSimple(stmt ast.Stmt, from string, to string) ast.Stmt {
+	astutil.Apply(stmt, nil, func(c *astutil.Cursor) bool {
+		switch node := c.Node().(type) {
+		case *ast.Ident:
+			if node.Name == from {
+				node.Name = to
+			}
+		}
+		return true
+	})
+	return stmt
+}
+
 func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 	switch stmt := stmt.(type) {
 	case *ast.BlockStmt:
@@ -149,7 +162,29 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		if stmt.Init != nil {
 			init = fs.markJumps(stmt.Init, scopeIndex)
 		}
-		stmt.Assign = fs.markJumps(stmt.Assign, scopeIndex)[0]
+		definedStmts := make([]ast.Stmt, len(stmt.Body.List))
+		defined := false
+		switch assignStmt := stmt.Assign.(type) {
+		case *ast.AssignStmt: // define vartypeSwitch
+			defined = true
+			assignName := assignStmt.Lhs[0].(*ast.Ident).Name
+			for i, clause := range stmt.Body.List {
+				clause := clause.(*ast.CaseClause)
+				defineIdent := ast.NewIdent(assignName + "_" + fmt.Sprint(clause.Colon))
+				for i := range clause.Body {
+					clause.Body[i] = fs.changeVarsStmtSimple(clause.Body[i], assignName, defineIdent.Name)
+				}
+				obj := ast.NewObj(ast.Var, defineIdent.Name)
+				var defineType ast.Expr = ast.NewIdent("any")
+				if len(clause.List) == 1 {
+					defineType = clause.List[0]
+				}
+				fs.tempVars[obj] = tempVarData{defineIdent, defineType, nil}
+				definedStmts[i] = assign(defineIdent, assignStmt.Lhs[0])
+				//clause.Body = append([]ast.Stmt{define(defineIdent, assign.Lhs[0])}, clause.Body...)
+			}
+		default:
+		}
 		var defaultClause *ast.CaseClause
 		for i := range stmt.Body.List {
 			if stmt.Body.List[i].(*ast.CaseClause).List == nil {
@@ -170,7 +205,11 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			fs.nextJumpFunc = append(fs.nextJumpFunc, nextJumpFunc...)
 
 			stmt.Body.List[i].(*ast.CaseClause).Body = newStmts
-			stmt.Body.List[i].(*ast.CaseClause).Body = append([]ast.Stmt{jumpTo(stmt.Body.List[i].(*ast.CaseClause).Pos()), setJump(stmt.Body.List[i].(*ast.CaseClause).Pos())}, stmt.Body.List[i].(*ast.CaseClause).Body...)
+			initBody := []ast.Stmt{jumpTo(stmt.Body.List[i].(*ast.CaseClause).Pos()), setJump(stmt.Body.List[i].(*ast.CaseClause).Pos())}
+			if defined {
+				initBody = append([]ast.Stmt{definedStmts[i]}, initBody...)
+			}
+			stmt.Body.List[i].(*ast.CaseClause).Body = append(initBody, stmt.Body.List[i].(*ast.CaseClause).Body...)
 			stmt.Body.List[i].(*ast.CaseClause).Body = append(stmt.Body.List[i].(*ast.CaseClause).Body, blank())
 			i := i
 			fs.nextJumpRun(func(pos token.Pos) {
@@ -570,7 +609,8 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 					}
 					//fmt.Println(checker.TypeOf(expr).String())
 					if expr.Obj != nil {
-						stmt.Lhs[i] = fs.tempVar(expr, fs.checker.TypeOf(expr))
+						t := fs.checker.TypeOf(expr)
+						stmt.Lhs[i] = fs.tempVar(expr, t)
 					}
 				default:
 					panic("unknown expr lhs type: " + reflect.TypeOf(expr).String())
@@ -662,8 +702,11 @@ type tempVarData struct {
 }
 
 func (fs *funcScope) typeToExpr(t types.Type) ast.Expr {
+	if t == nil {
+		return ast.NewIdent("any")
+	}
 	for expr, data := range fs.checker.Types {
-		if data.Type.Underlying().String() == t.String() { // type equality
+		if data.Type.String() == t.String() { // type equality
 			buf := bytes.NewBufferString("")
 			printer.Fprint(buf, token.NewFileSet(), expr)
 			switch t.(type) {

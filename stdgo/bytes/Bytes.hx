@@ -260,8 +260,168 @@ class T_asciiSet_static_extension {
     }
 }
 /**
-    Package bytes implements functions for the manipulation of byte slices.
-    It is analogous to the facilities of the [strings] package.
+    /|*{
+    	i_2982590 = 0
+    	_ = 0
+    	gotoNext = 2982598
+    	_ = gotoNext == 2982598
+    	if i_2982590 < len(s) && i_2982590 < len(t) {
+    		gotoNext = 2982634
+    		_ = gotoNext == 2982634
+    		sr_2982638 = s[i_2982590]
+    		tr_2982651 = t[i_2982590]
+    		if sr_2982638|tr_2982651 >= 128 {
+    			gotoNext = 2982690
+    			_ = gotoNext == 2982690
+    			gotoNext = 2983048
+    			gotoNext = 2982734
+    		} else {
+    			gotoNext = 2982734
+    		}
+    		_ = gotoNext == 2982734
+    		if tr_2982651 == sr_2982638 {
+    			gotoNext = 2982746
+    			_ = gotoNext == 2982746
+    			i_2982590++
+    			gotoNext = 2982598
+    			gotoNext = 2982811
+    		} else {
+    			gotoNext = 2982811
+    		}
+    		_ = gotoNext == 2982811
+    		if tr_2982651 < sr_2982638 {
+    			gotoNext = 2982822
+    			_ = gotoNext == 2982822
+    			tr_2982651, sr_2982638 = sr_2982638, tr_2982651
+    			gotoNext = 2982897
+    		} else {
+    			gotoNext = 2982897
+    		}
+    		_ = gotoNext == 2982897
+    		if 65 <= sr_2982638 && sr_2982638 <= 90 && tr_2982651 == sr_2982638+97-65 {
+    			gotoNext = 2982943
+    			_ = gotoNext == 2982943
+    			i_2982590++
+    			gotoNext = 2982598
+    			gotoNext = 2982963
+    		} else {
+    			gotoNext = 2982963
+    		}
+    		_ = gotoNext == 2982963
+    		return false
+    		i_2982590++
+    		gotoNext = 2982598
+    	} else {
+    		gotoNext = 2983023
+    	}
+    	_ = gotoNext == 2983023
+    	return len(s) == len(t)
+    	gotoNext = 2983048
+    	_ = gotoNext == 2983048
+    	s = s[i_2982590:]
+    	t = t[i_2982590:]
+    	_ = 0
+    	gotoNext = 2983083
+    	_ = gotoNext == 2983083
+    	if len(s) != 0 && len(t) != 0 {
+    		gotoNext = 2983114
+    		_ = gotoNext == 2983114
+    		if s[0] < 128 {
+    			gotoNext = 2983195
+    			_ = gotoNext == 2983195
+    			sr_2983157, s = rune(s[0]), s[1:]
+    			gotoNext = 2983299
+    		} else {
+    			gotoNext = 2983235
+    			_ = gotoNext == 2983235
+    			r_2983240, size_2983243 = utf8.DecodeRune(s)
+    			sr_2983157, s = r_2983240, s[size_2983243:]
+    			gotoNext = 2983299
+    		}
+    		_ = gotoNext == 2983299
+    		if t[0] < 128 {
+    			gotoNext = 2983323
+    			_ = gotoNext == 2983323
+    			tr_2983161, t = rune(t[0]), t[1:]
+    			gotoNext = 2983499
+    		} else {
+    			gotoNext = 2983363
+    			_ = gotoNext == 2983363
+    			r_2983368, size_2983371 = utf8.DecodeRune(t)
+    			tr_2983161, t = r_2983368, t[size_2983371:]
+    			gotoNext = 2983499
+    		}
+    		_ = gotoNext == 2983499
+    		if tr_2983161 == sr_2983157 {
+    			gotoNext = 2983511
+    			_ = gotoNext == 2983511
+    			_ = 0
+    			gotoNext = 2983083
+    			gotoNext = 2983576
+    		} else {
+    			gotoNext = 2983576
+    		}
+    		_ = gotoNext == 2983576
+    		if tr_2983161 < sr_2983157 {
+    			gotoNext = 2983587
+    			_ = gotoNext == 2983587
+    			tr_2983161, sr_2983157 = sr_2983157, tr_2983161
+    			gotoNext = 2983641
+    		} else {
+    			gotoNext = 2983641
+    		}
+    		_ = gotoNext == 2983641
+    		if tr_2983161 < 128 {
+    			gotoNext = 2983663
+    			_ = gotoNext == 2983663
+    			if 65 <= sr_2983157 && sr_2983157 <= 90 && tr_2983161 == sr_2983157+97-65 {
+    				gotoNext = 2983763
+    				_ = gotoNext == 2983763
+    				_ = 0
+    				gotoNext = 2983083
+    				gotoNext = 2983786
+    			} else {
+    				gotoNext = 2983786
+    			}
+    			_ = gotoNext == 2983786
+    			return false
+    			gotoNext = 2983916
+    		} else {
+    			gotoNext = 2983916
+    		}
+    		_ = gotoNext == 2983916
+    		r_2983916 = unicode.SimpleFold(sr_2983157)
+    		_ = 0
+    		gotoNext = 2983946
+    		_ = gotoNext == 2983946
+    		if r_2983916 != sr_2983157 && r_2983916 < tr_2983161 {
+    			gotoNext = 2983968
+    			_ = gotoNext == 2983968
+    			r_2983916 = unicode.SimpleFold(r_2983916)
+    			gotoNext = 2983946
+    		} else {
+    			gotoNext = 2984005
+    		}
+    		_ = gotoNext == 2984005
+    		if r_2983916 == tr_2983161 {
+    			gotoNext = 2984016
+    			_ = gotoNext == 2984016
+    			_ = 0
+    			gotoNext = 2983083
+    			gotoNext = 2984036
+    		} else {
+    			gotoNext = 2984036
+    		}
+    		_ = gotoNext == 2984036
+    		return false
+    		gotoNext = 2983083
+    	} else {
+    		gotoNext = 2984089
+    	}
+    	_ = gotoNext == 2984089
+    	return len(s) == len(t)
+    	gotoNext = -1
+    }*|/
 **/
 class Bytes {
     /**

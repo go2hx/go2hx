@@ -72,7 +72,7 @@ package stdgo._internal.debug.macho;
             };
             return { _0 : _b, _1 : (null : stdgo.Error) };
         };
-        var _dat:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoUInt8>> = ({
+        var _dat = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoUInt8>>();
             x.__defaultValue__ = () -> (null : stdgo.Slice<stdgo.GoUInt8>);
             x.set(("abbrev" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));

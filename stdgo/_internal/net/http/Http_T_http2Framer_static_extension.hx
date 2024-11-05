@@ -9,7 +9,7 @@ package stdgo._internal.net.http;
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("illegal use of AllowIllegalReads with ReadMetaHeaders" : stdgo.GoString)) };
             };
             var _mh = (stdgo.Go.setRef(({ _http2HeadersFrame : _hf } : stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>);
-            var _remainSize:stdgo.GoUInt32 = _fr._maxHeaderListSize();
+            var _remainSize = _fr._maxHeaderListSize();
             var _sawRegular:Bool = false;
             var _invalid:stdgo.Error = (null : stdgo.Error);
             var _hdec = _fr.readMetaHeaders;

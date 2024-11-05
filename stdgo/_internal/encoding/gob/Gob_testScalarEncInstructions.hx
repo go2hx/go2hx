@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.gob;
 function testScalarEncInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer> = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer>);
+        var _b = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer>);
         {
             var _data:Bool = true;
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr(stdgo._internal.encoding.gob.Gob__encBool._encBool, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), (0 : stdgo.GoInt)) : stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr>);

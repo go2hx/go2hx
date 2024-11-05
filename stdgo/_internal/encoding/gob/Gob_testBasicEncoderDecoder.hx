@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.gob;
 function testBasicEncoderDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _values:stdgo.Slice<stdgo.AnyInterface> = (new stdgo.Slice<stdgo.AnyInterface>(18, 18, ...[
+        var _values = (new stdgo.Slice<stdgo.AnyInterface>(18, 18, ...[
 stdgo.Go.toInterface(true),
 stdgo.Go.toInterface((123 : stdgo.GoInt)),
 stdgo.Go.toInterface((123 : stdgo.GoInt8)),

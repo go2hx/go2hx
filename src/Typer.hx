@@ -1549,12 +1549,16 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							});
 						}
 					} else {
+						var specType = typeof(spec.type, info, false);
+						if (specType == null || specType == invalidType) {
+							specType = typeof(spec.names[0], info, false);
+						}
 						// concat because this is in a for loop
 						for (i in 0...spec.names.length) {
 							var expr:Expr = null;
 							if (spec.values[i] == null) {
 								if (type != null) {
-									expr = defaultValue(typeof(spec.type, info, false), info);
+									expr = defaultValue(specType, info);
 								} else {
 									expr = typeExpr(info.lastValue, info);
 									type = toComplexType(info.lastType, info);
@@ -1562,7 +1566,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 								}
 							} else {
 								info.lastValue = spec.values[i];
-								info.lastType = typeof(spec.type, info, false);
+								info.lastType = specType; 
 								expr = typeExpr(spec.values[i], info);
 								expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
 							}
@@ -1572,10 +1576,12 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							var name = nameIdent(nameStr, false, true, info);
 							var t = typeof(spec.type, info, false);
 							var exprType = type;
-							if (exprType == null) {
-								final specType = typeof(spec.names[i], info, false);
-								if (specType != null)
-									exprType = toComplexType(specType, info);
+							switch exprType {
+								case TPath({pack: [], name: "NullType"}):
+									final specType = typeof(spec.names[i], info, false);
+									if (specType != null)
+										exprType = toComplexType(specType, info);
+								default:
 							}
 							vars.push({
 								name: name,
@@ -2776,6 +2782,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	if (isAnyInterface(toType) && !isRestExpr(expr)) {
 		y = toAnyInterface(y, fromType, info);
 	}
+	//trace(fromType, toType);
 	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
 		switch expr.expr {
 			case EBinop(_, _, _):
@@ -5300,9 +5307,25 @@ private function hasKeyValueExpr(elts:Array<Ast.Expr>) {
 }
 
 private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
-	if (expr.type == null)
-		return (macro @:invalid_compositelit_null null).expr;
+	var setToSliceRune = false;
+	var sliceRuneType:GoType = null;
+	if (expr.type == null) {
+		if (expr.exprType.id == "ArrayType") {
+			setToSliceRune = true;
+			switch expr.exprType.elt.name {
+				case "rune":
+					sliceRuneType = GoType.basic(int32_kind);
+				case "int":
+					sliceRuneType = GoType.basic(int_kind);
+			}
+		}else{
+			return (macro @:invalid_compositelit_null null).expr;
+		}
+	}
 	var type = typeof(expr.type, info, false);
+	if (setToSliceRune) {
+		type = GoType.sliceType({get: () -> sliceRuneType}); 
+	}
 	//var ct = typeExprType(expr.type, info);
 	var ct = toComplexType(type, info);
 	final e = compositeLit(type, ct, expr, info);
@@ -6147,10 +6170,10 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	final patchName = defName != "" ? info.global.module.path + "." + defName + ":" + name : info.global.module.path + ":" + name;
 	var identifierNames:Array<String> = [];
 	if (!recvGeneric) {
-		params = getParams(decl.type.typeParams, info);
+		/*params = getParams(decl.type.typeParams, info);
 		for (param in params) {
 			identifierNames.push(param.name);
-		}
+		}*/
 	}
 	final genericNames = params == null ? [] : [for (i in 0...params.length) params[i].name];
 	identifierNames = identifierNames.concat(genericNames);
@@ -6224,7 +6247,7 @@ var identifierNames:Array<String> = [];
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
 	if ((decl.type.typeParams != null || recvGeneric)) {
 		// TODO: generic funcs
-		block = macro throw "generic function"; 
+		block = macro throw "generic function is not supported"; 
 	}else{
 		//non macro function
 		if (info.global.stackBool)
@@ -7205,8 +7228,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			}
 			final params = getParams(spec.params, info, true);
 			var p:TypePath = {name: name, pack: []};
-			if (params != null && params.length > 0)
-				p.params = typeParamDeclsToTypeParams(params);
+			/*if (params != null && params.length > 0)
+				p.params = typeParamDeclsToTypeParams(params);*/
 			var args:Array<Expr> = [];
 			var sets:Array<Expr> = [];
 			for (field in fields) {

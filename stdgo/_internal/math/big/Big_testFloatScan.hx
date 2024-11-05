@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFloatScan(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _floatScanTests:stdgo.Slice<stdgo._internal.math.big.Big_T__struct_32.T__struct_32> = {
+        var _floatScanTests = {
             var s = new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_32.T__struct_32>(13, 0, ...[for (i in 0 ... (13 > 0 ? 13 : 0 : stdgo.GoInt).toBasic()) ({ _input : ("" : stdgo.GoString), _format : ("" : stdgo.GoString), _output : ("" : stdgo.GoString), _remaining : (0 : stdgo.GoInt), _wantErr : false } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32)]);
             s[0] = ({ _input : ("10.0" : stdgo.GoString), _format : ("%f" : stdgo.GoString), _output : ("10" : stdgo.GoString), _remaining : (0 : stdgo.GoInt), _wantErr : false } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);
             s[1] = ({ _input : ("23.98+2.0" : stdgo.GoString), _format : ("%v" : stdgo.GoString), _output : ("23.98" : stdgo.GoString), _remaining : (4 : stdgo.GoInt), _wantErr : false } : stdgo._internal.math.big.Big_T__struct_32.T__struct_32);

@@ -673,140 +673,54 @@ class Op_static_extension {
     }
 }
 /**
-    /|*
-    Package syntax parses regular expressions into parse trees and compiles
-    parse trees into programs. Most clients of regular expressions will use the
-    facilities of package regexp (such as Compile and Match) instead of this package.
-    
-    # Syntax
-    
-    The regular expression syntax understood by this package when parsing with the Perl flag is as follows.
-    Parts of the syntax can be disabled by passing alternate flags to Parse.
-    
-    Single characters:
-    
-    	.              any character, possibly including newline (flag s=true)
-    	[xyz]          character class
-    	[^xyz]         negated character class
-    	\d             Perl character class
-    	\D             negated Perl character class
-    	[[:alpha:]]    ASCII character class
-    	[[:^alpha:]]   negated ASCII character class
-    	\pN            Unicode character class (one-letter name)
-    	\p{Greek}      Unicode character class
-    	\PN            negated Unicode character class (one-letter name)
-    	\P{Greek}      negated Unicode character class
-    
-    Composites:
-    
-    	xy             x followed by y
-    	x|y            x or y (prefer x)
-    
-    Repetitions:
-    
-    	x*             zero or more x, prefer more
-    	x+             one or more x, prefer more
-    	x?             zero or one x, prefer one
-    	x{n,m}         n or n+1 or ... or m x, prefer more
-    	x{n,}          n or more x, prefer more
-    	x{n}           exactly n x
-    	x*?            zero or more x, prefer fewer
-    	x+?            one or more x, prefer fewer
-    	x??            zero or one x, prefer zero
-    	x{n,m}?        n or n+1 or ... or m x, prefer fewer
-    	x{n,}?         n or more x, prefer fewer
-    	x{n}?          exactly n x
-    
-    Implementation restriction: The counting forms x{n,m}, x{n,}, and x{n}
-    reject forms that create a minimum or maximum repetition count above 1000.
-    Unlimited repetitions are not subject to this restriction.
-    
-    Grouping:
-    
-    	(re)           numbered capturing group (submatch)
-    	(?P<name>re)   named & numbered capturing group (submatch)
-    	(?:re)         non-capturing group
-    	(?flags)       set flags within current group; non-capturing
-    	(?flags:re)    set flags during re; non-capturing
-    
-    	Flag syntax is xyz (set) or -xyz (clear) or xy-z (set xy, clear z). The flags are:
-    
-    	i              case-insensitive (default false)
-    	m              multi-line mode: ^ and $ match begin/end line in addition to begin/end text (default false)
-    	s              let . match \n (default false)
-    	U              ungreedy: swap meaning of x* and x*?, x+ and x+?, etc (default false)
-    
-    Empty strings:
-    
-    	^              at beginning of text or line (flag m=true)
-    	$              at end of text (like \z not \Z) or line (flag m=true)
-    	\A             at beginning of text
-    	\b             at ASCII word boundary (\w on one side and \W, \A, or \z on the other)
-    	\B             not at ASCII word boundary
-    	\z             at end of text
-    
-    Escape sequences:
-    
-    	\a             bell (== \007)
-    	\f             form feed (== \014)
-    	\t             horizontal tab (== \011)
-    	\n             newline (== \012)
-    	\r             carriage return (== \015)
-    	\v             vertical tab character (== \013)
-    	\*             literal *, for any punctuation character *
-    	\123           octal character code (up to three digits)
-    	\x7F           hex character code (exactly two digits)
-    	\x{10FFFF}     hex character code
-    	\Q...\E        literal text ... even if ... has punctuation
-    
-    Character class elements:
-    
-    	x              single character
-    	A-Z            character range (inclusive)
-    	\d             Perl character class
-    	[:foo:]        ASCII character class foo
-    	\p{Foo}        Unicode character class Foo
-    	\pF            Unicode character class F (one-letter name)
-    
-    Named character classes as character class elements:
-    
-    	[\d]           digits (== \d)
-    	[^\d]          not digits (== \D)
-    	[\D]           not digits (== \D)
-    	[^\D]          not not digits (== \d)
-    	[[:name:]]     named ASCII class inside character class (== [:name:])
-    	[^[:name:]]    named ASCII class inside negated character class (== [:^name:])
-    	[\p{Name}]     named Unicode property inside character class (== \p{Name})
-    	[^\p{Name}]    named Unicode property inside negated character class (== \P{Name})
-    
-    Perl character classes (all ASCII-only):
-    
-    	\d             digits (== [0-9])
-    	\D             not digits (== [^0-9])
-    	\s             whitespace (== [\t\n\f\r ])
-    	\S             not whitespace (== [^\t\n\f\r ])
-    	\w             word characters (== [0-9A-Za-z_])
-    	\W             not word characters (== [^0-9A-Za-z_])
-    
-    ASCII character classes:
-    
-    	[[:alnum:]]    alphanumeric (== [0-9A-Za-z])
-    	[[:alpha:]]    alphabetic (== [A-Za-z])
-    	[[:ascii:]]    ASCII (== [\x00-\x7F])
-    	[[:blank:]]    blank (== [\t ])
-    	[[:cntrl:]]    control (== [\x00-\x1F\x7F])
-    	[[:digit:]]    digits (== [0-9])
-    	[[:graph:]]    graphical (== [!-~] == [A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])
-    	[[:lower:]]    lower case (== [a-z])
-    	[[:print:]]    printable (== [ -~] == [ [:graph:]])
-    	[[:punct:]]    punctuation (== [!-/:-@[-`{-~])
-    	[[:space:]]    whitespace (== [\t\n\v\f\r ])
-    	[[:upper:]]    upper case (== [A-Z])
-    	[[:word:]]     word characters (== [0-9A-Za-z_])
-    	[[:xdigit:]]   hex digit (== [0-9A-Fa-f])
-    
-    Unicode character classes are those in unicode.Categories and unicode.Scripts.
-    *|/
+    /|*{
+    	pc_3178341 = uint32(p.Start)
+    	i_3178364 = &p.Inst[pc_3178341]
+    	gotoNext = 3178381
+    	_ = gotoNext == 3178381
+    	_ = 0
+    	LoopBreak = false
+    	gotoNext = 3178388
+    	_ = gotoNext == 3178388
+    	if !LoopBreak {
+    		gotoNext = 3178392
+    		_ = gotoNext == 3178392
+    		_ = 0
+    		gotoNext = 3178396
+    		_ = gotoNext == 3178396
+    		switch i_3178364.Op {
+    		case 3:
+    			gotoNext = 3178412
+    			_ = gotoNext == 3178412
+    			flag_3178327 |= EmptyOp(i_3178364.Arg)
+    			gotoNext = 3178569
+    		case 5:
+    			gotoNext = 3178461
+    			_ = gotoNext == 3178461
+    			return 255
+    			gotoNext = 3178569
+    		case 2, 6:
+    			gotoNext = 3178500
+    			_ = gotoNext == 3178500
+    			gotoNext = 3178569
+    		default:
+    			gotoNext = 3178540
+    			_ = gotoNext == 3178540
+    			LoopBreak = true
+    			gotoNext = 3178388
+    			gotoNext = 3178569
+    		}
+    		_ = gotoNext == 3178569
+    		pc_3178341 = i_3178364.Out
+    		i_3178364 = &p.Inst[pc_3178341]
+    		gotoNext = 3178388
+    	} else {
+    		gotoNext = 3178602
+    	}
+    	_ = gotoNext == 3178602
+    	return flag_3178327
+    	gotoNext = -1
+    }*|/
 **/
 class Syntax {
     /**

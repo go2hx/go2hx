@@ -1,2 +1,2 @@
 package stdgo._internal.slices;
-function insert<S, E>(_s:Dynamic, _i:stdgo.GoInt, _v:haxe.Rest<Dynamic>):Dynamic throw "generic function";
+function insert(_s:Dynamic, _i:stdgo.GoInt, _v:haxe.Rest<Dynamic>):Dynamic throw "generic function is not supported";

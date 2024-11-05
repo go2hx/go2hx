@@ -1,7 +1,7 @@
 package stdgo._internal.text.template;
 function testDelims(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {};
-        var _value:stdgo._internal.text.template.Template_T__struct_1.T__struct_1 = ({ str : ("Hello, world" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_1.T__struct_1);
+        var _value = ({ str : ("Hello, world" : stdgo.GoString) } : stdgo._internal.text.template.Template_T__struct_1.T__struct_1);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (stdgo._internal.text.template.Template__delimPairs._delimPairs.length) : Bool)) {
@@ -23,7 +23,7 @@ var __tmp__ = stdgo._internal.text.template.Template_new_.new_(("delims" : stdgo
 if (_err != null) {
                     _t.fatalf(("delim %q text %q parse err %s" : stdgo.GoString), stdgo.Go.toInterface(_left), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_err));
                 };
-var _b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder> = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_Builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+var _b = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_Builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
 _err = _tmpl.execute(stdgo.Go.asInterface(_b), stdgo.Go.toInterface(stdgo.Go.asInterface(_value)));
 if (_err != null) {
                     _t.fatalf(("delim %q exec err %s" : stdgo.GoString), stdgo.Go.toInterface(_left), stdgo.Go.toInterface(_err));

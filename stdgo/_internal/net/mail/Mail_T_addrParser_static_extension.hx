@@ -131,100 +131,206 @@ package stdgo._internal.net.mail;
     @:keep
     static public function _consumeAtom( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>, _dot:Bool, _permissive:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
-        stdgo._internal.internal.Macro.controlFlow({
-            var _atom = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-            var _i = (0 : stdgo.GoInt);
-            @:label("Loop") while (true) {
-                var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_p._s.__slice__(_i) : stdgo.GoString)?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
-                {
-                    var __switchIndex__ = -1;
-                    var __run__ = true;
-                    while (__run__) {
-                        __run__ = false;
-                        if (((_size == (1 : stdgo.GoInt)) && (_r == (65533 : stdgo.GoInt32)) : Bool)) {
-                            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: invalid utf-8 in address: %q" : stdgo.GoString), stdgo.Go.toInterface(_p._s)) };
-                            break;
-                        } else if (((_size == (0 : stdgo.GoInt)) || !stdgo._internal.net.mail.Mail__isAtext._isAtext(_r, _dot, _permissive) : Bool)) {
-                            @:jump("Loop") break;
-                            break;
-                        } else {
-                            _i = (_i + (_size) : stdgo.GoInt);
-                        };
-                        break;
-                    };
-                };
-            };
-            if (_i == ((0 : stdgo.GoInt))) {
-                return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: invalid string" : stdgo.GoString)) };
-            };
+        var _atom = ("" : stdgo.GoString), _err = (null : stdgo.Error);
+        var _size_4212318:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r_4212315:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var loopBreak = false;
+        var _i_4212292:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _gotoNext = 0i32;
+        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
-                final __tmp__0 = (_p._s.__slice__(0, _i) : stdgo.GoString)?.__copy__();
-                final __tmp__1 = (_p._s.__slice__(_i) : stdgo.GoString)?.__copy__();
-                _atom = __tmp__0;
-                _p._s = __tmp__1;
-            };
-            if (!_permissive) {
-                if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_atom?.__copy__(), ("." : stdgo.GoString))) {
+                final __value__ = _gotoNext;
+                if (__value__ == (0i32)) {
+                    _i_4212292 = (0 : stdgo.GoInt);
+                    _gotoNext = 4212300i32;
+                } else if (__value__ == (4212300i32)) {
+                    var __blank__ = 0i32;
+                    loopBreak = false;
+                    _gotoNext = 4212307i32;
+                } else if (__value__ == (4212307i32)) {
+                    if (!loopBreak) {
+                        _gotoNext = 4212311i32;
+                    } else {
+                        _gotoNext = 4212579i32;
+                    };
+                } else if (__value__ == (4212311i32)) {
+                    {
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_p._s.__slice__(_i_4212292) : stdgo.GoString)?.__copy__());
+                        _r_4212315 = __tmp__._0;
+                        _size_4212318 = __tmp__._1;
+                    };
+                    var __blank__ = 0i32;
+                    _gotoNext = 4212361i32;
+                } else if (__value__ == (4212361i32)) {
+                    if (((_size_4212318 == (1 : stdgo.GoInt)) && (_r_4212315 == (65533 : stdgo.GoInt32)) : Bool)) {
+                        _gotoNext = 4212372i32;
+                    } else if (((_size_4212318 == (0 : stdgo.GoInt)) || !stdgo._internal.net.mail.Mail__isAtext._isAtext(_r_4212315, _dot, _permissive) : Bool)) {
+                        _gotoNext = 4212482i32;
+                    } else {
+                        _gotoNext = 4212547i32;
+                    };
+                } else if (__value__ == (4212372i32)) {
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: invalid utf-8 in address: %q" : stdgo.GoString), stdgo.Go.toInterface(_p._s)) };
+                    _gotoNext = 4212579i32;
+                } else if (__value__ == (4212482i32)) {
+                    loopBreak = true;
+                    _gotoNext = 4212307i32;
+                } else if (__value__ == (4212547i32)) {
+                    _i_4212292 = (_i_4212292 + (_size_4212318) : stdgo.GoInt);
+                    _gotoNext = 4212579i32;
+                } else if (__value__ == (4212579i32)) {
+                    if (_i_4212292 == ((0 : stdgo.GoInt))) {
+                        _gotoNext = 4212589i32;
+                    } else {
+                        _gotoNext = 4212643i32;
+                    };
+                } else if (__value__ == (4212589i32)) {
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: invalid string" : stdgo.GoString)) };
+                    _gotoNext = 4212643i32;
+                } else if (__value__ == (4212643i32)) {
+                    {
+                        final __tmp__0 = (_p._s.__slice__(0, _i_4212292) : stdgo.GoString)?.__copy__();
+                        final __tmp__1 = (_p._s.__slice__(_i_4212292) : stdgo.GoString)?.__copy__();
+                        _atom = __tmp__0;
+                        _p._s = __tmp__1;
+                    };
+                    if (!_permissive) {
+                        _gotoNext = 4212688i32;
+                    } else {
+                        _gotoNext = 4212976i32;
+                    };
+                } else if (__value__ == (4212688i32)) {
+                    if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_atom?.__copy__(), ("." : stdgo.GoString))) {
+                        _gotoNext = 4212724i32;
+                    } else {
+                        _gotoNext = 4212786i32;
+                    };
+                } else if (__value__ == (4212724i32)) {
                     return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: leading dot in atom" : stdgo.GoString)) };
-                };
-                if (stdgo._internal.strings.Strings_contains.contains(_atom?.__copy__(), (".." : stdgo.GoString))) {
+                    _gotoNext = 4212786i32;
+                } else if (__value__ == (4212786i32)) {
+                    if (stdgo._internal.strings.Strings_contains.contains(_atom?.__copy__(), (".." : stdgo.GoString))) {
+                        _gotoNext = 4212818i32;
+                    } else {
+                        _gotoNext = 4212879i32;
+                    };
+                } else if (__value__ == (4212818i32)) {
                     return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: double dot in atom" : stdgo.GoString)) };
-                };
-                if (stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_atom?.__copy__(), ("." : stdgo.GoString))) {
+                    _gotoNext = 4212879i32;
+                } else if (__value__ == (4212879i32)) {
+                    if (stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_atom?.__copy__(), ("." : stdgo.GoString))) {
+                        _gotoNext = 4212911i32;
+                    } else {
+                        _gotoNext = 4212976i32;
+                    };
+                } else if (__value__ == (4212911i32)) {
                     return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: trailing dot in atom" : stdgo.GoString)) };
+                    _gotoNext = 4212976i32;
+                } else if (__value__ == (4212976i32)) {
+                    return { _0 : _atom?.__copy__(), _1 : (null : stdgo.Error) };
+                    _gotoNext = -1i32;
                 };
             };
-            return { _0 : _atom?.__copy__(), _1 : (null : stdgo.Error) };
-        });
+        };
+        throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
-        stdgo._internal.internal.Macro.controlFlow({
-            var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-            var _i = (1 : stdgo.GoInt);
-            var _qsb = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-            var _escaped = (false : Bool);
-            @:label("Loop") while (true) {
-                var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_p._s.__slice__(_i) : stdgo.GoString)?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
-                {
-                    var __switchIndex__ = -1;
-                    var __run__ = true;
-                    while (__run__) {
-                        __run__ = false;
-                        if (_size == ((0 : stdgo.GoInt))) {
-                            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: unclosed quoted-string" : stdgo.GoString)) };
-                            break;
-                        } else if (((_size == (1 : stdgo.GoInt)) && (_r == (65533 : stdgo.GoInt32)) : Bool)) {
-                            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: invalid utf-8 in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_p._s)) };
-                            break;
-                        } else if (_escaped) {
-                            if ((!stdgo._internal.net.mail.Mail__isVchar._isVchar(_r) && !stdgo._internal.net.mail.Mail__isWSP._isWSP(_r) : Bool)) {
-                                return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r)) };
-                            };
-                            _qsb = (_qsb.__append__(_r));
-                            _escaped = false;
-                            break;
-                        } else if ((stdgo._internal.net.mail.Mail__isQtext._isQtext(_r) || stdgo._internal.net.mail.Mail__isWSP._isWSP(_r) : Bool)) {
-                            _qsb = (_qsb.__append__(_r));
-                            break;
-                        } else if (_r == ((34 : stdgo.GoInt32))) {
-                            @:jump("Loop") break;
-                            break;
-                        } else if (_r == ((92 : stdgo.GoInt32))) {
-                            _escaped = true;
-                            break;
-                        } else {
-                            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r)) };
-                        };
-                        break;
+        var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
+        var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var loopBreak = false;
+        var _escaped_4210985:Bool = false;
+        var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+        var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _gotoNext = 0i32;
+        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
+            {
+                final __value__ = _gotoNext;
+                if (__value__ == (0i32)) {
+                    _i_4210948 = (1 : stdgo.GoInt);
+                    _qsb_4210956 = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), (10 : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
+                    _escaped_4210985 = false;
+                    _gotoNext = 4211003i32;
+                } else if (__value__ == (4211003i32)) {
+                    var __blank__ = 0i32;
+                    loopBreak = false;
+                    _gotoNext = 4211010i32;
+                } else if (__value__ == (4211010i32)) {
+                    if (!loopBreak) {
+                        _gotoNext = 4211014i32;
+                    } else {
+                        _gotoNext = 4211805i32;
                     };
+                } else if (__value__ == (4211014i32)) {
+                    {
+                        var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString((_p._s.__slice__(_i_4210948) : stdgo.GoString)?.__copy__());
+                        _r_4211018 = __tmp__._0;
+                        _size_4211021 = __tmp__._1;
+                    };
+                    var __blank__ = 0i32;
+                    _gotoNext = 4211065i32;
+                } else if (__value__ == (4211065i32)) {
+                    if (_size_4211021 == ((0 : stdgo.GoInt))) {
+                        _gotoNext = 4211076i32;
+                    } else if (((_size_4211021 == (1 : stdgo.GoInt)) && (_r_4211018 == (65533 : stdgo.GoInt32)) : Bool)) {
+                        _gotoNext = 4211152i32;
+                    } else if (_escaped_4210985) {
+                        _gotoNext = 4211268i32;
+                    } else if ((stdgo._internal.net.mail.Mail__isQtext._isQtext(_r_4211018) || stdgo._internal.net.mail.Mail__isWSP._isWSP(_r_4211018) : Bool)) {
+                        _gotoNext = 4211482i32;
+                    } else if (_r_4211018 == ((34 : stdgo.GoInt32))) {
+                        _gotoNext = 4211633i32;
+                    } else if (_r_4211018 == ((92 : stdgo.GoInt32))) {
+                        _gotoNext = 4211665i32;
+                    } else {
+                        _gotoNext = 4211702i32;
+                    };
+                } else if (__value__ == (4211076i32)) {
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.errors.Errors_new_.new_(("mail: unclosed quoted-string" : stdgo.GoString)) };
+                    _gotoNext = 4211791i32;
+                } else if (__value__ == (4211152i32)) {
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: invalid utf-8 in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_p._s)) };
+                    _gotoNext = 4211791i32;
+                } else if (__value__ == (4211268i32)) {
+                    if ((!stdgo._internal.net.mail.Mail__isVchar._isVchar(_r_4211018) && !stdgo._internal.net.mail.Mail__isWSP._isWSP(_r_4211018) : Bool)) {
+                        _gotoNext = 4211355i32;
+                    } else {
+                        _gotoNext = 4211439i32;
+                    };
+                } else if (__value__ == (4211355i32)) {
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_4211018)) };
+                    _gotoNext = 4211439i32;
+                } else if (__value__ == (4211439i32)) {
+                    _qsb_4210956 = (_qsb_4210956.__append__(_r_4211018));
+                    _escaped_4210985 = false;
+                    _gotoNext = 4211791i32;
+                } else if (__value__ == (4211482i32)) {
+                    _qsb_4210956 = (_qsb_4210956.__append__(_r_4211018));
+                    _gotoNext = 4211791i32;
+                } else if (__value__ == (4211633i32)) {
+                    loopBreak = true;
+                    _gotoNext = 4211010i32;
+                } else if (__value__ == (4211665i32)) {
+                    _escaped_4210985 = true;
+                    _gotoNext = 4211791i32;
+                } else if (__value__ == (4211702i32)) {
+                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("mail: bad character in quoted-string: %q" : stdgo.GoString), stdgo.Go.toInterface(_r_4211018)) };
+                    _gotoNext = 4211791i32;
+                } else if (__value__ == (4211791i32)) {
+                    _i_4210948 = (_i_4210948 + (_size_4211021) : stdgo.GoInt);
+                    _gotoNext = 4211010i32;
+                } else if (__value__ == (4211805i32)) {
+                    _p._s = (_p._s.__slice__((_i_4210948 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
+                    return { _0 : (_qsb_4210956 : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
+                    _gotoNext = -1i32;
                 };
-                _i = (_i + (_size) : stdgo.GoInt);
             };
-            _p._s = (_p._s.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
-            return { _0 : (_qsb : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
-        });
+        };
+        throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
     static public function _consumePhrase( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {

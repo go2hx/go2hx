@@ -45,7 +45,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _makeHeadersCopier( _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client>, _ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client> = _c;
-        var __0:stdgo._internal.net.http.Http_Header.Header = stdgo._internal.net.http.Http__cloneOrMakeHeader._cloneOrMakeHeader(_ireq.header), __1:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>> = (null : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>>);
+        var __0 = stdgo._internal.net.http.Http__cloneOrMakeHeader._cloneOrMakeHeader(_ireq.header), __1:stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>> = (null : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>>);
 var _icookies = __1, _ireqhdr = __0;
         if (((_c.jar != null) && (_ireq.header.get(("Cookie" : stdgo.GoString)) != stdgo.Go.str()) : Bool)) {
             _icookies = ({
@@ -139,7 +139,7 @@ var _icookies = __1, _ireqhdr = __0;
                     return __ret__;
                 };
             };
-            var __0:stdgo._internal.time.Time_Time.Time = _c._deadline(), __1:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>>), __2:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), __3:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> Void = _c._makeHeadersCopier(_req), __4:Bool = false, __5:stdgo.GoString = ("" : stdgo.GoString), __6:Bool = false;
+            var __0 = _c._deadline()?.__copy__(), __1:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>>), __2:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), __3 = _c._makeHeadersCopier(_req), __4 = false, __5:stdgo.GoString = ("" : stdgo.GoString), __6:Bool = false;
 var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeaders = __3, _resp = __2, _reqs = __1, _deadline = __0;
             var _uerr = (function(_err:stdgo.Error):stdgo.Error {
                 var __deferstack__:Array<Void -> Void> = [];

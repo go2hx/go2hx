@@ -1,2 +1,2 @@
 package stdgo._internal.slices;
-function max<S, E>(_x:Dynamic):Dynamic throw "generic function";
+function max(_x:Dynamic):Dynamic throw "generic function is not supported";

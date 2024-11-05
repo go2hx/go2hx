@@ -6,7 +6,7 @@ function _verifyInt(_i:stdgo.GoInt64, _t:stdgo.Ref<stdgo._internal.testing.Testi
                 var _a0 = _t;
                 __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__testError._testError(_a0));
             };
-            var _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer> = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer>);
+            var _b = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer>);
             var _encState = stdgo._internal.encoding.gob.Gob__newEncoderState._newEncoderState(_b);
             _encState._encodeInt(_i);
             var _decState = stdgo._internal.encoding.gob.Gob__newDecodeState._newDecodeState(stdgo._internal.encoding.gob.Gob__newDecBuffer._newDecBuffer(_b.bytes()));

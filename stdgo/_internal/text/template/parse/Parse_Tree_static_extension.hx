@@ -330,61 +330,129 @@ package stdgo._internal.text.template.parse;
     @:keep
     static public function _pipeline( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>, _context:stdgo.GoString, _end:stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType):stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> = _t;
-        stdgo._internal.internal.Macro.controlFlow({
-            var _pipe = (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
-            var _token = (_t._peekNonSpace()?.__copy__() : stdgo._internal.text.template.parse.Parse_T_item.T_item);
-            _pipe = _t._newPipeline(_token._pos, _token._line, (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>>));
-            @:label("decls") {
-                var _v = (_t._peekNonSpace()?.__copy__() : stdgo._internal.text.template.parse.Parse_T_item.T_item);
-                if (_v._typ == ((21 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
+        var _pipe = (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
+        var _tokenAfterVariable_3661725:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
+        var _v_3661364:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
+        var _token_3661234:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
+        var _token_3662641:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
+        var _next_3661758:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
+        var _gotoNext = 0i32;
+        var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
+        while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
+            {
+                final __value__ = _gotoNext;
+                if (__value__ == (0i32)) {
+                    _token_3661234 = _t._peekNonSpace()?.__copy__();
+                    _pipe = _t._newPipeline(_token_3661234._pos, _token_3661234._line, (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.parse.Parse_VariableNode.VariableNode>>));
+                    _gotoNext = 3661353i32;
+                } else if (__value__ == (3661353i32)) {
+                    {
+                        _v_3661364 = _t._peekNonSpace()?.__copy__();
+                        if (_v_3661364._typ == ((21 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
+                            _gotoNext = 3661409i32;
+                        } else {
+                            _gotoNext = 3662626i32;
+                        };
+                    };
+                } else if (__value__ == (3661409i32)) {
                     _t._next();
-                    var _tokenAfterVariable = (_t._peek()?.__copy__() : stdgo._internal.text.template.parse.Parse_T_item.T_item);
-                    var _next = (_t._peekNonSpace()?.__copy__() : stdgo._internal.text.template.parse.Parse_T_item.T_item);
-                    if (_next._typ == ((6 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || _next._typ == ((7 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                        _pipe.isAssign = _next._typ == ((6 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType));
-                        _t._nextNonSpace();
-                        _pipe.decl = (_pipe.decl.__append__(_t._newVariable(_v._pos, _v._val?.__copy__())));
-                        _t._vars = (_t._vars.__append__(_v._val?.__copy__()));
-                    } else if (((_next._typ == (2 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) && (_next._val == ("," : stdgo.GoString)) : Bool)) {
-                        _t._nextNonSpace();
-                        _pipe.decl = (_pipe.decl.__append__(_t._newVariable(_v._pos, _v._val?.__copy__())));
-                        _t._vars = (_t._vars.__append__(_v._val?.__copy__()));
-                        if (((_context == ("range" : stdgo.GoString)) && ((_pipe.decl.length) < (2 : stdgo.GoInt) : Bool) : Bool)) {
-                            {
-                                final __value__ = _t._peekNonSpace()._typ;
-                                if (__value__ == ((21 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((16 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((17 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                                    @:goto "decls";
-                                } else {
-                                    _t._errorf(("range can only initialize variables" : stdgo.GoString));
-                                };
+                    _tokenAfterVariable_3661725 = _t._peek()?.__copy__();
+                    _next_3661758 = _t._peekNonSpace()?.__copy__();
+                    var __blank__ = 0i32;
+                    _gotoNext = 3661785i32;
+                } else if (__value__ == (3661785i32)) {
+                    if (_next_3661758._typ == ((6 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || _next_3661758._typ == ((7 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
+                        _gotoNext = 3661796i32;
+                    } else if (((_next_3661758._typ == (2 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) && (_next_3661758._val == ("," : stdgo.GoString)) : Bool)) {
+                        _gotoNext = 3662010i32;
+                    } else if (_tokenAfterVariable_3661725._typ == ((18 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
+                        _gotoNext = 3662513i32;
+                    } else {
+                        _gotoNext = 3662593i32;
+                    };
+                } else if (__value__ == (3661796i32)) {
+                    _pipe.isAssign = _next_3661758._typ == ((6 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType));
+                    _t._nextNonSpace();
+                    _pipe.decl = (_pipe.decl.__append__(_t._newVariable(_v_3661364._pos, _v_3661364._val?.__copy__())));
+                    _t._vars = (_t._vars.__append__(_v_3661364._val?.__copy__()));
+                    _gotoNext = 3662626i32;
+                } else if (__value__ == (3662010i32)) {
+                    _t._nextNonSpace();
+                    _pipe.decl = (_pipe.decl.__append__(_t._newVariable(_v_3661364._pos, _v_3661364._val?.__copy__())));
+                    _t._vars = (_t._vars.__append__(_v_3661364._val?.__copy__()));
+                    if (((_context == ("range" : stdgo.GoString)) && ((_pipe.decl.length) < (2 : stdgo.GoInt) : Bool) : Bool)) {
+                        _gotoNext = 3662219i32;
+                    } else {
+                        _gotoNext = 3662462i32;
+                    };
+                } else if (__value__ == (3662219i32)) {
+                    var __blank__ = 0i32;
+                    _gotoNext = 3662225i32;
+                } else if (__value__ == (3662225i32)) {
+                    {
+                        final __value__ = _t._peekNonSpace()._typ;
+                        if (__value__ == ((21 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((16 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((17 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
+                            _gotoNext = 3662259i32;
+                        } else {
+                            _gotoNext = 3662386i32;
+                        };
+                    };
+                } else if (__value__ == (3662259i32)) {
+                    _gotoNext = 3661353i32;
+                } else if (__value__ == (3662386i32)) {
+                    _t._errorf(("range can only initialize variables" : stdgo.GoString));
+                    _gotoNext = 3662462i32;
+                } else if (__value__ == (3662462i32)) {
+                    _t._errorf(("too many declarations in %s" : stdgo.GoString), stdgo.Go.toInterface(_context));
+                    _gotoNext = 3662626i32;
+                } else if (__value__ == (3662513i32)) {
+                    _t._backup3(_v_3661364?.__copy__(), _tokenAfterVariable_3661725?.__copy__());
+                    _gotoNext = 3662626i32;
+                } else if (__value__ == (3662593i32)) {
+                    _t._backup2(_v_3661364?.__copy__());
+                    _gotoNext = 3662626i32;
+                } else if (__value__ == (3662626i32)) {
+                    var __blank__ = 0i32;
+                    _gotoNext = 3662626i32;
+                    if (true) {
+                        _gotoNext = 3662630i32;
+                    } else {
+                        _gotoNext = 3663038i32;
+                    };
+                } else if (__value__ == (3662630i32)) {
+                    _token_3662641 = _t._nextNonSpace()?.__copy__();
+                    _gotoNext = 3662634i32;
+                } else if (__value__ == (3662634i32)) {
+                    {
+                        _token_3662641 = _t._nextNonSpace()?.__copy__();
+                        {
+                            final __value__ = _token_3662641._typ;
+                            if (__value__ == (_end)) {
+                                _gotoNext = 3662682i32;
+                            } else if (__value__ == ((1 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((3 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((5 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((26 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((9 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((10 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((13 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((31 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((15 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((19 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((21 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((12 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
+                                _gotoNext = 3662784i32;
+                            } else {
+                                _gotoNext = 3662990i32;
                             };
                         };
-                        _t._errorf(("too many declarations in %s" : stdgo.GoString), stdgo.Go.toInterface(_context));
-                    } else if (_tokenAfterVariable._typ == ((18 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                        _t._backup3(_v?.__copy__(), _tokenAfterVariable?.__copy__());
-                    } else {
-                        _t._backup2(_v?.__copy__());
                     };
+                } else if (__value__ == (3662682i32)) {
+                    _t._checkPipeline(_pipe, _context?.__copy__());
+                    return _pipe;
+                    _gotoNext = 3663038i32;
+                } else if (__value__ == (3662784i32)) {
+                    _t._backup();
+                    _pipe._append(_t._command());
+                    _gotoNext = 3663038i32;
+                } else if (__value__ == (3662990i32)) {
+                    _t._unexpected(_token_3662641?.__copy__(), _context?.__copy__());
+                    _gotoNext = 3663038i32;
+                } else if (__value__ == (3663038i32)) {
+                    _gotoNext = -1i32;
                 };
             };
-            while (true) {
-                {
-                    var _token = (_t._nextNonSpace()?.__copy__() : stdgo._internal.text.template.parse.Parse_T_item.T_item);
-                    {
-                        final __value__ = _token._typ;
-                        if (__value__ == (_end)) {
-                            _t._checkPipeline(_pipe, _context?.__copy__());
-                            return _pipe;
-                        } else if (__value__ == ((1 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((3 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((5 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((26 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((9 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((10 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((13 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((31 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((15 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((19 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((21 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType)) || __value__ == ((12 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                            _t._backup();
-                            _pipe._append(_t._command());
-                        } else {
-                            _t._unexpected(_token?.__copy__(), _context?.__copy__());
-                        };
-                    };
-                };
-            };
-        });
+        };
+        throw stdgo.Go.toInterface(("unreachable goto control flow" : stdgo.GoString));
     }
     @:keep
     static public function _continueControl( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>, _pos:stdgo._internal.text.template.parse.Parse_Pos.Pos, _line:stdgo.GoInt):stdgo._internal.text.template.parse.Parse_Node.Node {

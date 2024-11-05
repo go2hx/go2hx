@@ -3,7 +3,7 @@ function _makeOnePass(_p:stdgo.Ref<stdgo._internal.regexp.Regexp_T_onePassProg.T
         if (((_p.inst.length) >= (1000 : stdgo.GoInt) : Bool)) {
             return null;
         };
-        var __0:stdgo.Ref<stdgo._internal.regexp.Regexp_T_queueOnePass.T_queueOnePass> = stdgo._internal.regexp.Regexp__newQueue._newQueue((_p.inst.length)), __1:stdgo.Ref<stdgo._internal.regexp.Regexp_T_queueOnePass.T_queueOnePass> = stdgo._internal.regexp.Regexp__newQueue._newQueue((_p.inst.length)), __2:(stdgo.GoUInt32, stdgo.Slice<Bool>) -> Bool = null, __3:stdgo.Slice<stdgo.Slice<stdgo.GoInt32>> = (new stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>((_p.inst.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>);
+        var __0 = stdgo._internal.regexp.Regexp__newQueue._newQueue((_p.inst.length)), __1 = stdgo._internal.regexp.Regexp__newQueue._newQueue((_p.inst.length)), __2:(stdgo.GoUInt32, stdgo.Slice<Bool>) -> Bool = null, __3 = (new stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>((_p.inst.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo.GoInt32>>);
 var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
         _check = function(_pc:stdgo.GoUInt32, _m:stdgo.Slice<Bool>):Bool {
             var _ok = false;

@@ -162,13 +162,13 @@ final list = [
 		return wasActive;
 	},
 	"time:_modTimer" => macro {
-		_stopTimer(_t);
+		stdgo.time.Time__stopTimer._stopTimer(_t);
 		_t._when = _when;
 		_t._period = _period;
 		_t._f = _f;
 		_t._arg = _arg;
 		_t._seq = _seq;
-		_startTimer(_t);
+		stdgo.time.Time__startTimer._startTimer(_t);
 	},
 	"time:_runtimeNano" => macro {
 		@:define("sys") {

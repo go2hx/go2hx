@@ -1046,23 +1046,291 @@ class T_writeBuf_static_extension {
     }
 }
 /**
-    /|*
-    Package zip provides support for reading and writing ZIP archives.
-    
-    See the [ZIP specification] for details.
-    
-    This package does not support disk spanning.
-    
-    A note about ZIP64:
-    
-    To be backwards compatible the FileHeader has both 32 and 64 bit Size
-    fields. The 64 bit fields will always contain the correct value and
-    for normal archives both fields will be the same. For files requiring
-    the ZIP64 format the 32 bit fields will be 0xffffffff and the 64 bit
-    fields must be used instead.
-    
-    [ZIP specification]: https://www.pkware.com/appnote
-    *|/
+    /|*{
+    	if _, err_3869718 = io.ReadFull(r, buf_3869682[:]); err_3869718 != nil {
+    		gotoNext = 3869760
+    		_ = gotoNext == 3869760
+    		return err_3869718
+    		gotoNext = 3869779
+    	} else {
+    		gotoNext = 3869779
+    	}
+    	_ = gotoNext == 3869779
+    	b_3869779 = readBuf(buf_3869682[:])
+    	if sig_3869804 = b_3869779.uint32(); sig_3869804 != 33639248 {
+    		gotoNext = 3869855
+    		_ = gotoNext == 3869855
+    		return ErrFormat
+    		gotoNext = 3869880
+    	} else {
+    		gotoNext = 3869880
+    	}
+    	_ = gotoNext == 3869880
+    	f.CreatorVersion = b_3869779.uint16()
+    	f.ReaderVersion = b_3869779.uint16()
+    	f.Flags = b_3869779.uint16()
+    	f.Method = b_3869779.uint16()
+    	f.ModifiedTime = b_3869779.uint16()
+    	f.ModifiedDate = b_3869779.uint16()
+    	f.CRC32 = b_3869779.uint32()
+    	f.CompressedSize = b_3869779.uint32()
+    	f.UncompressedSize = b_3869779.uint32()
+    	f.CompressedSize64 = uint64(f.CompressedSize)
+    	f.UncompressedSize64 = uint64(f.UncompressedSize)
+    	filenameLen_3870228 = int(b_3869779.uint16())
+    	extraLen_3870260 = int(b_3869779.uint16())
+    	commentLen_3870289 = int(b_3869779.uint16())
+    	b_3869779 = b_3869779[4:]
+    	f.ExternalAttrs = b_3869779.uint32()
+    	f.headerOffset = int64(b_3869779.uint32())
+    	d_3870462 = make([]byte, filenameLen_3870228+extraLen_3870260+commentLen_3870289)
+    	if _, err_3870520 = io.ReadFull(r, d_3870462); err_3870520 != nil {
+    		gotoNext = 3870557
+    		_ = gotoNext == 3870557
+    		return err_3870520
+    		gotoNext = 3870576
+    	} else {
+    		gotoNext = 3870576
+    	}
+    	_ = gotoNext == 3870576
+    	f.Name = string(d_3870462[:filenameLen_3870228])
+    	f.Extra = d_3870462[filenameLen_3870228 : filenameLen_3870228+extraLen_3870260]
+    	f.Comment = string(d_3870462[filenameLen_3870228+extraLen_3870260:])
+    	utf8Valid1_3870744, utf8Require1_3870756 = detectUTF8(f.Name)
+    	utf8Valid2_3870792, utf8Require2_3870804 = detectUTF8(f.Comment)
+    	_ = 0
+    	gotoNext = 3870843
+    	_ = gotoNext == 3870843
+    	switch {
+    	case !utf8Valid1_3870744 || !utf8Valid2_3870792:
+    		gotoNext = 3870853
+    		_ = gotoNext == 3870853
+    		f.NonUTF8 = true
+    		gotoNext = 3871414
+    	case !utf8Require1_3870756 && !utf8Require2_3870804:
+    		gotoNext = 3870950
+    		_ = gotoNext == 3870950
+    		f.NonUTF8 = false
+    		gotoNext = 3871414
+    	default:
+    		gotoNext = 3871082
+    		_ = gotoNext == 3871082
+    		f.NonUTF8 = f.Flags&2048 == 0
+    		gotoNext = 3871414
+    	}
+    	_ = gotoNext == 3871414
+    	needUSize_3871414 = f.UncompressedSize == 4294967295
+    	needCSize_3871461 = f.CompressedSize == 4294967295
+    	needHeaderOffset_3871506 = f.headerOffset == int64(4294967295)
+    	gotoNext = 3871745
+    	_ = gotoNext == 3871745
+    	extra_3871763 = readBuf(f.Extra)
+    	parseExtrasBreak = false
+    	gotoNext = 3871759
+    	_ = gotoNext == 3871759
+    	if !parseExtrasBreak && (len(extra_3871763) >= 4) {
+    		gotoNext = 3871807
+    		_ = gotoNext == 3871807
+    		fieldTag_3871841 = extra_3871763.uint16()
+    		fieldSize_3871870 = int(extra_3871763.uint16())
+    		if len(extra_3871763) < fieldSize_3871870 {
+    			gotoNext = 3871931
+    			_ = gotoNext == 3871931
+    			gotoNext = 3873926
+    			gotoNext = 3871948
+    		} else {
+    			gotoNext = 3871948
+    		}
+    		_ = gotoNext == 3871948
+    		fieldBuf_3871948 = extra_3871763.sub(fieldSize_3871870)
+    		_ = 0
+    		gotoNext = 3871984
+    		_ = gotoNext == 3871984
+    		switch fieldTag_3871841 {
+    		case 1:
+    			gotoNext = 3872004
+    			_ = gotoNext == 3872004
+    			f.zip64 = true
+    			if needUSize_3871414 {
+    				gotoNext = 3872233
+    				_ = gotoNext == 3872233
+    				needUSize_3871414 = false
+    				if len(fieldBuf_3871948) < 8 {
+    					gotoNext = 3872282
+    					_ = gotoNext == 3872282
+    					return ErrFormat
+    					gotoNext = 3872316
+    				} else {
+    					gotoNext = 3872316
+    				}
+    				_ = gotoNext == 3872316
+    				f.UncompressedSize64 = fieldBuf_3871948.uint64()
+    				gotoNext = 3872365
+    			} else {
+    				gotoNext = 3872365
+    			}
+    			_ = gotoNext == 3872365
+    			if needCSize_3871461 {
+    				gotoNext = 3872378
+    				_ = gotoNext == 3872378
+    				needCSize_3871461 = false
+    				if len(fieldBuf_3871948) < 8 {
+    					gotoNext = 3872427
+    					_ = gotoNext == 3872427
+    					return ErrFormat
+    					gotoNext = 3872461
+    				} else {
+    					gotoNext = 3872461
+    				}
+    				_ = gotoNext == 3872461
+    				f.CompressedSize64 = fieldBuf_3871948.uint64()
+    				gotoNext = 3872508
+    			} else {
+    				gotoNext = 3872508
+    			}
+    			_ = gotoNext == 3872508
+    			if needHeaderOffset_3871506 {
+    				gotoNext = 3872528
+    				_ = gotoNext == 3872528
+    				needHeaderOffset_3871506 = false
+    				if len(fieldBuf_3871948) < 8 {
+    					gotoNext = 3872584
+    					_ = gotoNext == 3872584
+    					return ErrFormat
+    					gotoNext = 3872618
+    				} else {
+    					gotoNext = 3872618
+    				}
+    				_ = gotoNext == 3872618
+    				f.headerOffset = int64(fieldBuf_3871948.uint64())
+    				gotoNext = 3873926
+    			} else {
+    				gotoNext = 3873926
+    			}
+    			gotoNext = 3873926
+    		case 10:
+    			gotoNext = 3872667
+    			_ = gotoNext == 3872667
+    			if len(fieldBuf_3871948) < 4 {
+    				gotoNext = 3872709
+    				_ = gotoNext == 3872709
+    				gotoNext = 3871759
+    				gotoNext = 3872744
+    			} else {
+    				gotoNext = 3872744
+    			}
+    			_ = gotoNext == 3872744
+    			fieldBuf_3871948.uint32()
+    			_ = 0
+    			gotoNext = 3872794
+    			_ = gotoNext == 3872794
+    			if len(fieldBuf_3871948) >= 4 {
+    				gotoNext = 3872817
+    				_ = gotoNext == 3872817
+    				attrTag_3872853 = fieldBuf_3871948.uint16()
+    				attrSize_3872886 = int(fieldBuf_3871948.uint16())
+    				if len(fieldBuf_3871948) < attrSize_3872886 {
+    					gotoNext = 3872953
+    					_ = gotoNext == 3872953
+    					gotoNext = 3871759
+    					gotoNext = 3872991
+    				} else {
+    					gotoNext = 3872991
+    				}
+    				_ = gotoNext == 3872991
+    				attrBuf_3872991 = fieldBuf_3871948.sub(attrSize_3872886)
+    				if attrTag_3872853 != 1 || attrSize_3872886 != 24 {
+    					gotoNext = 3873063
+    					_ = gotoNext == 3873063
+    					_ = 0
+    					gotoNext = 3872794
+    					gotoNext = 3873122
+    				} else {
+    					gotoNext = 3873122
+    				}
+    				_ = gotoNext == 3873122
+    				ticksPerSecond_3873128 = 1e+07
+    				ts_3873188 = int64(attrBuf_3872991.uint64())
+    				secs_3873253 = int64(ts_3873188 / 10000000)
+    				nsecs_3873292 = 100 * int64(ts_3873188%10000000)
+    				epoch_3873355 = time.Date(1601, 1, 1, 0, 0, 0, 0, time.UTC)
+    				modified_3871726 = time.Unix(epoch_3873355.Unix()+secs_3873253, nsecs_3873292)
+    				gotoNext = 3872794
+    			} else {
+    				gotoNext = 3873926
+    			}
+    			gotoNext = 3873926
+    		case 13, 22613:
+    			gotoNext = 3873477
+    			_ = gotoNext == 3873477
+    			if len(fieldBuf_3871948) < 8 {
+    				gotoNext = 3873539
+    				_ = gotoNext == 3873539
+    				gotoNext = 3871759
+    				gotoNext = 3873574
+    			} else {
+    				gotoNext = 3873574
+    			}
+    			_ = gotoNext == 3873574
+    			fieldBuf_3871948.uint32()
+    			ts_3873628 = int64(fieldBuf_3871948.uint32())
+    			modified_3871726 = time.Unix(ts_3873628, 0)
+    			gotoNext = 3873926
+    		case 21589:
+    			gotoNext = 3873720
+    			_ = gotoNext == 3873720
+    			if len(fieldBuf_3871948) < 5 || fieldBuf_3871948.uint8()&1 == 0 {
+    				gotoNext = 3873792
+    				_ = gotoNext == 3873792
+    				gotoNext = 3871759
+    				gotoNext = 3873827
+    			} else {
+    				gotoNext = 3873827
+    			}
+    			_ = gotoNext == 3873827
+    			ts_3873827 = int64(fieldBuf_3871948.uint32())
+    			modified_3871726 = time.Unix(ts_3873827, 0)
+    			gotoNext = 3873926
+    		default:
+    			gotoNext = 3873926
+    		}
+    		gotoNext = 3871759
+    	} else {
+    		gotoNext = 3873926
+    	}
+    	_ = gotoNext == 3873926
+    	msdosModified_3873926 = msDosTimeToTime(f.ModifiedDate, f.ModifiedTime)
+    	f.Modified = msdosModified_3873926
+    	if !modified_3871726.IsZero() {
+    		gotoNext = 3874042
+    		_ = gotoNext == 3874042
+    		f.Modified = modified_3871726.UTC()
+    		if f.ModifiedTime != 0 || f.ModifiedDate != 0 {
+    			gotoNext = 3874578
+    			_ = gotoNext == 3874578
+    			f.Modified = modified_3871726.In(timeZone(msdosModified_3873926.Sub(modified_3871726)))
+    			gotoNext = 3875180
+    		} else {
+    			gotoNext = 3875180
+    		}
+    		gotoNext = 3875180
+    	} else {
+    		gotoNext = 3875180
+    	}
+    	_ = gotoNext == 3875180
+    	_ = needUSize_3871414
+    	if needCSize_3871461 || needHeaderOffset_3871506 {
+    		gotoNext = 3875229
+    		_ = gotoNext == 3875229
+    		return ErrFormat
+    		gotoNext = 3875255
+    	} else {
+    		gotoNext = 3875255
+    	}
+    	_ = gotoNext == 3875255
+    	return nil
+    	gotoNext = -1
+    }*|/
 **/
 class Zip {
     /**

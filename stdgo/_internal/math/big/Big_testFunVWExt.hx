@@ -1,6 +1,6 @@
 package stdgo._internal.math.big;
 function testFunVWExt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _vwSizes:stdgo.Slice<stdgo.GoInt> = (new stdgo.Slice<stdgo.GoInt>(16, 16, ...[
+        var _vwSizes = (new stdgo.Slice<stdgo.GoInt>(16, 16, ...[
 (0 : stdgo.GoInt),
 (1 : stdgo.GoInt),
 (3 : stdgo.GoInt),

@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function testFloat64Distribution(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _add:stdgo.Slice<stdgo.GoInt64> = (new stdgo.Slice<stdgo.GoInt64>(7, 7, ...[(0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64), (5i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (9i64 : stdgo.GoInt64), (11i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
-        var __0:stdgo.GoUInt64 = (10i64 : stdgo.GoUInt64), __1:stdgo.GoInt = (500 : stdgo.GoInt);
+        var _add = (new stdgo.Slice<stdgo.GoInt64>(7, 7, ...[(0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64), (3i64 : stdgo.GoInt64), (5i64 : stdgo.GoInt64), (7i64 : stdgo.GoInt64), (9i64 : stdgo.GoInt64), (11i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
+        var __0 = (10i64 : stdgo.GoUInt64), __1 = (500 : stdgo.GoInt);
 var _einc = __1, _winc = __0;
         if (stdgo._internal.math.big.Big__long._long.value) {
             {

@@ -203,20 +203,91 @@ class T_charsetError_static_extension {
     }
 }
 /**
-    /|*
-    Package mail implements parsing of mail messages.
-    
-    For the most part, this package follows the syntax as specified by RFC 5322 and
-    extended by RFC 6532.
-    Notable divergences:
-      - Obsolete address formats are not parsed, including addresses with
-        embedded route information.
-      - The full range of spacing (the CFWS syntax element) is not supported,
-        such as breaking addresses across lines.
-      - No unicode normalization is performed.
-      - The special characters ()[]:;@\, are allowed to appear unquoted in names.
-      - A leading From line is permitted, as in mbox format (RFC 4155).
-    *|/
+    /|*{
+    	i_4212292 = 0
+    	gotoNext = 4212300
+    	_ = gotoNext == 4212300
+    	_ = 0
+    	LoopBreak = false
+    	gotoNext = 4212307
+    	_ = gotoNext == 4212307
+    	if !LoopBreak {
+    		gotoNext = 4212311
+    		_ = gotoNext == 4212311
+    		r_4212315, size_4212318 = utf8.DecodeRuneInString(p.s[i_4212292:])
+    		_ = 0
+    		gotoNext = 4212361
+    		_ = gotoNext == 4212361
+    		switch {
+    		case size_4212318 == 1 && r_4212315 == 65533:
+    			gotoNext = 4212372
+    			_ = gotoNext == 4212372
+    			return "", fmt.Errorf("mail: invalid utf-8 in address: %q", p.s)
+    			gotoNext = 4212579
+    		case size_4212318 == 0 || !isAtext(r_4212315, dot, permissive):
+    			gotoNext = 4212482
+    			_ = gotoNext == 4212482
+    			LoopBreak = true
+    			gotoNext = 4212307
+    			gotoNext = 4212579
+    		default:
+    			gotoNext = 4212547
+    			_ = gotoNext == 4212547
+    			i_4212292 += size_4212318
+    			gotoNext = 4212579
+    		}
+    		gotoNext = 4212307
+    	} else {
+    		gotoNext = 4212579
+    	}
+    	_ = gotoNext == 4212579
+    	if i_4212292 == 0 {
+    		gotoNext = 4212589
+    		_ = gotoNext == 4212589
+    		return "", errors.New("mail: invalid string")
+    		gotoNext = 4212643
+    	} else {
+    		gotoNext = 4212643
+    	}
+    	_ = gotoNext == 4212643
+    	atom, p.s = p.s[:i_4212292], p.s[i_4212292:]
+    	if !permissive {
+    		gotoNext = 4212688
+    		_ = gotoNext == 4212688
+    		if strings.HasPrefix(atom, ".") {
+    			gotoNext = 4212724
+    			_ = gotoNext == 4212724
+    			return "", errors.New("mail: leading dot in atom")
+    			gotoNext = 4212786
+    		} else {
+    			gotoNext = 4212786
+    		}
+    		_ = gotoNext == 4212786
+    		if strings.Contains(atom, "..") {
+    			gotoNext = 4212818
+    			_ = gotoNext == 4212818
+    			return "", errors.New("mail: double dot in atom")
+    			gotoNext = 4212879
+    		} else {
+    			gotoNext = 4212879
+    		}
+    		_ = gotoNext == 4212879
+    		if strings.HasSuffix(atom, ".") {
+    			gotoNext = 4212911
+    			_ = gotoNext == 4212911
+    			return "", errors.New("mail: trailing dot in atom")
+    			gotoNext = 4212976
+    		} else {
+    			gotoNext = 4212976
+    		}
+    		gotoNext = 4212976
+    	} else {
+    		gotoNext = 4212976
+    	}
+    	_ = gotoNext == 4212976
+    	return atom, nil
+    	gotoNext = -1
+    }*|/
 **/
 class Mail {
     /**

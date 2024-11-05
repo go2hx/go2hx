@@ -238,7 +238,7 @@ _all = (_all.__append__(_path.__copy__()));
     @:keep
     static public function dwarf( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>):{ var _0 : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Data.Data>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
-        var _subtypes:stdgo.GoArray<stdgo.GoUInt32> = (new stdgo.GoArray<stdgo.GoUInt32>(5, 5, ...[(393216u32 : stdgo.GoUInt32), (65536u32 : stdgo.GoUInt32), (131072u32 : stdgo.GoUInt32), (524288u32 : stdgo.GoUInt32), (458752u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt32>);
+        var _subtypes = (new stdgo.GoArray<stdgo.GoUInt32>(5, 5, ...[(393216u32 : stdgo.GoUInt32), (65536u32 : stdgo.GoUInt32), (131072u32 : stdgo.GoUInt32), (524288u32 : stdgo.GoUInt32), (458752u32 : stdgo.GoUInt32)]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt32>)?.__copy__();
         var _dat:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>> = new stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>(5, 5, ...[for (i in 0 ... 5) (null : stdgo.Slice<stdgo.GoUInt8>)]);
         for (_i => _subtype in _subtypes) {
             var _s = _f.sectionByType(((16u32 : stdgo.GoUInt32) | _subtype : stdgo.GoUInt32));

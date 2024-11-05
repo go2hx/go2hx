@@ -87,7 +87,7 @@ package stdgo._internal.net.http;
                 a();
             });
             if (_t.body != null) {
-                var _body:stdgo._internal.io.Io_Reader.Reader = _t._unwrapBody();
+                var _body = _t._unwrapBody();
                 if (stdgo._internal.net.http.Http__chunked._chunked(_t.transferEncoding)) {
                     {
                         var __tmp__ = try {

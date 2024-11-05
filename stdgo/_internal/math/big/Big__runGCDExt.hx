@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function _runGCDExt(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>, _aSize:stdgo.GoUInt, _bSize:stdgo.GoUInt, _calcXY:Bool):Void {
         _b.stopTimer();
-        var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> = stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newSource.newSource((1234i64 : stdgo.GoInt64)));
+        var _r = stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newSource.newSource((1234i64 : stdgo.GoInt64)));
         var _aa = stdgo._internal.math.big.Big__randInt._randInt(_r, _aSize);
         var _bb = stdgo._internal.math.big.Big__randInt._randInt(_r, _bSize);
         var __0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), __1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);

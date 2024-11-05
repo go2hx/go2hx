@@ -69,3 +69,4 @@ log.out
 sort_*.json
 prebuild
 _internal/*
+analysis/tests/unitmod/*

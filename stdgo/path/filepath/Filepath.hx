@@ -107,13 +107,89 @@ class T_statDirEntry_static_extension {
     }
 }
 /**
-    Package filepath implements utility routines for manipulating filename paths
-    in a way compatible with the target operating system-defined file paths.
-    
-    The filepath package uses either forward slashes or backslashes,
-    depending on the operating system. To process paths such as URLs
-    that always use forward slashes regardless of the operating
-    system, see the [path] package.
+    /|*{
+    	_ = 0
+    	gotoNext = 4119806
+    	_ = gotoNext == 4119806
+    	if len(pattern) > 0 && pattern[0] == 42 {
+    		gotoNext = 4119848
+    		_ = gotoNext == 4119848
+    		pattern = pattern[1:]
+    		star = true
+    		gotoNext = 4119806
+    	} else {
+    		gotoNext = 4119892
+    	}
+    	_ = gotoNext == 4119892
+    	inrange_4119892 = false
+    	gotoNext = 4119920
+    	_ = gotoNext == 4119920
+    	i_4119914 = 0
+    	ScanBreak = false
+    	gotoNext = 4119927
+    	_ = gotoNext == 4119927
+    	if !ScanBreak && (i_4119914 < len(pattern)) {
+    		gotoNext = 4119960
+    		_ = gotoNext == 4119960
+    		_ = 0
+    		gotoNext = 4119964
+    		_ = gotoNext == 4119964
+    		switch pattern[i_4119914] {
+    		case 92:
+    			gotoNext = 4119986
+    			_ = gotoNext == 4119986
+    			if true {
+    				gotoNext = 4120029
+    				_ = gotoNext == 4120029
+    				if i_4119914+1 < len(pattern) {
+    					gotoNext = 4120112
+    					_ = gotoNext == 4120112
+    					i_4119914++
+    					gotoNext = 4119956
+    				} else {
+    					gotoNext = 4119956
+    				}
+    				gotoNext = 4119956
+    			} else {
+    				gotoNext = 4119956
+    			}
+    			gotoNext = 4119956
+    		case 91:
+    			gotoNext = 4120136
+    			_ = gotoNext == 4120136
+    			inrange_4119892 = true
+    			gotoNext = 4119956
+    		case 93:
+    			gotoNext = 4120166
+    			_ = gotoNext == 4120166
+    			inrange_4119892 = false
+    			gotoNext = 4119956
+    		case 42:
+    			gotoNext = 4120197
+    			_ = gotoNext == 4120197
+    			if !inrange_4119892 {
+    				gotoNext = 4120222
+    				_ = gotoNext == 4120222
+    				ScanBreak = true
+    				gotoNext = 4119927
+    				gotoNext = 4119956
+    			} else {
+    				gotoNext = 4119956
+    			}
+    			gotoNext = 4119956
+    		default:
+    			gotoNext = 4119956
+    		}
+    		_ = gotoNext == 4119956
+    		i_4119914++
+    		gotoNext = 4119927
+    	} else {
+    		gotoNext = 4120252
+    	}
+    	_ = gotoNext == 4120252
+    	return star, pattern[0:i_4119914], pattern[i_4119914:]
+    	gotoNext = -1
+    }*|/
 **/
 class Filepath {
     /**

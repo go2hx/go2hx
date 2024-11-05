@@ -1829,10 +1829,111 @@ class Pos_static_extension {
     }
 }
 /**
-    Package parse builds parse trees for templates as defined by text/template
-    and html/template. Clients should use those packages to construct templates
-    rather than this one, which provides shared internal data structures not
-    intended for general use.
+    /|*{
+    	token_3661234 = t.peekNonSpace()
+    	pipe = t.newPipeline(token_3661234.pos, token_3661234.line, nil)
+    	gotoNext = 3661353
+    	_ = gotoNext == 3661353
+    	if v_3661364 = t.peekNonSpace(); v_3661364.typ == 21 {
+    		gotoNext = 3661409
+    		_ = gotoNext == 3661409
+    		t.next()
+    		tokenAfterVariable_3661725 = t.peek()
+    		next_3661758 = t.peekNonSpace()
+    		_ = 0
+    		gotoNext = 3661785
+    		_ = gotoNext == 3661785
+    		switch {
+    		case next_3661758.typ == 6, next_3661758.typ == 7:
+    			gotoNext = 3661796
+    			_ = gotoNext == 3661796
+    			pipe.IsAssign = next_3661758.typ == 6
+    			t.nextNonSpace()
+    			pipe.Decl = append(pipe.Decl, t.newVariable(v_3661364.pos, v_3661364.val))
+    			t.vars = append(t.vars, v_3661364.val)
+    			gotoNext = 3662626
+    		case next_3661758.typ == 2 && next_3661758.val == ",":
+    			gotoNext = 3662010
+    			_ = gotoNext == 3662010
+    			t.nextNonSpace()
+    			pipe.Decl = append(pipe.Decl, t.newVariable(v_3661364.pos, v_3661364.val))
+    			t.vars = append(t.vars, v_3661364.val)
+    			if context == "range" && len(pipe.Decl) < 2 {
+    				gotoNext = 3662219
+    				_ = gotoNext == 3662219
+    				_ = 0
+    				gotoNext = 3662225
+    				_ = gotoNext == 3662225
+    				switch t.peekNonSpace().typ {
+    				case 21, 16, 17:
+    					gotoNext = 3662259
+    					_ = gotoNext == 3662259
+    					gotoNext = 3661353
+    					gotoNext = 3662462
+    				default:
+    					gotoNext = 3662386
+    					_ = gotoNext == 3662386
+    					t.errorf("range can only initialize variables")
+    					gotoNext = 3662462
+    				}
+    				gotoNext = 3662462
+    			} else {
+    				gotoNext = 3662462
+    			}
+    			_ = gotoNext == 3662462
+    			t.errorf("too many declarations in %s", context)
+    			gotoNext = 3662626
+    		case tokenAfterVariable_3661725.typ == 18:
+    			gotoNext = 3662513
+    			_ = gotoNext == 3662513
+    			t.backup3(v_3661364, tokenAfterVariable_3661725)
+    			gotoNext = 3662626
+    		default:
+    			gotoNext = 3662593
+    			_ = gotoNext == 3662593
+    			t.backup2(v_3661364)
+    			gotoNext = 3662626
+    		}
+    		gotoNext = 3662626
+    	} else {
+    		gotoNext = 3662626
+    	}
+    	_ = gotoNext == 3662626
+    	_ = 0
+    	gotoNext = 3662626
+    	_ = gotoNext == 3662626
+    	if true {
+    		gotoNext = 3662630
+    		_ = gotoNext == 3662630
+    		token_3662641 = t.nextNonSpace()
+    		gotoNext = 3662634
+    		_ = gotoNext == 3662634
+    		switch token_3662641 = t.nextNonSpace(); token_3662641.typ {
+    		case end:
+    			gotoNext = 3662682
+    			_ = gotoNext == 3662682
+    			t.checkPipeline(pipe, context)
+    			return
+    			gotoNext = 3663038
+    		case 1, 3, 5, 26, 9, 10, 13, 31, 15, 19, 21, 12:
+    			gotoNext = 3662784
+    			_ = gotoNext == 3662784
+    			t.backup()
+    			pipe.append(t.command())
+    			gotoNext = 3663038
+    		default:
+    			gotoNext = 3662990
+    			_ = gotoNext == 3662990
+    			t.unexpected(token_3662641, context)
+    			gotoNext = 3663038
+    		}
+    		gotoNext = 3662626
+    	} else {
+    		gotoNext = 3663038
+    	}
+    	_ = gotoNext == 3663038
+    	gotoNext = -1
+    }*|/
 **/
 class Parse {
     /**

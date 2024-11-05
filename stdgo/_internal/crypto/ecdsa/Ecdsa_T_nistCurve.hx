@@ -12,6 +12,6 @@ package stdgo._internal.crypto.ecdsa;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_nistCurve<Point>(_newPoint, _curve, n, _nMinus2);
+        return new T_nistCurve(_newPoint, _curve, n, _nMinus2);
     }
 }

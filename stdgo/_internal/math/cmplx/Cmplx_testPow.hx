@@ -1,6 +1,6 @@
 package stdgo._internal.math.cmplx;
 function testPow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _zero:stdgo.GoComplex128 = new stdgo.GoComplex128((0i64 : stdgo.GoUInt64), (0i64 : stdgo.GoUInt64));
+        var _zero = new stdgo.GoComplex128((0i64 : stdgo.GoUInt64), (0i64 : stdgo.GoUInt64));
         var _zeroPowers = (new stdgo.Slice<stdgo.GoArray<stdgo.GoComplex128>>(4, 4, ...[(new stdgo.GoArray<stdgo.GoComplex128>(2, 2, ...[((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), ((1f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64))]) : stdgo.GoArray<stdgo.GoComplex128>), (new stdgo.GoArray<stdgo.GoComplex128>(2, 2, ...[((1.5f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), ((0f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64))]) : stdgo.GoArray<stdgo.GoComplex128>), (new stdgo.GoArray<stdgo.GoComplex128>(2, 2, ...[((-1.5f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 0f64)), new stdgo.GoComplex128(stdgo._internal.math.Math_inf.inf((0 : stdgo.GoInt)), (0 : stdgo.GoFloat64))]) : stdgo.GoArray<stdgo.GoComplex128>), (new stdgo.GoArray<stdgo.GoComplex128>(2, 2, ...[((-1.5f64 : stdgo.GoFloat64) + new stdgo.GoComplex128(0f64, 1.5f64)), stdgo._internal.math.cmplx.Cmplx_inf.inf()]) : stdgo.GoArray<stdgo.GoComplex128>)].concat([for (i in 4 ... (4 > 4 ? 4 : 4 : stdgo.GoInt).toBasic()) new stdgo.GoArray<stdgo.GoComplex128>(2, 2, ...[for (i in 0 ... 2) new stdgo.GoComplex128(0, 0)])])) : stdgo.Slice<stdgo.GoArray<stdgo.GoComplex128>>);
         for (__0 => _zp in _zeroPowers) {
             {
@@ -10,7 +10,7 @@ function testPow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 };
             };
         };
-        var _a:stdgo.GoComplex128 = new stdgo.GoComplex128((3 : stdgo.GoFloat64), (3 : stdgo.GoFloat64));
+        var _a = new stdgo.GoComplex128((3 : stdgo.GoFloat64), (3 : stdgo.GoFloat64));
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (stdgo._internal.math.cmplx.Cmplx__vc._vc.length) : Bool)) {

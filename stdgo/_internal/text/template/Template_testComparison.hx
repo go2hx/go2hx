@@ -1,7 +1,7 @@
 package stdgo._internal.text.template;
 function testComparison(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_Builder.Builder)) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        var _cmpStruct:stdgo._internal.text.template.Template_T__struct_3.T__struct_3 = ({ uthree : (3u32 : stdgo.GoUInt), ufour : (4u32 : stdgo.GoUInt), negOne : (-1 : stdgo.GoInt), three : (3 : stdgo.GoInt), ptr : stdgo.Go.pointer((0 : stdgo.GoInt)), nonNilMap : ({
+        var _cmpStruct = ({ uthree : (3u32 : stdgo.GoUInt), ufour : (4u32 : stdgo.GoUInt), negOne : (-1 : stdgo.GoInt), three : (3 : stdgo.GoInt), ptr : stdgo.Go.pointer((0 : stdgo.GoInt)), nonNilMap : ({
             final x = new stdgo.GoMap.GoIntMap<stdgo.GoInt>();
             x.__defaultValue__ = () -> (0 : stdgo.GoInt);
             {};

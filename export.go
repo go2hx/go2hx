@@ -9,14 +9,12 @@ import (
 	"go/ast"
 	"go/constant"
 	"go/importer"
-	"go/parser"
 	"go/printer"
 	"go/token"
 	"go/types"
 	"log"
 	"math/rand"
 	"net"
-	"path"
 	"path/filepath"
 	"runtime"
 	"runtime/debug"
@@ -27,7 +25,7 @@ import (
 	"strconv"
 	"strings"
 
-	"golang.org/x/tools/go/ast/astutil"
+	"github.com/go2hx/go4hx/analysis"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
 )
@@ -198,6 +196,10 @@ func main() {
 	cfg.Env = append(os.Environ(), "CGO_ENABLED=0")
 	cfg.Env = append(cfg.Env, "GOOS=js", "GOARCH=wasm")
 	args := os.Args
+	if args[1] == "-goto" {
+		analysis.GotoParseTest()
+		return
+	}
 	port := args[len(args)-1]
 	var excludesData []string
 	var err error
@@ -313,8 +315,9 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 }
 
 func parseLocalFile(file *ast.File, pkg *packages.Package) {
-	parseLocalTypes(file, pkg)
-	parseLocalConstants(file, pkg)
+	analysis.ParseLocalTypes(file, pkg, checker, hashType, &countStruct, &countInterface)
+	analysis.ParseLocalConstants(file, pkg, checker)
+	analysis.ParseLocalGotos(file, checker, pkg.Fset)
 }
 
 func randomIdentifier() *ast.Ident {
@@ -324,328 +327,6 @@ func randomIdentifier() *ast.Ident {
 		log.Fatal(err)
 	}
 	return ast.NewIdent(fmt.Sprintf("_%x", b))
-}
-
-var restrictedDebugPkgs = map[string]bool{"strconv": true, "log": true, "math/bits": true, "os": true, "internal/poll": true, "syscall": true, "internal/syscall/unix": true, "internal/syscall": true, "internal/abi": true, "unsafe": true, "runtime": true, "reflect": true, "sync": true, "sync/atomic": true, "internal/reflectlite": true, "internal/bytealg": true, "math": true, "time": true, "time/tzdata": true, "runtime/debug": true, "os/exec": true, "os/signal": true, "runtime/pprof": true, "runtime/trace": true}
-
-func debugPkg(pkg *packages.Package) {
-	if !debugBool || restrictedDebugPkgs[pkg.PkgPath] {
-		return
-	}
-	// for assembly files
-	s := "go/src/"
-	index := 0
-	for _, file := range pkg.OtherFiles {
-		index = strings.Index(file, s)
-		if index != -1 {
-			index += len(s)
-			p := "debug/" + file[index:]
-			_ = os.MkdirAll(path.Dir(p), 0766)
-			rf, err := os.ReadFile(file)
-			if err != nil {
-				log.Fatal(err)
-			}
-			// fmt.Println(p)
-			os.WriteFile(p, rf, 0766)
-		}
-	}
-	fset = pkg.Fset
-	if visited[pkg.PkgPath] {
-		return
-	}
-	visited[pkg.PkgPath] = true
-	for _, val := range pkg.Imports {
-		if stdgoList[val.PkgPath] {
-			continue
-		}
-		debugPkg(val)
-	}
-	checker = types.NewChecker(&conf, fset, pkg.Types, pkg.TypesInfo)
-	addedLog := false
-	mainBool := false
-	//astutil.App
-	applyAssign := func(cursor *astutil.Cursor) bool {
-		if cursor.Index() == -1 {
-			return true
-		}
-		switch node := cursor.Node().(type) {
-		case *ast.AssignStmt:
-			if node.Tok == token.ASSIGN || node.Tok == token.ADD_ASSIGN || node.Tok == token.SUB_ASSIGN || node.Tok == token.MUL_ASSIGN || node.Tok == token.QUO_ASSIGN || node.Tok == token.REM_ASSIGN || node.Tok == token.AND_ASSIGN || node.Tok == token.OR_ASSIGN || node.Tok == token.XOR_ASSIGN || node.Tok == token.SHL_ASSIGN || node.Tok == token.SHR_ASSIGN || node.Tok == token.AND_NOT_ASSIGN {
-				if node.Lhs != nil {
-					for _, expr := range node.Lhs {
-						switch expr := expr.(type) {
-						case *ast.Ident:
-							if expr.Name == "_" || expr.Name == "nil" {
-								continue
-							}
-						}
-						location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
-						_ = location
-						addedLog = true
-						callExpr := &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: []ast.Expr{&location, expr}}
-						cursor.InsertAfter(&ast.ExprStmt{X: callExpr})
-					}
-				}
-			}
-		case *ast.ForStmt, *ast.RangeStmt:
-			return false
-		default:
-		}
-		return true
-	}
-	applyReturn := func(cursor *astutil.Cursor) bool {
-		if cursor.Index() == -1 {
-			return true
-		}
-
-		switch node := cursor.Node().(type) {
-		case *ast.ReturnStmt:
-			results := []ast.Expr{}
-			for _, expr := range node.Results {
-				names := []ast.Expr{}
-				exitBool := false
-				switch expr.(type) {
-				case *ast.CallExpr:
-				default:
-					exitBool = true
-				}
-				if exitBool {
-					results = append(results, expr)
-					continue
-				}
-				t := checker.TypeOf(expr)
-				switch t := t.(type) {
-				case *types.Tuple:
-					for i := 0; i < t.Len(); i++ {
-						id := randomIdentifier()
-						names = append(names, id)
-						pkg.TypesInfo.Defs[id] = types.NewVar(0, pkg.Types, id.Name, t)
-					}
-				default:
-					id := randomIdentifier()
-					names = append(names, id)
-					pkg.TypesInfo.Defs[id] = types.NewVar(0, pkg.Types, id.Name, t)
-				}
-				expr := &ast.AssignStmt{Tok: token.DEFINE, Lhs: names, Rhs: []ast.Expr{expr}}
-
-				cursor.InsertBefore(expr)
-				location := ast.BasicLit{Kind: token.STRING, Value: `"` + fset.Position(expr.Pos()).String() + `"`}
-				cursor.InsertBefore(&ast.ExprStmt{X: &ast.CallExpr{Fun: ast.NewIdent("log.Println"), Args: append([]ast.Expr{&location}, names...)}})
-				addedLog = true
-				results = append(results, names...)
-			}
-			if len(results) > 0 {
-				cursor.Replace(&ast.ReturnStmt{Results: results, Return: node.Return})
-			}
-		default:
-		}
-		return true
-	}
-	// TODO: set back to log
-	requiredImports := map[string]bool{"log": true}
-	if pkg.Name == "main" {
-		requiredImports = map[string]bool{"os": true, "log": true, "runtime": true}
-	}
-	newDecls := []ast.Decl{}
-	importDecl := &ast.GenDecl{Tok: token.IMPORT}
-	file := pkg.Syntax[0]
-	file.Comments = nil
-	//file.Doc = nil
-	// Remove any comments that start with "//go:build"
-	for i := 0; i < len(file.Comments); i++ {
-		if strings.Index(file.Comments[i].List[0].Text, "//go:build") == 0 {
-			file.Comments = append(file.Comments[:i], file.Comments[i+1:]...)
-			i--
-		}
-	}
-	for _, decl := range file.Decls {
-		switch decl := decl.(type) {
-		case *ast.FuncDecl:
-			if pkg.Name == "main" && decl.Name.Name == "main" {
-				mainBool = true
-				s := `package main
-				func __debug__() *os.File {
-					__f__, _ := os.
-						OpenFile("debug_"+
-							runtime.Compiler+
-							".log", os.O_APPEND|
-							os.O_CREATE|os.
-							O_WRONLY, 0644)
-					log.SetOutput(__f__)
-					log.SetFlags(0)
-					return __f__
-				}
-				func main() {
-					__f__ := __debug__()
-					defer __f__.Close()
-				}
-				`
-				fset := token.NewFileSet()
-				logFileCode, err := parser.ParseFile(fset, "", s, 0)
-				if err != nil {
-					log.Fatal(err)
-				}
-				// add __debug__ function
-				newDecls = append(newDecls, logFileCode.Decls[0])
-				_ = logFileCode
-				// Get the list of statements
-				stmts := make([]ast.Stmt, 0)
-				for _, decl := range logFileCode.Decls {
-					if fn, ok := decl.(*ast.FuncDecl); ok && fn.Name.Name == "main" {
-						stmts = fn.Body.List
-					}
-				}
-				for _, decl := range file.Decls {
-					if fn, ok := decl.(*ast.FuncDecl); ok && fn.Name.Name == "main" {
-						fn.Body.List = append(stmts, fn.Body.List...)
-					}
-				}
-
-			}
-			newDecls = append(newDecls, decl)
-		case *ast.GenDecl:
-			if decl.Tok == token.IMPORT {
-				for _, spec := range decl.Specs {
-					switch spec := spec.(type) {
-					case *ast.ImportSpec:
-						impName := strings.Trim(spec.Path.Value, `"`)
-						if requiredImports[impName] {
-							delete(requiredImports, impName)
-						}
-						pathValue := spec.Path.Value
-						if !restrictedDebugPkgs[impName] {
-							if stdgoList[impName] {
-								pathValue = `"github.com/go2hx/go4hx/debug/` + impName + `"`
-							}
-						}
-						duplicate := false
-						for _, spec2 := range importDecl.Specs {
-							if spec2.(*ast.ImportSpec).Path.Value == pathValue {
-								duplicate = true
-								break
-							}
-						}
-						if !duplicate {
-							importDecl.Specs = append(importDecl.Specs, &ast.ImportSpec{Path: &ast.BasicLit{Kind: token.STRING, Value: pathValue}})
-						}
-					}
-				}
-			} else {
-				newDecls = append(newDecls, decl)
-			}
-		default:
-			newDecls = append(newDecls, decl)
-		}
-	}
-	file = astutil.Apply(file, applyAssign, nil).(*ast.File)
-	file = astutil.Apply(file, applyReturn, nil).(*ast.File)
-	if mainBool || addedLog {
-		for imp := range requiredImports {
-			importDecl.Specs = append(importDecl.Specs, &ast.ImportSpec{Path: &ast.BasicLit{Kind: token.STRING, Value: `"` + imp + `"`}})
-		}
-	}
-	oldDecls := file.Decls
-	if len(importDecl.Specs) > 0 {
-		file.Decls = append([]ast.Decl{importDecl}, newDecls...)
-	} else {
-		file.Decls = newDecls
-	}
-
-	pkgPath := pkg.PkgPath
-	if pkg.Name == "main" {
-		pkgPath = ""
-	} else {
-		pkgPath += "/"
-	}
-	pkgPath = "debug/" + pkgPath
-	_ = os.MkdirAll(pkgPath, 0766)
-	f, err := os.Create(pkgPath + pkg.Name + ".go")
-	if err != nil {
-		log.Fatal(err)
-	}
-	err = printer.Fprint(f, pkg.Fset, file)
-	if err != nil {
-		log.Fatal(err)
-	}
-	// _ = printer.Fprint(os.Stdout, pkg.Fset, file)
-	file.Decls = oldDecls
-}
-
-func parseLocalConstants(file *ast.File, pkg *packages.Package) {
-	apply := func(cursor *astutil.Cursor) bool {
-		switch node := cursor.Node().(type) {
-		case *ast.BinaryExpr, *ast.Ident, *ast.UnaryExpr, *ast.SelectorExpr, *ast.ParenExpr, *ast.TypeAssertExpr, *ast.BasicLit:
-			// constant folding
-			typeAndValue := checker.Types[node.(ast.Expr)]
-			if value := typeAndValue.Value; value != nil {
-				basic, ok := checker.TypeOf(node.(ast.Expr)).Underlying().(*types.Basic)
-				if !ok {
-					return false
-				}
-				var e ast.Expr
-				_ = basic
-				kind := basic.Kind()
-				info := basic.Info()
-				switch {
-				case info&types.IsInteger != 0:
-					if kind == types.Int64 || kind == types.Uint64 || kind == types.Uint || kind == types.Int {
-						if kind == types.Int64 || basic.Kind() == types.Int {
-							d, ok := constant.Int64Val(constant.ToInt(value))
-							if !ok {
-								log.Fatal("could not get exact int64: " + value.String())
-							}
-							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
-						} else {
-							d, ok := constant.Uint64Val(constant.ToInt(value))
-							if !ok {
-								log.Fatal("could not get exact uint64: " + value.String())
-							}
-							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
-						}
-					} else {
-						d, ok := constant.Int64Val(constant.ToInt(value))
-						if !ok {
-							// not exact
-							e = &ast.BasicLit{Kind: token.INT, Value: "0"}
-						} else {
-							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
-						}
-					}
-				case info&types.IsFloat != 0:
-					f, _ := constant.Float64Val(value)
-					e = &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(f)}
-				case info&types.IsBoolean != 0:
-					e = ast.NewIdent(strconv.FormatBool(constant.BoolVal(value)))
-				case info&types.IsComplex != 0:
-					r, _ := constant.Float64Val(constant.Real(value))
-					i, _ := constant.Float64Val(constant.Imag(value))
-					x := &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(r)}
-					y := &ast.BasicLit{Kind: token.IMAG, Value: fmt.Sprint(i)}
-					m := &ast.BinaryExpr{Op: token.ADD, X: x, Y: y}
-					e = &ast.ParenExpr{X: m}
-				case info&types.IsString != 0:
-					s := value.ExactString()
-					if s == `"gc"` {
-						switch node := node.(type) {
-						case *ast.SelectorExpr:
-							if node.Sel.Name == "Compiler" {
-								return false
-							}
-						}
-					}
-					e = &ast.BasicLit{Kind: token.STRING, Value: s}
-				default:
-					log.Fatal("unknown constant type: " + value.ExactString())
-				}
-				checker.Types[e] = typeAndValue
-				cursor.Replace(e)
-				return false
-			}
-		default:
-		}
-		return true
-	}
-	file = astutil.Apply(file, apply, nil).(*ast.File)
 }
 
 func encodeString(s string) string {
@@ -677,179 +358,6 @@ func encodeString(s string) string {
 		}
 	}
 	return `"` + buffer.String() + `"`
-}
-
-func parseLocalTypes(file *ast.File, pkg *packages.Package) {
-	interfaceTypes := make(map[uint32]*ast.Ident)
-	structTypes := make(map[uint32]*ast.Ident)
-	continueBool := false
-	count := 0
-	// write code to turn file.Name.Name string into a number
-	num := 0
-	for _, r := range []byte(file.Name.Name) {
-		num += int(r)
-	}
-	num = num * 1000
-	count = num
-
-	funcName := ""
-	apply := func(cursor *astutil.Cursor) bool {
-		switch cursor.Parent().(type) {
-		case *ast.TypeSpec:
-			return true
-		}
-		node := cursor.Node()
-		//fmt.Println(reflect.TypeOf(node))
-		switch node := node.(type) {
-		case *ast.FuncDecl:
-			funcName = node.Name.Name
-			//fmt.Println(funcName)
-			count = 0
-		case *ast.GenDecl:
-			if node.Tok == token.TYPE {
-				switch cursor.Parent().(type) {
-				case *ast.DeclStmt:
-					continueBool = true
-				}
-			}
-		case *ast.TypeSpec:
-			if continueBool {
-				continueBool = false
-				switch obj := node.Type.(type) {
-				case *ast.InterfaceType:
-					if obj.Methods == nil || obj.Methods.NumFields() == 0 {
-						return false
-					}
-					t := checker.TypeOf(obj)
-					if t == nil {
-						return false
-					}
-					// local type
-					name := funcName + "_" + strconv.Itoa(count) + "___localname___" + node.Name.Name
-					_ = name
-					count++
-					cursor.Replace(node)
-				}
-			}
-		case *ast.StructType:
-			t := checker.TypeOf(node)
-			if t == nil {
-				return false
-			}
-			hash := hashType(t)
-			name, exists := structTypes[hash]
-			if !exists {
-				name = ast.NewIdent("_struct_" + strconv.Itoa(countStruct))
-				countStruct++
-				structTypes[hash] = name
-				// add to file
-				gen := ast.GenDecl{}
-				gen.Tok = token.FUNC // set local
-				spec := ast.TypeSpec{}
-
-				spec.Name = name
-				spec.Type = node
-				gen.Specs = []ast.Spec{&spec}
-				file.Decls = append(file.Decls, &gen)
-
-				var pos token.Pos = 0
-				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, t), t, nil)
-				tv := types.TypeAndValue{}
-				tv.Type = t
-				// add
-				checker.Defs[name] = namedType.Obj()
-				checker.Types[name] = tv
-				// replace
-				for key, value := range checker.Defs {
-					if value != nil {
-						//log.Println("t:", t)
-						//log.Println("value.Type:", value.Type())
-						t := replaceType(t, value.Type(), t)
-						namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, t), t, nil)
-						if value.Type() == t {
-							checker.Defs[key] = namedType.Obj()
-						}
-					}
-				}
-			}
-			cursor.Replace(name)
-			return false
-		case *ast.InterfaceType:
-			if node.Methods == nil || node.Methods.NumFields() == 0 {
-				return false
-			}
-			t := checker.TypeOf(node)
-			if t == nil {
-				return false
-			}
-			hash := hashType(t)
-			name, exists := interfaceTypes[hash]
-			if !exists {
-				name = ast.NewIdent("_interface_" + strconv.Itoa(countInterface))
-				countInterface++
-				interfaceTypes[hash] = name
-				// add to file
-				gen := ast.GenDecl{}
-				gen.Tok = token.FUNC // set local
-				spec := ast.TypeSpec{}
-				spec.Name = name
-				spec.Type = node
-				gen.Specs = []ast.Spec{&spec}
-				file.Decls = append(file.Decls, &gen)
-
-				var pos token.Pos = 0
-				methods := []*types.Func{}
-				switch t := t.(type) {
-				case *types.Interface:
-					for i := 0; i < t.NumMethods(); i++ {
-						methods = append(methods, t.Method(i))
-					}
-				}
-				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, nil), t, methods)
-				tv := types.TypeAndValue{}
-
-				tv.Type = t
-				// add
-				checker.Defs[name] = namedType.Obj()
-				checker.Types[name] = tv
-				// replace
-				for key, value := range checker.Defs {
-					if value != nil && value.Type() == t {
-						checker.Defs[key] = namedType.Obj()
-					}
-				}
-			}
-			cursor.Replace(name)
-		}
-		return true
-	}
-	file = astutil.Apply(file, apply, nil).(*ast.File)
-}
-
-func replaceType(t types.Type, sub types.Type, by types.Type) types.Type {
-	//fmt.Println("type:", t)
-	//fmt.Println("sub:", sub)
-	//fmt.Println("by:", by)
-	switch t := t.(type) {
-	case *types.Struct:
-		fields := make([]*types.Var, t.NumFields())
-		tags := make([]string, t.NumFields())
-		for i := 0; i < t.NumFields(); i++ {
-			tags[i] = t.Tag(i)
-			v := types.NewVar(t.Field(i).Pos(), t.Field(i).Pkg(), t.Field(i).Name(), replaceType(t.Field(i).Type(), sub, by))
-			fields[i] = v
-		}
-		return types.NewStruct(fields, tags)
-	case *types.Slice:
-		return types.NewSlice(replaceType(t.Elem(), sub, by))
-	case *types.Array:
-		return types.NewArray(replaceType(t.Elem(), sub, by), t.Len())
-	default:
-		if t == sub {
-			return by
-		}
-	}
-	return t
 }
 
 func typeParamsFromType(t *types.Type) []string {
@@ -929,7 +437,6 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	countStruct = 0
 	for _, pkg := range list {
 		typeMap = &typeutil.Map{}
-		debugPkg(pkg)
 		parseLocalPackage(pkg, excludes)
 	}
 	// 2nd pass
@@ -1408,6 +915,7 @@ func parseData(node interface{}) map[string]interface{} {
 	}
 	switch node := node.(type) {
 	case *ast.CompositeLit:
+		data["exprType"] = parseData(node.Type)
 		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
 	case *ast.SelectorExpr:
 		typeAndValue := checker.Types[node.X.(ast.Expr)]

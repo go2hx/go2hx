@@ -3,7 +3,7 @@ function _choosePivot_func(_data:stdgo._internal.sort.Sort_T_lessSwap.T_lessSwap
         var _pivot = (0 : stdgo.GoInt), _hint = ((0 : stdgo.GoInt) : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint);
         {};
         var _l = (_b - _a : stdgo.GoInt);
-        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __2:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __3:stdgo.GoInt = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
+        var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1 = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __2 = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt), __3 = (_a + ((_l / (4 : stdgo.GoInt) : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
 var _k = __3, _j = __2, _i = __1, _swaps = __0;
         if ((_l >= (8 : stdgo.GoInt) : Bool)) {
             if ((_l >= (50 : stdgo.GoInt) : Bool)) {

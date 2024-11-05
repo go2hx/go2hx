@@ -8,6 +8,6 @@ package stdgo._internal.crypto.elliptic;
     }
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() {
-        return new T_nistCurve<Point>(_newPoint, _params);
+        return new T_nistCurve(_newPoint, _params);
     }
 }

@@ -1,6 +1,6 @@
 package stdgo._internal.text.template;
 function testIssue19294(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _inlined:stdgo.GoMap<stdgo.GoString, stdgo.GoString> = ({
+        var _inlined = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
             x.__defaultValue__ = () -> ("" : stdgo.GoString);
             x.set(("stylesheet" : stdgo.GoString), ("{{define \"stylesheet\"}}stylesheet{{end}}" : stdgo.GoString));

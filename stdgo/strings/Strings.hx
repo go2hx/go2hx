@@ -435,9 +435,180 @@ class T_asciiSet_static_extension {
     }
 }
 /**
-    Package strings implements simple functions to manipulate UTF-8 encoded strings.
-    
-    For information about UTF-8 strings in Go, see https://blog.golang.org/strings.
+    /|*{
+    	i_2805469 = 0
+    	_ = 0
+    	gotoNext = 2805477
+    	_ = gotoNext == 2805477
+    	if i_2805469 < len(s) && i_2805469 < len(t) {
+    		gotoNext = 2805513
+    		_ = gotoNext == 2805513
+    		sr_2805517 = s[i_2805469]
+    		tr_2805530 = t[i_2805469]
+    		if sr_2805517|tr_2805530 >= 128 {
+    			gotoNext = 2805569
+    			_ = gotoNext == 2805569
+    			gotoNext = 2805927
+    			gotoNext = 2805613
+    		} else {
+    			gotoNext = 2805613
+    		}
+    		_ = gotoNext == 2805613
+    		if tr_2805530 == sr_2805517 {
+    			gotoNext = 2805625
+    			_ = gotoNext == 2805625
+    			i_2805469++
+    			gotoNext = 2805477
+    			gotoNext = 2805690
+    		} else {
+    			gotoNext = 2805690
+    		}
+    		_ = gotoNext == 2805690
+    		if tr_2805530 < sr_2805517 {
+    			gotoNext = 2805701
+    			_ = gotoNext == 2805701
+    			tr_2805530, sr_2805517 = sr_2805517, tr_2805530
+    			gotoNext = 2805776
+    		} else {
+    			gotoNext = 2805776
+    		}
+    		_ = gotoNext == 2805776
+    		if 65 <= sr_2805517 && sr_2805517 <= 90 && tr_2805530 == sr_2805517+97-65 {
+    			gotoNext = 2805822
+    			_ = gotoNext == 2805822
+    			i_2805469++
+    			gotoNext = 2805477
+    			gotoNext = 2805842
+    		} else {
+    			gotoNext = 2805842
+    		}
+    		_ = gotoNext == 2805842
+    		return false
+    		i_2805469++
+    		gotoNext = 2805477
+    	} else {
+    		gotoNext = 2805902
+    	}
+    	_ = gotoNext == 2805902
+    	return len(s) == len(t)
+    	gotoNext = 2805927
+    	_ = gotoNext == 2805927
+    	s = s[i_2805469:]
+    	t = t[i_2805469:]
+    	keys_2805962 = []int{}
+    	values_2805962 = []rune{}
+    	for key, value := range s {
+    		keys_2805962 = append(keys_2805962, key)
+    		values_2805962 = append(values_2805962, value)
+    	}
+    	if 0 < len(keys_2805962) {
+    		gotoNext = 2806893
+    		_ = gotoNext == 2806893
+    		i_2805975 = 0
+    		gotoNext = 2806894
+    		_ = gotoNext == 2806894
+    		if i_2805975 < len(keys_2805962) {
+    			gotoNext = 2805983
+    			_ = gotoNext == 2805983
+    			sr_2805969 = values_2805962[i_2805975]
+    			_ = keys_2805962[i_2805975]
+    			if len(t) == 0 {
+    				gotoNext = 2806052
+    				_ = gotoNext == 2806052
+    				return false
+    				gotoNext = 2806121
+    			} else {
+    				gotoNext = 2806121
+    			}
+    			_ = gotoNext == 2806121
+    			if t[0] < 128 {
+    				gotoNext = 2806159
+    				_ = gotoNext == 2806159
+    				tr_2806125, t = rune(t[0]), t[1:]
+    				gotoNext = 2806343
+    			} else {
+    				gotoNext = 2806199
+    				_ = gotoNext == 2806199
+    				r_2806204, size_2806207 = utf8.DecodeRuneInString(t)
+    				tr_2806125, t = r_2806204, t[size_2806207:]
+    				gotoNext = 2806343
+    			}
+    			_ = gotoNext == 2806343
+    			if tr_2806125 == sr_2805969 {
+    				gotoNext = 2806355
+    				_ = gotoNext == 2806355
+    				i_2805975++
+    				gotoNext = 2806894
+    				gotoNext = 2806420
+    			} else {
+    				gotoNext = 2806420
+    			}
+    			_ = gotoNext == 2806420
+    			if tr_2806125 < sr_2805969 {
+    				gotoNext = 2806431
+    				_ = gotoNext == 2806431
+    				tr_2806125, sr_2805969 = sr_2805969, tr_2806125
+    				gotoNext = 2806485
+    			} else {
+    				gotoNext = 2806485
+    			}
+    			_ = gotoNext == 2806485
+    			if tr_2806125 < 128 {
+    				gotoNext = 2806507
+    				_ = gotoNext == 2806507
+    				if 65 <= sr_2805969 && sr_2805969 <= 90 && tr_2806125 == sr_2805969+97-65 {
+    					gotoNext = 2806607
+    					_ = gotoNext == 2806607
+    					i_2805975++
+    					gotoNext = 2806894
+    					gotoNext = 2806630
+    				} else {
+    					gotoNext = 2806630
+    				}
+    				_ = gotoNext == 2806630
+    				return false
+    				gotoNext = 2806760
+    			} else {
+    				gotoNext = 2806760
+    			}
+    			_ = gotoNext == 2806760
+    			r_2806760 = unicode.SimpleFold(sr_2805969)
+    			_ = 0
+    			gotoNext = 2806790
+    			_ = gotoNext == 2806790
+    			if r_2806760 != sr_2805969 && r_2806760 < tr_2806125 {
+    				gotoNext = 2806812
+    				_ = gotoNext == 2806812
+    				r_2806760 = unicode.SimpleFold(r_2806760)
+    				gotoNext = 2806790
+    			} else {
+    				gotoNext = 2806849
+    			}
+    			_ = gotoNext == 2806849
+    			if r_2806760 == tr_2806125 {
+    				gotoNext = 2806860
+    				_ = gotoNext == 2806860
+    				i_2805975++
+    				gotoNext = 2806894
+    				gotoNext = 2806880
+    			} else {
+    				gotoNext = 2806880
+    			}
+    			_ = gotoNext == 2806880
+    			return false
+    			i_2805975++
+    			gotoNext = 2806894
+    		} else {
+    			gotoNext = 2806967
+    		}
+    		gotoNext = 2806967
+    	} else {
+    		gotoNext = 2806967
+    	}
+    	_ = gotoNext == 2806967
+    	return len(t) == 0
+    	gotoNext = -1
+    }*|/
 **/
 class Strings {
     /**

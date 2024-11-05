@@ -1,7 +1,7 @@
 package stdgo._internal.encoding.binary;
 function testReadTruncated(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         {};
-        var _b1:stdgo.Slice<stdgo.GoInt32> = (new stdgo.Slice<stdgo.GoInt32>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
+        var _b1 = (new stdgo.Slice<stdgo.GoInt32>((4 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
         var _b2:stdgo._internal.encoding.binary.Binary_T__struct_5.T__struct_5 = ({ a : (0 : stdgo.GoUInt8), b : (0 : stdgo.GoUInt8), c : (0 : stdgo.GoUInt8), d : (0 : stdgo.GoUInt8), e : (0 : stdgo.GoInt32), f : (0 : stdgo.GoFloat64) } : stdgo._internal.encoding.binary.Binary_T__struct_5.T__struct_5);
         {
             var _i = (0 : stdgo.GoInt);

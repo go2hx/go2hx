@@ -1,7 +1,7 @@
 package stdgo._internal.text.template.parse;
 function _lexChar(_l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>):stdgo._internal.text.template.parse.Parse_T_stateFn.T_stateFn {
-        var _r_3622025:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
+        var _r_3622025:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

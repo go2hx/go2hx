@@ -74,84 +74,84 @@ class T_ints_static_extension {
 }
 /**
     /|*{
-    	id_3362644 = 0
-    	lastLen_3362653 = int64(-1)
-    	lastPos_3362689 = int64(0)
+    	id_3319636 = 0
+    	lastLen_3319645 = int64(-1)
+    	lastPos_3319681 = int64(0)
     	if 0 < len(sa[len(sa)-numLMS:]) {
-    		gotoNext = 3363273
-    		_ = gotoNext == 3363273
-    		i_3362722_0, j_3362717 = 0, sa[len(sa)-numLMS:][0]
-    		gotoNext = 3363274
-    		_ = gotoNext == 3363274
-    		if i_3362722_0 < len(sa[len(sa)-numLMS:]) {
-    			gotoNext = 3362748
-    			_ = gotoNext == 3362748
-    			j_3362717 = sa[len(sa)-numLMS:][i_3362722_0]
-    			n_3362836 = sa[j_3362717/2]
-    			if n_3362836 != lastLen_3362653 {
-    				gotoNext = 3362867
-    				_ = gotoNext == 3362867
-    				gotoNext = 3363204
-    				gotoNext = 3362887
+    		gotoNext = 3320265
+    		_ = gotoNext == 3320265
+    		i_3319714_0, j_3319709 = 0, sa[len(sa)-numLMS:][0]
+    		gotoNext = 3320266
+    		_ = gotoNext == 3320266
+    		if i_3319714_0 < len(sa[len(sa)-numLMS:]) {
+    			gotoNext = 3319740
+    			_ = gotoNext == 3319740
+    			j_3319709 = sa[len(sa)-numLMS:][i_3319714_0]
+    			n_3319828 = sa[j_3319709/2]
+    			if n_3319828 != lastLen_3319645 {
+    				gotoNext = 3319859
+    				_ = gotoNext == 3319859
+    				gotoNext = 3320196
+    				gotoNext = 3319879
     			} else {
-    				gotoNext = 3362887
+    				gotoNext = 3319879
     			}
-    			_ = gotoNext == 3362887
-    			if uint64(n_3362836) >= uint64(len(text)) {
-    				gotoNext = 3362921
-    				_ = gotoNext == 3362921
-    				gotoNext = 3363245
-    				gotoNext = 3363006
+    			_ = gotoNext == 3319879
+    			if uint64(n_3319828) >= uint64(len(text)) {
+    				gotoNext = 3319913
+    				_ = gotoNext == 3319913
+    				gotoNext = 3320237
+    				gotoNext = 3319998
     			} else {
-    				gotoNext = 3363006
+    				gotoNext = 3319998
     			}
-    			_ = gotoNext == 3363006
+    			_ = gotoNext == 3319998
     			{
-    				n_3363039 = int(n_3362836)
-    				this_3363054 = text[j_3362717:][:n_3363039]
-    				last_3363078 = text[lastPos_3362689:][:n_3363039]
-    				i_3363112 = 0
-    				gotoNext = 3363108
-    				_ = gotoNext == 3363108
-    				if i_3363112 < n_3363039 {
-    					gotoNext = 3363131
-    					_ = gotoNext == 3363131
-    					if this_3363054[i_3363112] != last_3363078[i_3363112] {
-    						gotoNext = 3363159
-    						_ = gotoNext == 3363159
-    						gotoNext = 3363204
-    						gotoNext = 3363127
+    				n_3320031 = int(n_3319828)
+    				this_3320046 = text[j_3319709:][:n_3320031]
+    				last_3320070 = text[lastPos_3319681:][:n_3320031]
+    				i_3320104 = 0
+    				gotoNext = 3320100
+    				_ = gotoNext == 3320100
+    				if i_3320104 < n_3320031 {
+    					gotoNext = 3320123
+    					_ = gotoNext == 3320123
+    					if this_3320046[i_3320104] != last_3320070[i_3320104] {
+    						gotoNext = 3320151
+    						_ = gotoNext == 3320151
+    						gotoNext = 3320196
+    						gotoNext = 3320119
     					} else {
-    						gotoNext = 3363127
+    						gotoNext = 3320119
     					}
-    					_ = gotoNext == 3363127
-    					i_3363112++
-    					gotoNext = 3363108
+    					_ = gotoNext == 3320119
+    					i_3320104++
+    					gotoNext = 3320100
     				} else {
-    					gotoNext = 3363189
+    					gotoNext = 3320181
     				}
-    				_ = gotoNext == 3363189
-    				gotoNext = 3363245
+    				_ = gotoNext == 3320181
+    				gotoNext = 3320237
     			}
-    			gotoNext = 3363204
-    			_ = gotoNext == 3363204
-    			id_3362644++
-    			lastPos_3362689 = j_3362717
-    			lastLen_3362653 = n_3362836
-    			gotoNext = 3363245
-    			_ = gotoNext == 3363245
-    			sa[j_3362717/2] = int64(id_3362644)
-    			i_3362722_0++
-    			gotoNext = 3363274
+    			gotoNext = 3320196
+    			_ = gotoNext == 3320196
+    			id_3319636++
+    			lastPos_3319681 = j_3319709
+    			lastLen_3319645 = n_3319828
+    			gotoNext = 3320237
+    			_ = gotoNext == 3320237
+    			sa[j_3319709/2] = int64(id_3319636)
+    			i_3319714_0++
+    			gotoNext = 3320266
     		} else {
-    			gotoNext = 3363277
+    			gotoNext = 3320269
     		}
-    		gotoNext = 3363277
+    		gotoNext = 3320269
     	} else {
-    		gotoNext = 3363277
+    		gotoNext = 3320269
     	}
-    	_ = gotoNext == 3363277
-    	return id_3362644
+    	_ = gotoNext == 3320269
+    	return id_3319636
     	gotoNext = -1
     }*|/
 **/

@@ -5673,6 +5673,7 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	var args = typeFieldListArgs(expr.type.params, info);
 	var ret = typeFieldListReturn(expr.type.results, info, true);
 	var block = typeBlockStmt(expr.body, info, true);
+	block = argsTranslate(args, toExpr(block), expr.type.params, info, null).expr;
 	// allows multiple nested values
 	return EFunction(FAnonymous, {
 		ret: ret,

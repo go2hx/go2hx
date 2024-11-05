@@ -1,2 +1,13 @@
 package stdgo._internal.os;
-function isPathSeparator(_c:stdgo.GoUInt8):Bool throw ":os.isPathSeparator is not yet implemented";
+function isPathSeparator(_c:stdgo.GoUInt8):Bool {
+        #if js return _c == "/" #else null #end;
+        #if target.sys {
+            final sep = switch Sys.systemName() {
+                case "Windows":
+                    "\\".code;
+                default:
+                    "/".code;
+            };
+            return _c == sep;
+        } #else null #end;
+    }

@@ -42,78 +42,78 @@ class T_lazybuf_static_extension {
 /**
     /|*{
     	_ = 0
-    	gotoNext = 2567663
-    	_ = gotoNext == 2567663
+    	gotoNext = 2692028
+    	_ = gotoNext == 2692028
     	if len(pattern) > 0 && pattern[0] == 42 {
-    		gotoNext = 2567705
-    		_ = gotoNext == 2567705
+    		gotoNext = 2692070
+    		_ = gotoNext == 2692070
     		pattern = pattern[1:]
     		star = true
-    		gotoNext = 2567663
+    		gotoNext = 2692028
     	} else {
-    		gotoNext = 2567749
+    		gotoNext = 2692114
     	}
-    	_ = gotoNext == 2567749
-    	inrange_2567749 = false
-    	gotoNext = 2567777
-    	_ = gotoNext == 2567777
-    	i_2567771 = 0
+    	_ = gotoNext == 2692114
+    	inrange_2692114 = false
+    	gotoNext = 2692142
+    	_ = gotoNext == 2692142
+    	i_2692136 = 0
     	ScanBreak = false
-    	gotoNext = 2567784
-    	_ = gotoNext == 2567784
-    	if !ScanBreak && (i_2567771 < len(pattern)) {
-    		gotoNext = 2567817
-    		_ = gotoNext == 2567817
+    	gotoNext = 2692149
+    	_ = gotoNext == 2692149
+    	if !ScanBreak && (i_2692136 < len(pattern)) {
+    		gotoNext = 2692182
+    		_ = gotoNext == 2692182
     		_ = 0
-    		gotoNext = 2567821
-    		_ = gotoNext == 2567821
-    		switch pattern[i_2567771] {
+    		gotoNext = 2692186
+    		_ = gotoNext == 2692186
+    		switch pattern[i_2692136] {
     		case 92:
-    			gotoNext = 2567843
-    			_ = gotoNext == 2567843
-    			if i_2567771+1 < len(pattern) {
-    				gotoNext = 2567933
-    				_ = gotoNext == 2567933
-    				i_2567771++
-    				gotoNext = 2567813
+    			gotoNext = 2692208
+    			_ = gotoNext == 2692208
+    			if i_2692136+1 < len(pattern) {
+    				gotoNext = 2692298
+    				_ = gotoNext == 2692298
+    				i_2692136++
+    				gotoNext = 2692178
     			} else {
-    				gotoNext = 2567813
+    				gotoNext = 2692178
     			}
-    			gotoNext = 2567813
+    			gotoNext = 2692178
     		case 91:
-    			gotoNext = 2567950
-    			_ = gotoNext == 2567950
-    			inrange_2567749 = true
-    			gotoNext = 2567813
+    			gotoNext = 2692315
+    			_ = gotoNext == 2692315
+    			inrange_2692114 = true
+    			gotoNext = 2692178
     		case 93:
-    			gotoNext = 2567980
-    			_ = gotoNext == 2567980
-    			inrange_2567749 = false
-    			gotoNext = 2567813
+    			gotoNext = 2692345
+    			_ = gotoNext == 2692345
+    			inrange_2692114 = false
+    			gotoNext = 2692178
     		case 42:
-    			gotoNext = 2568011
-    			_ = gotoNext == 2568011
-    			if !inrange_2567749 {
-    				gotoNext = 2568036
-    				_ = gotoNext == 2568036
+    			gotoNext = 2692376
+    			_ = gotoNext == 2692376
+    			if !inrange_2692114 {
+    				gotoNext = 2692401
+    				_ = gotoNext == 2692401
     				ScanBreak = true
-    				gotoNext = 2567784
-    				gotoNext = 2567813
+    				gotoNext = 2692149
+    				gotoNext = 2692178
     			} else {
-    				gotoNext = 2567813
+    				gotoNext = 2692178
     			}
-    			gotoNext = 2567813
+    			gotoNext = 2692178
     		default:
-    			gotoNext = 2567813
+    			gotoNext = 2692178
     		}
-    		_ = gotoNext == 2567813
-    		i_2567771++
-    		gotoNext = 2567784
+    		_ = gotoNext == 2692178
+    		i_2692136++
+    		gotoNext = 2692149
     	} else {
-    		gotoNext = 2568066
+    		gotoNext = 2692431
     	}
-    	_ = gotoNext == 2568066
-    	return star, pattern[0:i_2567771], pattern[i_2567771:]
+    	_ = gotoNext == 2692431
+    	return star, pattern[0:i_2692136], pattern[i_2692136:]
     	gotoNext = -1
     }*|/
 **/

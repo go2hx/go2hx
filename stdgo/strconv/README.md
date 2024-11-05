@@ -180,74 +180,162 @@ import stdgo.strconv.*
 
 
 ```
-Package strconv implements conversions to and from string representations
-    of basic data types.
+{
+    	if d.nd == 0 {
+    		gotoNext = 2677091
+    		_ = gotoNext == 2677091
+    		mant_2677029 = 0
+    		exp_2677016 = flt.bias
+    		gotoNext = 2678493
+    		gotoNext = 2677284
+    	} else {
+    		gotoNext = 2677284
+}
+    	_ = gotoNext == 2677284
+    	if d.dp > 310 {
+    		gotoNext = 2677298
+    		_ = gotoNext == 2677298
+    		gotoNext = 2678408
+    		gotoNext = 2677320
+    	} else {
+    		gotoNext = 2677320
+}
+    	_ = gotoNext == 2677320
+    	if d.dp < -330 {
+    		gotoNext = 2677335
+    		_ = gotoNext == 2677335
+    		mant_2677029 = 0
+    		exp_2677016 = flt.bias
+    		gotoNext = 2678493
+    		gotoNext = 2677444
+    	} else {
+    		gotoNext = 2677444
+}
+    	_ = gotoNext == 2677444
+    	exp_2677016 = 0
+    	_ = 0
+    	gotoNext = 2677453
+    	_ = gotoNext == 2677453
+    	if d.dp > 0 {
+    		gotoNext = 2677466
+    		_ = gotoNext == 2677466
+    		if d.dp >= len(powtab) {
+    			gotoNext = 2677505
+    			_ = gotoNext == 2677505
+    			n_2677474 = 27
+    			gotoNext = 2677554
+    		} else {
+    			gotoNext = 2677526
+    			_ = gotoNext == 2677526
+    			n_2677474 = powtab[d.dp]
+    			gotoNext = 2677554
+}
+    		_ = gotoNext == 2677554
+    		d.Shift(-n_2677474)
+    		exp_2677016 += n_2677474
+    		gotoNext = 2677453
+    	} else {
+    		gotoNext = 2677581
+}
+    	_ = gotoNext == 2677581
+    	_ = 0
+    	gotoNext = 2677581
+    	_ = gotoNext == 2677581
+    	if d.dp < 0 || d.dp == 0 && d.d[0] < 53 {
+    		gotoNext = 2677623
+    		_ = gotoNext == 2677623
+    		if -d.dp >= len(powtab) {
+    			gotoNext = 2677663
+    			_ = gotoNext == 2677663
+    			n_2677631 = 27
+    			gotoNext = 2677713
+    		} else {
+    			gotoNext = 2677684
+    			_ = gotoNext == 2677684
+    			n_2677631 = powtab[-d.dp]
+    			gotoNext = 2677713
+}
+    		_ = gotoNext == 2677713
+    		d.Shift(n_2677631)
+    		exp_2677016 -= n_2677631
+    		gotoNext = 2677581
+    	} else {
+    		gotoNext = 2677800
+}
+    	_ = gotoNext == 2677800
+    	exp_2677016--
+    	if exp_2677016 < flt.bias+1 {
+    		gotoNext = 2677951
+    		_ = gotoNext == 2677951
+    		n_2677955 = flt.bias + 1 - exp_2677016
+    		d.Shift(-n_2677955)
+    		exp_2677016 += n_2677955
+    		gotoNext = 2678009
+    	} else {
+    		gotoNext = 2678009
+}
+    	_ = gotoNext == 2678009
+    	if exp_2677016-flt.bias >= 1<<flt.expbits-1 {
+    		gotoNext = 2678045
+    		_ = gotoNext == 2678045
+    		gotoNext = 2678408
+    		gotoNext = 2678101
+    	} else {
+    		gotoNext = 2678101
+}
+    	_ = gotoNext == 2678101
+    	d.Shift(int(1 + flt.mantbits))
+    	mant_2677029 = d.RoundedInteger()
+    	if mant_2677029 == 2<<flt.mantbits {
+    		gotoNext = 2678237
+    		_ = gotoNext == 2678237
+    		mant_2677029 >>= 1
+    		exp_2677016++
+    		if exp_2677016-flt.bias >= 1<<flt.expbits-1 {
+    			gotoNext = 2678298
+    			_ = gotoNext == 2678298
+    			gotoNext = 2678408
+    			gotoNext = 2678344
+    		} else {
+    			gotoNext = 2678344
+}
+    		gotoNext = 2678344
+    	} else {
+    		gotoNext = 2678344
+}
+    	_ = gotoNext == 2678344
+    	if mant_2677029&(1<<flt.mantbits) == 0 {
+    		gotoNext = 2678375
+    		_ = gotoNext == 2678375
+    		exp_2677016 = flt.bias
+    		gotoNext = 2678398
+    	} else {
+    		gotoNext = 2678398
+}
+    	_ = gotoNext == 2678398
+    	gotoNext = 2678493
+    	gotoNext = 2678408
+    	_ = gotoNext == 2678408
+    	mant_2677029 = 0
+    	exp_2677016 = 1<<flt.expbits - 1 + flt.bias
+    	overflow = true
+    	gotoNext = 2678493
+    	_ = gotoNext == 2678493
+    	bits_2678518 = mant_2677029 & (uint64(1)<<flt.mantbits - 1)
+    	bits_2678518 |= uint64((exp_2677016-flt.bias)&(1<<flt.expbits-1)) << flt.mantbits
+    	if d.neg {
+    		gotoNext = 2678640
+    		_ = gotoNext == 2678640
+    		bits_2678518 |= 1 << flt.mantbits << flt.expbits
+    		gotoNext = 2678689
+    	} else {
+    		gotoNext = 2678689
+}
+    	_ = gotoNext == 2678689
+    	return bits_2678518, overflow
+    	gotoNext = -1
+    }
 ```
-### Numeric Conversions
-
-
-
-The most common numeric conversions are Atoi \(string to int\) and Itoa \(int to string\).  
-
-```
-    	i, err := strconv.Atoi("-42")
-    	s := strconv.Itoa(-42)
-```
-
-These assume decimal and the Go int type.  
-
-
-\[ParseBool\], \[ParseFloat\], \[ParseInt\], and \[ParseUint\] convert strings to values:  
-
-```
-    	b, err := strconv.ParseBool("true")
-    	f, err := strconv.ParseFloat("3.1415", 64)
-    	i, err := strconv.ParseInt("-42", 10, 64)
-    	u, err := strconv.ParseUint("42", 10, 64)
-```
-
-The parse functions return the widest type \(float64, int64, and uint64\),
-but if the size argument specifies a narrower width the result can be
-converted to that narrower type without data loss:  
-
-```
-    	s := "2147483647" // biggest int32
-    	i64, err := strconv.ParseInt(s, 10, 32)
-    	...
-    	i := int32(i64)
-```
-
-\[FormatBool\], \[FormatFloat\], \[FormatInt\], and \[FormatUint\] convert values to strings:  
-
-```
-    	s := strconv.FormatBool(true)
-    	s := strconv.FormatFloat(3.1415, 'E', -1, 64)
-    	s := strconv.FormatInt(-42, 16)
-    	s := strconv.FormatUint(42, 16)
-```
-
-\[AppendBool\], \[AppendFloat\], \[AppendInt\], and \[AppendUint\] are similar but
-append the formatted value to a destination slice.  
-
-### String Conversions
-
-
-
-\[Quote\] and \[QuoteToASCII\] convert strings to quoted Go string literals.
-The latter guarantees that the result is an ASCII string, by escaping
-any non\-ASCII Unicode with \\u:  
-
-```
-    	q := strconv.Quote("Hello, 世界")
-    	q := strconv.QuoteToASCII("Hello, 世界")
-```
-
-\[QuoteRune\] and \[QuoteRuneToASCII\] are similar but accept runes and
-return quoted Go rune literals.  
-
-
-\[Unquote\] and \[UnquoteChar\] unquote Go string and rune literals.  
-
 ### Strconv function appendBool
 
 
@@ -260,7 +348,7 @@ function appendBool(_dst:Array<UInt>, _b:Bool):Array<UInt>
 AppendBool appends "true" or "false", according to the value of b,
         to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L263>)
+[\(view code\)](<./Strconv.hx#L367>)
 
 
 ### Strconv function appendFloat
@@ -275,7 +363,7 @@ function appendFloat(_dst:Array<UInt>, _f:Float, _fmt:UInt, _prec:Int, _bitSize:
 AppendFloat appends the string form of the floating-point number f,
         as generated by FormatFloat, to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L426>)
+[\(view code\)](<./Strconv.hx#L530>)
 
 
 ### Strconv function appendInt
@@ -290,7 +378,7 @@ function appendInt(_dst:Array<UInt>, _i:haxe.Int64, _base:Int):Array<UInt>
 AppendInt appends the string form of the integer i,
         as generated by FormatInt, to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L474>)
+[\(view code\)](<./Strconv.hx#L578>)
 
 
 ### Strconv function appendQuote
@@ -305,7 +393,7 @@ function appendQuote(_dst:Array<UInt>, _s:String):Array<UInt>
 AppendQuote appends a double-quoted Go string literal representing s,
         as generated by Quote, to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L499>)
+[\(view code\)](<./Strconv.hx#L603>)
 
 
 ### Strconv function appendQuoteRune
@@ -320,7 +408,7 @@ function appendQuoteRune(_dst:Array<UInt>, _r:Int):Array<UInt>
 AppendQuoteRune appends a single-quoted Go character literal representing the rune,
         as generated by QuoteRune, to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L550>)
+[\(view code\)](<./Strconv.hx#L654>)
 
 
 ### Strconv function appendQuoteRuneToASCII
@@ -335,7 +423,7 @@ function appendQuoteRuneToASCII(_dst:Array<UInt>, _r:Int):Array<UInt>
 AppendQuoteRuneToASCII appends a single-quoted Go character literal representing the rune,
         as generated by QuoteRuneToASCII, to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L569>)
+[\(view code\)](<./Strconv.hx#L673>)
 
 
 ### Strconv function appendQuoteRuneToGraphic
@@ -350,7 +438,7 @@ function appendQuoteRuneToGraphic(_dst:Array<UInt>, _r:Int):Array<UInt>
 AppendQuoteRuneToGraphic appends a single-quoted Go character literal representing the rune,
         as generated by QuoteRuneToGraphic, to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L588>)
+[\(view code\)](<./Strconv.hx#L692>)
 
 
 ### Strconv function appendQuoteToASCII
@@ -365,7 +453,7 @@ function appendQuoteToASCII(_dst:Array<UInt>, _s:String):Array<UInt>
 AppendQuoteToASCII appends a double-quoted Go string literal representing s,
         as generated by QuoteToASCII, to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L515>)
+[\(view code\)](<./Strconv.hx#L619>)
 
 
 ### Strconv function appendQuoteToGraphic
@@ -380,7 +468,7 @@ function appendQuoteToGraphic(_dst:Array<UInt>, _s:String):Array<UInt>
 AppendQuoteToGraphic appends a double-quoted Go string literal representing s,
         as generated by QuoteToGraphic, to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L532>)
+[\(view code\)](<./Strconv.hx#L636>)
 
 
 ### Strconv function appendUint
@@ -395,7 +483,7 @@ function appendUint(_dst:Array<UInt>, _i:haxe.UInt64, _base:Int):Array<UInt>
 AppendUint appends the string form of the unsigned integer i,
         as generated by FormatUint, to dst and returns the extended buffer.
 ```
-[\(view code\)](<./Strconv.hx#L482>)
+[\(view code\)](<./Strconv.hx#L586>)
 
 
 ### Strconv function atoi
@@ -409,7 +497,7 @@ function atoi(_s:String):stdgo.Tuple<Int, stdgo.Error>
 
 Atoi is equivalent to ParseInt\(s, 10, 0\), converted to type int.  
 
-[\(view code\)](<./Strconv.hx#L377>)
+[\(view code\)](<./Strconv.hx#L481>)
 
 
 ### Strconv function canBackquote
@@ -425,7 +513,7 @@ CanBackquote reports whether the string s can be represented
         unchanged as a single-line backquoted string without control
         characters other than tab.
 ```
-[\(view code\)](<./Strconv.hx#L597>)
+[\(view code\)](<./Strconv.hx#L701>)
 
 
 ### Strconv function formatBool
@@ -439,7 +527,7 @@ function formatBool(_b:Bool):String
 
 FormatBool returns "true" or "false" according to the value of b.  
 
-[\(view code\)](<./Strconv.hx#L256>)
+[\(view code\)](<./Strconv.hx#L360>)
 
 
 ### Strconv function formatComplex
@@ -460,7 +548,7 @@ The format fmt and precision prec have the same meaning as in FormatFloat.
 It rounds the result assuming that the original was obtained from a complex
 value of bitSize bits, which must be 64 for complex64 and 128 for complex128.  
 
-[\(view code\)](<./Strconv.hx#L392>)
+[\(view code\)](<./Strconv.hx#L496>)
 
 
 ### Strconv function formatFloat
@@ -497,7 +585,7 @@ zeros are removed\).
 The special precision \-1 uses the smallest number of digits
 necessary such that ParseFloat will return f exactly.  
 
-[\(view code\)](<./Strconv.hx#L419>)
+[\(view code\)](<./Strconv.hx#L523>)
 
 
 ### Strconv function formatInt
@@ -513,7 +601,7 @@ FormatInt returns the string representation of i in the given base,
         for 2 <= base <= 36. The result uses the lower-case letters 'a' to 'z'
         for digit values >= 10.
 ```
-[\(view code\)](<./Strconv.hx#L461>)
+[\(view code\)](<./Strconv.hx#L565>)
 
 
 ### Strconv function formatUint
@@ -529,7 +617,7 @@ FormatUint returns the string representation of i in the given base,
         for 2 <= base <= 36. The result uses the lower-case letters 'a' to 'z'
         for digit values >= 10.
 ```
-[\(view code\)](<./Strconv.hx#L453>)
+[\(view code\)](<./Strconv.hx#L557>)
 
 
 ### Strconv function isGraphic
@@ -545,7 +633,7 @@ IsGraphic reports whether the rune is defined as a Graphic by Unicode. Such
         characters include letters, marks, numbers, punctuation, symbols, and
         spaces, from categories L, M, N, P, S, and Zs.
 ```
-[\(view code\)](<./Strconv.hx#L658>)
+[\(view code\)](<./Strconv.hx#L762>)
 
 
 ### Strconv function isPrint
@@ -561,7 +649,7 @@ IsPrint reports whether the rune is defined as printable by Go, with
         the same definition as unicode.IsPrint: letters, numbers, punctuation,
         symbols and ASCII space.
 ```
-[\(view code\)](<./Strconv.hx#L650>)
+[\(view code\)](<./Strconv.hx#L754>)
 
 
 ### Strconv function itoa
@@ -575,7 +663,7 @@ function itoa(_i:Int):String
 
 Itoa is equivalent to FormatInt\(int64\(i\), 10\).  
 
-[\(view code\)](<./Strconv.hx#L467>)
+[\(view code\)](<./Strconv.hx#L571>)
 
 
 ### Strconv function mulByLog10Log2
@@ -586,7 +674,7 @@ function mulByLog10Log2(_x:Int):Int
 ```
 
 
-[\(view code\)](<./Strconv.hx#L445>)
+[\(view code\)](<./Strconv.hx#L549>)
 
 
 ### Strconv function mulByLog2Log10
@@ -597,7 +685,7 @@ function mulByLog2Log10(_x:Int):Int
 ```
 
 
-[\(view code\)](<./Strconv.hx#L442>)
+[\(view code\)](<./Strconv.hx#L546>)
 
 
 ### Strconv function newDecimal
@@ -608,7 +696,7 @@ function newDecimal(_i:haxe.UInt64):stdgo.strconv.T_decimal
 ```
 
 
-[\(view code\)](<./Strconv.hx#L430>)
+[\(view code\)](<./Strconv.hx#L534>)
 
 
 ### Strconv function parseBool
@@ -624,7 +712,7 @@ ParseBool returns the boolean value represented by the string.
         It accepts 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False.
         Any other value returns an error.
 ```
-[\(view code\)](<./Strconv.hx#L247>)
+[\(view code\)](<./Strconv.hx#L351>)
 
 
 ### Strconv function parseComplex
@@ -661,7 +749,7 @@ If s is syntactically well\-formed but either component is more than 1/2 ULP
 away from the largest floating point number of the given component's size,
 ParseComplex returns err.Err = ErrRange and c = ±Inf for the respective component.  
 
-[\(view code\)](<./Strconv.hx#L289>)
+[\(view code\)](<./Strconv.hx#L393>)
 
 
 ### Strconv function parseFloat
@@ -707,7 +795,7 @@ as their respective special floating point values. It ignores case when matching
 
 \[floating\-point literals\]: https://go.dev/ref/spec#Floating-point_literals  
 
-[\(view code\)](<./Strconv.hx#L324>)
+[\(view code\)](<./Strconv.hx#L428>)
 
 
 ### Strconv function parseFloatPrefix
@@ -718,7 +806,7 @@ function parseFloatPrefix(_s:String, _bitSize:Int):stdgo.Tuple3<Float, Int, stdg
 ```
 
 
-[\(view code\)](<./Strconv.hx#L436>)
+[\(view code\)](<./Strconv.hx#L540>)
 
 
 ### Strconv function parseInt
@@ -761,7 +849,7 @@ appropriate bitSize and sign.
 
 \[integer literals\]: https://go.dev/ref/spec#Integer_literals  
 
-[\(view code\)](<./Strconv.hx#L368>)
+[\(view code\)](<./Strconv.hx#L472>)
 
 
 ### Strconv function parseUint
@@ -778,7 +866,7 @@ ParseUint is like ParseInt but for unsigned numbers.
 
 A sign prefix is not permitted.  
 
-[\(view code\)](<./Strconv.hx#L335>)
+[\(view code\)](<./Strconv.hx#L439>)
 
 
 ### Strconv function quote
@@ -795,7 +883,7 @@ Quote returns a double-quoted Go string literal representing s. The
         control characters and non-printable characters as defined by
         IsPrint.
 ```
-[\(view code\)](<./Strconv.hx#L492>)
+[\(view code\)](<./Strconv.hx#L596>)
 
 
 ### Strconv function quoteRune
@@ -813,7 +901,7 @@ QuoteRune returns a single-quoted Go character literal representing the
         If r is not a valid Unicode code point, it is interpreted as the Unicode
         replacement character U+FFFD.
 ```
-[\(view code\)](<./Strconv.hx#L543>)
+[\(view code\)](<./Strconv.hx#L647>)
 
 
 ### Strconv function quoteRuneToASCII
@@ -832,7 +920,7 @@ QuoteRuneToASCII returns a single-quoted Go character literal representing
         If r is not a valid Unicode code point, it is interpreted as the Unicode
         replacement character U+FFFD.
 ```
-[\(view code\)](<./Strconv.hx#L562>)
+[\(view code\)](<./Strconv.hx#L666>)
 
 
 ### Strconv function quoteRuneToGraphic
@@ -851,7 +939,7 @@ QuoteRuneToGraphic returns a single-quoted Go character literal representing
         If r is not a valid Unicode code point, it is interpreted as the Unicode
         replacement character U+FFFD.
 ```
-[\(view code\)](<./Strconv.hx#L581>)
+[\(view code\)](<./Strconv.hx#L685>)
 
 
 ### Strconv function quoteToASCII
@@ -867,7 +955,7 @@ QuoteToASCII returns a double-quoted Go string literal representing s.
         The returned string uses Go escape sequences (\t, \n, \xFF, \u0100) for
         non-ASCII characters and non-printable characters as defined by IsPrint.
 ```
-[\(view code\)](<./Strconv.hx#L508>)
+[\(view code\)](<./Strconv.hx#L612>)
 
 
 ### Strconv function quoteToGraphic
@@ -884,7 +972,7 @@ QuoteToGraphic returns a double-quoted Go string literal representing s.
         IsGraphic, unchanged and uses Go escape sequences (\t, \n, \xFF, \u0100)
         for non-graphic characters.
 ```
-[\(view code\)](<./Strconv.hx#L525>)
+[\(view code\)](<./Strconv.hx#L629>)
 
 
 ### Strconv function quotedPrefix
@@ -899,7 +987,7 @@ function quotedPrefix(_s:String):stdgo.Tuple<String, stdgo.Error>
 QuotedPrefix returns the quoted string (as understood by Unquote) at the prefix of s.
         If s does not start with a valid quoted string, QuotedPrefix returns an error.
 ```
-[\(view code\)](<./Strconv.hx#L626>)
+[\(view code\)](<./Strconv.hx#L730>)
 
 
 ### Strconv function setOptimize
@@ -910,7 +998,7 @@ function setOptimize(_b:Bool):Bool
 ```
 
 
-[\(view code\)](<./Strconv.hx#L433>)
+[\(view code\)](<./Strconv.hx#L537>)
 
 
 ### Strconv function unquote
@@ -928,7 +1016,7 @@ Unquote interprets s as a single-quoted, double-quoted,
         character literal; Unquote returns the corresponding
         one-character string.)
 ```
-[\(view code\)](<./Strconv.hx#L639>)
+[\(view code\)](<./Strconv.hx#L743>)
 
 
 ### Strconv function unquoteChar
@@ -957,7 +1045,7 @@ UnquoteChar decodes the first character or byte in the escaped string
         If set to a double quote, it permits \" and disallows unescaped ".
         If set to zero, it does not permit either escape and allows both quote characters to appear unescaped.
 ```
-[\(view code\)](<./Strconv.hx#L616>)
+[\(view code\)](<./Strconv.hx#L720>)
 
 
 # Abstracts

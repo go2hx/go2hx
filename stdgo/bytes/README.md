@@ -194,8 +194,168 @@ import stdgo.bytes.*
 
 
 ```
-Package bytes implements functions for the manipulation of byte slices.
-    It is analogous to the facilities of the [strings] package.
+{
+    	i_2982590 = 0
+    	_ = 0
+    	gotoNext = 2982598
+    	_ = gotoNext == 2982598
+    	if i_2982590 < len(s) && i_2982590 < len(t) {
+    		gotoNext = 2982634
+    		_ = gotoNext == 2982634
+    		sr_2982638 = s[i_2982590]
+    		tr_2982651 = t[i_2982590]
+    		if sr_2982638|tr_2982651 >= 128 {
+    			gotoNext = 2982690
+    			_ = gotoNext == 2982690
+    			gotoNext = 2983048
+    			gotoNext = 2982734
+    		} else {
+    			gotoNext = 2982734
+}
+    		_ = gotoNext == 2982734
+    		if tr_2982651 == sr_2982638 {
+    			gotoNext = 2982746
+    			_ = gotoNext == 2982746
+    			i_2982590++
+    			gotoNext = 2982598
+    			gotoNext = 2982811
+    		} else {
+    			gotoNext = 2982811
+}
+    		_ = gotoNext == 2982811
+    		if tr_2982651 < sr_2982638 {
+    			gotoNext = 2982822
+    			_ = gotoNext == 2982822
+    			tr_2982651, sr_2982638 = sr_2982638, tr_2982651
+    			gotoNext = 2982897
+    		} else {
+    			gotoNext = 2982897
+}
+    		_ = gotoNext == 2982897
+    		if 65 <= sr_2982638 && sr_2982638 <= 90 && tr_2982651 == sr_2982638+97-65 {
+    			gotoNext = 2982943
+    			_ = gotoNext == 2982943
+    			i_2982590++
+    			gotoNext = 2982598
+    			gotoNext = 2982963
+    		} else {
+    			gotoNext = 2982963
+}
+    		_ = gotoNext == 2982963
+    		return false
+    		i_2982590++
+    		gotoNext = 2982598
+    	} else {
+    		gotoNext = 2983023
+}
+    	_ = gotoNext == 2983023
+    	return len(s) == len(t)
+    	gotoNext = 2983048
+    	_ = gotoNext == 2983048
+    	s = s[i_2982590:]
+    	t = t[i_2982590:]
+    	_ = 0
+    	gotoNext = 2983083
+    	_ = gotoNext == 2983083
+    	if len(s) != 0 && len(t) != 0 {
+    		gotoNext = 2983114
+    		_ = gotoNext == 2983114
+    		if s[0] < 128 {
+    			gotoNext = 2983195
+    			_ = gotoNext == 2983195
+    			sr_2983157, s = rune(s[0]), s[1:]
+    			gotoNext = 2983299
+    		} else {
+    			gotoNext = 2983235
+    			_ = gotoNext == 2983235
+    			r_2983240, size_2983243 = utf8.DecodeRune(s)
+    			sr_2983157, s = r_2983240, s[size_2983243:]
+    			gotoNext = 2983299
+}
+    		_ = gotoNext == 2983299
+    		if t[0] < 128 {
+    			gotoNext = 2983323
+    			_ = gotoNext == 2983323
+    			tr_2983161, t = rune(t[0]), t[1:]
+    			gotoNext = 2983499
+    		} else {
+    			gotoNext = 2983363
+    			_ = gotoNext == 2983363
+    			r_2983368, size_2983371 = utf8.DecodeRune(t)
+    			tr_2983161, t = r_2983368, t[size_2983371:]
+    			gotoNext = 2983499
+}
+    		_ = gotoNext == 2983499
+    		if tr_2983161 == sr_2983157 {
+    			gotoNext = 2983511
+    			_ = gotoNext == 2983511
+    			_ = 0
+    			gotoNext = 2983083
+    			gotoNext = 2983576
+    		} else {
+    			gotoNext = 2983576
+}
+    		_ = gotoNext == 2983576
+    		if tr_2983161 < sr_2983157 {
+    			gotoNext = 2983587
+    			_ = gotoNext == 2983587
+    			tr_2983161, sr_2983157 = sr_2983157, tr_2983161
+    			gotoNext = 2983641
+    		} else {
+    			gotoNext = 2983641
+}
+    		_ = gotoNext == 2983641
+    		if tr_2983161 < 128 {
+    			gotoNext = 2983663
+    			_ = gotoNext == 2983663
+    			if 65 <= sr_2983157 && sr_2983157 <= 90 && tr_2983161 == sr_2983157+97-65 {
+    				gotoNext = 2983763
+    				_ = gotoNext == 2983763
+    				_ = 0
+    				gotoNext = 2983083
+    				gotoNext = 2983786
+    			} else {
+    				gotoNext = 2983786
+}
+    			_ = gotoNext == 2983786
+    			return false
+    			gotoNext = 2983916
+    		} else {
+    			gotoNext = 2983916
+}
+    		_ = gotoNext == 2983916
+    		r_2983916 = unicode.SimpleFold(sr_2983157)
+    		_ = 0
+    		gotoNext = 2983946
+    		_ = gotoNext == 2983946
+    		if r_2983916 != sr_2983157 && r_2983916 < tr_2983161 {
+    			gotoNext = 2983968
+    			_ = gotoNext == 2983968
+    			r_2983916 = unicode.SimpleFold(r_2983916)
+    			gotoNext = 2983946
+    		} else {
+    			gotoNext = 2984005
+}
+    		_ = gotoNext == 2984005
+    		if r_2983916 == tr_2983161 {
+    			gotoNext = 2984016
+    			_ = gotoNext == 2984016
+    			_ = 0
+    			gotoNext = 2983083
+    			gotoNext = 2984036
+    		} else {
+    			gotoNext = 2984036
+}
+    		_ = gotoNext == 2984036
+    		return false
+    		gotoNext = 2983083
+    	} else {
+    		gotoNext = 2984089
+}
+    	_ = gotoNext == 2984089
+    	return len(s) == len(t)
+    	gotoNext = -1
+    }
 ```
 ### Bytes function clone
 
@@ -210,7 +370,7 @@ Clone returns a copy of b[:len(b)].
         The result may have additional unused capacity.
         Clone(nil) returns nil.
 ```
-[\(view code\)](<./Bytes.hx#L769>)
+[\(view code\)](<./Bytes.hx#L929>)
 
 
 ### Bytes function compare
@@ -226,7 +386,7 @@ Compare returns an integer comparing two byte slices lexicographically.
         The result will be 0 if a == b, -1 if a < b, and +1 if a > b.
         A nil argument is equivalent to an empty slice.
 ```
-[\(view code\)](<./Bytes.hx#L308>)
+[\(view code\)](<./Bytes.hx#L468>)
 
 
 ### Bytes function contains
@@ -240,7 +400,7 @@ function contains(_b:Array<UInt>, _subslice:Array<UInt>):Bool
 
 Contains reports whether subslice is within b.  
 
-[\(view code\)](<./Bytes.hx#L325>)
+[\(view code\)](<./Bytes.hx#L485>)
 
 
 ### Bytes function containsAny
@@ -254,7 +414,7 @@ function containsAny(_b:Array<UInt>, _chars:String):Bool
 
 ContainsAny reports whether any of the UTF\-8\-encoded code points in chars are within b.  
 
-[\(view code\)](<./Bytes.hx#L333>)
+[\(view code\)](<./Bytes.hx#L493>)
 
 
 ### Bytes function containsFunc
@@ -268,7 +428,7 @@ function containsFunc(_b:Array<UInt>, _f:()):Bool
 
 ContainsFunc reports whether any of the UTF\-8\-encoded code points r within b satisfy f\(r\).  
 
-[\(view code\)](<./Bytes.hx#L347>)
+[\(view code\)](<./Bytes.hx#L507>)
 
 
 ### Bytes function containsRune
@@ -282,7 +442,7 @@ function containsRune(_b:Array<UInt>, _r:Int):Bool
 
 ContainsRune reports whether the rune is contained in the UTF\-8\-encoded byte slice b.  
 
-[\(view code\)](<./Bytes.hx#L340>)
+[\(view code\)](<./Bytes.hx#L500>)
 
 
 ### Bytes function count
@@ -297,7 +457,7 @@ function count(_s:Array<UInt>, _sep:Array<UInt>):Int
 Count counts the number of non-overlapping instances of sep in s.
         If sep is an empty slice, Count returns 1 + the number of UTF-8-encoded code points in s.
 ```
-[\(view code\)](<./Bytes.hx#L317>)
+[\(view code\)](<./Bytes.hx#L477>)
 
 
 ### Bytes function cut
@@ -317,7 +477,7 @@ Cut slices s around the first instance of sep,
 
 Cut returns slices of the original slice s, not copies.  
 
-[\(view code\)](<./Bytes.hx#L756>)
+[\(view code\)](<./Bytes.hx#L916>)
 
 
 ### Bytes function cutPrefix
@@ -337,7 +497,7 @@ CutPrefix returns s without the provided leading prefix byte slice
 
 CutPrefix returns slices of the original slice s, not copies.  
 
-[\(view code\)](<./Bytes.hx#L781>)
+[\(view code\)](<./Bytes.hx#L941>)
 
 
 ### Bytes function cutSuffix
@@ -357,7 +517,7 @@ CutSuffix returns s without the provided ending suffix byte slice
 
 CutSuffix returns slices of the original slice s, not copies.  
 
-[\(view code\)](<./Bytes.hx#L797>)
+[\(view code\)](<./Bytes.hx#L957>)
 
 
 ### Bytes function equal
@@ -373,7 +533,7 @@ Equal reports whether a and b
         are the same length and contain the same bytes.
         A nil argument is equivalent to an empty slice.
 ```
-[\(view code\)](<./Bytes.hx#L298>)
+[\(view code\)](<./Bytes.hx#L458>)
 
 
 ### Bytes function equalFold
@@ -389,7 +549,7 @@ EqualFold reports whether s and t, interpreted as UTF-8 strings,
         are equal under simple Unicode case-folding, which is a more general
         form of case-insensitivity.
 ```
-[\(view code\)](<./Bytes.hx#L735>)
+[\(view code\)](<./Bytes.hx#L895>)
 
 
 ### Bytes function fields
@@ -406,7 +566,7 @@ Fields interprets s as a sequence of UTF-8-encoded code points.
         characters, as defined by unicode.IsSpace, returning a slice of subslices of s or an
         empty slice if s contains only white space.
 ```
-[\(view code\)](<./Bytes.hx#L467>)
+[\(view code\)](<./Bytes.hx#L627>)
 
 
 ### Bytes function fieldsFunc
@@ -427,7 +587,7 @@ FieldsFunc interprets s as a sequence of UTF-8-encoded code points.
 FieldsFunc makes no guarantees about the order in which it calls f\(c\)
 and assumes that f always returns the same value for a given c.  
 
-[\(view code\)](<./Bytes.hx#L480>)
+[\(view code\)](<./Bytes.hx#L640>)
 
 
 ### Bytes function hasPrefix
@@ -441,7 +601,7 @@ function hasPrefix(_s:Array<UInt>, _prefix:Array<UInt>):Bool
 
 HasPrefix tests whether the byte slice s begins with prefix.  
 
-[\(view code\)](<./Bytes.hx#L497>)
+[\(view code\)](<./Bytes.hx#L657>)
 
 
 ### Bytes function hasSuffix
@@ -455,7 +615,7 @@ function hasSuffix(_s:Array<UInt>, _suffix:Array<UInt>):Bool
 
 HasSuffix tests whether the byte slice s ends with suffix.  
 
-[\(view code\)](<./Bytes.hx#L505>)
+[\(view code\)](<./Bytes.hx#L665>)
 
 
 ### Bytes function index
@@ -469,7 +629,7 @@ function index(_s:Array<UInt>, _sep:Array<UInt>):Int
 
 Index returns the index of the first instance of sep in s, or \-1 if sep is not present in s.  
 
-[\(view code\)](<./Bytes.hx#L743>)
+[\(view code\)](<./Bytes.hx#L903>)
 
 
 ### Bytes function indexAny
@@ -486,7 +646,7 @@ IndexAny interprets s as a sequence of UTF-8-encoded Unicode code points.
         code points in chars. It returns -1 if chars is empty or if there is no code
         point in common.
 ```
-[\(view code\)](<./Bytes.hx#L391>)
+[\(view code\)](<./Bytes.hx#L551>)
 
 
 ### Bytes function indexByte
@@ -500,7 +660,7 @@ function indexByte(_b:Array<UInt>, _c:UInt):Int
 
 IndexByte returns the index of the first instance of c in b, or \-1 if c is not present in b.  
 
-[\(view code\)](<./Bytes.hx#L355>)
+[\(view code\)](<./Bytes.hx#L515>)
 
 
 ### Bytes function indexFunc
@@ -516,7 +676,7 @@ IndexFunc interprets s as a sequence of UTF-8-encoded code points.
         It returns the byte index in s of the first Unicode
         code point satisfying f(c), or -1 if none do.
 ```
-[\(view code\)](<./Bytes.hx#L648>)
+[\(view code\)](<./Bytes.hx#L808>)
 
 
 ### Bytes function indexRune
@@ -534,7 +694,7 @@ IndexRune interprets s as a sequence of UTF-8-encoded code points.
         If r is utf8.RuneError, it returns the first instance of any
         invalid UTF-8 byte sequence.
 ```
-[\(view code\)](<./Bytes.hx#L381>)
+[\(view code\)](<./Bytes.hx#L541>)
 
 
 ### Bytes function join
@@ -549,7 +709,7 @@ function join(_s:Array<Array<UInt>>, _sep:Array<UInt>):Array<UInt>
 Join concatenates the elements of s to create a new byte slice. The separator
         sep is placed between elements in the resulting slice.
 ```
-[\(view code\)](<./Bytes.hx#L489>)
+[\(view code\)](<./Bytes.hx#L649>)
 
 
 ### Bytes function lastIndex
@@ -563,7 +723,7 @@ function lastIndex(_s:Array<UInt>, _sep:Array<UInt>):Int
 
 LastIndex returns the index of the last instance of sep in s, or \-1 if sep is not present in s.  
 
-[\(view code\)](<./Bytes.hx#L362>)
+[\(view code\)](<./Bytes.hx#L522>)
 
 
 ### Bytes function lastIndexAny
@@ -580,7 +740,7 @@ LastIndexAny interprets s as a sequence of UTF-8-encoded Unicode code
         the Unicode code points in chars. It returns -1 if chars is empty or if
         there is no code point in common.
 ```
-[\(view code\)](<./Bytes.hx#L401>)
+[\(view code\)](<./Bytes.hx#L561>)
 
 
 ### Bytes function lastIndexByte
@@ -594,7 +754,7 @@ function lastIndexByte(_s:Array<UInt>, _c:UInt):Int
 
 LastIndexByte returns the index of the last instance of c in s, or \-1 if c is not present in s.  
 
-[\(view code\)](<./Bytes.hx#L370>)
+[\(view code\)](<./Bytes.hx#L530>)
 
 
 ### Bytes function lastIndexFunc
@@ -610,7 +770,7 @@ LastIndexFunc interprets s as a sequence of UTF-8-encoded code points.
         It returns the byte index in s of the last Unicode
         code point satisfying f(c), or -1 if none do.
 ```
-[\(view code\)](<./Bytes.hx#L658>)
+[\(view code\)](<./Bytes.hx#L818>)
 
 
 ### Bytes function map\_
@@ -627,7 +787,7 @@ Map returns a copy of the byte slice s with all its characters modified
         dropped from the byte slice with no replacement. The characters in s and the
         output are interpreted as UTF-8-encoded code points.
 ```
-[\(view code\)](<./Bytes.hx#L516>)
+[\(view code\)](<./Bytes.hx#L676>)
 
 
 ### Bytes function newBuffer
@@ -650,7 +810,7 @@ NewBuffer creates and initializes a new Buffer using buf as its
 In most cases, new\(Buffer\) \(or just declaring a Buffer variable\) is
 sufficient to initialize a Buffer.  
 
-[\(view code\)](<./Bytes.hx#L278>)
+[\(view code\)](<./Bytes.hx#L438>)
 
 
 ### Bytes function newBufferString
@@ -670,7 +830,7 @@ NewBufferString creates and initializes a new Buffer using string s as its
 In most cases, new\(Buffer\) \(or just declaring a Buffer variable\) is
 sufficient to initialize a Buffer.  
 
-[\(view code\)](<./Bytes.hx#L290>)
+[\(view code\)](<./Bytes.hx#L450>)
 
 
 ### Bytes function newReader
@@ -684,7 +844,7 @@ function newReader(_b:Array<UInt>):stdgo.bytes.Reader
 
 NewReader returns a new Reader reading from b.  
 
-[\(view code\)](<./Bytes.hx#L808>)
+[\(view code\)](<./Bytes.hx#L968>)
 
 
 ### Bytes function repeat
@@ -702,7 +862,7 @@ Repeat returns a new byte slice consisting of count copies of b.
 It panics if count is negative or if the result of \(len\(b\) \* count\)
 overflows.  
 
-[\(view code\)](<./Bytes.hx#L527>)
+[\(view code\)](<./Bytes.hx#L687>)
 
 
 ### Bytes function replace
@@ -721,7 +881,7 @@ Replace returns a copy of the slice s with the first n
         for a k-rune slice.
         If n < 0, there is no limit on the number of replacements.
 ```
-[\(view code\)](<./Bytes.hx#L711>)
+[\(view code\)](<./Bytes.hx#L871>)
 
 
 ### Bytes function replaceAll
@@ -739,7 +899,7 @@ ReplaceAll returns a copy of the slice s with all
         and after each UTF-8 sequence, yielding up to k+1 replacements
         for a k-rune slice.
 ```
-[\(view code\)](<./Bytes.hx#L724>)
+[\(view code\)](<./Bytes.hx#L884>)
 
 
 ### Bytes function runes
@@ -754,7 +914,7 @@ function runes(_s:Array<UInt>):Array<Int>
 Runes interprets s as a sequence of UTF-8-encoded code points.
         It returns a slice of runes (Unicode code points) equivalent to s.
 ```
-[\(view code\)](<./Bytes.hx#L699>)
+[\(view code\)](<./Bytes.hx#L859>)
 
 
 ### Bytes function split
@@ -774,7 +934,7 @@ Split slices s into all subslices separated by sep and returns a slice of
 
 To split around the first instance of a separator, see Cut.  
 
-[\(view code\)](<./Bytes.hx#L445>)
+[\(view code\)](<./Bytes.hx#L605>)
 
 
 ### Bytes function splitAfter
@@ -791,7 +951,7 @@ SplitAfter slices s into all subslices after each instance of sep and
         If sep is empty, SplitAfter splits after each UTF-8 sequence.
         It is equivalent to SplitAfterN with a count of -1.
 ```
-[\(view code\)](<./Bytes.hx#L456>)
+[\(view code\)](<./Bytes.hx#L616>)
 
 
 ### Bytes function splitAfterN
@@ -813,7 +973,7 @@ SplitAfterN slices s into subslices after each instance of sep and
         	n == 0: the result is nil (zero subslices)
         	n < 0: all subslices
 ```
-[\(view code\)](<./Bytes.hx#L432>)
+[\(view code\)](<./Bytes.hx#L592>)
 
 
 ### Bytes function splitN
@@ -838,7 +998,7 @@ SplitN slices s into subslices separated by sep and returns a slice of
 
 To split around the first instance of a separator, see Cut.  
 
-[\(view code\)](<./Bytes.hx#L417>)
+[\(view code\)](<./Bytes.hx#L577>)
 
 
 ### Bytes function title
@@ -857,7 +1017,7 @@ Title treats s as UTF-8-encoded bytes and returns a copy with all Unicode letter
 Deprecated: The rule Title uses for word boundaries does not handle Unicode
 punctuation properly. Use golang.org/x/text/cases instead.  
 
-[\(view code\)](<./Bytes.hx#L594>)
+[\(view code\)](<./Bytes.hx#L754>)
 
 
 ### Bytes function toLower
@@ -872,7 +1032,7 @@ function toLower(_s:Array<UInt>):Array<UInt>
 ToLower returns a copy of the byte slice s with all Unicode letters mapped to
         their lower case.
 ```
-[\(view code\)](<./Bytes.hx#L543>)
+[\(view code\)](<./Bytes.hx#L703>)
 
 
 ### Bytes function toLowerSpecial
@@ -887,7 +1047,7 @@ function toLowerSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:Array<UInt>):
 ToLowerSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
         lower case, giving priority to the special casing rules.
 ```
-[\(view code\)](<./Bytes.hx#L566>)
+[\(view code\)](<./Bytes.hx#L726>)
 
 
 ### Bytes function toTitle
@@ -901,7 +1061,7 @@ function toTitle(_s:Array<UInt>):Array<UInt>
 
 ToTitle treats s as UTF\-8\-encoded bytes and returns a copy with all the Unicode letters mapped to their title case.  
 
-[\(view code\)](<./Bytes.hx#L550>)
+[\(view code\)](<./Bytes.hx#L710>)
 
 
 ### Bytes function toTitleSpecial
@@ -916,7 +1076,7 @@ function toTitleSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:Array<UInt>):
 ToTitleSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
         title case, giving priority to the special casing rules.
 ```
-[\(view code\)](<./Bytes.hx#L574>)
+[\(view code\)](<./Bytes.hx#L734>)
 
 
 ### Bytes function toUpper
@@ -931,7 +1091,7 @@ function toUpper(_s:Array<UInt>):Array<UInt>
 ToUpper returns a copy of the byte slice s with all Unicode letters mapped to
         their upper case.
 ```
-[\(view code\)](<./Bytes.hx#L535>)
+[\(view code\)](<./Bytes.hx#L695>)
 
 
 ### Bytes function toUpperSpecial
@@ -946,7 +1106,7 @@ function toUpperSpecial(_c:stdgo._internal.unicode.SpecialCase, _s:Array<UInt>):
 ToUpperSpecial treats s as UTF-8-encoded bytes and returns a copy with all the Unicode letters mapped to their
         upper case, giving priority to the special casing rules.
 ```
-[\(view code\)](<./Bytes.hx#L558>)
+[\(view code\)](<./Bytes.hx#L718>)
 
 
 ### Bytes function toValidUTF8
@@ -961,7 +1121,7 @@ function toValidUTF8(_s:Array<UInt>, _replacement:Array<UInt>):Array<UInt>
 ToValidUTF8 treats s as UTF-8-encoded bytes and returns a copy with each run of bytes
         representing invalid UTF-8 replaced with the bytes in replacement, which may be empty.
 ```
-[\(view code\)](<./Bytes.hx#L582>)
+[\(view code\)](<./Bytes.hx#L742>)
 
 
 ### Bytes function trim
@@ -976,7 +1136,7 @@ function trim(_s:Array<UInt>, _cutset:String):Array<UInt>
 Trim returns a subslice of s by slicing off all leading and
         trailing UTF-8-encoded code points contained in cutset.
 ```
-[\(view code\)](<./Bytes.hx#L667>)
+[\(view code\)](<./Bytes.hx#L827>)
 
 
 ### Bytes function trimFunc
@@ -991,7 +1151,7 @@ function trimFunc(_s:Array<UInt>, _f:()):Array<UInt>
 TrimFunc returns a subslice of s by slicing off all leading and trailing
         UTF-8-encoded code points c that satisfy f(c).
 ```
-[\(view code\)](<./Bytes.hx#L620>)
+[\(view code\)](<./Bytes.hx#L780>)
 
 
 ### Bytes function trimLeft
@@ -1006,7 +1166,7 @@ function trimLeft(_s:Array<UInt>, _cutset:String):Array<UInt>
 TrimLeft returns a subslice of s by slicing off all leading
         UTF-8-encoded code points contained in cutset.
 ```
-[\(view code\)](<./Bytes.hx#L675>)
+[\(view code\)](<./Bytes.hx#L835>)
 
 
 ### Bytes function trimLeftFunc
@@ -1021,7 +1181,7 @@ function trimLeftFunc(_s:Array<UInt>, _f:()):Array<UInt>
 TrimLeftFunc treats s as UTF-8-encoded bytes and returns a subslice of s by slicing off
         all leading UTF-8-encoded code points c that satisfy f(c).
 ```
-[\(view code\)](<./Bytes.hx#L602>)
+[\(view code\)](<./Bytes.hx#L762>)
 
 
 ### Bytes function trimPrefix
@@ -1036,7 +1196,7 @@ function trimPrefix(_s:Array<UInt>, _prefix:Array<UInt>):Array<UInt>
 TrimPrefix returns s without the provided leading prefix string.
         If s doesn't start with prefix, s is returned unchanged.
 ```
-[\(view code\)](<./Bytes.hx#L629>)
+[\(view code\)](<./Bytes.hx#L789>)
 
 
 ### Bytes function trimRight
@@ -1051,7 +1211,7 @@ function trimRight(_s:Array<UInt>, _cutset:String):Array<UInt>
 TrimRight returns a subslice of s by slicing off all trailing
         UTF-8-encoded code points that are contained in cutset.
 ```
-[\(view code\)](<./Bytes.hx#L683>)
+[\(view code\)](<./Bytes.hx#L843>)
 
 
 ### Bytes function trimRightFunc
@@ -1066,7 +1226,7 @@ function trimRightFunc(_s:Array<UInt>, _f:()):Array<UInt>
 TrimRightFunc returns a subslice of s by slicing off all trailing
         UTF-8-encoded code points c that satisfy f(c).
 ```
-[\(view code\)](<./Bytes.hx#L611>)
+[\(view code\)](<./Bytes.hx#L771>)
 
 
 ### Bytes function trimSpace
@@ -1081,7 +1241,7 @@ function trimSpace(_s:Array<UInt>):Array<UInt>
 TrimSpace returns a subslice of s by slicing off all leading and
         trailing white space, as defined by Unicode.
 ```
-[\(view code\)](<./Bytes.hx#L691>)
+[\(view code\)](<./Bytes.hx#L851>)
 
 
 ### Bytes function trimSuffix
@@ -1096,7 +1256,7 @@ function trimSuffix(_s:Array<UInt>, _suffix:Array<UInt>):Array<UInt>
 TrimSuffix returns s without the provided trailing suffix string.
         If s doesn't end with suffix, s is returned unchanged.
 ```
-[\(view code\)](<./Bytes.hx#L638>)
+[\(view code\)](<./Bytes.hx#L798>)
 
 
 # Typedefs

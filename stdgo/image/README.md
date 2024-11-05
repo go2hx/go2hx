@@ -50,11 +50,11 @@
 
            | For function argument 'args'
 
-[30;41m ERROR [0m stdgo/_internal/image/gif/Gif_encode.hx:37: characters 57-64
+[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/compress/lzw/Lzw_Writer_static_extension.hx:259: characters 21-64
 
-   37 | [2m                                    _pm.set(_x, _y, _cp.[0m[1mconvert[0m[2m(_m.at(_x, _y)));[0m
-      |                                                         [31m^^^^^^^[0m
-      | stdgo.Slice<stdgo._internal.image.color.Color> has no field convert
+  259 | [2m                    [0m[1mstdgo._internal.compress.lzw.Lzw__i_3655037[0m[2m._i_3655037++;[0m
+      |                     [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+      | Type not found : stdgo._internal.compress.lzw.Lzw__i_3655037
 
 
 ```

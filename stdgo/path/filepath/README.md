@@ -135,15 +135,90 @@ import stdgo.path.filepath.*
 
 
 ```
-Package filepath implements utility routines for manipulating filename paths
-    in a way compatible with the target operating system-defined file paths.
+{
+    	_ = 0
+    	gotoNext = 4119806
+    	_ = gotoNext == 4119806
+    	if len(pattern) > 0 && pattern[0] == 42 {
+    		gotoNext = 4119848
+    		_ = gotoNext == 4119848
+    		pattern = pattern[1:]
+    		star = true
+    		gotoNext = 4119806
+    	} else {
+    		gotoNext = 4119892
+}
+    	_ = gotoNext == 4119892
+    	inrange_4119892 = false
+    	gotoNext = 4119920
+    	_ = gotoNext == 4119920
+    	i_4119914 = 0
+    	ScanBreak = false
+    	gotoNext = 4119927
+    	_ = gotoNext == 4119927
+    	if !ScanBreak && (i_4119914 < len(pattern)) {
+    		gotoNext = 4119960
+    		_ = gotoNext == 4119960
+    		_ = 0
+    		gotoNext = 4119964
+    		_ = gotoNext == 4119964
+    		switch pattern[i_4119914] {
+    		case 92:
+    			gotoNext = 4119986
+    			_ = gotoNext == 4119986
+    			if true {
+    				gotoNext = 4120029
+    				_ = gotoNext == 4120029
+    				if i_4119914+1 < len(pattern) {
+    					gotoNext = 4120112
+    					_ = gotoNext == 4120112
+    					i_4119914++
+    					gotoNext = 4119956
+    				} else {
+    					gotoNext = 4119956
+}
+    				gotoNext = 4119956
+    			} else {
+    				gotoNext = 4119956
+}
+    			gotoNext = 4119956
+    		case 91:
+    			gotoNext = 4120136
+    			_ = gotoNext == 4120136
+    			inrange_4119892 = true
+    			gotoNext = 4119956
+    		case 93:
+    			gotoNext = 4120166
+    			_ = gotoNext == 4120166
+    			inrange_4119892 = false
+    			gotoNext = 4119956
+    		case 42:
+    			gotoNext = 4120197
+    			_ = gotoNext == 4120197
+    			if !inrange_4119892 {
+    				gotoNext = 4120222
+    				_ = gotoNext == 4120222
+    				ScanBreak = true
+    				gotoNext = 4119927
+    				gotoNext = 4119956
+    			} else {
+    				gotoNext = 4119956
+}
+    			gotoNext = 4119956
+    		default:
+    			gotoNext = 4119956
+}
+    		_ = gotoNext == 4119956
+    		i_4119914++
+    		gotoNext = 4119927
+    	} else {
+    		gotoNext = 4120252
+}
+    	_ = gotoNext == 4120252
+    	return star, pattern[0:i_4119914], pattern[i_4119914:]
+    	gotoNext = -1
+    }
 ```
-
-The filepath package uses either forward slashes or backslashes,
-depending on the operating system. To process paths such as URLs
-that always use forward slashes regardless of the operating
-system, see the \[path\] package.  
-
 ### Filepath function abs
 
 
@@ -159,7 +234,7 @@ Abs returns an absolute representation of path.
         path name for a given file is not guaranteed to be unique.
         Abs calls Clean on the result.
 ```
-[\(view code\)](<./Filepath.hx#L297>)
+[\(view code\)](<./Filepath.hx#L373>)
 
 
 ### Filepath function base
@@ -176,7 +251,7 @@ Base returns the last element of path.
         If the path is empty, Base returns ".".
         If the path consists entirely of separators, Base returns a single separator.
 ```
-[\(view code\)](<./Filepath.hx#L364>)
+[\(view code\)](<./Filepath.hx#L440>)
 
 
 ### Filepath function clean
@@ -222,7 +297,7 @@ See also Rob Pike, “Lexical File Names in Plan 9 or
 Getting Dot\-Dot Right,”
 https://9p.io/sys/doc/lexnames.html  
 
-[\(view code\)](<./Filepath.hx#L196>)
+[\(view code\)](<./Filepath.hx#L272>)
 
 
 ### Filepath function dir
@@ -241,7 +316,7 @@ Dir returns all but the last element of path, typically the path's directory.
         If the path consists entirely of separators, Dir returns a single separator.
         The returned path does not end in a separator unless it is the root directory.
 ```
-[\(view code\)](<./Filepath.hx#L375>)
+[\(view code\)](<./Filepath.hx#L451>)
 
 
 ### Filepath function evalSymlinks
@@ -259,7 +334,7 @@ EvalSymlinks returns the path name after the evaluation of any symbolic
         unless one of the components is an absolute symbolic link.
         EvalSymlinks calls Clean on the result.
 ```
-[\(view code\)](<./Filepath.hx#L284>)
+[\(view code\)](<./Filepath.hx#L360>)
 
 
 ### Filepath function ext
@@ -276,7 +351,7 @@ Ext returns the file name extension used by path.
         in the final element of path; it is empty if there is
         no dot.
 ```
-[\(view code\)](<./Filepath.hx#L274>)
+[\(view code\)](<./Filepath.hx#L350>)
 
 
 ### Filepath function fromSlash
@@ -292,7 +367,7 @@ FromSlash returns the result of replacing each slash ('/') character
         in path with a separator character. Multiple slashes are replaced
         by multiple separators.
 ```
-[\(view code\)](<./Filepath.hx#L231>)
+[\(view code\)](<./Filepath.hx#L307>)
 
 
 ### Filepath function glob
@@ -314,7 +389,7 @@ Glob ignores file system errors such as I/O errors reading directories.
 The only possible returned error is ErrBadPattern, when pattern
 is malformed.  
 
-[\(view code\)](<./Filepath.hx#L161>)
+[\(view code\)](<./Filepath.hx#L237>)
 
 
 ### Filepath function hasPrefix
@@ -332,7 +407,7 @@ HasPrefix exists for historical compatibility and should not be used.
 Deprecated: HasPrefix does not respect path boundaries and
 does not ignore case when required.  
 
-[\(view code\)](<./Filepath.hx#L399>)
+[\(view code\)](<./Filepath.hx#L475>)
 
 
 ### Filepath function isAbs
@@ -346,7 +421,7 @@ function isAbs(_path:String):Bool
 
 IsAbs reports whether the path is absolute.  
 
-[\(view code\)](<./Filepath.hx#L390>)
+[\(view code\)](<./Filepath.hx#L466>)
 
 
 ### Filepath function isLocal
@@ -376,7 +451,7 @@ IsLocal is a purely lexical operation.
 In particular, it does not account for the effect of any symbolic links
 that may exist in the filesystem.  
 
-[\(view code\)](<./Filepath.hx#L215>)
+[\(view code\)](<./Filepath.hx#L291>)
 
 
 ### Filepath function join
@@ -396,7 +471,7 @@ Join joins any number of path elements into a single path,
         On Windows, the result will only be a UNC path if the first
         non-empty element is a UNC path.
 ```
-[\(view code\)](<./Filepath.hx#L265>)
+[\(view code\)](<./Filepath.hx#L341>)
 
 
 ### Filepath function match
@@ -437,7 +512,7 @@ is malformed.
 On Windows, escaping is disabled. Instead, '\\\\' is treated as
 path separator.  
 
-[\(view code\)](<./Filepath.hx#L145>)
+[\(view code\)](<./Filepath.hx#L221>)
 
 
 ### Filepath function rel
@@ -458,7 +533,7 @@ Rel returns a relative path that is lexically equivalent to targpath when
         knowing the current working directory would be necessary to compute it.
         Rel calls Clean on the result.
 ```
-[\(view code\)](<./Filepath.hx#L313>)
+[\(view code\)](<./Filepath.hx#L389>)
 
 
 ### Filepath function split
@@ -476,7 +551,7 @@ Split splits path immediately following the final Separator,
         and file set to path.
         The returned values have the property that path = dir+file.
 ```
-[\(view code\)](<./Filepath.hx#L250>)
+[\(view code\)](<./Filepath.hx#L326>)
 
 
 ### Filepath function splitList
@@ -493,7 +568,7 @@ SplitList splits a list of paths joined by the OS-specific ListSeparator,
         Unlike strings.Split, SplitList returns an empty slice when passed an empty
         string.
 ```
-[\(view code\)](<./Filepath.hx#L240>)
+[\(view code\)](<./Filepath.hx#L316>)
 
 
 ### Filepath function toSlash
@@ -509,7 +584,7 @@ ToSlash returns the result of replacing each separator character
         in path with a slash ('/') character. Multiple separators are
         replaced by multiple slashes.
 ```
-[\(view code\)](<./Filepath.hx#L223>)
+[\(view code\)](<./Filepath.hx#L299>)
 
 
 ### Filepath function volumeName
@@ -526,7 +601,7 @@ VolumeName returns leading volume name.
         Given "\\host\share\foo" it returns "\\host\share".
         On other platforms it returns "".
 ```
-[\(view code\)](<./Filepath.hx#L384>)
+[\(view code\)](<./Filepath.hx#L460>)
 
 
 ### Filepath function walk
@@ -557,7 +632,7 @@ Walk does not follow symbolic links.
 Walk is less efficient than WalkDir, introduced in Go 1.16,
 which avoids calling os.Lstat on every visited file or directory.  
 
-[\(view code\)](<./Filepath.hx#L355>)
+[\(view code\)](<./Filepath.hx#L431>)
 
 
 ### Filepath function walkDir
@@ -589,7 +664,7 @@ WalkDir calls fn with paths that use the separator character appropriate
 for the operating system. This is unlike \[io/fs.WalkDir\], which always
 uses slash separated paths.  
 
-[\(view code\)](<./Filepath.hx#L336>)
+[\(view code\)](<./Filepath.hx#L412>)
 
 
 # Typedefs

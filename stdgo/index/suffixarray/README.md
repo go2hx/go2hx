@@ -29,20 +29,87 @@ import
 
 
 ```
-Package suffixarray implements substring search in logarithmic time using
-    an in-memory suffix array.
-```
-
-Example use:  
-
-```
- create index for some data
-    	index := suffixarray.New(data)
-```
-```
- lookup byte slice s
-    	offsets1 := index.Lookup(s, -1) // the list of all indices where s occurs in data
-    	offsets2 := index.Lookup(s, 3)  // the list of at most 3 indices where s occurs in data
+{
+    	id_3362644 = 0
+    	lastLen_3362653 = int64(-1)
+    	lastPos_3362689 = int64(0)
+    	if 0 < len(sa[len(sa)-numLMS:]) {
+    		gotoNext = 3363273
+    		_ = gotoNext == 3363273
+    		i_3362722_0, j_3362717 = 0, sa[len(sa)-numLMS:][0]
+    		gotoNext = 3363274
+    		_ = gotoNext == 3363274
+    		if i_3362722_0 < len(sa[len(sa)-numLMS:]) {
+    			gotoNext = 3362748
+    			_ = gotoNext == 3362748
+    			j_3362717 = sa[len(sa)-numLMS:][i_3362722_0]
+    			n_3362836 = sa[j_3362717/2]
+    			if n_3362836 != lastLen_3362653 {
+    				gotoNext = 3362867
+    				_ = gotoNext == 3362867
+    				gotoNext = 3363204
+    				gotoNext = 3362887
+    			} else {
+    				gotoNext = 3362887
+}
+    			_ = gotoNext == 3362887
+    			if uint64(n_3362836) >= uint64(len(text)) {
+    				gotoNext = 3362921
+    				_ = gotoNext == 3362921
+    				gotoNext = 3363245
+    				gotoNext = 3363006
+    			} else {
+    				gotoNext = 3363006
+}
+    			_ = gotoNext == 3363006
+{
+    				n_3363039 = int(n_3362836)
+    				this_3363054 = text[j_3362717:][:n_3363039]
+    				last_3363078 = text[lastPos_3362689:][:n_3363039]
+    				i_3363112 = 0
+    				gotoNext = 3363108
+    				_ = gotoNext == 3363108
+    				if i_3363112 < n_3363039 {
+    					gotoNext = 3363131
+    					_ = gotoNext == 3363131
+    					if this_3363054[i_3363112] != last_3363078[i_3363112] {
+    						gotoNext = 3363159
+    						_ = gotoNext == 3363159
+    						gotoNext = 3363204
+    						gotoNext = 3363127
+    					} else {
+    						gotoNext = 3363127
+}
+    					_ = gotoNext == 3363127
+    					i_3363112++
+    					gotoNext = 3363108
+    				} else {
+    					gotoNext = 3363189
+}
+    				_ = gotoNext == 3363189
+    				gotoNext = 3363245
+}
+    			gotoNext = 3363204
+    			_ = gotoNext == 3363204
+    			id_3362644++
+    			lastPos_3362689 = j_3362717
+    			lastLen_3362653 = n_3362836
+    			gotoNext = 3363245
+    			_ = gotoNext == 3363245
+    			sa[j_3362717/2] = int64(id_3362644)
+    			i_3362722_0++
+    			gotoNext = 3363274
+    		} else {
+    			gotoNext = 3363277
+}
+    		gotoNext = 3363277
+    	} else {
+    		gotoNext = 3363277
+}
+    	_ = gotoNext == 3363277
+    	return id_3362644
+    	gotoNext = -1
+    }
 ```
 ### Suffixarray function new\_
 
@@ -56,7 +123,7 @@ function new_(_data:Array<UInt>):stdgo.index.suffixarray.Index
 New creates a new Index for data.
         Index creation time is O(N) for N = len(data).
 ```
-[\(view code\)](<./Suffixarray.hx#L93>)
+[\(view code\)](<./Suffixarray.hx#L163>)
 
 
 # Abstracts

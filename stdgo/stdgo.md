@@ -9,10 +9,10 @@
 | [stdgo._internal.bytes](./_internal/bytes/README.md) | ✅ | no |
 | [stdgo._internal.cmp](./_internal/cmp/README.md) | ✅ | no |
 | [stdgo._internal.compress.bzip2](./_internal/compress/bzip2/README.md) | ❌ | yes |
-| [stdgo._internal.compress.flate](./_internal/compress/flate/README.md) | ✅ | no |
-| [stdgo._internal.compress.gzip](./_internal/compress/gzip/README.md) | ✅ | no |
-| [stdgo._internal.compress.lzw](./_internal/compress/lzw/README.md) | ✅ | no |
-| [stdgo._internal.compress.zlib](./_internal/compress/zlib/README.md) | ✅ | no |
+| [stdgo._internal.compress.flate](./_internal/compress/flate/README.md) | ❌ | no |
+| [stdgo._internal.compress.gzip](./_internal/compress/gzip/README.md) | ❌ | no |
+| [stdgo._internal.compress.lzw](./_internal/compress/lzw/README.md) | ❌ | no |
+| [stdgo._internal.compress.zlib](./_internal/compress/zlib/README.md) | ❌ | no |
 | [stdgo._internal.container.heap](./_internal/container/heap/README.md) | ✅ | no |
 | [stdgo._internal.container.list](./_internal/container/list/README.md) | ✅ | no |
 | [stdgo._internal.container.ring](./_internal/container/ring/README.md) | ✅ | no |
@@ -79,7 +79,7 @@
 | [stdgo._internal.image.draw](./_internal/image/draw/README.md) | ❌ | no |
 | [stdgo._internal.image.gif](./_internal/image/gif/README.md) | ❌ | no |
 | [stdgo._internal.image.jpeg](./_internal/image/jpeg/README.md) | ❌ | no |
-| [stdgo._internal.image.png](./_internal/image/png/README.md) | ✅ | no |
+| [stdgo._internal.image.png](./_internal/image/png/README.md) | ❌ | no |
 | [stdgo._internal.index.suffixarray](./_internal/index/suffixarray/README.md) | ✅ | no |
 | [stdgo._internal.internal](./_internal/internal/README.md) | ❌ | no |
 | [stdgo._internal.internal.abi](./_internal/internal/abi/README.md) | ✅ | no |
@@ -190,9 +190,9 @@
 | [stdgo.cmp](./cmp/README.md) | ✅ | no |
 | [stdgo.compress.bzip2](./compress/bzip2/README.md) | ✅ | no |
 | [stdgo.compress.flate](./compress/flate/README.md) | ❌ | no |
-| [stdgo.compress.gzip](./compress/gzip/README.md) | ✅ | no |
-| [stdgo.compress.lzw](./compress/lzw/README.md) | ✅ | no |
-| [stdgo.compress.zlib](./compress/zlib/README.md) | ✅ | no |
+| [stdgo.compress.gzip](./compress/gzip/README.md) | ❌ | no |
+| [stdgo.compress.lzw](./compress/lzw/README.md) | ❌ | no |
+| [stdgo.compress.zlib](./compress/zlib/README.md) | ❌ | no |
 | [stdgo.container.heap](./container/heap/README.md) | ✅ | no |
 | [stdgo.container.list](./container/list/README.md) | ✅ | no |
 | [stdgo.container.ring](./container/ring/README.md) | ✅ | no |
@@ -259,7 +259,7 @@
 | [stdgo.image.draw](./image/draw/README.md) | ❌ | no |
 | [stdgo.image.gif](./image/gif/README.md) | ❌ | no |
 | [stdgo.image.jpeg](./image/jpeg/README.md) | ❌ | no |
-| [stdgo.image.png](./image/png/README.md) | ✅ | no |
+| [stdgo.image.png](./image/png/README.md) | ❌ | no |
 | [stdgo.index.suffixarray](./index/suffixarray/README.md) | ✅ | no |
 | [stdgo.internal.abi](./internal/abi/README.md) | ✅ | no |
 | [stdgo.internal.bisect](./internal/bisect/README.md) | ✅ | no |

@@ -177,18 +177,188 @@ import stdgo.text.scanner.*
 
 
 ```
-Package scanner provides a scanner and tokenizer for UTF-8-encoded text.
-    It takes an io.Reader providing the source, which then can be tokenized
-    through repeated calls to the Scan function. For compatibility with
-    existing tools, the NUL character is not allowed. If the first character
-    in the source is a UTF-8 encoded byte order mark (BOM), it is discarded.
+{
+    	ch_4493192 = s.Peek()
+    	s.tokPos = -1
+    	s.Line = 0
+    	gotoNext = 4493266
+    	_ = gotoNext == 4493266
+    	_ = 0
+    	redoBreak = false
+    	gotoNext = 4493294
+    	_ = gotoNext == 4493294
+    	if !redoBreak && (s.Whitespace&(1<<uint(ch_4493192)) != 0) {
+    		gotoNext = 4493330
+    		_ = gotoNext == 4493330
+    		ch_4493192 = s.next()
+    		gotoNext = 4493294
+    	} else {
+    		gotoNext = 4493385
+}
+    	_ = gotoNext == 4493385
+    	s.tokBuf.Reset()
+    	s.tokPos = s.srcPos - s.lastCharLen
+    	s.Offset = s.srcBufOffset + s.tokPos
+    	if s.column > 0 {
+    		gotoNext = 4493582
+    		_ = gotoNext == 4493582
+    		s.Line = s.line
+    		s.Column = s.column
+    		gotoNext = 4493891
+    	} else {
+    		gotoNext = 4493680
+    		_ = gotoNext == 4493680
+    		s.Line = s.line - 1
+    		s.Column = s.lastLineLen
+    		gotoNext = 4493891
+}
+    	_ = gotoNext == 4493891
+    	tok_4493891 = ch_4493192
+    	_ = 0
+    	gotoNext = 4493902
+    	_ = gotoNext == 4493902
+    	switch {
+    	case s.isIdentRune(ch_4493192, 0):
+    		gotoNext = 4493912
+    		_ = gotoNext == 4493912
+    		if s.Mode&4 != 0 {
+    			gotoNext = 4493967
+    			_ = gotoNext == 4493967
+    			tok_4493891 = -2
+    			ch_4493192 = s.scanIdentifier()
+    			gotoNext = 4494980
+    		} else {
+    			gotoNext = 4494020
+    			_ = gotoNext == 4494020
+    			ch_4493192 = s.next()
+    			gotoNext = 4494980
+}
+    		gotoNext = 4494980
+    	case isDecimal(ch_4493192):
+    		gotoNext = 4494044
+    		_ = gotoNext == 4494044
+    		if s.Mode&24 != 0 {
+    			gotoNext = 4494103
+    			_ = gotoNext == 4494103
+    			tok_4493891, ch_4493192 = s.scanNumber(ch_4493192, false)
+    			gotoNext = 4494980
+    		} else {
+    			gotoNext = 4494151
+    			_ = gotoNext == 4494151
+    			ch_4493192 = s.next()
+    			gotoNext = 4494980
+}
+    		gotoNext = 4494980
+    	default:
+    		gotoNext = 4494175
+    		_ = gotoNext == 4494175
+    		_ = 0
+    		gotoNext = 4494186
+    		_ = gotoNext == 4494186
+    		switch ch_4493192 {
+    		case -1:
+    			gotoNext = 4494200
+    			_ = gotoNext == 4494200
+    			gotoNext = 4494980
+    			gotoNext = 4494980
+    		case 34:
+    			gotoNext = 4494221
+    			_ = gotoNext == 4494221
+    			if s.Mode&64 != 0 {
+    				gotoNext = 4494261
+    				_ = gotoNext == 4494261
+    				s.scanString(34)
+    				tok_4493891 = -6
+    				gotoNext = 4494310
+    			} else {
+    				gotoNext = 4494310
+}
+    			_ = gotoNext == 4494310
+    			ch_4493192 = s.next()
+    			gotoNext = 4494980
+    		case 39:
+    			gotoNext = 4494326
+    			_ = gotoNext == 4494326
+    			if s.Mode&32 != 0 {
+    				gotoNext = 4494365
+    				_ = gotoNext == 4494365
+    				s.scanChar()
+    				tok_4493891 = -5
+    				gotoNext = 4494407
+    			} else {
+    				gotoNext = 4494407
+}
+    			_ = gotoNext == 4494407
+    			ch_4493192 = s.next()
+    			gotoNext = 4494980
+    		case 46:
+    			gotoNext = 4494423
+    			_ = gotoNext == 4494423
+    			ch_4493192 = s.next()
+    			if isDecimal(ch_4493192) && s.Mode&16 != 0 {
+    				gotoNext = 4494496
+    				_ = gotoNext == 4494496
+    				tok_4493891, ch_4493192 = s.scanNumber(ch_4493192, true)
+    				gotoNext = 4494980
+    			} else {
+    				gotoNext = 4494980
+}
+    			gotoNext = 4494980
+    		case 47:
+    			gotoNext = 4494542
+    			_ = gotoNext == 4494542
+    			ch_4493192 = s.next()
+    			if (ch_4493192 == 47 || ch_4493192 == 42) && s.Mode&256 != 0 {
+    				gotoNext = 4494628
+    				_ = gotoNext == 4494628
+    				if s.Mode&512 != 0 {
+    					gotoNext = 4494662
+    					_ = gotoNext == 4494662
+    					s.tokPos = -1
+    					ch_4493192 = s.scanComment(ch_4493192)
+    					gotoNext = 4493266
+    					gotoNext = 4494764
+    				} else {
+    					gotoNext = 4494764
+}
+    				_ = gotoNext == 4494764
+    				ch_4493192 = s.scanComment(ch_4493192)
+    				tok_4493891 = -8
+    				gotoNext = 4494980
+    			} else {
+    				gotoNext = 4494980
+}
+    			gotoNext = 4494980
+    		case 96:
+    			gotoNext = 4494812
+    			_ = gotoNext == 4494812
+    			if s.Mode&128 != 0 {
+    				gotoNext = 4494855
+    				_ = gotoNext == 4494855
+    				s.scanRawString()
+    				tok_4493891 = -7
+    				gotoNext = 4494907
+    			} else {
+    				gotoNext = 4494907
+}
+    			_ = gotoNext == 4494907
+    			ch_4493192 = s.next()
+    			gotoNext = 4494980
+    		default:
+    			gotoNext = 4494923
+    			_ = gotoNext == 4494923
+    			ch_4493192 = s.next()
+    			gotoNext = 4494980
+}
+    		gotoNext = 4494980
+}
+    	_ = gotoNext == 4494980
+    	s.tokEnd = s.srcPos - s.lastCharLen
+    	s.ch = ch_4493192
+    	return tok_4493891
+    	gotoNext = -1
+    }
 ```
-
-By default, a Scanner skips white space and Go comments and recognizes all
-literals as defined by the Go language specification. It may be
-customized to recognize only a subset of those literals and to recognize
-different identifier and white space characters.  
-
 ### Scanner function testError
 
 
@@ -197,7 +367,7 @@ function testError(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L387>)
+[\(view code\)](<./Scanner.hx#L558>)
 
 
 ### Scanner function testIOError
@@ -208,7 +378,7 @@ function testIOError(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L390>)
+[\(view code\)](<./Scanner.hx#L561>)
 
 
 ### Scanner function testInvalidExponent
@@ -219,7 +389,7 @@ function testInvalidExponent(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L366>)
+[\(view code\)](<./Scanner.hx#L537>)
 
 
 ### Scanner function testIssue29723
@@ -230,7 +400,7 @@ function testIssue29723(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L402>)
+[\(view code\)](<./Scanner.hx#L573>)
 
 
 ### Scanner function testIssue30320
@@ -241,7 +411,7 @@ function testIssue30320(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L408>)
+[\(view code\)](<./Scanner.hx#L579>)
 
 
 ### Scanner function testIssue50909
@@ -252,7 +422,7 @@ function testIssue50909(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L411>)
+[\(view code\)](<./Scanner.hx#L582>)
 
 
 ### Scanner function testNext
@@ -263,7 +433,7 @@ function testNext(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L360>)
+[\(view code\)](<./Scanner.hx#L531>)
 
 
 ### Scanner function testNextEOFHandling
@@ -274,7 +444,7 @@ function testNextEOFHandling(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L396>)
+[\(view code\)](<./Scanner.hx#L567>)
 
 
 ### Scanner function testNumbers
@@ -285,7 +455,7 @@ function testNumbers(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L405>)
+[\(view code\)](<./Scanner.hx#L576>)
 
 
 ### Scanner function testPos
@@ -296,7 +466,7 @@ function testPos(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L393>)
+[\(view code\)](<./Scanner.hx#L564>)
 
 
 ### Scanner function testPosition
@@ -307,7 +477,7 @@ function testPosition(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L369>)
+[\(view code\)](<./Scanner.hx#L540>)
 
 
 ### Scanner function testScan
@@ -318,7 +488,7 @@ function testScan(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L363>)
+[\(view code\)](<./Scanner.hx#L534>)
 
 
 ### Scanner function testScanCustomIdent
@@ -329,7 +499,7 @@ function testScanCustomIdent(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L378>)
+[\(view code\)](<./Scanner.hx#L549>)
 
 
 ### Scanner function testScanEOFHandling
@@ -340,7 +510,7 @@ function testScanEOFHandling(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L399>)
+[\(view code\)](<./Scanner.hx#L570>)
 
 
 ### Scanner function testScanNext
@@ -351,7 +521,7 @@ function testScanNext(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L381>)
+[\(view code\)](<./Scanner.hx#L552>)
 
 
 ### Scanner function testScanSelectedMask
@@ -362,7 +532,7 @@ function testScanSelectedMask(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L375>)
+[\(view code\)](<./Scanner.hx#L546>)
 
 
 ### Scanner function testScanWhitespace
@@ -373,7 +543,7 @@ function testScanWhitespace(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L384>)
+[\(view code\)](<./Scanner.hx#L555>)
 
 
 ### Scanner function testScanZeroMode
@@ -384,7 +554,7 @@ function testScanZeroMode(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Scanner.hx#L372>)
+[\(view code\)](<./Scanner.hx#L543>)
 
 
 ### Scanner function tokenString
@@ -398,7 +568,7 @@ function tokenString(_tok:Int):String
 
 TokenString returns a printable string for a token or Unicode character.  
 
-[\(view code\)](<./Scanner.hx#L357>)
+[\(view code\)](<./Scanner.hx#L528>)
 
 
 # Typedefs

@@ -56,15 +56,83 @@ import stdgo.path.*
 
 
 ```
-Package path implements utility routines for manipulating slash-separated
-    paths.
+{
+    	_ = 0
+    	gotoNext = 2612207
+    	_ = gotoNext == 2612207
+    	if len(pattern) > 0 && pattern[0] == 42 {
+    		gotoNext = 2612249
+    		_ = gotoNext == 2612249
+    		pattern = pattern[1:]
+    		star = true
+    		gotoNext = 2612207
+    	} else {
+    		gotoNext = 2612293
+}
+    	_ = gotoNext == 2612293
+    	inrange_2612293 = false
+    	gotoNext = 2612321
+    	_ = gotoNext == 2612321
+    	i_2612315 = 0
+    	ScanBreak = false
+    	gotoNext = 2612328
+    	_ = gotoNext == 2612328
+    	if !ScanBreak && (i_2612315 < len(pattern)) {
+    		gotoNext = 2612361
+    		_ = gotoNext == 2612361
+    		_ = 0
+    		gotoNext = 2612365
+    		_ = gotoNext == 2612365
+    		switch pattern[i_2612315] {
+    		case 92:
+    			gotoNext = 2612387
+    			_ = gotoNext == 2612387
+    			if i_2612315+1 < len(pattern) {
+    				gotoNext = 2612477
+    				_ = gotoNext == 2612477
+    				i_2612315++
+    				gotoNext = 2612357
+    			} else {
+    				gotoNext = 2612357
+}
+    			gotoNext = 2612357
+    		case 91:
+    			gotoNext = 2612494
+    			_ = gotoNext == 2612494
+    			inrange_2612293 = true
+    			gotoNext = 2612357
+    		case 93:
+    			gotoNext = 2612524
+    			_ = gotoNext == 2612524
+    			inrange_2612293 = false
+    			gotoNext = 2612357
+    		case 42:
+    			gotoNext = 2612555
+    			_ = gotoNext == 2612555
+    			if !inrange_2612293 {
+    				gotoNext = 2612580
+    				_ = gotoNext == 2612580
+    				ScanBreak = true
+    				gotoNext = 2612328
+    				gotoNext = 2612357
+    			} else {
+    				gotoNext = 2612357
+}
+    			gotoNext = 2612357
+    		default:
+    			gotoNext = 2612357
+}
+    		_ = gotoNext == 2612357
+    		i_2612315++
+    		gotoNext = 2612328
+    	} else {
+    		gotoNext = 2612610
+}
+    	_ = gotoNext == 2612610
+    	return star, pattern[0:i_2612315], pattern[i_2612315:]
+    	gotoNext = -1
+    }
 ```
-
-The path package should only be used for paths separated by forward
-slashes, such as the paths in URLs. This package does not deal with
-Windows paths with drive letters or backslashes; to manipulate
-operating system paths, use the path/filepath package.  
-
 ### Path function base
 
 
@@ -79,7 +147,7 @@ Base returns the last element of path.
         If the path is empty, Base returns ".".
         If the path consists entirely of slashes, Base returns "/".
 ```
-[\(view code\)](<./Path.hx#L143>)
+[\(view code\)](<./Path.hx#L212>)
 
 
 ### Path function clean
@@ -115,7 +183,7 @@ See also Rob Pike, “Lexical File Names in Plan 9 or
 Getting Dot\-Dot Right,”
 https://9p.io/sys/doc/lexnames.html  
 
-[\(view code\)](<./Path.hx#L102>)
+[\(view code\)](<./Path.hx#L171>)
 
 
 ### Path function dir
@@ -135,7 +203,7 @@ Dir returns all but the last element of path, typically the path's directory.
         returns a single slash. In any other case, the returned path does not end in a
         slash.
 ```
-[\(view code\)](<./Path.hx#L161>)
+[\(view code\)](<./Path.hx#L230>)
 
 
 ### Path function ext
@@ -152,7 +220,7 @@ Ext returns the file name extension used by path.
         in the final slash-separated element of path;
         it is empty if there is no dot.
 ```
-[\(view code\)](<./Path.hx#L134>)
+[\(view code\)](<./Path.hx#L203>)
 
 
 ### Path function isAbs
@@ -166,7 +234,7 @@ function isAbs(_path:String):Bool
 
 IsAbs reports whether the path is absolute.  
 
-[\(view code\)](<./Path.hx#L149>)
+[\(view code\)](<./Path.hx#L218>)
 
 
 ### Path function join
@@ -184,7 +252,7 @@ Join joins any number of path elements into a single path,
         empty or all its elements are empty, Join returns
         an empty string.
 ```
-[\(view code\)](<./Path.hx#L125>)
+[\(view code\)](<./Path.hx#L194>)
 
 
 ### Path function match
@@ -221,7 +289,7 @@ Match requires pattern to match all of name, not just a substring.
 The only possible returned error is ErrBadPattern, when pattern
 is malformed.  
 
-[\(view code\)](<./Path.hx#L75>)
+[\(view code\)](<./Path.hx#L144>)
 
 
 ### Path function split
@@ -239,7 +307,7 @@ Split splits path immediately following the final slash,
         file set to path.
         The returned values have the property that path = dir+file.
 ```
-[\(view code\)](<./Path.hx#L112>)
+[\(view code\)](<./Path.hx#L181>)
 
 
 # Abstracts

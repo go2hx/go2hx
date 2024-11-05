@@ -429,166 +429,56 @@ import stdgo.regexp.syntax.*
 ## class Syntax
 
 
-
-Package syntax parses regular expressions into parse trees and compiles
-parse trees into programs. Most clients of regular expressions will use the
-facilities of package regexp \(such as Compile and Match\) instead of this package.  
-
-### Syntax
-
-
-
-The regular expression syntax understood by this package when parsing with the Perl flag is as follows.
-Parts of the syntax can be disabled by passing alternate flags to Parse.  
-
-
-Single characters:  
-
 ```
-    	.              any character, possibly including newline (flag s=true)
-    	[xyz]          character class
-    	[^xyz]         negated character class
-    	\d             Perl character class
-    	\D             negated Perl character class
-    	[[:alpha:]]    ASCII character class
-    	[[:^alpha:]]   negated ASCII character class
-    	\pN            Unicode character class (one-letter name)
-    	\p{Greek}      Unicode character class
-    	\PN            negated Unicode character class (one-letter name)
-    	\P{Greek}      negated Unicode character class
+{
+    	pc_3178341 = uint32(p.Start)
+    	i_3178364 = &p.Inst[pc_3178341]
+    	gotoNext = 3178381
+    	_ = gotoNext == 3178381
+    	_ = 0
+    	LoopBreak = false
+    	gotoNext = 3178388
+    	_ = gotoNext == 3178388
+    	if !LoopBreak {
+    		gotoNext = 3178392
+    		_ = gotoNext == 3178392
+    		_ = 0
+    		gotoNext = 3178396
+    		_ = gotoNext == 3178396
+    		switch i_3178364.Op {
+    		case 3:
+    			gotoNext = 3178412
+    			_ = gotoNext == 3178412
+    			flag_3178327 |= EmptyOp(i_3178364.Arg)
+    			gotoNext = 3178569
+    		case 5:
+    			gotoNext = 3178461
+    			_ = gotoNext == 3178461
+    			return 255
+    			gotoNext = 3178569
+    		case 2, 6:
+    			gotoNext = 3178500
+    			_ = gotoNext == 3178500
+    			gotoNext = 3178569
+    		default:
+    			gotoNext = 3178540
+    			_ = gotoNext == 3178540
+    			LoopBreak = true
+    			gotoNext = 3178388
+    			gotoNext = 3178569
+}
+    		_ = gotoNext == 3178569
+    		pc_3178341 = i_3178364.Out
+    		i_3178364 = &p.Inst[pc_3178341]
+    		gotoNext = 3178388
+    	} else {
+    		gotoNext = 3178602
+}
+    	_ = gotoNext == 3178602
+    	return flag_3178327
+    	gotoNext = -1
+    }
 ```
-
-Composites:  
-
-```
-    	xy             x followed by y
-    	x|y            x or y (prefer x)
-```
-
-Repetitions:  
-
-```
-    	x*             zero or more x, prefer more
-    	x+             one or more x, prefer more
-    	x?             zero or one x, prefer one
-    	x{n,m}         n or n+1 or ... or m x, prefer more
-    	x{n,}          n or more x, prefer more
-    	x{n}           exactly n x
-    	x*?            zero or more x, prefer fewer
-    	x+?            one or more x, prefer fewer
-    	x??            zero or one x, prefer zero
-    	x{n,m}?        n or n+1 or ... or m x, prefer fewer
-    	x{n,}?         n or more x, prefer fewer
-    	x{n}?          exactly n x
-```
-
-Implementation restriction: The counting forms x\{n,m\}, x\{n,\}, and x\{n\}
-reject forms that create a minimum or maximum repetition count above 1000.
-Unlimited repetitions are not subject to this restriction.  
-
-
-Grouping:  
-
-```
-    	(re)           numbered capturing group (submatch)
-    	(?P<name>re)   named & numbered capturing group (submatch)
-    	(?:re)         non-capturing group
-    	(?flags)       set flags within current group; non-capturing
-    	(?flags:re)    set flags during re; non-capturing
-```
-```
-    	Flag syntax is xyz (set) or -xyz (clear) or xy-z (set xy, clear z). The flags are:
-```
-```
-    	i              case-insensitive (default false)
-    	m              multi-line mode: ^ and $ match begin/end line in addition to begin/end text (default false)
-    	s              let . match \n (default false)
-    	U              ungreedy: swap meaning of x* and x*?, x+ and x+?, etc (default false)
-```
-
-Empty strings:  
-
-```
-    	^              at beginning of text or line (flag m=true)
-    	$              at end of text (like \z not \Z) or line (flag m=true)
-    	\A             at beginning of text
-    	\b             at ASCII word boundary (\w on one side and \W, \A, or \z on the other)
-    	\B             not at ASCII word boundary
-    	\z             at end of text
-```
-
-Escape sequences:  
-
-```
-    	\a             bell (== \007)
-    	\f             form feed (== \014)
-    	\t             horizontal tab (== \011)
-    	\n             newline (== \012)
-    	\r             carriage return (== \015)
-    	\v             vertical tab character (== \013)
-    	\*             literal *, for any punctuation character *
-    	\123           octal character code (up to three digits)
-    	\x7F           hex character code (exactly two digits)
-    	\x{10FFFF}     hex character code
-    	\Q...\E        literal text ... even if ... has punctuation
-```
-
-Character class elements:  
-
-```
-    	x              single character
-    	A-Z            character range (inclusive)
-    	\d             Perl character class
-    	[:foo:]        ASCII character class foo
-    	\p{Foo}        Unicode character class Foo
-    	\pF            Unicode character class F (one-letter name)
-```
-
-Named character classes as character class elements:  
-
-```
-    	[\d]           digits (== \d)
-    	[^\d]          not digits (== \D)
-    	[\D]           not digits (== \D)
-    	[^\D]          not not digits (== \d)
-    	[[:name:]]     named ASCII class inside character class (== [:name:])
-    	[^[:name:]]    named ASCII class inside negated character class (== [:^name:])
-    	[\p{Name}]     named Unicode property inside character class (== \p{Name})
-    	[^\p{Name}]    named Unicode property inside negated character class (== \P{Name})
-```
-
-Perl character classes \(all ASCII\-only\):  
-
-```
-    	\d             digits (== [0-9])
-    	\D             not digits (== [^0-9])
-    	\s             whitespace (== [\t\n\f\r ])
-    	\S             not whitespace (== [^\t\n\f\r ])
-    	\w             word characters (== [0-9A-Za-z_])
-    	\W             not word characters (== [^0-9A-Za-z_])
-```
-
-ASCII character classes:  
-
-```
-    	[[:alnum:]]    alphanumeric (== [0-9A-Za-z])
-    	[[:alpha:]]    alphabetic (== [A-Za-z])
-    	[[:ascii:]]    ASCII (== [\x00-\x7F])
-    	[[:blank:]]    blank (== [\t ])
-    	[[:cntrl:]]    control (== [\x00-\x1F\x7F])
-    	[[:digit:]]    digits (== [0-9])
-    	[[:graph:]]    graphical (== [!-~] == [A-Za-z0-9!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~])
-    	[[:lower:]]    lower case (== [a-z])
-    	[[:print:]]    printable (== [ -~] == [ [:graph:]])
-    	[[:punct:]]    punctuation (== [!-/:-@[-`{-~])
-    	[[:space:]]    whitespace (== [\t\n\v\f\r ])
-    	[[:upper:]]    upper case (== [A-Z])
-    	[[:word:]]     word characters (== [0-9A-Za-z_])
-    	[[:xdigit:]]   hex digit (== [0-9A-Fa-f])
-```
-
-Unicode character classes are those in unicode.Categories and unicode.Scripts.  
-
 ### Syntax function benchmarkEmptyOpContext
 
 
@@ -597,7 +487,7 @@ function benchmarkEmptyOpContext(_b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L882>)
+[\(view code\)](<./Syntax.hx#L796>)
 
 
 ### Syntax function benchmarkIsWordChar
@@ -608,7 +498,7 @@ function benchmarkIsWordChar(_b:stdgo._internal.testing.B):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L885>)
+[\(view code\)](<./Syntax.hx#L799>)
 
 
 ### Syntax function compile
@@ -623,7 +513,7 @@ function compile(_re:stdgo.regexp.syntax.Regexp):stdgo.Tuple<stdgo.regexp.syntax
 Compile compiles the regexp into a program to be executed.
         The regexp should have been simplified already (returned from re.Simplify).
 ```
-[\(view code\)](<./Syntax.hx#L816>)
+[\(view code\)](<./Syntax.hx#L730>)
 
 
 ### Syntax function emptyOpContext
@@ -642,7 +532,7 @@ EmptyOpContext returns the zero-width assertions
         Passing r2 == -1 indicates that the position is
         at the end of the text.
 ```
-[\(view code\)](<./Syntax.hx#L868>)
+[\(view code\)](<./Syntax.hx#L782>)
 
 
 ### Syntax function isWordChar
@@ -658,7 +548,7 @@ IsWordChar reports whether r is considered a “word character”
         during the evaluation of the \b and \B zero-width assertions.
         These assertions are ASCII-only: the word characters are [A-Za-z0-9_].
 ```
-[\(view code\)](<./Syntax.hx#L876>)
+[\(view code\)](<./Syntax.hx#L790>)
 
 
 ### Syntax function parse
@@ -674,7 +564,7 @@ Parse parses a regular expression string s, controlled by the specified
         Flags, and returns a regular expression parse tree. The syntax is
         described in the top-level comment.
 ```
-[\(view code\)](<./Syntax.hx#L827>)
+[\(view code\)](<./Syntax.hx#L741>)
 
 
 ### Syntax function testAppendRangeCollapse
@@ -685,7 +575,7 @@ function testAppendRangeCollapse(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L851>)
+[\(view code\)](<./Syntax.hx#L765>)
 
 
 ### Syntax function testCompile
@@ -696,7 +586,7 @@ function testCompile(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L879>)
+[\(view code\)](<./Syntax.hx#L793>)
 
 
 ### Syntax function testFoldConstants
@@ -707,7 +597,7 @@ function testFoldConstants(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L848>)
+[\(view code\)](<./Syntax.hx#L762>)
 
 
 ### Syntax function testParseFoldCase
@@ -718,7 +608,7 @@ function testParseFoldCase(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L836>)
+[\(view code\)](<./Syntax.hx#L750>)
 
 
 ### Syntax function testParseInvalidRegexps
@@ -729,7 +619,7 @@ function testParseInvalidRegexps(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L854>)
+[\(view code\)](<./Syntax.hx#L768>)
 
 
 ### Syntax function testParseLiteral
@@ -740,7 +630,7 @@ function testParseLiteral(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L839>)
+[\(view code\)](<./Syntax.hx#L753>)
 
 
 ### Syntax function testParseMatchNL
@@ -751,7 +641,7 @@ function testParseMatchNL(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L842>)
+[\(view code\)](<./Syntax.hx#L756>)
 
 
 ### Syntax function testParseNoMatchNL
@@ -762,7 +652,7 @@ function testParseNoMatchNL(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L845>)
+[\(view code\)](<./Syntax.hx#L759>)
 
 
 ### Syntax function testParseSimple
@@ -773,7 +663,7 @@ function testParseSimple(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L833>)
+[\(view code\)](<./Syntax.hx#L747>)
 
 
 ### Syntax function testSimplify
@@ -784,7 +674,7 @@ function testSimplify(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L888>)
+[\(view code\)](<./Syntax.hx#L802>)
 
 
 ### Syntax function testToStringEquivalentParse
@@ -795,7 +685,7 @@ function testToStringEquivalentParse(_t:stdgo._internal.testing.T_):Void
 ```
 
 
-[\(view code\)](<./Syntax.hx#L857>)
+[\(view code\)](<./Syntax.hx#L771>)
 
 
 # Typedefs

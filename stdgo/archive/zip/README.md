@@ -1,10 +1,11 @@
 # Module stdgo.archive.zip has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/compress/flate/Flate_T_compressor_static_extension.hx:615: characters 5-11
+[30;41m ERROR [0m [31m(macro) [0mstdgo/_internal/archive/zip/Zip_Reader_static_extension.hx:168: characters 123-145
 
- 615 | [2m    [0m[1mstatic[0m[2m public function _fillWindow( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>, _b:stdgo.Slice<stdgo.GoUInt8>):Void {[0m
-     |     [31m^^^^^^[0m
-     | Expected expression
+ 168 | [2m            _r.file = (new stdgo.Slice<stdgo.Ref<stdgo._internal.archive.zip.Zip_File.File>>((0 : stdgo.GoInt).toBasic(), [0m[1m_end._directoryRecords[0m[2m) : stdgo.Slice<stdgo.Ref<stdgo._internal.archive.zip.Zip_File.File>>);[0m
+     |                                                                                                                           [31m^^^^^^^^^^^^^^^^^^^^^^[0m
+     | stdgo.GoUInt64 should be Int
+     | For function argument 'capacity'
 
 
 ```

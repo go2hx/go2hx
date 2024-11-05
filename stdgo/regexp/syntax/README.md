@@ -431,51 +431,51 @@ import stdgo.regexp.syntax.*
 
 ```
 {
-    	pc_3178341 = uint32(p.Start)
-    	i_3178364 = &p.Inst[pc_3178341]
-    	gotoNext = 3178381
-    	_ = gotoNext == 3178381
+    	pc_3341037 = uint32(p.Start)
+    	i_3341060 = &p.Inst[pc_3341037]
+    	gotoNext = 3341077
+    	_ = gotoNext == 3341077
     	_ = 0
     	LoopBreak = false
-    	gotoNext = 3178388
-    	_ = gotoNext == 3178388
+    	gotoNext = 3341084
+    	_ = gotoNext == 3341084
     	if !LoopBreak {
-    		gotoNext = 3178392
-    		_ = gotoNext == 3178392
+    		gotoNext = 3341088
+    		_ = gotoNext == 3341088
     		_ = 0
-    		gotoNext = 3178396
-    		_ = gotoNext == 3178396
-    		switch i_3178364.Op {
+    		gotoNext = 3341092
+    		_ = gotoNext == 3341092
+    		switch i_3341060.Op {
     		case 3:
-    			gotoNext = 3178412
-    			_ = gotoNext == 3178412
-    			flag_3178327 |= EmptyOp(i_3178364.Arg)
-    			gotoNext = 3178569
+    			gotoNext = 3341108
+    			_ = gotoNext == 3341108
+    			flag_3341023 |= EmptyOp(i_3341060.Arg)
+    			gotoNext = 3341265
     		case 5:
-    			gotoNext = 3178461
-    			_ = gotoNext == 3178461
+    			gotoNext = 3341157
+    			_ = gotoNext == 3341157
     			return 255
-    			gotoNext = 3178569
+    			gotoNext = 3341265
     		case 2, 6:
-    			gotoNext = 3178500
-    			_ = gotoNext == 3178500
-    			gotoNext = 3178569
+    			gotoNext = 3341196
+    			_ = gotoNext == 3341196
+    			gotoNext = 3341265
     		default:
-    			gotoNext = 3178540
-    			_ = gotoNext == 3178540
+    			gotoNext = 3341236
+    			_ = gotoNext == 3341236
     			LoopBreak = true
-    			gotoNext = 3178388
-    			gotoNext = 3178569
+    			gotoNext = 3341084
+    			gotoNext = 3341265
 }
-    		_ = gotoNext == 3178569
-    		pc_3178341 = i_3178364.Out
-    		i_3178364 = &p.Inst[pc_3178341]
-    		gotoNext = 3178388
+    		_ = gotoNext == 3341265
+    		pc_3341037 = i_3341060.Out
+    		i_3341060 = &p.Inst[pc_3341037]
+    		gotoNext = 3341084
     	} else {
-    		gotoNext = 3178602
+    		gotoNext = 3341298
 }
-    	_ = gotoNext == 3178602
-    	return flag_3178327
+    	_ = gotoNext == 3341298
+    	return flag_3341023
     	gotoNext = -1
     }
 ```

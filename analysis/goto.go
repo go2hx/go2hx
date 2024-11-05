@@ -144,6 +144,85 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			}
 		}
 		return []ast.Stmt{stmt}
+	case *ast.TypeSwitchStmt: // TODO typeSwitchStmt and switchStmt are copies of each other besides stmt.Assign and stmt.Tag
+		init := []ast.Stmt{blank()}
+		if stmt.Init != nil {
+			init = fs.markJumps(stmt.Init, scopeIndex)
+		}
+		stmt.Assign = fs.markJumps(stmt.Assign, scopeIndex)[0]
+		var defaultClause *ast.CaseClause
+		for i := range stmt.Body.List {
+			if stmt.Body.List[i].(*ast.CaseClause).List == nil {
+				defaultClause = stmt.Body.List[i].(*ast.CaseClause)
+			} else {
+				for j := range stmt.Body.List[i].(*ast.CaseClause).List {
+					stmt.Body.List[i].(*ast.CaseClause).List[j] = fs.changeVars(stmt.Body.List[i].(*ast.CaseClause).List[j])
+				}
+			}
+			newStmts := []ast.Stmt{}
+			if fs.loopFallthroughPosFunc != nil {
+				fs.loopFallthroughPosFunc(stmt.Body.List[i].(*ast.CaseClause).Pos())
+				fs.loopFallthroughPosFunc = nil
+			}
+			nextJumpFunc := fs.nextJumpFunc
+			fs.nextJumpFunc = make([]func(token.Pos), 0)
+			newStmts = fs.markJumps(&ast.BlockStmt{List: stmt.Body.List[i].(*ast.CaseClause).Body}, scopeIndex+1)[0].(*ast.BlockStmt).List
+			fs.nextJumpFunc = append(fs.nextJumpFunc, nextJumpFunc...)
+
+			stmt.Body.List[i].(*ast.CaseClause).Body = newStmts
+			stmt.Body.List[i].(*ast.CaseClause).Body = append([]ast.Stmt{jumpTo(stmt.Body.List[i].(*ast.CaseClause).Pos()), setJump(stmt.Body.List[i].(*ast.CaseClause).Pos())}, stmt.Body.List[i].(*ast.CaseClause).Body...)
+			stmt.Body.List[i].(*ast.CaseClause).Body = append(stmt.Body.List[i].(*ast.CaseClause).Body, blank())
+			i := i
+			fs.nextJumpRun(func(pos token.Pos) {
+				stmt.Body.List[i].(*ast.CaseClause).Body[len(stmt.Body.List[i].(*ast.CaseClause).Body)-1] = jumpTo(pos)
+				//stmt.Else.(*ast.BlockStmt).List = []ast.Stmt{}
+				//stmt.Else.(*ast.BlockStmt).List[len(stmt.Else.(*ast.BlockStmt).List)-1] = jumpTo(pos)
+			})
+		}
+		fs.loopFallthroughPosFunc = nil
+		if defaultClause == nil {
+			stmt.Body.List = append(stmt.Body.List, &ast.CaseClause{
+				List: nil,
+				Body: []ast.Stmt{blank()},
+			})
+			i := len(stmt.Body.List) - 1
+			fs.nextJumpRun(func(pos token.Pos) {
+				stmt.Body.List[i].(*ast.CaseClause).Body[len(stmt.Body.List[i].(*ast.CaseClause).Body)-1] = jumpTo(pos)
+			})
+		}
+		// switch break
+		fs.nextJumpRun(func(pos token.Pos) {
+			newLoopBreakPosFunc := []breakData{}
+			for _, data := range fs.loopBreakPosFunc {
+				if scopeIndex+1 == data.scopeIndex {
+					data.f(pos)
+				} else {
+					newLoopBreakPosFunc = append(newLoopBreakPosFunc, data)
+				}
+			}
+			fs.loopBreakPosFunc = newLoopBreakPosFunc
+		})
+		if labelName, exists := fs.loopLabelMap[stmt.Pos()]; exists {
+			breakName := labelName + "Break"
+			obj := ast.NewObj(ast.Var, breakName)
+			fs.tempVars[obj] = tempVarData{ast.NewIdent(breakName), ast.NewIdent("bool"), ast.NewIdent("false")}
+			init = append(init, assign(ast.NewIdent(breakName), ast.NewIdent("false")))
+			notBreakNameExpr := &ast.UnaryExpr{X: ast.NewIdent(breakName), Op: token.NOT}
+			ifStmt := &ast.IfStmt{Cond: notBreakNameExpr, Body: &ast.BlockStmt{List: []ast.Stmt{stmt}}, Else: &ast.BlockStmt{List: []ast.Stmt{blank()}}}
+			fs.nextJumpRun(func(pos token.Pos) {
+				ifStmt.Else.(*ast.BlockStmt).List[len(ifStmt.Else.(*ast.BlockStmt).List)-1] = jumpTo((pos))
+			})
+			return append(init,
+				jumpTo(stmt.Pos()),
+				setJump(stmt.Pos()),
+				ifStmt,
+			)
+		}
+		return append(init,
+			jumpTo(stmt.Pos()),
+			setJump(stmt.Pos()),
+			stmt,
+		)
 	case *ast.SwitchStmt:
 		init := []ast.Stmt{blank()}
 		if stmt.Init != nil {
@@ -328,6 +407,12 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			keysExpr := ast.NewIdent("keys_" + fmt.Sprint(stmt.Pos()))
 			valuesExpr := ast.NewIdent("values_" + fmt.Sprint(stmt.Pos()))
 			forStmt := &ast.ForStmt{For: stmt.Body.Rbrace, Init: init, Body: stmt.Body, Cond: &ast.BinaryExpr{X: ident, Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{keysExpr}}}, Post: &ast.IncDecStmt{X: ident, Tok: token.INC}}
+			for labelName, stmt2 := range fs.labelMapLoop {
+				if stmt == stmt2 {
+					fs.labelMapLoop[labelName] = forStmt
+					break
+				}
+			}
 			if stmt.Key != nil {
 				assign := defineExpr(stmt.Key, &ast.IndexExpr{X: keysExpr, Index: ident})
 				forStmt.Body.List = append([]ast.Stmt{assign}, forStmt.Body.List...)
@@ -337,7 +422,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				forStmt.Body.List = append([]ast.Stmt{assign}, forStmt.Body.List...)
 			}
 
-			cond := &ast.BinaryExpr{X: createPos(token.Pos(0)), Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{stmt.X}}}
+			cond := &ast.BinaryExpr{X: createPos(token.Pos(0)), Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{keysExpr}}}
 			ifStmt := &ast.IfStmt{Cond: cond, Body: &ast.BlockStmt{List: []ast.Stmt{forStmt}, Lbrace: stmt.Body.Rbrace - 1}, If: stmt.X.Pos()}
 			clKeysType := &ast.CompositeLit{Type: &ast.ArrayType{Elt: ast.NewIdent("int")}}
 			fs.tempVars[ast.NewObj(ast.Var, keysExpr.Name)] = tempVarData{
@@ -350,7 +435,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				Value: clValuesType,
 			}
 
-			rangeStmt := &ast.RangeStmt{For: stmt.For - 1, Key: ast.NewIdent("key"), Value: ast.NewIdent("value"), Tok: token.DEFINE, X: stmt.X, Body: &ast.BlockStmt{
+			rangeStmt := &ast.RangeStmt{For: stmt.For - 1, Key: ast.NewIdent("key"), Value: ast.NewIdent("value"), Tok: token.DEFINE, X: fs.changeVars(stmt.X), Body: &ast.BlockStmt{
 				List: []ast.Stmt{
 					assign(keysExpr, &ast.CallExpr{Fun: ast.NewIdent("append"), Args: []ast.Expr{keysExpr, ast.NewIdent("key")}}),
 					assign(valuesExpr, &ast.CallExpr{Fun: ast.NewIdent("append"), Args: []ast.Expr{valuesExpr, ast.NewIdent("value")}}),
@@ -373,6 +458,12 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			keysExpr := ast.NewIdent("keys_" + fmt.Sprint(stmt.Pos()))
 			keysExpr.Obj = ast.NewObj(ast.Var, keysExpr.Name)
 			forStmt := &ast.ForStmt{For: stmt.Body.Rbrace, Init: init, Body: stmt.Body, Cond: &ast.BinaryExpr{X: lhs[0], Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{keysExpr}}}, Post: &ast.IncDecStmt{X: lhs[0], Tok: token.INC}}
+			for labelName, stmt2 := range fs.labelMapLoop {
+				if stmt == stmt2 {
+					fs.labelMapLoop[labelName] = forStmt
+					break
+				}
+			}
 			getKeyExpr := &ast.IndexExpr{X: keysExpr, Index: lhs[0]}
 			if stmt.Key != nil {
 				assign := defineExpr(stmt.Key, getKeyExpr)
@@ -403,12 +494,12 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				switch key := stmt.Key.(type) {
 				case *ast.Ident:
 					if key.Name == "_" {
-						key.Name = "i_" + fmt.Sprint(stmt.Pos())
+						key.Name = "i_" + fmt.Sprint(stmt.Range)
 					}
 				}
 				lhs = append(lhs, fs.changeVars(stmt.Key))
 			} else {
-				lhs = append(lhs, ast.NewIdent("i_"+fmt.Sprint(stmt.Pos())))
+				lhs = append(lhs, ast.NewIdent("i_"+fmt.Sprint(stmt.Range)))
 			}
 			if stmt.Value != nil && stmt.Tok == token.DEFINE {
 				lhs = append(lhs, stmt.Value)
@@ -424,6 +515,12 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			}
 			init := &ast.AssignStmt{Lhs: lhs, Tok: stmt.Tok, TokPos: stmt.TokPos, Rhs: rhs}
 			forStmt := &ast.ForStmt{For: stmt.Body.Rbrace, Init: init, Body: stmt.Body, Cond: &ast.BinaryExpr{X: lhs[0], Op: token.LSS, Y: &ast.CallExpr{Fun: ast.NewIdent("len"), Args: []ast.Expr{stmt.X}}}, Post: &ast.IncDecStmt{X: lhs[0], Tok: token.INC}}
+			for labelName, stmt2 := range fs.labelMapLoop {
+				if stmt == stmt2 {
+					fs.labelMapLoop[labelName] = forStmt
+					break
+				}
+			}
 			if stmt.Value != nil {
 				assign := assignExpr(stmt.Value, &ast.IndexExpr{X: stmt.X, Index: lhs[0]})
 				forStmt.Body.List = append([]ast.Stmt{assign}, forStmt.Body.List...)
@@ -558,11 +655,6 @@ type JumpData struct {
 	index int
 	stmts []ast.Stmt
 }
-
-func (j *JumpData) connect(pos token.Pos) {
-	j.stmts = append(j.stmts, jumpTo(pos))
-}
-
 type tempVarData struct {
 	*ast.Ident
 	Type  ast.Expr
@@ -624,15 +716,36 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 				switch child := stmt.Stmt.(type) {
 				case *ast.BlockStmt:
 				case *ast.LabeledStmt:
+				case *ast.TypeSwitchStmt:
+					fs.loopLabelMap[stmt.Stmt.Pos()] = labelName
+					fs.labelMapLoop[labelName] = stmt.Stmt
 				case *ast.SwitchStmt:
+					fs.loopLabelMap[stmt.Stmt.Pos()] = labelName
+					fs.labelMapLoop[labelName] = stmt.Stmt
 				case *ast.RangeStmt:
+					var x ast.Expr = ast.NewIdent("i_" + fmt.Sprint(child.Range))
+					switch t := fs.checker.TypeOf(child.X).Underlying().(type) {
+					case *types.Array, *types.Slice:
+						_ = t
+						if child.Key != nil {
+							switch key := child.Key.(type) {
+							case *ast.Ident:
+								if key.Name != "_" {
+									x = key
+								}
+							}
+						}
+					}
+					fs.labelMapPost[labelName] = &ast.IncDecStmt{X: x, Tok: token.INC}
+					fs.loopLabelMap[stmt.Stmt.Pos()] = labelName
+					fs.labelMapLoop[labelName] = stmt.Stmt
 				case *ast.ForStmt:
 					if child.Post != nil {
 						fs.labelMapPost[labelName] = child.Post
 					}
+					fs.loopLabelMap[stmt.Stmt.Pos()] = labelName
+					fs.labelMapLoop[labelName] = stmt.Stmt
 				}
-				fs.loopLabelMap[stmt.Stmt.Pos()] = labelName
-				fs.labelMapLoop[labelName] = stmt.Stmt
 			}
 			return true
 		}, nil)
@@ -655,7 +768,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 		}
 		_ = switchStmt
 		secondPass := true
-		commentBool := !true
+		commentBool := true
 		if secondPass {
 			if commentBool {
 				buf := bytes.NewBufferString("")

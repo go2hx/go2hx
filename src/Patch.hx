@@ -41,6 +41,32 @@ final list = [
 		final slice = new stdgo.Slice<stdgo.GoString>(0,0);
 		return slice;
 	},
+	"os:isPathSeparator" => macro {
+		@:define("js") return _c == "/";
+		@:define("target.sys") {
+			final sep = switch Sys.systemName() {
+				case "Windows":
+					"\\\\".code;
+				default:
+					"/".code;
+			}
+			return _c == sep;
+		}
+	},
+	"os:writeFile" => macro {
+		return @:define("target.sys") {
+			if (!sys.FileSystem.exists(_name)) {
+				return stdgo._internal.errors.Errors_new_.new_("writeFile " + _name + ": no such file or directory");
+			}else{
+				try {
+					sys.io.File.saveBytes(_name, _data.toBytes());
+					return null;
+				}catch(e) {
+					return null;
+				}
+			}
+		}
+	},
 	"os:readFile" => macro {
 		return @:define("target.sys") {
 			if (!sys.FileSystem.exists(_name)) {
@@ -96,11 +122,13 @@ final list = [
 		return null;
 	},
 	"os:getwd" => macro {
-		try {
-			return {_0: std.Sys.getCwd(), _1: null};
-		} catch (e) {
-			return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
-		}
+		return @:define("target.sys") {
+			try {
+				return {_0: std.Sys.getCwd(), _1: null};
+			} catch (e) {
+				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_(e.details())};
+			}
+		};
 	},
 	"os:_runtime_args" => macro {
 		@:define("js") return new stdgo.Slice<stdgo.GoString>(0, 0).__setString__();
@@ -162,13 +190,13 @@ final list = [
 		return wasActive;
 	},
 	"time:_modTimer" => macro {
-		stdgo.time.Time__stopTimer._stopTimer(_t);
+		_stopTimer(_t);
 		_t._when = _when;
 		_t._period = _period;
 		_t._f = _f;
 		_t._arg = _arg;
 		_t._seq = _seq;
-		stdgo.time.Time__startTimer._startTimer(_t);
+		_startTimer(_t);
 	},
 	"time:_runtimeNano" => macro {
 		@:define("sys") {
@@ -348,10 +376,12 @@ final list = [
 	"math:_sin" => macro return stdgo._internal.math.Math_sin.sin(_x),
 	// stdgo/os
 	"os:open" => macro {
+		return @:define("target.sys") {
 		if (!sys.FileSystem.exists(_name))
 			return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("open " + _name + ": no such file or directory")};
 		throw "os.open is not yet implemented";
 		return {_0: null, _1: null};
+		};
 	},
 	/*"regexp:_notab" => macro null,
 	"regexp:_badRe" => macro null,

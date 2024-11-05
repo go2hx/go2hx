@@ -532,57 +532,57 @@
      |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
      | Type not found : _internal.crypto.internal.boring.sig.Sig_standardCrypto
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:184: characters 236-244
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:185: characters 236-244
 
- 184 | [2m                final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : _entryOut?.[0m[1m__copy__[0m[2m(), _1 : _resp?.__copy__(), _2 : false, _3 : _callErr };[0m
+ 185 | [2m                final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse; var _2 : Bool; var _3 : stdgo.Error; } = { _0 : _entryOut?.[0m[1m__copy__[0m[2m(), _1 : _resp?.__copy__(), _2 : false, _3 : _callErr };[0m
      |                                                                                                                                                                                                                                            [31m^^^^^^^^[0m
      | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:222: characters 81-83
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:223: characters 81-83
 
- 222 | [2m            var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__.[0m[1m_0[0m[2m, _ok = __tmp__._1;[0m
+ 223 | [2m            var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__.[0m[1m_0[0m[2m, _ok = __tmp__._1;[0m
      |                                                                                 [31m^^[0m
      | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _0
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:222: characters 99-101
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:223: characters 99-101
 
- 222 | [2m            var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__._0, _ok = __tmp__.[0m[1m_1[0m[2m;[0m
+ 223 | [2m            var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__._0, _ok = __tmp__.[0m[1m_1[0m[2m;[0m
      |                                                                                                   [31m^^[0m
      | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _1
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:262: characters 106-114
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:263: characters 106-114
 
- 262 | [2m            var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__corpusEntryData._corpusEntryData(_entryIn?.[0m[1m__copy__[0m[2m()), _inp:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
+ 263 | [2m            var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__corpusEntryData._corpusEntryData(_entryIn?.[0m[1m__copy__[0m[2m()), _inp:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;[0m
      |                                                                                                          [31m^^^^^^^^[0m
      | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:273: characters 35-43
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:274: characters 35-43
 
- 273 | [2m            _entryOut = _entryIn?.[0m[1m__copy__[0m[2m();[0m
+ 274 | [2m            _entryOut = _entryIn?.[0m[1m__copy__[0m[2m();[0m
      |                                   [31m^^^^^^^^[0m
      | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:298: characters 36-38
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:299: characters 36-38
 
- 298 | [2m                    _mem = __tmp__.[0m[1m_0[0m[2m;[0m
+ 299 | [2m                    _mem = __tmp__.[0m[1m_0[0m[2m;[0m
      |                                    [31m^^[0m
      | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _0
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:299: characters 35-37
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:300: characters 35-37
 
- 299 | [2m                    _ok = __tmp__.[0m[1m_1[0m[2m;[0m
+ 300 | [2m                    _ok = __tmp__.[0m[1m_1[0m[2m;[0m
      |                                   [31m^^[0m
      | { value : stdgo.Ref<stdgo._internal.internal.fuzz.T_sharedMem>, ok : Bool } has no field _1
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:314: characters 240-248
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:315: characters 240-248
 
- 314 | [2m                            final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : _entryIn?.[0m[1m__copy__[0m[2m(), _1 : (new stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse() : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse), _2 : _retErr };[0m
+ 315 | [2m                            final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : _entryIn?.[0m[1m__copy__[0m[2m(), _1 : (new stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse() : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse), _2 : _retErr };[0m
      |                                                                                                                                                                                                                                                [31m^^^^^^^^[0m
      | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
-[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:368: characters 229-237
+[30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_T_workerClient_static_extension.hx:369: characters 229-237
 
- 368 | [2m                final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : _entryOut?.[0m[1m__copy__[0m[2m(), _1 : _resp?.__copy__(), _2 : _retErr };[0m
+ 369 | [2m                final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry; var _1 : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse; var _2 : stdgo.Error; } = { _0 : _entryOut?.[0m[1m__copy__[0m[2m(), _1 : _resp?.__copy__(), _2 : _retErr };[0m
      |                                                                                                                                                                                                                                     [31m^^^^^^^^[0m
      | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
@@ -666,17 +666,17 @@
      |                                                                                                              [31m^^^^^^^^[0m
      | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
-[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:3: characters 9-19
+[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:3: characters 9-35
 
-   3 | [2m        [0m[1m_stopTimer[0m[2m(_t);[0m
-     |         [31m^^^^^^^^^^[0m
-     | Unknown identifier : _stopTimer
+   3 | [2m        [0m[1mstdgo.time.Time__stopTimer[0m[2m._stopTimer(_t);[0m
+     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo.time.Time__stopTimer
 
-[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:9: characters 9-20
+[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:9: characters 9-36
 
-   9 | [2m        [0m[1m_startTimer[0m[2m(_t);[0m
-     |         [31m^^^^^^^^^^^[0m
-     | Unknown identifier : _startTimer
+   9 | [2m        [0m[1mstdgo.time.Time__startTimer[0m[2m._startTimer(_t);[0m
+     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo.time.Time__startTimer
 
 [30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_runFuzzWorker.hx:17: characters 41-49
 

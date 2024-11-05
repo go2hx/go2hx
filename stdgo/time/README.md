@@ -1,16 +1,16 @@
 # Module stdgo.time has compilation errors, please do not use:
 ```
-[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:3: characters 9-19
+[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:3: characters 9-35
 
-   3 | [2m        [0m[1m_stopTimer[0m[2m(_t);[0m
-     |         [31m^^^^^^^^^^[0m
-     | Unknown identifier : _stopTimer
+   3 | [2m        [0m[1mstdgo.time.Time__stopTimer[0m[2m._stopTimer(_t);[0m
+     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo.time.Time__stopTimer
 
-[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:9: characters 9-20
+[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:9: characters 9-36
 
-   9 | [2m        [0m[1m_startTimer[0m[2m(_t);[0m
-     |         [31m^^^^^^^^^^^[0m
-     | Unknown identifier : _startTimer
+   9 | [2m        [0m[1mstdgo.time.Time__startTimer[0m[2m._startTimer(_t);[0m
+     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+     | Type not found : stdgo.time.Time__startTimer
 
 [30;41m ERROR [0m stdgo/time/Time.hx:970: characters 9-81
 

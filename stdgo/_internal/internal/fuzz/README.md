@@ -666,17 +666,17 @@
      |                                                                                                              [31m^^^^^^^^[0m
      | stdgo._internal.internal.fuzz.CorpusEntry has no field __copy__
 
-[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:3: characters 9-35
+[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:3: characters 9-19
 
-   3 | [2m        [0m[1mstdgo.time.Time__stopTimer[0m[2m._stopTimer(_t);[0m
-     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo.time.Time__stopTimer
+   3 | [2m        [0m[1m_stopTimer[0m[2m(_t);[0m
+     |         [31m^^^^^^^^^^[0m
+     | Unknown identifier : _stopTimer
 
-[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:9: characters 9-36
+[30;41m ERROR [0m stdgo/_internal/time/Time__modTimer.hx:9: characters 9-20
 
-   9 | [2m        [0m[1mstdgo.time.Time__startTimer[0m[2m._startTimer(_t);[0m
-     |         [31m^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
-     | Type not found : stdgo.time.Time__startTimer
+   9 | [2m        [0m[1m_startTimer[0m[2m(_t);[0m
+     |         [31m^^^^^^^^^^^[0m
+     | Unknown identifier : _startTimer
 
 [30;41m ERROR [0m stdgo/_internal/internal/fuzz/Fuzz_runFuzzWorker.hx:17: characters 41-49
 

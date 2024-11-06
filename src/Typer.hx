@@ -151,10 +151,11 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				if (StringTools.endsWith(file.path, ".go"))
 					file.path = file.path.substr(0, file.path.length - 3);
 				file.path = importClassName(normalizePath(file.path)); // file naming
-				file.path = importClassName(normalizePath(pkg.path.substr(pkg.path.lastIndexOf(".") + 1)));
 			}else{
-				info.global.filePath = file.path;
+				file.path = importClassName(normalizePath(pkg.path.substr(pkg.path.lastIndexOf(".") + 1)));
 			}
+
+			info.global.filePath = file.path;
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];

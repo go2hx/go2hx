@@ -11,7 +11,7 @@ package stdgo._internal.image.png;
         if (_e._err != null) {
             return;
         };
-        if (_e._bw == null || (_e._bw : Dynamic).__nil__) {
+        if ((_e._bw == null || (_e._bw : Dynamic).__nil__)) {
             _e._bw = stdgo._internal.bufio.Bufio_newWriterSize.newWriterSize(stdgo.Go.asInterface(_e), (32768 : stdgo.GoInt));
         } else {
             _e._bw.reset(stdgo.Go.asInterface(_e));
@@ -27,7 +27,7 @@ package stdgo._internal.image.png;
         @:recv var _e:stdgo.Ref<stdgo._internal.image.png.Png_T_encoder.T_encoder> = _e;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if ((((_e._zw == null) || (_e._zw : Dynamic).__nil__) || (_e._zwLevel != _level) : Bool)) {
+            if (((_e._zw == null || (_e._zw : Dynamic).__nil__) || (_e._zwLevel != _level) : Bool)) {
                 var __tmp__ = stdgo._internal.compress.zlib.Zlib_newWriterLevel.newWriterLevel(_w, _level), _zw:stdgo.Ref<stdgo._internal.compress.zlib.Zlib_Writer.Writer> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return _err;
@@ -108,7 +108,7 @@ package stdgo._internal.image.png;
 {
                         final __value__ = _cb;
                         if (__value__ == ((4 : stdgo.GoInt))) {
-                            if (_gray != null && ((_gray : Dynamic).__nil__ == null || !(_gray : Dynamic).__nil__)) {
+                            if ((_gray != null && ((_gray : Dynamic).__nil__ == null || !(_gray : Dynamic).__nil__))) {
                                 var _offset = (((_y - _b.min.y : stdgo.GoInt)) * _gray.stride : stdgo.GoInt);
                                 stdgo.Go.copySlice((_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_gray.pix.__slice__(_offset, (_offset + _b.dx() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             } else {
@@ -126,14 +126,14 @@ _i++;
                             var _cr0 = _cr[(0 : stdgo.GoInt)];
                             var __0 = (0 : stdgo.GoInt), __1 = (null : stdgo.Slice<stdgo.GoUInt8>);
 var _pix = __1, _stride = __0;
-                            if (_rgba != null && ((_rgba : Dynamic).__nil__ == null || !(_rgba : Dynamic).__nil__)) {
+                            if ((_rgba != null && ((_rgba : Dynamic).__nil__ == null || !(_rgba : Dynamic).__nil__))) {
                                 {
                                     final __tmp__0 = _rgba.stride;
                                     final __tmp__1 = _rgba.pix;
                                     _stride = __tmp__0;
                                     _pix = __tmp__1;
                                 };
-                            } else if (_nrgba != null && ((_nrgba : Dynamic).__nil__ == null || !(_nrgba : Dynamic).__nil__)) {
+                            } else if ((_nrgba != null && ((_nrgba : Dynamic).__nil__ == null || !(_nrgba : Dynamic).__nil__))) {
                                 {
                                     final __tmp__0 = _nrgba.stride;
                                     final __tmp__1 = _nrgba.pix;
@@ -168,7 +168,7 @@ _i = (_i + ((3 : stdgo.GoInt)) : stdgo.GoInt);
                                 };
                             };
                         } else if (__value__ == ((10 : stdgo.GoInt))) {
-                            if (_paletted != null && ((_paletted : Dynamic).__nil__ == null || !(_paletted : Dynamic).__nil__)) {
+                            if ((_paletted != null && ((_paletted : Dynamic).__nil__ == null || !(_paletted : Dynamic).__nil__))) {
                                 var _offset = (((_y - _b.min.y : stdgo.GoInt)) * _paletted.stride : stdgo.GoInt);
                                 stdgo.Go.copySlice((_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_paletted.pix.__slice__(_offset, (_offset + _b.dx() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             } else {
@@ -209,10 +209,10 @@ if (_c == (_pixelsPerByte)) {
                                 _cr[(0 : stdgo.GoInt)][(_i : stdgo.GoInt)] = _a;
                             };
                         } else if (__value__ == ((11 : stdgo.GoInt))) {
-                            if (_nrgba != null && ((_nrgba : Dynamic).__nil__ == null || !(_nrgba : Dynamic).__nil__)) {
+                            if ((_nrgba != null && ((_nrgba : Dynamic).__nil__ == null || !(_nrgba : Dynamic).__nil__))) {
                                 var _offset = (((_y - _b.min.y : stdgo.GoInt)) * _nrgba.stride : stdgo.GoInt);
                                 stdgo.Go.copySlice((_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_nrgba.pix.__slice__(_offset, (_offset + (_b.dx() * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-                            } else if (_rgba != null && ((_rgba : Dynamic).__nil__ == null || !(_rgba : Dynamic).__nil__)) {
+                            } else if ((_rgba != null && ((_rgba : Dynamic).__nil__ == null || !(_rgba : Dynamic).__nil__))) {
                                 var _dst = (_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                                 var _src = (_rgba.pix.__slice__(_rgba.pixOffset(_b.min.x, _y), _rgba.pixOffset(_b.max.x, _y)) : stdgo.Slice<stdgo.GoUInt8>);
                                 while (((_src.length) >= (4 : stdgo.GoInt) : Bool)) {

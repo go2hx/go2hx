@@ -45,7 +45,7 @@ package stdgo._internal.compress.flate;
                 return;
             };
         };
-        if (_f._rBuf != null && ((_f._rBuf : Dynamic).__nil__ == null || !(_f._rBuf : Dynamic).__nil__)) {
+        if ((_f._rBuf != null && ((_f._rBuf : Dynamic).__nil__ == null || !(_f._rBuf : Dynamic).__nil__))) {
             _f._rBuf.reset(_r);
         } else {
             _f._rBuf = stdgo._internal.bufio.Bufio_newReader.newReader(_r);
@@ -162,16 +162,16 @@ var _b = __1, _nb = __0;
     @:keep
     static public function _huffmanBlock( _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor>):Void {
         @:recv var _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_decompressor.T_decompressor> = _f;
-        var _nb_3722127:stdgo.GoUInt = (0 : stdgo.GoUInt);
-        var _dist_3721759:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3720685:stdgo.Error = (null : stdgo.Error);
+        var _length_3720798:stdgo.GoInt = (0 : stdgo.GoInt);
         var _v_3720682:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _stateDict_3720477;
+        var _stateInit_3720426;
         var _cnt_3722774:stdgo.GoInt = (0 : stdgo.GoInt);
         var _extra_3722204:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _length_3720798:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _nb_3722127:stdgo.GoUInt = (0 : stdgo.GoUInt);
         var _n_3720761:stdgo.GoUInt = (0 : stdgo.GoUInt);
-        var _stateInit_3720426;
+        var _err_3720685:stdgo.Error = (null : stdgo.Error);
+        var _stateDict_3720477;
+        var _dist_3721759:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -325,7 +325,7 @@ var _b = __1, _nb = __0;
                     _f._nb = (_f._nb - (_n_3720761) : stdgo.GoUInt);
                     _gotoNext = 3721755i32;
                 } else if (__value__ == (3721755i32)) {
-                    if (_f._hd == null || (_f._hd : Dynamic).__nil__) {
+                    if ((_f._hd == null || (_f._hd : Dynamic).__nil__)) {
                         _gotoNext = 3721785i32;
                     } else {
                         _gotoNext = 3721973i32;

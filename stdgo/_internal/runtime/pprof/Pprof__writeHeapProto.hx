@@ -22,7 +22,7 @@ if (_hideRuntime) {
                         for (_i => _addr in _stk) {
                             {
                                 var _f = stdgo._internal.runtime.Runtime_funcForPC.funcForPC(_addr);
-                                if ((((_f != null) && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_f.name()?.__copy__(), ("runtime." : stdgo.GoString)) : Bool)) {
+                                if (((_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_f.name()?.__copy__(), ("runtime." : stdgo.GoString)) : Bool)) {
                                     continue;
                                 };
                             };

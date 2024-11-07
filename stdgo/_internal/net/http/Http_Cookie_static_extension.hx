@@ -3,7 +3,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function valid( _c:stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie> = _c;
-        if (_c == null || (_c : Dynamic).__nil__) {
+        if ((_c == null || (_c : Dynamic).__nil__)) {
             return stdgo._internal.errors.Errors_new_.new_(("http: nil Cookie" : stdgo.GoString));
         };
         if (!stdgo._internal.net.http.Http__isCookieNameValid._isCookieNameValid(_c.name?.__copy__())) {
@@ -42,7 +42,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function string( _c:stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>):stdgo.GoString {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie> = _c;
-        if ((((_c == null) || (_c : Dynamic).__nil__) || !stdgo._internal.net.http.Http__isCookieNameValid._isCookieNameValid(_c.name?.__copy__()) : Bool)) {
+        if (((_c == null || (_c : Dynamic).__nil__) || !stdgo._internal.net.http.Http__isCookieNameValid._isCookieNameValid(_c.name?.__copy__()) : Bool)) {
             return stdgo.Go.str()?.__copy__();
         };
         {};

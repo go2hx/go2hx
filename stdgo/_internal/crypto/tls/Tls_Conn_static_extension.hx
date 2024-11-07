@@ -140,7 +140,7 @@ package stdgo._internal.crypto.tls;
         if (((_c._quic._events.length) > (0 : stdgo.GoInt) : Bool)) {
             _last = (stdgo.Go.setRef(_c._quic._events[((_c._quic._events.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent>);
         };
-        if (((_last == null || (_last : Dynamic).__nil__ || _last.kind != ((3 : stdgo._internal.crypto.tls.Tls_QUICEventKind.QUICEventKind)) : Bool) || (_last.level != _level) : Bool)) {
+        if ((((_last == null || (_last : Dynamic).__nil__) || _last.kind != ((3 : stdgo._internal.crypto.tls.Tls_QUICEventKind.QUICEventKind)) : Bool) || (_last.level != _level) : Bool)) {
             _c._quic._events = (_c._quic._events.__append__(({ kind : (3 : stdgo._internal.crypto.tls.Tls_QUICEventKind.QUICEventKind), level : _level } : stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent)));
             _last = (stdgo.Go.setRef(_c._quic._events[((_c._quic._events.length) - (1 : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_QUICEvent.QUICEvent>);
         };
@@ -173,7 +173,7 @@ package stdgo._internal.crypto.tls;
     static public function _sendSessionTicket( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _earlyData:Bool):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
         var _suite = stdgo._internal.crypto.tls.Tls__cipherSuiteTLS13ByID._cipherSuiteTLS13ByID(_c._cipherSuite);
-        if (_suite == null || (_suite : Dynamic).__nil__) {
+        if ((_suite == null || (_suite : Dynamic).__nil__)) {
             return stdgo._internal.errors.Errors_new_.new_(("tls: internal error: unknown cipher suite" : stdgo.GoString));
         };
         var _psk = _suite._expandLabel(_c._resumptionSecret, ("resumption" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>), _suite._hash.size());
@@ -337,7 +337,7 @@ package stdgo._internal.crypto.tls;
                 if (_err != null) {
                     _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return { _0 : null, _1 : _err };
-                } else if (_configForClient != null && ((_configForClient : Dynamic).__nil__ == null || !(_configForClient : Dynamic).__nil__)) {
+                } else if ((_configForClient != null && ((_configForClient : Dynamic).__nil__ == null || !(_configForClient : Dynamic).__nil__))) {
                     _c._config = _configForClient;
                 };
             };
@@ -393,12 +393,12 @@ package stdgo._internal.crypto.tls;
             _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             return stdgo._internal.errors.Errors_new_.new_(("tls: received a session ticket with invalid lifetime" : stdgo.GoString));
         };
-        if (((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__) && _msg._maxEarlyData != ((0u32 : stdgo.GoUInt32)) : Bool) && (_msg._maxEarlyData != (-1u32 : stdgo.GoUInt32)) : Bool)) {
+        if ((((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) && _msg._maxEarlyData != ((0u32 : stdgo.GoUInt32)) : Bool) && (_msg._maxEarlyData != (-1u32 : stdgo.GoUInt32)) : Bool)) {
             _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             return stdgo._internal.errors.Errors_new_.new_(("tls: invalid early data for QUIC connection" : stdgo.GoString));
         };
         var _cipherSuite = stdgo._internal.crypto.tls.Tls__cipherSuiteTLS13ByID._cipherSuiteTLS13ByID(_c._cipherSuite);
-        if ((((_cipherSuite == null) || (_cipherSuite : Dynamic).__nil__) || (_c._resumptionSecret == null) : Bool)) {
+        if (((_cipherSuite == null || (_cipherSuite : Dynamic).__nil__) || (_c._resumptionSecret == null) : Bool)) {
             return _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
         };
         var _psk = _cipherSuite._expandLabel(_c._resumptionSecret, ("resumption" : stdgo.GoString), _msg._nonce, _cipherSuite._hash.size());
@@ -410,7 +410,7 @@ package stdgo._internal.crypto.tls;
         _session._secret = _psk;
         _session._useBy = (_c._config._time().add(_lifetime).unix() : stdgo.GoUInt64);
         _session._ageAdd = _msg._ageAdd;
-        _session.earlyData = (((_c._quic != null) && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) && (_msg._maxEarlyData == (-1u32 : stdgo.GoUInt32)) : Bool);
+        _session.earlyData = ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) && (_msg._maxEarlyData == (-1u32 : stdgo.GoUInt32)) : Bool);
         var _cs = (stdgo.Go.setRef(({ _ticket : _msg._label, _session : _session } : stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState>);
         {
             var _cacheKey = (_c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
@@ -563,7 +563,7 @@ package stdgo._internal.crypto.tls;
             return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
         };
         var __tmp__ = _c._config.clientSessionCache.get(_cacheKey?.__copy__()), _cs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState> = __tmp__._0, _ok:Bool = __tmp__._1;
-        if ((!_ok || ((_cs == null) || (_cs : Dynamic).__nil__) : Bool)) {
+        if ((!_ok || (_cs == null || (_cs : Dynamic).__nil__) : Bool)) {
             return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
         };
         _session = _cs._session;
@@ -593,7 +593,7 @@ package stdgo._internal.crypto.tls;
             };
         };
         if (_session._version != ((772 : stdgo.GoUInt16))) {
-            if (stdgo._internal.crypto.tls.Tls__mutualCipherSuite._mutualCipherSuite(_hello._cipherSuites, _session._cipherSuite) == null || (stdgo._internal.crypto.tls.Tls__mutualCipherSuite._mutualCipherSuite(_hello._cipherSuites, _session._cipherSuite) : Dynamic).__nil__) {
+            if ((stdgo._internal.crypto.tls.Tls__mutualCipherSuite._mutualCipherSuite(_hello._cipherSuites, _session._cipherSuite) == null || (stdgo._internal.crypto.tls.Tls__mutualCipherSuite._mutualCipherSuite(_hello._cipherSuites, _session._cipherSuite) : Dynamic).__nil__)) {
                 return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
             };
             _hello._sessionTicket = _cs._ticket;
@@ -604,13 +604,13 @@ package stdgo._internal.crypto.tls;
             return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
         };
         var _cipherSuite = stdgo._internal.crypto.tls.Tls__cipherSuiteTLS13ByID._cipherSuiteTLS13ByID(_session._cipherSuite);
-        if (_cipherSuite == null || (_cipherSuite : Dynamic).__nil__) {
+        if ((_cipherSuite == null || (_cipherSuite : Dynamic).__nil__)) {
             return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
         };
         var _cipherSuiteOk = (false : Bool);
         for (__154 => _offeredID in _hello._cipherSuites) {
             var _offeredSuite = stdgo._internal.crypto.tls.Tls__cipherSuiteTLS13ByID._cipherSuiteTLS13ByID(_offeredID);
-            if ((((_offeredSuite != null) && ((_offeredSuite : Dynamic).__nil__ == null || !(_offeredSuite : Dynamic).__nil__)) && (_offeredSuite._hash == _cipherSuite._hash) : Bool)) {
+            if (((_offeredSuite != null && ((_offeredSuite : Dynamic).__nil__ == null || !(_offeredSuite : Dynamic).__nil__)) && (_offeredSuite._hash == _cipherSuite._hash) : Bool)) {
                 _cipherSuiteOk = true;
                 break;
             };
@@ -618,8 +618,8 @@ package stdgo._internal.crypto.tls;
         if (!_cipherSuiteOk) {
             return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
         };
-        if ((((_c._quic != null) && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) && _session.earlyData : Bool)) {
-            if (stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hello._cipherSuites, _session._cipherSuite) != null && ((stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hello._cipherSuites, _session._cipherSuite) : Dynamic).__nil__ == null || !(stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hello._cipherSuites, _session._cipherSuite) : Dynamic).__nil__)) {
+        if (((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) && _session.earlyData : Bool)) {
+            if ((stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hello._cipherSuites, _session._cipherSuite) != null && ((stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hello._cipherSuites, _session._cipherSuite) : Dynamic).__nil__ == null || !(stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hello._cipherSuites, _session._cipherSuite) : Dynamic).__nil__))) {
                 for (__163 => _alpn in _hello._alpnProtocols) {
                     if (_alpn == (_session._alpnProtocol)) {
                         _hello._earlyData = true;
@@ -655,7 +655,7 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         var _err = (null : stdgo.Error);
         try {
-            if (_c._config == null || (_c._config : Dynamic).__nil__) {
+            if ((_c._config == null || (_c._config : Dynamic).__nil__)) {
                 _c._config = stdgo._internal.crypto.tls.Tls__defaultConfig._defaultConfig();
             };
             _c._didResume = false;
@@ -668,7 +668,7 @@ package stdgo._internal.crypto.tls;
             if (_err != null) {
                 return _err;
             };
-            if (_session != null && ((_session : Dynamic).__nil__ == null || !(_session : Dynamic).__nil__)) {
+            if ((_session != null && ((_session : Dynamic).__nil__ == null || !(_session : Dynamic).__nil__))) {
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
@@ -874,7 +874,7 @@ package stdgo._internal.crypto.tls;
         _hello._cipherSuites = (new stdgo.Slice<stdgo.GoUInt16>((0 : stdgo.GoInt).toBasic(), (_configCipherSuites.length)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>);
         for (__118 => _suiteId in _preferenceOrder) {
             var _suite = stdgo._internal.crypto.tls.Tls__mutualCipherSuite._mutualCipherSuite(_configCipherSuites, _suiteId);
-            if (_suite == null || (_suite : Dynamic).__nil__) {
+            if ((_suite == null || (_suite : Dynamic).__nil__)) {
                 continue;
             };
             if (((_hello._vers < (771 : stdgo.GoUInt16) : Bool) && ((_suite._flags & (4 : stdgo.GoInt) : stdgo.GoInt) != (0 : stdgo.GoInt)) : Bool)) {
@@ -886,7 +886,7 @@ package stdgo._internal.crypto.tls;
         if (_err != null) {
             return { _0 : null, _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_((("tls: short read from Rand: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
-        if (_c._quic == null || (_c._quic : Dynamic).__nil__) {
+        if ((_c._quic == null || (_c._quic : Dynamic).__nil__)) {
             _hello._sessionId = (new stdgo.Slice<stdgo.GoUInt8>((32 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_config._rand(), _hello._sessionId), __136:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -928,7 +928,7 @@ package stdgo._internal.crypto.tls;
             };
             _hello._keyShares = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare>(1, 1, ...[({ _group : _curveID, _data : _key.publicKey().bytes() } : stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare)])) : stdgo.Slice<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare>);
         };
-        if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+        if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
             var __tmp__ = _c._quicGetTransportParameters(), _p:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : null, _2 : _err };
@@ -1121,7 +1121,7 @@ package stdgo._internal.crypto.tls;
             };
             var __tmp__ = stdgo._internal.context.Context_withCancel.withCancel(_ctx), _handshakeCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
             __deferstack__.unshift(() -> _cancel());
-            if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+            if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
                 _c._quic._cancelc = _handshakeCtx.done();
                 _c._quic._cancel = _cancel;
             } else if (_ctx.done() != null) {
@@ -1252,7 +1252,7 @@ package stdgo._internal.crypto.tls;
             if (((_c._handshakeErr != null) && _c._isHandshakeComplete.load() : Bool)) {
                 throw stdgo.Go.toInterface(("tls: internal error: handshake returned an error but is marked successful" : stdgo.GoString));
             };
-            if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+            if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
                 if (_c._handshakeErr == null) {
                     _c._quicHandshakeComplete();
                     _c._quicSetReadSecret((3 : stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel.QUICEncryptionLevel), _c._cipherSuite, _c._in._trafficSecret);
@@ -1487,12 +1487,12 @@ package stdgo._internal.crypto.tls;
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+            if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
                 _c._sendAlert((10 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                 return _c._in._setErrorLocked(stdgo._internal.errors.Errors_new_.new_(("tls: received unexpected key update message" : stdgo.GoString)));
             };
             var _cipherSuite = stdgo._internal.crypto.tls.Tls__cipherSuiteTLS13ByID._cipherSuiteTLS13ByID(_c._cipherSuite);
-            if (_cipherSuite == null || (_cipherSuite : Dynamic).__nil__) {
+            if ((_cipherSuite == null || (_cipherSuite : Dynamic).__nil__)) {
                 return _c._in._setErrorLocked(_c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert)));
             };
             var _newSecret = _cipherSuite._nextTrafficSecret(_c._in._trafficSecret);
@@ -1873,7 +1873,7 @@ package stdgo._internal.crypto.tls;
     @:keep
     static public function _readHandshakeBytes( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _n:stdgo.GoInt):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+        if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
             return _c._quicReadHandshakeBytes(_n);
         };
         while ((_c._hand.len() < _n : Bool)) {
@@ -1980,7 +1980,7 @@ package stdgo._internal.crypto.tls;
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+            if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
                 if (_typ != ((22 : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType))) {
                     return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("tls: internal error: sending non-handshake message to QUIC transport" : stdgo.GoString)) };
                 };
@@ -2234,7 +2234,7 @@ package stdgo._internal.crypto.tls;
     @:keep
     static public function _sendAlertLocked( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>, _err:stdgo._internal.crypto.tls.Tls_T_alert.T_alert):stdgo.Error {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
-        if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+        if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
             return _c._out._setErrorLocked(stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("local error" : stdgo.GoString), err : stdgo.Go.asInterface(_err) } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>)));
         };
         {
@@ -2284,7 +2284,7 @@ package stdgo._internal.crypto.tls;
             return _c._in._setErrorLocked(stdgo._internal.errors.Errors_new_.new_(("tls: internal error: attempted to read record with pending application data" : stdgo.GoString)));
         };
         _c._input.reset((null : stdgo.Slice<stdgo.GoUInt8>));
-        if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+        if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
             return _c._in._setErrorLocked(stdgo._internal.errors.Errors_new_.new_(("tls: internal error: attempted to read record with QUIC transport" : stdgo.GoString)));
         };
         {
@@ -2369,7 +2369,7 @@ package stdgo._internal.crypto.tls;
         {
             final __value__ = _typ;
             if (__value__ == ((21 : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType))) {
-                if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+                if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
                     return _c._in._setErrorLocked(_c._sendAlert((10 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert)));
                 };
                 if ((_data.length) != ((2 : stdgo.GoInt))) {

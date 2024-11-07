@@ -7,7 +7,7 @@ function testCmpAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             if (!_ok) {
                 _t.fatalf(("SetString(%s, 0) failed" : stdgo.GoString), stdgo.Go.toInterface(_s));
             };
-            if ((((_prev != null) && ((_prev : Dynamic).__nil__ == null || !(_prev : Dynamic).__nil__)) && (_prev.cmp(_x) >= (0 : stdgo.GoInt) : Bool) : Bool)) {
+            if (((_prev != null && ((_prev : Dynamic).__nil__ == null || !(_prev : Dynamic).__nil__)) && (_prev.cmp(_x) >= (0 : stdgo.GoInt) : Bool) : Bool)) {
                 _t.fatal(stdgo.Go.toInterface(("cmpAbsTests entries not sorted in ascending order" : stdgo.GoString)));
             };
             _values[(_i : stdgo.GoInt)] = _x;

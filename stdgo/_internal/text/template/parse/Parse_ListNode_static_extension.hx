@@ -8,7 +8,7 @@ package stdgo._internal.text.template.parse;
     @:keep
     static public function copyList( _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode> {
         @:recv var _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode> = _l;
-        if (_l == null || (_l : Dynamic).__nil__) {
+        if ((_l == null || (_l : Dynamic).__nil__)) {
             return _l;
         };
         var _n = _l._tr._newList(_l.pos);

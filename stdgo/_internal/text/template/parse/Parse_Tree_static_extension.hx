@@ -331,11 +331,11 @@ package stdgo._internal.text.template.parse;
     static public function _pipeline( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>, _context:stdgo.GoString, _end:stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType):stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> = _t;
         var _pipe = (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>);
-        var _v_3618054:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
-        var _token_3617924:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
         var _token_3619331:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
         var _next_3618448:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
         var _tokenAfterVariable_3618415:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
+        var _v_3618054:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
+        var _token_3617924:stdgo._internal.text.template.parse.Parse_T_item.T_item = ({} : stdgo._internal.text.template.parse.Parse_T_item.T_item);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -665,7 +665,7 @@ package stdgo._internal.text.template.parse;
     static public function _add( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> = _t;
         var _tree = (_t._treeSet[_t.name] ?? (null : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>));
-        if ((((_tree == null) || (_tree : Dynamic).__nil__) || stdgo._internal.text.template.parse.Parse_isEmptyTree.isEmptyTree(stdgo.Go.asInterface(_tree.root)) : Bool)) {
+        if (((_tree == null || (_tree : Dynamic).__nil__) || stdgo._internal.text.template.parse.Parse_isEmptyTree.isEmptyTree(stdgo.Go.asInterface(_tree.root)) : Bool)) {
             _t._treeSet[_t.name] = _t;
             return;
         };
@@ -759,7 +759,7 @@ package stdgo._internal.text.template.parse;
                     throw stdgo.Go.toInterface(_e);
                 };
             };
-            if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
+            if ((_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__))) {
                 _t._stopParse();
             };
             {
@@ -820,7 +820,7 @@ package stdgo._internal.text.template.parse;
         var _location = ("" : stdgo.GoString), _context = ("" : stdgo.GoString);
         var _pos = (_n.position() : stdgo.GoInt);
         var _tree = _n._tree();
-        if (_tree == null || (_tree : Dynamic).__nil__) {
+        if ((_tree == null || (_tree : Dynamic).__nil__)) {
             _tree = _t;
         };
         var _text = ((_tree._text.__slice__(0, _pos) : stdgo.GoString)?.__copy__() : stdgo.GoString);
@@ -895,7 +895,7 @@ package stdgo._internal.text.template.parse;
     @:keep
     static public function copy( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>):stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree> = _t;
-        if (_t == null || (_t : Dynamic).__nil__) {
+        if ((_t == null || (_t : Dynamic).__nil__)) {
             return null;
         };
         return (stdgo.Go.setRef(({ name : _t.name?.__copy__(), parseName : _t.parseName?.__copy__(), root : _t.root.copyList(), _text : _t._text?.__copy__() } : stdgo._internal.text.template.parse.Parse_Tree.Tree)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);

@@ -2,7 +2,7 @@ package stdgo._internal.regexp;
 function benchmarkMatch_onepass_regex(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):Void {
         var _isRaceBuilder = (stdgo._internal.strings.Strings_hasSuffix.hasSuffix(stdgo._internal.internal.testenv.Testenv_builder.builder()?.__copy__(), ("-race" : stdgo.GoString)) : Bool);
         var _r = stdgo._internal.regexp.Regexp_mustCompile.mustCompile(("(?s)\\A.*\\z" : stdgo.GoString));
-        if (_r._onepass == null || (_r._onepass : Dynamic).__nil__) {
+        if ((_r._onepass == null || (_r._onepass : Dynamic).__nil__)) {
             _b.fatalf(("want onepass regex, but %q is not onepass" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_r)));
         };
         for (__0 => _size in stdgo._internal.regexp.Regexp__benchSizes._benchSizes) {

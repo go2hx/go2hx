@@ -13,7 +13,7 @@ var _wn = __1, _last = __0;
             while ((_i <= (_s.length) : Bool)) {
                 if (((_i != (_s.length)) && (_r._root._priority == (0 : stdgo.GoInt)) : Bool)) {
                     var _index = (_r._mapping[(_s[(_i : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.GoInt);
-                    if (((_index == _r._tableSize) || ((_r._root._table[(_index : stdgo.GoInt)] == null) || (_r._root._table[(_index : stdgo.GoInt)] : Dynamic).__nil__) : Bool)) {
+                    if (((_index == _r._tableSize) || (_r._root._table[(_index : stdgo.GoInt)] == null || (_r._root._table[(_index : stdgo.GoInt)] : Dynamic).__nil__) : Bool)) {
                         _i++;
                         continue;
                     };
@@ -70,7 +70,7 @@ var _wn = __1, _last = __0;
         var _bestPriority = (0 : stdgo.GoInt);
         var _node = (stdgo.Go.setRef(_r._root) : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>);
         var _n = (0 : stdgo.GoInt);
-        while (_node != null && ((_node : Dynamic).__nil__ == null || !(_node : Dynamic).__nil__)) {
+        while ((_node != null && ((_node : Dynamic).__nil__ == null || !(_node : Dynamic).__nil__))) {
             if (((_node._priority > _bestPriority : Bool) && !((_ignoreRoot && (_node == (stdgo.Go.setRef(_r._root) : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>)) : Bool)) : Bool)) {
                 _bestPriority = _node._priority;
                 _val = _node._value?.__copy__();
@@ -113,7 +113,7 @@ var _wn = __1, _last = __0;
             _s = (_s + (_r._printNode(_t._next, (_depth + (_t._prefix.length) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
         } else if (_t._table != null) {
             for (_b => _m in _r._mapping) {
-                if ((((_m : stdgo.GoInt) != _r._tableSize) && ((_t._table[(_m : stdgo.GoInt)] != null) && ((_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__ == null || !(_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__)) : Bool)) {
+                if ((((_m : stdgo.GoInt) != _r._tableSize) && (_t._table[(_m : stdgo.GoInt)] != null && ((_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__ == null || !(_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__)) : Bool)) {
                     _s = (_s + ((stdgo._internal.strings.Strings_repeat.repeat(("." : stdgo.GoString), _depth) + ((new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(_b : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__() : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     _s = (_s + (_r._printNode(_t._table[(_m : stdgo.GoInt)], (_depth + (1 : stdgo.GoInt) : stdgo.GoInt)))?.__copy__() : stdgo.GoString);
                 };

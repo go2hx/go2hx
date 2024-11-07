@@ -28,7 +28,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _add( _cl:stdgo.Ref<stdgo._internal.net.http.Http_T_connLRU.T_connLRU>, _pc:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>):Void {
         @:recv var _cl:stdgo.Ref<stdgo._internal.net.http.Http_T_connLRU.T_connLRU> = _cl;
-        if (_cl._ll == null || (_cl._ll : Dynamic).__nil__) {
+        if ((_cl._ll == null || (_cl._ll : Dynamic).__nil__)) {
             _cl._ll = stdgo._internal.container.list.List_new_.new_();
             _cl._m = ({
                 final x = new stdgo.GoMap.GoRefMap<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>, stdgo.Ref<stdgo._internal.container.list.List_Element.Element>>();

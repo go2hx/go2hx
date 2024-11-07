@@ -4,7 +4,7 @@ package stdgo._internal.debug.elf;
     static public function dynValue( _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>, _tag:stdgo._internal.debug.elf.Elf_DynTag.DynTag):{ var _0 : stdgo.Slice<stdgo.GoUInt64>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File> = _f;
         var _ds = _f.sectionByType((6u32 : stdgo._internal.debug.elf.Elf_SectionType.SectionType));
-        if (_ds == null || (_ds : Dynamic).__nil__) {
+        if ((_ds == null || (_ds : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt64>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = _ds.data(), _d:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -43,7 +43,7 @@ package stdgo._internal.debug.elf;
             };
         };
         var _ds = _f.sectionByType((6u32 : stdgo._internal.debug.elf.Elf_SectionType.SectionType));
-        if (_ds == null || (_ds : Dynamic).__nil__) {
+        if ((_ds == null || (_ds : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = _ds.data(), _d:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -110,7 +110,7 @@ package stdgo._internal.debug.elf;
             return true;
         };
         var _vn = _f.sectionByType((1879048190u32 : stdgo._internal.debug.elf.Elf_SectionType.SectionType));
-        if (_vn == null || (_vn : Dynamic).__nil__) {
+        if ((_vn == null || (_vn : Dynamic).__nil__)) {
             return false;
         };
         var __tmp__ = _vn.data(), _d:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, __2:stdgo.Error = __tmp__._1;
@@ -164,7 +164,7 @@ _j = (_j + ((_next : stdgo.GoInt)) : stdgo.GoInt);
             _i = (_i + ((_next : stdgo.GoInt)) : stdgo.GoInt);
         };
         var _vs = _f.sectionByType((1879048191u32 : stdgo._internal.debug.elf.Elf_SectionType.SectionType));
-        if (_vs == null || (_vs : Dynamic).__nil__) {
+        if ((_vs == null || (_vs : Dynamic).__nil__)) {
             return false;
         };
         {
@@ -848,7 +848,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
     static public function _getSymbols64( _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>, _typ:stdgo._internal.debug.elf.Elf_SectionType.SectionType):{ var _0 : stdgo.Slice<stdgo._internal.debug.elf.Elf_Symbol.Symbol>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File> = _f;
         var _symtabSection = _f.sectionByType(_typ);
-        if (_symtabSection == null || (_symtabSection : Dynamic).__nil__) {
+        if ((_symtabSection == null || (_symtabSection : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.elf.Elf_Symbol.Symbol>), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.debug.elf.Elf_errNoSymbols.errNoSymbols };
         };
         var __tmp__ = _symtabSection.data(), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -885,7 +885,7 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
     static public function _getSymbols32( _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>, _typ:stdgo._internal.debug.elf.Elf_SectionType.SectionType):{ var _0 : stdgo.Slice<stdgo._internal.debug.elf.Elf_Symbol.Symbol>; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File> = _f;
         var _symtabSection = _f.sectionByType(_typ);
-        if (_symtabSection == null || (_symtabSection : Dynamic).__nil__) {
+        if ((_symtabSection == null || (_symtabSection : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.debug.elf.Elf_Symbol.Symbol>), _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo._internal.debug.elf.Elf_errNoSymbols.errNoSymbols };
         };
         var __tmp__ = _symtabSection.data(), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

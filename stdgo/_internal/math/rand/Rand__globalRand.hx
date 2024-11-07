@@ -2,7 +2,7 @@ package stdgo._internal.math.rand;
 function _globalRand():stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> {
         {
             var _r = stdgo._internal.math.rand.Rand__globalRandGenerator._globalRandGenerator.load();
-            if (_r != null && ((_r : Dynamic).__nil__ == null || !(_r : Dynamic).__nil__)) {
+            if ((_r != null && ((_r : Dynamic).__nil__ == null || !(_r : Dynamic).__nil__))) {
                 return _r;
             };
         };

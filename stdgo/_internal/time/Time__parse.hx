@@ -500,7 +500,7 @@ var _ss = __2, _mm = __1, _hr = __0;
         if (((_day < (1 : stdgo.GoInt) : Bool) || (_day > stdgo._internal.time.Time__daysIn._daysIn((_month : stdgo._internal.time.Time_Month.Month), _year) : Bool) : Bool)) {
             return { _0 : (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time), _1 : stdgo.Go.asInterface(stdgo._internal.time.Time__newParseError._newParseError(_alayout?.__copy__(), _avalue?.__copy__(), stdgo.Go.str()?.__copy__(), _value?.__copy__(), (": day out of range" : stdgo.GoString))) };
         };
-        if (_z != null && ((_z : Dynamic).__nil__ == null || !(_z : Dynamic).__nil__)) {
+        if ((_z != null && ((_z : Dynamic).__nil__ == null || !(_z : Dynamic).__nil__))) {
             return { _0 : stdgo._internal.time.Time_date.date(_year, (_month : stdgo._internal.time.Time_Month.Month), _day, _hour, _min, _sec, _nsec, _z)?.__copy__(), _1 : (null : stdgo.Error) };
         };
         if (_zoneOffset != ((-1 : stdgo.GoInt))) {

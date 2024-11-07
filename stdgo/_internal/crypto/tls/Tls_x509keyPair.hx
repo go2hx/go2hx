@@ -12,7 +12,7 @@ function x509keyPair(_certPEMBlock:stdgo.Slice<stdgo.GoUInt8>, _keyPEMBlock:stdg
                 _certDERBlock = __tmp__._0;
                 _certPEMBlock = __tmp__._1;
             };
-            if (_certDERBlock == null || (_certDERBlock : Dynamic).__nil__) {
+            if ((_certDERBlock == null || (_certDERBlock : Dynamic).__nil__)) {
                 break;
             };
             if (_certDERBlock.type == (("CERTIFICATE" : stdgo.GoString))) {
@@ -38,7 +38,7 @@ function x509keyPair(_certPEMBlock:stdgo.Slice<stdgo.GoUInt8>, _keyPEMBlock:stdg
                 _keyDERBlock = __tmp__._0;
                 _keyPEMBlock = __tmp__._1;
             };
-            if (_keyDERBlock == null || (_keyDERBlock : Dynamic).__nil__) {
+            if ((_keyDERBlock == null || (_keyDERBlock : Dynamic).__nil__)) {
                 if ((_skippedBlockTypes.length) == ((0 : stdgo.GoInt))) {
                     return _fail(stdgo._internal.errors.Errors_new_.new_(("tls: failed to find any PEM data in key input" : stdgo.GoString)));
                 };

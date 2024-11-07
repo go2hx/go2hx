@@ -3,7 +3,7 @@ package stdgo._internal.crypto.x509;
     @:keep
     static public function equal( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>, _other:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>):Bool {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool> = _s;
-        if ((((_s == null) || (_s : Dynamic).__nil__) || ((_other == null) || (_other : Dynamic).__nil__) : Bool)) {
+        if (((_s == null || (_s : Dynamic).__nil__) || (_other == null || (_other : Dynamic).__nil__) : Bool)) {
             return _s == (_other);
         };
         if (((_s._systemPool != _other._systemPool) || (_s._haveSum.length != (_other._haveSum.length)) : Bool)) {
@@ -36,7 +36,7 @@ package stdgo._internal.crypto.x509;
                 _block = __tmp__._0;
                 _pemCerts = __tmp__._1;
             };
-            if (_block == null || (_block : Dynamic).__nil__) {
+            if ((_block == null || (_block : Dynamic).__nil__)) {
                 break;
             };
             if (((_block.type != ("CERTIFICATE" : stdgo.GoString)) || (_block.headers.length != (0 : stdgo.GoInt)) : Bool)) {
@@ -78,7 +78,7 @@ package stdgo._internal.crypto.x509;
     @:keep
     static public function addCert( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>, _cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool> = _s;
-        if (_cert == null || (_cert : Dynamic).__nil__) {
+        if ((_cert == null || (_cert : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("adding nil Certificate to CertPool" : stdgo.GoString));
         };
         _s._addCertFunc(stdgo._internal.crypto.sha256.Sha256_sum224.sum224(_cert.raw)?.__copy__(), (_cert.rawSubject : stdgo.GoString)?.__copy__(), function():{ var _0 : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>; var _1 : stdgo.Error; } {
@@ -88,7 +88,7 @@ package stdgo._internal.crypto.x509;
     @:keep
     static public function _contains( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>, _cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>):Bool {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool> = _s;
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             return false;
         };
         return (_s._haveSum[stdgo._internal.crypto.sha256.Sha256_sum224.sum224(_cert.raw)] ?? false);
@@ -96,7 +96,7 @@ package stdgo._internal.crypto.x509;
     @:keep
     static public function _findPotentialParents( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>, _cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>):stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>> {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool> = _s;
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>);
         };
         var __0:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>), __1:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>), __2:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>);
@@ -159,7 +159,7 @@ var _mismatchKeyID = __2, _oneKeyID = __1, _matchingKeyID = __0;
     @:keep
     static public function _len( _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>):stdgo.GoInt {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool> = _s;
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             return (0 : stdgo.GoInt);
         };
         return (_s._lazyCerts.length);

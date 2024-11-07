@@ -25,7 +25,7 @@ function _clip(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo.Ref<st
         };
         _sp.x = (_sp.x + (_dx) : stdgo.GoInt);
         _sp.y = (_sp.y + (_dy) : stdgo.GoInt);
-        if (_mp != null && ((_mp : Dynamic).__nil__ == null || !(_mp : Dynamic).__nil__)) {
+        if ((_mp != null && ((_mp : Dynamic).__nil__ == null || !(_mp : Dynamic).__nil__))) {
             _mp.x = (_mp.x + (_dx) : stdgo.GoInt);
             _mp.y = (_mp.y + (_dy) : stdgo.GoInt);
         };

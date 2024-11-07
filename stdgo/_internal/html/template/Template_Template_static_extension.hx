@@ -168,7 +168,7 @@ package stdgo._internal.html.template;
             for (__78 => _x in _textClone.templates()) {
                 var _name = (_x.name()?.__copy__() : stdgo.GoString);
                 var _src = (_t._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>));
-                if ((((_src == null) || (_src : Dynamic).__nil__) || (_src._escapeErr != null) : Bool)) {
+                if (((_src == null || (_src : Dynamic).__nil__) || (_src._escapeErr != null) : Bool)) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: cannot Clone %q after it has executed" : stdgo.GoString), stdgo.Go.toInterface(_t.name())) };
                         for (defer in __deferstack__) {
@@ -287,7 +287,7 @@ package stdgo._internal.html.template;
             for (__54 => _v in _ret.templates()) {
                 var _name = (_v.name()?.__copy__() : stdgo.GoString);
                 var _tmpl = (_t._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>));
-                if (_tmpl == null || (_tmpl : Dynamic).__nil__) {
+                if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
                     _tmpl = _t._new(_name?.__copy__());
                 };
                 _tmpl._text = _v;
@@ -339,7 +339,7 @@ package stdgo._internal.html.template;
             __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
             _t._nameSpace._escaped = true;
             _tmpl = (_t._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>));
-            if (_tmpl == null || (_tmpl : Dynamic).__nil__) {
+            if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is undefined" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
                     for (defer in __deferstack__) {
@@ -357,7 +357,7 @@ package stdgo._internal.html.template;
                     return __ret__;
                 };
             };
-            if ((((_tmpl._text.tree == null) || (_tmpl._text.tree : Dynamic).__nil__) || ((_tmpl._text.tree.root == null) || (_tmpl._text.tree.root : Dynamic).__nil__) : Bool)) {
+            if (((_tmpl._text.tree == null || (_tmpl._text.tree : Dynamic).__nil__) || (_tmpl._text.tree.root == null || (_tmpl._text.tree.root : Dynamic).__nil__) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is an incomplete template" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
                     for (defer in __deferstack__) {
@@ -366,7 +366,7 @@ package stdgo._internal.html.template;
                     return __ret__;
                 };
             };
-            if (_t._text.lookup(_name?.__copy__()) == null || (_t._text.lookup(_name?.__copy__()) : Dynamic).__nil__) {
+            if ((_t._text.lookup(_name?.__copy__()) == null || (_t._text.lookup(_name?.__copy__()) : Dynamic).__nil__)) {
                 throw stdgo.Go.toInterface(("html/template internal error: template escaping out of sync" : stdgo.GoString));
             };
             if (_tmpl._escapeErr == null) {
@@ -432,7 +432,7 @@ package stdgo._internal.html.template;
             __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
             _t._nameSpace._escaped = true;
             if (_t._escapeErr == null) {
-                if (_t.tree == null || (_t.tree : Dynamic).__nil__) {
+                if ((_t.tree == null || (_t.tree : Dynamic).__nil__)) {
                     {
                         final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("template: %q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(_t.name()));
                         for (defer in __deferstack__) {
@@ -497,7 +497,7 @@ package stdgo._internal.html.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = _t;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_t == null || (_t : Dynamic).__nil__) {
+            if ((_t == null || (_t : Dynamic).__nil__)) {
                 return (null : stdgo.Error);
             };
             _t._nameSpace._mu.lock();

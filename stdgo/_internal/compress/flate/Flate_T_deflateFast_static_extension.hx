@@ -77,23 +77,23 @@ package stdgo._internal.compress.flate;
     @:keep
     static public function _encode( _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast>, _dst:stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token> {
         @:recv var _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast> = _e;
-        var _nextHash_3701289:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _l_3703681:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _x_3704321:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
         var _offset_3702581:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _skip_3702164:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _cv_3701267:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _s_3701252:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _currHash_3704471:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _prevHash_3704346:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _t_3703644:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _nextS_3702185:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _offset_3704625:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _x_3704321:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _now_3702455:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _bytesBetweenHashLookups_3702247:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _l_3703681:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _candidate_3702202:stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry = ({} : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
+        var _nextHash_3701289:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _nextEmit_3701230:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _sLimit_3701119:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _currHash_3704471:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _prevHash_3704346:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _nextS_3702185:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _s_3701252:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _t_3703644:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _now_3702455:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _bytesBetweenHashLookups_3702247:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

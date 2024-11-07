@@ -4,7 +4,7 @@ function _checkNonLossyRoundtrip32(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             return;
         };
         var _r = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>).setFloat64((_f : stdgo.GoFloat64));
-        if (_r == null || (_r : Dynamic).__nil__) {
+        if ((_r == null || (_r : Dynamic).__nil__)) {
             _t.errorf(("Rat.SetFloat64(float64(%g) (%b)) == nil" : stdgo.GoString), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(_f));
             return;
         };

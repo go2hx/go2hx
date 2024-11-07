@@ -150,7 +150,7 @@ package stdgo._internal.net.http.httputil;
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
                         _sc._pipe.endRequest(_id);
-                        if (_req == null || (_req : Dynamic).__nil__) {
+                        if ((_req == null || (_req : Dynamic).__nil__)) {
                             _sc._pipe.startResponse(_id);
                             _sc._pipe.endResponse(_id);
                         } else {
@@ -203,7 +203,7 @@ package stdgo._internal.net.http.httputil;
                     return __ret__;
                 };
             };
-            if (_sc._r == null || (_sc._r : Dynamic).__nil__) {
+            if ((_sc._r == null || (_sc._r : Dynamic).__nil__)) {
                 __deferstack__.unshift(() -> _sc._mu.unlock());
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.httputil.Httputil__errClosed._errClosed };

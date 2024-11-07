@@ -212,8 +212,8 @@ package stdgo._internal.net.http;
                             {
                                 var _re = _resc.__get__();
                                 {
-                                    if ((_re._res == null || (_re._res : Dynamic).__nil__) == ((_re._err == null))) {
-                                        throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("internal error: exactly one of res or err should be set; nil=%v" : stdgo.GoString), stdgo.Go.toInterface(_re._res == null || (_re._res : Dynamic).__nil__)));
+                                    if (((_re._res == null || (_re._res : Dynamic).__nil__)) == ((_re._err == null))) {
+                                        throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("internal error: exactly one of res or err should be set; nil=%v" : stdgo.GoString), stdgo.Go.toInterface((_re._res == null || (_re._res : Dynamic).__nil__))));
                                     };
                                     if (false) {
                                         _req._logf(("resc recv: %p, %T/%#v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_re._res)), stdgo.Go.toInterface(_re._err), stdgo.Go.toInterface(_re._err));
@@ -587,7 +587,7 @@ package stdgo._internal.net.http;
     static public function _readResponse( _pc:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>, _rc:stdgo._internal.net.http.Http_T_requestAndChan.T_requestAndChan, _trace:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } {
         @:recv var _pc:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn> = _pc;
         var _resp = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _err = (null : stdgo.Error);
-        if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.gotFirstResponseByte != null) : Bool)) {
+        if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.gotFirstResponseByte != null) : Bool)) {
             {
                 var __tmp__ = _pc._br.peek((1 : stdgo.GoInt)), _peek:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err == null) && (_peek.length == (1 : stdgo.GoInt)) : Bool)) {
@@ -610,7 +610,7 @@ package stdgo._internal.net.http;
             var _resCode = (_resp.statusCode : stdgo.GoInt);
             if (_continueCh != null) {
                 if (_resCode == ((100 : stdgo.GoInt))) {
-                    if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.got100Continue != null) : Bool)) {
+                    if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.got100Continue != null) : Bool)) {
                         _trace.got100Continue();
                     };
                     _continueCh.__send__((new stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError() : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError));
@@ -628,7 +628,7 @@ package stdgo._internal.net.http;
                     return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("net/http: too many 1xx informational responses" : stdgo.GoString)) };
                 };
                 _pc._readLimit = _pc._maxHeaderResponseSize();
-                if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.got1xxResponse != null) : Bool)) {
+                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.got1xxResponse != null) : Bool)) {
                     {
                         var _err = (_trace.got1xxResponse(_resCode, (_resp.header : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader)) : stdgo.Error);
                         if (_err != null) {
@@ -713,7 +713,7 @@ package stdgo._internal.net.http;
                         var _err = (_pc._t._tryPutIdleConn(_pc) : stdgo.Error);
                         if (_err != null) {
                             _closeErr = _err;
-                            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__) && _trace.putIdleConn != null : Bool) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.net.http.Http__errKeepAlivesDisabled._errKeepAlivesDisabled)) : Bool)) {
+                            if ((((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && _trace.putIdleConn != null : Bool) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.net.http.Http__errKeepAlivesDisabled._errKeepAlivesDisabled)) : Bool)) {
                                 _trace.putIdleConn(_err);
                             };
                             {
@@ -724,7 +724,7 @@ package stdgo._internal.net.http;
                             };
                         };
                     };
-                    if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.putIdleConn != null) : Bool)) {
+                    if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.putIdleConn != null) : Bool)) {
                         _trace.putIdleConn((null : stdgo.Error));
                     };
                     {
@@ -1335,11 +1335,11 @@ package stdgo._internal.net.http;
         };
         stdgo.Go.routine(() -> {
             var a = function():Void {
-                if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeStart != null) : Bool)) {
+                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeStart != null) : Bool)) {
                     _trace.tlshandshakeStart();
                 };
                 var _err = (_tlsConn.handshakeContext(_ctx) : stdgo.Error);
-                if (_timer != null && ((_timer : Dynamic).__nil__ == null || !(_timer : Dynamic).__nil__)) {
+                if ((_timer != null && ((_timer : Dynamic).__nil__ == null || !(_timer : Dynamic).__nil__))) {
                     _timer.stop();
                 };
                 _errc.__send__(_err);
@@ -1350,14 +1350,14 @@ package stdgo._internal.net.http;
             var _err = (_errc.__get__() : stdgo.Error);
             if (_err != null) {
                 _plainConn.close();
-                if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
+                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
                     _trace.tlshandshakeDone((new stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState() : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState), _err);
                 };
                 return _err;
             };
         };
         var _cs = (_tlsConn.connectionState()?.__copy__() : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
-        if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
+        if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
             _trace.tlshandshakeDone(_cs?.__copy__(), (null : stdgo.Error));
         };
         _pconn._tlsState = (stdgo.Go.setRef(_cs) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);

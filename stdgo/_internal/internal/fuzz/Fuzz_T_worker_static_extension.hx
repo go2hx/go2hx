@@ -14,7 +14,7 @@ package stdgo._internal.internal.fuzz;
                     {
                         _w._termC.__get__();
                         {
-                            if (_w._client == null || (_w._client : Dynamic).__nil__) {
+                            if ((_w._client == null || (_w._client : Dynamic).__nil__)) {
                                 return _w._waitErr;
                             };
                             _w._client.close();
@@ -228,7 +228,7 @@ package stdgo._internal.internal.fuzz;
     @:keep
     static public function _isRunning( _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_worker.T_worker>):Bool {
         @:recv var _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_worker.T_worker> = _w;
-        return _w._cmd != null && ((_w._cmd : Dynamic).__nil__ == null || !(_w._cmd : Dynamic).__nil__);
+        return (_w._cmd != null && ((_w._cmd : Dynamic).__nil__ == null || !(_w._cmd : Dynamic).__nil__));
     }
     @:keep
     static public function _minimize( _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_worker.T_worker>, _ctx:stdgo._internal.context.Context_Context.Context, _input:stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput):{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } {
@@ -419,7 +419,7 @@ package stdgo._internal.internal.fuzz;
     static public function _cleanup( _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_worker.T_worker>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_worker.T_worker> = _w;
         var _mem = _w._memMu.__get__();
-        if (_mem == null || (_mem : Dynamic).__nil__) {
+        if ((_mem == null || (_mem : Dynamic).__nil__)) {
             return (null : stdgo.Error);
         };
         if (_w._memMu != null) _w._memMu.__close__();

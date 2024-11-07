@@ -68,11 +68,11 @@ package stdgo._internal.net.textproto;
     @:keep
     static public function _closeDot( _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Reader.Reader> = _r;
-        if (_r._dot == null || (_r._dot : Dynamic).__nil__) {
+        if ((_r._dot == null || (_r._dot : Dynamic).__nil__)) {
             return;
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((128 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        while (_r._dot != null && ((_r._dot : Dynamic).__nil__ == null || !(_r._dot : Dynamic).__nil__)) {
+        while ((_r._dot != null && ((_r._dot : Dynamic).__nil__ == null || !(_r._dot : Dynamic).__nil__))) {
             _r._dot.read(_buf);
         };
     }

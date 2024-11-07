@@ -604,7 +604,7 @@ package stdgo._internal.net.http;
                 };
             };
             _cc._mu.lock();
-            if (_cc._idleTimer != null && ((_cc._idleTimer : Dynamic).__nil__ == null || !(_cc._idleTimer : Dynamic).__nil__)) {
+            if ((_cc._idleTimer != null && ((_cc._idleTimer : Dynamic).__nil__ == null || !(_cc._idleTimer : Dynamic).__nil__))) {
                 _cc._idleTimer.stop();
             };
             _cc._decrStreamReservationsLocked();
@@ -897,7 +897,7 @@ package stdgo._internal.net.http;
         if (_cs._reqBody != null) {
             _cs._closeReqBodyLocked();
         };
-        if (_cs._cc._cond != null && ((_cs._cc._cond : Dynamic).__nil__ == null || !(_cs._cc._cond : Dynamic).__nil__)) {
+        if ((_cs._cc._cond != null && ((_cs._cc._cond : Dynamic).__nil__ == null || !(_cs._cc._cond : Dynamic).__nil__))) {
             _cs._cc._cond.broadcast();
         };
     }

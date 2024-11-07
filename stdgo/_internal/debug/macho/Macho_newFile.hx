@@ -138,7 +138,7 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : st
                                 return { _0 : null, _1 : _err };
                             };
                         };
-                        if (_f.symtab == null || (_f.symtab : Dynamic).__nil__) {
+                        if ((_f.symtab == null || (_f.symtab : Dynamic).__nil__)) {
                             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("dynamic symbol table seen before any ordinary symbol table" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                         } else if ((_hdr.iundefsym > (_f.symtab.syms.length : stdgo.GoUInt32) : Bool)) {
                             return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, stdgo._internal.fmt.Fmt_sprintf.sprintf(("undefined symbols index in dynamic symbol table command is greater than symbol table length (%d > %d)" : stdgo.GoString), stdgo.Go.toInterface(_hdr.iundefsym), stdgo.Go.toInterface((_f.symtab.syms.length))).__copy__(), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
@@ -270,7 +270,7 @@ _sh.sectionHeader.flags = _sh64.flags;
                         _f.loads = (_f.loads.__append__(stdgo.Go.asInterface((_cmddat : stdgo._internal.debug.macho.Macho_LoadBytes.LoadBytes))));
                     };
                 };
-if (_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) {
+if ((_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__))) {
                     if (((_s.segmentHeader.offset : stdgo.GoInt64) < (0i64 : stdgo.GoInt64) : Bool)) {
                         return { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError(_offset, ("invalid section offset" : stdgo.GoString), stdgo.Go.toInterface(_s.segmentHeader.offset)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
                     };

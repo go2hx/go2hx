@@ -4,7 +4,7 @@ package stdgo._internal.net.http.fcgi;
     static public function _cleanUp( _c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_child.T_child>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_child.T_child> = _c;
         for (__0 => _req in _c._requests) {
-            if (_req._pw != null && ((_req._pw : Dynamic).__nil__ == null || !(_req._pw : Dynamic).__nil__)) {
+            if ((_req._pw != null && ((_req._pw : Dynamic).__nil__ == null || !(_req._pw : Dynamic).__nil__))) {
                 _req._pw.closeWithError(stdgo._internal.net.http.fcgi.Fcgi_errConnClosed.errConnClosed);
             };
         };
@@ -43,7 +43,7 @@ package stdgo._internal.net.http.fcgi;
         {
             final __value__ = _rec._h.type;
             if (__value__ == ((1 : stdgo._internal.net.http.fcgi.Fcgi_T_recType.T_recType))) {
-                if (_req != null && ((_req : Dynamic).__nil__ == null || !(_req : Dynamic).__nil__)) {
+                if ((_req != null && ((_req : Dynamic).__nil__ == null || !(_req : Dynamic).__nil__))) {
                     return stdgo._internal.errors.Errors_new_.new_(("fcgi: received ID that is already in-flight" : stdgo.GoString));
                 };
                 var _br:stdgo._internal.net.http.fcgi.Fcgi_T_beginRequest.T_beginRequest = ({} : stdgo._internal.net.http.fcgi.Fcgi_T_beginRequest.T_beginRequest);
@@ -69,7 +69,7 @@ package stdgo._internal.net.http.fcgi;
                 return (null : stdgo.Error);
             } else if (__value__ == ((5 : stdgo._internal.net.http.fcgi.Fcgi_T_recType.T_recType))) {
                 var _content = _rec._content();
-                if (_req._pw == null || (_req._pw : Dynamic).__nil__) {
+                if ((_req._pw == null || (_req._pw : Dynamic).__nil__)) {
                     var _body:stdgo._internal.io.Io_ReadCloser.ReadCloser = (null : stdgo._internal.io.Io_ReadCloser.ReadCloser);
                     if (((_content.length) > (0 : stdgo.GoInt) : Bool)) {
                         {
@@ -86,7 +86,7 @@ package stdgo._internal.net.http.fcgi;
                     _req._pw.write(_content);
                 } else {
                     if (_c._requests != null) _c._requests.remove(_req._reqId);
-                    if (_req._pw != null && ((_req._pw : Dynamic).__nil__ == null || !(_req._pw : Dynamic).__nil__)) {
+                    if ((_req._pw != null && ((_req._pw : Dynamic).__nil__ == null || !(_req._pw : Dynamic).__nil__))) {
                         _req._pw.close();
                     };
                 };
@@ -105,7 +105,7 @@ package stdgo._internal.net.http.fcgi;
             } else if (__value__ == ((2 : stdgo._internal.net.http.fcgi.Fcgi_T_recType.T_recType))) {
                 if (_c._requests != null) _c._requests.remove(_rec._h.id);
                 _c._conn._writeEndRequest(_rec._h.id, (0 : stdgo.GoInt), (0 : stdgo.GoUInt8));
-                if (_req._pw != null && ((_req._pw : Dynamic).__nil__ == null || !(_req._pw : Dynamic).__nil__)) {
+                if ((_req._pw != null && ((_req._pw : Dynamic).__nil__ == null || !(_req._pw : Dynamic).__nil__))) {
                     _req._pw.closeWithError(stdgo._internal.net.http.fcgi.Fcgi_errRequestAborted.errRequestAborted);
                 };
                 if (!_req._keepConn) {

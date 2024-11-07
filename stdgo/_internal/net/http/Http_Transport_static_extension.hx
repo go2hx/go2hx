@@ -9,7 +9,7 @@ package stdgo._internal.net.http;
             _pconn = (stdgo.Go.setRef(({ _t : _t, _cacheKey : _cm._key()?.__copy__(), _reqch : (new stdgo.Chan<stdgo._internal.net.http.Http_T_requestAndChan.T_requestAndChan>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_requestAndChan.T_requestAndChan)) : stdgo.Chan<stdgo._internal.net.http.Http_T_requestAndChan.T_requestAndChan>), _writech : (new stdgo.Chan<stdgo._internal.net.http.Http_T_writeRequest.T_writeRequest>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_writeRequest.T_writeRequest)) : stdgo.Chan<stdgo._internal.net.http.Http_T_writeRequest.T_writeRequest>), _closech : (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _writeErrCh : (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>), _writeLoopDone : (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>) } : stdgo._internal.net.http.Http_T_persistConn.T_persistConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>);
             var _trace = stdgo._internal.net.http.httptrace.Httptrace_contextClientTrace.contextClientTrace(_ctx);
             var _wrapErr = (function(_err:stdgo.Error):stdgo.Error {
-                if (_cm._proxyURL != null && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__)) {
+                if ((_cm._proxyURL != null && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__))) {
                     return stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("proxyconnect" : stdgo.GoString), net : ("tcp" : stdgo.GoString), err : _err } : stdgo._internal.net.Net_OpError.OpError)) : stdgo.Ref<stdgo._internal.net.Net_OpError.OpError>));
                 };
                 return _err;
@@ -31,21 +31,21 @@ package stdgo._internal.net.http;
                         { _0 : (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>), _1 : false };
                     }, _tc = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
-                        if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeStart != null) : Bool)) {
+                        if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeStart != null) : Bool)) {
                             _trace.tlshandshakeStart();
                         };
                         {
                             var _err = (_tc.handshakeContext(_ctx) : stdgo.Error);
                             if (_err != null) {
                                 stdgo.Go.routine(() -> _pconn._conn.close());
-                                if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
+                                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
                                     _trace.tlshandshakeDone((new stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState() : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState), _err);
                                 };
                                 return { _0 : null, _1 : _err };
                             };
                         };
                         var _cs = (_tc.connectionState()?.__copy__() : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
-                        if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
+                        if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
                             _trace.tlshandshakeDone(_cs?.__copy__(), (null : stdgo.Error));
                         };
                         _pconn._tlsState = (stdgo.Go.setRef(_cs) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
@@ -77,12 +77,12 @@ package stdgo._internal.net.http;
                     };
                 };
             };
-            if (_cm._proxyURL == null || (_cm._proxyURL : Dynamic).__nil__) {} else if (_cm._proxyURL.scheme == (("socks5" : stdgo.GoString))) {
+            if ((_cm._proxyURL == null || (_cm._proxyURL : Dynamic).__nil__)) {} else if (_cm._proxyURL.scheme == (("socks5" : stdgo.GoString))) {
                 var _conn = (_pconn._conn : stdgo._internal.net.Net_Conn.Conn);
                 var _d = stdgo._internal.net.http.Http__socksNewDialer._socksNewDialer(("tcp" : stdgo.GoString), (_conn.remoteAddr().string() : stdgo.GoString)?.__copy__());
                 {
                     var _u = _cm._proxyURL.user;
-                    if (_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) {
+                    if ((_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__))) {
                         var _auth = (stdgo.Go.setRef(({ username : _u.username()?.__copy__() } : stdgo._internal.net.http.Http_T_socksUsernamePassword.T_socksUsernamePassword)) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksUsernamePassword.T_socksUsernamePassword>);
                         {
                             var __tmp__ = _u.password();
@@ -271,7 +271,7 @@ var _err = __1, _resp = __0;
                     };
                 };
             };
-            if ((((_cm._proxyURL != null) && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__)) && (_cm._targetScheme == ("https" : stdgo.GoString)) : Bool)) {
+            if (((_cm._proxyURL != null && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__)) && (_cm._targetScheme == ("https" : stdgo.GoString)) : Bool)) {
                 {
                     var _err = (_pconn._addTLS(_ctx, _cm._tlsHost()?.__copy__(), _trace) : stdgo.Error);
                     if (_err != null) {
@@ -287,7 +287,7 @@ var _err = __1, _resp = __0;
             };
             {
                 var _s = _pconn._tlsState;
-                if (((_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__) && _s.negotiatedProtocolIsMutual : Bool) && (_s.negotiatedProtocol != stdgo.Go.str()) : Bool)) {
+                if ((((_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) && _s.negotiatedProtocolIsMutual : Bool) && (_s.negotiatedProtocol != stdgo.Go.str()) : Bool)) {
                     {
                         var __tmp__ = (_t.tlsnextProto != null && _t.tlsnextProto.exists(_s.negotiatedProtocol?.__copy__()) ? { _0 : _t.tlsnextProto[_s.negotiatedProtocol?.__copy__()], _1 : true } : { _0 : null, _1 : false }), _next:(stdgo.GoString, stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>) -> stdgo._internal.net.http.Http_RoundTripper.RoundTripper = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (_ok) {
@@ -539,7 +539,7 @@ var _err = __1, _resp = __0;
             var _req = _treq.request;
             var _trace = _treq._trace;
             var _ctx = (_req.context() : stdgo._internal.context.Context_Context.Context);
-            if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.getConn != null) : Bool)) {
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.getConn != null) : Bool)) {
                 _trace.getConn(_cm._addr()?.__copy__());
             };
             var _w = (stdgo.Go.setRef(({ _cm : _cm?.__copy__(), _key : _cm._key()?.__copy__(), _ctx : _ctx, _ready : (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _beforeDial : stdgo._internal.net.http.Http__testHookPrePendingDial._testHookPrePendingDial, _afterDial : stdgo._internal.net.http.Http__testHookPostPendingDial._testHookPostPendingDial } : stdgo._internal.net.http.Http_T_wantConn.T_wantConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>);
@@ -578,7 +578,7 @@ var _err = __1, _resp = __0;
                 var _delivered = (_t._queueForIdleConn(_w) : Bool);
                 if (_delivered) {
                     var _pc = _w._pc;
-                    if (((_pc._alt == null && _trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__) : Bool) && (_trace.gotConn != null) : Bool)) {
+                    if (((_pc._alt == null && (_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) : Bool) && (_trace.gotConn != null) : Bool)) {
                         _trace.gotConn(_pc._gotIdleConnTrace(_pc._idleAt?.__copy__())?.__copy__());
                     };
                     _t._setReqCanceler(_treq._cancelKey?.__copy__(), function(_0:stdgo.Error):Void {});
@@ -628,7 +628,7 @@ var _err = __1, _resp = __0;
                             {
                                 _w._ready.__get__();
                                 {
-                                    if ((((_w._pc != null && ((_w._pc : Dynamic).__nil__ == null || !(_w._pc : Dynamic).__nil__) && _w._pc._alt == null : Bool) && _trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__) : Bool) && (_trace.gotConn != null) : Bool)) {
+                                    if (((((_w._pc != null && ((_w._pc : Dynamic).__nil__ == null || !(_w._pc : Dynamic).__nil__)) && _w._pc._alt == null : Bool) && (_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) : Bool) && (_trace.gotConn != null) : Bool)) {
                                         _trace.gotConn(({ conn : _w._pc._conn, reused : _w._pc._isReused() } : stdgo._internal.net.http.httptrace.Httptrace_GotConnInfo.GotConnInfo));
                                     };
                                     if (_w._err != null) {
@@ -1297,7 +1297,7 @@ var _err = __1, _resp = __0;
     @:keep
     static public function _removeIdleConnLocked( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _pconn:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
-        if (_pconn._idleTimer != null && ((_pconn._idleTimer : Dynamic).__nil__ == null || !(_pconn._idleTimer : Dynamic).__nil__)) {
+        if ((_pconn._idleTimer != null && ((_pconn._idleTimer : Dynamic).__nil__ == null || !(_pconn._idleTimer : Dynamic).__nil__))) {
             _pconn._idleTimer.stop();
         };
         _t._idleLRU._remove(_pconn);
@@ -1384,7 +1384,7 @@ var _err = __1, _resp = __0;
             _t._idleMu.lock();
             __deferstack__.unshift(() -> _t._idleMu.unlock());
             _t._closeIdle = false;
-            if (_w == null || (_w : Dynamic).__nil__) {
+            if ((_w == null || (_w : Dynamic).__nil__)) {
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -1490,7 +1490,7 @@ var _err = __1, _resp = __0;
             _pconn._markReused();
             _t._idleMu.lock();
             __deferstack__.unshift(() -> _t._idleMu.unlock());
-            if (((_pconn._alt != null) && (((_t._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>)) != null) && ((_t._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>) : Dynamic).__nil__ == null || !(_t._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>) : Dynamic).__nil__)) : Bool)) {
+            if (((_pconn._alt != null) && ((_t._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>)) != null && ((_t._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>) : Dynamic).__nil__ == null || !(_t._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>) : Dynamic).__nil__)) : Bool)) {
                 {
                     final __ret__:stdgo.Error = (null : stdgo.Error);
                     for (defer in __deferstack__) {
@@ -1573,7 +1573,7 @@ var _err = __1, _resp = __0;
                 _t._removeIdleConnLocked(_oldest);
             };
             if (((_t.idleConnTimeout > (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool) && (_pconn._alt == null) : Bool)) {
-                if (_pconn._idleTimer != null && ((_pconn._idleTimer : Dynamic).__nil__ == null || !(_pconn._idleTimer : Dynamic).__nil__)) {
+                if ((_pconn._idleTimer != null && ((_pconn._idleTimer : Dynamic).__nil__ == null || !(_pconn._idleTimer : Dynamic).__nil__))) {
                     _pconn._idleTimer.reset(_t.idleConnTimeout);
                 } else {
                     _pconn._idleTimer = stdgo._internal.time.Time_afterFunc.afterFunc(_t.idleConnTimeout, _pconn._closeConnIfStillIdle);
@@ -1773,7 +1773,7 @@ var _err = __1, _resp = __0;
         _t._nextProtoOnce.do_(_t._onceSetNextProtoDefaults);
         var _ctx = (_req.context() : stdgo._internal.context.Context_Context.Context);
         var _trace = stdgo._internal.net.http.httptrace.Httptrace_contextClientTrace.contextClientTrace(_ctx);
-        if (_req.url == null || (_req.url : Dynamic).__nil__) {
+        if ((_req.url == null || (_req.url : Dynamic).__nil__)) {
             _req._closeBody();
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("http: nil Request.URL" : stdgo.GoString)) };
         };
@@ -1990,7 +1990,7 @@ var _err = __1, _resp = __0;
         if (_t.tlsnextProto != null) {
             return;
         };
-        if ((!_t.forceAttemptHTTP2 && ((((_t.tlsclientConfig != null && ((_t.tlsclientConfig : Dynamic).__nil__ == null || !(_t.tlsclientConfig : Dynamic).__nil__) || _t.dial != null : Bool) || _t.dialContext != null : Bool) || _t._hasCustomTLSDialer() : Bool)) : Bool)) {
+        if ((!_t.forceAttemptHTTP2 && (((((_t.tlsclientConfig != null && ((_t.tlsclientConfig : Dynamic).__nil__ == null || !(_t.tlsclientConfig : Dynamic).__nil__)) || _t.dial != null : Bool) || _t.dialContext != null : Bool) || _t._hasCustomTLSDialer() : Bool)) : Bool)) {
             return;
         };
         if (stdgo._internal.net.http.Http__omitBundledHTTP2._omitBundledHTTP2) {
@@ -2024,7 +2024,7 @@ var _err = __1, _resp = __0;
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
         _t._nextProtoOnce.do_(_t._onceSetNextProtoDefaults);
         var _t2 = (stdgo.Go.setRef(({ proxy : _t.proxy, onProxyConnectResponse : _t.onProxyConnectResponse, dialContext : _t.dialContext, dial : _t.dial, dialTLS : _t.dialTLS, dialTLSContext : _t.dialTLSContext, tlshandshakeTimeout : _t.tlshandshakeTimeout, disableKeepAlives : _t.disableKeepAlives, disableCompression : _t.disableCompression, maxIdleConns : _t.maxIdleConns, maxIdleConnsPerHost : _t.maxIdleConnsPerHost, maxConnsPerHost : _t.maxConnsPerHost, idleConnTimeout : _t.idleConnTimeout, responseHeaderTimeout : _t.responseHeaderTimeout, expectContinueTimeout : _t.expectContinueTimeout, proxyConnectHeader : _t.proxyConnectHeader.clone(), getProxyConnectHeader : _t.getProxyConnectHeader, maxResponseHeaderBytes : _t.maxResponseHeaderBytes, forceAttemptHTTP2 : _t.forceAttemptHTTP2, writeBufferSize : _t.writeBufferSize, readBufferSize : _t.readBufferSize } : stdgo._internal.net.http.Http_Transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>);
-        if (_t.tlsclientConfig != null && ((_t.tlsclientConfig : Dynamic).__nil__ == null || !(_t.tlsclientConfig : Dynamic).__nil__)) {
+        if ((_t.tlsclientConfig != null && ((_t.tlsclientConfig : Dynamic).__nil__ == null || !(_t.tlsclientConfig : Dynamic).__nil__))) {
             _t2.tlsclientConfig = _t.tlsclientConfig.clone();
         };
         if (!_t._tlsNextProtoWasNil) {

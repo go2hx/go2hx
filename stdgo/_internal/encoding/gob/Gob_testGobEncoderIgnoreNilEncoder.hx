@@ -15,7 +15,7 @@ function testGobEncoderIgnoreNilEncoder(_t:stdgo.Ref<stdgo._internal.testing.Tes
         if (_x.x != ((18 : stdgo.GoInt))) {
             _t.errorf(("expected x.X = 18, got %v" : stdgo.GoString), stdgo.Go.toInterface(_x.x));
         };
-        if (_x.g != null && ((_x.g : Dynamic).__nil__ == null || !(_x.g : Dynamic).__nil__)) {
+        if ((_x.g != null && ((_x.g : Dynamic).__nil__ == null || !(_x.g : Dynamic).__nil__))) {
             _t.errorf(("expected x.G = nil, got %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_x.g)));
         };
     }

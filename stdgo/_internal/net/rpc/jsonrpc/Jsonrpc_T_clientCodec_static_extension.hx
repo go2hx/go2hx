@@ -29,7 +29,7 @@ package stdgo._internal.net.rpc.jsonrpc;
         _c._mutex.unlock();
         _r.error = stdgo.Go.str()?.__copy__();
         _r.seq = _c._resp.id;
-        if (((_c._resp.error != null) || ((_c._resp.result == null) || (_c._resp.result : Dynamic).__nil__) : Bool)) {
+        if (((_c._resp.error != null) || (_c._resp.result == null || (_c._resp.result : Dynamic).__nil__) : Bool)) {
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((_c._resp.error : stdgo.GoString)) : stdgo.GoString), _1 : true };
             } catch(_) {

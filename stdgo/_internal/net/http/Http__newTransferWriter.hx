@@ -28,7 +28,7 @@ function _newTransferWriter(_r:stdgo.AnyInterface):{ var _0 : stdgo.Ref<stdgo._i
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>))) {
                 var _rr:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>) : __type__.__underlying__().value;
                 _t.isResponse = true;
-                if (_rr.request != null && ((_rr.request : Dynamic).__nil__ == null || !(_rr.request : Dynamic).__nil__)) {
+                if ((_rr.request != null && ((_rr.request : Dynamic).__nil__ == null || !(_rr.request : Dynamic).__nil__))) {
                     _t.method = _rr.request.method?.__copy__();
                 };
                 _t.body = _rr.body;

@@ -8,7 +8,7 @@ function signPSS(_rand:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.Ref<stdg
             return stdgo._internal.crypto.internal.boring.Boring_signRSAPSS.signRSAPSS(_bkey, _hash, _digest, _opts._saltLength());
         };
         stdgo._internal.crypto.internal.boring.Boring_unreachableExceptTests.unreachableExceptTests();
-        if ((((_opts != null) && ((_opts : Dynamic).__nil__ == null || !(_opts : Dynamic).__nil__)) && (_opts.hash != (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash)) : Bool)) {
+        if (((_opts != null && ((_opts : Dynamic).__nil__ == null || !(_opts : Dynamic).__nil__)) && (_opts.hash != (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash)) : Bool)) {
             _hash = _opts.hash;
         };
         var _saltLength = (_opts._saltLength() : stdgo.GoInt);

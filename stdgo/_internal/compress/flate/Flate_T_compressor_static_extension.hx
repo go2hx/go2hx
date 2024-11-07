@@ -185,21 +185,21 @@ package stdgo._internal.compress.flate;
     @:keep
     static public function _deflate( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> = _d;
+        var _newIndex_3671485:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _index_3671637:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hash_3669884:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _i_3672630:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _newOffset_3670496:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _minIndex_3670203:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _prevOffset_3670131:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _prevLength_3670106:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hh_3669945:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var _hh_3671903:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var _hash_3671740:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _newOffset_3670496:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _prevOffset_3670131:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hh_3669945:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
-        var loopBreak = false;
         var _ok_3670507:Bool = false;
-        var _lookahead_3669202:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3672630:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _index_3671637:stdgo.GoInt = (0 : stdgo.GoInt);
         var _newLength_3670485:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _minIndex_3670203:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _prevLength_3670106:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _newIndex_3671485:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lookahead_3669202:stdgo.GoInt = (0 : stdgo.GoInt);
+        var loopBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

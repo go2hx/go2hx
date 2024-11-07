@@ -27,22 +27,22 @@ function testUnmarshalNulls(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         if (_nulls.interface_ != null) {
             _t.errorf(("Unmarshal of null did not clear nulls.Interface" : stdgo.GoString));
         };
-        if (_nulls.praw != null && ((_nulls.praw : Dynamic).__nil__ == null || !(_nulls.praw : Dynamic).__nil__)) {
+        if ((_nulls.praw != null && ((_nulls.praw : Dynamic).__nil__ == null || !(_nulls.praw : Dynamic).__nil__))) {
             _t.errorf(("Unmarshal of null did not clear nulls.PRaw" : stdgo.GoString));
         };
-        if (_nulls.ptime != null && ((_nulls.ptime : Dynamic).__nil__ == null || !(_nulls.ptime : Dynamic).__nil__)) {
+        if ((_nulls.ptime != null && ((_nulls.ptime : Dynamic).__nil__ == null || !(_nulls.ptime : Dynamic).__nil__))) {
             _t.errorf(("Unmarshal of null did not clear nulls.PTime" : stdgo.GoString));
         };
-        if (_nulls.pbigInt != null && ((_nulls.pbigInt : Dynamic).__nil__ == null || !(_nulls.pbigInt : Dynamic).__nil__)) {
+        if ((_nulls.pbigInt != null && ((_nulls.pbigInt : Dynamic).__nil__ == null || !(_nulls.pbigInt : Dynamic).__nil__))) {
             _t.errorf(("Unmarshal of null did not clear nulls.PBigInt" : stdgo.GoString));
         };
-        if (_nulls.ptext != null && ((_nulls.ptext : Dynamic).__nil__ == null || !(_nulls.ptext : Dynamic).__nil__)) {
+        if ((_nulls.ptext != null && ((_nulls.ptext : Dynamic).__nil__ == null || !(_nulls.ptext : Dynamic).__nil__))) {
             _t.errorf(("Unmarshal of null did not clear nulls.PText" : stdgo.GoString));
         };
-        if (_nulls.pbuffer != null && ((_nulls.pbuffer : Dynamic).__nil__ == null || !(_nulls.pbuffer : Dynamic).__nil__)) {
+        if ((_nulls.pbuffer != null && ((_nulls.pbuffer : Dynamic).__nil__ == null || !(_nulls.pbuffer : Dynamic).__nil__))) {
             _t.errorf(("Unmarshal of null did not clear nulls.PBuffer" : stdgo.GoString));
         };
-        if (_nulls.pstruct != null && ((_nulls.pstruct : Dynamic).__nil__ == null || !(_nulls.pstruct : Dynamic).__nil__)) {
+        if ((_nulls.pstruct != null && ((_nulls.pstruct : Dynamic).__nil__ == null || !(_nulls.pstruct : Dynamic).__nil__))) {
             _t.errorf(("Unmarshal of null did not clear nulls.PStruct" : stdgo.GoString));
         };
         if ((_nulls.raw : stdgo.GoString) != (("null" : stdgo.GoString))) {

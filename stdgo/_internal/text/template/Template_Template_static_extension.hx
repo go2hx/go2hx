@@ -8,7 +8,7 @@ package stdgo._internal.text.template;
         };
         {
             var _old = (_t._common._tmpl[_new._name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>));
-            if (((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__) && stdgo._internal.text.template.Template__parse._parse.isEmptyTree(stdgo.Go.asInterface(_tree.root)) : Bool) && ((_old.tree != null) && ((_old.tree : Dynamic).__nil__ == null || !(_old.tree : Dynamic).__nil__)) : Bool)) {
+            if ((((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && stdgo._internal.text.template.Template__parse._parse.isEmptyTree(stdgo.Go.asInterface(_tree.root)) : Bool) && (_old.tree != null && ((_old.tree : Dynamic).__nil__ == null || !(_old.tree : Dynamic).__nil__)) : Bool)) {
                 return false;
             };
         };
@@ -40,7 +40,7 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_t._common == null || (_t._common : Dynamic).__nil__) {
+            if ((_t._common == null || (_t._common : Dynamic).__nil__)) {
                 return null;
             };
             _t._common._muTmpl.rlock();
@@ -129,7 +129,7 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_t._common == null || (_t._common : Dynamic).__nil__) {
+            if ((_t._common == null || (_t._common : Dynamic).__nil__)) {
                 return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>);
             };
             _t._common._muTmpl.rlock();
@@ -180,7 +180,7 @@ package stdgo._internal.text.template;
             if (_name != (_t._name)) {
                 _nt = _t.new_(_name?.__copy__());
             };
-            if ((_t._associate(_nt, _tree) || ((_nt.tree == null) || (_nt.tree : Dynamic).__nil__) : Bool)) {
+            if ((_t._associate(_nt, _tree) || (_nt.tree == null || (_nt.tree : Dynamic).__nil__) : Bool)) {
                 _nt.tree = _tree;
             };
             {
@@ -226,7 +226,7 @@ package stdgo._internal.text.template;
         try {
             var _nt = _t._copy(null);
             _nt._init();
-            if (_t._common == null || (_t._common : Dynamic).__nil__) {
+            if ((_t._common == null || (_t._common : Dynamic).__nil__)) {
                 return { _0 : _nt, _1 : (null : stdgo.Error) };
             };
             _t._common._muTmpl.rlock();
@@ -281,7 +281,7 @@ package stdgo._internal.text.template;
     @:keep
     static public function _init( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
-        if (_t._common == null || (_t._common : Dynamic).__nil__) {
+        if ((_t._common == null || (_t._common : Dynamic).__nil__)) {
             var _c = (stdgo.Go.setRef(({} : stdgo._internal.text.template.Template_T_common.T_common)) : stdgo.Ref<stdgo._internal.text.template.Template_T_common.T_common>);
             _c._tmpl = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>();
@@ -382,14 +382,14 @@ package stdgo._internal.text.template;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_t._common == null || (_t._common : Dynamic).__nil__) {
+            if ((_t._common == null || (_t._common : Dynamic).__nil__)) {
                 return stdgo.Go.str()?.__copy__();
             };
             var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
             _t._common._muTmpl.rlock();
             __deferstack__.unshift(() -> _t._common._muTmpl.runlock());
             for (_name => _tmpl in _t._common._tmpl) {
-                if ((((_tmpl.tree == null) || (_tmpl.tree : Dynamic).__nil__) || ((_tmpl.tree.root == null) || (_tmpl.tree.root : Dynamic).__nil__) : Bool)) {
+                if (((_tmpl.tree == null || (_tmpl.tree : Dynamic).__nil__) || (_tmpl.tree.root == null || (_tmpl.tree.root : Dynamic).__nil__) : Bool)) {
                     continue;
                 };
                 if (_b.len() == ((0 : stdgo.GoInt))) {
@@ -449,7 +449,7 @@ package stdgo._internal.text.template;
                 _value = stdgo._internal.reflect.Reflect_valueOf.valueOf(_data)?.__copy__();
             };
             var _state = (stdgo.Go.setRef(({ _tmpl : _t, _wr : _wr, _vars : (new stdgo.Slice<stdgo._internal.text.template.Template_T_variable.T_variable>(1, 1, ...[(new stdgo._internal.text.template.Template_T_variable.T_variable(("$" : stdgo.GoString), _value?.__copy__()) : stdgo._internal.text.template.Template_T_variable.T_variable)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template_T_variable.T_variable)])) : stdgo.Slice<stdgo._internal.text.template.Template_T_variable.T_variable>) } : stdgo._internal.text.template.Template_T_state.T_state)) : stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state>);
-            if ((((_t.tree == null) || (_t.tree : Dynamic).__nil__) || ((_t.tree.root == null) || (_t.tree.root : Dynamic).__nil__) : Bool)) {
+            if (((_t.tree == null || (_t.tree : Dynamic).__nil__) || (_t.tree.root == null || (_t.tree.root : Dynamic).__nil__) : Bool)) {
                 _state._errorf(("%q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(_t.name()));
             };
             _state._walk(_value?.__copy__(), stdgo.Go.asInterface(_t.tree.root));
@@ -490,7 +490,7 @@ package stdgo._internal.text.template;
     static public function executeTemplate( _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>, _wr:stdgo._internal.io.Io_Writer.Writer, _name:stdgo.GoString, _data:stdgo.AnyInterface):stdgo.Error {
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = _t;
         var _tmpl = _t.lookup(_name?.__copy__());
-        if (_tmpl == null || (_tmpl : Dynamic).__nil__) {
+        if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("template: no template %q associated with template %q" : stdgo.GoString), stdgo.Go.toInterface(_name), stdgo.Go.toInterface(_t._name));
         };
         return _tmpl.execute(_wr, _data);

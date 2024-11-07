@@ -8,7 +8,7 @@ function _tTag(_c:stdgo._internal.html.template.Template_T_context.T_context, _s
             return { _0 : ({ _state : stdgo._internal.html.template.Template__elementContentType._elementContentType[(_c._element : stdgo.GoInt)], _element : _c._element } : stdgo._internal.html.template.Template_T_context.T_context), _1 : (_i + (1 : stdgo.GoInt) : stdgo.GoInt) };
         };
         var __tmp__ = stdgo._internal.html.template.Template__eatAttrName._eatAttrName(_s, _i), _j:stdgo.GoInt = __tmp__._0, _err:stdgo.Ref<stdgo._internal.html.template.Template_Error.Error> = __tmp__._1;
-        if (_err != null && ((_err : Dynamic).__nil__ == null || !(_err : Dynamic).__nil__)) {
+        if ((_err != null && ((_err : Dynamic).__nil__ == null || !(_err : Dynamic).__nil__))) {
             return { _0 : ({ _state : (27 : stdgo._internal.html.template.Template_T_state.T_state), _err : _err } : stdgo._internal.html.template.Template_T_context.T_context), _1 : (_s.length) };
         };
         var __0 = (1 : stdgo._internal.html.template.Template_T_state.T_state), __1 = (0 : stdgo._internal.html.template.Template_T_attr.T_attr);

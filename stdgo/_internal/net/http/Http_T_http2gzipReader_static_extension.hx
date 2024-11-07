@@ -19,7 +19,7 @@ package stdgo._internal.net.http;
         if (_gz._zerr != null) {
             return { _0 : (0 : stdgo.GoInt), _1 : _gz._zerr };
         };
-        if (_gz._zr == null || (_gz._zr : Dynamic).__nil__) {
+        if ((_gz._zr == null || (_gz._zr : Dynamic).__nil__)) {
             {
                 var __tmp__ = stdgo._internal.compress.gzip.Gzip_newReader.newReader(_gz._body);
                 _gz._zr = __tmp__._0;

@@ -20,7 +20,7 @@ function testChanFuncIgnored(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
         if (_b1.a != (_b0.a)) {
             _t.fatalf(("got %d want %d" : stdgo.GoString), stdgo.Go.toInterface(_b1.a), stdgo.Go.toInterface(_b0.a));
         };
-        if ((((_b1.c != null || _b1.cp != null && ((_b1.cp : Dynamic).__nil__ == null || !(_b1.cp : Dynamic).__nil__) : Bool) || _b1.f != null : Bool) || ((_b1.fpp != null) && ((_b1.fpp : Dynamic).__nil__ == null || !(_b1.fpp : Dynamic).__nil__)) : Bool)) {
+        if ((((_b1.c != null || (_b1.cp != null && ((_b1.cp : Dynamic).__nil__ == null || !(_b1.cp : Dynamic).__nil__)) : Bool) || _b1.f != null : Bool) || (_b1.fpp != null && ((_b1.fpp : Dynamic).__nil__ == null || !(_b1.fpp : Dynamic).__nil__)) : Bool)) {
             _t.fatal(stdgo.Go.toInterface(("unexpected value for chan or func" : stdgo.GoString)));
         };
     }

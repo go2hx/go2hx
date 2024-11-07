@@ -29,11 +29,11 @@ package stdgo._internal.net.http;
                         };
                     };
                 };
-                if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
+                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
                     _formattedVals = (_formattedVals.__append__(_v?.__copy__()));
                 };
             };
-            if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
                 _trace.wroteHeaderField(_kv._key?.__copy__(), _formattedVals);
                 _formattedVals = (null : stdgo.Slice<stdgo.GoString>);
             };

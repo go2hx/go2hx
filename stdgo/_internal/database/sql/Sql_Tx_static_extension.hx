@@ -171,7 +171,7 @@ package stdgo._internal.database.sql;
                 _parentStmt = _stmt;
             };
             var _txs = (stdgo.Go.setRef(({ _db : _tx._db, _cg : stdgo.Go.asInterface(_tx), _cgds : (stdgo.Go.setRef(({ locker : stdgo.Go.asInterface(_dc), _si : _si } : stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt)) : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>), _parentStmt : _parentStmt, _query : _stmt._query?.__copy__() } : stdgo._internal.database.sql.Sql_Stmt.Stmt)) : stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>);
-            if (_parentStmt != null && ((_parentStmt : Dynamic).__nil__ == null || !(_parentStmt : Dynamic).__nil__)) {
+            if ((_parentStmt != null && ((_parentStmt : Dynamic).__nil__ == null || !(_parentStmt : Dynamic).__nil__))) {
                 _tx._db._addDep(stdgo.Go.asInterface(_parentStmt), stdgo.Go.toInterface(stdgo.Go.asInterface(_txs)));
             };
             _tx._stmts.lock();

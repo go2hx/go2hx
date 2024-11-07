@@ -18,7 +18,7 @@ function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image
             };
         };
         var _quality = (75 : stdgo.GoInt);
-        if (_o != null && ((_o : Dynamic).__nil__ == null || !(_o : Dynamic).__nil__)) {
+        if ((_o != null && ((_o : Dynamic).__nil__ == null || !(_o : Dynamic).__nil__))) {
             _quality = _o.quality;
             if ((_quality < (1 : stdgo.GoInt) : Bool)) {
                 _quality = (1 : stdgo.GoInt);

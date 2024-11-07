@@ -129,7 +129,7 @@ var _icookies = __1, _ireqhdr = __0;
                     a();
                 });
             };
-            if (_req.url == null || (_req.url : Dynamic).__nil__) {
+            if ((_req.url == null || (_req.url : Dynamic).__nil__)) {
                 _req._closeBody();
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : stdgo._internal.net.http.Http__urlErrorOp._urlErrorOp(_req.method?.__copy__())?.__copy__(), err : stdgo._internal.errors.Errors_new_.new_(("http: nil Request.URL" : stdgo.GoString)) } : stdgo._internal.net.url.Url_Error.Error)) : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>)) };
@@ -148,7 +148,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                         _req._closeBody();
                     };
                     var _urlStr:stdgo.GoString = ("" : stdgo.GoString);
-                    if ((((_resp != null) && ((_resp : Dynamic).__nil__ == null || !(_resp : Dynamic).__nil__)) && ((_resp.request != null) && ((_resp.request : Dynamic).__nil__ == null || !(_resp.request : Dynamic).__nil__)) : Bool)) {
+                    if (((_resp != null && ((_resp : Dynamic).__nil__ == null || !(_resp : Dynamic).__nil__)) && (_resp.request != null && ((_resp.request : Dynamic).__nil__ == null || !(_resp.request : Dynamic).__nil__)) : Bool)) {
                         _urlStr = stdgo._internal.net.http.Http__stripPassword._stripPassword(_resp.request.url)?.__copy__();
                     } else {
                         _urlStr = stdgo._internal.net.http.Http__stripPassword._stripPassword(_req.url)?.__copy__();
@@ -211,7 +211,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                     if (((_req.host != stdgo.Go.str()) && (_req.host != _req.url.host) : Bool)) {
                         {
                             var __tmp__ = stdgo._internal.net.url.Url_parse.parse(_loc?.__copy__()), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, __29772:stdgo.Error = __tmp__._1;
-                            if ((((_u != null) && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && !_u.isAbs() : Bool)) {
+                            if (((_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && !_u.isAbs() : Bool)) {
                                 _host = _req.host?.__copy__();
                             };
                         };

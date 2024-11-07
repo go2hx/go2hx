@@ -62,7 +62,7 @@ var _gracePeriod = __1, _cancelCtx = __0;
             if (_cancelCtx != null) {
                 _cancelCtx();
             };
-            if ((((_cmd.process != null) && ((_cmd.process : Dynamic).__nil__ == null || !(_cmd.process : Dynamic).__nil__)) && (_cmd.processState == null) || (_cmd.processState : Dynamic).__nil__ : Bool)) {
+            if (((_cmd.process != null && ((_cmd.process : Dynamic).__nil__ == null || !(_cmd.process : Dynamic).__nil__)) && (_cmd.processState == null || (_cmd.processState : Dynamic).__nil__) : Bool)) {
                 _t.errorf(("command was started, but test did not wait for it to complete: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cmd)));
             };
         });

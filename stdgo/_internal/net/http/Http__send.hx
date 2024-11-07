@@ -6,7 +6,7 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
             _req._closeBody();
             return { _0 : null, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : stdgo._internal.errors.Errors_new_.new_(("http: no Client.Transport or DefaultTransport" : stdgo.GoString)) };
         };
-        if (_req.url == null || (_req.url : Dynamic).__nil__) {
+        if ((_req.url == null || (_req.url : Dynamic).__nil__)) {
             _req._closeBody();
             return { _0 : null, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : stdgo._internal.errors.Errors_new_.new_(("http: nil Request.URL" : stdgo.GoString)) };
         };
@@ -55,7 +55,7 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
         };
         {
             var _u = _req.url.user;
-            if ((((_u != null) && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && (_req.header.get(("Authorization" : stdgo.GoString)) == stdgo.Go.str()) : Bool)) {
+            if (((_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) && (_req.header.get(("Authorization" : stdgo.GoString)) == stdgo.Go.str()) : Bool)) {
                 var _username = (_u.username()?.__copy__() : stdgo.GoString);
                 var __tmp__ = _u.password(), _password:stdgo.GoString = __tmp__._0, __132:Bool = __tmp__._1;
                 _forkReq();
@@ -74,7 +74,7 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
         };
         if (_err != null) {
             _stopTimer();
-            if (_resp != null && ((_resp : Dynamic).__nil__ == null || !(_resp : Dynamic).__nil__)) {
+            if ((_resp != null && ((_resp : Dynamic).__nil__ == null || !(_resp : Dynamic).__nil__))) {
                 stdgo._internal.log.Log_printf.printf(("RoundTripper returned a response & error; ignoring response" : stdgo.GoString));
             };
             {
@@ -91,7 +91,7 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
             };
             return { _0 : null, _1 : _didTimeout, _2 : _err };
         };
-        if (_resp == null || (_resp : Dynamic).__nil__) {
+        if ((_resp == null || (_resp : Dynamic).__nil__)) {
             return { _0 : null, _1 : _didTimeout, _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("http: RoundTripper implementation (%T) returned a nil *Response with a nil error" : stdgo.GoString), stdgo.Go.toInterface(_rt)) };
         };
         if (_resp.body == null) {

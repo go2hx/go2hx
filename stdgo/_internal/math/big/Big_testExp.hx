@@ -40,13 +40,13 @@ var _m = __1, _out = __0;
                 continue;
             };
             var _z1 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).exp(_x, _y, _m);
-            if ((((_z1 != null) && ((_z1 : Dynamic).__nil__ == null || !(_z1 : Dynamic).__nil__)) && !stdgo._internal.math.big.Big__isNormalized._isNormalized(_z1) : Bool)) {
+            if (((_z1 != null && ((_z1 : Dynamic).__nil__ == null || !(_z1 : Dynamic).__nil__)) && !stdgo._internal.math.big.Big__isNormalized._isNormalized(_z1) : Bool)) {
                 _t.errorf(("#%d: %v is not normalized" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface((_z1 : stdgo._internal.math.big.Big_Int_.Int_))));
             };
-            if (!(((_z1 == null || (_z1 : Dynamic).__nil__ && _out == null || (_out : Dynamic).__nil__ : Bool) || (_z1.cmp(_out) == (0 : stdgo.GoInt)) : Bool))) {
+            if (!((((_z1 == null || (_z1 : Dynamic).__nil__) && (_out == null || (_out : Dynamic).__nil__) : Bool) || (_z1.cmp(_out) == (0 : stdgo.GoInt)) : Bool))) {
                 _t.errorf(("#%d: got %x want %x" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(stdgo.Go.asInterface(_z1)), stdgo.Go.toInterface(stdgo.Go.asInterface(_out)));
             };
-            if (_m == null || (_m : Dynamic).__nil__) {
+            if ((_m == null || (_m : Dynamic).__nil__)) {
                 _m = (stdgo.Go.setRef(({ _abs : (new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>(0, 0, ...[]).__setNumber32__() : stdgo._internal.math.big.Big_T_nat.T_nat) } : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
                 var _z2 = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).exp(_x, _y, _m);
                 if (_z2.cmp(_z1) != ((0 : stdgo.GoInt))) {

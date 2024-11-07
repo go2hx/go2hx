@@ -12,7 +12,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _addr( _cm:stdgo.Ref<stdgo._internal.net.http.Http_T_connectMethod.T_connectMethod>):stdgo.GoString {
         @:recv var _cm:stdgo.Ref<stdgo._internal.net.http.Http_T_connectMethod.T_connectMethod> = _cm;
-        if (_cm._proxyURL != null && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__)) {
+        if ((_cm._proxyURL != null && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__))) {
             return stdgo._internal.net.http.Http__canonicalAddr._canonicalAddr(_cm._proxyURL)?.__copy__();
         };
         return _cm._targetAddr?.__copy__();
@@ -20,7 +20,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _scheme( _cm:stdgo.Ref<stdgo._internal.net.http.Http_T_connectMethod.T_connectMethod>):stdgo.GoString {
         @:recv var _cm:stdgo.Ref<stdgo._internal.net.http.Http_T_connectMethod.T_connectMethod> = _cm;
-        if (_cm._proxyURL != null && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__)) {
+        if ((_cm._proxyURL != null && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__))) {
             return _cm._proxyURL.scheme?.__copy__();
         };
         return _cm._targetScheme?.__copy__();
@@ -30,7 +30,7 @@ package stdgo._internal.net.http;
         @:recv var _cm:stdgo.Ref<stdgo._internal.net.http.Http_T_connectMethod.T_connectMethod> = _cm;
         var _proxyStr = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
         var _targetAddr = (_cm._targetAddr?.__copy__() : stdgo.GoString);
-        if (_cm._proxyURL != null && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__)) {
+        if ((_cm._proxyURL != null && ((_cm._proxyURL : Dynamic).__nil__ == null || !(_cm._proxyURL : Dynamic).__nil__))) {
             _proxyStr = (_cm._proxyURL.string() : stdgo.GoString)?.__copy__();
             if (((((_cm._proxyURL.scheme == ("http" : stdgo.GoString)) || (_cm._proxyURL.scheme == ("https" : stdgo.GoString)) : Bool)) && (_cm._targetScheme == ("http" : stdgo.GoString)) : Bool)) {
                 _targetAddr = stdgo.Go.str()?.__copy__();
@@ -41,12 +41,12 @@ package stdgo._internal.net.http;
     @:keep
     static public function _proxyAuth( _cm:stdgo.Ref<stdgo._internal.net.http.Http_T_connectMethod.T_connectMethod>):stdgo.GoString {
         @:recv var _cm:stdgo.Ref<stdgo._internal.net.http.Http_T_connectMethod.T_connectMethod> = _cm;
-        if (_cm._proxyURL == null || (_cm._proxyURL : Dynamic).__nil__) {
+        if ((_cm._proxyURL == null || (_cm._proxyURL : Dynamic).__nil__)) {
             return stdgo.Go.str()?.__copy__();
         };
         {
             var _u = _cm._proxyURL.user;
-            if (_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__)) {
+            if ((_u != null && ((_u : Dynamic).__nil__ == null || !(_u : Dynamic).__nil__))) {
                 var _username = (_u.username()?.__copy__() : stdgo.GoString);
                 var __tmp__ = _u.password(), _password:stdgo.GoString = __tmp__._0, __35935:Bool = __tmp__._1;
                 return (("Basic " : stdgo.GoString) + stdgo._internal.net.http.Http__basicAuth._basicAuth(_username?.__copy__(), _password?.__copy__())?.__copy__() : stdgo.GoString)?.__copy__();

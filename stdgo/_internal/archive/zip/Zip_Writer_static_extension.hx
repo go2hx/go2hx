@@ -143,7 +143,7 @@ var _fw = __1, _ow = __0;
     @:keep
     static public function _prepare( _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_Writer.Writer>, _fh:stdgo.Ref<stdgo._internal.archive.zip.Zip_FileHeader.FileHeader>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_Writer.Writer> = _w;
-        if ((((_w._last != null) && ((_w._last : Dynamic).__nil__ == null || !(_w._last : Dynamic).__nil__)) && !_w._last._closed : Bool)) {
+        if (((_w._last != null && ((_w._last : Dynamic).__nil__ == null || !(_w._last : Dynamic).__nil__)) && !_w._last._closed : Bool)) {
             {
                 var _err = (_w._last._close() : stdgo.Error);
                 if (_err != null) {
@@ -165,7 +165,7 @@ var _fw = __1, _ow = __0;
     @:keep
     static public function close( _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_Writer.Writer>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.archive.zip.Zip_Writer.Writer> = _w;
-        if ((((_w._last != null) && ((_w._last : Dynamic).__nil__ == null || !(_w._last : Dynamic).__nil__)) && !_w._last._closed : Bool)) {
+        if (((_w._last != null && ((_w._last : Dynamic).__nil__ == null || !(_w._last : Dynamic).__nil__)) && !_w._last._closed : Bool)) {
             {
                 var _err = (_w._last._close() : stdgo.Error);
                 if (_err != null) {

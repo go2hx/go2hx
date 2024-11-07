@@ -50,6 +50,6 @@ package stdgo._internal.debug.gosym;
     @:keep
     static public function isZero( _f:stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData):Bool {
         @:recv var _f:stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData = _f?.__copy__();
-        return ((_f._t == null) || (_f._t : Dynamic).__nil__ && (_f._data == null) : Bool);
+        return ((_f._t == null || (_f._t : Dynamic).__nil__) && (_f._data == null) : Bool);
     }
 }

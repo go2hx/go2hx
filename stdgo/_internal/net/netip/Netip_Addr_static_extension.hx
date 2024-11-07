@@ -532,7 +532,7 @@ var _zb = __1, _za = __0;
     @:keep
     static public function zone( _ip:stdgo._internal.net.netip.Netip_Addr.Addr):stdgo.GoString {
         @:recv var _ip:stdgo._internal.net.netip.Netip_Addr.Addr = _ip?.__copy__();
-        if (_ip._z == null || (_ip._z : Dynamic).__nil__) {
+        if ((_ip._z == null || (_ip._z : Dynamic).__nil__)) {
             return stdgo.Go.str()?.__copy__();
         };
         var __tmp__ = try {

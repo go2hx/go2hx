@@ -64,7 +64,7 @@ package stdgo._internal.net.rpc;
         };
         _svc = (stdgo.Go.typeAssert((_svci : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>)) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service>);
         _mtype = (_svc._method[_methodName] ?? (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_methodType.T_methodType>));
-        if (_mtype == null || (_mtype : Dynamic).__nil__) {
+        if ((_mtype == null || (_mtype : Dynamic).__nil__)) {
             _err = stdgo._internal.errors.Errors_new_.new_((("rpc: can\'t find method " : stdgo.GoString) + _req.serviceMethod?.__copy__() : stdgo.GoString)?.__copy__());
         };
         return { _0 : _svc, _1 : _mtype, _2 : _req, _3 : _keepReading, _4 : _err };
@@ -128,7 +128,7 @@ package stdgo._internal.net.rpc;
         @:recv var _server:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server> = _server;
         _server._respLock.lock();
         var _resp = _server._freeResp;
-        if (_resp == null || (_resp : Dynamic).__nil__) {
+        if ((_resp == null || (_resp : Dynamic).__nil__)) {
             _resp = (stdgo.Go.setRef(({} : stdgo._internal.net.rpc.Rpc_Response.Response)) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
         } else {
             _server._freeResp = _resp._next;
@@ -156,7 +156,7 @@ package stdgo._internal.net.rpc;
         @:recv var _server:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Server.Server> = _server;
         _server._reqLock.lock();
         var _req = _server._freeReq;
-        if (_req == null || (_req : Dynamic).__nil__) {
+        if ((_req == null || (_req : Dynamic).__nil__)) {
             _req = (stdgo.Go.setRef(({} : stdgo._internal.net.rpc.Rpc_Request.Request)) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>);
         } else {
             _server._freeReq = _req._next;
@@ -179,7 +179,7 @@ package stdgo._internal.net.rpc;
             if (!_keepReading) {
                 return _err;
             };
-            if (_req != null && ((_req : Dynamic).__nil__ == null || !(_req : Dynamic).__nil__)) {
+            if ((_req != null && ((_req : Dynamic).__nil__ == null || !(_req : Dynamic).__nil__))) {
                 _server._sendResponse(_sending, _req, stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.rpc.Rpc__invalidRequest._invalidRequest)), _codec, _err.error()?.__copy__());
                 _server._freeRequest(_req);
             };
@@ -202,7 +202,7 @@ package stdgo._internal.net.rpc;
                 if (!_keepReading) {
                     break;
                 };
-                if (_req != null && ((_req : Dynamic).__nil__ == null || !(_req : Dynamic).__nil__)) {
+                if ((_req != null && ((_req : Dynamic).__nil__ == null || !(_req : Dynamic).__nil__))) {
                     _server._sendResponse(_sending, _req, stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.rpc.Rpc__invalidRequest._invalidRequest)), _codec, _err.error()?.__copy__());
                     _server._freeRequest(_req);
                 };

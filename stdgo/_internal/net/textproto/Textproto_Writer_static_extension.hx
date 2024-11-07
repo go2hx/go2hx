@@ -3,7 +3,7 @@ package stdgo._internal.net.textproto;
     @:keep
     static public function _closeDot( _w:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Writer.Writer>):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Writer.Writer> = _w;
-        if (_w._dot != null && ((_w._dot : Dynamic).__nil__ == null || !(_w._dot : Dynamic).__nil__)) {
+        if ((_w._dot != null && ((_w._dot : Dynamic).__nil__ == null || !(_w._dot : Dynamic).__nil__))) {
             _w._dot.close();
         };
     }

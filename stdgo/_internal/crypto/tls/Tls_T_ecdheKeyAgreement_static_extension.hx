@@ -3,7 +3,7 @@ package stdgo._internal.crypto.tls;
     @:keep
     static public function _generateClientKeyExchange( _ka:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement.T_ecdheKeyAgreement>, _config:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>, _clientHello:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHelloMsg.T_clientHelloMsg>, _cert:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsg.T_clientKeyExchangeMsg>; var _2 : stdgo.Error; } {
         @:recv var _ka:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_ecdheKeyAgreement.T_ecdheKeyAgreement> = _ka;
-        if (_ka._ckx == null || (_ka._ckx : Dynamic).__nil__) {
+        if ((_ka._ckx == null || (_ka._ckx : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_(("tls: missing ServerKeyExchange message" : stdgo.GoString)) };
         };
         return { _0 : _ka._preMasterSecret, _1 : _ka._ckx, _2 : (null : stdgo.Error) };

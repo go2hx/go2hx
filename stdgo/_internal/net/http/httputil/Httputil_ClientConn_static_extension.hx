@@ -39,7 +39,7 @@ package stdgo._internal.net.http.httputil;
                     return __ret__;
                 };
             };
-            if (_cc._r == null || (_cc._r : Dynamic).__nil__) {
+            if ((_cc._r == null || (_cc._r : Dynamic).__nil__)) {
                 __deferstack__.unshift(() -> _cc._mu.unlock());
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.httputil.Httputil__errClosed._errClosed };

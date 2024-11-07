@@ -15,7 +15,7 @@ package stdgo._internal.text.template.parse;
         @:recv var _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode> = _t;
         _sb.writeString(("{{template " : stdgo.GoString));
         _sb.writeString(stdgo._internal.strconv.Strconv_quote.quote(_t.name?.__copy__())?.__copy__());
-        if (_t.pipe != null && ((_t.pipe : Dynamic).__nil__ == null || !(_t.pipe : Dynamic).__nil__)) {
+        if ((_t.pipe != null && ((_t.pipe : Dynamic).__nil__ == null || !(_t.pipe : Dynamic).__nil__))) {
             _sb.writeByte((32 : stdgo.GoUInt8));
             _t.pipe._writeTo(_sb);
         };

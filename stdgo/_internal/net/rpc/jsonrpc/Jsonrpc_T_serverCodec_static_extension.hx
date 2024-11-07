@@ -16,7 +16,7 @@ package stdgo._internal.net.rpc.jsonrpc;
         };
         if (_c._pending != null) _c._pending.remove(_r.seq);
         _c._mutex.unlock();
-        if (_b == null || (_b : Dynamic).__nil__) {
+        if ((_b == null || (_b : Dynamic).__nil__)) {
             _b = (stdgo.Go.setRef(nil) : stdgo.Ref<stdgo._internal.encoding.json.Json_RawMessage.RawMessage>);
         };
         var _resp = ({ id : _b } : stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_serverResponse.T_serverResponse);
@@ -33,7 +33,7 @@ package stdgo._internal.net.rpc.jsonrpc;
         if (_x == null) {
             return (null : stdgo.Error);
         };
-        if (_c._req.params == null || (_c._req.params : Dynamic).__nil__) {
+        if ((_c._req.params == null || (_c._req.params : Dynamic).__nil__)) {
             return stdgo._internal.net.rpc.jsonrpc.Jsonrpc__errMissingParams._errMissingParams;
         };
         var _params:stdgo.GoArray<stdgo.AnyInterface> = new stdgo.GoArray<stdgo.AnyInterface>(1, 1, ...[for (i in 0 ... 1) (null : stdgo.AnyInterface)]);

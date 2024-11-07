@@ -12,7 +12,7 @@ package stdgo._internal.crypto.tls;
     @:keep
     static public function _netDialer( _d:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Dialer.Dialer>):stdgo.Ref<stdgo._internal.net.Net_Dialer.Dialer> {
         @:recv var _d:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Dialer.Dialer> = _d;
-        if (_d.netDialer != null && ((_d.netDialer : Dynamic).__nil__ == null || !(_d.netDialer : Dynamic).__nil__)) {
+        if ((_d.netDialer != null && ((_d.netDialer : Dynamic).__nil__ == null || !(_d.netDialer : Dynamic).__nil__))) {
             return _d.netDialer;
         };
         return (stdgo.Go.setRef(({} : stdgo._internal.net.Net_Dialer.Dialer)) : stdgo.Ref<stdgo._internal.net.Net_Dialer.Dialer>);

@@ -4,7 +4,7 @@ package stdgo._internal.internal.xcoff;
     static public function importedLibraries( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
         var _s = _f.sectionByType((4096u32 : stdgo.GoUInt32));
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = _f._readImportIDs(_s), _all:stdgo.Slice<stdgo.GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -14,7 +14,7 @@ package stdgo._internal.internal.xcoff;
     static public function importedSymbols( _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File>):{ var _0 : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_File.File> = _f;
         var _s = _f.sectionByType((4096u32 : stdgo.GoUInt32));
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo._internal.internal.xcoff.Xcoff_ImportedSymbol.ImportedSymbol>), _1 : (null : stdgo.Error) };
         };
         {
@@ -242,7 +242,7 @@ _all = (_all.__append__(_path.__copy__()));
         var _dat:stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>> = new stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>(5, 5, ...[for (i in 0 ... 5) (null : stdgo.Slice<stdgo.GoUInt8>)]);
         for (_i => _subtype in _subtypes) {
             var _s = _f.sectionByType(((16u32 : stdgo.GoUInt32) | _subtype : stdgo.GoUInt32));
-            if (_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__)) {
+            if ((_s != null && ((_s : Dynamic).__nil__ == null || !(_s : Dynamic).__nil__))) {
                 var __tmp__ = _s.data(), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err != null) && ((_b.length : stdgo.GoUInt64) < _s.sectionHeader.size : Bool) : Bool)) {
                     return { _0 : null, _1 : _err };

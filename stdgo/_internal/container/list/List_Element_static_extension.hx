@@ -5,7 +5,7 @@ package stdgo._internal.container.list;
         @:recv var _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = _e;
         {
             var _p = _e._prev;
-            if ((((_e._list != null) && ((_e._list : Dynamic).__nil__ == null || !(_e._list : Dynamic).__nil__)) && (_p != (stdgo.Go.setRef(_e._list._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>)) : Bool)) {
+            if (((_e._list != null && ((_e._list : Dynamic).__nil__ == null || !(_e._list : Dynamic).__nil__)) && (_p != (stdgo.Go.setRef(_e._list._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>)) : Bool)) {
                 return _p;
             };
         };
@@ -16,7 +16,7 @@ package stdgo._internal.container.list;
         @:recv var _e:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = _e;
         {
             var _p = _e._next;
-            if ((((_e._list != null) && ((_e._list : Dynamic).__nil__ == null || !(_e._list : Dynamic).__nil__)) && (_p != (stdgo.Go.setRef(_e._list._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>)) : Bool)) {
+            if (((_e._list != null && ((_e._list : Dynamic).__nil__ == null || !(_e._list : Dynamic).__nil__)) && (_p != (stdgo.Go.setRef(_e._list._root) : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>)) : Bool)) {
                 return _p;
             };
         };

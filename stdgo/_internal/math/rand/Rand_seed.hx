@@ -1,7 +1,7 @@
 package stdgo._internal.math.rand;
 function seed(_seed:stdgo.GoInt64):Void {
         var _orig = stdgo._internal.math.rand.Rand__globalRandGenerator._globalRandGenerator.load();
-        if (_orig != null && ((_orig : Dynamic).__nil__ == null || !(_orig : Dynamic).__nil__)) {
+        if ((_orig != null && ((_orig : Dynamic).__nil__ == null || !(_orig : Dynamic).__nil__))) {
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_orig._src) : stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource>)) : stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource>), _1 : true };

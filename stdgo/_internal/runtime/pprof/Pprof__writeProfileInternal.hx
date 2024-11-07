@@ -39,7 +39,7 @@ function _writeProfileInternal(_w:stdgo._internal.io.Io_Writer.Writer, _debug:st
                 stdgo._internal.runtime.pprof.Pprof__printStackRecord._printStackRecord(_w, _r.stack(), true);
             };
         };
-        if (_tw != null && ((_tw : Dynamic).__nil__ == null || !(_tw : Dynamic).__nil__)) {
+        if ((_tw != null && ((_tw : Dynamic).__nil__ == null || !(_tw : Dynamic).__nil__))) {
             _tw.flush();
         };
         return _b.flush();

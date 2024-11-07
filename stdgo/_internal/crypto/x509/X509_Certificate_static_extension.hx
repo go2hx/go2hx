@@ -104,7 +104,7 @@ package stdgo._internal.crypto.x509;
     @:keep
     static public function equal( _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, _other:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>):Bool {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = _c;
-        if ((((_c == null) || (_c : Dynamic).__nil__) || ((_other == null) || (_other : Dynamic).__nil__) : Bool)) {
+        if (((_c == null || (_c : Dynamic).__nil__) || (_other == null || (_other : Dynamic).__nil__) : Bool)) {
             return _c == (_other);
         };
         return stdgo._internal.bytes.Bytes_equal.equal(_c.raw, _other.raw);
@@ -229,19 +229,19 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
         };
         if (false) {
             var _systemPool = stdgo._internal.crypto.x509.X509__systemRootsPool._systemRootsPool();
-            if (((_opts.roots == null) || (_opts.roots : Dynamic).__nil__ && ((((_systemPool == null) || (_systemPool : Dynamic).__nil__) || _systemPool._systemPool : Bool)) : Bool)) {
+            if (((_opts.roots == null || (_opts.roots : Dynamic).__nil__) && (((_systemPool == null || (_systemPool : Dynamic).__nil__) || _systemPool._systemPool : Bool)) : Bool)) {
                 return _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>));
             };
-            if ((((_opts.roots != null) && ((_opts.roots : Dynamic).__nil__ == null || !(_opts.roots : Dynamic).__nil__)) && _opts.roots._systemPool : Bool)) {
+            if (((_opts.roots != null && ((_opts.roots : Dynamic).__nil__ == null || !(_opts.roots : Dynamic).__nil__)) && _opts.roots._systemPool : Bool)) {
                 var __tmp__ = _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>)), _platformChains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err == null) || (_opts.roots._len() == (0 : stdgo.GoInt)) : Bool)) {
                     return { _0 : _platformChains, _1 : _err };
                 };
             };
         };
-        if (_opts.roots == null || (_opts.roots : Dynamic).__nil__) {
+        if ((_opts.roots == null || (_opts.roots : Dynamic).__nil__)) {
             _opts.roots = stdgo._internal.crypto.x509.X509__systemRootsPool._systemRootsPool();
-            if (_opts.roots == null || (_opts.roots : Dynamic).__nil__) {
+            if ((_opts.roots == null || (_opts.roots : Dynamic).__nil__)) {
                 return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError(stdgo._internal.crypto.x509.X509__systemRootsErr._systemRootsErr) : stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError)) };
             };
         };

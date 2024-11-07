@@ -3,7 +3,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function boundAddr( _c:stdgo.Ref<stdgo._internal.net.http.Http_T_socksConn.T_socksConn>):stdgo._internal.net.Net_Addr.Addr {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_T_socksConn.T_socksConn> = _c;
-        if (_c == null || (_c : Dynamic).__nil__) {
+        if ((_c == null || (_c : Dynamic).__nil__)) {
             return (null : stdgo._internal.net.Net_Addr.Addr);
         };
         return _c._boundAddr;

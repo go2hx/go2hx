@@ -29,7 +29,7 @@ if (_f.anonymous) {
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
-                            if (_tinfo._xmlname == null || (_tinfo._xmlname : Dynamic).__nil__) {
+                            if ((_tinfo._xmlname == null || (_tinfo._xmlname : Dynamic).__nil__)) {
                                 _tinfo._xmlname = _inner._xmlname;
                             };
                             for (__4 => _finfo in _inner._fields) {

@@ -8,7 +8,7 @@ package stdgo._internal.archive.zip;
             _w._mu.lock();
             __deferstack__.unshift(() -> _w._mu.unlock());
             var _err:stdgo.Error = (null : stdgo.Error);
-            if (_w._fw != null && ((_w._fw : Dynamic).__nil__ == null || !(_w._fw : Dynamic).__nil__)) {
+            if ((_w._fw != null && ((_w._fw : Dynamic).__nil__ == null || !(_w._fw : Dynamic).__nil__))) {
                 _err = _w._fw.close();
                 stdgo._internal.archive.zip.Zip__flateWriterPool._flateWriterPool.put(stdgo.Go.toInterface(stdgo.Go.asInterface(_w._fw)));
                 _w._fw = null;
@@ -51,7 +51,7 @@ package stdgo._internal.archive.zip;
         try {
             _w._mu.lock();
             __deferstack__.unshift(() -> _w._mu.unlock());
-            if (_w._fw == null || (_w._fw : Dynamic).__nil__) {
+            if ((_w._fw == null || (_w._fw : Dynamic).__nil__)) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("Write after Close" : stdgo.GoString)) };
                     for (defer in __deferstack__) {

@@ -8,7 +8,7 @@ function testOnePassCutoff(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         if (_err != null) {
             _t.fatalf(("compile: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
-        if (stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_p) != null && ((stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_p) : Dynamic).__nil__ == null || !(stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_p) : Dynamic).__nil__)) {
+        if ((stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_p) != null && ((stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_p) : Dynamic).__nil__ == null || !(stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_p) : Dynamic).__nil__))) {
             _t.fatalf(("makeOnePass succeeded; wanted nil" : stdgo.GoString));
         };
     }

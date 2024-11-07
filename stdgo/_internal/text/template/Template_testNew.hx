@@ -5,10 +5,10 @@ function testNew(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         if (_t1._common != (_t2._common)) {
             _t.errorf(("t1 & t2 didn\'t share common struct; got %v != %v" : stdgo.GoString), stdgo.Go.toInterface(_t1._common), stdgo.Go.toInterface(_t2._common));
         };
-        if (_t1.tree == null || (_t1.tree : Dynamic).__nil__) {
+        if ((_t1.tree == null || (_t1.tree : Dynamic).__nil__)) {
             _t.error(stdgo.Go.toInterface(("defined template got nil Tree" : stdgo.GoString)));
         };
-        if (_t2.tree != null && ((_t2.tree : Dynamic).__nil__ == null || !(_t2.tree : Dynamic).__nil__)) {
+        if ((_t2.tree != null && ((_t2.tree : Dynamic).__nil__ == null || !(_t2.tree : Dynamic).__nil__))) {
             _t.error(stdgo.Go.toInterface(("undefined template got non-nil Tree" : stdgo.GoString)));
         };
         var _containsT1 = (false : Bool);

@@ -43,7 +43,7 @@ package stdgo._internal.text.template.parse;
         _b.pipe._writeTo(_sb);
         _sb.writeString(("}}" : stdgo.GoString));
         _b.list._writeTo(_sb);
-        if (_b.elseList != null && ((_b.elseList : Dynamic).__nil__ == null || !(_b.elseList : Dynamic).__nil__)) {
+        if ((_b.elseList != null && ((_b.elseList : Dynamic).__nil__ == null || !(_b.elseList : Dynamic).__nil__))) {
             _sb.writeString(("{{else}}" : stdgo.GoString));
             _b.elseList._writeTo(_sb);
         };

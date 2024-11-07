@@ -66,7 +66,7 @@ package stdgo._internal.sync;
         };
         while (_ok) {
             var _p = _e._p.load();
-            if (((_p == null || (_p : Dynamic).__nil__ || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
+            if ((((_p == null || (_p : Dynamic).__nil__) || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
                 return false;
             };
             if (_e._p.compareAndSwap(_p, (null : stdgo.Ref<stdgo.AnyInterface>))) {
@@ -144,7 +144,7 @@ package stdgo._internal.sync;
                 {
                     var __tmp__ = _e._trySwap((stdgo.Go.setRef(_value) : stdgo.Ref<stdgo.AnyInterface>)), _v:stdgo.Ref<stdgo.AnyInterface> = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
-                        if (_v == null || (_v : Dynamic).__nil__) {
+                        if ((_v == null || (_v : Dynamic).__nil__)) {
                             return { _0 : (null : stdgo.AnyInterface), _1 : false };
                         };
                         return { _0 : (_v : stdgo.AnyInterface), _1 : true };
@@ -162,7 +162,7 @@ package stdgo._internal.sync;
                 };
                 {
                     var _v = _e._swapLocked((stdgo.Go.setRef(_value) : stdgo.Ref<stdgo.AnyInterface>));
-                    if (_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__)) {
+                    if ((_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__))) {
                         _loaded = true;
                         _previous = (_v : stdgo.AnyInterface);
                     };
@@ -172,7 +172,7 @@ package stdgo._internal.sync;
                 if (_ok) {
                     {
                         var _v = _e._swapLocked((stdgo.Go.setRef(_value) : stdgo.Ref<stdgo.AnyInterface>));
-                        if (_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__)) {
+                        if ((_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__))) {
                             _loaded = true;
                             _previous = (_v : stdgo.AnyInterface);
                         };
@@ -317,7 +317,7 @@ package stdgo._internal.sync;
         @:recv var _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_> = _m;
         {
             var _p = _m._read.load();
-            if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
+            if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
                 return (_p : stdgo._internal.sync.Sync_T_readOnly.T_readOnly)?.__copy__();
             };
         };

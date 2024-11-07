@@ -1,6 +1,6 @@
 package stdgo._internal.time;
 function date(_year:stdgo.GoInt, _month:stdgo._internal.time.Time_Month.Month, _day:stdgo.GoInt, _hour:stdgo.GoInt, _min:stdgo.GoInt, _sec:stdgo.GoInt, _nsec:stdgo.GoInt, _loc:stdgo.Ref<stdgo._internal.time.Time_Location.Location>):stdgo._internal.time.Time_Time.Time {
-        if (_loc == null || (_loc : Dynamic).__nil__) {
+        if ((_loc == null || (_loc : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("time: missing Location in call to Date" : stdgo.GoString));
         };
         var _m = ((_month : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);

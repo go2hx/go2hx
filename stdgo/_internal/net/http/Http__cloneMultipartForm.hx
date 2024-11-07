@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function _cloneMultipartForm(_f:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>):stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form> {
-        if (_f == null || (_f : Dynamic).__nil__) {
+        if ((_f == null || (_f : Dynamic).__nil__)) {
             return null;
         };
         var _f2 = (stdgo.Go.setRef(({ value : ((_f.value : stdgo._internal.net.http.Http_Header.Header).clone() : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) } : stdgo._internal.mime.multipart.Multipart_Form.Form)) : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>);

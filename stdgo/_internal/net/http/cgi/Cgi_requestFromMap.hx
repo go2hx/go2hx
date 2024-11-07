@@ -73,7 +73,7 @@ function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ v
         };
         if (_r.host != (stdgo.Go.str())) {
             var _rawurl = ((_r.host + _uriStr?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
-            if (_r.tls == null || (_r.tls : Dynamic).__nil__) {
+            if ((_r.tls == null || (_r.tls : Dynamic).__nil__)) {
                 _rawurl = (("http://" : stdgo.GoString) + _rawurl?.__copy__() : stdgo.GoString)?.__copy__();
             } else {
                 _rawurl = (("https://" : stdgo.GoString) + _rawurl?.__copy__() : stdgo.GoString)?.__copy__();
@@ -84,7 +84,7 @@ function requestFromMap(_params:stdgo.GoMap<stdgo.GoString, stdgo.GoString>):{ v
             };
             _r.url = _url;
         };
-        if (_r.url == null || (_r.url : Dynamic).__nil__) {
+        if ((_r.url == null || (_r.url : Dynamic).__nil__)) {
             var __tmp__ = stdgo._internal.net.url.Url_parse.parse(_uriStr?.__copy__()), _url:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((("cgi: failed to parse REQUEST_URI into a URL: " : stdgo.GoString) + _uriStr?.__copy__() : stdgo.GoString)?.__copy__()) };

@@ -61,7 +61,7 @@ package stdgo._internal.debug.pe;
                 break;
             };
         };
-        if (_ds == null || (_ds : Dynamic).__nil__) {
+        if ((_ds == null || (_ds : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = _ds.data(), _d:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

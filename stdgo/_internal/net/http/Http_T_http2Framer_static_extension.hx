@@ -455,7 +455,7 @@ package stdgo._internal.net.http;
         if (_fr._logReads) {
             _fr._debugReadLoggerf(("http2: Framer %p: read %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_fr)), stdgo.Go.toInterface(stdgo._internal.net.http.Http__http2summarizeFrame._http2summarizeFrame(_f)));
         };
-        if (((_fh.type == (1 : stdgo._internal.net.http.Http_T_http2FrameType.T_http2FrameType)) && ((_fr.readMetaHeaders != null) && ((_fr.readMetaHeaders : Dynamic).__nil__ == null || !(_fr.readMetaHeaders : Dynamic).__nil__)) : Bool)) {
+        if (((_fh.type == (1 : stdgo._internal.net.http.Http_T_http2FrameType.T_http2FrameType)) && (_fr.readMetaHeaders != null && ((_fr.readMetaHeaders : Dynamic).__nil__ == null || !(_fr.readMetaHeaders : Dynamic).__nil__)) : Bool)) {
             return _fr._readMetaFrame((stdgo.Go.typeAssert((stdgo.Go.toInterface(_f) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2HeadersFrame.T_http2HeadersFrame>)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2HeadersFrame.T_http2HeadersFrame>));
         };
         return { _0 : _f, _1 : (null : stdgo.Error) };
@@ -476,7 +476,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function setReuseFrames( _fr:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Framer.T_http2Framer>):Void {
         @:recv var _fr:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Framer.T_http2Framer> = _fr;
-        if (_fr._frameCache != null && ((_fr._frameCache : Dynamic).__nil__ == null || !(_fr._frameCache : Dynamic).__nil__)) {
+        if ((_fr._frameCache != null && ((_fr._frameCache : Dynamic).__nil__ == null || !(_fr._frameCache : Dynamic).__nil__))) {
             return;
         };
         _fr._frameCache = (stdgo.Go.setRef((new stdgo._internal.net.http.Http_T_http2frameCache.T_http2frameCache() : stdgo._internal.net.http.Http_T_http2frameCache.T_http2frameCache)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2frameCache.T_http2frameCache>);
@@ -504,7 +504,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _logWrite( _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Framer.T_http2Framer>):Void {
         @:recv var _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Framer.T_http2Framer> = _f;
-        if (_f._debugFramer == null || (_f._debugFramer : Dynamic).__nil__) {
+        if ((_f._debugFramer == null || (_f._debugFramer : Dynamic).__nil__)) {
             _f._debugFramerBuf = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
             _f._debugFramer = stdgo._internal.net.http.Http__http2NewFramer._http2NewFramer((null : stdgo._internal.io.Io_Writer.Writer), stdgo.Go.asInterface(_f._debugFramerBuf));
             _f._debugFramer._logReads = false;

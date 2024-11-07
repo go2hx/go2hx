@@ -6,7 +6,7 @@ function testRunOnePass(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                 _t.errorf(("Compile(%q): got err: %s" : stdgo.GoString), stdgo.Go.toInterface(_test._re), stdgo.Go.toInterface(_err));
                 continue;
             };
-            if (_re._onepass == null || (_re._onepass : Dynamic).__nil__) {
+            if ((_re._onepass == null || (_re._onepass : Dynamic).__nil__)) {
                 _t.errorf(("Compile(%q): got nil, want one-pass" : stdgo.GoString), stdgo.Go.toInterface(_test._re));
                 continue;
             };

@@ -105,7 +105,7 @@ package stdgo._internal.net.http;
                     _hook(_sc);
                 };
             };
-            if (_opts.upgradeRequest != null && ((_opts.upgradeRequest : Dynamic).__nil__ == null || !(_opts.upgradeRequest : Dynamic).__nil__)) {
+            if ((_opts.upgradeRequest != null && ((_opts.upgradeRequest : Dynamic).__nil__ == null || !(_opts.upgradeRequest : Dynamic).__nil__))) {
                 _sc._upgradeRequest(_opts.upgradeRequest);
                 _opts.upgradeRequest = null;
             };

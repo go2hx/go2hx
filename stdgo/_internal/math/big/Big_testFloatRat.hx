@@ -18,7 +18,7 @@ function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
             var _x = stdgo._internal.math.big.Big__makeFloat._makeFloat(_test._x?.__copy__()).setPrec((64u32 : stdgo.GoUInt));
             var __tmp__ = _x.rat(null), _res:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
             var _got = ("nil" : stdgo.GoString);
-            if (_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__)) {
+            if ((_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__))) {
                 _got = (_res.string() : stdgo.GoString)?.__copy__();
             };
             if (_got != (_test._want)) {
@@ -29,7 +29,7 @@ function testFloatRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
                 _t.errorf(("%s: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(stdgo.Go.asInterface(_acc)), stdgo.Go.toInterface(stdgo.Go.asInterface(_test._acc)));
                 continue;
             };
-            if (_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__)) {
+            if ((_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__))) {
                 var _got = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Float_.Float_)) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>).setPrec((64u32 : stdgo.GoUInt)).setRat(_res);
                 if (_got.cmp(_x) != ((0 : stdgo.GoInt))) {
                     _t.errorf(("%s: got %s; want %s" : stdgo.GoString), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));

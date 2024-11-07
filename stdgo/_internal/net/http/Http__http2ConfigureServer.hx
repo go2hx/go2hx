@@ -1,9 +1,9 @@
 package stdgo._internal.net.http;
 function _http2ConfigureServer(_s:stdgo.Ref<stdgo._internal.net.http.Http_Server.Server>, _conf:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>):stdgo.Error {
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("nil *http.Server" : stdgo.GoString));
         };
-        if (_conf == null || (_conf : Dynamic).__nil__) {
+        if ((_conf == null || (_conf : Dynamic).__nil__)) {
             _conf = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_T_http2Server.T_http2Server)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2Server.T_http2Server>);
         };
         _conf._state = (stdgo.Go.setRef(({ _activeConns : ({
@@ -23,7 +23,7 @@ var _h2 = __1, _h1 = __0;
             };
         };
         _s.registerOnShutdown(_conf._state._startGracefulShutdown);
-        if (_s.tlsconfig == null || (_s.tlsconfig : Dynamic).__nil__) {
+        if ((_s.tlsconfig == null || (_s.tlsconfig : Dynamic).__nil__)) {
             _s.tlsconfig = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
         } else if (((_s.tlsconfig.cipherSuites != null) && (_s.tlsconfig.minVersion < (772 : stdgo.GoUInt16) : Bool) : Bool)) {
             var _haveRequired = (false : Bool);

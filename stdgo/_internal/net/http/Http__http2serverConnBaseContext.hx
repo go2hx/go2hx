@@ -9,7 +9,7 @@ function _http2serverConnBaseContext(_c:stdgo._internal.net.Net_Conn.Conn, _opts
         _ctx = stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_localAddrContextKey.localAddrContextKey)), stdgo.Go.toInterface(_c.localAddr()));
         {
             var _hs = _opts._baseConfig();
-            if (_hs != null && ((_hs : Dynamic).__nil__ == null || !(_hs : Dynamic).__nil__)) {
+            if ((_hs != null && ((_hs : Dynamic).__nil__ == null || !(_hs : Dynamic).__nil__))) {
                 _ctx = stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_serverContextKey.serverContextKey)), stdgo.Go.toInterface(stdgo.Go.asInterface(_hs)));
             };
         };

@@ -178,7 +178,7 @@ package stdgo._internal.internal.fuzz;
             } else {
                 stdgo._internal.fmt.Fmt_fprintf.fprintf(_c._opts.log, ("fuzz: elapsed: %s, testing seed corpus: %d/%d completed\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._elapsed())), stdgo.Go.toInterface(_runSoFar), stdgo.Go.toInterface(_c._warmupInputCount));
             };
-        } else if (_c._crashMinimizing != null && ((_c._crashMinimizing : Dynamic).__nil__ == null || !(_c._crashMinimizing : Dynamic).__nil__)) {
+        } else if ((_c._crashMinimizing != null && ((_c._crashMinimizing : Dynamic).__nil__ == null || !(_c._crashMinimizing : Dynamic).__nil__))) {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(_c._opts.log, ("fuzz: elapsed: %s, minimizing\n" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c._elapsed())));
         } else {
             var _rate = (((_c._count - _c._countLastLog : stdgo.GoInt64) : stdgo.GoFloat64) / _now.sub(_c._timeLastLog?.__copy__()).seconds() : stdgo.GoFloat64);

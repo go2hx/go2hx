@@ -20,7 +20,7 @@ var __tmp__ = _r.next(), _e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.En
 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
-if ((((_e == null) || (_e : Dynamic).__nil__) || (_e.tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) : Bool)) {
+if (((_e == null || (_e : Dynamic).__nil__) || (_e.tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) : Bool)) {
                     return { _0 : null, _1 : stdgo._internal.debug.dwarf.Dwarf_errUnknownPC.errUnknownPC };
                 };
 var __tmp__ = _r._d.ranges(_e), _ranges:stdgo.Slice<stdgo.GoArray<stdgo.GoUInt64>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -64,7 +64,7 @@ _unit++;
         };
         while (true) {
             var __tmp__ = _r.next(), _e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (((_err != null || _e == null || (_e : Dynamic).__nil__ : Bool) || (_e.tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) : Bool)) {
+            if (((_err != null || (_e == null || (_e : Dynamic).__nil__) : Bool) || (_e.tag == (0u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) : Bool)) {
                 break;
             };
             if (_e.children) {
@@ -89,7 +89,7 @@ _unit++;
             return { _0 : null, _1 : _r._err };
         };
         _r._lastUnit = false;
-        if (_e != null && ((_e : Dynamic).__nil__ == null || !(_e : Dynamic).__nil__)) {
+        if ((_e != null && ((_e : Dynamic).__nil__ == null || !(_e : Dynamic).__nil__))) {
             _r._lastChildren = _e.children;
             if (_r._lastChildren) {
                 {

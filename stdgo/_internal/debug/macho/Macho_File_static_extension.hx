@@ -21,7 +21,7 @@ package stdgo._internal.debug.macho;
     @:keep
     static public function importedSymbols( _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo.Ref<stdgo._internal.debug.macho.Macho_File.File> = _f;
-        if ((((_f.dysymtab == null) || (_f.dysymtab : Dynamic).__nil__) || ((_f.symtab == null) || (_f.symtab : Dynamic).__nil__) : Bool)) {
+        if (((_f.dysymtab == null || (_f.dysymtab : Dynamic).__nil__) || (_f.symtab == null || (_f.symtab : Dynamic).__nil__) : Bool)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.macho.Macho_FormatError.FormatError((0i64 : stdgo.GoInt64), ("missing symbol table" : stdgo.GoString), (null : stdgo.AnyInterface)) : stdgo._internal.debug.macho.Macho_FormatError.FormatError)) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FormatError.FormatError>)) };
         };
         var _st = _f.symtab;

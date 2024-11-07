@@ -8,7 +8,7 @@ function createCertificate(_rand:stdgo._internal.io.Io_Reader.Reader, _template:
         if (!_ok) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: certificate private key does not implement crypto.Signer" : stdgo.GoString)) };
         };
-        if (_template.serialNumber == null || (_template.serialNumber : Dynamic).__nil__) {
+        if ((_template.serialNumber == null || (_template.serialNumber : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: no SerialNumber given" : stdgo.GoString)) };
         };
         if (_template.serialNumber.sign() == ((-1 : stdgo.GoInt))) {

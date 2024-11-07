@@ -4,7 +4,7 @@ package stdgo._internal.net.http;
     static public function read( _b:stdgo.Ref<stdgo._internal.net.http.Http_T_readWriteCloserBody.T_readWriteCloserBody>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.net.http.Http_T_readWriteCloserBody.T_readWriteCloserBody> = _b;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        if (_b._br != null && ((_b._br : Dynamic).__nil__ == null || !(_b._br : Dynamic).__nil__)) {
+        if ((_b._br != null && ((_b._br : Dynamic).__nil__ == null || !(_b._br : Dynamic).__nil__))) {
             {
                 var _n = (_b._br.buffered() : stdgo.GoInt);
                 if (((_p.length) > _n : Bool)) {

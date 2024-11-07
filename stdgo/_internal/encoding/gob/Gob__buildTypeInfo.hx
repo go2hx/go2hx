@@ -6,7 +6,7 @@ function _buildTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTyp
             __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock());
             {
                 var _info = stdgo._internal.encoding.gob.Gob__lookupTypeInfo._lookupTypeInfo(_rt);
-                if (_info != null && ((_info : Dynamic).__nil__ == null || !(_info : Dynamic).__nil__)) {
+                if ((_info != null && ((_info : Dynamic).__nil__ == null || !(_info : Dynamic).__nil__))) {
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>; var _1 : stdgo.Error; } = { _0 : _info, _1 : (null : stdgo.Error) };
                         for (defer in __deferstack__) {

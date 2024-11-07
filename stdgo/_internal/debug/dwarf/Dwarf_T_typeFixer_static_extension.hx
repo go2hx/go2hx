@@ -13,7 +13,7 @@ package stdgo._internal.debug.dwarf;
     @:keep
     static public function _recordArrayType( _tf:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_T_typeFixer.T_typeFixer>, _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>):Void {
         @:recv var _tf:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_T_typeFixer.T_typeFixer> = _tf;
-        if (_t == null || (_t : Dynamic).__nil__) {
+        if ((_t == null || (_t : Dynamic).__nil__)) {
             return;
         };
         var __tmp__ = try {

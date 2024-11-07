@@ -14,7 +14,7 @@ package stdgo._internal.net.http.httputil;
             _r.out.header.del(("X-Forwarded-For" : stdgo.GoString));
         };
         _r.out.header.set(("X-Forwarded-Host" : stdgo.GoString), _r.in_.host?.__copy__());
-        if (_r.in_.tls == null || (_r.in_.tls : Dynamic).__nil__) {
+        if ((_r.in_.tls == null || (_r.in_.tls : Dynamic).__nil__)) {
             _r.out.header.set(("X-Forwarded-Proto" : stdgo.GoString), ("http" : stdgo.GoString));
         } else {
             _r.out.header.set(("X-Forwarded-Proto" : stdgo.GoString), ("https" : stdgo.GoString));

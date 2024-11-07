@@ -94,12 +94,12 @@ package stdgo._internal.net.http;
     @:keep
     static public function _isControl( _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):Bool {
         @:recv var _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = _wr?.__copy__();
-        return _wr._stream == null || (_wr._stream : Dynamic).__nil__;
+        return (_wr._stream == null || (_wr._stream : Dynamic).__nil__);
     }
     @:keep
     static public function streamID( _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):stdgo.GoUInt32 {
         @:recv var _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest = _wr?.__copy__();
-        if (_wr._stream == null || (_wr._stream : Dynamic).__nil__) {
+        if ((_wr._stream == null || (_wr._stream : Dynamic).__nil__)) {
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_wr._write) : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError)) : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError), _1 : true };

@@ -228,7 +228,7 @@ package stdgo._internal.net.http;
                     return _err;
                 };
             };
-            if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
                 _trace.wroteHeaderField(("Connection" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("close" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>));
             };
         };
@@ -245,7 +245,7 @@ package stdgo._internal.net.http;
                     return _err;
                 };
             };
-            if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
                 _trace.wroteHeaderField(("Content-Length" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo._internal.strconv.Strconv_formatInt.formatInt(_t.contentLength, (10 : stdgo.GoInt))?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>));
             };
         } else if (stdgo._internal.net.http.Http__chunked._chunked(_t.transferEncoding)) {
@@ -255,7 +255,7 @@ package stdgo._internal.net.http;
                     return _err;
                 };
             };
-            if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
                 _trace.wroteHeaderField(("Transfer-Encoding" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[("chunked" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>));
             };
         };
@@ -279,7 +279,7 @@ package stdgo._internal.net.http;
                         return _err;
                     };
                 };
-                if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
+                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
                     _trace.wroteHeaderField(("Trailer" : stdgo.GoString), _keys);
                 };
             };

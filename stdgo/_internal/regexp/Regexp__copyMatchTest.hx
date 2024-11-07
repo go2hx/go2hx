@@ -1,7 +1,7 @@
 package stdgo._internal.regexp;
 function _copyMatchTest(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _test:stdgo.Ref<stdgo._internal.regexp.Regexp_FindTest.FindTest>):Void {
         var _re = stdgo._internal.regexp.Regexp__compileTest._compileTest(_t, _test._pat?.__copy__(), stdgo.Go.str()?.__copy__());
-        if (_re == null || (_re : Dynamic).__nil__) {
+        if ((_re == null || (_re : Dynamic).__nil__)) {
             return;
         };
         var _m1 = (_re.matchString(_test._text?.__copy__()) : Bool);

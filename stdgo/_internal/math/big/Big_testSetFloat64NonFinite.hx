@@ -4,7 +4,7 @@ function testSetFloat64NonFinite(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_
             var _r:stdgo._internal.math.big.Big_Rat.Rat = ({} : stdgo._internal.math.big.Big_Rat.Rat);
             {
                 var _r2 = _r.setFloat64(_f);
-                if (_r2 != null && ((_r2 : Dynamic).__nil__ == null || !(_r2 : Dynamic).__nil__)) {
+                if ((_r2 != null && ((_r2 : Dynamic).__nil__ == null || !(_r2 : Dynamic).__nil__))) {
                     _t.errorf(("SetFloat64(%g) was %v, want nil" : stdgo.GoString), stdgo.Go.toInterface(_f), stdgo.Go.toInterface(stdgo.Go.asInterface(_r2)));
                 };
             };

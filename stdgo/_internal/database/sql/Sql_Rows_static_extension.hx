@@ -55,7 +55,7 @@ package stdgo._internal.database.sql;
             if (_rs._cancel != null) {
                 _rs._cancel();
             };
-            if (_rs._closeStmt != null && ((_rs._closeStmt : Dynamic).__nil__ == null || !(_rs._closeStmt : Dynamic).__nil__)) {
+            if ((_rs._closeStmt != null && ((_rs._closeStmt : Dynamic).__nil__ == null || !(_rs._closeStmt : Dynamic).__nil__))) {
                 _rs._closeStmt.close();
             };
             _rs._releaseConn(_err);
@@ -267,7 +267,7 @@ package stdgo._internal.database.sql;
             if (!_rs._hitEOF) {
                 {
                     var _errp = _rs._contextDone.load();
-                    if (_errp != null && ((_errp : Dynamic).__nil__ == null || !(_errp : Dynamic).__nil__)) {
+                    if ((_errp != null && ((_errp : Dynamic).__nil__ == null || !(_errp : Dynamic).__nil__))) {
                         return (_errp : stdgo.Error);
                     };
                 };
@@ -493,7 +493,7 @@ package stdgo._internal.database.sql;
     static public function next( _rs:stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>):Bool {
         @:recv var _rs:stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows> = _rs;
         _rs._closemuRUnlockIfHeldByScan();
-        if (_rs._contextDone.load() != null && ((_rs._contextDone.load() : Dynamic).__nil__ == null || !(_rs._contextDone.load() : Dynamic).__nil__)) {
+        if ((_rs._contextDone.load() != null && ((_rs._contextDone.load() : Dynamic).__nil__ == null || !(_rs._contextDone.load() : Dynamic).__nil__))) {
             return false;
         };
         var __0:Bool = false, __1:Bool = false;

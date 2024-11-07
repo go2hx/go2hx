@@ -283,12 +283,12 @@ package stdgo._internal.net.http;
                 throw stdgo.Go.toInterface(("forgetting unknown stream id" : stdgo.GoString));
             };
             _cc._lastActive = stdgo._internal.time.Time_now.now()?.__copy__();
-            if (((_cc._streams.length == (0 : stdgo.GoInt)) && ((_cc._idleTimer != null) && ((_cc._idleTimer : Dynamic).__nil__ == null || !(_cc._idleTimer : Dynamic).__nil__)) : Bool)) {
+            if (((_cc._streams.length == (0 : stdgo.GoInt)) && (_cc._idleTimer != null && ((_cc._idleTimer : Dynamic).__nil__ == null || !(_cc._idleTimer : Dynamic).__nil__)) : Bool)) {
                 _cc._idleTimer.reset(_cc._idleTimeout);
                 _cc._lastIdle = stdgo._internal.time.Time_now.now()?.__copy__();
             };
             _cc._cond.broadcast();
-            var _closeOnIdle = (((_cc._singleUse || _cc._doNotReuse : Bool) || _cc._t._disableKeepAlives() : Bool) || ((_cc._goAway != null) && ((_cc._goAway : Dynamic).__nil__ == null || !(_cc._goAway : Dynamic).__nil__)) : Bool);
+            var _closeOnIdle = (((_cc._singleUse || _cc._doNotReuse : Bool) || _cc._t._disableKeepAlives() : Bool) || (_cc._goAway != null && ((_cc._goAway : Dynamic).__nil__ == null || !(_cc._goAway : Dynamic).__nil__)) : Bool);
             if (((_closeOnIdle && _cc._streamsReserved == ((0 : stdgo.GoInt)) : Bool) && (_cc._streams.length == (0 : stdgo.GoInt)) : Bool)) {
                 if (stdgo._internal.net.http.Http__http2VerboseLogs._http2VerboseLogs) {
                     _cc._vlogf(("http2: Transport closing idle conn %p (forSingleUse=%v, maxStream=%v)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cc)), stdgo.Go.toInterface(_cc._singleUse), stdgo.Go.toInterface((_cc._nextStreamID - (2u32 : stdgo.GoUInt32) : stdgo.GoUInt32)));
@@ -369,7 +369,7 @@ package stdgo._internal.net.http;
     static public function _encodeHeaders( _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _addGzipHeader:Bool, _trailers:stdgo.GoString, _contentLength:stdgo.GoInt64):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn> = _cc;
         _cc._hbuf.reset();
-        if (_req.url == null || (_req.url : Dynamic).__nil__) {
+        if ((_req.url == null || (_req.url : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.net.http.Http__http2errNilRequestURL._http2errNilRequestURL };
         };
         var _host = (_req.host?.__copy__() : stdgo.GoString);
@@ -732,7 +732,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _responseHeaderTimeout( _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>):stdgo._internal.time.Time_Duration.Duration {
         @:recv var _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn> = _cc;
-        if (_cc._t._t1 != null && ((_cc._t._t1 : Dynamic).__nil__ == null || !(_cc._t._t1 : Dynamic).__nil__)) {
+        if ((_cc._t._t1 != null && ((_cc._t._t1 : Dynamic).__nil__ == null || !(_cc._t._t1 : Dynamic).__nil__))) {
             return _cc._t._t1.responseHeaderTimeout;
         };
         return (0i64 : stdgo._internal.time.Time_Duration.Duration);
@@ -1094,7 +1094,7 @@ package stdgo._internal.net.http;
         } else {
             _maxConcurrentOkay = (((((_cc._streams.length) + _cc._streamsReserved : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) <= (_cc._maxConcurrentStreams : stdgo.GoInt64) : Bool);
         };
-        _st._canTakeNewRequest = ((((((_cc._goAway == null || (_cc._goAway : Dynamic).__nil__ && !_cc._closed : Bool) && !_cc._closing : Bool) && _maxConcurrentOkay : Bool) && !_cc._doNotReuse : Bool) && (((_cc._nextStreamID : stdgo.GoInt64) + ((2i64 : stdgo.GoInt64) * (_cc._pendingRequests : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64) < (2147483647i64 : stdgo.GoInt64) : Bool) : Bool) && !_cc._tooIdleLocked() : Bool);
+        _st._canTakeNewRequest = (((((((_cc._goAway == null || (_cc._goAway : Dynamic).__nil__) && !_cc._closed : Bool) && !_cc._closing : Bool) && _maxConcurrentOkay : Bool) && !_cc._doNotReuse : Bool) && (((_cc._nextStreamID : stdgo.GoInt64) + ((2i64 : stdgo.GoInt64) * (_cc._pendingRequests : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64) < (2147483647i64 : stdgo.GoInt64) : Bool) : Bool) && !_cc._tooIdleLocked() : Bool);
         return _st;
     }
     @:keep
@@ -1149,7 +1149,7 @@ package stdgo._internal.net.http;
             _cc._mu.lock();
             __deferstack__.unshift(() -> _cc._mu.unlock());
             {
-                final __ret__:stdgo._internal.net.http.Http_T_http2ClientConnState.T_http2ClientConnState = ({ closed : _cc._closed, closing : (((_cc._closing || _cc._singleUse : Bool) || _cc._doNotReuse : Bool) || ((_cc._goAway != null) && ((_cc._goAway : Dynamic).__nil__ == null || !(_cc._goAway : Dynamic).__nil__)) : Bool), streamsActive : (_cc._streams.length), streamsReserved : _cc._streamsReserved, streamsPending : _cc._pendingRequests, lastIdle : _cc._lastIdle?.__copy__(), maxConcurrentStreams : _maxConcurrent } : stdgo._internal.net.http.Http_T_http2ClientConnState.T_http2ClientConnState);
+                final __ret__:stdgo._internal.net.http.Http_T_http2ClientConnState.T_http2ClientConnState = ({ closed : _cc._closed, closing : (((_cc._closing || _cc._singleUse : Bool) || _cc._doNotReuse : Bool) || (_cc._goAway != null && ((_cc._goAway : Dynamic).__nil__ == null || !(_cc._goAway : Dynamic).__nil__)) : Bool), streamsActive : (_cc._streams.length), streamsReserved : _cc._streamsReserved, streamsPending : _cc._pendingRequests, lastIdle : _cc._lastIdle?.__copy__(), maxConcurrentStreams : _maxConcurrent } : stdgo._internal.net.http.Http_T_http2ClientConnState.T_http2ClientConnState);
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -1274,7 +1274,7 @@ package stdgo._internal.net.http;
             if (_cc._goAwayDebug == (stdgo.Go.str())) {
                 _cc._goAwayDebug = (_f.debugData() : stdgo.GoString)?.__copy__();
             };
-            if ((((_old != null) && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && (_old.errCode != (0u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode)) : Bool)) {
+            if (((_old != null && ((_old : Dynamic).__nil__ == null || !(_old : Dynamic).__nil__)) && (_old.errCode != (0u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode)) : Bool)) {
                 _cc._goAway.errCode = _old.errCode;
             };
             var _last = (_f.lastStreamID : stdgo.GoUInt32);

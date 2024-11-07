@@ -74,7 +74,7 @@ function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _f:s
         if (_tag == (stdgo.Go.str())) {
             {
                 var _xmlname = stdgo._internal.encoding.xml.Xml__lookupXMLName._lookupXMLName(_f.type);
-                if (_xmlname != null && ((_xmlname : Dynamic).__nil__ == null || !(_xmlname : Dynamic).__nil__)) {
+                if ((_xmlname != null && ((_xmlname : Dynamic).__nil__ == null || !(_xmlname : Dynamic).__nil__))) {
                     {
                         final __tmp__0 = _xmlname._xmlns?.__copy__();
                         final __tmp__1 = _xmlname._name?.__copy__();
@@ -104,7 +104,7 @@ function _structFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _f:s
         if ((_finfo._flags & (1 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags) : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags) != ((0 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags))) {
             var _ftyp = (_f.type : stdgo._internal.reflect.Reflect_Type_.Type_);
             var _xmlname = stdgo._internal.encoding.xml.Xml__lookupXMLName._lookupXMLName(_ftyp);
-            if ((((_xmlname != null) && ((_xmlname : Dynamic).__nil__ == null || !(_xmlname : Dynamic).__nil__)) && (_xmlname._name != _finfo._name) : Bool)) {
+            if (((_xmlname != null && ((_xmlname : Dynamic).__nil__ == null || !(_xmlname : Dynamic).__nil__)) && (_xmlname._name != _finfo._name) : Bool)) {
                 return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("xml: name %q in tag of %s.%s conflicts with name %q in %s.XMLName" : stdgo.GoString), stdgo.Go.toInterface(_finfo._name), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(_f.name), stdgo.Go.toInterface(_xmlname._name), stdgo.Go.toInterface(_ftyp)) };
             };
         };

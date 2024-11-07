@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.asn1;
 function _makeBigInt(_n:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder; var _1 : stdgo.Error; } {
-        if (_n == null || (_n : Dynamic).__nil__) {
+        if ((_n == null || (_n : Dynamic).__nil__)) {
             return { _0 : (null : stdgo._internal.encoding.asn1.Asn1_T_encoder.T_encoder), _1 : stdgo.Go.asInterface((new stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError(("empty integer" : stdgo.GoString)) : stdgo._internal.encoding.asn1.Asn1_StructuralError.StructuralError)) };
         };
         if ((_n.sign() < (0 : stdgo.GoInt) : Bool)) {

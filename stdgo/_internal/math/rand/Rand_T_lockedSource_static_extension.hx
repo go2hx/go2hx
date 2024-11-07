@@ -16,7 +16,7 @@ package stdgo._internal.math.rand;
     @:keep
     static public function _seed( _r:stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource>, _seed:stdgo.GoInt64):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.math.rand.Rand_T_lockedSource.T_lockedSource> = _r;
-        if (_r._s == null || (_r._s : Dynamic).__nil__) {
+        if ((_r._s == null || (_r._s : Dynamic).__nil__)) {
             _r._s = stdgo._internal.math.rand.Rand__newSource._newSource(_seed);
         } else {
             _r._s.seed(_seed);

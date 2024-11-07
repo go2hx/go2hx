@@ -549,7 +549,7 @@ _instr._op(_instr, _state, _field.__copy__());
     static public function _newEncoderState( _enc:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Encoder.Encoder>, _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer>):stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState> {
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Encoder.Encoder> = _enc;
         var _e = _enc._freeList;
-        if (_e == null || (_e : Dynamic).__nil__) {
+        if ((_e == null || (_e : Dynamic).__nil__)) {
             _e = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState>);
             _e._enc = _enc;
         } else {

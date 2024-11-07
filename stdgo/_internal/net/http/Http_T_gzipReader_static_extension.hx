@@ -9,7 +9,7 @@ package stdgo._internal.net.http;
     static public function read( _gz:stdgo.Ref<stdgo._internal.net.http.Http_T_gzipReader.T_gzipReader>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _gz:stdgo.Ref<stdgo._internal.net.http.Http_T_gzipReader.T_gzipReader> = _gz;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        if (_gz._zr == null || (_gz._zr : Dynamic).__nil__) {
+        if ((_gz._zr == null || (_gz._zr : Dynamic).__nil__)) {
             if (_gz._zerr == null) {
                 {
                     var __tmp__ = stdgo._internal.compress.gzip.Gzip_newReader.newReader(stdgo.Go.asInterface(_gz._body));

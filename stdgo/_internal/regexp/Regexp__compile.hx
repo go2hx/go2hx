@@ -16,7 +16,7 @@ function _compile(_expr:stdgo.GoString, _mode:stdgo._internal.regexp.syntax.Synt
             _matchcap = (2 : stdgo.GoInt);
         };
         var _regexp = (stdgo.Go.setRef(({ _expr : _expr?.__copy__(), _prog : _prog, _onepass : stdgo._internal.regexp.Regexp__compileOnePass._compileOnePass(_prog), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : stdgo._internal.regexp.Regexp__minInputLen._minInputLen(_re) } : stdgo._internal.regexp.Regexp_Regexp.Regexp)) : stdgo.Ref<stdgo._internal.regexp.Regexp_Regexp.Regexp>);
-        if (_regexp._onepass == null || (_regexp._onepass : Dynamic).__nil__) {
+        if ((_regexp._onepass == null || (_regexp._onepass : Dynamic).__nil__)) {
             {
                 var __tmp__ = _prog.prefix();
                 _regexp._prefix = __tmp__._0?.__copy__();

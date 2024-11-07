@@ -21,7 +21,7 @@ package stdgo._internal.net.http.cgi;
     static public function _printf( _h:stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_Handler.Handler>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _h:stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_Handler.Handler> = _h;
-        if (_h.logger != null && ((_h.logger : Dynamic).__nil__ == null || !(_h.logger : Dynamic).__nil__)) {
+        if ((_h.logger != null && ((_h.logger : Dynamic).__nil__ == null || !(_h.logger : Dynamic).__nil__))) {
             _h.logger.printf(_format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>));
         } else {
             stdgo._internal.log.Log_printf.printf(_format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>));
@@ -80,7 +80,7 @@ package stdgo._internal.net.http.cgi;
                     _env = (_env.__append__((("SERVER_NAME=" : stdgo.GoString) + _req.host?.__copy__() : stdgo.GoString)?.__copy__()));
                 };
             };
-            if (_req.tls != null && ((_req.tls : Dynamic).__nil__ == null || !(_req.tls : Dynamic).__nil__)) {
+            if ((_req.tls != null && ((_req.tls : Dynamic).__nil__ == null || !(_req.tls : Dynamic).__nil__))) {
                 _env = (_env.__append__(("HTTPS=on" : stdgo.GoString)));
             };
             for (_k => _v in _req.header) {

@@ -37,7 +37,7 @@ package stdgo._internal.net.http;
         if (_tw._err != null) {
             return;
         } else if (_tw._wroteHeader) {
-            if (_tw._req != null && ((_tw._req : Dynamic).__nil__ == null || !(_tw._req : Dynamic).__nil__)) {
+            if ((_tw._req != null && ((_tw._req : Dynamic).__nil__ == null || !(_tw._req : Dynamic).__nil__))) {
                 var _caller = (stdgo._internal.net.http.Http__relevantCaller._relevantCaller()?.__copy__() : stdgo._internal.runtime.Runtime_Frame.Frame);
                 stdgo._internal.net.http.Http__logf._logf(_tw._req, ("http: superfluous response.WriteHeader call from %s (%s:%d)" : stdgo.GoString), stdgo.Go.toInterface(_caller.function_), stdgo.Go.toInterface(stdgo._internal.path.Path_base.base(_caller.file?.__copy__())), stdgo.Go.toInterface(_caller.line));
             };

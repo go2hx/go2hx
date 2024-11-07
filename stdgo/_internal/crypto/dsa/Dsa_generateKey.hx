@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.dsa;
 function generateKey(_priv:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_PrivateKey.PrivateKey>, _rand:stdgo._internal.io.Io_Reader.Reader):stdgo.Error {
-        if (((_priv.publicKey.parameters.p == null || (_priv.publicKey.parameters.p : Dynamic).__nil__ || _priv.publicKey.parameters.q == null || (_priv.publicKey.parameters.q : Dynamic).__nil__ : Bool) || ((_priv.publicKey.parameters.g == null) || (_priv.publicKey.parameters.g : Dynamic).__nil__) : Bool)) {
+        if ((((_priv.publicKey.parameters.p == null || (_priv.publicKey.parameters.p : Dynamic).__nil__) || (_priv.publicKey.parameters.q == null || (_priv.publicKey.parameters.q : Dynamic).__nil__) : Bool) || (_priv.publicKey.parameters.g == null || (_priv.publicKey.parameters.g : Dynamic).__nil__) : Bool)) {
             return stdgo._internal.errors.Errors_new_.new_(("crypto/dsa: parameters not set up before generating key" : stdgo.GoString));
         };
         var _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);

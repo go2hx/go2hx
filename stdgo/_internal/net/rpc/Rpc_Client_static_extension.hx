@@ -52,7 +52,7 @@ package stdgo._internal.net.rpc;
             var _call = (_client._pending[_seq] ?? (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>));
             if (_client._pending != null) _client._pending.remove(_seq);
             _client._mutex.unlock();
-            if (_call == null || (_call : Dynamic).__nil__) {
+            if ((_call == null || (_call : Dynamic).__nil__)) {
                 _err = _client._codec.readResponseBody((null : stdgo.AnyInterface));
                 if (_err != null) {
                     _err = stdgo._internal.errors.Errors_new_.new_((("reading error body: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__());
@@ -124,7 +124,7 @@ package stdgo._internal.net.rpc;
                 _call = (_client._pending[_seq] ?? (null : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Call.Call>));
                 if (_client._pending != null) _client._pending.remove(_seq);
                 _client._mutex.unlock();
-                if (_call != null && ((_call : Dynamic).__nil__ == null || !(_call : Dynamic).__nil__)) {
+                if ((_call != null && ((_call : Dynamic).__nil__ == null || !(_call : Dynamic).__nil__))) {
                     _call.error = _err;
                     _call._done();
                 };

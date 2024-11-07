@@ -42,7 +42,7 @@ package stdgo._internal.strings;
             };
         } else if (_t._table != null) {
             var _m = (_r._mapping[(_key[(0 : stdgo.GoInt)] : stdgo.GoInt)] : stdgo.GoUInt8);
-            if (_t._table[(_m : stdgo.GoInt)] == null || (_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__) {
+            if ((_t._table[(_m : stdgo.GoInt)] == null || (_t._table[(_m : stdgo.GoInt)] : Dynamic).__nil__)) {
                 _t._table[(_m : stdgo.GoInt)] = (stdgo.Go.setRef(({} : stdgo._internal.strings.Strings_T_trieNode.T_trieNode)) : stdgo.Ref<stdgo._internal.strings.Strings_T_trieNode.T_trieNode>);
             };
             _t._table[(_m : stdgo.GoInt)]._add((_key.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _val?.__copy__(), _priority, _r);

@@ -35,7 +35,7 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
                 _colonPos = (_addr.length);
             };
             var _hostname = ((_addr.__slice__(0, _colonPos) : stdgo.GoString)?.__copy__() : stdgo.GoString);
-            if (_config == null || (_config : Dynamic).__nil__) {
+            if ((_config == null || (_config : Dynamic).__nil__)) {
                 _config = stdgo._internal.crypto.tls.Tls__defaultConfig._defaultConfig();
             };
             if (_config.serverName == (stdgo.Go.str())) {

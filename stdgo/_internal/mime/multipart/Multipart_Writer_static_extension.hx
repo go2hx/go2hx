@@ -3,7 +3,7 @@ package stdgo._internal.mime.multipart;
     @:keep
     static public function close( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        if (_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__)) {
+        if ((_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__))) {
             {
                 var _err = (_w._lastpart._close() : stdgo.Error);
                 if (_err != null) {
@@ -56,7 +56,7 @@ package stdgo._internal.mime.multipart;
     @:keep
     static public function createPart( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>, _header:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader):{ var _0 : stdgo._internal.io.Io_Writer.Writer; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        if (_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__)) {
+        if ((_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__))) {
             {
                 var _err = (_w._lastpart._close() : stdgo.Error);
                 if (_err != null) {
@@ -65,7 +65,7 @@ package stdgo._internal.mime.multipart;
             };
         };
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        if (_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__)) {
+        if ((_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__))) {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("\r\n--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_w._boundary));
         } else {
             stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_w._boundary));
@@ -101,7 +101,7 @@ package stdgo._internal.mime.multipart;
     @:keep
     static public function setBoundary( _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer>, _boundary:stdgo.GoString):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Writer.Writer> = _w;
-        if (_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__)) {
+        if ((_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__))) {
             return stdgo._internal.errors.Errors_new_.new_(("mime: SetBoundary called after write" : stdgo.GoString));
         };
         if ((((_boundary.length) < (1 : stdgo.GoInt) : Bool) || ((_boundary.length) > (70 : stdgo.GoInt) : Bool) : Bool)) {

@@ -146,7 +146,7 @@ var _e = __1, _i = __0;
     @:keep
     static public function _lazyInit( _l:stdgo.Ref<stdgo._internal.container.list.List_List.List>):Void {
         @:recv var _l:stdgo.Ref<stdgo._internal.container.list.List_List.List> = _l;
-        if (_l._root._next == null || (_l._root._next : Dynamic).__nil__) {
+        if ((_l._root._next == null || (_l._root._next : Dynamic).__nil__)) {
             _l.init();
         };
     }

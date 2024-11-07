@@ -34,7 +34,7 @@ package stdgo._internal.crypto.tls;
             return _err;
         };
         _state._secret = _hs._masterSecret;
-        if (_hs._sessionState != null && ((_hs._sessionState : Dynamic).__nil__ == null || !(_hs._sessionState : Dynamic).__nil__)) {
+        if ((_hs._sessionState != null && ((_hs._sessionState : Dynamic).__nil__ == null || !(_hs._sessionState : Dynamic).__nil__))) {
             _state._createdAt = _hs._sessionState._createdAt;
         };
         if (_c._config.wrapSession != null) {
@@ -176,7 +176,7 @@ var _serverHash = __1, _clientHash = __0;
             _c._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             return _err;
         };
-        if (_skx != null && ((_skx : Dynamic).__nil__ == null || !(_skx : Dynamic).__nil__)) {
+        if ((_skx != null && ((_skx : Dynamic).__nil__ == null || !(_skx : Dynamic).__nil__))) {
             {
                 var __tmp__ = _hs._c._writeHandshakeRecord(stdgo.Go.asInterface(_skx), stdgo.Go.asInterface((stdgo.Go.setRef(_hs._finishedHash) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash>))), __339:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
@@ -192,7 +192,7 @@ var _serverHash = __1, _clientHash = __0;
                 _certReq._hasSignatureAlgorithm = true;
                 _certReq._supportedSignatureAlgorithms = stdgo._internal.crypto.tls.Tls__supportedSignatureAlgorithms._supportedSignatureAlgorithms();
             };
-            if (_c._config.clientCAs != null && ((_c._config.clientCAs : Dynamic).__nil__ == null || !(_c._config.clientCAs : Dynamic).__nil__)) {
+            if ((_c._config.clientCAs != null && ((_c._config.clientCAs : Dynamic).__nil__ == null || !(_c._config.clientCAs : Dynamic).__nil__))) {
                 _certReq._certificateAuthorities = _c._config.clientCAs.subjects();
             };
             {
@@ -395,7 +395,7 @@ var _serverHash = __1, _clientHash = __0;
             if (_err != null) {
                 return _err;
             };
-            if (_ss == null || (_ss : Dynamic).__nil__) {
+            if ((_ss == null || (_ss : Dynamic).__nil__)) {
                 return (null : stdgo.Error);
             };
             _sessionState = _ss;
@@ -428,7 +428,7 @@ var _serverHash = __1, _clientHash = __0;
             return (null : stdgo.Error);
         };
         var _suite = stdgo._internal.crypto.tls.Tls__selectCipherSuite._selectCipherSuite((new stdgo.Slice<stdgo.GoUInt16>(1, 1, ...[_sessionState._cipherSuite]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt16>), _c._config._cipherSuites(), _hs._cipherSuiteOk);
-        if (_suite == null || (_suite : Dynamic).__nil__) {
+        if ((_suite == null || (_suite : Dynamic).__nil__)) {
             return (null : stdgo.Error);
         };
         var _sessionHasClientCerts = ((_sessionState._peerCertificates.length) != ((0 : stdgo.GoInt)) : Bool);
@@ -502,7 +502,7 @@ var _serverHash = __1, _clientHash = __0;
             };
         };
         _hs._suite = stdgo._internal.crypto.tls.Tls__selectCipherSuite._selectCipherSuite(_preferenceList, _hs._clientHello._cipherSuites, _hs._cipherSuiteOk);
-        if (_hs._suite == null || (_hs._suite : Dynamic).__nil__) {
+        if ((_hs._suite == null || (_hs._suite : Dynamic).__nil__)) {
             _c._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             return stdgo._internal.errors.Errors_new_.new_(("tls: no cipher suite supported by both client and server" : stdgo.GoString));
         };
@@ -647,7 +647,7 @@ var _serverHash = __1, _clientHash = __0;
                 return _err;
             };
         };
-        if (_hs._sessionState != null && ((_hs._sessionState : Dynamic).__nil__ == null || !(_hs._sessionState : Dynamic).__nil__)) {
+        if ((_hs._sessionState != null && ((_hs._sessionState : Dynamic).__nil__ == null || !(_hs._sessionState : Dynamic).__nil__))) {
             {
                 var _err = (_hs._doResumeHandshake() : stdgo.Error);
                 if (_err != null) {

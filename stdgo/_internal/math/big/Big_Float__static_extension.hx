@@ -366,7 +366,7 @@ package stdgo._internal.math.big;
     static public function marshalText( _x:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = _x;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
-        if (_x == null || (_x : Dynamic).__nil__) {
+        if ((_x == null || (_x : Dynamic).__nil__)) {
             return { _0 : (("<nil>" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -424,7 +424,7 @@ package stdgo._internal.math.big;
     @:keep
     static public function gobEncode( _x:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = _x;
-        if (_x == null || (_x : Dynamic).__nil__) {
+        if ((_x == null || (_x : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         var _sz = (6 : stdgo.GoInt);
@@ -1025,7 +1025,7 @@ var _ym = __1, _xm = __0;
         if (false) {
             _x._validate();
         };
-        if (((_z == null) || (_z : Dynamic).__nil__ && (_x._form <= (1 : stdgo._internal.math.big.Big_T_form.T_form) : Bool) : Bool)) {
+        if (((_z == null || (_z : Dynamic).__nil__) && (_x._form <= (1 : stdgo._internal.math.big.Big_T_form.T_form) : Bool) : Bool)) {
             _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
         };
         {
@@ -1060,7 +1060,7 @@ var _ym = __1, _xm = __0;
         if (false) {
             _x._validate();
         };
-        if (((_z == null) || (_z : Dynamic).__nil__ && (_x._form <= (1 : stdgo._internal.math.big.Big_T_form.T_form) : Bool) : Bool)) {
+        if (((_z == null || (_z : Dynamic).__nil__) && (_x._form <= (1 : stdgo._internal.math.big.Big_T_form.T_form) : Bool) : Bool)) {
             _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         };
         {
@@ -1075,7 +1075,7 @@ var _ym = __1, _xm = __0;
                 if ((_x.minPrec() <= _exp : Bool)) {
                     _acc = (0 : stdgo._internal.math.big.Big_Accuracy.Accuracy);
                 };
-                if (_z == null || (_z : Dynamic).__nil__) {
+                if ((_z == null || (_z : Dynamic).__nil__)) {
                     _z = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
                 };
                 _z._neg = _x._neg;
@@ -1608,7 +1608,7 @@ var _b = __1, _a = __0;
         if (_x._form == ((1 : stdgo._internal.math.big.Big_T_form.T_form))) {
             _exp = (_x._exp : stdgo.GoInt);
         };
-        if (_mant != null && ((_mant : Dynamic).__nil__ == null || !(_mant : Dynamic).__nil__)) {
+        if ((_mant != null && ((_mant : Dynamic).__nil__ == null || !(_mant : Dynamic).__nil__))) {
             _mant.copy(_x);
             if (_mant._form == ((1 : stdgo._internal.math.big.Big_T_form.T_form))) {
                 _mant._exp = (0 : stdgo.GoInt32);

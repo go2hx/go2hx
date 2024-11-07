@@ -4,7 +4,7 @@ package stdgo._internal.sync;
     static public function _popTail( _c:stdgo.Ref<stdgo._internal.sync.Sync_T_poolChain.T_poolChain>):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.sync.Sync_T_poolChain.T_poolChain> = _c;
         var _d = stdgo._internal.sync.Sync__loadPoolChainElt._loadPoolChainElt((stdgo.Go.setRef(_c._tail) : stdgo.Ref<stdgo.Ref<stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt>>));
-        if (_d == null || (_d : Dynamic).__nil__) {
+        if ((_d == null || (_d : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.AnyInterface), _1 : false };
         };
         while (true) {
@@ -15,7 +15,7 @@ package stdgo._internal.sync;
                     return { _0 : _val, _1 : _ok };
                 };
             };
-            if (_d2 == null || (_d2 : Dynamic).__nil__) {
+            if ((_d2 == null || (_d2 : Dynamic).__nil__)) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : false };
             };
             if (stdgo._internal.sync.atomic_.Atomic__compareAndSwapPointer.compareAndSwapPointer(((stdgo.Go.toInterface((stdgo.Go.setRef(_c._tail) : stdgo.Ref<stdgo.Ref<stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt>>)) : stdgo._internal.unsafe.Unsafe.UnsafePointer).__convert__(stdgo._internal.internal.reflect.Reflect.GoType.pointerType({ get : () -> stdgo._internal.internal.reflect.Reflect.GoType.basic(unsafepointer_kind) })) : stdgo.Pointer<stdgo._internal.unsafe.Unsafe.UnsafePointer>), (stdgo.Go.toInterface(_d) : stdgo._internal.unsafe.Unsafe.UnsafePointer), (stdgo.Go.toInterface(_d2) : stdgo._internal.unsafe.Unsafe.UnsafePointer))) {
@@ -28,7 +28,7 @@ package stdgo._internal.sync;
     static public function _popHead( _c:stdgo.Ref<stdgo._internal.sync.Sync_T_poolChain.T_poolChain>):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.sync.Sync_T_poolChain.T_poolChain> = _c;
         var _d = _c._head;
-        while (_d != null && ((_d : Dynamic).__nil__ == null || !(_d : Dynamic).__nil__)) {
+        while ((_d != null && ((_d : Dynamic).__nil__ == null || !(_d : Dynamic).__nil__))) {
             {
                 var __tmp__ = _d._popHead(), _val:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
@@ -43,7 +43,7 @@ package stdgo._internal.sync;
     static public function _pushHead( _c:stdgo.Ref<stdgo._internal.sync.Sync_T_poolChain.T_poolChain>, _val:stdgo.AnyInterface):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.sync.Sync_T_poolChain.T_poolChain> = _c;
         var _d = _c._head;
-        if (_d == null || (_d : Dynamic).__nil__) {
+        if ((_d == null || (_d : Dynamic).__nil__)) {
             {};
             _d = (stdgo.Go.setRef(({} : stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt)) : stdgo.Ref<stdgo._internal.sync.Sync_T_poolChainElt.T_poolChainElt>);
             _d._poolDequeue._vals = (new stdgo.Slice<stdgo._internal.sync.Sync_T_eface.T_eface>((8 : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((8 : stdgo.GoInt).toBasic() > 0 ? (8 : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.sync.Sync_T_eface.T_eface)]) : stdgo.Slice<stdgo._internal.sync.Sync_T_eface.T_eface>);

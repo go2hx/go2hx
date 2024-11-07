@@ -186,7 +186,7 @@ package stdgo._internal.runtime.pprof;
         var _locs:stdgo.Slice<stdgo.GoUInt64> = (null : stdgo.Slice<stdgo.GoUInt64>);
         {
             var _e = _b._m._all;
-            while (_e != null && ((_e : Dynamic).__nil__ == null || !(_e : Dynamic).__nil__)) {
+            while ((_e != null && ((_e : Dynamic).__nil__ == null || !(_e : Dynamic).__nil__))) {
                 _values[(0 : stdgo.GoInt)] = _e._count;
 _values[(1 : stdgo.GoInt)] = (_e._count * _b._period : stdgo.GoInt64);
 var _labels:() -> Void = null;

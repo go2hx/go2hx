@@ -3,7 +3,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function serveHTTP( _h:stdgo._internal.net.http.Http_T_initALPNRequest.T_initALPNRequest, _rw:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
         @:recv var _h:stdgo._internal.net.http.Http_T_initALPNRequest.T_initALPNRequest = _h?.__copy__();
-        if (_req.tls == null || (_req.tls : Dynamic).__nil__) {
+        if ((_req.tls == null || (_req.tls : Dynamic).__nil__)) {
             _req.tls = (stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState() : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
             {
                 var __tmp__ = _h._c.connectionState()?.__copy__();

@@ -17,7 +17,7 @@ package stdgo._internal.net.http;
             throw stdgo.Go.toInterface(("internal error: took too much" : stdgo.GoString));
         };
         _f._n = (_f._n - (_n) : stdgo.GoInt32);
-        if (_f._conn != null && ((_f._conn : Dynamic).__nil__ == null || !(_f._conn : Dynamic).__nil__)) {
+        if ((_f._conn != null && ((_f._conn : Dynamic).__nil__ == null || !(_f._conn : Dynamic).__nil__))) {
             _f._conn._n = (_f._conn._n - (_n) : stdgo.GoInt32);
         };
     }
@@ -25,7 +25,7 @@ package stdgo._internal.net.http;
     static public function _available( _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2outflow.T_http2outflow>):stdgo.GoInt32 {
         @:recv var _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2outflow.T_http2outflow> = _f;
         var _n = (_f._n : stdgo.GoInt32);
-        if ((((_f._conn != null) && ((_f._conn : Dynamic).__nil__ == null || !(_f._conn : Dynamic).__nil__)) && (_f._conn._n < _n : Bool) : Bool)) {
+        if (((_f._conn != null && ((_f._conn : Dynamic).__nil__ == null || !(_f._conn : Dynamic).__nil__)) && (_f._conn._n < _n : Bool) : Bool)) {
             _n = _f._conn._n;
         };
         return _n;

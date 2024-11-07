@@ -60,7 +60,7 @@ var _rB = __1, _rA = __0;
     @:keep
     static public function marshalJSON( _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _x;
-        if (_x == null || (_x : Dynamic).__nil__) {
+        if ((_x == null || (_x : Dynamic).__nil__)) {
             return { _0 : (("null" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         return { _0 : _x._abs._itoa(_x._neg, (10 : stdgo.GoInt)), _1 : (null : stdgo.Error) };
@@ -80,7 +80,7 @@ var _rB = __1, _rA = __0;
     static public function marshalText( _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _x;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
-        if (_x == null || (_x : Dynamic).__nil__) {
+        if ((_x == null || (_x : Dynamic).__nil__)) {
             return { _0 : (("<nil>" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         return { _0 : _x._abs._itoa(_x._neg, (10 : stdgo.GoInt)), _1 : (null : stdgo.Error) };
@@ -107,7 +107,7 @@ var _rB = __1, _rA = __0;
     @:keep
     static public function gobEncode( _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _x;
-        if (_x == null || (_x : Dynamic).__nil__) {
+        if ((_x == null || (_x : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
         };
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>(((1 : stdgo.GoInt) + ((_x._abs.length) * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -179,7 +179,7 @@ var _rB = __1, _rA = __0;
                 return;
             };
         };
-        if (_x == null || (_x : Dynamic).__nil__) {
+        if ((_x == null || (_x : Dynamic).__nil__)) {
             stdgo._internal.fmt.Fmt_fprint.fprint(_s, stdgo.Go.toInterface(("<nil>" : stdgo.GoString)));
             return;
         };
@@ -259,7 +259,7 @@ var _rB = __1, _rA = __0;
     @:keep
     static public function append( _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _buf:stdgo.Slice<stdgo.GoUInt8>, _base:stdgo.GoInt):stdgo.Slice<stdgo.GoUInt8> {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _x;
-        if (_x == null || (_x : Dynamic).__nil__) {
+        if ((_x == null || (_x : Dynamic).__nil__)) {
             return (_buf.__append__(...(("<nil>" : stdgo.GoString) : Array<stdgo.GoUInt8>)));
         };
         return (_buf.__append__(...(_x._abs._itoa(_x._neg, _base) : Array<stdgo.GoUInt8>)));
@@ -267,7 +267,7 @@ var _rB = __1, _rA = __0;
     @:keep
     static public function text( _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _base:stdgo.GoInt):stdgo.GoString {
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _x;
-        if (_x == null || (_x : Dynamic).__nil__) {
+        if ((_x == null || (_x : Dynamic).__nil__)) {
             return ("<nil>" : stdgo.GoString);
         };
         return (_x._abs._itoa(_x._neg, _base) : stdgo.GoString)?.__copy__();
@@ -600,7 +600,7 @@ var _x = __1, _d = __0;
 var ub = __3, ua = __2, b = __1, a = __0;
         a = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).abs(_a);
         b = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).abs(_b);
-        var _extended = (((_x != null) && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) || ((_y != null) && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__)) : Bool);
+        var _extended = ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) || (_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__)) : Bool);
         if (_extended) {
             ua = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setInt64((1i64 : stdgo.GoInt64));
             ub = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
@@ -721,7 +721,7 @@ var _r = __1, _q = __0;
             };
         };
         var _negA = (_a._neg : Bool);
-        if (_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__)) {
+        if ((_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__))) {
             if (_y == (_b)) {
                 b.set(_b);
             } else {
@@ -734,7 +734,7 @@ var _r = __1, _q = __0;
             _y.sub(a, _y);
             _y.div(_y, b);
         };
-        if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
+        if ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__))) {
             {
                 var __tmp__ = (ua : stdgo._internal.math.big.Big_Int_.Int_)?.__copy__();
                 (_x : stdgo._internal.math.big.Big_Int_.Int_)._neg = __tmp__._neg;
@@ -763,7 +763,7 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
                 _z.set(_a);
             };
             _z._neg = false;
-            if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
+            if ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__))) {
                 if (_lenA == ((0 : stdgo.GoInt))) {
                     _x.setUint64((0i64 : stdgo.GoUInt64));
                 } else {
@@ -771,7 +771,7 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
                     _x._neg = _negA;
                 };
             };
-            if (_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__)) {
+            if ((_y != null && ((_y : Dynamic).__nil__ == null || !(_y : Dynamic).__nil__))) {
                 if (_lenB == ((0 : stdgo.GoInt))) {
                     _y.setUint64((0i64 : stdgo.GoUInt64));
                 } else {
@@ -788,18 +788,18 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _z;
         var _xWords = (_x._abs : stdgo._internal.math.big.Big_T_nat.T_nat);
         if (_y._neg) {
-            if ((((_m == null) || (_m : Dynamic).__nil__) || (_m._abs.length == (0 : stdgo.GoInt)) : Bool)) {
+            if (((_m == null || (_m : Dynamic).__nil__) || (_m._abs.length == (0 : stdgo.GoInt)) : Bool)) {
                 return _z.setInt64((1i64 : stdgo.GoInt64));
             };
             var _inverse = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse(_x, _m);
-            if (_inverse == null || (_inverse : Dynamic).__nil__) {
+            if ((_inverse == null || (_inverse : Dynamic).__nil__)) {
                 return null;
             };
             _xWords = _inverse._abs;
         };
         var _yWords = (_y._abs : stdgo._internal.math.big.Big_T_nat.T_nat);
         var _mWords:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        if (_m != null && ((_m : Dynamic).__nil__ == null || !(_m : Dynamic).__nil__)) {
+        if ((_m != null && ((_m : Dynamic).__nil__ == null || !(_m : Dynamic).__nil__))) {
             if (((_z == _m) || stdgo._internal.math.big.Big__alias._alias(_z._abs, _m._abs) : Bool)) {
                 _m = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).set(_m);
             };

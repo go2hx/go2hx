@@ -14,7 +14,7 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
                     _v._resurrected = true;
                 };
             };
-            if (_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__)) {
+            if ((_v != null && ((_v : Dynamic).__nil__ == null || !(_v : Dynamic).__nil__))) {
                 {
                     for (defer in __deferstack__) {
                         defer();

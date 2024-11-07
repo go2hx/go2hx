@@ -15,7 +15,7 @@ package stdgo._internal.crypto.tls;
         if ((!_c._config.sessionTicketsDisabled && (_c._config.clientSessionCache != null) : Bool)) {
             _c._resumptionSecret = _hs._suite._deriveSecret(_hs._masterSecret, ("res master" : stdgo.GoString), _hs._transcript);
         };
-        if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+        if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
             if (_c._hand.len() != ((0 : stdgo.GoInt))) {
                 _c._sendAlert((10 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             };
@@ -27,7 +27,7 @@ package stdgo._internal.crypto.tls;
     static public function _sendClientCertificate( _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13>):stdgo.Error {
         @:recv var _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13> = _hs;
         var _c = _hs._c;
-        if (_hs._certReq == null || (_hs._certReq : Dynamic).__nil__) {
+        if ((_hs._certReq == null || (_hs._certReq : Dynamic).__nil__)) {
             return (null : stdgo.Error);
         };
         var __tmp__ = _c._getClientCertificate((stdgo.Go.setRef(({ acceptableCAs : _hs._certReq._certificateAuthorities, signatureSchemes : _hs._certReq._supportedSignatureAlgorithms, version : _c._vers, _ctx : _hs._ctx } : stdgo._internal.crypto.tls.Tls_CertificateRequestInfo.CertificateRequestInfo)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_CertificateRequestInfo.CertificateRequestInfo>)), _cert:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Certificate.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -245,14 +245,14 @@ package stdgo._internal.crypto.tls;
             return stdgo._internal.crypto.tls.Tls__unexpectedMessageError._unexpectedMessageError(stdgo.Go.toInterface(stdgo.Go.asInterface(_encryptedExtensions)), _msg);
         };
         {
-            var _err = (stdgo._internal.crypto.tls.Tls__checkALPN._checkALPN(_hs._hello._alpnProtocols, _encryptedExtensions._alpnProtocol?.__copy__(), _c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) : stdgo.Error);
+            var _err = (stdgo._internal.crypto.tls.Tls__checkALPN._checkALPN(_hs._hello._alpnProtocols, _encryptedExtensions._alpnProtocol?.__copy__(), (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) : stdgo.Error);
             if (_err != null) {
                 _c._sendAlert((120 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                 return _err;
             };
         };
         _c._clientProtocol = _encryptedExtensions._alpnProtocol?.__copy__();
-        if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+        if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
             if (_encryptedExtensions._quicTransportParameters == null) {
                 _c._sendAlert((109 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                 return stdgo._internal.errors.Errors_new_.new_(("tls: server did not send a quic_transport_parameters extension" : stdgo.GoString));
@@ -306,7 +306,7 @@ package stdgo._internal.crypto.tls;
         _c._out._setTrafficSecret(_hs._suite, (2 : stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel.QUICEncryptionLevel), _clientSecret);
         var _serverSecret = _hs._suite._deriveSecret(_handshakeSecret, ("s hs traffic" : stdgo.GoString), _hs._transcript);
         _c._in._setTrafficSecret(_hs._suite, (2 : stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel.QUICEncryptionLevel), _serverSecret);
-        if (_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) {
+        if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
             if (_c._hand.len() != ((0 : stdgo.GoInt))) {
                 _c._sendAlert((10 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             };
@@ -360,11 +360,11 @@ package stdgo._internal.crypto.tls;
             _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             return stdgo._internal.errors.Errors_new_.new_(("tls: server selected an invalid PSK" : stdgo.GoString));
         };
-        if (((_hs._hello._pskIdentities.length != (1 : stdgo.GoInt)) || ((_hs._session == null) || (_hs._session : Dynamic).__nil__) : Bool)) {
+        if (((_hs._hello._pskIdentities.length != (1 : stdgo.GoInt)) || (_hs._session == null || (_hs._session : Dynamic).__nil__) : Bool)) {
             return _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
         };
         var _pskSuite = stdgo._internal.crypto.tls.Tls__cipherSuiteTLS13ByID._cipherSuiteTLS13ByID(_hs._session._cipherSuite);
-        if (_pskSuite == null || (_pskSuite : Dynamic).__nil__) {
+        if ((_pskSuite == null || (_pskSuite : Dynamic).__nil__)) {
             return _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
         };
         if (_pskSuite._hash != (_hs._suite._hash)) {
@@ -445,7 +445,7 @@ package stdgo._internal.crypto.tls;
         _hs._hello._raw = (null : stdgo.Slice<stdgo.GoUInt8>);
         if (((_hs._hello._pskIdentities.length) > (0 : stdgo.GoInt) : Bool)) {
             var _pskSuite = stdgo._internal.crypto.tls.Tls__cipherSuiteTLS13ByID._cipherSuiteTLS13ByID(_hs._session._cipherSuite);
-            if (_pskSuite == null || (_pskSuite : Dynamic).__nil__) {
+            if ((_pskSuite == null || (_pskSuite : Dynamic).__nil__)) {
                 return _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             };
             if (_pskSuite._hash == (_hs._suite._hash)) {
@@ -512,7 +512,7 @@ package stdgo._internal.crypto.tls;
     @:keep
     static public function _sendDummyChangeCipherSpec( _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13>):stdgo.Error {
         @:recv var _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13> = _hs;
-        if (_hs._c._quic != null && ((_hs._c._quic : Dynamic).__nil__ == null || !(_hs._c._quic : Dynamic).__nil__)) {
+        if ((_hs._c._quic != null && ((_hs._c._quic : Dynamic).__nil__ == null || !(_hs._c._quic : Dynamic).__nil__))) {
             return (null : stdgo.Error);
         };
         if (_hs._sentDummyCCS) {
@@ -550,11 +550,11 @@ package stdgo._internal.crypto.tls;
             return stdgo._internal.errors.Errors_new_.new_(("tls: server selected unsupported compression format" : stdgo.GoString));
         };
         var _selectedSuite = stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hs._hello._cipherSuites, _hs._serverHello._cipherSuite);
-        if ((((_hs._suite != null) && ((_hs._suite : Dynamic).__nil__ == null || !(_hs._suite : Dynamic).__nil__)) && (_selectedSuite != _hs._suite) : Bool)) {
+        if (((_hs._suite != null && ((_hs._suite : Dynamic).__nil__ == null || !(_hs._suite : Dynamic).__nil__)) && (_selectedSuite != _hs._suite) : Bool)) {
             _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             return stdgo._internal.errors.Errors_new_.new_(("tls: server changed cipher suite after a HelloRetryRequest" : stdgo.GoString));
         };
-        if (_selectedSuite == null || (_selectedSuite : Dynamic).__nil__) {
+        if ((_selectedSuite == null || (_selectedSuite : Dynamic).__nil__)) {
             _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             return stdgo._internal.errors.Errors_new_.new_(("tls: server chose an unconfigured cipher suite" : stdgo.GoString));
         };
@@ -573,7 +573,7 @@ package stdgo._internal.crypto.tls;
             _c._sendAlert((70 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             return stdgo._internal.errors.Errors_new_.new_(("tls: server selected TLS 1.3 in a renegotiation" : stdgo.GoString));
         };
-        if ((((_hs._ecdheKey == null) || (_hs._ecdheKey : Dynamic).__nil__) || (_hs._hello._keyShares.length != (1 : stdgo.GoInt)) : Bool)) {
+        if (((_hs._ecdheKey == null || (_hs._ecdheKey : Dynamic).__nil__) || (_hs._hello._keyShares.length != (1 : stdgo.GoInt)) : Bool)) {
             return _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
         };
         {

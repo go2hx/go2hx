@@ -534,11 +534,11 @@ package stdgo._internal.internal.fuzz;
                 };
             };
             var _resp:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-            if (_c.fuzz != null && ((_c.fuzz : Dynamic).__nil__ == null || !(_c.fuzz : Dynamic).__nil__)) {
+            if ((_c.fuzz != null && ((_c.fuzz : Dynamic).__nil__ == null || !(_c.fuzz : Dynamic).__nil__))) {
                 _resp = stdgo.Go.toInterface(_ws._fuzz(_ctx, (_c.fuzz : stdgo._internal.internal.fuzz.Fuzz_T_fuzzArgs.T_fuzzArgs)?.__copy__()));
-            } else if (_c.minimize != null && ((_c.minimize : Dynamic).__nil__ == null || !(_c.minimize : Dynamic).__nil__)) {
+            } else if ((_c.minimize != null && ((_c.minimize : Dynamic).__nil__ == null || !(_c.minimize : Dynamic).__nil__))) {
                 _resp = stdgo.Go.toInterface(_ws._minimize(_ctx, (_c.minimize : stdgo._internal.internal.fuzz.Fuzz_T_minimizeArgs.T_minimizeArgs)?.__copy__()));
-            } else if (_c.ping != null && ((_c.ping : Dynamic).__nil__ == null || !(_c.ping : Dynamic).__nil__)) {
+            } else if ((_c.ping != null && ((_c.ping : Dynamic).__nil__ == null || !(_c.ping : Dynamic).__nil__))) {
                 _resp = stdgo.Go.toInterface(_ws._ping(_ctx, (_c.ping : stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs)?.__copy__()));
             } else {
                 return stdgo._internal.errors.Errors_new_.new_(("no arguments provided for any call" : stdgo.GoString));

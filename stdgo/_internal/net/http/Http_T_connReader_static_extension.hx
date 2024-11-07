@@ -50,7 +50,7 @@ package stdgo._internal.net.http;
     static public function _closeNotify( _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader>):Void {
         @:recv var _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader> = _cr;
         var _res = _cr._conn._curReq.load();
-        if ((((_res != null) && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__)) && !_res._didCloseNotify.swap(true) : Bool)) {
+        if (((_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__)) && !_res._didCloseNotify.swap(true) : Bool)) {
             _res._closeNotifyCh.__send__(true);
         };
     }
@@ -193,7 +193,7 @@ package stdgo._internal.net.http;
     static public function _lock( _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader>):Void {
         @:recv var _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader> = _cr;
         _cr._mu.lock();
-        if (_cr._cond == null || (_cr._cond : Dynamic).__nil__) {
+        if ((_cr._cond == null || (_cr._cond : Dynamic).__nil__)) {
             _cr._cond = stdgo._internal.sync.Sync_newCond.newCond(stdgo.Go.asInterface((stdgo.Go.setRef(_cr._mu) : stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>)));
         };
     }

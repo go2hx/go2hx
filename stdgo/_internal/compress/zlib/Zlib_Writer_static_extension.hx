@@ -103,7 +103,7 @@ package stdgo._internal.compress.zlib;
                 };
             };
         };
-        if (_z._compressor == null || (_z._compressor : Dynamic).__nil__) {
+        if ((_z._compressor == null || (_z._compressor : Dynamic).__nil__)) {
             {
                 var __tmp__ = stdgo._internal.compress.flate.Flate_newWriterDict.newWriterDict(_z._w, _z._level, _z._dict);
                 _z._compressor = __tmp__._0;
@@ -120,7 +120,7 @@ package stdgo._internal.compress.zlib;
     static public function reset( _z:stdgo.Ref<stdgo._internal.compress.zlib.Zlib_Writer.Writer>, _w:stdgo._internal.io.Io_Writer.Writer):Void {
         @:recv var _z:stdgo.Ref<stdgo._internal.compress.zlib.Zlib_Writer.Writer> = _z;
         _z._w = _w;
-        if (_z._compressor != null && ((_z._compressor : Dynamic).__nil__ == null || !(_z._compressor : Dynamic).__nil__)) {
+        if ((_z._compressor != null && ((_z._compressor : Dynamic).__nil__ == null || !(_z._compressor : Dynamic).__nil__))) {
             _z._compressor.reset(_w);
         };
         if (_z._digest != null) {

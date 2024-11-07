@@ -14,7 +14,7 @@ package stdgo._internal.crypto.tls;
         };
         for (_j => _cert in _c.certificate) {
             var _x509Cert = _c.leaf;
-            if (((_j != (0 : stdgo.GoInt)) || ((_x509Cert == null) || (_x509Cert : Dynamic).__nil__) : Bool)) {
+            if (((_j != (0 : stdgo.GoInt)) || (_x509Cert == null || (_x509Cert : Dynamic).__nil__) : Bool)) {
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     {

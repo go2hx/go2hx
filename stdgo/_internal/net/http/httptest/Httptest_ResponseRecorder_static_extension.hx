@@ -3,7 +3,7 @@ package stdgo._internal.net.http.httptest;
     @:keep
     static public function result( _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder>):stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> {
         @:recv var _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder> = _rw;
-        if (_rw._result != null && ((_rw._result : Dynamic).__nil__ == null || !(_rw._result : Dynamic).__nil__)) {
+        if ((_rw._result != null && ((_rw._result : Dynamic).__nil__ == null || !(_rw._result : Dynamic).__nil__))) {
             return _rw._result;
         };
         if (_rw._snapHeader == null) {
@@ -15,7 +15,7 @@ package stdgo._internal.net.http.httptest;
             _res.statusCode = (200 : stdgo.GoInt);
         };
         _res.status = stdgo._internal.fmt.Fmt_sprintf.sprintf(("%03d %s" : stdgo.GoString), stdgo.Go.toInterface(_res.statusCode), stdgo.Go.toInterface(stdgo._internal.net.http.Http_statusText.statusText(_res.statusCode)))?.__copy__();
-        if (_rw.body != null && ((_rw.body : Dynamic).__nil__ == null || !(_rw.body : Dynamic).__nil__)) {
+        if ((_rw.body != null && ((_rw.body : Dynamic).__nil__ == null || !(_rw.body : Dynamic).__nil__))) {
             _res.body = stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_rw.body.bytes())));
         } else {
             _res.body = stdgo.Go.asInterface(stdgo._internal.net.http.Http_noBody.noBody);
@@ -96,7 +96,7 @@ package stdgo._internal.net.http.httptest;
     static public function writeString( _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder>, _str:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder> = _rw;
         _rw._writeHeader((null : stdgo.Slice<stdgo.GoUInt8>), _str?.__copy__());
-        if (_rw.body != null && ((_rw.body : Dynamic).__nil__ == null || !(_rw.body : Dynamic).__nil__)) {
+        if ((_rw.body != null && ((_rw.body : Dynamic).__nil__ == null || !(_rw.body : Dynamic).__nil__))) {
             _rw.body.writeString(_str?.__copy__());
         };
         return { _0 : (_str.length), _1 : (null : stdgo.Error) };
@@ -105,7 +105,7 @@ package stdgo._internal.net.http.httptest;
     static public function write( _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder>, _buf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _rw:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_ResponseRecorder.ResponseRecorder> = _rw;
         _rw._writeHeader(_buf, stdgo.Go.str()?.__copy__());
-        if (_rw.body != null && ((_rw.body : Dynamic).__nil__ == null || !(_rw.body : Dynamic).__nil__)) {
+        if ((_rw.body != null && ((_rw.body : Dynamic).__nil__ == null || !(_rw.body : Dynamic).__nil__))) {
             _rw.body.write(_buf);
         };
         return { _0 : (_buf.length), _1 : (null : stdgo.Error) };

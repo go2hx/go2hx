@@ -88,7 +88,7 @@ package stdgo._internal.net.http;
     static public function _logf( _s:stdgo.Ref<stdgo._internal.net.http.Http_Server.Server>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_Server.Server> = _s;
-        if (_s.errorLog != null && ((_s.errorLog : Dynamic).__nil__ == null || !(_s.errorLog : Dynamic).__nil__)) {
+        if ((_s.errorLog != null && ((_s.errorLog : Dynamic).__nil__ == null || !(_s.errorLog : Dynamic).__nil__))) {
             _s.errorLog.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
         } else {
             stdgo._internal.log.Log_printf.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
@@ -387,7 +387,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _shouldConfigureHTTP2ForServe( _srv:stdgo.Ref<stdgo._internal.net.http.Http_Server.Server>):Bool {
         @:recv var _srv:stdgo.Ref<stdgo._internal.net.http.Http_Server.Server> = _srv;
-        if (_srv.tlsconfig == null || (_srv.tlsconfig : Dynamic).__nil__) {
+        if ((_srv.tlsconfig == null || (_srv.tlsconfig : Dynamic).__nil__)) {
             return true;
         };
         return stdgo._internal.net.http.Http__strSliceContains._strSliceContains(_srv.tlsconfig.nextProtos, ("h2" : stdgo.GoString));

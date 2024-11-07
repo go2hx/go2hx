@@ -173,7 +173,7 @@ package stdgo._internal.crypto.tls;
     @:keep
     static public function _serverResumedSession( _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHandshakeState.T_clientHandshakeState>):Bool {
         @:recv var _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHandshakeState.T_clientHandshakeState> = _hs;
-        return ((_hs._session != null && ((_hs._session : Dynamic).__nil__ == null || !(_hs._session : Dynamic).__nil__) && _hs._hello._sessionId != null : Bool) && stdgo._internal.bytes.Bytes_equal.equal(_hs._serverHello._sessionId, _hs._hello._sessionId) : Bool);
+        return (((_hs._session != null && ((_hs._session : Dynamic).__nil__ == null || !(_hs._session : Dynamic).__nil__)) && _hs._hello._sessionId != null : Bool) && stdgo._internal.bytes.Bytes_equal.equal(_hs._serverHello._sessionId, _hs._hello._sessionId) : Bool);
     }
     @:keep
     static public function _establishKeys( _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHandshakeState.T_clientHandshakeState>):stdgo.Error {
@@ -330,7 +330,7 @@ var _serverHash = __1, _clientHash = __0;
             _c._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
             return _err;
         };
-        if (_ckx != null && ((_ckx : Dynamic).__nil__ == null || !(_ckx : Dynamic).__nil__)) {
+        if ((_ckx != null && ((_ckx : Dynamic).__nil__ == null || !(_ckx : Dynamic).__nil__))) {
             {
                 var __tmp__ = _hs._c._writeHandshakeRecord(stdgo.Go.asInterface(_ckx), stdgo.Go.asInterface((stdgo.Go.setRef(_hs._finishedHash) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_finishedHash.T_finishedHash>))), __177:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
@@ -351,7 +351,7 @@ var _serverHash = __1, _clientHash = __0;
                 return stdgo._internal.errors.Errors_new_.new_((("tls: failed to write to key log: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__());
             };
         };
-        if ((((_chainToSend != null) && ((_chainToSend : Dynamic).__nil__ == null || !(_chainToSend : Dynamic).__nil__)) && ((_chainToSend.certificate.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
+        if (((_chainToSend != null && ((_chainToSend : Dynamic).__nil__ == null || !(_chainToSend : Dynamic).__nil__)) && ((_chainToSend.certificate.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
             var _certVerify = (stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg() : stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg>);
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((_chainToSend.privateKey : stdgo._internal.crypto.Crypto_Signer.Signer)) : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : true };
@@ -422,7 +422,7 @@ var _serverHash = __1, _clientHash = __0;
         @:recv var _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHandshakeState.T_clientHandshakeState> = _hs;
         {
             _hs._suite = stdgo._internal.crypto.tls.Tls__mutualCipherSuite._mutualCipherSuite(_hs._hello._cipherSuites, _hs._serverHello._cipherSuite);
-            if (_hs._suite == null || (_hs._suite : Dynamic).__nil__) {
+            if ((_hs._suite == null || (_hs._suite : Dynamic).__nil__)) {
                 _hs._c._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                 return stdgo._internal.errors.Errors_new_.new_(("tls: server chose an unconfigured cipher suite" : stdgo.GoString));
             };

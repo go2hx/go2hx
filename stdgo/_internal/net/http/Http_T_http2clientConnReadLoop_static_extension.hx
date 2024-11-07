@@ -78,7 +78,7 @@ package stdgo._internal.net.http;
     static public function _processResetStream( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>, _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2RSTStreamFrame.T_http2RSTStreamFrame>):stdgo.Error {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
         var _cs = _rl._streamByID(_f._http2FrameHeader.streamID);
-        if (_cs == null || (_cs : Dynamic).__nil__) {
+        if ((_cs == null || (_cs : Dynamic).__nil__)) {
             return (null : stdgo.Error);
         };
         var _serr = (stdgo._internal.net.http.Http__http2streamError._http2streamError(_cs.id, _f.errCode)?.__copy__() : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError);
@@ -103,13 +103,13 @@ package stdgo._internal.net.http;
         try {
             var _cc = _rl._cc;
             var _cs = _rl._streamByID(_f._http2FrameHeader.streamID);
-            if (((_f._http2FrameHeader.streamID != (0u32 : stdgo.GoUInt32)) && (_cs == null) || (_cs : Dynamic).__nil__ : Bool)) {
+            if (((_f._http2FrameHeader.streamID != (0u32 : stdgo.GoUInt32)) && (_cs == null || (_cs : Dynamic).__nil__) : Bool)) {
                 return (null : stdgo.Error);
             };
             _cc._mu.lock();
             __deferstack__.unshift(() -> _cc._mu.unlock());
             var _fl = (stdgo.Go.setRef(_cc._flow) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2outflow.T_http2outflow>);
-            if (_cs != null && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__)) {
+            if ((_cs != null && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__))) {
                 _fl = (stdgo.Go.setRef(_cs._flow) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2outflow.T_http2outflow>);
             };
             if (!_fl._add((_f.increment : stdgo.GoInt32))) {
@@ -371,7 +371,7 @@ package stdgo._internal.net.http;
             _rl._cc._mu.lock();
             __deferstack__.unshift(() -> _rl._cc._mu.unlock());
             var _cs = (_rl._cc._streams[_id] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>));
-            if ((((_cs != null) && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__)) && !_cs._readAborted : Bool)) {
+            if (((_cs != null && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__)) && !_cs._readAborted : Bool)) {
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -455,7 +455,7 @@ package stdgo._internal.net.http;
         var _cc = _rl._cc;
         var _cs = _rl._streamByID(_f._http2FrameHeader.streamID);
         var _data = _f.data();
-        if (_cs == null || (_cs : Dynamic).__nil__) {
+        if ((_cs == null || (_cs : Dynamic).__nil__)) {
             _cc._mu.lock();
             var _neverSent = (_cc._nextStreamID : stdgo.GoUInt32);
             _cc._mu.unlock();
@@ -716,7 +716,7 @@ package stdgo._internal.net.http;
     static public function _processHeaders( _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>, _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2MetaHeadersFrame.T_http2MetaHeadersFrame>):stdgo.Error {
         @:recv var _rl:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop> = _rl;
         var _cs = _rl._streamByID(_f._http2HeadersFrame._http2FrameHeader.streamID);
-        if (_cs == null || (_cs : Dynamic).__nil__) {
+        if ((_cs == null || (_cs : Dynamic).__nil__)) {
             return (null : stdgo.Error);
         };
         if (_cs._readClosed) {
@@ -724,7 +724,7 @@ package stdgo._internal.net.http;
             return (null : stdgo.Error);
         };
         if (!_cs._firstByte) {
-            if (_cs._trace != null && ((_cs._trace : Dynamic).__nil__ == null || !(_cs._trace : Dynamic).__nil__)) {
+            if ((_cs._trace != null && ((_cs._trace : Dynamic).__nil__ == null || !(_cs._trace : Dynamic).__nil__))) {
                 stdgo._internal.net.http.Http__http2traceFirstResponseByte._http2traceFirstResponseByte(_cs._trace);
             };
             _cs._firstByte = true;
@@ -749,7 +749,7 @@ package stdgo._internal.net.http;
             _rl._endStreamError(_cs, stdgo.Go.asInterface(({ streamID : _f._http2HeadersFrame._http2FrameHeader.streamID, code : (1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), cause : _err } : stdgo._internal.net.http.Http_T_http2StreamError.T_http2StreamError)));
             return (null : stdgo.Error);
         };
-        if (_res == null || (_res : Dynamic).__nil__) {
+        if ((_res == null || (_res : Dynamic).__nil__)) {
             return (null : stdgo.Error);
         };
         _cs._resTrailer = (stdgo.Go.setRef(_res.trailer) : stdgo.Ref<stdgo._internal.net.http.Http_Header.Header>);
@@ -775,7 +775,7 @@ package stdgo._internal.net.http;
             };
             while (true) {
                 var __tmp__ = _cc._fr.readFrame(), _f:stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
+                if ((_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__))) {
                     _t.reset(_readIdleTimeout);
                 };
                 if (_err != null) {
@@ -790,7 +790,7 @@ package stdgo._internal.net.http;
                     if (_ok) {
                         {
                             var _cs = _rl._streamByID(_se.streamID);
-                            if (_cs != null && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__)) {
+                            if ((_cs != null && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__))) {
                                 if (_se.cause == null) {
                                     _se.cause = _cc._fr._errDetail;
                                 };
@@ -910,12 +910,12 @@ package stdgo._internal.net.http;
                 var _a0 = _cc._readerDone;
                 __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
             };
-            if (_cc._idleTimer != null && ((_cc._idleTimer : Dynamic).__nil__ == null || !(_cc._idleTimer : Dynamic).__nil__)) {
+            if ((_cc._idleTimer != null && ((_cc._idleTimer : Dynamic).__nil__ == null || !(_cc._idleTimer : Dynamic).__nil__))) {
                 _cc._idleTimer.stop();
             };
             var _err = (_cc._readerErr : stdgo.Error);
             _cc._mu.lock();
-            if ((((_cc._goAway != null) && ((_cc._goAway : Dynamic).__nil__ == null || !(_cc._goAway : Dynamic).__nil__)) && stdgo._internal.net.http.Http__http2isEOFOrNetReadError._http2isEOFOrNetReadError(_err) : Bool)) {
+            if (((_cc._goAway != null && ((_cc._goAway : Dynamic).__nil__ == null || !(_cc._goAway : Dynamic).__nil__)) && stdgo._internal.net.http.Http__http2isEOFOrNetReadError._http2isEOFOrNetReadError(_err) : Bool)) {
                 _err = stdgo.Go.asInterface(({ lastStreamID : _cc._goAway.lastStreamID, errCode : _cc._goAway.errCode, debugData : _cc._goAwayDebug?.__copy__() } : stdgo._internal.net.http.Http_T_http2GoAwayError.T_http2GoAwayError));
             } else if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                 _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;

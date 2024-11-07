@@ -3,7 +3,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
         var __deferstack__:Array<Void -> Void> = [];
         var _v = ({} : stdgo._internal.reflect.Reflect_Value.Value), _isBuiltin = false, _ok = false;
         try {
-            if ((((_tmpl != null) && ((_tmpl : Dynamic).__nil__ == null || !(_tmpl : Dynamic).__nil__)) && ((_tmpl._common != null) && ((_tmpl._common : Dynamic).__nil__ == null || !(_tmpl._common : Dynamic).__nil__)) : Bool)) {
+            if (((_tmpl != null && ((_tmpl : Dynamic).__nil__ == null || !(_tmpl : Dynamic).__nil__)) && (_tmpl._common != null && ((_tmpl._common : Dynamic).__nil__ == null || !(_tmpl._common : Dynamic).__nil__)) : Bool)) {
                 _tmpl._common._muFuncs.rlock();
                 __deferstack__.unshift(() -> _tmpl._common._muFuncs.runlock());
                 {

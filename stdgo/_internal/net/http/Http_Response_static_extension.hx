@@ -119,7 +119,7 @@ package stdgo._internal.net.http;
         if (_lv == (stdgo.Go.str())) {
             return { _0 : null, _1 : stdgo._internal.net.http.Http_errNoLocation.errNoLocation };
         };
-        if ((((_r.request != null) && ((_r.request : Dynamic).__nil__ == null || !(_r.request : Dynamic).__nil__)) && ((_r.request.url != null) && ((_r.request.url : Dynamic).__nil__ == null || !(_r.request.url : Dynamic).__nil__)) : Bool)) {
+        if (((_r.request != null && ((_r.request : Dynamic).__nil__ == null || !(_r.request : Dynamic).__nil__)) && (_r.request.url != null && ((_r.request.url : Dynamic).__nil__ == null || !(_r.request.url : Dynamic).__nil__)) : Bool)) {
             return _r.request.url.parse(_lv?.__copy__());
         };
         return stdgo._internal.net.url.Url_parse.parse(_lv?.__copy__());

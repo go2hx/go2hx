@@ -24,7 +24,7 @@ function _parseECPrivateKey(_namedCurveOID:stdgo.Ref<stdgo._internal.encoding.as
             return { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: unknown EC private key version %d" : stdgo.GoString), stdgo.Go.toInterface(_privKey.version)) };
         };
         var _curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve = (null : stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve);
-        if (_namedCurveOID != null && ((_namedCurveOID : Dynamic).__nil__ == null || !(_namedCurveOID : Dynamic).__nil__)) {
+        if ((_namedCurveOID != null && ((_namedCurveOID : Dynamic).__nil__ == null || !(_namedCurveOID : Dynamic).__nil__))) {
             _curve = stdgo._internal.crypto.x509.X509__namedCurveFromOID._namedCurveFromOID((_namedCurveOID : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier));
         } else {
             _curve = stdgo._internal.crypto.x509.X509__namedCurveFromOID._namedCurveFromOID(_privKey.namedCurveOID);

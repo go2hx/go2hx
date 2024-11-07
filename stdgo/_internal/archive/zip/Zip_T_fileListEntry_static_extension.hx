@@ -13,7 +13,7 @@ package stdgo._internal.archive.zip;
     @:keep
     static public function modTime( _f:stdgo.Ref<stdgo._internal.archive.zip.Zip_T_fileListEntry.T_fileListEntry>):stdgo._internal.time.Time_Time.Time {
         @:recv var _f:stdgo.Ref<stdgo._internal.archive.zip.Zip_T_fileListEntry.T_fileListEntry> = _f;
-        if (_f._file == null || (_f._file : Dynamic).__nil__) {
+        if ((_f._file == null || (_f._file : Dynamic).__nil__)) {
             return (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time);
         };
         return _f._file.fileHeader.modified.utc()?.__copy__();

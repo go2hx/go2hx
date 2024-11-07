@@ -5,7 +5,7 @@ package stdgo._internal.net.http;
         @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler> = _ws;
         {
             var _k = _n._kids;
-            while (_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__)) {
+            while ((_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__))) {
                 _k._setParent(_n._parent);
                 _k = _k._next;
             };
@@ -66,7 +66,7 @@ package stdgo._internal.net.http;
         } else {
             var _id = (_wr.streamID() : stdgo.GoUInt32);
             _n = (_ws._nodes[_id] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>));
-            if (_n == null || (_n : Dynamic).__nil__) {
+            if ((_n == null || (_n : Dynamic).__nil__)) {
                 if ((_wr.dataSize() > (0 : stdgo.GoInt) : Bool)) {
                     throw stdgo.Go.toInterface(("add DATA on non-open stream" : stdgo.GoString));
                 };
@@ -82,7 +82,7 @@ package stdgo._internal.net.http;
             throw stdgo.Go.toInterface(("adjustPriority on root" : stdgo.GoString));
         };
         var _n = (_ws._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>));
-        if (_n == null || (_n : Dynamic).__nil__) {
+        if ((_n == null || (_n : Dynamic).__nil__)) {
             if (((_streamID <= _ws._maxID : Bool) || (_ws._maxIdleNodesInTree == (0 : stdgo.GoInt)) : Bool)) {
                 return;
             };
@@ -93,7 +93,7 @@ package stdgo._internal.net.http;
             _ws._addClosedOrIdleNode((stdgo.Go.setRef(_ws._idleNodes) : stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>>), _ws._maxIdleNodesInTree, _n);
         };
         var _parent = (_ws._nodes[_priority.streamDep] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>));
-        if (_parent == null || (_parent : Dynamic).__nil__) {
+        if ((_parent == null || (_parent : Dynamic).__nil__)) {
             _n._setParent((stdgo.Go.setRef(_ws._root) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>));
             _n._weight = (15 : stdgo.GoUInt8);
             return;
@@ -103,7 +103,7 @@ package stdgo._internal.net.http;
         };
         {
             var _x = _parent._parent;
-            while (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
+            while ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__))) {
                 if (_x == (_n)) {
                     _parent._setParent(_n._parent);
                     break;
@@ -113,7 +113,7 @@ package stdgo._internal.net.http;
         };
         if (_priority.exclusive) {
             var _k = _parent._kids;
-            while (_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__)) {
+            while ((_k != null && ((_k : Dynamic).__nil__ == null || !(_k : Dynamic).__nil__))) {
                 var _next = _k._next;
                 if (_k != (_n)) {
                     _k._setParent(_n);
@@ -130,7 +130,7 @@ package stdgo._internal.net.http;
         if (_streamID == ((0u32 : stdgo.GoUInt32))) {
             throw stdgo.Go.toInterface(("violation of WriteScheduler interface: cannot close stream 0" : stdgo.GoString));
         };
-        if ((_ws._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>)) == null || (_ws._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>) : Dynamic).__nil__) {
+        if (((_ws._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>)) == null || (_ws._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>) : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("violation of WriteScheduler interface: unknown stream %d" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
         };
         if ((_ws._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>))._state != ((0 : stdgo._internal.net.http.Http_T_http2priorityNodeState.T_http2priorityNodeState))) {
@@ -153,7 +153,7 @@ package stdgo._internal.net.http;
         @:recv var _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler> = _ws;
         {
             var _curr = (_ws._nodes[_streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>));
-            if (_curr != null && ((_curr : Dynamic).__nil__ == null || !(_curr : Dynamic).__nil__)) {
+            if ((_curr != null && ((_curr : Dynamic).__nil__ == null || !(_curr : Dynamic).__nil__))) {
                 if (_curr._state != ((2 : stdgo._internal.net.http.Http_T_http2priorityNodeState.T_http2priorityNodeState))) {
                     throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("stream %d already opened" : stdgo.GoString), stdgo.Go.toInterface(_streamID)));
                 };
@@ -162,7 +162,7 @@ package stdgo._internal.net.http;
             };
         };
         var _parent = (_ws._nodes[_options.pusherID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>));
-        if (_parent == null || (_parent : Dynamic).__nil__) {
+        if ((_parent == null || (_parent : Dynamic).__nil__)) {
             _parent = (stdgo.Go.setRef(_ws._root) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>);
         };
         var _n = (stdgo.Go.setRef(({ _q : (_ws._queuePool._get() : stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue)?.__copy__(), _id : _streamID, _weight : (15 : stdgo.GoUInt8), _state : (0 : stdgo._internal.net.http.Http_T_http2priorityNodeState.T_http2priorityNodeState) } : stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>);

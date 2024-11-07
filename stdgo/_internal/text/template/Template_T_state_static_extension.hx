@@ -555,7 +555,7 @@ package stdgo._internal.text.template;
     static public function _evalPipeline( _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state>, _dot:stdgo._internal.reflect.Reflect_Value.Value, _pipe:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>):stdgo._internal.reflect.Reflect_Value.Value {
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state> = _s;
         var _value = ({} : stdgo._internal.reflect.Reflect_Value.Value);
-        if (_pipe == null || (_pipe : Dynamic).__nil__) {
+        if ((_pipe == null || (_pipe : Dynamic).__nil__)) {
             return _value;
         };
         _s._at(stdgo.Go.asInterface(_pipe));
@@ -580,7 +580,7 @@ package stdgo._internal.text.template;
         @:recv var _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state> = _s;
         _s._at(stdgo.Go.asInterface(_t));
         var _tmpl = _s._tmpl.lookup(_t.name?.__copy__());
-        if (_tmpl == null || (_tmpl : Dynamic).__nil__) {
+        if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
             _s._errorf(("template %q not defined" : stdgo.GoString), stdgo.Go.toInterface(_t.name));
         };
         if (_s._depth == (stdgo._internal.text.template.Template__maxExecDepth._maxExecDepth)) {
@@ -798,7 +798,7 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
                     break;
                 };
             };
-            if (_r.branchNode.elseList != null && ((_r.branchNode.elseList : Dynamic).__nil__ == null || !(_r.branchNode.elseList : Dynamic).__nil__)) {
+            if ((_r.branchNode.elseList != null && ((_r.branchNode.elseList : Dynamic).__nil__ == null || !(_r.branchNode.elseList : Dynamic).__nil__))) {
                 _s._walk(_dot?.__copy__(), stdgo.Go.asInterface(_r.branchNode.elseList));
             };
             {
@@ -843,7 +843,7 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
                 } else {
                     _s._walk(_dot?.__copy__(), stdgo.Go.asInterface(_list));
                 };
-            } else if (_elseList != null && ((_elseList : Dynamic).__nil__ == null || !(_elseList : Dynamic).__nil__)) {
+            } else if ((_elseList != null && ((_elseList : Dynamic).__nil__ == null || !(_elseList : Dynamic).__nil__))) {
                 _s._walk(_dot?.__copy__(), stdgo.Go.asInterface(_elseList));
             };
             {

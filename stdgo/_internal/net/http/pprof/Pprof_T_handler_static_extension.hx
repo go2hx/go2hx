@@ -122,7 +122,7 @@ package stdgo._internal.net.http.pprof;
         @:recv var _name:stdgo._internal.net.http.pprof.Pprof_T_handler.T_handler = _name;
         _w.header().set(("X-Content-Type-Options" : stdgo.GoString), ("nosniff" : stdgo.GoString));
         var _p = stdgo._internal.runtime.pprof.Pprof_lookup.lookup((_name : stdgo.GoString)?.__copy__());
-        if (_p == null || (_p : Dynamic).__nil__) {
+        if ((_p == null || (_p : Dynamic).__nil__)) {
             stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (404 : stdgo.GoInt), ("Unknown profile" : stdgo.GoString));
             return;
         };

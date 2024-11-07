@@ -9,7 +9,7 @@ package stdgo._internal.net.http;
         if (_st._isPushed()) {
             return stdgo._internal.net.http.Http__http2ErrRecursivePush._http2ErrRecursivePush;
         };
-        if (_opts == null || (_opts : Dynamic).__nil__) {
+        if ((_opts == null || (_opts : Dynamic).__nil__)) {
             _opts = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_PushOptions.PushOptions)) : stdgo.Ref<stdgo._internal.net.http.Http_PushOptions.PushOptions>);
         };
         if (_opts.method == (stdgo.Go.str())) {
@@ -24,7 +24,7 @@ package stdgo._internal.net.http;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>);
         };
         var _wantScheme = ("http" : stdgo.GoString);
-        if (_w._rws._req.tls != null && ((_w._rws._req.tls : Dynamic).__nil__ == null || !(_w._rws._req.tls : Dynamic).__nil__)) {
+        if ((_w._rws._req.tls != null && ((_w._rws._req.tls : Dynamic).__nil__ == null || !(_w._rws._req.tls : Dynamic).__nil__))) {
             _wantScheme = ("https" : stdgo.GoString);
         };
         var __tmp__ = stdgo._internal.net.url.Url_parse.parse(_target?.__copy__()), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -147,7 +147,7 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         var _rws = _w._rws;
-        if (_rws == null || (_rws : Dynamic).__nil__) {
+        if ((_rws == null || (_rws : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("Write called after Handler finished" : stdgo.GoString));
         };
         if (!_rws._wroteHeader) {
@@ -182,7 +182,7 @@ package stdgo._internal.net.http;
     static public function writeHeader( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter>, _code:stdgo.GoInt):Void {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter> = _w;
         var _rws = _w._rws;
-        if (_rws == null || (_rws : Dynamic).__nil__) {
+        if ((_rws == null || (_rws : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("WriteHeader called after Handler finished" : stdgo.GoString));
         };
         _rws._writeHeader(_code);
@@ -191,7 +191,7 @@ package stdgo._internal.net.http;
     static public function header( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter>):stdgo._internal.net.http.Http_Header.Header {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter> = _w;
         var _rws = _w._rws;
-        if (_rws == null || (_rws : Dynamic).__nil__) {
+        if ((_rws == null || (_rws : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("Header called after Handler finished" : stdgo.GoString));
         };
         if (_rws._handlerHeader == null) {
@@ -208,7 +208,7 @@ package stdgo._internal.net.http;
     static public function closeNotify( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter>):stdgo.Chan<Bool> {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter> = _w;
         var _rws = _w._rws;
-        if (_rws == null || (_rws : Dynamic).__nil__) {
+        if ((_rws == null || (_rws : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("CloseNotify called after Handler finished" : stdgo.GoString));
         };
         _rws._closeNotifierMu.lock();
@@ -232,7 +232,7 @@ package stdgo._internal.net.http;
     static public function flushError( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter>):stdgo.Error {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter> = _w;
         var _rws = _w._rws;
-        if (_rws == null || (_rws : Dynamic).__nil__) {
+        if ((_rws == null || (_rws : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("Header called after Handler finished" : stdgo.GoString));
         };
         var _err:stdgo.Error = (null : stdgo.Error);
@@ -281,14 +281,14 @@ package stdgo._internal.net.http;
             return (null : stdgo.Error);
         };
         _w._rws._conn._sendServeMsg(stdgo.Go.toInterface(function(_sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>):Void {
-            if (_st._writeDeadline != null && ((_st._writeDeadline : Dynamic).__nil__ == null || !(_st._writeDeadline : Dynamic).__nil__)) {
+            if ((_st._writeDeadline != null && ((_st._writeDeadline : Dynamic).__nil__ == null || !(_st._writeDeadline : Dynamic).__nil__))) {
                 if (!_st._writeDeadline.stop()) {
                     return;
                 };
             };
             if (_deadline.isZero()) {
                 _st._writeDeadline = null;
-            } else if (_st._writeDeadline == null || (_st._writeDeadline : Dynamic).__nil__) {
+            } else if ((_st._writeDeadline == null || (_st._writeDeadline : Dynamic).__nil__)) {
                 _st._writeDeadline = stdgo._internal.time.Time_afterFunc.afterFunc(_deadline.sub(stdgo._internal.time.Time_now.now()?.__copy__()), _st._onWriteTimeout);
             } else {
                 _st._writeDeadline.reset(_deadline.sub(stdgo._internal.time.Time_now.now()?.__copy__()));
@@ -305,14 +305,14 @@ package stdgo._internal.net.http;
             return (null : stdgo.Error);
         };
         _w._rws._conn._sendServeMsg(stdgo.Go.toInterface(function(_sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>):Void {
-            if (_st._readDeadline != null && ((_st._readDeadline : Dynamic).__nil__ == null || !(_st._readDeadline : Dynamic).__nil__)) {
+            if ((_st._readDeadline != null && ((_st._readDeadline : Dynamic).__nil__ == null || !(_st._readDeadline : Dynamic).__nil__))) {
                 if (!_st._readDeadline.stop()) {
                     return;
                 };
             };
             if (_deadline.isZero()) {
                 _st._readDeadline = null;
-            } else if (_st._readDeadline == null || (_st._readDeadline : Dynamic).__nil__) {
+            } else if ((_st._readDeadline == null || (_st._readDeadline : Dynamic).__nil__)) {
                 _st._readDeadline = stdgo._internal.time.Time_afterFunc.afterFunc(_deadline.sub(stdgo._internal.time.Time_now.now()?.__copy__()), _st._onReadTimeout);
             } else {
                 _st._readDeadline.reset(_deadline.sub(stdgo._internal.time.Time_now.now()?.__copy__()));

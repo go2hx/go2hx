@@ -92,7 +92,7 @@ package stdgo._internal.net.url;
         if (_ref.scheme == (stdgo.Go.str())) {
             _url.scheme = _u.scheme?.__copy__();
         };
-        if (((_ref.scheme != (stdgo.Go.str()) || _ref.host != (stdgo.Go.str()) : Bool) || ((_ref.user != null) && ((_ref.user : Dynamic).__nil__ == null || !(_ref.user : Dynamic).__nil__)) : Bool)) {
+        if (((_ref.scheme != (stdgo.Go.str()) || _ref.host != (stdgo.Go.str()) : Bool) || (_ref.user != null && ((_ref.user : Dynamic).__nil__ == null || !(_ref.user : Dynamic).__nil__)) : Bool)) {
             _url._setPath(stdgo._internal.net.url.Url__resolvePath._resolvePath(_ref.escapedPath()?.__copy__(), stdgo.Go.str()?.__copy__())?.__copy__());
             return (stdgo.Go.setRef(_url) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
         };
@@ -131,7 +131,7 @@ package stdgo._internal.net.url;
     @:keep
     static public function redacted( _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):stdgo.GoString {
         @:recv var _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = _u;
-        if (_u == null || (_u : Dynamic).__nil__) {
+        if ((_u == null || (_u : Dynamic).__nil__)) {
             return stdgo.Go.str()?.__copy__();
         };
         var _ru = ((_u : stdgo._internal.net.url.Url_URL.URL)?.__copy__() : stdgo._internal.net.url.Url_URL.URL);
@@ -154,14 +154,14 @@ package stdgo._internal.net.url;
         if (_u.opaque != (stdgo.Go.str())) {
             _buf.writeString(_u.opaque?.__copy__());
         } else {
-            if (((_u.scheme != (stdgo.Go.str()) || _u.host != (stdgo.Go.str()) : Bool) || ((_u.user != null) && ((_u.user : Dynamic).__nil__ == null || !(_u.user : Dynamic).__nil__)) : Bool)) {
-                if (((_u.omitHost && _u.host == (stdgo.Go.str()) : Bool) && (_u.user == null) || (_u.user : Dynamic).__nil__ : Bool)) {} else {
-                    if (((_u.host != (stdgo.Go.str()) || _u.path != (stdgo.Go.str()) : Bool) || ((_u.user != null) && ((_u.user : Dynamic).__nil__ == null || !(_u.user : Dynamic).__nil__)) : Bool)) {
+            if (((_u.scheme != (stdgo.Go.str()) || _u.host != (stdgo.Go.str()) : Bool) || (_u.user != null && ((_u.user : Dynamic).__nil__ == null || !(_u.user : Dynamic).__nil__)) : Bool)) {
+                if (((_u.omitHost && _u.host == (stdgo.Go.str()) : Bool) && (_u.user == null || (_u.user : Dynamic).__nil__) : Bool)) {} else {
+                    if (((_u.host != (stdgo.Go.str()) || _u.path != (stdgo.Go.str()) : Bool) || (_u.user != null && ((_u.user : Dynamic).__nil__ == null || !(_u.user : Dynamic).__nil__)) : Bool)) {
                         _buf.writeString(("//" : stdgo.GoString));
                     };
                     {
                         var _ui = _u.user;
-                        if (_ui != null && ((_ui : Dynamic).__nil__ == null || !(_ui : Dynamic).__nil__)) {
+                        if ((_ui != null && ((_ui : Dynamic).__nil__ == null || !(_ui : Dynamic).__nil__))) {
                             _buf.writeString((_ui.string() : stdgo.GoString)?.__copy__());
                             _buf.writeByte((64 : stdgo.GoUInt8));
                         };

@@ -1,6 +1,6 @@
 package stdgo._internal.crypto.rsa;
 function _checkPub(_pub:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PublicKey.PublicKey>):stdgo.Error {
-        if (_pub.n == null || (_pub.n : Dynamic).__nil__) {
+        if ((_pub.n == null || (_pub.n : Dynamic).__nil__)) {
             return stdgo._internal.crypto.rsa.Rsa__errPublicModulus._errPublicModulus;
         };
         if ((_pub.e < (2 : stdgo.GoInt) : Bool)) {

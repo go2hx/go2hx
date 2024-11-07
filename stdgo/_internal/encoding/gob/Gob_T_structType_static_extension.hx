@@ -13,7 +13,7 @@ package stdgo._internal.encoding.gob;
     @:keep
     static public function _safeString( _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_structType.T_structType>, _seen:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, Bool>):stdgo.GoString {
         @:recv var _s:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_structType.T_structType> = _s;
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             return ("<nil>" : stdgo.GoString);
         };
         {

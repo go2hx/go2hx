@@ -25,7 +25,7 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_Cur
         };
         _y = _curve.params()._polynomial(_x);
         _y = _y.modSqrt(_y, _p);
-        if (_y == null || (_y : Dynamic).__nil__) {
+        if ((_y == null || (_y : Dynamic).__nil__)) {
             return { _0 : null, _1 : null };
         };
         if ((_y.bit((0 : stdgo.GoInt)) : stdgo.GoUInt8) != ((_data[(0 : stdgo.GoInt)] & (1 : stdgo.GoUInt8) : stdgo.GoUInt8))) {

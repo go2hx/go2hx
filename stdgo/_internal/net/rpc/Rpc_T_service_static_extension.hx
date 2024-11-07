@@ -5,7 +5,7 @@ package stdgo._internal.net.rpc;
         @:recv var _s:stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_service.T_service> = _s;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_wg != null && ((_wg : Dynamic).__nil__ == null || !(_wg : Dynamic).__nil__)) {
+            if ((_wg != null && ((_wg : Dynamic).__nil__ == null || !(_wg : Dynamic).__nil__))) {
                 __deferstack__.unshift(() -> _wg.done());
             };
             _mtype.lock();

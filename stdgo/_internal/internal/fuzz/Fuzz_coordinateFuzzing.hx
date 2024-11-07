@@ -91,7 +91,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
-                        if ((((_c._crashMinimizing == null) || (_c._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
+                        if (((_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -209,7 +209,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 };
                 var _inputC:stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_fuzzInput.T_fuzzInput> = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_fuzzInput.T_fuzzInput>);
                 var __tmp__ = _c._peekInput(), _input:stdgo._internal.internal.fuzz.Fuzz_T_fuzzInput.T_fuzzInput = __tmp__._0, _ok:Bool = __tmp__._1;
-                if (((_ok && _c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__ : Bool) && !_stopping : Bool)) {
+                if (((_ok && (_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) : Bool) && !_stopping : Bool)) {
                     _inputC = _c._inputC;
                 };
                 var _minimizeC:stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput> = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_fuzzMinimizeInput.T_fuzzMinimizeInput>);
@@ -262,7 +262,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                             break;
                                         };
                                         if ((_c._canMinimize() && _result._canMinimize : Bool)) {
-                                            if (_c._crashMinimizing != null && ((_c._crashMinimizing : Dynamic).__nil__ == null || !(_c._crashMinimizing : Dynamic).__nil__)) {
+                                            if ((_c._crashMinimizing != null && ((_c._crashMinimizing : Dynamic).__nil__ == null || !(_c._crashMinimizing : Dynamic).__nil__))) {
                                                 if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
                                                     _c._debugLogf(("found unminimized crasher, skipping in favor of minimizable crasher" : stdgo.GoString));
                                                 };
@@ -298,7 +298,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                         } else {
                                             var _keepCoverage = stdgo._internal.internal.fuzz.Fuzz__diffCoverage._diffCoverage(_c._coverageMask, _result._coverageData);
                                             if (_keepCoverage != null) {
-                                                if (((_c._canMinimize() && _result._canMinimize : Bool) && (_c._crashMinimizing == null) || (_c._crashMinimizing : Dynamic).__nil__ : Bool)) {
+                                                if (((_c._canMinimize() && _result._canMinimize : Bool) && (_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) : Bool)) {
                                                     _c._queueForMinimization(_result?.__copy__(), _keepCoverage);
                                                 } else {
                                                     var _inputSize = (_result._entry.data.length : stdgo.GoInt);

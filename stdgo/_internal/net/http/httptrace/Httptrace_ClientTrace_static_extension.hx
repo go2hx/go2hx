@@ -3,7 +3,7 @@ package stdgo._internal.net.http.httptrace;
     @:keep
     static public function _hasNetHooks( _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace> = _t;
-        if (_t == null || (_t : Dynamic).__nil__) {
+        if ((_t == null || (_t : Dynamic).__nil__)) {
             return false;
         };
         return (((_t.dnsstart != null || _t.dnsdone != null : Bool) || _t.connectStart != null : Bool) || (_t.connectDone != null) : Bool);
@@ -11,7 +11,7 @@ package stdgo._internal.net.http.httptrace;
     @:keep
     static public function _compose( _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>, _old:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace> = _t;
-        if (_old == null || (_old : Dynamic).__nil__) {
+        if ((_old == null || (_old : Dynamic).__nil__)) {
             return;
         };
         var _tv = (stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(stdgo.Go.asInterface(_t))).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);

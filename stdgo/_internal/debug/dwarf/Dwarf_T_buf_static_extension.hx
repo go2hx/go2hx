@@ -113,7 +113,7 @@ package stdgo._internal.debug.dwarf;
                                 return null;
                             };
                             var _addrBase:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-                            if (_cu != null && ((_cu : Dynamic).__nil__ == null || !(_cu : Dynamic).__nil__)) {
+                            if ((_cu != null && ((_cu : Dynamic).__nil__ == null || !(_cu : Dynamic).__nil__))) {
                                 {
                                     var __tmp__ = try {
                                         { _0 : (stdgo.Go.typeAssert((_cu.val((115u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
@@ -281,7 +281,7 @@ package stdgo._internal.debug.dwarf;
                                 _off = (_off * ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
                             };
                             var _strBase:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-                            if (_cu != null && ((_cu : Dynamic).__nil__ == null || !(_cu : Dynamic).__nil__)) {
+                            if ((_cu != null && ((_cu : Dynamic).__nil__ == null || !(_cu : Dynamic).__nil__))) {
                                 {
                                     var __tmp__ = try {
                                         { _0 : (stdgo.Go.typeAssert((_cu.val((114u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
@@ -334,7 +334,7 @@ package stdgo._internal.debug.dwarf;
                         } else if (__value__ == ((35u32 : stdgo._internal.debug.dwarf.Dwarf_T_format.T_format))) {
                             var _off = (_b._uint() : stdgo.GoUInt64);
                             var _rnglistsBase:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-                            if (_cu != null && ((_cu : Dynamic).__nil__ == null || !(_cu : Dynamic).__nil__)) {
+                            if ((_cu != null && ((_cu : Dynamic).__nil__ == null || !(_cu : Dynamic).__nil__))) {
                                 {
                                     var __tmp__ = try {
                                         { _0 : (stdgo.Go.typeAssert((_cu.val((116u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };

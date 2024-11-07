@@ -3,7 +3,7 @@ package stdgo._internal.regexp.syntax;
     @:keep
     static public function simplify( _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>):stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp> {
         @:recv var _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp> = _re;
-        if (_re == null || (_re : Dynamic).__nil__) {
+        if ((_re == null || (_re : Dynamic).__nil__)) {
             return null;
         };
         {
@@ -88,12 +88,12 @@ _suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo
                             _i++;
                         };
                     };
-                    if (_prefix == null || (_prefix : Dynamic).__nil__) {
+                    if ((_prefix == null || (_prefix : Dynamic).__nil__)) {
                         return _suffix;
                     };
                     _prefix.sub = (_prefix.sub.__append__(_suffix));
                 };
-                if (_prefix != null && ((_prefix : Dynamic).__nil__ == null || !(_prefix : Dynamic).__nil__)) {
+                if ((_prefix != null && ((_prefix : Dynamic).__nil__ == null || !(_prefix : Dynamic).__nil__))) {
                     return _prefix;
                 };
                 return (stdgo.Go.setRef(({ op : (1 : stdgo._internal.regexp.syntax.Syntax_Op.Op) } : stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp)) : stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>);
@@ -145,7 +145,7 @@ _suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo
     @:keep
     static public function equal( _x:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>, _y:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>):Bool {
         @:recv var _x:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp> = _x;
-        if ((((_x == null) || (_x : Dynamic).__nil__) || ((_y == null) || (_y : Dynamic).__nil__) : Bool)) {
+        if (((_x == null || (_x : Dynamic).__nil__) || (_y == null || (_y : Dynamic).__nil__) : Bool)) {
             return _x == (_y);
         };
         if (_x.op != (_y.op)) {

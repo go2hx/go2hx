@@ -3,7 +3,7 @@ package stdgo._internal.crypto.rsa;
     @:keep
     static public function _saltLength( _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PSSOptions.PSSOptions>):stdgo.GoInt {
         @:recv var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PSSOptions.PSSOptions> = _opts;
-        if (_opts == null || (_opts : Dynamic).__nil__) {
+        if ((_opts == null || (_opts : Dynamic).__nil__)) {
             return (0 : stdgo.GoInt);
         };
         return _opts.saltLength;

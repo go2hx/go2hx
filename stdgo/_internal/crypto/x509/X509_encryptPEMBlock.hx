@@ -1,7 +1,7 @@
 package stdgo._internal.crypto.x509;
 function encryptPEMBlock(_rand:stdgo._internal.io.Io_Reader.Reader, _blockType:stdgo.GoString, _data:stdgo.Slice<stdgo.GoUInt8>, _password:stdgo.Slice<stdgo.GoUInt8>, _alg:stdgo._internal.crypto.x509.X509_PEMCipher.PEMCipher):{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>; var _1 : stdgo.Error; } {
         var _ciph = stdgo._internal.crypto.x509.X509__cipherByKey._cipherByKey(_alg);
-        if (_ciph == null || (_ciph : Dynamic).__nil__) {
+        if ((_ciph == null || (_ciph : Dynamic).__nil__)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: unknown encryption mode" : stdgo.GoString)) };
         };
         var _iv = (new stdgo.Slice<stdgo.GoUInt8>((_ciph._blockSize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

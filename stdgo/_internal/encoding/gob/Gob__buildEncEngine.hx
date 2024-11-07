@@ -8,7 +8,7 @@ function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_type
             _info._encInit.lock();
             __deferstack__.unshift(() -> _info._encInit.unlock());
             var _enc = _info._encoder.load();
-            if (_enc == null || (_enc : Dynamic).__nil__) {
+            if ((_enc == null || (_enc : Dynamic).__nil__)) {
                 if (_building == null) {
                     _building = ({
                         final x = new stdgo.GoMap.GoRefMap<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>, Bool>();

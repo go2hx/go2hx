@@ -85,7 +85,7 @@ package stdgo._internal.database.sql;
                     return __ret__;
                 };
             };
-            if (_s._parentStmt != null && ((_s._parentStmt : Dynamic).__nil__ == null || !(_s._parentStmt : Dynamic).__nil__)) {
+            if ((_s._parentStmt != null && ((_s._parentStmt : Dynamic).__nil__ == null || !(_s._parentStmt : Dynamic).__nil__))) {
                 {
                     final __ret__:stdgo.Error = _s._db._removeDep(stdgo.Go.asInterface(_s._parentStmt), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)));
                     for (defer in __deferstack__) {

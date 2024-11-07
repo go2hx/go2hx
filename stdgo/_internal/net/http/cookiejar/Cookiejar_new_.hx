@@ -6,7 +6,7 @@ function new_(_o:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Options.
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>>) } : stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar)) : stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>);
-        if (_o != null && ((_o : Dynamic).__nil__ == null || !(_o : Dynamic).__nil__)) {
+        if ((_o != null && ((_o : Dynamic).__nil__ == null || !(_o : Dynamic).__nil__))) {
             _jar._psList = _o.publicSuffixList;
         };
         return { _0 : _jar, _1 : (null : stdgo.Error) };

@@ -3,7 +3,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function string( _a:stdgo.Ref<stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr>):stdgo.GoString {
         @:recv var _a:stdgo.Ref<stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr> = _a;
-        if (_a == null || (_a : Dynamic).__nil__) {
+        if ((_a == null || (_a : Dynamic).__nil__)) {
             return ("<nil>" : stdgo.GoString);
         };
         var _port = (stdgo._internal.strconv.Strconv_itoa.itoa(_a.port)?.__copy__() : stdgo.GoString);

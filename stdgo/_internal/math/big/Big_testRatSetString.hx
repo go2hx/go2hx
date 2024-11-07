@@ -14,7 +14,7 @@ function testRatSetString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             } else {
                 if (_test._ok) {
                     _t.errorf(("#%d SetString(%q) expected success" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._in));
-                } else if (_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__)) {
+                } else if ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__))) {
                     _t.errorf(("#%d SetString(%q) got %p want nil" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._in), stdgo.Go.toInterface(stdgo.Go.asInterface(_x)));
                 };
             };

@@ -3,7 +3,7 @@ package stdgo._internal.text.template.parse;
     @:keep
     static public function copy( _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>):stdgo._internal.text.template.parse.Parse_Node.Node {
         @:recv var _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode> = _c;
-        if (_c == null || (_c : Dynamic).__nil__) {
+        if ((_c == null || (_c : Dynamic).__nil__)) {
             return stdgo.Go.asInterface(_c);
         };
         var _n = _c._tr._newCommand(_c.pos);

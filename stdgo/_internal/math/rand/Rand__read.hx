@@ -12,7 +12,7 @@ function _read(_p:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo._internal.math.rand.Ran
             _n = (0 : stdgo.GoInt);
             while ((_n < (_p.length) : Bool)) {
                 if (_pos == ((0 : stdgo.GoInt8))) {
-                    if (_rng != null && ((_rng : Dynamic).__nil__ == null || !(_rng : Dynamic).__nil__)) {
+                    if ((_rng != null && ((_rng : Dynamic).__nil__ == null || !(_rng : Dynamic).__nil__))) {
                         _val = _rng.int63();
                     } else {
                         _val = _src.int63();

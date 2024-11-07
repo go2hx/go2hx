@@ -7,7 +7,7 @@ function _getNat(_n:stdgo.GoInt):stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_
                 _z = (stdgo.Go.typeAssert((_v : stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>)) : stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>);
             };
         };
-        if (_z == null || (_z : Dynamic).__nil__) {
+        if ((_z == null || (_z : Dynamic).__nil__)) {
             _z = (stdgo.Go.setRef(new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0)) : stdgo.Ref<stdgo._internal.math.big.Big_T_nat.T_nat>);
         };
         (_z : stdgo._internal.math.big.Big_T_nat.T_nat).__setData__(_z._make(_n));

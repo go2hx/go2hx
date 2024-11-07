@@ -328,7 +328,7 @@ package stdgo._internal.net.http.httptest;
                     _t.closeIdleConnections();
                 };
             };
-            if (_s._client != null && ((_s._client : Dynamic).__nil__ == null || !(_s._client : Dynamic).__nil__)) {
+            if ((_s._client != null && ((_s._client : Dynamic).__nil__ == null || !(_s._client : Dynamic).__nil__))) {
                 {
                     var __tmp__ = try {
                         { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_s._client.transport) : stdgo._internal.net.http.httptest.Httptest_T_closeIdleTransport.T_closeIdleTransport)) : stdgo._internal.net.http.httptest.Httptest_T_closeIdleTransport.T_closeIdleTransport), _1 : true };
@@ -369,7 +369,7 @@ package stdgo._internal.net.http.httptest;
         if (_s.url != (stdgo.Go.str())) {
             throw stdgo.Go.toInterface(("Server already started" : stdgo.GoString));
         };
-        if (_s._client == null || (_s._client : Dynamic).__nil__) {
+        if ((_s._client == null || (_s._client : Dynamic).__nil__)) {
             _s._client = (stdgo.Go.setRef(({ transport : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.Http_Transport.Transport() : stdgo._internal.net.http.Http_Transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>)) } : stdgo._internal.net.http.Http_Client.Client)) : stdgo.Ref<stdgo._internal.net.http.Http_Client.Client>);
         };
         var __tmp__ = stdgo._internal.crypto.tls.Tls_x509keyPair.x509keyPair(stdgo._internal.net.http.internal.testcert.Testcert_localhostCert.localhostCert, stdgo._internal.net.http.internal.testcert.Testcert_localhostKey.localhostKey), _cert:stdgo._internal.crypto.tls.Tls_Certificate.Certificate = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -377,7 +377,7 @@ package stdgo._internal.net.http.httptest;
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("httptest: NewTLSServer: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));
         };
         var _existingConfig = _s.tls;
-        if (_existingConfig != null && ((_existingConfig : Dynamic).__nil__ == null || !(_existingConfig : Dynamic).__nil__)) {
+        if ((_existingConfig != null && ((_existingConfig : Dynamic).__nil__ == null || !(_existingConfig : Dynamic).__nil__))) {
             _s.tls = _existingConfig.clone();
         } else {
             _s.tls = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
@@ -414,7 +414,7 @@ package stdgo._internal.net.http.httptest;
         if (_s.url != (stdgo.Go.str())) {
             throw stdgo.Go.toInterface(("Server already started" : stdgo.GoString));
         };
-        if (_s._client == null || (_s._client : Dynamic).__nil__) {
+        if ((_s._client == null || (_s._client : Dynamic).__nil__)) {
             _s._client = (stdgo.Go.setRef(({ transport : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.Http_Transport.Transport() : stdgo._internal.net.http.Http_Transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>)) } : stdgo._internal.net.http.Http_Client.Client)) : stdgo.Ref<stdgo._internal.net.http.Http_Client.Client>);
         };
         _s.url = (("http://" : stdgo.GoString) + (_s.listener.addr().string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__();

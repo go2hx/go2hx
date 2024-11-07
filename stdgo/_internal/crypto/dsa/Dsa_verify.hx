@@ -10,7 +10,7 @@ function verify(_pub:stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKe
             return false;
         };
         var _w = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse(_s, _pub.parameters.q);
-        if (_w == null || (_w : Dynamic).__nil__) {
+        if ((_w == null || (_w : Dynamic).__nil__)) {
             return false;
         };
         var _n = (_pub.parameters.q.bitLen() : stdgo.GoInt);

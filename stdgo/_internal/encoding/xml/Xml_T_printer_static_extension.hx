@@ -601,13 +601,13 @@ package stdgo._internal.encoding.xml;
     @:keep
     static public function _marshalValue( _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer>, _val:stdgo._internal.reflect.Reflect_Value.Value, _finfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>, _startTemplate:stdgo.Ref<stdgo._internal.encoding.xml.Xml_StartElement.StartElement>):stdgo.Error {
         @:recv var _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer> = _p;
-        if ((((_startTemplate != null) && ((_startTemplate : Dynamic).__nil__ == null || !(_startTemplate : Dynamic).__nil__)) && (_startTemplate.name.local == stdgo.Go.str()) : Bool)) {
+        if (((_startTemplate != null && ((_startTemplate : Dynamic).__nil__ == null || !(_startTemplate : Dynamic).__nil__)) && (_startTemplate.name.local == stdgo.Go.str()) : Bool)) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: EncodeElement of StartElement with missing name" : stdgo.GoString));
         };
         if (!_val.isValid()) {
             return (null : stdgo.Error);
         };
-        if (((_finfo != null && ((_finfo : Dynamic).__nil__ == null || !(_finfo : Dynamic).__nil__) && (_finfo._flags & (128 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags) : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags) != ((0 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) : Bool) && stdgo._internal.encoding.xml.Xml__isEmptyValue._isEmptyValue(_val?.__copy__()) : Bool)) {
+        if ((((_finfo != null && ((_finfo : Dynamic).__nil__ == null || !(_finfo : Dynamic).__nil__)) && (_finfo._flags & (128 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags) : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags) != ((0 : stdgo._internal.encoding.xml.Xml_T_fieldFlags.T_fieldFlags)) : Bool) && stdgo._internal.encoding.xml.Xml__isEmptyValue._isEmptyValue(_val?.__copy__()) : Bool)) {
             return (null : stdgo.Error);
         };
         while (((_val.kind() == (20u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || (_val.kind() == (22u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) : Bool)) {
@@ -657,10 +657,10 @@ var _n = __1, _i = __0;
             return _err;
         };
         var _start:stdgo._internal.encoding.xml.Xml_StartElement.StartElement = ({} : stdgo._internal.encoding.xml.Xml_StartElement.StartElement);
-        if (_startTemplate != null && ((_startTemplate : Dynamic).__nil__ == null || !(_startTemplate : Dynamic).__nil__)) {
+        if ((_startTemplate != null && ((_startTemplate : Dynamic).__nil__ == null || !(_startTemplate : Dynamic).__nil__))) {
             _start.name = _startTemplate.name?.__copy__();
             _start.attr = (_start.attr.__append__(...(_startTemplate.attr : Array<stdgo._internal.encoding.xml.Xml_Attr.Attr>)));
-        } else if (_tinfo._xmlname != null && ((_tinfo._xmlname : Dynamic).__nil__ == null || !(_tinfo._xmlname : Dynamic).__nil__)) {
+        } else if ((_tinfo._xmlname != null && ((_tinfo._xmlname : Dynamic).__nil__ == null || !(_tinfo._xmlname : Dynamic).__nil__))) {
             var _xmlname = _tinfo._xmlname;
             if (_xmlname._name != (stdgo.Go.str())) {
                 {
@@ -683,7 +683,7 @@ var _n = __1, _i = __0;
                 };
             };
         };
-        if (((_start.name.local == stdgo.Go.str()) && ((_finfo != null) && ((_finfo : Dynamic).__nil__ == null || !(_finfo : Dynamic).__nil__)) : Bool)) {
+        if (((_start.name.local == stdgo.Go.str()) && (_finfo != null && ((_finfo : Dynamic).__nil__ == null || !(_finfo : Dynamic).__nil__)) : Bool)) {
             {
                 final __tmp__0 = _finfo._xmlns?.__copy__();
                 final __tmp__1 = _finfo._name?.__copy__();
@@ -724,7 +724,7 @@ var _n = __1, _i = __0;
                 };
             };
         };
-        if ((((((_tinfo._xmlname != null && ((_tinfo._xmlname : Dynamic).__nil__ == null || !(_tinfo._xmlname : Dynamic).__nil__) && _start.name.space == (stdgo.Go.str()) : Bool) && _tinfo._xmlname._xmlns == (stdgo.Go.str()) : Bool) && _tinfo._xmlname._name == (stdgo.Go.str()) : Bool) && (_p._tags.length) != ((0 : stdgo.GoInt)) : Bool) && (_p._tags[((_p._tags.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].space != stdgo.Go.str()) : Bool)) {
+        if (((((((_tinfo._xmlname != null && ((_tinfo._xmlname : Dynamic).__nil__ == null || !(_tinfo._xmlname : Dynamic).__nil__)) && _start.name.space == (stdgo.Go.str()) : Bool) && _tinfo._xmlname._xmlns == (stdgo.Go.str()) : Bool) && _tinfo._xmlname._name == (stdgo.Go.str()) : Bool) && (_p._tags.length) != ((0 : stdgo.GoInt)) : Bool) && (_p._tags[((_p._tags.length) - (1 : stdgo.GoInt) : stdgo.GoInt)].space != stdgo.Go.str()) : Bool)) {
             _start.attr = (_start.attr.__append__((new stdgo._internal.encoding.xml.Xml_Attr.Attr((new stdgo._internal.encoding.xml.Xml_Name.Name(stdgo.Go.str()?.__copy__(), ("xmlns" : stdgo.GoString)) : stdgo._internal.encoding.xml.Xml_Name.Name), stdgo.Go.str()?.__copy__()) : stdgo._internal.encoding.xml.Xml_Attr.Attr)));
         };
         {

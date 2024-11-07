@@ -67,13 +67,13 @@ package stdgo._internal.net.http;
         if (_r.multipartForm == (stdgo._internal.net.http.Http__multipartByReader._multipartByReader)) {
             return { _0 : (null : stdgo._internal.mime.multipart.Multipart_File.File), _1 : null, _2 : stdgo._internal.errors.Errors_new_.new_(("http: multipart handled by MultipartReader" : stdgo.GoString)) };
         };
-        if (_r.multipartForm == null || (_r.multipartForm : Dynamic).__nil__) {
+        if ((_r.multipartForm == null || (_r.multipartForm : Dynamic).__nil__)) {
             var _err = (_r.parseMultipartForm((33554432i64 : stdgo.GoInt64)) : stdgo.Error);
             if (_err != null) {
                 return { _0 : (null : stdgo._internal.mime.multipart.Multipart_File.File), _1 : null, _2 : _err };
             };
         };
-        if ((((_r.multipartForm != null) && ((_r.multipartForm : Dynamic).__nil__ == null || !(_r.multipartForm : Dynamic).__nil__)) && (_r.multipartForm.file != null) : Bool)) {
+        if (((_r.multipartForm != null && ((_r.multipartForm : Dynamic).__nil__ == null || !(_r.multipartForm : Dynamic).__nil__)) && (_r.multipartForm.file != null) : Bool)) {
             {
                 var _fhs = (_r.multipartForm.file[_key] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>));
                 if (((_fhs.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -122,7 +122,7 @@ package stdgo._internal.net.http;
         if (_r.form == null) {
             _parseFormErr = _r.parseForm();
         };
-        if (_r.multipartForm != null && ((_r.multipartForm : Dynamic).__nil__ == null || !(_r.multipartForm : Dynamic).__nil__)) {
+        if ((_r.multipartForm != null && ((_r.multipartForm : Dynamic).__nil__ == null || !(_r.multipartForm : Dynamic).__nil__))) {
             return (null : stdgo.Error);
         };
         var __tmp__ = _r._multipartReader(false), _mr:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -180,7 +180,7 @@ package stdgo._internal.net.http;
                 stdgo._internal.net.http.Http__copyValues._copyValues(_r.form, _r.postForm);
             };
             var _newValues:stdgo._internal.net.url.Url_Values.Values = (null : stdgo._internal.net.url.Url_Values.Values);
-            if (_r.url != null && ((_r.url : Dynamic).__nil__ == null || !(_r.url : Dynamic).__nil__)) {
+            if ((_r.url != null && ((_r.url : Dynamic).__nil__ == null || !(_r.url : Dynamic).__nil__))) {
                 var _e:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = stdgo._internal.net.url.Url_parseQuery.parseQuery(_r.url.rawQuery?.__copy__());
@@ -229,7 +229,7 @@ package stdgo._internal.net.http;
         var _err = (null : stdgo.Error);
         try {
             var _trace = stdgo._internal.net.http.httptrace.Httptrace_contextClientTrace.contextClientTrace(_r.context());
-            if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteRequest != null) : Bool)) {
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteRequest != null) : Bool)) {
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
@@ -305,7 +305,7 @@ package stdgo._internal.net.http;
             });
             var _host = (_r.host?.__copy__() : stdgo.GoString);
             if (_host == (stdgo.Go.str())) {
-                if (_r.url == null || (_r.url : Dynamic).__nil__) {
+                if ((_r.url == null || (_r.url : Dynamic).__nil__)) {
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -396,7 +396,7 @@ package stdgo._internal.net.http;
                     return _err;
                 };
             };
-            if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
                 _trace.wroteHeaderField(("Host" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_host?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>));
             };
             var _userAgent = ("Go-http-client/1.1" : stdgo.GoString);
@@ -416,7 +416,7 @@ package stdgo._internal.net.http;
                         return _err;
                     };
                 };
-                if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
+                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaderField != null) : Bool)) {
                     _trace.wroteHeaderField(("User-Agent" : stdgo.GoString), (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_userAgent?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>));
                 };
             };
@@ -470,7 +470,7 @@ package stdgo._internal.net.http;
                     return _err;
                 };
             };
-            if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaders != null) : Bool)) {
+            if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteHeaders != null) : Bool)) {
                 _trace.wroteHeaders();
             };
             if (_waitForContinue != null) {
@@ -492,7 +492,7 @@ package stdgo._internal.net.http;
                         };
                     };
                 };
-                if ((((_trace != null) && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wait100Continue != null) : Bool)) {
+                if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wait100Continue != null) : Bool)) {
                     _trace.wait100Continue();
                 };
                 if (!_waitForContinue()) {
@@ -540,7 +540,7 @@ package stdgo._internal.net.http;
                     return _err;
                 };
             };
-            if (_bw != null && ((_bw : Dynamic).__nil__ == null || !(_bw : Dynamic).__nil__)) {
+            if ((_bw != null && ((_bw : Dynamic).__nil__ == null || !(_bw : Dynamic).__nil__))) {
                 {
                     final __ret__:stdgo.Error = _bw.flush();
                     for (defer in __deferstack__) {
@@ -619,7 +619,7 @@ package stdgo._internal.net.http;
         if (_r.multipartForm == (stdgo._internal.net.http.Http__multipartByReader._multipartByReader)) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("http: MultipartReader called twice" : stdgo.GoString)) };
         };
-        if (_r.multipartForm != null && ((_r.multipartForm : Dynamic).__nil__ == null || !(_r.multipartForm : Dynamic).__nil__)) {
+        if ((_r.multipartForm != null && ((_r.multipartForm : Dynamic).__nil__ == null || !(_r.multipartForm : Dynamic).__nil__))) {
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("http: multipart handled by ParseMultipartForm" : stdgo.GoString)) };
         };
         _r.multipartForm = stdgo._internal.net.http.Http__multipartByReader._multipartByReader;

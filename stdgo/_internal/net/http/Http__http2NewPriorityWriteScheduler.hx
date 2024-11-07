@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function _http2NewPriorityWriteScheduler(_cfg:stdgo.Ref<stdgo._internal.net.http.Http_T_http2PriorityWriteSchedulerConfig.T_http2PriorityWriteSchedulerConfig>):stdgo._internal.net.http.Http_T_http2WriteScheduler.T_http2WriteScheduler {
-        if (_cfg == null || (_cfg : Dynamic).__nil__) {
+        if ((_cfg == null || (_cfg : Dynamic).__nil__)) {
             _cfg = (stdgo.Go.setRef(({ maxClosedNodesInTree : (10 : stdgo.GoInt), maxIdleNodesInTree : (10 : stdgo.GoInt), throttleOutOfOrderWrites : false } : stdgo._internal.net.http.Http_T_http2PriorityWriteSchedulerConfig.T_http2PriorityWriteSchedulerConfig)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2PriorityWriteSchedulerConfig.T_http2PriorityWriteSchedulerConfig>);
         };
         var _ws = (stdgo.Go.setRef(({ _nodes : ({

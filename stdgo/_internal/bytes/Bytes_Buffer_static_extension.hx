@@ -308,7 +308,7 @@ package stdgo._internal.bytes;
     @:keep
     static public function string( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>):stdgo.GoString {
         @:recv var _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> = _b;
-        if (_b == null || (_b : Dynamic).__nil__) {
+        if ((_b == null || (_b : Dynamic).__nil__)) {
             return ("<nil>" : stdgo.GoString);
         };
         return ((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();

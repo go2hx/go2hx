@@ -3,7 +3,7 @@ package stdgo._internal.runtime.pprof;
     @:keep
     static public function string( _l:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap>):stdgo.GoString {
         @:recv var _l:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap> = _l;
-        if (_l == null || (_l : Dynamic).__nil__) {
+        if ((_l == null || (_l : Dynamic).__nil__)) {
             return stdgo.Go.str()?.__copy__();
         };
         var _keyVals = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((_l : stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap).length)).__setString__() : stdgo.Slice<stdgo.GoString>);

@@ -5,7 +5,7 @@ function _decrypt(_priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.Priv
         };
         var __0:stdgo.Error = (null : stdgo.Error), __1:stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Nat.Nat> = (null : stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Nat.Nat>), __2:stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Nat.Nat> = (null : stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Nat.Nat>), __3:stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus> = (null : stdgo.Ref<_internal.crypto.internal.bigmod.Bigmod_Modulus.Modulus>), __4 = _internal.crypto.internal.bigmod.Bigmod_newNat.newNat();
 var _t0 = __4, n = __3, _c = __2, _m = __1, _err = __0;
-        if (_priv.precomputed._n == null || (_priv.precomputed._n : Dynamic).__nil__) {
+        if ((_priv.precomputed._n == null || (_priv.precomputed._n : Dynamic).__nil__)) {
             {
                 var __tmp__ = _internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig(_priv.publicKey.n);
                 n = __tmp__._0;

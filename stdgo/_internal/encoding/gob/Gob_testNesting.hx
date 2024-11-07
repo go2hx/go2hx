@@ -16,7 +16,7 @@ function testNesting(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         if (_drt.a != (_rt.a)) {
             _t.errorf(("nesting: encode expected %v got %v" : stdgo.GoString), stdgo.Go.toInterface((_rt : stdgo._internal.encoding.gob.Gob_T_testNesting___localname___RT_19135.T_testNesting___localname___RT_19135)), stdgo.Go.toInterface(_drt));
         };
-        if (_drt.next == null || (_drt.next : Dynamic).__nil__) {
+        if ((_drt.next == null || (_drt.next : Dynamic).__nil__)) {
             _t.errorf(("nesting: recursion failed" : stdgo.GoString));
         };
         if (_drt.next.a != (_rt.next.a)) {

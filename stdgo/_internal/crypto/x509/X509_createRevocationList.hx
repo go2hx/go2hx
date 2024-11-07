@@ -1,9 +1,9 @@
 package stdgo._internal.crypto.x509;
 function createRevocationList(_rand:stdgo._internal.io.Io_Reader.Reader, _template:stdgo.Ref<stdgo._internal.crypto.x509.X509_RevocationList.RevocationList>, _issuer:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, _priv:stdgo._internal.crypto.Crypto_Signer.Signer):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
-        if (_template == null || (_template : Dynamic).__nil__) {
+        if ((_template == null || (_template : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: template can not be nil" : stdgo.GoString)) };
         };
-        if (_issuer == null || (_issuer : Dynamic).__nil__) {
+        if ((_issuer == null || (_issuer : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: issuer can not be nil" : stdgo.GoString)) };
         };
         if (((_issuer.keyUsage & (64 : stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage) : stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage)) == ((0 : stdgo._internal.crypto.x509.X509_KeyUsage.KeyUsage))) {
@@ -15,7 +15,7 @@ function createRevocationList(_rand:stdgo._internal.io.Io_Reader.Reader, _templa
         if (_template.nextUpdate.before(_template.thisUpdate?.__copy__())) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: template.ThisUpdate is after template.NextUpdate" : stdgo.GoString)) };
         };
-        if (_template.number == null || (_template.number : Dynamic).__nil__) {
+        if ((_template.number == null || (_template.number : Dynamic).__nil__)) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: template contains nil Number field" : stdgo.GoString)) };
         };
         var __tmp__ = stdgo._internal.crypto.x509.X509__signingParamsForPublicKey._signingParamsForPublicKey(stdgo.Go.toInterface(_priv.public_()), _template.signatureAlgorithm), _hashFunc:stdgo._internal.crypto.Crypto_Hash.Hash = __tmp__._0, _signatureAlgorithm:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = __tmp__._1, _err:stdgo.Error = __tmp__._2;
@@ -32,7 +32,7 @@ function createRevocationList(_rand:stdgo._internal.io.Io_Reader.Reader, _templa
         } else {
             _revokedCerts = (new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>((_template.revokedCertificateEntries.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_template.revokedCertificateEntries.length : stdgo.GoInt).toBasic() > 0 ? (_template.revokedCertificateEntries.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate)]) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>);
             for (_i => _rce in _template.revokedCertificateEntries) {
-                if (_rce.serialNumber == null || (_rce.serialNumber : Dynamic).__nil__) {
+                if ((_rce.serialNumber == null || (_rce.serialNumber : Dynamic).__nil__)) {
                     return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: template contains entry with nil SerialNumber field" : stdgo.GoString)) };
                 };
                 if (_rce.revocationTime.isZero()) {

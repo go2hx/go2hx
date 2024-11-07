@@ -147,7 +147,7 @@ package stdgo._internal.encoding.gob;
     @:keep
     static public function _recvType( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _id:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId):Void {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
-        if (((_id < (64 : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId) : Bool) || (((_dec._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>)) != null) && ((_dec._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>) : Dynamic).__nil__ == null || !(_dec._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>) : Dynamic).__nil__)) : Bool)) {
+        if (((_id < (64 : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId) : Bool) || ((_dec._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>)) != null && ((_dec._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>) : Dynamic).__nil__ == null || !(_dec._wireType[_id] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>) : Dynamic).__nil__)) : Bool)) {
             _dec._err = stdgo._internal.errors.Errors_new_.new_(("gob: duplicate type received" : stdgo.GoString));
             return;
         };
@@ -171,7 +171,7 @@ package stdgo._internal.encoding.gob;
             return;
         };
         var _wire = (_dec._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>));
-        if ((((_wire != null) && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__)) && ((_wire.structT != null) && ((_wire.structT : Dynamic).__nil__ == null || !(_wire.structT : Dynamic).__nil__)) : Bool)) {
+        if (((_wire != null && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__)) && (_wire.structT != null && ((_wire.structT : Dynamic).__nil__ == null || !(_wire.structT : Dynamic).__nil__)) : Bool)) {
             _dec._ignoreStruct((_enginePtr : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>));
         } else {
             _dec._ignoreSingle((_enginePtr : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>));
@@ -217,7 +217,7 @@ package stdgo._internal.encoding.gob;
                 var _st = (_base : stdgo._internal.reflect.Reflect_Type_.Type_);
                 if (((_st.kind() == (25u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) && (_ut._externalDec == (0 : stdgo.GoInt)) : Bool)) {
                     var _wt = (_dec._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>));
-                    if ((((_engine._numInstr == ((0 : stdgo.GoInt)) && (_st.numField() > (0 : stdgo.GoInt) : Bool) : Bool) && _wt != null && ((_wt : Dynamic).__nil__ == null || !(_wt : Dynamic).__nil__) : Bool) && ((_wt.structT.field.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
+                    if ((((_engine._numInstr == ((0 : stdgo.GoInt)) && (_st.numField() > (0 : stdgo.GoInt) : Bool) : Bool) && (_wt != null && ((_wt : Dynamic).__nil__ == null || !(_wt : Dynamic).__nil__)) : Bool) && ((_wt.structT.field.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
                         var _name = (_base.name()?.__copy__() : stdgo.GoString);
                         stdgo._internal.encoding.gob.Gob__errorf._errorf(("type mismatch: no fields matched compiling decoder for %s" : stdgo.GoString), stdgo.Go.toInterface(_name));
                     };
@@ -263,7 +263,7 @@ package stdgo._internal.encoding.gob;
                 _enginePtr = (stdgo.Go.setRef((null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>)) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>>);
                 _dec._ignorerCache[_wireId] = _enginePtr;
                 var _wire = (_dec._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>));
-                if ((((_wire != null) && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__)) && ((_wire.structT != null) && ((_wire.structT : Dynamic).__nil__ == null || !(_wire.structT : Dynamic).__nil__)) : Bool)) {
+                if (((_wire != null && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__)) && (_wire.structT != null && ((_wire.structT : Dynamic).__nil__ == null || !(_wire.structT : Dynamic).__nil__)) : Bool)) {
                     {
                         var __tmp__ = _dec._compileDec(_wireId, stdgo._internal.encoding.gob.Gob__userType._userType(stdgo._internal.encoding.gob.Gob__emptyStructType._emptyStructType));
                         _enginePtr = __tmp__._0;
@@ -350,13 +350,13 @@ package stdgo._internal.encoding.gob;
                     };
                 } else {
                     var _wire = (_dec._wireType[_remoteId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>));
-                    if (_wire == null || (_wire : Dynamic).__nil__) {
+                    if ((_wire == null || (_wire : Dynamic).__nil__)) {
                         stdgo._internal.encoding.gob.Gob__error_._error_(stdgo._internal.encoding.gob.Gob__errBadType._errBadType);
                     };
                     _wireStruct = _wire.structT;
                 };
             };
-            if (_wireStruct == null || (_wireStruct : Dynamic).__nil__) {
+            if ((_wireStruct == null || (_wireStruct : Dynamic).__nil__)) {
                 stdgo._internal.encoding.gob.Gob__errorf._errorf(("type mismatch in decoder: want struct type %s; got non-struct" : stdgo.GoString), stdgo.Go.toInterface(_rt));
             };
             _engine = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>);
@@ -547,7 +547,7 @@ _engine._numInstr++;
         _inProgress[_fr] = _fw;
         var _ut = stdgo._internal.encoding.gob.Gob__userType._userType(_fr);
         var __tmp__ = (_dec._wireType != null && _dec._wireType.exists(_fw) ? { _0 : _dec._wireType[_fw], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>), _1 : false }), _wire:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType> = __tmp__._0, _ok:Bool = __tmp__._1;
-        if ((((_ut._externalDec == (1 : stdgo.GoInt)) != ((_ok && ((_wire.gobEncoderT != null) && ((_wire.gobEncoderT : Dynamic).__nil__ == null || !(_wire.gobEncoderT : Dynamic).__nil__)) : Bool)) || (_ut._externalDec == (2 : stdgo.GoInt)) != ((_ok && ((_wire.binaryMarshalerT != null) && ((_wire.binaryMarshalerT : Dynamic).__nil__ == null || !(_wire.binaryMarshalerT : Dynamic).__nil__)) : Bool)) : Bool) || ((_ut._externalDec == (3 : stdgo.GoInt)) != ((_ok && ((_wire.textMarshalerT != null) && ((_wire.textMarshalerT : Dynamic).__nil__ == null || !(_wire.textMarshalerT : Dynamic).__nil__)) : Bool))) : Bool)) {
+        if ((((_ut._externalDec == (1 : stdgo.GoInt)) != ((_ok && (_wire.gobEncoderT != null && ((_wire.gobEncoderT : Dynamic).__nil__ == null || !(_wire.gobEncoderT : Dynamic).__nil__)) : Bool)) || (_ut._externalDec == (2 : stdgo.GoInt)) != ((_ok && (_wire.binaryMarshalerT != null && ((_wire.binaryMarshalerT : Dynamic).__nil__ == null || !(_wire.binaryMarshalerT : Dynamic).__nil__)) : Bool)) : Bool) || ((_ut._externalDec == (3 : stdgo.GoInt)) != ((_ok && (_wire.textMarshalerT != null && ((_wire.textMarshalerT : Dynamic).__nil__ == null || !(_wire.textMarshalerT : Dynamic).__nil__)) : Bool))) : Bool)) {
             return false;
         };
         if (_ut._externalDec != ((0 : stdgo.GoInt))) {
@@ -572,13 +572,13 @@ _engine._numInstr++;
                 } else if (__value__ == ((20u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                     return _fw == (stdgo._internal.encoding.gob.Gob__tInterface._tInterface);
                 } else if (__value__ == ((17u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                    if ((!_ok || ((_wire.arrayT == null) || (_wire.arrayT : Dynamic).__nil__) : Bool)) {
+                    if ((!_ok || (_wire.arrayT == null || (_wire.arrayT : Dynamic).__nil__) : Bool)) {
                         return false;
                     };
                     var _array = _wire.arrayT;
                     return ((_t.len() == _array.len) && _dec._compatibleType(_t.elem(), _array.elem, _inProgress) : Bool);
                 } else if (__value__ == ((21u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                    if ((!_ok || ((_wire.mapT == null) || (_wire.mapT : Dynamic).__nil__) : Bool)) {
+                    if ((!_ok || (_wire.mapT == null || (_wire.mapT : Dynamic).__nil__) : Bool)) {
                         return false;
                     };
                     var mapType = _wire.mapT;
@@ -599,12 +599,12 @@ _engine._numInstr++;
                                 };
                                 _sw = __tmp__._0;
                             };
-                        } else if (_wire != null && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__)) {
+                        } else if ((_wire != null && ((_wire : Dynamic).__nil__ == null || !(_wire : Dynamic).__nil__))) {
                             _sw = _wire.sliceT;
                         };
                     };
                     var _elem = (stdgo._internal.encoding.gob.Gob__userType._userType(_t.elem())._base : stdgo._internal.reflect.Reflect_Type_.Type_);
-                    return (((_sw != null) && ((_sw : Dynamic).__nil__ == null || !(_sw : Dynamic).__nil__)) && _dec._compatibleType(_elem, _sw.elem, _inProgress) : Bool);
+                    return ((_sw != null && ((_sw : Dynamic).__nil__ == null || !(_sw : Dynamic).__nil__)) && _dec._compatibleType(_elem, _sw.elem, _inProgress) : Bool);
                 } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
                     return true;
                 } else {
@@ -645,7 +645,7 @@ _engine._numInstr++;
         };
         {
             var _opPtr = (_inProgress[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>));
-            if (_opPtr != null && ((_opPtr : Dynamic).__nil__ == null || !(_opPtr : Dynamic).__nil__)) {
+            if ((_opPtr != null && ((_opPtr : Dynamic).__nil__ == null || !(_opPtr : Dynamic).__nil__))) {
                 return _opPtr;
             };
         };
@@ -659,15 +659,15 @@ _engine._numInstr++;
                 return (stdgo.Go.setRef(_op) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>);
             };
             var _wire = (_dec._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>));
-            if (_wire == null || (_wire : Dynamic).__nil__) {
+            if ((_wire == null || (_wire : Dynamic).__nil__)) {
                 stdgo._internal.encoding.gob.Gob__errorf._errorf(("bad data: undefined type %s" : stdgo.GoString), stdgo.Go.toInterface(_wireId._string()));
-            } else if (_wire.arrayT != null && ((_wire.arrayT : Dynamic).__nil__ == null || !(_wire.arrayT : Dynamic).__nil__)) {
+            } else if ((_wire.arrayT != null && ((_wire.arrayT : Dynamic).__nil__ == null || !(_wire.arrayT : Dynamic).__nil__))) {
                 var _elemId = (_wire.arrayT.elem : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId);
                 var _elemOp = _dec._decIgnoreOpFor(_elemId, _inProgress, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState>, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
                     _state._dec._ignoreArray(_state, (_elemOp : stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp), _wire.arrayT.len);
                 };
-            } else if (_wire.mapT != null && ((_wire.mapT : Dynamic).__nil__ == null || !(_wire.mapT : Dynamic).__nil__)) {
+            } else if ((_wire.mapT != null && ((_wire.mapT : Dynamic).__nil__ == null || !(_wire.mapT : Dynamic).__nil__))) {
                 var _keyId = ((_dec._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>)).mapT.key : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId);
                 var _elemId = ((_dec._wireType[_wireId] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_wireType.T_wireType>)).mapT.elem : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId);
                 var _keyOp = _dec._decIgnoreOpFor(_keyId, _inProgress, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
@@ -675,13 +675,13 @@ _engine._numInstr++;
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState>, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
                     _state._dec._ignoreMap(_state, (_keyOp : stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp), (_elemOp : stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp));
                 };
-            } else if (_wire.sliceT != null && ((_wire.sliceT : Dynamic).__nil__ == null || !(_wire.sliceT : Dynamic).__nil__)) {
+            } else if ((_wire.sliceT != null && ((_wire.sliceT : Dynamic).__nil__ == null || !(_wire.sliceT : Dynamic).__nil__))) {
                 var _elemId = (_wire.sliceT.elem : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId);
                 var _elemOp = _dec._decIgnoreOpFor(_elemId, _inProgress, (_depth + (1 : stdgo.GoInt) : stdgo.GoInt));
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState>, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
                     _state._dec._ignoreSlice(_state, (_elemOp : stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp));
                 };
-            } else if (_wire.structT != null && ((_wire.structT : Dynamic).__nil__ == null || !(_wire.structT : Dynamic).__nil__)) {
+            } else if ((_wire.structT != null && ((_wire.structT : Dynamic).__nil__ == null || !(_wire.structT : Dynamic).__nil__))) {
                 var __tmp__ = _dec._getIgnoreEnginePtr(_wireId), _enginePtr:stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     stdgo._internal.encoding.gob.Gob__error_._error_(_err);
@@ -689,7 +689,7 @@ _engine._numInstr++;
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState>, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
                     _state._dec._ignoreStruct((_enginePtr : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>));
                 };
-            } else if (_wire.gobEncoderT != null && ((_wire.gobEncoderT : Dynamic).__nil__ == null || !(_wire.gobEncoderT : Dynamic).__nil__) || _wire.binaryMarshalerT != null && ((_wire.binaryMarshalerT : Dynamic).__nil__ == null || !(_wire.binaryMarshalerT : Dynamic).__nil__) || _wire.textMarshalerT != null && ((_wire.textMarshalerT : Dynamic).__nil__ == null || !(_wire.textMarshalerT : Dynamic).__nil__)) {
+            } else if ((_wire.gobEncoderT != null && ((_wire.gobEncoderT : Dynamic).__nil__ == null || !(_wire.gobEncoderT : Dynamic).__nil__)) || (_wire.binaryMarshalerT != null && ((_wire.binaryMarshalerT : Dynamic).__nil__ == null || !(_wire.binaryMarshalerT : Dynamic).__nil__)) || (_wire.textMarshalerT != null && ((_wire.textMarshalerT : Dynamic).__nil__ == null || !(_wire.textMarshalerT : Dynamic).__nil__))) {
                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState>, _value:stdgo._internal.reflect.Reflect_Value.Value):Void {
                     _state._dec._ignoreGobDecoder(_state);
                 };
@@ -709,7 +709,7 @@ _engine._numInstr++;
         };
         {
             var _opPtr = (_inProgress[_rt] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>));
-            if (_opPtr != null && ((_opPtr : Dynamic).__nil__ == null || !(_opPtr : Dynamic).__nil__)) {
+            if ((_opPtr != null && ((_opPtr : Dynamic).__nil__ == null || !(_opPtr : Dynamic).__nil__))) {
                 return _opPtr;
             };
         };
@@ -1235,7 +1235,7 @@ _elemOp(_instr, _state, _v.__copy__());
     static public function _newDecoderState( _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder>, _buf:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>):stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState> {
         @:recv var _dec:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Decoder.Decoder> = _dec;
         var _d = _dec._freeList;
-        if (_d == null || (_d : Dynamic).__nil__) {
+        if ((_d == null || (_d : Dynamic).__nil__)) {
             _d = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState>);
             _d._dec = _dec;
         } else {

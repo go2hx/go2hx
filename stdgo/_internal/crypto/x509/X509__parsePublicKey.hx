@@ -36,7 +36,7 @@ function _parsePublicKey(_keyData:stdgo.Ref<stdgo._internal.crypto.x509.X509_T_p
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: unsupported elliptic curve" : stdgo.GoString)) };
             };
             var __tmp__ = stdgo._internal.crypto.elliptic.Elliptic_unmarshal.unmarshal(_namedCurve, _der), _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, _y:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._1;
-            if (_x == null || (_x : Dynamic).__nil__) {
+            if ((_x == null || (_x : Dynamic).__nil__)) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: failed to unmarshal elliptic curve point" : stdgo.GoString)) };
             };
             var _pub = (stdgo.Go.setRef(({ curve : _namedCurve, x : _x, y : _y } : stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey)) : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PublicKey.PublicKey>);

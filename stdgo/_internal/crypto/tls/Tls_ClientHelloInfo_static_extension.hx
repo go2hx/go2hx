@@ -4,7 +4,7 @@ package stdgo._internal.crypto.tls;
     static public function supportsCertificate( _chi:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo>, _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Certificate.Certificate>):stdgo.Error {
         @:recv var _chi:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientHelloInfo.ClientHelloInfo> = _chi;
         var _config = _chi._config;
-        if (_config == null || (_config : Dynamic).__nil__) {
+        if ((_config == null || (_config : Dynamic).__nil__)) {
             _config = (stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_Config.Config() : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
         };
         var __tmp__ = _config._mutualVersion(false, _chi.supportedVersions), _vers:stdgo.GoUInt16 = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -57,7 +57,7 @@ package stdgo._internal.crypto.tls;
                 };
                 return true;
             });
-            if (_rsaCipherSuite == null || (_rsaCipherSuite : Dynamic).__nil__) {
+            if ((_rsaCipherSuite == null || (_rsaCipherSuite : Dynamic).__nil__)) {
                 return _unsupported;
             };
             return (null : stdgo.Error);
@@ -154,7 +154,7 @@ package stdgo._internal.crypto.tls;
             };
             return true;
         });
-        if (_cipherSuite == null || (_cipherSuite : Dynamic).__nil__) {
+        if ((_cipherSuite == null || (_cipherSuite : Dynamic).__nil__)) {
             return _supportsRSAFallback(stdgo._internal.errors.Errors_new_.new_(("client doesn\'t support any cipher suites compatible with the certificate" : stdgo.GoString)));
         };
         return (null : stdgo.Error);

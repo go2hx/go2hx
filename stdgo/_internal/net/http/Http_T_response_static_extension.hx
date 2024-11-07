@@ -129,7 +129,7 @@ package stdgo._internal.net.http;
         _w._conn._bufw.flush();
         _w._conn._r._abortPendingRead();
         _w._reqBody.close();
-        if (_w._req.multipartForm != null && ((_w._req.multipartForm : Dynamic).__nil__ == null || !(_w._req.multipartForm : Dynamic).__nil__)) {
+        if ((_w._req.multipartForm != null && ((_w._req.multipartForm : Dynamic).__nil__ == null || !(_w._req.multipartForm : Dynamic).__nil__))) {
             _w._req.multipartForm.removeAll();
         };
     }

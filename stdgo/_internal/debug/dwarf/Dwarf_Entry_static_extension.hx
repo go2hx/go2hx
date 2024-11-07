@@ -15,7 +15,7 @@ package stdgo._internal.debug.dwarf;
         @:recv var _e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = _e;
         {
             var _f = _e.attrField(_a);
-            if (_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__)) {
+            if ((_f != null && ((_f : Dynamic).__nil__ == null || !(_f : Dynamic).__nil__))) {
                 return _f.val;
             };
         };

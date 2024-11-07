@@ -6,7 +6,7 @@ function _encOpFor(_rt:stdgo._internal.reflect.Reflect_Type_.Type_, _inProgress:
         };
         {
             var _opPtr = (_inProgress[_rt] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>));
-            if (_opPtr != null && ((_opPtr : Dynamic).__nil__ == null || !(_opPtr : Dynamic).__nil__)) {
+            if ((_opPtr != null && ((_opPtr : Dynamic).__nil__ == null || !(_opPtr : Dynamic).__nil__))) {
                 return { _0 : _opPtr, _1 : _ut._indir };
             };
         };

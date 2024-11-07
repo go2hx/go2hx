@@ -5,7 +5,7 @@ function generateKey(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve
         var _bitSize = (n.bitLen() : stdgo.GoInt);
         var _byteLen = (((_bitSize + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
         _priv = (new stdgo.Slice<stdgo.GoUInt8>((_byteLen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        while (_x == null || (_x : Dynamic).__nil__) {
+        while ((_x == null || (_x : Dynamic).__nil__)) {
             {
                 var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _priv);
                 _err = __tmp__._1;

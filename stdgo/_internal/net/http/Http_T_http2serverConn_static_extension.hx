@@ -3,7 +3,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _countError( _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>, _name:stdgo.GoString, _err:stdgo.Error):stdgo.Error {
         @:recv var _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn> = _sc;
-        if ((((_sc == null) || (_sc : Dynamic).__nil__) || ((_sc._srv == null) || (_sc._srv : Dynamic).__nil__) : Bool)) {
+        if (((_sc == null || (_sc : Dynamic).__nil__) || (_sc._srv == null || (_sc._srv : Dynamic).__nil__) : Bool)) {
             return _err;
         };
         var _f = (_sc._srv.countError : stdgo.GoString -> Void);
@@ -76,7 +76,7 @@ package stdgo._internal.net.http;
         _sc._serveG._check();
         var _streamID:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _send:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        if (_st == null || (_st : Dynamic).__nil__) {
+        if ((_st == null || (_st : Dynamic).__nil__)) {
             _send = _sc._inflow._add(_n);
         } else {
             _streamID = _st._id;
@@ -202,7 +202,7 @@ package stdgo._internal.net.http;
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
                         _rw._rws._stream._cancelCtx();
-                        if (_req.multipartForm != null && ((_req.multipartForm : Dynamic).__nil__ == null || !(_req.multipartForm : Dynamic).__nil__)) {
+                        if ((_req.multipartForm != null && ((_req.multipartForm : Dynamic).__nil__ == null || !(_req.multipartForm : Dynamic).__nil__))) {
                             _req.multipartForm.removeAll();
                         };
                         if (_didPanic) {
@@ -283,7 +283,7 @@ package stdgo._internal.net.http;
         var _maxHandlers = (_sc._advMaxStreams : stdgo.GoUInt32);
         while ((_i < (_sc._unstartedHandlers.length) : Bool)) {
             var _u = (_sc._unstartedHandlers[(_i : stdgo.GoInt)] : stdgo._internal.net.http.Http_T_http2unstartedHandler.T_http2unstartedHandler);
-if ((_sc._streams[_u._streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>)) == null || (_sc._streams[_u._streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>) : Dynamic).__nil__) {
+if (((_sc._streams[_u._streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>)) == null || (_sc._streams[_u._streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>) : Dynamic).__nil__)) {
                 {
                     _i++;
                     continue;
@@ -542,7 +542,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         };
         {
             var _st = (_sc._streams[_f._http2HeadersFrame._http2FrameHeader.streamID] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>));
-            if (_st != null && ((_st : Dynamic).__nil__ == null || !(_st : Dynamic).__nil__)) {
+            if ((_st != null && ((_st : Dynamic).__nil__ == null || !(_st : Dynamic).__nil__))) {
                 if (_st._resetQueued) {
                     return (null : stdgo.Error);
                 };
@@ -556,7 +556,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
             return _sc._countError(("stream_went_down" : stdgo.GoString), stdgo.Go.asInterface(((1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)));
         };
         _sc._maxClientStreamID = _id;
-        if (_sc._idleTimer != null && ((_sc._idleTimer : Dynamic).__nil__ == null || !(_sc._idleTimer : Dynamic).__nil__)) {
+        if ((_sc._idleTimer != null && ((_sc._idleTimer : Dynamic).__nil__ == null || !(_sc._idleTimer : Dynamic).__nil__))) {
             _sc._idleTimer.stop();
         };
         if (((_sc._curClientStreams + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32) > _sc._advMaxStreams : Bool)) {
@@ -605,7 +605,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         };
         if (_sc._hs.readTimeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
             _sc._conn.setReadDeadline((new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time));
-            if (_st._body != null && ((_st._body : Dynamic).__nil__ == null || !(_st._body : Dynamic).__nil__)) {
+            if ((_st._body != null && ((_st._body : Dynamic).__nil__ == null || !(_st._body : Dynamic).__nil__))) {
                 _st._readDeadline = stdgo._internal.time.Time_afterFunc.afterFunc(_sc._hs.readTimeout, _st._onReadTimeout);
             };
         };
@@ -634,17 +634,17 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         if (((_id == (0u32 : stdgo.GoUInt32)) || (_state == (0 : stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState)) : Bool)) {
             return _sc._countError(("data_on_idle" : stdgo.GoString), stdgo.Go.asInterface(((1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)));
         };
-        if ((((_st == null || (_st : Dynamic).__nil__ || _state != ((1 : stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState)) : Bool) || _st._gotTrailerHeader : Bool) || _st._resetQueued : Bool)) {
+        if (((((_st == null || (_st : Dynamic).__nil__) || _state != ((1 : stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState)) : Bool) || _st._gotTrailerHeader : Bool) || _st._resetQueued : Bool)) {
             if (!_sc._inflow._take(_f._http2FrameHeader.length_)) {
                 return _sc._countError(("data_flow" : stdgo.GoString), stdgo.Go.asInterface(stdgo._internal.net.http.Http__http2streamError._http2streamError(_id, (3u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode))));
             };
             _sc._sendWindowUpdate(null, (_f._http2FrameHeader.length_ : stdgo.GoInt));
-            if ((((_st != null) && ((_st : Dynamic).__nil__ == null || !(_st : Dynamic).__nil__)) && _st._resetQueued : Bool)) {
+            if (((_st != null && ((_st : Dynamic).__nil__ == null || !(_st : Dynamic).__nil__)) && _st._resetQueued : Bool)) {
                 return (null : stdgo.Error);
             };
             return _sc._countError(("closed" : stdgo.GoString), stdgo.Go.asInterface(stdgo._internal.net.http.Http__http2streamError._http2streamError(_id, (5u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode))));
         };
-        if (_st._body == null || (_st._body : Dynamic).__nil__) {
+        if ((_st._body == null || (_st._body : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("internal error: should have a body in this state" : stdgo.GoString));
         };
         if (((_st._declBodyBytes != (-1i64 : stdgo.GoInt64)) && ((_st._bodyBytes + (_data.length : stdgo.GoInt64) : stdgo.GoInt64) > _st._declBodyBytes : Bool) : Bool)) {
@@ -760,10 +760,10 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("invariant; can\'t close stream in state %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_st._state))));
         };
         _st._state = (4 : stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState);
-        if (_st._readDeadline != null && ((_st._readDeadline : Dynamic).__nil__ == null || !(_st._readDeadline : Dynamic).__nil__)) {
+        if ((_st._readDeadline != null && ((_st._readDeadline : Dynamic).__nil__ == null || !(_st._readDeadline : Dynamic).__nil__))) {
             _st._readDeadline.stop();
         };
-        if (_st._writeDeadline != null && ((_st._writeDeadline : Dynamic).__nil__ == null || !(_st._writeDeadline : Dynamic).__nil__)) {
+        if ((_st._writeDeadline != null && ((_st._writeDeadline : Dynamic).__nil__ == null || !(_st._writeDeadline : Dynamic).__nil__))) {
             _st._writeDeadline.stop();
         };
         if (_st._isPushed()) {
@@ -783,7 +783,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         };
         {
             var _p = _st._body;
-            if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
+            if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
                 _sc._sendWindowUpdate(null, _p.len());
                 _p.closeWithError(_err);
             };
@@ -814,7 +814,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         if (_state == ((0 : stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState))) {
             return _sc._countError(("reset_idle_stream" : stdgo.GoString), stdgo.Go.asInterface(((1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)));
         };
-        if (_st != null && ((_st : Dynamic).__nil__ == null || !(_st : Dynamic).__nil__)) {
+        if ((_st != null && ((_st : Dynamic).__nil__ == null || !(_st : Dynamic).__nil__))) {
             _st._cancelCtx();
             _sc._closeStream(_st, stdgo.Go.asInterface(stdgo._internal.net.http.Http__http2streamError._http2streamError(_f._http2FrameHeader.streamID, _f.errCode)));
         };
@@ -829,7 +829,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
             if (_state == ((0 : stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState))) {
                 return _sc._countError(("stream_idle" : stdgo.GoString), stdgo.Go.asInterface(((1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)));
             };
-            if (_st == null || (_st : Dynamic).__nil__) {
+            if ((_st == null || (_st : Dynamic).__nil__)) {
                 return (null : stdgo.Error);
             };
             if (!_st._flow._add((_f.increment : stdgo.GoInt32))) {
@@ -1073,7 +1073,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         var _wr = (_res._wr?.__copy__() : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest);
         if (stdgo._internal.net.http.Http__http2writeEndsStream._http2writeEndsStream(_wr._write)) {
             var _st = _wr._stream;
-            if (_st == null || (_st : Dynamic).__nil__) {
+            if ((_st == null || (_st : Dynamic).__nil__)) {
                 throw stdgo.Go.toInterface(("internal error: expecting non-nil stream" : stdgo.GoString));
             };
             {
@@ -1113,7 +1113,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
             throw stdgo.Go.toInterface(("internal error: can only be writing one frame at a time" : stdgo.GoString));
         };
         var _st = _wr._stream;
-        if (_st != null && ((_st : Dynamic).__nil__ == null || !(_st : Dynamic).__nil__)) {
+        if ((_st != null && ((_st : Dynamic).__nil__ == null || !(_st : Dynamic).__nil__))) {
             {
                 final __value__ = _st._state;
                 if (__value__ == ((2 : stdgo._internal.net.http.Http_T_http2streamState.T_http2streamState))) {
@@ -1597,7 +1597,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
                                         };
                                     };
                                     _res._readMore();
-                                    if (_settingsTimer != null && ((_settingsTimer : Dynamic).__nil__ == null || !(_settingsTimer : Dynamic).__nil__)) {
+                                    if ((_settingsTimer != null && ((_settingsTimer : Dynamic).__nil__ == null || !(_settingsTimer : Dynamic).__nil__))) {
                                         _settingsTimer.stop();
                                         _settingsTimer = null;
                                     };
@@ -1681,7 +1681,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
                 };
                 var _sentGoAway = ((_sc._inGoAway && !_sc._needToSendGoAway : Bool) && !_sc._writingFrame : Bool);
                 var _gracefulShutdownComplete = ((_sc._goAwayCode == (0u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode)) && (_sc._curOpenStreams() == (0u32 : stdgo.GoUInt32)) : Bool);
-                if (((_sentGoAway && _sc._shutdownTimer == null || (_sc._shutdownTimer : Dynamic).__nil__ : Bool) && (((_sc._goAwayCode != (0u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode)) || _gracefulShutdownComplete : Bool)) : Bool)) {
+                if (((_sentGoAway && (_sc._shutdownTimer == null || (_sc._shutdownTimer : Dynamic).__nil__) : Bool) && (((_sc._goAwayCode != (0u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode)) || _gracefulShutdownComplete : Bool)) : Bool)) {
                     _sc._shutDownIn(stdgo._internal.net.http.Http__http2goAwayTimeout._http2goAwayTimeout);
                 };
             };
@@ -1712,7 +1712,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         @:recv var _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn> = _sc;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu != null && ((stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu : Dynamic).__nil__ == null || !(stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu : Dynamic).__nil__)) {
+            if ((stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu != null && ((stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu : Dynamic).__nil__ == null || !(stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu : Dynamic).__nil__))) {
                 stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu.lock();
                 __deferstack__.unshift(() -> stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu.unlock());
             };
@@ -1758,7 +1758,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         _sc._serveG._check();
         {
             var _t = _sc._shutdownTimer;
-            if (_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__)) {
+            if ((_t != null && ((_t : Dynamic).__nil__ == null || !(_t : Dynamic).__nil__))) {
                 _t.stop();
             };
         };
@@ -1775,7 +1775,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
     static public function _writeFrameAsync( _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>, _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest, _wd:stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeData.T_http2writeData>):Void {
         @:recv var _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn> = _sc;
         var _err:stdgo.Error = (null : stdgo.Error);
-        if (_wd == null || (_wd : Dynamic).__nil__) {
+        if ((_wd == null || (_wd : Dynamic).__nil__)) {
             _err = _wr._write._writeFrame(stdgo.Go.asInterface(_sc));
         } else {
             _err = _sc._framer._endWrite();
@@ -1890,7 +1890,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         @:recv var _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn> = _sc;
         {
             var _lg = _sc._hs.errorLog;
-            if (_lg != null && ((_lg : Dynamic).__nil__ == null || !(_lg : Dynamic).__nil__)) {
+            if ((_lg != null && ((_lg : Dynamic).__nil__ == null || !(_lg : Dynamic).__nil__))) {
                 _lg.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
             } else {
                 stdgo._internal.log.Log_printf.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));

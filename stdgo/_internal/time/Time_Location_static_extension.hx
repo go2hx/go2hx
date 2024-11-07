@@ -71,7 +71,7 @@ package stdgo._internal.time;
         };
         {
             var _zone = _l._cacheZone;
-            if (((_zone != null && ((_zone : Dynamic).__nil__ == null || !(_zone : Dynamic).__nil__) && (_l._cacheStart <= _sec : Bool) : Bool) && (_sec < _l._cacheEnd : Bool) : Bool)) {
+            if ((((_zone != null && ((_zone : Dynamic).__nil__ == null || !(_zone : Dynamic).__nil__)) && (_l._cacheStart <= _sec : Bool) : Bool) && (_sec < _l._cacheEnd : Bool) : Bool)) {
                 _name = _zone._name?.__copy__();
                 _offset = _zone._offset;
                 _start = _l._cacheStart;
@@ -130,7 +130,7 @@ package stdgo._internal.time;
     @:keep
     static public function _get( _l:stdgo.Ref<stdgo._internal.time.Time_Location.Location>):stdgo.Ref<stdgo._internal.time.Time_Location.Location> {
         @:recv var _l:stdgo.Ref<stdgo._internal.time.Time_Location.Location> = _l;
-        if (_l == null || (_l : Dynamic).__nil__) {
+        if ((_l == null || (_l : Dynamic).__nil__)) {
             return (stdgo.Go.setRef(stdgo._internal.time.Time__utcLoc._utcLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>);
         };
         if (_l == ((stdgo.Go.setRef(stdgo._internal.time.Time__localLoc._localLoc) : stdgo.Ref<stdgo._internal.time.Time_Location.Location>))) {

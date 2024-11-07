@@ -13,7 +13,7 @@ function _readTransfer(_msg:stdgo.AnyInterface, _r:stdgo.Ref<stdgo._internal.buf
                 _t.protoMinor = _rr.protoMinor;
                 _t.close = stdgo._internal.net.http.Http__shouldClose._shouldClose(_t.protoMajor, _t.protoMinor, _t.header, true);
                 _isResponse = true;
-                if (_rr.request != null && ((_rr.request : Dynamic).__nil__ == null || !(_rr.request : Dynamic).__nil__)) {
+                if ((_rr.request != null && ((_rr.request : Dynamic).__nil__ == null || !(_rr.request : Dynamic).__nil__))) {
                     _t.requestMethod = _rr.request.method?.__copy__();
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>))) {

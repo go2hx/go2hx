@@ -3,7 +3,7 @@ package stdgo._internal.math.rand;
     @:keep
     static public function uint64( _z:stdgo.Ref<stdgo._internal.math.rand.Rand_Zipf.Zipf>):stdgo.GoUInt64 {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.rand.Rand_Zipf.Zipf> = _z;
-        if (_z == null || (_z : Dynamic).__nil__) {
+        if ((_z == null || (_z : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("rand: nil Zipf" : stdgo.GoString));
         };
         var _k = (0 : stdgo.GoFloat64);

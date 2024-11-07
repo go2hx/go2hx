@@ -1,6 +1,6 @@
 package stdgo._internal.net.http.httptrace;
 function withClientTrace(_ctx:stdgo._internal.context.Context_Context.Context, _trace:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>):stdgo._internal.context.Context_Context.Context {
-        if (_trace == null || (_trace : Dynamic).__nil__) {
+        if ((_trace == null || (_trace : Dynamic).__nil__)) {
             throw stdgo.Go.toInterface(("nil trace" : stdgo.GoString));
         };
         var _old = stdgo._internal.net.http.httptrace.Httptrace_contextClientTrace.contextClientTrace(_ctx);

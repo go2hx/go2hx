@@ -3,7 +3,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _startGracefulShutdown( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverInternalState.T_http2serverInternalState>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverInternalState.T_http2serverInternalState> = _s;
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             return;
         };
         _s._mu.lock();
@@ -15,7 +15,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _unregisterConn( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverInternalState.T_http2serverInternalState>, _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverInternalState.T_http2serverInternalState> = _s;
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             return;
         };
         _s._mu.lock();
@@ -25,7 +25,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _registerConn( _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverInternalState.T_http2serverInternalState>, _sc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverConn.T_http2serverConn>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.Http_T_http2serverInternalState.T_http2serverInternalState> = _s;
-        if (_s == null || (_s : Dynamic).__nil__) {
+        if ((_s == null || (_s : Dynamic).__nil__)) {
             return;
         };
         _s._mu.lock();

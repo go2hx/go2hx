@@ -119,7 +119,7 @@ package stdgo._internal.crypto.tls;
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config> = _c;
         if (((_c.getCertificate != null) && (((_c.certificates.length == (0 : stdgo.GoInt)) || ((_clientHello.serverName.length) > (0 : stdgo.GoInt) : Bool) : Bool)) : Bool)) {
             var __tmp__ = _c.getCertificate(_clientHello), _cert:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Certificate.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if ((((_cert != null) && ((_cert : Dynamic).__nil__ == null || !(_cert : Dynamic).__nil__)) || (_err != null) : Bool)) {
+            if (((_cert != null && ((_cert : Dynamic).__nil__ == null || !(_cert : Dynamic).__nil__)) || (_err != null) : Bool)) {
                 return { _0 : _cert, _1 : _err };
             };
         };
@@ -188,7 +188,7 @@ package stdgo._internal.crypto.tls;
         if (stdgo._internal.crypto.tls.Tls__needFIPS._needFIPS()) {
             return stdgo._internal.crypto.tls.Tls__fipsCurvePreferences._fipsCurvePreferences(_c);
         };
-        if ((((_c == null) || (_c : Dynamic).__nil__) || (_c.curvePreferences.length == (0 : stdgo.GoInt)) : Bool)) {
+        if (((_c == null || (_c : Dynamic).__nil__) || (_c.curvePreferences.length == (0 : stdgo.GoInt)) : Bool)) {
             return stdgo._internal.crypto.tls.Tls__defaultCurvePreferences._defaultCurvePreferences;
         };
         return _c.curvePreferences;
@@ -210,13 +210,13 @@ package stdgo._internal.crypto.tls;
             if ((stdgo._internal.crypto.tls.Tls__needFIPS._needFIPS() && (((_v < stdgo._internal.crypto.tls.Tls__fipsMinVersion._fipsMinVersion(_c) : Bool) || (_v > stdgo._internal.crypto.tls.Tls__fipsMaxVersion._fipsMaxVersion(_c) : Bool) : Bool)) : Bool)) {
                 continue;
             };
-            if (((((((_c == null) || (_c : Dynamic).__nil__) || (_c.minVersion == (0 : stdgo.GoUInt16)) : Bool)) && _isClient : Bool) && (_v < (771 : stdgo.GoUInt16) : Bool) : Bool)) {
+            if ((((((_c == null || (_c : Dynamic).__nil__) || (_c.minVersion == (0 : stdgo.GoUInt16)) : Bool)) && _isClient : Bool) && (_v < (771 : stdgo.GoUInt16) : Bool) : Bool)) {
                 continue;
             };
-            if (((_c != null && ((_c : Dynamic).__nil__ == null || !(_c : Dynamic).__nil__) && _c.minVersion != ((0 : stdgo.GoUInt16)) : Bool) && (_v < _c.minVersion : Bool) : Bool)) {
+            if ((((_c != null && ((_c : Dynamic).__nil__ == null || !(_c : Dynamic).__nil__)) && _c.minVersion != ((0 : stdgo.GoUInt16)) : Bool) && (_v < _c.minVersion : Bool) : Bool)) {
                 continue;
             };
-            if (((_c != null && ((_c : Dynamic).__nil__ == null || !(_c : Dynamic).__nil__) && _c.maxVersion != ((0 : stdgo.GoUInt16)) : Bool) && (_v > _c.maxVersion : Bool) : Bool)) {
+            if ((((_c != null && ((_c : Dynamic).__nil__ == null || !(_c : Dynamic).__nil__)) && _c.maxVersion != ((0 : stdgo.GoUInt16)) : Bool) && (_v > _c.maxVersion : Bool) : Bool)) {
                 continue;
             };
             _versions = (_versions.__append__(_v));
@@ -271,7 +271,7 @@ package stdgo._internal.crypto.tls;
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config> = _c;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_configForClient != null && ((_configForClient : Dynamic).__nil__ == null || !(_configForClient : Dynamic).__nil__)) {
+            if ((_configForClient != null && ((_configForClient : Dynamic).__nil__ == null || !(_configForClient : Dynamic).__nil__))) {
                 _configForClient._mutex.rlock();
                 if (_configForClient.sessionTicketsDisabled) {
                     return (null : stdgo.Slice<stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey>);
@@ -416,7 +416,7 @@ package stdgo._internal.crypto.tls;
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config> = _c;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            if (_c == null || (_c : Dynamic).__nil__) {
+            if ((_c == null || (_c : Dynamic).__nil__)) {
                 return null;
             };
             _c._mutex.rlock();

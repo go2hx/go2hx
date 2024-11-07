@@ -177,7 +177,7 @@ var _onePassRunes = __3, _check = __2, _visitQueue = __1, _instQueue = __0;
                 break;
             };
         };
-        if (_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__)) {
+        if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
             for (_i => _ in _p.inst) {
                 _p.inst[(_i : stdgo.GoInt)].inst.rune = _onePassRunes[(_i : stdgo.GoInt)];
             };

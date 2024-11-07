@@ -24,7 +24,7 @@ function dumpRequest(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Reques
         var _absRequestURI = (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_req.requestURI?.__copy__(), ("http://" : stdgo.GoString)) || stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_req.requestURI?.__copy__(), ("https://" : stdgo.GoString)) : Bool);
         if (!_absRequestURI) {
             var _host = (_req.host?.__copy__() : stdgo.GoString);
-            if (((_host == stdgo.Go.str()) && ((_req.url != null) && ((_req.url : Dynamic).__nil__ == null || !(_req.url : Dynamic).__nil__)) : Bool)) {
+            if (((_host == stdgo.Go.str()) && (_req.url != null && ((_req.url : Dynamic).__nil__ == null || !(_req.url : Dynamic).__nil__)) : Bool)) {
                 _host = _req.url.host?.__copy__();
             };
             if (_host != (stdgo.Go.str())) {

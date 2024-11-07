@@ -12,7 +12,7 @@ package stdgo._internal.html.template;
     static public function _template( _e:stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>, _name:stdgo.GoString):stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> {
         @:recv var _e:stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper> = _e;
         var _t = _e._arbitraryTemplate()._text.lookup(_name?.__copy__());
-        if (_t == null || (_t : Dynamic).__nil__) {
+        if ((_t == null || (_t : Dynamic).__nil__)) {
             _t = (_e._derived[_name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>));
         };
         return _t;
@@ -226,15 +226,15 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
             };
         };
         var _t = _e._template(_name?.__copy__());
-        if (_t == null || (_t : Dynamic).__nil__) {
-            if ((_e._ns._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>)) != null && ((_e._ns._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>) : Dynamic).__nil__ == null || !(_e._ns._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>) : Dynamic).__nil__)) {
+        if ((_t == null || (_t : Dynamic).__nil__)) {
+            if (((_e._ns._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>)) != null && ((_e._ns._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>) : Dynamic).__nil__ == null || !(_e._ns._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>) : Dynamic).__nil__))) {
                 return { _0 : ({ _state : (27 : stdgo._internal.html.template.Template_T_state.T_state), _err : stdgo._internal.html.template.Template__errorf._errorf((5 : stdgo._internal.html.template.Template_ErrorCode.ErrorCode), _node, _line, ("%q is an incomplete or empty template" : stdgo.GoString), stdgo.Go.toInterface(_name)) } : stdgo._internal.html.template.Template_T_context.T_context), _1 : _dname?.__copy__() };
             };
             return { _0 : ({ _state : (27 : stdgo._internal.html.template.Template_T_state.T_state), _err : stdgo._internal.html.template.Template__errorf._errorf((5 : stdgo._internal.html.template.Template_ErrorCode.ErrorCode), _node, _line, ("no such template %q" : stdgo.GoString), stdgo.Go.toInterface(_name)) } : stdgo._internal.html.template.Template_T_context.T_context), _1 : _dname?.__copy__() };
         };
         if (_dname != (_name)) {
             var _dt = _e._template(_dname?.__copy__());
-            if (_dt == null || (_dt : Dynamic).__nil__) {
+            if ((_dt == null || (_dt : Dynamic).__nil__)) {
                 _dt = stdgo._internal.text.template.Template_new_.new_(_dname?.__copy__());
                 _dt.tree = (stdgo.Go.setRef(({ name : _dname?.__copy__(), root : _t.tree.root.copyList() } : stdgo._internal.text.template.parse.Parse_Tree.Tree)) : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>);
                 _e._derived[_dname] = _dt;
@@ -287,7 +287,7 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
     @:keep
     static public function _escapeList( _e:stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>, _c:stdgo._internal.html.template.Template_T_context.T_context, _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>):stdgo._internal.html.template.Template_T_context.T_context {
         @:recv var _e:stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper> = _e;
-        if (_n == null || (_n : Dynamic).__nil__) {
+        if ((_n == null || (_n : Dynamic).__nil__)) {
             return _c?.__copy__();
         };
         for (__6 => _m in _n.nodes) {

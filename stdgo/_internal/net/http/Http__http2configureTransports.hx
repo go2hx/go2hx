@@ -9,7 +9,7 @@ function _http2configureTransports(_t1:stdgo.Ref<stdgo._internal.net.http.Http_T
                 return { _0 : null, _1 : _err };
             };
         };
-        if (_t1.tlsclientConfig == null || (_t1.tlsclientConfig : Dynamic).__nil__) {
+        if ((_t1.tlsclientConfig == null || (_t1.tlsclientConfig : Dynamic).__nil__)) {
             _t1.tlsclientConfig = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
         };
         if (!stdgo._internal.net.http.Http__http2strSliceContains._http2strSliceContains(_t1.tlsclientConfig.nextProtos, ("h2" : stdgo.GoString))) {

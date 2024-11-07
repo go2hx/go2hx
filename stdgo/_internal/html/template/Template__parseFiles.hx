@@ -17,7 +17,7 @@ function _parseFiles(_t:stdgo.Ref<stdgo._internal.html.template.Template_Templat
             };
             var _s = ((_b : stdgo.GoString)?.__copy__() : stdgo.GoString);
             var _tmpl:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
-            if (_t == null || (_t : Dynamic).__nil__) {
+            if ((_t == null || (_t : Dynamic).__nil__)) {
                 _t = stdgo._internal.html.template.Template_new_.new_(_name?.__copy__());
             };
             if (_name == (_t.name())) {

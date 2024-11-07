@@ -3,7 +3,7 @@ package stdgo._internal.encoding.gob;
     @:keep
     static public function _update( _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState>, _instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr>):Void {
         @:recv var _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState> = _state;
-        if (_instr != null && ((_instr : Dynamic).__nil__ == null || !(_instr : Dynamic).__nil__)) {
+        if ((_instr != null && ((_instr : Dynamic).__nil__ == null || !(_instr : Dynamic).__nil__))) {
             _state._encodeUint(((_instr._field - _state._fieldnum : stdgo.GoInt) : stdgo.GoUInt64));
             _state._fieldnum = _instr._field;
         };

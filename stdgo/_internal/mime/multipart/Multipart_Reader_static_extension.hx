@@ -28,7 +28,7 @@ package stdgo._internal.mime.multipart;
     @:keep
     static public function _nextPart( _r:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader>, _rawPart:Bool, _maxMIMEHeaderSize:stdgo.GoInt64, _maxMIMEHeaders:stdgo.GoInt64):{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Reader.Reader> = _r;
-        if (_r._currentPart != null && ((_r._currentPart : Dynamic).__nil__ == null || !(_r._currentPart : Dynamic).__nil__)) {
+        if ((_r._currentPart != null && ((_r._currentPart : Dynamic).__nil__ == null || !(_r._currentPart : Dynamic).__nil__))) {
             _r._currentPart.close();
         };
         if ((_r._dashBoundary : stdgo.GoString) == (("--" : stdgo.GoString))) {
@@ -120,7 +120,7 @@ var _fileOff = __1, _file = __0;
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
-                        if (_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__)) {
+                        if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
                             {
                                 var _cerr = (_file.close() : stdgo.Error);
                                 if (_err == null) {
@@ -137,7 +137,7 @@ var _fileOff = __1, _file = __0;
                         };
                         if (_err != null) {
                             _form.removeAll();
-                            if (_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__)) {
+                            if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
                                 stdgo._internal.os.Os_remove.remove(_file.name()?.__copy__());
                             };
                         };
@@ -272,7 +272,7 @@ var _fileOff = __1, _file = __0;
                     };
                 };
                 if ((_n > _maxFileMemoryBytes : Bool)) {
-                    if (_file == null || (_file : Dynamic).__nil__) {
+                    if ((_file == null || (_file : Dynamic).__nil__)) {
                         {
                             var __tmp__ = stdgo._internal.os.Os_createTemp.createTemp(_r._tempDir?.__copy__(), ("multipart-" : stdgo.GoString));
                             _file = __tmp__._0;

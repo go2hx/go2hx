@@ -5,7 +5,7 @@ package stdgo._internal.net.mail;
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _word = ("" : stdgo.GoString), _isEncoded = false, _err = (null : stdgo.Error);
         var _dec = _p._dec;
-        if (_dec == null || (_dec : Dynamic).__nil__) {
+        if ((_dec == null || (_dec : Dynamic).__nil__)) {
             _dec = (stdgo.Go.setRef(stdgo._internal.net.mail.Mail__rfc2047Decoder._rfc2047Decoder) : stdgo.Ref<stdgo._internal.mime.Mime_WordDecoder.WordDecoder>);
         };
         var _adec = ((_dec : stdgo._internal.mime.Mime_WordDecoder.WordDecoder)?.__copy__() : stdgo._internal.mime.Mime_WordDecoder.WordDecoder);
@@ -239,12 +239,12 @@ package stdgo._internal.net.mail;
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
+        var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
         var _escaped_4210985:Bool = false;
         var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
         var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
         var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

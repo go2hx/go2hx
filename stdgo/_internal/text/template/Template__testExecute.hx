@@ -26,7 +26,7 @@ x.set(("zeroArgs" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.text.t
         for (__8 => _test in _execTests) {
             var _tmpl:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>);
             var _err:stdgo.Error = (null : stdgo.Error);
-            if (_template == null || (_template : Dynamic).__nil__) {
+            if ((_template == null || (_template : Dynamic).__nil__)) {
                 {
                     var __tmp__ = stdgo._internal.text.template.Template_new_.new_(_test._name?.__copy__()).funcs(_funcs).parse(_test._input?.__copy__());
                     _tmpl = __tmp__._0;

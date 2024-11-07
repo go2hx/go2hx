@@ -30,11 +30,11 @@ package stdgo._internal.net.http;
                                 _c._server._logf(("http: panic serving %v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(_c._remoteAddr), _err, stdgo.Go.toInterface(_buf));
                             };
                         };
-                        if (_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__)) {
+                        if ((_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__))) {
                             _inFlightResponse._cancelCtx();
                         };
                         if (!_c._hijacked()) {
-                            if (_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__)) {
+                            if ((_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__))) {
                                 _inFlightResponse._conn._r._abortPendingRead();
                                 _inFlightResponse._reqBody.close();
                             };
@@ -373,11 +373,11 @@ package stdgo._internal.net.http;
     @:keep
     static public function _finalFlush( _c:stdgo.Ref<stdgo._internal.net.http.Http_T_conn.T_conn>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_T_conn.T_conn> = _c;
-        if (_c._bufr != null && ((_c._bufr : Dynamic).__nil__ == null || !(_c._bufr : Dynamic).__nil__)) {
+        if ((_c._bufr != null && ((_c._bufr : Dynamic).__nil__ == null || !(_c._bufr : Dynamic).__nil__))) {
             stdgo._internal.net.http.Http__putBufioReader._putBufioReader(_c._bufr);
             _c._bufr = null;
         };
-        if (_c._bufw != null && ((_c._bufw : Dynamic).__nil__ == null || !(_c._bufw : Dynamic).__nil__)) {
+        if ((_c._bufw != null && ((_c._bufw : Dynamic).__nil__ == null || !(_c._bufw : Dynamic).__nil__))) {
             _c._bufw.flush();
             stdgo._internal.net.http.Http__putBufioWriter._putBufioWriter(_c._bufw);
             _c._bufw = null;

@@ -21,7 +21,7 @@ function testFloatInt(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
             var _x = stdgo._internal.math.big.Big__makeFloat._makeFloat(_test._x?.__copy__());
             var __tmp__ = _x.int_(null), _res:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = __tmp__._0, _acc:stdgo._internal.math.big.Big_Accuracy.Accuracy = __tmp__._1;
             var _got = ("nil" : stdgo.GoString);
-            if (_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__)) {
+            if ((_res != null && ((_res : Dynamic).__nil__ == null || !(_res : Dynamic).__nil__))) {
                 _got = (_res.string() : stdgo.GoString)?.__copy__();
             };
             if (((_got != _test._want) || (_acc != _test._acc) : Bool)) {

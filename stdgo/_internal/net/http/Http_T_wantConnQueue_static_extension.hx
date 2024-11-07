@@ -6,7 +6,7 @@ package stdgo._internal.net.http;
         var _cleaned = false;
         while (true) {
             var _w = _q._peekFront();
-            if ((((_w == null) || (_w : Dynamic).__nil__) || _w._waiting() : Bool)) {
+            if (((_w == null || (_w : Dynamic).__nil__) || _w._waiting() : Bool)) {
                 return _cleaned;
             };
             _q._popFront();

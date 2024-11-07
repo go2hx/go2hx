@@ -9,7 +9,7 @@ package stdgo._internal.runtime.pprof;
             if ((_existing > (0 : stdgo.GoInt) : Bool)) {
                 var _newFrame = (_frames[(0 : stdgo.GoInt)] : stdgo._internal.runtime.Runtime_Frame.Frame);
                 var _last = (_d._frames[(_existing - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo._internal.runtime.Runtime_Frame.Frame);
-                if (_last.func != null && ((_last.func : Dynamic).__nil__ == null || !(_last.func : Dynamic).__nil__)) {
+                if ((_last.func != null && ((_last.func : Dynamic).__nil__ == null || !(_last.func : Dynamic).__nil__))) {
                     return false;
                 };
                 if (((_last.entry == (0 : stdgo.GoUIntptr)) || (_newFrame.entry == (0 : stdgo.GoUIntptr)) : Bool)) {

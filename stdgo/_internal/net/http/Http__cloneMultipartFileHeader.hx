@@ -1,6 +1,6 @@
 package stdgo._internal.net.http;
 function _cloneMultipartFileHeader(_fh:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>):stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader> {
-        if (_fh == null || (_fh : Dynamic).__nil__) {
+        if ((_fh == null || (_fh : Dynamic).__nil__)) {
             return null;
         };
         var _fh2 = (stdgo.Go.setRef(({} : stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader)) : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>);

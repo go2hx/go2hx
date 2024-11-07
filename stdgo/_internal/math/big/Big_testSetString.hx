@@ -11,13 +11,13 @@ function testSetString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
                 continue;
             };
             if (!_ok1) {
-                if (_n1 != null && ((_n1 : Dynamic).__nil__ == null || !(_n1 : Dynamic).__nil__)) {
+                if ((_n1 != null && ((_n1 : Dynamic).__nil__ == null || !(_n1 : Dynamic).__nil__))) {
                     _t.errorf(("#%d (input \'%s\') n1 != nil" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._in));
                 };
                 continue;
             };
             if (!_ok2) {
-                if (_n2 != null && ((_n2 : Dynamic).__nil__ == null || !(_n2 : Dynamic).__nil__)) {
+                if ((_n2 != null && ((_n2 : Dynamic).__nil__ == null || !(_n2 : Dynamic).__nil__))) {
                     _t.errorf(("#%d (input \'%s\') n2 != nil" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._in));
                 };
                 continue;

@@ -8,7 +8,7 @@ package stdgo._internal.net.http.httputil;
             _m._mu.lock();
             __deferstack__.unshift(() -> _m._mu.unlock());
             _m._flushPending = false;
-            if (_m._t != null && ((_m._t : Dynamic).__nil__ == null || !(_m._t : Dynamic).__nil__)) {
+            if ((_m._t != null && ((_m._t : Dynamic).__nil__ == null || !(_m._t : Dynamic).__nil__))) {
                 _m._t.stop();
             };
             {
@@ -104,7 +104,7 @@ package stdgo._internal.net.http.httputil;
                     return __ret__;
                 };
             };
-            if (_m._t == null || (_m._t : Dynamic).__nil__) {
+            if ((_m._t == null || (_m._t : Dynamic).__nil__)) {
                 _m._t = stdgo._internal.time.Time_afterFunc.afterFunc(_m._latency, _m._delayedFlush);
             } else {
                 _m._t.reset(_m._latency);

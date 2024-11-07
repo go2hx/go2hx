@@ -42,7 +42,7 @@ package stdgo._internal.archive.zip;
             return { _0 : (null : stdgo._internal.io.fs.Fs_File.File), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("open" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.io.fs.Fs_errInvalid.errInvalid } : stdgo._internal.io.fs.Fs_PathError.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>)) };
         };
         var _e = _r._openLookup(_name?.__copy__());
-        if (_e == null || (_e : Dynamic).__nil__) {
+        if ((_e == null || (_e : Dynamic).__nil__)) {
             return { _0 : (null : stdgo._internal.io.fs.Fs_File.File), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("open" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.io.fs.Fs_errNotExist.errNotExist } : stdgo._internal.io.fs.Fs_PathError.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>)) };
         };
         if (_e._isDir) {

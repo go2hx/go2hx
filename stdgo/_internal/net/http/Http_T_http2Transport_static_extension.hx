@@ -3,7 +3,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _idleConnTimeout( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>):stdgo._internal.time.Time_Duration.Duration {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport> = _t;
-        if (_t._t1 != null && ((_t._t1 : Dynamic).__nil__ == null || !(_t._t1 : Dynamic).__nil__)) {
+        if ((_t._t1 != null && ((_t._t1 : Dynamic).__nil__ == null || !(_t._t1 : Dynamic).__nil__))) {
             return _t._t1.idleConnTimeout;
         };
         return (0i64 : stdgo._internal.time.Time_Duration.Duration);
@@ -136,7 +136,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _expectContinueTimeout( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>):stdgo._internal.time.Time_Duration.Duration {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport> = _t;
-        if (_t._t1 == null || (_t._t1 : Dynamic).__nil__) {
+        if ((_t._t1 == null || (_t._t1 : Dynamic).__nil__)) {
             return (0i64 : stdgo._internal.time.Time_Duration.Duration);
         };
         return _t._t1.expectContinueTimeout;
@@ -144,7 +144,7 @@ package stdgo._internal.net.http;
     @:keep
     static public function _disableKeepAlives( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport> = _t;
-        return (((_t._t1 != null) && ((_t._t1 : Dynamic).__nil__ == null || !(_t._t1 : Dynamic).__nil__)) && _t._t1.disableKeepAlives : Bool);
+        return ((_t._t1 != null && ((_t._t1 : Dynamic).__nil__ == null || !(_t._t1 : Dynamic).__nil__)) && _t._t1.disableKeepAlives : Bool);
     }
     @:keep
     static public function _dialTLS( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>, _ctx:stdgo._internal.context.Context_Context.Context, _network:stdgo.GoString, _addr:stdgo.GoString, _tlsCfg:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>):{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } {
@@ -174,7 +174,7 @@ package stdgo._internal.net.http;
     static public function _newTLSConfig( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>, _host:stdgo.GoString):stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config> {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport> = _t;
         var _cfg = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
-        if (_t.tlsclientConfig != null && ((_t.tlsclientConfig : Dynamic).__nil__ == null || !(_t.tlsclientConfig : Dynamic).__nil__)) {
+        if ((_t.tlsclientConfig != null && ((_t.tlsclientConfig : Dynamic).__nil__ == null || !(_t.tlsclientConfig : Dynamic).__nil__))) {
             {
                 var __tmp__ = (_t.tlsclientConfig.clone() : stdgo._internal.crypto.tls.Tls_Config.Config)?.__copy__();
                 (_cfg : stdgo._internal.crypto.tls.Tls_Config.Config).rand = __tmp__.rand;
@@ -352,7 +352,7 @@ return { _0 : _res, _1 : (null : stdgo.Error) };
     @:keep
     static public function _disableCompression( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>):Bool {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport> = _t;
-        return (_t.disableCompression || ((((_t._t1 != null) && ((_t._t1 : Dynamic).__nil__ == null || !(_t._t1 : Dynamic).__nil__)) && _t._t1.disableCompression : Bool)) : Bool);
+        return (_t.disableCompression || (((_t._t1 != null && ((_t._t1 : Dynamic).__nil__ == null || !(_t._t1 : Dynamic).__nil__)) && _t._t1.disableCompression : Bool)) : Bool);
     }
     @:keep
     static public function _maxFrameReadSize( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_http2Transport.T_http2Transport>):stdgo.GoUInt32 {

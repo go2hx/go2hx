@@ -17,7 +17,7 @@ package stdgo._internal.testing.quick;
     @:keep
     static public function _getRand( _c:stdgo.Ref<stdgo._internal.testing.quick.Quick_Config.Config>):stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> {
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.quick.Quick_Config.Config> = _c;
-        if (_c.rand == null || (_c.rand : Dynamic).__nil__) {
+        if ((_c.rand == null || (_c.rand : Dynamic).__nil__)) {
             return stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newSource.newSource(stdgo._internal.time.Time_now.now().unixNano()));
         };
         return _c.rand;

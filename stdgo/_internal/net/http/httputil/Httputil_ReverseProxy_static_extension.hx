@@ -128,7 +128,7 @@ package stdgo._internal.net.http.httputil;
     static public function _logf( _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy>, _format:stdgo.GoString, _args:haxe.Rest<stdgo.AnyInterface>):Void {
         var _args = new stdgo.Slice<stdgo.AnyInterface>(_args.length, 0, ..._args);
         @:recv var _p:stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_ReverseProxy.ReverseProxy> = _p;
-        if (_p.errorLog != null && ((_p.errorLog : Dynamic).__nil__ == null || !(_p.errorLog : Dynamic).__nil__)) {
+        if ((_p.errorLog != null && ((_p.errorLog : Dynamic).__nil__ == null || !(_p.errorLog : Dynamic).__nil__))) {
             _p.errorLog.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
         } else {
             stdgo._internal.log.Log_printf.printf(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));

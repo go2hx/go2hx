@@ -3,7 +3,7 @@ package stdgo._internal.crypto.rsa;
     @:keep
     static public function precompute( _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey>):Void {
         @:recv var _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey> = _priv;
-        if (((_priv.precomputed._n == null) || (_priv.precomputed._n : Dynamic).__nil__ && (_priv.primes.length == (2 : stdgo.GoInt)) : Bool)) {
+        if (((_priv.precomputed._n == null || (_priv.precomputed._n : Dynamic).__nil__) && (_priv.primes.length == (2 : stdgo.GoInt)) : Bool)) {
             var _err:stdgo.Error = (null : stdgo.Error);
             {
                 var __tmp__ = _internal.crypto.internal.bigmod.Bigmod_newModulusFromBig.newModulusFromBig(_priv.publicKey.n);
@@ -37,7 +37,7 @@ package stdgo._internal.crypto.rsa;
                 return;
             };
         };
-        if (_priv.precomputed.dp != null && ((_priv.precomputed.dp : Dynamic).__nil__ == null || !(_priv.precomputed.dp : Dynamic).__nil__)) {
+        if ((_priv.precomputed.dp != null && ((_priv.precomputed.dp : Dynamic).__nil__ == null || !(_priv.precomputed.dp : Dynamic).__nil__))) {
             return;
         };
         _priv.precomputed.dp = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).sub(_priv.primes[(0 : stdgo.GoInt)], stdgo._internal.crypto.rsa.Rsa__bigOne._bigOne);

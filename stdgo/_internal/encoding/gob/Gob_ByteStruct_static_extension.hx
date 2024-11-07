@@ -3,7 +3,7 @@ package stdgo._internal.encoding.gob;
     @:keep
     static public function gobDecode( _g:stdgo.Ref<stdgo._internal.encoding.gob.Gob_ByteStruct.ByteStruct>, _data:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
         @:recv var _g:stdgo.Ref<stdgo._internal.encoding.gob.Gob_ByteStruct.ByteStruct> = _g;
-        if (_g == null || (_g : Dynamic).__nil__) {
+        if ((_g == null || (_g : Dynamic).__nil__)) {
             return stdgo._internal.errors.Errors_new_.new_(("NIL RECEIVER" : stdgo.GoString));
         };
         if ((_data.length) == ((0 : stdgo.GoInt))) {

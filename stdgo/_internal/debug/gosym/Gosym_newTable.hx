@@ -1,33 +1,33 @@
 package stdgo._internal.debug.gosym;
 function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>):{ var _0 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Table.Table>; var _1 : stdgo.Error; } {
-        var _err_3659370:stdgo.Error = (null : stdgo.Error);
-        var _n_3663097:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lasttyp_3659615:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _fname_3659535:stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString>);
-        var _depth_3661767:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3663194:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _na_3662206:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _np_3662202:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _t_3659483:stdgo._internal.debug.gosym.Gosym_Table.Table = ({} : stdgo._internal.debug.gosym.Gosym_Table.Table);
-        var _n_3662008:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3661443:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _sym_3661125:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
-        var _n_3659363:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _j_3661785:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lastf_3661076:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _j_3662968:stdgo.GoInt = (0 : stdgo.GoInt);
         var _s_3661812:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
-        var _nz_3659606:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _s_3662995:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
-        var _nf_3659597:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _countloopBreak = false;
-        var _obj_3660758:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>);
-        var _fn_3662526:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Func.Func> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Func.Func>);
-        var _n_3662475:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _end_3662220:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _c_3661610:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _end_3661548:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3661443:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3663194:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _j_3662968:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3662008:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _j_3661785:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3661092:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _obj_3660758:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>);
+        var _err_3659370:stdgo.Error = (null : stdgo.Error);
+        var _n_3662475:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fn_3662526:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Func.Func> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Func.Func>);
+        var _end_3662220:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _na_3662206:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _nz_3659606:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c_3661610:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _lastf_3661076:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _end_3661548:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lasttyp_3659615:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _nf_3659597:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fname_3659535:stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString>);
+        var _t_3659483:stdgo._internal.debug.gosym.Gosym_Table.Table = ({} : stdgo._internal.debug.gosym.Gosym_Table.Table);
+        var _np_3662202:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _depth_3661767:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3659363:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3663097:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_3662995:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
+        var _countloopBreak = false;
+        var _sym_3661125:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -113,7 +113,7 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                         {};
                         x;
                     } : stdgo.GoMap<stdgo.GoString, stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>>);
-                    if (_t_3659483._go12line != null && ((_t_3659483._go12line : Dynamic).__nil__ == null || !(_t_3659483._go12line : Dynamic).__nil__)) {
+                    if ((_t_3659483._go12line != null && ((_t_3659483._go12line : Dynamic).__nil__ == null || !(_t_3659483._go12line : Dynamic).__nil__))) {
                         _gotoNext = 3660789i32;
                     } else {
                         _gotoNext = 3660921i32;
@@ -155,7 +155,7 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                         };
                     };
                 } else if (__value__ == (3661165i32)) {
-                    if (_t_3659483._go12line != null && ((_t_3659483._go12line : Dynamic).__nil__ == null || !(_t_3659483._go12line : Dynamic).__nil__)) {
+                    if ((_t_3659483._go12line != null && ((_t_3659483._go12line : Dynamic).__nil__ == null || !(_t_3659483._go12line : Dynamic).__nil__))) {
                         _gotoNext = 3661219i32;
                     } else {
                         _gotoNext = 3661339i32;
@@ -163,7 +163,7 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                 } else if (__value__ == (3661219i32)) {
                     _gotoNext = 3661117i32;
                 } else if (__value__ == (3661339i32)) {
-                    if (_obj_3660758 != null && ((_obj_3660758 : Dynamic).__nil__ == null || !(_obj_3660758 : Dynamic).__nil__)) {
+                    if ((_obj_3660758 != null && ((_obj_3660758 : Dynamic).__nil__ == null || !(_obj_3660758 : Dynamic).__nil__))) {
                         _gotoNext = 3661353i32;
                     } else {
                         _gotoNext = 3661395i32;
@@ -312,9 +312,9 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                     _fn_3662526.sym = _sym_3661125;
                     _fn_3662526.entry = _sym_3661125.value;
                     _fn_3662526.obj = _obj_3660758;
-                    if (_t_3659483._go12line != null && ((_t_3659483._go12line : Dynamic).__nil__ == null || !(_t_3659483._go12line : Dynamic).__nil__)) {
+                    if ((_t_3659483._go12line != null && ((_t_3659483._go12line : Dynamic).__nil__ == null || !(_t_3659483._go12line : Dynamic).__nil__))) {
                         _gotoNext = 3662711i32;
-                    } else if (_pcln != null && ((_pcln : Dynamic).__nil__ == null || !(_pcln : Dynamic).__nil__)) {
+                    } else if ((_pcln != null && ((_pcln : Dynamic).__nil__ == null || !(_pcln : Dynamic).__nil__))) {
                         _gotoNext = 3662890i32;
                     } else {
                         _gotoNext = 3662964i32;
@@ -371,7 +371,7 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                     _i_3661092 = (_end_3662220 - (1 : stdgo.GoInt) : stdgo.GoInt);
                     _gotoNext = 3661117i32;
                 } else if (__value__ == (3663324i32)) {
-                    if ((((_t_3659483._go12line != null) && ((_t_3659483._go12line : Dynamic).__nil__ == null || !(_t_3659483._go12line : Dynamic).__nil__)) && (_nf_3659597 == (0 : stdgo.GoInt)) : Bool)) {
+                    if (((_t_3659483._go12line != null && ((_t_3659483._go12line : Dynamic).__nil__ == null || !(_t_3659483._go12line : Dynamic).__nil__)) && (_nf_3659597 == (0 : stdgo.GoInt)) : Bool)) {
                         _gotoNext = 3663356i32;
                     } else {
                         _gotoNext = 3663397i32;
@@ -380,7 +380,7 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                     _t_3659483.funcs = _t_3659483._go12line._go12Funcs();
                     _gotoNext = 3663397i32;
                 } else if (__value__ == (3663397i32)) {
-                    if (_obj_3660758 != null && ((_obj_3660758 : Dynamic).__nil__ == null || !(_obj_3660758 : Dynamic).__nil__)) {
+                    if ((_obj_3660758 != null && ((_obj_3660758 : Dynamic).__nil__ == null || !(_obj_3660758 : Dynamic).__nil__))) {
                         _gotoNext = 3663411i32;
                     } else {
                         _gotoNext = 3663447i32;

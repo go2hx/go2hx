@@ -42,7 +42,7 @@ package stdgo._internal.embed;
     static public function open( _f:stdgo._internal.embed.Embed_FS.FS, _name:stdgo.GoString):{ var _0 : stdgo._internal.io.fs.Fs_File.File; var _1 : stdgo.Error; } {
         @:recv var _f:stdgo._internal.embed.Embed_FS.FS = _f?.__copy__();
         var _file = _f._lookup(_name?.__copy__());
-        if (_file == null || (_file : Dynamic).__nil__) {
+        if ((_file == null || (_file : Dynamic).__nil__)) {
             return { _0 : (null : stdgo._internal.io.fs.Fs_File.File), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("open" : stdgo.GoString), path : _name?.__copy__(), err : stdgo._internal.io.fs.Fs_errNotExist.errNotExist } : stdgo._internal.io.fs.Fs_PathError.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>)) };
         };
         if (_file.isDir()) {
@@ -53,7 +53,7 @@ package stdgo._internal.embed;
     @:keep
     static public function _readDir( _f:stdgo._internal.embed.Embed_FS.FS, _dir:stdgo.GoString):stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file> {
         @:recv var _f:stdgo._internal.embed.Embed_FS.FS = _f?.__copy__();
-        if (_f._files == null || (_f._files : Dynamic).__nil__) {
+        if ((_f._files == null || (_f._files : Dynamic).__nil__)) {
             return (null : stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>);
         };
         var _files = (_f._files : stdgo.Slice<stdgo._internal.embed.Embed_T_file.T_file>);
@@ -76,7 +76,7 @@ package stdgo._internal.embed;
         if (_name == (("." : stdgo.GoString))) {
             return stdgo._internal.embed.Embed__dotFile._dotFile;
         };
-        if (_f._files == null || (_f._files : Dynamic).__nil__) {
+        if ((_f._files == null || (_f._files : Dynamic).__nil__)) {
             return null;
         };
         var __tmp__ = stdgo._internal.embed.Embed__split._split(_name?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _elem:stdgo.GoString = __tmp__._1, __6:Bool = __tmp__._2;

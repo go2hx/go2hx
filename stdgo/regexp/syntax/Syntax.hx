@@ -674,51 +674,51 @@ class Op_static_extension {
 }
 /**
     /|*{
-    	pc_3532873 = uint32(p.Start)
-    	i_3532896 = &p.Inst[pc_3532873]
-    	gotoNext = 3532913
-    	_ = gotoNext == 3532913
+    	pc_3458270 = uint32(p.Start)
+    	i_3458293 = &p.Inst[pc_3458270]
+    	gotoNext = 3458310
+    	_ = gotoNext == 3458310
     	_ = 0
     	LoopBreak = false
-    	gotoNext = 3532920
-    	_ = gotoNext == 3532920
+    	gotoNext = 3458317
+    	_ = gotoNext == 3458317
     	if !LoopBreak {
-    		gotoNext = 3532924
-    		_ = gotoNext == 3532924
+    		gotoNext = 3458321
+    		_ = gotoNext == 3458321
     		_ = 0
-    		gotoNext = 3532928
-    		_ = gotoNext == 3532928
-    		switch i_3532896.Op {
+    		gotoNext = 3458325
+    		_ = gotoNext == 3458325
+    		switch i_3458293.Op {
     		case 3:
-    			gotoNext = 3532944
-    			_ = gotoNext == 3532944
-    			flag_3532859 |= EmptyOp(i_3532896.Arg)
-    			gotoNext = 3533101
+    			gotoNext = 3458341
+    			_ = gotoNext == 3458341
+    			flag_3458256 |= EmptyOp(i_3458293.Arg)
+    			gotoNext = 3458498
     		case 5:
-    			gotoNext = 3532993
-    			_ = gotoNext == 3532993
+    			gotoNext = 3458390
+    			_ = gotoNext == 3458390
     			return 255
-    			gotoNext = 3533101
+    			gotoNext = 3458498
     		case 2, 6:
-    			gotoNext = 3533032
-    			_ = gotoNext == 3533032
-    			gotoNext = 3533101
+    			gotoNext = 3458429
+    			_ = gotoNext == 3458429
+    			gotoNext = 3458498
     		default:
-    			gotoNext = 3533072
-    			_ = gotoNext == 3533072
+    			gotoNext = 3458469
+    			_ = gotoNext == 3458469
     			LoopBreak = true
-    			gotoNext = 3532920
-    			gotoNext = 3533101
+    			gotoNext = 3458317
+    			gotoNext = 3458498
     		}
-    		_ = gotoNext == 3533101
-    		pc_3532873 = i_3532896.Out
-    		i_3532896 = &p.Inst[pc_3532873]
-    		gotoNext = 3532920
+    		_ = gotoNext == 3458498
+    		pc_3458270 = i_3458293.Out
+    		i_3458293 = &p.Inst[pc_3458270]
+    		gotoNext = 3458317
     	} else {
-    		gotoNext = 3533134
+    		gotoNext = 3458531
     	}
-    	_ = gotoNext == 3533134
-    	return flag_3532859
+    	_ = gotoNext == 3458531
+    	return flag_3458256
     	gotoNext = -1
     }*|/
 **/

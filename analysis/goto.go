@@ -168,6 +168,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		case *ast.AssignStmt: // define vartypeSwitch
 			defined = true
 			assignName := assignStmt.Lhs[0].(*ast.Ident).Name
+			assignStmt.Rhs[0] = fs.changeVars(assignStmt.Rhs[0])
 			for i, clause := range stmt.Body.List {
 				clause := clause.(*ast.CaseClause)
 				defineIdent := ast.NewIdent(assignName + "_" + fmt.Sprint(clause.Colon))
@@ -184,6 +185,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				//clause.Body = append([]ast.Stmt{define(defineIdent, assign.Lhs[0])}, clause.Body...)
 			}
 		default:
+			stmt.Assign = fs.markJumps(stmt.Assign, scopeIndex)[0]
 		}
 		var defaultClause *ast.CaseClause
 		for i := range stmt.Body.List {

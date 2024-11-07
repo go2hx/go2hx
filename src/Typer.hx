@@ -1036,13 +1036,16 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		//exprs.push(typeDeferReturn(info, true));
 		exprs.push(ret);
 		// recover
-		final pos = 1 + (info.returnNamed ? 1 : 0);
-		final trydef = macro try
-			$b{exprs.slice(pos)} catch (__exception__)
-			$b{catchBlock};
-		// don't include recover and defer stack
-		exprs = exprs.slice(0, pos);
-		exprs.push(trydef);
+		final tryBool = true;
+		if (tryBool) {
+			final pos = 1 + (info.returnNamed ? 1 : 0);
+			final trydef = macro try
+				$b{exprs.slice(pos)} catch (__exception__)
+				$b{catchBlock};
+			// don't include recover and defer stack
+			exprs = exprs.slice(0, pos);
+			exprs.push(trydef);
+		}
 	}
 	return EBlock(exprs);
 }
@@ -2018,9 +2021,9 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			case refType(_):
 				switch op {
 					case OpEq:
-						return macro $value == null || ($value : Dynamic).__nil__;
+						return macro ($value == null || ($value : Dynamic).__nil__);
 					default:
-						return macro $value != null && (($value : Dynamic).__nil__ == null || (!($value : Dynamic).__nil__))
+						return macro ($value != null && (($value : Dynamic).__nil__ == null || (!($value : Dynamic).__nil__)))
 							;
 				}
 			default:

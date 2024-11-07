@@ -178,184 +178,184 @@ import stdgo.text.scanner.*
 
 ```
 {
-    	ch_4507393 = s.Peek()
+    	ch_4312439 = s.Peek()
     	s.tokPos = -1
     	s.Line = 0
-    	gotoNext = 4507467
-    	_ = gotoNext == 4507467
+    	gotoNext = 4312513
+    	_ = gotoNext == 4312513
     	_ = 0
     	redoBreak = false
-    	gotoNext = 4507495
-    	_ = gotoNext == 4507495
-    	if !redoBreak && (s.Whitespace&(1<<uint(ch_4507393)) != 0) {
-    		gotoNext = 4507531
-    		_ = gotoNext == 4507531
-    		ch_4507393 = s.next()
-    		gotoNext = 4507495
+    	gotoNext = 4312541
+    	_ = gotoNext == 4312541
+    	if !redoBreak && (s.Whitespace&(1<<uint(ch_4312439)) != 0) {
+    		gotoNext = 4312577
+    		_ = gotoNext == 4312577
+    		ch_4312439 = s.next()
+    		gotoNext = 4312541
     	} else {
-    		gotoNext = 4507586
+    		gotoNext = 4312632
 }
-    	_ = gotoNext == 4507586
+    	_ = gotoNext == 4312632
     	s.tokBuf.Reset()
     	s.tokPos = s.srcPos - s.lastCharLen
     	s.Offset = s.srcBufOffset + s.tokPos
     	if s.column > 0 {
-    		gotoNext = 4507783
-    		_ = gotoNext == 4507783
+    		gotoNext = 4312829
+    		_ = gotoNext == 4312829
     		s.Line = s.line
     		s.Column = s.column
-    		gotoNext = 4508092
+    		gotoNext = 4313138
     	} else {
-    		gotoNext = 4507881
-    		_ = gotoNext == 4507881
+    		gotoNext = 4312927
+    		_ = gotoNext == 4312927
     		s.Line = s.line - 1
     		s.Column = s.lastLineLen
-    		gotoNext = 4508092
+    		gotoNext = 4313138
 }
-    	_ = gotoNext == 4508092
-    	tok_4508092 = ch_4507393
+    	_ = gotoNext == 4313138
+    	tok_4313138 = ch_4312439
     	_ = 0
-    	gotoNext = 4508103
-    	_ = gotoNext == 4508103
+    	gotoNext = 4313149
+    	_ = gotoNext == 4313149
     	switch {
-    	case s.isIdentRune(ch_4507393, 0):
-    		gotoNext = 4508113
-    		_ = gotoNext == 4508113
+    	case s.isIdentRune(ch_4312439, 0):
+    		gotoNext = 4313159
+    		_ = gotoNext == 4313159
     		if s.Mode&4 != 0 {
-    			gotoNext = 4508168
-    			_ = gotoNext == 4508168
-    			tok_4508092 = -2
-    			ch_4507393 = s.scanIdentifier()
-    			gotoNext = 4509181
+    			gotoNext = 4313214
+    			_ = gotoNext == 4313214
+    			tok_4313138 = -2
+    			ch_4312439 = s.scanIdentifier()
+    			gotoNext = 4314227
     		} else {
-    			gotoNext = 4508221
-    			_ = gotoNext == 4508221
-    			ch_4507393 = s.next()
-    			gotoNext = 4509181
+    			gotoNext = 4313267
+    			_ = gotoNext == 4313267
+    			ch_4312439 = s.next()
+    			gotoNext = 4314227
 }
-    		gotoNext = 4509181
-    	case isDecimal(ch_4507393):
-    		gotoNext = 4508245
-    		_ = gotoNext == 4508245
+    		gotoNext = 4314227
+    	case isDecimal(ch_4312439):
+    		gotoNext = 4313291
+    		_ = gotoNext == 4313291
     		if s.Mode&24 != 0 {
-    			gotoNext = 4508304
-    			_ = gotoNext == 4508304
-    			tok_4508092, ch_4507393 = s.scanNumber(ch_4507393, false)
-    			gotoNext = 4509181
+    			gotoNext = 4313350
+    			_ = gotoNext == 4313350
+    			tok_4313138, ch_4312439 = s.scanNumber(ch_4312439, false)
+    			gotoNext = 4314227
     		} else {
-    			gotoNext = 4508352
-    			_ = gotoNext == 4508352
-    			ch_4507393 = s.next()
-    			gotoNext = 4509181
+    			gotoNext = 4313398
+    			_ = gotoNext == 4313398
+    			ch_4312439 = s.next()
+    			gotoNext = 4314227
 }
-    		gotoNext = 4509181
+    		gotoNext = 4314227
     	default:
-    		gotoNext = 4508376
-    		_ = gotoNext == 4508376
+    		gotoNext = 4313422
+    		_ = gotoNext == 4313422
     		_ = 0
-    		gotoNext = 4508387
-    		_ = gotoNext == 4508387
-    		switch ch_4507393 {
+    		gotoNext = 4313433
+    		_ = gotoNext == 4313433
+    		switch ch_4312439 {
     		case -1:
-    			gotoNext = 4508401
-    			_ = gotoNext == 4508401
-    			gotoNext = 4509181
-    			gotoNext = 4509181
+    			gotoNext = 4313447
+    			_ = gotoNext == 4313447
+    			gotoNext = 4314227
+    			gotoNext = 4314227
     		case 34:
-    			gotoNext = 4508422
-    			_ = gotoNext == 4508422
+    			gotoNext = 4313468
+    			_ = gotoNext == 4313468
     			if s.Mode&64 != 0 {
-    				gotoNext = 4508462
-    				_ = gotoNext == 4508462
+    				gotoNext = 4313508
+    				_ = gotoNext == 4313508
     				s.scanString(34)
-    				tok_4508092 = -6
-    				gotoNext = 4508511
+    				tok_4313138 = -6
+    				gotoNext = 4313557
     			} else {
-    				gotoNext = 4508511
+    				gotoNext = 4313557
 }
-    			_ = gotoNext == 4508511
-    			ch_4507393 = s.next()
-    			gotoNext = 4509181
+    			_ = gotoNext == 4313557
+    			ch_4312439 = s.next()
+    			gotoNext = 4314227
     		case 39:
-    			gotoNext = 4508527
-    			_ = gotoNext == 4508527
+    			gotoNext = 4313573
+    			_ = gotoNext == 4313573
     			if s.Mode&32 != 0 {
-    				gotoNext = 4508566
-    				_ = gotoNext == 4508566
+    				gotoNext = 4313612
+    				_ = gotoNext == 4313612
     				s.scanChar()
-    				tok_4508092 = -5
-    				gotoNext = 4508608
+    				tok_4313138 = -5
+    				gotoNext = 4313654
     			} else {
-    				gotoNext = 4508608
+    				gotoNext = 4313654
 }
-    			_ = gotoNext == 4508608
-    			ch_4507393 = s.next()
-    			gotoNext = 4509181
+    			_ = gotoNext == 4313654
+    			ch_4312439 = s.next()
+    			gotoNext = 4314227
     		case 46:
-    			gotoNext = 4508624
-    			_ = gotoNext == 4508624
-    			ch_4507393 = s.next()
-    			if isDecimal(ch_4507393) && s.Mode&16 != 0 {
-    				gotoNext = 4508697
-    				_ = gotoNext == 4508697
-    				tok_4508092, ch_4507393 = s.scanNumber(ch_4507393, true)
-    				gotoNext = 4509181
+    			gotoNext = 4313670
+    			_ = gotoNext == 4313670
+    			ch_4312439 = s.next()
+    			if isDecimal(ch_4312439) && s.Mode&16 != 0 {
+    				gotoNext = 4313743
+    				_ = gotoNext == 4313743
+    				tok_4313138, ch_4312439 = s.scanNumber(ch_4312439, true)
+    				gotoNext = 4314227
     			} else {
-    				gotoNext = 4509181
+    				gotoNext = 4314227
 }
-    			gotoNext = 4509181
+    			gotoNext = 4314227
     		case 47:
-    			gotoNext = 4508743
-    			_ = gotoNext == 4508743
-    			ch_4507393 = s.next()
-    			if (ch_4507393 == 47 || ch_4507393 == 42) && s.Mode&256 != 0 {
-    				gotoNext = 4508829
-    				_ = gotoNext == 4508829
+    			gotoNext = 4313789
+    			_ = gotoNext == 4313789
+    			ch_4312439 = s.next()
+    			if (ch_4312439 == 47 || ch_4312439 == 42) && s.Mode&256 != 0 {
+    				gotoNext = 4313875
+    				_ = gotoNext == 4313875
     				if s.Mode&512 != 0 {
-    					gotoNext = 4508863
-    					_ = gotoNext == 4508863
+    					gotoNext = 4313909
+    					_ = gotoNext == 4313909
     					s.tokPos = -1
-    					ch_4507393 = s.scanComment(ch_4507393)
-    					gotoNext = 4507467
-    					gotoNext = 4508965
+    					ch_4312439 = s.scanComment(ch_4312439)
+    					gotoNext = 4312513
+    					gotoNext = 4314011
     				} else {
-    					gotoNext = 4508965
+    					gotoNext = 4314011
 }
-    				_ = gotoNext == 4508965
-    				ch_4507393 = s.scanComment(ch_4507393)
-    				tok_4508092 = -8
-    				gotoNext = 4509181
+    				_ = gotoNext == 4314011
+    				ch_4312439 = s.scanComment(ch_4312439)
+    				tok_4313138 = -8
+    				gotoNext = 4314227
     			} else {
-    				gotoNext = 4509181
+    				gotoNext = 4314227
 }
-    			gotoNext = 4509181
+    			gotoNext = 4314227
     		case 96:
-    			gotoNext = 4509013
-    			_ = gotoNext == 4509013
+    			gotoNext = 4314059
+    			_ = gotoNext == 4314059
     			if s.Mode&128 != 0 {
-    				gotoNext = 4509056
-    				_ = gotoNext == 4509056
+    				gotoNext = 4314102
+    				_ = gotoNext == 4314102
     				s.scanRawString()
-    				tok_4508092 = -7
-    				gotoNext = 4509108
+    				tok_4313138 = -7
+    				gotoNext = 4314154
     			} else {
-    				gotoNext = 4509108
+    				gotoNext = 4314154
 }
-    			_ = gotoNext == 4509108
-    			ch_4507393 = s.next()
-    			gotoNext = 4509181
+    			_ = gotoNext == 4314154
+    			ch_4312439 = s.next()
+    			gotoNext = 4314227
     		default:
-    			gotoNext = 4509124
-    			_ = gotoNext == 4509124
-    			ch_4507393 = s.next()
-    			gotoNext = 4509181
+    			gotoNext = 4314170
+    			_ = gotoNext == 4314170
+    			ch_4312439 = s.next()
+    			gotoNext = 4314227
 }
-    		gotoNext = 4509181
+    		gotoNext = 4314227
 }
-    	_ = gotoNext == 4509181
+    	_ = gotoNext == 4314227
     	s.tokEnd = s.srcPos - s.lastCharLen
-    	s.ch = ch_4507393
-    	return tok_4508092
+    	s.ch = ch_4312439
+    	return tok_4313138
     	gotoNext = -1
     }
 ```

@@ -82,19 +82,19 @@ import
 
 ```
 {
-    	gotoNext = 2861148
-    	_ = gotoNext == 2861148
-    	f_2861156 = float32(r.Float64())
-    	if f_2861156 == 1 {
-    		gotoNext = 2861193
-    		_ = gotoNext == 2861193
-    		gotoNext = 2861148
-    		gotoNext = 2861261
+    	gotoNext = 2854166
+    	_ = gotoNext == 2854166
+    	f_2854174 = float32(r.Float64())
+    	if f_2854174 == 1 {
+    		gotoNext = 2854211
+    		_ = gotoNext == 2854211
+    		gotoNext = 2854166
+    		gotoNext = 2854279
     	} else {
-    		gotoNext = 2861261
+    		gotoNext = 2854279
 }
-    	_ = gotoNext == 2861261
-    	return f_2861156
+    	_ = gotoNext == 2854279
+    	return f_2854174
     	gotoNext = -1
     }
 ```

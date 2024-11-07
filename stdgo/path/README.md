@@ -58,78 +58,78 @@ import stdgo.path.*
 ```
 {
     	_ = 0
-    	gotoNext = 2692028
-    	_ = gotoNext == 2692028
+    	gotoNext = 2770865
+    	_ = gotoNext == 2770865
     	if len(pattern) > 0 && pattern[0] == 42 {
-    		gotoNext = 2692070
-    		_ = gotoNext == 2692070
+    		gotoNext = 2770907
+    		_ = gotoNext == 2770907
     		pattern = pattern[1:]
     		star = true
-    		gotoNext = 2692028
+    		gotoNext = 2770865
     	} else {
-    		gotoNext = 2692114
+    		gotoNext = 2770951
 }
-    	_ = gotoNext == 2692114
-    	inrange_2692114 = false
-    	gotoNext = 2692142
-    	_ = gotoNext == 2692142
-    	i_2692136 = 0
+    	_ = gotoNext == 2770951
+    	inrange_2770951 = false
+    	gotoNext = 2770979
+    	_ = gotoNext == 2770979
+    	i_2770973 = 0
     	ScanBreak = false
-    	gotoNext = 2692149
-    	_ = gotoNext == 2692149
-    	if !ScanBreak && (i_2692136 < len(pattern)) {
-    		gotoNext = 2692182
-    		_ = gotoNext == 2692182
+    	gotoNext = 2770986
+    	_ = gotoNext == 2770986
+    	if !ScanBreak && (i_2770973 < len(pattern)) {
+    		gotoNext = 2771019
+    		_ = gotoNext == 2771019
     		_ = 0
-    		gotoNext = 2692186
-    		_ = gotoNext == 2692186
-    		switch pattern[i_2692136] {
+    		gotoNext = 2771023
+    		_ = gotoNext == 2771023
+    		switch pattern[i_2770973] {
     		case 92:
-    			gotoNext = 2692208
-    			_ = gotoNext == 2692208
-    			if i_2692136+1 < len(pattern) {
-    				gotoNext = 2692298
-    				_ = gotoNext == 2692298
-    				i_2692136++
-    				gotoNext = 2692178
+    			gotoNext = 2771045
+    			_ = gotoNext == 2771045
+    			if i_2770973+1 < len(pattern) {
+    				gotoNext = 2771135
+    				_ = gotoNext == 2771135
+    				i_2770973++
+    				gotoNext = 2771015
     			} else {
-    				gotoNext = 2692178
+    				gotoNext = 2771015
 }
-    			gotoNext = 2692178
+    			gotoNext = 2771015
     		case 91:
-    			gotoNext = 2692315
-    			_ = gotoNext == 2692315
-    			inrange_2692114 = true
-    			gotoNext = 2692178
+    			gotoNext = 2771152
+    			_ = gotoNext == 2771152
+    			inrange_2770951 = true
+    			gotoNext = 2771015
     		case 93:
-    			gotoNext = 2692345
-    			_ = gotoNext == 2692345
-    			inrange_2692114 = false
-    			gotoNext = 2692178
+    			gotoNext = 2771182
+    			_ = gotoNext == 2771182
+    			inrange_2770951 = false
+    			gotoNext = 2771015
     		case 42:
-    			gotoNext = 2692376
-    			_ = gotoNext == 2692376
-    			if !inrange_2692114 {
-    				gotoNext = 2692401
-    				_ = gotoNext == 2692401
+    			gotoNext = 2771213
+    			_ = gotoNext == 2771213
+    			if !inrange_2770951 {
+    				gotoNext = 2771238
+    				_ = gotoNext == 2771238
     				ScanBreak = true
-    				gotoNext = 2692149
-    				gotoNext = 2692178
+    				gotoNext = 2770986
+    				gotoNext = 2771015
     			} else {
-    				gotoNext = 2692178
+    				gotoNext = 2771015
 }
-    			gotoNext = 2692178
+    			gotoNext = 2771015
     		default:
-    			gotoNext = 2692178
+    			gotoNext = 2771015
 }
-    		_ = gotoNext == 2692178
-    		i_2692136++
-    		gotoNext = 2692149
+    		_ = gotoNext == 2771015
+    		i_2770973++
+    		gotoNext = 2770986
     	} else {
-    		gotoNext = 2692431
+    		gotoNext = 2771268
 }
-    	_ = gotoNext == 2692431
-    	return star, pattern[0:i_2692136], pattern[i_2692136:]
+    	_ = gotoNext == 2771268
+    	return star, pattern[0:i_2770973], pattern[i_2770973:]
     	gotoNext = -1
     }
 ```

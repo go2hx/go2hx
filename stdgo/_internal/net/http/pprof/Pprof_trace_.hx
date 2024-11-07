@@ -12,12 +12,12 @@ function trace_(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, 
         _w.header().set(("Content-Type" : stdgo.GoString), ("application/octet-stream" : stdgo.GoString));
         _w.header().set(("Content-Disposition" : stdgo.GoString), ("attachment; filename=\"trace\"" : stdgo.GoString));
         {
-            var _err = (stdgo._internal.net.http.pprof.Pprof__trace._trace.start(_w) : stdgo.Error);
+            var _err = (_internal.runtime.trace_.Trace__start.start(_w) : stdgo.Error);
             if (_err != null) {
                 stdgo._internal.net.http.pprof.Pprof__serveError._serveError(_w, (500 : stdgo.GoInt), stdgo._internal.fmt.Fmt_sprintf.sprintf(("Could not enable tracing: %s" : stdgo.GoString), stdgo.Go.toInterface(_err))?.__copy__());
                 return;
             };
         };
         stdgo._internal.net.http.pprof.Pprof__sleep._sleep(_r, ((_sec * ((1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo.GoFloat64) : stdgo.GoFloat64) : stdgo._internal.time.Time_Duration.Duration));
-        stdgo._internal.net.http.pprof.Pprof__trace._trace.stop();
+        _internal.runtime.trace_.Trace__stop.stop();
     }

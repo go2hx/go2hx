@@ -15,6 +15,7 @@ import (
 	"log"
 	"math/rand"
 	"net"
+	"path"
 	"path/filepath"
 	"runtime"
 	"runtime/debug"
@@ -592,6 +593,19 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			name := ""
 			if obj.Name != nil {
 				name = obj.Name.Name
+			} else {
+				importPath, _ := strconv.Unquote(obj.Path.Value)
+				name = path.Base(importPath)
+			}
+			var typeObj types.Object
+			if obj.Name != nil {
+				typeObj = checker.Info.Defs[obj.Name]
+			} else {
+				typeObj = checker.Info.Implicits[obj]
+			}
+			pkgname, ok := typeObj.(*types.PkgName)
+			if ok {
+				name = pkgname.Name()
 			}
 			data[i] = map[string]interface{}{
 				"id":      "ImportSpec",

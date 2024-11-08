@@ -78,24 +78,34 @@ func (fs *funcScope) changeVarsStmtSimple(stmt ast.Stmt, from string, to string)
 	return stmt
 }
 
+func (fs *funcScope) markJumpBlock(stmt *ast.BlockStmt, scopeIndex int, endBool bool) *ast.BlockStmt {
+	newStmts := []ast.Stmt{} //make([]ast.Stmt, len(stmt.List))
+	for i := range stmt.List {
+		if len(fs.nextJumpFunc) > 0 {
+			for _, f := range fs.nextJumpFunc {
+				f(stmt.List[i].Pos())
+			}
+			fs.nextJumpFunc = []func(token.Pos){}
+			// Adds unnecessary jumpTo when nextJumpFunc already creates necessary jumpTo points
+			//newStmts = append(newStmts, jumpTo(stmt.List[i].Pos()))
+			newStmts = append(newStmts, setJump(stmt.List[i].Pos()))
+		}
+		newStmts = append(newStmts, fs.markJumps(stmt.List[i], scopeIndex)...)
+	}
+	if endBool {
+		newStmts = append(newStmts, blank())
+		fs.nextJumpRun(func(pos token.Pos) {
+			newStmts[len(newStmts)-1] = jumpTo(pos)
+		})
+	}
+	stmt.List = newStmts
+	return stmt
+}
+
 func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 	switch stmt := stmt.(type) {
 	case *ast.BlockStmt:
-		newStmts := []ast.Stmt{} //make([]ast.Stmt, len(stmt.List))
-		for i := range stmt.List {
-			if len(fs.nextJumpFunc) > 0 {
-				for _, f := range fs.nextJumpFunc {
-					f(stmt.List[i].Pos())
-				}
-				fs.nextJumpFunc = []func(token.Pos){}
-				// Adds unnecessary jumpTo when nextJumpFunc already creates necessary jumpTo points
-				//newStmts = append(newStmts, jumpTo(stmt.List[i].Pos()))
-				newStmts = append(newStmts, setJump(stmt.List[i].Pos()))
-			}
-			newStmts = append(newStmts, fs.markJumps(stmt.List[i], scopeIndex)...)
-		}
-		stmt.List = newStmts
-		return []ast.Stmt{stmt}
+		return []ast.Stmt{fs.markJumpBlock(stmt, scopeIndex, true)}
 	case *ast.BranchStmt:
 		if stmt.Label == nil {
 			switch stmt.Tok {
@@ -203,7 +213,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			}
 			nextJumpFunc := fs.nextJumpFunc
 			fs.nextJumpFunc = make([]func(token.Pos), 0)
-			newStmts = fs.markJumps(&ast.BlockStmt{List: stmt.Body.List[i].(*ast.CaseClause).Body}, scopeIndex+1)[0].(*ast.BlockStmt).List
+			newStmts = fs.markJumpBlock(&ast.BlockStmt{List: stmt.Body.List[i].(*ast.CaseClause).Body}, scopeIndex+1, false).List
 			fs.nextJumpFunc = append(fs.nextJumpFunc, nextJumpFunc...)
 
 			stmt.Body.List[i].(*ast.CaseClause).Body = newStmts
@@ -286,7 +296,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			}
 			nextJumpFunc := fs.nextJumpFunc
 			fs.nextJumpFunc = make([]func(token.Pos), 0)
-			newStmts = fs.markJumps(&ast.BlockStmt{List: stmt.Body.List[i].(*ast.CaseClause).Body}, scopeIndex+1)[0].(*ast.BlockStmt).List
+			newStmts = fs.markJumpBlock(&ast.BlockStmt{List: stmt.Body.List[i].(*ast.CaseClause).Body}, scopeIndex+1, false).List
 			fs.nextJumpFunc = append(fs.nextJumpFunc, nextJumpFunc...)
 
 			stmt.Body.List[i].(*ast.CaseClause).Body = newStmts
@@ -348,7 +358,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			stmt.Init = fs.markJumps(stmt.Init, scopeIndex)[0]
 		}
 		stmt.Cond = fs.changeVars(stmt.Cond)
-		stmt.Body = fs.markJumps(stmt.Body, scopeIndex)[0].(*ast.BlockStmt)
+		stmt.Body = fs.markJumpBlock(stmt.Body, scopeIndex, false)
 		if stmt.Else == nil {
 			stmt.Else = &ast.BlockStmt{List: []ast.Stmt{}, Lbrace: stmt.End()}
 		} else {
@@ -404,7 +414,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 		} else {
 			fs.loopPost[scopeIndex+1] = blank()
 		}
-		stmt.Body = fs.markJumps(stmt.Body, scopeIndex+1)[0].(*ast.BlockStmt)
+		stmt.Body = fs.markJumpBlock(stmt.Body, scopeIndex+1, false)
 		/*if fs.loopPost != nil {
 			stmt.Body.List = append(stmt.Body.List, fs.loopPost)
 		}*/
@@ -804,7 +814,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 		// add end point to end of file
 		fn.List = append(fn.List, endJump)
 		// mark jumps
-		fn = fs.markJumps(fn, 0)[0].(*ast.BlockStmt)
+		fn = fs.markJumpBlock(fn, 0, false)
 		// create switch stmt
 		gotoNextIdent := ast.NewIdent("gotoNext")
 		switchStmt := &ast.SwitchStmt{

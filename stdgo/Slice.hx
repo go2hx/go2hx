@@ -62,7 +62,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 
 	@:from
 	public static function fromBytes(bytes:haxe.io.Bytes):Slice<GoByte> {
-		return new Slice<GoByte>(0, 0, ...[
+		return new Slice<GoByte>(bytes.length, bytes.length, ...[
 			for (i in 0...bytes.length)
 				bytes.get(i)
 		]).__setNumber32__();

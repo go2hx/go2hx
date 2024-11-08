@@ -195,6 +195,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				}
 				fs.tempVars[obj] = tempVarData{defineIdent, defineType, nil}
 				definedStmts[i] = assign(defineIdent, assignStmt.Lhs[0])
+				clause.Body = append(clause.Body, assign(ast.NewIdent("_"), defineIdent))
 				//clause.Body = append([]ast.Stmt{define(defineIdent, assign.Lhs[0])}, clause.Body...)
 			}
 		default:

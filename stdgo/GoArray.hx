@@ -224,6 +224,11 @@ class GoArrayData<T> {
 			return slice;
 		}
 		slice.vector = this.vector.copy();
+		#if !target.static
+		slice.isNumber32 = this.isNumber32;
+		slice.isNumber64 = this.isNumber64;
+		slice.isString = this.isString;
+		#end
 		return slice;
 	}
 }

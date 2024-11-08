@@ -782,380 +782,384 @@ class T_stringReader_static_extension {
     }
 }
 /**
-    /|*{
-    	end_4107292 = len(format)
-    	argNum_4107312 = 0
-    	afterIndex_4107383 = false
-    	p.reordered = false
-    	gotoNext = 4107474
-    	_ = gotoNext == 4107474
-    	i_4107491 = 0
-    	formatLoopBreak = false
-    	gotoNext = 4107487
-    	_ = gotoNext == 4107487
-    	if !formatLoopBreak && (i_4107491 < end_4107292) {
-    		gotoNext = 4107508
-    		_ = gotoNext == 4107508
-    		p.goodArgNum = true
-    		lasti_4107534 = i_4107491
-    		_ = 0
-    		gotoNext = 4107547
-    		_ = gotoNext == 4107547
-    		if i_4107491 < end_4107292 && format[i_4107491] != 37 {
-    			gotoNext = 4107579
-    			_ = gotoNext == 4107579
-    			i_4107491++
-    			gotoNext = 4107547
-    		} else {
-    			gotoNext = 4107594
-    		}
-    		_ = gotoNext == 4107594
-    		if i_4107491 > lasti_4107534 {
-    			gotoNext = 4107607
-    			_ = gotoNext == 4107607
-    			p.buf.writeString(format[lasti_4107534:i_4107491])
-    			gotoNext = 4107653
-    		} else {
-    			gotoNext = 4107653
-    		}
-    		_ = gotoNext == 4107653
-    		if i_4107491 >= end_4107292 {
-    			gotoNext = 4107665
-    			_ = gotoNext == 4107665
-    			gotoNext = 4111318
-    			gotoNext = 4107741
-    		} else {
-    			gotoNext = 4107741
-    		}
-    		_ = gotoNext == 4107741
-    		i_4107491++
-    		p.fmt.clearflags()
-    		gotoNext = 4107791
-    		_ = gotoNext == 4107791
-    		_ = 0
-    		simpleFormatBreak = false
-    		gotoNext = 4107807
-    		_ = gotoNext == 4107807
-    		if !simpleFormatBreak && (i_4107491 < end_4107292) {
-    			gotoNext = 4107826
-    			_ = gotoNext == 4107826
-    			c_4107831 = format[i_4107491]
-    			_ = 0
-    			gotoNext = 4107849
-    			_ = gotoNext == 4107849
-    			switch c_4107831 {
-    			case 35:
-    				gotoNext = 4107863
-    				_ = gotoNext == 4107863
-    				p.fmt.sharp = true
-    				gotoNext = 4107822
-    			case 48:
-    				gotoNext = 4107899
-    				_ = gotoNext == 4107899
-    				p.fmt.zero = !p.fmt.minus
-    				gotoNext = 4107822
-    			case 43:
-    				gotoNext = 4107982
-    				_ = gotoNext == 4107982
-    				p.fmt.plus = true
-    				gotoNext = 4107822
-    			case 45:
-    				gotoNext = 4108017
-    				_ = gotoNext == 4108017
-    				p.fmt.minus = true
-    				p.fmt.zero = false
-    				gotoNext = 4107822
-    			case 32:
-    				gotoNext = 4108115
-    				_ = gotoNext == 4108115
-    				p.fmt.space = true
-    				gotoNext = 4107822
-    			default:
-    				gotoNext = 4108151
-    				_ = gotoNext == 4108151
-    				if 97 <= c_4107831 && c_4107831 <= 122 && argNum_4107312 < len(a) {
-    					gotoNext = 4108328
-    					_ = gotoNext == 4108328
-    					_ = 0
-    					gotoNext = 4108335
-    					_ = gotoNext == 4108335
-    					switch c_4107831 {
-    					case 119:
-    						gotoNext = 4108351
-    						_ = gotoNext == 4108351
-    						p.wrappedErrs = append(p.wrappedErrs, argNum_4107312)
-    						gotoNext = 4108436
-    						gotoNext = 4108621
-    					case 118:
-    						gotoNext = 4108436
-    						_ = gotoNext == 4108436
-    						p.fmt.sharpV = p.fmt.sharp
-    						p.fmt.sharp = false
-    						p.fmt.plusV = p.fmt.plus
-    						p.fmt.plus = false
-    						gotoNext = 4108621
-    					default:
-    						gotoNext = 4108621
-    					}
-    					_ = gotoNext == 4108621
-    					p.printArg(a[argNum_4107312], rune(c_4107831))
-    					argNum_4107312++
-    					i_4107491++
-    					gotoNext = 4107487
-    					gotoNext = 4108786
-    				} else {
-    					gotoNext = 4108786
-    				}
-    				_ = gotoNext == 4108786
-    				simpleFormatBreak = true
-    				gotoNext = 4107807
-    				gotoNext = 4107822
-    			}
-    			_ = gotoNext == 4107822
-    			i_4107491++
-    			gotoNext = 4107807
-    		} else {
-    			gotoNext = 4108861
-    		}
-    		_ = gotoNext == 4108861
-    		argNum_4107312, i_4107491, afterIndex_4107383 = p.argNumber(argNum_4107312, format, i_4107491, len(a))
-    		if i_4107491 < end_4107292 && format[i_4107491] == 42 {
-    			gotoNext = 4108981
-    			_ = gotoNext == 4108981
-    			i_4107491++
-    			p.fmt.wid, p.fmt.widPresent, argNum_4107312 = intFromArg(a, argNum_4107312)
-    			if !p.fmt.widPresent {
-    				gotoNext = 4109078
-    				_ = gotoNext == 4109078
-    				p.buf.writeString("%!(BADWIDTH)")
-    				gotoNext = 4109221
-    			} else {
-    				gotoNext = 4109221
-    			}
-    			_ = gotoNext == 4109221
-    			if p.fmt.wid < 0 {
-    				gotoNext = 4109238
-    				_ = gotoNext == 4109238
-    				p.fmt.wid = -p.fmt.wid
-    				p.fmt.minus = true
-    				p.fmt.zero = false
-    				gotoNext = 4109360
-    			} else {
-    				gotoNext = 4109360
-    			}
-    			_ = gotoNext == 4109360
-    			afterIndex_4107383 = false
-    			gotoNext = 4109566
-    		} else {
-    			gotoNext = 4109388
-    			_ = gotoNext == 4109388
-    			p.fmt.wid, p.fmt.widPresent, i_4107491 = parsenum(format, i_4107491, end_4107292)
-    			if afterIndex_4107383 && p.fmt.widPresent {
-    				gotoNext = 4109488
-    				_ = gotoNext == 4109488
-    				p.goodArgNum = false
-    				gotoNext = 4109566
-    			} else {
-    				gotoNext = 4109566
-    			}
-    			_ = 0
-    			gotoNext = 4109566
-    		}
-    		_ = gotoNext == 4109566
-    		if i_4107491+1 < end_4107292 && format[i_4107491] == 46 {
-    			gotoNext = 4109599
-    			_ = gotoNext == 4109599
-    			i_4107491++
-    			if afterIndex_4107383 {
-    				gotoNext = 4109625
-    				_ = gotoNext == 4109625
-    				p.goodArgNum = false
-    				gotoNext = 4109673
-    			} else {
-    				gotoNext = 4109673
-    			}
-    			_ = gotoNext == 4109673
-    			argNum_4107312, i_4107491, afterIndex_4107383 = p.argNumber(argNum_4107312, format, i_4107491, len(a))
-    			if i_4107491 < end_4107292 && format[i_4107491] == 42 {
-    				gotoNext = 4109770
-    				_ = gotoNext == 4109770
-    				i_4107491++
-    				p.fmt.prec, p.fmt.precPresent, argNum_4107312 = intFromArg(a, argNum_4107312)
-    				if p.fmt.prec < 0 {
-    					gotoNext = 4109921
-    					_ = gotoNext == 4109921
-    					p.fmt.prec = 0
-    					p.fmt.precPresent = false
-    					gotoNext = 4109984
-    				} else {
-    					gotoNext = 4109984
-    				}
-    				_ = gotoNext == 4109984
-    				if !p.fmt.precPresent {
-    					gotoNext = 4110006
-    					_ = gotoNext == 4110006
-    					p.buf.writeString("%!(BADPREC)")
-    					gotoNext = 4110056
-    				} else {
-    					gotoNext = 4110056
-    				}
-    				_ = gotoNext == 4110056
-    				afterIndex_4107383 = false
-    				gotoNext = 4110247
-    			} else {
-    				gotoNext = 4110085
-    				_ = gotoNext == 4110085
-    				p.fmt.prec, p.fmt.precPresent, i_4107491 = parsenum(format, i_4107491, end_4107292)
-    				if !p.fmt.precPresent {
-    					gotoNext = 4110177
-    					_ = gotoNext == 4110177
-    					p.fmt.prec = 0
-    					p.fmt.precPresent = true
-    					gotoNext = 4110247
-    				} else {
-    					gotoNext = 4110247
-    				}
-    				_ = 0
-    				gotoNext = 4110247
-    			}
-    			gotoNext = 4110247
-    		} else {
-    			gotoNext = 4110247
-    		}
-    		_ = gotoNext == 4110247
-    		if !afterIndex_4107383 {
-    			gotoNext = 4110262
-    			_ = gotoNext == 4110262
-    			argNum_4107312, i_4107491, afterIndex_4107383 = p.argNumber(argNum_4107312, format, i_4107491, len(a))
-    			gotoNext = 4110337
-    		} else {
-    			gotoNext = 4110337
-    		}
-    		_ = gotoNext == 4110337
-    		if i_4107491 >= end_4107292 {
-    			gotoNext = 4110349
-    			_ = gotoNext == 4110349
-    			p.buf.writeString("%!(NOVERB)")
-    			gotoNext = 4111318
-    			gotoNext = 4110402
-    		} else {
-    			gotoNext = 4110402
-    		}
-    		_ = gotoNext == 4110402
-    		verb_4110402, size_4110408 = rune(format[i_4107491]), 1
-    		if verb_4110402 >= 128 {
-    			gotoNext = 4110462
-    			_ = gotoNext == 4110462
-    			verb_4110402, size_4110408 = utf8.DecodeRuneInString(format[i_4107491:])
-    			gotoNext = 4110522
-    		} else {
-    			gotoNext = 4110522
-    		}
-    		_ = gotoNext == 4110522
-    		i_4107491 += size_4110408
-    		_ = 0
-    		gotoNext = 4110535
-    		_ = gotoNext == 4110535
-    		switch {
-    		case verb_4110402 == 37:
-    			gotoNext = 4110546
-    			_ = gotoNext == 4110546
-    			p.buf.writeByte(37)
-    			gotoNext = 4111318
-    		case !p.goodArgNum:
-    			gotoNext = 4110656
-    			_ = gotoNext == 4110656
-    			p.badArgNum(verb_4110402)
-    			gotoNext = 4111318
-    		case argNum_4107312 >= len(a):
-    			gotoNext = 4110699
-    			_ = gotoNext == 4110699
-    			p.missingArg(verb_4110402)
-    			gotoNext = 4111318
-    		case verb_4110402 == 119:
-    			gotoNext = 4110802
-    			_ = gotoNext == 4110802
-    			p.wrappedErrs = append(p.wrappedErrs, argNum_4107312)
-    			gotoNext = 4110886
-    			gotoNext = 4111318
-    		case verb_4110402 == 118:
-    			gotoNext = 4110886
-    			_ = gotoNext == 4110886
-    			p.fmt.sharpV = p.fmt.sharp
-    			p.fmt.sharp = false
-    			p.fmt.plusV = p.fmt.plus
-    			p.fmt.plus = false
-    			gotoNext = 4111066
-    			gotoNext = 4111318
-    		default:
-    			gotoNext = 4111066
-    			_ = gotoNext == 4111066
-    			p.printArg(a[argNum_4107312], verb_4110402)
-    			argNum_4107312++
-    			gotoNext = 4111318
-    		}
-    		gotoNext = 4107487
-    	} else {
-    		gotoNext = 4111318
-    	}
-    	_ = gotoNext == 4111318
-    	if !p.reordered && argNum_4107312 < len(a) {
-    		gotoNext = 4111353
-    		_ = gotoNext == 4111353
-    		p.fmt.clearflags()
-    		p.buf.writeString("%!(EXTRA ")
-    		if 0 < len(a[argNum_4107312:]) {
-    			gotoNext = 4111680
-    			_ = gotoNext == 4111680
-    			i_4111415, arg_4111418 = 0, a[argNum_4107312:][0]
-    			gotoNext = 4111681
-    			_ = gotoNext == 4111681
-    			if i_4111415 < len(a[argNum_4107312:]) {
-    				gotoNext = 4111442
-    				_ = gotoNext == 4111442
-    				arg_4111418 = a[argNum_4107312:][i_4111415]
-    				if i_4111415 > 0 {
-    					gotoNext = 4111456
-    					_ = gotoNext == 4111456
-    					p.buf.writeString(", ")
-    					gotoNext = 4111506
-    				} else {
-    					gotoNext = 4111506
-    				}
-    				_ = gotoNext == 4111506
-    				if arg_4111418 == nil {
-    					gotoNext = 4111520
-    					_ = gotoNext == 4111520
-    					p.buf.writeString("<nil>")
-    					gotoNext = 4111415
-    				} else {
-    					gotoNext = 4111570
-    					_ = gotoNext == 4111570
-    					p.buf.writeString(reflect.TypeOf(arg_4111418).String())
-    					p.buf.writeByte(61)
-    					p.printArg(arg_4111418, 118)
-    					_ = 0
-    					gotoNext = 4111415
-    				}
-    				_ = gotoNext == 4111415
-    				i_4111415++
-    				gotoNext = 4111681
-    			} else {
-    				gotoNext = 4111685
-    			}
-    			gotoNext = 4111685
-    		} else {
-    			gotoNext = 4111685
-    		}
-    		_ = gotoNext == 4111685
-    		p.buf.writeByte(41)
-    		gotoNext = 4111709
-    	} else {
-    		gotoNext = 4111709
-    	}
-    	_ = gotoNext == 4111709
-    	gotoNext = -1
-    }*|/
+    /|*
+    Package fmt implements formatted I/O with functions analogous
+    to C's printf and scanf.  The format 'verbs' are derived from C's but
+    are simpler.
+    
+    # Printing
+    
+    The verbs:
+    
+    General:
+    
+    	%v	the value in a default format
+    		when printing structs, the plus flag (%+v) adds field names
+    	%#v	a Go-syntax representation of the value
+    	%T	a Go-syntax representation of the type of the value
+    	%%	a literal percent sign; consumes no value
+    
+    Boolean:
+    
+    	%t	the word true or false
+    
+    Integer:
+    
+    	%b	base 2
+    	%c	the character represented by the corresponding Unicode code point
+    	%d	base 10
+    	%o	base 8
+    	%O	base 8 with 0o prefix
+    	%q	a single-quoted character literal safely escaped with Go syntax.
+    	%x	base 16, with lower-case letters for a-f
+    	%X	base 16, with upper-case letters for A-F
+    	%U	Unicode format: U+1234; same as "U+%04X"
+    
+    Floating-point and complex constituents:
+    
+    	%b	decimalless scientific notation with exponent a power of two,
+    		in the manner of strconv.FormatFloat with the 'b' format,
+    		e.g. -123456p-78
+    	%e	scientific notation, e.g. -1.234456e+78
+    	%E	scientific notation, e.g. -1.234456E+78
+    	%f	decimal point but no exponent, e.g. 123.456
+    	%F	synonym for %f
+    	%g	%e for large exponents, %f otherwise. Precision is discussed below.
+    	%G	%E for large exponents, %F otherwise
+    	%x	hexadecimal notation (with decimal power of two exponent), e.g. -0x1.23abcp+20
+    	%X	upper-case hexadecimal notation, e.g. -0X1.23ABCP+20
+    
+    String and slice of bytes (treated equivalently with these verbs):
+    
+    	%s	the uninterpreted bytes of the string or slice
+    	%q	a double-quoted string safely escaped with Go syntax
+    	%x	base 16, lower-case, two characters per byte
+    	%X	base 16, upper-case, two characters per byte
+    
+    Slice:
+    
+    	%p	address of 0th element in base 16 notation, with leading 0x
+    
+    Pointer:
+    
+    	%p	base 16 notation, with leading 0x
+    	The %b, %d, %o, %x and %X verbs also work with pointers,
+    	formatting the value exactly as if it were an integer.
+    
+    The default format for %v is:
+    
+    	bool:                    %t
+    	int, int8 etc.:          %d
+    	uint, uint8 etc.:        %d, %#x if printed with %#v
+    	float32, complex64, etc: %g
+    	string:                  %s
+    	chan:                    %p
+    	pointer:                 %p
+    
+    For compound objects, the elements are printed using these rules, recursively,
+    laid out like this:
+    
+    	struct:             {field0 field1 ...}
+    	array, slice:       [elem0 elem1 ...]
+    	maps:               map[key1:value1 key2:value2 ...]
+    	pointer to above:   &{}, &[], &map[]
+    
+    Width is specified by an optional decimal number immediately preceding the verb.
+    If absent, the width is whatever is necessary to represent the value.
+    Precision is specified after the (optional) width by a period followed by a
+    decimal number. If no period is present, a default precision is used.
+    A period with no following number specifies a precision of zero.
+    Examples:
+    
+    	%f     default width, default precision
+    	%9f    width 9, default precision
+    	%.2f   default width, precision 2
+    	%9.2f  width 9, precision 2
+    	%9.f   width 9, precision 0
+    
+    Width and precision are measured in units of Unicode code points,
+    that is, runes. (This differs from C's printf where the
+    units are always measured in bytes.) Either or both of the flags
+    may be replaced with the character '*', causing their values to be
+    obtained from the next operand (preceding the one to format),
+    which must be of type int.
+    
+    For most values, width is the minimum number of runes to output,
+    padding the formatted form with spaces if necessary.
+    
+    For strings, byte slices and byte arrays, however, precision
+    limits the length of the input to be formatted (not the size of
+    the output), truncating if necessary. Normally it is measured in
+    runes, but for these types when formatted with the %x or %X format
+    it is measured in bytes.
+    
+    For floating-point values, width sets the minimum width of the field and
+    precision sets the number of places after the decimal, if appropriate,
+    except that for %g/%G precision sets the maximum number of significant
+    digits (trailing zeros are removed). For example, given 12.345 the format
+    %6.3f prints 12.345 while %.3g prints 12.3. The default precision for %e, %f
+    and %#g is 6; for %g it is the smallest number of digits necessary to identify
+    the value uniquely.
+    
+    For complex numbers, the width and precision apply to the two
+    components independently and the result is parenthesized, so %f applied
+    to 1.2+3.4i produces (1.200000+3.400000i).
+    
+    When formatting a single integer code point or a rune string (type []rune)
+    with %q, invalid Unicode code points are changed to the Unicode replacement
+    character, U+FFFD, as in strconv.QuoteRune.
+    
+    Other flags:
+    
+    	'+'	always print a sign for numeric values;
+    		guarantee ASCII-only output for %q (%+q)
+    	'-'	pad with spaces on the right rather than the left (left-justify the field)
+    	'#'	alternate format: add leading 0b for binary (%#b), 0 for octal (%#o),
+    		0x or 0X for hex (%#x or %#X); suppress 0x for %p (%#p);
+    		for %q, print a raw (backquoted) string if strconv.CanBackquote
+    		returns true;
+    		always print a decimal point for %e, %E, %f, %F, %g and %G;
+    		do not remove trailing zeros for %g and %G;
+    		write e.g. U+0078 'x' if the character is printable for %U (%#U).
+    	' '	(space) leave a space for elided sign in numbers (% d);
+    		put spaces between bytes printing strings or slices in hex (% x, % X)
+    	'0'	pad with leading zeros rather than spaces;
+    		for numbers, this moves the padding after the sign;
+    		ignored for strings, byte slices and byte arrays
+    
+    Flags are ignored by verbs that do not expect them.
+    For example there is no alternate decimal format, so %#d and %d
+    behave identically.
+    
+    For each Printf-like function, there is also a Print function
+    that takes no format and is equivalent to saying %v for every
+    operand.  Another variant Println inserts blanks between
+    operands and appends a newline.
+    
+    Regardless of the verb, if an operand is an interface value,
+    the internal concrete value is used, not the interface itself.
+    Thus:
+    
+    	var i interface{} = 23
+    	fmt.Printf("%v\n", i)
+    
+    will print 23.
+    
+    Except when printed using the verbs %T and %p, special
+    formatting considerations apply for operands that implement
+    certain interfaces. In order of application:
+    
+    1. If the operand is a reflect.Value, the operand is replaced by the
+    concrete value that it holds, and printing continues with the next rule.
+    
+    2. If an operand implements the Formatter interface, it will
+    be invoked. In this case the interpretation of verbs and flags is
+    controlled by that implementation.
+    
+    3. If the %v verb is used with the # flag (%#v) and the operand
+    implements the GoStringer interface, that will be invoked.
+    
+    If the format (which is implicitly %v for Println etc.) is valid
+    for a string (%s %q %v %x %X), the following two rules apply:
+    
+    4. If an operand implements the error interface, the Error method
+    will be invoked to convert the object to a string, which will then
+    be formatted as required by the verb (if any).
+    
+    5. If an operand implements method String() string, that method
+    will be invoked to convert the object to a string, which will then
+    be formatted as required by the verb (if any).
+    
+    For compound operands such as slices and structs, the format
+    applies to the elements of each operand, recursively, not to the
+    operand as a whole. Thus %q will quote each element of a slice
+    of strings, and %6.2f will control formatting for each element
+    of a floating-point array.
+    
+    However, when printing a byte slice with a string-like verb
+    (%s %q %x %X), it is treated identically to a string, as a single item.
+    
+    To avoid recursion in cases such as
+    
+    	type X string
+    	func (x X) String() string { return Sprintf("<%s>", x) }
+    
+    convert the value before recurring:
+    
+    	func (x X) String() string { return Sprintf("<%s>", string(x)) }
+    
+    Infinite recursion can also be triggered by self-referential data
+    structures, such as a slice that contains itself as an element, if
+    that type has a String method. Such pathologies are rare, however,
+    and the package does not protect against them.
+    
+    When printing a struct, fmt cannot and therefore does not invoke
+    formatting methods such as Error or String on unexported fields.
+    
+    # Explicit argument indexes
+    
+    In Printf, Sprintf, and Fprintf, the default behavior is for each
+    formatting verb to format successive arguments passed in the call.
+    However, the notation [n] immediately before the verb indicates that the
+    nth one-indexed argument is to be formatted instead. The same notation
+    before a '*' for a width or precision selects the argument index holding
+    the value. After processing a bracketed expression [n], subsequent verbs
+    will use arguments n+1, n+2, etc. unless otherwise directed.
+    
+    For example,
+    
+    	fmt.Sprintf("%[2]d %[1]d\n", 11, 22)
+    
+    will yield "22 11", while
+    
+    	fmt.Sprintf("%[3]*.[2]*[1]f", 12.0, 2, 6)
+    
+    equivalent to
+    
+    	fmt.Sprintf("%6.2f", 12.0)
+    
+    will yield " 12.00". Because an explicit index affects subsequent verbs,
+    this notation can be used to print the same values multiple times
+    by resetting the index for the first argument to be repeated:
+    
+    	fmt.Sprintf("%d %d %#[1]x %#x", 16, 17)
+    
+    will yield "16 17 0x10 0x11".
+    
+    # Format errors
+    
+    If an invalid argument is given for a verb, such as providing
+    a string to %d, the generated string will contain a
+    description of the problem, as in these examples:
+    
+    	Wrong type or unknown verb: %!verb(type=value)
+    		Printf("%d", "hi"):        %!d(string=hi)
+    	Too many arguments: %!(EXTRA type=value)
+    		Printf("hi", "guys"):      hi%!(EXTRA string=guys)
+    	Too few arguments: %!verb(MISSING)
+    		Printf("hi%d"):            hi%!d(MISSING)
+    	Non-int for width or precision: %!(BADWIDTH) or %!(BADPREC)
+    		Printf("%*s", 4.5, "hi"):  %!(BADWIDTH)hi
+    		Printf("%.*s", 4.5, "hi"): %!(BADPREC)hi
+    	Invalid or invalid use of argument index: %!(BADINDEX)
+    		Printf("%*[2]d", 7):       %!d(BADINDEX)
+    		Printf("%.[2]d", 7):       %!d(BADINDEX)
+    
+    All errors begin with the string "%!" followed sometimes
+    by a single character (the verb) and end with a parenthesized
+    description.
+    
+    If an Error or String method triggers a panic when called by a
+    print routine, the fmt package reformats the error message
+    from the panic, decorating it with an indication that it came
+    through the fmt package.  For example, if a String method
+    calls panic("bad"), the resulting formatted message will look
+    like
+    
+    	%!s(PANIC=bad)
+    
+    The %!s just shows the print verb in use when the failure
+    occurred. If the panic is caused by a nil receiver to an Error
+    or String method, however, the output is the undecorated
+    string, "<nil>".
+    
+    # Scanning
+    
+    An analogous set of functions scans formatted text to yield
+    values.  Scan, Scanf and Scanln read from os.Stdin; Fscan,
+    Fscanf and Fscanln read from a specified io.Reader; Sscan,
+    Sscanf and Sscanln read from an argument string.
+    
+    Scan, Fscan, Sscan treat newlines in the input as spaces.
+    
+    Scanln, Fscanln and Sscanln stop scanning at a newline and
+    require that the items be followed by a newline or EOF.
+    
+    Scanf, Fscanf, and Sscanf parse the arguments according to a
+    format string, analogous to that of Printf. In the text that
+    follows, 'space' means any Unicode whitespace character
+    except newline.
+    
+    In the format string, a verb introduced by the % character
+    consumes and parses input; these verbs are described in more
+    detail below. A character other than %, space, or newline in
+    the format consumes exactly that input character, which must
+    be present. A newline with zero or more spaces before it in
+    the format string consumes zero or more spaces in the input
+    followed by a single newline or the end of the input. A space
+    following a newline in the format string consumes zero or more
+    spaces in the input. Otherwise, any run of one or more spaces
+    in the format string consumes as many spaces as possible in
+    the input. Unless the run of spaces in the format string
+    appears adjacent to a newline, the run must consume at least
+    one space from the input or find the end of the input.
+    
+    The handling of spaces and newlines differs from that of C's
+    scanf family: in C, newlines are treated as any other space,
+    and it is never an error when a run of spaces in the format
+    string finds no spaces to consume in the input.
+    
+    The verbs behave analogously to those of Printf.
+    For example, %x will scan an integer as a hexadecimal number,
+    and %v will scan the default representation format for the value.
+    The Printf verbs %p and %T and the flags # and + are not implemented.
+    For floating-point and complex values, all valid formatting verbs
+    (%b %e %E %f %F %g %G %x %X and %v) are equivalent and accept
+    both decimal and hexadecimal notation (for example: "2.3e+7", "0x4.5p-8")
+    and digit-separating underscores (for example: "3.14159_26535_89793").
+    
+    Input processed by verbs is implicitly space-delimited: the
+    implementation of every verb except %c starts by discarding
+    leading spaces from the remaining input, and the %s verb
+    (and %v reading into a string) stops consuming input at the first
+    space or newline character.
+    
+    The familiar base-setting prefixes 0b (binary), 0o and 0 (octal),
+    and 0x (hexadecimal) are accepted when scanning integers
+    without a format or with the %v verb, as are digit-separating
+    underscores.
+    
+    Width is interpreted in the input text but there is no
+    syntax for scanning with a precision (no %5.2f, just %5f).
+    If width is provided, it applies after leading spaces are
+    trimmed and specifies the maximum number of runes to read
+    to satisfy the verb. For example,
+    
+    	Sscanf(" 1234567 ", "%5s%d", &s, &i)
+    
+    will set s to "12345" and i to 67 while
+    
+    	Sscanf(" 12 34 567 ", "%5s%d", &s, &i)
+    
+    will set s to "12" and i to 34.
+    
+    In all the scanning functions, a carriage return followed
+    immediately by a newline is treated as a plain newline
+    (\r\n means the same as \n).
+    
+    In all the scanning functions, if an operand implements method
+    Scan (that is, it implements the Scanner interface) that
+    method will be used to scan the text for that operand.  Also,
+    if the number of arguments scanned is less than the number of
+    arguments provided, an error is returned.
+    
+    All arguments to be scanned must be either pointers to basic
+    types or implementations of the Scanner interface.
+    
+    Like Scanf and Fscanf, Sscanf need not consume its entire input.
+    There is no way to recover how much of the input string Sscanf used.
+    
+    Note: Fscan etc. can read one character (rune) past the input
+    they return, which means that a loop calling a scan routine
+    may skip some of the input.  This is usually a problem only
+    when there is no space between input values.  If the reader
+    provided to Fscan implements ReadRune, that method will be used
+    to read characters.  If the reader also implements UnreadRune,
+    that method will be used to save the character and successive
+    calls will not lose data.  To attach ReadRune and UnreadRune
+    methods to a reader without that capability, use
+    bufio.NewReader.
+    *|/
 **/
 class Fmt {
     /**

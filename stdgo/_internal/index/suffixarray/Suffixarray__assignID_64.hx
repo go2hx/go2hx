@@ -1,15 +1,15 @@
 package stdgo._internal.index.suffixarray;
 function _assignID_64(_text:stdgo.Slice<stdgo.GoInt64>, _sa:stdgo.Slice<stdgo.GoInt64>, _numLMS:stdgo.GoInt):stdgo.GoInt {
         var _this_3363054:stdgo.Slice<stdgo.GoInt64> = (null : stdgo.Slice<stdgo.GoInt64>);
+        var _n_3363039:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3362836:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _j_3362717:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _i_3362722_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _lastPos_3362689:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _j_3362717:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _lastLen_3362653:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _id_3362644:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3363112:stdgo.GoInt = (0 : stdgo.GoInt);
         var _last_3363078:stdgo.Slice<stdgo.GoInt64> = (null : stdgo.Slice<stdgo.GoInt64>);
-        var _n_3363039:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3362836:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -43,12 +43,13 @@ function _assignID_64(_text:stdgo.Slice<stdgo.GoInt64>, _sa:stdgo.Slice<stdgo.Go
                 } else if (__value__ == (3362921i32)) {
                     _gotoNext = 3363245i32;
                 } else if (__value__ == (3363006i32)) {
+                    _n_3363039 = (_n_3362836 : stdgo.GoInt);
+                    _this_3363054 = ((_text.__slice__(_j_3362717) : stdgo.Slice<stdgo.GoInt64>).__slice__(0, _n_3363039) : stdgo.Slice<stdgo.GoInt64>);
+                    _last_3363078 = ((_text.__slice__(_lastPos_3362689) : stdgo.Slice<stdgo.GoInt64>).__slice__(0, _n_3363039) : stdgo.Slice<stdgo.GoInt64>);
+                    _i_3363112 = (0 : stdgo.GoInt);
+                    _gotoNext = 3363108i32;
                     {
-                        _n_3363039 = (_n_3362836 : stdgo.GoInt);
-                        _this_3363054 = ((_text.__slice__(_j_3362717) : stdgo.Slice<stdgo.GoInt64>).__slice__(0, _n_3363039) : stdgo.Slice<stdgo.GoInt64>);
-                        _last_3363078 = ((_text.__slice__(_lastPos_3362689) : stdgo.Slice<stdgo.GoInt64>).__slice__(0, _n_3363039) : stdgo.Slice<stdgo.GoInt64>);
-                        _i_3363112 = (0 : stdgo.GoInt);
-                        _gotoNext = 3363108i32;
+                        _gotoNext = 3363006i32;
                     };
                 } else if (__value__ == (3363108i32)) {
                     if ((_i_3363112 < _n_3363039 : Bool)) {

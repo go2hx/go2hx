@@ -1710,152 +1710,22 @@ class InsecureAlgorithmError_static_extension {
     }
 }
 /**
-    /|*{
-    	usages_5624403 = make([]ExtKeyUsage, len(keyUsages))
-    	copy(usages_5624403, keyUsages)
-    	if len(chain) == 0 {
-    		gotoNext = 5624495
-    		_ = gotoNext == 5624495
-    		return false
-    		gotoNext = 5624517
-    	} else {
-    		gotoNext = 5624517
-    	}
-    	_ = gotoNext == 5624517
-    	usagesRemaining_5624517 = len(usages_5624403)
-    	gotoNext = 5624716
-    	_ = gotoNext == 5624716
-    	i_5624731 = len(chain) - 1
-    	NextCertBreak = false
-    	gotoNext = 5624727
-    	_ = gotoNext == 5624727
-    	if !NextCertBreak && (i_5624731 >= 0) {
-    		gotoNext = 5624764
-    		_ = gotoNext == 5624764
-    		cert_5624768 = chain[i_5624731]
-    		if len(cert_5624768.ExtKeyUsage) == 0 && len(cert_5624768.UnknownExtKeyUsage) == 0 {
-    			gotoNext = 5624854
-    			_ = gotoNext == 5624854
-    			i_5624731--
-    			gotoNext = 5624727
-    			gotoNext = 5624944
-    		} else {
-    			gotoNext = 5624944
-    		}
-    		_ = gotoNext == 5624944
-    		if 0 < len(cert_5624768.ExtKeyUsage) {
-    			gotoNext = 5625102
-    			_ = gotoNext == 5625102
-    			i_5624960_0, usage_5624951 = 0, cert_5624768.ExtKeyUsage[0]
-    			gotoNext = 5625103
-    			_ = gotoNext == 5625103
-    			if i_5624960_0 < len(cert_5624768.ExtKeyUsage) {
-    				gotoNext = 5624983
-    				_ = gotoNext == 5624983
-    				usage_5624951 = cert_5624768.ExtKeyUsage[i_5624960_0]
-    				if usage_5624951 == 0 {
-    					gotoNext = 5625015
-    					_ = gotoNext == 5625015
-    					i_5624731--
-    					gotoNext = 5624727
-    					gotoNext = 5624948
-    				} else {
-    					gotoNext = 5624948
-    				}
-    				_ = gotoNext == 5624948
-    				i_5624960_0++
-    				gotoNext = 5625103
-    			} else {
-    				gotoNext = 5625108
-    			}
-    			gotoNext = 5625108
-    		} else {
-    			gotoNext = 5625108
-    		}
-    		_ = gotoNext == 5625108
-    		invalidUsage_5625114 = -1
-    		gotoNext = 5625146
-    		_ = gotoNext == 5625146
-    		if 0 < len(usages_5624403) {
-    			gotoNext = 5625489
-    			_ = gotoNext == 5625489
-    			i_5625172, requestedUsage_5625175 = 0, usages_5624403[0]
-    			gotoNext = 5625490
-    			_ = gotoNext == 5625490
-    			if i_5625172 < len(usages_5624403) {
-    				gotoNext = 5625206
-    				_ = gotoNext == 5625206
-    				requestedUsage_5625175 = usages_5624403[i_5625172]
-    				if requestedUsage_5625175 == -1 {
-    					gotoNext = 5625245
-    					_ = gotoNext == 5625245
-    					i_5625172++
-    					gotoNext = 5625490
-    					gotoNext = 5625269
-    				} else {
-    					gotoNext = 5625269
-    				}
-    				_ = gotoNext == 5625269
-    				if 0 < len(cert_5624768.ExtKeyUsage) {
-    					gotoNext = 5625384
-    					_ = gotoNext == 5625384
-    					i_5625285_0, usage_5625276 = 0, cert_5624768.ExtKeyUsage[0]
-    					gotoNext = 5625385
-    					_ = gotoNext == 5625385
-    					if i_5625285_0 < len(cert_5624768.ExtKeyUsage) {
-    						gotoNext = 5625308
-    						_ = gotoNext == 5625308
-    						usage_5625276 = cert_5624768.ExtKeyUsage[i_5625285_0]
-    						if requestedUsage_5625175 == usage_5625276 {
-    							gotoNext = 5625341
-    							_ = gotoNext == 5625341
-    							i_5625172++
-    							gotoNext = 5625490
-    							gotoNext = 5625273
-    						} else {
-    							gotoNext = 5625273
-    						}
-    						_ = gotoNext == 5625273
-    						i_5625285_0++
-    						gotoNext = 5625385
-    					} else {
-    						gotoNext = 5625391
-    					}
-    					gotoNext = 5625391
-    				} else {
-    					gotoNext = 5625391
-    				}
-    				_ = gotoNext == 5625391
-    				usages_5624403[i_5625172] = -1
-    				usagesRemaining_5624517--
-    				if usagesRemaining_5624517 == 0 {
-    					gotoNext = 5625464
-    					_ = gotoNext == 5625464
-    					return false
-    					gotoNext = 5625172
-    				} else {
-    					gotoNext = 5625172
-    				}
-    				_ = gotoNext == 5625172
-    				i_5625172++
-    				gotoNext = 5625490
-    			} else {
-    				gotoNext = 5624760
-    			}
-    			gotoNext = 5624760
-    		} else {
-    			gotoNext = 5624760
-    		}
-    		_ = gotoNext == 5624760
-    		i_5624731--
-    		gotoNext = 5624727
-    	} else {
-    		gotoNext = 5625497
-    	}
-    	_ = gotoNext == 5625497
-    	return true
-    	gotoNext = -1
-    }*|/
+    Package x509 implements a subset of the X.509 standard.
+    
+    It allows parsing and generating certificates, certificate signing
+    requests, certificate revocation lists, and encoded public and private keys.
+    It provides a certificate verifier, complete with a chain builder.
+    
+    The package targets the X.509 technical profile defined by the IETF (RFC
+    2459/3280/5280), and as further restricted by the CA/Browser Forum Baseline
+    Requirements. There is minimal support for features outside of these
+    profiles, as the primary goal of the package is to provide compatibility
+    with the publicly trusted TLS certificate ecosystem and its policies and
+    constraints.
+    
+    On macOS and Windows, certificate verification is handled by system APIs, but
+    the package aims to apply consistent validation rules across operating
+    systems.
 **/
 class X509 {
     /**

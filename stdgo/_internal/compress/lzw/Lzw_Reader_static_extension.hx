@@ -246,6 +246,7 @@ package stdgo._internal.compress.lzw;
                     _r._hi--;
                     _gotoNext = 3648475i32;
                 } else if (__value__ == (3648418i32)) {
+                    _gotoNext = 3648418i32;
                     _r._width++;
                     _r._overflow = ((1 : stdgo.GoUInt16) << _r._width : stdgo.GoUInt16);
                     var __blank__ = 0i32;

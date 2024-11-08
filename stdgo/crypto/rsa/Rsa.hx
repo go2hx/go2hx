@@ -234,248 +234,27 @@ class PrivateKey_static_extension {
     }
 }
 /**
-    /|*{
-    	randutil.MaybeReadByte(random)
-    	if false && random == 0 && nprimes == 2 && (bits == 2048 || bits == 3072 || bits == 4096) {
-    		gotoNext = 4090769
-    		_ = gotoNext == 4090769
-    		bN_4090773, bE_4090777, bD_4090781, bP_4090785, bQ_4090789, bDp_4090793, bDq_4090798, bQinv_4090803, err_4090810 = boring.GenerateKeyRSA(bits)
-    		if err_4090810 != nil {
-    			gotoNext = 4090861
-    			_ = gotoNext == 4090861
-    			return nil, err_4090810
-    			gotoNext = 4090888
-    		} else {
-    			gotoNext = 4090888
-    		}
-    		_ = gotoNext == 4090888
-    		N_4090888 = bbig.Dec(bN_4090773)
-    		E_4090908 = bbig.Dec(bE_4090777)
-    		D_4090928 = bbig.Dec(bD_4090781)
-    		P_4090948 = bbig.Dec(bP_4090785)
-    		Q_4090968 = bbig.Dec(bQ_4090789)
-    		Dp_4090988 = bbig.Dec(bDp_4090793)
-    		Dq_4091010 = bbig.Dec(bDq_4090798)
-    		Qinv_4091032 = bbig.Dec(bQinv_4090803)
-    		e64_4091058 = E_4090908.Int64()
-    		if !E_4090908.IsInt64() || int64(int(e64_4091058)) != e64_4091058 {
-    			gotoNext = 4091119
-    			_ = gotoNext == 4091119
-    			return nil, errors.New("crypto/rsa: generated key exponent too large")
-    			gotoNext = 4091202
-    		} else {
-    			gotoNext = 4091202
-    		}
-    		_ = gotoNext == 4091202
-    		mn_4091202, err_4090810 = bigmod.NewModulusFromBig(N_4090888)
-    		if err_4090810 != nil {
-    			gotoNext = 4091257
-    			_ = gotoNext == 4091257
-    			return nil, err_4090810
-    			gotoNext = 4091284
-    		} else {
-    			gotoNext = 4091284
-    		}
-    		_ = gotoNext == 4091284
-    		mp_4091284, err_4090810 = bigmod.NewModulusFromBig(P_4090948)
-    		if err_4090810 != nil {
-    			gotoNext = 4091339
-    			_ = gotoNext == 4091339
-    			return nil, err_4090810
-    			gotoNext = 4091366
-    		} else {
-    			gotoNext = 4091366
-    		}
-    		_ = gotoNext == 4091366
-    		mq_4091366, err_4090810 = bigmod.NewModulusFromBig(Q_4090968)
-    		if err_4090810 != nil {
-    			gotoNext = 4091421
-    			_ = gotoNext == 4091421
-    			return nil, err_4090810
-    			gotoNext = 4091449
-    		} else {
-    			gotoNext = 4091449
-    		}
-    		_ = gotoNext == 4091449
-    		key_4091449 = &PrivateKey{PublicKey: PublicKey{N_4090888: N_4090888, E_4090908: int(e64_4091058)}, D_4090928: D_4090928, Primes: []*big.Int{P_4090948, Q_4090968}, Precomputed: PrecomputedValues{Dp_4090988: Dp_4090988, Dq_4091010: Dq_4091010, Qinv_4091032: Qinv_4091032, CRTValues: make([]CRTValue, 0), n: mn_4091202, p: mp_4091284, q: mq_4091366}}
-    		return key_4091449, nil
-    		gotoNext = 4091822
-    	} else {
-    		gotoNext = 4091822
-    	}
-    	_ = gotoNext == 4091822
-    	priv_4091822 = new(PrivateKey)
-    	priv_4091822.E = 65537
-    	if nprimes < 2 {
-    		gotoNext = 4091879
-    		_ = gotoNext == 4091879
-    		return nil, errors.New("crypto/rsa: GenerateMultiPrimeKey: nprimes must be >= 2")
-    		gotoNext = 4091970
-    	} else {
-    		gotoNext = 4091970
-    	}
-    	_ = gotoNext == 4091970
-    	if bits < 64 {
-    		gotoNext = 4091983
-    		_ = gotoNext == 4091983
-    		primeLimit_4091987 = float64(uint64(1) << uint(bits/nprimes))
-    		pi_4092107 = primeLimit_4091987 / (math.Log(primeLimit_4091987) - 1)
-    		pi_4092107 /= 4
-    		pi_4092107 /= 2
-    		if pi_4092107 <= float64(nprimes) {
-    			gotoNext = 4092395
-    			_ = gotoNext == 4092395
-    			return nil, errors.New("crypto/rsa: too few primes of given length to generate an RSA key")
-    			gotoNext = 4092501
-    		} else {
-    			gotoNext = 4092501
-    		}
-    		gotoNext = 4092501
-    	} else {
-    		gotoNext = 4092501
-    	}
-    	_ = gotoNext == 4092501
-    	primes_4092501 = make([]*big.Int, nprimes)
-    	gotoNext = 4092538
-    	_ = gotoNext == 4092538
-    	_ = 0
-    	NextSetOfPrimesBreak = false
-    	gotoNext = 4092556
-    	_ = gotoNext == 4092556
-    	if !NextSetOfPrimesBreak {
-    		gotoNext = 4092560
-    		_ = gotoNext == 4092560
-    		todo_4092564 = bits
-    		if nprimes >= 7 {
-    			gotoNext = 4093091
-    			_ = gotoNext == 4093091
-    			todo_4092564 += (nprimes - 2) / 5
-    			gotoNext = 4093128
-    		} else {
-    			gotoNext = 4093128
-    		}
-    		_ = gotoNext == 4093128
-    		i_4093132 = 0
-    		gotoNext = 4093128
-    		_ = gotoNext == 4093128
-    		if i_4093132 < nprimes {
-    			gotoNext = 4093157
-    			_ = gotoNext == 4093157
-    			primes_4092501[i_4093132], err_4093166 = rand.Prime(random, todo_4092564/(nprimes-i_4093132))
-    			if err_4093166 != nil {
-    				gotoNext = 4093250
-    				_ = gotoNext == 4093250
-    				return nil, err_4093166
-    				gotoNext = 4093280
-    			} else {
-    				gotoNext = 4093280
-    			}
-    			_ = gotoNext == 4093280
-    			todo_4092564 -= primes_4092501[i_4093132].BitLen()
-    			i_4093132++
-    			gotoNext = 4093128
-    		} else {
-    			gotoNext = 4093362
-    		}
-    		_ = gotoNext == 4093362
-    		if 0 < len(primes_4092501) {
-    			gotoNext = 4093498
-    			_ = gotoNext == 4093498
-    			i_4093366, prime_4093369 = 0, primes_4092501[0]
-    			gotoNext = 4093499
-    			_ = gotoNext == 4093499
-    			if i_4093366 < len(primes_4092501) {
-    				gotoNext = 4093391
-    				_ = gotoNext == 4093391
-    				prime_4093369 = primes_4092501[i_4093366]
-    				j_4093400 = 0
-    				gotoNext = 4093396
-    				_ = gotoNext == 4093396
-    				if j_4093400 < i_4093366 {
-    					gotoNext = 4093419
-    					_ = gotoNext == 4093419
-    					if prime_4093369.Cmp(primes_4092501[j_4093400]) == 0 {
-    						gotoNext = 4093454
-    						_ = gotoNext == 4093454
-    						gotoNext = 4092556
-    						gotoNext = 4093415
-    					} else {
-    						gotoNext = 4093415
-    					}
-    					_ = gotoNext == 4093415
-    					j_4093400++
-    					gotoNext = 4093396
-    				} else {
-    					gotoNext = 4093366
-    				}
-    				_ = gotoNext == 4093366
-    				i_4093366++
-    				gotoNext = 4093499
-    			} else {
-    				gotoNext = 4093504
-    			}
-    			gotoNext = 4093504
-    		} else {
-    			gotoNext = 4093504
-    		}
-    		_ = gotoNext == 4093504
-    		n_4093504 = new(big.Int).Set(bigOne)
-    		totient_4093536 = new(big.Int).Set(bigOne)
-    		pminus1_4093574 = new(big.Int)
-    		if 0 < len(primes_4092501) {
-    			gotoNext = 4093714
-    			_ = gotoNext == 4093714
-    			i_4093616_0, prime_4093607 = 0, primes_4092501[0]
-    			gotoNext = 4093715
-    			_ = gotoNext == 4093715
-    			if i_4093616_0 < len(primes_4092501) {
-    				gotoNext = 4093629
-    				_ = gotoNext == 4093629
-    				prime_4093607 = primes_4092501[i_4093616_0]
-    				n_4093504.Mul(n_4093504, prime_4093607)
-    				pminus1_4093574.Sub(prime_4093607, bigOne)
-    				totient_4093536.Mul(totient_4093536, pminus1_4093574)
-    				i_4093616_0++
-    				gotoNext = 4093715
-    			} else {
-    				gotoNext = 4093719
-    			}
-    			gotoNext = 4093719
-    		} else {
-    			gotoNext = 4093719
-    		}
-    		_ = gotoNext == 4093719
-    		if n_4093504.BitLen() != bits {
-    			gotoNext = 4093741
-    			_ = gotoNext == 4093741
-    			gotoNext = 4092556
-    			gotoNext = 4093951
-    		} else {
-    			gotoNext = 4093951
-    		}
-    		_ = gotoNext == 4093951
-    		priv_4091822.D = new(big.Int)
-    		e_4093975 = big.NewInt(int64(priv_4091822.E))
-    		ok_4094008 = priv_4091822.D.ModInverse(e_4093975, totient_4093536)
-    		if ok_4094008 != nil {
-    			gotoNext = 4094060
-    			_ = gotoNext == 4094060
-    			priv_4091822.Primes = primes_4092501
-    			priv_4091822.N = n_4093504
-    			gotoNext = 4094118
-    			gotoNext = 4094118
-    		} else {
-    			gotoNext = 4094118
-    		}
-    		gotoNext = 4092556
-    	} else {
-    		gotoNext = 4094118
-    	}
-    	_ = gotoNext == 4094118
-    	priv_4091822.Precompute()
-    	return priv_4091822, nil
-    	gotoNext = -1
-    }*|/
+    Package rsa implements RSA encryption as specified in PKCS #1 and RFC 8017.
+    
+    RSA is a single, fundamental operation that is used in this package to
+    implement either public-key encryption or public-key signatures.
+    
+    The original specification for encryption and signatures with RSA is PKCS #1
+    and the terms "RSA encryption" and "RSA signatures" by default refer to
+    PKCS #1 version 1.5. However, that specification has flaws and new designs
+    should use version 2, usually called by just OAEP and PSS, where
+    possible.
+    
+    Two sets of interfaces are included in this package. When a more abstract
+    interface isn't necessary, there are functions for encrypting/decrypting
+    with v1.5/OAEP and signing/verifying with v1.5/PSS. If one needs to abstract
+    over the public key primitive, the PrivateKey type implements the
+    Decrypter and Signer interfaces from the crypto package.
+    
+    Operations in this package are implemented using constant-time algorithms,
+    except for [GenerateKey], [PrivateKey.Precompute], and [PrivateKey.Validate].
+    Every other operation only leaks the bit size of the involved values, which
+    all depend on the selected key size.
 **/
 class Rsa {
     /**

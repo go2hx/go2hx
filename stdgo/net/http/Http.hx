@@ -10448,159 +10448,111 @@ class T_socksReply_static_extension {
     }
 }
 /**
-    /|*{
-    	if bitSize == 0 {
-    		gotoNext = 7822835
-    		_ = gotoNext == 7822835
-    		bitSize = int(32)
-    		gotoNext = 7822875
-    	} else {
-    		gotoNext = 7822875
+    /|*
+    Package http provides HTTP client and server implementations.
+    
+    Get, Head, Post, and PostForm make HTTP (or HTTPS) requests:
+    
+    	resp, err := http.Get("http://example.com/")
+    	...
+    	resp, err := http.Post("http://example.com/upload", "image/jpeg", &buf)
+    	...
+    	resp, err := http.PostForm("http://example.com/form",
+    		url.Values{"key": {"Value"}, "id": {"123"}})
+    
+    The caller must close the response body when finished with it:
+    
+    	resp, err := http.Get("http://example.com/")
+    	if err != nil {
+    		// handle error
     	}
-    	_ = gotoNext == 7822875
-    	s0_7822875 = s
-    	_ = 0
-    	gotoNext = 7822884
-    	_ = gotoNext == 7822884
-    	switch {
-    	case len(s) < 1:
-    		gotoNext = 7822894
-    		_ = gotoNext == 7822894
-    		err = strconv.ErrSyntax
-    		gotoNext = 7824084
-    		gotoNext = 7823380
-    	case 2 <= base && base <= 36:
-    		gotoNext = 7822952
-    		_ = gotoNext == 7822952
-    		gotoNext = 7823380
-    	case base == 0:
-    		gotoNext = 7823015
-    		_ = gotoNext == 7823015
-    		_ = 0
-    		gotoNext = 7823066
-    		_ = gotoNext == 7823066
-    		switch {
-    		case s[0] == 48 && len(s) > 1 && (s[1] == 120 || s[1] == 88):
-    			gotoNext = 7823077
-    			_ = gotoNext == 7823077
-    			base = 16
-    			s = s[2:]
-    			if len(s) < 1 {
-    				gotoNext = 7823184
-    				_ = gotoNext == 7823184
-    				err = strconv.ErrSyntax
-    				gotoNext = 7824084
-    				gotoNext = 7823380
-    			} else {
-    				gotoNext = 7823380
-    			}
-    			gotoNext = 7823380
-    		case s[0] == 48:
-    			gotoNext = 7823236
-    			_ = gotoNext == 7823236
-    			base = 8
-    			gotoNext = 7823380
-    		default:
-    			gotoNext = 7823268
-    			_ = gotoNext == 7823268
-    			base = 10
-    			gotoNext = 7823380
-    		}
-    		gotoNext = 7823380
-    	default:
-    		gotoNext = 7823296
-    		_ = gotoNext == 7823296
-    		err = errors.New("invalid base " + strconv.Itoa(base))
-    		gotoNext = 7824084
-    		gotoNext = 7823380
+    	defer resp.Body.Close()
+    	body, err := io.ReadAll(resp.Body)
+    	// ...
+    
+    # Clients and Transports
+    
+    For control over HTTP client headers, redirect policy, and other
+    settings, create a Client:
+    
+    	client := &http.Client{
+    		CheckRedirect: redirectPolicyFunc,
     	}
-    	_ = gotoNext == 7823380
-    	n = 0
-    	cutoff_7822795 = http2cutoff64(base)
-    	maxVal_7822803 = 1<<uint(bitSize) - 1
-    	i_7823453 = 0
-    	gotoNext = 7823449
-    	_ = gotoNext == 7823449
-    	if i_7823453 < len(s) {
-    		gotoNext = 7823477
-    		_ = gotoNext == 7823477
-    		d_7823494 = s[i_7823453]
-    		_ = 0
-    		gotoNext = 7823506
-    		_ = gotoNext == 7823506
-    		switch {
-    		case 48 <= d_7823494 && d_7823494 <= 57:
-    			gotoNext = 7823517
-    			_ = gotoNext == 7823517
-    			v_7823485 = d_7823494 - 48
-    			gotoNext = 7823724
-    		case 97 <= d_7823494 && d_7823494 <= 122:
-    			gotoNext = 7823561
-    			_ = gotoNext == 7823561
-    			v_7823485 = d_7823494 - 97 + 10
-    			gotoNext = 7823724
-    		case 65 <= d_7823494 && d_7823494 <= 90:
-    			gotoNext = 7823610
-    			_ = gotoNext == 7823610
-    			v_7823485 = d_7823494 - 65 + 10
-    			gotoNext = 7823724
-    		default:
-    			gotoNext = 7823659
-    			_ = gotoNext == 7823659
-    			n = 0
-    			err = strconv.ErrSyntax
-    			gotoNext = 7824084
-    			gotoNext = 7823724
-    		}
-    		_ = gotoNext == 7823724
-    		if int(v_7823485) >= base {
-    			gotoNext = 7823742
-    			_ = gotoNext == 7823742
-    			n = 0
-    			err = strconv.ErrSyntax
-    			gotoNext = 7824084
-    			gotoNext = 7823801
-    		} else {
-    			gotoNext = 7823801
-    		}
-    		_ = gotoNext == 7823801
-    		if n >= cutoff_7822795 {
-    			gotoNext = 7823816
-    			_ = gotoNext == 7823816
-    			n = 18446744073709551615
-    			err = strconv.ErrRange
-    			gotoNext = 7824084
-    			gotoNext = 7823904
-    		} else {
-    			gotoNext = 7823904
-    		}
-    		_ = gotoNext == 7823904
-    		n *= uint64(base)
-    		n1_7823925 = n + uint64(v_7823485)
-    		if n1_7823925 < n || n1_7823925 > maxVal_7822803 {
-    			gotoNext = 7823972
-    			_ = gotoNext == 7823972
-    			n = 18446744073709551615
-    			err = strconv.ErrRange
-    			gotoNext = 7824084
-    			gotoNext = 7824057
-    		} else {
-    			gotoNext = 7824057
-    		}
-    		_ = gotoNext == 7824057
-    		n = n1_7823925
-    		i_7823453++
-    		gotoNext = 7823449
-    	} else {
-    		gotoNext = 7824069
+    
+    	resp, err := client.Get("http://example.com")
+    	// ...
+    
+    	req, err := http.NewRequest("GET", "http://example.com", nil)
+    	// ...
+    	req.Header.Add("If-None-Match", `W/"wyzzy"`)
+    	resp, err := client.Do(req)
+    	// ...
+    
+    For control over proxies, TLS configuration, keep-alives,
+    compression, and other settings, create a Transport:
+    
+    	tr := &http.Transport{
+    		MaxIdleConns:       10,
+    		IdleConnTimeout:    30 * time.Second,
+    		DisableCompression: true,
     	}
-    	_ = gotoNext == 7824069
-    	return n, nil
-    	gotoNext = 7824084
-    	_ = gotoNext == 7824084
-    	return n, &strconv.NumError{Func: "ParseUint", Num: string(s0_7822875), Err: err}
-    	gotoNext = -1
-    }*|/
+    	client := &http.Client{Transport: tr}
+    	resp, err := client.Get("https://example.com")
+    
+    Clients and Transports are safe for concurrent use by multiple
+    goroutines and for efficiency should only be created once and re-used.
+    
+    # Servers
+    
+    ListenAndServe starts an HTTP server with a given address and handler.
+    The handler is usually nil, which means to use DefaultServeMux.
+    Handle and HandleFunc add handlers to DefaultServeMux:
+    
+    	http.Handle("/foo", fooHandler)
+    
+    	http.HandleFunc("/bar", func(w http.ResponseWriter, r *http.Request) {
+    		fmt.Fprintf(w, "Hello, %q", html.EscapeString(r.URL.Path))
+    	})
+    
+    	log.Fatal(http.ListenAndServe(":8080", nil))
+    
+    More control over the server's behavior is available by creating a
+    custom Server:
+    
+    	s := &http.Server{
+    		Addr:           ":8080",
+    		Handler:        myHandler,
+    		ReadTimeout:    10 * time.Second,
+    		WriteTimeout:   10 * time.Second,
+    		MaxHeaderBytes: 1 << 20,
+    	}
+    	log.Fatal(s.ListenAndServe())
+    
+    # HTTP/2
+    
+    Starting with Go 1.6, the http package has transparent support for the
+    HTTP/2 protocol when using HTTPS. Programs that must disable HTTP/2
+    can do so by setting Transport.TLSNextProto (for clients) or
+    Server.TLSNextProto (for servers) to a non-nil, empty
+    map. Alternatively, the following GODEBUG settings are
+    currently supported:
+    
+    	GODEBUG=http2client=0  # disable HTTP/2 client support
+    	GODEBUG=http2server=0  # disable HTTP/2 server support
+    	GODEBUG=http2debug=1   # enable verbose HTTP/2 debug logs
+    	GODEBUG=http2debug=2   # ... even more verbose, with frame dumps
+    
+    Please report any issues before disabling HTTP/2 support: https://golang.org/s/http2bug
+    
+    The http package's Transport and Server both automatically enable
+    HTTP/2 support for simple configurations. To enable HTTP/2 for more
+    complex configurations, to use lower-level HTTP/2 features, or to use
+    a newer version of Go's http2 package, import "golang.org/x/net/http2"
+    directly and use its ConfigureTransport and/or ConfigureServer
+    functions. Manually configuring HTTP/2 via the golang.org/x/net/http2
+    package takes precedence over the net/http package's built-in HTTP/2
+    support.
+    *|/
 **/
 class Http {
     /**

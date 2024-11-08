@@ -1793,162 +1793,17 @@ class IsolationLevel_static_extension {
     }
 }
 /**
-    /|*{
-    	nvargs_3602339 = make([]driver.NamedValue, len(args))
-    	want_3602555 = -1
-    	if ds != nil {
-    		gotoNext = 3602619
-    		_ = gotoNext == 3602619
-    		si_3602572 = ds.si
-    		want_3602555 = ds.si.NumInput()
-    		cc_3602592.want = want_3602555
-    		gotoNext = 3602886
-    	} else {
-    		gotoNext = 3602886
-    	}
-    	_ = gotoNext == 3602886
-    	nvc_3602886, ok_3602891 = si_3602572.(driver.NamedValueChecker)
-    	if !ok_3602891 {
-    		gotoNext = 3602935
-    		_ = gotoNext == 3602935
-    		nvc_3602886, ok_3602891 = ci.(driver.NamedValueChecker)
-    		gotoNext = 3602983
-    	} else {
-    		gotoNext = 3602983
-    	}
-    	_ = gotoNext == 3602983
-    	cci_3602983, ok_3602891 = si_3602572.(driver.ColumnConverter)
-    	if ok_3602891 {
-    		gotoNext = 3603029
-    		_ = gotoNext == 3603029
-    		cc_3602592.cci = cci_3602983
-    		gotoNext = 3603292
-    	} else {
-    		gotoNext = 3603292
-    	}
-    	_ = gotoNext == 3603292
-    	if 0 < len(args) {
-    		gotoNext = 3604671
-    		_ = gotoNext == 3604671
-    		i_3603332_0, arg_3603325 = 0, args[0]
-    		gotoNext = 3604672
-    		_ = gotoNext == 3604672
-    		if i_3603332_0 < len(args) {
-    			gotoNext = 3603343
-    			_ = gotoNext == 3603343
-    			arg_3603325 = args[i_3603332_0]
-    			nv_3603347 = &nvargs_3602339[n_3603311]
-    			if np_3603369, ok_3603373 = arg_3603325.(NamedArg); ok_3603373 {
-    				gotoNext = 3603398
-    				_ = gotoNext == 3603398
-    				if err_3603296 = validateNamedValueName(np_3603369.Name); err_3603296 != nil {
-    					gotoNext = 3603456
-    					_ = gotoNext == 3603456
-    					return nil, err_3603296
-    					gotoNext = 3603486
-    				} else {
-    					gotoNext = 3603486
-    				}
-    				_ = gotoNext == 3603486
-    				arg_3603325 = np_3603369.Value
-    				nv_3603347.Name = np_3603369.Name
-    				gotoNext = 3603528
-    			} else {
-    				gotoNext = 3603528
-    			}
-    			_ = gotoNext == 3603528
-    			nv_3603347.Ordinal = n_3603311 + 1
-    			nv_3603347.Value = arg_3603325
-    			checker_3604047 = defaultCheckNamedValue
-    			nextCC_3604083 = false
-    			_ = 0
-    			gotoNext = 3604101
-    			_ = gotoNext == 3604101
-    			switch {
-    			case nvc_3602886 != nil:
-    				gotoNext = 3604112
-    				_ = gotoNext == 3604112
-    				nextCC_3604083 = cci_3602983 != nil
-    				checker_3604047 = nvc_3602886.CheckNamedValue
-    				gotoNext = 3604242
-    			case cci_3602983 != nil:
-    				gotoNext = 3604187
-    				_ = gotoNext == 3604187
-    				checker_3604047 = cc_3602592.CheckNamedValue
-    				gotoNext = 3604242
-    			default:
-    				gotoNext = 3604242
-    			}
-    			_ = gotoNext == 3604242
-    			gotoNext = 3604242
-    			_ = gotoNext == 3604242
-    			err_3603296 = checker_3604047(nv_3603347)
-    			_ = 0
-    			gotoNext = 3604275
-    			_ = gotoNext == 3604275
-    			switch err_3603296 {
-    			case nil:
-    				gotoNext = 3604290
-    				_ = gotoNext == 3604290
-    				n_3603311++
-    				i_3603332_0++
-    				gotoNext = 3604672
-    				gotoNext = 3603322
-    			case driver.ErrRemoveArgument:
-    				gotoNext = 3604321
-    				_ = gotoNext == 3604321
-    				nvargs_3602339 = nvargs_3602339[:len(nvargs_3602339)-1]
-    				i_3603332_0++
-    				gotoNext = 3604672
-    				gotoNext = 3603322
-    			case driver.ErrSkip:
-    				gotoNext = 3604401
-    				_ = gotoNext == 3604401
-    				if nextCC_3604083 {
-    					gotoNext = 3604435
-    					_ = gotoNext == 3604435
-    					nextCC_3604083 = false
-    					checker_3604047 = cc_3602592.CheckNamedValue
-    					gotoNext = 3604546
-    				} else {
-    					gotoNext = 3604499
-    					_ = gotoNext == 3604499
-    					checker_3604047 = defaultCheckNamedValue
-    					_ = 0
-    					gotoNext = 3604546
-    				}
-    				_ = gotoNext == 3604546
-    				gotoNext = 3604242
-    				gotoNext = 3603322
-    			default:
-    				gotoNext = 3604563
-    				_ = gotoNext == 3604563
-    				return nil, fmt.Errorf("sql: converting argument %s type: %v", describeNamedValue(nv_3603347), err_3603296)
-    				gotoNext = 3603322
-    			}
-    			_ = gotoNext == 3603322
-    			i_3603332_0++
-    			gotoNext = 3604672
-    		} else {
-    			gotoNext = 3604763
-    		}
-    		gotoNext = 3604763
-    	} else {
-    		gotoNext = 3604763
-    	}
-    	_ = gotoNext == 3604763
-    	if want_3602555 != -1 && len(nvargs_3602339) != want_3602555 {
-    		gotoNext = 3604800
-    		_ = gotoNext == 3604800
-    		return nil, fmt.Errorf("sql: expected %d arguments, got %d", want_3602555, len(nvargs_3602339))
-    		gotoNext = 3604889
-    	} else {
-    		gotoNext = 3604889
-    	}
-    	_ = gotoNext == 3604889
-    	return nvargs_3602339, nil
-    	gotoNext = -1
-    }*|/
+    Package sql provides a generic interface around SQL (or SQL-like)
+    databases.
+    
+    The sql package must be used in conjunction with a database driver.
+    See https://golang.org/s/sqldrivers for a list of drivers.
+    
+    Drivers that do not support context cancellation will not return until
+    after the query is completed.
+    
+    For usage examples, see the wiki page at
+    https://golang.org/s/sqlwiki.
 **/
 class Sql {
     /**

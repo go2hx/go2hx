@@ -1,21 +1,21 @@
 package stdgo._internal.database.sql;
 function _driverArgsConnLocked(_ci:stdgo._internal.database.sql.driver.Driver_Conn.Conn, _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>, _args:stdgo.Slice<stdgo.AnyInterface>):{ var _0 : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>; var _1 : stdgo.Error; } {
-        var _checker_3604047:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> -> stdgo.Error = null;
-        var _nvc_3602886:stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker = (null : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker);
-        var _want_3602555:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3603332_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3603296:stdgo.Error = (null : stdgo.Error);
-        var _cci_3602983:stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter = (null : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter);
-        var _np_3603369:stdgo._internal.database.sql.Sql_NamedArg.NamedArg = ({} : stdgo._internal.database.sql.Sql_NamedArg.NamedArg);
-        var _nv_3603347:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
         var _arg_3603325:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-        var _n_3603311:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _nextCC_3604083:Bool = false;
+        var _i_3603332_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _nvc_3602886:stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker = (null : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker);
         var _cc_3602592:stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker = ({} : stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker);
         var _si_3602572:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt = (null : stdgo._internal.database.sql.driver.Driver_Stmt.Stmt);
-        var _nvargs_3602339:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+        var _np_3603369:stdgo._internal.database.sql.Sql_NamedArg.NamedArg = ({} : stdgo._internal.database.sql.Sql_NamedArg.NamedArg);
+        var _checker_3604047:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> -> stdgo.Error = null;
         var _ok_3603373:Bool = false;
+        var _err_3603296:stdgo.Error = (null : stdgo.Error);
+        var _cci_3602983:stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter = (null : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter);
         var _ok_3602891:Bool = false;
+        var _nextCC_3604083:Bool = false;
+        var _nv_3603347:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+        var _n_3603311:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _want_3602555:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _nvargs_3602339:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -181,6 +181,7 @@ function _driverArgsConnLocked(_ci:stdgo._internal.database.sql.driver.Driver_Co
                     _checker_3604047 = _cc_3602592.checkNamedValue;
                     _gotoNext = 3604546i32;
                 } else if (__value__ == (3604499i32)) {
+                    _gotoNext = 3604499i32;
                     _checker_3604047 = stdgo._internal.database.sql.Sql__defaultCheckNamedValue._defaultCheckNamedValue;
                     var __blank__ = 0i32;
                     _gotoNext = 3604546i32;

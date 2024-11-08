@@ -40,82 +40,13 @@ class T_lazybuf_static_extension {
     }
 }
 /**
-    /|*{
-    	_ = 0
-    	gotoNext = 2715420
-    	_ = gotoNext == 2715420
-    	if len(pattern) > 0 && pattern[0] == 42 {
-    		gotoNext = 2715462
-    		_ = gotoNext == 2715462
-    		pattern = pattern[1:]
-    		star = true
-    		gotoNext = 2715420
-    	} else {
-    		gotoNext = 2715506
-    	}
-    	_ = gotoNext == 2715506
-    	inrange_2715506 = false
-    	gotoNext = 2715534
-    	_ = gotoNext == 2715534
-    	i_2715528 = 0
-    	ScanBreak = false
-    	gotoNext = 2715541
-    	_ = gotoNext == 2715541
-    	if !ScanBreak && (i_2715528 < len(pattern)) {
-    		gotoNext = 2715574
-    		_ = gotoNext == 2715574
-    		_ = 0
-    		gotoNext = 2715578
-    		_ = gotoNext == 2715578
-    		switch pattern[i_2715528] {
-    		case 92:
-    			gotoNext = 2715600
-    			_ = gotoNext == 2715600
-    			if i_2715528+1 < len(pattern) {
-    				gotoNext = 2715690
-    				_ = gotoNext == 2715690
-    				i_2715528++
-    				gotoNext = 2715570
-    			} else {
-    				gotoNext = 2715570
-    			}
-    			gotoNext = 2715570
-    		case 91:
-    			gotoNext = 2715707
-    			_ = gotoNext == 2715707
-    			inrange_2715506 = true
-    			gotoNext = 2715570
-    		case 93:
-    			gotoNext = 2715737
-    			_ = gotoNext == 2715737
-    			inrange_2715506 = false
-    			gotoNext = 2715570
-    		case 42:
-    			gotoNext = 2715768
-    			_ = gotoNext == 2715768
-    			if !inrange_2715506 {
-    				gotoNext = 2715793
-    				_ = gotoNext == 2715793
-    				ScanBreak = true
-    				gotoNext = 2715541
-    				gotoNext = 2715570
-    			} else {
-    				gotoNext = 2715570
-    			}
-    			gotoNext = 2715570
-    		default:
-    			gotoNext = 2715570
-    		}
-    		_ = gotoNext == 2715570
-    		i_2715528++
-    		gotoNext = 2715541
-    	} else {
-    		gotoNext = 2715823
-    	}
-    	_ = gotoNext == 2715823
-    	return star, pattern[0:i_2715528], pattern[i_2715528:]
-    	gotoNext = -1
-    }*|/
+    Package path implements utility routines for manipulating slash-separated
+    paths.
+    
+    The path package should only be used for paths separated by forward
+    slashes, such as the paths in URLs. This package does not deal with
+    Windows paths with drive letters or backslashes; to manipulate
+    operating system paths, use the path/filepath package.
 **/
 class Path {
     /**

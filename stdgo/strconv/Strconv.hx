@@ -186,163 +186,57 @@ class T_decimal_static_extension {
     }
 }
 /**
-    /|*{
-    	if d.nd == 0 {
-    		gotoNext = 2683274
-    		_ = gotoNext == 2683274
-    		mant_2683212 = 0
-    		exp_2683199 = flt.bias
-    		gotoNext = 2684676
-    		gotoNext = 2683467
-    	} else {
-    		gotoNext = 2683467
-    	}
-    	_ = gotoNext == 2683467
-    	if d.dp > 310 {
-    		gotoNext = 2683481
-    		_ = gotoNext == 2683481
-    		gotoNext = 2684591
-    		gotoNext = 2683503
-    	} else {
-    		gotoNext = 2683503
-    	}
-    	_ = gotoNext == 2683503
-    	if d.dp < -330 {
-    		gotoNext = 2683518
-    		_ = gotoNext == 2683518
-    		mant_2683212 = 0
-    		exp_2683199 = flt.bias
-    		gotoNext = 2684676
-    		gotoNext = 2683627
-    	} else {
-    		gotoNext = 2683627
-    	}
-    	_ = gotoNext == 2683627
-    	exp_2683199 = 0
-    	_ = 0
-    	gotoNext = 2683636
-    	_ = gotoNext == 2683636
-    	if d.dp > 0 {
-    		gotoNext = 2683649
-    		_ = gotoNext == 2683649
-    		if d.dp >= len(powtab) {
-    			gotoNext = 2683688
-    			_ = gotoNext == 2683688
-    			n_2683657 = 27
-    			gotoNext = 2683737
-    		} else {
-    			gotoNext = 2683709
-    			_ = gotoNext == 2683709
-    			n_2683657 = powtab[d.dp]
-    			_ = 0
-    			gotoNext = 2683737
-    		}
-    		_ = gotoNext == 2683737
-    		d.Shift(-n_2683657)
-    		exp_2683199 += n_2683657
-    		gotoNext = 2683636
-    	} else {
-    		gotoNext = 2683764
-    	}
-    	_ = gotoNext == 2683764
-    	_ = 0
-    	gotoNext = 2683764
-    	_ = gotoNext == 2683764
-    	if d.dp < 0 || d.dp == 0 && d.d[0] < 53 {
-    		gotoNext = 2683806
-    		_ = gotoNext == 2683806
-    		if -d.dp >= len(powtab) {
-    			gotoNext = 2683846
-    			_ = gotoNext == 2683846
-    			n_2683814 = 27
-    			gotoNext = 2683896
-    		} else {
-    			gotoNext = 2683867
-    			_ = gotoNext == 2683867
-    			n_2683814 = powtab[-d.dp]
-    			_ = 0
-    			gotoNext = 2683896
-    		}
-    		_ = gotoNext == 2683896
-    		d.Shift(n_2683814)
-    		exp_2683199 -= n_2683814
-    		gotoNext = 2683764
-    	} else {
-    		gotoNext = 2683983
-    	}
-    	_ = gotoNext == 2683983
-    	exp_2683199--
-    	if exp_2683199 < flt.bias+1 {
-    		gotoNext = 2684134
-    		_ = gotoNext == 2684134
-    		n_2684138 = flt.bias + 1 - exp_2683199
-    		d.Shift(-n_2684138)
-    		exp_2683199 += n_2684138
-    		gotoNext = 2684192
-    	} else {
-    		gotoNext = 2684192
-    	}
-    	_ = gotoNext == 2684192
-    	if exp_2683199-flt.bias >= 1<<flt.expbits-1 {
-    		gotoNext = 2684228
-    		_ = gotoNext == 2684228
-    		gotoNext = 2684591
-    		gotoNext = 2684284
-    	} else {
-    		gotoNext = 2684284
-    	}
-    	_ = gotoNext == 2684284
-    	d.Shift(int(1 + flt.mantbits))
-    	mant_2683212 = d.RoundedInteger()
-    	if mant_2683212 == 2<<flt.mantbits {
-    		gotoNext = 2684420
-    		_ = gotoNext == 2684420
-    		mant_2683212 >>= 1
-    		exp_2683199++
-    		if exp_2683199-flt.bias >= 1<<flt.expbits-1 {
-    			gotoNext = 2684481
-    			_ = gotoNext == 2684481
-    			gotoNext = 2684591
-    			gotoNext = 2684527
-    		} else {
-    			gotoNext = 2684527
-    		}
-    		gotoNext = 2684527
-    	} else {
-    		gotoNext = 2684527
-    	}
-    	_ = gotoNext == 2684527
-    	if mant_2683212&(1<<flt.mantbits) == 0 {
-    		gotoNext = 2684558
-    		_ = gotoNext == 2684558
-    		exp_2683199 = flt.bias
-    		gotoNext = 2684581
-    	} else {
-    		gotoNext = 2684581
-    	}
-    	_ = gotoNext == 2684581
-    	gotoNext = 2684676
-    	gotoNext = 2684591
-    	_ = gotoNext == 2684591
-    	mant_2683212 = 0
-    	exp_2683199 = 1<<flt.expbits - 1 + flt.bias
-    	overflow = true
-    	gotoNext = 2684676
-    	_ = gotoNext == 2684676
-    	bits_2684701 = mant_2683212 & (uint64(1)<<flt.mantbits - 1)
-    	bits_2684701 |= uint64((exp_2683199-flt.bias)&(1<<flt.expbits-1)) << flt.mantbits
-    	if d.neg {
-    		gotoNext = 2684823
-    		_ = gotoNext == 2684823
-    		bits_2684701 |= 1 << flt.mantbits << flt.expbits
-    		gotoNext = 2684872
-    	} else {
-    		gotoNext = 2684872
-    	}
-    	_ = gotoNext == 2684872
-    	return bits_2684701, overflow
-    	gotoNext = -1
-    }*|/
+    Package strconv implements conversions to and from string representations
+    of basic data types.
+    
+    # Numeric Conversions
+    
+    The most common numeric conversions are Atoi (string to int) and Itoa (int to string).
+    
+    	i, err := strconv.Atoi("-42")
+    	s := strconv.Itoa(-42)
+    
+    These assume decimal and the Go int type.
+    
+    [ParseBool], [ParseFloat], [ParseInt], and [ParseUint] convert strings to values:
+    
+    	b, err := strconv.ParseBool("true")
+    	f, err := strconv.ParseFloat("3.1415", 64)
+    	i, err := strconv.ParseInt("-42", 10, 64)
+    	u, err := strconv.ParseUint("42", 10, 64)
+    
+    The parse functions return the widest type (float64, int64, and uint64),
+    but if the size argument specifies a narrower width the result can be
+    converted to that narrower type without data loss:
+    
+    	s := "2147483647" // biggest int32
+    	i64, err := strconv.ParseInt(s, 10, 32)
+    	...
+    	i := int32(i64)
+    
+    [FormatBool], [FormatFloat], [FormatInt], and [FormatUint] convert values to strings:
+    
+    	s := strconv.FormatBool(true)
+    	s := strconv.FormatFloat(3.1415, 'E', -1, 64)
+    	s := strconv.FormatInt(-42, 16)
+    	s := strconv.FormatUint(42, 16)
+    
+    [AppendBool], [AppendFloat], [AppendInt], and [AppendUint] are similar but
+    append the formatted value to a destination slice.
+    
+    # String Conversions
+    
+    [Quote] and [QuoteToASCII] convert strings to quoted Go string literals.
+    The latter guarantees that the result is an ASCII string, by escaping
+    any non-ASCII Unicode with \u:
+    
+    	q := strconv.Quote("Hello, 世界")
+    	q := strconv.QuoteToASCII("Hello, 世界")
+    
+    [QuoteRune] and [QuoteRuneToASCII] are similar but accept runes and
+    return quoted Go rune literals.
+    
+    [Unquote] and [UnquoteChar] unquote Go string and rune literals.
 **/
 class Strconv {
     /**

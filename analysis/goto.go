@@ -78,8 +78,11 @@ func (fs *funcScope) changeVarsStmtSimple(stmt ast.Stmt, from string, to string)
 	return stmt
 }
 
-func (fs *funcScope) markJumpBlock(stmt *ast.BlockStmt, scopeIndex int, endBool bool) *ast.BlockStmt {
+func (fs *funcScope) markJumpBlock(stmt *ast.BlockStmt, scopeIndex int, indepedent bool) *ast.BlockStmt {
 	newStmts := []ast.Stmt{} //make([]ast.Stmt, len(stmt.List))
+	if indepedent {
+		newStmts = append(newStmts, jumpTo(stmt.Pos()), setJump(stmt.Pos()))
+	}
 	for i := range stmt.List {
 		if len(fs.nextJumpFunc) > 0 {
 			for _, f := range fs.nextJumpFunc {
@@ -92,7 +95,7 @@ func (fs *funcScope) markJumpBlock(stmt *ast.BlockStmt, scopeIndex int, endBool 
 		}
 		newStmts = append(newStmts, fs.markJumps(stmt.List[i], scopeIndex)...)
 	}
-	if endBool {
+	if indepedent {
 		newStmts = append(newStmts, blank())
 		fs.nextJumpRun(func(pos token.Pos) {
 			newStmts[len(newStmts)-1] = jumpTo(pos)
@@ -823,7 +826,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 		}
 		_ = switchStmt
 		secondPass := true
-		commentBool := true
+		commentBool := !true
 		if secondPass {
 			if commentBool {
 				buf := bytes.NewBufferString("")
@@ -987,6 +990,10 @@ func findGotoJump(stmt ast.Stmt) (pos int, found bool) {
 
 func findGoto(stmt ast.Stmt) (pos int, labelBool bool) {
 	switch stmt := stmt.(type) {
+	case *ast.BlockStmt:
+		if len(stmt.List) == 1 {
+			return findGoto(stmt.List[0])
+		}
 	case *ast.AssignStmt:
 		if len(stmt.Lhs) == 1 && len(stmt.Rhs) == 1 {
 			switch ident := stmt.Lhs[0].(type) {

@@ -277,19 +277,19 @@ class Zipf_static_extension {
 }
 /**
     /|*{
-    	gotoNext = 2955575
-    	_ = gotoNext == 2955575
-    	f_2955583 = float32(r.Float64())
-    	if f_2955583 == 1 {
-    		gotoNext = 2955620
-    		_ = gotoNext == 2955620
-    		gotoNext = 2955575
-    		gotoNext = 2955688
+    	gotoNext = 2851778
+    	_ = gotoNext == 2851778
+    	f_2851786 = float32(r.Float64())
+    	if f_2851786 == 1 {
+    		gotoNext = 2851823
+    		_ = gotoNext == 2851823
+    		gotoNext = 2851778
+    		gotoNext = 2851891
     	} else {
-    		gotoNext = 2955688
+    		gotoNext = 2851891
     	}
-    	_ = gotoNext == 2955688
-    	return f_2955583
+    	_ = gotoNext == 2851891
+    	return f_2851786
     	gotoNext = -1
     }*|/
 **/

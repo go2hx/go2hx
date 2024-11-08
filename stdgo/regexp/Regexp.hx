@@ -1036,379 +1036,379 @@ class T_runeSlice_static_extension {
 }
 /**
     /|*{
-    	f_5010644, err_5010647 = os.Open(file)
-    	if err_5010647 != nil {
-    		gotoNext = 5010683
-    		_ = gotoNext == 5010683
-    		t.Error(err_5010647)
+    	f_4908580, err_4908583 = os.Open(file)
+    	if err_4908583 != nil {
+    		gotoNext = 4908619
+    		_ = gotoNext == 4908619
+    		t.Error(err_4908583)
     		return
-    		gotoNext = 5010713
+    		gotoNext = 4908649
     	} else {
-    		gotoNext = 5010713
+    		gotoNext = 4908649
     	}
-    	_ = gotoNext == 5010713
-    	defer f_5010644.Close()
-    	b_5010730 = bufio.NewReader(f_5010644)
-    	lineno_5010755 = 0
-    	lastRegexp_5010768 = ""
-    	gotoNext = 5010785
-    	_ = gotoNext == 5010785
+    	_ = gotoNext == 4908649
+    	defer f_4908580.Close()
+    	b_4908666 = bufio.NewReader(f_4908580)
+    	lineno_4908691 = 0
+    	lastRegexp_4908704 = ""
+    	gotoNext = 4908721
+    	_ = gotoNext == 4908721
     	_ = 0
     	ReadingBreak = false
-    	gotoNext = 5010795
-    	_ = gotoNext == 5010795
+    	gotoNext = 4908731
+    	_ = gotoNext == 4908731
     	if !ReadingBreak {
-    		gotoNext = 5010799
-    		_ = gotoNext == 5010799
-    		lineno_5010755++
-    		line_5010814, err_5010820 = b_5010730.ReadString(10)
-    		if err_5010820 != nil {
-    			gotoNext = 5010862
-    			_ = gotoNext == 5010862
-    			if err_5010820 != io.EOF {
-    				gotoNext = 5010884
-    				_ = gotoNext == 5010884
-    				t.Errorf("%s:%d: %v", file, lineno_5010755, err_5010820)
-    				gotoNext = 5010939
+    		gotoNext = 4908735
+    		_ = gotoNext == 4908735
+    		lineno_4908691++
+    		line_4908750, err_4908756 = b_4908666.ReadString(10)
+    		if err_4908756 != nil {
+    			gotoNext = 4908798
+    			_ = gotoNext == 4908798
+    			if err_4908756 != io.EOF {
+    				gotoNext = 4908820
+    				_ = gotoNext == 4908820
+    				t.Errorf("%s:%d: %v", file, lineno_4908691, err_4908756)
+    				gotoNext = 4908875
     			} else {
-    				gotoNext = 5010939
+    				gotoNext = 4908875
     			}
-    			_ = gotoNext == 5010939
+    			_ = gotoNext == 4908875
     			ReadingBreak = true
-    			gotoNext = 5010795
-    			gotoNext = 5011280
+    			gotoNext = 4908731
+    			gotoNext = 4909216
     		} else {
-    			gotoNext = 5011280
+    			gotoNext = 4909216
     		}
-    		_ = gotoNext == 5011280
-    		if line_5010814[0] == 35 || line_5010814[0] == 10 {
-    			gotoNext = 5011317
-    			_ = gotoNext == 5011317
-    			gotoNext = 5010795
-    			gotoNext = 5011345
+    		_ = gotoNext == 4909216
+    		if line_4908750[0] == 35 || line_4908750[0] == 10 {
+    			gotoNext = 4909253
+    			_ = gotoNext == 4909253
+    			gotoNext = 4908731
+    			gotoNext = 4909281
     		} else {
-    			gotoNext = 5011345
+    			gotoNext = 4909281
     		}
-    		_ = gotoNext == 5011345
-    		line_5010814 = line_5010814[:len(line_5010814)-1]
-    		field_5011373 = notab.FindAllString(line_5010814, -1)
-    		if 0 < len(field_5011373) {
-    			gotoNext = 5011579
-    			_ = gotoNext == 5011579
-    			i_5011418, f_5011421 = 0, field_5011373[0]
-    			gotoNext = 5011580
-    			_ = gotoNext == 5011580
-    			if i_5011418 < len(field_5011373) {
-    				gotoNext = 5011438
-    				_ = gotoNext == 5011438
-    				f_5011421 = field_5011373[i_5011418]
-    				if f_5011421 == "NULL" {
-    					gotoNext = 5011458
-    					_ = gotoNext == 5011458
-    					field_5011373[i_5011418] = ""
-    					gotoNext = 5011486
+    		_ = gotoNext == 4909281
+    		line_4908750 = line_4908750[:len(line_4908750)-1]
+    		field_4909309 = notab.FindAllString(line_4908750, -1)
+    		if 0 < len(field_4909309) {
+    			gotoNext = 4909515
+    			_ = gotoNext == 4909515
+    			i_4909354, f_4909357 = 0, field_4909309[0]
+    			gotoNext = 4909516
+    			_ = gotoNext == 4909516
+    			if i_4909354 < len(field_4909309) {
+    				gotoNext = 4909374
+    				_ = gotoNext == 4909374
+    				f_4909357 = field_4909309[i_4909354]
+    				if f_4909357 == "NULL" {
+    					gotoNext = 4909394
+    					_ = gotoNext == 4909394
+    					field_4909309[i_4909354] = ""
+    					gotoNext = 4909422
     				} else {
-    					gotoNext = 5011486
+    					gotoNext = 4909422
     				}
-    				_ = gotoNext == 5011486
-    				if f_5011421 == "NIL" {
-    					gotoNext = 5011500
-    					_ = gotoNext == 5011500
-    					t.Logf("%s:%d: skip: %s", file, lineno_5010755, line_5010814)
-    					gotoNext = 5010795
-    					gotoNext = 5011418
+    				_ = gotoNext == 4909422
+    				if f_4909357 == "NIL" {
+    					gotoNext = 4909436
+    					_ = gotoNext == 4909436
+    					t.Logf("%s:%d: skip: %s", file, lineno_4908691, line_4908750)
+    					gotoNext = 4908731
+    					gotoNext = 4909354
     				} else {
-    					gotoNext = 5011418
+    					gotoNext = 4909354
     				}
-    				_ = gotoNext == 5011418
-    				i_5011418++
-    				gotoNext = 5011580
+    				_ = gotoNext == 4909354
+    				i_4909354++
+    				gotoNext = 4909516
     			} else {
-    				gotoNext = 5011584
+    				gotoNext = 4909520
     			}
-    			gotoNext = 5011584
+    			gotoNext = 4909520
     		} else {
-    			gotoNext = 5011584
+    			gotoNext = 4909520
     		}
-    		_ = gotoNext == 5011584
-    		if len(field_5011373) == 0 {
-    			gotoNext = 5011603
-    			_ = gotoNext == 5011603
-    			gotoNext = 5010795
-    			gotoNext = 5014357
+    		_ = gotoNext == 4909520
+    		if len(field_4909309) == 0 {
+    			gotoNext = 4909539
+    			_ = gotoNext == 4909539
+    			gotoNext = 4908731
+    			gotoNext = 4912293
     		} else {
-    			gotoNext = 5014357
+    			gotoNext = 4912293
     		}
-    		_ = gotoNext == 5014357
-    		flag_5014357 = field_5011373[0]
+    		_ = gotoNext == 4912293
+    		flag_4912293 = field_4909309[0]
     		_ = 0
-    		gotoNext = 5014376
-    		_ = gotoNext == 5014376
-    		switch flag_5014357[0] {
+    		gotoNext = 4912312
+    		_ = gotoNext == 4912312
+    		switch flag_4912293[0] {
     		case 63, 38, 124, 59, 123, 125:
-    			gotoNext = 5014395
-    			_ = gotoNext == 5014395
-    			flag_5014357 = flag_5014357[1:]
-    			if flag_5014357 == "" {
-    				gotoNext = 5014533
-    				_ = gotoNext == 5014533
-    				gotoNext = 5010795
-    				gotoNext = 5014902
+    			gotoNext = 4912331
+    			_ = gotoNext == 4912331
+    			flag_4912293 = flag_4912293[1:]
+    			if flag_4912293 == "" {
+    				gotoNext = 4912469
+    				_ = gotoNext == 4912469
+    				gotoNext = 4908731
+    				gotoNext = 4912838
     			} else {
-    				gotoNext = 5014902
+    				gotoNext = 4912838
     			}
-    			gotoNext = 5014902
+    			gotoNext = 4912838
     		case 58:
-    			gotoNext = 5014563
-    			_ = gotoNext == 5014563
-    			if _, flag_5014357, ok_5014580 = strings.Cut(flag_5014357[1:], ":"); !ok_5014580 {
-    				gotoNext = 5014640
-    				_ = gotoNext == 5014640
-    				t.Logf("skip: %s", line_5010814)
-    				gotoNext = 5010795
-    				gotoNext = 5014902
+    			gotoNext = 4912499
+    			_ = gotoNext == 4912499
+    			if _, flag_4912293, ok_4912516 = strings.Cut(flag_4912293[1:], ":"); !ok_4912516 {
+    				gotoNext = 4912576
+    				_ = gotoNext == 4912576
+    				t.Logf("skip: %s", line_4908750)
+    				gotoNext = 4908731
+    				gotoNext = 4912838
     			} else {
-    				gotoNext = 5014902
+    				gotoNext = 4912838
     			}
-    			gotoNext = 5014902
+    			gotoNext = 4912838
     		case 67, 78, 84, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
-    			gotoNext = 5014699
-    			_ = gotoNext == 5014699
-    			t.Logf("skip: %s", line_5010814)
-    			gotoNext = 5010795
-    			gotoNext = 5014902
+    			gotoNext = 4912635
+    			_ = gotoNext == 4912635
+    			t.Logf("skip: %s", line_4908750)
+    			gotoNext = 4908731
+    			gotoNext = 4912838
     		default:
-    			gotoNext = 5014902
+    			gotoNext = 4912838
     		}
-    		_ = gotoNext == 5014902
-    		if len(field_5011373) < 4 {
-    			gotoNext = 5014920
-    			_ = gotoNext == 5014920
-    			t.Errorf("%s:%d: too few fields: %s", file, lineno_5010755, line_5010814)
-    			gotoNext = 5010795
-    			gotoNext = 5015053
+    		_ = gotoNext == 4912838
+    		if len(field_4909309) < 4 {
+    			gotoNext = 4912856
+    			_ = gotoNext == 4912856
+    			t.Errorf("%s:%d: too few fields: %s", file, lineno_4908691, line_4908750)
+    			gotoNext = 4908731
+    			gotoNext = 4912989
     		} else {
-    			gotoNext = 5015053
+    			gotoNext = 4912989
     		}
-    		_ = gotoNext == 5015053
-    		if strings.Contains(flag_5014357, "$") {
-    			gotoNext = 5015084
-    			_ = gotoNext == 5015084
-    			f_5015089 = "\"" + field_5011373[1] + "\""
-    			if field_5011373[1], err_5010820 = strconv.Unquote(f_5015089); err_5010820 != nil {
-    				gotoNext = 5015168
-    				_ = gotoNext == 5015168
-    				t.Errorf("%s:%d: cannot unquote %s", file, lineno_5010755, f_5015089)
-    				gotoNext = 5015236
+    		_ = gotoNext == 4912989
+    		if strings.Contains(flag_4912293, "$") {
+    			gotoNext = 4913020
+    			_ = gotoNext == 4913020
+    			f_4913025 = "\"" + field_4909309[1] + "\""
+    			if field_4909309[1], err_4908756 = strconv.Unquote(f_4913025); err_4908756 != nil {
+    				gotoNext = 4913104
+    				_ = gotoNext == 4913104
+    				t.Errorf("%s:%d: cannot unquote %s", file, lineno_4908691, f_4913025)
+    				gotoNext = 4913172
     			} else {
-    				gotoNext = 5015236
+    				gotoNext = 4913172
     			}
-    			_ = gotoNext == 5015236
-    			f_5015089 = "\"" + field_5011373[2] + "\""
-    			if field_5011373[2], err_5010820 = strconv.Unquote(f_5015089); err_5010820 != nil {
-    				gotoNext = 5015314
-    				_ = gotoNext == 5015314
-    				t.Errorf("%s:%d: cannot unquote %s", file, lineno_5010755, f_5015089)
-    				gotoNext = 5015503
+    			_ = gotoNext == 4913172
+    			f_4913025 = "\"" + field_4909309[2] + "\""
+    			if field_4909309[2], err_4908756 = strconv.Unquote(f_4913025); err_4908756 != nil {
+    				gotoNext = 4913250
+    				_ = gotoNext == 4913250
+    				t.Errorf("%s:%d: cannot unquote %s", file, lineno_4908691, f_4913025)
+    				gotoNext = 4913439
     			} else {
-    				gotoNext = 5015503
+    				gotoNext = 4913439
     			}
-    			gotoNext = 5015503
+    			gotoNext = 4913439
     		} else {
-    			gotoNext = 5015503
+    			gotoNext = 4913439
     		}
-    		_ = gotoNext == 5015503
-    		if field_5011373[1] == "SAME" {
-    			gotoNext = 5015525
-    			_ = gotoNext == 5015525
-    			field_5011373[1] = lastRegexp_5010768
-    			gotoNext = 5015558
+    		_ = gotoNext == 4913439
+    		if field_4909309[1] == "SAME" {
+    			gotoNext = 4913461
+    			_ = gotoNext == 4913461
+    			field_4909309[1] = lastRegexp_4908704
+    			gotoNext = 4913494
     		} else {
-    			gotoNext = 5015558
+    			gotoNext = 4913494
     		}
-    		_ = gotoNext == 5015558
-    		lastRegexp_5010768 = field_5011373[1]
-    		text_5015620 = field_5011373[2]
-    		ok_5015676, shouldCompile_5015680, shouldMatch_5015695, pos_5015708 = parseFowlerResult(field_5011373[3])
-    		if !ok_5015676 {
-    			gotoNext = 5015752
-    			_ = gotoNext == 5015752
-    			t.Errorf("%s:%d: cannot parse result %#q", file, lineno_5010755, field_5011373[3])
-    			gotoNext = 5010795
-    			gotoNext = 5015908
+    		_ = gotoNext == 4913494
+    		lastRegexp_4908704 = field_4909309[1]
+    		text_4913556 = field_4909309[2]
+    		ok_4913612, shouldCompile_4913616, shouldMatch_4913631, pos_4913644 = parseFowlerResult(field_4909309[3])
+    		if !ok_4913612 {
+    			gotoNext = 4913688
+    			_ = gotoNext == 4913688
+    			t.Errorf("%s:%d: cannot parse result %#q", file, lineno_4908691, field_4909309[3])
+    			gotoNext = 4908731
+    			gotoNext = 4913844
     		} else {
-    			gotoNext = 5015908
+    			gotoNext = 4913844
     		}
-    		_ = gotoNext == 5015908
-    		gotoNext = 5015908
-    		_ = gotoNext == 5015908
-    		keys_5015994 = []int{}
-    		values_5015994 = []rune{}
-    		for key, value := range flag_5014357 {
-    			keys_5015994 = append(keys_5015994, key)
-    			values_5015994 = append(values_5015994, value)
+    		_ = gotoNext == 4913844
+    		gotoNext = 4913844
+    		_ = gotoNext == 4913844
+    		keys_4913930 = []int{}
+    		values_4913930 = []rune{}
+    		for key, value := range flag_4912293 {
+    			keys_4913930 = append(keys_4913930, key)
+    			values_4913930 = append(values_4913930, value)
     		}
-    		if 0 < len(keys_5015994) {
-    			gotoNext = 5017273
-    			_ = gotoNext == 5017273
-    			i_5016006 = 0
-    			gotoNext = 5017274
-    			_ = gotoNext == 5017274
-    			if i_5016006 < len(keys_5015994) {
-    				gotoNext = 5016017
-    				_ = gotoNext == 5016017
-    				c_5016001 = values_5015994[i_5016006]
-    				_ = keys_5015994[i_5016006]
-    				pattern_5016022 = field_5011373[1]
-    				syn_5016045 = 4
+    		if 0 < len(keys_4913930) {
+    			gotoNext = 4915209
+    			_ = gotoNext == 4915209
+    			i_4913942 = 0
+    			gotoNext = 4915210
+    			_ = gotoNext == 4915210
+    			if i_4913942 < len(keys_4913930) {
+    				gotoNext = 4913953
+    				_ = gotoNext == 4913953
+    				c_4913937 = values_4913930[i_4913942]
+    				_ = keys_4913930[i_4913942]
+    				pattern_4913958 = field_4909309[1]
+    				syn_4913981 = 4
     				_ = 0
-    				gotoNext = 5016085
-    				_ = gotoNext == 5016085
-    				switch c_5016001 {
+    				gotoNext = 4914021
+    				_ = gotoNext == 4914021
+    				switch c_4913937 {
     				default:
-    					gotoNext = 5016099
-    					_ = gotoNext == 5016099
-    					i_5016006++
-    					gotoNext = 5017274
-    					gotoNext = 5016253
+    					gotoNext = 4914035
+    					_ = gotoNext == 4914035
+    					i_4913942++
+    					gotoNext = 4915210
+    					gotoNext = 4914189
     				case 69:
-    					gotoNext = 5016132
-    					_ = gotoNext == 5016132
-    					gotoNext = 5016253
+    					gotoNext = 4914068
+    					_ = gotoNext == 4914068
+    					gotoNext = 4914189
     				case 76:
-    					gotoNext = 5016186
-    					_ = gotoNext == 5016186
-    					pattern_5016022 = QuoteMeta(pattern_5016022)
-    					gotoNext = 5016253
+    					gotoNext = 4914122
+    					_ = gotoNext == 4914122
+    					pattern_4913958 = QuoteMeta(pattern_4913958)
+    					gotoNext = 4914189
     				}
-    				_ = gotoNext == 5016253
-    				keys_5016253 = []int{}
-    				values_5016253 = []rune{}
-    				for key, value := range flag_5014357 {
-    					keys_5016253 = append(keys_5016253, key)
-    					values_5016253 = append(values_5016253, value)
+    				_ = gotoNext == 4914189
+    				keys_4914189 = []int{}
+    				values_4914189 = []rune{}
+    				for key, value := range flag_4912293 {
+    					keys_4914189 = append(keys_4914189, key)
+    					values_4914189 = append(values_4914189, value)
     				}
-    				if 0 < len(keys_5016253) {
-    					gotoNext = 5016343
-    					_ = gotoNext == 5016343
-    					i_5016265 = 0
-    					gotoNext = 5016344
-    					_ = gotoNext == 5016344
-    					if i_5016265 < len(keys_5016253) {
-    						gotoNext = 5016276
-    						_ = gotoNext == 5016276
-    						c_5016260 = values_5016253[i_5016265]
-    						_ = keys_5016253[i_5016265]
+    				if 0 < len(keys_4914189) {
+    					gotoNext = 4914279
+    					_ = gotoNext == 4914279
+    					i_4914201 = 0
+    					gotoNext = 4914280
+    					_ = gotoNext == 4914280
+    					if i_4914201 < len(keys_4914189) {
+    						gotoNext = 4914212
+    						_ = gotoNext == 4914212
+    						c_4914196 = values_4914189[i_4914201]
+    						_ = keys_4914189[i_4914201]
     						_ = 0
-    						gotoNext = 5016282
-    						_ = gotoNext == 5016282
-    						switch c_5016260 {
+    						gotoNext = 4914218
+    						_ = gotoNext == 4914218
+    						switch c_4914196 {
     						case 105:
-    							gotoNext = 5016297
-    							_ = gotoNext == 5016297
-    							syn_5016045 |= 1
-    							gotoNext = 5016265
+    							gotoNext = 4914233
+    							_ = gotoNext == 4914233
+    							syn_4913981 |= 1
+    							gotoNext = 4914201
     						default:
-    							gotoNext = 5016265
+    							gotoNext = 4914201
     						}
-    						_ = gotoNext == 5016265
-    						i_5016265++
-    						gotoNext = 5016344
+    						_ = gotoNext == 4914201
+    						i_4914201++
+    						gotoNext = 4914280
     					} else {
-    						gotoNext = 5016350
+    						gotoNext = 4914286
     					}
-    					gotoNext = 5016350
+    					gotoNext = 4914286
     				} else {
-    					gotoNext = 5016350
+    					gotoNext = 4914286
     				}
-    				_ = gotoNext == 5016350
-    				re_5016350, err_5016354 = compile(pattern_5016022, syn_5016045, true)
-    				if err_5016354 != nil {
-    					gotoNext = 5016406
-    					_ = gotoNext == 5016406
-    					if shouldCompile_5015680 {
-    						gotoNext = 5016429
-    						_ = gotoNext == 5016429
-    						t.Errorf("%s:%d: %#q did not compile", file, lineno_5010755, pattern_5016022)
-    						gotoNext = 5016508
+    				_ = gotoNext == 4914286
+    				re_4914286, err_4914290 = compile(pattern_4913958, syn_4913981, true)
+    				if err_4914290 != nil {
+    					gotoNext = 4914342
+    					_ = gotoNext == 4914342
+    					if shouldCompile_4913616 {
+    						gotoNext = 4914365
+    						_ = gotoNext == 4914365
+    						t.Errorf("%s:%d: %#q did not compile", file, lineno_4908691, pattern_4913958)
+    						gotoNext = 4914444
     					} else {
-    						gotoNext = 5016508
+    						gotoNext = 4914444
     					}
-    					_ = gotoNext == 5016508
-    					i_5016006++
-    					gotoNext = 5017274
-    					gotoNext = 5016533
+    					_ = gotoNext == 4914444
+    					i_4913942++
+    					gotoNext = 4915210
+    					gotoNext = 4914469
     				} else {
-    					gotoNext = 5016533
+    					gotoNext = 4914469
     				}
-    				_ = gotoNext == 5016533
-    				if !shouldCompile_5015680 {
-    					gotoNext = 5016551
-    					_ = gotoNext == 5016551
-    					t.Errorf("%s:%d: %#q should not compile", file, lineno_5010755, pattern_5016022)
-    					i_5016006++
-    					gotoNext = 5017274
-    					gotoNext = 5016651
+    				_ = gotoNext == 4914469
+    				if !shouldCompile_4913616 {
+    					gotoNext = 4914487
+    					_ = gotoNext == 4914487
+    					t.Errorf("%s:%d: %#q should not compile", file, lineno_4908691, pattern_4913958)
+    					i_4913942++
+    					gotoNext = 4915210
+    					gotoNext = 4914587
     				} else {
-    					gotoNext = 5016651
+    					gotoNext = 4914587
     				}
-    				_ = gotoNext == 5016651
-    				match_5016651 = re_5016350.MatchString(text_5015620)
-    				if match_5016651 != shouldMatch_5015695 {
-    					gotoNext = 5016708
-    					_ = gotoNext == 5016708
-    					t.Errorf("%s:%d: %#q.Match(%#q) = %v, want %v", file, lineno_5010755, pattern_5016022, text_5015620, match_5016651, shouldMatch_5015695)
-    					i_5016006++
-    					gotoNext = 5017274
-    					gotoNext = 5016840
+    				_ = gotoNext == 4914587
+    				match_4914587 = re_4914286.MatchString(text_4913556)
+    				if match_4914587 != shouldMatch_4913631 {
+    					gotoNext = 4914644
+    					_ = gotoNext == 4914644
+    					t.Errorf("%s:%d: %#q.Match(%#q) = %v, want %v", file, lineno_4908691, pattern_4913958, text_4913556, match_4914587, shouldMatch_4913631)
+    					i_4913942++
+    					gotoNext = 4915210
+    					gotoNext = 4914776
     				} else {
-    					gotoNext = 5016840
+    					gotoNext = 4914776
     				}
-    				_ = gotoNext == 5016840
-    				have_5016840 = re_5016350.FindStringSubmatchIndex(text_5015620)
-    				if (len(have_5016840) > 0) != match_5016651 {
-    					gotoNext = 5016912
-    					_ = gotoNext == 5016912
-    					t.Errorf("%s:%d: %#q.Match(%#q) = %v, but %#q.FindSubmatchIndex(%#q) = %v", file, lineno_5010755, pattern_5016022, text_5015620, match_5016651, pattern_5016022, text_5015620, have_5016840)
-    					i_5016006++
-    					gotoNext = 5017274
-    					gotoNext = 5017080
+    				_ = gotoNext == 4914776
+    				have_4914776 = re_4914286.FindStringSubmatchIndex(text_4913556)
+    				if (len(have_4914776) > 0) != match_4914587 {
+    					gotoNext = 4914848
+    					_ = gotoNext == 4914848
+    					t.Errorf("%s:%d: %#q.Match(%#q) = %v, but %#q.FindSubmatchIndex(%#q) = %v", file, lineno_4908691, pattern_4913958, text_4913556, match_4914587, pattern_4913958, text_4913556, have_4914776)
+    					i_4913942++
+    					gotoNext = 4915210
+    					gotoNext = 4915016
     				} else {
-    					gotoNext = 5017080
+    					gotoNext = 4915016
     				}
-    				_ = gotoNext == 5017080
-    				if len(have_5016840) > len(pos_5015708) {
-    					gotoNext = 5017104
-    					_ = gotoNext == 5017104
-    					have_5016840 = have_5016840[:len(pos_5015708)]
-    					gotoNext = 5017141
+    				_ = gotoNext == 4915016
+    				if len(have_4914776) > len(pos_4913644) {
+    					gotoNext = 4915040
+    					_ = gotoNext == 4915040
+    					have_4914776 = have_4914776[:len(pos_4913644)]
+    					gotoNext = 4915077
     				} else {
-    					gotoNext = 5017141
+    					gotoNext = 4915077
     				}
-    				_ = gotoNext == 5017141
-    				if !same(have_5016840, pos_5015708) {
-    					gotoNext = 5017161
-    					_ = gotoNext == 5017161
-    					t.Errorf("%s:%d: %#q.FindSubmatchIndex(%#q) = %v, want %v", file, lineno_5010755, pattern_5016022, text_5015620, have_5016840, pos_5015708)
-    					gotoNext = 5016006
+    				_ = gotoNext == 4915077
+    				if !same(have_4914776, pos_4913644) {
+    					gotoNext = 4915097
+    					_ = gotoNext == 4915097
+    					t.Errorf("%s:%d: %#q.FindSubmatchIndex(%#q) = %v, want %v", file, lineno_4908691, pattern_4913958, text_4913556, have_4914776, pos_4913644)
+    					gotoNext = 4913942
     				} else {
-    					gotoNext = 5016006
+    					gotoNext = 4913942
     				}
-    				_ = gotoNext == 5016006
-    				i_5016006++
-    				gotoNext = 5017274
+    				_ = gotoNext == 4913942
+    				i_4913942++
+    				gotoNext = 4915210
     			} else {
-    				gotoNext = 5017279
+    				gotoNext = 4915215
     			}
-    			gotoNext = 5017279
+    			gotoNext = 4915215
     		} else {
-    			gotoNext = 5017279
+    			gotoNext = 4915215
     		}
-    		gotoNext = 5010795
+    		gotoNext = 4908731
     	} else {
-    		gotoNext = 5017279
+    		gotoNext = 4915215
     	}
-    	_ = gotoNext == 5017279
+    	_ = gotoNext == 4915215
     	gotoNext = -1
     }*|/
 **/

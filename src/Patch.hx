@@ -143,13 +143,13 @@ final list = [
 	// stdgo/time
 	"time:sleep" => macro {
 		final seconds = _d.toFloat() / 1000000000;
-		#if sys
-		var ticks = std.Math.floor(seconds * 100);
-		while (--ticks > 0) {
-			stdgo._internal.internal.Async.tick();
-			std.Sys.sleep(0.01);
+		@:define("sys") {
+			var ticks = std.Math.floor(seconds * 100);
+			while (--ticks > 0) {
+				stdgo._internal.internal.Async.tick();
+				std.Sys.sleep(0.01);
+			}
 		}
-		#end
 	},
 	"time:forceUSPacificForTesting" => macro {},
 	"time:_stopTimer" => macro {
@@ -1235,6 +1235,12 @@ final list = [
 	"sync.atomic_.Int32:load" => macro {
 		return @:privateAccess _x._v;
 	},
+	"sync.atomic_:loadInt64" => macro {
+		return @:privateAccess _addr.value;
+	},
+	"sync.atomic_:storeInt64" => macro {
+		_addr.value = _val;
+	},
 	"sync.atomic_:storeUint32" => macro {
 		_addr.value = _val;
 	},
@@ -1443,7 +1449,10 @@ final list = [
 	"testing.T_common:fatalf" => macro {},
 	"testing.T_common:tempDir" => macro return "temp",
 	"testing.T_common:skipped" => macro return false,
-	"testing.T_common:fail" => macro _c._failed = true,
+	"testing.T_common:fail" => macro {
+		_c._failed = true;
+		@:define("sys") Sys.exit(1);
+	},
 	"testing.T_common:skip" => macro {},
 	"testing.T_common:helper" => macro {},
 	"testing.T_common:failNow" => macro {

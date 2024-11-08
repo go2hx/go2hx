@@ -1914,6 +1914,7 @@ class IsolationLevel_static_extension {
     					gotoNext = 3604499
     					_ = gotoNext == 3604499
     					checker_3604047 = defaultCheckNamedValue
+    					_ = 0
     					gotoNext = 3604546
     				}
     				_ = gotoNext == 3604546

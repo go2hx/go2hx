@@ -1027,6 +1027,7 @@ class Directive_static_extension {
     					} else {
     						gotoNext = 3736162
     					}
+    					_ = 0
     					gotoNext = 3736162
     				}
     				gotoNext = 3736162
@@ -1091,8 +1092,10 @@ class Directive_static_extension {
     					} else {
     						gotoNext = 3736162
     					}
+    					_ = 0
     					gotoNext = 3736162
     				}
+    				_ = 0
     				gotoNext = 3736162
     			}
     			_ = gotoNext == 3736162
@@ -1148,6 +1151,7 @@ class Directive_static_extension {
     			gotoNext = 3736697
     			_ = gotoNext == 3736697
     			d.buf.WriteByte(b_3733748)
+    			_ = 0
     			gotoNext = 3736728
     		}
     		_ = gotoNext == 3736728

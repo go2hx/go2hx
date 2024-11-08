@@ -185,21 +185,21 @@ package stdgo._internal.compress.flate;
     @:keep
     static public function _deflate( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> = _d;
+        var _prevLength_3660194:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hh_3660033:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var _index_3661725:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _minIndex_3660291:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _newIndex_3661573:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _newLength_3660573:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _hh_3661991:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var _hash_3661828:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _lookahead_3659290:stdgo.GoInt = (0 : stdgo.GoInt);
         var loopBreak = false;
         var _newOffset_3660584:stdgo.GoInt = (0 : stdgo.GoInt);
         var _prevOffset_3660219:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _prevLength_3660194:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lookahead_3659290:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3662718:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _index_3661725:stdgo.GoInt = (0 : stdgo.GoInt);
         var _ok_3660595:Bool = false;
-        var _hh_3660033:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var _hash_3659972:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _hh_3661991:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
-        var _hash_3661828:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _newIndex_3661573:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _newLength_3660573:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _minIndex_3660291:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3662718:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -369,6 +369,7 @@ package stdgo._internal.compress.flate;
                     _gotoNext = 3661530i32;
                 } else if (__value__ == (3661182i32)) {
                     _d._tokens = (_d._tokens.__append__(stdgo._internal.compress.flate.Flate__matchToken._matchToken(((_prevLength_3660194 - (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32), ((_prevOffset_3660219 - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt32))));
+                    var __blank__ = 0i32;
                     _gotoNext = 3661530i32;
                 } else if (__value__ == (3661530i32)) {
                     if ((_d._length <= _d._compressionLevel._fastSkipHashing : Bool)) {
@@ -387,6 +388,7 @@ package stdgo._internal.compress.flate;
                     _gotoNext = 3661725i32;
                 } else if (__value__ == (3661672i32)) {
                     _newIndex_3661573 = ((_d._index + _prevLength_3660194 : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                    var __blank__ = 0i32;
                     _gotoNext = 3661725i32;
                 } else if (__value__ == (3661725i32)) {
                     _index_3661725 = _d._index;
@@ -426,6 +428,7 @@ package stdgo._internal.compress.flate;
                     _gotoNext = 3662441i32;
                 } else if (__value__ == (3662307i32)) {
                     _d._index = (_d._index + (_d._length) : stdgo.GoInt);
+                    var __blank__ = 0i32;
                     _gotoNext = 3662441i32;
                 } else if (__value__ == (3662441i32)) {
                     if ((_d._tokens.length) == ((16384 : stdgo.GoInt))) {

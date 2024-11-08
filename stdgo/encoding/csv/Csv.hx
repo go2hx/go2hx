@@ -373,6 +373,7 @@ class Writer_static_extension {
     				gotoNext = 3653248
     				_ = gotoNext == 3653248
     				field_3653187 = field_3653187[:len(field_3653187)-lengthNL(field_3653187)]
+    				_ = 0
     				gotoNext = 3653364
     			}
     			_ = gotoNext == 3653364
@@ -526,12 +527,14 @@ class Writer_static_extension {
     					r.fieldPositions = append(r.fieldPositions, fieldPos_3653912)
     					parseFieldBreak = true
     					gotoNext = 3652850
+    					_ = 0
     					gotoNext = 3655946
     				}
     				gotoNext = 3653980
     			} else {
     				gotoNext = 3655946
     			}
+    			_ = 0
     			gotoNext = 3655946
     		}
     		gotoNext = 3652850

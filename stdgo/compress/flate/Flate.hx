@@ -1261,6 +1261,7 @@ class T_token_static_extension {
     			} else {
     				gotoNext = 3722062
     			}
+    			_ = 0
     			gotoNext = 3722062
     		}
     		_ = gotoNext == 3722062
@@ -1323,7 +1324,9 @@ class T_token_static_extension {
     		_ = gotoNext == 3722635
     		f.copyLen, f.copyDist = length_3720798, dist_3721759
     		gotoNext = 3722695
+    		gotoNext = 3722695
     	}
+    	_ = gotoNext == 3722695
     	gotoNext = 3722695
     	_ = gotoNext == 3722695
     	{
@@ -1351,7 +1354,9 @@ class T_token_static_extension {
     		}
     		_ = gotoNext == 3723112
     		gotoNext = 3720589
+    		gotoNext = 3723132
     	}
+    	_ = gotoNext == 3723132
     	gotoNext = -1
     }*|/
 **/

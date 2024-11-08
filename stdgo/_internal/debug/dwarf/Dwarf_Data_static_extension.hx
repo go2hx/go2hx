@@ -176,59 +176,59 @@ package stdgo._internal.debug.dwarf;
         @:recv var _d:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Data.Data> = _d;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            var _t_3722708:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnsupportedType.UnsupportedType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnsupportedType.UnsupportedType>);
-            var _t_3720439:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType>);
-            var _t_3719891:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_QualType.QualType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_QualType.QualType>);
-            var _b_3719574:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-            var _loc_3718649:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-            var _t_3716425:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BasicType.BasicType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BasicType.BasicType>);
-            var _val_3720812:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
-            var _haveBitOffset_3716544:Bool = false;
-            var _t_3723141:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>);
-            var _t_3721631:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType>);
-            var _i_3714721:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _ok_3714147:Bool = false;
-            var _next_3712177:() -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = null;
-            var _t_3721128:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>);
-            var _kid_3713956:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
-            var _f_3720652:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>);
-            var _ok_3719577:Bool = false;
-            var _dims_3713937:stdgo.Slice<stdgo.GoInt64> = (null : stdgo.Slice<stdgo.GoInt64>);
-            var _haveBitOffset_3718774:Bool = false;
-            var _byteSize_3716031:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-            var _ok_3715421:Bool = false;
-            var _enc_3715416:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-            var _name_3715378:stdgo.GoString = ("" : stdgo.GoString);
-            var _t_3722451:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnspecifiedType.UnspecifiedType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnspecifiedType.UnspecifiedType>);
-            var _loc_3718279:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-            var _count_3714140:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-            var _t_3722233:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>);
-            var _f_3718129:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>);
-            var _typ_3712103:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
-            var _fixer_3711879:stdgo._internal.debug.dwarf.Dwarf_T_typeFixer.T_typeFixer = ({} : stdgo._internal.debug.dwarf.Dwarf_T_typeFixer.T_typeFixer);
-            var _ok_3711320:Bool = false;
-            var _kid_3721784:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
-            var _b_3718368:stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf = ({} : stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf);
-            var _haveDataBitOffset_3718800:Bool = false;
-            var _lastFieldBitSize_3717976:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-            var _e_3711380:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
-            var _n_3720766:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _nextDepth_3712114:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _t_3711317:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
-            var _tkid_3721833:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
-            var _kid_3718037:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
-            var _t_3713742:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType>);
-            var _addressSize_3711438:stdgo.GoInt = (0 : stdgo.GoInt);
-            var _kid_3720573:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
-            var _lastFieldType_3717950:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>);
-            var _err_3711383:stdgo.Error = (null : stdgo.Error);
-            var _ok_3722866:Bool = false;
-            var _b_3722863:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-            var _t_3717615:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType>);
-            var _haveDataBitOffset_3716569:Bool = false;
-            var _typeOf_3712980:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> -> stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = null;
-            var _t_3722969:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>);
-            var _lastFieldByteOffset_3718005:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            var _t_3747159:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>);
+            var _next_3736195:() -> stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = null;
+            var _nextDepth_3736132:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _ok_3739439:Bool = false;
+            var _kid_3737974:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
+            var _typeOf_3736998:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> -> stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = null;
+            var _b_3743592:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            var _kid_3742055:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
+            var _f_3744670:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>);
+            var _t_3743909:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_QualType.QualType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_QualType.QualType>);
+            var _ok_3743595:Bool = false;
+            var _t_3745649:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType>);
+            var _haveDataBitOffset_3740587:Bool = false;
+            var _name_3739396:stdgo.GoString = ("" : stdgo.GoString);
+            var _e_3735398:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
+            var _b_3746881:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            var _haveBitOffset_3740562:Bool = false;
+            var _lastFieldType_3741968:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>);
+            var _t_3741633:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType>);
+            var _count_3738158:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            var _t_3737760:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType>);
+            var _kid_3745802:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
+            var _lastFieldBitSize_3741994:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            var _t_3740443:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BasicType.BasicType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BasicType.BasicType>);
+            var _enc_3739434:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            var _addressSize_3735456:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _t_3746987:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>);
+            var _ok_3746884:Bool = false;
+            var _lastFieldByteOffset_3742023:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            var _byteSize_3740049:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            var _t_3746726:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnsupportedType.UnsupportedType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnsupportedType.UnsupportedType>);
+            var _t_3746469:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnspecifiedType.UnspecifiedType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnspecifiedType.UnspecifiedType>);
+            var _t_3745146:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>);
+            var _t_3735335:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
+            var _val_3744830:stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
+            var _t_3744457:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType>);
+            var _b_3742386:stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf = ({} : stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf);
+            var _f_3742147:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>);
+            var _fixer_3735897:stdgo._internal.debug.dwarf.Dwarf_T_typeFixer.T_typeFixer = ({} : stdgo._internal.debug.dwarf.Dwarf_T_typeFixer.T_typeFixer);
+            var _n_3744784:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _haveDataBitOffset_3742818:Bool = false;
+            var _err_3735401:stdgo.Error = (null : stdgo.Error);
+            var _tkid_3745851:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
+            var _i_3738739:stdgo.GoInt = (0 : stdgo.GoInt);
+            var _haveBitOffset_3742792:Bool = false;
+            var _ok_3738165:Bool = false;
+            var _dims_3737955:stdgo.Slice<stdgo.GoInt64> = (null : stdgo.Slice<stdgo.GoInt64>);
+            var _typ_3736121:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
+            var _kid_3744591:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>);
+            var _t_3746251:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType> = (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>);
+            var _loc_3742667:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+            var _loc_3742297:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+            var _ok_3735338:Bool = false;
             var _gotoNext = 0i32;
             var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
             while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -238,55 +238,55 @@ package stdgo._internal.debug.dwarf;
                         {
                             {
                                 var __tmp__ = (_typeCache != null && _typeCache.exists(_off) ? { _0 : _typeCache[_off], _1 : true } : { _0 : (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_), _1 : false });
-                                _t_3711317 = __tmp__._0;
-                                _ok_3711320 = __tmp__._1;
+                                _t_3735335 = __tmp__._0;
+                                _ok_3735338 = __tmp__._1;
                             };
-                            if (_ok_3711320) {
-                                _gotoNext = 3711345i32;
+                            if (_ok_3735338) {
+                                _gotoNext = 3735363i32;
                             } else {
-                                _gotoNext = 3711367i32;
+                                _gotoNext = 3735385i32;
                             };
                         };
-                    } else if (__value__ == (3711345i32)) {
-                        return { _0 : _t_3711317, _1 : (null : stdgo.Error) };
-                        _gotoNext = 3711367i32;
-                    } else if (__value__ == (3711367i32)) {
+                    } else if (__value__ == (3735363i32)) {
+                        return { _0 : _t_3735335, _1 : (null : stdgo.Error) };
+                        _gotoNext = 3735385i32;
+                    } else if (__value__ == (3735385i32)) {
                         _r.seek(_off);
                         {
                             var __tmp__ = _r.next();
-                            _e_3711380 = __tmp__._0;
-                            _err_3711383 = __tmp__._1;
+                            _e_3735398 = __tmp__._0;
+                            _err_3735401 = __tmp__._1;
                         };
-                        if (_err_3711383 != null) {
-                            _gotoNext = 3711414i32;
+                        if (_err_3735401 != null) {
+                            _gotoNext = 3735432i32;
                         } else {
-                            _gotoNext = 3711438i32;
+                            _gotoNext = 3735456i32;
                         };
-                    } else if (__value__ == (3711414i32)) {
-                        return { _0 : (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_), _1 : _err_3711383 };
-                        _gotoNext = 3711438i32;
-                    } else if (__value__ == (3711438i32)) {
-                        _addressSize_3711438 = _r.addressSize();
-                        if (((_e_3711380 == null || (_e_3711380 : Dynamic).__nil__) || (_e_3711380.offset != _off) : Bool)) {
-                            _gotoNext = 3711501i32;
+                    } else if (__value__ == (3735432i32)) {
+                        return { _0 : (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_), _1 : _err_3735401 };
+                        _gotoNext = 3735456i32;
+                    } else if (__value__ == (3735456i32)) {
+                        _addressSize_3735456 = _r.addressSize();
+                        if (((_e_3735398 == null || (_e_3735398 : Dynamic).__nil__) || (_e_3735398.offset != _off) : Bool)) {
+                            _gotoNext = 3735519i32;
                         } else {
-                            _gotoNext = 3711854i32;
+                            _gotoNext = 3735872i32;
                         };
-                    } else if (__value__ == (3711501i32)) {
+                    } else if (__value__ == (3735519i32)) {
                         return { _0 : (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_), _1 : stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _off, ("no type at offset" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError)) };
-                        _gotoNext = 3711854i32;
-                    } else if (__value__ == (3711854i32)) {
+                        _gotoNext = 3735872i32;
+                    } else if (__value__ == (3735872i32)) {
                         if ((_fixups == null || (_fixups : Dynamic).__nil__)) {
-                            _gotoNext = 3711871i32;
+                            _gotoNext = 3735889i32;
                         } else {
-                            _gotoNext = 3712099i32;
+                            _gotoNext = 3736117i32;
                         };
-                    } else if (__value__ == (3711871i32)) {
+                    } else if (__value__ == (3735889i32)) {
                         __deferstack__.unshift(() -> {
                             var a = function():Void {
                                 var __deferstack__:Array<Void -> Void> = [];
                                 try {
-                                    _fixer_3711879._apply();
+                                    _fixer_3735897._apply();
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -311,14 +311,14 @@ package stdgo._internal.debug.dwarf;
                             };
                             a();
                         });
-                        _fixups = (stdgo.Go.setRef(_fixer_3711879) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_T_typeFixer.T_typeFixer>);
-                        _gotoNext = 3712099i32;
-                    } else if (__value__ == (3712099i32)) {
-                        _nextDepth_3712114 = (0 : stdgo.GoInt);
-                        _next_3712177 = function():stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> {
+                        _fixups = (stdgo.Go.setRef(_fixer_3735897) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_T_typeFixer.T_typeFixer>);
+                        _gotoNext = 3736117i32;
+                    } else if (__value__ == (3736117i32)) {
+                        _nextDepth_3736132 = (0 : stdgo.GoInt);
+                        _next_3736195 = function():stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry> {
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
-                                if (!_e_3711380.children) {
+                                if (!_e_3735398.children) {
                                     {
                                         for (defer in __deferstack__) {
                                             defer();
@@ -350,7 +350,7 @@ package stdgo._internal.debug.dwarf;
                                 return __ret__;
                             };
                         };
-                        _typeOf_3712980 = function(_e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>):stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ {
+                        _typeOf_3736998 = function(_e:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Entry.Entry>):stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ {
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
                                 var _tval = (_e.val((73u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.AnyInterface);
@@ -363,9 +363,9 @@ package stdgo._internal.debug.dwarf;
                                             {
                                                 var __tmp__ = _d._readType(_name?.__copy__(), _r._clone(), _toff, _typeCache, _fixups);
                                                 _t = __tmp__._0;
-                                                _err_3711383 = __tmp__._1;
+                                                _err_3735401 = __tmp__._1;
                                             };
-                                            if (_err_3711383 != null) {
+                                            if (_err_3735401 != null) {
                                                 {
                                                     final __ret__:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
                                                     for (defer in __deferstack__) {
@@ -381,9 +381,9 @@ package stdgo._internal.debug.dwarf;
                                             {
                                                 var __tmp__ = _d._sigToType(_toff);
                                                 _t = __tmp__._0;
-                                                _err_3711383 = __tmp__._1;
+                                                _err_3735401 = __tmp__._1;
                                             };
-                                            if (_err_3711383 != null) {
+                                            if (_err_3735401 != null) {
                                                 {
                                                     final __ret__:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
                                                     for (defer in __deferstack__) {
@@ -435,790 +435,792 @@ package stdgo._internal.debug.dwarf;
                             };
                         };
                         var __blank__ = 0i32;
-                        _gotoNext = 3713380i32;
-                    } else if (__value__ == (3713380i32)) {
+                        _gotoNext = 3737398i32;
+                    } else if (__value__ == (3737398i32)) {
                         {
-                            final __value__ = _e_3711380.tag;
+                            final __value__ = _e_3735398.tag;
                             if (__value__ == ((1u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3713396i32;
+                                _gotoNext = 3737414i32;
                             } else if (__value__ == ((36u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3714814i32;
+                                _gotoNext = 3738832i32;
                             } else if (__value__ == ((2u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) || __value__ == ((19u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) || __value__ == ((23u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3716862i32;
+                                _gotoNext = 3740880i32;
                             } else if (__value__ == ((38u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) || __value__ == ((53u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag)) || __value__ == ((55u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3719760i32;
+                                _gotoNext = 3743778i32;
                             } else if (__value__ == ((4u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3720155i32;
+                                _gotoNext = 3744173i32;
                             } else if (__value__ == ((15u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3720946i32;
+                                _gotoNext = 3744964i32;
                             } else if (__value__ == ((21u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3721267i32;
+                                _gotoNext = 3745285i32;
                             } else if (__value__ == ((22u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3722094i32;
+                                _gotoNext = 3746112i32;
                             } else if (__value__ == ((59u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3722348i32;
+                                _gotoNext = 3746366i32;
                             } else {
-                                _gotoNext = 3722549i32;
+                                _gotoNext = 3746567i32;
                             };
                         };
-                    } else if (__value__ == (3713396i32)) {
-                        _t_3713742 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType>);
-                        _typ_3712103 = stdgo.Go.asInterface(_t_3713742);
-                        _typeCache[_off] = stdgo.Go.asInterface(_t_3713742);
+                    } else if (__value__ == (3737414i32)) {
+                        _t_3737760 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType>);
+                        _typ_3736121 = stdgo.Go.asInterface(_t_3737760);
+                        _typeCache[_off] = stdgo.Go.asInterface(_t_3737760);
                         {
-                            _t_3713742.type = _typeOf_3712980(_e_3711380);
-                            if (_err_3711383 != null) {
-                                _gotoNext = 3713829i32;
+                            _t_3737760.type = _typeOf_3736998(_e_3735398);
+                            if (_err_3735401 != null) {
+                                _gotoNext = 3737847i32;
                             } else {
-                                _gotoNext = 3713851i32;
+                                _gotoNext = 3737869i32;
                             };
                         };
-                    } else if (__value__ == (3713829i32)) {
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3713851i32)) {
+                    } else if (__value__ == (3737847i32)) {
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3737869i32)) {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((46u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((46u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _t_3713742.strideBitSize = __tmp__._0;
+                            _t_3737760.strideBitSize = __tmp__._0;
                         };
-                        _kid_3713956 = _next_3712177();
-                        _gotoNext = 3713952i32;
-                    } else if (__value__ == (3713952i32)) {
-                        if ((_kid_3713956 != null && ((_kid_3713956 : Dynamic).__nil__ == null || !(_kid_3713956 : Dynamic).__nil__))) {
-                            _gotoNext = 3713996i32;
+                        _kid_3737974 = _next_3736195();
+                        _gotoNext = 3737970i32;
+                    } else if (__value__ == (3737970i32)) {
+                        if ((_kid_3737974 != null && ((_kid_3737974 : Dynamic).__nil__ == null || !(_kid_3737974 : Dynamic).__nil__))) {
+                            _gotoNext = 3738014i32;
                         } else {
-                            _gotoNext = 3714613i32;
+                            _gotoNext = 3738631i32;
                         };
-                    } else if (__value__ == (3713983i32)) {
-                        _kid_3713956 = _next_3712177();
-                        _gotoNext = 3713952i32;
-                    } else if (__value__ == (3713996i32)) {
+                    } else if (__value__ == (3738001i32)) {
+                        _kid_3737974 = _next_3736195();
+                        _gotoNext = 3737970i32;
+                    } else if (__value__ == (3738014i32)) {
                         var __blank__ = 0i32;
-                        _gotoNext = 3714094i32;
-                    } else if (__value__ == (3714094i32)) {
+                        _gotoNext = 3738112i32;
+                    } else if (__value__ == (3738112i32)) {
                         {
-                            final __value__ = _kid_3713956.tag;
+                            final __value__ = _kid_3737974.tag;
                             if (__value__ == ((33u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3714114i32;
+                                _gotoNext = 3738132i32;
                             } else if (__value__ == ((4u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3714473i32;
+                                _gotoNext = 3738491i32;
                             } else {
-                                _gotoNext = 3713983i32;
+                                _gotoNext = 3738001i32;
                             };
                         };
-                    } else if (__value__ == (3714114i32)) {
+                    } else if (__value__ == (3738132i32)) {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_kid_3713956.val((55u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_kid_3737974.val((55u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _count_3714140 = __tmp__._0;
-                            _ok_3714147 = __tmp__._1;
+                            _count_3738158 = __tmp__._0;
+                            _ok_3738165 = __tmp__._1;
                         };
-                        if (!_ok_3714147) {
-                            _gotoNext = 3714191i32;
+                        if (!_ok_3738165) {
+                            _gotoNext = 3738209i32;
                         } else {
-                            _gotoNext = 3714443i32;
+                            _gotoNext = 3738461i32;
                         };
-                    } else if (__value__ == (3714191i32)) {
+                    } else if (__value__ == (3738209i32)) {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_kid_3713956.val((47u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_kid_3737974.val((47u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _count_3714140 = __tmp__._0;
-                            _ok_3714147 = __tmp__._1;
+                            _count_3738158 = __tmp__._0;
+                            _ok_3738165 = __tmp__._1;
                         };
-                        if (_ok_3714147) {
-                            _gotoNext = 3714307i32;
-                        } else if ((_dims_3713937.length) == ((0 : stdgo.GoInt))) {
-                            _gotoNext = 3714393i32;
+                        if (_ok_3738165) {
+                            _gotoNext = 3738325i32;
+                        } else if ((_dims_3737955.length) == ((0 : stdgo.GoInt))) {
+                            _gotoNext = 3738411i32;
                         } else {
-                            _gotoNext = 3714443i32;
+                            _gotoNext = 3738461i32;
                         };
-                    } else if (__value__ == (3714307i32)) {
-                        _count_3714140++;
-                        _gotoNext = 3714443i32;
-                    } else if (__value__ == (3714393i32)) {
-                        _count_3714140 = (-1i64 : stdgo.GoInt64);
-                        _gotoNext = 3714443i32;
-                    } else if (__value__ == (3714443i32)) {
-                        _dims_3713937 = (_dims_3713937.__append__(_count_3714140));
-                        _gotoNext = 3713983i32;
-                    } else if (__value__ == (3714473i32)) {
-                        _err_3711383 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _kid_3713956.offset, ("cannot handle enumeration type as array bound" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3714613i32)) {
-                        if ((_dims_3713937.length) == ((0 : stdgo.GoInt))) {
-                            _gotoNext = 3714631i32;
+                    } else if (__value__ == (3738325i32)) {
+                        _count_3738158++;
+                        _gotoNext = 3738461i32;
+                    } else if (__value__ == (3738411i32)) {
+                        _count_3738158 = (-1i64 : stdgo.GoInt64);
+                        _gotoNext = 3738461i32;
+                    } else if (__value__ == (3738461i32)) {
+                        _dims_3737955 = (_dims_3737955.__append__(_count_3738158));
+                        _gotoNext = 3738001i32;
+                    } else if (__value__ == (3738491i32)) {
+                        _err_3735401 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _kid_3737974.offset, ("cannot handle enumeration type as array bound" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3738631i32)) {
+                        if ((_dims_3737955.length) == ((0 : stdgo.GoInt))) {
+                            _gotoNext = 3738649i32;
                         } else {
-                            _gotoNext = 3714697i32;
+                            _gotoNext = 3738715i32;
                         };
-                    } else if (__value__ == (3714631i32)) {
-                        _dims_3713937 = (new stdgo.Slice<stdgo.GoInt64>(1, 1, ...[(-1i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
-                        _gotoNext = 3714697i32;
-                    } else if (__value__ == (3714697i32)) {
-                        _t_3713742.count = _dims_3713937[(0 : stdgo.GoInt)];
-                        _i_3714721 = ((_dims_3713937.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                        _gotoNext = 3714717i32;
-                    } else if (__value__ == (3714717i32)) {
-                        if ((_i_3714721 >= (1 : stdgo.GoInt) : Bool)) {
-                            _gotoNext = 3714753i32;
+                    } else if (__value__ == (3738649i32)) {
+                        _dims_3737955 = (new stdgo.Slice<stdgo.GoInt64>(1, 1, ...[(-1i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
+                        _gotoNext = 3738715i32;
+                    } else if (__value__ == (3738715i32)) {
+                        _t_3737760.count = _dims_3737955[(0 : stdgo.GoInt)];
+                        _i_3738739 = ((_dims_3737955.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                        _gotoNext = 3738735i32;
+                    } else if (__value__ == (3738735i32)) {
+                        if ((_i_3738739 >= (1 : stdgo.GoInt) : Bool)) {
+                            _gotoNext = 3738771i32;
                         } else {
-                            _gotoNext = 3722825i32;
+                            _gotoNext = 3746843i32;
                         };
-                    } else if (__value__ == (3714753i32)) {
-                        _t_3713742.type = stdgo.Go.asInterface((stdgo.Go.setRef(({ type : _t_3713742.type, count : _dims_3713937[(_i_3714721 : stdgo.GoInt)] } : stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType>));
-                        _i_3714721--;
-                        _gotoNext = 3714717i32;
-                    } else if (__value__ == (3714814i32)) {
+                    } else if (__value__ == (3738771i32)) {
+                        _t_3737760.type = stdgo.Go.asInterface((stdgo.Go.setRef(({ type : _t_3737760.type, count : _dims_3737955[(_i_3738739 : stdgo.GoInt)] } : stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType>));
+                        _i_3738739--;
+                        _gotoNext = 3738735i32;
+                    } else if (__value__ == (3738832i32)) {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
                             } catch(_) {
                                 { _0 : ("" : stdgo.GoString), _1 : false };
                             };
-                            _name_3715378 = __tmp__._0?.__copy__();
+                            _name_3739396 = __tmp__._0?.__copy__();
                         };
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((62u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((62u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _enc_3715416 = __tmp__._0;
-                            _ok_3715421 = __tmp__._1;
+                            _enc_3739434 = __tmp__._0;
+                            _ok_3739439 = __tmp__._1;
                         };
-                        if (!_ok_3715421) {
-                            _gotoNext = 3715464i32;
+                        if (!_ok_3739439) {
+                            _gotoNext = 3739482i32;
                         } else {
-                            _gotoNext = 3715565i32;
+                            _gotoNext = 3739583i32;
                         };
-                    } else if (__value__ == (3715464i32)) {
-                        _err_3711383 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name_3715378?.__copy__(), _e_3711380.offset, (("missing encoding attribute for " : stdgo.GoString) + _name_3715378?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3715565i32)) {
+                    } else if (__value__ == (3739482i32)) {
+                        _err_3735401 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name_3739396?.__copy__(), _e_3735398.offset, (("missing encoding attribute for " : stdgo.GoString) + _name_3739396?.__copy__() : stdgo.GoString)?.__copy__()) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3739583i32)) {
                         var __blank__ = 0i32;
-                        _gotoNext = 3715565i32;
+                        _gotoNext = 3739583i32;
                         {
-                            final __value__ = _enc_3715416;
+                            final __value__ = _enc_3739434;
                             if (__value__ == ((1i64 : stdgo.GoInt64))) {
-                                _gotoNext = 3715684i32;
+                                _gotoNext = 3739702i32;
                             } else if (__value__ == ((2i64 : stdgo.GoInt64))) {
-                                _gotoNext = 3715726i32;
+                                _gotoNext = 3739744i32;
                             } else if (__value__ == ((3i64 : stdgo.GoInt64))) {
-                                _gotoNext = 3715768i32;
+                                _gotoNext = 3739786i32;
                             } else if (__value__ == ((4i64 : stdgo.GoInt64))) {
-                                _gotoNext = 3716181i32;
+                                _gotoNext = 3740199i32;
                             } else if (__value__ == ((5i64 : stdgo.GoInt64))) {
-                                _gotoNext = 3716222i32;
+                                _gotoNext = 3740240i32;
                             } else if (__value__ == ((7i64 : stdgo.GoInt64))) {
-                                _gotoNext = 3716262i32;
+                                _gotoNext = 3740280i32;
                             } else if (__value__ == ((6i64 : stdgo.GoInt64))) {
-                                _gotoNext = 3716305i32;
+                                _gotoNext = 3740323i32;
                             } else if (__value__ == ((8i64 : stdgo.GoInt64))) {
-                                _gotoNext = 3716350i32;
+                                _gotoNext = 3740368i32;
                             } else {
-                                _gotoNext = 3715580i32;
+                                _gotoNext = 3739598i32;
                             };
                         };
-                    } else if (__value__ == (3715580i32)) {
-                        _err_3711383 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name_3715378?.__copy__(), _e_3711380.offset, ("unrecognized encoding attribute value" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3715684i32)) {
-                        _typ_3712103 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_AddrType.AddrType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_AddrType.AddrType>));
-                        _gotoNext = 3716402i32;
-                    } else if (__value__ == (3715726i32)) {
-                        _typ_3712103 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_BoolType.BoolType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BoolType.BoolType>));
-                        _gotoNext = 3716402i32;
-                    } else if (__value__ == (3715768i32)) {
-                        _typ_3712103 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_ComplexType.ComplexType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ComplexType.ComplexType>));
-                        if (_name_3715378 == (("complex" : stdgo.GoString))) {
-                            _gotoNext = 3715840i32;
+                    } else if (__value__ == (3739598i32)) {
+                        _err_3735401 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name_3739396?.__copy__(), _e_3735398.offset, ("unrecognized encoding attribute value" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3739702i32)) {
+                        _typ_3736121 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_AddrType.AddrType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_AddrType.AddrType>));
+                        _gotoNext = 3740420i32;
+                    } else if (__value__ == (3739744i32)) {
+                        _typ_3736121 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_BoolType.BoolType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_BoolType.BoolType>));
+                        _gotoNext = 3740420i32;
+                    } else if (__value__ == (3739786i32)) {
+                        _typ_3736121 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_ComplexType.ComplexType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ComplexType.ComplexType>));
+                        if (_name_3739396 == (("complex" : stdgo.GoString))) {
+                            _gotoNext = 3739858i32;
                         } else {
-                            _gotoNext = 3716402i32;
+                            _gotoNext = 3740420i32;
                         };
-                    } else if (__value__ == (3715840i32)) {
+                    } else if (__value__ == (3739858i32)) {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _byteSize_3716031 = __tmp__._0;
+                            _byteSize_3740049 = __tmp__._0;
                         };
-                        _gotoNext = 3716024i32;
-                    } else if (__value__ == (3716024i32)) {
+                        _gotoNext = 3740042i32;
+                    } else if (__value__ == (3740042i32)) {
                         {
                             {
                                 var __tmp__ = try {
-                                    { _0 : (stdgo.Go.typeAssert((_e_3711380.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                    { _0 : (stdgo.Go.typeAssert((_e_3735398.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                                 } catch(_) {
                                     { _0 : (0 : stdgo.GoInt64), _1 : false };
                                 };
-                                _byteSize_3716031 = __tmp__._0;
+                                _byteSize_3740049 = __tmp__._0;
                             };
                             {
-                                final __value__ = _byteSize_3716031;
+                                final __value__ = _byteSize_3740049;
                                 if (__value__ == ((8i64 : stdgo.GoInt64))) {
-                                    _gotoNext = 3716090i32;
+                                    _gotoNext = 3740108i32;
                                 } else if (__value__ == ((16i64 : stdgo.GoInt64))) {
-                                    _gotoNext = 3716130i32;
+                                    _gotoNext = 3740148i32;
                                 } else {
-                                    _gotoNext = 3716402i32;
+                                    _gotoNext = 3740420i32;
                                 };
                             };
                         };
-                    } else if (__value__ == (3716090i32)) {
-                        _name_3715378 = ("complex float" : stdgo.GoString);
-                        _gotoNext = 3716402i32;
-                    } else if (__value__ == (3716130i32)) {
-                        _name_3715378 = ("complex double" : stdgo.GoString);
-                        _gotoNext = 3716402i32;
-                    } else if (__value__ == (3716181i32)) {
-                        _typ_3712103 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_FloatType.FloatType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FloatType.FloatType>));
-                        _gotoNext = 3716402i32;
-                    } else if (__value__ == (3716222i32)) {
-                        _typ_3712103 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_IntType.IntType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_IntType.IntType>));
-                        _gotoNext = 3716402i32;
-                    } else if (__value__ == (3716262i32)) {
-                        _typ_3712103 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_UintType.UintType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UintType.UintType>));
-                        _gotoNext = 3716402i32;
-                    } else if (__value__ == (3716305i32)) {
-                        _typ_3712103 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_CharType.CharType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CharType.CharType>));
-                        _gotoNext = 3716402i32;
-                    } else if (__value__ == (3716350i32)) {
-                        _typ_3712103 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_UcharType.UcharType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UcharType.UcharType>));
-                        _gotoNext = 3716402i32;
-                    } else if (__value__ == (3716402i32)) {
-                        _typeCache[_off] = _typ_3712103;
-                        _t_3716425 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ_3712103) : stdgo._internal.debug.dwarf.Dwarf_T__interface_0.T__interface_0)) : stdgo._internal.debug.dwarf.Dwarf_T__interface_0.T__interface_0).basic();
-                        _t_3716425.commonType.name = _name_3715378?.__copy__();
+                    } else if (__value__ == (3740108i32)) {
+                        _name_3739396 = ("complex float" : stdgo.GoString);
+                        _gotoNext = 3740420i32;
+                    } else if (__value__ == (3740148i32)) {
+                        _name_3739396 = ("complex double" : stdgo.GoString);
+                        _gotoNext = 3740420i32;
+                    } else if (__value__ == (3740199i32)) {
+                        _typ_3736121 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_FloatType.FloatType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FloatType.FloatType>));
+                        _gotoNext = 3740420i32;
+                    } else if (__value__ == (3740240i32)) {
+                        _typ_3736121 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_IntType.IntType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_IntType.IntType>));
+                        _gotoNext = 3740420i32;
+                    } else if (__value__ == (3740280i32)) {
+                        _typ_3736121 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_UintType.UintType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UintType.UintType>));
+                        _gotoNext = 3740420i32;
+                    } else if (__value__ == (3740323i32)) {
+                        _typ_3736121 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_CharType.CharType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_CharType.CharType>));
+                        _gotoNext = 3740420i32;
+                    } else if (__value__ == (3740368i32)) {
+                        _typ_3736121 = stdgo.Go.asInterface((stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_UcharType.UcharType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UcharType.UcharType>));
+                        _gotoNext = 3740420i32;
+                    } else if (__value__ == (3740420i32)) {
+                        _typeCache[_off] = _typ_3736121;
+                        _t_3740443 = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_typ_3736121) : stdgo._internal.debug.dwarf.Dwarf_T__interface_0.T__interface_0)) : stdgo._internal.debug.dwarf.Dwarf_T__interface_0.T__interface_0).basic();
+                        _t_3740443.commonType.name = _name_3739396?.__copy__();
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((13u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((13u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _t_3716425.bitSize = __tmp__._0;
+                            _t_3740443.bitSize = __tmp__._0;
                         };
-                        _haveBitOffset_3716544 = false;
-                        _haveDataBitOffset_3716569 = false;
+                        _haveBitOffset_3740562 = false;
+                        _haveDataBitOffset_3740587 = false;
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((12u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((12u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _t_3716425.bitOffset = __tmp__._0;
-                            _haveBitOffset_3716544 = __tmp__._1;
+                            _t_3740443.bitOffset = __tmp__._0;
+                            _haveBitOffset_3740562 = __tmp__._1;
                         };
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((107u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((107u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _t_3716425.dataBitOffset = __tmp__._0;
-                            _haveDataBitOffset_3716569 = __tmp__._1;
+                            _t_3740443.dataBitOffset = __tmp__._0;
+                            _haveDataBitOffset_3740587 = __tmp__._1;
                         };
-                        if ((_haveBitOffset_3716544 && _haveDataBitOffset_3716569 : Bool)) {
-                            _gotoNext = 3716768i32;
+                        if ((_haveBitOffset_3740562 && _haveDataBitOffset_3740587 : Bool)) {
+                            _gotoNext = 3740786i32;
                         } else {
-                            _gotoNext = 3722825i32;
+                            _gotoNext = 3746843i32;
                         };
-                    } else if (__value__ == (3716768i32)) {
-                        _err_3711383 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name_3715378?.__copy__(), _e_3711380.offset, ("duplicate bit offset attributes" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3716862i32)) {
-                        _t_3717615 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_StructType.StructType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType>);
-                        _typ_3712103 = stdgo.Go.asInterface(_t_3717615);
-                        _typeCache[_off] = stdgo.Go.asInterface(_t_3717615);
+                    } else if (__value__ == (3740786i32)) {
+                        _err_3735401 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name_3739396?.__copy__(), _e_3735398.offset, ("duplicate bit offset attributes" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3740880i32)) {
+                        _t_3741633 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_StructType.StructType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructType.StructType>);
+                        _typ_3736121 = stdgo.Go.asInterface(_t_3741633);
+                        _typeCache[_off] = stdgo.Go.asInterface(_t_3741633);
                         var __blank__ = 0i32;
-                        _gotoNext = 3717669i32;
-                    } else if (__value__ == (3717669i32)) {
+                        _gotoNext = 3741687i32;
+                    } else if (__value__ == (3741687i32)) {
                         {
-                            final __value__ = _e_3711380.tag;
+                            final __value__ = _e_3735398.tag;
                             if (__value__ == ((2u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3717686i32;
+                                _gotoNext = 3741704i32;
                             } else if (__value__ == ((19u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3717727i32;
+                                _gotoNext = 3741745i32;
                             } else if (__value__ == ((23u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3717770i32;
+                                _gotoNext = 3741788i32;
                             } else {
-                                _gotoNext = 3717815i32;
+                                _gotoNext = 3741833i32;
                             };
                         };
-                    } else if (__value__ == (3717686i32)) {
-                        _t_3717615.kind = ("class" : stdgo.GoString);
-                        _gotoNext = 3717815i32;
-                    } else if (__value__ == (3717727i32)) {
-                        _t_3717615.kind = ("struct" : stdgo.GoString);
-                        _gotoNext = 3717815i32;
-                    } else if (__value__ == (3717770i32)) {
-                        _t_3717615.kind = ("union" : stdgo.GoString);
-                        _gotoNext = 3717815i32;
-                    } else if (__value__ == (3717815i32)) {
+                    } else if (__value__ == (3741704i32)) {
+                        _t_3741633.kind = ("class" : stdgo.GoString);
+                        _gotoNext = 3741833i32;
+                    } else if (__value__ == (3741745i32)) {
+                        _t_3741633.kind = ("struct" : stdgo.GoString);
+                        _gotoNext = 3741833i32;
+                    } else if (__value__ == (3741788i32)) {
+                        _t_3741633.kind = ("union" : stdgo.GoString);
+                        _gotoNext = 3741833i32;
+                    } else if (__value__ == (3741833i32)) {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
                             } catch(_) {
                                 { _0 : ("" : stdgo.GoString), _1 : false };
                             };
-                            _t_3717615.structName = __tmp__._0?.__copy__();
+                            _t_3741633.structName = __tmp__._0?.__copy__();
                         };
-                        _t_3717615.incomplete = _e_3711380.val((60u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) != null;
-                        _t_3717615.field = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>>);
-                        _kid_3718037 = _next_3712177();
-                        _gotoNext = 3718033i32;
-                    } else if (__value__ == (3718033i32)) {
-                        if ((_kid_3718037 != null && ((_kid_3718037 : Dynamic).__nil__ == null || !(_kid_3718037 : Dynamic).__nil__))) {
-                            _gotoNext = 3718077i32;
+                        _t_3741633.incomplete = _e_3735398.val((60u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) != null;
+                        _t_3741633.field = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>>);
+                        _kid_3742055 = _next_3736195();
+                        _gotoNext = 3742051i32;
+                    } else if (__value__ == (3742051i32)) {
+                        if ((_kid_3742055 != null && ((_kid_3742055 : Dynamic).__nil__ == null || !(_kid_3742055 : Dynamic).__nil__))) {
+                            _gotoNext = 3742095i32;
                         } else {
-                            _gotoNext = 3719548i32;
+                            _gotoNext = 3743566i32;
                         };
-                    } else if (__value__ == (3718077i32)) {
-                        if (_kid_3718037.tag != ((13u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                            _gotoNext = 3718106i32;
+                    } else if (__value__ == (3742095i32)) {
+                        if (_kid_3742055.tag != ((13u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
+                            _gotoNext = 3742124i32;
                         } else {
-                            _gotoNext = 3718129i32;
+                            _gotoNext = 3742147i32;
                         };
-                    } else if (__value__ == (3718106i32)) {
-                        _kid_3718037 = _next_3712177();
-                        _gotoNext = 3718033i32;
-                    } else if (__value__ == (3718129i32)) {
-                        _f_3718129 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_StructField.StructField)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>);
+                    } else if (__value__ == (3742124i32)) {
+                        _kid_3742055 = _next_3736195();
+                        _gotoNext = 3742051i32;
+                    } else if (__value__ == (3742147i32)) {
+                        _f_3742147 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_StructField.StructField)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_StructField.StructField>);
                         {
-                            _f_3718129.type = _typeOf_3712980(_kid_3718037);
-                            if (_err_3711383 != null) {
-                                _gotoNext = 3718190i32;
+                            _f_3742147.type = _typeOf_3736998(_kid_3742055);
+                            if (_err_3735401 != null) {
+                                _gotoNext = 3742208i32;
                             } else {
-                                _gotoNext = 3718215i32;
+                                _gotoNext = 3742233i32;
                             };
                         };
-                    } else if (__value__ == (3718190i32)) {
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3718215i32)) {
+                    } else if (__value__ == (3742208i32)) {
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3742233i32)) {
                         var __blank__ = 0i32;
-                        _gotoNext = 3718215i32;
+                        _gotoNext = 3742233i32;
                         {
-                            final __type__ = _kid_3718037.val((56u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr));
+                            final __type__ = _kid_3742055.val((56u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr));
                             if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<stdgo.GoUInt8>))) {
                                 var _loc:stdgo.Slice<stdgo.GoUInt8> = __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__().value;
-                                _loc_3718279 = _loc;
-                                _gotoNext = 3718268i32;
+                                _loc_3742297 = _loc;
+                                _gotoNext = 3742286i32;
                             } else if (stdgo.Go.typeEquals((__type__ : stdgo.GoInt64))) {
                                 var _loc:stdgo.GoInt64 = __type__ == null ? 0 : __type__.__underlying__() == null ? 0 : __type__ == null ? 0 : __type__.__underlying__().value;
-                                _loc_3718649 = _loc;
-                                _gotoNext = 3718639i32;
+                                _loc_3742667 = _loc;
+                                _gotoNext = 3742657i32;
                             } else {
                                 var _loc:stdgo.AnyInterface = __type__?.__underlying__();
-                                _gotoNext = 3718683i32;
+                                _gotoNext = 3742701i32;
                             };
                         };
-                    } else if (__value__ == (3718268i32)) {
-                        _b_3718368 = stdgo._internal.debug.dwarf.Dwarf__makeBuf._makeBuf(_d, stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_T_unknownFormat.T_unknownFormat() : stdgo._internal.debug.dwarf.Dwarf_T_unknownFormat.T_unknownFormat)), ("location" : stdgo.GoString), (0u32 : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset), _loc_3718279)?.__copy__();
-                        if (_b_3718368._uint8() != ((35 : stdgo.GoUInt8))) {
-                            _gotoNext = 3718454i32;
+                    } else if (__value__ == (3742286i32)) {
+                        _b_3742386 = stdgo._internal.debug.dwarf.Dwarf__makeBuf._makeBuf(_d, stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_T_unknownFormat.T_unknownFormat() : stdgo._internal.debug.dwarf.Dwarf_T_unknownFormat.T_unknownFormat)), ("location" : stdgo.GoString), (0u32 : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset), _loc_3742297)?.__copy__();
+                        if (_b_3742386._uint8() != ((35 : stdgo.GoUInt8))) {
+                            _gotoNext = 3742472i32;
                         } else {
-                            _gotoNext = 3718544i32;
+                            _gotoNext = 3742562i32;
                         };
-                    } else if (__value__ == (3718454i32)) {
-                        _err_3711383 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _kid_3718037.offset, ("unexpected opcode" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3718544i32)) {
-                        _f_3718129.byteOffset = (_b_3718368._uint() : stdgo.GoInt64);
-                        if (_b_3718368._err != null) {
-                            _gotoNext = 3718595i32;
+                    } else if (__value__ == (3742472i32)) {
+                        _err_3735401 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _kid_3742055.offset, ("unexpected opcode" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3742562i32)) {
+                        _f_3742147.byteOffset = (_b_3742386._uint() : stdgo.GoInt64);
+                        if (_b_3742386._err != null) {
+                            _gotoNext = 3742613i32;
                         } else {
-                            _gotoNext = 3718683i32;
+                            _gotoNext = 3742701i32;
                         };
-                    } else if (__value__ == (3718595i32)) {
-                        _err_3711383 = _b_3718368._err;
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3718639i32)) {
-                        _f_3718129.byteOffset = _loc_3718649;
-                        _gotoNext = 3718683i32;
-                    } else if (__value__ == (3718683i32)) {
+                    } else if (__value__ == (3742613i32)) {
+                        _err_3735401 = _b_3742386._err;
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3742657i32)) {
+                        _f_3742147.byteOffset = _loc_3742667;
+                        _gotoNext = 3742701i32;
+                    } else if (__value__ == (3742701i32)) {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_kid_3718037.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_kid_3742055.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
                             } catch(_) {
                                 { _0 : ("" : stdgo.GoString), _1 : false };
                             };
-                            _f_3718129.name = __tmp__._0?.__copy__();
+                            _f_3742147.name = __tmp__._0?.__copy__();
                         };
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_kid_3718037.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_kid_3742055.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _f_3718129.byteSize = __tmp__._0;
+                            _f_3742147.byteSize = __tmp__._0;
                         };
-                        _haveBitOffset_3718774 = false;
-                        _haveDataBitOffset_3718800 = false;
+                        _haveBitOffset_3742792 = false;
+                        _haveDataBitOffset_3742818 = false;
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_kid_3718037.val((12u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_kid_3742055.val((12u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _f_3718129.bitOffset = __tmp__._0;
-                            _haveBitOffset_3718774 = __tmp__._1;
+                            _f_3742147.bitOffset = __tmp__._0;
+                            _haveBitOffset_3742792 = __tmp__._1;
                         };
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_kid_3718037.val((107u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_kid_3742055.val((107u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _f_3718129.dataBitOffset = __tmp__._0;
-                            _haveDataBitOffset_3718800 = __tmp__._1;
+                            _f_3742147.dataBitOffset = __tmp__._0;
+                            _haveDataBitOffset_3742818 = __tmp__._1;
                         };
-                        if ((_haveBitOffset_3718774 && _haveDataBitOffset_3718800 : Bool)) {
-                            _gotoNext = 3719006i32;
+                        if ((_haveBitOffset_3742792 && _haveDataBitOffset_3742818 : Bool)) {
+                            _gotoNext = 3743024i32;
                         } else {
-                            _gotoNext = 3719104i32;
+                            _gotoNext = 3743122i32;
                         };
-                    } else if (__value__ == (3719006i32)) {
-                        _err_3711383 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _e_3711380.offset, ("duplicate bit offset attributes" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3719104i32)) {
+                    } else if (__value__ == (3743024i32)) {
+                        _err_3735401 = stdgo.Go.asInterface((new stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError(_name?.__copy__(), _e_3735398.offset, ("duplicate bit offset attributes" : stdgo.GoString)) : stdgo._internal.debug.dwarf.Dwarf_DecodeError.DecodeError));
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3743122i32)) {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_kid_3718037.val((13u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_kid_3742055.val((13u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _f_3718129.bitSize = __tmp__._0;
+                            _f_3742147.bitSize = __tmp__._0;
                         };
-                        _t_3717615.field = (_t_3717615.field.__append__(_f_3718129));
-                        if (((_lastFieldBitSize_3717976 == ((0i64 : stdgo.GoInt64)) && _lastFieldByteOffset_3718005 == (_f_3718129.byteOffset) : Bool) && (_t_3717615.kind != ("union" : stdgo.GoString)) : Bool)) {
-                            _gotoNext = 3719269i32;
+                        _t_3741633.field = (_t_3741633.field.__append__(_f_3742147));
+                        if (((_lastFieldBitSize_3741994 == ((0i64 : stdgo.GoInt64)) && _lastFieldByteOffset_3742023 == (_f_3742147.byteOffset) : Bool) && (_t_3741633.kind != ("union" : stdgo.GoString)) : Bool)) {
+                            _gotoNext = 3743287i32;
                         } else {
-                            _gotoNext = 3719448i32;
+                            _gotoNext = 3743466i32;
                         };
-                    } else if (__value__ == (3719269i32)) {
-                        _fixups._recordArrayType(_lastFieldType_3717950);
-                        _gotoNext = 3719448i32;
-                    } else if (__value__ == (3719448i32)) {
-                        _lastFieldType_3717950 = (stdgo.Go.setRef(_f_3718129.type) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>);
-                        _lastFieldByteOffset_3718005 = _f_3718129.byteOffset;
-                        _lastFieldBitSize_3717976 = _f_3718129.bitSize;
-                        _kid_3718037 = _next_3712177();
-                        _gotoNext = 3718033i32;
-                    } else if (__value__ == (3719548i32)) {
-                        if (_t_3717615.kind != (("union" : stdgo.GoString))) {
-                            _gotoNext = 3719569i32;
+                    } else if (__value__ == (3743287i32)) {
+                        _fixups._recordArrayType(_lastFieldType_3741968);
+                        _gotoNext = 3743466i32;
+                    } else if (__value__ == (3743466i32)) {
+                        _lastFieldType_3741968 = (stdgo.Go.setRef(_f_3742147.type) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>);
+                        _lastFieldByteOffset_3742023 = _f_3742147.byteOffset;
+                        _lastFieldBitSize_3741994 = _f_3742147.bitSize;
+                        _kid_3742055 = _next_3736195();
+                        _gotoNext = 3742051i32;
+                    } else if (__value__ == (3743566i32)) {
+                        if (_t_3741633.kind != (("union" : stdgo.GoString))) {
+                            _gotoNext = 3743587i32;
                         } else {
-                            _gotoNext = 3722825i32;
+                            _gotoNext = 3746843i32;
                         };
-                    } else if (__value__ == (3719569i32)) {
+                    } else if (__value__ == (3743587i32)) {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _b_3719574 = __tmp__._0;
-                            _ok_3719577 = __tmp__._1;
+                            _b_3743592 = __tmp__._0;
+                            _ok_3743595 = __tmp__._1;
                         };
-                        if ((_ok_3719577 && (_b_3719574 == _lastFieldByteOffset_3718005) : Bool)) {
-                            _gotoNext = 3719648i32;
+                        if ((_ok_3743595 && (_b_3743592 == _lastFieldByteOffset_3742023) : Bool)) {
+                            _gotoNext = 3743666i32;
                         } else {
-                            _gotoNext = 3722825i32;
+                            _gotoNext = 3746843i32;
                         };
-                    } else if (__value__ == (3719648i32)) {
-                        _fixups._recordArrayType(_lastFieldType_3717950);
-                        _gotoNext = 3722825i32;
-                    } else if (__value__ == (3719760i32)) {
-                        _t_3719891 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_QualType.QualType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_QualType.QualType>);
-                        _typ_3712103 = stdgo.Go.asInterface(_t_3719891);
-                        _typeCache[_off] = stdgo.Go.asInterface(_t_3719891);
+                    } else if (__value__ == (3743666i32)) {
+                        _fixups._recordArrayType(_lastFieldType_3741968);
+                        _gotoNext = 3746843i32;
+                    } else if (__value__ == (3743778i32)) {
+                        _t_3743909 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_QualType.QualType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_QualType.QualType>);
+                        _typ_3736121 = stdgo.Go.asInterface(_t_3743909);
+                        _typeCache[_off] = stdgo.Go.asInterface(_t_3743909);
                         {
-                            _t_3719891.type = _typeOf_3712980(_e_3711380);
-                            if (_err_3711383 != null) {
-                                _gotoNext = 3719977i32;
+                            _t_3743909.type = _typeOf_3736998(_e_3735398);
+                            if (_err_3735401 != null) {
+                                _gotoNext = 3743995i32;
                             } else {
-                                _gotoNext = 3719999i32;
+                                _gotoNext = 3744017i32;
                             };
                         };
-                    } else if (__value__ == (3719977i32)) {
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3719999i32)) {
+                    } else if (__value__ == (3743995i32)) {
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3744017i32)) {
                         var __blank__ = 0i32;
-                        _gotoNext = 3719999i32;
+                        _gotoNext = 3744017i32;
                         {
-                            final __value__ = _e_3711380.tag;
+                            final __value__ = _e_3735398.tag;
                             if (__value__ == ((38u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3720016i32;
+                                _gotoNext = 3744034i32;
                             } else if (__value__ == ((55u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3720057i32;
+                                _gotoNext = 3744075i32;
                             } else if (__value__ == ((53u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3720104i32;
+                                _gotoNext = 3744122i32;
                             } else {
-                                _gotoNext = 3722825i32;
+                                _gotoNext = 3746843i32;
                             };
                         };
-                    } else if (__value__ == (3720016i32)) {
-                        _t_3719891.qual = ("const" : stdgo.GoString);
-                        _gotoNext = 3722825i32;
-                    } else if (__value__ == (3720057i32)) {
-                        _t_3719891.qual = ("restrict" : stdgo.GoString);
-                        _gotoNext = 3722825i32;
-                    } else if (__value__ == (3720104i32)) {
-                        _t_3719891.qual = ("volatile" : stdgo.GoString);
-                        _gotoNext = 3722825i32;
-                    } else if (__value__ == (3720155i32)) {
-                        _t_3720439 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType>);
-                        _typ_3712103 = stdgo.Go.asInterface(_t_3720439);
-                        _typeCache[_off] = stdgo.Go.asInterface(_t_3720439);
+                    } else if (__value__ == (3744034i32)) {
+                        _t_3743909.qual = ("const" : stdgo.GoString);
+                        _gotoNext = 3746843i32;
+                    } else if (__value__ == (3744075i32)) {
+                        _t_3743909.qual = ("restrict" : stdgo.GoString);
+                        _gotoNext = 3746843i32;
+                    } else if (__value__ == (3744122i32)) {
+                        _t_3743909.qual = ("volatile" : stdgo.GoString);
+                        _gotoNext = 3746843i32;
+                    } else if (__value__ == (3744173i32)) {
+                        _t_3744457 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumType.EnumType>);
+                        _typ_3736121 = stdgo.Go.asInterface(_t_3744457);
+                        _typeCache[_off] = stdgo.Go.asInterface(_t_3744457);
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
                             } catch(_) {
                                 { _0 : ("" : stdgo.GoString), _1 : false };
                             };
-                            _t_3720439.enumName = __tmp__._0?.__copy__();
+                            _t_3744457.enumName = __tmp__._0?.__copy__();
                         };
-                        _t_3720439.val = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
-                        _kid_3720573 = _next_3712177();
-                        _gotoNext = 3720569i32;
-                    } else if (__value__ == (3720569i32)) {
-                        if ((_kid_3720573 != null && ((_kid_3720573 : Dynamic).__nil__ == null || !(_kid_3720573 : Dynamic).__nil__))) {
-                            _gotoNext = 3720613i32;
+                        _t_3744457.val = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
+                        _kid_3744591 = _next_3736195();
+                        _gotoNext = 3744587i32;
+                    } else if (__value__ == (3744587i32)) {
+                        if ((_kid_3744591 != null && ((_kid_3744591 : Dynamic).__nil__ == null || !(_kid_3744591 : Dynamic).__nil__))) {
+                            _gotoNext = 3744631i32;
                         } else {
-                            _gotoNext = 3722825i32;
+                            _gotoNext = 3746843i32;
                         };
-                    } else if (__value__ == (3720600i32)) {
-                        _kid_3720573 = _next_3712177();
-                        _gotoNext = 3720569i32;
-                    } else if (__value__ == (3720613i32)) {
-                        if (_kid_3720573.tag == ((40u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                            _gotoNext = 3720646i32;
+                    } else if (__value__ == (3744618i32)) {
+                        _kid_3744591 = _next_3736195();
+                        _gotoNext = 3744587i32;
+                    } else if (__value__ == (3744631i32)) {
+                        if (_kid_3744591.tag == ((40u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
+                            _gotoNext = 3744664i32;
                         } else {
-                            _gotoNext = 3720600i32;
+                            _gotoNext = 3744618i32;
                         };
-                    } else if (__value__ == (3720646i32)) {
-                        _f_3720652 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>);
+                    } else if (__value__ == (3744664i32)) {
+                        _f_3744670 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>);
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_kid_3720573.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_kid_3744591.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
                             } catch(_) {
                                 { _0 : ("" : stdgo.GoString), _1 : false };
                             };
-                            _f_3720652.name = __tmp__._0?.__copy__();
+                            _f_3744670.name = __tmp__._0?.__copy__();
                         };
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_kid_3720573.val((28u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_kid_3744591.val((28u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                             } catch(_) {
                                 { _0 : (0 : stdgo.GoInt64), _1 : false };
                             };
-                            _f_3720652.val = __tmp__._0;
+                            _f_3744670.val = __tmp__._0;
                         };
-                        _n_3720766 = (_t_3720439.val.length);
-                        if ((_n_3720766 >= _t_3720439.val.capacity : Bool)) {
-                            _gotoNext = 3720805i32;
+                        _n_3744784 = (_t_3744457.val.length);
+                        if ((_n_3744784 >= _t_3744457.val.capacity : Bool)) {
+                            _gotoNext = 3744823i32;
                         } else {
-                            _gotoNext = 3720895i32;
+                            _gotoNext = 3744913i32;
                         };
-                    } else if (__value__ == (3720805i32)) {
-                        _val_3720812 = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>((_n_3720766 : stdgo.GoInt).toBasic(), (_n_3720766 * (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
-                        stdgo.Go.copySlice(_val_3720812, _t_3720439.val);
-                        _t_3720439.val = _val_3720812;
-                        _gotoNext = 3720895i32;
-                    } else if (__value__ == (3720895i32)) {
-                        _t_3720439.val = (_t_3720439.val.__slice__((0 : stdgo.GoInt), (_n_3720766 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
-                        _t_3720439.val[(_n_3720766 : stdgo.GoInt)] = _f_3720652;
-                        _gotoNext = 3720600i32;
-                    } else if (__value__ == (3720946i32)) {
-                        _t_3721128 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>);
-                        _typ_3712103 = stdgo.Go.asInterface(_t_3721128);
-                        _typeCache[_off] = stdgo.Go.asInterface(_t_3721128);
-                        if (_e_3711380.val((73u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) == null) {
-                            _gotoNext = 3721205i32;
+                    } else if (__value__ == (3744823i32)) {
+                        _val_3744830 = (new stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>((_n_3744784 : stdgo.GoInt).toBasic(), (_n_3744784 * (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
+                        stdgo.Go.copySlice(_val_3744830, _t_3744457.val);
+                        _t_3744457.val = _val_3744830;
+                        _gotoNext = 3744913i32;
+                    } else if (__value__ == (3744913i32)) {
+                        _t_3744457.val = (_t_3744457.val.__slice__((0 : stdgo.GoInt), (_n_3744784 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_EnumValue_.EnumValue_>>);
+                        _t_3744457.val[(_n_3744784 : stdgo.GoInt)] = _f_3744670;
+                        _gotoNext = 3744618i32;
+                    } else if (__value__ == (3744964i32)) {
+                        _t_3745146 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>);
+                        _typ_3736121 = stdgo.Go.asInterface(_t_3745146);
+                        _typeCache[_off] = stdgo.Go.asInterface(_t_3745146);
+                        if (_e_3735398.val((73u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) == null) {
+                            _gotoNext = 3745223i32;
                         } else {
-                            _gotoNext = 3721246i32;
+                            _gotoNext = 3745264i32;
                         };
-                    } else if (__value__ == (3721205i32)) {
-                        _t_3721128.type = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.dwarf.Dwarf_VoidType.VoidType() : stdgo._internal.debug.dwarf.Dwarf_VoidType.VoidType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_VoidType.VoidType>));
-                        _gotoNext = 3722825i32;
-                    } else if (__value__ == (3721246i32)) {
-                        _t_3721128.type = _typeOf_3712980(_e_3711380);
-                        _gotoNext = 3722825i32;
-                    } else if (__value__ == (3721267i32)) {
-                        _t_3721631 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType>);
-                        _typ_3712103 = stdgo.Go.asInterface(_t_3721631);
-                        _typeCache[_off] = stdgo.Go.asInterface(_t_3721631);
+                    } else if (__value__ == (3745223i32)) {
+                        _t_3745146.type = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.dwarf.Dwarf_VoidType.VoidType() : stdgo._internal.debug.dwarf.Dwarf_VoidType.VoidType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_VoidType.VoidType>));
+                        _gotoNext = 3746843i32;
+                    } else if (__value__ == (3745264i32)) {
+                        _t_3745146.type = _typeOf_3736998(_e_3735398);
+                        _gotoNext = 3746843i32;
+                    } else if (__value__ == (3745285i32)) {
+                        _t_3745649 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_FuncType.FuncType>);
+                        _typ_3736121 = stdgo.Go.asInterface(_t_3745649);
+                        _typeCache[_off] = stdgo.Go.asInterface(_t_3745649);
                         {
-                            _t_3721631.returnType = _typeOf_3712980(_e_3711380);
-                            if (_err_3711383 != null) {
-                                _gotoNext = 3721723i32;
+                            _t_3745649.returnType = _typeOf_3736998(_e_3735398);
+                            if (_err_3735401 != null) {
+                                _gotoNext = 3745741i32;
                             } else {
-                                _gotoNext = 3721745i32;
+                                _gotoNext = 3745763i32;
                             };
                         };
-                    } else if (__value__ == (3721723i32)) {
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3721745i32)) {
-                        _t_3721631.paramType = (new stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>);
-                        _kid_3721784 = _next_3712177();
-                        _gotoNext = 3721780i32;
-                    } else if (__value__ == (3721780i32)) {
-                        if ((_kid_3721784 != null && ((_kid_3721784 : Dynamic).__nil__ == null || !(_kid_3721784 : Dynamic).__nil__))) {
-                            _gotoNext = 3721824i32;
+                    } else if (__value__ == (3745741i32)) {
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3745763i32)) {
+                        _t_3745649.paramType = (new stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>((0 : stdgo.GoInt).toBasic(), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>);
+                        _kid_3745802 = _next_3736195();
+                        _gotoNext = 3745798i32;
+                    } else if (__value__ == (3745798i32)) {
+                        if ((_kid_3745802 != null && ((_kid_3745802 : Dynamic).__nil__ == null || !(_kid_3745802 : Dynamic).__nil__))) {
+                            _gotoNext = 3745842i32;
                         } else {
-                            _gotoNext = 3722825i32;
+                            _gotoNext = 3746843i32;
                         };
-                    } else if (__value__ == (3721824i32)) {
+                    } else if (__value__ == (3745842i32)) {
                         var __blank__ = 0i32;
-                        _gotoNext = 3721846i32;
-                    } else if (__value__ == (3721846i32)) {
+                        _gotoNext = 3745864i32;
+                    } else if (__value__ == (3745864i32)) {
                         {
-                            final __value__ = _kid_3721784.tag;
+                            final __value__ = _kid_3745802.tag;
                             if (__value__ == ((5u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3721891i32;
+                                _gotoNext = 3745909i32;
                             } else if (__value__ == ((24u32 : stdgo._internal.debug.dwarf.Dwarf_Tag.Tag))) {
-                                _gotoNext = 3721981i32;
+                                _gotoNext = 3745999i32;
                             } else {
-                                _gotoNext = 3721866i32;
+                                _gotoNext = 3745884i32;
                             };
                         };
-                    } else if (__value__ == (3721866i32)) {
-                        _kid_3721784 = _next_3712177();
-                        _gotoNext = 3721780i32;
-                    } else if (__value__ == (3721891i32)) {
+                    } else if (__value__ == (3745884i32)) {
+                        _kid_3745802 = _next_3736195();
+                        _gotoNext = 3745798i32;
+                    } else if (__value__ == (3745909i32)) {
                         {
-                            _tkid_3721833 = _typeOf_3712980(_kid_3721784);
-                            if (_err_3711383 != null) {
-                                _gotoNext = 3721954i32;
+                            _tkid_3745851 = _typeOf_3736998(_kid_3745802);
+                            if (_err_3735401 != null) {
+                                _gotoNext = 3745972i32;
                             } else {
-                                _gotoNext = 3722048i32;
+                                _gotoNext = 3746066i32;
                             };
                         };
-                    } else if (__value__ == (3721954i32)) {
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3721981i32)) {
-                        _tkid_3721833 = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.dwarf.Dwarf_DotDotDotType.DotDotDotType() : stdgo._internal.debug.dwarf.Dwarf_DotDotDotType.DotDotDotType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_DotDotDotType.DotDotDotType>));
-                        _gotoNext = 3722048i32;
-                    } else if (__value__ == (3722048i32)) {
-                        _t_3721631.paramType = (_t_3721631.paramType.__append__(_tkid_3721833));
-                        _kid_3721784 = _next_3712177();
-                        _gotoNext = 3721780i32;
-                    } else if (__value__ == (3722094i32)) {
-                        _t_3722233 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>);
-                        _typ_3712103 = stdgo.Go.asInterface(_t_3722233);
-                        _typeCache[_off] = stdgo.Go.asInterface(_t_3722233);
+                    } else if (__value__ == (3745972i32)) {
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3745999i32)) {
+                        _tkid_3745851 = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.debug.dwarf.Dwarf_DotDotDotType.DotDotDotType() : stdgo._internal.debug.dwarf.Dwarf_DotDotDotType.DotDotDotType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_DotDotDotType.DotDotDotType>));
+                        _gotoNext = 3746066i32;
+                    } else if (__value__ == (3746066i32)) {
+                        _t_3745649.paramType = (_t_3745649.paramType.__append__(_tkid_3745851));
+                        _kid_3745802 = _next_3736195();
+                        _gotoNext = 3745798i32;
+                    } else if (__value__ == (3746112i32)) {
+                        _t_3746251 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>);
+                        _typ_3736121 = stdgo.Go.asInterface(_t_3746251);
+                        _typeCache[_off] = stdgo.Go.asInterface(_t_3746251);
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
                             } catch(_) {
                                 { _0 : ("" : stdgo.GoString), _1 : false };
                             };
-                            _t_3722233.commonType.name = __tmp__._0?.__copy__();
+                            _t_3746251.commonType.name = __tmp__._0?.__copy__();
                         };
-                        _t_3722233.type = _typeOf_3712980(_e_3711380);
-                        _gotoNext = 3722825i32;
-                    } else if (__value__ == (3722348i32)) {
-                        _t_3722451 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_UnspecifiedType.UnspecifiedType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnspecifiedType.UnspecifiedType>);
-                        _typ_3712103 = stdgo.Go.asInterface(_t_3722451);
-                        _typeCache[_off] = stdgo.Go.asInterface(_t_3722451);
+                        _t_3746251.type = _typeOf_3736998(_e_3735398);
+                        _gotoNext = 3746843i32;
+                    } else if (__value__ == (3746366i32)) {
+                        _t_3746469 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_UnspecifiedType.UnspecifiedType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnspecifiedType.UnspecifiedType>);
+                        _typ_3736121 = stdgo.Go.asInterface(_t_3746469);
+                        _typeCache[_off] = stdgo.Go.asInterface(_t_3746469);
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
                             } catch(_) {
                                 { _0 : ("" : stdgo.GoString), _1 : false };
                             };
-                            _t_3722451.basicType.commonType.name = __tmp__._0?.__copy__();
+                            _t_3746469.basicType.commonType.name = __tmp__._0?.__copy__();
                         };
-                        _gotoNext = 3722825i32;
-                    } else if (__value__ == (3722549i32)) {
-                        _t_3722708 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_UnsupportedType.UnsupportedType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnsupportedType.UnsupportedType>);
-                        _typ_3712103 = stdgo.Go.asInterface(_t_3722708);
-                        _typeCache[_off] = stdgo.Go.asInterface(_t_3722708);
-                        _t_3722708.tag = _e_3711380.tag;
+                        _gotoNext = 3746843i32;
+                    } else if (__value__ == (3746567i32)) {
+                        _t_3746726 = (stdgo.Go.setRef(({} : stdgo._internal.debug.dwarf.Dwarf_UnsupportedType.UnsupportedType)) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_UnsupportedType.UnsupportedType>);
+                        _typ_3736121 = stdgo.Go.asInterface(_t_3746726);
+                        _typeCache[_off] = stdgo.Go.asInterface(_t_3746726);
+                        _t_3746726.tag = _e_3735398.tag;
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_e_3711380.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_e_3735398.val((3u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoString)) : stdgo.GoString), _1 : true };
                             } catch(_) {
                                 { _0 : ("" : stdgo.GoString), _1 : false };
                             };
-                            _t_3722708.commonType.name = __tmp__._0?.__copy__();
+                            _t_3746726.commonType.name = __tmp__._0?.__copy__();
                         };
-                        _gotoNext = 3722825i32;
-                    } else if (__value__ == (3722825i32)) {
-                        if (_err_3711383 != null) {
-                            _gotoNext = 3722839i32;
+                        _gotoNext = 3746843i32;
+                    } else if (__value__ == (3746843i32)) {
+                        if (_err_3735401 != null) {
+                            _gotoNext = 3746857i32;
                         } else {
-                            _gotoNext = 3722859i32;
+                            _gotoNext = 3746877i32;
                         };
-                    } else if (__value__ == (3722839i32)) {
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3722859i32)) {
+                    } else if (__value__ == (3746857i32)) {
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3746877i32)) {
                         {
                             {
                                 var __tmp__ = try {
-                                    { _0 : (stdgo.Go.typeAssert((_e_3711380.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
+                                    { _0 : (stdgo.Go.typeAssert((_e_3735398.val((11u32 : stdgo._internal.debug.dwarf.Dwarf_Attr.Attr)) : stdgo.GoInt64)) : stdgo.GoInt64), _1 : true };
                                 } catch(_) {
                                     { _0 : (0 : stdgo.GoInt64), _1 : false };
                                 };
-                                _b_3722863 = __tmp__._0;
-                                _ok_3722866 = __tmp__._1;
+                                _b_3746881 = __tmp__._0;
+                                _ok_3746884 = __tmp__._1;
                             };
-                            if (!_ok_3722866) {
-                                _gotoNext = 3722909i32;
+                            if (!_ok_3746884) {
+                                _gotoNext = 3746927i32;
                             } else {
-                                _gotoNext = 3723181i32;
+                                _gotoNext = 3747199i32;
                             };
                         };
+                    } else if (__value__ == (3746927i32)) {
+                        _b_3746881 = (-1i64 : stdgo.GoInt64);
+                        var __blank__ = 0i32;
+                        _gotoNext = 3746942i32;
+                    } else if (__value__ == (3746942i32)) {
                         {
-                            final __ret__:{ var _0 : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_; var _1 : stdgo.Error; } = { _0 : _typ_3712103, _1 : (null : stdgo.Error) };
+                            final __type__ = _typ_3736121;
+                            if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>))) {
+                                var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>) : __type__.__underlying__().value;
+                                _t_3746987 = _t;
+                                _gotoNext = 3746970i32;
+                            } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>))) {
+                                var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>) : __type__.__underlying__().value;
+                                _t_3747159 = _t;
+                                _gotoNext = 3747146i32;
+                            } else {
+                                var _t:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = __type__ == null ? (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_) : cast __type__;
+                                _gotoNext = 3747199i32;
+                            };
+                        };
+                        _gotoNext = 3747199i32;
+                    } else if (__value__ == (3746970i32)) {
+                        _fixups._typedefs = (_fixups._typedefs.__append__(_t_3746987));
+                        _gotoNext = 3747199i32;
+                    } else if (__value__ == (3747146i32)) {
+                        _b_3746881 = (_addressSize_3735456 : stdgo.GoInt64);
+                        _gotoNext = 3747199i32;
+                    } else if (__value__ == (3747199i32)) {
+                        _typ_3736121.common().byteSize = _b_3746881;
+                        _gotoNext = 3747229i32;
+                    } else if (__value__ == (3747229i32)) {
+                        {
+                            final __ret__:{ var _0 : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_; var _1 : stdgo.Error; } = { _0 : _typ_3736121, _1 : (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
                             return __ret__;
                         };
-                        _gotoNext = 3723228i32;
-                    } else if (__value__ == (3722909i32)) {
-                        _b_3722863 = (-1i64 : stdgo.GoInt64);
-                        var __blank__ = 0i32;
-                        _gotoNext = 3722924i32;
-                    } else if (__value__ == (3722924i32)) {
-                        {
-                            final __type__ = _typ_3712103;
-                            if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>))) {
-                                var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_TypedefType.TypedefType>) : __type__.__underlying__().value;
-                                _t_3722969 = _t;
-                                _gotoNext = 3722952i32;
-                            } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>))) {
-                                var _t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_PtrType.PtrType>) : __type__.__underlying__().value;
-                                _t_3723141 = _t;
-                                _gotoNext = 3723128i32;
-                            } else {
-                                var _t:stdgo._internal.debug.dwarf.Dwarf_Type_.Type_ = __type__ == null ? (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_) : cast __type__;
-                                _gotoNext = 3723181i32;
-                            };
-                        };
-                        _gotoNext = 3723181i32;
-                    } else if (__value__ == (3722952i32)) {
-                        _fixups._typedefs = (_fixups._typedefs.__append__(_t_3722969));
-                        _gotoNext = 3723181i32;
-                    } else if (__value__ == (3723128i32)) {
-                        _b_3722863 = (_addressSize_3711438 : stdgo.GoInt64);
-                        _gotoNext = 3723181i32;
-                    } else if (__value__ == (3723181i32)) {
-                        _typ_3712103.common().byteSize = _b_3722863;
-                    } else if (__value__ == (3723228i32)) {
+                        _gotoNext = 3747246i32;
+                    } else if (__value__ == (3747246i32)) {
                         if (_typeCache != null) _typeCache.remove(_off);
                         {
-                            final __ret__:{ var _0 : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_), _1 : _err_3711383 };
+                            final __ret__:{ var _0 : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_), _1 : _err_3735401 };
                             for (defer in __deferstack__) {
                                 defer();
                             };

@@ -395,6 +395,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			stmt,
 		}
 	case *ast.ForStmt:
+		previousLoopContinuePos := fs.loopContinuePos[scopeIndex+1]
 		fs.loopContinuePos[scopeIndex+1] = stmt.Pos()
 		init := []ast.Stmt{blank()}
 		if stmt.Init != nil {
@@ -412,6 +413,7 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				stmt.Cond = &ast.BinaryExpr{X: notBreakNameExpr, Y: &ast.ParenExpr{X: stmt.Cond}, Op: token.LAND}
 			}
 		}
+		previousLoopPost := fs.loopPost[scopeIndex+1]
 		if stmt.Post != nil {
 			stmt.Body.List = append(stmt.Body.List, stmt.Post)
 			fs.loopPost[scopeIndex+1] = fs.markJumps(stmt.Post, scopeIndex)[0]
@@ -440,6 +442,8 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			}
 			fs.loopBreakPosFunc = newLoopBreakPosFunc
 		})
+		fs.loopPost[scopeIndex+1] = previousLoopPost
+		fs.loopContinuePos[scopeIndex+1] = previousLoopContinuePos
 		return append(init,
 			jumpTo(stmt.Pos()),
 			setJump(stmt.Pos()),

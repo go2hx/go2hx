@@ -12,7 +12,11 @@ class Go {
 		}; __a__();", func);
 		#elseif (target.threaded)
 		sys.thread.Thread.createWithEventLoop(() -> {
-			func();
+			try {
+				func();
+			}catch(e) {
+				throw e;
+			}
 		});
 		#end
 	}

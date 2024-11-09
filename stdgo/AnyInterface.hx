@@ -141,23 +141,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					case invalidType: true;
 					default: false;
 				}
-			case sliceType(_.get() => elem):
-				var a:Slice<Any> = aValue;
-				var b:Slice<Any> = bValue;
-				var t:Dynamic = new stdgo._internal.internal.reflect.Reflect._Type(elem);
-				if (a.length != b.length)
-					return false;
-				if (a == null || b == null) {
-					a == b;
-				}else{
-					a == b;
-				}
 			case interfaceType(_, _):
 				aValue == bValue;
 			case arrayType(_.get() => elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
-				var t:Dynamic = new stdgo._internal.internal.reflect.Reflect._Type(elem);
+				var t = new stdgo._internal.internal.reflect.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
 					if (AnyInterface.notEquals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;
@@ -165,8 +154,18 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				true;
 			case pointerType(_):
 				(aValue : Pointer<Dynamic>) == (bValue : Pointer<Dynamic>);
+			case mapType(_, _), signature(_, _, _, _, _), sliceType(_):
+				throw errorString("comparing uncomparable type " + new stdgo._internal.internal.reflect.Reflect._Type(gt).string().toString());
 			default:
 				throw "unknown type equals: " + gt;
 		}
 	}
+}
+
+function errorString(s:stdgo.GoString) {
+	#if no_linkerr
+	return s;
+	#else
+	return stdgo.Go.toInterface(stdgo.Go.asInterface((s : stdgo._internal.math.bits.Bits_T_errorString.T_errorString)));
+	#end
 }

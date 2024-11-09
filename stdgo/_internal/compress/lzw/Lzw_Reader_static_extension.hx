@@ -119,7 +119,6 @@ package stdgo._internal.compress.lzw;
                     _r._err = _err_3646622;
                     _gotoNext = 3648542i32;
                 } else if (__value__ == (3646744i32)) {
-                    var __blank__ = 0i32;
                     _gotoNext = 3646744i32;
                     if ((_code_3646616 < _r._clear : Bool)) {
                         _gotoNext = 3646755i32;

@@ -1,38 +1,38 @@
 package stdgo._internal.archive.zip;
 function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.File>, _r:stdgo._internal.io.Io_Reader.Reader):stdgo.Error {
-        var _needHeaderOffset_3871506:Bool = false;
-        var _b_3869779:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _ts_3873188:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _d_3870462:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        var _ts_3873628:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _fieldBuf_3871948:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _fieldTag_3871841:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _modified_3871726:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
+        var _commentLen_3870289:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ts_3873827:stdgo.GoInt64 = (0 : stdgo.GoInt64);
         var _epoch_3873355:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
         var _attrSize_3872886:stdgo.GoInt = (0 : stdgo.GoInt);
         var _attrTag_3872853:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _secs_3873253:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _fieldSize_3871870:stdgo.GoInt = (0 : stdgo.GoInt);
         var _extra_3871763:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
         var _utf8Require2_3870804:Bool = false;
+        var _needCSize_3871461:Bool = false;
+        var _sig_3869804:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _b_3869779:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _err_3869718:stdgo.Error = (null : stdgo.Error);
+        var _ts_3873188:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _attrBuf_3872991:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
         var _utf8Valid1_3870744:Bool = false;
         var _err_3870520:stdgo.Error = (null : stdgo.Error);
         var _extraLen_3870260:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _ticksPerSecond_3873128;
-        var _fieldBuf_3871948:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _utf8Valid2_3870792:Bool = false;
-        var _err_3869718:stdgo.Error = (null : stdgo.Error);
-        var _nsecs_3873292:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _attrBuf_3872991:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _fieldTag_3871841:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _fieldSize_3871870:stdgo.GoInt = (0 : stdgo.GoInt);
         var _parseExtrasBreak = false;
-        var _needCSize_3871461:Bool = false;
-        var _needUSize_3871414:Bool = false;
-        var _utf8Require1_3870756:Bool = false;
-        var _commentLen_3870289:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _filenameLen_3870228:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _d_3870462:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _buf_3869682:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(46, 46, ...[for (i in 0 ... 46) (0 : stdgo.GoUInt8)]);
+        var _ts_3873628:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _utf8Valid2_3870792:Bool = false;
+        var _secs_3873253:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _ticksPerSecond_3873128;
+        var _utf8Require1_3870756:Bool = false;
         var _msdosModified_3873926:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
-        var _ts_3873827:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _modified_3871726:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
-        var _sig_3869804:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _nsecs_3873292:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _needHeaderOffset_3871506:Bool = false;
+        var _needUSize_3871414:Bool = false;
+        var _filenameLen_3870228:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -113,7 +113,6 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                         _utf8Valid2_3870792 = __tmp__._0;
                         _utf8Require2_3870804 = __tmp__._1;
                     };
-                    var __blank__ = 0i32;
                     _gotoNext = 3870843i32;
                 } else if (__value__ == (3870843i32)) {
                     if ((!_utf8Valid1_3870744 || !_utf8Valid2_3870792 : Bool)) {
@@ -159,7 +158,6 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                     _gotoNext = 3873926i32;
                 } else if (__value__ == (3871948i32)) {
                     _fieldBuf_3871948 = _extra_3871763._sub(_fieldSize_3871870);
-                    var __blank__ = 0i32;
                     _gotoNext = 3871984i32;
                 } else if (__value__ == (3871984i32)) {
                     {

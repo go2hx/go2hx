@@ -1,8 +1,7 @@
 package main
 
 func main() {
-	consumed, err := unmarshalPath()
-	println(consumed, err == nil)
+	println(unmarshalPath())
 }
 
 type Token struct{}
@@ -23,6 +22,7 @@ Loop:
 		}
 		for j := range parents[:len(parents)-1] {
 			if parents[j] != fields[j+1] {
+
 				continue Loop
 			}
 		}

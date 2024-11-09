@@ -742,6 +742,8 @@ final list = [
 	"reflect.Value:len" => macro @:splitdeps {
 		final _v = _v.__copy__();
 		var value = @:privateAccess _v.value.value;
+		if (value == null)
+            return 0;
 		final t:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess _v.value.type._common();
 		if (stdgo._internal.internal.reflect.Reflect.isNamed(t)) {
 			switch std.Type.typeof(value) {

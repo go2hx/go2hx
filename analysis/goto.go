@@ -279,9 +279,10 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			stmt,
 		)
 	case *ast.SwitchStmt:
-		init := []ast.Stmt{blank()}
+		init := []ast.Stmt{}
 		if stmt.Init != nil {
-			init = fs.markJumps(stmt.Init, scopeIndex)
+			_ = fs.markJumps(stmt.Init, scopeIndex)
+			//stmt.Init = nil
 		}
 		stmt.Tag = fs.changeVars(stmt.Tag)
 		var defaultClause *ast.CaseClause
@@ -554,6 +555,13 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 				case *ast.Ident:
 					if key.Name == "_" {
 						key.Name = "i_" + fmt.Sprint(stmt.Range)
+						if stmt.Tok == token.ASSIGN {
+							obj := ast.NewObj(ast.Var, key.Name)
+							fs.tempVars[obj] = tempVarData{
+								Ident: key,
+								Value: createPos(0),
+							}
+						}
 					}
 				}
 				lhs = append(lhs, fs.changeVars(stmt.Key))

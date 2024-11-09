@@ -664,6 +664,10 @@ private class IntMap<V> {
 		return map.keyValueIterator();
 	}
 
+	public function keys() {
+		return map.keys();
+	}
+
 	public function exists(key:Int) {
 		return map.exists(key);
 	}

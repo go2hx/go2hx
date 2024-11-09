@@ -3,13 +3,13 @@ function _assignID_32(_text:stdgo.Slice<stdgo.GoInt32>, _sa:stdgo.Slice<stdgo.Go
         var _this_3362346:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
         var _n_3362331:stdgo.GoInt = (0 : stdgo.GoInt);
         var _j_3362009:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _lastLen_3361945:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _n_3362128:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _i_3362014_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lastPos_3361981:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _id_3361936:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3362404:stdgo.GoInt = (0 : stdgo.GoInt);
         var _last_3362370:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+        var _n_3362128:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _lastPos_3361981:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _lastLen_3361945:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _id_3361936:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

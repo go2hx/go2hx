@@ -1,17 +1,17 @@
 package stdgo._internal.crypto.x509;
 function _checkChainForKeyUsage(_chain:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>, _keyUsages:stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>):Bool {
+        var _invalidUsage_5635799:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
+        var _i_5635645_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _usagesRemaining_5635202:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _usage_5635961:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
+        var nextCertBreak = false;
+        var _i_5635416:stdgo.GoInt = (0 : stdgo.GoInt);
         var _usages_5635088:stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage> = (null : stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>);
+        var _i_5635970_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _requestedUsage_5635860:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
+        var _i_5635857:stdgo.GoInt = (0 : stdgo.GoInt);
         var _usage_5635636:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
         var _cert_5635453:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = (null : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
-        var _i_5635416:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_5635645_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var nextCertBreak = false;
-        var _usage_5635961:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
-        var _i_5635970_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_5635857:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _invalidUsage_5635799:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

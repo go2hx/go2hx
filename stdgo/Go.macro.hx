@@ -710,7 +710,10 @@ class Go {
 					var t = new stdgo._internal.internal.reflect.Reflect._Type($toType);
 					// trace($e.type._common());
 					// trace(t._common());
-					final b = $e.type.assignableTo(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t));
+					final e = $e;
+					//trace(e.type.string().toString());
+					//trace(t.string().toString());
+					final b = e.type.assignableTo(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t), t));
 					if (!b)
 						throw "unable to assert";
 					// interface kind check
@@ -718,7 +721,7 @@ class Go {
 					if (t.kind() == 20) {
 						var isPointer = false;
 						var asInterface = false;
-						final typ = std.Type.typeof($e.value);
+						final typ = std.Type.typeof(e.value);
 						switch typ {
 							case TClass(cl):
 								final className = std.Type.getClassName(cl);
@@ -731,22 +734,22 @@ class Go {
 								var _ = false;
 						}
 						if (asInterface) {
-							($e.value : $t);
+							(e.value : $t);
 						} else {
-							var gt = $e.type._common();
+							var gt = e.type._common();
 							if (isPointer) {
 								gt = stdgo._internal.internal.reflect.Reflect.getElem(gt);
 							}
-							(stdgo._internal.internal.reflect.Reflect.asInterfaceValue($e.value, gt) : $t);
+							(stdgo._internal.internal.reflect.Reflect.asInterfaceValue(e.value, gt) : $t);
 						}
 					} else {
 						// exclude basic types from using __underlying__ field access
 						if (t.kind() >= 0 && t.kind() <= 17 || t.kind() == 19) {
-							($e.value : $t);
-						}else if (($e.value : Dynamic).__underlying__ == null) {
-							($e.value : $t);
+							(e.value : $t);
+						}else if ((e.value : Dynamic).__underlying__ == null) {
+							(e.value : $t);
 						} else {
-							var value:Dynamic = ($e.value : Dynamic).__underlying__().value;
+							var value:Dynamic = (e.value : Dynamic).__underlying__().value;
 							if (!(value is stdgo.Pointer.PointerData) && t.kind() == 22) {
 								(stdgo.Go.pointer(value) : $t);
 							} else {
@@ -764,13 +767,13 @@ class Go {
 	}
 
 	public static macro function typeEquals(expr:Expr) {
-		function parens(expr) {
+		function removeParens(expr) {
 			return switch expr.expr {
-				case EParenthesis(e): parens(e);
+				case EParenthesis(e): removeParens(e);
 				default: expr;
 			}
 		}
-		expr = parens(expr);
+		expr = removeParens(expr);
 		switch expr.expr {
 			case ECheckType(e, t2):
 				var t2 = ComplexTypeTools.toType(t2);
@@ -778,12 +781,12 @@ class Go {
 					Context.error("complexType converted to type is null", Context.currentPos());
 				final t2 = gtDecode(t2, e, []);
 				return macro {
-					final i = stdgo.Go.toInterface($e);
-					if (i == null) {
+					final __i__ = stdgo.Go.toInterface($e);
+					if (__i__ == null) {
 						// null AnyInterface
 						false;
 					}else{
-						final t = i.type;
+						final t = __i__.type;
 						var t2 = new stdgo._internal.internal.reflect.Reflect._Type(${t2});
 						try {
 							final b = t.assignableTo(new stdgo._internal.internal.reflect.Reflect._Type_asInterface(stdgo.Go.pointer(t2), t2));

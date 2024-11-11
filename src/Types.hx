@@ -237,6 +237,8 @@ function isRefValue(type:GoType):Bool {
 			false;
 		case basic(_):
 			false;
+		case signature(_, _, _, _, _):
+			false;
 		default:
 			true;
 	}

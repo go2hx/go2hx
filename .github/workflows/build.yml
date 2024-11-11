@@ -321,8 +321,6 @@ jobs:
         continue-on-error: true
       - name: Sort tests
         run: go run ./scripts/sortTests ci
-      - name: Display go-easy sortTests
-        run: cat tests/go_easy.json
       # run go easy tests
       - name: Run go easy tests
         run: npx haxe tests/tests.hxml -D go -D ci -D mode=easy -D runnerCount=${{ env.CORES }} -D nologs #-D hxb
@@ -387,8 +385,6 @@ jobs:
         continue-on-error: true
       - name: Sort tests
         run: go run ./scripts/sortTests ci
-      - name: Display go-medium sortTests
-        run: cat tests/go_medium.json
       # run go medium tests
       - name: Run go medium tests
         run: npx haxe tests/tests.hxml -D go -D ci -D mode=medium -D runnerCount=${{ env.CORES }} -D nologs #-D hxb

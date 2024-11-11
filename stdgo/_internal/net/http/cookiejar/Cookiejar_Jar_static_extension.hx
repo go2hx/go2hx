@@ -242,58 +242,17 @@ package stdgo._internal.net.http.cookiejar;
                 };
             };
             stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_selected), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    var _s = _selected;
-                    if ((_s[(_i : stdgo.GoInt)].path.length) != ((_s[(_j : stdgo.GoInt)].path.length))) {
-                        {
-                            final __ret__:Bool = ((_s[(_i : stdgo.GoInt)].path.length) > (_s[(_j : stdgo.GoInt)].path.length) : Bool);
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return __ret__;
-                        };
-                    };
-                    {
-                        var _ret = (_s[(_i : stdgo.GoInt)].creation.compare(_s[(_j : stdgo.GoInt)].creation?.__copy__()) : stdgo.GoInt);
-                        if (_ret != ((0 : stdgo.GoInt))) {
-                            {
-                                final __ret__:Bool = (_ret < (0 : stdgo.GoInt) : Bool);
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return __ret__;
-                            };
-                        };
-                    };
-                    {
-                        final __ret__:Bool = (_s[(_i : stdgo.GoInt)]._seqNum < _s[(_j : stdgo.GoInt)]._seqNum : Bool);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return false;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return false;
+                var _s = _selected;
+                if ((_s[(_i : stdgo.GoInt)].path.length) != ((_s[(_j : stdgo.GoInt)].path.length))) {
+                    return ((_s[(_i : stdgo.GoInt)].path.length) > (_s[(_j : stdgo.GoInt)].path.length) : Bool);
                 };
+                {
+                    var _ret = (_s[(_i : stdgo.GoInt)].creation.compare(_s[(_j : stdgo.GoInt)].creation?.__copy__()) : stdgo.GoInt);
+                    if (_ret != ((0 : stdgo.GoInt))) {
+                        return (_ret < (0 : stdgo.GoInt) : Bool);
+                    };
+                };
+                return (_s[(_i : stdgo.GoInt)]._seqNum < _s[(_j : stdgo.GoInt)]._seqNum : Bool);
             });
             for (__0 => _e in _selected) {
                 _cookies = (_cookies.__append__((stdgo.Go.setRef(({ name : _e.name?.__copy__(), value : _e.value?.__copy__() } : stdgo._internal.net.http.Http_Cookie.Cookie)) : stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>)));

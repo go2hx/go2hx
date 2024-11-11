@@ -78,33 +78,10 @@ package stdgo._internal.database.sql;
             if ((_stmt._closed || (_stmt._cg != null) : Bool)) {
                 _stmt._mu.unlock();
                 stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        {
-                            var __tmp__ = stdgo._internal.database.sql.Sql__ctxDriverPrepare._ctxDriverPrepare(_ctx, _dc._ci, _stmt._query?.__copy__());
-                            _si = __tmp__._0;
-                            _err = __tmp__._1;
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
+                    {
+                        var __tmp__ = stdgo._internal.database.sql.Sql__ctxDriverPrepare._ctxDriverPrepare(_ctx, _dc._ci, _stmt._query?.__copy__());
+                        _si = __tmp__._0;
+                        _err = __tmp__._1;
                     };
                 });
                 if (_err != null) {
@@ -128,33 +105,10 @@ package stdgo._internal.database.sql;
                 if (_si == null) {
                     var _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = (null : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>);
                     stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            {
-                                var __tmp__ = _stmt._prepareOnConnLocked(_ctx, _dc);
-                                _ds = __tmp__._0;
-                                _err = __tmp__._1;
-                            };
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
+                        {
+                            var __tmp__ = _stmt._prepareOnConnLocked(_ctx, _dc);
+                            _ds = __tmp__._0;
+                            _err = __tmp__._1;
                         };
                     });
                     if (_err != null) {

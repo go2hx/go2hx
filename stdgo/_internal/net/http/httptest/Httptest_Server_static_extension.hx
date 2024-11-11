@@ -16,73 +16,104 @@ package stdgo._internal.net.http.httptest;
     @:keep
     static public function _wrap( _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server> = _s;
-        var __deferstack__:Array<Void -> Void> = [];
-        try {
-            var _oldHook = (_s.config.connState : (stdgo._internal.net.Net_Conn.Conn, stdgo._internal.net.http.Http_ConnState.ConnState) -> Void);
-            _s.config.connState = function(_c:stdgo._internal.net.Net_Conn.Conn, _cs:stdgo._internal.net.http.Http_ConnState.ConnState):Void {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    _s._mu.lock();
-                    __deferstack__.unshift(() -> _s._mu.unlock());
-                    {
-                        final __value__ = _cs;
-                        if (__value__ == ((0 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
-                            {
-                                var __tmp__ = (_s._conns != null && _s._conns.exists(_c) ? { _0 : _s._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : false }), __208:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _exists:Bool = __tmp__._1;
-                                if (_exists) {
+        var _oldHook = (_s.config.connState : (stdgo._internal.net.Net_Conn.Conn, stdgo._internal.net.http.Http_ConnState.ConnState) -> Void);
+        _s.config.connState = function(_c:stdgo._internal.net.Net_Conn.Conn, _cs:stdgo._internal.net.http.Http_ConnState.ConnState):Void {
+            var __deferstack__:Array<Void -> Void> = [];
+            try {
+                _s._mu.lock();
+                __deferstack__.unshift(() -> _s._mu.unlock());
+                {
+                    final __value__ = _cs;
+                    if (__value__ == ((0 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
+                        {
+                            var __tmp__ = (_s._conns != null && _s._conns.exists(_c) ? { _0 : _s._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : false }), __208:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _exists:Bool = __tmp__._1;
+                            if (_exists) {
+                                throw stdgo.Go.toInterface(("invalid state transition" : stdgo.GoString));
+                            };
+                        };
+                        if (_s._conns == null) {
+                            _s._conns = ({
+                                final x = new stdgo.GoMap.GoObjectMap<stdgo._internal.net.Net_Conn.Conn, stdgo._internal.net.http.Http_ConnState.ConnState>();
+                                x.t = new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.net.Net_Conn.Conn", [], stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
+                                x.__defaultValue__ = () -> ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState);
+                                {};
+                                cast x;
+                            } : stdgo.GoMap<stdgo._internal.net.Net_Conn.Conn, stdgo._internal.net.http.Http_ConnState.ConnState>);
+                        };
+                        _s._wg.add((1 : stdgo.GoInt));
+                        _s._conns[_c] = _cs;
+                        if (_s._closed) {
+                            _s._closeConn(_c);
+                        };
+                    } else if (__value__ == ((1 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
+                        {
+                            var __tmp__ = (_s._conns != null && _s._conns.exists(_c) ? { _0 : _s._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : false }), _oldState:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
+                            if (_ok) {
+                                if (((_oldState != (0 : stdgo._internal.net.http.Http_ConnState.ConnState)) && (_oldState != (2 : stdgo._internal.net.http.Http_ConnState.ConnState)) : Bool)) {
                                     throw stdgo.Go.toInterface(("invalid state transition" : stdgo.GoString));
                                 };
+                                _s._conns[_c] = _cs;
                             };
-                            if (_s._conns == null) {
-                                _s._conns = ({
-                                    final x = new stdgo.GoMap.GoObjectMap<stdgo._internal.net.Net_Conn.Conn, stdgo._internal.net.http.Http_ConnState.ConnState>();
-                                    x.t = new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.GoType.named("stdgo._internal.net.Net_Conn.Conn", [], stdgo._internal.internal.reflect.Reflect.GoType.interfaceType(false, []), false, { get : () -> null }));
-                                    x.__defaultValue__ = () -> ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState);
-                                    {};
-                                    cast x;
-                                } : stdgo.GoMap<stdgo._internal.net.Net_Conn.Conn, stdgo._internal.net.http.Http_ConnState.ConnState>);
-                            };
-                            _s._wg.add((1 : stdgo.GoInt));
-                            _s._conns[_c] = _cs;
-                            if (_s._closed) {
-                                _s._closeConn(_c);
-                            };
-                        } else if (__value__ == ((1 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
-                            {
-                                var __tmp__ = (_s._conns != null && _s._conns.exists(_c) ? { _0 : _s._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : false }), _oldState:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
-                                if (_ok) {
-                                    if (((_oldState != (0 : stdgo._internal.net.http.Http_ConnState.ConnState)) && (_oldState != (2 : stdgo._internal.net.http.Http_ConnState.ConnState)) : Bool)) {
-                                        throw stdgo.Go.toInterface(("invalid state transition" : stdgo.GoString));
-                                    };
-                                    _s._conns[_c] = _cs;
+                        };
+                    } else if (__value__ == ((2 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
+                        {
+                            var __tmp__ = (_s._conns != null && _s._conns.exists(_c) ? { _0 : _s._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : false }), _oldState:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
+                            if (_ok) {
+                                if (_oldState != ((1 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
+                                    throw stdgo.Go.toInterface(("invalid state transition" : stdgo.GoString));
                                 };
+                                _s._conns[_c] = _cs;
                             };
-                        } else if (__value__ == ((2 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
-                            {
-                                var __tmp__ = (_s._conns != null && _s._conns.exists(_c) ? { _0 : _s._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : false }), _oldState:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
-                                if (_ok) {
-                                    if (_oldState != ((1 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
-                                        throw stdgo.Go.toInterface(("invalid state transition" : stdgo.GoString));
-                                    };
-                                    _s._conns[_c] = _cs;
-                                };
-                            };
-                            if (_s._closed) {
-                                _s._closeConn(_c);
-                            };
-                        } else if (__value__ == ((3 : stdgo._internal.net.http.Http_ConnState.ConnState)) || __value__ == ((4 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
-                            {
-                                var __tmp__ = (_s._conns != null && _s._conns.exists(_c) ? { _0 : _s._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : false }), __208:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
-                                if (_ok) {
-                                    if (_s._conns != null) _s._conns.remove(_c);
-                                    __deferstack__.unshift(() -> _s._wg.done());
-                                };
+                        };
+                        if (_s._closed) {
+                            _s._closeConn(_c);
+                        };
+                    } else if (__value__ == ((3 : stdgo._internal.net.http.Http_ConnState.ConnState)) || __value__ == ((4 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
+                        {
+                            var __tmp__ = (_s._conns != null && _s._conns.exists(_c) ? { _0 : _s._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : false }), __208:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
+                            if (_ok) {
+                                if (_s._conns != null) _s._conns.remove(_c);
+                                __deferstack__.unshift(() -> _s._wg.done());
                             };
                         };
                     };
-                    if (_oldHook != null) {
-                        _oldHook(_c, _cs);
+                };
+                if (_oldHook != null) {
+                    _oldHook(_c, _cs);
+                };
+                {
+                    for (defer in __deferstack__) {
+                        defer();
                     };
+                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    return;
+                };
+            } catch(__exception__) {
+                var exe:Dynamic = __exception__.native;
+                if ((exe is haxe.ValueException)) exe = exe.value;
+                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                    if (__exception__.message == "__return__") throw "__return__";
+                    exe = stdgo.Go.toInterface(__exception__.message);
+                };
+                stdgo.Go.recover_exception = exe;
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                return;
+            };
+        };
+    }
+    @:keep
+    static public function _goServe( _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server>):Void {
+        @:recv var _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server> = _s;
+        _s._wg.add((1 : stdgo.GoInt));
+        stdgo.Go.routine(() -> {
+            var a = function():Void {
+                var __deferstack__:Array<Void -> Void> = [];
+                try {
+                    __deferstack__.unshift(() -> _s._wg.done());
+                    _s.config.serve(_s.listener);
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -105,85 +136,8 @@ package stdgo._internal.net.http.httptest;
                     return;
                 };
             };
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return;
-            };
-        } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
-            };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                defer();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return;
-        };
-    }
-    @:keep
-    static public function _goServe( _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server>):Void {
-        @:recv var _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server> = _s;
-        var __deferstack__:Array<Void -> Void> = [];
-        try {
-            _s._wg.add((1 : stdgo.GoInt));
-            stdgo.Go.routine(() -> {
-                var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        __deferstack__.unshift(() -> _s._wg.done());
-                        _s.config.serve(_s.listener);
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
-                };
-                a();
-            });
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return;
-            };
-        } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
-            };
-            stdgo.Go.recover_exception = exe;
-            for (defer in __deferstack__) {
-                defer();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return;
-        };
+            a();
+        });
     }
     @:keep
     static public function client( _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server>):stdgo.Ref<stdgo._internal.net.http.Http_Client.Client> {

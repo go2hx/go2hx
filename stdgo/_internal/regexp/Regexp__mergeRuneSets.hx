@@ -14,79 +14,23 @@ var _rx = __1, _lx = __0;
             var _ok = (true : Bool);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if (!_ok) {
-                            _merged = (null : stdgo.Slice<stdgo.GoInt32>);
-                            _next = (null : stdgo.Slice<stdgo.GoUInt32>);
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
+                    if (!_ok) {
+                        _merged = (null : stdgo.Slice<stdgo.GoInt32>);
+                        _next = (null : stdgo.Slice<stdgo.GoUInt32>);
                     };
                 };
                 a();
             });
             var _ix = (-1 : stdgo.GoInt);
             var _extend = function(_newLow:stdgo.Pointer<stdgo.GoInt>, _newArray:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _pc:stdgo.GoUInt32):Bool {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    if (((_ix > (0 : stdgo.GoInt) : Bool) && (((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)] <= _merged[(_ix : stdgo.GoInt)] : Bool) : Bool)) {
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return false;
-                        };
-                    };
-                    _merged = (_merged.__append__(((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)], ((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value + (1 : stdgo.GoInt) : stdgo.GoInt)]));
-                    _newLow.value = (_newLow.value + ((2 : stdgo.GoInt)) : stdgo.GoInt);
-                    _ix = (_ix + ((2 : stdgo.GoInt)) : stdgo.GoInt);
-                    _next = (_next.__append__(_pc));
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return true;
-                    };
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return false;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if (((_ix > (0 : stdgo.GoInt) : Bool) && (((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)] <= _merged[(_ix : stdgo.GoInt)] : Bool) : Bool)) {
                     return false;
                 };
+                _merged = (_merged.__append__(((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)], ((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value + (1 : stdgo.GoInt) : stdgo.GoInt)]));
+                _newLow.value = (_newLow.value + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                _ix = (_ix + ((2 : stdgo.GoInt)) : stdgo.GoInt);
+                _next = (_next.__append__(_pc));
+                return true;
             };
             while (((_lx < _leftLen : Bool) || (_rx < _rightLen : Bool) : Bool)) {
                 if ((_rx >= _rightLen : Bool)) {

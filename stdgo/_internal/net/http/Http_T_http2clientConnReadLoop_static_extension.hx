@@ -182,70 +182,33 @@ package stdgo._internal.net.http;
             };
             var _seenMaxConcurrentStreams:Bool = false;
             var _err = (_f.foreachSetting(function(_s:stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting):stdgo.Error {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    {
-                        final __value__ = _s.id;
-                        if (__value__ == ((5 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
-                            _cc._maxFrameSize = _s.val;
-                        } else if (__value__ == ((3 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
-                            _cc._maxConcurrentStreams = _s.val;
-                            _seenMaxConcurrentStreams = true;
-                        } else if (__value__ == ((6 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
-                            _cc._peerMaxHeaderListSize = (_s.val : stdgo.GoUInt64);
-                        } else if (__value__ == ((4 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
-                            if ((_s.val > (2147483647u32 : stdgo.GoUInt32) : Bool)) {
-                                {
-                                    final __ret__:stdgo.Error = stdgo.Go.asInterface(((3u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError));
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    return __ret__;
-                                };
-                            };
-                            var _delta = ((_s.val : stdgo.GoInt32) - (_cc._initialWindowSize : stdgo.GoInt32) : stdgo.GoInt32);
-                            for (__32464 => _cs in _cc._streams) {
-                                _cs._flow._add(_delta);
-                            };
-                            _cc._cond.broadcast();
-                            _cc._initialWindowSize = _s.val;
-                        } else if (__value__ == ((1 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
-                            _cc._henc.setMaxDynamicTableSize(_s.val);
-                            _cc._peerMaxHeaderTableSize = _s.val;
-                        } else {
-                            _cc._vlogf(("Unhandled Setting: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)));
+                {
+                    final __value__ = _s.id;
+                    if (__value__ == ((5 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
+                        _cc._maxFrameSize = _s.val;
+                    } else if (__value__ == ((3 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
+                        _cc._maxConcurrentStreams = _s.val;
+                        _seenMaxConcurrentStreams = true;
+                    } else if (__value__ == ((6 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
+                        _cc._peerMaxHeaderListSize = (_s.val : stdgo.GoUInt64);
+                    } else if (__value__ == ((4 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
+                        if ((_s.val > (2147483647u32 : stdgo.GoUInt32) : Bool)) {
+                            return stdgo.Go.asInterface(((3u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError));
                         };
-                    };
-                    {
-                        final __ret__:stdgo.Error = (null : stdgo.Error);
-                        for (defer in __deferstack__) {
-                            defer();
+                        var _delta = ((_s.val : stdgo.GoInt32) - (_cc._initialWindowSize : stdgo.GoInt32) : stdgo.GoInt32);
+                        for (__32464 => _cs in _cc._streams) {
+                            _cs._flow._add(_delta);
                         };
-                        return __ret__;
+                        _cc._cond.broadcast();
+                        _cc._initialWindowSize = _s.val;
+                    } else if (__value__ == ((1 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID))) {
+                        _cc._henc.setMaxDynamicTableSize(_s.val);
+                        _cc._peerMaxHeaderTableSize = _s.val;
+                    } else {
+                        _cc._vlogf(("Unhandled Setting: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_s)));
                     };
-                    {
-                        final __ret__:stdgo.Error = (null : stdgo.Error);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
                 };
+                return (null : stdgo.Error);
             }) : stdgo.Error);
             if (_err != null) {
                 {

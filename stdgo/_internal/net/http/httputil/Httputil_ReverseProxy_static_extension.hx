@@ -260,50 +260,27 @@ package stdgo._internal.net.http.httputil;
                     var _notifyChan = _cn.closeNotify();
                     stdgo.Go.routine(() -> {
                         var a = function():Void {
-                            var __deferstack__:Array<Void -> Void> = [];
-                            try {
-                                {
-                                    var __select__ = true;
-                                    while (__select__) {
-                                        if (_notifyChan != null && _notifyChan.__isGet__()) {
-                                            __select__ = false;
+                            {
+                                var __select__ = true;
+                                while (__select__) {
+                                    if (_notifyChan != null && _notifyChan.__isGet__()) {
+                                        __select__ = false;
+                                        {
+                                            _notifyChan.__get__();
                                             {
-                                                _notifyChan.__get__();
-                                                {
-                                                    _cancel();
-                                                };
-                                            };
-                                        } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
-                                            __select__ = false;
-                                            {
-                                                _ctx.done().__get__();
-                                                {};
+                                                _cancel();
                                             };
                                         };
-                                        #if !js Sys.sleep(0.01) #else null #end;
-                                        stdgo._internal.internal.Async.tick();
+                                    } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                                        __select__ = false;
+                                        {
+                                            _ctx.done().__get__();
+                                            {};
+                                        };
                                     };
+                                    #if !js Sys.sleep(0.01) #else null #end;
+                                    stdgo._internal.internal.Async.tick();
                                 };
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                    return;
-                                };
-                            } catch(__exception__) {
-                                var exe:Dynamic = __exception__.native;
-                                if ((exe is haxe.ValueException)) exe = exe.value;
-                                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                    if (__exception__.message == "__return__") throw "__return__";
-                                    exe = stdgo.Go.toInterface(__exception__.message);
-                                };
-                                stdgo.Go.recover_exception = exe;
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
                             };
                         };
                         a();
@@ -390,44 +367,13 @@ package stdgo._internal.net.http.httputil;
                 };
             };
             var _trace = (stdgo.Go.setRef(({ got1xxResponse : function(_code:stdgo.GoInt, _header:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader):stdgo.Error {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    var _h = (_rw.header() : stdgo._internal.net.http.Http_Header.Header);
-                    stdgo._internal.net.http.httputil.Httputil__copyHeader._copyHeader(_h, (_header : stdgo._internal.net.http.Http_Header.Header));
-                    _rw.writeHeader(_code);
-                    for (_k => _ in _h) {
-                        if (_h != null) _h.remove(_k);
-                    };
-                    {
-                        final __ret__:stdgo.Error = (null : stdgo.Error);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        final __ret__:stdgo.Error = (null : stdgo.Error);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
+                var _h = (_rw.header() : stdgo._internal.net.http.Http_Header.Header);
+                stdgo._internal.net.http.httputil.Httputil__copyHeader._copyHeader(_h, (_header : stdgo._internal.net.http.Http_Header.Header));
+                _rw.writeHeader(_code);
+                for (_k => _ in _h) {
+                    if (_h != null) _h.remove(_k);
                 };
+                return (null : stdgo.Error);
             } } : stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace)) : stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>);
             _outreq = _outreq.withContext(stdgo._internal.net.http.httptrace.Httptrace_withClientTrace.withClientTrace(_outreq.context(), _trace));
             var __tmp__ = _transport.roundTrip(_outreq), _res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

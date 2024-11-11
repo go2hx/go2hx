@@ -15,52 +15,29 @@ package stdgo._internal.net.http;
             var _inFlightResponse:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = (null : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        {
-                            var _err = ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            } : stdgo.AnyInterface);
-                            if (((_err != null) && (_err != stdgo.Go.toInterface(stdgo._internal.net.http.Http_errAbortHandler.errAbortHandler)) : Bool)) {
-                                {};
-                                var _buf = (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                                _buf = (_buf.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_buf, false)) : stdgo.Slice<stdgo.GoUInt8>);
-                                _c._server._logf(("http: panic serving %v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(_c._remoteAddr), _err, stdgo.Go.toInterface(_buf));
-                            };
+                    {
+                        var _err = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        } : stdgo.AnyInterface);
+                        if (((_err != null) && (_err != stdgo.Go.toInterface(stdgo._internal.net.http.Http_errAbortHandler.errAbortHandler)) : Bool)) {
+                            {};
+                            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+                            _buf = (_buf.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_buf, false)) : stdgo.Slice<stdgo.GoUInt8>);
+                            _c._server._logf(("http: panic serving %v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(_c._remoteAddr), _err, stdgo.Go.toInterface(_buf));
                         };
+                    };
+                    if ((_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__))) {
+                        _inFlightResponse._cancelCtx();
+                    };
+                    if (!_c._hijacked()) {
                         if ((_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__))) {
-                            _inFlightResponse._cancelCtx();
+                            _inFlightResponse._conn._r._abortPendingRead();
+                            _inFlightResponse._reqBody.close();
                         };
-                        if (!_c._hijacked()) {
-                            if ((_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__))) {
-                                _inFlightResponse._conn._r._abortPendingRead();
-                                _inFlightResponse._reqBody.close();
-                            };
-                            _c._close();
-                            _c._setState(_c._rwc, (4 : stdgo._internal.net.http.Http_ConnState.ConnState), true);
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
+                        _c._close();
+                        _c._setState(_c._rwc, (4 : stdgo._internal.net.http.Http_ConnState.ConnState), true);
                     };
                 };
                 a();
@@ -413,30 +390,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
                 if ((_d > (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
                     __deferstack__.unshift(() -> {
                         var a = function():Void {
-                            var __deferstack__:Array<Void -> Void> = [];
-                            try {
-                                _c._rwc.setWriteDeadline(stdgo._internal.time.Time_now.now().add(_d)?.__copy__());
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                    return;
-                                };
-                            } catch(__exception__) {
-                                var exe:Dynamic = __exception__.native;
-                                if ((exe is haxe.ValueException)) exe = exe.value;
-                                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                    if (__exception__.message == "__return__") throw "__return__";
-                                    exe = stdgo.Go.toInterface(__exception__.message);
-                                };
-                                stdgo.Go.recover_exception = exe;
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
+                            _c._rwc.setWriteDeadline(stdgo._internal.time.Time_now.now().add(_d)?.__copy__());
                         };
                         a();
                     });

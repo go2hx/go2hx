@@ -91,38 +91,7 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                 };
             };
             var _sizeFunc = (function():{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    {
-                        final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _d.size(), _1 : (null : stdgo.Error) };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
-                };
+                return { _0 : _d.size(), _1 : (null : stdgo.Error) };
             } : () -> { var _0 : stdgo.GoInt64; var _1 : stdgo.Error; });
             stdgo._internal.net.http.Http__serveContent._serveContent(_w, _r, _d.name()?.__copy__(), _d.modTime()?.__copy__(), _sizeFunc, _f);
             {

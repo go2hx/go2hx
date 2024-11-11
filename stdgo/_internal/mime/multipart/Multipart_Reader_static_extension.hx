@@ -118,49 +118,26 @@ var _fileOff = __1, _file = __0;
             var _maxHeaders = (stdgo._internal.mime.multipart.Multipart__maxMIMEHeaders._maxMIMEHeaders() : stdgo.GoInt64);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
-                            {
-                                var _cerr = (_file.close() : stdgo.Error);
-                                if (_err == null) {
-                                    _err = _cerr;
-                                };
-                            };
-                        };
-                        if ((_combineFiles && (_numDiskFiles > (1 : stdgo.GoInt) : Bool) : Bool)) {
-                            for (__16 => _fhs in _form.file) {
-                                for (__17 => _fh in _fhs) {
-                                    _fh._tmpshared = true;
-                                };
-                            };
-                        };
-                        if (_err != null) {
-                            _form.removeAll();
-                            if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
-                                stdgo._internal.os.Os_remove.remove(_file.name()?.__copy__());
-                            };
-                        };
+                    if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
                         {
-                            for (defer in __deferstack__) {
-                                defer();
+                            var _cerr = (_file.close() : stdgo.Error);
+                            if (_err == null) {
+                                _err = _cerr;
                             };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
                         };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
+                    };
+                    if ((_combineFiles && (_numDiskFiles > (1 : stdgo.GoInt) : Bool) : Bool)) {
+                        for (__16 => _fhs in _form.file) {
+                            for (__17 => _fh in _fhs) {
+                                _fh._tmpshared = true;
+                            };
                         };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
+                    };
+                    if (_err != null) {
+                        _form.removeAll();
+                        if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
+                            stdgo._internal.os.Os_remove.remove(_file.name()?.__copy__());
                         };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
                     };
                 };
                 a();

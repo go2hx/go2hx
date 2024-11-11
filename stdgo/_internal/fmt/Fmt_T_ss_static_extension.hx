@@ -864,49 +864,26 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         try {
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        {
-                            var _e = ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            } : stdgo.AnyInterface);
-                            if (_e != null) {
-                                {
-                                    var __tmp__ = try {
-                                        { _0 : (stdgo.Go.typeAssert((_e : stdgo._internal.fmt.Fmt_T_scanError.T_scanError)) : stdgo._internal.fmt.Fmt_T_scanError.T_scanError), _1 : true };
-                                    } catch(_) {
-                                        { _0 : ({} : stdgo._internal.fmt.Fmt_T_scanError.T_scanError), _1 : false };
-                                    }, _se = __tmp__._0, _ok = __tmp__._1;
-                                    if (_ok) {
-                                        _err = _se._err;
-                                    } else {
-                                        throw stdgo.Go.toInterface(_e);
-                                    };
+                    {
+                        var _e = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        } : stdgo.AnyInterface);
+                        if (_e != null) {
+                            {
+                                var __tmp__ = try {
+                                    { _0 : (stdgo.Go.typeAssert((_e : stdgo._internal.fmt.Fmt_T_scanError.T_scanError)) : stdgo._internal.fmt.Fmt_T_scanError.T_scanError), _1 : true };
+                                } catch(_) {
+                                    { _0 : ({} : stdgo._internal.fmt.Fmt_T_scanError.T_scanError), _1 : false };
+                                }, _se = __tmp__._0, _ok = __tmp__._1;
+                                if (_ok) {
+                                    _err = _se._err;
+                                } else {
+                                    throw stdgo.Go.toInterface(_e);
                                 };
                             };
                         };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
                     };
                 };
                 a();

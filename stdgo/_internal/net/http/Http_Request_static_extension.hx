@@ -232,30 +232,7 @@ package stdgo._internal.net.http;
             if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteRequest != null) : Bool)) {
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            _trace.wroteRequest(({ err : _err } : stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo));
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
+                        _trace.wroteRequest(({ err : _err } : stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo));
                     };
                     a();
                 });
@@ -263,42 +240,14 @@ package stdgo._internal.net.http;
             var _closed = (false : Bool);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if (_closed) {
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return;
-                            };
-                        };
-                        {
-                            var _closeErr = (_r._closeBody() : stdgo.Error);
-                            if (((_closeErr != null) && (_err == null) : Bool)) {
-                                _err = _closeErr;
-                            };
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    if (_closed) {
                         return;
+                    };
+                    {
+                        var _closeErr = (_r._closeBody() : stdgo.Error);
+                        if (((_closeErr != null) && (_err == null) : Bool)) {
+                            _err = _closeErr;
+                        };
                     };
                 };
                 a();

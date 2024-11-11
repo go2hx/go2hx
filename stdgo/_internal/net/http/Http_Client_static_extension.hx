@@ -101,30 +101,7 @@ var _icookies = __1, _ireqhdr = __0;
             if (stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult != null) {
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult(_retres, _reterr);
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
+                        stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult(_retres, _reterr);
                     };
                     a();
                 });
@@ -142,47 +119,16 @@ var _icookies = __1, _ireqhdr = __0;
             var __0 = _c._deadline()?.__copy__(), __1:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>>), __2:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), __3 = _c._makeHeadersCopier(_req), __4 = false, __5:stdgo.GoString = ("" : stdgo.GoString), __6:Bool = false;
 var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeaders = __3, _resp = __2, _reqs = __1, _deadline = __0;
             var _uerr = (function(_err:stdgo.Error):stdgo.Error {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    if (!_reqBodyClosed) {
-                        _req._closeBody();
-                    };
-                    var _urlStr:stdgo.GoString = ("" : stdgo.GoString);
-                    if (((_resp != null && ((_resp : Dynamic).__nil__ == null || !(_resp : Dynamic).__nil__)) && (_resp.request != null && ((_resp.request : Dynamic).__nil__ == null || !(_resp.request : Dynamic).__nil__)) : Bool)) {
-                        _urlStr = stdgo._internal.net.http.Http__stripPassword._stripPassword(_resp.request.url)?.__copy__();
-                    } else {
-                        _urlStr = stdgo._internal.net.http.Http__stripPassword._stripPassword(_req.url)?.__copy__();
-                    };
-                    {
-                        final __ret__:stdgo.Error = stdgo.Go.asInterface((stdgo.Go.setRef(({ op : stdgo._internal.net.http.Http__urlErrorOp._urlErrorOp(_reqs[(0 : stdgo.GoInt)].method?.__copy__())?.__copy__(), url : _urlStr?.__copy__(), err : _err } : stdgo._internal.net.url.Url_Error.Error)) : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>));
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        final __ret__:stdgo.Error = (null : stdgo.Error);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
+                if (!_reqBodyClosed) {
+                    _req._closeBody();
                 };
+                var _urlStr:stdgo.GoString = ("" : stdgo.GoString);
+                if (((_resp != null && ((_resp : Dynamic).__nil__ == null || !(_resp : Dynamic).__nil__)) && (_resp.request != null && ((_resp.request : Dynamic).__nil__ == null || !(_resp.request : Dynamic).__nil__)) : Bool)) {
+                    _urlStr = stdgo._internal.net.http.Http__stripPassword._stripPassword(_resp.request.url)?.__copy__();
+                } else {
+                    _urlStr = stdgo._internal.net.http.Http__stripPassword._stripPassword(_req.url)?.__copy__();
+                };
+                return stdgo.Go.asInterface((stdgo.Go.setRef(({ op : stdgo._internal.net.http.Http__urlErrorOp._urlErrorOp(_reqs[(0 : stdgo.GoInt)].method?.__copy__())?.__copy__(), url : _urlStr?.__copy__(), err : _err } : stdgo._internal.net.url.Url_Error.Error)) : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>));
             } : stdgo.Error -> stdgo.Error);
             while (true) {
                 if (((_reqs.length) > (0 : stdgo.GoInt) : Bool)) {

@@ -21,71 +21,20 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
                 stdgo._internal.os.signal.Signal__handlers._handlers._m[_c] = _h;
             };
             var _add = (function(_n:stdgo.GoInt):Void {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    if ((_n < (0 : stdgo.GoInt) : Bool)) {
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return;
-                        };
-                    };
-                    if (!_h._want(_n)) {
-                        _h._set(_n);
-                        if (stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)] == ((0i64 : stdgo.GoInt64))) {
-                            stdgo._internal.os.signal.Signal__enableSignal._enableSignal(_n);
-                            stdgo._internal.os.signal.Signal__watchSignalLoopOnce._watchSignalLoopOnce.do_(function():Void {
-                                var __deferstack__:Array<Void -> Void> = [];
-                                try {
-                                    if (stdgo._internal.os.signal.Signal__watchSignalLoop._watchSignalLoop != null) {
-                                        stdgo.Go.routine(() -> stdgo._internal.os.signal.Signal__watchSignalLoop._watchSignalLoop());
-                                    };
-                                    {
-                                        for (defer in __deferstack__) {
-                                            defer();
-                                        };
-                                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                        return;
-                                    };
-                                } catch(__exception__) {
-                                    var exe:Dynamic = __exception__.native;
-                                    if ((exe is haxe.ValueException)) exe = exe.value;
-                                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                        if (__exception__.message == "__return__") throw "__return__";
-                                        exe = stdgo.Go.toInterface(__exception__.message);
-                                    };
-                                    stdgo.Go.recover_exception = exe;
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                    return;
-                                };
-                            });
-                        };
-                        stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)]++;
-                    };
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                if ((_n < (0 : stdgo.GoInt) : Bool)) {
                     return;
+                };
+                if (!_h._want(_n)) {
+                    _h._set(_n);
+                    if (stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)] == ((0i64 : stdgo.GoInt64))) {
+                        stdgo._internal.os.signal.Signal__enableSignal._enableSignal(_n);
+                        stdgo._internal.os.signal.Signal__watchSignalLoopOnce._watchSignalLoopOnce.do_(function():Void {
+                            if (stdgo._internal.os.signal.Signal__watchSignalLoop._watchSignalLoop != null) {
+                                stdgo.Go.routine(() -> stdgo._internal.os.signal.Signal__watchSignalLoop._watchSignalLoop());
+                            };
+                        });
+                    };
+                    stdgo._internal.os.signal.Signal__handlers._handlers._ref[(_n : stdgo.GoInt)]++;
                 };
             } : stdgo.GoInt -> Void);
             if ((_sig.length) == ((0 : stdgo.GoInt))) {

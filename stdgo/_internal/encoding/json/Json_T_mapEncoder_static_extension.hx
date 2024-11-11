@@ -45,36 +45,7 @@ _sv[(_i : stdgo.GoInt)]._v = _mi.value().__copy__();
                 };
             };
             stdgo._internal.sort.Sort_slice.slice(stdgo.Go.toInterface(_sv), function(_i:stdgo.GoInt, _j:stdgo.GoInt):Bool {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    {
-                        final __ret__:Bool = (_sv[(_i : stdgo.GoInt)]._ks < _sv[(_j : stdgo.GoInt)]._ks : Bool);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return false;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return false;
-                };
+                return (_sv[(_i : stdgo.GoInt)]._ks < _sv[(_j : stdgo.GoInt)]._ks : Bool);
             });
             for (_i => _kv in _sv) {
                 if ((_i > (0 : stdgo.GoInt) : Bool)) {

@@ -5,45 +5,22 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
         try {
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        var _e = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        } : stdgo.AnyInterface);
-                        if (_e != null) {
-                            {
-                                final __type__ = _e;
-                                if (stdgo.Go.typeEquals((__type__ : stdgo.Error))) {
-                                    var _err:stdgo.Error = __type__ == null ? (null : stdgo.Error) : __type__.__underlying__() == null ? (null : stdgo.Error) : __type__ == null ? (null : stdgo.Error) : __type__.__underlying__().value;
-                                    _panicErr = _err;
-                                } else {
-                                    var _err:stdgo.AnyInterface = __type__?.__underlying__();
-                                    _panicErr = stdgo._internal.fmt.Fmt_errorf.errorf(("%v" : stdgo.GoString), _err);
-                                };
-                            };
-                        };
+                    var _e = ({
+                        final r = stdgo.Go.recover_exception;
+                        stdgo.Go.recover_exception = null;
+                        r;
+                    } : stdgo.AnyInterface);
+                    if (_e != null) {
                         {
-                            for (defer in __deferstack__) {
-                                defer();
+                            final __type__ = _e;
+                            if (stdgo.Go.typeEquals((__type__ : stdgo.Error))) {
+                                var _err:stdgo.Error = __type__ == null ? (null : stdgo.Error) : __type__.__underlying__() == null ? (null : stdgo.Error) : __type__ == null ? (null : stdgo.Error) : __type__.__underlying__().value;
+                                _panicErr = _err;
+                            } else {
+                                var _err:stdgo.AnyInterface = __type__?.__underlying__();
+                                _panicErr = stdgo._internal.fmt.Fmt_errorf.errorf(("%v" : stdgo.GoString), _err);
                             };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
                         };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
                     };
                 };
                 a();

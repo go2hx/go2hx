@@ -8,34 +8,11 @@ package stdgo._internal.debug.gosym;
             if (true) {
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            });
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
+                        ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        });
                     };
                     a();
                 });
@@ -139,35 +116,12 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
         try {
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if ((true && (({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        }) != null) : Bool)) {
-                            _pc = (0i64 : stdgo.GoUInt64);
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
+                    if ((true && (({
+                        final r = stdgo.Go.recover_exception;
+                        stdgo.Go.recover_exception = null;
+                        r;
+                    }) != null) : Bool)) {
+                        _pc = (0i64 : stdgo.GoUInt64);
                     };
                 };
                 a();
@@ -249,35 +203,12 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
         try {
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if ((true && (({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        }) != null) : Bool)) {
-                            _file = stdgo.Go.str()?.__copy__();
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
+                    if ((true && (({
+                        final r = stdgo.Go.recover_exception;
+                        stdgo.Go.recover_exception = null;
+                        r;
+                    }) != null) : Bool)) {
+                        _file = stdgo.Go.str()?.__copy__();
                     };
                 };
                 a();
@@ -372,35 +303,12 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
         try {
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if ((true && (({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        }) != null) : Bool)) {
-                            _line = (-1 : stdgo.GoInt);
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
+                    if ((true && (({
+                        final r = stdgo.Go.recover_exception;
+                        stdgo.Go.recover_exception = null;
+                        r;
+                    }) != null) : Bool)) {
+                        _line = (-1 : stdgo.GoInt);
                     };
                 };
                 a();
@@ -607,34 +515,11 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             if (true) {
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            });
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
+                        ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        });
                     };
                     a();
                 });
@@ -701,34 +586,11 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             if (true) {
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            });
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
+                        ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        });
                     };
                     a();
                 });
@@ -812,72 +674,10 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             _t._quantum = (_t.data[(6 : stdgo.GoInt)] : stdgo.GoUInt32);
             _t._ptrsize = (_t.data[(7 : stdgo.GoInt)] : stdgo.GoUInt32);
             var _offset = (function(_word:stdgo.GoUInt32):stdgo.GoUInt64 {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    {
-                        final __ret__:stdgo.GoUInt64 = _t._uintptr((_t.data.__slice__(((8u32 : stdgo.GoUInt32) + (_word * _t._ptrsize : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>));
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        final __ret__:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
-                };
+                return _t._uintptr((_t.data.__slice__(((8u32 : stdgo.GoUInt32) + (_word * _t._ptrsize : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>));
             } : stdgo.GoUInt32 -> stdgo.GoUInt64);
             var _data = function(_word:stdgo.GoUInt32):stdgo.Slice<stdgo.GoUInt8> {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    {
-                        final __ret__:stdgo.Slice<stdgo.GoUInt8> = (_t.data.__slice__(_offset(_word)) : stdgo.Slice<stdgo.GoUInt8>);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        final __ret__:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
-                };
+                return (_t.data.__slice__(_offset(_word)) : stdgo.Slice<stdgo.GoUInt8>);
             };
             {
                 final __value__ = _possibleVersion;

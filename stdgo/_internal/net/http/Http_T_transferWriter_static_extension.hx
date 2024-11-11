@@ -46,42 +46,14 @@ package stdgo._internal.net.http;
             var _closed = (false : Bool);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if ((_closed || (_t.bodyCloser == null) : Bool)) {
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return;
-                            };
-                        };
-                        {
-                            var _closeErr = (_t.bodyCloser.close() : stdgo.Error);
-                            if (((_closeErr != null) && (_err == null) : Bool)) {
-                                _err = _closeErr;
-                            };
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    if ((_closed || (_t.bodyCloser == null) : Bool)) {
                         return;
+                    };
+                    {
+                        var _closeErr = (_t.bodyCloser.close() : stdgo.Error);
+                        if (((_closeErr != null) && (_err == null) : Bool)) {
+                            _err = _closeErr;
+                        };
                     };
                 };
                 a();

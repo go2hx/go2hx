@@ -147,37 +147,14 @@ package stdgo._internal.net.http.httputil;
             _sc._pipe.startRequest(_id);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _sc._pipe.endRequest(_id);
-                        if ((_req == null || (_req : Dynamic).__nil__)) {
-                            _sc._pipe.startResponse(_id);
-                            _sc._pipe.endResponse(_id);
-                        } else {
-                            _sc._mu.lock();
-                            _sc._pipereq[_req] = _id;
-                            _sc._mu.unlock();
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
+                    _sc._pipe.endRequest(_id);
+                    if ((_req == null || (_req : Dynamic).__nil__)) {
+                        _sc._pipe.startResponse(_id);
+                        _sc._pipe.endResponse(_id);
+                    } else {
+                        _sc._mu.lock();
+                        _sc._pipereq[_req] = _id;
+                        _sc._mu.unlock();
                     };
                 };
                 a();

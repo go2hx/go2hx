@@ -158,95 +158,31 @@ package stdgo._internal.database.sql;
             var _rowsi:stdgo._internal.database.sql.driver.Driver_Rows.Rows = (null : stdgo._internal.database.sql.driver.Driver_Rows.Rows);
             var _rows:stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows> = (null : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>);
             var _err = (_s._db._retry(function(_strategy:stdgo._internal.database.sql.Sql_T_connReuseStrategy.T_connReuseStrategy):stdgo.Error {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    var __tmp__ = _s._connStmt(_ctx, _strategy), _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn> = __tmp__._0, _releaseConn:stdgo.Error -> Void = __tmp__._1, _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = __tmp__._2, _err:stdgo.Error = __tmp__._3;
-                    if (_err != null) {
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return _err;
-                        };
-                    };
-                    {
-                        var __tmp__ = stdgo._internal.database.sql.Sql__rowsiFromStatement._rowsiFromStatement(_ctx, _dc._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
-                        _rowsi = __tmp__._0;
-                        _err = __tmp__._1;
-                    };
-                    if (_err == null) {
-                        _rows = (stdgo.Go.setRef(({ _dc : _dc, _rowsi : _rowsi } : stdgo._internal.database.sql.Sql_Rows.Rows)) : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>);
-                        _s._db._addDep(stdgo.Go.asInterface(_s), stdgo.Go.toInterface(stdgo.Go.asInterface(_rows)));
-                        _rows._releaseConn = function(_err:stdgo.Error):Void {
-                            var __deferstack__:Array<Void -> Void> = [];
-                            try {
-                                _releaseConn(_err);
-                                _s._db._removeDep(stdgo.Go.asInterface(_s), stdgo.Go.toInterface(stdgo.Go.asInterface(_rows)));
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                    return;
-                                };
-                            } catch(__exception__) {
-                                var exe:Dynamic = __exception__.native;
-                                if ((exe is haxe.ValueException)) exe = exe.value;
-                                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                    if (__exception__.message == "__return__") throw "__return__";
-                                    exe = stdgo.Go.toInterface(__exception__.message);
-                                };
-                                stdgo.Go.recover_exception = exe;
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        };
-                        var _txctx:stdgo._internal.context.Context_Context.Context = (null : stdgo._internal.context.Context_Context.Context);
-                        if (_s._cg != null) {
-                            _txctx = _s._cg._txCtx();
-                        };
-                        _rows._initContextClose(_ctx, _txctx);
-                        {
-                            final __ret__:stdgo.Error = (null : stdgo.Error);
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return __ret__;
-                        };
-                    };
-                    _releaseConn(_err);
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return _err;
-                    };
-                    {
-                        final __ret__:stdgo.Error = (null : stdgo.Error);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
+                var __tmp__ = _s._connStmt(_ctx, _strategy), _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn> = __tmp__._0, _releaseConn:stdgo.Error -> Void = __tmp__._1, _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = __tmp__._2, _err:stdgo.Error = __tmp__._3;
+                if (_err != null) {
+                    return _err;
                 };
+                {
+                    var __tmp__ = stdgo._internal.database.sql.Sql__rowsiFromStatement._rowsiFromStatement(_ctx, _dc._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
+                    _rowsi = __tmp__._0;
+                    _err = __tmp__._1;
+                };
+                if (_err == null) {
+                    _rows = (stdgo.Go.setRef(({ _dc : _dc, _rowsi : _rowsi } : stdgo._internal.database.sql.Sql_Rows.Rows)) : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>);
+                    _s._db._addDep(stdgo.Go.asInterface(_s), stdgo.Go.toInterface(stdgo.Go.asInterface(_rows)));
+                    _rows._releaseConn = function(_err:stdgo.Error):Void {
+                        _releaseConn(_err);
+                        _s._db._removeDep(stdgo.Go.asInterface(_s), stdgo.Go.toInterface(stdgo.Go.asInterface(_rows)));
+                    };
+                    var _txctx:stdgo._internal.context.Context_Context.Context = (null : stdgo._internal.context.Context_Context.Context);
+                    if (_s._cg != null) {
+                        _txctx = _s._cg._txCtx();
+                    };
+                    _rows._initContextClose(_ctx, _txctx);
+                    return (null : stdgo.Error);
+                };
+                _releaseConn(_err);
+                return _err;
             }) : stdgo.Error);
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>; var _1 : stdgo.Error; } = { _0 : _rows, _1 : _err };
@@ -394,52 +330,17 @@ package stdgo._internal.database.sql;
             __deferstack__.unshift(() -> _s._closemu.runlock());
             var _res:stdgo._internal.database.sql.Sql_Result.Result = (null : stdgo._internal.database.sql.Sql_Result.Result);
             var _err = (_s._db._retry(function(_strategy:stdgo._internal.database.sql.Sql_T_connReuseStrategy.T_connReuseStrategy):stdgo.Error {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    var __tmp__ = _s._connStmt(_ctx, _strategy), _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn> = __tmp__._0, _releaseConn:stdgo.Error -> Void = __tmp__._1, _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = __tmp__._2, _err:stdgo.Error = __tmp__._3;
-                    if (_err != null) {
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return _err;
-                        };
-                    };
-                    {
-                        var __tmp__ = stdgo._internal.database.sql.Sql__resultFromStatement._resultFromStatement(_ctx, _dc._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
-                        _res = __tmp__._0;
-                        _err = __tmp__._1;
-                    };
-                    _releaseConn(_err);
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return _err;
-                    };
-                    {
-                        final __ret__:stdgo.Error = (null : stdgo.Error);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
+                var __tmp__ = _s._connStmt(_ctx, _strategy), _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn> = __tmp__._0, _releaseConn:stdgo.Error -> Void = __tmp__._1, _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = __tmp__._2, _err:stdgo.Error = __tmp__._3;
+                if (_err != null) {
+                    return _err;
                 };
+                {
+                    var __tmp__ = stdgo._internal.database.sql.Sql__resultFromStatement._resultFromStatement(_ctx, _dc._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
+                    _res = __tmp__._0;
+                    _err = __tmp__._1;
+                };
+                _releaseConn(_err);
+                return _err;
             }) : stdgo.Error);
             {
                 final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = { _0 : _res, _1 : _err };

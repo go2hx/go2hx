@@ -73,92 +73,38 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
             __deferstack__.unshift(() -> _pw.close());
             var _dr = (stdgo.Go.setRef(({ _c : (new stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>(0, () -> (null : stdgo._internal.io.Io_Reader.Reader)) : stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>) } : stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader>);
             var _t = (stdgo.Go.setRef(({ dial : function(_net:stdgo.GoString, _addr:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn(stdgo._internal.io.Io_multiWriter.multiWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(_pw)), stdgo.Go.asInterface(_dr)) : stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>)), _1 : (null : stdgo.Error) };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : (null : stdgo.Error) };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : (null : stdgo.Error) };
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
-                };
+                return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn(stdgo._internal.io.Io_multiWriter.multiWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(_pw)), stdgo.Go.asInterface(_dr)) : stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>)), _1 : (null : stdgo.Error) };
             } } : stdgo._internal.net.http.Http_Transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>);
             __deferstack__.unshift(() -> _t.closeIdleConnections());
             var _quitReadCh = (new stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody>(0, () -> ({} : stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody)) : stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody>);
             stdgo.Go.routine(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        var __tmp__ = stdgo._internal.net.http.Http_readRequest.readRequest(stdgo._internal.bufio.Bufio_newReader.newReader(stdgo.Go.asInterface(_pr))), _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                        if (_err == null) {
-                            stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, _req.body);
-                            _req.body.close();
-                        };
-                        {
-                            var __select__ = true;
-                            while (__select__) {
-                                if (_dr._c != null && _dr._c.__isSend__()) {
-                                    __select__ = false;
+                    var __tmp__ = stdgo._internal.net.http.Http_readRequest.readRequest(stdgo._internal.bufio.Bufio_newReader.newReader(stdgo.Go.asInterface(_pr))), _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    if (_err == null) {
+                        stdgo._internal.io.Io_copy.copy(stdgo._internal.io.Io_discard.discard, _req.body);
+                        _req.body.close();
+                    };
+                    {
+                        var __select__ = true;
+                        while (__select__) {
+                            if (_dr._c != null && _dr._c.__isSend__()) {
+                                __select__ = false;
+                                {
+                                    _dr._c.__send__(stdgo._internal.strings.Strings_newReader.newReader(("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n" : stdgo.GoString)));
+                                    {};
+                                };
+                            } else if (_quitReadCh != null && _quitReadCh.__isGet__()) {
+                                __select__ = false;
+                                {
+                                    _quitReadCh.__get__();
                                     {
-                                        _dr._c.__send__(stdgo._internal.strings.Strings_newReader.newReader(("HTTP/1.1 204 No Content\r\nConnection: close\r\n\r\n" : stdgo.GoString)));
-                                        {};
-                                    };
-                                } else if (_quitReadCh != null && _quitReadCh.__isGet__()) {
-                                    __select__ = false;
-                                    {
-                                        _quitReadCh.__get__();
-                                        {
-                                            if (_dr._c != null) _dr._c.__close__();
-                                        };
+                                        if (_dr._c != null) _dr._c.__close__();
                                     };
                                 };
-                                #if !js Sys.sleep(0.01) #else null #end;
-                                stdgo._internal.internal.Async.tick();
                             };
+                            #if !js Sys.sleep(0.01) #else null #end;
+                            stdgo._internal.internal.Async.tick();
                         };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
                     };
                 };
                 a();

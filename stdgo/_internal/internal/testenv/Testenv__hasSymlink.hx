@@ -14,30 +14,7 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                     };
                     __deferstack__.unshift(() -> {
                         var a = function():Void {
-                            var __deferstack__:Array<Void -> Void> = [];
-                            try {
-                                var __blank__ = stdgo._internal.os.Os_removeAll.removeAll(_dir?.__copy__());
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                    return;
-                                };
-                            } catch(__exception__) {
-                                var exe:Dynamic = __exception__.native;
-                                if ((exe is haxe.ValueException)) exe = exe.value;
-                                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                    if (__exception__.message == "__return__") throw "__return__";
-                                    exe = stdgo.Go.toInterface(__exception__.message);
-                                };
-                                stdgo.Go.recover_exception = exe;
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
+                            var __blank__ = stdgo._internal.os.Os_removeAll.removeAll(_dir?.__copy__());
                         };
                         a();
                     });

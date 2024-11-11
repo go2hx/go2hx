@@ -37,101 +37,40 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             var _fuzzErr:stdgo.Error = (null : stdgo.Error);
             var _stopping = (false : Bool);
             var _stop = (function(_err:stdgo.Error):Void {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
-                        var __tmp__ = stdgo._internal.runtime.Runtime_caller.caller((1 : stdgo.GoInt)), __8:stdgo.GoUIntptr = __tmp__._0, _file:stdgo.GoString = __tmp__._1, _line:stdgo.GoInt = __tmp__._2, _ok:Bool = __tmp__._3;
-                        if (_ok) {
-                            _c._debugLogf(("stop called at %s:%d. stopping: %t" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_stopping));
-                        } else {
-                            _c._debugLogf(("stop called at unknown. stopping: %t" : stdgo.GoString), stdgo.Go.toInterface(_stopping));
-                        };
+                if (stdgo._internal.internal.fuzz.Fuzz__shouldPrintDebugInfo._shouldPrintDebugInfo()) {
+                    var __tmp__ = stdgo._internal.runtime.Runtime_caller.caller((1 : stdgo.GoInt)), __8:stdgo.GoUIntptr = __tmp__._0, _file:stdgo.GoString = __tmp__._1, _line:stdgo.GoInt = __tmp__._2, _ok:Bool = __tmp__._3;
+                    if (_ok) {
+                        _c._debugLogf(("stop called at %s:%d. stopping: %t" : stdgo.GoString), stdgo.Go.toInterface(_file), stdgo.Go.toInterface(_line), stdgo.Go.toInterface(_stopping));
+                    } else {
+                        _c._debugLogf(("stop called at unknown. stopping: %t" : stdgo.GoString), stdgo.Go.toInterface(_stopping));
                     };
-                    if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_fuzzCtx.err())) || stdgo._internal.internal.fuzz.Fuzz__isInterruptError._isInterruptError(_err) : Bool)) {
-                        _err = (null : stdgo.Error);
-                    };
-                    if (((_err != null) && (((_fuzzErr == null) || (stdgo.Go.toInterface(_fuzzErr) == stdgo.Go.toInterface(_ctx.err())) : Bool)) : Bool)) {
-                        _fuzzErr = _err;
-                    };
-                    if (_stopping) {
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return;
-                        };
-                    };
-                    _stopping = true;
-                    _cancelWorkers();
-                    _doneC = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy>);
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                };
+                if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_fuzzCtx.err())) || stdgo._internal.internal.fuzz.Fuzz__isInterruptError._isInterruptError(_err) : Bool)) {
+                    _err = (null : stdgo.Error);
+                };
+                if (((_err != null) && (((_fuzzErr == null) || (stdgo.Go.toInterface(_fuzzErr) == stdgo.Go.toInterface(_ctx.err())) : Bool)) : Bool)) {
+                    _fuzzErr = _err;
+                };
+                if (_stopping) {
                     return;
                 };
+                _stopping = true;
+                _cancelWorkers();
+                _doneC = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy>);
             } : stdgo.Error -> Void);
             var _crashWritten = (false : Bool);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if (((_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return;
-                            };
-                        };
-                        var _werr = (stdgo._internal.internal.fuzz.Fuzz__writeToCorpus._writeToCorpus((stdgo.Go.setRef(_c._crashMinimizing._entry) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry>), _opts.corpusDir?.__copy__()) : stdgo.Error);
-                        if (_werr != null) {
-                            _err = stdgo._internal.fmt.Fmt_errorf.errorf(("%w\n%v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_werr));
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return;
-                            };
-                        };
-                        if (_err == null) {
-                            _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ _path : _c._crashMinimizing._entry.path?.__copy__(), _err : stdgo._internal.errors.Errors_new_.new_(_c._crashMinimizing._crasherMsg?.__copy__()) } : stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError>));
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    if (((_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
                         return;
+                    };
+                    var _werr = (stdgo._internal.internal.fuzz.Fuzz__writeToCorpus._writeToCorpus((stdgo.Go.setRef(_c._crashMinimizing._entry) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry>), _opts.corpusDir?.__copy__()) : stdgo.Error);
+                    if (_werr != null) {
+                        _err = stdgo._internal.fmt.Fmt_errorf.errorf(("%w\n%v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_werr));
+                        return;
+                    };
+                    if (_err == null) {
+                        _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ _path : _c._crashMinimizing._entry.path?.__copy__(), _err : stdgo._internal.errors.Errors_new_.new_(_c._crashMinimizing._crasherMsg?.__copy__()) } : stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError>));
                     };
                 };
                 a();
@@ -162,38 +101,15 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 var _w = _workers[(_i : stdgo.GoInt)];
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            var _err = (_w._coordinate(_fuzzCtx) : stdgo.Error);
-                            if (((_fuzzCtx.err() != null) || stdgo._internal.internal.fuzz.Fuzz__isInterruptError._isInterruptError(_err) : Bool)) {
-                                _err = (null : stdgo.Error);
-                            };
-                            var _cleanErr = (_w._cleanup() : stdgo.Error);
-                            if (_err == null) {
-                                _err = _cleanErr;
-                            };
-                            _errC.__send__(_err);
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
+                        var _err = (_w._coordinate(_fuzzCtx) : stdgo.Error);
+                        if (((_fuzzCtx.err() != null) || stdgo._internal.internal.fuzz.Fuzz__isInterruptError._isInterruptError(_err) : Bool)) {
+                            _err = (null : stdgo.Error);
                         };
+                        var _cleanErr = (_w._cleanup() : stdgo.Error);
+                        if (_err == null) {
+                            _err = _cleanErr;
+                        };
+                        _errC.__send__(_err);
                     };
                     a();
                 });

@@ -86,60 +86,14 @@ package stdgo._internal.internal.fuzz;
             var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _resp.duration = stdgo._internal.time.Time_since.since(_start?.__copy__());
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
+                    _resp.duration = stdgo._internal.time.Time_since.since(_start?.__copy__());
                 };
                 a();
             });
             var _mem = _ws._workerComm._memMu.__get__();
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _ws._workerComm._memMu.__send__(_mem);
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
+                    _ws._workerComm._memMu.__send__(_mem);
                 };
                 a();
             });
@@ -218,30 +172,7 @@ package stdgo._internal.internal.fuzz;
             var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _resp.totalDuration = stdgo._internal.time.Time_since.since(_start?.__copy__());
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
+                    _resp.totalDuration = stdgo._internal.time.Time_since.since(_start?.__copy__());
                 };
                 a();
             });
@@ -258,31 +189,8 @@ package stdgo._internal.internal.fuzz;
             _ws._m._r._save(stdgo.Go.pointer(_mem._header()._randState), stdgo.Go.pointer(_mem._header()._randInc));
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _resp.count = _mem._header()._count;
-                        _ws._workerComm._memMu.__send__(_mem);
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
+                    _resp.count = _mem._header()._count;
+                    _ws._workerComm._memMu.__send__(_mem);
                 };
                 a();
             });
@@ -310,100 +218,28 @@ package stdgo._internal.internal.fuzz;
             var _vals = (new stdgo.Slice<stdgo.AnyInterface>((_originalVals.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.AnyInterface>);
             stdgo.Go.copySlice(_vals, _originalVals);
             var _shouldStop = (function():Bool {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    {
-                        final __ret__:Bool = ((_args.limit > (0i64 : stdgo.GoInt64) : Bool) && (_mem._header()._count >= _args.limit : Bool) : Bool);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return false;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return false;
-                };
+                return ((_args.limit > (0i64 : stdgo.GoInt64) : Bool) && (_mem._header()._count >= _args.limit : Bool) : Bool);
             } : () -> Bool);
             var _fuzzOnce = (function(_entry:stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry):{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } {
-                var __deferstack__:Array<Void -> Void> = [];
                 var _dur = ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration), _cov = (null : stdgo.Slice<stdgo.GoUInt8>), _errMsg = ("" : stdgo.GoString);
-                try {
-                    _mem._header()._count++;
-                    var _err:stdgo.Error = (null : stdgo.Error);
-                    {
-                        var __tmp__ = _ws._fuzzFn(_entry?.__copy__());
-                        _dur = __tmp__._0;
-                        _err = __tmp__._1;
-                    };
-                    if (_err != null) {
-                        _errMsg = _err.error()?.__copy__();
-                        if (_errMsg == (stdgo.Go.str())) {
-                            _errMsg = ("fuzz function failed with no input" : stdgo.GoString);
-                        };
-                        {
-                            final __ret__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg?.__copy__() };
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return __ret__;
-                        };
-                    };
-                    if (((_ws._coverageMask != null) && (stdgo._internal.internal.fuzz.Fuzz__countNewCoverageBits._countNewCoverageBits(_ws._coverageMask, stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot) > (0 : stdgo.GoInt) : Bool) : Bool)) {
-                        {
-                            final __ret__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot, _2 : stdgo.Go.str()?.__copy__() };
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return __ret__;
-                        };
-                    };
-                    {
-                        final __ret__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo.Go.str()?.__copy__() };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return __ret__;
-                    };
-                    {
-                        final __ret__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : _cov, _2 : _errMsg };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    final __ret__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : _cov, _2 : _errMsg };
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
+                _mem._header()._count++;
+                var _err:stdgo.Error = (null : stdgo.Error);
+                {
+                    var __tmp__ = _ws._fuzzFn(_entry?.__copy__());
+                    _dur = __tmp__._0;
+                    _err = __tmp__._1;
                 };
+                if (_err != null) {
+                    _errMsg = _err.error()?.__copy__();
+                    if (_errMsg == (stdgo.Go.str())) {
+                        _errMsg = ("fuzz function failed with no input" : stdgo.GoString);
+                    };
+                    return { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg?.__copy__() };
+                };
+                if (((_ws._coverageMask != null) && (stdgo._internal.internal.fuzz.Fuzz__countNewCoverageBits._countNewCoverageBits(_ws._coverageMask, stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot) > (0 : stdgo.GoInt) : Bool) : Bool)) {
+                    return { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot, _2 : stdgo.Go.str()?.__copy__() };
+                };
+                return { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo.Go.str()?.__copy__() };
             } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry -> { var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; });
             if (_args.warmup) {
                 var __tmp__ = _fuzzOnce(({ values : _vals, parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry)), _dur:stdgo._internal.time.Time_Duration.Duration = __tmp__._0, __8:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _errMsg:stdgo.GoString = __tmp__._2;

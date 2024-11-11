@@ -601,34 +601,11 @@ package stdgo._internal.text.template;
             _s._at(stdgo.Go.asInterface(_r));
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        {
-                            var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
-                            if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkBreak._walkBreak)) : Bool)) {
-                                throw stdgo.Go.toInterface(_r);
-                            };
+                    {
+                        var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
+                        if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkBreak._walkBreak)) : Bool)) {
+                            throw stdgo.Go.toInterface(_r);
                         };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
                     };
                 };
                 a();
@@ -666,34 +643,11 @@ package stdgo._internal.text.template;
                     };
                     __deferstack__.unshift(() -> {
                         var a = function():Void {
-                            var __deferstack__:Array<Void -> Void> = [];
-                            try {
-                                {
-                                    var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
-                                    if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkContinue._walkContinue)) : Bool)) {
-                                        throw stdgo.Go.toInterface(_r);
-                                    };
+                            {
+                                var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
+                                if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkContinue._walkContinue)) : Bool)) {
+                                    throw stdgo.Go.toInterface(_r);
                                 };
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                    return;
-                                };
-                            } catch(__exception__) {
-                                var exe:Dynamic = __exception__.native;
-                                if ((exe is haxe.ValueException)) exe = exe.value;
-                                if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                    if (__exception__.message == "__return__") throw "__return__";
-                                    exe = stdgo.Go.toInterface(__exception__.message);
-                                };
-                                stdgo.Go.recover_exception = exe;
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
                             };
                         };
                         a();

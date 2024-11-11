@@ -212,30 +212,7 @@ package stdgo._internal.database.sql;
         try {
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _release(_err);
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
+                    _release(_err);
                 };
                 a();
             });
@@ -260,46 +237,18 @@ package stdgo._internal.database.sql;
                 var _nvdargs:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
                 var _resi:stdgo._internal.database.sql.driver.Driver_Result.Result = (null : stdgo._internal.database.sql.driver.Driver_Result.Result);
                 stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        {
-                            var __tmp__ = stdgo._internal.database.sql.Sql__driverArgsConnLocked._driverArgsConnLocked(_dc._ci, null, _args);
-                            _nvdargs = __tmp__._0;
-                            _err = __tmp__._1;
-                        };
-                        if (_err != null) {
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return;
-                            };
-                        };
-                        {
-                            var __tmp__ = stdgo._internal.database.sql.Sql__ctxDriverExec._ctxDriverExec(_ctx, _execerCtx, _execer, _query?.__copy__(), _nvdargs);
-                            _resi = __tmp__._0;
-                            _err = __tmp__._1;
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    {
+                        var __tmp__ = stdgo._internal.database.sql.Sql__driverArgsConnLocked._driverArgsConnLocked(_dc._ci, null, _args);
+                        _nvdargs = __tmp__._0;
+                        _err = __tmp__._1;
+                    };
+                    if (_err != null) {
                         return;
+                    };
+                    {
+                        var __tmp__ = stdgo._internal.database.sql.Sql__ctxDriverExec._ctxDriverExec(_ctx, _execerCtx, _execer, _query?.__copy__(), _nvdargs);
+                        _resi = __tmp__._0;
+                        _err = __tmp__._1;
                     };
                 });
                 if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.database.sql.driver.Driver_errSkip.errSkip))) {
@@ -323,33 +272,10 @@ package stdgo._internal.database.sql;
             };
             var _si:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt = (null : stdgo._internal.database.sql.driver.Driver_Stmt.Stmt);
             stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    {
-                        var __tmp__ = stdgo._internal.database.sql.Sql__ctxDriverPrepare._ctxDriverPrepare(_ctx, _dc._ci, _query?.__copy__());
-                        _si = __tmp__._0;
-                        _err = __tmp__._1;
-                    };
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return;
+                {
+                    var __tmp__ = stdgo._internal.database.sql.Sql__ctxDriverPrepare._ctxDriverPrepare(_ctx, _dc._ci, _query?.__copy__());
+                    _si = __tmp__._0;
+                    _err = __tmp__._1;
                 };
             });
             if (_err != null) {
@@ -434,61 +360,15 @@ package stdgo._internal.database.sql;
             var _err:stdgo.Error = (null : stdgo.Error);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _release(_err);
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
+                    _release(_err);
                 };
                 a();
             });
             stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    {
-                        var __tmp__ = _dc._prepareLocked(_ctx, _cg, _query?.__copy__());
-                        _ds = __tmp__._0;
-                        _err = __tmp__._1;
-                    };
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return;
+                {
+                    var __tmp__ = _dc._prepareLocked(_ctx, _cg, _query?.__copy__());
+                    _ds = __tmp__._0;
+                    _err = __tmp__._1;
                 };
             });
             if (_err != null) {
@@ -671,30 +551,7 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
             __deferstack__.unshift(() -> _db._mu.unlock());
             if (_c._inUse) {
                 _c._onPut = (_c._onPut.__append__(function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _ds.close();
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
+                    _ds.close();
                 }));
             } else {
                 _c.lock();

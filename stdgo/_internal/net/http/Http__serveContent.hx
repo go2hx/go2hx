@@ -93,67 +93,29 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
                 __deferstack__.unshift(() -> _pr.close());
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            for (__132 => _ra in _ranges) {
-                                var __tmp__ = _mw.createPart(_ra._mimeHeader(_ctype?.__copy__(), _size)), _part:stdgo._internal.io.Io_Writer.Writer = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                                if (_err != null) {
-                                    _pw.closeWithError(_err);
-                                    {
-                                        for (defer in __deferstack__) {
-                                            defer();
-                                        };
-                                        return;
-                                    };
-                                };
-                                {
-                                    var __tmp__ = _content.seek(_ra._start, (0 : stdgo.GoInt)), __133:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                                    if (_err != null) {
-                                        _pw.closeWithError(_err);
-                                        {
-                                            for (defer in __deferstack__) {
-                                                defer();
-                                            };
-                                            return;
-                                        };
-                                    };
-                                };
-                                {
-                                    var __tmp__ = stdgo._internal.io.Io_copyN.copyN(_part, _content, _ra._length), __134:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                                    if (_err != null) {
-                                        _pw.closeWithError(_err);
-                                        {
-                                            for (defer in __deferstack__) {
-                                                defer();
-                                            };
-                                            return;
-                                        };
-                                    };
-                                };
-                            };
-                            _mw.close();
-                            _pw.close();
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                        for (__132 => _ra in _ranges) {
+                            var __tmp__ = _mw.createPart(_ra._mimeHeader(_ctype?.__copy__(), _size)), _part:stdgo._internal.io.Io_Writer.Writer = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                            if (_err != null) {
+                                _pw.closeWithError(_err);
                                 return;
                             };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
+                            {
+                                var __tmp__ = _content.seek(_ra._start, (0 : stdgo.GoInt)), __133:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                if (_err != null) {
+                                    _pw.closeWithError(_err);
+                                    return;
+                                };
                             };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
+                            {
+                                var __tmp__ = stdgo._internal.io.Io_copyN.copyN(_part, _content, _ra._length), __134:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                                if (_err != null) {
+                                    _pw.closeWithError(_err);
+                                    return;
+                                };
                             };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
                         };
+                        _mw.close();
+                        _pw.close();
                     };
                     a();
                 });

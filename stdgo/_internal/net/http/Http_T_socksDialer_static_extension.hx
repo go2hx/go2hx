@@ -165,85 +165,39 @@ package stdgo._internal.net.http;
                 var _done = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            if (_done != null) _done.__close__();
-                            if (_ctxErr == null) {
-                                _ctxErr = _errCh.__get__();
-                            };
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
+                        if (_done != null) _done.__close__();
+                        if (_ctxErr == null) {
+                            _ctxErr = _errCh.__get__();
                         };
                     };
                     a();
                 });
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            {
-                                var __select__ = true;
-                                while (__select__) {
-                                    if (_ctx.done() != null && _ctx.done().__isGet__()) {
-                                        __select__ = false;
+                        {
+                            var __select__ = true;
+                            while (__select__) {
+                                if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                                    __select__ = false;
+                                    {
+                                        _ctx.done().__get__();
                                         {
-                                            _ctx.done().__get__();
-                                            {
-                                                _c.setDeadline(stdgo._internal.net.http.Http__socksaLongTimeAgo._socksaLongTimeAgo?.__copy__());
-                                                _errCh.__send__(_ctx.err());
-                                            };
-                                        };
-                                    } else if (_done != null && _done.__isGet__()) {
-                                        __select__ = false;
-                                        {
-                                            _done.__get__();
-                                            {
-                                                _errCh.__send__(null);
-                                            };
+                                            _c.setDeadline(stdgo._internal.net.http.Http__socksaLongTimeAgo._socksaLongTimeAgo?.__copy__());
+                                            _errCh.__send__(_ctx.err());
                                         };
                                     };
-                                    #if !js Sys.sleep(0.01) #else null #end;
-                                    stdgo._internal.internal.Async.tick();
+                                } else if (_done != null && _done.__isGet__()) {
+                                    __select__ = false;
+                                    {
+                                        _done.__get__();
+                                        {
+                                            _errCh.__send__(null);
+                                        };
+                                    };
                                 };
+                                #if !js Sys.sleep(0.01) #else null #end;
+                                stdgo._internal.internal.Async.tick();
                             };
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
                         };
                     };
                     a();

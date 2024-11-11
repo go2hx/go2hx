@@ -238,12 +238,12 @@ package stdgo._internal.net.mail;
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
         var _escaped_4210985:Bool = false;
         var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
         var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
         var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -393,35 +393,12 @@ package stdgo._internal.net.mail;
             var _orig = ((_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser)?.__copy__() : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if (_err != null) {
-                            {
-                                var __tmp__ = _orig?.__copy__();
-                                (_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser)._s = __tmp__._s;
-                                (_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser)._dec = __tmp__._dec;
-                            };
-                        };
+                    if (_err != null) {
                         {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
+                            var __tmp__ = _orig?.__copy__();
+                            (_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser)._s = __tmp__._s;
+                            (_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser)._dec = __tmp__._dec;
                         };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
                     };
                 };
                 a();

@@ -53,38 +53,7 @@ package stdgo._internal.database.sql;
             if (_dc._closed) {
                 {
                     final __ret__:() -> stdgo.Error = function():stdgo.Error {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            {
-                                final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("sql: duplicate driverConn close" : stdgo.GoString));
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return __ret__;
-                            };
-                            {
-                                final __ret__:stdgo.Error = (null : stdgo.Error);
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return __ret__;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            final __ret__:stdgo.Error = (null : stdgo.Error);
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return __ret__;
-                        };
+                        return stdgo._internal.errors.Errors_new_.new_(("sql: duplicate driverConn close" : stdgo.GoString));
                     };
                     for (defer in __deferstack__) {
                         defer();

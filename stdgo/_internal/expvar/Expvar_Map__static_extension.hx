@@ -200,36 +200,8 @@ package stdgo._internal.expvar;
             __deferstack__.unshift(() -> _v._keysMu.unlock());
             _v._keys = (_v._keys.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
             _v._m.range(function(_k:stdgo.AnyInterface, __56:stdgo.AnyInterface):Bool {
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    _v._m.delete(_k);
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return true;
-                    };
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return false;
-                    };
-                } catch(__exception__) {
-                    var exe:Dynamic = __exception__.native;
-                    if ((exe is haxe.ValueException)) exe = exe.value;
-                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                        if (__exception__.message == "__return__") throw "__return__";
-                        exe = stdgo.Go.toInterface(__exception__.message);
-                    };
-                    stdgo.Go.recover_exception = exe;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return false;
-                };
+                _v._m.delete(_k);
+                return true;
             });
             {
                 for (defer in __deferstack__) {

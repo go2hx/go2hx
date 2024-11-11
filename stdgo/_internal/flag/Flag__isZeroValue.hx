@@ -12,41 +12,18 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
             };
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        {
-                            var _e = ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            } : stdgo.AnyInterface);
-                            if (_e != null) {
-                                if (_typ.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                                    _typ = _typ.elem();
-                                };
-                                _err = stdgo._internal.fmt.Fmt_errorf.errorf(("panic calling String method on zero %v for flag %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(_flag.name), _e);
+                    {
+                        var _e = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        } : stdgo.AnyInterface);
+                        if (_e != null) {
+                            if (_typ.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
+                                _typ = _typ.elem();
                             };
+                            _err = stdgo._internal.fmt.Fmt_errorf.errorf(("panic calling String method on zero %v for flag %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(_flag.name), _e);
                         };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
                     };
                 };
                 a();

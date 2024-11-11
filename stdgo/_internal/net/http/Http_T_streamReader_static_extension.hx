@@ -34,39 +34,8 @@ var _errCh = __1, _bCh = __0;
                 })?.__copy__() : stdgo._internal.syscall.js.Js_Func.Func);
                 __deferstack__.unshift(() -> _success.release());
                 var _failure = (stdgo._internal.syscall.js.Js_funcOf.funcOf(function(_this:stdgo._internal.syscall.js.Js_Value.Value, _args:stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>):stdgo.AnyInterface {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _errCh.__send__(stdgo._internal.errors.Errors_new_.new_((_args[(0 : stdgo.GoInt)].get(("message" : stdgo.GoString)).string() : stdgo.GoString)?.__copy__()));
-                        {
-                            final __ret__:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return __ret__;
-                        };
-                        {
-                            final __ret__:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return __ret__;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        final __ret__:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return __ret__;
-                    };
+                    _errCh.__send__(stdgo._internal.errors.Errors_new_.new_((_args[(0 : stdgo.GoInt)].get(("message" : stdgo.GoString)).string() : stdgo.GoString)?.__copy__()));
+                    return (null : stdgo.AnyInterface);
                 })?.__copy__() : stdgo._internal.syscall.js.Js_Func.Func);
                 __deferstack__.unshift(() -> _failure.release());
                 _r._stream.call(("read" : stdgo.GoString)).call(("then" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_success)), stdgo.Go.toInterface(stdgo.Go.asInterface(_failure)));

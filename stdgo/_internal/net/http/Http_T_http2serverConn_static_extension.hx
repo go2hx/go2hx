@@ -199,54 +199,26 @@ package stdgo._internal.net.http;
             var _didPanic = (true : Bool);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _rw._rws._stream._cancelCtx();
-                        if ((_req.multipartForm != null && ((_req.multipartForm : Dynamic).__nil__ == null || !(_req.multipartForm : Dynamic).__nil__))) {
-                            _req.multipartForm.removeAll();
+                    _rw._rws._stream._cancelCtx();
+                    if ((_req.multipartForm != null && ((_req.multipartForm : Dynamic).__nil__ == null || !(_req.multipartForm : Dynamic).__nil__))) {
+                        _req.multipartForm.removeAll();
+                    };
+                    if (_didPanic) {
+                        var _e = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        } : stdgo.AnyInterface);
+                        _sc._writeFrameFromHandler(({ _write : stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_http2handlerPanicRST.T_http2handlerPanicRST(_rw._rws._stream._id) : stdgo._internal.net.http.Http_T_http2handlerPanicRST.T_http2handlerPanicRST)), _stream : _rw._rws._stream } : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest));
+                        if (((_e != null) && (_e != stdgo.Go.toInterface(stdgo._internal.net.http.Http_errAbortHandler.errAbortHandler)) : Bool)) {
+                            {};
+                            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+                            _buf = (_buf.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_buf, false)) : stdgo.Slice<stdgo.GoUInt8>);
+                            _sc._logf(("http2: panic serving %v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(_sc._conn.remoteAddr()), _e, stdgo.Go.toInterface(_buf));
                         };
-                        if (_didPanic) {
-                            var _e = ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            } : stdgo.AnyInterface);
-                            _sc._writeFrameFromHandler(({ _write : stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_http2handlerPanicRST.T_http2handlerPanicRST(_rw._rws._stream._id) : stdgo._internal.net.http.Http_T_http2handlerPanicRST.T_http2handlerPanicRST)), _stream : _rw._rws._stream } : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest));
-                            if (((_e != null) && (_e != stdgo.Go.toInterface(stdgo._internal.net.http.Http_errAbortHandler.errAbortHandler)) : Bool)) {
-                                {};
-                                var _buf = (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                                _buf = (_buf.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_buf, false)) : stdgo.Slice<stdgo.GoUInt8>);
-                                _sc._logf(("http2: panic serving %v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(_sc._conn.remoteAddr()), _e, stdgo.Go.toInterface(_buf));
-                            };
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return;
-                            };
-                        };
-                        _rw._handlerDone();
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                         return;
                     };
+                    _rw._handlerDone();
                 };
                 a();
             });

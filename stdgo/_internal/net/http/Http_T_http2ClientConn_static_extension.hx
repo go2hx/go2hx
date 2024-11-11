@@ -23,177 +23,123 @@ package stdgo._internal.net.http;
     @:keep
     static public function ping( _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>, _ctx:stdgo._internal.context.Context_Context.Context):stdgo.Error {
         @:recv var _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn> = _cc;
-        var __deferstack__:Array<Void -> Void> = [];
-        try {
-            var _c = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
-            var _p:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt8)]);
-            while (true) {
-                {
-                    var __tmp__ = stdgo._internal.math.rand.Rand_read.read((_p.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __32092:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                    if (_err != null) {
-                        return _err;
-                    };
+        var _c = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
+        var _p:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt8)]);
+        while (true) {
+            {
+                var __tmp__ = stdgo._internal.math.rand.Rand_read.read((_p.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __32092:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                if (_err != null) {
+                    return _err;
                 };
-                _cc._mu.lock();
-                {
-                    var __tmp__ = (_cc._pings != null && _cc._pings.exists(_p?.__copy__()) ? { _0 : _cc._pings[_p?.__copy__()], _1 : true } : { _0 : (null : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _1 : false }), __32123:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError> = __tmp__._0, _found:Bool = __tmp__._1;
-                    if (!_found) {
-                        _cc._pings[_p] = _c;
-                        _cc._mu.unlock();
-                        break;
-                    };
-                };
-                _cc._mu.unlock();
             };
-            var _errc = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
-            stdgo.Go.routine(() -> {
-                var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _cc._wmu.lock();
-                        __deferstack__.unshift(() -> _cc._wmu.unlock());
-                        {
-                            var _err = (_cc._fr.writePing(false, _p?.__copy__()) : stdgo.Error);
-                            if (_err != null) {
-                                _errc.__send__(_err);
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    return;
+            _cc._mu.lock();
+            {
+                var __tmp__ = (_cc._pings != null && _cc._pings.exists(_p?.__copy__()) ? { _0 : _cc._pings[_p?.__copy__()], _1 : true } : { _0 : (null : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _1 : false }), __32123:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError> = __tmp__._0, _found:Bool = __tmp__._1;
+                if (!_found) {
+                    _cc._pings[_p] = _c;
+                    _cc._mu.unlock();
+                    break;
+                };
+            };
+            _cc._mu.unlock();
+        };
+        var _errc = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
+        stdgo.Go.routine(() -> {
+            var a = function():Void {
+                var __deferstack__:Array<Void -> Void> = [];
+                try {
+                    _cc._wmu.lock();
+                    __deferstack__.unshift(() -> _cc._wmu.unlock());
+                    {
+                        var _err = (_cc._fr.writePing(false, _p?.__copy__()) : stdgo.Error);
+                        if (_err != null) {
+                            _errc.__send__(_err);
+                            {
+                                for (defer in __deferstack__) {
+                                    defer();
                                 };
+                                return;
                             };
                         };
-                        {
-                            var _err = (_cc._bw.flush() : stdgo.Error);
-                            if (_err != null) {
-                                _errc.__send__(_err);
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    return;
+                    };
+                    {
+                        var _err = (_cc._bw.flush() : stdgo.Error);
+                        if (_err != null) {
+                            _errc.__send__(_err);
+                            {
+                                for (defer in __deferstack__) {
+                                    defer();
                                 };
+                                return;
                             };
                         };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
+                    };
+                    {
                         for (defer in __deferstack__) {
                             defer();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                         return;
                     };
-                };
-                a();
-            });
-            {
-                {
-                    var __select__ = true;
-                    while (__select__) {
-                        if (_c != null && _c.__isGet__()) {
-                            __select__ = false;
-                            {
-                                _c.__get__();
-                                {
-                                    {
-                                        final __ret__:stdgo.Error = (null : stdgo.Error);
-                                        for (defer in __deferstack__) {
-                                            defer();
-                                        };
-                                        return __ret__;
-                                    };
-                                };
-                            };
-                        } else if (_errc != null && _errc.__isGet__()) {
-                            __select__ = false;
-                            {
-                                var _err = _errc.__get__();
-                                {
-                                    {
-                                        for (defer in __deferstack__) {
-                                            defer();
-                                        };
-                                        return _err;
-                                    };
-                                };
-                            };
-                        } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
-                            __select__ = false;
-                            {
-                                _ctx.done().__get__();
-                                {
-                                    {
-                                        final __ret__:stdgo.Error = _ctx.err();
-                                        for (defer in __deferstack__) {
-                                            defer();
-                                        };
-                                        return __ret__;
-                                    };
-                                };
-                            };
-                        } else if (_cc._readerDone != null && _cc._readerDone.__isGet__()) {
-                            __select__ = false;
-                            {
-                                _cc._readerDone.__get__();
-                                {
-                                    {
-                                        final __ret__:stdgo.Error = _cc._readerErr;
-                                        for (defer in __deferstack__) {
-                                            defer();
-                                        };
-                                        return __ret__;
-                                    };
-                                };
-                            };
-                        };
-                        #if !js Sys.sleep(0.01) #else null #end;
-                        stdgo._internal.internal.Async.tick();
+                } catch(__exception__) {
+                    var exe:Dynamic = __exception__.native;
+                    if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                        if (__exception__.message == "__return__") throw "__return__";
+                        exe = stdgo.Go.toInterface(__exception__.message);
                     };
-                };
-                {
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
+                    stdgo.Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return __ret__;
+                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    return;
                 };
             };
+            a();
+        });
+        {
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
-                for (defer in __deferstack__) {
-                    defer();
+                var __select__ = true;
+                while (__select__) {
+                    if (_c != null && _c.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _c.__get__();
+                            {
+                                return (null : stdgo.Error);
+                            };
+                        };
+                    } else if (_errc != null && _errc.__isGet__()) {
+                        __select__ = false;
+                        {
+                            var _err = _errc.__get__();
+                            {
+                                return _err;
+                            };
+                        };
+                    } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                        __select__ = false;
+                        {
+                            _ctx.done().__get__();
+                            {
+                                return _ctx.err();
+                            };
+                        };
+                    } else if (_cc._readerDone != null && _cc._readerDone.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _cc._readerDone.__get__();
+                            {
+                                return _cc._readerErr;
+                            };
+                        };
+                    };
+                    #if !js Sys.sleep(0.01) #else null #end;
+                    stdgo._internal.internal.Async.tick();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
             };
-        } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
-            };
-            stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Error = (null : stdgo.Error);
-            for (defer in __deferstack__) {
-                defer();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Error);
         };
     }
     @:keep
@@ -839,130 +785,87 @@ package stdgo._internal.net.http;
     @:keep
     static public function shutdown( _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>, _ctx:stdgo._internal.context.Context_Context.Context):stdgo.Error {
         @:recv var _cc:stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn> = _cc;
-        var __deferstack__:Array<Void -> Void> = [];
-        try {
-            {
-                var _err = (_cc._sendGoAway() : stdgo.Error);
-                if (_err != null) {
-                    return _err;
-                };
+        {
+            var _err = (_cc._sendGoAway() : stdgo.Error);
+            if (_err != null) {
+                return _err;
             };
-            var _done = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
-            var _cancelled = (false : Bool);
-            stdgo.Go.routine(() -> {
-                var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _cc._mu.lock();
-                        __deferstack__.unshift(() -> _cc._mu.unlock());
-                        while (true) {
-                            if (((_cc._streams.length == (0 : stdgo.GoInt)) || _cc._closed : Bool)) {
-                                _cc._closed = true;
-                                if (_done != null) _done.__close__();
-                                break;
-                            };
-                            if (_cancelled) {
-                                break;
-                            };
-                            _cc._cond.wait_();
+        };
+        var _done = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
+        var _cancelled = (false : Bool);
+        stdgo.Go.routine(() -> {
+            var a = function():Void {
+                var __deferstack__:Array<Void -> Void> = [];
+                try {
+                    _cc._mu.lock();
+                    __deferstack__.unshift(() -> _cc._mu.unlock());
+                    while (true) {
+                        if (((_cc._streams.length == (0 : stdgo.GoInt)) || _cc._closed : Bool)) {
+                            _cc._closed = true;
+                            if (_done != null) _done.__close__();
+                            break;
                         };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
+                        if (_cancelled) {
+                            break;
                         };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
+                        _cc._cond.wait_();
+                    };
+                    {
                         for (defer in __deferstack__) {
                             defer();
                         };
                         if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
                         return;
                     };
-                };
-                a();
-            });
-            stdgo._internal.net.http.Http__http2shutdownEnterWaitStateHook._http2shutdownEnterWaitStateHook();
-            {
-                {
-                    var __select__ = true;
-                    while (__select__) {
-                        if (_done != null && _done.__isGet__()) {
-                            __select__ = false;
-                            {
-                                _done.__get__();
-                                {
-                                    _cc._closeConn();
-                                    {
-                                        final __ret__:stdgo.Error = (null : stdgo.Error);
-                                        for (defer in __deferstack__) {
-                                            defer();
-                                        };
-                                        return __ret__;
-                                    };
-                                };
-                            };
-                        } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
-                            __select__ = false;
-                            {
-                                _ctx.done().__get__();
-                                {
-                                    _cc._mu.lock();
-                                    _cancelled = true;
-                                    _cc._cond.broadcast();
-                                    _cc._mu.unlock();
-                                    {
-                                        final __ret__:stdgo.Error = _ctx.err();
-                                        for (defer in __deferstack__) {
-                                            defer();
-                                        };
-                                        return __ret__;
-                                    };
-                                };
-                            };
-                        };
-                        #if !js Sys.sleep(0.01) #else null #end;
-                        stdgo._internal.internal.Async.tick();
+                } catch(__exception__) {
+                    var exe:Dynamic = __exception__.native;
+                    if ((exe is haxe.ValueException)) exe = exe.value;
+                    if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
+                        if (__exception__.message == "__return__") throw "__return__";
+                        exe = stdgo.Go.toInterface(__exception__.message);
                     };
-                };
-                {
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
+                    stdgo.Go.recover_exception = exe;
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return __ret__;
+                    if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
+                    return;
                 };
             };
+            a();
+        });
+        stdgo._internal.net.http.Http__http2shutdownEnterWaitStateHook._http2shutdownEnterWaitStateHook();
+        {
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
-                for (defer in __deferstack__) {
-                    defer();
+                var __select__ = true;
+                while (__select__) {
+                    if (_done != null && _done.__isGet__()) {
+                        __select__ = false;
+                        {
+                            _done.__get__();
+                            {
+                                _cc._closeConn();
+                                return (null : stdgo.Error);
+                            };
+                        };
+                    } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
+                        __select__ = false;
+                        {
+                            _ctx.done().__get__();
+                            {
+                                _cc._mu.lock();
+                                _cancelled = true;
+                                _cc._cond.broadcast();
+                                _cc._mu.unlock();
+                                return _ctx.err();
+                            };
+                        };
+                    };
+                    #if !js Sys.sleep(0.01) #else null #end;
+                    stdgo._internal.internal.Async.tick();
                 };
-                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
             };
-        } catch(__exception__) {
-            var exe:Dynamic = __exception__.native;
-            if ((exe is haxe.ValueException)) exe = exe.value;
-            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                if (__exception__.message == "__return__") throw "__return__";
-                exe = stdgo.Go.toInterface(__exception__.message);
-            };
-            stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Error = (null : stdgo.Error);
-            for (defer in __deferstack__) {
-                defer();
-            };
-            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Error);
         };
     }
     @:keep

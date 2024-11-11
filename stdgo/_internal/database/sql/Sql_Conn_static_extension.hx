@@ -91,34 +91,11 @@ package stdgo._internal.database.sql;
             _dc.mutex.lock();
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _dc.mutex.unlock();
-                        if (_fPanic) {
-                            _err = stdgo._internal.database.sql.driver.Driver_errBadConn.errBadConn;
-                        };
-                        _release(_err);
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
+                    _dc.mutex.unlock();
+                    if (_fPanic) {
+                        _err = stdgo._internal.database.sql.driver.Driver_errBadConn.errBadConn;
                     };
+                    _release(_err);
                 };
                 a();
             });

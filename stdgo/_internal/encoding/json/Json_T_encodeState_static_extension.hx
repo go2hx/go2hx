@@ -18,49 +18,26 @@ package stdgo._internal.encoding.json;
         try {
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        {
-                            var _r = ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            } : stdgo.AnyInterface);
-                            if (_r != null) {
-                                {
-                                    var __tmp__ = try {
-                                        { _0 : (stdgo.Go.typeAssert((_r : stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError)) : stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError), _1 : true };
-                                    } catch(_) {
-                                        { _0 : ({} : stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError), _1 : false };
-                                    }, _je = __tmp__._0, _ok = __tmp__._1;
-                                    if (_ok) {
-                                        _err = _je._error;
-                                    } else {
-                                        throw stdgo.Go.toInterface(_r);
-                                    };
+                    {
+                        var _r = ({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        } : stdgo.AnyInterface);
+                        if (_r != null) {
+                            {
+                                var __tmp__ = try {
+                                    { _0 : (stdgo.Go.typeAssert((_r : stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError)) : stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError), _1 : true };
+                                } catch(_) {
+                                    { _0 : ({} : stdgo._internal.encoding.json.Json_T_jsonError.T_jsonError), _1 : false };
+                                }, _je = __tmp__._0, _ok = __tmp__._1;
+                                if (_ok) {
+                                    _err = _je._error;
+                                } else {
+                                    throw stdgo.Go.toInterface(_r);
                                 };
                             };
                         };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
                     };
                 };
                 a();

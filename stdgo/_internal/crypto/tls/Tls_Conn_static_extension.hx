@@ -671,36 +671,13 @@ package stdgo._internal.crypto.tls;
             if ((_session != null && ((_session : Dynamic).__nil__ == null || !(_session : Dynamic).__nil__))) {
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            if (_err != null) {
-                                {
-                                    var _cacheKey = (_c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
-                                    if (_cacheKey != (stdgo.Go.str())) {
-                                        _c._config.clientSessionCache.put(_cacheKey?.__copy__(), null);
-                                    };
-                                };
-                            };
+                        if (_err != null) {
                             {
-                                for (defer in __deferstack__) {
-                                    defer();
+                                var _cacheKey = (_c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
+                                if (_cacheKey != (stdgo.Go.str())) {
+                                    _c._config.clientSessionCache.put(_cacheKey?.__copy__(), null);
                                 };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
                             };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
                         };
                     };
                     a();
@@ -1129,88 +1106,42 @@ package stdgo._internal.crypto.tls;
                 var _interruptRes = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
                 __deferstack__.unshift(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            if (_done != null) _done.__close__();
-                            {
-                                var _ctxErr = (_interruptRes.__get__() : stdgo.Error);
-                                if (_ctxErr != null) {
-                                    _ret = _ctxErr;
-                                };
+                        if (_done != null) _done.__close__();
+                        {
+                            var _ctxErr = (_interruptRes.__get__() : stdgo.Error);
+                            if (_ctxErr != null) {
+                                _ret = _ctxErr;
                             };
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
                         };
                     };
                     a();
                 });
                 stdgo.Go.routine(() -> {
                     var a = function():Void {
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            {
-                                var __select__ = true;
-                                while (__select__) {
-                                    if (_handshakeCtx.done() != null && _handshakeCtx.done().__isGet__()) {
-                                        __select__ = false;
+                        {
+                            var __select__ = true;
+                            while (__select__) {
+                                if (_handshakeCtx.done() != null && _handshakeCtx.done().__isGet__()) {
+                                    __select__ = false;
+                                    {
+                                        _handshakeCtx.done().__get__();
                                         {
-                                            _handshakeCtx.done().__get__();
-                                            {
-                                                var __blank__ = _c._conn.close();
-                                                _interruptRes.__send__(_handshakeCtx.err());
-                                            };
-                                        };
-                                    } else if (_done != null && _done.__isGet__()) {
-                                        __select__ = false;
-                                        {
-                                            _done.__get__();
-                                            {
-                                                _interruptRes.__send__(null);
-                                            };
+                                            var __blank__ = _c._conn.close();
+                                            _interruptRes.__send__(_handshakeCtx.err());
                                         };
                                     };
-                                    #if !js Sys.sleep(0.01) #else null #end;
-                                    stdgo._internal.internal.Async.tick();
+                                } else if (_done != null && _done.__isGet__()) {
+                                    __select__ = false;
+                                    {
+                                        _done.__get__();
+                                        {
+                                            _interruptRes.__send__(null);
+                                        };
+                                    };
                                 };
+                                #if !js Sys.sleep(0.01) #else null #end;
+                                stdgo._internal.internal.Async.tick();
                             };
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                                return;
-                            };
-                        } catch(__exception__) {
-                            var exe:Dynamic = __exception__.native;
-                            if ((exe is haxe.ValueException)) exe = exe.value;
-                            if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                                if (__exception__.message == "__return__") throw "__return__";
-                                exe = stdgo.Go.toInterface(__exception__.message);
-                            };
-                            stdgo.Go.recover_exception = exe;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
                         };
                     };
                     a();
@@ -1999,31 +1930,8 @@ package stdgo._internal.crypto.tls;
             var _outBuf = (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>);
             __deferstack__.unshift(() -> {
                 var a = function():Void {
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>).__setData__(_outBuf);
-                        stdgo._internal.crypto.tls.Tls__outBufPool._outBufPool.put(stdgo.Go.toInterface(_outBufPtr));
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                            return;
-                        };
-                    } catch(__exception__) {
-                        var exe:Dynamic = __exception__.native;
-                        if ((exe is haxe.ValueException)) exe = exe.value;
-                        if (!(exe is stdgo.AnyInterface.AnyInterfaceData)) {
-                            if (__exception__.message == "__return__") throw "__return__";
-                            exe = stdgo.Go.toInterface(__exception__.message);
-                        };
-                        stdgo.Go.recover_exception = exe;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                        return;
-                    };
+                    (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>).__setData__(_outBuf);
+                    stdgo._internal.crypto.tls.Tls__outBufPool._outBufPool.put(stdgo.Go.toInterface(_outBufPtr));
                 };
                 a();
             });

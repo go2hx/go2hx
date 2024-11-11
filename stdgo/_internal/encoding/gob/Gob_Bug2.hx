@@ -4,8 +4,8 @@ package stdgo._internal.encoding.gob;
     public var c : stdgo.Chan<stdgo.GoInt> = (null : stdgo.Chan<stdgo.GoInt>);
     public var cp : stdgo.Ref<stdgo.Chan<stdgo.GoInt>> = (null : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>);
     public var f : () -> Void = null;
-    public var fpp : stdgo.Ref<stdgo.Ref<() -> Void>> = (null : stdgo.Ref<stdgo.Ref<() -> Void>>);
-    public function new(?a:stdgo.GoInt, ?c:stdgo.Chan<stdgo.GoInt>, ?cp:stdgo.Ref<stdgo.Chan<stdgo.GoInt>>, ?f:() -> Void, ?fpp:stdgo.Ref<stdgo.Ref<() -> Void>>) {
+    public var fpp : stdgo.Pointer<stdgo.Pointer<() -> Void>> = (null : stdgo.Pointer<stdgo.Pointer<() -> Void>>);
+    public function new(?a:stdgo.GoInt, ?c:stdgo.Chan<stdgo.GoInt>, ?cp:stdgo.Ref<stdgo.Chan<stdgo.GoInt>>, ?f:() -> Void, ?fpp:stdgo.Pointer<stdgo.Pointer<() -> Void>>) {
         if (a != null) this.a = a;
         if (c != null) this.c = c;
         if (cp != null) this.cp = cp;

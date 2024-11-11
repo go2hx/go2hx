@@ -1217,13 +1217,13 @@ bytes);
         this.f = v;
         return v;
     }
-    public var fpp(get, set) : () -> Void;
-    function get_fpp():() -> Void return this.fpp;
-    function set_fpp(v:() -> Void):() -> Void {
+    public var fpp(get, set) : stdgo.Pointer<stdgo.Pointer<() -> Void>>;
+    function get_fpp():stdgo.Pointer<stdgo.Pointer<() -> Void>> return () -> this.fpp();
+    function set_fpp(v:stdgo.Pointer<stdgo.Pointer<() -> Void>>):stdgo.Pointer<stdgo.Pointer<() -> Void>> {
         this.fpp = v;
         return v;
     }
-    public function new(?a:StdTypes.Int, ?c:stdgo.Chan<stdgo.GoInt>, ?cp:stdgo.Chan<stdgo.GoInt>, ?f:() -> Void, ?fpp:() -> Void) this = new stdgo._internal.encoding.gob.Gob_Bug2.Bug2(a, c, cp, f, fpp);
+    public function new(?a:StdTypes.Int, ?c:stdgo.Chan<stdgo.GoInt>, ?cp:stdgo.Chan<stdgo.GoInt>, ?f:() -> Void, ?fpp:stdgo.Pointer<stdgo.Pointer<() -> Void>>) this = new stdgo._internal.encoding.gob.Gob_Bug2.Bug2(a, c, cp, f, fpp);
     public function __underlying__() return stdgo.Go.toInterface(this);
     public function __copy__() return this.__copy__();
 }
@@ -2826,13 +2826,13 @@ class Decoder_static_extension {
     static public function _compatibleType(_dec:Decoder, _fr:stdgo._internal.reflect.Reflect_Type_.Type_, _fw:T_typeId, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId>):Bool {
         return stdgo._internal.encoding.gob.Gob_Decoder_static_extension.Decoder_static_extension._compatibleType(_dec, _fr, _fw, _inProgress);
     }
-    static public function _gobDecodeOpFor(_dec:Decoder, _ut:T_userTypeInfo):T_decOp {
+    static public function _gobDecodeOpFor(_dec:Decoder, _ut:T_userTypeInfo):stdgo.Pointer<T_decOp> {
         return stdgo._internal.encoding.gob.Gob_Decoder_static_extension.Decoder_static_extension._gobDecodeOpFor(_dec, _ut);
     }
-    static public function _decIgnoreOpFor(_dec:Decoder, _wireId:T_typeId, _inProgress:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>, _depth:StdTypes.Int):T_decOp {
+    static public function _decIgnoreOpFor(_dec:Decoder, _wireId:T_typeId, _inProgress:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>, _depth:StdTypes.Int):stdgo.Pointer<T_decOp> {
         return stdgo._internal.encoding.gob.Gob_Decoder_static_extension.Decoder_static_extension._decIgnoreOpFor(_dec, _wireId, _inProgress, _depth);
     }
-    static public function _decOpFor(_dec:Decoder, _wireId:T_typeId, _rt:stdgo._internal.reflect.Reflect_Type_.Type_, _name:String, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>):T_decOp {
+    static public function _decOpFor(_dec:Decoder, _wireId:T_typeId, _rt:stdgo._internal.reflect.Reflect_Type_.Type_, _name:String, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>):stdgo.Pointer<T_decOp> {
         return stdgo._internal.encoding.gob.Gob_Decoder_static_extension.Decoder_static_extension._decOpFor(_dec, _wireId, _rt, _name, _inProgress);
     }
     static public function _ignoreGobDecoder(_dec:Decoder, _state:T_decoderState):Void {

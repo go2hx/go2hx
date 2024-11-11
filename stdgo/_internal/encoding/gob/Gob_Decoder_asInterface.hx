@@ -35,11 +35,11 @@ class Decoder_asInterface {
     @:keep
     public dynamic function _compatibleType(_fr:stdgo._internal.reflect.Reflect_Type_.Type_, _fw:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId>):Bool return __self__.value._compatibleType(_fr, _fw, _inProgress);
     @:keep
-    public dynamic function _gobDecodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>):stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp> return __self__.value._gobDecodeOpFor(_ut);
+    public dynamic function _gobDecodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp> return __self__.value._gobDecodeOpFor(_ut);
     @:keep
-    public dynamic function _decIgnoreOpFor(_wireId:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, _inProgress:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>, _depth:stdgo.GoInt):stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp> return __self__.value._decIgnoreOpFor(_wireId, _inProgress, _depth);
+    public dynamic function _decIgnoreOpFor(_wireId:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, _inProgress:stdgo.GoMap<stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>, _depth:stdgo.GoInt):stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp> return __self__.value._decIgnoreOpFor(_wireId, _inProgress, _depth);
     @:keep
-    public dynamic function _decOpFor(_wireId:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, _rt:stdgo._internal.reflect.Reflect_Type_.Type_, _name:stdgo.GoString, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>):stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp> return __self__.value._decOpFor(_wireId, _rt, _name, _inProgress);
+    public dynamic function _decOpFor(_wireId:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId, _rt:stdgo._internal.reflect.Reflect_Type_.Type_, _name:stdgo.GoString, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>):stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp> return __self__.value._decOpFor(_wireId, _rt, _name, _inProgress);
     @:keep
     public dynamic function _ignoreGobDecoder(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decoderState.T_decoderState>):Void __self__.value._ignoreGobDecoder(_state);
     @:keep

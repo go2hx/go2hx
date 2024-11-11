@@ -1,5 +1,5 @@
 package stdgo._internal.encoding.gob;
-function _gobEncodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>):{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>; var _1 : stdgo.GoInt; } {
+function _gobEncodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>):{ var _0 : stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>; var _1 : stdgo.GoInt; } {
         var _rt = (_ut._user : stdgo._internal.reflect.Reflect_Type_.Type_);
         if (_ut._encIndir == ((-1 : stdgo.GoInt8))) {
             _rt = stdgo._internal.reflect.Reflect_pointerTo.pointerTo(_rt);
@@ -26,5 +26,5 @@ function _gobEncodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTy
             _state._update(_i);
             _state._enc._encodeGobEncoder(_state._b, _ut, _v?.__copy__());
         };
-        return { _0 : (stdgo.Go.setRef(_op) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>), _1 : (_ut._encIndir : stdgo.GoInt) };
+        return { _0 : stdgo.Go.pointer(_op), _1 : (_ut._encIndir : stdgo.GoInt) };
     }

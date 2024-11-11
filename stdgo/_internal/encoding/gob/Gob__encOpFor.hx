@@ -1,12 +1,12 @@
 package stdgo._internal.encoding.gob;
-function _encOpFor(_rt:stdgo._internal.reflect.Reflect_Type_.Type_, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>>, _building:stdgo.GoMap<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>, Bool>):{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>; var _1 : stdgo.GoInt; } {
+function _encOpFor(_rt:stdgo._internal.reflect.Reflect_Type_.Type_, _inProgress:stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>>, _building:stdgo.GoMap<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>, Bool>):{ var _0 : stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>; var _1 : stdgo.GoInt; } {
         var _ut = stdgo._internal.encoding.gob.Gob__userType._userType(_rt);
         if (_ut._externalEnc != ((0 : stdgo.GoInt))) {
             return stdgo._internal.encoding.gob.Gob__gobEncodeOpFor._gobEncodeOpFor(_ut);
         };
         {
-            var _opPtr = (_inProgress[_rt] ?? (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>));
-            if ((_opPtr != null && ((_opPtr : Dynamic).__nil__ == null || !(_opPtr : Dynamic).__nil__))) {
+            var _opPtr = (_inProgress[_rt] ?? (null : stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>));
+            if (_opPtr != null) {
                 return { _0 : _opPtr, _1 : _ut._indir };
             };
         };
@@ -18,7 +18,7 @@ function _encOpFor(_rt:stdgo._internal.reflect.Reflect_Type_.Type_, _inProgress:
             _op = stdgo._internal.encoding.gob.Gob__encOpTable._encOpTable[(_k : stdgo.GoInt)];
         };
         if (_op == null) {
-            _inProgress[_rt] = (stdgo.Go.setRef(_op) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>);
+            _inProgress[_rt] = stdgo.Go.pointer(_op);
             {
                 var _t = (_typ : stdgo._internal.reflect.Reflect_Type_.Type_);
                 {
@@ -33,33 +33,33 @@ function _encOpFor(_rt:stdgo._internal.reflect.Reflect_Type_.Type_, _inProgress:
                                     _op = stdgo._internal.encoding.gob.Gob__encUint8Array._encUint8Array;
                                     break;
                                 };
-                                var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_t.elem(), _inProgress, _building), _elemOp:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _elemIndir:stdgo.GoInt = __tmp__._1;
+                                var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_t.elem(), _inProgress, _building), _elemOp:stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _elemIndir:stdgo.GoInt = __tmp__._1;
                                 var _helper = (stdgo._internal.encoding.gob.Gob__encSliceHelper._encSliceHelper[_t.elem().kind()] ?? (null : stdgo._internal.encoding.gob.Gob_T_encHelper.T_encHelper) : stdgo._internal.encoding.gob.Gob_T_encHelper.T_encHelper);
                                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState>, _slice:stdgo._internal.reflect.Reflect_Value.Value):Void {
                                     if ((!_state._sendZero && (_slice.len() == (0 : stdgo.GoInt)) : Bool)) {
                                         return;
                                     };
                                     _state._update(_i);
-                                    _state._enc._encodeArray(_state._b, _slice?.__copy__(), (_elemOp : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp), _elemIndir, _slice.len(), _helper);
+                                    _state._enc._encodeArray(_state._b, _slice?.__copy__(), _elemOp.value, _elemIndir, _slice.len(), _helper);
                                 };
                                 break;
                             } else if (__value__ == ((17u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                                var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_t.elem(), _inProgress, _building), _elemOp:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _elemIndir:stdgo.GoInt = __tmp__._1;
+                                var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_t.elem(), _inProgress, _building), _elemOp:stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _elemIndir:stdgo.GoInt = __tmp__._1;
                                 var _helper = (stdgo._internal.encoding.gob.Gob__encArrayHelper._encArrayHelper[_t.elem().kind()] ?? (null : stdgo._internal.encoding.gob.Gob_T_encHelper.T_encHelper) : stdgo._internal.encoding.gob.Gob_T_encHelper.T_encHelper);
                                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState>, _array:stdgo._internal.reflect.Reflect_Value.Value):Void {
                                     _state._update(_i);
-                                    _state._enc._encodeArray(_state._b, _array?.__copy__(), (_elemOp : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp), _elemIndir, _array.len(), _helper);
+                                    _state._enc._encodeArray(_state._b, _array?.__copy__(), _elemOp.value, _elemIndir, _array.len(), _helper);
                                 };
                                 break;
                             } else if (__value__ == ((21u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                                var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_t.key(), _inProgress, _building), _keyOp:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _keyIndir:stdgo.GoInt = __tmp__._1;
-                                var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_t.elem(), _inProgress, _building), _elemOp:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _elemIndir:stdgo.GoInt = __tmp__._1;
+                                var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_t.key(), _inProgress, _building), _keyOp:stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _keyIndir:stdgo.GoInt = __tmp__._1;
+                                var __tmp__ = stdgo._internal.encoding.gob.Gob__encOpFor._encOpFor(_t.elem(), _inProgress, _building), _elemOp:stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp> = __tmp__._0, _elemIndir:stdgo.GoInt = __tmp__._1;
                                 _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState>, _mv:stdgo._internal.reflect.Reflect_Value.Value):Void {
                                     if ((!_state._sendZero && _mv.isNil() : Bool)) {
                                         return;
                                     };
                                     _state._update(_i);
-                                    _state._enc._encodeMap(_state._b, _mv?.__copy__(), (_keyOp : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp), (_elemOp : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp), _keyIndir, _elemIndir);
+                                    _state._enc._encodeMap(_state._b, _mv?.__copy__(), _keyOp.value, _elemOp.value, _keyIndir, _elemIndir);
                                 };
                                 break;
                             } else if (__value__ == ((25u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
@@ -90,5 +90,5 @@ function _encOpFor(_rt:stdgo._internal.reflect.Reflect_Type_.Type_, _inProgress:
         if (_op == null) {
             stdgo._internal.encoding.gob.Gob__errorf._errorf(("can\'t happen: encode type %s" : stdgo.GoString), stdgo.Go.toInterface(_rt));
         };
-        return { _0 : (stdgo.Go.setRef(_op) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp>), _1 : _indir };
+        return { _0 : stdgo.Go.pointer(_op), _1 : _indir };
     }

@@ -130,106 +130,106 @@ _t1 = _t1._sub(_t1, stdgo._internal.math.big.Big__natTwo._natTwo);
     @:keep
     static public function _probablyPrimeMillerRabin( _n:stdgo._internal.math.big.Big_T_nat.T_nat, _reps:stdgo.GoInt, _force2:Bool):Bool {
         @:recv var _n:stdgo._internal.math.big.Big_T_nat.T_nat = _n;
-        var _i_4791765:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _nm3_4791618:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _q_4791590:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _k_4791561:stdgo.GoUInt = (0 : stdgo.GoUInt);
-        var _nm1_4791487:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _nm3Len_4791724:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _quotient_4791710:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _y_4791707:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
-        var _rand_4791652:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> = (null : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
-        var _j_4792010:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _q_4348290:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _nm1_4348187:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _i_4348465:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _nm3Len_4348424:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _nm3_4348318:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _rand_4348352:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand> = (null : stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>);
+        var _k_4348261:stdgo.GoUInt = (0 : stdgo.GoUInt);
+        var _j_4348710:stdgo.GoUInt = (0 : stdgo.GoUInt);
         var nextRandomBreak = false;
-        var _x_4791704:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _quotient_4348410:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _y_4348407:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
+        var _x_4348404:stdgo._internal.math.big.Big_T_nat.T_nat = new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _nm1_4791487 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._sub(_n, stdgo._internal.math.big.Big__natOne._natOne);
-                    _k_4791561 = _nm1_4791487._trailingZeroBits();
-                    _q_4791590 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._shr(_nm1_4791487, _k_4791561);
-                    _nm3_4791618 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._sub(_nm1_4791487, stdgo._internal.math.big.Big__natTwo._natTwo);
-                    _rand_4791652 = stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newSource.newSource((_n[(0 : stdgo.GoInt)] : stdgo.GoInt64)));
-                    _nm3Len_4791724 = _nm3_4791618._bitLen();
-                    _gotoNext = 4791748i32;
-                } else if (__value__ == (4791748i32)) {
-                    _i_4791765 = (0 : stdgo.GoInt);
+                    _nm1_4348187 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._sub(_n, stdgo._internal.math.big.Big__natOne._natOne);
+                    _k_4348261 = _nm1_4348187._trailingZeroBits();
+                    _q_4348290 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._shr(_nm1_4348187, _k_4348261);
+                    _nm3_4348318 = (new stdgo._internal.math.big.Big_T_nat.T_nat(0, 0) : stdgo._internal.math.big.Big_T_nat.T_nat)._sub(_nm1_4348187, stdgo._internal.math.big.Big__natTwo._natTwo);
+                    _rand_4348352 = stdgo._internal.math.rand.Rand_new_.new_(stdgo._internal.math.rand.Rand_newSource.newSource((_n[(0 : stdgo.GoInt)] : stdgo.GoInt64)));
+                    _nm3Len_4348424 = _nm3_4348318._bitLen();
+                    _gotoNext = 4348448i32;
+                } else if (__value__ == (4348448i32)) {
+                    _i_4348465 = (0 : stdgo.GoInt);
                     nextRandomBreak = false;
-                    _gotoNext = 4791761i32;
-                } else if (__value__ == (4791761i32)) {
-                    if (!nextRandomBreak && ((_i_4791765 < _reps : Bool))) {
-                        _gotoNext = 4791787i32;
+                    _gotoNext = 4348461i32;
+                } else if (__value__ == (4348461i32)) {
+                    if (!nextRandomBreak && ((_i_4348465 < _reps : Bool))) {
+                        _gotoNext = 4348487i32;
                     } else {
-                        _gotoNext = 4792218i32;
+                        _gotoNext = 4348918i32;
                     };
-                } else if (__value__ == (4791787i32)) {
-                    if (((_i_4791765 == (_reps - (1 : stdgo.GoInt) : stdgo.GoInt)) && _force2 : Bool)) {
-                        _gotoNext = 4791816i32;
+                } else if (__value__ == (4348487i32)) {
+                    if (((_i_4348465 == (_reps - (1 : stdgo.GoInt) : stdgo.GoInt)) && _force2 : Bool)) {
+                        _gotoNext = 4348516i32;
                     } else {
-                        _gotoNext = 4791848i32;
+                        _gotoNext = 4348548i32;
                     };
-                } else if (__value__ == (4791816i32)) {
-                    _x_4791704 = _x_4791704._set(stdgo._internal.math.big.Big__natTwo._natTwo);
-                    _gotoNext = 4791915i32;
-                } else if (__value__ == (4791848i32)) {
-                    _gotoNext = 4791848i32;
-                    _x_4791704 = _x_4791704._random(_rand_4791652, _nm3_4791618, _nm3Len_4791724);
-                    _x_4791704 = _x_4791704._add(_x_4791704, stdgo._internal.math.big.Big__natTwo._natTwo);
+                } else if (__value__ == (4348516i32)) {
+                    _x_4348404 = _x_4348404._set(stdgo._internal.math.big.Big__natTwo._natTwo);
+                    _gotoNext = 4348615i32;
+                } else if (__value__ == (4348548i32)) {
+                    _gotoNext = 4348548i32;
+                    _x_4348404 = _x_4348404._random(_rand_4348352, _nm3_4348318, _nm3Len_4348424);
+                    _x_4348404 = _x_4348404._add(_x_4348404, stdgo._internal.math.big.Big__natTwo._natTwo);
                     var __blank__ = 0i32;
-                    _gotoNext = 4791915i32;
-                } else if (__value__ == (4791915i32)) {
-                    _y_4791707 = _y_4791707._expNN(_x_4791704, _q_4791590, _n, false);
-                    if (((_y_4791707._cmp(stdgo._internal.math.big.Big__natOne._natOne) == (0 : stdgo.GoInt)) || (_y_4791707._cmp(_nm1_4791487) == (0 : stdgo.GoInt)) : Bool)) {
-                        _gotoNext = 4791986i32;
+                    _gotoNext = 4348615i32;
+                } else if (__value__ == (4348615i32)) {
+                    _y_4348407 = _y_4348407._expNN(_x_4348404, _q_4348290, _n, false);
+                    if (((_y_4348407._cmp(stdgo._internal.math.big.Big__natOne._natOne) == (0 : stdgo.GoInt)) || (_y_4348407._cmp(_nm1_4348187) == (0 : stdgo.GoInt)) : Bool)) {
+                        _gotoNext = 4348686i32;
                     } else {
-                        _gotoNext = 4792006i32;
+                        _gotoNext = 4348706i32;
                     };
-                } else if (__value__ == (4791986i32)) {
-                    _i_4791765++;
-                    _gotoNext = 4791761i32;
-                } else if (__value__ == (4792006i32)) {
-                    _j_4792010 = (1u32 : stdgo.GoUInt);
-                    _gotoNext = 4792006i32;
-                    if ((_j_4792010 < _k_4791561 : Bool)) {
-                        _gotoNext = 4792035i32;
+                } else if (__value__ == (4348686i32)) {
+                    _i_4348465++;
+                    _gotoNext = 4348461i32;
+                } else if (__value__ == (4348706i32)) {
+                    _j_4348710 = (1u32 : stdgo.GoUInt);
+                    _gotoNext = 4348706i32;
+                    if ((_j_4348710 < _k_4348261 : Bool)) {
+                        _gotoNext = 4348735i32;
                     } else {
-                        _gotoNext = 4792200i32;
+                        _gotoNext = 4348900i32;
                     };
-                } else if (__value__ == (4792031i32)) {
-                    _j_4792010++;
-                    _gotoNext = 4792006i32;
-                } else if (__value__ == (4792035i32)) {
-                    _y_4791707 = _y_4791707._sqr(_y_4791707);
+                } else if (__value__ == (4348731i32)) {
+                    _j_4348710++;
+                    _gotoNext = 4348706i32;
+                } else if (__value__ == (4348735i32)) {
+                    _y_4348407 = _y_4348407._sqr(_y_4348407);
                     {
-                        var __tmp__ = _quotient_4791710._div(_y_4791707, _y_4791707, _n);
-                        _quotient_4791710 = __tmp__._0;
-                        _y_4791707 = __tmp__._1;
+                        var __tmp__ = _quotient_4348410._div(_y_4348407, _y_4348407, _n);
+                        _quotient_4348410 = __tmp__._0;
+                        _y_4348407 = __tmp__._1;
                     };
-                    if (_y_4791707._cmp(_nm1_4791487) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 4792114i32;
+                    if (_y_4348407._cmp(_nm1_4348187) == ((0 : stdgo.GoInt))) {
+                        _gotoNext = 4348814i32;
                     } else {
-                        _gotoNext = 4792148i32;
+                        _gotoNext = 4348848i32;
                     };
-                } else if (__value__ == (4792114i32)) {
-                    _i_4791765++;
-                    _gotoNext = 4791761i32;
-                } else if (__value__ == (4792148i32)) {
-                    if (_y_4791707._cmp(stdgo._internal.math.big.Big__natOne._natOne) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 4792170i32;
+                } else if (__value__ == (4348814i32)) {
+                    _i_4348465++;
+                    _gotoNext = 4348461i32;
+                } else if (__value__ == (4348848i32)) {
+                    if (_y_4348407._cmp(stdgo._internal.math.big.Big__natOne._natOne) == ((0 : stdgo.GoInt))) {
+                        _gotoNext = 4348870i32;
                     } else {
-                        _gotoNext = 4792031i32;
+                        _gotoNext = 4348731i32;
                     };
-                } else if (__value__ == (4792170i32)) {
+                } else if (__value__ == (4348870i32)) {
                     return false;
-                    _gotoNext = 4792031i32;
-                } else if (__value__ == (4792200i32)) {
+                    _gotoNext = 4348731i32;
+                } else if (__value__ == (4348900i32)) {
                     return false;
-                    _i_4791765++;
-                    _gotoNext = 4791761i32;
-                } else if (__value__ == (4792218i32)) {
+                    _i_4348465++;
+                    _gotoNext = 4348461i32;
+                } else if (__value__ == (4348918i32)) {
                     return true;
                     _gotoNext = -1i32;
                 };

@@ -19,15 +19,15 @@ abstract GoComplex128(Complex128) from Complex128 {
 	inline function toComplex128()
 		return this;
 
-	@:from static function fromFloat(f:Float):GoComplex128 {
+	@:from static function fromFloat(f:GoFloat64):GoComplex128 {
 		return new GoComplex128(f, 0);
 	}
 
 	public inline function toBasic()
 		return this;
 
-	public var real(get, never):Float;
-	public var imag(get, never):Float;
+	public var real(get, never):GoFloat64;
+	public var imag(get, never):GoFloat64;
 
 	private inline function get_real()
 		return this.real;

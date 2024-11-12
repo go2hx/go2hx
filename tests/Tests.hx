@@ -94,6 +94,7 @@ function main() {
 	goByExampleBool = Compiler.getDefine("gobyexample") != null;
 	tinygoBool = Compiler.getDefine("tinygo") != null;
 	sortMode = Compiler.getDefine("mode") ?? (Compiler.getDefine("sort") ?? "");
+	final reportBool = Compiler.getDefine("report") != null;
 	final countStr = Compiler.getDefine("count");
 	testCount = countStr != null ? Std.parseInt(countStr) : 0;
 	final offsetStr = Compiler.getDefine("offset");
@@ -102,13 +103,28 @@ function main() {
 	runOnly = Compiler.getDefine("runonly") ?? "";
 	dryRun = Compiler.getDefine("dryRun") != null;
 	var startStamp = 0.0;
-
 	if (!unitBool && !stdBool && !goBool && !yaegiBool && !goByExampleBool) {
 		trace("no tests specified");
 		close();
 		return;
 	}
 	runTests();
+	if (reportBool) {
+		final testName = type + (sortMode == "" ? "" : "_" + sortMode);
+		final output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
+		if (output.length == 0)
+			throw testName + " not set";
+		final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
+		final tests:Array<String> = Reflect.field(testsJson, sortMode).map(s -> Path.withoutExtension(Path.withoutDirectory(s.split("\n")[0])));
+		for (v in output) {
+			final parts = v.split("|");
+			final target = parts[0];
+			final path = parts[1];
+			tests.remove(path);
+		}
+		Sys.println(tests.join("\n"));
+		Sys.exit(0);
+	}
 	trace(tests);
 	trace(tests.length);
 	trace(tasks.length);

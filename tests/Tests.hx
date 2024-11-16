@@ -119,7 +119,7 @@ function main() {
 		for (v in output) {
 			final parts = v.split("|");
 			final target = parts[0];
-			final path = parts[1];
+			final path = sanatize(parts[1]);
 			tests.remove(path);
 		}
 		Sys.println(tests.join("\n"));

@@ -45,7 +45,8 @@ func createConfig(r Result) {
 		fmt.Println(err)
 		return
 	}
-	err = os.WriteFile("tests/sort_"+r.Name+".json", jsonData, 0644)
+	name := "tests/sort_" + r.Name + ".json"
+	err = os.WriteFile(name, jsonData, 0644)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -84,14 +85,13 @@ func sortImports(dir string, name string) (r Result) {
 	}
 	var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 	_, _ = cfg, conf
-	i := 0
 	// Walk through the directory and its subdirectories
 	err := filepath.Walk(dir, func(path string, info os.FileInfo, err error) error {
 		// Check if the file is a Go file
 		if filepath.Ext(path) == ".go" && !strings.HasSuffix(path, "_test.go") && !strings.Contains(path, "typeparam") && !strings.Contains(path, "chan") {
 			// Parse the Go file
 			fset := token.NewFileSet()
-			file, err := parser.ParseFile(fset, path, nil, parser.ImportsOnly)
+			file, err := parser.ParseFile(fset, path, nil, parser.ParseComments|parser.SkipObjectResolution)
 			if err != nil {
 				return nil
 			}
@@ -99,21 +99,16 @@ func sortImports(dir string, name string) (r Result) {
 				return nil
 			}
 			wanted := ""
+			// specific
 			switch name {
 			case "yaegi":
 				// Check if the file is a test file
-				res, _, err := wantedFromCommentYaegi(path)
+				res, _, err := wantedFromCommentYaegi(file)
 				if err {
 					return nil
 				}
 				wanted = res
 			case "go":
-				i++
-				// check if the first comment is // errorcheck
-				file, err := parser.ParseFile(fset, path, nil, parser.ParseComments)
-				if err != nil {
-					return nil
-				}
 				if len(file.Comments) == 0 {
 					return nil
 				}
@@ -127,30 +122,6 @@ func sortImports(dir string, name string) (r Result) {
 					return nil
 				}
 				if !strings.HasPrefix(text, "run") {
-					return nil
-				}
-
-				// make sure the file does not use channels
-				chanBool := false
-				typeParams := false
-				ast.Inspect(file, func(n ast.Node) bool {
-					switch n.(type) {
-					case *ast.SendStmt, *ast.ChanType:
-						chanBool = true
-						return false
-					case *ast.UnaryExpr:
-						if n.(*ast.UnaryExpr).Op == token.ARROW {
-							chanBool = true
-							return false
-						}
-					case *ast.IndexListExpr:
-						typeParams = true
-						return false
-					}
-					return true
-				})
-
-				if chanBool || typeParams {
 					return nil
 				}
 				/*initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, path)
@@ -167,6 +138,36 @@ func sortImports(dir string, name string) (r Result) {
 				b, err := os.ReadFile(path[:len(path)-2] + "txt")
 				if err == nil {
 					wanted = string(b)
+				}
+			}
+			// if check ast
+			switch name {
+			case "yaegi", "go", "tinygo":
+				// make sure the file does not use channels
+				chanBool := false
+				typeParams := false
+				ast.Inspect(file, func(n ast.Node) bool {
+					switch n := n.(type) {
+					case *ast.SendStmt, *ast.ChanType:
+						chanBool = true
+						return false
+					case *ast.GoStmt:
+						chanBool = true
+						return false
+					case *ast.UnaryExpr:
+						if n.Op == token.ARROW {
+							chanBool = true
+							return false
+						}
+					case *ast.IndexListExpr:
+						typeParams = true
+						return false
+					}
+					return true
+				})
+
+				if chanBool || typeParams {
+					return nil
 				}
 			}
 
@@ -209,13 +210,11 @@ func (r Result) String() string {
 	return fmt.Sprintf("%s: easy: %d, medium: %d, hard: %d", r.Name, len(r.Easy), len(r.Medium), len(r.Hard))
 }
 
-func wantedFromCommentYaegi(p string) (res string, goPath string, err bool) {
-	fset := token.NewFileSet()
-	f, _ := parser.ParseFile(fset, p, nil, parser.ParseComments)
-	if len(f.Comments) == 0 {
+func wantedFromCommentYaegi(file *ast.File) (res string, goPath string, err bool) {
+	if len(file.Comments) == 0 {
 		return
 	}
-	text := f.Comments[len(f.Comments)-1].Text()
+	text := file.Comments[len(file.Comments)-1].Text()
 	if strings.HasPrefix(text, "GOPATH:") {
 		parts := strings.SplitN(text, "\n", 2)
 		text = parts[1]

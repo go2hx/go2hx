@@ -215,7 +215,9 @@ function update() {
 	}
 	if (tasks.length > 0 && runningCount < Std.parseInt(runnerCount) ) {
 		final task = tasks.pop();
-		Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
+		if (!noLogs) {
+			Sys.println("tests: " + tests.length + " tasks: " + tasks.length + " running: " + runningCount + " " + lastTaskLogs);
+		}
 		if (hxbBool) {
 			task.args.push("--hxb-lib");
 			task.args.push("go2hx.zip");

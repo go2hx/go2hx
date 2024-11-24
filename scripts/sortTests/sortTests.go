@@ -135,9 +135,14 @@ func sortImports(dir string, name string) (r Result) {
 				typeParams := false
 				ast.Inspect(file, func(n ast.Node) bool {
 					switch n.(type) {
-					case *ast.ChanType:
+					case *ast.SendStmt, *ast.ChanType:
 						chanBool = true
 						return false
+					case *ast.UnaryExpr:
+						if n.(*ast.UnaryExpr).Op == token.ARROW {
+							chanBool = true
+							return false
+						}
 					case *ast.IndexListExpr:
 						typeParams = true
 						return false

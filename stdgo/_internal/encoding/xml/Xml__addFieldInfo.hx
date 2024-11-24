@@ -1,19 +1,19 @@
 package stdgo._internal.encoding.xml;
 function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo>, _newf:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>):stdgo.Error {
+        var _f1_3723943:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
         var _i_3723678:stdgo.GoInt = (0 : stdgo.GoInt);
         var _conflicts_3722568:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-        var _i_3723852:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _oldf_3722690:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
-        var _i_3722662:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _p_3722921:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3723683_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _minl_3722865:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3724291:stdgo.GoInt = (0 : stdgo.GoInt);
         var _oldf_3723877:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
-        var _f1_3723943:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
-        var _i_3723857_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _c_3724250:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _oldf_3722690:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
         var _f2_3723979:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
+        var _i_3723857_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _minl_3722865:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3723683_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _p_3722921:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3722662:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c_3724250:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3723852:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

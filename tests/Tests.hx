@@ -115,7 +115,8 @@ function main() {
 		if (output.length == 0)
 			throw testName + " not set";
 		final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
-		final tests:Array<String> = Reflect.field(testsJson, sortMode).map(s -> Path.withoutExtension(Path.withoutDirectory(s.split("\n")[0])));
+		var tests:Array<String> = Reflect.field(testsJson, sortMode).map(s -> Path.withoutExtension(Path.withoutDirectory(s.split("\n")[0])));
+		tests = tests.map(s -> sanatize(s));
 		for (v in output) {
 			final parts = v.split("|");
 			final target = parts[0];

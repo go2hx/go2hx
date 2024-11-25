@@ -159,6 +159,11 @@ func sortImports(dir string, name string) (r Result) {
 							chanBool = true
 							return false
 						}
+					case *ast.FuncType:
+						if n.TypeParams != nil {
+							typeParams = true
+							return false
+						}
 					case *ast.IndexListExpr:
 						typeParams = true
 						return false

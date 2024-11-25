@@ -53,6 +53,16 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		var aValue = a.value;
 		var bValue = b.value;
 		switch gt {
+			case refType(_.get() => elem):
+				gt = elem;
+			default:
+		}
+		switch gt2 {
+			case refType(_.get() => elem):
+				gt2 = elem;
+			default:
+		}
+		switch gt {
 			case named(path, _, _, _):
 				if (aValue != null) {
 					switch std.Type.typeof(aValue) {

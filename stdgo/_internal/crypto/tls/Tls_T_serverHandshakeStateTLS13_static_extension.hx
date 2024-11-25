@@ -563,449 +563,449 @@ package stdgo._internal.crypto.tls;
     @:keep
     static public function _processClientHello( _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13.T_serverHandshakeStateTLS13>):stdgo.Error {
         @:recv var _hs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_serverHandshakeStateTLS13.T_serverHandshakeStateTLS13> = _hs;
-        var _selectedProto_5993027:stdgo.GoString = ("" : stdgo.GoString);
-        var _ok_5992335:Bool = false;
-        var _i_5991903_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_5991636_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _id_5988968:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _peerKey_5992704:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PublicKey.PublicKey> = (null : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
-        var _err_5992494:stdgo.Error = (null : stdgo.Error);
-        var _i_5991687_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_5992199:stdgo.Error = (null : stdgo.Error);
-        var _preferredGroup_5991618:stdgo._internal.crypto.tls.Tls_CurveID.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_CurveID.CurveID);
-        var _selectedGroup_5991542:stdgo._internal.crypto.tls.Tls_CurveID.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_CurveID.CurveID);
-        var _i_5991012_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _c_5987873:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>);
-        var _ks_5991681:stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare = ({} : stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare);
-        var _clientKeyShare_5991569:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare>);
-        var _suiteID_5991001:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _preferenceList_5990817:stdgo.Slice<stdgo.GoUInt16> = (null : stdgo.Slice<stdgo.GoUInt16>);
-        var _err_5989658:stdgo.Error = (null : stdgo.Error);
-        var _i_5988974_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _key_5992489:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = (null : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
-        var _group_5991894:stdgo._internal.crypto.tls.Tls_CurveID.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_CurveID.CurveID);
+        var _err_5701879:stdgo.Error = (null : stdgo.Error);
+        var _err_5701584:stdgo.Error = (null : stdgo.Error);
+        var _i_5701288_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5701072_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5701021_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _peerKey_5702089:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PublicKey.PublicKey> = (null : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PublicKey.PublicKey>);
+        var _suiteID_5700386:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _err_5699043:stdgo.Error = (null : stdgo.Error);
+        var _id_5698353:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _key_5701874:stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey> = (null : stdgo.Ref<_internal.crypto.ecdh.Ecdh_PrivateKey.PrivateKey>);
+        var _ok_5701720:Bool = false;
+        var _clientKeyShare_5700954:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare>);
+        var _i_5700397_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5698359_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c_5697258:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>);
+        var _selectedProto_5702412:stdgo.GoString = ("" : stdgo.GoString);
+        var _group_5701279:stdgo._internal.crypto.tls.Tls_CurveID.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_CurveID.CurveID);
+        var _ks_5701066:stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare = ({} : stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare);
+        var _preferredGroup_5701003:stdgo._internal.crypto.tls.Tls_CurveID.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_CurveID.CurveID);
+        var _selectedGroup_5700927:stdgo._internal.crypto.tls.Tls_CurveID.CurveID = ((0 : stdgo.GoUInt16) : stdgo._internal.crypto.tls.Tls_CurveID.CurveID);
+        var _preferenceList_5700202:stdgo.Slice<stdgo.GoUInt16> = (null : stdgo.Slice<stdgo.GoUInt16>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _c_5987873 = _hs._c;
+                    _c_5697258 = _hs._c;
                     _hs._hello = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_T_serverHelloMsg.T_serverHelloMsg)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_serverHelloMsg.T_serverHelloMsg>);
                     _hs._hello._vers = (771 : stdgo.GoUInt16);
-                    _hs._hello._supportedVersion = _c_5987873._vers;
+                    _hs._hello._supportedVersion = _c_5697258._vers;
                     if ((_hs._clientHello._supportedVersions.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5988168i32;
+                        _gotoNext = 5697553i32;
                     } else {
-                        _gotoNext = 5988961i32;
+                        _gotoNext = 5698346i32;
                     };
-                } else if (__value__ == (5988168i32)) {
-                    _c_5987873._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5697553i32)) {
+                    _c_5697258._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client used the legacy version field to negotiate TLS 1.3" : stdgo.GoString));
-                    _gotoNext = 5988961i32;
-                } else if (__value__ == (5988961i32)) {
+                    _gotoNext = 5698346i32;
+                } else if (__value__ == (5698346i32)) {
                     if ((0i32 : stdgo.GoInt) < (_hs._clientHello._cipherSuites.length)) {
-                        _gotoNext = 5989379i32;
+                        _gotoNext = 5698764i32;
                     } else {
-                        _gotoNext = 5989384i32;
+                        _gotoNext = 5698769i32;
                     };
-                } else if (__value__ == (5988965i32)) {
-                    _i_5988974_0++;
-                    _gotoNext = 5989380i32;
-                } else if (__value__ == (5989008i32)) {
-                    _id_5988968 = _hs._clientHello._cipherSuites[(_i_5988974_0 : stdgo.GoInt)];
-                    if (_id_5988968 == ((22016 : stdgo.GoUInt16))) {
-                        _gotoNext = 5989039i32;
+                } else if (__value__ == (5698350i32)) {
+                    _i_5698359_0++;
+                    _gotoNext = 5698765i32;
+                } else if (__value__ == (5698393i32)) {
+                    _id_5698353 = _hs._clientHello._cipherSuites[(_i_5698359_0 : stdgo.GoInt)];
+                    if (_id_5698353 == ((22016 : stdgo.GoUInt16))) {
+                        _gotoNext = 5698424i32;
                     } else {
-                        _gotoNext = 5988965i32;
+                        _gotoNext = 5698350i32;
                     };
-                } else if (__value__ == (5989039i32)) {
-                    if ((_c_5987873._vers < _c_5987873._config._maxSupportedVersion(false) : Bool)) {
-                        _gotoNext = 5989240i32;
+                } else if (__value__ == (5698424i32)) {
+                    if ((_c_5697258._vers < _c_5697258._config._maxSupportedVersion(false) : Bool)) {
+                        _gotoNext = 5698625i32;
                     } else {
-                        _gotoNext = 5989369i32;
+                        _gotoNext = 5698754i32;
                     };
-                } else if (__value__ == (5989240i32)) {
-                    _c_5987873._sendAlert((86 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5698625i32)) {
+                    _c_5697258._sendAlert((86 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client using inappropriate protocol fallback" : stdgo.GoString));
-                    _gotoNext = 5989369i32;
-                } else if (__value__ == (5989369i32)) {
-                    _gotoNext = 5989384i32;
-                } else if (__value__ == (5989379i32)) {
+                    _gotoNext = 5698754i32;
+                } else if (__value__ == (5698754i32)) {
+                    _gotoNext = 5698769i32;
+                } else if (__value__ == (5698764i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _hs._clientHello._cipherSuites[(0i32 : stdgo.GoInt)];
-                        _i_5988974_0 = __tmp__0;
-                        _id_5988968 = __tmp__1;
+                        _i_5698359_0 = __tmp__0;
+                        _id_5698353 = __tmp__1;
                     };
-                    _gotoNext = 5989380i32;
-                } else if (__value__ == (5989380i32)) {
-                    if (_i_5988974_0 < (_hs._clientHello._cipherSuites.length)) {
-                        _gotoNext = 5989008i32;
+                    _gotoNext = 5698765i32;
+                } else if (__value__ == (5698765i32)) {
+                    if (_i_5698359_0 < (_hs._clientHello._cipherSuites.length)) {
+                        _gotoNext = 5698393i32;
                     } else {
-                        _gotoNext = 5989384i32;
+                        _gotoNext = 5698769i32;
                     };
-                } else if (__value__ == (5989384i32)) {
+                } else if (__value__ == (5698769i32)) {
                     if (((_hs._clientHello._compressionMethods.length != (1 : stdgo.GoInt)) || (_hs._clientHello._compressionMethods[(0 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
-                        _gotoNext = 5989492i32;
+                        _gotoNext = 5698877i32;
                     } else {
-                        _gotoNext = 5989616i32;
+                        _gotoNext = 5699001i32;
                     };
-                } else if (__value__ == (5989492i32)) {
-                    _c_5987873._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5698877i32)) {
+                    _c_5697258._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: TLS 1.3 client supports illegal compression methods" : stdgo.GoString));
-                    _gotoNext = 5989616i32;
-                } else if (__value__ == (5989616i32)) {
+                    _gotoNext = 5699001i32;
+                } else if (__value__ == (5699001i32)) {
                     _hs._hello._random = (new stdgo.Slice<stdgo.GoUInt8>((32 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     {
                         {
-                            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c_5987873._config._rand(), _hs._hello._random);
-                            _err_5989658 = __tmp__._1;
+                            var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c_5697258._config._rand(), _hs._hello._random);
+                            _err_5699043 = __tmp__._1;
                         };
-                        if (_err_5989658 != null) {
-                            _gotoNext = 5989723i32;
+                        if (_err_5699043 != null) {
+                            _gotoNext = 5699108i32;
                         } else {
-                            _gotoNext = 5989777i32;
+                            _gotoNext = 5699162i32;
                         };
                     };
-                } else if (__value__ == (5989723i32)) {
-                    _c_5987873._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
-                    return _err_5989658;
-                    _gotoNext = 5989777i32;
-                } else if (__value__ == (5989777i32)) {
+                } else if (__value__ == (5699108i32)) {
+                    _c_5697258._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                    return _err_5699043;
+                    _gotoNext = 5699162i32;
+                } else if (__value__ == (5699162i32)) {
                     if ((_hs._clientHello._secureRenegotiation.length) != ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5989825i32;
+                        _gotoNext = 5699210i32;
                     } else {
-                        _gotoNext = 5989953i32;
+                        _gotoNext = 5699338i32;
                     };
-                } else if (__value__ == (5989825i32)) {
-                    _c_5987873._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5699210i32)) {
+                    _c_5697258._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: initial handshake had non-empty renegotiation extension" : stdgo.GoString));
-                    _gotoNext = 5989953i32;
-                } else if (__value__ == (5989953i32)) {
-                    if ((_hs._clientHello._earlyData && (_c_5987873._quic != null && ((_c_5987873._quic : Dynamic).__nil__ == null || !(_c_5987873._quic : Dynamic).__nil__)) : Bool)) {
-                        _gotoNext = 5989998i32;
+                    _gotoNext = 5699338i32;
+                } else if (__value__ == (5699338i32)) {
+                    if ((_hs._clientHello._earlyData && (_c_5697258._quic != null && ((_c_5697258._quic : Dynamic).__nil__ == null || !(_c_5697258._quic : Dynamic).__nil__)) : Bool)) {
+                        _gotoNext = 5699383i32;
                     } else if (_hs._clientHello._earlyData) {
-                        _gotoNext = 5990187i32;
+                        _gotoNext = 5699572i32;
                     } else {
-                        _gotoNext = 5990723i32;
+                        _gotoNext = 5700108i32;
                     };
-                } else if (__value__ == (5989998i32)) {
+                } else if (__value__ == (5699383i32)) {
                     if ((_hs._clientHello._pskIdentities.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5990044i32;
+                        _gotoNext = 5699429i32;
                     } else {
-                        _gotoNext = 5990723i32;
+                        _gotoNext = 5700108i32;
                     };
-                } else if (__value__ == (5990044i32)) {
-                    _c_5987873._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5699429i32)) {
+                    _c_5697258._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: early_data without pre_shared_key" : stdgo.GoString));
-                    _gotoNext = 5990723i32;
-                } else if (__value__ == (5990187i32)) {
-                    _c_5987873._sendAlert((110 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                    _gotoNext = 5700108i32;
+                } else if (__value__ == (5699572i32)) {
+                    _c_5697258._sendAlert((110 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client sent unexpected early data" : stdgo.GoString));
-                    _gotoNext = 5990723i32;
-                } else if (__value__ == (5990723i32)) {
+                    _gotoNext = 5700108i32;
+                } else if (__value__ == (5700108i32)) {
                     _hs._hello._sessionId = _hs._clientHello._sessionId;
                     _hs._hello._compressionMethod = (0 : stdgo.GoUInt8);
-                    _preferenceList_5990817 = stdgo._internal.crypto.tls.Tls__defaultCipherSuitesTLS13._defaultCipherSuitesTLS13;
+                    _preferenceList_5700202 = stdgo._internal.crypto.tls.Tls__defaultCipherSuitesTLS13._defaultCipherSuitesTLS13;
                     if ((!stdgo._internal.crypto.tls.Tls__hasAESGCMHardwareSupport._hasAESGCMHardwareSupport || !stdgo._internal.crypto.tls.Tls__aesgcmPreferred._aesgcmPreferred(_hs._clientHello._cipherSuites) : Bool)) {
-                        _gotoNext = 5990939i32;
+                        _gotoNext = 5700324i32;
                     } else {
-                        _gotoNext = 5990994i32;
+                        _gotoNext = 5700379i32;
                     };
-                } else if (__value__ == (5990939i32)) {
-                    _preferenceList_5990817 = stdgo._internal.crypto.tls.Tls__defaultCipherSuitesTLS13NoAES._defaultCipherSuitesTLS13NoAES;
-                    _gotoNext = 5990994i32;
-                } else if (__value__ == (5990994i32)) {
-                    if ((0i32 : stdgo.GoInt) < (_preferenceList_5990817.length)) {
-                        _gotoNext = 5991145i32;
+                } else if (__value__ == (5700324i32)) {
+                    _preferenceList_5700202 = stdgo._internal.crypto.tls.Tls__defaultCipherSuitesTLS13NoAES._defaultCipherSuitesTLS13NoAES;
+                    _gotoNext = 5700379i32;
+                } else if (__value__ == (5700379i32)) {
+                    if ((0i32 : stdgo.GoInt) < (_preferenceList_5700202.length)) {
+                        _gotoNext = 5700530i32;
                     } else {
-                        _gotoNext = 5991149i32;
+                        _gotoNext = 5700534i32;
                     };
-                } else if (__value__ == (5990998i32)) {
-                    _i_5991012_0++;
-                    _gotoNext = 5991146i32;
-                } else if (__value__ == (5991033i32)) {
-                    _suiteID_5991001 = _preferenceList_5990817[(_i_5991012_0 : stdgo.GoInt)];
-                    _hs._suite = stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hs._clientHello._cipherSuites, _suiteID_5991001);
+                } else if (__value__ == (5700383i32)) {
+                    _i_5700397_0++;
+                    _gotoNext = 5700531i32;
+                } else if (__value__ == (5700418i32)) {
+                    _suiteID_5700386 = _preferenceList_5700202[(_i_5700397_0 : stdgo.GoInt)];
+                    _hs._suite = stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hs._clientHello._cipherSuites, _suiteID_5700386);
                     if ((_hs._suite != null && ((_hs._suite : Dynamic).__nil__ == null || !(_hs._suite : Dynamic).__nil__))) {
-                        _gotoNext = 5991130i32;
+                        _gotoNext = 5700515i32;
                     } else {
-                        _gotoNext = 5990998i32;
+                        _gotoNext = 5700383i32;
                     };
-                } else if (__value__ == (5991130i32)) {
-                    _gotoNext = 5991149i32;
-                } else if (__value__ == (5991145i32)) {
+                } else if (__value__ == (5700515i32)) {
+                    _gotoNext = 5700534i32;
+                } else if (__value__ == (5700530i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = _preferenceList_5990817[(0i32 : stdgo.GoInt)];
-                        _i_5991012_0 = __tmp__0;
-                        _suiteID_5991001 = __tmp__1;
+                        final __tmp__1 = _preferenceList_5700202[(0i32 : stdgo.GoInt)];
+                        _i_5700397_0 = __tmp__0;
+                        _suiteID_5700386 = __tmp__1;
                     };
-                    _gotoNext = 5991146i32;
-                } else if (__value__ == (5991146i32)) {
-                    if (_i_5991012_0 < (_preferenceList_5990817.length)) {
-                        _gotoNext = 5991033i32;
+                    _gotoNext = 5700531i32;
+                } else if (__value__ == (5700531i32)) {
+                    if (_i_5700397_0 < (_preferenceList_5700202.length)) {
+                        _gotoNext = 5700418i32;
                     } else {
-                        _gotoNext = 5991149i32;
+                        _gotoNext = 5700534i32;
                     };
-                } else if (__value__ == (5991149i32)) {
+                } else if (__value__ == (5700534i32)) {
                     if ((_hs._suite == null || (_hs._suite : Dynamic).__nil__)) {
-                        _gotoNext = 5991168i32;
+                        _gotoNext = 5700553i32;
                     } else {
-                        _gotoNext = 5991291i32;
+                        _gotoNext = 5700676i32;
                     };
-                } else if (__value__ == (5991168i32)) {
-                    _c_5987873._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5700553i32)) {
+                    _c_5697258._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: no cipher suite supported by both client and server" : stdgo.GoString));
-                    _gotoNext = 5991291i32;
-                } else if (__value__ == (5991291i32)) {
-                    _c_5987873._cipherSuite = _hs._suite._id;
+                    _gotoNext = 5700676i32;
+                } else if (__value__ == (5700676i32)) {
+                    _c_5697258._cipherSuite = _hs._suite._id;
                     _hs._hello._cipherSuite = _hs._suite._id;
                     _hs._transcript = _hs._suite._hash.new_();
-                    _gotoNext = 5991594i32;
-                } else if (__value__ == (5991594i32)) {
-                    if ((0i32 : stdgo.GoInt) < (_c_5987873._config._curvePreferences().length)) {
-                        _gotoNext = 5992019i32;
+                    _gotoNext = 5700979i32;
+                } else if (__value__ == (5700979i32)) {
+                    if ((0i32 : stdgo.GoInt) < (_c_5697258._config._curvePreferences().length)) {
+                        _gotoNext = 5701404i32;
                     } else {
-                        _gotoNext = 5992023i32;
+                        _gotoNext = 5701408i32;
                     };
-                } else if (__value__ == (5991615i32)) {
-                    _i_5991636_0++;
-                    _gotoNext = 5992020i32;
-                } else if (__value__ == (5991670i32)) {
-                    _preferredGroup_5991618 = _c_5987873._config._curvePreferences()[(_i_5991636_0 : stdgo.GoInt)];
+                } else if (__value__ == (5701000i32)) {
+                    _i_5701021_0++;
+                    _gotoNext = 5701405i32;
+                } else if (__value__ == (5701055i32)) {
+                    _preferredGroup_5701003 = _c_5697258._config._curvePreferences()[(_i_5701021_0 : stdgo.GoInt)];
                     if ((0i32 : stdgo.GoInt) < (_hs._clientHello._keyShares.length)) {
-                        _gotoNext = 5991840i32;
+                        _gotoNext = 5701225i32;
                     } else {
-                        _gotoNext = 5991845i32;
+                        _gotoNext = 5701230i32;
                     };
-                } else if (__value__ == (5991678i32)) {
-                    _i_5991687_0++;
-                    _gotoNext = 5991841i32;
-                } else if (__value__ == (5991718i32)) {
-                    _ks_5991681 = _hs._clientHello._keyShares[(_i_5991687_0 : stdgo.GoInt)];
-                    if (_ks_5991681._group == (_preferredGroup_5991618)) {
-                        _gotoNext = 5991753i32;
+                } else if (__value__ == (5701063i32)) {
+                    _i_5701072_0++;
+                    _gotoNext = 5701226i32;
+                } else if (__value__ == (5701103i32)) {
+                    _ks_5701066 = _hs._clientHello._keyShares[(_i_5701072_0 : stdgo.GoInt)];
+                    if (_ks_5701066._group == (_preferredGroup_5701003)) {
+                        _gotoNext = 5701138i32;
                     } else {
-                        _gotoNext = 5991678i32;
+                        _gotoNext = 5701063i32;
                     };
-                } else if (__value__ == (5991753i32)) {
-                    _selectedGroup_5991542 = _ks_5991681._group;
-                    _clientKeyShare_5991569 = (stdgo.Go.setRef(_ks_5991681) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare>);
+                } else if (__value__ == (5701138i32)) {
+                    _selectedGroup_5700927 = _ks_5701066._group;
+                    _clientKeyShare_5700954 = (stdgo.Go.setRef(_ks_5701066) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare>);
                     stdgo._internal.crypto.tls.Tls_groupSelectionBreak.groupSelectionBreak = true;
-                    _gotoNext = 5992020i32;
-                } else if (__value__ == (5991840i32)) {
+                    _gotoNext = 5701405i32;
+                } else if (__value__ == (5701225i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _hs._clientHello._keyShares[(0i32 : stdgo.GoInt)];
-                        _i_5991687_0 = __tmp__0;
-                        _ks_5991681 = __tmp__1;
+                        _i_5701072_0 = __tmp__0;
+                        _ks_5701066 = __tmp__1;
                     };
-                    _gotoNext = 5991841i32;
-                } else if (__value__ == (5991841i32)) {
-                    if (_i_5991687_0 < (_hs._clientHello._keyShares.length)) {
-                        _gotoNext = 5991718i32;
+                    _gotoNext = 5701226i32;
+                } else if (__value__ == (5701226i32)) {
+                    if (_i_5701072_0 < (_hs._clientHello._keyShares.length)) {
+                        _gotoNext = 5701103i32;
                     } else {
-                        _gotoNext = 5991845i32;
+                        _gotoNext = 5701230i32;
                     };
-                } else if (__value__ == (5991845i32)) {
-                    if (_selectedGroup_5991542 != ((0 : stdgo._internal.crypto.tls.Tls_CurveID.CurveID))) {
-                        _gotoNext = 5991867i32;
+                } else if (__value__ == (5701230i32)) {
+                    if (_selectedGroup_5700927 != ((0 : stdgo._internal.crypto.tls.Tls_CurveID.CurveID))) {
+                        _gotoNext = 5701252i32;
                     } else {
-                        _gotoNext = 5991887i32;
+                        _gotoNext = 5701272i32;
                     };
-                } else if (__value__ == (5991867i32)) {
-                    _i_5991636_0++;
-                    _gotoNext = 5992020i32;
-                } else if (__value__ == (5991887i32)) {
+                } else if (__value__ == (5701252i32)) {
+                    _i_5701021_0++;
+                    _gotoNext = 5701405i32;
+                } else if (__value__ == (5701272i32)) {
                     if ((0i32 : stdgo.GoInt) < (_hs._clientHello._supportedCurves.length)) {
-                        _gotoNext = 5992016i32;
+                        _gotoNext = 5701401i32;
                     } else {
-                        _gotoNext = 5991615i32;
+                        _gotoNext = 5701000i32;
                     };
-                } else if (__value__ == (5991891i32)) {
-                    _i_5991903_0++;
-                    _gotoNext = 5992017i32;
-                } else if (__value__ == (5991940i32)) {
-                    _group_5991894 = _hs._clientHello._supportedCurves[(_i_5991903_0 : stdgo.GoInt)];
-                    if (_group_5991894 == (_preferredGroup_5991618)) {
-                        _gotoNext = 5991972i32;
+                } else if (__value__ == (5701276i32)) {
+                    _i_5701288_0++;
+                    _gotoNext = 5701402i32;
+                } else if (__value__ == (5701325i32)) {
+                    _group_5701279 = _hs._clientHello._supportedCurves[(_i_5701288_0 : stdgo.GoInt)];
+                    if (_group_5701279 == (_preferredGroup_5701003)) {
+                        _gotoNext = 5701357i32;
                     } else {
-                        _gotoNext = 5991891i32;
+                        _gotoNext = 5701276i32;
                     };
-                } else if (__value__ == (5991972i32)) {
-                    _selectedGroup_5991542 = _group_5991894;
-                    _gotoNext = 5991615i32;
-                } else if (__value__ == (5992016i32)) {
+                } else if (__value__ == (5701357i32)) {
+                    _selectedGroup_5700927 = _group_5701279;
+                    _gotoNext = 5701000i32;
+                } else if (__value__ == (5701401i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = _hs._clientHello._supportedCurves[(0i32 : stdgo.GoInt)];
-                        _i_5991903_0 = __tmp__0;
-                        _group_5991894 = __tmp__1;
+                        _i_5701288_0 = __tmp__0;
+                        _group_5701279 = __tmp__1;
                     };
-                    _gotoNext = 5992017i32;
-                } else if (__value__ == (5992017i32)) {
-                    if (_i_5991903_0 < (_hs._clientHello._supportedCurves.length)) {
-                        _gotoNext = 5991940i32;
+                    _gotoNext = 5701402i32;
+                } else if (__value__ == (5701402i32)) {
+                    if (_i_5701288_0 < (_hs._clientHello._supportedCurves.length)) {
+                        _gotoNext = 5701325i32;
                     } else {
-                        _gotoNext = 5991615i32;
+                        _gotoNext = 5701000i32;
                     };
-                } else if (__value__ == (5992019i32)) {
+                } else if (__value__ == (5701404i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = _c_5987873._config._curvePreferences()[(0i32 : stdgo.GoInt)];
-                        _i_5991636_0 = __tmp__0;
-                        _preferredGroup_5991618 = __tmp__1;
+                        final __tmp__1 = _c_5697258._config._curvePreferences()[(0i32 : stdgo.GoInt)];
+                        _i_5701021_0 = __tmp__0;
+                        _preferredGroup_5701003 = __tmp__1;
                     };
-                    _gotoNext = 5992020i32;
-                } else if (__value__ == (5992020i32)) {
-                    if (_i_5991636_0 < (_c_5987873._config._curvePreferences().length)) {
-                        _gotoNext = 5991670i32;
+                    _gotoNext = 5701405i32;
+                } else if (__value__ == (5701405i32)) {
+                    if (_i_5701021_0 < (_c_5697258._config._curvePreferences().length)) {
+                        _gotoNext = 5701055i32;
                     } else {
-                        _gotoNext = 5992023i32;
+                        _gotoNext = 5701408i32;
                     };
-                } else if (__value__ == (5992023i32)) {
-                    if (_selectedGroup_5991542 == ((0 : stdgo._internal.crypto.tls.Tls_CurveID.CurveID))) {
-                        _gotoNext = 5992045i32;
+                } else if (__value__ == (5701408i32)) {
+                    if (_selectedGroup_5700927 == ((0 : stdgo._internal.crypto.tls.Tls_CurveID.CurveID))) {
+                        _gotoNext = 5701430i32;
                     } else {
-                        _gotoNext = 5992167i32;
+                        _gotoNext = 5701552i32;
                     };
-                } else if (__value__ == (5992045i32)) {
-                    _c_5987873._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5701430i32)) {
+                    _c_5697258._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: no ECDHE curve supported by both client and server" : stdgo.GoString));
-                    _gotoNext = 5992167i32;
-                } else if (__value__ == (5992167i32)) {
-                    if ((_clientKeyShare_5991569 == null || (_clientKeyShare_5991569 : Dynamic).__nil__)) {
-                        _gotoNext = 5992192i32;
+                    _gotoNext = 5701552i32;
+                } else if (__value__ == (5701552i32)) {
+                    if ((_clientKeyShare_5700954 == null || (_clientKeyShare_5700954 : Dynamic).__nil__)) {
+                        _gotoNext = 5701577i32;
                     } else {
-                        _gotoNext = 5992329i32;
+                        _gotoNext = 5701714i32;
                     };
-                } else if (__value__ == (5992192i32)) {
+                } else if (__value__ == (5701577i32)) {
                     {
-                        _err_5992199 = _hs._doHelloRetryRequest(_selectedGroup_5991542);
-                        if (_err_5992199 != null) {
-                            _gotoNext = 5992256i32;
+                        _err_5701584 = _hs._doHelloRetryRequest(_selectedGroup_5700927);
+                        if (_err_5701584 != null) {
+                            _gotoNext = 5701641i32;
                         } else {
-                            _gotoNext = 5992278i32;
+                            _gotoNext = 5701663i32;
                         };
                     };
-                } else if (__value__ == (5992256i32)) {
-                    return _err_5992199;
-                    _gotoNext = 5992278i32;
-                } else if (__value__ == (5992278i32)) {
-                    _clientKeyShare_5991569 = (stdgo.Go.setRef(_hs._clientHello._keyShares[(0 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare>);
-                    _gotoNext = 5992329i32;
-                } else if (__value__ == (5992329i32)) {
+                } else if (__value__ == (5701641i32)) {
+                    return _err_5701584;
+                    _gotoNext = 5701663i32;
+                } else if (__value__ == (5701663i32)) {
+                    _clientKeyShare_5700954 = (stdgo.Go.setRef(_hs._clientHello._keyShares[(0 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare>);
+                    _gotoNext = 5701714i32;
+                } else if (__value__ == (5701714i32)) {
                     {
                         {
-                            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveForCurveID._curveForCurveID(_selectedGroup_5991542);
-                            _ok_5992335 = __tmp__._1;
+                            var __tmp__ = stdgo._internal.crypto.tls.Tls__curveForCurveID._curveForCurveID(_selectedGroup_5700927);
+                            _ok_5701720 = __tmp__._1;
                         };
-                        if (!_ok_5992335) {
-                            _gotoNext = 5992377i32;
+                        if (!_ok_5701720) {
+                            _gotoNext = 5701762i32;
                         } else {
-                            _gotoNext = 5992489i32;
+                            _gotoNext = 5701874i32;
                         };
                     };
-                } else if (__value__ == (5992377i32)) {
-                    _c_5987873._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5701762i32)) {
+                    _c_5697258._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: CurvePreferences includes unsupported curve" : stdgo.GoString));
-                    _gotoNext = 5992489i32;
-                } else if (__value__ == (5992489i32)) {
+                    _gotoNext = 5701874i32;
+                } else if (__value__ == (5701874i32)) {
                     {
-                        var __tmp__ = stdgo._internal.crypto.tls.Tls__generateECDHEKey._generateECDHEKey(_c_5987873._config._rand(), _selectedGroup_5991542);
-                        _key_5992489 = __tmp__._0;
-                        _err_5992494 = __tmp__._1;
+                        var __tmp__ = stdgo._internal.crypto.tls.Tls__generateECDHEKey._generateECDHEKey(_c_5697258._config._rand(), _selectedGroup_5700927);
+                        _key_5701874 = __tmp__._0;
+                        _err_5701879 = __tmp__._1;
                     };
-                    if (_err_5992494 != null) {
-                        _gotoNext = 5992565i32;
+                    if (_err_5701879 != null) {
+                        _gotoNext = 5701950i32;
                     } else {
-                        _gotoNext = 5992618i32;
+                        _gotoNext = 5702003i32;
                     };
-                } else if (__value__ == (5992565i32)) {
-                    _c_5987873._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
-                    return _err_5992494;
-                    _gotoNext = 5992618i32;
-                } else if (__value__ == (5992618i32)) {
-                    _hs._hello._serverShare = ({ _group : _selectedGroup_5991542, _data : _key_5992489.publicKey().bytes() } : stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare);
+                } else if (__value__ == (5701950i32)) {
+                    _c_5697258._sendAlert((80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                    return _err_5701879;
+                    _gotoNext = 5702003i32;
+                } else if (__value__ == (5702003i32)) {
+                    _hs._hello._serverShare = ({ _group : _selectedGroup_5700927, _data : _key_5701874.publicKey().bytes() } : stdgo._internal.crypto.tls.Tls_T_keyShare.T_keyShare);
                     {
-                        var __tmp__ = _key_5992489.curve().newPublicKey(_clientKeyShare_5991569._data);
-                        _peerKey_5992704 = __tmp__._0;
-                        _err_5992494 = __tmp__._1;
+                        var __tmp__ = _key_5701874.curve().newPublicKey(_clientKeyShare_5700954._data);
+                        _peerKey_5702089 = __tmp__._0;
+                        _err_5701879 = __tmp__._1;
                     };
-                    if (_err_5992494 != null) {
-                        _gotoNext = 5992781i32;
+                    if (_err_5701879 != null) {
+                        _gotoNext = 5702166i32;
                     } else {
-                        _gotoNext = 5992877i32;
+                        _gotoNext = 5702262i32;
                     };
-                } else if (__value__ == (5992781i32)) {
-                    _c_5987873._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5702166i32)) {
+                    _c_5697258._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: invalid client key share" : stdgo.GoString));
-                    _gotoNext = 5992877i32;
-                } else if (__value__ == (5992877i32)) {
+                    _gotoNext = 5702262i32;
+                } else if (__value__ == (5702262i32)) {
                     {
-                        var __tmp__ = _key_5992489.ecdh(_peerKey_5992704);
+                        var __tmp__ = _key_5701874.ecdh(_peerKey_5702089);
                         _hs._sharedKey = __tmp__._0;
-                        _err_5992494 = __tmp__._1;
+                        _err_5701879 = __tmp__._1;
                     };
-                    if (_err_5992494 != null) {
-                        _gotoNext = 5992930i32;
+                    if (_err_5701879 != null) {
+                        _gotoNext = 5702315i32;
                     } else {
-                        _gotoNext = 5993027i32;
+                        _gotoNext = 5702412i32;
                     };
-                } else if (__value__ == (5992930i32)) {
-                    _c_5987873._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5702315i32)) {
+                    _c_5697258._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: invalid client key share" : stdgo.GoString));
-                    _gotoNext = 5993027i32;
-                } else if (__value__ == (5993027i32)) {
+                    _gotoNext = 5702412i32;
+                } else if (__value__ == (5702412i32)) {
                     {
-                        var __tmp__ = stdgo._internal.crypto.tls.Tls__negotiateALPN._negotiateALPN(_c_5987873._config.nextProtos, _hs._clientHello._alpnProtocols, (_c_5987873._quic != null && ((_c_5987873._quic : Dynamic).__nil__ == null || !(_c_5987873._quic : Dynamic).__nil__)));
-                        _selectedProto_5993027 = __tmp__._0?.__copy__();
-                        _err_5992494 = __tmp__._1;
+                        var __tmp__ = stdgo._internal.crypto.tls.Tls__negotiateALPN._negotiateALPN(_c_5697258._config.nextProtos, _hs._clientHello._alpnProtocols, (_c_5697258._quic != null && ((_c_5697258._quic : Dynamic).__nil__ == null || !(_c_5697258._quic : Dynamic).__nil__)));
+                        _selectedProto_5702412 = __tmp__._0?.__copy__();
+                        _err_5701879 = __tmp__._1;
                     };
-                    if (_err_5992494 != null) {
-                        _gotoNext = 5993144i32;
+                    if (_err_5701879 != null) {
+                        _gotoNext = 5702529i32;
                     } else {
-                        _gotoNext = 5993205i32;
+                        _gotoNext = 5702590i32;
                     };
-                } else if (__value__ == (5993144i32)) {
-                    _c_5987873._sendAlert((120 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
-                    return _err_5992494;
-                    _gotoNext = 5993205i32;
-                } else if (__value__ == (5993205i32)) {
-                    _c_5987873._clientProtocol = _selectedProto_5993027?.__copy__();
-                    if ((_c_5987873._quic != null && ((_c_5987873._quic : Dynamic).__nil__ == null || !(_c_5987873._quic : Dynamic).__nil__))) {
-                        _gotoNext = 5993257i32;
+                } else if (__value__ == (5702529i32)) {
+                    _c_5697258._sendAlert((120 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                    return _err_5701879;
+                    _gotoNext = 5702590i32;
+                } else if (__value__ == (5702590i32)) {
+                    _c_5697258._clientProtocol = _selectedProto_5702412?.__copy__();
+                    if ((_c_5697258._quic != null && ((_c_5697258._quic : Dynamic).__nil__ == null || !(_c_5697258._quic : Dynamic).__nil__))) {
+                        _gotoNext = 5702642i32;
                     } else {
-                        _gotoNext = 5993548i32;
+                        _gotoNext = 5702933i32;
                     };
-                } else if (__value__ == (5993257i32)) {
+                } else if (__value__ == (5702642i32)) {
                     if (_hs._clientHello._quicTransportParameters == null) {
-                        _gotoNext = 5993310i32;
+                        _gotoNext = 5702695i32;
                     } else {
-                        _gotoNext = 5993471i32;
+                        _gotoNext = 5702856i32;
                     };
-                } else if (__value__ == (5993310i32)) {
-                    _c_5987873._sendAlert((109 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5702695i32)) {
+                    _c_5697258._sendAlert((109 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client did not send a quic_transport_parameters extension" : stdgo.GoString));
-                    _gotoNext = 5993471i32;
-                } else if (__value__ == (5993471i32)) {
-                    _c_5987873._quicSetTransportParameters(_hs._clientHello._quicTransportParameters);
-                    _gotoNext = 5993745i32;
-                } else if (__value__ == (5993548i32)) {
-                    _gotoNext = 5993548i32;
+                    _gotoNext = 5702856i32;
+                } else if (__value__ == (5702856i32)) {
+                    _c_5697258._quicSetTransportParameters(_hs._clientHello._quicTransportParameters);
+                    _gotoNext = 5703130i32;
+                } else if (__value__ == (5702933i32)) {
+                    _gotoNext = 5702933i32;
                     if (_hs._clientHello._quicTransportParameters != null) {
-                        _gotoNext = 5993601i32;
+                        _gotoNext = 5702986i32;
                     } else {
-                        _gotoNext = 5993745i32;
+                        _gotoNext = 5703130i32;
                     };
-                } else if (__value__ == (5993601i32)) {
-                    _c_5987873._sendAlert((110 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
+                } else if (__value__ == (5702986i32)) {
+                    _c_5697258._sendAlert((110 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                     return stdgo._internal.errors.Errors_new_.new_(("tls: client sent an unexpected quic_transport_parameters extension" : stdgo.GoString));
-                    _gotoNext = 5993745i32;
-                } else if (__value__ == (5993745i32)) {
-                    _c_5987873._serverName = _hs._clientHello._serverName?.__copy__();
+                    _gotoNext = 5703130i32;
+                } else if (__value__ == (5703130i32)) {
+                    _c_5697258._serverName = _hs._clientHello._serverName?.__copy__();
                     return (null : stdgo.Error);
                     _gotoNext = -1i32;
                 };

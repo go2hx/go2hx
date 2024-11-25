@@ -7,21 +7,21 @@ final huffmanOnly : haxe.UInt64 = stdgo._internal.compress.zlib.Zlib_huffmanOnly
 var errChecksum(get, set) : stdgo.Error;
 private function get_errChecksum():stdgo.Error return stdgo._internal.compress.zlib.Zlib_errChecksum.errChecksum;
 private function set_errChecksum(v:stdgo.Error):stdgo.Error {
-    stdgo._internal.compress.zlib.Zlib_errChecksum.errChecksum = v;
-    return v;
-}
+        stdgo._internal.compress.zlib.Zlib_errChecksum.errChecksum = v;
+        return v;
+    }
 var errDictionary(get, set) : stdgo.Error;
 private function get_errDictionary():stdgo.Error return stdgo._internal.compress.zlib.Zlib_errDictionary.errDictionary;
 private function set_errDictionary(v:stdgo.Error):stdgo.Error {
-    stdgo._internal.compress.zlib.Zlib_errDictionary.errDictionary = v;
-    return v;
-}
+        stdgo._internal.compress.zlib.Zlib_errDictionary.errDictionary = v;
+        return v;
+    }
 var errHeader(get, set) : stdgo.Error;
 private function get_errHeader():stdgo.Error return stdgo._internal.compress.zlib.Zlib_errHeader.errHeader;
 private function set_errHeader(v:stdgo.Error):stdgo.Error {
-    stdgo._internal.compress.zlib.Zlib_errHeader.errHeader = v;
-    return v;
-}
+        stdgo._internal.compress.zlib.Zlib_errHeader.errHeader = v;
+        return v;
+    }
 class Resetter_static_extension {
     static public function reset(t:stdgo._internal.compress.zlib.Zlib_Resetter.Resetter, _r:stdgo._internal.io.Io_Reader.Reader, _dict:Array<std.UInt>):stdgo.Error {
         final _dict = ([for (i in _dict) i] : stdgo.Slice<stdgo.GoUInt8>);

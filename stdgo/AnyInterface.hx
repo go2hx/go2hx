@@ -52,18 +52,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 		var aValue = a.value;
 		var bValue = b.value;
+
 		switch gt {
-			case refType(_.get() => elem):
-				gt = elem;
-			default:
-		}
-		switch gt2 {
-			case refType(_.get() => elem):
-				gt2 = elem;
-			default:
-		}
-		switch gt {
-			case named(path, _, _, _):
+			case named(_, _, _, _), refType(_):
 				if (aValue != null) {
 					switch std.Type.typeof(aValue) {
 						case TClass(c):
@@ -77,7 +68,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			default:
 		}
 		switch gt2 {
-			case named(path, _, _, _):
+			case named(_, _, _, _), refType(_):
 				if (bValue != null) {
 					switch std.Type.typeof(bValue) {
 						case TClass(c):
@@ -125,8 +116,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					final name = fields[i].name;
 					if (StringTools.startsWith(name, "__blank__"))
 						continue;
-					if (!std.Reflect.hasField(bValue,name))
+					if (!std.Reflect.hasField(bValue,name)) {
 						return false;
+					}
 					final type = fields[i].type.get();
 					final fieldValue = std.Reflect.field(aValue, name);
 					final fieldValue2 = std.Reflect.field(bValue, name);
@@ -142,8 +134,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					final type = @:privateAccess new stdgo._internal.internal.reflect.Reflect._Type(stdgo._internal.internal.reflect.Reflect.unroll(gt, type));
 					final a = new AnyInterface(fieldValue, type);
 					final b = new AnyInterface(fieldValue2, type);
-					if (AnyInterface.notEquals(a, b))
+					if (AnyInterface.notEquals(a, b)) {
 						return false;
+					}
 				}
 				true;
 			case invalidType:

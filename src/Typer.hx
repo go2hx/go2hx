@@ -3317,9 +3317,22 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			e = assignTranslate(t, retType, e, info);
 		}
 		if (info.returnNamed) {
-			final x = macro $i{info.returnNames[0]};
-			if (!isSelfAssignValue(x,e))
-				e = macro $x = $e;
+			if (info.returnNames.length == 1) {
+				final x = macro $i{info.returnNames[0]};
+				if (!isSelfAssignValue(x,e))
+					e = macro $x = $e;
+			}else{
+				// x,y = z
+				// destructure
+				final assigns:Array<Expr> = [];
+				for (i in 0...info.returnNames.length) {
+					final name = info.returnNames[i];
+					final fieldName = "_" + i;
+					assigns.push(macro $i{name} = __tmp__.$fieldName);
+				}
+				assigns.push(macro __tmp__);
+				e = macro $b{[macro var __tmp__ = $e].concat(assigns)};
+			}
 		}
 		return ret(EReturn(e));
 	}

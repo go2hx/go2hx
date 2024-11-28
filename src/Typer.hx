@@ -3310,6 +3310,9 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			final t = typeof(stmt.results[0], info, false);
 			e = assignTranslate(t, retType, e, info);
 		}
+		if (info.returnNamed) {
+			e = macro $i{info.returnNames[0]} = $e;
+		}
 		return ret(EReturn(e));
 	}
 	// multireturn
@@ -3320,6 +3323,9 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			if (retType != null) {
 				final t = typeof(stmt.results[i], info, false);
 				e = assignTranslate(t, retType, e, info);
+			}
+			if (info.returnNamed) {
+				e = macro $i{info.returnNames[i]} = $e;
 			}
 			{
 				field: "_" + i,
@@ -3966,10 +3972,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		case "FuncLit":
 			var expr = toExpr(typeFuncLit(expr.fun, info));
 			genArgs(true);
-			return returnExpr(macro {
+			return returnExpr(macro ({
 				var a = $expr;
 				a($a{args});
-			}).expr;
+			})).expr;
 		case "Ident":
 			if (!info.renameIdents.exists(expr.fun.name) && info.localIdents.indexOf(untitle(expr.fun.name)) == -1) {
 				switch expr.fun.name {
@@ -4038,6 +4044,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						}
 						return returnExpr(macro if ($e != null)
 							$e.remove($key)).expr;
+					case "clear":
+						genArgs(false);
+						return returnExpr(macro stdgo.Go.clear($a{args})).expr;
 					case "print":
 						genArgs(true, 0);
 						if (args.length == 0)

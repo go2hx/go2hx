@@ -3331,7 +3331,8 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 					assigns.push(macro $i{name} = __tmp__.$fieldName);
 				}
 				assigns.push(macro __tmp__);
-				e = macro $b{[macro var __tmp__ = $e].concat(assigns)};
+				final ct = info.returnType;
+				e = macro $b{[macro final __tmp__:$ct = $e].concat(assigns)};
 			}
 		}
 		return ret(EReturn(e));
@@ -3352,7 +3353,8 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		}
 	]));
 	if (info.returnNamed) {
-		final decls:Array<Expr> = [macro final __tmp__ = $expr];
+		final ct = info.returnType;
+		final decls:Array<Expr> = [macro final __tmp__:$ct = $expr];
 		expr = macro $b{decls};
 		for (i in 0...stmt.results.length) {
 			final fieldName = "_" + i;

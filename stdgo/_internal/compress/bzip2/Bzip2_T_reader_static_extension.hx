@@ -285,7 +285,12 @@ _bufIndex++;
         @:recv var _bz2:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_reader.T_reader> = _bz2;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_bz2._eof) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (!_bz2._setupDone) {
             _err = _bz2._setup(true);
@@ -294,7 +299,12 @@ _bufIndex++;
                 _err = _brErr;
             };
             if (_err != null) {
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             _bz2._setupDone = true;
         };

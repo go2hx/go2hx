@@ -6,7 +6,7 @@ package stdgo._internal.strings;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         _r._once.do_(_r._buildOnce);
         return {
-            var __tmp__ = _r._r.writeString(_w, _s?.__copy__());
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _r._r.writeString(_w, _s?.__copy__());
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

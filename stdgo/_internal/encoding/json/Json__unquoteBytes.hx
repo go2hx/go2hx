@@ -22,7 +22,12 @@ function _unquoteBytes(_s:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<std
             _r = (_r + (_size) : stdgo.GoInt);
         };
         if (_r == ((_s.length))) {
-            return { _0 : _t = _s, _1 : _ok = true };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; } = { _0 : _s, _1 : true };
+                _t = __tmp__._0;
+                _ok = __tmp__._1;
+                __tmp__;
+            };
         };
         var _b = (new stdgo.Slice<stdgo.GoUInt8>(((_s.length) + (8 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _w = (stdgo.Go.copySlice(_b, (_s.__slice__((0 : stdgo.GoInt), _r) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
@@ -128,5 +133,10 @@ function _unquoteBytes(_s:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<std
                 };
             };
         };
-        return { _0 : _t = (_b.__slice__((0 : stdgo.GoInt), _w) : stdgo.Slice<stdgo.GoUInt8>), _1 : _ok = true };
+        return {
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; } = { _0 : (_b.__slice__((0 : stdgo.GoInt), _w) : stdgo.Slice<stdgo.GoUInt8>), _1 : true };
+            _t = __tmp__._0;
+            _ok = __tmp__._1;
+            __tmp__;
+        };
     }

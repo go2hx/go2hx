@@ -341,7 +341,12 @@ package stdgo._internal.html.template;
             _tmpl = (_t._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>));
             if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl = null, _1 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is undefined" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is undefined" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+                        _tmpl = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -350,7 +355,12 @@ package stdgo._internal.html.template;
             };
             if (((_tmpl._escapeErr != null) && (stdgo.Go.toInterface(_tmpl._escapeErr) != stdgo.Go.toInterface(stdgo._internal.html.template.Template__escapeOK._escapeOK)) : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl = null, _1 : _err = _tmpl._escapeErr };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : _tmpl._escapeErr };
+                        _tmpl = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -359,7 +369,12 @@ package stdgo._internal.html.template;
             };
             if (((_tmpl._text.tree == null || (_tmpl._text.tree : Dynamic).__nil__) || (_tmpl._text.tree.root == null || (_tmpl._text.tree.root : Dynamic).__nil__) : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl = null, _1 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is an incomplete template" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: %q is an incomplete template" : stdgo.GoString), stdgo.Go.toInterface(_name)) };
+                        _tmpl = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -373,7 +388,12 @@ package stdgo._internal.html.template;
                 _err = stdgo._internal.html.template.Template__escapeTemplate._escapeTemplate(_tmpl, stdgo.Go.asInterface(_tmpl._text.tree.root), _name?.__copy__());
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl, _1 : _err };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = {
+                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl, _1 : _err };
+                    _tmpl = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

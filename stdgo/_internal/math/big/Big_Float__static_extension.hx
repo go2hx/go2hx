@@ -367,10 +367,20 @@ package stdgo._internal.math.big;
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = _x;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if ((_x == null || (_x : Dynamic).__nil__)) {
-            return { _0 : _text = (("<nil>" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (("<nil>" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+                _text = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-        return { _0 : _text = _x.append(_buf, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt)), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _x.append(_buf, (103 : stdgo.GoUInt8), (-1 : stdgo.GoInt)), _1 : (null : stdgo.Error) };
+            _text = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function gobDecode( _z:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>, _buf:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {

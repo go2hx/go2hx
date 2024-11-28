@@ -469,12 +469,22 @@ _bits = (_bits + ((7u32 : stdgo.GoUInt)) : stdgo.GoUInt);
 if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                     _b._off = (_b._off + (((_i + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset)) : stdgo._internal.debug.dwarf.Dwarf_Offset.Offset);
                     _b._data = (_b._data.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-                    return { _0 : _c, _1 : _bits };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt; } = { _0 : _c, _1 : _bits };
+                        _c = __tmp__._0;
+                        _bits = __tmp__._1;
+                        __tmp__;
+                    };
                 };
                 _i++;
             };
         };
-        return { _0 : _c = (0i64 : stdgo.GoUInt64), _1 : _bits = (0u32 : stdgo.GoUInt) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoUInt; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : (0u32 : stdgo.GoUInt) };
+            _c = __tmp__._0;
+            _bits = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _uint64( _b:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf>):stdgo.GoUInt64 {

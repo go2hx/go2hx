@@ -47,7 +47,13 @@ var _hi = __1, _lo = __0;
                                         _err = __tmp__._2;
                                     };
                                     if (_err != null) {
-                                        return { _0 : _rest = stdgo.Go.str()?.__copy__(), _1 : _ok = false, _2 : _err };
+                                        return {
+                                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : _err };
+                                            _rest = __tmp__._0;
+                                            _ok = __tmp__._1;
+                                            _err = __tmp__._2;
+                                            __tmp__;
+                                        };
                                     };
                                 };
                                 _hi = _lo;
@@ -60,7 +66,13 @@ var _hi = __1, _lo = __0;
                                             _err = __tmp__._2;
                                         };
                                         if (_err != null) {
-                                            return { _0 : _rest = stdgo.Go.str()?.__copy__(), _1 : _ok = false, _2 : _err };
+                                            return {
+                                                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : _err };
+                                                _rest = __tmp__._0;
+                                                _ok = __tmp__._1;
+                                                _err = __tmp__._2;
+                                                __tmp__;
+                                            };
                                         };
                                     };
                                 };
@@ -89,7 +101,13 @@ var _hi = __1, _lo = __0;
                             if (true) {
                                 _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                 if ((_chunk.length) == ((0 : stdgo.GoInt))) {
-                                    return { _0 : _rest = stdgo.Go.str()?.__copy__(), _1 : _ok = false, _2 : _err = stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
+                                    return {
+                                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
+                                        _rest = __tmp__._0;
+                                        _ok = __tmp__._1;
+                                        _err = __tmp__._2;
+                                        __tmp__;
+                                    };
                                 };
                             };
                             @:fallthrough {
@@ -114,7 +132,19 @@ var _hi = __1, _lo = __0;
             };
         };
         if (_failed) {
-            return { _0 : _rest = stdgo.Go.str()?.__copy__(), _1 : _ok = false, _2 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
+                _rest = __tmp__._0;
+                _ok = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
-        return { _0 : _rest = _s?.__copy__(), _1 : _ok = true, _2 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _s?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
+            _rest = __tmp__._0;
+            _ok = __tmp__._1;
+            _err = __tmp__._2;
+            __tmp__;
+        };
     }

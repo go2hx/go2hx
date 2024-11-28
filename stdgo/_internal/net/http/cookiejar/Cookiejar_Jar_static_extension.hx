@@ -58,10 +58,22 @@ package stdgo._internal.net.http.cookiejar;
             _err = __tmp__._2;
         };
         if (_err != null) {
-            return { _0 : _e = _e?.__copy__(), _1 : _remove = false, _2 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : false, _2 : _err };
+                _e = __tmp__._0;
+                _remove = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         if ((_c.maxAge < (0 : stdgo.GoInt) : Bool)) {
-            return { _0 : _e = _e?.__copy__(), _1 : _remove = true, _2 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
+                _e = __tmp__._0;
+                _remove = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         } else if ((_c.maxAge > (0 : stdgo.GoInt) : Bool)) {
             _e.expires = _now.add(((_c.maxAge : stdgo._internal.time.Time_Duration.Duration) * (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration))?.__copy__();
             _e.persistent = true;
@@ -71,7 +83,13 @@ package stdgo._internal.net.http.cookiejar;
                 _e.persistent = false;
             } else {
                 if (!_c.expires.after(_now?.__copy__())) {
-                    return { _0 : _e = _e?.__copy__(), _1 : _remove = true, _2 : _err = (null : stdgo.Error) };
+                    return {
+                        final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
+                        _e = __tmp__._0;
+                        _remove = __tmp__._1;
+                        _err = __tmp__._2;
+                        __tmp__;
+                    };
                 };
                 _e.expires = _c.expires?.__copy__();
                 _e.persistent = true;
@@ -90,7 +108,13 @@ package stdgo._internal.net.http.cookiejar;
                 _e.sameSite = ("SameSite=Lax" : stdgo.GoString);
             };
         };
-        return { _0 : _e = _e?.__copy__(), _1 : _remove = false, _2 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry; var _1 : Bool; var _2 : stdgo.Error; } = { _0 : _e?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
+            _e = __tmp__._0;
+            _remove = __tmp__._1;
+            _err = __tmp__._2;
+            __tmp__;
+        };
     }
     @:keep
     static public function _setCookies( _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>, _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _cookies:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>, _now:stdgo._internal.time.Time_Time.Time):Void {

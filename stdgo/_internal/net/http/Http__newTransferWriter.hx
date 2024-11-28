@@ -8,7 +8,12 @@ function _newTransferWriter(_r:stdgo.AnyInterface):{ var _0 : stdgo.Ref<stdgo._i
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>))) {
                 var _rr:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>) : __type__.__underlying__().value;
                 if (((_rr.contentLength != (0i64 : stdgo.GoInt64)) && (_rr.body == null) : Bool)) {
-                    return { _0 : _t = null, _1 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("http: Request.ContentLength=%d with nil Body" : stdgo.GoString), stdgo.Go.toInterface(_rr.contentLength)) };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_transferWriter.T_transferWriter>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("http: Request.ContentLength=%d with nil Body" : stdgo.GoString), stdgo.Go.toInterface(_rr.contentLength)) };
+                        _t = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
                 _t.method = stdgo._internal.net.http.Http__valueOrDefault._valueOrDefault(_rr.method?.__copy__(), ("GET" : stdgo.GoString))?.__copy__();
                 _t.close = _rr.close;
@@ -60,5 +65,10 @@ function _newTransferWriter(_r:stdgo.AnyInterface):{ var _0 : stdgo.Ref<stdgo._i
         if (!stdgo._internal.net.http.Http__chunked._chunked(_t.transferEncoding)) {
             _t.trailer = null;
         };
-        return { _0 : _t, _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_transferWriter.T_transferWriter>; var _1 : stdgo.Error; } = { _0 : _t, _1 : (null : stdgo.Error) };
+            _t = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }

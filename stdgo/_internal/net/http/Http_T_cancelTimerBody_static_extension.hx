@@ -17,14 +17,29 @@ package stdgo._internal.net.http;
             _err = __tmp__._1;
         };
         if (_err == null) {
-            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-            return { _0 : _n, _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_b._reqDidTimeout()) {
             _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ _err : (_err.error() + (" (Client.Timeout or context cancellation while reading body)" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _timeout : true } : stdgo._internal.net.http.Http_T_httpError.T_httpError)) : stdgo.Ref<stdgo._internal.net.http.Http_T_httpError.T_httpError>));
         };
-        return { _0 : _n, _1 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
 }

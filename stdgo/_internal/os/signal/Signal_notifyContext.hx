@@ -35,5 +35,10 @@ function notifyContext(_parent:stdgo._internal.context.Context_Context.Context, 
                 a();
             }));
         };
-        return { _0 : _ctx = stdgo.Go.asInterface(_c), _1 : _stop = _c._stop };
+        return {
+            final __tmp__:{ var _0 : stdgo._internal.context.Context_Context.Context; var _1 : stdgo._internal.context.Context_CancelFunc.CancelFunc; } = { _0 : stdgo.Go.asInterface(_c), _1 : _c._stop };
+            _ctx = __tmp__._0;
+            _stop = __tmp__._1;
+            __tmp__;
+        };
     }

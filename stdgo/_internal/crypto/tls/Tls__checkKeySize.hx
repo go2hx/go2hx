@@ -10,10 +10,20 @@ function _checkKeySize(_n:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : Bool; } 
                         if (((_n <= _max : Bool)) != ((_n <= (8192 : stdgo.GoInt) : Bool))) {
                             stdgo._internal.crypto.tls.Tls__tlsmaxrsasize._tlsmaxrsasize.incNonDefault();
                         };
-                        return { _0 : _max, _1 : _ok = (_n <= _max : Bool) };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _max, _1 : (_n <= _max : Bool) };
+                            _max = __tmp__._0;
+                            _ok = __tmp__._1;
+                            __tmp__;
+                        };
                     };
                 };
             };
         };
-        return { _0 : _max = (8192 : stdgo.GoInt), _1 : _ok = (_n <= (8192 : stdgo.GoInt) : Bool) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : (8192 : stdgo.GoInt), _1 : (_n <= (8192 : stdgo.GoInt) : Bool) };
+            _max = __tmp__._0;
+            _ok = __tmp__._1;
+            __tmp__;
+        };
     }

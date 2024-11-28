@@ -39,7 +39,7 @@ package stdgo._internal.net.http.cgi;
             _r._writeCGIHeader(_p);
         };
         return {
-            var __tmp__ = _r._bufw.write(_p);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _r._bufw.write(_p);
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

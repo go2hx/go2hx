@@ -13,21 +13,31 @@ function _buildHuffmanNode(_t:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_h
         var _right = (_codes.__slice__(_firstRightIndex) : stdgo.Slice<stdgo._internal.compress.bzip2.Bzip2_T_huffmanCode.T_huffmanCode>);
         if (((_left.length == (0 : stdgo.GoInt)) || (_right.length == (0 : stdgo.GoInt)) : Bool)) {
             if (((_codes.length) < (2 : stdgo.GoInt) : Bool)) {
-                return { _0 : _nodeIndex = (0 : stdgo.GoUInt16), _1 : _err = stdgo.Go.asInterface((("empty Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError)) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt16), _1 : stdgo.Go.asInterface((("empty Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError)) };
+                    _nodeIndex = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             if (_level == ((31u32 : stdgo.GoUInt32))) {
-                return { _0 : _nodeIndex = (0 : stdgo.GoUInt16), _1 : _err = stdgo.Go.asInterface((("equal symbols in Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError)) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt16), _1 : stdgo.Go.asInterface((("equal symbols in Huffman tree" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError)) };
+                    _nodeIndex = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             if ((_left.length) == ((0 : stdgo.GoInt))) {
                 return {
-                    var __tmp__ = stdgo._internal.compress.bzip2.Bzip2__buildHuffmanNode._buildHuffmanNode(_t, _right, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
+                    final __tmp__:{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } = stdgo._internal.compress.bzip2.Bzip2__buildHuffmanNode._buildHuffmanNode(_t, _right, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
                     _nodeIndex = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
                 };
             };
             return {
-                var __tmp__ = stdgo._internal.compress.bzip2.Bzip2__buildHuffmanNode._buildHuffmanNode(_t, _left, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
+                final __tmp__:{ var _0 : stdgo.GoUInt16; var _1 : stdgo.Error; } = stdgo._internal.compress.bzip2.Bzip2__buildHuffmanNode._buildHuffmanNode(_t, _left, (_level + (1u32 : stdgo.GoUInt32) : stdgo.GoUInt32));
                 _nodeIndex = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;

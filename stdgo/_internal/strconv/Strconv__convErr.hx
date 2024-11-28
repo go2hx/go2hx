@@ -11,9 +11,19 @@ function _convErr(_err:stdgo.Error, _s:stdgo.GoString):{ var _0 : stdgo.Error; v
                 _x.func = ("ParseComplex" : stdgo.GoString);
                 _x.num = stdgo._internal.strconv.Strconv__cloneString._cloneString(_s?.__copy__())?.__copy__();
                 if (stdgo.Go.toInterface(_x.err) == (stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errRange.errRange))) {
-                    return { _0 : _syntax = (null : stdgo.Error), _1 : _range_ = stdgo.Go.asInterface(_x) };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Error), _1 : stdgo.Go.asInterface(_x) };
+                        _syntax = __tmp__._0;
+                        _range_ = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
         };
-        return { _0 : _syntax = _err, _1 : _range_ = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _err, _1 : (null : stdgo.Error) };
+            _syntax = __tmp__._0;
+            _range_ = __tmp__._1;
+            __tmp__;
+        };
     }

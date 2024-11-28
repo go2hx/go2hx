@@ -29,7 +29,7 @@ package stdgo._internal.archive.tar;
         };
         if (!_ok) {
             return {
-                var __tmp__ = stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface(({ writer : stdgo.Go.asInterface(_sw) } : stdgo._internal.archive.tar.Tar_T__struct_1.T__struct_1)), _r);
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface(({ writer : stdgo.Go.asInterface(_sw) } : stdgo._internal.archive.tar.Tar_T__struct_1.T__struct_1)), _r);
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -73,15 +73,40 @@ var _dataEnd = __1, _dataStart = __0;
         };
         _n = (_sw._pos - _pos0 : stdgo.GoInt64);
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-            return { _0 : _n, _1 : _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.archive.tar.Tar_errWriteTooLong.errWriteTooLong))) {
-            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar__errMissData._errMissData };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errMissData._errMissData };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else if (_err != null) {
-            return { _0 : _n, _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else if (((_sw._logicalRemaining() == (0i64 : stdgo.GoInt64)) && (_sw._physicalRemaining() > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
-            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar__errUnrefData._errUnrefData };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errUnrefData._errUnrefData };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else {
-            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar__ensureEOF._ensureEOF(_rs) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__ensureEOF._ensureEOF(_rs) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
     }
     @:keep
@@ -121,15 +146,40 @@ var _dataEnd = __1, _dataStart = __0;
         };
         _n = ((_b0.length) - (_b.length) : stdgo.GoInt);
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.archive.tar.Tar_errWriteTooLong.errWriteTooLong))) {
-            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar__errMissData._errMissData };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errMissData._errMissData };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else if (_err != null) {
-            return { _0 : _n, _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else if (((_sw._logicalRemaining() == (0i64 : stdgo.GoInt64)) && (_sw._physicalRemaining() > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
-            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar__errUnrefData._errUnrefData };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errUnrefData._errUnrefData };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else if (_overwrite) {
-            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar_errWriteTooLong.errWriteTooLong };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar_errWriteTooLong.errWriteTooLong };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else {
-            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
     }
 }

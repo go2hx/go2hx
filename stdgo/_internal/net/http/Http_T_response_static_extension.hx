@@ -34,7 +34,13 @@ package stdgo._internal.net.http;
                 _w._w = null;
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Ref<stdgo._internal.bufio.Bufio_ReadWriter.ReadWriter>; var _2 : stdgo.Error; } = { _0 : _rwc, _1 : _buf, _2 : _err };
+                final __ret__:{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Ref<stdgo._internal.bufio.Bufio_ReadWriter.ReadWriter>; var _2 : stdgo.Error; } = {
+                    final __tmp__:{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Ref<stdgo._internal.bufio.Bufio_ReadWriter.ReadWriter>; var _2 : stdgo.Error; } = { _0 : _rwc, _1 : _buf, _2 : _err };
+                    _rwc = __tmp__._0;
+                    _buf = __tmp__._1;
+                    _err = __tmp__._2;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -142,7 +148,12 @@ package stdgo._internal.net.http;
                 var _caller = (stdgo._internal.net.http.Http__relevantCaller._relevantCaller()?.__copy__() : stdgo._internal.runtime.Runtime_Frame.Frame);
                 _w._conn._server._logf(("http: response.Write on hijacked connection from %s (%s:%d)" : stdgo.GoString), stdgo.Go.toInterface(_caller.function_), stdgo.Go.toInterface(stdgo._internal.path.Path_base.base(_caller.file?.__copy__())), stdgo.Go.toInterface(_caller.line));
             };
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http_errHijacked.errHijacked };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errHijacked.errHijacked };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_w._canWriteContinue.load()) {
             _w._writeContinueMu.lock();
@@ -153,25 +164,40 @@ package stdgo._internal.net.http;
             _w.writeHeader((200 : stdgo.GoInt));
         };
         if (_lenData == ((0 : stdgo.GoInt))) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (!_w._bodyAllowed()) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http_errBodyNotAllowed.errBodyNotAllowed };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errBodyNotAllowed.errBodyNotAllowed };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         _w._written = (_w._written + ((_lenData : stdgo.GoInt64)) : stdgo.GoInt64);
         if (((_w._contentLength != (-1i64 : stdgo.GoInt64)) && (_w._written > _w._contentLength : Bool) : Bool)) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http_errContentLength.errContentLength };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errContentLength.errContentLength };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_dataB != null) {
             return {
-                var __tmp__ = _w._w.write(_dataB);
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _w._w.write(_dataB);
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         } else {
             return {
-                var __tmp__ = _w._w.writeString(_dataS?.__copy__());
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _w._w.writeString(_dataS?.__copy__());
                 _n = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
@@ -183,7 +209,7 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            var __tmp__ = _w._write((_data.length), (null : stdgo.Slice<stdgo.GoUInt8>), _data?.__copy__());
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _w._write((_data.length), (null : stdgo.Slice<stdgo.GoUInt8>), _data?.__copy__());
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -194,7 +220,7 @@ package stdgo._internal.net.http;
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            var __tmp__ = _w._write((_data.length), _data, stdgo.Go.str()?.__copy__());
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _w._write((_data.length), _data, stdgo.Go.str()?.__copy__());
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -281,7 +307,7 @@ package stdgo._internal.net.http;
             if (!_ok) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = {
-                        var __tmp__ = stdgo._internal.io.Io_copyBuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), _src, _buf);
+                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = stdgo._internal.io.Io_copyBuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), _src, _buf);
                         _n = __tmp__._0;
                         _err = __tmp__._1;
                         __tmp__;
@@ -297,7 +323,12 @@ package stdgo._internal.net.http;
                 _n = (_n + (_n0) : stdgo.GoInt64);
                 if (((_err != null) || (_n0 < (512i64 : stdgo.GoInt64) : Bool) : Bool)) {
                     {
-                        final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                        final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = {
+                            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                            _n = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -312,7 +343,12 @@ package stdgo._internal.net.http;
                 _n = (_n + (_n0) : stdgo.GoInt64);
                 _w._written = (_w._written + (_n0) : stdgo.GoInt64);
                 {
-                    final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -322,7 +358,12 @@ package stdgo._internal.net.http;
             var __tmp__ = stdgo._internal.io.Io_copyBuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), _src, _buf), _n0:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             _n = (_n + (_n0) : stdgo.GoInt64);
             {
-                final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = {
+                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

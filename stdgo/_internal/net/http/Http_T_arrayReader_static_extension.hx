@@ -15,7 +15,12 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             if (_r._err != null) {
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _r._err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _r._err };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             if (!_r._read) {
                 _r._read = true;
@@ -52,7 +57,12 @@ var _errCh = __1, _bCh = __0;
                                 var _err = _errCh.__get__();
                                 {
                                     {
-                                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n = (0 : stdgo.GoInt), _1 : _err };
+                                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
+                                            _n = __tmp__._0;
+                                            _err = __tmp__._1;
+                                            __tmp__;
+                                        };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -68,7 +78,12 @@ var _errCh = __1, _bCh = __0;
             };
             if ((_r._pending.length) == ((0 : stdgo.GoInt))) {
                 {
-                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -78,7 +93,12 @@ var _errCh = __1, _bCh = __0;
             _n = stdgo.Go.copySlice(_p, _r._pending);
             _r._pending = (_r._pending.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err = (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

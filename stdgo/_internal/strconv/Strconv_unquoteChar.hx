@@ -12,9 +12,23 @@ function unquoteChar(_s:stdgo.GoString, _quote:stdgo.GoUInt8):{ var _0 : stdgo.G
                 return { _0 : _value, _1 : _multibyte, _2 : _tail, _3 : _err };
             } else if ((_c >= (128 : stdgo.GoUInt8) : Bool)) {
                 var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRuneInString.decodeRuneInString(_s?.__copy__()), _r:stdgo.GoInt32 = __tmp__._0, _size:stdgo.GoInt = __tmp__._1;
-                return { _0 : _value = _r, _1 : _multibyte = true, _2 : _tail = (_s.__slice__(_size) : stdgo.GoString)?.__copy__(), _3 : _err = (null : stdgo.Error) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; var _2 : stdgo.GoString; var _3 : stdgo.Error; } = { _0 : _r, _1 : true, _2 : (_s.__slice__(_size) : stdgo.GoString)?.__copy__(), _3 : (null : stdgo.Error) };
+                    _value = __tmp__._0;
+                    _multibyte = __tmp__._1;
+                    _tail = __tmp__._2;
+                    _err = __tmp__._3;
+                    __tmp__;
+                };
             } else if (_c != ((92 : stdgo.GoUInt8))) {
-                return { _0 : _value = (_s[(0 : stdgo.GoInt)] : stdgo.GoInt32), _1 : _multibyte = false, _2 : _tail = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _3 : _err = (null : stdgo.Error) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : Bool; var _2 : stdgo.GoString; var _3 : stdgo.Error; } = { _0 : (_s[(0 : stdgo.GoInt)] : stdgo.GoInt32), _1 : false, _2 : (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _3 : (null : stdgo.Error) };
+                    _value = __tmp__._0;
+                    _multibyte = __tmp__._1;
+                    _tail = __tmp__._2;
+                    _err = __tmp__._3;
+                    __tmp__;
+                };
             };
         };
         if (((_s.length) <= (1 : stdgo.GoInt) : Bool)) {

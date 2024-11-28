@@ -16,7 +16,12 @@ package stdgo._internal.strings;
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         _r._prevRune = (-1 : stdgo.GoInt);
         if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
-            return { _0 : _n = (0i64 : stdgo.GoInt64), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _s = ((_r._s.__slice__(_r._i) : stdgo.GoString)?.__copy__() : stdgo.GoString);
         var __tmp__ = stdgo._internal.io.Io_writeString.writeString(_w, _s?.__copy__()), _m:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -72,14 +77,26 @@ package stdgo._internal.strings;
         var _ch = (0 : stdgo.GoInt32), _size = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
             _r._prevRune = (-1 : stdgo.GoInt);
-            return { _0 : _ch = (0 : stdgo.GoInt32), _1 : _size = (0 : stdgo.GoInt), _2 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_eof.eof };
+                _ch = __tmp__._0;
+                _size = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         _r._prevRune = (_r._i : stdgo.GoInt);
         {
             var _c = (_r._s[(_r._i : stdgo.GoInt)] : stdgo.GoUInt8);
             if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
                 _r._i++;
-                return { _0 : _ch = (_c : stdgo.GoInt32), _1 : _size = (1 : stdgo.GoInt), _2 : _err = (null : stdgo.Error) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (_c : stdgo.GoInt32), _1 : (1 : stdgo.GoInt), _2 : (null : stdgo.Error) };
+                    _ch = __tmp__._0;
+                    _size = __tmp__._1;
+                    _err = __tmp__._2;
+                    __tmp__;
+                };
             };
         };
         {
@@ -116,10 +133,20 @@ package stdgo._internal.strings;
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_off < (0i64 : stdgo.GoInt64) : Bool)) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("strings.Reader.ReadAt: negative offset" : stdgo.GoString)) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("strings.Reader.ReadAt: negative offset" : stdgo.GoString)) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if ((_off >= (_r._s.length : stdgo.GoInt64) : Bool)) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         _n = stdgo.Go.copySlice(_b, (_r._s.__slice__(_off) : stdgo.GoString));
         if ((_n < (_b.length) : Bool)) {
@@ -132,7 +159,12 @@ package stdgo._internal.strings;
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         _r._prevRune = (-1 : stdgo.GoInt);
         _n = stdgo.Go.copySlice(_b, (_r._s.__slice__(_r._i) : stdgo.GoString));

@@ -60,7 +60,12 @@ package stdgo._internal.net.http;
             var _cs = _b._cs;
             var _cc = _cs._cc;
             if (_cs._readErr != null) {
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _cs._readErr };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _cs._readErr };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             {
                 var __tmp__ = _b._cs._bufPipe.read(_p);
@@ -75,13 +80,23 @@ package stdgo._internal.net.http;
                         _cs._abortStream(_err);
                     };
                     _cs._readErr = _err;
-                    return { _0 : _n = (_cs._bytesRemain : stdgo.GoInt), _1 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_cs._bytesRemain : stdgo.GoInt), _1 : _err };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
                 _cs._bytesRemain = (_cs._bytesRemain - ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
                 if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) && (_cs._bytesRemain > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
                     _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
                     _cs._readErr = _err;
-                    return { _0 : _n, _1 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             if (_n == ((0 : stdgo.GoInt))) {

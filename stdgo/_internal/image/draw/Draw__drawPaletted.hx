@@ -34,7 +34,7 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
         var _pxRGBA = (function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
             var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
             return {
-                var __tmp__ = _src.at(_x, _y).rgba();
+                final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src.at(_x, _y).rgba();
                 _r = __tmp__._0;
                 _g = __tmp__._1;
                 _b = __tmp__._2;
@@ -49,7 +49,7 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
                     return {
-                        var __tmp__ = _src0.rgbaat(_x, _y).rgba();
+                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src0.rgbaat(_x, _y).rgba();
                         _r = __tmp__._0;
                         _g = __tmp__._1;
                         _b = __tmp__._2;
@@ -62,7 +62,7 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
                     return {
-                        var __tmp__ = _src0.nrgbaat(_x, _y).rgba();
+                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src0.nrgbaat(_x, _y).rgba();
                         _r = __tmp__._0;
                         _g = __tmp__._1;
                         _b = __tmp__._2;
@@ -75,7 +75,7 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
                     return {
-                        var __tmp__ = _src0.ycbCrAt(_x, _y).rgba();
+                        final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _src0.ycbCrAt(_x, _y).rgba();
                         _r = __tmp__._0;
                         _g = __tmp__._1;
                         _b = __tmp__._2;

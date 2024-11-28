@@ -19,7 +19,12 @@ package stdgo._internal.encoding.base32;
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.base32.Base32_T_encoder.T_encoder> = _e;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_e._err != null) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _e._err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _e._err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if ((_e._nbuf > (0 : stdgo.GoInt) : Bool)) {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -43,7 +48,12 @@ _e._nbuf++;
                     _e._err = __tmp__._1;
                 };
                 if (_e._err != null) {
-                    return { _0 : _n, _1 : _err = _e._err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _e._err };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             _e._nbuf = (0 : stdgo.GoInt);
@@ -61,7 +71,12 @@ _e._nbuf++;
                     _e._err = __tmp__._1;
                 };
                 if (_e._err != null) {
-                    return { _0 : _n, _1 : _err = _e._err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _e._err };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             _n = (_n + (_nn) : stdgo.GoInt);

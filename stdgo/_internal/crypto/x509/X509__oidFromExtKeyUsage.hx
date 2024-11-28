@@ -3,7 +3,12 @@ function _oidFromExtKeyUsage(_eku:stdgo._internal.crypto.x509.X509_ExtKeyUsage.E
         var _oid = new stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier(0, 0), _ok = false;
         for (__1 => _pair in stdgo._internal.crypto.x509.X509__extKeyUsageOIDs._extKeyUsageOIDs) {
             if (_eku == (_pair._extKeyUsage)) {
-                return { _0 : _oid = _pair._oid, _1 : _ok = true };
+                return {
+                    final __tmp__:{ var _0 : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier; var _1 : Bool; } = { _0 : _pair._oid, _1 : true };
+                    _oid = __tmp__._0;
+                    _ok = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         return { _0 : _oid, _1 : _ok };

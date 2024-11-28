@@ -20,14 +20,24 @@ if (_last != (_i)) {
                     var __tmp__ = _sw.writeString((_s.__slice__(_last, _i) : stdgo.GoString).__copy__()), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     _n = (_n + (_nw) : stdgo.GoInt);
                     if (_err != null) {
-                        return { _0 : _n, _1 : _err };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                            _n = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                     };
                 };
 _last = (_i + (1 : stdgo.GoInt) : stdgo.GoInt);
 var __tmp__ = _w.write(_r._replacements[(_b : stdgo.GoInt)]), _nw:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 _n = (_n + (_nw) : stdgo.GoInt);
 if (_err != null) {
-                    return { _0 : _n, _1 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
                 _i++;
             };

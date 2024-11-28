@@ -17,13 +17,18 @@ package stdgo._internal.math.big;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if (_x.isInt()) {
             return {
-                var __tmp__ = _x._a.marshalText();
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = _x._a.marshalText();
                 _text = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
-        return { _0 : _text = _x._marshal(), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _x._marshal(), _1 : (null : stdgo.Error) };
+            _text = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function gobDecode( _z:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>, _buf:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {

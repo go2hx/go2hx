@@ -107,17 +107,37 @@ var _clen = __1, _ctype = __0;
             _err = _rws._conn._writeHeaders(_rws._stream, (stdgo.Go.setRef(({ _streamID : _rws._stream._id, _httpResCode : _rws._status, _h : _rws._snapHeader, _endStream : _endStream, _contentType : _ctype?.__copy__(), _contentLength : _clen?.__copy__(), _date : _date?.__copy__() } : stdgo._internal.net.http.Http_T_http2writeResHeaders.T_http2writeResHeaders)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeResHeaders.T_http2writeResHeaders>));
             if (_err != null) {
                 _rws._dirty = true;
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             if (_endStream) {
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         if (_isHeadResp) {
-            return { _0 : _n = (_p.length), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (((_p.length == (0 : stdgo.GoInt)) && !_rws._handlerDone : Bool)) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _hasNonemptyTrailers = (_rws._hasNonemptyTrailers() : Bool);
         var _endStream = (_rws._handlerDone && !_hasNonemptyTrailers : Bool);
@@ -126,7 +146,12 @@ var _clen = __1, _ctype = __0;
                 var _err = (_rws._conn._writeDataFromHandler(_rws._stream, _p, _endStream) : stdgo.Error);
                 if (_err != null) {
                     _rws._dirty = true;
-                    return { _0 : _n = (0 : stdgo.GoInt), _1 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
         };
@@ -135,9 +160,19 @@ var _clen = __1, _ctype = __0;
             if (_err != null) {
                 _rws._dirty = true;
             };
-            return { _0 : _n = (_p.length), _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : _err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
-        return { _0 : _n = (_p.length), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _declareTrailer( _rws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriterState.T_http2responseWriterState>, _k:stdgo.GoString):Void {

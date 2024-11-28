@@ -7,7 +7,12 @@ package stdgo._internal.mime.quotedprintable;
         while (((_p.length) > (0 : stdgo.GoInt) : Bool)) {
             if ((_r._line.length) == ((0 : stdgo.GoInt))) {
                 if (_r._rerr != null) {
-                    return { _0 : _n, _1 : _err = _r._rerr };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _r._rerr };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
                 {
                     var __tmp__ = _r._br.readSlice((10 : stdgo.GoUInt8));
@@ -50,7 +55,12 @@ package stdgo._internal.mime.quotedprintable;
                                 _b = (61 : stdgo.GoUInt8);
                                 break;
                             };
-                            return { _0 : _n, _1 : _err };
+                            return {
+                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                                _n = __tmp__._0;
+                                _err = __tmp__._1;
+                                __tmp__;
+                            };
                         };
                         _r._line = (_r._line.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                         break;
@@ -61,7 +71,12 @@ package stdgo._internal.mime.quotedprintable;
                         break;
                         break;
                     } else if (((_b < (32 : stdgo.GoUInt8) : Bool) || (_b > (126 : stdgo.GoUInt8) : Bool) : Bool)) {
-                        return { _0 : _n, _1 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("quotedprintable: invalid unescaped byte 0x%02x in body" : stdgo.GoString), stdgo.Go.toInterface(_b)) };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("quotedprintable: invalid unescaped byte 0x%02x in body" : stdgo.GoString), stdgo.Go.toInterface(_b)) };
+                            _n = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         break;
                     };
                     break;
@@ -72,6 +87,11 @@ package stdgo._internal.mime.quotedprintable;
             _r._line = (_r._line.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             _n++;
         };
-        return { _0 : _n, _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
 }

@@ -3,12 +3,22 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
         var _matches = (null : stdgo.Slice<stdgo.GoString>), _err = (null : stdgo.Error);
         {};
         if (_depth == ((10000 : stdgo.GoInt))) {
-            return { _0 : _matches = (null : stdgo.Slice<stdgo.GoString>), _1 : _err = stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
+                _matches = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             var __tmp__ = stdgo._internal.path.filepath.Filepath_match.match(_pattern?.__copy__(), stdgo.Go.str()?.__copy__()), __0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : _matches = (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
+                    _matches = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         if (!stdgo._internal.path.filepath.Filepath__hasMeta._hasMeta(_pattern?.__copy__())) {
@@ -18,10 +28,20 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : _matches = (null : stdgo.Slice<stdgo.GoString>), _1 : _err = (null : stdgo.Error) };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
+                        _matches = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
-            return { _0 : _matches = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
+                _matches = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var __tmp__ = stdgo._internal.path.filepath.Filepath_split.split(_pattern?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _file:stdgo.GoString = __tmp__._1;
         var _volumeLen = (0 : stdgo.GoInt);
@@ -36,14 +56,19 @@ function _globWithLimit(_pattern:stdgo.GoString, _depth:stdgo.GoInt):{ var _0 : 
         };
         if (!stdgo._internal.path.filepath.Filepath__hasMeta._hasMeta((_dir.__slice__(_volumeLen) : stdgo.GoString)?.__copy__())) {
             return {
-                var __tmp__ = stdgo._internal.path.filepath.Filepath__glob._glob(_dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = stdgo._internal.path.filepath.Filepath__glob._glob(_dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
                 _matches = __tmp__._0;
                 _err = __tmp__._1;
                 __tmp__;
             };
         };
         if (_dir == (_pattern)) {
-            return { _0 : _matches = (null : stdgo.Slice<stdgo.GoString>), _1 : _err = stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
+                _matches = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _m:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         {

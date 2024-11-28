@@ -53,7 +53,12 @@ package stdgo._internal.archive.zip;
             __deferstack__.unshift(() -> _r._mu.unlock());
             if (_r._fr == null) {
                 {
-                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("Read after Close" : stdgo.GoString)) };
+                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("Read after Close" : stdgo.GoString)) };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -62,7 +67,7 @@ package stdgo._internal.archive.zip;
             };
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
-                    var __tmp__ = _r._fr.read(_p);
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _r._fr.read(_p);
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

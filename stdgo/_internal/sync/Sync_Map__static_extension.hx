@@ -145,9 +145,19 @@ package stdgo._internal.sync;
                     var __tmp__ = _e._trySwap((stdgo.Go.setRef(_value) : stdgo.Ref<stdgo.AnyInterface>)), _v:stdgo.Ref<stdgo.AnyInterface> = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         if ((_v == null || (_v : Dynamic).__nil__)) {
-                            return { _0 : _previous = (null : stdgo.AnyInterface), _1 : _loaded = false };
+                            return {
+                                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
+                                _previous = __tmp__._0;
+                                _loaded = __tmp__._1;
+                                __tmp__;
+                            };
                         };
-                        return { _0 : _previous = (_v : stdgo.AnyInterface), _1 : _loaded = true };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (_v : stdgo.AnyInterface), _1 : true };
+                            _previous = __tmp__._0;
+                            _loaded = __tmp__._1;
+                            __tmp__;
+                        };
                     };
                 };
             };
@@ -187,7 +197,12 @@ package stdgo._internal.sync;
             };
         };
         _m._mu.unlock();
-        return { _0 : _previous, _1 : _loaded };
+        return {
+            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : _previous, _1 : _loaded };
+            _previous = __tmp__._0;
+            _loaded = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function delete( _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>, _key:stdgo.AnyInterface):Void {
@@ -221,13 +236,18 @@ package stdgo._internal.sync;
         };
         if (_ok) {
             return {
-                var __tmp__ = _e._delete();
+                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = _e._delete();
                 _value = __tmp__._0;
                 _loaded = __tmp__._1;
                 __tmp__;
             };
         };
-        return { _0 : _value = (null : stdgo.AnyInterface), _1 : _loaded = false };
+        return {
+            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
+            _value = __tmp__._0;
+            _loaded = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function loadOrStore( _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>, _key:stdgo.AnyInterface, _value:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
@@ -239,7 +259,12 @@ package stdgo._internal.sync;
             if (_ok) {
                 var __tmp__ = _e._tryLoadOrStore(_value), _actual:stdgo.AnyInterface = __tmp__._0, _loaded:Bool = __tmp__._1, _ok:Bool = __tmp__._2;
                 if (_ok) {
-                    return { _0 : _actual, _1 : _loaded };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : _actual, _1 : _loaded };
+                        _actual = __tmp__._0;
+                        _loaded = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
         };
@@ -281,7 +306,12 @@ package stdgo._internal.sync;
             };
         };
         _m._mu.unlock();
-        return { _0 : _actual, _1 : _loaded };
+        return {
+            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : _actual, _1 : _loaded };
+            _actual = __tmp__._0;
+            _loaded = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function store( _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>, _key:stdgo.AnyInterface, _value:stdgo.AnyInterface):Void {
@@ -313,10 +343,15 @@ package stdgo._internal.sync;
             _m._mu.unlock();
         };
         if (!_ok) {
-            return { _0 : _value = (null : stdgo.AnyInterface), _1 : _ok = false };
+            return {
+                final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = { _0 : (null : stdgo.AnyInterface), _1 : false };
+                _value = __tmp__._0;
+                _ok = __tmp__._1;
+                __tmp__;
+            };
         };
         return {
-            var __tmp__ = _e._load();
+            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; } = _e._load();
             _value = __tmp__._0;
             _ok = __tmp__._1;
             __tmp__;

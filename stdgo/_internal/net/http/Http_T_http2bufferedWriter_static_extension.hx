@@ -23,7 +23,7 @@ package stdgo._internal.net.http;
             _w._bw = _bw;
         };
         return {
-            var __tmp__ = _w._bw.write(_p);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _w._bw.write(_p);
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

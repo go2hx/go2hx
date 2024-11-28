@@ -11,7 +11,12 @@ package stdgo._internal.net.http;
         @:recv var _ecr:stdgo.Ref<stdgo._internal.net.http.Http_T_expectContinueReader.T_expectContinueReader> = _ecr;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_ecr._closed.load()) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http_errBodyReadAfterClose.errBodyReadAfterClose };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errBodyReadAfterClose.errBodyReadAfterClose };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _w = _ecr._resp;
         if (((!_w._wroteContinue && _w._canWriteContinue.load() : Bool) && !_w._conn._hijacked() : Bool)) {

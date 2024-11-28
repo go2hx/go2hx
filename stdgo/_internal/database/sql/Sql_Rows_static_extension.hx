@@ -369,7 +369,12 @@ package stdgo._internal.database.sql;
         var _doClose = false, _ok = false;
         try {
             if (_rs._closed) {
-                return { _0 : _doClose = false, _1 : _ok = false };
+                return {
+                    final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
+                    _doClose = __tmp__._0;
+                    _ok = __tmp__._1;
+                    __tmp__;
+                };
             };
             _rs._dc.lock();
             __deferstack__.unshift(() -> _rs._dc.unlock());
@@ -380,7 +385,12 @@ package stdgo._internal.database.sql;
             if (_rs._lasterr != null) {
                 if (stdgo.Go.toInterface(_rs._lasterr) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                     {
-                        final __ret__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _doClose = true, _1 : _ok = false };
+                        final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
+                            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
+                            _doClose = __tmp__._0;
+                            _ok = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -394,7 +404,12 @@ package stdgo._internal.database.sql;
                 }, _nextResultSet = __tmp__._0, _ok = __tmp__._1;
                 if (!_ok) {
                     {
-                        final __ret__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _doClose = true, _1 : _ok = false };
+                        final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
+                            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : false };
+                            _doClose = __tmp__._0;
+                            _ok = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -405,7 +420,12 @@ package stdgo._internal.database.sql;
                     _doClose = true;
                 };
                 {
-                    final __ret__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _doClose, _1 : _ok = false };
+                    final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
+                        final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _doClose, _1 : false };
+                        _doClose = __tmp__._0;
+                        _ok = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -413,7 +433,12 @@ package stdgo._internal.database.sql;
                 };
             };
             {
-                final __ret__:{ var _0 : Bool; var _1 : Bool; } = { _0 : _doClose = false, _1 : _ok = true };
+                final __ret__:{ var _0 : Bool; var _1 : Bool; } = {
+                    final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : true };
+                    _doClose = __tmp__._0;
+                    _ok = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

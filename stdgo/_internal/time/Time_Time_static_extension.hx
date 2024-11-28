@@ -261,7 +261,7 @@ _version,
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _year = (0 : stdgo.GoInt), _month = ((0 : stdgo.GoInt) : stdgo._internal.time.Time_Month.Month), _day = (0 : stdgo.GoInt), _yday = (0 : stdgo.GoInt);
         return {
-            var __tmp__ = stdgo._internal.time.Time__absDate._absDate(_t._abs(), _full);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.time.Time_Month.Month; var _2 : stdgo.GoInt; var _3 : stdgo.GoInt; } = stdgo._internal.time.Time__absDate._absDate(_t._abs(), _full);
             _year = __tmp__._0;
             _month = __tmp__._1;
             _day = __tmp__._2;
@@ -355,7 +355,7 @@ _version,
         @:recv var _t:stdgo._internal.time.Time_Time.Time = _t?.__copy__();
         var _hour = (0 : stdgo.GoInt), _min = (0 : stdgo.GoInt), _sec = (0 : stdgo.GoInt);
         return {
-            var __tmp__ = stdgo._internal.time.Time__absClock._absClock(_t._abs());
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; var _2 : stdgo.GoInt; } = stdgo._internal.time.Time__absClock._absClock(_t._abs());
             _hour = __tmp__._0;
             _min = __tmp__._1;
             _sec = __tmp__._2;
@@ -373,7 +373,12 @@ _version,
         };
         _abs = (_abs + (((_d : stdgo.GoUInt64) * (86400i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         var __tmp__ = stdgo._internal.time.Time__absDate._absDate(_abs, false), _year:stdgo.GoInt = __tmp__._0, __1:stdgo._internal.time.Time_Month.Month = __tmp__._1, __2:stdgo.GoInt = __tmp__._2, _yday:stdgo.GoInt = __tmp__._3;
-        return { _0 : _year, _1 : _week = ((_yday / (7 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _year, _1 : ((_yday / (7 : stdgo.GoInt) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
+            _year = __tmp__._0;
+            _week = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function weekday( _t:stdgo._internal.time.Time_Time.Time):stdgo._internal.time.Time_Weekday.Weekday {

@@ -92,7 +92,13 @@ package stdgo._internal.net.textproto;
         while (_continued) {
             var __tmp__ = _r.readLine(), _line:stdgo.GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : _code = (0 : stdgo.GoInt), _1 : _message = stdgo.Go.str()?.__copy__(), _2 : _err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
+                    _code = __tmp__._0;
+                    _message = __tmp__._1;
+                    _err = __tmp__._2;
+                    __tmp__;
+                };
             };
             var _code2:stdgo.GoInt = (0 : stdgo.GoInt);
             var _moreMessage:stdgo.GoString = ("" : stdgo.GoString);
@@ -134,7 +140,7 @@ package stdgo._internal.net.textproto;
             return { _0 : _code, _1 : _continued, _2 : _message, _3 : _err };
         };
         return {
-            var __tmp__ = stdgo._internal.net.textproto.Textproto__parseCodeLine._parseCodeLine(_line?.__copy__(), _expectCode);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; var _2 : stdgo.GoString; var _3 : stdgo.Error; } = stdgo._internal.net.textproto.Textproto__parseCodeLine._parseCodeLine(_line?.__copy__(), _expectCode);
             _code = __tmp__._0;
             _continued = __tmp__._1;
             _message = __tmp__._2;

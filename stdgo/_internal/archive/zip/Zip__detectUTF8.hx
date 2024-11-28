@@ -8,11 +8,21 @@ function _detectUTF8(_s:stdgo.GoString):{ var _0 : Bool; var _1 : Bool; } {
                 _i = (_i + (_size) : stdgo.GoInt);
                 if ((((_r < (32 : stdgo.GoInt32) : Bool) || (_r > (125 : stdgo.GoInt32) : Bool) : Bool) || (_r == (92 : stdgo.GoInt32)) : Bool)) {
                     if ((!stdgo._internal.unicode.utf8.Utf8_validRune.validRune(_r) || (((_r == (65533 : stdgo.GoInt32)) && (_size == (1 : stdgo.GoInt)) : Bool)) : Bool)) {
-                        return { _0 : _valid = false, _1 : _require = false };
+                        return {
+                            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : false, _1 : false };
+                            _valid = __tmp__._0;
+                            _require = __tmp__._1;
+                            __tmp__;
+                        };
                     };
                     _require = true;
                 };
             };
         };
-        return { _0 : _valid = true, _1 : _require };
+        return {
+            final __tmp__:{ var _0 : Bool; var _1 : Bool; } = { _0 : true, _1 : _require };
+            _valid = __tmp__._0;
+            _require = __tmp__._1;
+            __tmp__;
+        };
     }

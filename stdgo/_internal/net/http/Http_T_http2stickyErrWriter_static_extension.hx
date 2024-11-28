@@ -5,7 +5,12 @@ package stdgo._internal.net.http;
         @:recv var _sew:stdgo._internal.net.http.Http_T_http2stickyErrWriter.T_http2stickyErrWriter = _sew?.__copy__();
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_sew._err : stdgo.Error) != null) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (_sew._err : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (_sew._err : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         while (true) {
             if (_sew._timeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
@@ -23,7 +28,12 @@ package stdgo._internal.net.http;
                 var __tmp__ = _err;
                 (_sew._err : stdgo.Error).error = __tmp__.error;
             };
-            return { _0 : _n, _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
     }
 }

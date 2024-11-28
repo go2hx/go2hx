@@ -16,7 +16,12 @@ package stdgo._internal.archive.tar;
             _unsigned = (_unsigned + ((_c : stdgo.GoInt64)) : stdgo.GoInt64);
             _signed = (_signed + (((_c : stdgo.GoInt8) : stdgo.GoInt64)) : stdgo.GoInt64);
         };
-        return { _0 : _unsigned, _1 : _signed };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt64; } = { _0 : _unsigned, _1 : _signed };
+            _unsigned = __tmp__._0;
+            _signed = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _setFormat( _b:stdgo.Ref<stdgo._internal.archive.tar.Tar_T_block.T_block>, _format:stdgo._internal.archive.tar.Tar_Format.Format):Void {

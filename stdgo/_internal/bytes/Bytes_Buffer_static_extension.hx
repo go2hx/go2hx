@@ -5,7 +5,12 @@ package stdgo._internal.bytes;
         @:recv var _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer> = _b;
         var _line = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         var __tmp__ = _b._readSlice(_delim), _slice:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        return { _0 : _line = (_slice : stdgo.GoString)?.__copy__(), _1 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : (_slice : stdgo.GoString)?.__copy__(), _1 : _err };
+            _line = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _readSlice( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>, _delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
@@ -20,7 +25,12 @@ package stdgo._internal.bytes;
         _line = (_b._buf.__slice__(_b._off, _end) : stdgo.Slice<stdgo.GoUInt8>);
         _b._off = _end;
         _b._lastRead = (-1 : stdgo._internal.bytes.Bytes_T_readOp.T_readOp);
-        return { _0 : _line, _1 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _line, _1 : _err };
+            _line = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function readBytes( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>, _delim:stdgo.GoUInt8):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
@@ -28,7 +38,12 @@ package stdgo._internal.bytes;
         var _line = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         var __tmp__ = _b._readSlice(_delim), _slice:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         _line = (_line.__append__(...(_slice : Array<stdgo.GoUInt8>)));
-        return { _0 : _line, _1 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _line, _1 : _err };
+            _line = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function unreadByte( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>):stdgo.Error {
@@ -60,18 +75,36 @@ package stdgo._internal.bytes;
         var _r = (0 : stdgo.GoInt32), _size = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_b._empty()) {
             _b.reset();
-            return { _0 : _r = (0 : stdgo.GoInt32), _1 : _size = (0 : stdgo.GoInt), _2 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_eof.eof };
+                _r = __tmp__._0;
+                _size = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         var _c = (_b._buf[(_b._off : stdgo.GoInt)] : stdgo.GoUInt8);
         if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
             _b._off++;
             _b._lastRead = (1 : stdgo._internal.bytes.Bytes_T_readOp.T_readOp);
-            return { _0 : _r = (_c : stdgo.GoInt32), _1 : _size = (1 : stdgo.GoInt), _2 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (_c : stdgo.GoInt32), _1 : (1 : stdgo.GoInt), _2 : (null : stdgo.Error) };
+                _r = __tmp__._0;
+                _size = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         var __tmp__ = stdgo._internal.unicode.utf8.Utf8_decodeRune.decodeRune((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>)), _r:stdgo.GoInt32 = __tmp__._0, _n:stdgo.GoInt = __tmp__._1;
         _b._off = (_b._off + (_n) : stdgo.GoInt);
         _b._lastRead = (_n : stdgo._internal.bytes.Bytes_T_readOp.T_readOp);
-        return { _0 : _r, _1 : _size = _n, _2 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : _r, _1 : _n, _2 : (null : stdgo.Error) };
+            _r = __tmp__._0;
+            _size = __tmp__._1;
+            _err = __tmp__._2;
+            __tmp__;
+        };
     }
     @:keep
     static public function readByte( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>):{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } {
@@ -108,16 +141,31 @@ package stdgo._internal.bytes;
         if (_b._empty()) {
             _b.reset();
             if ((_p.length) == ((0 : stdgo.GoInt))) {
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         _n = stdgo.Go.copySlice(_p, (_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>));
         _b._off = (_b._off + (_n) : stdgo.GoInt);
         if ((_n > (0 : stdgo.GoInt) : Bool)) {
             _b._lastRead = (-1 : stdgo._internal.bytes.Bytes_T_readOp.T_readOp);
         };
-        return { _0 : _n, _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function writeRune( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>, _r:stdgo.GoInt32):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
@@ -125,7 +173,12 @@ package stdgo._internal.bytes;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((_r : stdgo.GoUInt32) < (128u32 : stdgo.GoUInt32) : Bool)) {
             _b.writeByte((_r : stdgo.GoUInt8));
-            return { _0 : _n = (1 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (1 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         _b._lastRead = (0 : stdgo._internal.bytes.Bytes_T_readOp.T_readOp);
         var __tmp__ = _b._tryGrowByReslice((4 : stdgo.GoInt)), _m:stdgo.GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -133,7 +186,12 @@ package stdgo._internal.bytes;
             _m = _b._grow((4 : stdgo.GoInt));
         };
         _b._buf = stdgo._internal.unicode.utf8.Utf8_appendRune.appendRune((_b._buf.__slice__(0, _m) : stdgo.Slice<stdgo.GoUInt8>), _r);
-        return { _0 : _n = ((_b._buf.length) - _m : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : ((_b._buf.length) - _m : stdgo.GoInt), _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function writeByte( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>, _c:stdgo.GoUInt8):stdgo.Error {
@@ -161,15 +219,30 @@ package stdgo._internal.bytes;
                 _b._off = (_b._off + (_m) : stdgo.GoInt);
                 _n = (_m : stdgo.GoInt64);
                 if (_e != null) {
-                    return { _0 : _n, _1 : _err = _e };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _e };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
                 if (_m != (_nBytes)) {
-                    return { _0 : _n, _1 : _err = stdgo._internal.io.Io_errShortWrite.errShortWrite };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_errShortWrite.errShortWrite };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
         };
         _b.reset();
-        return { _0 : _n, _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function readFrom( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>, _r:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
@@ -186,10 +259,20 @@ package stdgo._internal.bytes;
             _b._buf = (_b._buf.__slice__(0, (_i + _m : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             _n = (_n + ((_m : stdgo.GoInt64)) : stdgo.GoInt64);
             if (stdgo.Go.toInterface(_e) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-                return { _0 : _n, _1 : _err = (null : stdgo.Error) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             if (_e != null) {
-                return { _0 : _n, _1 : _err = _e };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _e };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
     }
@@ -202,7 +285,12 @@ package stdgo._internal.bytes;
         if (!_ok) {
             _m = _b._grow((_s.length));
         };
-        return { _0 : _n = stdgo.Go.copySlice((_b._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>), _s), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : stdgo.Go.copySlice((_b._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>), _s), _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function write( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
@@ -213,7 +301,12 @@ package stdgo._internal.bytes;
         if (!_ok) {
             _m = _b._grow((_p.length));
         };
-        return { _0 : _n = stdgo.Go.copySlice((_b._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>), _p), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : stdgo.Go.copySlice((_b._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>), _p), _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function grow( _b:stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>, _n:stdgo.GoInt):Void {

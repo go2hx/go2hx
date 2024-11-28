@@ -11,7 +11,7 @@ package stdgo._internal.mime.multipart;
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part> = _p;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            var __tmp__ = _p._r.read(_d);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _p._r.read(_d);
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

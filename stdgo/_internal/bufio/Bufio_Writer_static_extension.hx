@@ -5,7 +5,12 @@ package stdgo._internal.bufio;
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer> = _b;
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         if (_b._err != null) {
-            return { _0 : _n = (0i64 : stdgo.GoInt64), _1 : _err = _b._err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : _b._err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_b._wr) : stdgo._internal.io.Io_ReaderFrom.ReaderFrom)) : stdgo._internal.io.Io_ReaderFrom.ReaderFrom), _1 : true };
@@ -18,7 +23,12 @@ package stdgo._internal.bufio;
                 {
                     var _err1 = (_b.flush() : stdgo.Error);
                     if (_err1 != null) {
-                        return { _0 : _n, _1 : _err = _err1 };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err1 };
+                            _n = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                     };
                 };
             };
@@ -26,7 +36,12 @@ package stdgo._internal.bufio;
                 var __tmp__ = _readerFrom.readFrom(_r), _nn:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _b._err = _err;
                 _n = (_n + (_nn) : stdgo.GoInt64);
-                return { _0 : _n, _1 : _err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             var _nr = (0 : stdgo.GoInt);
             while ((_nr < (100 : stdgo.GoInt) : Bool)) {
@@ -41,7 +56,12 @@ package stdgo._internal.bufio;
                 _nr++;
             };
             if (_nr == ((100 : stdgo.GoInt))) {
-                return { _0 : _n, _1 : _err = stdgo._internal.io.Io_errNoProgress.errNoProgress };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.io.Io_errNoProgress.errNoProgress };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             _b._n = (_b._n + (_m) : stdgo.GoInt);
             _n = (_n + ((_m : stdgo.GoInt64)) : stdgo.GoInt64);
@@ -56,7 +76,12 @@ package stdgo._internal.bufio;
                 _err = (null : stdgo.Error);
             };
         };
-        return { _0 : _n, _1 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function writeString( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
@@ -106,25 +131,45 @@ package stdgo._internal.bufio;
         if (((_r : stdgo.GoUInt32) < (128u32 : stdgo.GoUInt32) : Bool)) {
             _err = _b.writeByte((_r : stdgo.GoUInt8));
             if (_err != null) {
-                return { _0 : _size = (0 : stdgo.GoInt), _1 : _err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
+                    _size = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
-            return { _0 : _size = (1 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (1 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                _size = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_b._err != null) {
-            return { _0 : _size = (0 : stdgo.GoInt), _1 : _err = _b._err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _b._err };
+                _size = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _n = (_b.available() : stdgo.GoInt);
         if ((_n < (4 : stdgo.GoInt) : Bool)) {
             {
                 _b.flush();
                 if (_b._err != null) {
-                    return { _0 : _size = (0 : stdgo.GoInt), _1 : _err = _b._err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _b._err };
+                        _size = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             _n = _b.available();
             if ((_n < (4 : stdgo.GoInt) : Bool)) {
                 return {
-                    var __tmp__ = _b.writeString((_r : stdgo.GoString)?.__copy__());
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _b.writeString((_r : stdgo.GoString)?.__copy__());
                     _size = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -133,7 +178,12 @@ package stdgo._internal.bufio;
         };
         _size = stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>), _r);
         _b._n = (_b._n + (_size) : stdgo.GoInt);
-        return { _0 : _size, _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _size, _1 : (null : stdgo.Error) };
+            _size = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function writeByte( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>, _c:stdgo.GoUInt8):stdgo.Error {
@@ -169,12 +219,22 @@ package stdgo._internal.bufio;
             _p = (_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (_b._err != null) {
-            return { _0 : _nn, _1 : _err = _b._err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _nn, _1 : _b._err };
+                _nn = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _n = (stdgo.Go.copySlice((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>), _p) : stdgo.GoInt);
         _b._n = (_b._n + (_n) : stdgo.GoInt);
         _nn = (_nn + (_n) : stdgo.GoInt);
-        return { _0 : _nn, _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _nn, _1 : (null : stdgo.Error) };
+            _nn = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function buffered( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Writer.Writer>):stdgo.GoInt {

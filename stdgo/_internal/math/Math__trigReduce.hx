@@ -3,7 +3,12 @@ function _trigReduce(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoUInt64; var _1 : std
         var _j = (0 : stdgo.GoUInt64), _z = (0 : stdgo.GoFloat64);
         {};
         if ((_x < (0.7853981633974483 : stdgo.GoFloat64) : Bool)) {
-            return { _0 : _j = (0i64 : stdgo.GoUInt64), _1 : _z = _x };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = { _0 : (0i64 : stdgo.GoUInt64), _1 : _x };
+                _j = __tmp__._0;
+                _z = __tmp__._1;
+                __tmp__;
+            };
         };
         var _ix = (stdgo._internal.math.Math_float64bits.float64bits(_x) : stdgo.GoUInt64);
         var _exp = (((((_ix >> (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64) & (2047i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt) - (1023 : stdgo.GoInt) : stdgo.GoInt) - (52 : stdgo.GoInt) : stdgo.GoInt);
@@ -32,5 +37,10 @@ var _bitshift = __1, _digit = __0;
             _j = (_j & ((7i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
             _z--;
         };
-        return { _0 : _j, _1 : _z = (_z * (0.7853981633974483 : stdgo.GoFloat64) : stdgo.GoFloat64) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : stdgo.GoFloat64; } = { _0 : _j, _1 : (_z * (0.7853981633974483 : stdgo.GoFloat64) : stdgo.GoFloat64) };
+            _j = __tmp__._0;
+            _z = __tmp__._1;
+            __tmp__;
+        };
     }

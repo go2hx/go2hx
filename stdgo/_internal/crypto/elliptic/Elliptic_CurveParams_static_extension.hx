@@ -210,7 +210,12 @@ var _z3 = __2, _y3 = __1, _x3 = __0;
         @:recv var _curve:stdgo.Ref<stdgo._internal.crypto.elliptic.Elliptic_CurveParams.CurveParams> = _curve;
         var _xOut = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _yOut = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         if (_z.sign() == ((0 : stdgo.GoInt))) {
-            return { _0 : _xOut = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _1 : _yOut = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>) };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _1 : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>) };
+                _xOut = __tmp__._0;
+                _yOut = __tmp__._1;
+                __tmp__;
+            };
         };
         var _zinv = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse(_z, _curve.p);
         var _zinvsq = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).mul(_zinv, _zinv);

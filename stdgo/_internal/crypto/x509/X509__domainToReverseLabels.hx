@@ -14,17 +14,37 @@ function _domainToReverseLabels(_domain:stdgo.GoString):{ var _0 : stdgo.Slice<s
             };
         };
         if ((((_reverseLabels.length) > (0 : stdgo.GoInt) : Bool) && (_reverseLabels[(0 : stdgo.GoInt)].length == (0 : stdgo.GoInt)) : Bool)) {
-            return { _0 : _reverseLabels = (null : stdgo.Slice<stdgo.GoString>), _1 : _ok = false };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : Bool; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false };
+                _reverseLabels = __tmp__._0;
+                _ok = __tmp__._1;
+                __tmp__;
+            };
         };
         for (__1 => _label in _reverseLabels) {
             if ((_label.length) == ((0 : stdgo.GoInt))) {
-                return { _0 : _reverseLabels = (null : stdgo.Slice<stdgo.GoString>), _1 : _ok = false };
+                return {
+                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : Bool; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false };
+                    _reverseLabels = __tmp__._0;
+                    _ok = __tmp__._1;
+                    __tmp__;
+                };
             };
             for (__2 => _c in _label) {
                 if (((_c < (33 : stdgo.GoInt32) : Bool) || (_c > (126 : stdgo.GoInt32) : Bool) : Bool)) {
-                    return { _0 : _reverseLabels = (null : stdgo.Slice<stdgo.GoString>), _1 : _ok = false };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : Bool; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : false };
+                        _reverseLabels = __tmp__._0;
+                        _ok = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
         };
-        return { _0 : _reverseLabels, _1 : _ok = true };
+        return {
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : Bool; } = { _0 : _reverseLabels, _1 : true };
+            _reverseLabels = __tmp__._0;
+            _ok = __tmp__._1;
+            __tmp__;
+        };
     }

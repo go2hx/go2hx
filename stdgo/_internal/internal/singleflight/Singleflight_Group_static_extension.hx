@@ -119,7 +119,13 @@ package stdgo._internal.internal.singleflight;
                 _c._dups++;
                 _g._mu.unlock();
                 _c._wg.wait_();
-                return { _0 : _v = _c._val, _1 : _err = _c._err, _2 : _shared = true };
+                return {
+                    final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; var _2 : Bool; } = { _0 : _c._val, _1 : _c._err, _2 : true };
+                    _v = __tmp__._0;
+                    _err = __tmp__._1;
+                    _shared = __tmp__._2;
+                    __tmp__;
+                };
             };
         };
         var _c = (stdgo.Go.setRef(({} : stdgo._internal.internal.singleflight.Singleflight_T_call.T_call)) : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_T_call.T_call>);
@@ -127,6 +133,12 @@ package stdgo._internal.internal.singleflight;
         _g._m[_key] = _c;
         _g._mu.unlock();
         _g._doCall(_c, _key?.__copy__(), _fn);
-        return { _0 : _v = _c._val, _1 : _err = _c._err, _2 : _shared = (_c._dups > (0 : stdgo.GoInt) : Bool) };
+        return {
+            final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; var _2 : Bool; } = { _0 : _c._val, _1 : _c._err, _2 : (_c._dups > (0 : stdgo.GoInt) : Bool) };
+            _v = __tmp__._0;
+            _err = __tmp__._1;
+            _shared = __tmp__._2;
+            __tmp__;
+        };
     }
 }

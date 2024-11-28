@@ -236,7 +236,12 @@ package stdgo._internal.net.http;
         @:recv var _b:stdgo.Ref<stdgo._internal.net.http.Http_T_body.T_body> = _b;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_b._sawEOF) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             var __tmp__ = _b._src.read(_p);
@@ -284,7 +289,12 @@ package stdgo._internal.net.http;
         if ((_b._sawEOF && (_b._onHitEOF != null) : Bool)) {
             _b._onHitEOF();
         };
-        return { _0 : _n, _1 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function read( _b:stdgo.Ref<stdgo._internal.net.http.Http_T_body.T_body>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
@@ -296,7 +306,12 @@ package stdgo._internal.net.http;
             __deferstack__.unshift(() -> _b._mu.unlock());
             if (_b._closed) {
                 {
-                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http_errBodyReadAfterClose.errBodyReadAfterClose };
+                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errBodyReadAfterClose.errBodyReadAfterClose };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -305,7 +320,7 @@ package stdgo._internal.net.http;
             };
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
-                    var __tmp__ = _b._readLocked(_p);
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _b._readLocked(_p);
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;

@@ -125,21 +125,45 @@ var _whyOnlyGNU = __1, _whyOnlyPAX = __0;
             final __value__ = _h.typeflag;
             if (__value__ == ((48 : stdgo.GoUInt8)) || __value__ == ((51 : stdgo.GoUInt8)) || __value__ == ((52 : stdgo.GoUInt8)) || __value__ == ((54 : stdgo.GoUInt8)) || __value__ == ((83 : stdgo.GoUInt8))) {
                 if (stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_h.name?.__copy__(), ("/" : stdgo.GoString))) {
-                    return { _0 : _format = (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : _paxHdrs = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err = stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("filename may not have trailing slash" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+                    return {
+                        final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_Format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("filename may not have trailing slash" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+                        _format = __tmp__._0;
+                        _paxHdrs = __tmp__._1;
+                        _err = __tmp__._2;
+                        __tmp__;
+                    };
                 };
             } else if (__value__ == ((120 : stdgo.GoUInt8)) || __value__ == ((76 : stdgo.GoUInt8)) || __value__ == ((75 : stdgo.GoUInt8))) {
-                return { _0 : _format = (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : _paxHdrs = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err = stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("cannot manually encode TypeXHeader, TypeGNULongName, or TypeGNULongLink headers" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+                return {
+                    final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_Format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("cannot manually encode TypeXHeader, TypeGNULongName, or TypeGNULongLink headers" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+                    _format = __tmp__._0;
+                    _paxHdrs = __tmp__._1;
+                    _err = __tmp__._2;
+                    __tmp__;
+                };
             } else if (__value__ == ((103 : stdgo.GoUInt8))) {
                 var _h2 = ({ name : _h.name?.__copy__(), typeflag : _h.typeflag, xattrs : _h.xattrs, paxrecords : _h.paxrecords, format : _h.format } : stdgo._internal.archive.tar.Tar_Header.Header);
                 if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(stdgo.Go.asInterface(_h)), stdgo.Go.toInterface(stdgo.Go.asInterface(_h2)))) {
-                    return { _0 : _format = (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : _paxHdrs = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err = stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("only PAXRecords should be set for TypeXGlobalHeader" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+                    return {
+                        final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_Format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("only PAXRecords should be set for TypeXGlobalHeader" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+                        _format = __tmp__._0;
+                        _paxHdrs = __tmp__._1;
+                        _err = __tmp__._2;
+                        __tmp__;
+                    };
                 };
                 _whyOnlyPAX = ("only PAX supports TypeXGlobalHeader" : stdgo.GoString);
                 _format._mayOnlyBe(stdgo.Go.pointer(_format), (4 : stdgo._internal.archive.tar.Tar_Format.Format));
             };
         };
         if ((!stdgo._internal.archive.tar.Tar__isHeaderOnlyType._isHeaderOnlyType(_h.typeflag) && (_h.size < (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
-            return { _0 : _format = (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : _paxHdrs = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err = stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("negative size on header-only type" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+            return {
+                final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_Format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("negative size on header-only type" : stdgo.GoString)]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+                _format = __tmp__._0;
+                _paxHdrs = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         if (((_h.xattrs.length) > (0 : stdgo.GoInt) : Bool)) {
             for (_k => _v in _h.xattrs) {
@@ -166,7 +190,13 @@ var _whyOnlyGNU = __1, _whyOnlyPAX = __0;
         };
         for (_k => _v in _paxHdrs) {
             if (!stdgo._internal.archive.tar.Tar__validPAXRecord._validPAXRecord(_k?.__copy__(), _v?.__copy__())) {
-                return { _0 : _format = (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : _paxHdrs = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err = stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo._internal.fmt.Fmt_sprintf.sprintf(("invalid PAX record: %q" : stdgo.GoString), stdgo.Go.toInterface(((_k + (" = " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)))?.__copy__()]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+                return {
+                    final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_Format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : (0 : stdgo._internal.archive.tar.Tar_Format.Format), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo.Go.asInterface((new stdgo.Slice<stdgo.GoString>(1, 1, ...[stdgo._internal.fmt.Fmt_sprintf.sprintf(("invalid PAX record: %q" : stdgo.GoString), stdgo.Go.toInterface(((_k + (" = " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _v?.__copy__() : stdgo.GoString)))?.__copy__()]).__setString__() : stdgo._internal.archive.tar.Tar_T_headerError.T_headerError)) };
+                    _format = __tmp__._0;
+                    _paxHdrs = __tmp__._1;
+                    _err = __tmp__._2;
+                    __tmp__;
+                };
             };
         };
         {
@@ -192,6 +222,12 @@ var _whyOnlyGNU = __1, _whyOnlyPAX = __0;
                 };
             };
         };
-        return { _0 : _format, _1 : _paxHdrs, _2 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo._internal.archive.tar.Tar_Format.Format; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : _format, _1 : _paxHdrs, _2 : _err };
+            _format = __tmp__._0;
+            _paxHdrs = __tmp__._1;
+            _err = __tmp__._2;
+            __tmp__;
+        };
     }
 }

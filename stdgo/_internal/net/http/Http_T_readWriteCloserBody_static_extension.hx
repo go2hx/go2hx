@@ -19,10 +19,15 @@ package stdgo._internal.net.http;
             if (_b._br.buffered() == ((0 : stdgo.GoInt))) {
                 _b._br = null;
             };
-            return { _0 : _n, _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         return {
-            var __tmp__ = _b.readWriteCloser.read(_p);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _b.readWriteCloser.read(_p);
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

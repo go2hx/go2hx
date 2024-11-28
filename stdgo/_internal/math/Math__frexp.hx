@@ -2,9 +2,19 @@ package stdgo._internal.math;
 function _frexp(_f:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; } {
         var _frac = (0 : stdgo.GoFloat64), _exp = (0 : stdgo.GoInt);
         if (_f == (0 : stdgo.GoFloat64)) {
-            return { _0 : _frac = _f, _1 : _exp = (0 : stdgo.GoInt) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; } = { _0 : _f, _1 : (0 : stdgo.GoInt) };
+                _frac = __tmp__._0;
+                _exp = __tmp__._1;
+                __tmp__;
+            };
         } else if ((stdgo._internal.math.Math_isInf.isInf(_f, (0 : stdgo.GoInt)) || stdgo._internal.math.Math_isNaN.isNaN(_f) : Bool)) {
-            return { _0 : _frac = _f, _1 : _exp = (0 : stdgo.GoInt) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoInt; } = { _0 : _f, _1 : (0 : stdgo.GoInt) };
+                _frac = __tmp__._0;
+                _exp = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             var __tmp__ = stdgo._internal.math.Math__normalize._normalize(_f);

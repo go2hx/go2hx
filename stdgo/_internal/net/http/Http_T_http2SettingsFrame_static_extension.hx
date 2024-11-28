@@ -86,13 +86,23 @@ _seen[_id] = true;
                 {
                     var _s = (_f.setting(_i).__copy__() : stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting);
                     if (_s.id == (_id)) {
-                        return { _0 : _v = _s.val, _1 : _ok = true };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : Bool; } = { _0 : _s.val, _1 : true };
+                            _v = __tmp__._0;
+                            _ok = __tmp__._1;
+                            __tmp__;
+                        };
                     };
                 };
                 _i++;
             };
         };
-        return { _0 : _v = (0u32 : stdgo.GoUInt32), _1 : _ok = false };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : Bool; } = { _0 : (0u32 : stdgo.GoUInt32), _1 : false };
+            _v = __tmp__._0;
+            _ok = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function isAck( _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2SettingsFrame.T_http2SettingsFrame>):Bool {

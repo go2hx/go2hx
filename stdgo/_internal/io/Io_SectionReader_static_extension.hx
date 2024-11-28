@@ -10,7 +10,12 @@ package stdgo._internal.io;
         @:recv var _s:stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader> = _s;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((_off < (0i64 : stdgo.GoInt64) : Bool) || (_off >= (_s._limit - _s._base : stdgo.GoInt64) : Bool) : Bool)) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         _off = (_off + (_s._base) : stdgo.GoInt64);
         {
@@ -25,11 +30,16 @@ package stdgo._internal.io;
                 if (_err == null) {
                     _err = stdgo._internal.io.Io_eof.eof;
                 };
-                return { _0 : _n, _1 : _err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         return {
-            var __tmp__ = _s._r.readAt(_p, _off);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _s._r.readAt(_p, _off);
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -61,7 +71,12 @@ package stdgo._internal.io;
         @:recv var _s:stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader> = _s;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_s._off >= _s._limit : Bool)) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             var _max = (_s._limit - _s._off : stdgo.GoInt64);

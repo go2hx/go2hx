@@ -218,10 +218,16 @@ package stdgo._internal.net.http;
         var _username = ("" : stdgo.GoString), _password = ("" : stdgo.GoString), _ok = false;
         var _auth = (_r.header.get(("Authorization" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         if (_auth == (stdgo.Go.str())) {
-            return { _0 : _username = stdgo.Go.str()?.__copy__(), _1 : _password = stdgo.Go.str()?.__copy__(), _2 : _ok = false };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+                _username = __tmp__._0;
+                _password = __tmp__._1;
+                _ok = __tmp__._2;
+                __tmp__;
+            };
         };
         return {
-            var __tmp__ = stdgo._internal.net.http.Http__parseBasicAuth._parseBasicAuth(_auth?.__copy__());
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : Bool; } = stdgo._internal.net.http.Http__parseBasicAuth._parseBasicAuth(_auth?.__copy__());
             _username = __tmp__._0;
             _password = __tmp__._1;
             _ok = __tmp__._2;

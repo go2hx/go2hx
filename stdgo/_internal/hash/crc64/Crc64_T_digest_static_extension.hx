@@ -16,7 +16,12 @@ package stdgo._internal.hash.crc64;
         @:recv var _d:stdgo.Ref<stdgo._internal.hash.crc64.Crc64_T_digest.T_digest> = _d;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         _d._crc = stdgo._internal.hash.crc64.Crc64__update._update(_d._crc, _d._tab, _p);
-        return { _0 : _n = (_p.length), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function unmarshalBinary( _d:stdgo.Ref<stdgo._internal.hash.crc64.Crc64_T_digest.T_digest>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {

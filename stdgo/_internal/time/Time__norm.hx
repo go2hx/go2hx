@@ -11,5 +11,10 @@ function _norm(_hi:stdgo.GoInt, _lo:stdgo.GoInt, _base:stdgo.GoInt):{ var _0 : s
             _hi = (_hi + (_n) : stdgo.GoInt);
             _lo = (_lo - ((_n * _base : stdgo.GoInt)) : stdgo.GoInt);
         };
-        return { _0 : _nhi = _hi, _1 : _nlo = _lo };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _hi, _1 : _lo };
+            _nhi = __tmp__._0;
+            _nlo = __tmp__._1;
+            __tmp__;
+        };
     }

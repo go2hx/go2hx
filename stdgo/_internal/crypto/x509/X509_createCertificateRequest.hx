@@ -7,7 +7,12 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
             { _0 : (null : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : false };
         }, _key = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
-            return { _0 : _csr = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("x509: certificate private key does not implement crypto.Signer" : stdgo.GoString)) };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: certificate private key does not implement crypto.Signer" : stdgo.GoString)) };
+                _csr = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _hashFunc:stdgo._internal.crypto.Crypto_Hash.Hash = ((0 : stdgo.GoUInt) : stdgo._internal.crypto.Crypto_Hash.Hash);
         var _sigAlgo:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier);
@@ -18,7 +23,12 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
             _err = __tmp__._2;
         };
         if (_err != null) {
-            return { _0 : _csr = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                _csr = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _publicKeyBytes:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _publicKeyAlgorithm:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier);
@@ -29,11 +39,21 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
             _err = __tmp__._2;
         };
         if (_err != null) {
-            return { _0 : _csr = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                _csr = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var __tmp__ = stdgo._internal.crypto.x509.X509__buildCSRExtensions._buildCSRExtensions(_template), _extensions:stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : _csr = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                _csr = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _attributes = (new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>((0 : stdgo.GoInt).toBasic(), (_template.attributes.length), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (_template.attributes.length) ? (0 : stdgo.GoInt).toBasic() : (_template.attributes.length) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET)]) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>);
         for (__1 => _attr in _template.attributes) {
@@ -79,13 +99,23 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
             var _attr = ({ type : stdgo._internal.crypto.x509.X509__oidExtensionRequest._oidExtensionRequest, value : (new stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>>(1, 1, ...[_extensions]) : stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>>) } : stdgo._internal.crypto.x509.X509_T__struct_3.T__struct_3);
             var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_attr))), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : _csr = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = stdgo._internal.errors.Errors_new_.new_((("x509: failed to serialise extensions attribute: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("x509: failed to serialise extensions attribute: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString)?.__copy__()) };
+                    _csr = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             var _rawValue:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue = ({} : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue);
             {
                 var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_b, stdgo.Go.toInterface((stdgo.Go.setRef(_rawValue) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>))), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    return { _0 : _csr = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                        _csr = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             _rawAttributes = (_rawAttributes.__append__(_rawValue?.__copy__()));
@@ -98,7 +128,12 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : _csr = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                    _csr = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         var _tbsCSR = ({ version : (0 : stdgo.GoInt), subject : ({ fullBytes : _asn1Subject } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue), publicKey : ({ algorithm : _publicKeyAlgorithm?.__copy__(), publicKey : ({ bytes : _publicKeyBytes, bitLength : ((_publicKeyBytes.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString) } : stdgo._internal.crypto.x509.X509_T_publicKeyInfo.T_publicKeyInfo), rawAttributes : _rawAttributes } : stdgo._internal.crypto.x509.X509_T_tbsCertificateRequest.T_tbsCertificateRequest);
@@ -123,7 +158,7 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
             return { _0 : _csr, _1 : _err };
         };
         return {
-            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(({ tbscsr : _tbsCSR?.__copy__(), signatureAlgorithm : _sigAlgo?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString) } : stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest)));
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(({ tbscsr : _tbsCSR?.__copy__(), signatureAlgorithm : _sigAlgo?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString) } : stdgo._internal.crypto.x509.X509_T_certificateRequest.T_certificateRequest)));
             _csr = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

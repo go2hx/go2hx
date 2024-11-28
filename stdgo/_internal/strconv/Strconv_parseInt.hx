@@ -3,7 +3,12 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ 
         var _i = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         {};
         if (_s == (stdgo.Go.str())) {
-            return { _0 : _i = (0i64 : stdgo.GoInt64), _1 : _err = stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__syntaxError._syntaxError(("ParseInt" : stdgo.GoString), _s?.__copy__())) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__syntaxError._syntaxError(("ParseInt" : stdgo.GoString), _s?.__copy__())) };
+                _i = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _s0 = (_s?.__copy__() : stdgo.GoString);
         var _neg = (false : Bool);
@@ -22,21 +27,41 @@ function parseInt(_s:stdgo.GoString, _base:stdgo.GoInt, _bitSize:stdgo.GoInt):{ 
         if (((_err != null) && (stdgo.Go.toInterface((stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>)) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>).err) != stdgo.Go.toInterface(stdgo._internal.strconv.Strconv_errRange.errRange)) : Bool)) {
             (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>)) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>).func = ("ParseInt" : stdgo.GoString);
             (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>)) : stdgo.Ref<stdgo._internal.strconv.Strconv_NumError.NumError>).num = stdgo._internal.strconv.Strconv__cloneString._cloneString(_s0?.__copy__())?.__copy__();
-            return { _0 : _i = (0i64 : stdgo.GoInt64), _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : _err };
+                _i = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_bitSize == ((0 : stdgo.GoInt))) {
             _bitSize = (32 : stdgo.GoInt);
         };
         var _cutoff = (((1i64 : stdgo.GoUInt64) << ((_bitSize - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) : stdgo.GoUInt64) : stdgo.GoUInt64);
         if ((!_neg && (_un >= _cutoff : Bool) : Bool)) {
-            return { _0 : _i = ((_cutoff - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64), _1 : _err = stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__rangeError._rangeError(("ParseInt" : stdgo.GoString), _s0?.__copy__())) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : ((_cutoff - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64), _1 : stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__rangeError._rangeError(("ParseInt" : stdgo.GoString), _s0?.__copy__())) };
+                _i = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if ((_neg && (_un > _cutoff : Bool) : Bool)) {
-            return { _0 : _i = -(_cutoff : stdgo.GoInt64), _1 : _err = stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__rangeError._rangeError(("ParseInt" : stdgo.GoString), _s0?.__copy__())) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : -(_cutoff : stdgo.GoInt64), _1 : stdgo.Go.asInterface(stdgo._internal.strconv.Strconv__rangeError._rangeError(("ParseInt" : stdgo.GoString), _s0?.__copy__())) };
+                _i = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _n = (_un : stdgo.GoInt64);
         if (_neg) {
             _n = -_n;
         };
-        return { _0 : _i = _n, _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+            _i = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }

@@ -11,5 +11,10 @@ var _j = __1, _i = __0;
                 _j = _h;
             };
         };
-        return { _0 : _i, _1 : _found = ((_i < _n : Bool) && (_cmp(_i) == (0 : stdgo.GoInt)) : Bool) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : Bool; } = { _0 : _i, _1 : ((_i < _n : Bool) && (_cmp(_i) == (0 : stdgo.GoInt)) : Bool) };
+            _i = __tmp__._0;
+            _found = __tmp__._1;
+            __tmp__;
+        };
     }

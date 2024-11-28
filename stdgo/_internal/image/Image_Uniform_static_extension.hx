@@ -37,7 +37,7 @@ package stdgo._internal.image;
         @:recv var _c:stdgo.Ref<stdgo._internal.image.Image_Uniform.Uniform> = _c;
         var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
         return {
-            var __tmp__ = _c.c.rgba();
+            final __tmp__:{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } = _c.c.rgba();
             _r = __tmp__._0;
             _g = __tmp__._1;
             _b = __tmp__._2;

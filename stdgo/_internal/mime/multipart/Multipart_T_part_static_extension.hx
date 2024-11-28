@@ -5,7 +5,12 @@ package stdgo._internal.mime.multipart;
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_T_part.T_part> = _p;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_p._closed) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("multipart: can\'t write to finished part" : stdgo.GoString)) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("multipart: can\'t write to finished part" : stdgo.GoString)) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             var __tmp__ = _p._mw._w.write(_d);

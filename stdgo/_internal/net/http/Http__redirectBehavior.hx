@@ -19,5 +19,11 @@ function _redirectBehavior(_reqMethod:stdgo.GoString, _resp:stdgo.Ref<stdgo._int
                 };
             };
         };
-        return { _0 : _redirectMethod = _redirectMethod?.__copy__(), _1 : _shouldRedirect, _2 : _includeBody };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; var _2 : Bool; } = { _0 : _redirectMethod?.__copy__(), _1 : _shouldRedirect, _2 : _includeBody };
+            _redirectMethod = __tmp__._0;
+            _shouldRedirect = __tmp__._1;
+            _includeBody = __tmp__._2;
+            __tmp__;
+        };
     }

@@ -6,7 +6,13 @@ function _scanExponent(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base2o
             if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                 _err = (null : stdgo.Error);
             };
-            return { _0 : _exp = (0i64 : stdgo.GoInt64), _1 : _base = (10 : stdgo.GoInt), _2 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (10 : stdgo.GoInt), _2 : _err };
+                _exp = __tmp__._0;
+                _base = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         {
             var __switchIndex__ = -1;
@@ -32,7 +38,13 @@ function _scanExponent(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner, _base2o
                         break;
                     } else {
                         _r.unreadByte();
-                        return { _0 : _exp = (0i64 : stdgo.GoInt64), _1 : _base = (10 : stdgo.GoInt), _2 : _err = (null : stdgo.Error) };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } = { _0 : (0i64 : stdgo.GoInt64), _1 : (10 : stdgo.GoInt), _2 : (null : stdgo.Error) };
+                            _exp = __tmp__._0;
+                            _base = __tmp__._1;
+                            _err = __tmp__._2;
+                            __tmp__;
+                        };
                         break;
                     };
                 };

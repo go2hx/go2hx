@@ -3,14 +3,14 @@ function modf(_f:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoF
         var _int = (0 : stdgo.GoFloat64), _frac = (0 : stdgo.GoFloat64);
         if (false) {
             return {
-                var __tmp__ = stdgo._internal.math.Math__archModf._archModf(_f);
+                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = stdgo._internal.math.Math__archModf._archModf(_f);
                 _int = __tmp__._0;
                 _frac = __tmp__._1;
                 __tmp__;
             };
         };
         return {
-            var __tmp__ = stdgo._internal.math.Math__modf._modf(_f);
+            final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = stdgo._internal.math.Math__modf._modf(_f);
             _int = __tmp__._0;
             _frac = __tmp__._1;
             __tmp__;

@@ -149,7 +149,12 @@ package stdgo._internal.encoding.xml;
                 _p._err = __tmp__._1;
             };
         };
-        return { _0 : _n, _1 : _err = _p._err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _p._err };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function write( _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer>, _b:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
@@ -165,7 +170,12 @@ package stdgo._internal.encoding.xml;
                 _p._err = __tmp__._1;
             };
         };
-        return { _0 : _n, _1 : _err = _p._err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _p._err };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _marshalStruct( _p:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_printer.T_printer>, _tinfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo>, _val:stdgo._internal.reflect.Reflect_Value.Value):stdgo.Error {

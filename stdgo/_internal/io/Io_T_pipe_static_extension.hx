@@ -50,7 +50,12 @@ package stdgo._internal.io;
                         {
                             _p._done.__get__();
                             {
-                                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _p._writeCloseError() };
+                                return {
+                                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _p._writeCloseError() };
+                                    _n = __tmp__._0;
+                                    _err = __tmp__._1;
+                                    __tmp__;
+                                };
                             };
                         };
                     } else {
@@ -86,7 +91,12 @@ package stdgo._internal.io;
                                     _p._done.__get__();
                                     {
                                         {
-                                            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err = _p._writeCloseError() };
+                                            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _p._writeCloseError() };
+                                                _n = __tmp__._0;
+                                                _err = __tmp__._1;
+                                                __tmp__;
+                                            };
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
@@ -103,7 +113,12 @@ package stdgo._internal.io;
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err = (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -157,7 +172,12 @@ package stdgo._internal.io;
                     {
                         _p._done.__get__();
                         {
-                            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _p._readCloseError() };
+                            return {
+                                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _p._readCloseError() };
+                                _n = __tmp__._0;
+                                _err = __tmp__._1;
+                                __tmp__;
+                            };
                         };
                     };
                 } else {
@@ -179,7 +199,12 @@ package stdgo._internal.io;
                             {
                                 var _nr = (stdgo.Go.copySlice(_b, _bw) : stdgo.GoInt);
                                 _p._rdCh.__send__(_nr);
-                                return { _0 : _n = _nr, _1 : _err = (null : stdgo.Error) };
+                                return {
+                                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _nr, _1 : (null : stdgo.Error) };
+                                    _n = __tmp__._0;
+                                    _err = __tmp__._1;
+                                    __tmp__;
+                                };
                             };
                         };
                     } else if (_p._done != null && _p._done.__isGet__()) {
@@ -187,7 +212,12 @@ package stdgo._internal.io;
                         {
                             _p._done.__get__();
                             {
-                                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _p._readCloseError() };
+                                return {
+                                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _p._readCloseError() };
+                                    _n = __tmp__._0;
+                                    _err = __tmp__._1;
+                                    __tmp__;
+                                };
                             };
                         };
                     };

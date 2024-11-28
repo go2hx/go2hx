@@ -2,7 +2,12 @@ package stdgo._internal.crypto.tls;
 function _extractPadding(_payload:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoUInt8; } {
         var _toRemove = (0 : stdgo.GoInt), _good = (0 : stdgo.GoUInt8);
         if (((_payload.length) < (1 : stdgo.GoInt) : Bool)) {
-            return { _0 : _toRemove = (0 : stdgo.GoInt), _1 : _good = (0 : stdgo.GoUInt8) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoUInt8; } = { _0 : (0 : stdgo.GoInt), _1 : (0 : stdgo.GoUInt8) };
+                _toRemove = __tmp__._0;
+                _good = __tmp__._1;
+                __tmp__;
+            };
         };
         var _paddingLen = (_payload[((_payload.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoUInt8);
         var _t = ((((_payload.length) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt) - (_paddingLen : stdgo.GoUInt) : stdgo.GoUInt);

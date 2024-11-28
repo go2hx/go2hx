@@ -32,11 +32,26 @@ package stdgo._internal.archive.tar;
             _fw._nb = (_fw._nb - ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         };
         if (_err != null) {
-            return { _0 : _n, _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else if (_overwrite) {
-            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar_errWriteTooLong.errWriteTooLong };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : stdgo._internal.archive.tar.Tar_errWriteTooLong.errWriteTooLong };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else {
-            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
     }
 }

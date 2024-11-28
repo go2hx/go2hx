@@ -15,7 +15,7 @@ package stdgo._internal.io;
         @:recv var _w:stdgo.Ref<stdgo._internal.io.Io_PipeWriter.PipeWriter> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         return {
-            var __tmp__ = _w._p._write(_data);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _w._p._write(_data);
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

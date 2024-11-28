@@ -147,11 +147,16 @@ package stdgo._internal.net.http;
             {
                 var __tmp__ = _mux._redirectToPathSlash(_r.url.host?.__copy__(), _r.url.path?.__copy__(), _r.url), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
-                    return { _0 : _h = stdgo._internal.net.http.Http_redirectHandler.redirectHandler((_u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _pattern = _u.path?.__copy__() };
+                    return {
+                        final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.Http_redirectHandler.redirectHandler((_u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _u.path?.__copy__() };
+                        _h = __tmp__._0;
+                        _pattern = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             return {
-                var __tmp__ = _mux._handler(_r.host?.__copy__(), _r.url.path?.__copy__());
+                final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = _mux._handler(_r.host?.__copy__(), _r.url.path?.__copy__());
                 _h = __tmp__._0;
                 _pattern = __tmp__._1;
                 __tmp__;
@@ -162,7 +167,12 @@ package stdgo._internal.net.http;
         {
             var __tmp__ = _mux._redirectToPathSlash(_host?.__copy__(), _path?.__copy__(), _r.url), _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                return { _0 : _h = stdgo._internal.net.http.Http_redirectHandler.redirectHandler((_u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _pattern = _u.path?.__copy__() };
+                return {
+                    final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.Http_redirectHandler.redirectHandler((_u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _u.path?.__copy__() };
+                    _h = __tmp__._0;
+                    _pattern = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         if (_path != (_r.url.path)) {
@@ -171,10 +181,15 @@ package stdgo._internal.net.http;
                 _pattern = __tmp__._1?.__copy__();
             };
             var _u = (stdgo.Go.setRef(({ path : _path?.__copy__(), rawQuery : _r.url.rawQuery?.__copy__() } : stdgo._internal.net.url.Url_URL.URL)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
-            return { _0 : _h = stdgo._internal.net.http.Http_redirectHandler.redirectHandler((_u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _pattern = _pattern?.__copy__() };
+            return {
+                final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : stdgo._internal.net.http.Http_redirectHandler.redirectHandler((_u.string() : stdgo.GoString)?.__copy__(), (301 : stdgo.GoInt)), _1 : _pattern?.__copy__() };
+                _h = __tmp__._0;
+                _pattern = __tmp__._1;
+                __tmp__;
+            };
         };
         return {
-            var __tmp__ = _mux._handler(_host?.__copy__(), _r.url.path?.__copy__());
+            final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = _mux._handler(_host?.__copy__(), _r.url.path?.__copy__());
             _h = __tmp__._0;
             _pattern = __tmp__._1;
             __tmp__;
@@ -225,13 +240,28 @@ package stdgo._internal.net.http;
         var _h = (null : stdgo._internal.net.http.Http_Handler.Handler), _pattern = ("" : stdgo.GoString);
         var __tmp__ = (_mux._m != null && _mux._m.exists(_path?.__copy__()) ? { _0 : _mux._m[_path?.__copy__()], _1 : true } : { _0 : ({} : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry), _1 : false }), _v:stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry = __tmp__._0, _ok:Bool = __tmp__._1;
         if (_ok) {
-            return { _0 : _h = _v._h, _1 : _pattern = _v._pattern?.__copy__() };
+            return {
+                final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : _v._h, _1 : _v._pattern?.__copy__() };
+                _h = __tmp__._0;
+                _pattern = __tmp__._1;
+                __tmp__;
+            };
         };
         for (__34504 => _e in _mux._es) {
             if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_path?.__copy__(), _e._pattern?.__copy__())) {
-                return { _0 : _h = _e._h, _1 : _pattern = _e._pattern?.__copy__() };
+                return {
+                    final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : _e._h, _1 : _e._pattern?.__copy__() };
+                    _h = __tmp__._0;
+                    _pattern = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
-        return { _0 : _h = (null : stdgo._internal.net.http.Http_Handler.Handler), _1 : _pattern = stdgo.Go.str()?.__copy__() };
+        return {
+            final __tmp__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : (null : stdgo._internal.net.http.Http_Handler.Handler), _1 : stdgo.Go.str()?.__copy__() };
+            _h = __tmp__._0;
+            _pattern = __tmp__._1;
+            __tmp__;
+        };
     }
 }

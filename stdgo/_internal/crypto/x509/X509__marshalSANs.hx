@@ -6,7 +6,12 @@ function _marshalSANs(_dnsNames:stdgo.Slice<stdgo.GoString>, _emailAddresses:std
             {
                 var _err = (stdgo._internal.crypto.x509.X509__isIA5String._isIA5String(_name?.__copy__()) : stdgo.Error);
                 if (_err != null) {
-                    return { _0 : _derBytes = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                        _derBytes = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             _rawValues = (_rawValues.__append__(({ tag : (2 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : (_name : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue)));
@@ -15,7 +20,12 @@ function _marshalSANs(_dnsNames:stdgo.Slice<stdgo.GoString>, _emailAddresses:std
             {
                 var _err = (stdgo._internal.crypto.x509.X509__isIA5String._isIA5String(_email?.__copy__()) : stdgo.Error);
                 if (_err != null) {
-                    return { _0 : _derBytes = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                        _derBytes = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             _rawValues = (_rawValues.__append__(({ tag : (1 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : (_email : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue)));
@@ -32,13 +42,18 @@ function _marshalSANs(_dnsNames:stdgo.Slice<stdgo.GoString>, _emailAddresses:std
             {
                 var _err = (stdgo._internal.crypto.x509.X509__isIA5String._isIA5String(_uriStr?.__copy__()) : stdgo.Error);
                 if (_err != null) {
-                    return { _0 : _derBytes = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                        _derBytes = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             _rawValues = (_rawValues.__append__(({ tag : (6 : stdgo.GoInt), class_ : (2 : stdgo.GoInt), bytes : (_uriStr : stdgo.Slice<stdgo.GoUInt8>) } : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue)));
         };
         return {
-            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_rawValues));
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_rawValues));
             _derBytes = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

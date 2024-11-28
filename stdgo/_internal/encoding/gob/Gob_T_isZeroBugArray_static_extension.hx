@@ -15,6 +15,11 @@ package stdgo._internal.encoding.gob;
         @:recv var _a:stdgo._internal.encoding.gob.Gob_T_isZeroBugArray.T_isZeroBugArray = _a?.__copy__();
         var _b = (null : stdgo.Slice<stdgo.GoUInt8>), _e = (null : stdgo.Error);
         _b = (_b.__append__(...((_a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
-        return { _0 : _b, _1 : _e = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _b, _1 : (null : stdgo.Error) };
+            _b = __tmp__._0;
+            _e = __tmp__._1;
+            __tmp__;
+        };
     }
 }

@@ -12,6 +12,11 @@ package stdgo._internal.net.http;
             };
             a();
         }));
-        return { _0 : _resp = _resc.__get__(), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resc.__get__(), _1 : (null : stdgo.Error) };
+            _resp = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
 }

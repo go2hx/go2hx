@@ -49,7 +49,13 @@ if (_s.sign() != ((0 : stdgo.GoInt))) {
             };
         };
         if (_attempts == ((0 : stdgo.GoInt))) {
-            return { _0 : _r = null, _1 : _s = null, _2 : _err = stdgo._internal.crypto.dsa.Dsa_errInvalidPublicKey.errInvalidPublicKey };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _2 : stdgo.Error; } = { _0 : null, _1 : null, _2 : stdgo._internal.crypto.dsa.Dsa_errInvalidPublicKey.errInvalidPublicKey };
+                _r = __tmp__._0;
+                _s = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         return { _0 : _r, _1 : _s, _2 : _err };
     }

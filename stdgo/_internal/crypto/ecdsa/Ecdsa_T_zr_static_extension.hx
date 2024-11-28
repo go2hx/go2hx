@@ -7,6 +7,11 @@ package stdgo._internal.crypto.ecdsa;
         for (_i => _ in _dst) {
             _dst[(_i : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
         };
-        return { _0 : _n = (_dst.length), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_dst.length), _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
 }

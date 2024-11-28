@@ -14,11 +14,21 @@ package stdgo._internal.net.http;
         };
         if (_cr._hitReadLimit()) {
             _cr._unlock();
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if ((_p.length) == ((0 : stdgo.GoInt))) {
             _cr._unlock();
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (((_p.length : stdgo.GoInt64) > _cr._remain : Bool)) {
             _p = (_p.__slice__(0, _cr._remain) : stdgo.Slice<stdgo.GoUInt8>);
@@ -27,7 +37,12 @@ package stdgo._internal.net.http;
             _p[(0 : stdgo.GoInt)] = _cr._byteBuf[(0 : stdgo.GoInt)];
             _cr._hasByte = false;
             _cr._unlock();
-            return { _0 : _n = (1 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (1 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         _cr._inRead = true;
         _cr._unlock();
@@ -44,7 +59,12 @@ package stdgo._internal.net.http;
         _cr._remain = (_cr._remain - ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         _cr._unlock();
         _cr._cond.broadcast();
-        return { _0 : _n, _1 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _closeNotify( _cr:stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader>):Void {

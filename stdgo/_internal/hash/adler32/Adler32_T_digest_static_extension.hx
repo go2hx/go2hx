@@ -16,7 +16,12 @@ package stdgo._internal.hash.adler32;
     static public function write(____:stdgo._internal.hash.adler32.Adler32_T_digest.T_digest,  _d:stdgo.Pointer<stdgo._internal.hash.adler32.Adler32_T_digest.T_digest>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _nn = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         _d.value = stdgo._internal.hash.adler32.Adler32__update._update(_d.value, _p);
-        return { _0 : _nn = (_p.length), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
+            _nn = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     @:pointer

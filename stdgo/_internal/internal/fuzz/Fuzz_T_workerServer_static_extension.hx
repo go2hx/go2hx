@@ -17,7 +17,12 @@ package stdgo._internal.internal.fuzz;
             return ((_ctx.err() != null) || (((_args.limit > (0i64 : stdgo.GoInt64) : Bool) && (_count.value >= _args.limit : Bool) : Bool)) : Bool);
         } : () -> Bool);
         if (_shouldStop()) {
-            return { _0 : _success = false, _1 : _retErr = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
+                _success = __tmp__._0;
+                _retErr = __tmp__._1;
+                __tmp__;
+            };
         };
         _count.value++;
         {
@@ -26,10 +31,20 @@ package stdgo._internal.internal.fuzz;
         };
         if (_keepCoverage != null) {
             if ((!stdgo._internal.internal.fuzz.Fuzz__hasCoverageBit._hasCoverageBit(_keepCoverage, stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot) || (_retErr != null) : Bool)) {
-                return { _0 : _success = false, _1 : _retErr = (null : stdgo.Error) };
+                return {
+                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
+                    _success = __tmp__._0;
+                    _retErr = __tmp__._1;
+                    __tmp__;
+                };
             };
         } else if (_retErr == null) {
-            return { _0 : _success = false, _1 : _retErr = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : (null : stdgo.Error) };
+                _success = __tmp__._0;
+                _retErr = __tmp__._1;
+                __tmp__;
+            };
         };
         _mem._header()._rawInMem = true;
         var _tryMinimized = function(_candidate:stdgo.Slice<stdgo.GoUInt8>):Bool {
@@ -75,7 +90,12 @@ package stdgo._internal.internal.fuzz;
                 throw stdgo.Go.toInterface(("impossible" : stdgo.GoString));
             };
         };
-        return { _0 : _success = true, _1 : _retErr };
+        return {
+            final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : true, _1 : _retErr };
+            _success = __tmp__._0;
+            _retErr = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _minimize( _ws:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer>, _ctx:stdgo._internal.context.Context_Context.Context, _args:stdgo._internal.internal.fuzz.Fuzz_T_minimizeArgs.T_minimizeArgs):stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse {
@@ -234,12 +254,30 @@ package stdgo._internal.internal.fuzz;
                     if (_errMsg == (stdgo.Go.str())) {
                         _errMsg = ("fuzz function failed with no input" : stdgo.GoString);
                     };
-                    return { _0 : _dur, _1 : _cov = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg = _errMsg?.__copy__() };
+                    return {
+                        final __tmp__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg?.__copy__() };
+                        _dur = __tmp__._0;
+                        _cov = __tmp__._1;
+                        _errMsg = __tmp__._2;
+                        __tmp__;
+                    };
                 };
                 if (((_ws._coverageMask != null) && (stdgo._internal.internal.fuzz.Fuzz__countNewCoverageBits._countNewCoverageBits(_ws._coverageMask, stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot) > (0 : stdgo.GoInt) : Bool) : Bool)) {
-                    return { _0 : _dur, _1 : _cov = stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot, _2 : _errMsg = stdgo.Go.str()?.__copy__() };
+                    return {
+                        final __tmp__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot, _2 : stdgo.Go.str()?.__copy__() };
+                        _dur = __tmp__._0;
+                        _cov = __tmp__._1;
+                        _errMsg = __tmp__._2;
+                        __tmp__;
+                    };
                 };
-                return { _0 : _dur, _1 : _cov = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg = stdgo.Go.str()?.__copy__() };
+                return {
+                    final __tmp__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; } = { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo.Go.str()?.__copy__() };
+                    _dur = __tmp__._0;
+                    _cov = __tmp__._1;
+                    _errMsg = __tmp__._2;
+                    __tmp__;
+                };
             } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry -> { var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; });
             if (_args.warmup) {
                 var __tmp__ = _fuzzOnce(({ values : _vals, parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry)), _dur:stdgo._internal.time.Time_Duration.Duration = __tmp__._0, __8:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _errMsg:stdgo.GoString = __tmp__._2;

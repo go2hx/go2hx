@@ -9,7 +9,7 @@ function unmarshal(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve, 
             }, _c = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return {
-                    var __tmp__ = _c.unmarshal(_data);
+                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = _c.unmarshal(_data);
                     _x = __tmp__._0;
                     _y = __tmp__._1;
                     __tmp__;
@@ -18,19 +18,39 @@ function unmarshal(_curve:stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve, 
         };
         var _byteLen = (((_curve.params().bitSize + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
         if ((_data.length) != (((1 : stdgo.GoInt) + ((2 : stdgo.GoInt) * _byteLen : stdgo.GoInt) : stdgo.GoInt))) {
-            return { _0 : _x = null, _1 : _y = null };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
+                _x = __tmp__._0;
+                _y = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_data[(0 : stdgo.GoInt)] != ((4 : stdgo.GoUInt8))) {
-            return { _0 : _x = null, _1 : _y = null };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
+                _x = __tmp__._0;
+                _y = __tmp__._1;
+                __tmp__;
+            };
         };
         var _p = _curve.params().p;
         _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes((_data.__slice__((1 : stdgo.GoInt), ((1 : stdgo.GoInt) + _byteLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         _y = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes((_data.__slice__(((1 : stdgo.GoInt) + _byteLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         if (((_x.cmp(_p) >= (0 : stdgo.GoInt) : Bool) || (_y.cmp(_p) >= (0 : stdgo.GoInt) : Bool) : Bool)) {
-            return { _0 : _x = null, _1 : _y = null };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
+                _x = __tmp__._0;
+                _y = __tmp__._1;
+                __tmp__;
+            };
         };
         if (!_curve.isOnCurve(_x, _y)) {
-            return { _0 : _x = null, _1 : _y = null };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
+                _x = __tmp__._0;
+                _y = __tmp__._1;
+                __tmp__;
+            };
         };
         return { _0 : _x, _1 : _y };
     }

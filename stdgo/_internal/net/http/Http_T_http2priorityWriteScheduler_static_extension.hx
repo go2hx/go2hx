@@ -55,7 +55,12 @@ package stdgo._internal.net.http;
             };
             return true;
         });
-        return { _0 : _wr = _wr?.__copy__(), _1 : _ok };
+        return {
+            final __tmp__:{ var _0 : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest; var _1 : Bool; } = { _0 : _wr?.__copy__(), _1 : _ok };
+            _wr = __tmp__._0;
+            _ok = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function push( _ws:stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityWriteScheduler.T_http2priorityWriteScheduler>, _wr:stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest):Void {

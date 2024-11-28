@@ -20,7 +20,12 @@ package stdgo._internal.net.http.httputil;
             if (_cc._pipereq != null) _cc._pipereq.remove(_req);
             if (!_ok) {
                 _cc._mu.unlock();
-                return { _0 : _resp = null, _1 : _err = stdgo.Go.asInterface(stdgo._internal.net.http.httputil.Httputil_errPipeline.errPipeline) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface(stdgo._internal.net.http.httputil.Httputil_errPipeline.errPipeline) };
+                    _resp = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             _cc._mu.unlock();
             _cc._pipe.startResponse(_id);
@@ -32,7 +37,12 @@ package stdgo._internal.net.http.httputil;
             if (_cc._re != null) {
                 __deferstack__.unshift(() -> _cc._mu.unlock());
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp = null, _1 : _err = _cc._re };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _cc._re };
+                        _resp = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -42,7 +52,12 @@ package stdgo._internal.net.http.httputil;
             if ((_cc._r == null || (_cc._r : Dynamic).__nil__)) {
                 __deferstack__.unshift(() -> _cc._mu.unlock());
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp = null, _1 : _err = stdgo._internal.net.http.httputil.Httputil__errClosed._errClosed };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.httputil.Httputil__errClosed._errClosed };
+                        _resp = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -60,7 +75,12 @@ package stdgo._internal.net.http.httputil;
                     __deferstack__.unshift(() -> _cc._mu.unlock());
                     _cc._re = _err;
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp = null, _1 : _err };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = {
+                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                            _resp = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -78,7 +98,12 @@ package stdgo._internal.net.http.httputil;
             if (_err != null) {
                 _cc._re = _err;
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
+                        _resp = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -90,7 +115,12 @@ package stdgo._internal.net.http.httputil;
             if (_resp.close) {
                 _cc._re = stdgo.Go.asInterface(stdgo._internal.net.http.httputil.Httputil_errPersistEOF.errPersistEOF);
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err = _cc._re };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _cc._re };
+                        _resp = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -98,7 +128,12 @@ package stdgo._internal.net.http.httputil;
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = {
+                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
+                    _resp = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

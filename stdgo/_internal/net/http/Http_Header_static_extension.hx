@@ -62,7 +62,12 @@ package stdgo._internal.net.http;
         };
         _hs._kvs = _kvs;
         stdgo._internal.sort.Sort_sort.sort(stdgo.Go.asInterface(_hs));
-        return { _0 : _kvs, _1 : _hs };
+        return {
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo._internal.net.http.Http_T_keyValues.T_keyValues>; var _1 : stdgo.Ref<stdgo._internal.net.http.Http_T_headerSorter.T_headerSorter>; } = { _0 : _kvs, _1 : _hs };
+            _kvs = __tmp__._0;
+            _hs = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function clone( _h:stdgo._internal.net.http.Http_Header.Header):stdgo._internal.net.http.Http_Header.Header {

@@ -13,5 +13,10 @@ function _tryReadFull(_r:stdgo._internal.io.Io_Reader.Reader, _b:stdgo.Slice<std
         if (((_b.length == _n) && (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
             _err = (null : stdgo.Error);
         };
-        return { _0 : _n, _1 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }

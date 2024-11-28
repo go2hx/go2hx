@@ -9,7 +9,7 @@ function writeString(_w:stdgo._internal.io.Io_Writer.Writer, _s:stdgo.GoString):
             }, _sw = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return {
-                    var __tmp__ = _sw.writeString(_s?.__copy__());
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _sw.writeString(_s?.__copy__());
                     _n = __tmp__._0;
                     _err = __tmp__._1;
                     __tmp__;
@@ -17,7 +17,7 @@ function writeString(_w:stdgo._internal.io.Io_Writer.Writer, _s:stdgo.GoString):
             };
         };
         return {
-            var __tmp__ = _w.write((_s : stdgo.Slice<stdgo.GoUInt8>));
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _w.write((_s : stdgo.Slice<stdgo.GoUInt8>));
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

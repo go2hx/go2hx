@@ -26,7 +26,12 @@ package stdgo._internal.encoding.pem;
         if (((_l._used + (_b.length) : stdgo.GoInt) < (64 : stdgo.GoInt) : Bool)) {
             stdgo.Go.copySlice((_l._line.__slice__(_l._used) : stdgo.Slice<stdgo.GoUInt8>), _b);
             _l._used = (_l._used + ((_b.length)) : stdgo.GoInt);
-            return { _0 : _n = (_b.length), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_b.length), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             var __tmp__ = _l._out.write((_l._line.__slice__((0 : stdgo.GoInt), _l._used) : stdgo.Slice<stdgo.GoUInt8>));
@@ -55,7 +60,7 @@ package stdgo._internal.encoding.pem;
             return { _0 : _n, _1 : _err };
         };
         return {
-            var __tmp__ = _l.write((_b.__slice__(_excess) : stdgo.Slice<stdgo.GoUInt8>));
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _l.write((_b.__slice__(_excess) : stdgo.Slice<stdgo.GoUInt8>));
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

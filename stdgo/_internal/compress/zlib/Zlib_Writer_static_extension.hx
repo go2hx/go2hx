@@ -41,10 +41,20 @@ package stdgo._internal.compress.zlib;
             _z._err = _z._writeHeader();
         };
         if (_z._err != null) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _z._err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _z._err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if ((_p.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             var __tmp__ = _z._compressor.write(_p);

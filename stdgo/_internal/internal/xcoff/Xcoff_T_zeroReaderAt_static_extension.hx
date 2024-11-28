@@ -7,6 +7,11 @@ package stdgo._internal.internal.xcoff;
         for (_i => _ in _p) {
             _p[(_i : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
         };
-        return { _0 : _n = (_p.length), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_p.length), _1 : (null : stdgo.Error) };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
 }

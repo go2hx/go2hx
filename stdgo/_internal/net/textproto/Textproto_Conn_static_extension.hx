@@ -10,9 +10,19 @@ package stdgo._internal.net.textproto;
         _err = _c.printfLine(_format?.__copy__(), ...(_args : Array<stdgo.AnyInterface>));
         _c.endRequest(_id);
         if (_err != null) {
-            return { _0 : _id = (0u32 : stdgo.GoUInt), _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoUInt; var _1 : stdgo.Error; } = { _0 : (0u32 : stdgo.GoUInt), _1 : _err };
+                _id = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
-        return { _0 : _id, _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoUInt; var _1 : stdgo.Error; } = { _0 : _id, _1 : (null : stdgo.Error) };
+            _id = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function close( _c:stdgo.Ref<stdgo._internal.net.textproto.Textproto_Conn.Conn>):stdgo.Error {

@@ -7,10 +7,20 @@ package stdgo._internal.encoding.base64;
         if (((_d._out.length) > (0 : stdgo.GoInt) : Bool)) {
             _n = stdgo.Go.copySlice(_p, _d._out);
             _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
-            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_d._err != null) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _d._err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         while (((_d._nbuf < (4 : stdgo.GoInt) : Bool) && (_d._readErr == null) : Bool)) {
             var _nn = (((_p.length) / (3 : stdgo.GoInt) : stdgo.GoInt) * (4 : stdgo.GoInt) : stdgo.GoInt);
@@ -40,17 +50,32 @@ package stdgo._internal.encoding.base64;
                 _n = stdgo.Go.copySlice(_p, _d._out);
                 _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
                 if (((_n > (0 : stdgo.GoInt) : Bool) || ((_p.length) == ((0 : stdgo.GoInt)) && ((_d._out.length) > (0 : stdgo.GoInt) : Bool) : Bool) : Bool)) {
-                    return { _0 : _n, _1 : _err = (null : stdgo.Error) };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
                 if (_d._err != null) {
-                    return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _d._err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             _d._err = _d._readErr;
             if (((stdgo.Go.toInterface(_d._err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) && (_d._nbuf > (0 : stdgo.GoInt) : Bool) : Bool)) {
                 _d._err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
             };
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _d._err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _nr = ((_d._nbuf / (4 : stdgo.GoInt) : stdgo.GoInt) * (4 : stdgo.GoInt) : stdgo.GoInt);
         var _nw = ((_d._nbuf / (4 : stdgo.GoInt) : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt);
@@ -72,6 +97,11 @@ package stdgo._internal.encoding.base64;
         };
         _d._nbuf = (_d._nbuf - (_nr) : stdgo.GoInt);
         stdgo.Go.copySlice((_d._buf.__slice__(0, _d._nbuf) : stdgo.Slice<stdgo.GoUInt8>), (_d._buf.__slice__(_nr) : stdgo.Slice<stdgo.GoUInt8>));
-        return { _0 : _n, _1 : _err = _d._err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _d._err };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
 }

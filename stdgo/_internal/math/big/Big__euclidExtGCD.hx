@@ -33,5 +33,11 @@ function _euclidExtGCD(_a:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _b:
             vb.sub(va, vb);
             va.set(_temp);
         };
-        return { _0 : _g = a, _1 : _x = ua, _2 : _y = va };
+        return {
+            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _2 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : a, _1 : ua, _2 : va };
+            _g = __tmp__._0;
+            _x = __tmp__._1;
+            _y = __tmp__._2;
+            __tmp__;
+        };
     }

@@ -29,19 +29,29 @@ package stdgo._internal.io;
             _sum = (_sum + (_n) : stdgo.GoInt64);
             if (_err != null) {
                 _mr._readers = (_mr._readers.__slice__(_i) : stdgo.Slice<stdgo._internal.io.Io_Reader.Reader>);
-                return { _0 : _sum, _1 : _err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _sum, _1 : _err };
+                    _sum = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             _mr._readers[(_i : stdgo.GoInt)] = (null : stdgo._internal.io.Io_Reader.Reader);
         };
         _mr._readers = (null : stdgo.Slice<stdgo._internal.io.Io_Reader.Reader>);
-        return { _0 : _sum, _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : _sum, _1 : (null : stdgo.Error) };
+            _sum = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function writeTo( _mr:stdgo.Ref<stdgo._internal.io.Io_T_multiReader.T_multiReader>, _w:stdgo._internal.io.Io_Writer.Writer):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
         @:recv var _mr:stdgo.Ref<stdgo._internal.io.Io_T_multiReader.T_multiReader> = _mr;
         var _sum = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         return {
-            var __tmp__ = _mr._writeToWithBuffer(_w, (new stdgo.Slice<stdgo.GoUInt8>((32768 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
+            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _mr._writeToWithBuffer(_w, (new stdgo.Slice<stdgo.GoUInt8>((32768 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>));
             _sum = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -81,6 +91,11 @@ package stdgo._internal.io;
                 return { _0 : _n, _1 : _err };
             };
         };
-        return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
 }

@@ -3,9 +3,19 @@ function sincos(_x:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.G
         var _sin = (0 : stdgo.GoFloat64), _cos = (0 : stdgo.GoFloat64);
         {};
         if (_x == (0 : stdgo.GoFloat64)) {
-            return { _0 : _sin = _x, _1 : _cos = (1 : stdgo.GoFloat64) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : _x, _1 : (1 : stdgo.GoFloat64) };
+                _sin = __tmp__._0;
+                _cos = __tmp__._1;
+                __tmp__;
+            };
         } else if ((stdgo._internal.math.Math_isNaN.isNaN(_x) || stdgo._internal.math.Math_isInf.isInf(_x, (0 : stdgo.GoInt)) : Bool)) {
-            return { _0 : _sin = stdgo._internal.math.Math_naN.naN(), _1 : _cos = stdgo._internal.math.Math_naN.naN() };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : stdgo._internal.math.Math_naN.naN(), _1 : stdgo._internal.math.Math_naN.naN() };
+                _sin = __tmp__._0;
+                _cos = __tmp__._1;
+                __tmp__;
+            };
         };
         var __0 = (false : Bool), __1 = (false : Bool);
 var _cosSign = __1, _sinSign = __0;

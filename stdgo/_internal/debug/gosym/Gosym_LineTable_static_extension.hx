@@ -832,6 +832,12 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             };
             _pc = (_pc + ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
-        return { _0 : _b, _1 : _pc, _2 : _line };
+        return {
+            final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.GoUInt64; var _2 : stdgo.GoInt; } = { _0 : _b, _1 : _pc, _2 : _line };
+            _b = __tmp__._0;
+            _pc = __tmp__._1;
+            _line = __tmp__._2;
+            __tmp__;
+        };
     }
 }

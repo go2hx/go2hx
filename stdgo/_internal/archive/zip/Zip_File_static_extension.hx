@@ -68,7 +68,12 @@ package stdgo._internal.archive.zip;
         if (_err != null) {
             return { _0 : _offset, _1 : _err };
         };
-        return { _0 : _offset = (_f._headerOffset + _bodyOffset : stdgo.GoInt64), _1 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = { _0 : (_f._headerOffset + _bodyOffset : stdgo.GoInt64), _1 : (null : stdgo.Error) };
+            _offset = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:embedded
     public static function _isZip64( __self__:stdgo._internal.archive.zip.Zip_File.File):Bool return __self__._isZip64();

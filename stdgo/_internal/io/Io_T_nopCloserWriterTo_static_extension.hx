@@ -5,7 +5,7 @@ package stdgo._internal.io;
         @:recv var _c:stdgo._internal.io.Io_T_nopCloserWriterTo.T_nopCloserWriterTo = _c?.__copy__();
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         return {
-            var __tmp__ = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c.reader) : stdgo._internal.io.Io_WriterTo.WriterTo)) : stdgo._internal.io.Io_WriterTo.WriterTo).writeTo(_w);
+            final __tmp__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c.reader) : stdgo._internal.io.Io_WriterTo.WriterTo)) : stdgo._internal.io.Io_WriterTo.WriterTo).writeTo(_w);
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

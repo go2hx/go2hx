@@ -18,7 +18,12 @@ package stdgo._internal.net.http;
                 };
             };
             if (_gz._zerr != null) {
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _gz._zerr };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _gz._zerr };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         _gz._body._mu.lock();
@@ -27,10 +32,15 @@ package stdgo._internal.net.http;
         };
         _gz._body._mu.unlock();
         if (_err != null) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         return {
-            var __tmp__ = _gz._zr.read(_p);
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _gz._zr.read(_p);
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;

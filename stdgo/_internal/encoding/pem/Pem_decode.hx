@@ -10,7 +10,12 @@ function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._in
                 if (_ok) {
                     _rest = _after;
                 } else {
-                    return { _0 : _p = null, _1 : _rest = _data };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : null, _1 : _data };
+                        _p = __tmp__._0;
+                        _rest = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             };
             var _typeLine:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -31,7 +36,12 @@ function decode(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._in
             } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), type : (_typeLine : stdgo.GoString)?.__copy__() } : stdgo._internal.encoding.pem.Pem_Block.Block)) : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>);
             while (true) {
                 if ((_rest.length) == ((0 : stdgo.GoInt))) {
-                    return { _0 : _p = null, _1 : _rest = _data };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : null, _1 : _data };
+                        _p = __tmp__._0;
+                        _rest = __tmp__._1;
+                        __tmp__;
+                    };
                 };
                 var __tmp__ = stdgo._internal.encoding.pem.Pem__getLine._getLine(_rest), _line:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _next:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1;
                 var __tmp__ = stdgo._internal.bytes.Bytes_cut.cut(_line, stdgo._internal.encoding.pem.Pem__colon._colon), _key:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _val:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _ok:Bool = __tmp__._2;
@@ -82,6 +92,11 @@ var _endTrailerIndex = __1, _endIndex = __0;
                 var __tmp__ = stdgo._internal.encoding.pem.Pem__getLine._getLine((_rest.__slice__(((_endIndex + (stdgo._internal.encoding.pem.Pem__pemEnd._pemEnd.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                 _rest = __tmp__._1;
             };
-            return { _0 : _p, _1 : _rest };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.pem.Pem_Block.Block>; var _1 : stdgo.Slice<stdgo.GoUInt8>; } = { _0 : _p, _1 : _rest };
+                _p = __tmp__._0;
+                _rest = __tmp__._1;
+                __tmp__;
+            };
         };
     }

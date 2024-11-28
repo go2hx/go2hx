@@ -8,11 +8,26 @@ function _modf(_f:stdgo.GoFloat64):{ var _0 : stdgo.GoFloat64; var _1 : stdgo.Go
                     _int = __tmp__._0;
                     _frac = __tmp__._1;
                 };
-                return { _0 : _int = -_int, _1 : _frac = -_frac };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : -_int, _1 : -_frac };
+                    _int = __tmp__._0;
+                    _frac = __tmp__._1;
+                    __tmp__;
+                };
             } else if (_f == (0 : stdgo.GoFloat64)) {
-                return { _0 : _int = _f, _1 : _frac = _f };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : _f, _1 : _f };
+                    _int = __tmp__._0;
+                    _frac = __tmp__._1;
+                    __tmp__;
+                };
             };
-            return { _0 : _int = (0 : stdgo.GoFloat64), _1 : _frac = _f };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoFloat64; var _1 : stdgo.GoFloat64; } = { _0 : (0 : stdgo.GoFloat64), _1 : _f };
+                _int = __tmp__._0;
+                _frac = __tmp__._1;
+                __tmp__;
+            };
         };
         var _x = (stdgo._internal.math.Math_float64bits.float64bits(_f) : stdgo.GoUInt64);
         var _e = ((((_x >> (52i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt) & (2047u32 : stdgo.GoUInt) : stdgo.GoUInt) - (1023u32 : stdgo.GoUInt) : stdgo.GoUInt);

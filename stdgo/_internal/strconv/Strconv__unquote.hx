@@ -2,12 +2,24 @@ package stdgo._internal.strconv;
 function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } {
         var _out = ("" : stdgo.GoString), _rem = ("" : stdgo.GoString), _err = (null : stdgo.Error);
         if (((_in.length) < (2 : stdgo.GoInt) : Bool)) {
-            return { _0 : _out = stdgo.Go.str()?.__copy__(), _1 : _rem = _in?.__copy__(), _2 : _err = stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _in?.__copy__(), _2 : stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+                _out = __tmp__._0;
+                _rem = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         var _quote = (_in[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
         var _end = (stdgo._internal.strconv.Strconv__index._index((_in.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _quote) : stdgo.GoInt);
         if ((_end < (0 : stdgo.GoInt) : Bool)) {
-            return { _0 : _out = stdgo.Go.str()?.__copy__(), _1 : _rem = _in?.__copy__(), _2 : _err = stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _in?.__copy__(), _2 : stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+                _out = __tmp__._0;
+                _rem = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         _end = (_end + ((2 : stdgo.GoInt)) : stdgo.GoInt);
         {
@@ -35,7 +47,13 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                             };
                             _out = (_buf : stdgo.GoString)?.__copy__();
                         };
-                        return { _0 : _out = _out?.__copy__(), _1 : _rem = (_in.__slice__(_end) : stdgo.GoString)?.__copy__(), _2 : _err = (null : stdgo.Error) };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _out?.__copy__(), _1 : (_in.__slice__(_end) : stdgo.GoString)?.__copy__(), _2 : (null : stdgo.Error) };
+                            _out = __tmp__._0;
+                            _rem = __tmp__._1;
+                            _err = __tmp__._2;
+                            __tmp__;
+                        };
                         break;
                     } else if (__value__ == ((34 : stdgo.GoUInt8)) || __value__ == ((39 : stdgo.GoUInt8))) {
                         if ((!stdgo._internal.strconv.Strconv__contains._contains((_in.__slice__(0, _end) : stdgo.GoString)?.__copy__(), (92 : stdgo.GoUInt8)) && !stdgo._internal.strconv.Strconv__contains._contains((_in.__slice__(0, _end) : stdgo.GoString)?.__copy__(), (10 : stdgo.GoUInt8)) : Bool)) {
@@ -54,7 +72,13 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                                 if (_unescape) {
                                     _out = (_out.__slice__((1 : stdgo.GoInt), (_end - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                 };
-                                return { _0 : _out = _out?.__copy__(), _1 : _rem = (_in.__slice__(_end) : stdgo.GoString)?.__copy__(), _2 : _err = (null : stdgo.Error) };
+                                return {
+                                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _out?.__copy__(), _1 : (_in.__slice__(_end) : stdgo.GoString)?.__copy__(), _2 : (null : stdgo.Error) };
+                                    _out = __tmp__._0;
+                                    _rem = __tmp__._1;
+                                    _err = __tmp__._2;
+                                    __tmp__;
+                                };
                             };
                         };
                         var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
@@ -66,7 +90,13 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                         while ((((_in.length) > (0 : stdgo.GoInt) : Bool) && (_in[(0 : stdgo.GoInt)] != _quote) : Bool)) {
                             var __tmp__ = stdgo._internal.strconv.Strconv_unquoteChar.unquoteChar(_in?.__copy__(), _quote), _r:stdgo.GoInt32 = __tmp__._0, _multibyte:Bool = __tmp__._1, _rem:stdgo.GoString = __tmp__._2, _err:stdgo.Error = __tmp__._3;
                             if (((_in[(0 : stdgo.GoInt)] == (10 : stdgo.GoUInt8)) || (_err != null) : Bool)) {
-                                return { _0 : _out = stdgo.Go.str()?.__copy__(), _1 : _rem = _in0?.__copy__(), _2 : _err = stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+                                return {
+                                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _in0?.__copy__(), _2 : stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+                                    _out = __tmp__._0;
+                                    _rem = __tmp__._1;
+                                    _err = __tmp__._2;
+                                    __tmp__;
+                                };
                             };
                             _in = _rem?.__copy__();
                             if (_unescape) {
@@ -83,16 +113,40 @@ function _unquote(_in:stdgo.GoString, _unescape:Bool):{ var _0 : stdgo.GoString;
                             };
                         };
                         if (!((((_in.length) > (0 : stdgo.GoInt) : Bool) && (_in[(0 : stdgo.GoInt)] == _quote) : Bool))) {
-                            return { _0 : _out = stdgo.Go.str()?.__copy__(), _1 : _rem = _in0?.__copy__(), _2 : _err = stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+                            return {
+                                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _in0?.__copy__(), _2 : stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+                                _out = __tmp__._0;
+                                _rem = __tmp__._1;
+                                _err = __tmp__._2;
+                                __tmp__;
+                            };
                         };
                         _in = (_in.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                         if (_unescape) {
-                            return { _0 : _out = (_buf : stdgo.GoString)?.__copy__(), _1 : _rem = _in?.__copy__(), _2 : _err = (null : stdgo.Error) };
+                            return {
+                                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (_buf : stdgo.GoString)?.__copy__(), _1 : _in?.__copy__(), _2 : (null : stdgo.Error) };
+                                _out = __tmp__._0;
+                                _rem = __tmp__._1;
+                                _err = __tmp__._2;
+                                __tmp__;
+                            };
                         };
-                        return { _0 : _out = (_in0.__slice__(0, ((_in0.length) - (_in.length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : _rem = _in?.__copy__(), _2 : _err = (null : stdgo.Error) };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (_in0.__slice__(0, ((_in0.length) - (_in.length) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : _in?.__copy__(), _2 : (null : stdgo.Error) };
+                            _out = __tmp__._0;
+                            _rem = __tmp__._1;
+                            _err = __tmp__._2;
+                            __tmp__;
+                        };
                         break;
                     } else {
-                        return { _0 : _out = stdgo.Go.str()?.__copy__(), _1 : _rem = _in?.__copy__(), _2 : _err = stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+                        return {
+                            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _in?.__copy__(), _2 : stdgo._internal.strconv.Strconv_errSyntax.errSyntax };
+                            _out = __tmp__._0;
+                            _rem = __tmp__._1;
+                            _err = __tmp__._2;
+                            __tmp__;
+                        };
                     };
                 };
                 break;

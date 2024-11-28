@@ -10,7 +10,12 @@ package stdgo._internal.archive.zip;
         @:recv var _r:stdgo.Ref<stdgo._internal.archive.zip.Zip_T_checksumReader.T_checksumReader> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_r._err != null) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _r._err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _r._err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             var __tmp__ = _r._rc.read(_b);
@@ -20,14 +25,24 @@ package stdgo._internal.archive.zip;
         _r._hash.write((_b.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
         _r._nread = (_r._nread + ((_n : stdgo.GoUInt64)) : stdgo.GoUInt64);
         if ((_r._nread > _r._f.fileHeader.uncompressedSize64 : Bool)) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.archive.zip.Zip_errFormat.errFormat };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.archive.zip.Zip_errFormat.errFormat };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_err == null) {
             return { _0 : _n, _1 : _err };
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
             if (_r._nread != (_r._f.fileHeader.uncompressedSize64)) {
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             if (_r._desr != null) {
                 {

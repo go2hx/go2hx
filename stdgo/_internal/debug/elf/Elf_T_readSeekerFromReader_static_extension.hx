@@ -58,7 +58,12 @@ package stdgo._internal.debug.elf;
             _err = __tmp__._1;
         };
         _r._offset = (_r._offset + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
-        return { _0 : _n, _1 : _err };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _start( _r:stdgo.Ref<stdgo._internal.debug.elf.Elf_T_readSeekerFromReader.T_readSeekerFromReader>):Void {

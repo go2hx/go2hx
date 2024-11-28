@@ -16,11 +16,26 @@ var _k = __3, _j = __2, _i = __1, _swaps = __0;
         {
             final __value__ = _swaps;
             if (__value__ == ((0 : stdgo.GoInt))) {
-                return { _0 : _pivot = _j, _1 : _hint = (1 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint; } = { _0 : _j, _1 : (1 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint) };
+                    _pivot = __tmp__._0;
+                    _hint = __tmp__._1;
+                    __tmp__;
+                };
             } else if (__value__ == ((12 : stdgo.GoInt))) {
-                return { _0 : _pivot = _j, _1 : _hint = (2 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint; } = { _0 : _j, _1 : (2 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint) };
+                    _pivot = __tmp__._0;
+                    _hint = __tmp__._1;
+                    __tmp__;
+                };
             } else {
-                return { _0 : _pivot = _j, _1 : _hint = (0 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint) };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint; } = { _0 : _j, _1 : (0 : stdgo._internal.sort.Sort_T_sortedHint.T_sortedHint) };
+                    _pivot = __tmp__._0;
+                    _hint = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
     }

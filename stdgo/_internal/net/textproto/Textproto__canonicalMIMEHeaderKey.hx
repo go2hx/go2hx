@@ -10,10 +10,20 @@ function _canonicalMIMEHeaderKey(_a:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo
                 _noCanon = true;
                 continue;
             };
-            return { _0 : _0 = (_a : stdgo.GoString)?.__copy__(), _1 : _ok = false };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_a : stdgo.GoString)?.__copy__(), _1 : false };
+                _0 = __tmp__._0;
+                _ok = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_noCanon) {
-            return { _0 : _0 = (_a : stdgo.GoString)?.__copy__(), _1 : _ok = true };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_a : stdgo.GoString)?.__copy__(), _1 : true };
+                _0 = __tmp__._0;
+                _ok = __tmp__._1;
+                __tmp__;
+            };
         };
         var _upper = (true : Bool);
         for (_i => _c in _a) {
@@ -29,8 +39,18 @@ function _canonicalMIMEHeaderKey(_a:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo
         {
             var _v = ((stdgo._internal.net.textproto.Textproto__commonHeader._commonHeader[(_a : stdgo.GoString)] ?? ("" : stdgo.GoString))?.__copy__() : stdgo.GoString);
             if (_v != (stdgo.Go.str())) {
-                return { _0 : _0 = _v?.__copy__(), _1 : _ok = true };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : _v?.__copy__(), _1 : true };
+                    _0 = __tmp__._0;
+                    _ok = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
-        return { _0 : _0 = (_a : stdgo.GoString)?.__copy__(), _1 : _ok = true };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : Bool; } = { _0 : (_a : stdgo.GoString)?.__copy__(), _1 : true };
+            _0 = __tmp__._0;
+            _ok = __tmp__._1;
+            __tmp__;
+        };
     }

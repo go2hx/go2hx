@@ -16,14 +16,32 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
             };
         };
         if (_err != null) {
-            return { _0 : _user = null, _1 : _host = stdgo.Go.str()?.__copy__(), _2 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
+                _user = __tmp__._0;
+                _host = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         if ((_i < (0 : stdgo.GoInt) : Bool)) {
-            return { _0 : _user = null, _1 : _host = _host?.__copy__(), _2 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : _host?.__copy__(), _2 : (null : stdgo.Error) };
+                _user = __tmp__._0;
+                _host = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         var _userinfo = ((_authority.__slice__(0, _i) : stdgo.GoString)?.__copy__() : stdgo.GoString);
         if (!stdgo._internal.net.url.Url__validUserinfo._validUserinfo(_userinfo?.__copy__())) {
-            return { _0 : _user = null, _1 : _host = stdgo.Go.str()?.__copy__(), _2 : _err = stdgo._internal.errors.Errors_new_.new_(("net/url: invalid userinfo" : stdgo.GoString)) };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.str()?.__copy__(), _2 : stdgo._internal.errors.Errors_new_.new_(("net/url: invalid userinfo" : stdgo.GoString)) };
+                _user = __tmp__._0;
+                _host = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         if (!stdgo._internal.strings.Strings_contains.contains(_userinfo?.__copy__(), (":" : stdgo.GoString))) {
             {
@@ -33,7 +51,13 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : _user = null, _1 : _host = stdgo.Go.str()?.__copy__(), _2 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
+                        _user = __tmp__._0;
+                        _host = __tmp__._1;
+                        _err = __tmp__._2;
+                        __tmp__;
+                    };
                 };
             };
             _user = stdgo._internal.net.url.Url_user.user(_userinfo?.__copy__());
@@ -46,7 +70,13 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : _user = null, _1 : _host = stdgo.Go.str()?.__copy__(), _2 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
+                        _user = __tmp__._0;
+                        _host = __tmp__._1;
+                        _err = __tmp__._2;
+                        __tmp__;
+                    };
                 };
             };
             {
@@ -56,10 +86,22 @@ function _parseAuthority(_authority:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : _user = null, _1 : _host = stdgo.Go.str()?.__copy__(), _2 : _err };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.str()?.__copy__(), _2 : _err };
+                        _user = __tmp__._0;
+                        _host = __tmp__._1;
+                        _err = __tmp__._2;
+                        __tmp__;
+                    };
                 };
             };
             _user = stdgo._internal.net.url.Url_userPassword.userPassword(_username?.__copy__(), _password?.__copy__());
         };
-        return { _0 : _user, _1 : _host = _host?.__copy__(), _2 : _err = (null : stdgo.Error) };
+        return {
+            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_Userinfo.Userinfo>; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : _user, _1 : _host?.__copy__(), _2 : (null : stdgo.Error) };
+            _user = __tmp__._0;
+            _host = __tmp__._1;
+            _err = __tmp__._2;
+            __tmp__;
+        };
     }

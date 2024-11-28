@@ -28,7 +28,12 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
             var _ret = _fun.call(_args);
             if (((_ret.length == (2 : stdgo.GoInt)) && !_ret[(1 : stdgo.GoInt)].isNil() : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } = { _0 : _val = _ret[(0 : stdgo.GoInt)], _1 : _err = (stdgo.Go.typeAssert((_ret[(1 : stdgo.GoInt)].interface_() : stdgo.Error)) : stdgo.Error) };
+                    final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } = {
+                        final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (stdgo.Go.typeAssert((_ret[(1 : stdgo.GoInt)].interface_() : stdgo.Error)) : stdgo.Error) };
+                        _val = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -36,7 +41,12 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } = { _0 : _val = _ret[(0 : stdgo.GoInt)], _1 : _err = (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } = {
+                    final __tmp__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } = { _0 : _ret[(0 : stdgo.GoInt)], _1 : (null : stdgo.Error) };
+                    _val = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

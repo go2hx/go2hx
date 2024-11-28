@@ -162,7 +162,12 @@ var _fileOff = __1, _file = __0;
                 };
                 if (_err != null) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                            _0 = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -171,7 +176,12 @@ var _fileOff = __1, _file = __0;
                 };
                 if ((_maxParts <= (0 : stdgo.GoInt) : Bool)) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err = stdgo._internal.mime.multipart.Multipart_errMessageTooLarge.errMessageTooLarge };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errMessageTooLarge.errMessageTooLarge };
+                            _0 = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -189,7 +199,12 @@ var _fileOff = __1, _file = __0;
                 _maxMemoryBytes = (_maxMemoryBytes - ((200i64 : stdgo.GoInt64)) : stdgo.GoInt64);
                 if ((_maxMemoryBytes < (0i64 : stdgo.GoInt64) : Bool)) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err = stdgo._internal.mime.multipart.Multipart_errMessageTooLarge.errMessageTooLarge };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errMessageTooLarge.errMessageTooLarge };
+                            _0 = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -201,7 +216,12 @@ var _fileOff = __1, _file = __0;
                     var __tmp__ = stdgo._internal.io.Io_copyN.copyN(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(_p), (_maxMemoryBytes + (1i64 : stdgo.GoInt64) : stdgo.GoInt64)), _n:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                _0 = __tmp__._0;
+                                _err = __tmp__._1;
+                                __tmp__;
+                            };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -211,7 +231,12 @@ var _fileOff = __1, _file = __0;
                     _maxMemoryBytes = (_maxMemoryBytes - (_n) : stdgo.GoInt64);
                     if ((_maxMemoryBytes < (0i64 : stdgo.GoInt64) : Bool)) {
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err = stdgo._internal.mime.multipart.Multipart_errMessageTooLarge.errMessageTooLarge };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errMessageTooLarge.errMessageTooLarge };
+                                _0 = __tmp__._0;
+                                _err = __tmp__._1;
+                                __tmp__;
+                            };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -227,7 +252,12 @@ var _fileOff = __1, _file = __0;
                 _maxMemoryBytes = (_maxMemoryBytes - ((100i64 : stdgo.GoInt64)) : stdgo.GoInt64);
                 if ((_maxMemoryBytes < (0i64 : stdgo.GoInt64) : Bool)) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err = stdgo._internal.mime.multipart.Multipart_errMessageTooLarge.errMessageTooLarge };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.mime.multipart.Multipart_errMessageTooLarge.errMessageTooLarge };
+                            _0 = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -241,7 +271,12 @@ var _fileOff = __1, _file = __0;
                 var __tmp__ = stdgo._internal.io.Io_copyN.copyN(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(_p), (_maxFileMemoryBytes + (1i64 : stdgo.GoInt64) : stdgo.GoInt64)), _n:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err != null) && (stdgo.Go.toInterface(_err) != stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                            final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                            _0 = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -257,7 +292,12 @@ var _fileOff = __1, _file = __0;
                         };
                         if (_err != null) {
                             {
-                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err };
+                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                    _0 = __tmp__._0;
+                                    _err = __tmp__._1;
+                                    __tmp__;
+                                };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
@@ -270,7 +310,12 @@ var _fileOff = __1, _file = __0;
                         var __tmp__ = _file.write(_b.bytes()), __17:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             {
-                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err };
+                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                    _0 = __tmp__._0;
+                                    _err = __tmp__._1;
+                                    __tmp__;
+                                };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
@@ -285,7 +330,12 @@ var _fileOff = __1, _file = __0;
                     var __tmp__ = stdgo._internal.io.Io_copyBuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.mime.multipart.Multipart_T__readForm___localname___writerOnly_5240.T__readForm___localname___writerOnly_5240(stdgo.Go.asInterface(_file)) : stdgo._internal.mime.multipart.Multipart_T__readForm___localname___writerOnly_5240.T__readForm___localname___writerOnly_5240)), stdgo.Go.asInterface(_p), _copyBuf), _remainingSize:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                _0 = __tmp__._0;
+                                _err = __tmp__._1;
+                                __tmp__;
+                            };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -301,7 +351,12 @@ var _fileOff = __1, _file = __0;
                             var _err = (_file.close() : stdgo.Error);
                             if (_err != null) {
                                 {
-                                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = null, _1 : _err };
+                                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                                        final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                        _0 = __tmp__._0;
+                                        _err = __tmp__._1;
+                                        __tmp__;
+                                    };
                                     for (defer in __deferstack__) {
                                         defer();
                                     };
@@ -320,7 +375,12 @@ var _fileOff = __1, _file = __0;
                 _form.file[_name] = ((_form.file[_name] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.mime.multipart.Multipart_FileHeader.FileHeader>>)).__append__(_fh));
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _0 = _form, _1 : _err = (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = {
+                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Form.Form>; var _1 : stdgo.Error; } = { _0 : _form, _1 : (null : stdgo.Error) };
+                    _0 = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

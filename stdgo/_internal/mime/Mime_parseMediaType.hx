@@ -5,7 +5,13 @@ function parseMediaType(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
         _mediatype = stdgo._internal.strings.Strings_trimSpace.trimSpace(stdgo._internal.strings.Strings_toLower.toLower(_base?.__copy__())?.__copy__())?.__copy__();
         _err = stdgo._internal.mime.Mime__checkMediaTypeDisposition._checkMediaTypeDisposition(_mediatype?.__copy__());
         if (_err != null) {
-            return { _0 : _mediatype = stdgo.Go.str()?.__copy__(), _1 : _params = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err };
+                _mediatype = __tmp__._0;
+                _params = __tmp__._1;
+                _err = __tmp__._2;
+                __tmp__;
+            };
         };
         _params = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
@@ -25,7 +31,13 @@ function parseMediaType(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
                 if (stdgo._internal.strings.Strings_trimSpace.trimSpace(_rest?.__copy__()) == ((";" : stdgo.GoString))) {
                     break;
                 };
-                return { _0 : _mediatype = _mediatype?.__copy__(), _1 : _params = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err = stdgo._internal.mime.Mime_errInvalidMediaParameter.errInvalidMediaParameter };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : _mediatype?.__copy__(), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo._internal.mime.Mime_errInvalidMediaParameter.errInvalidMediaParameter };
+                    _mediatype = __tmp__._0;
+                    _params = __tmp__._1;
+                    _err = __tmp__._2;
+                    __tmp__;
+                };
             };
             var _pmap = _params;
             {
@@ -61,7 +73,13 @@ function parseMediaType(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
             {
                 var __tmp__ = (_pmap != null && _pmap.exists(_key?.__copy__()) ? { _0 : _pmap[_key?.__copy__()], _1 : true } : { _0 : ("" : stdgo.GoString), _1 : false }), _v:stdgo.GoString = __tmp__._0, _exists:Bool = __tmp__._1;
                 if ((_exists && (_v != _value) : Bool)) {
-                    return { _0 : _mediatype = stdgo.Go.str()?.__copy__(), _1 : _params = (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : _err = stdgo._internal.errors.Errors_new_.new_(("mime: duplicate parameter name" : stdgo.GoString)) };
+                    return {
+                        final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoMap<stdgo.GoString, stdgo.GoString>; var _2 : stdgo.Error; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : (null : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), _2 : stdgo._internal.errors.Errors_new_.new_(("mime: duplicate parameter name" : stdgo.GoString)) };
+                        _mediatype = __tmp__._0;
+                        _params = __tmp__._1;
+                        _err = __tmp__._2;
+                        __tmp__;
+                    };
                 };
             };
             _pmap[_key] = _value?.__copy__();

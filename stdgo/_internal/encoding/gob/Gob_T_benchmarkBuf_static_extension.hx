@@ -10,7 +10,12 @@ package stdgo._internal.encoding.gob;
         @:recv var _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_benchmarkBuf.T_benchmarkBuf> = _b;
         var _c = (0 : stdgo.GoUInt8), _err = (null : stdgo.Error);
         if ((_b._offset >= (_b._data.length) : Bool)) {
-            return { _0 : _c = (0 : stdgo.GoUInt8), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoUInt8; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoUInt8), _1 : stdgo._internal.io.Io_eof.eof };
+                _c = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         _c = _b._data[(_b._offset : stdgo.GoInt)];
         _b._offset++;
@@ -22,7 +27,12 @@ package stdgo._internal.encoding.gob;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         _n = stdgo.Go.copySlice(_p, (_b._data.__slice__(_b._offset) : stdgo.Slice<stdgo.GoUInt8>));
         if (_n == ((0 : stdgo.GoInt))) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         _b._offset = (_b._offset + (_n) : stdgo.GoInt);
         return { _0 : _n, _1 : _err };

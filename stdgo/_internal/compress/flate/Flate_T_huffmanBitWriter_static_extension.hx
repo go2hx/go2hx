@@ -323,7 +323,12 @@ _w._writeBits((_value : stdgo.GoInt32), (3u32 : stdgo.GoUInt));
         };
         var _header = ((((((17 : stdgo.GoInt) + (((3 : stdgo.GoInt) * _numCodegens : stdgo.GoInt)) : stdgo.GoInt) + _w._codegenEncoding._bitLength((_w._codegenFreq.__slice__(0) : stdgo.Slice<stdgo.GoInt32>)) : stdgo.GoInt) + ((_w._codegenFreq[(16 : stdgo.GoInt)] : stdgo.GoInt) * (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + ((_w._codegenFreq[(17 : stdgo.GoInt)] : stdgo.GoInt) * (3 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt) + ((_w._codegenFreq[(18 : stdgo.GoInt)] : stdgo.GoInt) * (7 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt);
         _size = (((_header + _litEnc._bitLength(_w._literalFreq) : stdgo.GoInt) + _offEnc._bitLength(_w._offsetFreq) : stdgo.GoInt) + _extraBits : stdgo.GoInt);
-        return { _0 : _size, _1 : _numCodegens };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _size, _1 : _numCodegens };
+            _size = __tmp__._0;
+            _numCodegens = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _generateCodegen( _w:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanBitWriter.T_huffmanBitWriter>, _numLiterals:stdgo.GoInt, _numOffsets:stdgo.GoInt, _litEnc:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>, _offEnc:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_huffmanEncoder.T_huffmanEncoder>):Void {

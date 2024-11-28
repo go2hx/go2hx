@@ -3,10 +3,25 @@ function _consumeToken(_v:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : st
         var _token = ("" : stdgo.GoString), _rest = ("" : stdgo.GoString);
         var _notPos = (stdgo._internal.strings.Strings_indexFunc.indexFunc(_v?.__copy__(), stdgo._internal.mime.Mime__isNotTokenChar._isNotTokenChar) : stdgo.GoInt);
         if (_notPos == ((-1 : stdgo.GoInt))) {
-            return { _0 : _token = _v?.__copy__(), _1 : _rest = stdgo.Go.str()?.__copy__() };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : _v?.__copy__(), _1 : stdgo.Go.str()?.__copy__() };
+                _token = __tmp__._0;
+                _rest = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_notPos == ((0 : stdgo.GoInt))) {
-            return { _0 : _token = stdgo.Go.str()?.__copy__(), _1 : _rest = _v?.__copy__() };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : stdgo.Go.str()?.__copy__(), _1 : _v?.__copy__() };
+                _token = __tmp__._0;
+                _rest = __tmp__._1;
+                __tmp__;
+            };
         };
-        return { _0 : _token = (_v.__slice__((0 : stdgo.GoInt), _notPos) : stdgo.GoString)?.__copy__(), _1 : _rest = (_v.__slice__(_notPos) : stdgo.GoString)?.__copy__() };
+        return {
+            final __tmp__:{ var _0 : stdgo.GoString; var _1 : stdgo.GoString; } = { _0 : (_v.__slice__((0 : stdgo.GoInt), _notPos) : stdgo.GoString)?.__copy__(), _1 : (_v.__slice__(_notPos) : stdgo.GoString)?.__copy__() };
+            _token = __tmp__._0;
+            _rest = __tmp__._1;
+            __tmp__;
+        };
     }

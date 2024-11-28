@@ -9,7 +9,12 @@ package stdgo._internal.net.http;
             _b._conn._write100ContinueHeaders(_b._stream);
         };
         if (((_b._pipe == null || (_b._pipe : Dynamic).__nil__) || _b._sawEOF : Bool)) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             var __tmp__ = _b._pipe.read(_p);

@@ -9,7 +9,7 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_Cur
             }, _c = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 return {
-                    var __tmp__ = _c.unmarshalCompressed(_data);
+                    final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = _c.unmarshalCompressed(_data);
                     _x = __tmp__._0;
                     _y = __tmp__._1;
                     __tmp__;
@@ -18,26 +18,51 @@ function unmarshalCompressed(_curve:stdgo._internal.crypto.elliptic.Elliptic_Cur
         };
         var _byteLen = (((_curve.params().bitSize + (7 : stdgo.GoInt) : stdgo.GoInt)) / (8 : stdgo.GoInt) : stdgo.GoInt);
         if ((_data.length) != (((1 : stdgo.GoInt) + _byteLen : stdgo.GoInt))) {
-            return { _0 : _x = null, _1 : _y = null };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
+                _x = __tmp__._0;
+                _y = __tmp__._1;
+                __tmp__;
+            };
         };
         if (((_data[(0 : stdgo.GoInt)] != (2 : stdgo.GoUInt8)) && (_data[(0 : stdgo.GoInt)] != (3 : stdgo.GoUInt8)) : Bool)) {
-            return { _0 : _x = null, _1 : _y = null };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
+                _x = __tmp__._0;
+                _y = __tmp__._1;
+                __tmp__;
+            };
         };
         var _p = _curve.params().p;
         _x = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).setBytes((_data.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         if ((_x.cmp(_p) >= (0 : stdgo.GoInt) : Bool)) {
-            return { _0 : _x = null, _1 : _y = null };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
+                _x = __tmp__._0;
+                _y = __tmp__._1;
+                __tmp__;
+            };
         };
         _y = _curve.params()._polynomial(_x);
         _y = _y.modSqrt(_y, _p);
         if ((_y == null || (_y : Dynamic).__nil__)) {
-            return { _0 : _x = null, _1 : _y = null };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
+                _x = __tmp__._0;
+                _y = __tmp__._1;
+                __tmp__;
+            };
         };
         if ((_y.bit((0 : stdgo.GoInt)) : stdgo.GoUInt8) != ((_data[(0 : stdgo.GoInt)] & (1 : stdgo.GoUInt8) : stdgo.GoUInt8))) {
             _y.neg(_y).mod(_y, _p);
         };
         if (!_curve.isOnCurve(_x, _y)) {
-            return { _0 : _x = null, _1 : _y = null };
+            return {
+                final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; var _1 : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>; } = { _0 : null, _1 : null };
+                _x = __tmp__._0;
+                _y = __tmp__._1;
+                __tmp__;
+            };
         };
         return { _0 : _x, _1 : _y };
     }

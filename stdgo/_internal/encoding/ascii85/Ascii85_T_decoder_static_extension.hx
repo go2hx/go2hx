@@ -5,10 +5,20 @@ package stdgo._internal.encoding.ascii85;
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_T_decoder.T_decoder> = _d;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_p.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_d._err != null) {
-            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _d._err };
+            return {
+                final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         while (true) {
             if (((_d._out.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -46,11 +56,21 @@ var _ndst = __2, _nsrc = __1, _nn = __0;
                 };
             };
             if (_d._err != null) {
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _d._err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             if (_d._readErr != null) {
                 _d._err = _d._readErr;
-                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _d._err };
+                return {
+                    final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             {
                 var __tmp__ = _d._r.read((_d._buf.__slice__(_d._nbuf) : stdgo.Slice<stdgo.GoUInt8>));

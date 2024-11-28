@@ -29,7 +29,12 @@ package stdgo._internal.net.http;
             while (true) {
                 if (_cc._closed) {
                     {
-                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = stdgo._internal.net.http.Http__http2errClientConnClosed._http2errClientConnClosed };
+                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
+                            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : stdgo._internal.net.http.Http__http2errClientConnClosed._http2errClientConnClosed };
+                            _taken = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -38,7 +43,12 @@ package stdgo._internal.net.http;
                 };
                 if (_cs._reqBodyClosed != null) {
                     {
-                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = stdgo._internal.net.http.Http__http2errStopReqBodyWrite._http2errStopReqBodyWrite };
+                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
+                            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : stdgo._internal.net.http.Http__http2errStopReqBodyWrite._http2errStopReqBodyWrite };
+                            _taken = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -54,7 +64,12 @@ package stdgo._internal.net.http;
                                 _cs._abort.__get__();
                                 {
                                     {
-                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = _cs._abortErr };
+                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
+                                            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : _cs._abortErr };
+                                            _taken = __tmp__._0;
+                                            _err = __tmp__._1;
+                                            __tmp__;
+                                        };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -68,7 +83,12 @@ package stdgo._internal.net.http;
                                 _ctx.done().__get__();
                                 {
                                     {
-                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = _ctx.err() };
+                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
+                                            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : _ctx.err() };
+                                            _taken = __tmp__._0;
+                                            _err = __tmp__._1;
+                                            __tmp__;
+                                        };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -82,7 +102,12 @@ package stdgo._internal.net.http;
                                 _cs._reqCancel.__get__();
                                 {
                                     {
-                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled };
+                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
+                                            final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled };
+                                            _taken = __tmp__._0;
+                                            _err = __tmp__._1;
+                                            __tmp__;
+                                        };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -110,7 +135,12 @@ package stdgo._internal.net.http;
                         };
                         _cs._flow._take(_take);
                         {
-                            final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = _take, _1 : _err = (null : stdgo.Error) };
+                            final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = {
+                                final __tmp__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _take, _1 : (null : stdgo.Error) };
+                                _taken = __tmp__._0;
+                                _err = __tmp__._1;
+                                __tmp__;
+                            };
                             for (defer in __deferstack__) {
                                 defer();
                             };

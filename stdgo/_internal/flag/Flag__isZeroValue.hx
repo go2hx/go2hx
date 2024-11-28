@@ -29,7 +29,12 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
                 a();
             }));
             {
-                final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _ok = _value == (((stdgo.Go.typeAssert((_z.interface_() : stdgo._internal.flag.Flag_Value.Value)) : stdgo._internal.flag.Flag_Value.Value).string() : stdgo.GoString)), _1 : _err = (null : stdgo.Error) };
+                final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = {
+                    final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _value == (((stdgo.Go.typeAssert((_z.interface_() : stdgo._internal.flag.Flag_Value.Value)) : stdgo._internal.flag.Flag_Value.Value).string() : stdgo.GoString)), _1 : (null : stdgo.Error) };
+                    _ok = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

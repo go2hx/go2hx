@@ -529,11 +529,9 @@ class GoObjectMap<K, V> extends BalancedTree<Dynamic, V> {
 		#if nolinkstd
 		return 0;
 		#else
-		final k1:String = k1.ais;
-		final k2:String = k2.ais;
-		if (k1 == k2)
+		if (k1.ai == k2.ai)
 			return 0;
-		return if (k1 > k2) {
+		return if (k1.ais > k2.ais) {
 			1;
 		} else {
 			-1;
@@ -576,10 +574,11 @@ class GoAnyInterfaceMapKey {
 
 	public function new(k:AnyInterface) {
 		ai = k;
+		ais = k.type.string();
 		#if nolinkstd
-		ais = "";
+
 		#else
-		ais = stdgo._internal.fmt.Fmt_sprintf.sprintf("%v", k);
+		//ais = stdgo._internal.fmt.Fmt_sprintf.sprintf("%v", k);
 		#end
 	}
 }
@@ -591,11 +590,9 @@ class GoAnyInterfaceMap<V> extends BalancedTree<Dynamic, V> {
 		#if nolinkstd
 		return 0;
 		#else
-		final k1:String = k1.ais;
-		final k2:String = k2.ais;
-		if (k1 == k2)
+		if (k1.ai == k2.ai)
 			return 0;
-		return if (k1 > k2) {
+		return if (k1.ais > k2.ais) {
 			1;
 		} else {
 			-1;

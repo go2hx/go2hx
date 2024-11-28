@@ -2981,23 +2981,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							default:
 						}
 						// remove Haxe compiler error: "Assigning a value to itself"
-						switch x.expr {
-							case EConst(c):
-								switch c {
-									case CIdent(s):
-										switch y.expr {
-											case EConst(c):
-												switch c {
-													case CIdent(s2):
-														if (s == s2) continue;
-													default:
-												}
-											default:
-										}
-									default:
-								}
-							default:
-						}
+						if (isSelfAssignValue(x,y))
+							continue;
 					}
 					var fromType = typeof(stmt.rhs[i], info, false);
 					y = assignTranslate(fromType, toType, y, info);
@@ -3228,6 +3213,27 @@ private function orderOperations(inits:Array<Expr>, exprs:Array<Expr>):Array<Exp
 	return inits.concat(exprs);
 }
 
+private function isSelfAssignValue(x:Expr,y:Expr):Bool {
+	switch x.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(s):
+					switch y.expr {
+						case EConst(c):
+							switch c {
+								case CIdent(s2):
+									if (s == s2) return true;
+								default:
+							}
+						default:
+					}
+				default:
+			}
+		default:
+	}
+	return false;
+}
+
 private function removeStrParens(s:String):String {
 	if (s.charAt(0) == "(")
 		s = s.substr(1);
@@ -3311,7 +3317,9 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			e = assignTranslate(t, retType, e, info);
 		}
 		if (info.returnNamed) {
-			e = macro $i{info.returnNames[0]} = $e;
+			final x = macro $i{info.returnNames[0]};
+			if (!isSelfAssignValue(x,e))
+				e = macro $x = $e;
 		}
 		return ret(EReturn(e));
 	}
@@ -3325,7 +3333,9 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				e = assignTranslate(t, retType, e, info);
 			}
 			if (info.returnNamed) {
-				e = macro $i{info.returnNames[i]} = $e;
+				final x = macro $i{info.returnNames[i]};
+				if (!isSelfAssignValue(x,e))
+					e = macro $x = $e;
 			}
 			{
 				field: "_" + i,

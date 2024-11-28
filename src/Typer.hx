@@ -3337,7 +3337,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		return ret(EReturn(e));
 	}
 	// multireturn
-	final expr = toExpr(EObjectDecl([
+	var expr = toExpr(EObjectDecl([
 		for (i in 0...stmt.results.length) {
 			var e = typeExpr(stmt.results[i], info);
 			final retType = info.returnTypes[i];
@@ -3345,17 +3345,24 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				final t = typeof(stmt.results[i], info, false);
 				e = assignTranslate(t, retType, e, info);
 			}
-			if (info.returnNamed) {
-				final x = macro $i{info.returnNames[i]};
-				if (!isSelfAssignValue(x,e))
-					e = macro $x = $e;
-			}
 			{
 				field: "_" + i,
 				expr: e,
 			};
 		}
 	]));
+	if (info.returnNamed) {
+		final decls:Array<Expr> = [macro final __tmp__ = $expr];
+		expr = macro $b{decls};
+		for (i in 0...stmt.results.length) {
+			final fieldName = "_" + i;
+			final e = macro __tmp__.$fieldName;
+			final x = macro $i{info.returnNames[i]};
+			if (!isSelfAssignValue(x,e))
+				decls.push(macro $x = $e);
+		}
+		decls.push(macro __tmp__);
+	}
 	return ret(EReturn(expr));
 }
 

@@ -521,92 +521,48 @@ class GoArrayMap<T, V> extends BalancedTree<GoArray<T>, V> {
 	}
 }
 
-class GoObjectMap<K, V> extends BalancedTree<Dynamic, V> {
+class GoObjectMap<K, V> extends GoAnyInterfaceMap<V> {
 	public var t:_Type;
-	public var __defaultValue__:Void->V;
-
-	override function compare(k1:Dynamic, k2:Dynamic):Int {
-		#if nolinkstd
-		return 0;
-		#else
-		if (k1.ai == k2.ai)
-			return 0;
-		return if (k1.ais > k2.ais) {
-			1;
-		} else {
-			-1;
-		}
-		#end
-	}
 
 	override function set(key:Dynamic, value:V) {
-		final key = new GoAnyInterfaceMapKey(new AnyInterface(key, t));
-		super.set(key, value);
+		final key = new AnyInterface(key, t);
+		super.set(key,value);
 	}
 
 	override function get(key:Dynamic):V {
-		final key = new GoAnyInterfaceMapKey(new AnyInterface(key, t));
-		var node = root;
-		while (node != null) {
-			var c = compare(key, node.key);
-			if (c == 0)
-				return node.value;
-			if (c < 0)
-				node = node.left;
-			else
-				node = node.right;
-		}
-		return __defaultValue__();
+		final key = new AnyInterface(key, t);
+		return super.get(key);
 	}
 
 	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
 		if (node != null) {
 			keysLoop(node.left, acc);
-			acc.push(node.key.ai.value);
+			acc.push((node.key : AnyInterface).value);
 			keysLoop(node.right, acc);
 		}
 	}
 }
 
-class GoAnyInterfaceMapKey {
-	public var ai:AnyInterface;
-	public var ais:String;
-
-	public function new(k:AnyInterface) {
-		ai = k;
-		ais = k.type.string();
-		#if nolinkstd
-
-		#else
-		//ais = stdgo._internal.fmt.Fmt_sprintf.sprintf("%v", k);
-		#end
-	}
-}
-
-class GoAnyInterfaceMap<V> extends BalancedTree<Dynamic, V> {
+class GoAnyInterfaceMap<V> extends BalancedTree<AnyInterface, V> {
 	public var __defaultValue__:Void->V;
 
-	override function compare(k1:Dynamic, k2:Dynamic):Int {
+	override function compare(k1:AnyInterface, k2:AnyInterface):Int {
 		#if nolinkstd
 		return 0;
 		#else
-		if (k1.ai == k2.ai)
+		if (k1 == k2) {
 			return 0;
-		return if (k1.ais > k2.ais) {
-			1;
-		} else {
-			-1;
+		}else{
+			return -1;
 		}
 		#end
 	}
 
-	override function set(key:Dynamic, value:V) {
-		final key = new GoAnyInterfaceMapKey(key);
+	override function set(key:AnyInterface, value:V) {
 		super.set(key, value);
 	}
 
-	override function get(key:Dynamic):V {
-		final key = new GoAnyInterfaceMapKey(key);
+	override function get(key:AnyInterface):V {
 		var node = root;
 		while (node != null) {
 			var c = compare(key, node.key);
@@ -620,10 +576,10 @@ class GoAnyInterfaceMap<V> extends BalancedTree<Dynamic, V> {
 		return __defaultValue__();
 	}
 
-	override function keysLoop(node:TreeNode<Dynamic, V>, acc:Array<Dynamic>) {
+	override function keysLoop(node:TreeNode<AnyInterface, V>, acc:Array<AnyInterface>) {
 		if (node != null) {
 			keysLoop(node.left, acc);
-			acc.push(node.key.ai);
+			acc.push(node.key);
 			keysLoop(node.right, acc);
 		}
 	}

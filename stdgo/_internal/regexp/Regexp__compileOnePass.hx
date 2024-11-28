@@ -2,10 +2,10 @@ package stdgo._internal.regexp;
 function _compileOnePass(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Prog.Prog>):stdgo.Ref<stdgo._internal.regexp.Regexp_T_onePassProg.T_onePassProg> {
         var _p = (null : stdgo.Ref<stdgo._internal.regexp.Regexp_T_onePassProg.T_onePassProg>);
         if (_prog.start == ((0 : stdgo.GoInt))) {
-            return null;
+            return _p = null;
         };
         if (((_prog.inst[(_prog.start : stdgo.GoInt)].op != (3 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)) || (((_prog.inst[(_prog.start : stdgo.GoInt)].arg : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) & (4 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) != (4 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp)) : Bool)) {
-            return null;
+            return _p = null;
         };
         for (__0 => _inst in _prog.inst) {
             var _opOut = (_prog.inst[(_inst.out : stdgo.GoInt)].op : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp);
@@ -13,18 +13,18 @@ function _compileOnePass(_prog:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Pr
                 final __value__ = _inst.op;
                 if (__value__ == ((0 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)) || __value__ == ((1 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp))) {
                     if (((_opOut == (4 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)) || (_prog.inst[(_inst.arg : stdgo.GoInt)].op == (4 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp)) : Bool)) {
-                        return null;
+                        return _p = null;
                     };
                 } else if (__value__ == ((3 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp))) {
                     if (_opOut == ((4 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp))) {
                         if (((_inst.arg : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) & (8 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp) == ((8 : stdgo._internal.regexp.syntax.Syntax_EmptyOp.EmptyOp))) {
                             continue;
                         };
-                        return null;
+                        return _p = null;
                     };
                 } else {
                     if (_opOut == ((4 : stdgo._internal.regexp.syntax.Syntax_InstOp.InstOp))) {
-                        return null;
+                        return _p = null;
                     };
                 };
             };

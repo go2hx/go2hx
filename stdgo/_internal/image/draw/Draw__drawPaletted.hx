@@ -33,7 +33,14 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
         };
         var _pxRGBA = (function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
             var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
-            return _src.at(_x, _y).rgba();
+            return {
+                var __tmp__ = _src.at(_x, _y).rgba();
+                _r = __tmp__._0;
+                _g = __tmp__._1;
+                _b = __tmp__._2;
+                _a = __tmp__._3;
+                __tmp__;
+            };
         } : (stdgo.GoInt, stdgo.GoInt) -> { var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; });
         {
             final __type__ = _src;
@@ -41,19 +48,40 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
                 var _src0:stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_RGBA.RGBA>) : __type__.__underlying__().value;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
-                    return _src0.rgbaat(_x, _y).rgba();
+                    return {
+                        var __tmp__ = _src0.rgbaat(_x, _y).rgba();
+                        _r = __tmp__._0;
+                        _g = __tmp__._1;
+                        _b = __tmp__._2;
+                        _a = __tmp__._3;
+                        __tmp__;
+                    };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA>))) {
                 var _src0:stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_NRGBA.NRGBA>) : __type__.__underlying__().value;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
-                    return _src0.nrgbaat(_x, _y).rgba();
+                    return {
+                        var __tmp__ = _src0.nrgbaat(_x, _y).rgba();
+                        _r = __tmp__._0;
+                        _g = __tmp__._1;
+                        _b = __tmp__._2;
+                        _a = __tmp__._3;
+                        __tmp__;
+                    };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr>))) {
                 var _src0:stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.image.Image_YCbCr.YCbCr>) : __type__.__underlying__().value;
                 _pxRGBA = function(_x:stdgo.GoInt, _y:stdgo.GoInt):{ var _0 : stdgo.GoUInt32; var _1 : stdgo.GoUInt32; var _2 : stdgo.GoUInt32; var _3 : stdgo.GoUInt32; } {
                     var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
-                    return _src0.ycbCrAt(_x, _y).rgba();
+                    return {
+                        var __tmp__ = _src0.ycbCrAt(_x, _y).rgba();
+                        _r = __tmp__._0;
+                        _g = __tmp__._1;
+                        _b = __tmp__._2;
+                        _a = __tmp__._3;
+                        __tmp__;
+                    };
                 };
             };
         };

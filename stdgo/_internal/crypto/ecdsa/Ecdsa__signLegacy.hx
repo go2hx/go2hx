@@ -4,7 +4,7 @@ function _signLegacy(_priv:stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateK
         var _c = (_priv.publicKey.curve : stdgo._internal.crypto.elliptic.Elliptic_Curve.Curve);
         var n = _c.params().n;
         if (n.sign() == ((0 : stdgo.GoInt))) {
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.crypto.ecdsa.Ecdsa__errZeroParam._errZeroParam };
+            return { _0 : _sig = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = stdgo._internal.crypto.ecdsa.Ecdsa__errZeroParam._errZeroParam };
         };
         var __0:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), __1:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), __2:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), __3:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = (null : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
 var _s = __3, _r = __2, _kInv = __1, _k = __0;
@@ -16,7 +16,7 @@ var _s = __3, _r = __2, _kInv = __1, _k = __0;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                    return { _0 : _sig = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                 };
                 _kInv = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>).modInverse(_k, n);
                 {
@@ -37,5 +37,10 @@ var _s = __3, _r = __2, _kInv = __1, _k = __0;
                 break;
             };
         };
-        return stdgo._internal.crypto.ecdsa.Ecdsa__encodeSignature._encodeSignature(_r.bytes(), _s.bytes());
+        return {
+            var __tmp__ = stdgo._internal.crypto.ecdsa.Ecdsa__encodeSignature._encodeSignature(_r.bytes(), _s.bytes());
+            _sig = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }

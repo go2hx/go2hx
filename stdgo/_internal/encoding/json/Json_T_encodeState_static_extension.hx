@@ -16,7 +16,7 @@ package stdgo._internal.encoding.json;
         var __deferstack__:Array<Void -> Void> = [];
         var _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _r = ({
@@ -41,10 +41,10 @@ package stdgo._internal.encoding.json;
                     };
                 };
                 a();
-            });
+            }));
             _e._reflectValue(stdgo._internal.reflect.Reflect_valueOf.valueOf(_v)?.__copy__(), _opts?.__copy__());
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
+                final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };

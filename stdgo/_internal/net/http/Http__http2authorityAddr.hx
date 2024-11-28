@@ -19,7 +19,7 @@ function _http2authorityAddr(_scheme:stdgo.GoString, _authority:stdgo.GoString):
             };
         };
         if ((stdgo._internal.strings.Strings_hasPrefix.hasPrefix(_host?.__copy__(), ("[" : stdgo.GoString)) && stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_host?.__copy__(), ("]" : stdgo.GoString)) : Bool)) {
-            return ((_host + (":" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _port?.__copy__() : stdgo.GoString)?.__copy__();
+            return _addr = ((_host + (":" : stdgo.GoString)?.__copy__() : stdgo.GoString) + _port?.__copy__() : stdgo.GoString)?.__copy__();
         };
-        return stdgo._internal.net.Net_joinHostPort.joinHostPort(_host?.__copy__(), _port?.__copy__())?.__copy__();
+        return _addr = stdgo._internal.net.Net_joinHostPort.joinHostPort(_host?.__copy__(), _port?.__copy__())?.__copy__();
     }

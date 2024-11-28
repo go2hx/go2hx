@@ -1,11 +1,11 @@
 package stdgo._internal.math.big;
 function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _panicStr:stdgo.GoString = ("" : stdgo.GoString);
-        {
+        ({
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
-                    __deferstack__.unshift(() -> {
+                    __deferstack__.unshift(() -> ({
                         var a = function():Void {
                             _panicStr = (stdgo.Go.typeAssert(({
                                 final r = stdgo.Go.recover_exception;
@@ -14,7 +14,7 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                             } : stdgo.GoString)) : stdgo.GoString)?.__copy__();
                         };
                         a();
-                    });
+                    }));
                     stdgo._internal.math.big.Big__natOne._natOne._utoa((1 : stdgo.GoInt));
                     {
                         for (defer in __deferstack__) {
@@ -39,7 +39,7 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 };
             };
             a();
-        };
+        });
         if (_panicStr != (("invalid base" : stdgo.GoString))) {
             _t.errorf(("expected panic for invalid base" : stdgo.GoString));
         };

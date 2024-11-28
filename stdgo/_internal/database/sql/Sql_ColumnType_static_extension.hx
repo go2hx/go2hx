@@ -9,7 +9,7 @@ package stdgo._internal.database.sql;
     static public function nullable( _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType>):{ var _0 : Bool; var _1 : Bool; } {
         @:recv var _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType> = _ci;
         var _nullable = false, _ok = false;
-        return { _0 : _ci._nullable, _1 : _ci._hasNullable };
+        return { _0 : _nullable = _ci._nullable, _1 : _ok = _ci._hasNullable };
     }
     @:keep
     static public function scanType( _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType>):stdgo._internal.reflect.Reflect_Type_.Type_ {
@@ -20,13 +20,13 @@ package stdgo._internal.database.sql;
     static public function decimalSize( _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType>):{ var _0 : stdgo.GoInt64; var _1 : stdgo.GoInt64; var _2 : Bool; } {
         @:recv var _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType> = _ci;
         var _precision = (0 : stdgo.GoInt64), _scale = (0 : stdgo.GoInt64), _ok = false;
-        return { _0 : _ci._precision, _1 : _ci._scale, _2 : _ci._hasPrecisionScale };
+        return { _0 : _precision = _ci._precision, _1 : _scale = _ci._scale, _2 : _ok = _ci._hasPrecisionScale };
     }
     @:keep
     static public function length_( _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType>):{ var _0 : stdgo.GoInt64; var _1 : Bool; } {
         @:recv var _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType> = _ci;
         var _length = (0 : stdgo.GoInt64), _ok = false;
-        return { _0 : _ci._length, _1 : _ci._hasLength };
+        return { _0 : _length = _ci._length, _1 : _ok = _ci._hasLength };
     }
     @:keep
     static public function name( _ci:stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType>):stdgo.GoString {

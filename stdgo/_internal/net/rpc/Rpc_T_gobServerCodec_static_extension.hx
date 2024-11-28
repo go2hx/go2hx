@@ -33,7 +33,7 @@ package stdgo._internal.net.rpc;
                 return _err;
             };
         };
-        return _c._encBuf.flush();
+        return _err = _c._encBuf.flush();
     }
     @:keep
     static public function readRequestBody( _c:stdgo.Ref<stdgo._internal.net.rpc.Rpc_T_gobServerCodec.T_gobServerCodec>, _body:stdgo.AnyInterface):stdgo.Error {

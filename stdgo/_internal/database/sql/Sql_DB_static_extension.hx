@@ -50,12 +50,12 @@ package stdgo._internal.database.sql;
         });
         if (_err != null) {
             _release(_err);
-            return { _0 : null, _1 : _err };
+            return { _0 : _tx = null, _1 : _err };
         };
         var __tmp__ = stdgo._internal.context.Context_withCancel.withCancel(_ctx), _ctx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
         _tx = (stdgo.Go.setRef(({ _db : _db, _dc : _dc, _releaseConn : _release, _txi : _txi, _cancel : _cancel, _keepConnOnRollback : _keepConnOnRollback, _ctx : _ctx } : stdgo._internal.database.sql.Sql_Tx.Tx)) : stdgo.Ref<stdgo._internal.database.sql.Sql_Tx.Tx>);
         stdgo.Go.routine(() -> _tx._awaitDone());
-        return { _0 : _tx, _1 : (null : stdgo.Error) };
+        return { _0 : _tx, _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function _begin( _db:stdgo.Ref<stdgo._internal.database.sql.Sql_DB.DB>, _ctx:stdgo._internal.context.Context_Context.Context, _opts:stdgo.Ref<stdgo._internal.database.sql.Sql_TxOptions.TxOptions>, _strategy:stdgo._internal.database.sql.Sql_T_connReuseStrategy.T_connReuseStrategy):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_Tx.Tx>; var _1 : stdgo.Error; } {
@@ -63,9 +63,14 @@ package stdgo._internal.database.sql;
         var _tx = (null : stdgo.Ref<stdgo._internal.database.sql.Sql_Tx.Tx>), _err = (null : stdgo.Error);
         var __tmp__ = _db._conn(_ctx, _strategy), _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : null, _1 : _err };
+            return { _0 : _tx = null, _1 : _err };
         };
-        return _db._beginDC(_ctx, _dc, _dc._releaseConn, _opts);
+        return {
+            var __tmp__ = _db._beginDC(_ctx, _dc, _dc._releaseConn, _opts);
+            _tx = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function begin( _db:stdgo.Ref<stdgo._internal.database.sql.Sql_DB.DB>):{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_Tx.Tx>; var _1 : stdgo.Error; } {
@@ -210,12 +215,12 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         var _res = (null : stdgo._internal.database.sql.Sql_Result.Result), _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _release(_err);
                 };
                 a();
-            });
+            }));
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_dc._ci) : stdgo._internal.database.sql.driver.Driver_ExecerContext.ExecerContext)) : stdgo._internal.database.sql.driver.Driver_ExecerContext.ExecerContext), _1 : true };
             } catch(_) {
@@ -254,7 +259,7 @@ package stdgo._internal.database.sql;
                 if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.database.sql.driver.Driver_errSkip.errSkip))) {
                     if (_err != null) {
                         {
-                            final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.Sql_Result.Result), _1 : _err };
+                            final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = { _0 : _res = (null : stdgo._internal.database.sql.Sql_Result.Result), _1 : _err };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -262,7 +267,7 @@ package stdgo._internal.database.sql;
                         };
                     };
                     {
-                        final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((new stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult(stdgo.Go.asInterface(_dc), _resi) : stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult)), _1 : (null : stdgo.Error) };
+                        final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = { _0 : _res = stdgo.Go.asInterface((new stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult(stdgo.Go.asInterface(_dc), _resi) : stdgo._internal.database.sql.Sql_T_driverResult.T_driverResult)), _1 : _err = (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -280,7 +285,7 @@ package stdgo._internal.database.sql;
             });
             if (_err != null) {
                 {
-                    final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.Sql_Result.Result), _1 : _err };
+                    final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = { _0 : _res = (null : stdgo._internal.database.sql.Sql_Result.Result), _1 : _err };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -290,7 +295,12 @@ package stdgo._internal.database.sql;
             var _ds = (stdgo.Go.setRef(({ locker : stdgo.Go.asInterface(_dc), _si : _si } : stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt)) : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>);
             __deferstack__.unshift(() -> _ds.close());
             {
-                final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = stdgo._internal.database.sql.Sql__resultFromStatement._resultFromStatement(_ctx, _dc._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
+                final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = {
+                    var __tmp__ = stdgo._internal.database.sql.Sql__resultFromStatement._resultFromStatement(_ctx, _dc._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
+                    _res = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -358,12 +368,12 @@ package stdgo._internal.database.sql;
         try {
             var _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = (null : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>);
             var _err:stdgo.Error = (null : stdgo.Error);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _release(_err);
                 };
                 a();
-            });
+            }));
             stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
                 {
                     var __tmp__ = _dc._prepareLocked(_ctx, _cg, _query?.__copy__());

@@ -16,7 +16,7 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             if (_r._err != null) {
-                return { _0 : (0 : stdgo.GoInt), _1 : _r._err };
+                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _r._err };
             };
             if ((_r._pending.length) == ((0 : stdgo.GoInt))) {
                 var __0 = (new stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Chan<stdgo.Slice<stdgo.GoUInt8>>), __1 = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
@@ -57,7 +57,7 @@ var _errCh = __1, _bCh = __0;
                                 {
                                     _r._err = _err;
                                     {
-                                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _err };
+                                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n = (0 : stdgo.GoInt), _1 : _err };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -74,7 +74,7 @@ var _errCh = __1, _bCh = __0;
             _n = stdgo.Go.copySlice(_p, _r._pending);
             _r._pending = (_r._pending.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err = (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };

@@ -47,7 +47,7 @@ var _hi = __1, _lo = __0;
                                         _err = __tmp__._2;
                                     };
                                     if (_err != null) {
-                                        return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : _err };
+                                        return { _0 : _rest = stdgo.Go.str()?.__copy__(), _1 : _ok = false, _2 : _err };
                                     };
                                 };
                                 _hi = _lo;
@@ -60,7 +60,7 @@ var _hi = __1, _lo = __0;
                                             _err = __tmp__._2;
                                         };
                                         if (_err != null) {
-                                            return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : _err };
+                                            return { _0 : _rest = stdgo.Go.str()?.__copy__(), _1 : _ok = false, _2 : _err };
                                         };
                                     };
                                 };
@@ -89,7 +89,7 @@ var _hi = __1, _lo = __0;
                             if (true) {
                                 _chunk = (_chunk.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
                                 if ((_chunk.length) == ((0 : stdgo.GoInt))) {
-                                    return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
+                                    return { _0 : _rest = stdgo.Go.str()?.__copy__(), _1 : _ok = false, _2 : _err = stdgo._internal.path.filepath.Filepath_errBadPattern.errBadPattern };
                                 };
                             };
                             @:fallthrough {
@@ -114,7 +114,7 @@ var _hi = __1, _lo = __0;
             };
         };
         if (_failed) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
+            return { _0 : _rest = stdgo.Go.str()?.__copy__(), _1 : _ok = false, _2 : _err = (null : stdgo.Error) };
         };
-        return { _0 : _s?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
+        return { _0 : _rest = _s?.__copy__(), _1 : _ok = true, _2 : _err = (null : stdgo.Error) };
     }

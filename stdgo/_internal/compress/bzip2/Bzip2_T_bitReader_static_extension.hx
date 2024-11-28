@@ -16,7 +16,7 @@ package stdgo._internal.compress.bzip2;
         @:recv var _br:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_bitReader.T_bitReader> = _br;
         var _n = (0 : stdgo.GoInt);
         var _n64 = (_br.readBits64(_bits) : stdgo.GoUInt64);
-        return (_n64 : stdgo.GoInt);
+        return _n = (_n64 : stdgo.GoInt);
     }
     @:keep
     static public function readBits64( _br:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_bitReader.T_bitReader>, _bits:stdgo.GoUInt):stdgo.GoUInt64 {
@@ -29,7 +29,7 @@ package stdgo._internal.compress.bzip2;
             };
             if (_err != null) {
                 _br._err = _err;
-                return (0i64 : stdgo.GoUInt64);
+                return _n = (0i64 : stdgo.GoUInt64);
             };
             _br._n = (_br._n << ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
             _br._n = (_br._n | ((_b : stdgo.GoUInt64)) : stdgo.GoUInt64);

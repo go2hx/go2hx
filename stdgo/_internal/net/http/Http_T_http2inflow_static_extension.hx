@@ -23,11 +23,11 @@ package stdgo._internal.net.http;
         };
         _f._unsent = (_unsent : stdgo.GoInt32);
         if (((_f._unsent < (4096 : stdgo.GoInt32) : Bool) && (_f._unsent < _f._avail : Bool) : Bool)) {
-            return (0 : stdgo.GoInt32);
+            return _connAdd = (0 : stdgo.GoInt32);
         };
         _f._avail = (_f._avail + (_f._unsent) : stdgo.GoInt32);
         _f._unsent = (0 : stdgo.GoInt32);
-        return (_unsent : stdgo.GoInt32);
+        return _connAdd = (_unsent : stdgo.GoInt32);
     }
     @:keep
     static public function _init( _f:stdgo.Ref<stdgo._internal.net.http.Http_T_http2inflow.T_http2inflow>, _n:stdgo.GoInt32):Void {

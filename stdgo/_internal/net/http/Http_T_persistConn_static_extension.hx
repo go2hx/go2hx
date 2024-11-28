@@ -65,7 +65,7 @@ package stdgo._internal.net.http;
             stdgo._internal.net.http.Http__testHookEnterRoundTrip._testHookEnterRoundTrip();
             if (!_pc._t._replaceReqCanceler(_req._cancelKey?.__copy__(), _pc._cancelRequest)) {
                 _pc._t._putOrCloseIdleConn(_pc);
-                return { _0 : null, _1 : stdgo._internal.net.http.Http__errRequestCanceled._errRequestCanceled };
+                return { _0 : _resp = null, _1 : _err = stdgo._internal.net.http.Http__errRequestCanceled._errRequestCanceled };
             };
             _pc._mu.lock();
             _pc._numExpectedResponses++;
@@ -91,14 +91,14 @@ package stdgo._internal.net.http;
                 var _a0 = _gone;
                 __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
             };
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if (_err != null) {
                         _pc._t._setReqCanceler(_req._cancelKey?.__copy__(), null);
                     };
                 };
                 a();
-            });
+            }));
             {};
             var _startBytesWritten = (_pc._nwrite : stdgo.GoInt64);
             var _writeErrCh = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
@@ -126,7 +126,7 @@ package stdgo._internal.net.http;
                                     if (_err != null) {
                                         _pc._close(stdgo._internal.fmt.Fmt_errorf.errorf(("write error: %w" : stdgo.GoString), stdgo.Go.toInterface(_err)));
                                         {
-                                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _pc._mapRoundTripError(_req, _startBytesWritten, _err) };
+                                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp = null, _1 : _err = _pc._mapRoundTripError(_req, _startBytesWritten, _err) };
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
@@ -157,7 +157,7 @@ package stdgo._internal.net.http;
                                             _req._logf(("closech recv: %T %#v" : stdgo.GoString), stdgo.Go.toInterface(_pc._closed), stdgo.Go.toInterface(_pc._closed));
                                         };
                                         {
-                                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _pc._mapRoundTripError(_req, _startBytesWritten, _pc._closed) };
+                                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp = null, _1 : _err = _pc._mapRoundTripError(_req, _startBytesWritten, _pc._closed) };
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
@@ -176,7 +176,7 @@ package stdgo._internal.net.http;
                                     };
                                     _pc._close(stdgo._internal.net.http.Http__errTimeout._errTimeout);
                                     {
-                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__errTimeout._errTimeout };
+                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp = null, _1 : _err = stdgo._internal.net.http.Http__errTimeout._errTimeout };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -197,7 +197,7 @@ package stdgo._internal.net.http;
                                     };
                                     if (_re._err != null) {
                                         {
-                                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _pc._mapRoundTripError(_req, _startBytesWritten, _re._err) };
+                                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp = null, _1 : _err = _pc._mapRoundTripError(_req, _startBytesWritten, _re._err) };
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
@@ -205,7 +205,7 @@ package stdgo._internal.net.http;
                                         };
                                     };
                                     {
-                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _re._res, _1 : (null : stdgo.Error) };
+                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp = _re._res, _1 : _err = (null : stdgo.Error) };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -573,14 +573,14 @@ package stdgo._internal.net.http;
             if (_is1xxNonTerminal) {
                 _num1xx++;
                 if ((_num1xx > (5 : stdgo.GoInt) : Bool)) {
-                    return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("net/http: too many 1xx informational responses" : stdgo.GoString)) };
+                    return { _0 : _resp = null, _1 : _err = stdgo._internal.errors.Errors_new_.new_(("net/http: too many 1xx informational responses" : stdgo.GoString)) };
                 };
                 _pc._readLimit = _pc._maxHeaderResponseSize();
                 if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.got1xxResponse != null) : Bool)) {
                     {
                         var _err = (_trace.got1xxResponse(_resCode, (_resp.header : stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader)) : stdgo.Error);
                         if (_err != null) {
-                            return { _0 : null, _1 : _err };
+                            return { _0 : _resp = null, _1 : _err };
                         };
                     };
                 };
@@ -624,13 +624,13 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _closeErr = (stdgo._internal.net.http.Http__errReadLoopExiting._errReadLoopExiting : stdgo.Error);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _pc._close(_closeErr);
                     _pc._t._removeIdleConn(_pc);
                 };
                 a();
-            });
+            }));
             var _tryPutIdleConn = function(_trace:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>):Bool {
                 {
                     var _err = (_pc._t._tryPutIdleConn(_pc) : stdgo.Error);
@@ -1110,7 +1110,7 @@ package stdgo._internal.net.http;
         @:recv var _pc:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn> = _pc;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_pc._readLimit <= (0i64 : stdgo.GoInt64) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("read limit of %d bytes exhausted" : stdgo.GoString), stdgo.Go.toInterface(_pc._maxHeaderResponseSize())) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("read limit of %d bytes exhausted" : stdgo.GoString), stdgo.Go.toInterface(_pc._maxHeaderResponseSize())) };
         };
         if (((_p.length : stdgo.GoInt64) > _pc._readLimit : Bool)) {
             _p = (_p.__slice__(0, _pc._readLimit) : stdgo.Slice<stdgo.GoUInt8>);
@@ -1159,7 +1159,7 @@ package stdgo._internal.net.http;
                 });
             };
         };
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function():Void {
                 if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeStart != null) : Bool)) {
                     _trace.tlshandshakeStart();
@@ -1171,7 +1171,7 @@ package stdgo._internal.net.http;
                 _errc.__send__(_err);
             };
             a();
-        });
+        }));
         {
             var _err = (_errc.__get__() : stdgo.Error);
             if (_err != null) {

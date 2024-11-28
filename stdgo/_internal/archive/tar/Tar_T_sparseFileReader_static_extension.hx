@@ -28,7 +28,12 @@ package stdgo._internal.archive.tar;
             };
         };
         if (!_ok) {
-            return stdgo._internal.io.Io_copy.copy(_w, stdgo.Go.asInterface(({ reader : stdgo.Go.asInterface(_sr) } : stdgo._internal.archive.tar.Tar_T__struct_0.T__struct_0)));
+            return {
+                var __tmp__ = stdgo._internal.io.Io_copy.copy(_w, stdgo.Go.asInterface(({ reader : stdgo.Go.asInterface(_sr) } : stdgo._internal.archive.tar.Tar_T__struct_0.T__struct_0)));
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         var _writeLastByte:Bool = false;
         var _pos0 = (_sr._pos : stdgo.GoInt64);
@@ -68,13 +73,13 @@ var _holeEnd = __1, _holeStart = __0;
         };
         _n = (_sr._pos - _pos0 : stdgo.GoInt64);
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-            return { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errMissData._errMissData };
+            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar__errMissData._errMissData };
         } else if (_err != null) {
             return { _0 : _n, _1 : _err };
         } else if (((_sr._logicalRemaining() == (0i64 : stdgo.GoInt64)) && (_sr._physicalRemaining() > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
-            return { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errUnrefData._errUnrefData };
+            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar__errUnrefData._errUnrefData };
         } else {
-            return { _0 : _n, _1 : (null : stdgo.Error) };
+            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
         };
     }
     @:keep
@@ -114,15 +119,15 @@ var _holeEnd = __1, _holeStart = __0;
         };
         _n = ((_b0.length) - (_b.length) : stdgo.GoInt);
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-            return { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errMissData._errMissData };
+            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar__errMissData._errMissData };
         } else if (_err != null) {
             return { _0 : _n, _1 : _err };
         } else if (((_sr._logicalRemaining() == (0i64 : stdgo.GoInt64)) && (_sr._physicalRemaining() > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
-            return { _0 : _n, _1 : stdgo._internal.archive.tar.Tar__errUnrefData._errUnrefData };
+            return { _0 : _n, _1 : _err = stdgo._internal.archive.tar.Tar__errUnrefData._errUnrefData };
         } else if (_finished) {
-            return { _0 : _n, _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n, _1 : _err = stdgo._internal.io.Io_eof.eof };
         } else {
-            return { _0 : _n, _1 : (null : stdgo.Error) };
+            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
         };
     }
 }

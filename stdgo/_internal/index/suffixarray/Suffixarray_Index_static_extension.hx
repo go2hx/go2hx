@@ -7,7 +7,7 @@ package stdgo._internal.index.suffixarray;
         var __tmp__ = _r.literalPrefix(), _prefix:stdgo.GoString = __tmp__._0, _complete:Bool = __tmp__._1;
         var _lit = (_prefix : stdgo.Slice<stdgo.GoUInt8>);
         if (_prefix == (stdgo.Go.str())) {
-            return _r.findAllIndex(_x._data, _n);
+            return _result = _r.findAllIndex(_x._data, _n);
         };
         if (_complete) {
             {

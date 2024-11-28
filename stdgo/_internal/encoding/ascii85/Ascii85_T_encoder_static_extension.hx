@@ -18,7 +18,7 @@ package stdgo._internal.encoding.ascii85;
         @:recv var _e:stdgo.Ref<stdgo._internal.encoding.ascii85.Ascii85_T_encoder.T_encoder> = _e;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_e._err != null) {
-            return { _0 : (0 : stdgo.GoInt), _1 : _e._err };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _e._err };
         };
         if ((_e._nbuf > (0 : stdgo.GoInt) : Bool)) {
             var _i:stdgo.GoInt = (0 : stdgo.GoInt);
@@ -42,7 +42,7 @@ _e._nbuf++;
                     _e._err = __tmp__._1;
                 };
                 if (_e._err != null) {
-                    return { _0 : _n, _1 : _e._err };
+                    return { _0 : _n, _1 : _err = _e._err };
                 };
             };
             _e._nbuf = (0 : stdgo.GoInt);
@@ -61,7 +61,7 @@ _e._nbuf++;
                         _e._err = __tmp__._1;
                     };
                     if (_e._err != null) {
-                        return { _0 : _n, _1 : _e._err };
+                        return { _0 : _n, _1 : _err = _e._err };
                     };
                 };
             };

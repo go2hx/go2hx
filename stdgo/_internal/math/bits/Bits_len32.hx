@@ -9,7 +9,7 @@ function len32(_x:stdgo.GoUInt32):stdgo.GoInt {
             _x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt32);
             _n = (_n + ((8 : stdgo.GoInt)) : stdgo.GoInt);
         };
-        return (_n + (stdgo.Go.str(0,
+        return _n = (_n + (stdgo.Go.str(0,
 1,
 2,
 2,

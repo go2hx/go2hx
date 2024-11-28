@@ -16,7 +16,7 @@ package stdgo._internal.net.http.fcgi;
             };
         };
         if (_rec._h.version != ((1 : stdgo.GoUInt8))) {
-            return stdgo._internal.errors.Errors_new_.new_(("fcgi: invalid header version" : stdgo.GoString));
+            return _err = stdgo._internal.errors.Errors_new_.new_(("fcgi: invalid header version" : stdgo.GoString));
         };
         var _n = ((_rec._h.contentLength : stdgo.GoInt) + (_rec._h.paddingLength : stdgo.GoInt) : stdgo.GoInt);
         {
@@ -28,6 +28,6 @@ package stdgo._internal.net.http.fcgi;
                 return _err;
             };
         };
-        return (null : stdgo.Error);
+        return _err = (null : stdgo.Error);
     }
 }

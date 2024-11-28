@@ -89,7 +89,7 @@ package stdgo._internal.database.sql;
             };
             var _fPanic = (true : Bool);
             _dc.mutex.lock();
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _dc.mutex.unlock();
                     if (_fPanic) {
@@ -98,7 +98,7 @@ package stdgo._internal.database.sql;
                     _release(_err);
                 };
                 a();
-            });
+            }));
             _err = _f(stdgo.Go.toInterface(_dc._ci));
             _fPanic = false;
             {

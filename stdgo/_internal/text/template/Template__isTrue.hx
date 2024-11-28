@@ -2,7 +2,7 @@ package stdgo._internal.text.template;
 function _isTrue(_val:stdgo._internal.reflect.Reflect_Value.Value):{ var _0 : Bool; var _1 : Bool; } {
         var _truth = false, _ok = false;
         if (!_val.isValid()) {
-            return { _0 : false, _1 : true };
+            return { _0 : _truth = false, _1 : _ok = true };
         };
         {
             final __value__ = _val.kind();
@@ -26,5 +26,5 @@ function _isTrue(_val:stdgo._internal.reflect.Reflect_Value.Value):{ var _0 : Bo
                 return { _0 : _truth, _1 : _ok };
             };
         };
-        return { _0 : _truth, _1 : true };
+        return { _0 : _truth, _1 : _ok = true };
     }

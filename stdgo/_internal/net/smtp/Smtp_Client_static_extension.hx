@@ -199,7 +199,7 @@ package stdgo._internal.net.smtp;
         if (!_ok) {
             return { _0 : _state, _1 : _ok };
         };
-        return { _0 : _tc.connectionState()?.__copy__(), _1 : true };
+        return { _0 : _state = _tc.connectionState()?.__copy__(), _1 : _ok = true };
     }
     @:keep
     static public function startTLS( _c:stdgo.Ref<stdgo._internal.net.smtp.Smtp_Client.Client>, _config:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>):stdgo.Error {

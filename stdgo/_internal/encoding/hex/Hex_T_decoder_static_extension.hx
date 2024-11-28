@@ -289,8 +289,8 @@ var _numRead = __1, _numCopy = __0;
             };
         };
         if (((_d._in.length) < (2 : stdgo.GoInt) : Bool)) {
-            return { _0 : _numDec, _1 : _d._err };
+            return { _0 : _n = _numDec, _1 : _err = _d._err };
         };
-        return { _0 : _numDec, _1 : (null : stdgo.Error) };
+        return { _0 : _n = _numDec, _1 : _err = (null : stdgo.Error) };
     }
 }

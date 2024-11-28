@@ -154,29 +154,49 @@ package stdgo._internal.net.http;
             _w.writeHeader((200 : stdgo.GoInt));
         };
         if (!stdgo._internal.net.http.Http__http2bodyAllowedForStatus._http2bodyAllowedForStatus(_rws._status)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errBodyNotAllowed.errBodyNotAllowed };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http_errBodyNotAllowed.errBodyNotAllowed };
         };
         _rws._wroteBytes = (_rws._wroteBytes + (((_dataB.length : stdgo.GoInt64) + (_dataS.length : stdgo.GoInt64) : stdgo.GoInt64)) : stdgo.GoInt64);
         if (((_rws._sentContentLen != (0i64 : stdgo.GoInt64)) && (_rws._wroteBytes > _rws._sentContentLen : Bool) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("http2: handler wrote more than declared Content-Length" : stdgo.GoString)) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("http2: handler wrote more than declared Content-Length" : stdgo.GoString)) };
         };
         if (_dataB != null) {
-            return _rws._bw.write(_dataB);
+            return {
+                var __tmp__ = _rws._bw.write(_dataB);
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else {
-            return _rws._bw.writeString(_dataS?.__copy__());
+            return {
+                var __tmp__ = _rws._bw.writeString(_dataS?.__copy__());
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
     }
     @:keep
     static public function writeString( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter>, _s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return _w._write((_s.length), (null : stdgo.Slice<stdgo.GoUInt8>), _s?.__copy__());
+        return {
+            var __tmp__ = _w._write((_s.length), (null : stdgo.Slice<stdgo.GoUInt8>), _s?.__copy__());
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function write( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return _w._write((_p.length), _p, stdgo.Go.str()?.__copy__());
+        return {
+            var __tmp__ = _w._write((_p.length), _p, stdgo.Go.str()?.__copy__());
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function writeHeader( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2responseWriter.T_http2responseWriter>, _code:stdgo.GoInt):Void {
@@ -217,13 +237,13 @@ package stdgo._internal.net.http;
             _ch = (new stdgo.Chan<Bool>((1 : stdgo.GoInt).toBasic(), () -> false) : stdgo.Chan<Bool>);
             _rws._closeNotifierCh = _ch;
             var _cw = (_rws._stream._cw : stdgo._internal.net.http.Http_T_http2closeWaiter.T_http2closeWaiter);
-            stdgo.Go.routine(() -> {
+            stdgo.Go.routine(() -> ({
                 var a = function():Void {
                     _cw.wait_();
                     _ch.__send__(true);
                 };
                 a();
-            });
+            }));
         };
         _rws._closeNotifierMu.unlock();
         return _ch;

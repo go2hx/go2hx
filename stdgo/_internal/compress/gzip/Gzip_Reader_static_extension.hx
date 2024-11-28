@@ -10,7 +10,7 @@ package stdgo._internal.compress.gzip;
         @:recv var _z:stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader> = _z;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_z._err != null) {
-            return { _0 : (0 : stdgo.GoInt), _1 : _z._err };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _z._err };
         };
         while (_n == ((0 : stdgo.GoInt))) {
             {
@@ -21,20 +21,20 @@ package stdgo._internal.compress.gzip;
             _z._digest = stdgo._internal.hash.crc32.Crc32_update.update(_z._digest, stdgo._internal.hash.crc32.Crc32_ieeetable.ieeetable, (_p.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
             _z._size = (_z._size + ((_n : stdgo.GoUInt32)) : stdgo.GoUInt32);
             if (stdgo.Go.toInterface(_z._err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-                return { _0 : _n, _1 : _z._err };
+                return { _0 : _n, _1 : _err = _z._err };
             };
             {
                 var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_z._r, (_z._buf.__slice__(0, (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     _z._err = stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err);
-                    return { _0 : _n, _1 : _z._err };
+                    return { _0 : _n, _1 : _err = _z._err };
                 };
             };
             var _digest = (stdgo._internal.compress.gzip.Gzip__le._le.uint32((_z._buf.__slice__(0, (4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
             var _size = (stdgo._internal.compress.gzip.Gzip__le._le.uint32((_z._buf.__slice__((4 : stdgo.GoInt), (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
             if (((_digest != _z._digest) || (_size != _z._size) : Bool)) {
                 _z._err = stdgo._internal.compress.gzip.Gzip_errChecksum.errChecksum;
-                return { _0 : _n, _1 : _z._err };
+                return { _0 : _n, _1 : _err = _z._err };
             };
             {
                 final __tmp__0 = (0u32 : stdgo.GoUInt32);
@@ -43,7 +43,7 @@ package stdgo._internal.compress.gzip;
                 _z._size = __tmp__1;
             };
             if (!_z._multistream) {
-                return { _0 : _n, _1 : stdgo._internal.io.Io_eof.eof };
+                return { _0 : _n, _1 : _err = stdgo._internal.io.Io_eof.eof };
             };
             _z._err = (null : stdgo.Error);
             {
@@ -52,11 +52,11 @@ package stdgo._internal.compress.gzip;
                     _z._err = __tmp__._1;
                 };
                 if (_z._err != null) {
-                    return { _0 : _n, _1 : _z._err };
+                    return { _0 : _n, _1 : _err = _z._err };
                 };
             };
         };
-        return { _0 : _n, _1 : (null : stdgo.Error) };
+        return { _0 : _n, _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function _readHeader( _z:stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader>):{ var _0 : stdgo._internal.compress.gzip.Gzip_Header.Header; var _1 : stdgo.Error; } {
@@ -68,11 +68,11 @@ package stdgo._internal.compress.gzip;
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : _hdr?.__copy__(), _1 : _err };
+                return { _0 : _hdr = _hdr?.__copy__(), _1 : _err };
             };
         };
         if (((_z._buf[(0 : stdgo.GoInt)] != ((31 : stdgo.GoUInt8)) || _z._buf[(1 : stdgo.GoInt)] != ((139 : stdgo.GoUInt8)) : Bool) || (_z._buf[(2 : stdgo.GoInt)] != (8 : stdgo.GoUInt8)) : Bool)) {
-            return { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errHeader.errHeader };
+            return { _0 : _hdr = _hdr?.__copy__(), _1 : _err = stdgo._internal.compress.gzip.Gzip_errHeader.errHeader };
         };
         var _flg = (_z._buf[(3 : stdgo.GoInt)] : stdgo.GoUInt8);
         {
@@ -90,7 +90,7 @@ package stdgo._internal.compress.gzip;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
+                    return { _0 : _hdr = _hdr?.__copy__(), _1 : _err = stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
                 };
             };
             _z._digest = stdgo._internal.hash.crc32.Crc32_update.update(_z._digest, stdgo._internal.hash.crc32.Crc32_ieeetable.ieeetable, (_z._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
@@ -101,7 +101,7 @@ package stdgo._internal.compress.gzip;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
+                    return { _0 : _hdr = _hdr?.__copy__(), _1 : _err = stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
                 };
             };
             _z._digest = stdgo._internal.hash.crc32.Crc32_update.update(_z._digest, stdgo._internal.hash.crc32.Crc32_ieeetable.ieeetable, _data);
@@ -116,7 +116,7 @@ package stdgo._internal.compress.gzip;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
+                    return { _0 : _hdr = _hdr?.__copy__(), _1 : _err = stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
                 };
             };
             _hdr.name = _s?.__copy__();
@@ -129,7 +129,7 @@ package stdgo._internal.compress.gzip;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
+                    return { _0 : _hdr = _hdr?.__copy__(), _1 : _err = stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
                 };
             };
             _hdr.comment = _s?.__copy__();
@@ -141,12 +141,12 @@ package stdgo._internal.compress.gzip;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
+                    return { _0 : _hdr = _hdr?.__copy__(), _1 : _err = stdgo._internal.compress.gzip.Gzip__noEOF._noEOF(_err) };
                 };
             };
             var _digest = (stdgo._internal.compress.gzip.Gzip__le._le.uint16((_z._buf.__slice__(0, (2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt16);
             if (_digest != ((_z._digest : stdgo.GoUInt16))) {
-                return { _0 : _hdr?.__copy__(), _1 : stdgo._internal.compress.gzip.Gzip_errHeader.errHeader };
+                return { _0 : _hdr = _hdr?.__copy__(), _1 : _err = stdgo._internal.compress.gzip.Gzip_errHeader.errHeader };
             };
         };
         _z._digest = (0u32 : stdgo.GoUInt32);
@@ -155,7 +155,7 @@ package stdgo._internal.compress.gzip;
         } else {
             (stdgo.Go.typeAssert((stdgo.Go.toInterface(_z._decompressor) : stdgo._internal.compress.flate.Flate_Resetter.Resetter)) : stdgo._internal.compress.flate.Flate_Resetter.Resetter).reset(_z._r, (null : stdgo.Slice<stdgo.GoUInt8>));
         };
-        return { _0 : _hdr?.__copy__(), _1 : (null : stdgo.Error) };
+        return { _0 : _hdr = _hdr?.__copy__(), _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function _readString( _z:stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {

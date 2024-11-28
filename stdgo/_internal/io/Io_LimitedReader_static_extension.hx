@@ -5,7 +5,7 @@ package stdgo._internal.io;
         @:recv var _l:stdgo.Ref<stdgo._internal.io.Io_LimitedReader.LimitedReader> = _l;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_l.n <= (0i64 : stdgo.GoInt64) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
         };
         if (((_p.length : stdgo.GoInt64) > _l.n : Bool)) {
             _p = (_p.__slice__((0 : stdgo.GoInt), _l.n) : stdgo.Slice<stdgo.GoUInt8>);

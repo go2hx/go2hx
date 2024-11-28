@@ -4,5 +4,10 @@ function copyBuffer(_dst:stdgo._internal.io.Io_Writer.Writer, _src:stdgo._intern
         if (((_buf != null) && (_buf.length == (0 : stdgo.GoInt)) : Bool)) {
             throw stdgo.Go.toInterface(("empty buffer in CopyBuffer" : stdgo.GoString));
         };
-        return stdgo._internal.io.Io__copyBuffer._copyBuffer(_dst, _src, _buf);
+        return {
+            var __tmp__ = stdgo._internal.io.Io__copyBuffer._copyBuffer(_dst, _src, _buf);
+            _written = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }

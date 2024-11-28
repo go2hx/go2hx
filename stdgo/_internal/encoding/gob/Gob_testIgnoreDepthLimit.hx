@@ -4,12 +4,12 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
         try {
             var _oldNestingDepth = (stdgo._internal.encoding.gob.Gob__maxIgnoreNestingDepth._maxIgnoreNestingDepth : stdgo.GoInt);
             stdgo._internal.encoding.gob.Gob__maxIgnoreNestingDepth._maxIgnoreNestingDepth = (100 : stdgo.GoInt);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     stdgo._internal.encoding.gob.Gob__maxIgnoreNestingDepth._maxIgnoreNestingDepth = _oldNestingDepth;
                 };
                 a();
-            });
+            }));
             var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
             var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b));
             var _typ = (stdgo._internal.reflect.Reflect_typeOf.typeOf(stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo._internal.reflect.Reflect_Type_.Type_);

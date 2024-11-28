@@ -5,13 +5,13 @@ package stdgo._internal.net.http;
         @:recv var _br:stdgo.Ref<stdgo._internal.net.http.Http_T_byteReader.T_byteReader> = _br;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_br._done) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
         };
         if ((_p.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
         };
         _br._done = true;
         _p[(0 : stdgo.GoInt)] = _br._b;
-        return { _0 : (1 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+        return { _0 : _n = (1 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
     }
 }

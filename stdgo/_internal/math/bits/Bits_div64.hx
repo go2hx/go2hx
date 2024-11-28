@@ -8,7 +8,7 @@ function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var 
             throw stdgo.Go.toInterface(stdgo._internal.math.bits.Bits__overflowError._overflowError);
         };
         if (_hi == ((0i64 : stdgo.GoUInt64))) {
-            return { _0 : (_lo / _y : stdgo.GoUInt64), _1 : (_lo % _y : stdgo.GoUInt64) };
+            return { _0 : _quo = (_lo / _y : stdgo.GoUInt64), _1 : _rem = (_lo % _y : stdgo.GoUInt64) };
         };
         var _s = (stdgo._internal.math.bits.Bits_leadingZeros64.leadingZeros64(_y) : stdgo.GoUInt);
         _y = (_y << (_s) : stdgo.GoUInt64);
@@ -38,5 +38,5 @@ function div64(_hi:stdgo.GoUInt64, _lo:stdgo.GoUInt64, _y:stdgo.GoUInt64):{ var 
                 break;
             };
         };
-        return { _0 : ((_q1 * (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + _q0 : stdgo.GoUInt64), _1 : (((((_un21 * (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + _un0 : stdgo.GoUInt64) - (_q0 * _y : stdgo.GoUInt64) : stdgo.GoUInt64)) >> _s : stdgo.GoUInt64) };
+        return { _0 : _quo = ((_q1 * (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + _q0 : stdgo.GoUInt64), _1 : _rem = (((((_un21 * (4294967296i64 : stdgo.GoUInt64) : stdgo.GoUInt64) + _un0 : stdgo.GoUInt64) - (_q0 * _y : stdgo.GoUInt64) : stdgo.GoUInt64)) >> _s : stdgo.GoUInt64) };
     }

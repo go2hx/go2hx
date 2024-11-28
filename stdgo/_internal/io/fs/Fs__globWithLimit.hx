@@ -3,7 +3,7 @@ function _globWithLimit(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _pattern:stdgo.GoS
         var _matches = (null : stdgo.Slice<stdgo.GoString>), _err = (null : stdgo.Error);
         {};
         if ((_depth > (10000 : stdgo.GoInt) : Bool)) {
-            return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.path.Path_errBadPattern.errBadPattern };
+            return { _0 : _matches = (null : stdgo.Slice<stdgo.GoString>), _1 : _err = stdgo._internal.path.Path_errBadPattern.errBadPattern };
         };
         {
             var __tmp__ = try {
@@ -12,13 +12,18 @@ function _globWithLimit(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _pattern:stdgo.GoS
                 { _0 : (null : stdgo._internal.io.fs.Fs_GlobFS.GlobFS), _1 : false };
             }, _fsys = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return _fsys.glob(_pattern?.__copy__());
+                return {
+                    var __tmp__ = _fsys.glob(_pattern?.__copy__());
+                    _matches = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         {
             var __tmp__ = stdgo._internal.path.Path_match.match(_pattern?.__copy__(), stdgo.Go.str()?.__copy__()), __0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
+                return { _0 : _matches = (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
             };
         };
         if (!stdgo._internal.io.fs.Fs__hasMeta._hasMeta(_pattern?.__copy__())) {
@@ -28,18 +33,23 @@ function _globWithLimit(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _pattern:stdgo.GoS
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
+                    return { _0 : _matches = (null : stdgo.Slice<stdgo.GoString>), _1 : _err = (null : stdgo.Error) };
                 };
             };
-            return { _0 : (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Error) };
+            return { _0 : _matches = (new stdgo.Slice<stdgo.GoString>(1, 1, ...[_pattern?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>), _1 : _err = (null : stdgo.Error) };
         };
         var __tmp__ = stdgo._internal.path.Path_split.split(_pattern?.__copy__()), _dir:stdgo.GoString = __tmp__._0, _file:stdgo.GoString = __tmp__._1;
         _dir = stdgo._internal.io.fs.Fs__cleanGlobPath._cleanGlobPath(_dir?.__copy__())?.__copy__();
         if (!stdgo._internal.io.fs.Fs__hasMeta._hasMeta(_dir?.__copy__())) {
-            return stdgo._internal.io.fs.Fs__glob._glob(_fsys, _dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
+            return {
+                var __tmp__ = stdgo._internal.io.fs.Fs__glob._glob(_fsys, _dir?.__copy__(), _file?.__copy__(), (null : stdgo.Slice<stdgo.GoString>));
+                _matches = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         if (_dir == (_pattern)) {
-            return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : stdgo._internal.path.Path_errBadPattern.errBadPattern };
+            return { _0 : _matches = (null : stdgo.Slice<stdgo.GoString>), _1 : _err = stdgo._internal.path.Path_errBadPattern.errBadPattern };
         };
         var _m:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
         {
@@ -48,7 +58,7 @@ function _globWithLimit(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _pattern:stdgo.GoS
             _err = __tmp__._1;
         };
         if (_err != null) {
-            return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
+            return { _0 : _matches = (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
         };
         for (__1 => _d in _m) {
             {

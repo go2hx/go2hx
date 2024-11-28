@@ -59,7 +59,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 _doneC = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy>);
             } : stdgo.Error -> Void);
             var _crashWritten = (false : Bool);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if (((_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
                         return;
@@ -74,7 +74,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                     };
                 };
                 a();
-            });
+            }));
             var _dir = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
             var _binPath = (stdgo._internal.os.Os_args.args[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
             var _args = ((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-test.fuzzworker" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...((stdgo._internal.os.Os_args.args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>)));
@@ -99,7 +99,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             };
             for (_i => _ in _workers) {
                 var _w = _workers[(_i : stdgo.GoInt)];
-                stdgo.Go.routine(() -> {
+                stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         var _err = (_w._coordinate(_fuzzCtx) : stdgo.Error);
                         if (((_fuzzCtx.err() != null) || stdgo._internal.internal.fuzz.Fuzz__isInterruptError._isInterruptError(_err) : Bool)) {
@@ -112,7 +112,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                         _errC.__send__(_err);
                     };
                     a();
-                });
+                }));
             };
             var _activeWorkers = (_workers.length : stdgo.GoInt);
             var _statTicker = stdgo._internal.time.Time_newTicker.newTicker((3000000000i64 : stdgo._internal.time.Time_Duration.Duration));
@@ -153,10 +153,11 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                     _activeWorkers--;
                                     if (_activeWorkers == ((0 : stdgo.GoInt))) {
                                         {
+                                            final __ret__:stdgo.Error = _err = _fuzzErr;
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
-                                            return _fuzzErr;
+                                            return __ret__;
                                         };
                                     };
                                 };

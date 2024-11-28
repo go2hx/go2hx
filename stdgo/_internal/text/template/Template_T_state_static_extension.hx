@@ -573,7 +573,7 @@ package stdgo._internal.text.template;
                 _s._push(_variable.ident[(0 : stdgo.GoInt)]?.__copy__(), _value?.__copy__());
             };
         };
-        return _value?.__copy__();
+        return _value = _value?.__copy__();
     }
     @:keep
     static public function _walkTemplate( _s:stdgo.Ref<stdgo._internal.text.template.Template_T_state.T_state>, _dot:stdgo._internal.reflect.Reflect_Value.Value, _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_TemplateNode.TemplateNode>):Void {
@@ -599,7 +599,7 @@ package stdgo._internal.text.template;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._at(stdgo.Go.asInterface(_r));
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
@@ -609,7 +609,7 @@ package stdgo._internal.text.template;
                     };
                 };
                 a();
-            });
+            }));
             {
                 var _a0 = _s._mark();
                 __deferstack__.unshift(() -> _s._pop(_a0));
@@ -641,7 +641,7 @@ package stdgo._internal.text.template;
                         var _a0 = _mark;
                         __deferstack__.unshift(() -> _s._pop(_a0));
                     };
-                    __deferstack__.unshift(() -> {
+                    __deferstack__.unshift(() -> ({
                         var a = function():Void {
                             {
                                 var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
@@ -651,7 +651,7 @@ package stdgo._internal.text.template;
                             };
                         };
                         a();
-                    });
+                    }));
                     _s._walk(_elem?.__copy__(), stdgo.Go.asInterface(_r.branchNode.list));
                     {
                         for (defer in __deferstack__) {

@@ -108,7 +108,7 @@ package stdgo._internal.net.http.httptest;
     static public function _goServe( _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server>):Void {
         @:recv var _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server> = _s;
         _s._wg.add((1 : stdgo.GoInt));
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
@@ -137,7 +137,7 @@ package stdgo._internal.net.http.httptest;
                 };
             };
             a();
-        });
+        }));
     }
     @:keep
     static public function client( _s:stdgo.Ref<stdgo._internal.net.http.httptest.Httptest_Server.Server>):stdgo.Ref<stdgo._internal.net.http.Http_Client.Client> {

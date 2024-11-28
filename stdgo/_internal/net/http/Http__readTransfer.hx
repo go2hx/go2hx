@@ -114,5 +114,5 @@ function _readTransfer(_msg:stdgo.AnyInterface, _r:stdgo.Ref<stdgo._internal.buf
                 _rr.trailer = _t.trailer;
             };
         };
-        return (null : stdgo.Error);
+        return _err = (null : stdgo.Error);
     }

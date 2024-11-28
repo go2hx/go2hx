@@ -39,7 +39,7 @@ if (_err != null) {
                 return { _0 : _n, _1 : _err };
             };
         };
-        return { _0 : _n, _1 : (null : stdgo.Error) };
+        return { _0 : _n, _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function replace( _r:stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>, _s:stdgo.GoString):stdgo.GoString {

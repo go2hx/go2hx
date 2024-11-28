@@ -3,7 +3,7 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
         var __deferstack__:Array<Void -> Void> = [];
         var _encodeErr = (null : stdgo.Error), _panicErr = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     var _e = ({
                         final r = stdgo.Go.recover_exception;
@@ -24,7 +24,7 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
                     };
                 };
                 a();
-            });
+            }));
             _encodeErr = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo._internal.io.Io_discard.discard).encode(_value);
             {
                 final __ret__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _encodeErr, _1 : _panicErr };

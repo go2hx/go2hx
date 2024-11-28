@@ -20,5 +20,5 @@ _v = (_v / ((10i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
             _w--;
             _buf[(_w : stdgo.GoInt)] = (46 : stdgo.GoUInt8);
         };
-        return { _0 : _w, _1 : _v };
+        return { _0 : _nw = _w, _1 : _nv = _v };
     }

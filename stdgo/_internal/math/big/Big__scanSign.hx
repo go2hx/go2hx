@@ -9,7 +9,7 @@ function _scanSign(_r:stdgo._internal.io.Io_ByteScanner.ByteScanner):{ var _0 : 
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : false, _1 : _err };
+                return { _0 : _neg = false, _1 : _err };
             };
         };
         {

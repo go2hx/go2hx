@@ -38,7 +38,12 @@ package stdgo._internal.net.http.cgi;
         if (!_r._wroteCGIHeader) {
             _r._writeCGIHeader(_p);
         };
-        return _r._bufw.write(_p);
+        return {
+            var __tmp__ = _r._bufw.write(_p);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function header( _r:stdgo.Ref<stdgo._internal.net.http.cgi.Cgi_T_response.T_response>):stdgo._internal.net.http.Http_Header.Header {

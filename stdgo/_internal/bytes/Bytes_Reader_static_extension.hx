@@ -16,7 +16,7 @@ package stdgo._internal.bytes;
         var _n = (0 : stdgo.GoInt64), _err = (null : stdgo.Error);
         _r._prevRune = (-1 : stdgo.GoInt);
         if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
-            return { _0 : (0i64 : stdgo.GoInt64), _1 : (null : stdgo.Error) };
+            return { _0 : _n = (0i64 : stdgo.GoInt64), _1 : _err = (null : stdgo.Error) };
         };
         var _b = (_r._s.__slice__(_r._i) : stdgo.Slice<stdgo.GoUInt8>);
         var __tmp__ = _w.write(_b), _m:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -72,14 +72,14 @@ package stdgo._internal.bytes;
         var _ch = (0 : stdgo.GoInt32), _size = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
             _r._prevRune = (-1 : stdgo.GoInt);
-            return { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _ch = (0 : stdgo.GoInt32), _1 : _size = (0 : stdgo.GoInt), _2 : _err = stdgo._internal.io.Io_eof.eof };
         };
         _r._prevRune = (_r._i : stdgo.GoInt);
         {
             var _c = (_r._s[(_r._i : stdgo.GoInt)] : stdgo.GoUInt8);
             if ((_c < (128 : stdgo.GoUInt8) : Bool)) {
                 _r._i++;
-                return { _0 : (_c : stdgo.GoInt32), _1 : (1 : stdgo.GoInt), _2 : (null : stdgo.Error) };
+                return { _0 : _ch = (_c : stdgo.GoInt32), _1 : _size = (1 : stdgo.GoInt), _2 : _err = (null : stdgo.Error) };
             };
         };
         {
@@ -116,10 +116,10 @@ package stdgo._internal.bytes;
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_off < (0i64 : stdgo.GoInt64) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("bytes.Reader.ReadAt: negative offset" : stdgo.GoString)) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("bytes.Reader.ReadAt: negative offset" : stdgo.GoString)) };
         };
         if ((_off >= (_r._s.length : stdgo.GoInt64) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
         };
         _n = stdgo.Go.copySlice(_b, (_r._s.__slice__(_off) : stdgo.Slice<stdgo.GoUInt8>));
         if ((_n < (_b.length) : Bool)) {
@@ -132,7 +132,7 @@ package stdgo._internal.bytes;
         @:recv var _r:stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_r._i >= (_r._s.length : stdgo.GoInt64) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
         };
         _r._prevRune = (-1 : stdgo.GoInt);
         _n = stdgo.Go.copySlice(_b, (_r._s.__slice__(_r._i) : stdgo.Slice<stdgo.GoUInt8>));

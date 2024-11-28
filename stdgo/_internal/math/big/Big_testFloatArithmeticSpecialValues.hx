@@ -44,11 +44,11 @@ var _f = __2, _z = __1, _op = __0;
                             };
                         };
                         var _errnan:Bool = false;
-                        {
+                        ({
                             var a = function():Void {
                                 var __deferstack__:Array<Void -> Void> = [];
                                 try {
-                                    __deferstack__.unshift(() -> {
+                                    __deferstack__.unshift(() -> ({
                                         var a = function():Void {
                                             {
                                                 var _p = ({
@@ -63,7 +63,7 @@ var _f = __2, _z = __1, _op = __0;
                                             };
                                         };
                                         a();
-                                    });
+                                    }));
                                     _f(_got, _xx, _yy);
                                     {
                                         for (defer in __deferstack__) {
@@ -88,7 +88,7 @@ var _f = __2, _z = __1, _op = __0;
                                 };
                             };
                             a();
-                        };
+                        });
                         if (stdgo._internal.math.Math_isNaN.isNaN(_z)) {
                             if (!_errnan) {
                                 _t.errorf(("%5g %s %5g = %5s; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_op), stdgo.Go.toInterface(_y), stdgo.Go.toInterface(stdgo.Go.asInterface(_got)));

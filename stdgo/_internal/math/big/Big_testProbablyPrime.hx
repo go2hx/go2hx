@@ -19,11 +19,11 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         };
         var _c = stdgo._internal.math.big.Big_newInt.newInt((11i64 : stdgo.GoInt64));
         for (__8 => _n in (new stdgo.Slice<stdgo.GoInt>(3, 3, ...[(-1 : stdgo.GoInt), (0 : stdgo.GoInt), (1 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>)) {
-            {
+            ({
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
-                        __deferstack__.unshift(() -> {
+                        __deferstack__.unshift(() -> ({
                             var a = function():Void {
                                 if (((_n < (0 : stdgo.GoInt) : Bool) && (({
                                     final r = stdgo.Go.recover_exception;
@@ -34,7 +34,7 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
                                 };
                             };
                             a();
-                        });
+                        }));
                         if (!_c.probablyPrime(_n)) {
                             _t.fatalf(("%v should be a prime" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c)));
                         };
@@ -61,6 +61,6 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
                     };
                 };
                 a();
-            };
+            });
         };
     }

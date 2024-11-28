@@ -45,11 +45,11 @@ _indices = (_indices.__append__(_i));
                     var _b = (_s : stdgo.Slice<stdgo.GoUInt8>);
 _b[(_i : stdgo.GoInt)] = (_b[(_i : stdgo.GoInt)] ^ ((_j : stdgo.GoUInt8)) : stdgo.GoUInt8);
 var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.gob.Gob_DT.DT);
-{
+({
                         var a = function():Void {
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
-                                __deferstack__.unshift(() -> {
+                                __deferstack__.unshift(() -> ({
                                     var a = function():Void {
                                         {
                                             var _p = ({
@@ -64,7 +64,7 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                                         };
                                     };
                                     a();
-                                });
+                                }));
                                 var _err = (stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>))) : stdgo.Error);
                                 var __blank__ = _err;
                                 {
@@ -90,7 +90,7 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                             };
                         };
                         a();
-                    };
+                    });
                     _j = (_j + ((3 : stdgo.GoInt)) : stdgo.GoInt);
                 };
             };

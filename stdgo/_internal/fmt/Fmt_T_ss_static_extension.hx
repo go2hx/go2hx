@@ -164,7 +164,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             var _inputc = (_s._mustReadRune() : stdgo.GoInt32);
             if (_fmtc != (_inputc)) {
                 _s.unreadRune();
-                return (-1 : stdgo.GoInt);
+                return _i = (-1 : stdgo.GoInt);
             };
             _i = (_i + (_w) : stdgo.GoInt);
         };
@@ -405,7 +405,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             _s._errorString(("illegal hex digit" : stdgo.GoString));
             return { _0 : _b, _1 : _ok };
         };
-        return { _0 : (((_value1 << (4i64 : stdgo.GoUInt64) : stdgo.GoInt) | _value2 : stdgo.GoInt) : stdgo.GoUInt8), _1 : true };
+        return { _0 : _b = (((_value1 << (4i64 : stdgo.GoUInt64) : stdgo.GoInt) | _value2 : stdgo.GoInt) : stdgo.GoUInt8), _1 : _ok = true };
     }
     @:keep
     static public function _quotedString( _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>):stdgo.GoString {
@@ -460,7 +460,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
         var _str = ("" : stdgo.GoString);
         if (!_s._okVerb(_verb, ("svqxX" : stdgo.GoString), ("string" : stdgo.GoString))) {
-            return stdgo.Go.str()?.__copy__();
+            return _str = stdgo.Go.str()?.__copy__();
         };
         _s.skipSpace();
         _s._notEOF();
@@ -550,7 +550,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         if ((_parens && !_s._accept((")" : stdgo.GoString)) : Bool)) {
             _s._error(stdgo._internal.fmt.Fmt__errComplex._errComplex);
         };
-        return { _0 : _real?.__copy__(), _1 : (_imagSign + _imag?.__copy__() : stdgo.GoString)?.__copy__() };
+        return { _0 : _real = _real?.__copy__(), _1 : _imag = (_imagSign + _imag?.__copy__() : stdgo.GoString)?.__copy__() };
     }
     @:keep
     static public function _floatToken( _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>):stdgo.GoString {
@@ -655,20 +655,20 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
         var _base = (0 : stdgo.GoInt), _digits = ("" : stdgo.GoString), _zeroFound = false;
         if (!_s._peek(("0" : stdgo.GoString))) {
-            return { _0 : (0 : stdgo.GoInt), _1 : ("0123456789_" : stdgo.GoString), _2 : false };
+            return { _0 : _base = (0 : stdgo.GoInt), _1 : _digits = ("0123456789_" : stdgo.GoString), _2 : _zeroFound = false };
         };
         _s._accept(("0" : stdgo.GoString));
         if (_s._peek(("bB" : stdgo.GoString))) {
             _s._consume(("bB" : stdgo.GoString), true);
-            return { _0 : (0 : stdgo.GoInt), _1 : ("01_" : stdgo.GoString), _2 : true };
+            return { _0 : _base = (0 : stdgo.GoInt), _1 : _digits = ("01_" : stdgo.GoString), _2 : _zeroFound = true };
         } else if (_s._peek(("oO" : stdgo.GoString))) {
             _s._consume(("oO" : stdgo.GoString), true);
-            return { _0 : (0 : stdgo.GoInt), _1 : ("01234567_" : stdgo.GoString), _2 : true };
+            return { _0 : _base = (0 : stdgo.GoInt), _1 : _digits = ("01234567_" : stdgo.GoString), _2 : _zeroFound = true };
         } else if (_s._peek(("xX" : stdgo.GoString))) {
             _s._consume(("xX" : stdgo.GoString), true);
-            return { _0 : (0 : stdgo.GoInt), _1 : ("0123456789aAbBcCdDeEfF_" : stdgo.GoString), _2 : true };
+            return { _0 : _base = (0 : stdgo.GoInt), _1 : _digits = ("0123456789aAbBcCdDeEfF_" : stdgo.GoString), _2 : _zeroFound = true };
         } else {
-            return { _0 : (0 : stdgo.GoInt), _1 : ("01234567_" : stdgo.GoString), _2 : true };
+            return { _0 : _base = (0 : stdgo.GoInt), _1 : _digits = ("01234567_" : stdgo.GoString), _2 : _zeroFound = true };
         };
     }
     @:keep
@@ -862,7 +862,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         var __deferstack__:Array<Void -> Void> = [];
         var _tok = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _e = ({
@@ -887,7 +887,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                     };
                 };
                 a();
-            });
+            }));
             if (_f == null) {
                 _f = stdgo._internal.fmt.Fmt__notSpace._notSpace;
             };
@@ -959,7 +959,7 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         var __tmp__ = _s.readRune(), _r:stdgo.GoInt32 = __tmp__._0, __0:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
             if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-                return (-1 : stdgo.GoInt32);
+                return _r = (-1 : stdgo.GoInt32);
             };
             _s._error(_err);
         };
@@ -970,9 +970,9 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
         var _wid = (0 : stdgo.GoInt), _ok = false;
         if (_s._ssave._maxWid == ((1073741824 : stdgo.GoInt))) {
-            return { _0 : (0 : stdgo.GoInt), _1 : false };
+            return { _0 : _wid = (0 : stdgo.GoInt), _1 : _ok = false };
         };
-        return { _0 : _s._ssave._maxWid, _1 : true };
+        return { _0 : _wid = _s._ssave._maxWid, _1 : _ok = true };
     }
     @:keep
     static public function readRune( _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>):{ var _0 : stdgo.GoInt32; var _1 : stdgo.GoInt; var _2 : stdgo.Error; } {
@@ -1002,6 +1002,6 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
     static public function read( _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss>, _buf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _s:stdgo.Ref<stdgo._internal.fmt.Fmt_T_ss.T_ss> = _s;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("ScanState\'s Read should not be called. Use ReadRune" : stdgo.GoString)) };
+        return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("ScanState\'s Read should not be called. Use ReadRune" : stdgo.GoString)) };
     }
 }

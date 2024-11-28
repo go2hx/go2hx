@@ -11,7 +11,7 @@ package stdgo._internal.net.http.internal;
         @:recv var _cw:stdgo.Ref<stdgo._internal.net.http.internal.Internal_T_chunkedWriter.T_chunkedWriter> = _cw;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_data.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
         };
         {
             {
@@ -19,7 +19,7 @@ package stdgo._internal.net.http.internal;
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : (0 : stdgo.GoInt), _1 : _err };
+                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err };
             };
         };
         {

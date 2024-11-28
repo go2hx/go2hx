@@ -34,5 +34,5 @@ _x = _y;
 _scale = (_scale * (10 : stdgo.GoFloat64) : stdgo.GoFloat64);
             _i++;
         };
-        return { _0 : _x, _1 : _scale, _2 : (_s.__slice__(_i) : stdgo.GoString)?.__copy__() };
+        return { _0 : _x, _1 : _scale, _2 : _rem = (_s.__slice__(_i) : stdgo.GoString)?.__copy__() };
     }

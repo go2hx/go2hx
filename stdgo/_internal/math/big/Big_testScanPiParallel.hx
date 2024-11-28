@@ -5,13 +5,13 @@ function testScanPiParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (2 : stdgo.GoInt) : Bool)) {
-                stdgo.Go.routine(() -> {
+                stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         stdgo._internal.math.big.Big_testScanPi.testScanPi(_t);
                         _c.__send__((0 : stdgo.GoInt));
                     };
                     a();
-                });
+                }));
                 _i++;
             };
         };

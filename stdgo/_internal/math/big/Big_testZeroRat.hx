@@ -41,7 +41,7 @@ var _z = __2, _y = __1, _x = __0;
                     _t.errorf(("got x*y = %s, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s));
                 };
             };
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _s = ({
@@ -55,7 +55,7 @@ var _z = __2, _y = __1, _x = __0;
                     };
                 };
                 a();
-            });
+            }));
             _z.quo((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>));
             {
                 for (defer in __deferstack__) {

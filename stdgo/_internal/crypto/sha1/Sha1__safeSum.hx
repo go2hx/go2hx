@@ -3,7 +3,7 @@ function _safeSum(_h:stdgo._internal.hash.Hash_Hash.Hash):{ var _0 : stdgo.Slice
         var __deferstack__:Array<Void -> Void> = [];
         var _sum = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _r = ({
@@ -17,9 +17,9 @@ function _safeSum(_h:stdgo._internal.hash.Hash_Hash.Hash):{ var _0 : stdgo.Slice
                     };
                 };
                 a();
-            });
+            }));
             {
-                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _h.sum((null : stdgo.Slice<stdgo.GoUInt8>)), _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _sum = _h.sum((null : stdgo.Slice<stdgo.GoUInt8>)), _1 : _err = (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };

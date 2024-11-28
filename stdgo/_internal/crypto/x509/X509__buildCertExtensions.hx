@@ -10,7 +10,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
+                return { _0 : _ret = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
             };
             _n++;
         };
@@ -21,7 +21,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
+                return { _0 : _ret = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
             };
             _n++;
         };
@@ -32,7 +32,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
+                return { _0 : _ret = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
             };
             _n++;
         };
@@ -99,7 +99,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
+                return { _0 : _ret = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
             };
             _n++;
         };
@@ -120,7 +120,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                     {
                         _err = stdgo._internal.crypto.x509.X509__isIA5String._isIA5String(_name?.__copy__());
                         if (_err != null) {
-                            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                            return { _0 : _der = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                         };
                     };
                     _b.addASN1((48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
@@ -140,7 +140,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                     {
                         _err = stdgo._internal.crypto.x509.X509__isIA5String._isIA5String(_email?.__copy__());
                         if (_err != null) {
-                            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                            return { _0 : _der = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                         };
                     };
                     _b.addASN1((48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
@@ -153,7 +153,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                     {
                         _err = stdgo._internal.crypto.x509.X509__isIA5String._isIA5String(_uriDomain?.__copy__());
                         if (_err != null) {
-                            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                            return { _0 : _der = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                         };
                     };
                     _b.addASN1((48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
@@ -162,15 +162,20 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                         });
                     });
                 };
-                return _b.bytes();
+                return {
+                    var __tmp__ = _b.bytes();
+                    _der = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             var __tmp__ = _serialiseConstraints(_template.permittedDNSDomains, _template.permittedIPRanges, _template.permittedEmailAddresses, _template.permittedURIDomains), _permitted:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
+                return { _0 : _ret = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
             };
             var __tmp__ = _serialiseConstraints(_template.excludedDNSDomains, _template.excludedIPRanges, _template.excludedEmailAddresses, _template.excludedURIDomains), _excluded:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
+                return { _0 : _ret = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
             };
             var _b:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder = ({} : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder);
             _b.addASN1((48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag), function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
@@ -191,7 +196,7 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
+                return { _0 : _ret = (null : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>), _1 : _err };
             };
             _n++;
         };
@@ -212,5 +217,5 @@ function _buildCertExtensions(_template:stdgo.Ref<stdgo._internal.crypto.x509.X5
             };
             _n++;
         };
-        return { _0 : ((_ret.__slice__(0, _n) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>).__append__(...(_template.extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>))), _1 : (null : stdgo.Error) };
+        return { _0 : _ret = ((_ret.__slice__(0, _n) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>).__append__(...(_template.extraExtensions : Array<stdgo._internal.crypto.x509.pkix.Pkix_Extension.Extension>))), _1 : _err = (null : stdgo.Error) };
     }

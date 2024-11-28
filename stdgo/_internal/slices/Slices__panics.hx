@@ -3,7 +3,7 @@ function _panics(_f:() -> Void):Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _b = false;
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _x = ({
@@ -17,13 +17,14 @@ function _panics(_f:() -> Void):Bool {
                     };
                 };
                 a();
-            });
+            }));
             _f();
             {
+                final __ret__:Bool = _b = false;
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return false;
+                return __ret__;
             };
             {
                 for (defer in __deferstack__) {

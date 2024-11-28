@@ -11,7 +11,7 @@ function _readSlice(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Slice<std
             return { _0 : _n, _1 : _err };
         };
         if (((((_size64 : stdgo.GoInt) : stdgo.GoInt64) != _size64) || ((_size64 : stdgo.GoInt) < (0 : stdgo.GoInt) : Bool) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.index.suffixarray.Suffixarray__errTooBig._errTooBig };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.index.suffixarray.Suffixarray__errTooBig._errTooBig };
         };
         var _size = (_size64 : stdgo.GoInt);
         {

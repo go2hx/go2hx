@@ -2,7 +2,7 @@ package stdgo._internal.encoding.json;
 function testMarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _got = ({
@@ -16,7 +16,7 @@ function testMarshalPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
                     };
                 };
                 a();
-            });
+            }));
             stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.encoding.json.Json_T_marshalPanic.T_marshalPanic() : stdgo._internal.encoding.json.Json_T_marshalPanic.T_marshalPanic)) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_marshalPanic.T_marshalPanic>))));
             _t.error(stdgo.Go.toInterface(("Marshal should have panicked" : stdgo.GoString)));
             {

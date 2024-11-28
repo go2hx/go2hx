@@ -16,5 +16,5 @@ function _writeToCorpus(_entry:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_Corp
                 return _err;
             };
         };
-        return (null : stdgo.Error);
+        return _err = (null : stdgo.Error);
     }

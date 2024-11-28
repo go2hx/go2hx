@@ -2,7 +2,7 @@ package stdgo._internal.io;
 function readAtLeast(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Slice<stdgo.GoUInt8>, _min:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((_buf.length) < _min : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_errShortBuffer.errShortBuffer };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_errShortBuffer.errShortBuffer };
         };
         while (((_n < _min : Bool) && (_err == null) : Bool)) {
             var _nn:stdgo.GoInt = (0 : stdgo.GoInt);

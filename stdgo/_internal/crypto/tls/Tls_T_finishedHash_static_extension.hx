@@ -61,6 +61,6 @@ package stdgo._internal.crypto.tls;
         if (_h._buffer != null) {
             _h._buffer = (_h._buffer.__append__(...(_msg : Array<stdgo.GoUInt8>)));
         };
-        return { _0 : (_msg.length), _1 : (null : stdgo.Error) };
+        return { _0 : _n = (_msg.length), _1 : _err = (null : stdgo.Error) };
     }
 }

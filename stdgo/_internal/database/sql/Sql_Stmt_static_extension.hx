@@ -255,7 +255,7 @@ package stdgo._internal.database.sql;
             if (_err != null) {
                 return { _0 : _dc, _1 : _releaseConn, _2 : _ds, _3 : _err };
             };
-            return { _0 : _dc, _1 : _releaseConn, _2 : _s._cgds, _3 : (null : stdgo.Error) };
+            return { _0 : _dc, _1 : _releaseConn, _2 : _ds = _s._cgds, _3 : _err = (null : stdgo.Error) };
         };
         _s._removeClosedStmtLocked();
         _s._mu.unlock();
@@ -265,13 +265,13 @@ package stdgo._internal.database.sql;
             _err = __tmp__._1;
         };
         if (_err != null) {
-            return { _0 : null, _1 : null, _2 : null, _3 : _err };
+            return { _0 : _dc = null, _1 : _releaseConn = null, _2 : _ds = null, _3 : _err };
         };
         _s._mu.lock();
         for (__135 => _v in _s._css) {
             if (_v._dc == (_dc)) {
                 _s._mu.unlock();
-                return { _0 : _dc, _1 : _dc._releaseConn, _2 : _v._ds, _3 : (null : stdgo.Error) };
+                return { _0 : _dc, _1 : _releaseConn = _dc._releaseConn, _2 : _ds = _v._ds, _3 : _err = (null : stdgo.Error) };
             };
         };
         _s._mu.unlock();
@@ -284,9 +284,9 @@ package stdgo._internal.database.sql;
         });
         if (_err != null) {
             _dc._releaseConn(_err);
-            return { _0 : null, _1 : null, _2 : null, _3 : _err };
+            return { _0 : _dc = null, _1 : _releaseConn = null, _2 : _ds = null, _3 : _err };
         };
-        return { _0 : _dc, _1 : _dc._releaseConn, _2 : _ds, _3 : (null : stdgo.Error) };
+        return { _0 : _dc, _1 : _releaseConn = _dc._releaseConn, _2 : _ds, _3 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function _removeClosedStmtLocked( _s:stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>):Void {

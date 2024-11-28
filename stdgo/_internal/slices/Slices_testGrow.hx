@@ -39,11 +39,11 @@ function testGrow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             };
         };
         var _gotPanic:Bool = false;
-        {
+        ({
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
-                    __deferstack__.unshift(() -> {
+                    __deferstack__.unshift(() -> ({
                         var a = function():Void {
                             _gotPanic = ({
                                 final r = stdgo.Go.recover_exception;
@@ -52,7 +52,7 @@ function testGrow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                             }) != null;
                         };
                         a();
-                    });
+                    }));
                     stdgo._internal.slices.Slices_grow.grow(_s1, (-1 : stdgo.GoInt));
                     {
                         for (defer in __deferstack__) {
@@ -77,7 +77,7 @@ function testGrow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                 };
             };
             a();
-        };
+        });
         if (!_gotPanic) {
             _t.errorf(("Grow(-1) did not panic; expected a panic" : stdgo.GoString));
         };

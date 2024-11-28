@@ -3,7 +3,7 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
         var __deferstack__:Array<Void -> Void> = [];
         try {
             {};
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     var _msg = ({
                         final r = stdgo.Go.recover_exception;
@@ -16,7 +16,7 @@ function testJacobiPanic(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
                     _t.log(_msg);
                 };
                 a();
-            });
+            }));
             var _x = stdgo._internal.math.big.Big_newInt.newInt((1i64 : stdgo.GoInt64));
             var _y = stdgo._internal.math.big.Big_newInt.newInt((2i64 : stdgo.GoInt64));
             stdgo._internal.math.big.Big_jacobi.jacobi(_x, _y);

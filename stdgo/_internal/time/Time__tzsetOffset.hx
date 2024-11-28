@@ -2,7 +2,7 @@ package stdgo._internal.time;
 function _tzsetOffset(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : Bool; } {
         var _offset = (0 : stdgo.GoInt), _rest = ("" : stdgo.GoString), _ok = false;
         if ((_s.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+            return { _0 : _offset = (0 : stdgo.GoInt), _1 : _rest = stdgo.Go.str()?.__copy__(), _2 : _ok = false };
         };
         var _neg = (false : Bool);
         if (_s[(0 : stdgo.GoInt)] == ((43 : stdgo.GoUInt8))) {
@@ -19,14 +19,14 @@ function _tzsetOffset(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.
             _ok = __tmp__._2;
         };
         if (!_ok) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+            return { _0 : _offset = (0 : stdgo.GoInt), _1 : _rest = stdgo.Go.str()?.__copy__(), _2 : _ok = false };
         };
         var _off = (_hours * (3600 : stdgo.GoInt) : stdgo.GoInt);
         if (((_s.length == (0 : stdgo.GoInt)) || (_s[(0 : stdgo.GoInt)] != (58 : stdgo.GoUInt8)) : Bool)) {
             if (_neg) {
                 _off = -_off;
             };
-            return { _0 : _off, _1 : _s?.__copy__(), _2 : true };
+            return { _0 : _offset = _off, _1 : _rest = _s?.__copy__(), _2 : _ok = true };
         };
         var _mins:stdgo.GoInt = (0 : stdgo.GoInt);
         {
@@ -36,14 +36,14 @@ function _tzsetOffset(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.
             _ok = __tmp__._2;
         };
         if (!_ok) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+            return { _0 : _offset = (0 : stdgo.GoInt), _1 : _rest = stdgo.Go.str()?.__copy__(), _2 : _ok = false };
         };
         _off = (_off + ((_mins * (60 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
         if (((_s.length == (0 : stdgo.GoInt)) || (_s[(0 : stdgo.GoInt)] != (58 : stdgo.GoUInt8)) : Bool)) {
             if (_neg) {
                 _off = -_off;
             };
-            return { _0 : _off, _1 : _s?.__copy__(), _2 : true };
+            return { _0 : _offset = _off, _1 : _rest = _s?.__copy__(), _2 : _ok = true };
         };
         var _secs:stdgo.GoInt = (0 : stdgo.GoInt);
         {
@@ -53,11 +53,11 @@ function _tzsetOffset(_s:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.
             _ok = __tmp__._2;
         };
         if (!_ok) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+            return { _0 : _offset = (0 : stdgo.GoInt), _1 : _rest = stdgo.Go.str()?.__copy__(), _2 : _ok = false };
         };
         _off = (_off + (_secs) : stdgo.GoInt);
         if (_neg) {
             _off = -_off;
         };
-        return { _0 : _off, _1 : _s?.__copy__(), _2 : true };
+        return { _0 : _offset = _off, _1 : _rest = _s?.__copy__(), _2 : _ok = true };
     }

@@ -26,5 +26,5 @@ function _divWW(_x1:stdgo._internal.math.big.Big_Word.Word, _x0:stdgo._internal.
             _qq++;
             _r0 = (_r0 - (_d) : stdgo.GoUInt);
         };
-        return { _0 : (_qq : stdgo._internal.math.big.Big_Word.Word), _1 : ((_r0 >> _s : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word) };
+        return { _0 : _q = (_qq : stdgo._internal.math.big.Big_Word.Word), _1 : _r = ((_r0 >> _s : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word) };
     }

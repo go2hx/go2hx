@@ -68,7 +68,7 @@ package stdgo._internal.archive.zip;
         if (_err != null) {
             return { _0 : _offset, _1 : _err };
         };
-        return { _0 : (_f._headerOffset + _bodyOffset : stdgo.GoInt64), _1 : (null : stdgo.Error) };
+        return { _0 : _offset = (_f._headerOffset + _bodyOffset : stdgo.GoInt64), _1 : _err = (null : stdgo.Error) };
     }
     @:embedded
     public static function _isZip64( __self__:stdgo._internal.archive.zip.Zip_File.File):Bool return __self__._isZip64();

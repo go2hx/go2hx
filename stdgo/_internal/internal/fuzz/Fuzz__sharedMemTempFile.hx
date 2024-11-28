@@ -5,9 +5,9 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
         try {
             var __tmp__ = stdgo._internal.os.Os_createTemp.createTemp(stdgo.Go.str()?.__copy__(), ("fuzz-*" : stdgo.GoString)), _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : null, _1 : _err };
+                return { _0 : _m = null, _1 : _err };
             };
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if (_err != null) {
                         _f.close();
@@ -15,13 +15,13 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
                     };
                 };
                 a();
-            });
+            }));
             var _totalSize = (stdgo._internal.internal.fuzz.Fuzz__sharedMemSize._sharedMemSize(_size) : stdgo.GoInt);
             {
                 var _err = (_f.truncate((_totalSize : stdgo.GoInt64)) : stdgo.Error);
                 if (_err != null) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_sharedMem.T_sharedMem>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_sharedMem.T_sharedMem>; var _1 : stdgo.Error; } = { _0 : _m = null, _1 : _err };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -31,7 +31,12 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
             };
             var _removeOnClose = (true : Bool);
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_sharedMem.T_sharedMem>; var _1 : stdgo.Error; } = stdgo._internal.internal.fuzz.Fuzz__sharedMemMapFile._sharedMemMapFile(_f, _totalSize, _removeOnClose);
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_sharedMem.T_sharedMem>; var _1 : stdgo.Error; } = {
+                    var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__sharedMemMapFile._sharedMemMapFile(_f, _totalSize, _removeOnClose);
+                    _m = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

@@ -19,6 +19,6 @@ package stdgo._internal.encoding.hex;
             _n = (_n + ((_written / (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt);
             _p = (_p.__slice__(_chunkSize) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        return { _0 : _n, _1 : _e._err };
+        return { _0 : _n, _1 : _err = _e._err };
     }
 }

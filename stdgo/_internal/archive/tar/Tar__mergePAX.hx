@@ -69,9 +69,9 @@ function _mergePAX(_hdr:stdgo.Ref<stdgo._internal.archive.tar.Tar_Header.Header>
                 };
             };
             if (_err != null) {
-                return stdgo._internal.archive.tar.Tar_errHeader.errHeader;
+                return _err = stdgo._internal.archive.tar.Tar_errHeader.errHeader;
             };
         };
         _hdr.paxrecords = _paxHdrs;
-        return (null : stdgo.Error);
+        return _err = (null : stdgo.Error);
     }

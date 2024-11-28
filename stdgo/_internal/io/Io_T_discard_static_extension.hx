@@ -16,7 +16,7 @@ package stdgo._internal.io;
             if (_err != null) {
                 stdgo._internal.io.Io__blackHolePool._blackHolePool.put(stdgo.Go.toInterface(_bufp));
                 if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-                    return { _0 : _n, _1 : (null : stdgo.Error) };
+                    return { _0 : _n, _1 : _err = (null : stdgo.Error) };
                 };
                 return { _0 : _n, _1 : _err };
             };

@@ -6,12 +6,12 @@ function _unescapeEntity(_b:stdgo.Slice<stdgo.GoUInt8>, _dst:stdgo.GoInt, _src:s
 var _s = __1, _i = __0;
         if (((_s.length) <= (1 : stdgo.GoInt) : Bool)) {
             _b[(_dst : stdgo.GoInt)] = _b[(_src : stdgo.GoInt)];
-            return { _0 : (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
+            return { _0 : _dst1 = (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : _src1 = (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
         };
         if (_s[(_i : stdgo.GoInt)] == ((35 : stdgo.GoUInt8))) {
             if (((_s.length) <= (3 : stdgo.GoInt) : Bool)) {
                 _b[(_dst : stdgo.GoInt)] = _b[(_src : stdgo.GoInt)];
-                return { _0 : (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
+                return { _0 : _dst1 = (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : _src1 = (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
             };
             _i++;
             var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
@@ -46,14 +46,14 @@ var _s = __1, _i = __0;
             };
             if ((_i <= (3 : stdgo.GoInt) : Bool)) {
                 _b[(_dst : stdgo.GoInt)] = _b[(_src : stdgo.GoInt)];
-                return { _0 : (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
+                return { _0 : _dst1 = (_dst + (1 : stdgo.GoInt) : stdgo.GoInt), _1 : _src1 = (_src + (1 : stdgo.GoInt) : stdgo.GoInt) };
             };
             if ((((128 : stdgo.GoInt32) <= _x : Bool) && (_x <= (159 : stdgo.GoInt32) : Bool) : Bool)) {
                 _x = stdgo._internal.html.Html__replacementTable._replacementTable[((_x - (128 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)];
             } else if (((_x == ((0 : stdgo.GoInt32)) || ((((55296 : stdgo.GoInt32) <= _x : Bool) && (_x <= (57343 : stdgo.GoInt32) : Bool) : Bool)) : Bool) || (_x > (1114111 : stdgo.GoInt32) : Bool) : Bool)) {
                 _x = (65533 : stdgo.GoInt32);
             };
-            return { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : (_src + _i : stdgo.GoInt) };
+            return { _0 : _dst1 = (_dst + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : _src1 = (_src + _i : stdgo.GoInt) };
         };
         while ((_i < (_s.length) : Bool)) {
             var _c = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
@@ -70,12 +70,12 @@ var _s = __1, _i = __0;
         if ((_entityName.length) == ((0 : stdgo.GoInt))) {} else if ((((false && _entityName[((_entityName.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] != ((59 : stdgo.GoUInt8)) : Bool) && ((_s.length) > _i : Bool) : Bool) && (_s[(_i : stdgo.GoInt)] == (61 : stdgo.GoUInt8)) : Bool)) {} else {
             var _x = (stdgo._internal.html.Html__entity._entity[(_entityName : stdgo.GoString)] ?? (0 : stdgo.GoInt32) : stdgo.GoInt32);
             if (_x != ((0 : stdgo.GoInt32))) {
-                return { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : (_src + _i : stdgo.GoInt) };
+                return { _0 : _dst1 = (_dst + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : _src1 = (_src + _i : stdgo.GoInt) };
             } else {
                 var _x = (stdgo._internal.html.Html__entity2._entity2[(_entityName : stdgo.GoString)] ?? new stdgo.GoArray<stdgo.GoInt32>(2, 2, ...[for (i in 0 ... 2) (0 : stdgo.GoInt32)]))?.__copy__();
                 if (_x[(0 : stdgo.GoInt)] != ((0 : stdgo.GoInt32))) {
                     var _dst1 = (_dst + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x[(0 : stdgo.GoInt)]) : stdgo.GoInt);
-                    return { _0 : (_dst1 + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst1) : stdgo.Slice<stdgo.GoUInt8>), _x[(1 : stdgo.GoInt)]) : stdgo.GoInt), _1 : (_src + _i : stdgo.GoInt) };
+                    return { _0 : _dst1 = (_dst1 + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst1) : stdgo.Slice<stdgo.GoUInt8>), _x[(1 : stdgo.GoInt)]) : stdgo.GoInt), _1 : _src1 = (_src + _i : stdgo.GoInt) };
                 } else if (true) {
                     var _maxLen = ((_entityName.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
                     if ((_maxLen > (6 : stdgo.GoInt) : Bool)) {
@@ -87,7 +87,7 @@ var _s = __1, _i = __0;
                             {
                                 var _x = (stdgo._internal.html.Html__entity._entity[((_entityName.__slice__(0, _j) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)] ?? (0 : stdgo.GoInt32) : stdgo.GoInt32);
                                 if (_x != ((0 : stdgo.GoInt32))) {
-                                    return { _0 : (_dst + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : ((_src + _j : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
+                                    return { _0 : _dst1 = (_dst + stdgo._internal.unicode.utf8.Utf8_encodeRune.encodeRune((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), _x) : stdgo.GoInt), _1 : _src1 = ((_src + _j : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt) };
                                 };
                             };
                             _j--;

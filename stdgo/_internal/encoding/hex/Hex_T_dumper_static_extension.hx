@@ -46,7 +46,7 @@ package stdgo._internal.encoding.hex;
         @:recv var _h:stdgo.Ref<stdgo._internal.encoding.hex.Hex_T_dumper.T_dumper> = _h;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_h._closed) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("encoding/hex: dumper closed" : stdgo.GoString)) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("encoding/hex: dumper closed" : stdgo.GoString)) };
         };
         for (_i => _ in _data) {
             if (_h._used == ((0 : stdgo.GoInt))) {

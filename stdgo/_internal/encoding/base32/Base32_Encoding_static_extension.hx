@@ -44,7 +44,7 @@ package stdgo._internal.encoding.base32;
                 while ((_j < (8 : stdgo.GoInt) : Bool)) {
                     if ((_src.length) == ((0 : stdgo.GoInt))) {
                         if (_enc._padChar != ((-1 : stdgo.GoInt32))) {
-                            return { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - _j : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
+                            return { _0 : _n, _1 : _end = false, _2 : _err = stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - _j : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
                         };
                         {
                             final __tmp__0 = _j;
@@ -58,13 +58,13 @@ package stdgo._internal.encoding.base32;
                     _src = (_src.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     if (((_in == ((_enc._padChar : stdgo.GoUInt8)) && (_j >= (2 : stdgo.GoInt) : Bool) : Bool) && ((_src.length) < (8 : stdgo.GoInt) : Bool) : Bool)) {
                         if ((((_src.length) + _j : stdgo.GoInt) < (7 : stdgo.GoInt) : Bool)) {
-                            return { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((_olen : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
+                            return { _0 : _n, _1 : _end = false, _2 : _err = stdgo.Go.asInterface((_olen : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
                         };
                         {
                             var _k = (0 : stdgo.GoInt);
                             while ((_k < ((7 : stdgo.GoInt) - _j : stdgo.GoInt) : Bool)) {
                                 if ((((_src.length) > _k : Bool) && (_src[(_k : stdgo.GoInt)] != (_enc._padChar : stdgo.GoUInt8)) : Bool)) {
-                                    return { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface(((((_olen - (_src.length) : stdgo.GoInt) + _k : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
+                                    return { _0 : _n, _1 : _end = false, _2 : _err = stdgo.Go.asInterface(((((_olen - (_src.length) : stdgo.GoInt) + _k : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
                                 };
                                 _k++;
                             };
@@ -76,13 +76,13 @@ package stdgo._internal.encoding.base32;
                             _end = __tmp__1;
                         };
                         if (((_dlen == ((1 : stdgo.GoInt)) || _dlen == ((3 : stdgo.GoInt)) : Bool) || (_dlen == (6 : stdgo.GoInt)) : Bool)) {
-                            return { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
+                            return { _0 : _n, _1 : _end = false, _2 : _err = stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
                         };
                         break;
                     };
                     _dbuf[(_j : stdgo.GoInt)] = _enc._decodeMap[(_in : stdgo.GoInt)];
                     if (_dbuf[(_j : stdgo.GoInt)] == ((255 : stdgo.GoUInt8))) {
-                        return { _0 : _n, _1 : false, _2 : stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
+                        return { _0 : _n, _1 : _end = false, _2 : _err = stdgo.Go.asInterface((((_olen - (_src.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
                     };
                     _j++;
                 };
@@ -142,7 +142,7 @@ package stdgo._internal.encoding.base32;
             };
             _dsti = (_dsti + ((5 : stdgo.GoInt)) : stdgo.GoInt);
         };
-        return { _0 : _n, _1 : _end, _2 : (null : stdgo.Error) };
+        return { _0 : _n, _1 : _end, _2 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function encodedLen( _enc:stdgo.Ref<stdgo._internal.encoding.base32.Base32_Encoding.Encoding>, _n:stdgo.GoInt):stdgo.GoInt {

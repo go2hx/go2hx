@@ -10,7 +10,12 @@ package stdgo._internal.mime.multipart;
     static public function read( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>, _d:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part> = _p;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return _p._r.read(_d);
+        return {
+            var __tmp__ = _p._r.read(_d);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _populateHeaders( _p:stdgo.Ref<stdgo._internal.mime.multipart.Multipart_Part.Part>, _maxMIMEHeaderSize:stdgo.GoInt64, _maxMIMEHeaders:stdgo.GoInt64):stdgo.Error {

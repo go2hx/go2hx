@@ -13,7 +13,7 @@ package stdgo._internal.net.http;
             };
             _ctx = stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_localAddrContextKey.localAddrContextKey)), stdgo.Go.toInterface(_c._rwc.localAddr()));
             var _inFlightResponse:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = (null : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _err = ({
@@ -41,7 +41,7 @@ package stdgo._internal.net.http;
                     };
                 };
                 a();
-            });
+            }));
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c._rwc) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>), _1 : true };
@@ -296,7 +296,7 @@ package stdgo._internal.net.http;
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_T_conn.T_conn> = _c;
         var _state = ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _unixSec = (0 : stdgo.GoInt64);
         var _packedState = (_c._curState.load() : stdgo.GoUInt64);
-        return { _0 : ((_packedState & (255i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : ((_packedState >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64) };
+        return { _0 : _state = ((_packedState & (255i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : _unixSec = ((_packedState >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoInt64) };
     }
     @:keep
     static public function _setState( _c:stdgo.Ref<stdgo._internal.net.http.Http_T_conn.T_conn>, _nc:stdgo._internal.net.Net_Conn.Conn, _state:stdgo._internal.net.http.Http_ConnState.ConnState, _runHook:Bool):Void {
@@ -367,7 +367,7 @@ package stdgo._internal.net.http;
         var _w = (null : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>), _err = (null : stdgo.Error);
         try {
             if (_c._hijacked()) {
-                return { _0 : null, _1 : stdgo._internal.net.http.Http_errHijacked.errHijacked };
+                return { _0 : _w = null, _1 : _err = stdgo._internal.net.http.Http_errHijacked.errHijacked };
             };
             var __0:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time), __1:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
 var _hdrDeadline = __1, _wholeReqDeadline = __0;
@@ -388,12 +388,12 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             {
                 var _d = (_c._server.writeTimeout : stdgo._internal.time.Time_Duration.Duration);
                 if ((_d > (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
-                    __deferstack__.unshift(() -> {
+                    __deferstack__.unshift(() -> ({
                         var a = function():Void {
                             _c._rwc.setWriteDeadline(stdgo._internal.time.Time_now.now().add(_d)?.__copy__());
                         };
                         a();
-                    });
+                    }));
                 };
             };
             _c._r._setReadLimit(_c._server._initialReadLimitSize());
@@ -405,7 +405,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             if (_err != null) {
                 if (_c._r._hitReadLimit()) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__errTooLarge._errTooLarge };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : _w = null, _1 : _err = stdgo._internal.net.http.Http__errTooLarge._errTooLarge };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -413,7 +413,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
                     };
                 };
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : _w = null, _1 : _err };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -422,7 +422,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             };
             if (!stdgo._internal.net.http.Http__http1ServerSupportsRequest._http1ServerSupportsRequest(_req)) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_statusError.T_statusError((505 : stdgo.GoInt), ("unsupported protocol version" : stdgo.GoString)) : stdgo._internal.net.http.Http_T_statusError.T_statusError)) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : _w = null, _1 : _err = stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_statusError.T_statusError((505 : stdgo.GoInt), ("unsupported protocol version" : stdgo.GoString)) : stdgo._internal.net.http.Http_T_statusError.T_statusError)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -435,7 +435,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             var _isH2Upgrade = (_req._isH2Upgrade() : Bool);
             if ((((_req.protoAtLeast((1 : stdgo.GoInt), (1 : stdgo.GoInt)) && ((!_haveHost || (_hosts.length == (0 : stdgo.GoInt)) : Bool)) : Bool) && !_isH2Upgrade : Bool) && (_req.method != ("CONNECT" : stdgo.GoString)) : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badRequestError._badRequestError(("missing required Host header" : stdgo.GoString)) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : _w = null, _1 : _err = stdgo._internal.net.http.Http__badRequestError._badRequestError(("missing required Host header" : stdgo.GoString)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -444,7 +444,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             };
             if (((_hosts.length == (1 : stdgo.GoInt)) && !_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHostHeader.validHostHeader(_hosts[(0 : stdgo.GoInt)]?.__copy__()) : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badRequestError._badRequestError(("malformed Host header" : stdgo.GoString)) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : _w = null, _1 : _err = stdgo._internal.net.http.Http__badRequestError._badRequestError(("malformed Host header" : stdgo.GoString)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -454,7 +454,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             for (_k => _vv in _req.header) {
                 if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldName.validHeaderFieldName(_k?.__copy__())) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badRequestError._badRequestError(("invalid header name" : stdgo.GoString)) };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : _w = null, _1 : _err = stdgo._internal.net.http.Http__badRequestError._badRequestError(("invalid header name" : stdgo.GoString)) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -464,7 +464,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
                 for (__34480 => _v in _vv) {
                     if (!_internal.golang_dot_org.x.net.http.httpguts.Httpguts_validHeaderFieldValue.validHeaderFieldValue(_v?.__copy__())) {
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badRequestError._badRequestError(("invalid header value" : stdgo.GoString)) };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : _w = null, _1 : _err = stdgo._internal.net.http.Http__badRequestError._badRequestError(("invalid header value" : stdgo.GoString)) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -503,7 +503,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             _w._cw._res = _w;
             _w._w = stdgo._internal.net.http.Http__newBufioWriterSize._newBufioWriterSize(stdgo.Go.asInterface((stdgo.Go.setRef(_w._cw) : stdgo.Ref<stdgo._internal.net.http.Http_T_chunkWriter.T_chunkWriter>)), (2048 : stdgo.GoInt));
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : _w, _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>; var _1 : stdgo.Error; } = { _0 : _w, _1 : _err = (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -538,7 +538,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_T_conn.T_conn> = _c;
         var _rwc = (null : stdgo._internal.net.Net_Conn.Conn), _buf = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_ReadWriter.ReadWriter>), _err = (null : stdgo.Error);
         if (_c._hijackedv) {
-            return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : null, _2 : stdgo._internal.net.http.Http_errHijacked.errHijacked };
+            return { _0 : _rwc = (null : stdgo._internal.net.Net_Conn.Conn), _1 : _buf = null, _2 : _err = stdgo._internal.net.http.Http_errHijacked.errHijacked };
         };
         _c._r._abortPendingRead();
         _c._hijackedv = true;
@@ -549,7 +549,7 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             {
                 var __tmp__ = _c._bufr.peek((_c._bufr.buffered() + (1 : stdgo.GoInt) : stdgo.GoInt)), __34316:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    return { _0 : (null : stdgo._internal.net.Net_Conn.Conn), _1 : null, _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("unexpected Peek failure reading buffered byte: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
+                    return { _0 : _rwc = (null : stdgo._internal.net.Net_Conn.Conn), _1 : _buf = null, _2 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("unexpected Peek failure reading buffered byte: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                 };
             };
         };

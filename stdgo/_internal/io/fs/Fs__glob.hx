@@ -10,7 +10,7 @@ function _glob(_fs:stdgo._internal.io.fs.Fs_FS.FS, _dir:stdgo.GoString, _pattern
             var _n = (_info.name()?.__copy__() : stdgo.GoString);
             var __tmp__ = stdgo._internal.path.Path_match.match(_pattern?.__copy__(), _n?.__copy__()), _matched:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : _m, _1 : _err };
+                return { _0 : _m, _1 : _e = _err };
             };
             if (_matched) {
                 _m = (_m.__append__(stdgo._internal.path.Path_join.join(_dir?.__copy__(), _n?.__copy__())?.__copy__()));

@@ -11,7 +11,12 @@ package stdgo._internal.net.http;
         if (!_pr._sentResponse) {
             _pr._sendResponse();
         };
-        return _pr._pw.write(_p);
+        return {
+            var __tmp__ = _pr._pw.write(_p);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function writeHeader( _pr:stdgo.Ref<stdgo._internal.net.http.Http_T_populateResponse.T_populateResponse>, _code:stdgo.GoInt):Void {

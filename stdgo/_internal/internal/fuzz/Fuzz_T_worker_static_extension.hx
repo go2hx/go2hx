@@ -32,13 +32,13 @@ package stdgo._internal.internal.fuzz;
             };
         };
         var _closeC = (new stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy>(0, () -> ({} : stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy)) : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy>);
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function():Void {
                 _w._client.close();
                 if (_closeC != null) _closeC.__close__();
             };
             a();
-        });
+        }));
         var _sig = (stdgo._internal.os.Os_interrupt.interrupt : stdgo._internal.os.Os_Signal.Signal);
         if (false) {
             _sig = stdgo._internal.os.Os_kill.kill;
@@ -139,15 +139,15 @@ package stdgo._internal.internal.fuzz;
             var _comm = ({ _fuzzIn : _fuzzInW, _fuzzOut : _fuzzOutR, _memMu : _w._memMu } : stdgo._internal.internal.fuzz.Fuzz_T_workerComm.T_workerComm);
             var _m = stdgo._internal.internal.fuzz.Fuzz__newMutator._newMutator();
             _w._client = stdgo._internal.internal.fuzz.Fuzz__newWorkerClient._newWorkerClient(_comm?.__copy__(), _m);
-            stdgo.Go.routine(() -> {
+            stdgo.Go.routine(() -> ({
                 var a = function():Void {
                     _w._waitErr = _w._cmd.wait_();
                     if (_w._termC != null) _w._termC.__close__();
                 };
                 a();
-            });
+            }));
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
+                final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -228,7 +228,7 @@ package stdgo._internal.internal.fuzz;
                 _w._stop();
                 if (((_ctx.err() != null || _w._interrupted : Bool) || stdgo._internal.internal.fuzz.Fuzz__isInterruptError._isInterruptError(_w._waitErr) : Bool)) {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _input._entry?.__copy__(), _crasherMsg : _input._crasherMsg?.__copy__(), _coverageData : _input._keepCoverage, _canMinimize : false, _limit : _input._limit } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : (null : stdgo.Error) };
+                        final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : _min = ({ _entry : _input._entry?.__copy__(), _crasherMsg : _input._crasherMsg?.__copy__(), _coverageData : _input._keepCoverage, _canMinimize : false, _limit : _input._limit } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : _err = (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -236,7 +236,7 @@ package stdgo._internal.internal.fuzz;
                     };
                 };
                 {
-                    final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _entry?.__copy__(), _crasherMsg : stdgo._internal.fmt.Fmt_sprintf.sprintf(("fuzzing process hung or terminated unexpectedly while minimizing: %v" : stdgo.GoString), stdgo.Go.toInterface(_err))?.__copy__(), _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : (null : stdgo.Error) };
+                    final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : _min = ({ _entry : _entry?.__copy__(), _crasherMsg : stdgo._internal.fmt.Fmt_sprintf.sprintf(("fuzzing process hung or terminated unexpectedly while minimizing: %v" : stdgo.GoString), stdgo.Go.toInterface(_err))?.__copy__(), _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : _err = (null : stdgo.Error) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -245,7 +245,7 @@ package stdgo._internal.internal.fuzz;
             };
             if (((_input._crasherMsg != stdgo.Go.str()) && (_resp.err == stdgo.Go.str()) : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : (new stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult() : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("attempted to minimize a crash but could not reproduce" : stdgo.GoString)) };
+                    final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : _min = (new stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult() : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("attempted to minimize a crash but could not reproduce" : stdgo.GoString)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -253,7 +253,7 @@ package stdgo._internal.internal.fuzz;
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : ({ _entry : _entry?.__copy__(), _crasherMsg : _resp.err?.__copy__(), _coverageData : _resp.coverageData, _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult; var _1 : stdgo.Error; } = { _0 : _min = ({ _entry : _entry?.__copy__(), _crasherMsg : _resp.err?.__copy__(), _coverageData : _resp.coverageData, _canMinimize : false, _limit : _input._limit, _count : _resp.count, _totalDuration : _resp.duration } : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult), _1 : _err = (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };

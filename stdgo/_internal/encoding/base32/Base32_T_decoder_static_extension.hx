@@ -8,12 +8,12 @@ package stdgo._internal.encoding.base32;
             _n = stdgo.Go.copySlice(_p, _d._out);
             _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             if ((_d._out.length) == ((0 : stdgo.GoInt))) {
-                return { _0 : _n, _1 : _d._err };
+                return { _0 : _n, _1 : _err = _d._err };
             };
-            return { _0 : _n, _1 : (null : stdgo.Error) };
+            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
         };
         if (_d._err != null) {
-            return { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _d._err };
         };
         var _nn = (((_p.length) / (5 : stdgo.GoInt) : stdgo.GoInt) * (8 : stdgo.GoInt) : stdgo.GoInt);
         if ((_nn < (8 : stdgo.GoInt) : Bool)) {
@@ -38,10 +38,10 @@ package stdgo._internal.encoding.base32;
         };
         _d._nbuf = (_d._nbuf + (_nn) : stdgo.GoInt);
         if ((_d._nbuf < _min : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : _d._err };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _d._err };
         };
         if (((_nn > (0 : stdgo.GoInt) : Bool) && _d._end : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((0i64 : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo.Go.asInterface((0i64 : stdgo._internal.encoding.base32.Base32_CorruptInputError.CorruptInputError)) };
         };
         var _nr:stdgo.GoInt = (0 : stdgo.GoInt);
         if (_d._enc._padChar == ((-1 : stdgo.GoInt32))) {
@@ -80,8 +80,8 @@ package stdgo._internal.encoding.base32;
             _d._err = _err;
         };
         if (((_d._out.length) > (0 : stdgo.GoInt) : Bool)) {
-            return { _0 : _n, _1 : (null : stdgo.Error) };
+            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
         };
-        return { _0 : _n, _1 : _d._err };
+        return { _0 : _n, _1 : _err = _d._err };
     }
 }

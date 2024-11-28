@@ -46,7 +46,7 @@ if (_got != (_want)) {
                     _prec++;
                 };
             };
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var __tmp__ = try {
@@ -64,7 +64,7 @@ if (_got != (_want)) {
                     };
                 };
                 a();
-            });
+            }));
             var _f:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
             _f.setFloat64(stdgo._internal.math.Math_naN.naN());
             _t.errorf(("got %s; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(_f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))));

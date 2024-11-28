@@ -117,7 +117,7 @@ package stdgo._internal.text.tabwriter;
             };
             _b._flushNoDefers();
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
+                final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -280,7 +280,7 @@ _line0 = _this;
                 _this++;
             };
         };
-        return _b._writeLines(_pos, _line0, _line1);
+        return _pos = _b._writeLines(_pos, _line0, _line1);
     }
     @:keep
     static public function _writeLines( _b:stdgo.Ref<stdgo._internal.text.tabwriter.Tabwriter_Writer.Writer>, _pos0:stdgo.GoInt, _line0:stdgo.GoInt, _line1:stdgo.GoInt):stdgo.GoInt {

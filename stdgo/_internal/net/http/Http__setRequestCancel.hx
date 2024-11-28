@@ -2,13 +2,13 @@ package stdgo._internal.net.http;
 function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _rt:stdgo._internal.net.http.Http_RoundTripper.RoundTripper, _deadline:stdgo._internal.time.Time_Time.Time):{ var _0 : () -> Void; var _1 : () -> Bool; } {
         var _stopTimer = null, _didTimeout = null;
         if (_deadline.isZero()) {
-            return { _0 : stdgo._internal.net.http.Http__nop._nop, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse };
+            return { _0 : _stopTimer = stdgo._internal.net.http.Http__nop._nop, _1 : _didTimeout = stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse };
         };
         var _knownTransport = (stdgo._internal.net.http.Http__knownRoundTripperImpl._knownRoundTripperImpl(_rt, _req) : Bool);
         var _oldCtx = (_req.context() : stdgo._internal.context.Context_Context.Context);
         if (((_req.cancel == null) && _knownTransport : Bool)) {
             if (!stdgo._internal.net.http.Http__timeBeforeContextDeadline._timeBeforeContextDeadline(_deadline?.__copy__(), _oldCtx)) {
-                return { _0 : stdgo._internal.net.http.Http__nop._nop, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse };
+                return { _0 : _stopTimer = stdgo._internal.net.http.Http__nop._nop, _1 : _didTimeout = stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse };
             };
             var _cancelCtx:() -> Void = null;
             {
@@ -16,7 +16,7 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
                 _req._ctx = __tmp__._0;
                 _cancelCtx = __tmp__._1;
             };
-            return { _0 : _cancelCtx, _1 : function():Bool {
+            return { _0 : _stopTimer = _cancelCtx, _1 : _didTimeout = function():Bool {
                 return stdgo._internal.time.Time_now.now().after(_deadline?.__copy__());
             } };
         };
@@ -57,7 +57,7 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
         };
         var _timer = stdgo._internal.time.Time_newTimer.newTimer(stdgo._internal.time.Time_until.until(_deadline?.__copy__()));
         var _timedOut:stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_ = ({} : stdgo._internal.sync.atomic_.Atomic__Bool_.Bool_);
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function():Void {
                 {
                     var __select__ = true;
@@ -95,6 +95,6 @@ function _setRequestCancel(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.
                 };
             };
             a();
-        });
-        return { _0 : _stopTimer, _1 : _timedOut.load };
+        }));
+        return { _0 : _stopTimer, _1 : _didTimeout = _timedOut.load };
     }

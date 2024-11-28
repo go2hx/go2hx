@@ -5,6 +5,6 @@ package stdgo._internal.image.color;
         @:recv var _c:stdgo._internal.image.color.Color_Alpha16.Alpha16 = _c?.__copy__();
         var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
         _a = (_c.a : stdgo.GoUInt32);
-        return { _0 : _a, _1 : _a, _2 : _a, _3 : _a };
+        return { _0 : _r = _a, _1 : _g = _a, _2 : _b = _a, _3 : _a };
     }
 }

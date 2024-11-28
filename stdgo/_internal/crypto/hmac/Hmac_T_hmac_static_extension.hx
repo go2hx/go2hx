@@ -58,7 +58,12 @@ package stdgo._internal.crypto.hmac;
     static public function write( _h:stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _h:stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac> = _h;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return _h._inner.write(_p);
+        return {
+            var __tmp__ = _h._inner.write(_p);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function sum( _h:stdgo.Ref<stdgo._internal.crypto.hmac.Hmac_T_hmac.T_hmac>, _in:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo.GoUInt8> {

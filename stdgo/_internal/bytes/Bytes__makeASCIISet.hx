@@ -6,11 +6,11 @@ function _makeASCIISet(_chars:stdgo.GoString):{ var _0 : stdgo._internal.bytes.B
             while ((_i < (_chars.length) : Bool)) {
                 var _c = (_chars[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
 if ((_c >= (128 : stdgo.GoUInt8) : Bool)) {
-                    return { _0 : _as.__copy__(), _1 : false };
+                    return { _0 : _as = _as.__copy__(), _1 : _ok = false };
                 };
 _as[((_c / (32 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)] = (_as[((_c / (32 : stdgo.GoUInt8) : stdgo.GoUInt8) : stdgo.GoInt)] | (((1u32 : stdgo.GoUInt32) << ((_c % (32 : stdgo.GoUInt8) : stdgo.GoUInt8)) : stdgo.GoUInt32)) : stdgo.GoUInt32);
                 _i++;
             };
         };
-        return { _0 : _as?.__copy__(), _1 : true };
+        return { _0 : _as = _as?.__copy__(), _1 : _ok = true };
     }

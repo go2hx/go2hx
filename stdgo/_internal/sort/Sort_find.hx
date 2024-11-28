@@ -11,5 +11,5 @@ var _j = __1, _i = __0;
                 _j = _h;
             };
         };
-        return { _0 : _i, _1 : ((_i < _n : Bool) && (_cmp(_i) == (0 : stdgo.GoInt)) : Bool) };
+        return { _0 : _i, _1 : _found = ((_i < _n : Bool) && (_cmp(_i) == (0 : stdgo.GoInt)) : Bool) };
     }

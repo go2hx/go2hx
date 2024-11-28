@@ -31,6 +31,6 @@ package stdgo._internal.net.rpc;
                 return _err;
             };
         };
-        return _c._encBuf.flush();
+        return _err = _c._encBuf.flush();
     }
 }

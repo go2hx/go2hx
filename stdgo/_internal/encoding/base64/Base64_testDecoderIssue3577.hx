@@ -7,13 +7,13 @@ function testDecoderIssue3577(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
         _next.__send__((new stdgo._internal.encoding.base64.Base64_T_nextRead.T_nextRead((0 : stdgo.GoInt), _wantErr) : stdgo._internal.encoding.base64.Base64_T_nextRead.T_nextRead));
         var _d = (stdgo._internal.encoding.base64.Base64_newDecoder.newDecoder(stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, stdgo.Go.asInterface((stdgo.Go.setRef(({ _source : ("VHdhcyBicmlsbGlnLCBhbmQgdGhlIHNsaXRoeSB0b3Zlcw==" : stdgo.GoString), _nextc : _next } : stdgo._internal.encoding.base64.Base64_T_faultInjectReader.T_faultInjectReader)) : stdgo.Ref<stdgo._internal.encoding.base64.Base64_T_faultInjectReader.T_faultInjectReader>))) : stdgo._internal.io.Io_Reader.Reader);
         var _errc = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function():Void {
                 var __tmp__ = stdgo._internal.io.Io_readAll.readAll(_d), __0:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 _errc.__send__(_err);
             };
             a();
-        });
+        }));
         {
             var __select__ = true;
             while (__select__) {

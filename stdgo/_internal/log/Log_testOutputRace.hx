@@ -7,7 +7,7 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (100 : stdgo.GoInt) : Bool)) {
-                stdgo.Go.routine(() -> {
+                stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
@@ -37,7 +37,7 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                         };
                     };
                     a();
-                });
+                }));
                 _i++;
             };
         };

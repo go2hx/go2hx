@@ -10,7 +10,7 @@ package stdgo._internal.compress.bzip2;
         _bz2._fileCRC = ((((_bz2._fileCRC << (1i64 : stdgo.GoUInt64) : stdgo.GoUInt32) | (_bz2._fileCRC >> (31i64 : stdgo.GoUInt64) : stdgo.GoUInt32) : stdgo.GoUInt32)) ^ _bz2._wantBlockCRC : stdgo.GoUInt32);
         var _randomized = (_br.readBits((1u32 : stdgo.GoUInt)) : stdgo.GoInt);
         if (_randomized != ((0 : stdgo.GoInt))) {
-            return stdgo.Go.asInterface((("deprecated randomized files" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+            return _err = stdgo.Go.asInterface((("deprecated randomized files" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
         };
         var _origPtr = (_br.readBits((24u32 : stdgo.GoUInt)) : stdgo.GoUInt);
         var _symbolRangeUsedBitmap = (_br.readBits((16u32 : stdgo.GoUInt)) : stdgo.GoInt);
@@ -36,11 +36,11 @@ package stdgo._internal.compress.bzip2;
             };
         };
         if (_numSymbols == ((0 : stdgo.GoInt))) {
-            return stdgo.Go.asInterface((("no symbols in input" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+            return _err = stdgo.Go.asInterface((("no symbols in input" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
         };
         var _numHuffmanTrees = (_br.readBits((3u32 : stdgo.GoUInt)) : stdgo.GoInt);
         if (((_numHuffmanTrees < (2 : stdgo.GoInt) : Bool) || (_numHuffmanTrees > (6 : stdgo.GoInt) : Bool) : Bool)) {
-            return stdgo.Go.asInterface((("invalid number of Huffman trees" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+            return _err = stdgo.Go.asInterface((("invalid number of Huffman trees" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
         };
         var _numSelectors = (_br.readBits((15u32 : stdgo.GoUInt)) : stdgo.GoInt);
         var _treeIndexes = (new stdgo.Slice<stdgo.GoUInt8>((_numSelectors : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
@@ -55,7 +55,7 @@ package stdgo._internal.compress.bzip2;
                 _c++;
             };
             if ((_c >= _numHuffmanTrees : Bool)) {
-                return stdgo.Go.asInterface((("tree index too large" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+                return _err = stdgo.Go.asInterface((("tree index too large" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
             };
             _treeIndexes[(_i : stdgo.GoInt)] = _mtfTreeDecoder.decode(_c);
         };
@@ -80,7 +80,7 @@ package stdgo._internal.compress.bzip2;
             for (_j => _ in _lengths) {
                 while (true) {
                     if (((_length < (1 : stdgo.GoInt) : Bool) || (_length > (20 : stdgo.GoInt) : Bool) : Bool)) {
-                        return stdgo.Go.asInterface((("Huffman length out of range" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+                        return _err = stdgo.Go.asInterface((("Huffman length out of range" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
                     };
                     if (!_br.readBit()) {
                         break;
@@ -104,10 +104,10 @@ package stdgo._internal.compress.bzip2;
         };
         var _selectorIndex = (1 : stdgo.GoInt);
         if ((_treeIndexes.length) == ((0 : stdgo.GoInt))) {
-            return stdgo.Go.asInterface((("no tree selectors given" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+            return _err = stdgo.Go.asInterface((("no tree selectors given" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
         };
         if (((_treeIndexes[(0 : stdgo.GoInt)] : stdgo.GoInt) >= (_huffmanTrees.length) : Bool)) {
-            return stdgo.Go.asInterface((("tree selector out of range" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+            return _err = stdgo.Go.asInterface((("tree selector out of range" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
         };
         var _currentHuffmanTree = (_huffmanTrees[(_treeIndexes[(0 : stdgo.GoInt)] : stdgo.GoInt)] : stdgo._internal.compress.bzip2.Bzip2_T_huffmanTree.T_huffmanTree);
         var _bufIndex = (0 : stdgo.GoInt);
@@ -120,10 +120,10 @@ package stdgo._internal.compress.bzip2;
         while (true) {
             if (_decoded == ((50 : stdgo.GoInt))) {
                 if ((_selectorIndex >= _numSelectors : Bool)) {
-                    return stdgo.Go.asInterface((("insufficient selector indices for number of symbols" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+                    return _err = stdgo.Go.asInterface((("insufficient selector indices for number of symbols" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
                 };
                 if (((_treeIndexes[(_selectorIndex : stdgo.GoInt)] : stdgo.GoInt) >= (_huffmanTrees.length) : Bool)) {
-                    return stdgo.Go.asInterface((("tree selector out of range" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+                    return _err = stdgo.Go.asInterface((("tree selector out of range" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
                 };
                 _currentHuffmanTree = _huffmanTrees[(_treeIndexes[(_selectorIndex : stdgo.GoInt)] : stdgo.GoInt)];
                 _selectorIndex++;
@@ -138,13 +138,13 @@ package stdgo._internal.compress.bzip2;
                 _repeat = (_repeat + ((_repeatPower << _v : stdgo.GoInt)) : stdgo.GoInt);
                 _repeatPower = (_repeatPower << ((1i64 : stdgo.GoUInt64)) : stdgo.GoInt);
                 if ((_repeat > (2097152 : stdgo.GoInt) : Bool)) {
-                    return stdgo.Go.asInterface((("repeat count too large" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+                    return _err = stdgo.Go.asInterface((("repeat count too large" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
                 };
                 continue;
             };
             if ((_repeat > (0 : stdgo.GoInt) : Bool)) {
                 if ((_repeat > (_bz2._blockSize - _bufIndex : stdgo.GoInt) : Bool)) {
-                    return stdgo.Go.asInterface((("repeats past end of block" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+                    return _err = stdgo.Go.asInterface((("repeats past end of block" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
                 };
                 {
                     var _i = (0 : stdgo.GoInt);
@@ -163,14 +163,14 @@ _bufIndex++;
             };
             var _b = (_mtf.decode(((_v - (1 : stdgo.GoUInt16) : stdgo.GoUInt16) : stdgo.GoInt)) : stdgo.GoUInt8);
             if ((_bufIndex >= _bz2._blockSize : Bool)) {
-                return stdgo.Go.asInterface((("data exceeds block size" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+                return _err = stdgo.Go.asInterface((("data exceeds block size" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
             };
             _bz2._tt[(_bufIndex : stdgo.GoInt)] = (_b : stdgo.GoUInt32);
             _bz2._c[(_b : stdgo.GoInt)]++;
             _bufIndex++;
         };
         if ((_origPtr >= (_bufIndex : stdgo.GoUInt) : Bool)) {
-            return stdgo.Go.asInterface((("origPtr out of bounds" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
+            return _err = stdgo.Go.asInterface((("origPtr out of bounds" : stdgo.GoString) : stdgo._internal.compress.bzip2.Bzip2_StructuralError.StructuralError));
         };
         _bz2._preRLE = (_bz2._tt.__slice__(0, _bufIndex) : stdgo.Slice<stdgo.GoUInt32>);
         _bz2._preRLEUsed = (0 : stdgo.GoInt);
@@ -178,7 +178,7 @@ _bufIndex++;
         _bz2._lastByte = (-1 : stdgo.GoInt);
         _bz2._byteRepeats = (0u32 : stdgo.GoUInt);
         _bz2._repeats = (0u32 : stdgo.GoUInt);
-        return (null : stdgo.Error);
+        return _err = (null : stdgo.Error);
     }
     @:keep
     static public function _read( _bz2:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_reader.T_reader>, _buf:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
@@ -285,7 +285,7 @@ _bufIndex++;
         @:recv var _bz2:stdgo.Ref<stdgo._internal.compress.bzip2.Bzip2_T_reader.T_reader> = _bz2;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_bz2._eof) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
         };
         if (!_bz2._setupDone) {
             _err = _bz2._setup(true);
@@ -294,7 +294,7 @@ _bufIndex++;
                 _err = _brErr;
             };
             if (_err != null) {
-                return { _0 : (0 : stdgo.GoInt), _1 : _err };
+                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err };
             };
             _bz2._setupDone = true;
         };

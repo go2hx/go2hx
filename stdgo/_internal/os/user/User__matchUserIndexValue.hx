@@ -17,13 +17,13 @@ function _matchUserIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._in
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_parts[(2 : stdgo.GoInt)]?.__copy__()), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    return { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };
+                    return { _0 : _v = (null : stdgo.AnyInterface), _1 : _err = (null : stdgo.Error) };
                 };
             };
             {
                 var __tmp__ = stdgo._internal.strconv.Strconv_atoi.atoi(_parts[(3 : stdgo.GoInt)]?.__copy__()), __1:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    return { _0 : (null : stdgo.AnyInterface), _1 : (null : stdgo.Error) };
+                    return { _0 : _v = (null : stdgo.AnyInterface), _1 : _err = (null : stdgo.Error) };
                 };
             };
             var _u = (stdgo.Go.setRef(({ username : _parts[(0 : stdgo.GoInt)]?.__copy__(), uid : _parts[(2 : stdgo.GoInt)]?.__copy__(), gid : _parts[(3 : stdgo.GoInt)]?.__copy__(), name : _parts[(4 : stdgo.GoInt)]?.__copy__(), homeDir : _parts[(5 : stdgo.GoInt)]?.__copy__() } : stdgo._internal.os.user.User_User.User)) : stdgo.Ref<stdgo._internal.os.user.User_User.User>);
@@ -31,6 +31,6 @@ function _matchUserIndexValue(_value:stdgo.GoString, _idx:stdgo.GoInt):stdgo._in
                 var __tmp__ = stdgo._internal.strings.Strings_cut.cut(_u.name?.__copy__(), ("," : stdgo.GoString));
                 _u.name = __tmp__._0?.__copy__();
             };
-            return { _0 : stdgo.Go.toInterface(stdgo.Go.asInterface(_u)), _1 : (null : stdgo.Error) };
+            return { _0 : _v = stdgo.Go.toInterface(stdgo.Go.asInterface(_u)), _1 : _err = (null : stdgo.Error) };
         };
     }

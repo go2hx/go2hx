@@ -14,11 +14,11 @@ package stdgo._internal.net.http;
         };
         if (_cr._hitReadLimit()) {
             _cr._unlock();
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
         };
         if ((_p.length) == ((0 : stdgo.GoInt))) {
             _cr._unlock();
-            return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
         };
         if (((_p.length : stdgo.GoInt64) > _cr._remain : Bool)) {
             _p = (_p.__slice__(0, _cr._remain) : stdgo.Slice<stdgo.GoUInt8>);
@@ -27,7 +27,7 @@ package stdgo._internal.net.http;
             _p[(0 : stdgo.GoInt)] = _cr._byteBuf[(0 : stdgo.GoInt)];
             _cr._hasByte = false;
             _cr._unlock();
-            return { _0 : (1 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+            return { _0 : _n = (1 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
         };
         _cr._inRead = true;
         _cr._unlock();

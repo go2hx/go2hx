@@ -10,7 +10,7 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
             } else {
                 _z = stdgo._internal.reflect.Reflect_zero.zero(_typ)?.__copy__();
             };
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _e = ({
@@ -27,9 +27,9 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
                     };
                 };
                 a();
-            });
+            }));
             {
-                final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _value == (((stdgo.Go.typeAssert((_z.interface_() : stdgo._internal.flag.Flag_Value.Value)) : stdgo._internal.flag.Flag_Value.Value).string() : stdgo.GoString)), _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _ok = _value == (((stdgo.Go.typeAssert((_z.interface_() : stdgo._internal.flag.Flag_Value.Value)) : stdgo._internal.flag.Flag_Value.Value).string() : stdgo.GoString)), _1 : _err = (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };

@@ -12,5 +12,5 @@ function _getLine(_data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Slice<stdgo
                 _i--;
             };
         };
-        return { _0 : stdgo._internal.bytes.Bytes_trimRight.trimRight((_data.__slice__((0 : stdgo.GoInt), _i) : stdgo.Slice<stdgo.GoUInt8>), (" \t" : stdgo.GoString)), _1 : (_data.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>) };
+        return { _0 : _line = stdgo._internal.bytes.Bytes_trimRight.trimRight((_data.__slice__((0 : stdgo.GoInt), _i) : stdgo.Slice<stdgo.GoUInt8>), (" \t" : stdgo.GoString)), _1 : _rest = (_data.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>) };
     }

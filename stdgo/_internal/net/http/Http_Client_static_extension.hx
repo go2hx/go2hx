@@ -21,15 +21,25 @@ package stdgo._internal.net.http;
         var _resp = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _err = (null : stdgo.Error);
         var __tmp__ = stdgo._internal.net.http.Http_newRequest.newRequest(("HEAD" : stdgo.GoString), _url?.__copy__(), (null : stdgo._internal.io.Io_Reader.Reader)), _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : null, _1 : _err };
+            return { _0 : _resp = null, _1 : _err };
         };
-        return _c.do_(_req);
+        return {
+            var __tmp__ = _c.do_(_req);
+            _resp = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function postForm( _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client>, _url:stdgo.GoString, _data:stdgo._internal.net.url.Url_Values.Values):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client> = _c;
         var _resp = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _err = (null : stdgo.Error);
-        return _c.post(_url?.__copy__(), ("application/x-www-form-urlencoded" : stdgo.GoString), stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(_data.encode()?.__copy__())));
+        return {
+            var __tmp__ = _c.post(_url?.__copy__(), ("application/x-www-form-urlencoded" : stdgo.GoString), stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(_data.encode()?.__copy__())));
+            _resp = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function post( _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client>, _url:stdgo.GoString, _contentType:stdgo.GoString, _body:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } {
@@ -37,10 +47,15 @@ package stdgo._internal.net.http;
         var _resp = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _err = (null : stdgo.Error);
         var __tmp__ = stdgo._internal.net.http.Http_newRequest.newRequest(("POST" : stdgo.GoString), _url?.__copy__(), _body), _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : null, _1 : _err };
+            return { _0 : _resp = null, _1 : _err };
         };
         _req.header.set(("Content-Type" : stdgo.GoString), _contentType?.__copy__());
-        return _c.do_(_req);
+        return {
+            var __tmp__ = _c.do_(_req);
+            _resp = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _makeHeadersCopier( _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client>, _ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> -> Void {
@@ -99,17 +114,17 @@ var _icookies = __1, _ireqhdr = __0;
         var _retres = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _reterr = (null : stdgo.Error);
         try {
             if (stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult != null) {
-                __deferstack__.unshift(() -> {
+                __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult(_retres, _reterr);
                     };
                     a();
-                });
+                }));
             };
             if ((_req.url == null || (_req.url : Dynamic).__nil__)) {
                 _req._closeBody();
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : stdgo._internal.net.http.Http__urlErrorOp._urlErrorOp(_req.method?.__copy__())?.__copy__(), err : stdgo._internal.errors.Errors_new_.new_(("http: nil Request.URL" : stdgo.GoString)) } : stdgo._internal.net.url.Url_Error.Error)) : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>)) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _retres = null, _1 : _reterr = stdgo.Go.asInterface((stdgo.Go.setRef(({ op : stdgo._internal.net.http.Http__urlErrorOp._urlErrorOp(_req.method?.__copy__())?.__copy__(), err : stdgo._internal.errors.Errors_new_.new_(("http: nil Request.URL" : stdgo.GoString)) } : stdgo._internal.net.url.Url_Error.Error)) : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -135,7 +150,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                     var _loc = (_resp.header.get(("Location" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     if (_loc == (stdgo.Go.str())) {
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : (null : stdgo.Error) };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _retres = _resp, _1 : _reterr = (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -146,7 +161,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                     if (_err != null) {
                         _resp._closeBody();
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _uerr(stdgo._internal.fmt.Fmt_errorf.errorf(("failed to parse Location header %q: %v" : stdgo.GoString), stdgo.Go.toInterface(_loc), stdgo.Go.toInterface(_err))) };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _retres = null, _1 : _reterr = _uerr(stdgo._internal.fmt.Fmt_errorf.errorf(("failed to parse Location header %q: %v" : stdgo.GoString), stdgo.Go.toInterface(_loc), stdgo.Go.toInterface(_err))) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -178,7 +193,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                         if (_err != null) {
                             _resp._closeBody();
                             {
-                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _uerr(_err) };
+                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _retres = null, _1 : _reterr = _uerr(_err) };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
@@ -197,7 +212,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                     _err = _c._checkRedirect(_req, _reqs);
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.net.http.Http_errUseLastResponse.errUseLastResponse))) {
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : (null : stdgo.Error) };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _retres = _resp, _1 : _reterr = (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -213,7 +228,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                         var _ue = (_uerr(_err) : stdgo.Error);
                         (stdgo.Go.typeAssert((stdgo.Go.toInterface(_ue) : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>)) : stdgo.Ref<stdgo._internal.net.url.Url_Error.Error>).url = _loc?.__copy__();
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _ue };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _retres = _resp, _1 : _reterr = _ue };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -237,7 +252,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                             _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ _err : (_err.error() + (" (Client.Timeout exceeded while awaiting headers)" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__(), _timeout : true } : stdgo._internal.net.http.Http_T_httpError.T_httpError)) : stdgo.Ref<stdgo._internal.net.http.Http_T_httpError.T_httpError>));
                         };
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _uerr(_err) };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _retres = null, _1 : _reterr = _uerr(_err) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -254,7 +269,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                 };
                 if (!_shouldRedirect) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : (null : stdgo.Error) };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _retres = _resp, _1 : _reterr = (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -307,9 +322,14 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
         var _resp = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _err = (null : stdgo.Error);
         var __tmp__ = stdgo._internal.net.http.Http_newRequest.newRequest(("GET" : stdgo.GoString), _url?.__copy__(), (null : stdgo._internal.io.Io_Reader.Reader)), _req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : null, _1 : _err };
+            return { _0 : _resp = null, _1 : _err };
         };
-        return _c.do_(_req);
+        return {
+            var __tmp__ = _c.do_(_req);
+            _resp = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _transport( _c:stdgo.Ref<stdgo._internal.net.http.Http_Client.Client>):stdgo._internal.net.http.Http_RoundTripper.RoundTripper {
@@ -343,7 +363,7 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
             _err = __tmp__._2;
         };
         if (_err != null) {
-            return { _0 : null, _1 : _didTimeout, _2 : _err };
+            return { _0 : _resp = null, _1 : _didTimeout, _2 : _err };
         };
         if (_c.jar != null) {
             {
@@ -353,6 +373,6 @@ var _includeBody = __6, _redirectMethod = __5, _reqBodyClosed = __4, _copyHeader
                 };
             };
         };
-        return { _0 : _resp, _1 : null, _2 : (null : stdgo.Error) };
+        return { _0 : _resp, _1 : _didTimeout = null, _2 : _err = (null : stdgo.Error) };
     }
 }

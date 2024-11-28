@@ -37,7 +37,7 @@ package stdgo._internal.io;
                 return { _0 : _n, _1 : _err };
             };
         };
-        return { _0 : (_s.length), _1 : (null : stdgo.Error) };
+        return { _0 : _n = (_s.length), _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function write( _t:stdgo.Ref<stdgo._internal.io.Io_T_multiWriter.T_multiWriter>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
@@ -57,6 +57,6 @@ package stdgo._internal.io;
                 return { _0 : _n, _1 : _err };
             };
         };
-        return { _0 : (_p.length), _1 : (null : stdgo.Error) };
+        return { _0 : _n = (_p.length), _1 : _err = (null : stdgo.Error) };
     }
 }

@@ -8,5 +8,5 @@ function _mulAddWWW_g(_x:stdgo._internal.math.big.Big_Word.Word, _y:stdgo._inter
             _lo = __tmp__._0;
             _cc = __tmp__._1;
         };
-        return { _0 : ((_hi + _cc : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), _1 : (_lo : stdgo._internal.math.big.Big_Word.Word) };
+        return { _0 : _z1 = ((_hi + _cc : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word), _1 : _z0 = (_lo : stdgo._internal.math.big.Big_Word.Word) };
     }

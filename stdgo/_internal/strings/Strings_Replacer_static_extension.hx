@@ -5,7 +5,12 @@ package stdgo._internal.strings;
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer> = _r;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         _r._once.do_(_r._buildOnce);
-        return _r._r.writeString(_w, _s?.__copy__());
+        return {
+            var __tmp__ = _r._r.writeString(_w, _s?.__copy__());
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function replace( _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>, _s:stdgo.GoString):stdgo.GoString {

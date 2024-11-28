@@ -128,7 +128,7 @@ package stdgo._internal.compress.gzip;
         var _needconv = (false : Bool);
         for (__0 => _v in _s) {
             if (((_v == (0 : stdgo.GoInt32)) || (_v > (255 : stdgo.GoInt32) : Bool) : Bool)) {
-                return stdgo._internal.errors.Errors_new_.new_(("gzip.Write: non-Latin-1 header string" : stdgo.GoString));
+                return _err = stdgo._internal.errors.Errors_new_.new_(("gzip.Write: non-Latin-1 header string" : stdgo.GoString));
             };
             if ((_v > (127 : stdgo.GoInt32) : Bool)) {
                 _needconv = true;

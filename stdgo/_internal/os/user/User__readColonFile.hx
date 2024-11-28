@@ -17,7 +17,7 @@ function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._inter
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                         _err = (null : stdgo.Error);
                     };
-                    return { _0 : (null : stdgo.AnyInterface), _1 : _err };
+                    return { _0 : _v = (null : stdgo.AnyInterface), _1 : _err };
                 };
                 if ((!_isPrefix && (_wholeLine.length == (0 : stdgo.GoInt)) : Bool)) {
                     _wholeLine = _line;
@@ -45,7 +45,7 @@ function _readColonFile(_r:stdgo._internal.io.Io_Reader.Reader, _fn:stdgo._inter
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                         _err = (null : stdgo.Error);
                     };
-                    return { _0 : (null : stdgo.AnyInterface), _1 : _err };
+                    return { _0 : _v = (null : stdgo.AnyInterface), _1 : _err };
                 };
                 {
                     var __tmp__ = _rd.readLine();

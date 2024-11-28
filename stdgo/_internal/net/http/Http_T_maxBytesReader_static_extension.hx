@@ -10,10 +10,10 @@ package stdgo._internal.net.http;
         @:recv var _l:stdgo.Ref<stdgo._internal.net.http.Http_T_maxBytesReader.T_maxBytesReader> = _l;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_l._err != null) {
-            return { _0 : (0 : stdgo.GoInt), _1 : _l._err };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _l._err };
         };
         if ((_p.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
         };
         if ((((_p.length : stdgo.GoInt64) - (1i64 : stdgo.GoInt64) : stdgo.GoInt64) > _l._n : Bool)) {
             _p = (_p.__slice__(0, (_l._n + (1i64 : stdgo.GoInt64) : stdgo.GoInt64)) : stdgo.Slice<stdgo.GoUInt8>);
@@ -42,6 +42,6 @@ package stdgo._internal.net.http;
             };
         };
         _l._err = stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.Http_MaxBytesError.MaxBytesError(_l._i) : stdgo._internal.net.http.Http_MaxBytesError.MaxBytesError)) : stdgo.Ref<stdgo._internal.net.http.Http_MaxBytesError.MaxBytesError>));
-        return { _0 : _n, _1 : _l._err };
+        return { _0 : _n, _1 : _err = _l._err };
     }
 }

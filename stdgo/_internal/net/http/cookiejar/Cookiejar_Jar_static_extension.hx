@@ -58,10 +58,10 @@ package stdgo._internal.net.http.cookiejar;
             _err = __tmp__._2;
         };
         if (_err != null) {
-            return { _0 : _e?.__copy__(), _1 : false, _2 : _err };
+            return { _0 : _e = _e?.__copy__(), _1 : _remove = false, _2 : _err };
         };
         if ((_c.maxAge < (0 : stdgo.GoInt) : Bool)) {
-            return { _0 : _e?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
+            return { _0 : _e = _e?.__copy__(), _1 : _remove = true, _2 : _err = (null : stdgo.Error) };
         } else if ((_c.maxAge > (0 : stdgo.GoInt) : Bool)) {
             _e.expires = _now.add(((_c.maxAge : stdgo._internal.time.Time_Duration.Duration) * (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration))?.__copy__();
             _e.persistent = true;
@@ -71,7 +71,7 @@ package stdgo._internal.net.http.cookiejar;
                 _e.persistent = false;
             } else {
                 if (!_c.expires.after(_now?.__copy__())) {
-                    return { _0 : _e?.__copy__(), _1 : true, _2 : (null : stdgo.Error) };
+                    return { _0 : _e = _e?.__copy__(), _1 : _remove = true, _2 : _err = (null : stdgo.Error) };
                 };
                 _e.expires = _c.expires?.__copy__();
                 _e.persistent = true;
@@ -90,7 +90,7 @@ package stdgo._internal.net.http.cookiejar;
                 _e.sameSite = ("SameSite=Lax" : stdgo.GoString);
             };
         };
-        return { _0 : _e?.__copy__(), _1 : false, _2 : (null : stdgo.Error) };
+        return { _0 : _e = _e?.__copy__(), _1 : _remove = false, _2 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function _setCookies( _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>, _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _cookies:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>, _now:stdgo._internal.time.Time_Time.Time):Void {
@@ -289,6 +289,6 @@ package stdgo._internal.net.http.cookiejar;
     static public function cookies( _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar>, _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>> {
         @:recv var _j:stdgo.Ref<stdgo._internal.net.http.cookiejar.Cookiejar_Jar.Jar> = _j;
         var _cookies = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_Cookie.Cookie>>);
-        return _j._cookies(_u, stdgo._internal.time.Time_now.now()?.__copy__());
+        return _cookies = _j._cookies(_u, stdgo._internal.time.Time_now.now()?.__copy__());
     }
 }

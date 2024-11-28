@@ -1,6 +1,6 @@
 package stdgo._internal.encoding.binary;
 function testBufferTooBigWithOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
-        var _tests = (new stdgo.Slice<stdgo._internal.encoding.binary.Binary_T__struct_6.T__struct_6>(4, 4, ...[({ _name : ("invalid: 1000 bytes" : stdgo.GoString), _in : {
+        var _tests = (new stdgo.Slice<stdgo._internal.encoding.binary.Binary_T__struct_6.T__struct_6>(4, 4, ...[({ _name : ("invalid: 1000 bytes" : stdgo.GoString), _in : ({
             var a = function():stdgo.Slice<stdgo.GoUInt8> {
                 var _b = (new stdgo.Slice<stdgo.GoUInt8>((1000 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 for (_i => _ in _b) {
@@ -10,7 +10,7 @@ function testBufferTooBigWithOverflow(_t:stdgo.Ref<stdgo._internal.testing.Testi
                 return _b;
             };
             a();
-        }, _wantN : (-11 : stdgo.GoInt), _wantValue : (0i64 : stdgo.GoUInt64) } : stdgo._internal.encoding.binary.Binary_T__struct_6.T__struct_6), ({ _name : ("valid: math.MaxUint64-40" : stdgo.GoString), _in : (new stdgo.Slice<stdgo.GoUInt8>(10, 10, ...[(215 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), _wantValue : (-41i64 : stdgo.GoUInt64), _wantN : (10 : stdgo.GoInt) } : stdgo._internal.encoding.binary.Binary_T__struct_6.T__struct_6), ({ _name : ("invalid: with more than MaxVarintLen64 bytes" : stdgo.GoString), _in : (new stdgo.Slice<stdgo.GoUInt8>(11, 11, ...[
+        }), _wantN : (-11 : stdgo.GoInt), _wantValue : (0i64 : stdgo.GoUInt64) } : stdgo._internal.encoding.binary.Binary_T__struct_6.T__struct_6), ({ _name : ("valid: math.MaxUint64-40" : stdgo.GoString), _in : (new stdgo.Slice<stdgo.GoUInt8>(10, 10, ...[(215 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (255 : stdgo.GoUInt8), (1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>), _wantValue : (-41i64 : stdgo.GoUInt64), _wantN : (10 : stdgo.GoInt) } : stdgo._internal.encoding.binary.Binary_T__struct_6.T__struct_6), ({ _name : ("invalid: with more than MaxVarintLen64 bytes" : stdgo.GoString), _in : (new stdgo.Slice<stdgo.GoUInt8>(11, 11, ...[
 (215 : stdgo.GoUInt8),
 (255 : stdgo.GoUInt8),
 (255 : stdgo.GoUInt8),

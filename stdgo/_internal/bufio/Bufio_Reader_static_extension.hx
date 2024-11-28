@@ -62,7 +62,7 @@ package stdgo._internal.bufio;
         if (stdgo.Go.toInterface(_b._err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
             _b._err = (null : stdgo.Error);
         };
-        return { _0 : _n, _1 : _b._readErr() };
+        return { _0 : _n, _1 : _err = _b._readErr() };
     }
     @:keep
     static public function readString( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, _delim:stdgo.GoUInt8):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
@@ -112,7 +112,7 @@ package stdgo._internal.bufio;
             _totalLen = (_totalLen + ((_buf.length)) : stdgo.GoInt);
         };
         _totalLen = (_totalLen + ((_frag.length)) : stdgo.GoInt);
-        return { _0 : _fullBuffers, _1 : _frag, _2 : _totalLen, _3 : _err };
+        return { _0 : _fullBuffers, _1 : _finalFragment = _frag, _2 : _totalLen, _3 : _err };
     }
     @:keep
     static public function readLine( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : Bool; var _2 : stdgo.Error; } {
@@ -131,7 +131,7 @@ package stdgo._internal.bufio;
                 _b._r--;
                 _line = (_line.__slice__(0, ((_line.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             };
-            return { _0 : _line, _1 : true, _2 : (null : stdgo.Error) };
+            return { _0 : _line, _1 : _isPrefix = true, _2 : _err = (null : stdgo.Error) };
         };
         if ((_line.length) == ((0 : stdgo.GoInt))) {
             if (_err != null) {
@@ -213,7 +213,7 @@ package stdgo._internal.bufio;
         };
         _b._lastRuneSize = (-1 : stdgo.GoInt);
         if (_b._r == (_b._w)) {
-            return { _0 : (0 : stdgo.GoInt32), _1 : (0 : stdgo.GoInt), _2 : _b._readErr() };
+            return { _0 : _r = (0 : stdgo.GoInt32), _1 : _size = (0 : stdgo.GoInt), _2 : _err = _b._readErr() };
         };
         {
             final __tmp__0 = (_b._buf[(_b._r : stdgo.GoInt)] : stdgo.GoInt32);
@@ -231,7 +231,7 @@ package stdgo._internal.bufio;
         _b._r = (_b._r + (_size) : stdgo.GoInt);
         _b._lastByte = (_b._buf[(_b._r - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt);
         _b._lastRuneSize = _size;
-        return { _0 : _r, _1 : _size, _2 : (null : stdgo.Error) };
+        return { _0 : _r, _1 : _size, _2 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function unreadByte( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):stdgo.Error {
@@ -271,13 +271,13 @@ package stdgo._internal.bufio;
         _n = (_p.length);
         if (_n == ((0 : stdgo.GoInt))) {
             if ((_b.buffered() > (0 : stdgo.GoInt) : Bool)) {
-                return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
             };
-            return { _0 : (0 : stdgo.GoInt), _1 : _b._readErr() };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _b._readErr() };
         };
         if (_b._r == (_b._w)) {
             if (_b._err != null) {
-                return { _0 : (0 : stdgo.GoInt), _1 : _b._readErr() };
+                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _b._readErr() };
             };
             if (((_p.length) >= (_b._buf.length) : Bool)) {
                 {
@@ -292,7 +292,7 @@ package stdgo._internal.bufio;
                     _b._lastByte = (_p[(_n - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt);
                     _b._lastRuneSize = (-1 : stdgo.GoInt);
                 };
-                return { _0 : _n, _1 : _b._readErr() };
+                return { _0 : _n, _1 : _err = _b._readErr() };
             };
             _b._r = (0 : stdgo.GoInt);
             _b._w = (0 : stdgo.GoInt);
@@ -305,7 +305,7 @@ package stdgo._internal.bufio;
                 throw stdgo.Go.toInterface(stdgo._internal.bufio.Bufio__errNegativeRead._errNegativeRead);
             };
             if (_n == ((0 : stdgo.GoInt))) {
-                return { _0 : (0 : stdgo.GoInt), _1 : _b._readErr() };
+                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _b._readErr() };
             };
             _b._w = (_b._w + (_n) : stdgo.GoInt);
         };
@@ -313,14 +313,14 @@ package stdgo._internal.bufio;
         _b._r = (_b._r + (_n) : stdgo.GoInt);
         _b._lastByte = (_b._buf[(_b._r - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt);
         _b._lastRuneSize = (-1 : stdgo.GoInt);
-        return { _0 : _n, _1 : (null : stdgo.Error) };
+        return { _0 : _n, _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function discard( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>, _n:stdgo.GoInt):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader> = _b;
         var _discarded = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_n < (0 : stdgo.GoInt) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.bufio.Bufio_errNegativeCount.errNegativeCount };
+            return { _0 : _discarded = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.bufio.Bufio_errNegativeCount.errNegativeCount };
         };
         if (_n == ((0 : stdgo.GoInt))) {
             return { _0 : _discarded, _1 : _err };
@@ -340,10 +340,10 @@ package stdgo._internal.bufio;
             _b._r = (_b._r + (_skip) : stdgo.GoInt);
             _remain = (_remain - (_skip) : stdgo.GoInt);
             if (_remain == ((0 : stdgo.GoInt))) {
-                return { _0 : _n, _1 : (null : stdgo.Error) };
+                return { _0 : _discarded = _n, _1 : _err = (null : stdgo.Error) };
             };
             if (_b._err != null) {
-                return { _0 : (_n - _remain : stdgo.GoInt), _1 : _b._readErr() };
+                return { _0 : _discarded = (_n - _remain : stdgo.GoInt), _1 : _err = _b._readErr() };
             };
         };
     }

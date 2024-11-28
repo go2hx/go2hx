@@ -6,7 +6,7 @@ function benchmarkConcurrent(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.B>):
             var _i = (stdgo._internal.runtime.Runtime_numCPU.numCPU() : stdgo.GoInt);
             while ((_i > (0 : stdgo.GoInt) : Bool)) {
                 _group.add((1 : stdgo.GoInt));
-stdgo.Go.routine(() -> {
+stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
@@ -41,7 +41,7 @@ stdgo.Go.routine(() -> {
                         };
                     };
                     a();
-                });
+                }));
                 _i--;
             };
         };

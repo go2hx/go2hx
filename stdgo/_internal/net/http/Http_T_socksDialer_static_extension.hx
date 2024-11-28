@@ -7,7 +7,7 @@ package stdgo._internal.net.http;
         for (_i => _s in (new stdgo.Slice<stdgo.GoString>(2, 2, ...[_d._proxyAddress?.__copy__(), _address?.__copy__()]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
             var __tmp__ = stdgo._internal.net.http.Http__sockssplitHostPort._sockssplitHostPort(_s?.__copy__()), _host:stdgo.GoString = __tmp__._0, _port:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
-                return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : (null : stdgo._internal.net.Net_Addr.Addr), _2 : _err };
+                return { _0 : _proxy = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _dst = (null : stdgo._internal.net.Net_Addr.Addr), _2 : _err };
             };
             var _a = (stdgo.Go.setRef(({ port : _port } : stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr)) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr>);
             _a.ip = stdgo._internal.net.Net_parseIP.parseIP(_host?.__copy__());
@@ -148,7 +148,7 @@ package stdgo._internal.net.http;
         try {
             var __tmp__ = stdgo._internal.net.http.Http__sockssplitHostPort._sockssplitHostPort(_address?.__copy__()), _host:stdgo.GoString = __tmp__._0, _port:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
-                return { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : _err };
+                return { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = _err };
             };
             {
                 var __tmp__ = _ctx.deadline(), _deadline:stdgo._internal.time.Time_Time.Time = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -163,7 +163,7 @@ package stdgo._internal.net.http;
             if (stdgo.Go.toInterface(_ctx) != (stdgo.Go.toInterface(stdgo._internal.context.Context_background.background()))) {
                 var _errCh = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
                 var _done = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
-                __deferstack__.unshift(() -> {
+                __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         if (_done != null) _done.__close__();
                         if (_ctxErr == null) {
@@ -171,8 +171,8 @@ package stdgo._internal.net.http;
                         };
                     };
                     a();
-                });
-                stdgo.Go.routine(() -> {
+                }));
+                stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         {
                             var __select__ = true;
@@ -201,7 +201,7 @@ package stdgo._internal.net.http;
                         };
                     };
                     a();
-                });
+                }));
             };
             var _b = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), ((6 : stdgo.GoInt) + (_host.length) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             _b = (_b.__append__((5 : stdgo.GoUInt8)));
@@ -211,7 +211,7 @@ package stdgo._internal.net.http;
                 var _ams = _d.authMethods;
                 if (((_ams.length) > (255 : stdgo.GoInt) : Bool)) {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo._internal.errors.Errors_new_.new_(("too many authentication methods" : stdgo.GoString)) };
+                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = stdgo._internal.errors.Errors_new_.new_(("too many authentication methods" : stdgo.GoString)) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -255,7 +255,7 @@ package stdgo._internal.net.http;
             };
             if (_b[(0 : stdgo.GoInt)] != ((5 : stdgo.GoUInt8))) {
                 {
-                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo._internal.errors.Errors_new_.new_((("unexpected protocol version " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_b[(0 : stdgo.GoInt)] : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__()) };
+                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = stdgo._internal.errors.Errors_new_.new_((("unexpected protocol version " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_b[(0 : stdgo.GoInt)] : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__()) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -265,7 +265,7 @@ package stdgo._internal.net.http;
             var _am = (_b[(1 : stdgo.GoInt)] : stdgo._internal.net.http.Http_T_socksAuthMethod.T_socksAuthMethod);
             if (_am == ((255 : stdgo._internal.net.http.Http_T_socksAuthMethod.T_socksAuthMethod))) {
                 {
-                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo._internal.errors.Errors_new_.new_(("no acceptable authentication methods" : stdgo.GoString)) };
+                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = stdgo._internal.errors.Errors_new_.new_(("no acceptable authentication methods" : stdgo.GoString)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -303,7 +303,7 @@ package stdgo._internal.net.http;
                                 _b = (_b.__append__(...(_ip6 : Array<stdgo.GoUInt8>)));
                             } else {
                                 {
-                                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo._internal.errors.Errors_new_.new_(("unknown address type" : stdgo.GoString)) };
+                                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = stdgo._internal.errors.Errors_new_.new_(("unknown address type" : stdgo.GoString)) };
                                     for (defer in __deferstack__) {
                                         defer();
                                     };
@@ -315,7 +315,7 @@ package stdgo._internal.net.http;
                 } else {
                     if (((_host.length) > (255 : stdgo.GoInt) : Bool)) {
                         {
-                            final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo._internal.errors.Errors_new_.new_(("FQDN too long" : stdgo.GoString)) };
+                            final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = stdgo._internal.errors.Errors_new_.new_(("FQDN too long" : stdgo.GoString)) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -360,7 +360,7 @@ package stdgo._internal.net.http;
             };
             if (_b[(0 : stdgo.GoInt)] != ((5 : stdgo.GoUInt8))) {
                 {
-                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo._internal.errors.Errors_new_.new_((("unexpected protocol version " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_b[(0 : stdgo.GoInt)] : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__()) };
+                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = stdgo._internal.errors.Errors_new_.new_((("unexpected protocol version " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_b[(0 : stdgo.GoInt)] : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__()) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -371,7 +371,7 @@ package stdgo._internal.net.http;
                 var _cmdErr = (_b[(1 : stdgo.GoInt)] : stdgo._internal.net.http.Http_T_socksReply.T_socksReply);
                 if (_cmdErr != ((0 : stdgo._internal.net.http.Http_T_socksReply.T_socksReply))) {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo._internal.errors.Errors_new_.new_((("unknown error " : stdgo.GoString) + (_cmdErr.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) };
+                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = stdgo._internal.errors.Errors_new_.new_((("unknown error " : stdgo.GoString) + (_cmdErr.string() : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__()) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -381,7 +381,7 @@ package stdgo._internal.net.http;
             };
             if (_b[(2 : stdgo.GoInt)] != ((0 : stdgo.GoUInt8))) {
                 {
-                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo._internal.errors.Errors_new_.new_(("non-zero reserved field" : stdgo.GoString)) };
+                    final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = stdgo._internal.errors.Errors_new_.new_(("non-zero reserved field" : stdgo.GoString)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -403,7 +403,7 @@ package stdgo._internal.net.http;
                         var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c, (_b.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), __35172:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             {
-                                final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : _err };
+                                final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = _err };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
@@ -414,7 +414,7 @@ package stdgo._internal.net.http;
                     _l = (_l + ((_b[(0 : stdgo.GoInt)] : stdgo.GoInt)) : stdgo.GoInt);
                 } else {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.net.Net_Addr.Addr), _1 : stdgo._internal.errors.Errors_new_.new_((("unknown address type " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_b[(3 : stdgo.GoInt)] : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__()) };
+                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = (null : stdgo._internal.net.Net_Addr.Addr), _1 : _ctxErr = stdgo._internal.errors.Errors_new_.new_((("unknown address type " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa((_b[(3 : stdgo.GoInt)] : stdgo.GoInt))?.__copy__() : stdgo.GoString)?.__copy__()) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -449,7 +449,7 @@ package stdgo._internal.net.http;
             };
             _a.port = (((_b[((_b.length) - (2 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt) << (8i64 : stdgo.GoUInt64) : stdgo.GoInt) | (_b[((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt);
             {
-                final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr>)), _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0 = stdgo.Go.asInterface((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr>)), _1 : _ctxErr = (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };

@@ -32,6 +32,11 @@ package stdgo._internal.compress.flate;
     static public function write( _w:stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer>, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return _w._d._write(_data);
+        return {
+            var __tmp__ = _w._d._write(_data);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
 }

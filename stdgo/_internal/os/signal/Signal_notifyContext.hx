@@ -7,7 +7,7 @@ function notifyContext(_parent:stdgo._internal.context.Context_Context.Context, 
         _c._ch = (new stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo._internal.os.Os_Signal.Signal)) : stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>);
         stdgo._internal.os.signal.Signal_notify.notify(_c._ch, ...(_c._signals : Array<stdgo._internal.os.Os_Signal.Signal>));
         if (_ctx.err() == null) {
-            stdgo.Go.routine(() -> {
+            stdgo.Go.routine(() -> ({
                 var a = function():Void {
                     {
                         var __select__ = true;
@@ -33,7 +33,7 @@ function notifyContext(_parent:stdgo._internal.context.Context_Context.Context, 
                     };
                 };
                 a();
-            });
+            }));
         };
-        return { _0 : stdgo.Go.asInterface(_c), _1 : _c._stop };
+        return { _0 : _ctx = stdgo.Go.asInterface(_c), _1 : _stop = _c._stop };
     }

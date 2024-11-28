@@ -5,10 +5,10 @@ function _eiselLemire32(_man:stdgo.GoUInt64, _exp10:stdgo.GoInt, _neg:Bool):{ va
             if (_neg) {
                 _f = stdgo._internal.math.Math_float32frombits.float32frombits((-2147483648u32 : stdgo.GoUInt32));
             };
-            return { _0 : _f, _1 : true };
+            return { _0 : _f, _1 : _ok = true };
         };
         if (((_exp10 < (-348 : stdgo.GoInt) : Bool) || ((347 : stdgo.GoInt) < _exp10 : Bool) : Bool)) {
-            return { _0 : (0 : stdgo.GoFloat64), _1 : false };
+            return { _0 : _f = (0 : stdgo.GoFloat64), _1 : _ok = false };
         };
         var _clz = (stdgo._internal.math.bits.Bits_leadingZeros64.leadingZeros64(_man) : stdgo.GoInt);
         _man = (_man << ((_clz : stdgo.GoUInt)) : stdgo.GoUInt64);
@@ -23,7 +23,7 @@ var _mergedLo = __1, _mergedHi = __0;
                 _mergedHi++;
             };
             if ((((_mergedHi & (274877906943i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((274877906943i64 : stdgo.GoUInt64)) && (_mergedLo + (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64)) : Bool) && ((_yLo + _man : stdgo.GoUInt64) < _man : Bool) : Bool)) {
-                return { _0 : (0 : stdgo.GoFloat64), _1 : false };
+                return { _0 : _f = (0 : stdgo.GoFloat64), _1 : _ok = false };
             };
             {
                 final __tmp__0 = _mergedHi;
@@ -36,7 +36,7 @@ var _mergedLo = __1, _mergedHi = __0;
         var _retMantissa = (_xHi >> ((_msb + (38i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _retExp2 = (_retExp2 - (((1i64 : stdgo.GoUInt64) ^ _msb : stdgo.GoUInt64)) : stdgo.GoUInt64);
         if (((_xLo == ((0i64 : stdgo.GoUInt64)) && (_xHi & (274877906943i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64)) : Bool) && ((_retMantissa & (3i64 : stdgo.GoUInt64) : stdgo.GoUInt64) == (1i64 : stdgo.GoUInt64)) : Bool)) {
-            return { _0 : (0 : stdgo.GoFloat64), _1 : false };
+            return { _0 : _f = (0 : stdgo.GoFloat64), _1 : _ok = false };
         };
         _retMantissa = (_retMantissa + ((_retMantissa & (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
         _retMantissa = (_retMantissa >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
@@ -45,11 +45,11 @@ var _mergedLo = __1, _mergedHi = __0;
             _retExp2 = (_retExp2 + ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
         if (((_retExp2 - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64) >= (254i64 : stdgo.GoUInt64) : Bool)) {
-            return { _0 : (0 : stdgo.GoFloat64), _1 : false };
+            return { _0 : _f = (0 : stdgo.GoFloat64), _1 : _ok = false };
         };
         var _retBits = ((_retExp2 << (23i64 : stdgo.GoUInt64) : stdgo.GoUInt64) | (_retMantissa & (8388607i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt64);
         if (_neg) {
             _retBits = (_retBits | ((2147483648i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
-        return { _0 : stdgo._internal.math.Math_float32frombits.float32frombits((_retBits : stdgo.GoUInt32)), _1 : true };
+        return { _0 : _f = stdgo._internal.math.Math_float32frombits.float32frombits((_retBits : stdgo.GoUInt32)), _1 : _ok = true };
     }

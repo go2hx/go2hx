@@ -49,5 +49,5 @@ _lookingForIndex = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.const
         var _validPS = (stdgo._internal.crypto.subtle.Subtle_constantTimeLessOrEq.constantTimeLessOrEq((10 : stdgo.GoInt), _index) : stdgo.GoInt);
         _valid = (((_firstByteIsZero & _secondByteIsTwo : stdgo.GoInt) & (((-1 ^ _lookingForIndex) & (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) & _validPS : stdgo.GoInt);
         _index = stdgo._internal.crypto.subtle.Subtle_constantTimeSelect.constantTimeSelect(_valid, (_index + (1 : stdgo.GoInt) : stdgo.GoInt), (0 : stdgo.GoInt));
-        return { _0 : _valid, _1 : _em, _2 : _index, _3 : (null : stdgo.Error) };
+        return { _0 : _valid, _1 : _em, _2 : _index, _3 : _err = (null : stdgo.Error) };
     }

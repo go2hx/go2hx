@@ -17,7 +17,7 @@ package stdgo._internal.net.http;
             _err = __tmp__._1;
         };
         if (_err == null) {
-            return { _0 : _n, _1 : (null : stdgo.Error) };
+            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
             return { _0 : _n, _1 : _err };

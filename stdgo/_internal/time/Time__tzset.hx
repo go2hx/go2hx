@@ -18,11 +18,11 @@ var _dstOffset = __3, _stdOffset = __2, _dstName = __1, _stdName = __0;
             };
         };
         if (!_ok) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
+            return { _0 : _name = stdgo.Go.str()?.__copy__(), _1 : _offset = (0 : stdgo.GoInt), _2 : _start = (0i64 : stdgo.GoInt64), _3 : _end = (0i64 : stdgo.GoInt64), _4 : _isDST = false, _5 : _ok = false };
         };
         _stdOffset = -_stdOffset;
         if (((_s.length == (0 : stdgo.GoInt)) || (_s[(0 : stdgo.GoInt)] == (44 : stdgo.GoUInt8)) : Bool)) {
-            return { _0 : _stdName?.__copy__(), _1 : _stdOffset, _2 : _lastTxSec, _3 : (9223372036854775807i64 : stdgo.GoInt64), _4 : false, _5 : true };
+            return { _0 : _name = _stdName?.__copy__(), _1 : _offset = _stdOffset, _2 : _start = _lastTxSec, _3 : _end = (9223372036854775807i64 : stdgo.GoInt64), _4 : _isDST = false, _5 : _ok = true };
         };
         {
             var __tmp__ = stdgo._internal.time.Time__tzsetName._tzsetName(_s?.__copy__());
@@ -44,13 +44,13 @@ var _dstOffset = __3, _stdOffset = __2, _dstName = __1, _stdName = __0;
             };
         };
         if (!_ok) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
+            return { _0 : _name = stdgo.Go.str()?.__copy__(), _1 : _offset = (0 : stdgo.GoInt), _2 : _start = (0i64 : stdgo.GoInt64), _3 : _end = (0i64 : stdgo.GoInt64), _4 : _isDST = false, _5 : _ok = false };
         };
         if ((_s.length) == ((0 : stdgo.GoInt))) {
             _s = (",M3.2.0,M11.1.0" : stdgo.GoString);
         };
         if (((_s[(0 : stdgo.GoInt)] != (44 : stdgo.GoUInt8)) && (_s[(0 : stdgo.GoInt)] != (59 : stdgo.GoUInt8)) : Bool)) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
+            return { _0 : _name = stdgo.Go.str()?.__copy__(), _1 : _offset = (0 : stdgo.GoInt), _2 : _start = (0i64 : stdgo.GoInt64), _3 : _end = (0i64 : stdgo.GoInt64), _4 : _isDST = false, _5 : _ok = false };
         };
         _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         var __0:stdgo._internal.time.Time_T_rule.T_rule = ({} : stdgo._internal.time.Time_T_rule.T_rule), __1:stdgo._internal.time.Time_T_rule.T_rule = ({} : stdgo._internal.time.Time_T_rule.T_rule);
@@ -62,7 +62,7 @@ var _endRule = __1, _startRule = __0;
             _ok = __tmp__._2;
         };
         if (((!_ok || (_s.length) == ((0 : stdgo.GoInt)) : Bool) || (_s[(0 : stdgo.GoInt)] != (44 : stdgo.GoUInt8)) : Bool)) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
+            return { _0 : _name = stdgo.Go.str()?.__copy__(), _1 : _offset = (0 : stdgo.GoInt), _2 : _start = (0i64 : stdgo.GoInt64), _3 : _end = (0i64 : stdgo.GoInt64), _4 : _isDST = false, _5 : _ok = false };
         };
         _s = (_s.__slice__((1 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
         {
@@ -72,7 +72,7 @@ var _endRule = __1, _startRule = __0;
             _ok = __tmp__._2;
         };
         if ((!_ok || ((_s.length) > (0 : stdgo.GoInt) : Bool) : Bool)) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : (0 : stdgo.GoInt), _2 : (0i64 : stdgo.GoInt64), _3 : (0i64 : stdgo.GoInt64), _4 : false, _5 : false };
+            return { _0 : _name = stdgo.Go.str()?.__copy__(), _1 : _offset = (0 : stdgo.GoInt), _2 : _start = (0i64 : stdgo.GoInt64), _3 : _end = (0i64 : stdgo.GoInt64), _4 : _isDST = false, _5 : _ok = false };
         };
         var __tmp__ = stdgo._internal.time.Time__absDate._absDate((((_sec + (62135596800i64 : stdgo.GoInt64) : stdgo.GoInt64) + (9223371966579724800i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoUInt64), false), _year:stdgo.GoInt = __tmp__._0, __1:stdgo._internal.time.Time_Month.Month = __tmp__._1, __2:stdgo.GoInt = __tmp__._2, _yday:stdgo.GoInt = __tmp__._3;
         var _ysec = (((_yday * (86400 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt64) + (_sec % (86400i64 : stdgo.GoInt64) : stdgo.GoInt64) : stdgo.GoInt64);
@@ -110,10 +110,10 @@ var _stdIsDST = __1, _dstIsDST = __0;
             };
         };
         if ((_ysec < _startSec : Bool)) {
-            return { _0 : _stdName?.__copy__(), _1 : _stdOffset, _2 : _abs, _3 : (_startSec + _abs : stdgo.GoInt64), _4 : _stdIsDST, _5 : true };
+            return { _0 : _name = _stdName?.__copy__(), _1 : _offset = _stdOffset, _2 : _start = _abs, _3 : _end = (_startSec + _abs : stdgo.GoInt64), _4 : _isDST = _stdIsDST, _5 : _ok = true };
         } else if ((_ysec >= _endSec : Bool)) {
-            return { _0 : _stdName?.__copy__(), _1 : _stdOffset, _2 : (_endSec + _abs : stdgo.GoInt64), _3 : (_abs + (31536000i64 : stdgo.GoInt64) : stdgo.GoInt64), _4 : _stdIsDST, _5 : true };
+            return { _0 : _name = _stdName?.__copy__(), _1 : _offset = _stdOffset, _2 : _start = (_endSec + _abs : stdgo.GoInt64), _3 : _end = (_abs + (31536000i64 : stdgo.GoInt64) : stdgo.GoInt64), _4 : _isDST = _stdIsDST, _5 : _ok = true };
         } else {
-            return { _0 : _dstName?.__copy__(), _1 : _dstOffset, _2 : (_startSec + _abs : stdgo.GoInt64), _3 : (_endSec + _abs : stdgo.GoInt64), _4 : _dstIsDST, _5 : true };
+            return { _0 : _name = _dstName?.__copy__(), _1 : _offset = _dstOffset, _2 : _start = (_startSec + _abs : stdgo.GoInt64), _3 : _end = (_endSec + _abs : stdgo.GoInt64), _4 : _isDST = _dstIsDST, _5 : _ok = true };
         };
     }

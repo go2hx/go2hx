@@ -197,7 +197,7 @@ package stdgo._internal.net.http;
                 __deferstack__.unshift(() -> _sc._sendServeMsg(stdgo.Go.toInterface(_a0)));
             };
             var _didPanic = (true : Bool);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _rw._rws._stream._cancelCtx();
                     if ((_req.multipartForm != null && ((_req.multipartForm : Dynamic).__nil__ == null || !(_req.multipartForm : Dynamic).__nil__))) {
@@ -221,7 +221,7 @@ package stdgo._internal.net.http;
                     _rw._handlerDone();
                 };
                 a();
-            });
+            }));
             _handler(stdgo.Go.asInterface(_rw), _req);
             _didPanic = false;
             {
@@ -1299,7 +1299,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
                 return (null : stdgo.Error);
             };
             var _errc = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
-            stdgo.Go.routine(() -> {
+            stdgo.Go.routine(() -> ({
                 var a = function():Void {
                     var _buf = (new stdgo.Slice<stdgo.GoUInt8>((("PRI * HTTP/2.0\r\n\r\nSM\r\n\r\n" : stdgo.GoString).length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     {
@@ -1314,7 +1314,7 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
                     };
                 };
                 a();
-            });
+            }));
             var _timer = stdgo._internal.time.Time_newTimer.newTimer((10000000000i64 : stdgo._internal.time.Time_Duration.Duration));
             __deferstack__.unshift(() -> _timer.stop());
             {

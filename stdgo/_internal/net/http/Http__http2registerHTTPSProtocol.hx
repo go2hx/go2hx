@@ -3,7 +3,7 @@ function _http2registerHTTPSProtocol(_t:stdgo.Ref<stdgo._internal.net.http.Http_
         var __deferstack__:Array<Void -> Void> = [];
         var _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     {
                         var _e = ({
@@ -17,10 +17,10 @@ function _http2registerHTTPSProtocol(_t:stdgo.Ref<stdgo._internal.net.http.Http_
                     };
                 };
                 a();
-            });
+            }));
             _t.registerProtocol(("https" : stdgo.GoString), stdgo.Go.asInterface(_rt));
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
+                final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };

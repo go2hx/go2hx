@@ -21,7 +21,12 @@ package stdgo._internal.net.http;
             };
             return { _0 : _n, _1 : _err };
         };
-        return _b.readWriteCloser.read(_p);
+        return {
+            var __tmp__ = _b.readWriteCloser.read(_p);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:embedded
     public static function write( __self__:stdgo._internal.net.http.Http_T_readWriteCloserBody.T_readWriteCloserBody, __0:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } return __self__.write(__0);

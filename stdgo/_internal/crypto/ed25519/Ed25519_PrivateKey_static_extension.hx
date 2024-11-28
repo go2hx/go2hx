@@ -20,32 +20,32 @@ package stdgo._internal.crypto.ed25519;
             {
                 var _l = (_message.length : stdgo.GoInt);
                 if (_l != ((64 : stdgo.GoInt))) {
-                    return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("ed25519: bad Ed25519ph message hash length: " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa(_l)?.__copy__() : stdgo.GoString)?.__copy__()) };
+                    return { _0 : _signature = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = stdgo._internal.errors.Errors_new_.new_((("ed25519: bad Ed25519ph message hash length: " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa(_l)?.__copy__() : stdgo.GoString)?.__copy__()) };
                 };
             };
             {
                 var _l = (_context.length : stdgo.GoInt);
                 if ((_l > (255 : stdgo.GoInt) : Bool)) {
-                    return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("ed25519: bad Ed25519ph context length: " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa(_l)?.__copy__() : stdgo.GoString)?.__copy__()) };
+                    return { _0 : _signature = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = stdgo._internal.errors.Errors_new_.new_((("ed25519: bad Ed25519ph context length: " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa(_l)?.__copy__() : stdgo.GoString)?.__copy__()) };
                 };
             };
             var _signature = (new stdgo.Slice<stdgo.GoUInt8>((64 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             stdgo._internal.crypto.ed25519.Ed25519__sign._sign(_signature, _priv, _message, stdgo.Go.str("SigEd25519 no Ed25519 collisions", 1)?.__copy__(), _context?.__copy__());
-            return { _0 : _signature, _1 : (null : stdgo.Error) };
+            return { _0 : _signature, _1 : _err = (null : stdgo.Error) };
         } else if (((_hash == (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash)) && (_context != stdgo.Go.str()) : Bool)) {
             {
                 var _l = (_context.length : stdgo.GoInt);
                 if ((_l > (255 : stdgo.GoInt) : Bool)) {
-                    return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_((("ed25519: bad Ed25519ctx context length: " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa(_l)?.__copy__() : stdgo.GoString)?.__copy__()) };
+                    return { _0 : _signature = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = stdgo._internal.errors.Errors_new_.new_((("ed25519: bad Ed25519ctx context length: " : stdgo.GoString) + stdgo._internal.strconv.Strconv_itoa.itoa(_l)?.__copy__() : stdgo.GoString)?.__copy__()) };
                 };
             };
             var _signature = (new stdgo.Slice<stdgo.GoUInt8>((64 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             stdgo._internal.crypto.ed25519.Ed25519__sign._sign(_signature, _priv, _message, stdgo.Go.str("SigEd25519 no Ed25519 collisions", 0)?.__copy__(), _context?.__copy__());
-            return { _0 : _signature, _1 : (null : stdgo.Error) };
+            return { _0 : _signature, _1 : _err = (null : stdgo.Error) };
         } else if (_hash == ((0u32 : stdgo._internal.crypto.Crypto_Hash.Hash))) {
-            return { _0 : stdgo._internal.crypto.ed25519.Ed25519_sign.sign(_priv, _message), _1 : (null : stdgo.Error) };
+            return { _0 : _signature = stdgo._internal.crypto.ed25519.Ed25519_sign.sign(_priv, _message), _1 : _err = (null : stdgo.Error) };
         } else {
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("ed25519: expected opts.HashFunc() zero (unhashed message, for standard Ed25519) or SHA-512 (for Ed25519ph)" : stdgo.GoString)) };
+            return { _0 : _signature = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("ed25519: expected opts.HashFunc() zero (unhashed message, for standard Ed25519) or SHA-512 (for Ed25519ph)" : stdgo.GoString)) };
         };
     }
     @:keep

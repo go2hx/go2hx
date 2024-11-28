@@ -10,11 +10,11 @@ package stdgo._internal.crypto.x509;
             { _0 : (null : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : false };
         }, _key = __tmp__._0, _ok = __tmp__._1;
         if (!_ok) {
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: certificate private key does not implement crypto.Signer" : stdgo.GoString)) };
+            return { _0 : _crlBytes = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("x509: certificate private key does not implement crypto.Signer" : stdgo.GoString)) };
         };
         var __tmp__ = stdgo._internal.crypto.x509.X509__signingParamsForPublicKey._signingParamsForPublicKey(stdgo.Go.toInterface(_key.public_()), (0 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm)), _hashFunc:stdgo._internal.crypto.Crypto_Hash.Hash = __tmp__._0, _signatureAlgorithm:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         if (_err != null) {
-            return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+            return { _0 : _crlBytes = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
         var _revokedCertsUTC = (new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>((_revokedCerts.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_revokedCerts.length : stdgo.GoInt).toBasic() > 0 ? (_revokedCerts.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate)]) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_RevokedCertificate.RevokedCertificate>);
         for (_i => _rc in _revokedCerts) {
@@ -54,7 +54,12 @@ package stdgo._internal.crypto.x509;
         if (_err != null) {
             return { _0 : _crlBytes, _1 : _err };
         };
-        return stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ tbscertList : _tbsCertList?.__copy__(), signatureAlgorithm : _signatureAlgorithm?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString) } : stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList))));
+        return {
+            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(({ tbscertList : _tbsCertList?.__copy__(), signatureAlgorithm : _signatureAlgorithm?.__copy__(), signatureValue : ({ bytes : _signature, bitLength : ((_signature.length) * (8 : stdgo.GoInt) : stdgo.GoInt) } : stdgo._internal.encoding.asn1.Asn1_BitString.BitString) } : stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList))));
+            _crlBytes = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function checkCRLSignature( _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, _crl:stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_CertificateList.CertificateList>):stdgo.Error {
@@ -212,17 +217,17 @@ var _hintCert = __1, _hintErr = __0;
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = _c;
         var _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _err = (null : stdgo.Error);
         if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo._internal.crypto.x509.X509__errNotParsed._errNotParsed };
+            return { _0 : _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : _err = stdgo._internal.crypto.x509.X509__errNotParsed._errNotParsed };
         };
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _opts.intermediates._len() : Bool)) {
                 var __tmp__ = _opts.intermediates._cert(_i), _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 if (_err != null) {
-                    return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("crypto/x509: error fetching intermediate: %w" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
+                    return { _0 : _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("crypto/x509: error fetching intermediate: %w" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
                 };
 if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
-                    return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo._internal.crypto.x509.X509__errNotParsed._errNotParsed };
+                    return { _0 : _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : _err = stdgo._internal.crypto.x509.X509__errNotParsed._errNotParsed };
                 };
                 _i++;
             };
@@ -230,19 +235,24 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
         if (false) {
             var _systemPool = stdgo._internal.crypto.x509.X509__systemRootsPool._systemRootsPool();
             if (((_opts.roots == null || (_opts.roots : Dynamic).__nil__) && (((_systemPool == null || (_systemPool : Dynamic).__nil__) || _systemPool._systemPool : Bool)) : Bool)) {
-                return _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>));
+                return {
+                    var __tmp__ = _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>));
+                    _chains = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
             if (((_opts.roots != null && ((_opts.roots : Dynamic).__nil__ == null || !(_opts.roots : Dynamic).__nil__)) && _opts.roots._systemPool : Bool)) {
                 var __tmp__ = _c._systemVerify((stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>)), _platformChains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (((_err == null) || (_opts.roots._len() == (0 : stdgo.GoInt)) : Bool)) {
-                    return { _0 : _platformChains, _1 : _err };
+                    return { _0 : _chains = _platformChains, _1 : _err };
                 };
             };
         };
         if ((_opts.roots == null || (_opts.roots : Dynamic).__nil__)) {
             _opts.roots = stdgo._internal.crypto.x509.X509__systemRootsPool._systemRootsPool();
             if ((_opts.roots == null || (_opts.roots : Dynamic).__nil__)) {
-                return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError(stdgo._internal.crypto.x509.X509__systemRootsErr._systemRootsErr) : stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError)) };
+                return { _0 : _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : _err = stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError(stdgo._internal.crypto.x509.X509__systemRootsErr._systemRootsErr) : stdgo._internal.crypto.x509.X509_SystemRootsError.SystemRootsError)) };
             };
         };
         _err = _c._isValid((0 : stdgo.GoInt), (null : stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>), (stdgo.Go.setRef(_opts) : stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>));
@@ -265,7 +275,7 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : _err };
+                return { _0 : _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : _err };
             };
         };
         if ((_opts.keyUsages.length) == ((0 : stdgo.GoInt))) {
@@ -273,7 +283,7 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
         };
         for (__1 => _eku in _opts.keyUsages) {
             if (_eku == ((0 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage))) {
-                return { _0 : _candidateChains, _1 : (null : stdgo.Error) };
+                return { _0 : _chains = _candidateChains, _1 : _err = (null : stdgo.Error) };
             };
         };
         _chains = (new stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>((0 : stdgo.GoInt).toBasic(), (_candidateChains.length)) : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>);
@@ -283,9 +293,9 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
             };
         };
         if ((_chains.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (4 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo.Go.str()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError)) };
+            return { _0 : _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : _err = stdgo.Go.asInterface((new stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError(_c, (4 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason), stdgo.Go.str()?.__copy__()) : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError)) };
         };
-        return { _0 : _chains, _1 : (null : stdgo.Error) };
+        return { _0 : _chains, _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function _isValid( _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, _certType:stdgo.GoInt, _currentChain:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>, _opts:stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>):stdgo.Error {
@@ -470,6 +480,6 @@ if (_ok) {
     static public function _systemVerify( _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>, _opts:stdgo.Ref<stdgo._internal.crypto.x509.X509_VerifyOptions.VerifyOptions>):{ var _0 : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>; var _1 : stdgo.Error; } {
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = _c;
         var _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _err = (null : stdgo.Error);
-        return { _0 : (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : (null : stdgo.Error) };
+        return { _0 : _chains = (null : stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>>), _1 : _err = (null : stdgo.Error) };
     }
 }

@@ -3,12 +3,12 @@ function _testBadFuncName(_name:stdgo.GoString, _t:stdgo.Ref<stdgo._internal.tes
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t.helper();
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     stdgo._internal.text.template.Template__recover._recover();
                 };
                 a();
-            });
+            }));
             stdgo._internal.text.template.Template_new_.new_(("X" : stdgo.GoString)).funcs(({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.AnyInterface>();
                 x.__defaultValue__ = () -> (null : stdgo.AnyInterface);

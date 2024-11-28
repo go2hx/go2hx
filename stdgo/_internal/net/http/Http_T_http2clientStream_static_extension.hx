@@ -29,7 +29,7 @@ package stdgo._internal.net.http;
             while (true) {
                 if (_cc._closed) {
                     {
-                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : stdgo._internal.net.http.Http__http2errClientConnClosed._http2errClientConnClosed };
+                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = stdgo._internal.net.http.Http__http2errClientConnClosed._http2errClientConnClosed };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -38,7 +38,7 @@ package stdgo._internal.net.http;
                 };
                 if (_cs._reqBodyClosed != null) {
                     {
-                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : stdgo._internal.net.http.Http__http2errStopReqBodyWrite._http2errStopReqBodyWrite };
+                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = stdgo._internal.net.http.Http__http2errStopReqBodyWrite._http2errStopReqBodyWrite };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -54,7 +54,7 @@ package stdgo._internal.net.http;
                                 _cs._abort.__get__();
                                 {
                                     {
-                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : _cs._abortErr };
+                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = _cs._abortErr };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -68,7 +68,7 @@ package stdgo._internal.net.http;
                                 _ctx.done().__get__();
                                 {
                                     {
-                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : _ctx.err() };
+                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = _ctx.err() };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -82,7 +82,7 @@ package stdgo._internal.net.http;
                                 _cs._reqCancel.__get__();
                                 {
                                     {
-                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt32), _1 : stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled };
+                                        final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = (0 : stdgo.GoInt32), _1 : _err = stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -110,7 +110,7 @@ package stdgo._internal.net.http;
                         };
                         _cs._flow._take(_take);
                         {
-                            final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _take, _1 : (null : stdgo.Error) };
+                            final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken = _take, _1 : _err = (null : stdgo.Error) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -212,10 +212,11 @@ package stdgo._internal.net.http;
                     _cc._mu.unlock();
                     if (_bodyClosed) {
                         {
+                            final __ret__:stdgo.Error = _err = stdgo._internal.net.http.Http__http2errStopReqBodyWrite._http2errStopReqBodyWrite;
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return stdgo._internal.net.http.Http__http2errStopReqBodyWrite._http2errStopReqBodyWrite;
+                            return __ret__;
                         };
                     } else if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                         _sawEOF = true;
@@ -266,7 +267,7 @@ package stdgo._internal.net.http;
             };
             if (_sentEnd) {
                 {
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
+                    final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -587,7 +588,7 @@ package stdgo._internal.net.http;
                         {
                             _cs._reqCancel.__get__();
                             {
-                                return stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled;
+                                return _err = stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled;
                             };
                         };
                     } else if (_ctx.done() != null && _ctx.done().__isGet__()) {
@@ -595,7 +596,7 @@ package stdgo._internal.net.http;
                         {
                             _ctx.done().__get__();
                             {
-                                return _ctx.err();
+                                return _err = _ctx.err();
                             };
                         };
                     };
@@ -732,7 +733,7 @@ package stdgo._internal.net.http;
                                 _cs._peerClosed.__get__();
                                 {
                                     {
-                                        final __ret__:stdgo.Error = (null : stdgo.Error);
+                                        final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -746,10 +747,11 @@ package stdgo._internal.net.http;
                                 _respHeaderTimer.__get__();
                                 {
                                     {
+                                        final __ret__:stdgo.Error = _err = stdgo._internal.net.http.Http__http2errTimeout._http2errTimeout;
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
-                                        return stdgo._internal.net.http.Http__http2errTimeout._http2errTimeout;
+                                        return __ret__;
                                     };
                                 };
                             };
@@ -768,7 +770,7 @@ package stdgo._internal.net.http;
                                 _cs._abort.__get__();
                                 {
                                     {
-                                        final __ret__:stdgo.Error = _cs._abortErr;
+                                        final __ret__:stdgo.Error = _err = _cs._abortErr;
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -782,7 +784,7 @@ package stdgo._internal.net.http;
                                 _ctx.done().__get__();
                                 {
                                     {
-                                        final __ret__:stdgo.Error = _ctx.err();
+                                        final __ret__:stdgo.Error = _err = _ctx.err();
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -796,10 +798,11 @@ package stdgo._internal.net.http;
                                 _cs._reqCancel.__get__();
                                 {
                                     {
+                                        final __ret__:stdgo.Error = _err = stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled;
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
-                                        return stdgo._internal.net.http.Http__http2errRequestCanceled._http2errRequestCanceled;
+                                        return __ret__;
                                     };
                                 };
                             };
@@ -845,13 +848,13 @@ package stdgo._internal.net.http;
         };
         _cs._reqBodyClosed = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
         var _reqBodyClosed = _cs._reqBodyClosed;
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function():Void {
                 _cs._reqBody.close();
                 if (_reqBodyClosed != null) _reqBodyClosed.__close__();
             };
             a();
-        });
+        }));
     }
     @:keep
     static public function _abortRequestBodyWrite( _cs:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>):Void {

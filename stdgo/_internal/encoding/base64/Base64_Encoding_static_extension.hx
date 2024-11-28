@@ -13,7 +13,7 @@ package stdgo._internal.encoding.base64;
         @:recv var _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding> = _enc;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_src.length) == ((0 : stdgo.GoInt))) {
-            return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
         };
         var __blank__ = _enc._decodeMap;
         var _si = (0 : stdgo.GoInt);
@@ -97,9 +97,9 @@ package stdgo._internal.encoding.base64;
             while ((_j < (_dbuf.length) : Bool)) {
                 if ((_src.length) == (_si)) {
                     if (_j == ((0 : stdgo.GoInt))) {
-                        return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : (null : stdgo.Error) };
+                        return { _0 : _nsi = _si, _1 : _n = (0 : stdgo.GoInt), _2 : _err = (null : stdgo.Error) };
                     } else if (_j == ((1 : stdgo.GoInt)) || _enc._padChar != ((-1 : stdgo.GoInt32))) {
-                        return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - _j : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
+                        return { _0 : _nsi = _si, _1 : _n = (0 : stdgo.GoInt), _2 : _err = stdgo.Go.asInterface(((_si - _j : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                     };
                     _dlen = _j;
                     break;
@@ -122,21 +122,21 @@ if (((_in == (10 : stdgo.GoUInt8)) || (_in == (13 : stdgo.GoUInt8)) : Bool)) {
                     };
                 };
 if ((_in : stdgo.GoInt32) != (_enc._padChar)) {
-                    return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
+                    return { _0 : _nsi = _si, _1 : _n = (0 : stdgo.GoInt), _2 : _err = stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                 };
 {
                     final __value__ = _j;
                     if (__value__ == ((0 : stdgo.GoInt)) || __value__ == ((1 : stdgo.GoInt))) {
-                        return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
+                        return { _0 : _nsi = _si, _1 : _n = (0 : stdgo.GoInt), _2 : _err = stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                     } else if (__value__ == ((2 : stdgo.GoInt))) {
                         while (((_si < (_src.length) : Bool) && (((_src[(_si : stdgo.GoInt)] == (10 : stdgo.GoUInt8)) || (_src[(_si : stdgo.GoInt)] == (13 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                             _si++;
                         };
                         if (_si == ((_src.length))) {
-                            return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface((_src.length : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
+                            return { _0 : _nsi = _si, _1 : _n = (0 : stdgo.GoInt), _2 : _err = stdgo.Go.asInterface((_src.length : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                         };
                         if ((_src[(_si : stdgo.GoInt)] : stdgo.GoInt32) != (_enc._padChar)) {
-                            return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
+                            return { _0 : _nsi = _si, _1 : _n = (0 : stdgo.GoInt), _2 : _err = stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                         };
                         _si++;
                     };
@@ -186,7 +186,7 @@ break;
                     } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (__value__ == (3 : stdgo.GoInt)))) {
                         _dst[(1 : stdgo.GoInt)] = _dbuf[(1 : stdgo.GoInt)];
                         if ((_enc._strict && (_dbuf[(2 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) {
-                            return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
+                            return { _0 : _nsi = _si, _1 : _n = (0 : stdgo.GoInt), _2 : _err = stdgo.Go.asInterface(((_si - (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                         };
                         _dbuf[(1 : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
                         @:fallthrough {
@@ -198,7 +198,7 @@ break;
                     } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (__value__ == (2 : stdgo.GoInt)))) {
                         _dst[(0 : stdgo.GoInt)] = _dbuf[(0 : stdgo.GoInt)];
                         if ((_enc._strict && (((_dbuf[(1 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) || (_dbuf[(2 : stdgo.GoInt)] != (0 : stdgo.GoUInt8)) : Bool)) : Bool)) {
-                            return { _0 : _si, _1 : (0 : stdgo.GoInt), _2 : stdgo.Go.asInterface(((_si - (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
+                            return { _0 : _nsi = _si, _1 : _n = (0 : stdgo.GoInt), _2 : _err = stdgo.Go.asInterface(((_si - (2 : stdgo.GoInt) : stdgo.GoInt) : stdgo._internal.encoding.base64.Base64_CorruptInputError.CorruptInputError)) };
                         };
                         break;
                         break;
@@ -207,7 +207,7 @@ break;
                 break;
             };
         };
-        return { _0 : _si, _1 : (_dlen - (1 : stdgo.GoInt) : stdgo.GoInt), _2 : _err };
+        return { _0 : _nsi = _si, _1 : _n = (_dlen - (1 : stdgo.GoInt) : stdgo.GoInt), _2 : _err };
     }
     @:keep
     static public function encodedLen( _enc:stdgo.Ref<stdgo._internal.encoding.base64.Base64_Encoding.Encoding>, _n:stdgo.GoInt):stdgo.GoInt {

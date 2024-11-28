@@ -316,7 +316,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         var _a4 = new stdgo.GoArray<stdgo.GoUInt8>(4, 4, ...[for (i in 0 ... 4) (0 : stdgo.GoUInt8)]);
         if (((_ip._z == stdgo._internal.net.netip.Netip__z4._z4) || _ip.is4In6() : Bool)) {
             stdgo._internal.net.netip.Netip__bePutUint32._bePutUint32((_a4.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_ip._addr._lo : stdgo.GoUInt32));
-            return _a4?.__copy__();
+            return _a4 = _a4?.__copy__();
         };
         if (_ip._z == (stdgo._internal.net.netip.Netip__z0._z0)) {
             throw stdgo.Go.toInterface(("As4 called on IP zero value" : stdgo.GoString));
@@ -329,7 +329,7 @@ _ret = stdgo._internal.net.netip.Netip__appendHex._appendHex(_ret, _ip._v6u16(_i
         var _a16 = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
         stdgo._internal.net.netip.Netip__bePutUint64._bePutUint64((_a16.__slice__(0, (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _ip._addr._hi);
         stdgo._internal.net.netip.Netip__bePutUint64._bePutUint64((_a16.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _ip._addr._lo);
-        return _a16?.__copy__();
+        return _a16 = _a16?.__copy__();
     }
     @:keep
     static public function prefix( _ip:stdgo._internal.net.netip.Netip_Addr.Addr, _b:stdgo.GoInt):{ var _0 : stdgo._internal.net.netip.Netip_Prefix.Prefix; var _1 : stdgo.Error; } {

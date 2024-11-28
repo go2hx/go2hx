@@ -17,7 +17,7 @@ package stdgo._internal.net.http;
         @:recv var _gz:stdgo.Ref<stdgo._internal.net.http.Http_T_http2gzipReader.T_http2gzipReader> = _gz;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (_gz._zerr != null) {
-            return { _0 : (0 : stdgo.GoInt), _1 : _gz._zerr };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _gz._zerr };
         };
         if ((_gz._zr == null || (_gz._zr : Dynamic).__nil__)) {
             {
@@ -27,9 +27,14 @@ package stdgo._internal.net.http;
             };
             if (_err != null) {
                 _gz._zerr = _err;
-                return { _0 : (0 : stdgo.GoInt), _1 : _err };
+                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err };
             };
         };
-        return _gz._zr.read(_p);
+        return {
+            var __tmp__ = _gz._zr.read(_p);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
 }

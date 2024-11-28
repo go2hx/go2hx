@@ -133,7 +133,7 @@ package stdgo._internal.image.png;
         if (_err != null) {
             return _err;
         };
-        return _d._verifyChecksum();
+        return _err = _d._verifyChecksum();
     }
     @:keep
     static public function _mergePassInto( _d:stdgo.Ref<stdgo._internal.image.png.Png_T_decoder.T_decoder>, _dst:stdgo._internal.image.Image_Image.Image, _src:stdgo._internal.image.Image_Image.Image, _pass:stdgo.GoInt):Void {

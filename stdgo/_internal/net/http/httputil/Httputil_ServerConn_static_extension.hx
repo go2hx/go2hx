@@ -145,7 +145,7 @@ package stdgo._internal.net.http.httputil;
             var _err:stdgo.Error = (null : stdgo.Error);
             var _id = (_sc._pipe.next() : stdgo.GoUInt);
             _sc._pipe.startRequest(_id);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _sc._pipe.endRequest(_id);
                     if ((_req == null || (_req : Dynamic).__nil__)) {
@@ -158,7 +158,7 @@ package stdgo._internal.net.http.httputil;
                     };
                 };
                 a();
-            });
+            }));
             _sc._mu.lock();
             if (_sc._we != null) {
                 __deferstack__.unshift(() -> _sc._mu.unlock());

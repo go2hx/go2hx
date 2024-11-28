@@ -5,7 +5,7 @@ var _p = __2, _valid = __1, _once = __0;
         var _g = (function():Void {
             var __deferstack__:Array<Void -> Void> = [];
             try {
-                __deferstack__.unshift(() -> {
+                __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         _p = ({
                             final r = stdgo.Go.recover_exception;
@@ -17,7 +17,7 @@ var _p = __2, _valid = __1, _once = __0;
                         };
                     };
                     a();
-                });
+                }));
                 _f();
                 _valid = true;
                 {

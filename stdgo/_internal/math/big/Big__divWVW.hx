@@ -5,7 +5,7 @@ function _divWVW(_z:stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>, _xn:std
         if ((_x.length) == ((1 : stdgo.GoInt))) {
             var __tmp__ = stdgo._internal.math.bits.Bits_div.div((_r : stdgo.GoUInt), (_x[(0 : stdgo.GoInt)] : stdgo.GoUInt), (_y : stdgo.GoUInt)), _qq:stdgo.GoUInt = __tmp__._0, _rr:stdgo.GoUInt = __tmp__._1;
             _z[(0 : stdgo.GoInt)] = (_qq : stdgo._internal.math.big.Big_Word.Word);
-            return (_rr : stdgo._internal.math.big.Big_Word.Word);
+            return _r = (_rr : stdgo._internal.math.big.Big_Word.Word);
         };
         var _rec = (stdgo._internal.math.big.Big__reciprocalWord._reciprocalWord(_y) : stdgo._internal.math.big.Big_Word.Word);
         {

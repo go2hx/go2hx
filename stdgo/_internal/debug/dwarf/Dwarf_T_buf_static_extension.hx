@@ -474,7 +474,7 @@ if ((_byte & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                 _i++;
             };
         };
-        return { _0 : (0i64 : stdgo.GoUInt64), _1 : (0u32 : stdgo.GoUInt) };
+        return { _0 : _c = (0i64 : stdgo.GoUInt64), _1 : _bits = (0u32 : stdgo.GoUInt) };
     }
     @:keep
     static public function _uint64( _b:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_T_buf.T_buf>):stdgo.GoUInt64 {

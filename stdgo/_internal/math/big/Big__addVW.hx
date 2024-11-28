@@ -5,5 +5,5 @@ function _addVW(_z:stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>, _x:stdgo
         if (((_z.length) > (32 : stdgo.GoInt) : Bool)) {
             _fn = stdgo._internal.math.big.Big__addVWlarge._addVWlarge;
         };
-        return _fn(_z, _x, _y);
+        return _c = _fn(_z, _x, _y);
     }

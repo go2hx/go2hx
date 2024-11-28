@@ -234,7 +234,7 @@ var _tooBig = __1, _discard = __0;
             _cw._writeHeader(_p);
         };
         if (_cw._res._req.method == (("HEAD" : stdgo.GoString))) {
-            return { _0 : (_p.length), _1 : (null : stdgo.Error) };
+            return { _0 : _n = (_p.length), _1 : _err = (null : stdgo.Error) };
         };
         if (_cw._chunking) {
             {

@@ -7,9 +7,9 @@ function _unixSyslog():{ var _0 : stdgo._internal.log.syslog.Syslog_T_serverConn
             for (__5 => _path in _logPaths) {
                 var __tmp__ = stdgo._internal.net.Net_dial.dial(_network?.__copy__(), _path?.__copy__()), _conn:stdgo._internal.net.Net_Conn.Conn = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
-                    return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(({ _conn : _conn, _local : true } : stdgo._internal.log.syslog.Syslog_T_netConn.T_netConn)) : stdgo.Ref<stdgo._internal.log.syslog.Syslog_T_netConn.T_netConn>)), _1 : (null : stdgo.Error) };
+                    return { _0 : _conn = stdgo.Go.asInterface((stdgo.Go.setRef(({ _conn : _conn, _local : true } : stdgo._internal.log.syslog.Syslog_T_netConn.T_netConn)) : stdgo.Ref<stdgo._internal.log.syslog.Syslog_T_netConn.T_netConn>)), _1 : _err = (null : stdgo.Error) };
                 };
             };
         };
-        return { _0 : (null : stdgo._internal.log.syslog.Syslog_T_serverConn.T_serverConn), _1 : stdgo._internal.errors.Errors_new_.new_(("Unix syslog delivery error" : stdgo.GoString)) };
+        return { _0 : _conn = (null : stdgo._internal.log.syslog.Syslog_T_serverConn.T_serverConn), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("Unix syslog delivery error" : stdgo.GoString)) };
     }

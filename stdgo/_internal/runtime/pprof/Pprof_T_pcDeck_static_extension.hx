@@ -10,16 +10,16 @@ package stdgo._internal.runtime.pprof;
                 var _newFrame = (_frames[(0 : stdgo.GoInt)] : stdgo._internal.runtime.Runtime_Frame.Frame);
                 var _last = (_d._frames[(_existing - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo._internal.runtime.Runtime_Frame.Frame);
                 if ((_last.func != null && ((_last.func : Dynamic).__nil__ == null || !(_last.func : Dynamic).__nil__))) {
-                    return false;
+                    return _success = false;
                 };
                 if (((_last.entry == (0 : stdgo.GoUIntptr)) || (_newFrame.entry == (0 : stdgo.GoUIntptr)) : Bool)) {
-                    return false;
+                    return _success = false;
                 };
                 if (_last.entry != (_newFrame.entry)) {
-                    return false;
+                    return _success = false;
                 };
                 if (_last.function_ == (_newFrame.function_)) {
-                    return false;
+                    return _success = false;
                 };
             };
         };
@@ -30,7 +30,7 @@ package stdgo._internal.runtime.pprof;
             _d._firstPCFrames = (_d._frames.length);
             _d._firstPCSymbolizeResult = _symbolizeResult;
         };
-        return true;
+        return _success = true;
     }
     @:keep
     static public function _reset( _d:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_pcDeck.T_pcDeck>):Void {

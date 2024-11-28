@@ -53,12 +53,12 @@ package stdgo._internal.text.template.parse;
         @:recv var _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer> = _l;
         var _delim = false, _trimSpaces = false;
         if ((stdgo._internal.text.template.parse.Parse__hasRightTrimMarker._hasRightTrimMarker((_l._input.__slice__(_l._pos) : stdgo.GoString)?.__copy__()) && stdgo._internal.strings.Strings_hasPrefix.hasPrefix((_l._input.__slice__((_l._pos + (2 : stdgo._internal.text.template.parse.Parse_Pos.Pos) : stdgo._internal.text.template.parse.Parse_Pos.Pos)) : stdgo.GoString)?.__copy__(), _l._rightDelim?.__copy__()) : Bool)) {
-            return { _0 : true, _1 : true };
+            return { _0 : _delim = true, _1 : _trimSpaces = true };
         };
         if (stdgo._internal.strings.Strings_hasPrefix.hasPrefix((_l._input.__slice__(_l._pos) : stdgo.GoString)?.__copy__(), _l._rightDelim?.__copy__())) {
-            return { _0 : true, _1 : false };
+            return { _0 : _delim = true, _1 : _trimSpaces = false };
         };
-        return { _0 : false, _1 : false };
+        return { _0 : _delim = false, _1 : _trimSpaces = false };
     }
     @:keep
     static public function _nextItem( _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_T_lexer.T_lexer>):stdgo._internal.text.template.parse.Parse_T_item.T_item {

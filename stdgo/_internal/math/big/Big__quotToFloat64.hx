@@ -4,7 +4,7 @@ function _quotToFloat64(_a:stdgo._internal.math.big.Big_T_nat.T_nat, _b:stdgo._i
         {};
         var _alen = (_a._bitLen() : stdgo.GoInt);
         if (_alen == ((0 : stdgo.GoInt))) {
-            return { _0 : (0 : stdgo.GoFloat64), _1 : true };
+            return { _0 : _f = (0 : stdgo.GoFloat64), _1 : _exact = true };
         };
         var _blen = (_b._bitLen() : stdgo.GoInt);
         if (_blen == ((0 : stdgo.GoInt))) {

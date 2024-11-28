@@ -3,8 +3,8 @@ function sub(_x:stdgo.GoUInt, _y:stdgo.GoUInt, _borrow:stdgo.GoUInt):{ var _0 : 
         var _diff = (0 : stdgo.GoUInt), _borrowOut = (0 : stdgo.GoUInt);
         if (true) {
             var __tmp__ = stdgo._internal.math.bits.Bits_sub32.sub32((_x : stdgo.GoUInt32), (_y : stdgo.GoUInt32), (_borrow : stdgo.GoUInt32)), _d32:stdgo.GoUInt32 = __tmp__._0, _b32:stdgo.GoUInt32 = __tmp__._1;
-            return { _0 : (_d32 : stdgo.GoUInt), _1 : (_b32 : stdgo.GoUInt) };
+            return { _0 : _diff = (_d32 : stdgo.GoUInt), _1 : _borrowOut = (_b32 : stdgo.GoUInt) };
         };
         var __tmp__ = stdgo._internal.math.bits.Bits_sub64.sub64((_x : stdgo.GoUInt64), (_y : stdgo.GoUInt64), (_borrow : stdgo.GoUInt64)), _d64:stdgo.GoUInt64 = __tmp__._0, _b64:stdgo.GoUInt64 = __tmp__._1;
-        return { _0 : (_d64 : stdgo.GoUInt), _1 : (_b64 : stdgo.GoUInt) };
+        return { _0 : _diff = (_d64 : stdgo.GoUInt), _1 : _borrowOut = (_b64 : stdgo.GoUInt) };
     }

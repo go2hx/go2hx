@@ -9,10 +9,10 @@ function _parseHexUint(_v:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoUInt64;
             } else if ((((65 : stdgo.GoUInt8) <= _b : Bool) && (_b <= (70 : stdgo.GoUInt8) : Bool) : Bool)) {
                 _b = ((_b - (65 : stdgo.GoUInt8) : stdgo.GoUInt8) + (10 : stdgo.GoUInt8) : stdgo.GoUInt8);
             } else {
-                return { _0 : (0i64 : stdgo.GoUInt64), _1 : stdgo._internal.errors.Errors_new_.new_(("invalid byte in chunk length" : stdgo.GoString)) };
+                return { _0 : _n = (0i64 : stdgo.GoUInt64), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("invalid byte in chunk length" : stdgo.GoString)) };
             };
             if (_i == ((16 : stdgo.GoInt))) {
-                return { _0 : (0i64 : stdgo.GoUInt64), _1 : stdgo._internal.errors.Errors_new_.new_(("http chunk length too large" : stdgo.GoString)) };
+                return { _0 : _n = (0i64 : stdgo.GoUInt64), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("http chunk length too large" : stdgo.GoString)) };
             };
             _n = (_n << ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
             _n = (_n | ((_b : stdgo.GoUInt64)) : stdgo.GoUInt64);

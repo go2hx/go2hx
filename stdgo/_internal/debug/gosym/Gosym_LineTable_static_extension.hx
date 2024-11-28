@@ -6,7 +6,7 @@ package stdgo._internal.debug.gosym;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if (true) {
-                __deferstack__.unshift(() -> {
+                __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         ({
                             final r = stdgo.Go.recover_exception;
@@ -15,7 +15,7 @@ package stdgo._internal.debug.gosym;
                         });
                     };
                     a();
-                });
+                }));
             };
             _t._initFileMap();
             for (_file => _ in _t._fileMap) {
@@ -114,7 +114,7 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
         var __deferstack__:Array<Void -> Void> = [];
         var _pc = (0 : stdgo.GoUInt64);
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if ((true && (({
                         final r = stdgo.Go.recover_exception;
@@ -125,12 +125,12 @@ _pos = (_pos + ((((_s.length) + (1 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoUInt3
                     };
                 };
                 a();
-            });
+            }));
             _t._initFileMap();
             var __tmp__ = (_t._fileMap != null && _t._fileMap.exists(_file?.__copy__()) ? { _0 : _t._fileMap[_file?.__copy__()], _1 : true } : { _0 : (0 : stdgo.GoUInt32), _1 : false }), _filenum:stdgo.GoUInt32 = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {
-                    final __ret__:stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+                    final __ret__:stdgo.GoUInt64 = _pc = (0i64 : stdgo.GoUInt64);
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -167,7 +167,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 };
             };
             {
-                final __ret__:stdgo.GoUInt64 = (0i64 : stdgo.GoUInt64);
+                final __ret__:stdgo.GoUInt64 = _pc = (0i64 : stdgo.GoUInt64);
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -201,7 +201,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
         var __deferstack__:Array<Void -> Void> = [];
         var _file = ("" : stdgo.GoString);
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if ((true && (({
                         final r = stdgo.Go.recover_exception;
@@ -212,11 +212,11 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                     };
                 };
                 a();
-            });
+            }));
             var _f = (_t._findFunc(_pc)?.__copy__() : stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData);
             if (_f.isZero()) {
                 {
-                    final __ret__:stdgo.GoString = stdgo.Go.str()?.__copy__();
+                    final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -229,7 +229,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             if (_t._version == ((2 : stdgo._internal.debug.gosym.Gosym_T_version.T_version))) {
                 if ((_fno <= (0 : stdgo.GoInt32) : Bool)) {
                     {
-                        final __ret__:stdgo.GoString = stdgo.Go.str()?.__copy__();
+                        final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -237,7 +237,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                     };
                 };
                 {
-                    final __ret__:stdgo.GoString = _t._string(_t._binary.uint32((_t._filetab.__slice__(((4 : stdgo.GoInt32) * _fno : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__();
+                    final __ret__:stdgo.GoString = _file = _t._string(_t._binary.uint32((_t._filetab.__slice__(((4 : stdgo.GoInt32) * _fno : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoUInt8>)))?.__copy__();
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -246,7 +246,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             };
             if ((_fno < (0 : stdgo.GoInt32) : Bool)) {
                 {
-                    final __ret__:stdgo.GoString = stdgo.Go.str()?.__copy__();
+                    final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -258,7 +258,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 var _fnoff = (_t._binary.uint32((_t._cutab.__slice__((((_cuoff + (_fno : stdgo.GoUInt32) : stdgo.GoUInt32)) * (4u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoUInt32);
                 if (_fnoff != ((-1u32 : stdgo.GoUInt32))) {
                     {
-                        final __ret__:stdgo.GoString = _t._stringFrom(_t._filetab, _fnoff)?.__copy__();
+                        final __ret__:stdgo.GoString = _file = _t._stringFrom(_t._filetab, _fnoff)?.__copy__();
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -267,7 +267,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                 };
             };
             {
-                final __ret__:stdgo.GoString = stdgo.Go.str()?.__copy__();
+                final __ret__:stdgo.GoString = _file = stdgo.Go.str()?.__copy__();
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -301,7 +301,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
         var __deferstack__:Array<Void -> Void> = [];
         var _line = (0 : stdgo.GoInt);
         try {
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if ((true && (({
                         final r = stdgo.Go.recover_exception;
@@ -312,11 +312,11 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
                     };
                 };
                 a();
-            });
+            }));
             var _f = (_t._findFunc(_pc)?.__copy__() : stdgo._internal.debug.gosym.Gosym_T_funcData.T_funcData);
             if (_f.isZero()) {
                 {
-                    final __ret__:stdgo.GoInt = (-1 : stdgo.GoInt);
+                    final __ret__:stdgo.GoInt = _line = (-1 : stdgo.GoInt);
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -326,7 +326,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             var _entry = (_f._entryPC() : stdgo.GoUInt64);
             var _linetab = (_f._pcln() : stdgo.GoUInt32);
             {
-                final __ret__:stdgo.GoInt = (_t._pcvalue(_linetab, _entry, _pc) : stdgo.GoInt);
+                final __ret__:stdgo.GoInt = _line = (_t._pcvalue(_linetab, _entry, _pc) : stdgo.GoInt);
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -513,7 +513,7 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if (true) {
-                __deferstack__.unshift(() -> {
+                __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         ({
                             final r = stdgo.Go.recover_exception;
@@ -522,7 +522,7 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                         });
                     };
                     a();
-                });
+                }));
             };
             var _ft = (_t._funcTab()?.__copy__() : stdgo._internal.debug.gosym.Gosym_T_funcTab.T_funcTab);
             var _funcs = (new stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>((_ft.count() : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_ft.count() : stdgo.GoInt).toBasic() > 0 ? (_ft.count() : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.gosym.Gosym_Func.Func)]) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
@@ -584,7 +584,7 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
             };
             _t._version = (1 : stdgo._internal.debug.gosym.Gosym_T_version.T_version);
             if (true) {
-                __deferstack__.unshift(() -> {
+                __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         ({
                             final r = stdgo.Go.recover_exception;
@@ -593,7 +593,7 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                         });
                     };
                     a();
-                });
+                }));
             };
             if (((((((_t.data.length) < (16 : stdgo.GoInt) : Bool) || _t.data[(4 : stdgo.GoInt)] != ((0 : stdgo.GoUInt8)) : Bool) || _t.data[(5 : stdgo.GoInt)] != ((0 : stdgo.GoUInt8)) : Bool) || (((_t.data[(6 : stdgo.GoInt)] != ((1 : stdgo.GoUInt8)) && _t.data[(6 : stdgo.GoInt)] != ((2 : stdgo.GoUInt8)) : Bool) && (_t.data[(6 : stdgo.GoInt)] != (4 : stdgo.GoUInt8)) : Bool)) : Bool) || (((_t.data[(7 : stdgo.GoInt)] != (4 : stdgo.GoUInt8)) && (_t.data[(7 : stdgo.GoInt)] != (8 : stdgo.GoUInt8)) : Bool)) : Bool)) {
                 {

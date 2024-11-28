@@ -202,7 +202,7 @@ package stdgo._internal.net.http;
             __deferstack__.unshift(() -> _p._c.signal());
             if (((_p._err != null) || (_p._breakErr != null) : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http__http2errClosedPipeWrite._http2errClosedPipeWrite };
+                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http__http2errClosedPipeWrite._http2errClosedPipeWrite };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -210,7 +210,12 @@ package stdgo._internal.net.http;
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _p._b.write(_d);
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                    var __tmp__ = _p._b.write(_d);
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -254,7 +259,7 @@ package stdgo._internal.net.http;
             while (true) {
                 if (_p._breakErr != null) {
                     {
-                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _p._breakErr };
+                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _p._breakErr };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -263,7 +268,12 @@ package stdgo._internal.net.http;
                 };
                 if (((_p._b != null) && (_p._b.len() > (0 : stdgo.GoInt) : Bool) : Bool)) {
                     {
-                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _p._b.read(_d);
+                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                            var __tmp__ = _p._b.read(_d);
+                            _n = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -277,7 +287,7 @@ package stdgo._internal.net.http;
                     };
                     _p._b = (null : stdgo._internal.net.http.Http_T_http2pipeBuffer.T_http2pipeBuffer);
                     {
-                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _p._err };
+                        final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _p._err };
                         for (defer in __deferstack__) {
                             defer();
                         };

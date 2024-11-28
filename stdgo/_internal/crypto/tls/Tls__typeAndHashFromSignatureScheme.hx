@@ -12,7 +12,7 @@ function _typeAndHashFromSignatureScheme(_signatureAlgorithm:stdgo._internal.cry
             } else if (__value__ == ((2055 : stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme))) {
                 _sigType = (228 : stdgo.GoUInt8);
             } else {
-                return { _0 : (0 : stdgo.GoUInt8), _1 : (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash), _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported signature algorithm: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_signatureAlgorithm))) };
+                return { _0 : _sigType = (0 : stdgo.GoUInt8), _1 : _hash = (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash), _2 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported signature algorithm: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_signatureAlgorithm))) };
             };
         };
         {
@@ -28,8 +28,8 @@ function _typeAndHashFromSignatureScheme(_signatureAlgorithm:stdgo._internal.cry
             } else if (__value__ == ((2055 : stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme))) {
                 _hash = stdgo._internal.crypto.tls.Tls__directSigning._directSigning;
             } else {
-                return { _0 : (0 : stdgo.GoUInt8), _1 : (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash), _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported signature algorithm: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_signatureAlgorithm))) };
+                return { _0 : _sigType = (0 : stdgo.GoUInt8), _1 : _hash = (0u32 : stdgo._internal.crypto.Crypto_Hash.Hash), _2 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("unsupported signature algorithm: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_signatureAlgorithm))) };
             };
         };
-        return { _0 : _sigType, _1 : _hash, _2 : (null : stdgo.Error) };
+        return { _0 : _sigType, _1 : _hash, _2 : _err = (null : stdgo.Error) };
     }

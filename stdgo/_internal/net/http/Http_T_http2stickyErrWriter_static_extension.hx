@@ -5,7 +5,7 @@ package stdgo._internal.net.http;
         @:recv var _sew:stdgo._internal.net.http.Http_T_http2stickyErrWriter.T_http2stickyErrWriter = _sew?.__copy__();
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_sew._err : stdgo.Error) != null) {
-            return { _0 : (0 : stdgo.GoInt), _1 : (_sew._err : stdgo.Error) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (_sew._err : stdgo.Error) };
         };
         while (true) {
             if (_sew._timeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {

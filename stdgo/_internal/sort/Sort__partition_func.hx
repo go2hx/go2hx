@@ -12,7 +12,7 @@ var _j = __1, _i = __0;
         };
         if ((_i > _j : Bool)) {
             _data.swap(_j, _a);
-            return { _0 : _j, _1 : true };
+            return { _0 : _newpivot = _j, _1 : _alreadyPartitioned = true };
         };
         _data.swap(_i, _j);
         _i++;
@@ -32,5 +32,5 @@ var _j = __1, _i = __0;
             _j--;
         };
         _data.swap(_j, _a);
-        return { _0 : _j, _1 : false };
+        return { _0 : _newpivot = _j, _1 : _alreadyPartitioned = false };
     }

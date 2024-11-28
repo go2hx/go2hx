@@ -10,11 +10,11 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
         _hm._outer = _h();
         _hm._inner = _h();
         var _unique = (true : Bool);
-        {
+        ({
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
-                    __deferstack__.unshift(() -> {
+                    __deferstack__.unshift(() -> ({
                         var a = function():Void {
                             var __blank__ = ({
                                 final r = stdgo.Go.recover_exception;
@@ -23,7 +23,7 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
                             });
                         };
                         a();
-                    });
+                    }));
                     if (stdgo.Go.toInterface(_hm._outer) == (stdgo.Go.toInterface(_hm._inner))) {
                         _unique = false;
                     };
@@ -50,7 +50,7 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
                 };
             };
             a();
-        };
+        });
         if (!_unique) {
             throw stdgo.Go.toInterface(("crypto/hmac: hash generation function does not produce unique values" : stdgo.GoString));
         };

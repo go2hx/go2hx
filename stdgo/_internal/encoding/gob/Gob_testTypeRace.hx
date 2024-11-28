@@ -6,7 +6,7 @@ function testTypeRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
             var _i = (0 : stdgo.GoInt);
             while ((_i < (2 : stdgo.GoInt) : Bool)) {
                 _wg.add((1 : stdgo.GoInt));
-stdgo.Go.routine(() -> {
+stdgo.Go.routine(() -> ({
                     var a = function(_i:stdgo.GoInt):Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
@@ -97,7 +97,7 @@ stdgo.Go.routine(() -> {
                         };
                     };
                     a(_i);
-                });
+                }));
                 _i++;
             };
         };

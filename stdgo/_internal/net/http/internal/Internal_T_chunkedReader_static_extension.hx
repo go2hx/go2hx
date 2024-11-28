@@ -57,7 +57,7 @@ package stdgo._internal.net.http.internal;
                 _cr._err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
             };
         };
-        return { _0 : _n, _1 : _cr._err };
+        return { _0 : _n, _1 : _err = _cr._err };
     }
     @:keep
     static public function _chunkHeaderAvailable( _cr:stdgo.Ref<stdgo._internal.net.http.internal.Internal_T_chunkedReader.T_chunkedReader>):Bool {

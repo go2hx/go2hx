@@ -10,7 +10,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                     var _fn = ((_tmpl._common._execFuncs[_name] ?? ({} : stdgo._internal.reflect.Reflect_Value.Value))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
                     if (_fn.isValid()) {
                         {
-                            final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : false, _2 : true };
+                            final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _v = _fn?.__copy__(), _1 : _isBuiltin = false, _2 : _ok = true };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -23,7 +23,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                 var _fn = ((stdgo._internal.text.template.Template__builtinFuncs._builtinFuncs()[_name] ?? ({} : stdgo._internal.reflect.Reflect_Value.Value))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
                 if (_fn.isValid()) {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _fn?.__copy__(), _1 : true, _2 : true };
+                        final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _v = _fn?.__copy__(), _1 : _isBuiltin = true, _2 : _ok = true };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -32,7 +32,7 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false, _2 : false };
+                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _v = (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : _isBuiltin = false, _2 : _ok = false };
                 for (defer in __deferstack__) {
                     defer();
                 };

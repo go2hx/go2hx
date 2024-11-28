@@ -6,6 +6,6 @@ package stdgo._internal.image.color;
         var _r = (0 : stdgo.GoUInt32), _g = (0 : stdgo.GoUInt32), _b = (0 : stdgo.GoUInt32), _a = (0 : stdgo.GoUInt32);
         var _y = (_c.y : stdgo.GoUInt32);
         _y = (_y | ((_y << (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32)) : stdgo.GoUInt32);
-        return { _0 : _y, _1 : _y, _2 : _y, _3 : (65535u32 : stdgo.GoUInt32) };
+        return { _0 : _r = _y, _1 : _g = _y, _2 : _b = _y, _3 : _a = (65535u32 : stdgo.GoUInt32) };
     }
 }

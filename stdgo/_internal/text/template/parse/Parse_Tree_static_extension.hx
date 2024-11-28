@@ -282,7 +282,7 @@ package stdgo._internal.text.template.parse;
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.text.template.parse.Parse_Pos.Pos; var _1 : stdgo.GoInt; var _2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>; var _3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; var _4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; } = { _0 : _pipe.position(), _1 : _pipe.line, _2 : _pipe, _3 : _list, _4 : _elseList };
+                final __ret__:{ var _0 : stdgo._internal.text.template.parse.Parse_Pos.Pos; var _1 : stdgo.GoInt; var _2 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>; var _3 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; var _4 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>; } = { _0 : _pos = _pipe.position(), _1 : _line = _pipe.line, _2 : _pipe, _3 : _list, _4 : _elseList };
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -488,29 +488,29 @@ package stdgo._internal.text.template.parse;
             {
                 final __value__ = _token._typ;
                 if (__value__ == ((23 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                    return _t._blockControl();
+                    return _n = _t._blockControl();
                 } else if (__value__ == ((24 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                    return _t._breakControl(_token._pos, _token._line);
+                    return _n = _t._breakControl(_token._pos, _token._line);
                 } else if (__value__ == ((25 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                    return _t._continueControl(_token._pos, _token._line);
+                    return _n = _t._continueControl(_token._pos, _token._line);
                 } else if (__value__ == ((28 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                    return _t._elseControl();
+                    return _n = _t._elseControl();
                 } else if (__value__ == ((29 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                    return _t._endControl();
+                    return _n = _t._endControl();
                 } else if (__value__ == ((30 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                    return _t._ifControl();
+                    return _n = _t._ifControl();
                 } else if (__value__ == ((32 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                    return _t._rangeControl();
+                    return _n = _t._rangeControl();
                 } else if (__value__ == ((33 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                    return _t._templateControl();
+                    return _n = _t._templateControl();
                 } else if (__value__ == ((34 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))) {
-                    return _t._withControl();
+                    return _n = _t._withControl();
                 };
             };
         };
         _t._backup();
         var _token = (_t._peek()?.__copy__() : stdgo._internal.text.template.parse.Parse_T_item.T_item);
-        return stdgo.Go.asInterface(_t._newAction(_token._pos, _token._line, _t._pipeline(("command" : stdgo.GoString), (16 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))));
+        return _n = stdgo.Go.asInterface(_t._newAction(_token._pos, _token._line, _t._pipeline(("command" : stdgo.GoString), (16 : stdgo._internal.text.template.parse.Parse_T_itemType.T_itemType))));
     }
     @:keep
     static public function _clearActionLine( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>):Void {
@@ -592,7 +592,7 @@ package stdgo._internal.text.template.parse;
             {
                 final __value__ = _n.type();
                 if (__value__ == ((7 : stdgo._internal.text.template.parse.Parse_NodeType.NodeType)) || __value__ == ((6 : stdgo._internal.text.template.parse.Parse_NodeType.NodeType))) {
-                    return { _0 : _list, _1 : _n };
+                    return { _0 : _list, _1 : _next = _n };
                 };
             };
             _list._append(_n);
@@ -689,7 +689,7 @@ package stdgo._internal.text.template.parse;
             _t._add();
             _t._stopParse();
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>; var _1 : stdgo.Error; } = { _0 : _t, _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>; var _1 : stdgo.Error; } = { _0 : _tree = _t, _1 : _err = (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -830,7 +830,7 @@ package stdgo._internal.text.template.parse;
         };
         var _lineNum = ((1 : stdgo.GoInt) + stdgo._internal.strings.Strings_count.count(_text?.__copy__(), ("\n" : stdgo.GoString)) : stdgo.GoInt);
         _context = (_n.string() : stdgo.GoString)?.__copy__();
-        return { _0 : stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s:%d:%d" : stdgo.GoString), stdgo.Go.toInterface(_tree.parseName), stdgo.Go.toInterface(_lineNum), stdgo.Go.toInterface(_byteNum))?.__copy__(), _1 : _context?.__copy__() };
+        return { _0 : _location = stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s:%d:%d" : stdgo.GoString), stdgo.Go.toInterface(_tree.parseName), stdgo.Go.toInterface(_lineNum), stdgo.Go.toInterface(_byteNum))?.__copy__(), _1 : _context = _context?.__copy__() };
     }
     @:keep
     static public function _peekNonSpace( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>):stdgo._internal.text.template.parse.Parse_T_item.T_item {
@@ -849,7 +849,7 @@ package stdgo._internal.text.template.parse;
                 break;
             };
         };
-        return _token?.__copy__();
+        return _token = _token?.__copy__();
     }
     @:keep
     static public function _peek( _t:stdgo.Ref<stdgo._internal.text.template.parse.Parse_Tree.Tree>):stdgo._internal.text.template.parse.Parse_T_item.T_item {

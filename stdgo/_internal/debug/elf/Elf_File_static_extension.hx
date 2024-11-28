@@ -101,7 +101,7 @@ package stdgo._internal.debug.elf;
             return { _0 : _library, _1 : _version };
         };
         var _n = (stdgo.Go.setRef(_f._gnuNeed[(_j : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.debug.elf.Elf_T_verneed.T_verneed>);
-        return { _0 : _n.file?.__copy__(), _1 : _n.name?.__copy__() };
+        return { _0 : _library = _n.file?.__copy__(), _1 : _version = _n.name?.__copy__() };
     }
     @:keep
     static public function _gnuVersionInit( _f:stdgo.Ref<stdgo._internal.debug.elf.Elf_File.File>, _str:stdgo.Slice<stdgo.GoUInt8>):Bool {

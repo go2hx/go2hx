@@ -29,7 +29,7 @@ var _wg:stdgo._internal.sync.Sync_WaitGroup.WaitGroup = ({} : stdgo._internal.sy
                                 var _j = (0 : stdgo.GoInt);
                                 while ((_j < _nc : Bool)) {
                                     _wg.add((1 : stdgo.GoInt));
-stdgo.Go.routine(() -> {
+stdgo.Go.routine(() -> ({
                                         var a = function(_j:stdgo.GoInt):Void {
                                             for (__32 => _t in (_ts.__slice__((((_j * (_ts.length) : stdgo.GoInt)) / _nc : stdgo.GoInt), (((((_j + (1 : stdgo.GoInt) : stdgo.GoInt)) * (_ts.length) : stdgo.GoInt)) / _nc : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.reflect.Reflect_Type_.Type_>)) {
                                                 stdgo._internal.encoding.json.Json__cachedTypeFields._cachedTypeFields(_t);
@@ -37,7 +37,7 @@ stdgo.Go.routine(() -> {
                                             _wg.done();
                                         };
                                         a(_j);
-                                    });
+                                    }));
                                     _j++;
                                 };
                             };

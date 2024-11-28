@@ -329,7 +329,12 @@ package stdgo._internal.encoding.gob;
             var _srt = (_rt : stdgo._internal.reflect.Reflect_Type_.Type_);
             if (((_srt.kind() != (25u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) || (_ut._externalDec != (0 : stdgo.GoInt)) : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>; var _1 : stdgo.Error; } = _dec._compileSingle(_remoteId, _ut);
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decEngine.T_decEngine>; var _1 : stdgo.Error; } = {
+                        var __tmp__ = _dec._compileSingle(_remoteId, _ut);
+                        _engine = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -469,9 +474,9 @@ _engine._numInstr++;
         } : stdgo.GoMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId>))) {
             var _remoteType = (_dec._typeString(_remoteId)?.__copy__() : stdgo.GoString);
             if (((_ut._base.kind() == (20u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) && (_remoteId != stdgo._internal.encoding.gob.Gob__tInterface._tInterface) : Bool)) {
-                return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((((("gob: local interface type " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (" can only be decoded from remote interface type; received concrete type " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _remoteType?.__copy__() : stdgo.GoString)?.__copy__()) };
+                return { _0 : _engine = null, _1 : _err = stdgo._internal.errors.Errors_new_.new_((((("gob: local interface type " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (" can only be decoded from remote interface type; received concrete type " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _remoteType?.__copy__() : stdgo.GoString)?.__copy__()) };
             };
-            return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((((("gob: decoding into local type " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (", received remote type " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _remoteType?.__copy__() : stdgo.GoString)?.__copy__()) };
+            return { _0 : _engine = null, _1 : _err = stdgo._internal.errors.Errors_new_.new_((((("gob: decoding into local type " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString) + (", received remote type " : stdgo.GoString)?.__copy__() : stdgo.GoString) + _remoteType?.__copy__() : stdgo.GoString)?.__copy__()) };
         };
         var _op = _dec._decOpFor(_remoteId, _rt, _name?.__copy__(), ({
             final x = new stdgo.GoMap.GoObjectMap<stdgo._internal.reflect.Reflect_Type_.Type_, stdgo.Pointer<stdgo._internal.encoding.gob.Gob_T_decOp.T_decOp>>();

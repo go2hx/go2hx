@@ -16,9 +16,14 @@ package stdgo._internal.math.big;
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = _x;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if (_x.isInt()) {
-            return _x._a.marshalText();
+            return {
+                var __tmp__ = _x._a.marshalText();
+                _text = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
-        return { _0 : _x._marshal(), _1 : (null : stdgo.Error) };
+        return { _0 : _text = _x._marshal(), _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function gobDecode( _z:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>, _buf:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {

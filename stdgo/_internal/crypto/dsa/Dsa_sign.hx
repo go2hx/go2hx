@@ -49,7 +49,7 @@ if (_s.sign() != ((0 : stdgo.GoInt))) {
             };
         };
         if (_attempts == ((0 : stdgo.GoInt))) {
-            return { _0 : null, _1 : null, _2 : stdgo._internal.crypto.dsa.Dsa_errInvalidPublicKey.errInvalidPublicKey };
+            return { _0 : _r = null, _1 : _s = null, _2 : _err = stdgo._internal.crypto.dsa.Dsa_errInvalidPublicKey.errInvalidPublicKey };
         };
         return { _0 : _r, _1 : _s, _2 : _err };
     }

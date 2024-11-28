@@ -17,7 +17,7 @@ package stdgo._internal.internal.fuzz;
             return ((_ctx.err() != null) || (((_args.limit > (0i64 : stdgo.GoInt64) : Bool) && (_count.value >= _args.limit : Bool) : Bool)) : Bool);
         } : () -> Bool);
         if (_shouldStop()) {
-            return { _0 : false, _1 : (null : stdgo.Error) };
+            return { _0 : _success = false, _1 : _retErr = (null : stdgo.Error) };
         };
         _count.value++;
         {
@@ -26,10 +26,10 @@ package stdgo._internal.internal.fuzz;
         };
         if (_keepCoverage != null) {
             if ((!stdgo._internal.internal.fuzz.Fuzz__hasCoverageBit._hasCoverageBit(_keepCoverage, stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot) || (_retErr != null) : Bool)) {
-                return { _0 : false, _1 : (null : stdgo.Error) };
+                return { _0 : _success = false, _1 : _retErr = (null : stdgo.Error) };
             };
         } else if (_retErr == null) {
-            return { _0 : false, _1 : (null : stdgo.Error) };
+            return { _0 : _success = false, _1 : _retErr = (null : stdgo.Error) };
         };
         _mem._header()._rawInMem = true;
         var _tryMinimized = function(_candidate:stdgo.Slice<stdgo.GoUInt8>):Bool {
@@ -75,7 +75,7 @@ package stdgo._internal.internal.fuzz;
                 throw stdgo.Go.toInterface(("impossible" : stdgo.GoString));
             };
         };
-        return { _0 : true, _1 : _retErr };
+        return { _0 : _success = true, _1 : _retErr };
     }
     @:keep
     static public function _minimize( _ws:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer>, _ctx:stdgo._internal.context.Context_Context.Context, _args:stdgo._internal.internal.fuzz.Fuzz_T_minimizeArgs.T_minimizeArgs):stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse {
@@ -84,19 +84,19 @@ package stdgo._internal.internal.fuzz;
         var _resp = ({} : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse);
         try {
             var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _resp.duration = stdgo._internal.time.Time_since.since(_start?.__copy__());
                 };
                 a();
-            });
+            }));
             var _mem = _ws._workerComm._memMu.__get__();
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _ws._workerComm._memMu.__send__(_mem);
                 };
                 a();
-            });
+            }));
             var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__unmarshalCorpusFile._unmarshalCorpusFile(_mem._valueCopy()), _vals:stdgo.Slice<stdgo.AnyInterface> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 throw stdgo.Go.toInterface(_err);
@@ -128,7 +128,7 @@ package stdgo._internal.internal.fuzz;
                 };
             };
             {
-                final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse = _resp?.__copy__();
+                final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse = _resp = _resp?.__copy__();
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -165,17 +165,17 @@ package stdgo._internal.internal.fuzz;
             if (_args.coverageData != null) {
                 if (((_ws._coverageMask != null) && (_args.coverageData.length != (_ws._coverageMask.length)) : Bool)) {
                     _resp.internalErr = stdgo._internal.fmt.Fmt_sprintf.sprintf(("unexpected size for CoverageData: got %d, expected %d" : stdgo.GoString), stdgo.Go.toInterface((_args.coverageData.length)), stdgo.Go.toInterface((_ws._coverageMask.length)))?.__copy__();
-                    return _resp?.__copy__();
+                    return _resp = _resp?.__copy__();
                 };
                 _ws._coverageMask = _args.coverageData;
             };
             var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _resp.totalDuration = stdgo._internal.time.Time_since.since(_start?.__copy__());
                 };
                 a();
-            });
+            }));
             if (_args.timeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 var _cancel:() -> Void = null;
                 {
@@ -187,17 +187,17 @@ package stdgo._internal.internal.fuzz;
             };
             var _mem = _ws._workerComm._memMu.__get__();
             _ws._m._r._save(stdgo.Go.pointer(_mem._header()._randState), stdgo.Go.pointer(_mem._header()._randInc));
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     _resp.count = _mem._header()._count;
                     _ws._workerComm._memMu.__send__(_mem);
                 };
                 a();
-            });
+            }));
             if (((_args.limit > (0i64 : stdgo.GoInt64) : Bool) && (_mem._header()._count >= _args.limit : Bool) : Bool)) {
                 _resp.internalErr = stdgo._internal.fmt.Fmt_sprintf.sprintf(("mem.header().count %d already exceeds args.Limit %d" : stdgo.GoString), stdgo.Go.toInterface(_mem._header()._count), stdgo.Go.toInterface(_args.limit))?.__copy__();
                 {
-                    final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp?.__copy__();
+                    final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -208,7 +208,7 @@ package stdgo._internal.internal.fuzz;
             if (_err != null) {
                 _resp.internalErr = _err.error()?.__copy__();
                 {
-                    final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp?.__copy__();
+                    final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -234,19 +234,19 @@ package stdgo._internal.internal.fuzz;
                     if (_errMsg == (stdgo.Go.str())) {
                         _errMsg = ("fuzz function failed with no input" : stdgo.GoString);
                     };
-                    return { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg?.__copy__() };
+                    return { _0 : _dur, _1 : _cov = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg = _errMsg?.__copy__() };
                 };
                 if (((_ws._coverageMask != null) && (stdgo._internal.internal.fuzz.Fuzz__countNewCoverageBits._countNewCoverageBits(_ws._coverageMask, stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot) > (0 : stdgo.GoInt) : Bool) : Bool)) {
-                    return { _0 : _dur, _1 : stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot, _2 : stdgo.Go.str()?.__copy__() };
+                    return { _0 : _dur, _1 : _cov = stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot, _2 : _errMsg = stdgo.Go.str()?.__copy__() };
                 };
-                return { _0 : _dur, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : stdgo.Go.str()?.__copy__() };
+                return { _0 : _dur, _1 : _cov = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _errMsg = stdgo.Go.str()?.__copy__() };
             } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry -> { var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Slice<stdgo.GoUInt8>; var _2 : stdgo.GoString; });
             if (_args.warmup) {
                 var __tmp__ = _fuzzOnce(({ values : _vals, parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry)), _dur:stdgo._internal.time.Time_Duration.Duration = __tmp__._0, __8:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1, _errMsg:stdgo.GoString = __tmp__._2;
                 if (_errMsg != (stdgo.Go.str())) {
                     _resp.err = _errMsg?.__copy__();
                     {
-                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp?.__copy__();
+                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -258,7 +258,7 @@ package stdgo._internal.internal.fuzz;
                     _resp.coverageData = stdgo._internal.internal.fuzz.Fuzz__coverageSnapshot._coverageSnapshot;
                 };
                 {
-                    final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp?.__copy__();
+                    final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -275,7 +275,7 @@ package stdgo._internal.internal.fuzz;
                                 _ctx.done().__get__();
                                 {
                                     {
-                                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp?.__copy__();
+                                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -296,7 +296,7 @@ package stdgo._internal.internal.fuzz;
                                 if (_errMsg != (stdgo.Go.str())) {
                                     _resp.err = _errMsg?.__copy__();
                                     {
-                                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp?.__copy__();
+                                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -307,7 +307,7 @@ package stdgo._internal.internal.fuzz;
                                     _resp.coverageData = _cov;
                                     _resp.interestingDuration = _dur;
                                     {
-                                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp?.__copy__();
+                                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -316,7 +316,7 @@ package stdgo._internal.internal.fuzz;
                                 };
                                 if (_shouldStop()) {
                                     {
-                                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp?.__copy__();
+                                        final __ret__:stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse = _resp = _resp?.__copy__();
                                         for (defer in __deferstack__) {
                                             defer();
                                         };

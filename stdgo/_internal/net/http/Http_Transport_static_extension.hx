@@ -22,7 +22,7 @@ package stdgo._internal.net.http;
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : null, _1 : _wrapErr(_err) };
+                    return { _0 : _pconn = null, _1 : _err = _wrapErr(_err) };
                 };
                 {
                     var __tmp__ = try {
@@ -41,7 +41,7 @@ package stdgo._internal.net.http;
                                 if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
                                     _trace.tlshandshakeDone((new stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState() : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState), _err);
                                 };
-                                return { _0 : null, _1 : _err };
+                                return { _0 : _pconn = null, _1 : _err };
                             };
                         };
                         var _cs = (_tc.connectionState()?.__copy__() : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
@@ -54,7 +54,7 @@ package stdgo._internal.net.http;
             } else {
                 var __tmp__ = _t._dial(_ctx, ("tcp" : stdgo.GoString), _cm._addr()?.__copy__()), _conn:stdgo._internal.net.Net_Conn.Conn = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    return { _0 : null, _1 : _wrapErr(_err) };
+                    return { _0 : _pconn = null, _1 : _err = _wrapErr(_err) };
                 };
                 _pconn._conn = _conn;
                 if (_cm._scheme() == (("https" : stdgo.GoString))) {
@@ -66,13 +66,13 @@ package stdgo._internal.net.http;
                             _err = __tmp__._2;
                         };
                         if (_err != null) {
-                            return { _0 : null, _1 : _wrapErr(_err) };
+                            return { _0 : _pconn = null, _1 : _err = _wrapErr(_err) };
                         };
                     };
                     {
                         _err = _pconn._addTLS(_ctx, _firstTLSHost?.__copy__(), _trace);
                         if (_err != null) {
-                            return { _0 : null, _1 : _wrapErr(_err) };
+                            return { _0 : _pconn = null, _1 : _err = _wrapErr(_err) };
                         };
                     };
                 };
@@ -96,7 +96,7 @@ package stdgo._internal.net.http;
                     var __tmp__ = _d.dialWithConn(_ctx, _conn, ("tcp" : stdgo.GoString), _cm._targetAddr?.__copy__()), __35635:stdgo._internal.net.Net_Addr.Addr = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         _conn.close();
-                        return { _0 : null, _1 : _err };
+                        return { _0 : _pconn = null, _1 : _err };
                     };
                 };
             } else if (_cm._targetScheme == (("http" : stdgo.GoString))) {
@@ -121,7 +121,7 @@ package stdgo._internal.net.http;
                     };
                     if (_err != null) {
                         _conn.close();
-                        return { _0 : null, _1 : _err };
+                        return { _0 : _pconn = null, _1 : _err };
                     };
                 } else {
                     _hdr = _t.proxyConnectHeader;
@@ -151,7 +151,7 @@ package stdgo._internal.net.http;
                 var _didReadResponse = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
                 var __0:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), __1:stdgo.Error = (null : stdgo.Error);
 var _err = __1, _resp = __0;
-                stdgo.Go.routine(() -> {
+                stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
@@ -197,7 +197,7 @@ var _err = __1, _resp = __0;
                         };
                     };
                     a();
-                });
+                }));
                 {
                     var __select__ = true;
                     while (__select__) {
@@ -209,7 +209,7 @@ var _err = __1, _resp = __0;
                                     _conn.close();
                                     _didReadResponse.__get__();
                                     {
-                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _connectCtx.err() };
+                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn = null, _1 : _err = _connectCtx.err() };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -231,7 +231,7 @@ var _err = __1, _resp = __0;
                 if (_err != null) {
                     _conn.close();
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn = null, _1 : _err };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -242,7 +242,7 @@ var _err = __1, _resp = __0;
                     _err = _t.onProxyConnectResponse(_ctx, _cm._proxyURL, _connectReq, _resp);
                     if (_err != null) {
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn = null, _1 : _err };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -255,7 +255,7 @@ var _err = __1, _resp = __0;
                     _conn.close();
                     if (!_ok) {
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("unknown status code" : stdgo.GoString)) };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn = null, _1 : _err = stdgo._internal.errors.Errors_new_.new_(("unknown status code" : stdgo.GoString)) };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -263,7 +263,7 @@ var _err = __1, _resp = __0;
                         };
                     };
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(_text?.__copy__()) };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn = null, _1 : _err = stdgo._internal.errors.Errors_new_.new_(_text?.__copy__()) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -276,7 +276,7 @@ var _err = __1, _resp = __0;
                     var _err = (_pconn._addTLS(_ctx, _cm._tlsHost()?.__copy__(), _trace) : stdgo.Error);
                     if (_err != null) {
                         {
-                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn = null, _1 : _err };
                             for (defer in __deferstack__) {
                                 defer();
                             };
@@ -300,7 +300,7 @@ var _err = __1, _resp = __0;
                                 }, _e = __tmp__._0, _ok = __tmp__._1;
                                 if (_ok) {
                                     {
-                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _e.roundTripErr() };
+                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn = null, _1 : _err = _e.roundTripErr() };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -309,7 +309,7 @@ var _err = __1, _resp = __0;
                                 };
                             };
                             {
-                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : (stdgo.Go.setRef(({ _t : _t, _cacheKey : _pconn._cacheKey?.__copy__(), _alt : _alt } : stdgo._internal.net.http.Http_T_persistConn.T_persistConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>), _1 : (null : stdgo.Error) };
+                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn = (stdgo.Go.setRef(({ _t : _t, _cacheKey : _pconn._cacheKey?.__copy__(), _alt : _alt } : stdgo._internal.net.http.Http_T_persistConn.T_persistConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>), _1 : _err = (null : stdgo.Error) };
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
@@ -324,7 +324,7 @@ var _err = __1, _resp = __0;
             stdgo.Go.routine(() -> _pconn._readLoop());
             stdgo.Go.routine(() -> _pconn._writeLoop());
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn, _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pconn, _1 : _err = (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -543,14 +543,14 @@ var _err = __1, _resp = __0;
                 _trace.getConn(_cm._addr()?.__copy__());
             };
             var _w = (stdgo.Go.setRef(({ _cm : _cm?.__copy__(), _key : _cm._key()?.__copy__(), _ctx : _ctx, _ready : (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _beforeDial : stdgo._internal.net.http.Http__testHookPrePendingDial._testHookPrePendingDial, _afterDial : stdgo._internal.net.http.Http__testHookPostPendingDial._testHookPostPendingDial } : stdgo._internal.net.http.Http_T_wantConn.T_wantConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if (_err != null) {
                         _w._cancel(_t, _err);
                     };
                 };
                 a();
-            });
+            }));
             {
                 var _delivered = (_t._queueForIdleConn(_w) : Bool);
                 if (_delivered) {
@@ -560,7 +560,7 @@ var _err = __1, _resp = __0;
                     };
                     _t._setReqCanceler(_treq._cancelKey?.__copy__(), function(_0:stdgo.Error):Void {});
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pc, _1 : (null : stdgo.Error) };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pc, _1 : _err = (null : stdgo.Error) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -595,7 +595,7 @@ var _err = __1, _resp = __0;
                                                         _req.cancel.__get__();
                                                         {
                                                             {
-                                                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__errRequestCanceledConn._errRequestCanceledConn };
+                                                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pc = null, _1 : _err = stdgo._internal.net.http.Http__errRequestCanceledConn._errRequestCanceledConn };
                                                                 for (defer in __deferstack__) {
                                                                     defer();
                                                                 };
@@ -609,7 +609,7 @@ var _err = __1, _resp = __0;
                                                         _req.context().done().__get__();
                                                         {
                                                             {
-                                                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _req.context().err() };
+                                                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pc = null, _1 : _err = _req.context().err() };
                                                                 for (defer in __deferstack__) {
                                                                     defer();
                                                                 };
@@ -626,7 +626,7 @@ var _err = __1, _resp = __0;
                                                                 _err = stdgo._internal.net.http.Http__errRequestCanceledConn._errRequestCanceledConn;
                                                             };
                                                             {
-                                                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                                                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pc = null, _1 : _err };
                                                                 for (defer in __deferstack__) {
                                                                     defer();
                                                                 };
@@ -644,7 +644,7 @@ var _err = __1, _resp = __0;
                                         };
                                     };
                                     {
-                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _w._pc, _1 : _w._err };
+                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pc = _w._pc, _1 : _err = _w._err };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -658,7 +658,7 @@ var _err = __1, _resp = __0;
                                 _req.cancel.__get__();
                                 {
                                     {
-                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__errRequestCanceledConn._errRequestCanceledConn };
+                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pc = null, _1 : _err = stdgo._internal.net.http.Http__errRequestCanceledConn._errRequestCanceledConn };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -672,7 +672,7 @@ var _err = __1, _resp = __0;
                                 _req.context().done().__get__();
                                 {
                                     {
-                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _req.context().err() };
+                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pc = null, _1 : _err = _req.context().err() };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -689,7 +689,7 @@ var _err = __1, _resp = __0;
                                         _err = stdgo._internal.net.http.Http__errRequestCanceledConn._errRequestCanceledConn;
                                     };
                                     {
-                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>; var _1 : stdgo.Error; } = { _0 : _pc = null, _1 : _err };
                                         for (defer in __deferstack__) {
                                             defer();
                                         };
@@ -1333,17 +1333,18 @@ var _err = __1, _resp = __0;
         var _delivered = false;
         try {
             if (_t.disableKeepAlives) {
-                return false;
+                return _delivered = false;
             };
             _t._idleMu.lock();
             __deferstack__.unshift(() -> _t._idleMu.unlock());
             _t._closeIdle = false;
             if ((_w == null || (_w : Dynamic).__nil__)) {
                 {
+                    final __ret__:Bool = _delivered = false;
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return false;
+                    return __ret__;
                 };
             };
             var _oldTime:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
@@ -1403,10 +1404,11 @@ var _err = __1, _resp = __0;
             _q._pushBack(_w);
             _t._idleConnWait[_w._key] = _q?.__copy__();
             {
+                final __ret__:Bool = _delivered = false;
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return false;
+                return __ret__;
             };
             {
                 for (defer in __deferstack__) {
@@ -1600,7 +1602,7 @@ var _err = __1, _resp = __0;
             };
         };
         _cm._onlyH1 = _treq._requiresHTTP1();
-        return { _0 : _cm?.__copy__(), _1 : _err };
+        return { _0 : _cm = _cm?.__copy__(), _1 : _err };
     }
     @:keep
     static public function _cancelRequest( _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>, _key:stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey, _err:stdgo.Error):Bool {

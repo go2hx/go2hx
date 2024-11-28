@@ -24,11 +24,11 @@ package stdgo._internal.net.http;
                 x;
             } : stdgo.GoMap<stdgo.GoString, stdgo.Slice<stdgo.GoString>>) : stdgo._internal.net.http.Http_Header.Header), _req : _r } : stdgo._internal.net.http.Http_T_timeoutWriter.T_timeoutWriter)) : stdgo.Ref<stdgo._internal.net.http.Http_T_timeoutWriter.T_timeoutWriter>);
             var _panicChan = (new stdgo.Chan<stdgo.AnyInterface>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.AnyInterface)) : stdgo.Chan<stdgo.AnyInterface>);
-            stdgo.Go.routine(() -> {
+            stdgo.Go.routine(() -> ({
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
-                        __deferstack__.unshift(() -> {
+                        __deferstack__.unshift(() -> ({
                             var a = function():Void {
                                 {
                                     var _p = ({
@@ -42,7 +42,7 @@ package stdgo._internal.net.http;
                                 };
                             };
                             a();
-                        });
+                        }));
                         _h._handler.serveHTTP(stdgo.Go.asInterface(_tw), _r);
                         if (_done != null) _done.__close__();
                         {
@@ -68,7 +68,7 @@ package stdgo._internal.net.http;
                     };
                 };
                 a();
-            });
+            }));
             {
                 var __select__ = true;
                 while (__select__) {

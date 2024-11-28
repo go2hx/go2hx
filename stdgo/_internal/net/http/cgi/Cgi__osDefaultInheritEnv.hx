@@ -1,5 +1,5 @@
 package stdgo._internal.net.http.cgi;
-var _osDefaultInheritEnv : stdgo.Slice<stdgo.GoString> = {
+var _osDefaultInheritEnv : stdgo.Slice<stdgo.GoString> = ({
         var a = function():stdgo.Slice<stdgo.GoString> {
             {
                 final __value__ = ("js" : stdgo.GoString);
@@ -20,4 +20,4 @@ var _osDefaultInheritEnv : stdgo.Slice<stdgo.GoString> = {
             return (null : stdgo.Slice<stdgo.GoString>);
         };
         a();
-    };
+    });

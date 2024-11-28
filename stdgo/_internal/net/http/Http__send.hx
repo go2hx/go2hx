@@ -4,15 +4,15 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
         var _req = _ireq;
         if (_rt == null) {
             _req._closeBody();
-            return { _0 : null, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : stdgo._internal.errors.Errors_new_.new_(("http: no Client.Transport or DefaultTransport" : stdgo.GoString)) };
+            return { _0 : _resp = null, _1 : _didTimeout = stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : _err = stdgo._internal.errors.Errors_new_.new_(("http: no Client.Transport or DefaultTransport" : stdgo.GoString)) };
         };
         if ((_req.url == null || (_req.url : Dynamic).__nil__)) {
             _req._closeBody();
-            return { _0 : null, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : stdgo._internal.errors.Errors_new_.new_(("http: nil Request.URL" : stdgo.GoString)) };
+            return { _0 : _resp = null, _1 : _didTimeout = stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : _err = stdgo._internal.errors.Errors_new_.new_(("http: nil Request.URL" : stdgo.GoString)) };
         };
         if (_req.requestURI != (stdgo.Go.str())) {
             _req._closeBody();
-            return { _0 : null, _1 : stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : stdgo._internal.errors.Errors_new_.new_(("http: Request.RequestURI can\'t be set in client requests" : stdgo.GoString)) };
+            return { _0 : _resp = null, _1 : _didTimeout = stdgo._internal.net.http.Http__alwaysFalse._alwaysFalse, _2 : _err = stdgo._internal.errors.Errors_new_.new_(("http: Request.RequestURI can\'t be set in client requests" : stdgo.GoString)) };
         };
         var _forkReq = (function():Void {
             if (_ireq == (_req)) {
@@ -89,19 +89,19 @@ function _send(_ireq:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _
                     };
                 };
             };
-            return { _0 : null, _1 : _didTimeout, _2 : _err };
+            return { _0 : _resp = null, _1 : _didTimeout, _2 : _err };
         };
         if ((_resp == null || (_resp : Dynamic).__nil__)) {
-            return { _0 : null, _1 : _didTimeout, _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("http: RoundTripper implementation (%T) returned a nil *Response with a nil error" : stdgo.GoString), stdgo.Go.toInterface(_rt)) };
+            return { _0 : _resp = null, _1 : _didTimeout, _2 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("http: RoundTripper implementation (%T) returned a nil *Response with a nil error" : stdgo.GoString), stdgo.Go.toInterface(_rt)) };
         };
         if (_resp.body == null) {
             if (((_resp.contentLength > (0i64 : stdgo.GoInt64) : Bool) && (_req.method != ("HEAD" : stdgo.GoString)) : Bool)) {
-                return { _0 : null, _1 : _didTimeout, _2 : stdgo._internal.fmt.Fmt_errorf.errorf(("http: RoundTripper implementation (%T) returned a *Response with content length %d but a nil Body" : stdgo.GoString), stdgo.Go.toInterface(_rt), stdgo.Go.toInterface(_resp.contentLength)) };
+                return { _0 : _resp = null, _1 : _didTimeout, _2 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("http: RoundTripper implementation (%T) returned a *Response with content length %d but a nil Body" : stdgo.GoString), stdgo.Go.toInterface(_rt), stdgo.Go.toInterface(_resp.contentLength)) };
             };
             _resp.body = stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(stdgo.Go.str()?.__copy__())));
         };
         if (!_deadline.isZero()) {
             _resp.body = stdgo.Go.asInterface((stdgo.Go.setRef(({ _stop : _stopTimer, _rc : _resp.body, _reqDidTimeout : _didTimeout } : stdgo._internal.net.http.Http_T_cancelTimerBody.T_cancelTimerBody)) : stdgo.Ref<stdgo._internal.net.http.Http_T_cancelTimerBody.T_cancelTimerBody>));
         };
-        return { _0 : _resp, _1 : null, _2 : (null : stdgo.Error) };
+        return { _0 : _resp, _1 : _didTimeout = null, _2 : _err = (null : stdgo.Error) };
     }

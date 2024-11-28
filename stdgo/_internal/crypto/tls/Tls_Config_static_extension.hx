@@ -461,6 +461,6 @@ package stdgo._internal.crypto.tls;
         stdgo.Go.copySlice((_key._aesKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_hashed.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         stdgo.Go.copySlice((_key._hmacKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_hashed.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         _key._created = _c._time()?.__copy__();
-        return _key?.__copy__();
+        return _key = _key?.__copy__();
     }
 }

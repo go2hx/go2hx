@@ -218,9 +218,15 @@ package stdgo._internal.net.http;
         var _username = ("" : stdgo.GoString), _password = ("" : stdgo.GoString), _ok = false;
         var _auth = (_r.header.get(("Authorization" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         if (_auth == (stdgo.Go.str())) {
-            return { _0 : stdgo.Go.str()?.__copy__(), _1 : stdgo.Go.str()?.__copy__(), _2 : false };
+            return { _0 : _username = stdgo.Go.str()?.__copy__(), _1 : _password = stdgo.Go.str()?.__copy__(), _2 : _ok = false };
         };
-        return stdgo._internal.net.http.Http__parseBasicAuth._parseBasicAuth(_auth?.__copy__());
+        return {
+            var __tmp__ = stdgo._internal.net.http.Http__parseBasicAuth._parseBasicAuth(_auth?.__copy__());
+            _username = __tmp__._0;
+            _password = __tmp__._1;
+            _ok = __tmp__._2;
+            __tmp__;
+        };
     }
     @:keep
     static public function _write( _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>, _w:stdgo._internal.io.Io_Writer.Writer, _usingProxy:Bool, _extraHeaders:stdgo._internal.net.http.Http_Header.Header, _waitForContinue:() -> Bool):stdgo.Error {
@@ -230,15 +236,15 @@ package stdgo._internal.net.http;
         try {
             var _trace = stdgo._internal.net.http.httptrace.Httptrace_contextClientTrace.contextClientTrace(_r.context());
             if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteRequest != null) : Bool)) {
-                __deferstack__.unshift(() -> {
+                __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         _trace.wroteRequest(({ err : _err } : stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo));
                     };
                     a();
-                });
+                }));
             };
             var _closed = (false : Bool);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if (_closed) {
                         return;
@@ -251,15 +257,16 @@ package stdgo._internal.net.http;
                     };
                 };
                 a();
-            });
+            }));
             var _host = (_r.host?.__copy__() : stdgo.GoString);
             if (_host == (stdgo.Go.str())) {
                 if ((_r.url == null || (_r.url : Dynamic).__nil__)) {
                     {
+                        final __ret__:stdgo.Error = _err = stdgo._internal.net.http.Http__errMissingHost._errMissingHost;
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return stdgo._internal.net.http.Http__errMissingHost._errMissingHost;
+                        return __ret__;
                     };
                 };
                 _host = _r.url.host?.__copy__();
@@ -282,7 +289,7 @@ package stdgo._internal.net.http;
                     _host = stdgo.Go.str()?.__copy__();
                 } else {
                     {
-                        final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("http: invalid Host header" : stdgo.GoString));
+                        final __ret__:stdgo.Error = _err = stdgo._internal.errors.Errors_new_.new_(("http: invalid Host header" : stdgo.GoString));
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -302,7 +309,7 @@ package stdgo._internal.net.http;
             };
             if (stdgo._internal.net.http.Http__stringContainsCTLByte._stringContainsCTLByte(_ruri?.__copy__())) {
                 {
-                    final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("net/http: can\'t write control character in Request.URL" : stdgo.GoString));
+                    final __ret__:stdgo.Error = _err = stdgo._internal.errors.Errors_new_.new_(("net/http: can\'t write control character in Request.URL" : stdgo.GoString));
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -448,7 +455,7 @@ package stdgo._internal.net.http;
                     _closed = true;
                     _r._closeBody();
                     {
-                        final __ret__:stdgo.Error = (null : stdgo.Error);
+                        final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -491,7 +498,7 @@ package stdgo._internal.net.http;
             };
             if ((_bw != null && ((_bw : Dynamic).__nil__ == null || !(_bw : Dynamic).__nil__))) {
                 {
-                    final __ret__:stdgo.Error = _bw.flush();
+                    final __ret__:stdgo.Error = _err = _bw.flush();
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -499,7 +506,7 @@ package stdgo._internal.net.http;
                 };
             };
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
+                final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };

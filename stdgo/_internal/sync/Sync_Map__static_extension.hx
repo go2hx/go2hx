@@ -67,13 +67,13 @@ package stdgo._internal.sync;
         while (_ok) {
             var _p = _e._p.load();
             if ((((_p == null || (_p : Dynamic).__nil__) || _p == (stdgo._internal.sync.Sync__expunged._expunged) : Bool) || ((_p : stdgo.AnyInterface) != _old) : Bool)) {
-                return false;
+                return _deleted = false;
             };
             if (_e._p.compareAndSwap(_p, (null : stdgo.Ref<stdgo.AnyInterface>))) {
-                return true;
+                return _deleted = true;
             };
         };
-        return false;
+        return _deleted = false;
     }
     @:keep
     static public function compareAndSwap( _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>, _key:stdgo.AnyInterface, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
@@ -145,9 +145,9 @@ package stdgo._internal.sync;
                     var __tmp__ = _e._trySwap((stdgo.Go.setRef(_value) : stdgo.Ref<stdgo.AnyInterface>)), _v:stdgo.Ref<stdgo.AnyInterface> = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
                         if ((_v == null || (_v : Dynamic).__nil__)) {
-                            return { _0 : (null : stdgo.AnyInterface), _1 : false };
+                            return { _0 : _previous = (null : stdgo.AnyInterface), _1 : _loaded = false };
                         };
-                        return { _0 : (_v : stdgo.AnyInterface), _1 : true };
+                        return { _0 : _previous = (_v : stdgo.AnyInterface), _1 : _loaded = true };
                     };
                 };
             };
@@ -220,9 +220,14 @@ package stdgo._internal.sync;
             _m._mu.unlock();
         };
         if (_ok) {
-            return _e._delete();
+            return {
+                var __tmp__ = _e._delete();
+                _value = __tmp__._0;
+                _loaded = __tmp__._1;
+                __tmp__;
+            };
         };
-        return { _0 : (null : stdgo.AnyInterface), _1 : false };
+        return { _0 : _value = (null : stdgo.AnyInterface), _1 : _loaded = false };
     }
     @:keep
     static public function loadOrStore( _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>, _key:stdgo.AnyInterface, _value:stdgo.AnyInterface):{ var _0 : stdgo.AnyInterface; var _1 : Bool; } {
@@ -308,9 +313,14 @@ package stdgo._internal.sync;
             _m._mu.unlock();
         };
         if (!_ok) {
-            return { _0 : (null : stdgo.AnyInterface), _1 : false };
+            return { _0 : _value = (null : stdgo.AnyInterface), _1 : _ok = false };
         };
-        return _e._load();
+        return {
+            var __tmp__ = _e._load();
+            _value = __tmp__._0;
+            _ok = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _loadReadOnly( _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>):stdgo._internal.sync.Sync_T_readOnly.T_readOnly {

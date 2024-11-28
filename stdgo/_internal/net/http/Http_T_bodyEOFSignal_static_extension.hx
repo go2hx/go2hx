@@ -79,10 +79,10 @@ package stdgo._internal.net.http;
 var _rerr = __1, _closed = __0;
             _es._mu.unlock();
             if (_closed) {
-                return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http__errReadOnClosedResBody._errReadOnClosedResBody };
+                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http__errReadOnClosedResBody._errReadOnClosedResBody };
             };
             if (_rerr != null) {
-                return { _0 : (0 : stdgo.GoInt), _1 : _rerr };
+                return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = _rerr };
             };
             {
                 var __tmp__ = _es._body.read(_p);

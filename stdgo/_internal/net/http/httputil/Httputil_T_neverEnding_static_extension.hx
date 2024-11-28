@@ -7,6 +7,6 @@ package stdgo._internal.net.http.httputil;
         for (_i => _ in _p) {
             _p[(_i : stdgo.GoInt)] = (_b : stdgo.GoUInt8);
         };
-        return { _0 : (_p.length), _1 : (null : stdgo.Error) };
+        return { _0 : _n = (_p.length), _1 : _err = (null : stdgo.Error) };
     }
 }

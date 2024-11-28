@@ -142,7 +142,7 @@ package stdgo._internal.net.http;
                 var _caller = (stdgo._internal.net.http.Http__relevantCaller._relevantCaller()?.__copy__() : stdgo._internal.runtime.Runtime_Frame.Frame);
                 _w._conn._server._logf(("http: response.Write on hijacked connection from %s (%s:%d)" : stdgo.GoString), stdgo.Go.toInterface(_caller.function_), stdgo.Go.toInterface(stdgo._internal.path.Path_base.base(_caller.file?.__copy__())), stdgo.Go.toInterface(_caller.line));
             };
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errHijacked.errHijacked };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http_errHijacked.errHijacked };
         };
         if (_w._canWriteContinue.load()) {
             _w._writeContinueMu.lock();
@@ -153,32 +153,52 @@ package stdgo._internal.net.http;
             _w.writeHeader((200 : stdgo.GoInt));
         };
         if (_lenData == ((0 : stdgo.GoInt))) {
-            return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = (null : stdgo.Error) };
         };
         if (!_w._bodyAllowed()) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errBodyNotAllowed.errBodyNotAllowed };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http_errBodyNotAllowed.errBodyNotAllowed };
         };
         _w._written = (_w._written + ((_lenData : stdgo.GoInt64)) : stdgo.GoInt64);
         if (((_w._contentLength != (-1i64 : stdgo.GoInt64)) && (_w._written > _w._contentLength : Bool) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.net.http.Http_errContentLength.errContentLength };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.net.http.Http_errContentLength.errContentLength };
         };
         if (_dataB != null) {
-            return _w._w.write(_dataB);
+            return {
+                var __tmp__ = _w._w.write(_dataB);
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         } else {
-            return _w._w.writeString(_dataS?.__copy__());
+            return {
+                var __tmp__ = _w._w.writeString(_dataS?.__copy__());
+                _n = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
     }
     @:keep
     static public function writeString( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>, _data:stdgo.GoString):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return _w._write((_data.length), (null : stdgo.Slice<stdgo.GoUInt8>), _data?.__copy__());
+        return {
+            var __tmp__ = _w._write((_data.length), (null : stdgo.Slice<stdgo.GoUInt8>), _data?.__copy__());
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function write( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>, _data:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = _w;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        return _w._write((_data.length), _data, stdgo.Go.str()?.__copy__());
+        return {
+            var __tmp__ = _w._write((_data.length), _data, stdgo.Go.str()?.__copy__());
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function _bodyAllowed( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>):Bool {
@@ -260,7 +280,12 @@ package stdgo._internal.net.http;
             }, _rf = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 {
-                    final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = stdgo._internal.io.Io_copyBuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), _src, _buf);
+                    final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = {
+                        var __tmp__ = stdgo._internal.io.Io_copyBuffer.copyBuffer(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly(stdgo.Go.asInterface(_w)) : stdgo._internal.net.http.Http_T_writerOnly.T_writerOnly)), _src, _buf);
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                     for (defer in __deferstack__) {
                         defer();
                     };

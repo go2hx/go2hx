@@ -168,7 +168,7 @@ package stdgo._internal.runtime.pprof;
                 _locs = (_locs.__append__(_id));
             };
         };
-        return _locs;
+        return _newLocs = _locs;
     }
     @:keep
     static public function _build( _b:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_profileBuilder.T_profileBuilder>):Void {

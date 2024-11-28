@@ -76,8 +76,8 @@ if (_err != null) {
         };
         var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_r._reader, (_r._pendBuf.__slice__(0, (1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>)), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_n != ((1 : stdgo.GoInt))) {
-            return { _0 : (0 : stdgo.GoUInt8), _1 : _err };
+            return { _0 : _b = (0 : stdgo.GoUInt8), _1 : _err };
         };
-        return { _0 : _r._pendBuf[(0 : stdgo.GoInt)], _1 : _err };
+        return { _0 : _b = _r._pendBuf[(0 : stdgo.GoInt)], _1 : _err };
     }
 }

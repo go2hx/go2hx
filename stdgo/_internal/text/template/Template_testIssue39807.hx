@@ -15,7 +15,7 @@ function testIssue39807(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
             var _i = (1 : stdgo.GoInt);
             while ((_i <= _gofuncs : Bool)) {
                 _wg.add((1 : stdgo.GoInt));
-stdgo.Go.routine(() -> {
+stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
@@ -57,7 +57,7 @@ if (_err != null) {
                         };
                     };
                     a();
-                });
+                }));
                 _i++;
             };
         };

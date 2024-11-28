@@ -12,7 +12,7 @@ package stdgo._internal.internal.fuzz;
         var _done = (new stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy>(0, () -> ({} : stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy)) : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy>);
         var _n:stdgo.GoInt = (0 : stdgo.GoInt);
         var _err:stdgo.Error = (null : stdgo.Error);
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function():Void {
                 {
                     var __tmp__ = _cr._r.read(_b);
@@ -22,7 +22,7 @@ package stdgo._internal.internal.fuzz;
                 if (_done != null) _done.__close__();
             };
             a();
-        });
+        }));
         {
             {
                 var __select__ = true;

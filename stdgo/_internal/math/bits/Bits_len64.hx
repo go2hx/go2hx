@@ -13,7 +13,7 @@ function len64(_x:stdgo.GoUInt64):stdgo.GoInt {
             _x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
             _n = (_n + ((8 : stdgo.GoInt)) : stdgo.GoInt);
         };
-        return (_n + (stdgo.Go.str(0,
+        return _n = (_n + (stdgo.Go.str(0,
 1,
 2,
 2,

@@ -10,7 +10,7 @@ package stdgo._internal.io;
         @:recv var _s:stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader> = _s;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((_off < (0i64 : stdgo.GoInt64) : Bool) || (_off >= (_s._limit - _s._base : stdgo.GoInt64) : Bool) : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
         };
         _off = (_off + (_s._base) : stdgo.GoInt64);
         {
@@ -28,7 +28,12 @@ package stdgo._internal.io;
                 return { _0 : _n, _1 : _err };
             };
         };
-        return _s._r.readAt(_p, _off);
+        return {
+            var __tmp__ = _s._r.readAt(_p, _off);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function seek( _s:stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader>, _offset:stdgo.GoInt64, _whence:stdgo.GoInt):{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } {
@@ -56,7 +61,7 @@ package stdgo._internal.io;
         @:recv var _s:stdgo.Ref<stdgo._internal.io.Io_SectionReader.SectionReader> = _s;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_s._off >= _s._limit : Bool)) {
-            return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.io.Io_eof.eof };
         };
         {
             var _max = (_s._limit - _s._off : stdgo.GoInt64);

@@ -53,7 +53,7 @@ package stdgo._internal.archive.zip;
             __deferstack__.unshift(() -> _w._mu.unlock());
             if ((_w._fw == null || (_w._fw : Dynamic).__nil__)) {
                 {
-                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.errors.Errors_new_.new_(("Write after Close" : stdgo.GoString)) };
+                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n = (0 : stdgo.GoInt), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("Write after Close" : stdgo.GoString)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -61,7 +61,12 @@ package stdgo._internal.archive.zip;
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = _w._fw.write(_p);
+                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
+                    var __tmp__ = _w._fw.write(_p);
+                    _n = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
                 for (defer in __deferstack__) {
                     defer();
                 };

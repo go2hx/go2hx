@@ -115,7 +115,7 @@ package stdgo._internal.encoding.gob;
         var _sent = false;
         var _ut = stdgo._internal.encoding.gob.Gob__userType._userType(_origt);
         if (_ut._externalEnc != ((0 : stdgo.GoInt))) {
-            return _enc._sendActualType(_w, _state, _ut, _ut._base);
+            return _sent = _enc._sendActualType(_w, _state, _ut, _ut._base);
         };
         {
             var _rt = (_ut._base : stdgo._internal.reflect.Reflect_Type_.Type_);
@@ -152,7 +152,7 @@ package stdgo._internal.encoding.gob;
                 };
             };
         };
-        return _enc._sendActualType(_w, _state, _ut, _ut._base);
+        return _sent = _enc._sendActualType(_w, _state, _ut, _ut._base);
     }
     @:keep
     static public function _sendActualType( _enc:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Encoder.Encoder>, _w:stdgo._internal.io.Io_Writer.Writer, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState>, _ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo>, _actual:stdgo._internal.reflect.Reflect_Type_.Type_):Bool {
@@ -161,7 +161,7 @@ package stdgo._internal.encoding.gob;
         {
             var __tmp__ = (_enc._sent != null && _enc._sent.exists(_actual) ? { _0 : _enc._sent[_actual], _1 : true } : { _0 : ((0 : stdgo.GoInt32) : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId), _1 : false }), __8:stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId = __tmp__._0, _alreadySent:Bool = __tmp__._1;
             if (_alreadySent) {
-                return false;
+                return _sent = false;
             };
         };
         var __tmp__ = stdgo._internal.encoding.gob.Gob__getTypeInfo._getTypeInfo(_ut), _info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -201,7 +201,7 @@ package stdgo._internal.encoding.gob;
                 };
             };
         };
-        return true;
+        return _sent = true;
     }
     @:keep
     static public function _writeMessage( _enc:stdgo.Ref<stdgo._internal.encoding.gob.Gob_Encoder.Encoder>, _w:stdgo._internal.io.Io_Writer.Writer, _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer>):Void {

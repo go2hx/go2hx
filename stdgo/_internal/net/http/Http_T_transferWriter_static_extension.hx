@@ -44,7 +44,7 @@ package stdgo._internal.net.http;
         try {
             var _ncopy:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             var _closed = (false : Bool);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if ((_closed || (_t.bodyCloser == null) : Bool)) {
                         return;
@@ -57,7 +57,7 @@ package stdgo._internal.net.http;
                     };
                 };
                 a();
-            });
+            }));
             if (_t.body != null) {
                 var _body = _t._unwrapBody();
                 if (stdgo._internal.net.http.Http__chunked._chunked(_t.transferEncoding)) {
@@ -136,7 +136,7 @@ package stdgo._internal.net.http;
             };
             if (((!_t.responseToHEAD && _t.contentLength != ((-1i64 : stdgo.GoInt64)) : Bool) && (_t.contentLength != _ncopy) : Bool)) {
                 {
-                    final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("http: ContentLength=%d with Body length %d" : stdgo.GoString), stdgo.Go.toInterface(_t.contentLength), stdgo.Go.toInterface(_ncopy));
+                    final __ret__:stdgo.Error = _err = stdgo._internal.fmt.Fmt_errorf.errorf(("http: ContentLength=%d with Body length %d" : stdgo.GoString), stdgo.Go.toInterface(_t.contentLength), stdgo.Go.toInterface(_ncopy));
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -285,7 +285,7 @@ package stdgo._internal.net.http;
     static public function _probeRequestBody( _t:stdgo.Ref<stdgo._internal.net.http.Http_T_transferWriter.T_transferWriter>):Void {
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_T_transferWriter.T_transferWriter> = _t;
         _t.byteReadCh = (new stdgo.Chan<stdgo._internal.net.http.Http_T_readResult.T_readResult>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_readResult.T_readResult)) : stdgo.Chan<stdgo._internal.net.http.Http_T_readResult.T_readResult>);
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function(_body:stdgo._internal.io.Io_Reader.Reader):Void {
                 var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(1, 1, ...[for (i in 0 ... 1) (0 : stdgo.GoUInt8)]);
                 var _rres:stdgo._internal.net.http.Http_T_readResult.T_readResult = ({} : stdgo._internal.net.http.Http_T_readResult.T_readResult);
@@ -301,7 +301,7 @@ package stdgo._internal.net.http;
                 if (_t.byteReadCh != null) _t.byteReadCh.__close__();
             };
             a(_t.body);
-        });
+        }));
         var _timer = stdgo._internal.time.Time_newTimer.newTimer((200000000i64 : stdgo._internal.time.Time_Duration.Duration));
         {
             var __select__ = true;

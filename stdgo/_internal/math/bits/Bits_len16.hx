@@ -5,7 +5,7 @@ function len16(_x:stdgo.GoUInt16):stdgo.GoInt {
             _x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt16);
             _n = (8 : stdgo.GoInt);
         };
-        return (_n + (stdgo.Go.str(0,
+        return _n = (_n + (stdgo.Go.str(0,
 1,
 2,
 2,

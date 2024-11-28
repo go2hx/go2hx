@@ -8,7 +8,7 @@ function _decodeUintReader(_r:stdgo._internal.io.Io_Reader.Reader, _buf:stdgo.Sl
         };
         var _b = (_buf[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
         if ((_b <= (127 : stdgo.GoUInt8) : Bool)) {
-            return { _0 : (_b : stdgo.GoUInt64), _1 : _width, _2 : (null : stdgo.Error) };
+            return { _0 : _x = (_b : stdgo.GoUInt64), _1 : _width, _2 : _err = (null : stdgo.Error) };
         };
         _n = -((_b : stdgo.GoInt8) : stdgo.GoInt);
         if ((_n > (8 : stdgo.GoInt) : Bool)) {

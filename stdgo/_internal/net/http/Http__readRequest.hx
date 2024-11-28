@@ -18,7 +18,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                 };
                 if (_err != null) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req = null, _1 : _err };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -26,14 +26,14 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                     };
                 };
             };
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                         _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
                     };
                 };
                 a();
-            });
+            }));
             var _ok:Bool = false;
             {
                 var __tmp__ = stdgo._internal.net.http.Http__parseRequestLine._parseRequestLine(_s?.__copy__());
@@ -44,7 +44,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             };
             if (!_ok) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("malformed HTTP request" : stdgo.GoString), _s?.__copy__()) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req = null, _1 : _err = stdgo._internal.net.http.Http__badStringError._badStringError(("malformed HTTP request" : stdgo.GoString), _s?.__copy__()) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -53,7 +53,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             };
             if (!stdgo._internal.net.http.Http__validMethod._validMethod(_req.method?.__copy__())) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("invalid method" : stdgo.GoString), _req.method?.__copy__()) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req = null, _1 : _err = stdgo._internal.net.http.Http__badStringError._badStringError(("invalid method" : stdgo.GoString), _req.method?.__copy__()) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -70,7 +70,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                 };
                 if (!_ok) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.Http__badStringError._badStringError(("malformed HTTP version" : stdgo.GoString), _req.proto?.__copy__()) };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req = null, _1 : _err = stdgo._internal.net.http.Http__badStringError._badStringError(("malformed HTTP version" : stdgo.GoString), _req.proto?.__copy__()) };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -90,7 +90,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                 };
                 if (_err != null) {
                     {
-                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                        final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req = null, _1 : _err };
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -104,7 +104,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             var __tmp__ = _tp.readMIMEHeader(), _mimeHeader:stdgo._internal.net.textproto.Textproto_MIMEHeader.MIMEHeader = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req = null, _1 : _err };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -114,7 +114,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             _req.header = (_mimeHeader : stdgo._internal.net.http.Http_Header.Header);
             if ((((_req.header[("Host" : stdgo.GoString)] ?? (null : stdgo.Slice<stdgo.GoString>)).length) > (1 : stdgo.GoInt) : Bool)) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("too many Host headers" : stdgo.GoString)) };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req = null, _1 : _err = stdgo._internal.fmt.Fmt_errorf.errorf(("too many Host headers" : stdgo.GoString)) };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -130,7 +130,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             _err = stdgo._internal.net.http.Http__readTransfer._readTransfer(stdgo.Go.toInterface(stdgo.Go.asInterface(_req)), _b);
             if (_err != null) {
                 {
-                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : null, _1 : _err };
+                    final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req = null, _1 : _err };
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -142,7 +142,7 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                 _req.close = true;
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req, _1 : (null : stdgo.Error) };
+                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>; var _1 : stdgo.Error; } = { _0 : _req, _1 : _err = (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };

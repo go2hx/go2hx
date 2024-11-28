@@ -46,7 +46,7 @@ package stdgo._internal.net.url;
     static public function marshalBinary( _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = _u;
         var _text = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
-        return { _0 : ((_u.string() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : (null : stdgo.Error) };
+        return { _0 : _text = ((_u.string() : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function port( _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):stdgo.GoString {

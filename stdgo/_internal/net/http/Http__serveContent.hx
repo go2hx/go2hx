@@ -91,7 +91,7 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
                 _w.header().set(("Content-Type" : stdgo.GoString), (("multipart/byteranges; boundary=" : stdgo.GoString) + _mw.boundary()?.__copy__() : stdgo.GoString)?.__copy__());
                 _sendContent = stdgo.Go.asInterface(_pr);
                 __deferstack__.unshift(() -> _pr.close());
-                stdgo.Go.routine(() -> {
+                stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         for (__132 => _ra in _ranges) {
                             var __tmp__ = _mw.createPart(_ra._mimeHeader(_ctype?.__copy__(), _size)), _part:stdgo._internal.io.Io_Writer.Writer = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -118,7 +118,7 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
                         _pw.close();
                     };
                     a();
-                });
+                }));
             };
             _w.header().set(("Accept-Ranges" : stdgo.GoString), ("bytes" : stdgo.GoString));
             if (_w.header().get(("Content-Encoding" : stdgo.GoString)) == (stdgo.Go.str())) {

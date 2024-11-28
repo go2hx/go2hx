@@ -12,7 +12,7 @@ function _readDirectory64End(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt, _offset
         {
             var _sig = (_b._uint32() : stdgo.GoUInt32);
             if (_sig != ((101075792u32 : stdgo.GoUInt32))) {
-                return stdgo._internal.archive.zip.Zip_errFormat.errFormat;
+                return _err = stdgo._internal.archive.zip.Zip_errFormat.errFormat;
             };
         };
         _b = (_b.__slice__((12 : stdgo.GoInt)) : stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf);
@@ -22,5 +22,5 @@ function _readDirectory64End(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt, _offset
         _d._directoryRecords = _b._uint64();
         _d._directorySize = _b._uint64();
         _d._directoryOffset = _b._uint64();
-        return (null : stdgo.Error);
+        return _err = (null : stdgo.Error);
     }

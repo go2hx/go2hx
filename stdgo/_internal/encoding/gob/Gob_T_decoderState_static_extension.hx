@@ -27,7 +27,7 @@ package stdgo._internal.encoding.gob;
             stdgo._internal.encoding.gob.Gob__error_._error_(_err);
         };
         if ((_b <= (127 : stdgo.GoUInt8) : Bool)) {
-            return (_b : stdgo.GoUInt64);
+            return _x = (_b : stdgo.GoUInt64);
         };
         var _n = (-((_b : stdgo.GoInt8) : stdgo.GoInt) : stdgo.GoInt);
         if ((_n > (8 : stdgo.GoInt) : Bool)) {

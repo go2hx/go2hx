@@ -9,7 +9,7 @@ function _atof32exact(_mantissa:stdgo.GoUInt64, _exp:stdgo.GoInt, _neg:Bool):{ v
             _f = -_f;
         };
         if (_exp == ((0 : stdgo.GoInt))) {
-            return { _0 : _f, _1 : true };
+            return { _0 : _f, _1 : _ok = true };
         } else if (((_exp > (0 : stdgo.GoInt) : Bool) && (_exp <= (17 : stdgo.GoInt) : Bool) : Bool)) {
             if ((_exp > (10 : stdgo.GoInt) : Bool)) {
                 _f = (_f * (stdgo._internal.strconv.Strconv__float32pow10._float32pow10[((_exp - (10 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)]) : stdgo.GoFloat32);
@@ -18,9 +18,9 @@ function _atof32exact(_mantissa:stdgo.GoUInt64, _exp:stdgo.GoInt, _neg:Bool):{ v
             if (((_f > (1e+07 : stdgo.GoFloat64) : Bool) || (_f < (-1e+07 : stdgo.GoFloat64) : Bool) : Bool)) {
                 return { _0 : _f, _1 : _ok };
             };
-            return { _0 : (_f * stdgo._internal.strconv.Strconv__float32pow10._float32pow10[(_exp : stdgo.GoInt)] : stdgo.GoFloat32), _1 : true };
+            return { _0 : _f = (_f * stdgo._internal.strconv.Strconv__float32pow10._float32pow10[(_exp : stdgo.GoInt)] : stdgo.GoFloat32), _1 : _ok = true };
         } else if (((_exp < (0 : stdgo.GoInt) : Bool) && (_exp >= (-10 : stdgo.GoInt) : Bool) : Bool)) {
-            return { _0 : (_f / stdgo._internal.strconv.Strconv__float32pow10._float32pow10[(-_exp : stdgo.GoInt)] : stdgo.GoFloat32), _1 : true };
+            return { _0 : _f = (_f / stdgo._internal.strconv.Strconv__float32pow10._float32pow10[(-_exp : stdgo.GoInt)] : stdgo.GoFloat32), _1 : _ok = true };
         };
         return { _0 : _f, _1 : _ok };
     }

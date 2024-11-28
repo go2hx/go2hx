@@ -30,7 +30,7 @@ package stdgo._internal.net.http.httputil;
                 return;
             };
             var _backConnCloseCh = (new stdgo.Chan<Bool>(0, () -> false) : stdgo.Chan<Bool>);
-            stdgo.Go.routine(() -> {
+            stdgo.Go.routine(() -> ({
                 var a = function():Void {
                     {
                         var __select__ = true;
@@ -55,7 +55,7 @@ package stdgo._internal.net.http.httputil;
                     _backConn.close();
                 };
                 a();
-            });
+            }));
             {
                 var _a0 = _backConnCloseCh;
                 __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
@@ -258,7 +258,7 @@ package stdgo._internal.net.http.httputil;
                     };
                     __deferstack__.unshift(() -> _cancel());
                     var _notifyChan = _cn.closeNotify();
-                    stdgo.Go.routine(() -> {
+                    stdgo.Go.routine(() -> ({
                         var a = function():Void {
                             {
                                 var __select__ = true;
@@ -284,7 +284,7 @@ package stdgo._internal.net.http.httputil;
                             };
                         };
                         a();
-                    });
+                    }));
                 };
             };
             var _outreq = _req.clone(_ctx);

@@ -44,7 +44,7 @@ package stdgo._internal.net.http;
             _cc._mu.unlock();
         };
         var _errc = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
@@ -97,7 +97,7 @@ package stdgo._internal.net.http;
                 };
             };
             a();
-        });
+        }));
         {
             {
                 var __select__ = true;
@@ -793,7 +793,7 @@ package stdgo._internal.net.http;
         };
         var _done = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
         var _cancelled = (false : Bool);
-        stdgo.Go.routine(() -> {
+        stdgo.Go.routine(() -> ({
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
@@ -833,7 +833,7 @@ package stdgo._internal.net.http;
                 };
             };
             a();
-        });
+        }));
         stdgo._internal.net.http.Http__http2shutdownEnterWaitStateHook._http2shutdownEnterWaitStateHook();
         {
             {

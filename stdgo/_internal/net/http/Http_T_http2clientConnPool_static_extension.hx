@@ -110,7 +110,7 @@ package stdgo._internal.net.http;
         for (__30148 => _cc in (_p._conns[_key] ?? (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>>))) {
             if (_cc.canTakeNewRequest()) {
                 _p._mu.unlock();
-                return { _0 : false, _1 : (null : stdgo.Error) };
+                return { _0 : _used = false, _1 : _err = (null : stdgo.Error) };
             };
         };
         var __tmp__ = (_p._addConnCalls != null && _p._addConnCalls.exists(_key?.__copy__()) ? { _0 : _p._addConnCalls[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2addConnCall.T_http2addConnCall>), _1 : false }), _call:stdgo.Ref<stdgo._internal.net.http.Http_T_http2addConnCall.T_http2addConnCall> = __tmp__._0, _dup:Bool = __tmp__._1;
@@ -130,9 +130,9 @@ package stdgo._internal.net.http;
         _p._mu.unlock();
         _call._done.__get__();
         if (_call._err != null) {
-            return { _0 : false, _1 : _call._err };
+            return { _0 : _used = false, _1 : _err = _call._err };
         };
-        return { _0 : !_dup, _1 : (null : stdgo.Error) };
+        return { _0 : _used = !_dup, _1 : _err = (null : stdgo.Error) };
     }
     @:keep
     static public function _getStartDialLocked( _p:stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnPool.T_http2clientConnPool>, _ctx:stdgo._internal.context.Context_Context.Context, _addr:stdgo.GoString):stdgo.Ref<stdgo._internal.net.http.Http_T_http2dialCall.T_http2dialCall> {

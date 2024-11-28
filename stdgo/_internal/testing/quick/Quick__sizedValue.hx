@@ -8,7 +8,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect_Type_.Type_, _rand:stdgo
                 { _0 : (null : stdgo._internal.testing.quick.Quick_Generator.Generator), _1 : false };
             }, _m = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return { _0 : _m.generate(_rand, _size)?.__copy__(), _1 : true };
+                return { _0 : _value = _m.generate(_rand, _size)?.__copy__(), _1 : _ok = true };
             };
         };
         var _v = (stdgo._internal.reflect.Reflect_new_.new_(_t).elem()?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
@@ -57,7 +57,7 @@ function _sizedValue(_t:stdgo._internal.reflect.Reflect_Type_.Type_, _rand:stdgo
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.key(), _rand, _size), _key:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok1:Bool = __tmp__._1;
 var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.elem(), _rand, _size), _value:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok2:Bool = __tmp__._1;
 if ((!_ok1 || !_ok2 : Bool)) {
-                                return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
+                                return { _0 : _value = (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : _ok = false };
                             };
 _v.setMapIndex(_key.__copy__(), _value.__copy__());
                             _i++;
@@ -69,7 +69,7 @@ _v.setMapIndex(_key.__copy__(), _value.__copy__());
                     } else {
                         var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
                         if (!_ok) {
-                            return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
+                            return { _0 : _value = (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : _ok = false };
                         };
                         _v.set(stdgo._internal.reflect.Reflect_new_.new_(_concrete.elem())?.__copy__());
                         _v.elem().set(_elem?.__copy__());
@@ -83,7 +83,7 @@ _v.setMapIndex(_key.__copy__(), _value.__copy__());
                         while ((_i < _numElems : Bool)) {
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.elem(), _rand, _sizeLeft), _elem:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
 if (!_ok) {
-                                return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
+                                return { _0 : _value = (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : _ok = false };
                             };
 _v.index(_i).set(_elem.__copy__());
                             _i++;
@@ -95,7 +95,7 @@ _v.index(_i).set(_elem.__copy__());
                         while ((_i < _v.len() : Bool)) {
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.elem(), _rand, _size), _elem:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
 if (!_ok) {
-                                return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
+                                return { _0 : _value = (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : _ok = false };
                             };
 _v.index(_i).set(_elem.__copy__());
                             _i++;
@@ -125,16 +125,16 @@ _v.index(_i).set(_elem.__copy__());
                         while ((_i < _n : Bool)) {
                             var __tmp__ = stdgo._internal.testing.quick.Quick__sizedValue._sizedValue(_concrete.field(_i).type, _rand, _sizeLeft), _elem:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, _ok:Bool = __tmp__._1;
 if (!_ok) {
-                                return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
+                                return { _0 : _value = (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : _ok = false };
                             };
 _v.field(_i).set(_elem.__copy__());
                             _i++;
                         };
                     };
                 } else {
-                    return { _0 : (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : false };
+                    return { _0 : _value = (new stdgo._internal.reflect.Reflect_Value.Value() : stdgo._internal.reflect.Reflect_Value.Value), _1 : _ok = false };
                 };
             };
         };
-        return { _0 : _v?.__copy__(), _1 : true };
+        return { _0 : _value = _v?.__copy__(), _1 : _ok = true };
     }

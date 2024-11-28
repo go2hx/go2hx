@@ -7,11 +7,11 @@ package stdgo._internal.sync;
         var _p = _e._p.load();
         while ((_p == null || (_p : Dynamic).__nil__)) {
             if (_e._p.compareAndSwap((null : stdgo.Ref<stdgo.AnyInterface>), stdgo._internal.sync.Sync__expunged._expunged)) {
-                return true;
+                return _isExpunged = true;
             };
             _p = _e._p.load();
         };
-        return _p == (stdgo._internal.sync.Sync__expunged._expunged);
+        return _isExpunged = _p == (stdgo._internal.sync.Sync__expunged._expunged);
     }
     @:keep
     static public function _trySwap( _e:stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>, _i:stdgo.Ref<stdgo.AnyInterface>):{ var _0 : stdgo.Ref<stdgo.AnyInterface>; var _1 : Bool; } {
@@ -33,10 +33,10 @@ package stdgo._internal.sync;
         while (true) {
             var _p = _e._p.load();
             if (((_p == null || (_p : Dynamic).__nil__) || (_p == stdgo._internal.sync.Sync__expunged._expunged) : Bool)) {
-                return { _0 : (null : stdgo.AnyInterface), _1 : false };
+                return { _0 : _value = (null : stdgo.AnyInterface), _1 : _ok = false };
             };
             if (_e._p.compareAndSwap(_p, (null : stdgo.Ref<stdgo.AnyInterface>))) {
-                return { _0 : (_p : stdgo.AnyInterface), _1 : true };
+                return { _0 : _value = (_p : stdgo.AnyInterface), _1 : _ok = true };
             };
         };
     }
@@ -46,22 +46,22 @@ package stdgo._internal.sync;
         var _actual = (null : stdgo.AnyInterface), _loaded = false, _ok = false;
         var _p = _e._p.load();
         if (_p == (stdgo._internal.sync.Sync__expunged._expunged)) {
-            return { _0 : (null : stdgo.AnyInterface), _1 : false, _2 : false };
+            return { _0 : _actual = (null : stdgo.AnyInterface), _1 : _loaded = false, _2 : _ok = false };
         };
         if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
-            return { _0 : (_p : stdgo.AnyInterface), _1 : true, _2 : true };
+            return { _0 : _actual = (_p : stdgo.AnyInterface), _1 : _loaded = true, _2 : _ok = true };
         };
         var _ic = (_i : stdgo.AnyInterface);
         while (true) {
             if (_e._p.compareAndSwap((null : stdgo.Ref<stdgo.AnyInterface>), (stdgo.Go.setRef(_ic) : stdgo.Ref<stdgo.AnyInterface>))) {
-                return { _0 : _i, _1 : false, _2 : true };
+                return { _0 : _actual = _i, _1 : _loaded = false, _2 : _ok = true };
             };
             _p = _e._p.load();
             if (_p == (stdgo._internal.sync.Sync__expunged._expunged)) {
-                return { _0 : (null : stdgo.AnyInterface), _1 : false, _2 : false };
+                return { _0 : _actual = (null : stdgo.AnyInterface), _1 : _loaded = false, _2 : _ok = false };
             };
             if ((_p != null && ((_p : Dynamic).__nil__ == null || !(_p : Dynamic).__nil__))) {
-                return { _0 : (_p : stdgo.AnyInterface), _1 : true, _2 : true };
+                return { _0 : _actual = (_p : stdgo.AnyInterface), _1 : _loaded = true, _2 : _ok = true };
             };
         };
     }
@@ -74,7 +74,7 @@ package stdgo._internal.sync;
     static public function _unexpungeLocked( _e:stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>):Bool {
         @:recv var _e:stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry> = _e;
         var _wasExpunged = false;
-        return _e._p.compareAndSwap(stdgo._internal.sync.Sync__expunged._expunged, (null : stdgo.Ref<stdgo.AnyInterface>));
+        return _wasExpunged = _e._p.compareAndSwap(stdgo._internal.sync.Sync__expunged._expunged, (null : stdgo.Ref<stdgo.AnyInterface>));
     }
     @:keep
     static public function _tryCompareAndSwap( _e:stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>, _old:stdgo.AnyInterface, _new:stdgo.AnyInterface):Bool {
@@ -100,8 +100,8 @@ package stdgo._internal.sync;
         var _value = (null : stdgo.AnyInterface), _ok = false;
         var _p = _e._p.load();
         if (((_p == null || (_p : Dynamic).__nil__) || (_p == stdgo._internal.sync.Sync__expunged._expunged) : Bool)) {
-            return { _0 : (null : stdgo.AnyInterface), _1 : false };
+            return { _0 : _value = (null : stdgo.AnyInterface), _1 : _ok = false };
         };
-        return { _0 : (_p : stdgo.AnyInterface), _1 : true };
+        return { _0 : _value = (_p : stdgo.AnyInterface), _1 : _ok = true };
     }
 }

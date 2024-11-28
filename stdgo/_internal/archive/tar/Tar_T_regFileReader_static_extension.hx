@@ -31,9 +31,9 @@ package stdgo._internal.archive.tar;
             _fr._nb = (_fr._nb - ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         };
         if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) && (_fr._nb > (0i64 : stdgo.GoInt64) : Bool) : Bool)) {
-            return { _0 : _n, _1 : stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF };
+            return { _0 : _n, _1 : _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF };
         } else if (((_err == null) && (_fr._nb == (0i64 : stdgo.GoInt64)) : Bool)) {
-            return { _0 : _n, _1 : stdgo._internal.io.Io_eof.eof };
+            return { _0 : _n, _1 : _err = stdgo._internal.io.Io_eof.eof };
         } else {
             return { _0 : _n, _1 : _err };
         };

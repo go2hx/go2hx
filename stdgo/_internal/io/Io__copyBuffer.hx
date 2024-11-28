@@ -8,7 +8,12 @@ function _copyBuffer(_dst:stdgo._internal.io.Io_Writer.Writer, _src:stdgo._inter
                 { _0 : (null : stdgo._internal.io.Io_WriterTo.WriterTo), _1 : false };
             }, _wt = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return _wt.writeTo(_dst);
+                return {
+                    var __tmp__ = _wt.writeTo(_dst);
+                    _written = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         {
@@ -18,7 +23,12 @@ function _copyBuffer(_dst:stdgo._internal.io.Io_Writer.Writer, _src:stdgo._inter
                 { _0 : (null : stdgo._internal.io.Io_ReaderFrom.ReaderFrom), _1 : false };
             }, _rt = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
-                return _rt.readFrom(_src);
+                return {
+                    var __tmp__ = _rt.readFrom(_src);
+                    _written = __tmp__._0;
+                    _err = __tmp__._1;
+                    __tmp__;
+                };
             };
         };
         if (_buf == null) {

@@ -5,7 +5,7 @@ function _splitDrive(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
             {
                 var _c = (_path[(0 : stdgo.GoInt)] : stdgo.GoUInt8);
                 if (((((97 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (122 : stdgo.GoUInt8) : Bool) : Bool) || (((65 : stdgo.GoUInt8) <= _c : Bool) && (_c <= (90 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
-                    return { _0 : (_path.__slice__(0, (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : (_path.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() };
+                    return { _0 : _drive = (_path.__slice__(0, (2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : _rest = (_path.__slice__((2 : stdgo.GoInt)) : stdgo.GoString)?.__copy__() };
                 };
             };
         };
@@ -15,9 +15,9 @@ function _splitDrive(_path:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
             if ((_slash1 > (2 : stdgo.GoInt) : Bool)) {
                 var _slash2 = ((stdgo._internal.strings.Strings_indexByte.indexByte((_npath.__slice__((_slash1 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), (92 : stdgo.GoUInt8)) + _slash1 : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt);
                 if ((_slash2 > _slash1 : Bool)) {
-                    return { _0 : (_path.__slice__(0, _slash2) : stdgo.GoString)?.__copy__(), _1 : (_path.__slice__(_slash2) : stdgo.GoString)?.__copy__() };
+                    return { _0 : _drive = (_path.__slice__(0, _slash2) : stdgo.GoString)?.__copy__(), _1 : _rest = (_path.__slice__(_slash2) : stdgo.GoString)?.__copy__() };
                 };
             };
         };
-        return { _0 : stdgo.Go.str()?.__copy__(), _1 : _path?.__copy__() };
+        return { _0 : _drive = stdgo.Go.str()?.__copy__(), _1 : _rest = _path?.__copy__() };
     }

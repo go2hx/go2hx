@@ -97,16 +97,31 @@ _r.mul(_r, _prime);
         @:recv var _priv:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PrivateKey.PrivateKey> = _priv;
         var _plaintext = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if (_opts == null) {
-            return stdgo._internal.crypto.rsa.Rsa_decryptPKCS1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
+            return {
+                var __tmp__ = stdgo._internal.crypto.rsa.Rsa_decryptPKCS1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
+                _plaintext = __tmp__._0;
+                _err = __tmp__._1;
+                __tmp__;
+            };
         };
         {
             final __type__ = _opts;
             if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_OAEPOptions.OAEPOptions>))) {
                 var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_OAEPOptions.OAEPOptions> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_OAEPOptions.OAEPOptions>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_OAEPOptions.OAEPOptions>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_OAEPOptions.OAEPOptions>) : __type__.__underlying__().value;
                 if (_opts.mgfhash == ((0u32 : stdgo._internal.crypto.Crypto_Hash.Hash))) {
-                    return stdgo._internal.crypto.rsa.Rsa__decryptOAEP._decryptOAEP(_opts.hash.new_(), _opts.hash.new_(), _rand, _priv, _ciphertext, _opts.label);
+                    return {
+                        var __tmp__ = stdgo._internal.crypto.rsa.Rsa__decryptOAEP._decryptOAEP(_opts.hash.new_(), _opts.hash.new_(), _rand, _priv, _ciphertext, _opts.label);
+                        _plaintext = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 } else {
-                    return stdgo._internal.crypto.rsa.Rsa__decryptOAEP._decryptOAEP(_opts.hash.new_(), _opts.mgfhash.new_(), _rand, _priv, _ciphertext, _opts.label);
+                    return {
+                        var __tmp__ = stdgo._internal.crypto.rsa.Rsa__decryptOAEP._decryptOAEP(_opts.hash.new_(), _opts.mgfhash.new_(), _rand, _priv, _ciphertext, _opts.label);
+                        _plaintext = __tmp__._0;
+                        _err = __tmp__._1;
+                        __tmp__;
+                    };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PKCS1v15DecryptOptions.PKCS1v15DecryptOptions>))) {
                 var _opts:stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PKCS1v15DecryptOptions.PKCS1v15DecryptOptions> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PKCS1v15DecryptOptions.PKCS1v15DecryptOptions>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PKCS1v15DecryptOptions.PKCS1v15DecryptOptions>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.crypto.rsa.Rsa_PKCS1v15DecryptOptions.PKCS1v15DecryptOptions>) : __type__.__underlying__().value;
@@ -117,23 +132,28 @@ _r.mul(_r, _prime);
                         {
                             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _plaintext), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                             if (_err != null) {
-                                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                                return { _0 : _plaintext = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                             };
                         };
                         {
                             var _err = (stdgo._internal.crypto.rsa.Rsa_decryptPKCS1v15SessionKey.decryptPKCS1v15SessionKey(_rand, _priv, _ciphertext, _plaintext) : stdgo.Error);
                             if (_err != null) {
-                                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
+                                return { _0 : _plaintext = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
                             };
                         };
-                        return { _0 : _plaintext, _1 : (null : stdgo.Error) };
+                        return { _0 : _plaintext, _1 : _err = (null : stdgo.Error) };
                     } else {
-                        return stdgo._internal.crypto.rsa.Rsa_decryptPKCS1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
+                        return {
+                            var __tmp__ = stdgo._internal.crypto.rsa.Rsa_decryptPKCS1v15.decryptPKCS1v15(_rand, _priv, _ciphertext);
+                            _plaintext = __tmp__._0;
+                            _err = __tmp__._1;
+                            __tmp__;
+                        };
                     };
                 };
             } else {
                 var _opts:stdgo._internal.crypto.Crypto_DecrypterOpts.DecrypterOpts = __type__?.__underlying__();
-                return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : stdgo._internal.errors.Errors_new_.new_(("crypto/rsa: invalid options for Decrypt" : stdgo.GoString)) };
+                return { _0 : _plaintext = (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err = stdgo._internal.errors.Errors_new_.new_(("crypto/rsa: invalid options for Decrypt" : stdgo.GoString)) };
             };
         };
     }

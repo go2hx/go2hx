@@ -11,7 +11,7 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
                         _err = __tmp__._1;
                     };
                     if (_err == null) {
-                        return { _0 : _z, _1 : (null : stdgo.Error) };
+                        return { _0 : _z, _1 : _firstErr = (null : stdgo.Error) };
                     };
                 };
             };
@@ -29,7 +29,7 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
                         _err = __tmp__._1;
                     };
                     if (_err == null) {
-                        return { _0 : _z, _1 : (null : stdgo.Error) };
+                        return { _0 : _z, _1 : _firstErr = (null : stdgo.Error) };
                     };
                 };
             };
@@ -49,7 +49,7 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
                             _err = __tmp__._1;
                         };
                         if (_err == null) {
-                            return { _0 : _z, _1 : (null : stdgo.Error) };
+                            return { _0 : _z, _1 : _firstErr = (null : stdgo.Error) };
                         };
                     };
                 };
@@ -59,7 +59,7 @@ function _loadLocation(_name:stdgo.GoString, _sources:stdgo.Slice<stdgo.GoString
             };
         };
         if (_firstErr != null) {
-            return { _0 : null, _1 : _firstErr };
+            return { _0 : _z = null, _1 : _firstErr };
         };
-        return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_((("unknown time zone " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString)?.__copy__()) };
+        return { _0 : _z = null, _1 : _firstErr = stdgo._internal.errors.Errors_new_.new_((("unknown time zone " : stdgo.GoString) + _name?.__copy__() : stdgo.GoString)?.__copy__()) };
     }

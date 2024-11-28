@@ -90,12 +90,12 @@ package stdgo._internal.io.fs;
         @:recv var _f:stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS> = _f;
         var _rel = ("" : stdgo.GoString), _ok = false;
         if (_name == (_f._dir)) {
-            return { _0 : ("." : stdgo.GoString), _1 : true };
+            return { _0 : _rel = ("." : stdgo.GoString), _1 : _ok = true };
         };
         if (((((_name.length) >= ((_f._dir.length) + (2 : stdgo.GoInt) : stdgo.GoInt) : Bool) && _name[(_f._dir.length : stdgo.GoInt)] == ((47 : stdgo.GoUInt8)) : Bool) && ((_name.__slice__(0, (_f._dir.length)) : stdgo.GoString) == _f._dir) : Bool)) {
-            return { _0 : (_name.__slice__(((_f._dir.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : true };
+            return { _0 : _rel = (_name.__slice__(((_f._dir.length) + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString)?.__copy__(), _1 : _ok = true };
         };
-        return { _0 : stdgo.Go.str()?.__copy__(), _1 : false };
+        return { _0 : _rel = stdgo.Go.str()?.__copy__(), _1 : _ok = false };
     }
     @:keep
     static public function _fullName( _f:stdgo.Ref<stdgo._internal.io.fs.Fs_T_subFS.T_subFS>, _op:stdgo.GoString, _name:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {

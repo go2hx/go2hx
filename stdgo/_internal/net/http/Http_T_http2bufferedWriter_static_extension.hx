@@ -22,7 +22,12 @@ package stdgo._internal.net.http;
             _bw.reset(_w._w);
             _w._bw = _bw;
         };
-        return _w._bw.write(_p);
+        return {
+            var __tmp__ = _w._bw.write(_p);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+            __tmp__;
+        };
     }
     @:keep
     static public function available( _w:stdgo.Ref<stdgo._internal.net.http.Http_T_http2bufferedWriter.T_http2bufferedWriter>):stdgo.GoInt {

@@ -6,7 +6,7 @@ function testStressParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (10 : stdgo.GoInt) : Bool)) {
-                stdgo.Go.routine(() -> {
+                stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         var _p = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_T_testStressParallel___localname___T2_5091.T_testStressParallel___localname___T2_5091)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStressParallel___localname___T2_5091.T_testStressParallel___localname___T2_5091>);
                         stdgo._internal.encoding.gob.Gob_register.register(stdgo.Go.toInterface(_p));
@@ -24,7 +24,7 @@ function testStressParallel(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                         _c.__send__(true);
                     };
                     a();
-                });
+                }));
                 _i++;
             };
         };

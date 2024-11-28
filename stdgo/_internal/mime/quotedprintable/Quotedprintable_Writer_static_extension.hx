@@ -141,7 +141,7 @@ package stdgo._internal.mime.quotedprintable;
             _n++;
         };
         if (_n == ((_p.length))) {
-            return { _0 : _n, _1 : (null : stdgo.Error) };
+            return { _0 : _n, _1 : _err = (null : stdgo.Error) };
         };
         {
             var _err = (_w._write((_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
@@ -149,6 +149,6 @@ package stdgo._internal.mime.quotedprintable;
                 return { _0 : _n, _1 : _err };
             };
         };
-        return { _0 : (_p.length), _1 : (null : stdgo.Error) };
+        return { _0 : _n = (_p.length), _1 : _err = (null : stdgo.Error) };
     }
 }

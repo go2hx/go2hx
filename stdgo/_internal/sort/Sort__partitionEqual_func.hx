@@ -18,5 +18,5 @@ var _j = __1, _i = __0;
             _i++;
             _j--;
         };
-        return _i;
+        return _newpivot = _i;
     }

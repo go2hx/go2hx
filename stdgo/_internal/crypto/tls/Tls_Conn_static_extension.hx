@@ -549,22 +549,22 @@ package stdgo._internal.crypto.tls;
         @:recv var _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn> = _c;
         var _session = (null : stdgo.Ref<stdgo._internal.crypto.tls.Tls_SessionState.SessionState>), _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         if ((_c._config.sessionTicketsDisabled || (_c._config.clientSessionCache == null) : Bool)) {
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
         };
         _hello._ticketSupported = true;
         if (_hello._supportedVersions[(0 : stdgo.GoInt)] == ((772 : stdgo.GoUInt16))) {
             _hello._pskModes = (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (_c._handshakes != ((0 : stdgo.GoInt))) {
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
         };
         var _cacheKey = (_c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
         if (_cacheKey == (stdgo.Go.str())) {
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
         };
         var __tmp__ = _c._config.clientSessionCache.get(_cacheKey?.__copy__()), _cs:stdgo.Ref<stdgo._internal.crypto.tls.Tls_ClientSessionState.ClientSessionState> = __tmp__._0, _ok:Bool = __tmp__._1;
         if ((!_ok || (_cs == null || (_cs : Dynamic).__nil__) : Bool)) {
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
         };
         _session = _cs._session;
         var _versOk = (false : Bool);
@@ -575,37 +575,37 @@ package stdgo._internal.crypto.tls;
             };
         };
         if (!_versOk) {
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
         };
         if (_c._config._time().after(_session._peerCertificates[(0 : stdgo.GoInt)].notAfter?.__copy__())) {
             _c._config.clientSessionCache.put(_cacheKey?.__copy__(), null);
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
         };
         if (!_c._config.insecureSkipVerify) {
             if ((_session._verifiedChains.length) == ((0 : stdgo.GoInt))) {
-                return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+                return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
             };
             {
                 var _err = (_session._peerCertificates[(0 : stdgo.GoInt)].verifyHostname(_c._config.serverName?.__copy__()) : stdgo.Error);
                 if (_err != null) {
-                    return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+                    return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
                 };
             };
         };
         if (_session._version != ((772 : stdgo.GoUInt16))) {
             if ((stdgo._internal.crypto.tls.Tls__mutualCipherSuite._mutualCipherSuite(_hello._cipherSuites, _session._cipherSuite) == null || (stdgo._internal.crypto.tls.Tls__mutualCipherSuite._mutualCipherSuite(_hello._cipherSuites, _session._cipherSuite) : Dynamic).__nil__)) {
-                return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+                return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
             };
             _hello._sessionTicket = _cs._ticket;
             return { _0 : _session, _1 : _earlySecret, _2 : _binderKey, _3 : _err };
         };
         if (_c._config._time().after(stdgo._internal.time.Time_unix.unix((_session._useBy : stdgo.GoInt64), (0i64 : stdgo.GoInt64))?.__copy__())) {
             _c._config.clientSessionCache.put(_cacheKey?.__copy__(), null);
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
         };
         var _cipherSuite = stdgo._internal.crypto.tls.Tls__cipherSuiteTLS13ByID._cipherSuiteTLS13ByID(_session._cipherSuite);
         if ((_cipherSuite == null || (_cipherSuite : Dynamic).__nil__)) {
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
         };
         var _cipherSuiteOk = (false : Bool);
         for (__154 => _offeredID in _hello._cipherSuites) {
@@ -616,7 +616,7 @@ package stdgo._internal.crypto.tls;
             };
         };
         if (!_cipherSuiteOk) {
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : (null : stdgo.Error) };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err = (null : stdgo.Error) };
         };
         if (((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__)) && _session.earlyData : Bool)) {
             if ((stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hello._cipherSuites, _session._cipherSuite) != null && ((stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hello._cipherSuites, _session._cipherSuite) : Dynamic).__nil__ == null || !(stdgo._internal.crypto.tls.Tls__mutualCipherSuiteTLS13._mutualCipherSuiteTLS13(_hello._cipherSuites, _session._cipherSuite) : Dynamic).__nil__))) {
@@ -637,14 +637,14 @@ package stdgo._internal.crypto.tls;
         var _transcript = (_cipherSuite._hash.new_() : stdgo._internal.hash.Hash_Hash.Hash);
         var __tmp__ = _hello._marshalWithoutBinders(), _helloBytes:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err };
+            return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err };
         };
         _transcript.write(_helloBytes);
         var _pskBinders = (new stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>(1, 1, ...[_cipherSuite._finishedHash(_binderKey, _transcript)]) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         {
             var _err = (_hello._updateBinders(_pskBinders) : stdgo.Error);
             if (_err != null) {
-                return { _0 : null, _1 : (null : stdgo.Slice<stdgo.GoUInt8>), _2 : (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err };
+                return { _0 : _session = null, _1 : _earlySecret = (null : stdgo.Slice<stdgo.GoUInt8>), _2 : _binderKey = (null : stdgo.Slice<stdgo.GoUInt8>), _3 : _err };
             };
         };
         return { _0 : _session, _1 : _earlySecret, _2 : _binderKey, _3 : _err };
@@ -669,7 +669,7 @@ package stdgo._internal.crypto.tls;
                 return _err;
             };
             if ((_session != null && ((_session : Dynamic).__nil__ == null || !(_session : Dynamic).__nil__))) {
-                __deferstack__.unshift(() -> {
+                __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         if (_err != null) {
                             {
@@ -681,7 +681,7 @@ package stdgo._internal.crypto.tls;
                         };
                     };
                     a();
-                });
+                }));
             };
             {
                 var __tmp__ = _c._writeHandshakeRecord(stdgo.Go.asInterface(_hello), (null : stdgo._internal.crypto.tls.Tls_T_transcriptHash.T_transcriptHash)), __113:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -728,7 +728,7 @@ package stdgo._internal.crypto.tls;
             if (!_ok) {
                 _c._sendAlert((10 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                 {
-                    final __ret__:stdgo.Error = stdgo._internal.crypto.tls.Tls__unexpectedMessageError._unexpectedMessageError(stdgo.Go.toInterface(stdgo.Go.asInterface(_serverHello)), _msg);
+                    final __ret__:stdgo.Error = _err = stdgo._internal.crypto.tls.Tls__unexpectedMessageError._unexpectedMessageError(stdgo.Go.toInterface(stdgo.Go.asInterface(_serverHello)), _msg);
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -752,7 +752,7 @@ package stdgo._internal.crypto.tls;
             if ((((_maxVers == ((772 : stdgo.GoUInt16)) && (_c._vers <= (771 : stdgo.GoUInt16) : Bool) : Bool) && ((_tls12Downgrade || _tls11Downgrade : Bool)) : Bool) || ((_maxVers == ((771 : stdgo.GoUInt16)) && (_c._vers <= (770 : stdgo.GoUInt16) : Bool) : Bool) && _tls11Downgrade : Bool) : Bool)) {
                 _c._sendAlert((47 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                 {
-                    final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("tls: downgrade attempt detected, possibly due to a MitM attack or a broken middlebox" : stdgo.GoString));
+                    final __ret__:stdgo.Error = _err = stdgo._internal.errors.Errors_new_.new_(("tls: downgrade attempt detected, possibly due to a MitM attack or a broken middlebox" : stdgo.GoString));
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -762,7 +762,7 @@ package stdgo._internal.crypto.tls;
             if (_c._vers == ((772 : stdgo.GoUInt16))) {
                 var _hs = (stdgo.Go.setRef(({ _c : _c, _ctx : _ctx, _serverHello : _serverHello, _hello : _hello, _ecdheKey : _ecdheKey, _session : _session, _earlySecret : _earlySecret, _binderKey : _binderKey } : stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientHandshakeStateTLS13.T_clientHandshakeStateTLS13>);
                 {
-                    final __ret__:stdgo.Error = _hs._handshake();
+                    final __ret__:stdgo.Error = _err = _hs._handshake();
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -782,7 +782,7 @@ package stdgo._internal.crypto.tls;
                 };
             };
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
+                final __ret__:stdgo.Error = _err = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -1094,7 +1094,7 @@ package stdgo._internal.crypto.tls;
         var _ret = (null : stdgo.Error);
         try {
             if (_c._isHandshakeComplete.load()) {
-                return (null : stdgo.Error);
+                return _ret = (null : stdgo.Error);
             };
             var __tmp__ = stdgo._internal.context.Context_withCancel.withCancel(_ctx), _handshakeCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
             __deferstack__.unshift(() -> _cancel());
@@ -1104,7 +1104,7 @@ package stdgo._internal.crypto.tls;
             } else if (_ctx.done() != null) {
                 var _done = (new stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>(0, () -> ({} : stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg)) : stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>);
                 var _interruptRes = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
-                __deferstack__.unshift(() -> {
+                __deferstack__.unshift(() -> ({
                     var a = function():Void {
                         if (_done != null) _done.__close__();
                         {
@@ -1115,8 +1115,8 @@ package stdgo._internal.crypto.tls;
                         };
                     };
                     a();
-                });
-                stdgo.Go.routine(() -> {
+                }));
+                stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         {
                             var __select__ = true;
@@ -1145,7 +1145,7 @@ package stdgo._internal.crypto.tls;
                         };
                     };
                     a();
-                });
+                }));
             };
             _c._handshakeMutex.lock();
             __deferstack__.unshift(() -> _c._handshakeMutex.unlock());
@@ -1153,16 +1153,17 @@ package stdgo._internal.crypto.tls;
                 var _err = (_c._handshakeErr : stdgo.Error);
                 if (_err != null) {
                     {
+                        final __ret__:stdgo.Error = _ret = _err;
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return _err;
+                        return __ret__;
                     };
                 };
             };
             if (_c._isHandshakeComplete.load()) {
                 {
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
+                    final __ret__:stdgo.Error = _ret = (null : stdgo.Error);
                     for (defer in __deferstack__) {
                         defer();
                     };
@@ -1200,7 +1201,7 @@ package stdgo._internal.crypto.tls;
                 if (_c._quic._signalc != null) _c._quic._signalc.__close__();
             };
             {
-                final __ret__:stdgo.Error = _c._handshakeErr;
+                final __ret__:stdgo.Error = _ret = _c._handshakeErr;
                 for (defer in __deferstack__) {
                     defer();
                 };
@@ -1928,13 +1929,13 @@ package stdgo._internal.crypto.tls;
             };
             var _outBufPtr = (stdgo.Go.typeAssert((stdgo._internal.crypto.tls.Tls__outBufPool._outBufPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             var _outBuf = (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>);
-            __deferstack__.unshift(() -> {
+            __deferstack__.unshift(() -> ({
                 var a = function():Void {
                     (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>).__setData__(_outBuf);
                     stdgo._internal.crypto.tls.Tls__outBufPool._outBufPool.put(stdgo.Go.toInterface(_outBufPtr));
                 };
                 a();
-            });
+            }));
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
             while (((_data.length) > (0 : stdgo.GoInt) : Bool)) {
                 var _m = (_data.length : stdgo.GoInt);
@@ -2354,7 +2355,7 @@ package stdgo._internal.crypto.tls;
         _err.msg = _msg?.__copy__();
         _err.conn = _conn;
         stdgo.Go.copySlice((_err.recordHeader.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _c._rawInput.bytes());
-        return _err?.__copy__();
+        return _err = _err?.__copy__();
     }
     @:keep
     static public function netConn( _c:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>):stdgo._internal.net.Net_Conn.Conn {

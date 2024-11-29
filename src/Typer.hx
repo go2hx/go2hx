@@ -5288,10 +5288,14 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	final isNamed = isNamed(t);
 	if (expr.op == AND) {
 		return switch t {
-			case refType(_):
-				final t = typeof(expr, info, false);
-				final ct = toComplexType(t, info);
-				return (macro(stdgo.Go.setRef($x) : $ct)).expr;
+			case refType(_.get() => elem):
+				if (elem == invalidType) {
+					return (macro stdgo.Go.pointer($x)).expr;
+				}else{
+					final t = typeof(expr, info, false);
+					final ct = toComplexType(t, info);
+					return (macro(stdgo.Go.setRef($x) : $ct)).expr;
+				}
 			case pointerType(_):
 				return (macro stdgo.Go.pointer($x)).expr;
 			default:

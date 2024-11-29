@@ -201,6 +201,10 @@ func main() {
 		analysis.GotoParseTest()
 		return
 	}
+	if args[1] == "-pointer" {
+		analysis.PointerParseTest()
+		return
+	}
 	port := args[len(args)-1]
 	var excludesData []string
 	var err error
@@ -318,6 +322,7 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 func parseLocalFile(file *ast.File, pkg *packages.Package) {
 	analysis.ParseLocalTypes(file, pkg, checker, hashType, &countStruct, &countInterface)
 	analysis.ParseLocalConstants(file, pkg, checker)
+	analysis.ParseLocalPointers(file, checker, pkg.Fset)
 	analysis.ParseLocalGotos(file, checker, pkg.Fset)
 }
 

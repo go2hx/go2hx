@@ -851,7 +851,7 @@ class Go {
 							case "false", "true":
 								declare = true;
 							default:
-								final isLocal = Context.getLocalTVars().exists(s);
+								/*final isLocal = Context.getLocalTVars().exists(s);
 								final v = if (isLocal) {
 									Context.getLocalMethod();
 								} else {
@@ -861,7 +861,7 @@ class Go {
 									final underlying = $v{v};
 									final underlyingIndex = $v{s};
 									new $p(() -> $expr, v -> $expr = v, true, underlying, underlyingIndex);
-								};
+								};*/
 						}
 					default:
 						declare = true;

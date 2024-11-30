@@ -14,6 +14,7 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 		switch decl := decl.(type) {
 		case *ast.FuncDecl:
 			identObjMap := map[*ast.Object]ast.Expr{}
+			identLocalObjMap := map[*ast.Object]bool{}
 			astutil.Apply(decl.Body, nil, func(c *astutil.Cursor) bool {
 				//switch
 				switch stmt := c.Node().(type) {
@@ -24,8 +25,6 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 							ident2 := *ident
 							stmt2.X = &ident2
 							identObjMap[ident.Obj] = &stmt2
-							ident.Name += suffix
-							c.Replace(ident)
 						}
 					}
 				}
@@ -58,8 +57,25 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 										ident2 := *ident
 										ident2.Name += suffix
 										c.InsertAfter(define(&ident2, value))
+										identLocalObjMap[ident.Obj] = true
 									}
 								}
+							}
+						}
+					}
+				}
+				return true
+			})
+			// third pass change all idents to the new ptr if locally created
+			astutil.Apply(decl.Body, nil, func(c *astutil.Cursor) bool {
+				//switch
+				switch stmt := c.Node().(type) {
+				case *ast.UnaryExpr:
+					if stmt.Op == token.AND {
+						if ident, ok := stmt.X.(*ast.Ident); ok {
+							if identLocalObjMap[ident.Obj] {
+								ident.Name += suffix
+								c.Replace(ident)
 							}
 						}
 					}

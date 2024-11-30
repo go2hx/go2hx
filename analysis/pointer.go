@@ -47,12 +47,20 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 							}
 						}
 					}
-				case *ast.ValueSpec:
-					for _, ident := range stmt.Names {
-						if value, ok := identObjMap[ident.Obj]; ok {
-							ident2 := *ident
-							ident2.Name += suffix
-							c.InsertAfter(define(&ident2, value))
+				case *ast.DeclStmt:
+					switch decl := stmt.Decl.(type) {
+					case *ast.GenDecl:
+						for _, spec := range decl.Specs {
+							switch stmt := spec.(type) {
+							case *ast.ValueSpec:
+								for _, ident := range stmt.Names {
+									if value, ok := identObjMap[ident.Obj]; ok {
+										ident2 := *ident
+										ident2.Name += suffix
+										c.InsertAfter(define(&ident2, value))
+									}
+								}
+							}
 						}
 					}
 				}

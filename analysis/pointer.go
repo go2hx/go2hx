@@ -23,12 +23,34 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 					if stmt.Tok == token.DEFINE {
 						for i := range stmt.Lhs {
 							if ident, ok := stmt.Lhs[i].(*ast.Ident); ok {
+
 								if strings.HasSuffix(ident.Name, "__pointer__") {
 
 								} else if hasAddrObj(ident.Obj, decl.Body, stmt) {
 									ident2 := *ident
 									ident2.Name += suffix
-									c.InsertAfter(define(&ident2, &ast.UnaryExpr{Op: token.AND, X: ident}))
+									index := c.Index()
+									ptrDefine := define(&ident2, &ast.UnaryExpr{Op: token.AND, X: ident})
+									if index < 0 {
+										switch parent := c.Parent().(type) {
+										case *ast.IfStmt:
+											parent.Body.List = append([]ast.Stmt{ptrDefine}, parent.Body.List...)
+										case *ast.ForStmt:
+											parent.Body.List = append([]ast.Stmt{ptrDefine}, parent.Body.List...)
+										case *ast.SwitchStmt:
+											for _, c := range parent.Body.List {
+												c := c.(*ast.CaseClause)
+												c.Body = append([]ast.Stmt{ptrDefine}, c.Body...)
+											}
+										case *ast.TypeSwitchStmt:
+											for _, c := range parent.Body.List {
+												c := c.(*ast.CaseClause)
+												c.Body = append([]ast.Stmt{ptrDefine}, c.Body...)
+											}
+										}
+									} else {
+										c.InsertAfter(ptrDefine)
+									}
 									identObjMap[ident.Obj] = true
 								}
 							}

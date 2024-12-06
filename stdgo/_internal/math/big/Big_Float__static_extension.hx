@@ -275,13 +275,17 @@ package stdgo._internal.math.big;
             };
         };
         var _d:stdgo._internal.math.big.Big_T_decimal.T_decimal = ({} : stdgo._internal.math.big.Big_T_decimal.T_decimal);
+        var _d__pointer__ = (stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
+        var _d__pointer__ = (stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
+        var _d__pointer__ = (stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
+        var _d__pointer__ = (stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>);
         if (_x._form == ((1 : stdgo._internal.math.big.Big_T_form.T_form))) {
             _d._init(_x._mant, ((_x._exp : stdgo.GoInt) - _x._mant._bitLen() : stdgo.GoInt));
         };
         var _shortest = (false : Bool);
         if ((_prec < (0 : stdgo.GoInt) : Bool)) {
             _shortest = true;
-            stdgo._internal.math.big.Big__roundShortest._roundShortest((stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.math.big.Big_T_decimal.T_decimal>), _x);
+            stdgo._internal.math.big.Big__roundShortest._roundShortest(_d__pointer__, _x);
             {
                 final __value__ = _fmt;
                 if (__value__ == ((101 : stdgo.GoUInt8)) || __value__ == ((69 : stdgo.GoUInt8))) {
@@ -1369,12 +1373,20 @@ var _mant = __2, _bexp = __1, _sign = __0;
         };
         var __0:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_), __1:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
 var _b = __1, _a = __0;
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+        var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
         _a.setInt(_x.num());
         _b.setInt(_x.denom());
         if (_z._prec == ((0u32 : stdgo.GoUInt32))) {
             _z._prec = stdgo._internal.math.big.Big__umax32._umax32(_a._prec, _b._prec);
         };
-        return _z.quo((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>), (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>));
+        return _z.quo(_a__pointer__, _b__pointer__);
     }
     @:keep
     static public function setInt( _z:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>, _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> {

@@ -1,11 +1,27 @@
 package stdgo._internal.encoding.gob;
 function testChanFuncIgnored(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
+        var _c__pointer__ = (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>);
+        var _c__pointer__ = (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>);
+        var _c__pointer__ = (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>);
+        var _c__pointer__ = (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>);
         var _f = (function():Void {} : () -> Void);
-        var _fp = stdgo.Go.pointer(_f);
-        var _b0 = (new stdgo._internal.encoding.gob.Gob_Bug2.Bug2((23 : stdgo.GoInt), _c, (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>), _f, stdgo.Go.pointer(_fp)) : stdgo._internal.encoding.gob.Gob_Bug2.Bug2);
+        var _f__pointer__ = stdgo.Go.pointer(_f);
+        var _f__pointer__ = stdgo.Go.pointer(_f);
+        var _f__pointer__ = stdgo.Go.pointer(_f);
+        var _f__pointer__ = stdgo.Go.pointer(_f);
+        var _fp = _f__pointer__;
+        var _fp__pointer__ = stdgo.Go.pointer(_fp);
+        var _fp__pointer__ = stdgo.Go.pointer(_fp);
+        var _fp__pointer__ = stdgo.Go.pointer(_fp);
+        var _fp__pointer__ = stdgo.Go.pointer(_fp);
+        var _b0 = (new stdgo._internal.encoding.gob.Gob_Bug2.Bug2((23 : stdgo.GoInt), _c, _c__pointer__, _f, _fp__pointer__) : stdgo._internal.encoding.gob.Gob_Bug2.Bug2);
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_buf__pointer__));
         {
             var _err = (_enc.encode(stdgo.Go.toInterface(_b0)) : stdgo.Error);
             if (_err != null) {
@@ -13,7 +29,11 @@ function testChanFuncIgnored(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
             };
         };
         var _b1:stdgo._internal.encoding.gob.Gob_Bug2.Bug2 = ({} : stdgo._internal.encoding.gob.Gob_Bug2.Bug2);
-        var _err = (stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>))).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_b1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug2.Bug2>))) : stdgo.Error);
+        var _b1__pointer__ = (stdgo.Go.setRef(_b1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug2.Bug2>);
+        var _b1__pointer__ = (stdgo.Go.setRef(_b1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug2.Bug2>);
+        var _b1__pointer__ = (stdgo.Go.setRef(_b1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug2.Bug2>);
+        var _b1__pointer__ = (stdgo.Go.setRef(_b1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug2.Bug2>);
+        var _err = (stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf__pointer__)).decode(stdgo.Go.toInterface(_b1__pointer__)) : stdgo.Error);
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

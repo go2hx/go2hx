@@ -20,7 +20,11 @@ function testAddParseTree(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        _err = _added.executeTemplate(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), ("a" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        _err = _added.executeTemplate(stdgo.Go.asInterface(_b__pointer__), ("a" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };

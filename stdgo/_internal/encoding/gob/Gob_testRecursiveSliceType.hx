@@ -12,8 +12,12 @@ function testRecursiveSliceType(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
             s;
         } : stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150);
         var _r2 = (new stdgo.Slice<stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150>((0 : stdgo.GoInt).toBasic(), 0) : stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150);
+        var _r2__pointer__ = (stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150>);
+        var _r2__pointer__ = (stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150>);
+        var _r2__pointer__ = (stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150>);
+        var _r2__pointer__ = (stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150>);
         {
-            var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_r1), stdgo.Go.toInterface((stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveSliceType___localname___recursiveSlice_8150.T_testRecursiveSliceType___localname___recursiveSlice_8150>))) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2__pointer__)) : stdgo.Error);
             if (_err != null) {
                 _t.error(stdgo.Go.toInterface(_err));
             };

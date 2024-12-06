@@ -378,6 +378,7 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
             _maxConstraintComparisons = (250000 : stdgo.GoInt);
         };
         var _comparisonCount = (0 : stdgo.GoInt);
+        var _comparisonCount__pointer__ = stdgo.Go.pointer(_comparisonCount);
         if (((_certType == (1 : stdgo.GoInt)) || (_certType == (2 : stdgo.GoInt)) : Bool)) {
             if ((_currentChain.length) == ((0 : stdgo.GoInt))) {
                 return stdgo._internal.errors.Errors_new_.new_(("x509: internal error: empty chain when appending CA cert" : stdgo.GoString));
@@ -401,7 +402,7 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
                                 return stdgo._internal.fmt.Fmt_errorf.errorf(("x509: cannot parse rfc822Name %q" : stdgo.GoString), stdgo.Go.toInterface(_mailbox));
                             };
                             {
-                                var _err = (_c._checkNameConstraints(stdgo.Go.pointer(_comparisonCount), _maxConstraintComparisons, ("email address" : stdgo.GoString), _name?.__copy__(), stdgo.Go.toInterface(_mailbox), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
+                                var _err = (_c._checkNameConstraints(_comparisonCount__pointer__, _maxConstraintComparisons, ("email address" : stdgo.GoString), _name?.__copy__(), stdgo.Go.toInterface(_mailbox), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
                                     return stdgo._internal.crypto.x509.X509__matchEmailConstraint._matchEmailConstraint((stdgo.Go.typeAssert((_parsedName : stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox)) : stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox)?.__copy__(), (stdgo.Go.typeAssert((_constraint : stdgo.GoString)) : stdgo.GoString)?.__copy__());
                                 }, stdgo.Go.toInterface(_c.permittedEmailAddresses), stdgo.Go.toInterface(_c.excludedEmailAddresses)) : stdgo.Error);
                                 if (_err != null) {
@@ -417,7 +418,7 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
                                 };
                             };
                             {
-                                var _err = (_c._checkNameConstraints(stdgo.Go.pointer(_comparisonCount), _maxConstraintComparisons, ("DNS name" : stdgo.GoString), _name?.__copy__(), stdgo.Go.toInterface(_name), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
+                                var _err = (_c._checkNameConstraints(_comparisonCount__pointer__, _maxConstraintComparisons, ("DNS name" : stdgo.GoString), _name?.__copy__(), stdgo.Go.toInterface(_name), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
                                     return stdgo._internal.crypto.x509.X509__matchDomainConstraint._matchDomainConstraint((stdgo.Go.typeAssert((_parsedName : stdgo.GoString)) : stdgo.GoString)?.__copy__(), (stdgo.Go.typeAssert((_constraint : stdgo.GoString)) : stdgo.GoString)?.__copy__());
                                 }, stdgo.Go.toInterface(_c.permittedDNSDomains), stdgo.Go.toInterface(_c.excludedDNSDomains)) : stdgo.Error);
                                 if (_err != null) {
@@ -431,7 +432,7 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
                                 return stdgo._internal.fmt.Fmt_errorf.errorf(("x509: internal error: URI SAN %q failed to parse" : stdgo.GoString), stdgo.Go.toInterface(_name));
                             };
                             {
-                                var _err = (_c._checkNameConstraints(stdgo.Go.pointer(_comparisonCount), _maxConstraintComparisons, ("URI" : stdgo.GoString), _name?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_uri)), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
+                                var _err = (_c._checkNameConstraints(_comparisonCount__pointer__, _maxConstraintComparisons, ("URI" : stdgo.GoString), _name?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_uri)), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
                                     return stdgo._internal.crypto.x509.X509__matchURIConstraint._matchURIConstraint((stdgo.Go.typeAssert((_parsedName : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>)) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>), (stdgo.Go.typeAssert((_constraint : stdgo.GoString)) : stdgo.GoString)?.__copy__());
                                 }, stdgo.Go.toInterface(_c.permittedURIDomains), stdgo.Go.toInterface(_c.excludedURIDomains)) : stdgo.Error);
                                 if (_err != null) {
@@ -447,7 +448,7 @@ if ((_c.raw.length) == ((0 : stdgo.GoInt))) {
                                 };
                             };
                             {
-                                var _err = (_c._checkNameConstraints(stdgo.Go.pointer(_comparisonCount), _maxConstraintComparisons, ("IP address" : stdgo.GoString), (_ip.string() : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_ip)), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
+                                var _err = (_c._checkNameConstraints(_comparisonCount__pointer__, _maxConstraintComparisons, ("IP address" : stdgo.GoString), (_ip.string() : stdgo.GoString)?.__copy__(), stdgo.Go.toInterface(stdgo.Go.asInterface(_ip)), function(_parsedName:stdgo.AnyInterface, _constraint:stdgo.AnyInterface):{ var _0 : Bool; var _1 : stdgo.Error; } {
                                     return stdgo._internal.crypto.x509.X509__matchIPConstraint._matchIPConstraint((stdgo.Go.typeAssert((_parsedName : stdgo._internal.net.Net_IP.IP)) : stdgo._internal.net.Net_IP.IP), (stdgo.Go.typeAssert((_constraint : stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>)) : stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>));
                                 }, stdgo.Go.toInterface(_c.permittedIPRanges), stdgo.Go.toInterface(_c.excludedIPRanges)) : stdgo.Error);
                                 if (_err != null) {

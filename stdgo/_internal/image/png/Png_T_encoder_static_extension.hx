@@ -74,6 +74,7 @@ package stdgo._internal.image.png;
                 _e._cr[(_i : stdgo.GoInt)][(0 : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
             };
             var _cr = _e._cr?.__copy__();
+            var _cr__pointer__ = (stdgo.Go.setRef(_cr) : stdgo.Ref<stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>>);
             if ((_e._pr.capacity < _sz : Bool)) {
                 _e._pr = (new stdgo.Slice<stdgo.GoUInt8>((_sz : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
             } else {
@@ -302,7 +303,7 @@ _i = (_i + ((8 : stdgo.GoInt)) : stdgo.GoInt);
 var _f = (0 : stdgo.GoInt);
 if (((((_level != ((0 : stdgo.GoInt)) && _cb != ((10 : stdgo.GoInt)) : Bool) && _cb != ((9 : stdgo.GoInt)) : Bool) && _cb != ((8 : stdgo.GoInt)) : Bool) && (_cb != (7 : stdgo.GoInt)) : Bool)) {
                         var _bpp = (_bitsPerPixel / (8 : stdgo.GoInt) : stdgo.GoInt);
-                        _f = stdgo._internal.image.png.Png__filter._filter((stdgo.Go.setRef(_cr) : stdgo.Ref<stdgo.GoArray<stdgo.Slice<stdgo.GoUInt8>>>), _pr, _bpp);
+                        _f = stdgo._internal.image.png.Png__filter._filter(_cr__pointer__, _pr, _bpp);
                     };
 {
                         var __tmp__ = _e._zw.write(_cr[(_f : stdgo.GoInt)]), __4:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;

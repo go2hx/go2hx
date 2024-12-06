@@ -1,6 +1,10 @@
 package stdgo._internal.encoding.gob;
 function testIndirectSliceMapArray(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _i = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_Indirect.Indirect)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Indirect.Indirect>);
+        var _i__pointer__ = (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_Indirect.Indirect>>);
+        var _i__pointer__ = (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_Indirect.Indirect>>);
+        var _i__pointer__ = (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_Indirect.Indirect>>);
+        var _i__pointer__ = (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_Indirect.Indirect>>);
         _i.a = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>));
         _i.a.value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>);
         _i.a.value = (stdgo.Go.setRef(new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt)])) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>);
@@ -25,7 +29,11 @@ x.set(("three" : stdgo.GoString), (3 : stdgo.GoInt));
         stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(_i));
         var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
         var _d:stdgo._internal.encoding.gob.Gob_Direct.Direct = ({} : stdgo._internal.encoding.gob.Gob_Direct.Direct);
-        var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Direct.Direct>))) : stdgo.Error);
+        var _d__pointer__ = (stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Direct.Direct>);
+        var _d__pointer__ = (stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Direct.Direct>);
+        var _d__pointer__ = (stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Direct.Direct>);
+        var _d__pointer__ = (stdgo.Go.setRef(_d) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Direct.Direct>);
+        var _err = (_dec.decode(stdgo.Go.toInterface(_d__pointer__)) : stdgo.Error);
         if (_err != null) {
             _t.error(stdgo.Go.toInterface(("error: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -52,7 +60,7 @@ x.set(("six" : stdgo.GoString), (6 : stdgo.GoInt));
         _b.reset();
         stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(_d));
         _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
-        _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_i) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_Indirect.Indirect>>)));
+        _err = _dec.decode(stdgo.Go.toInterface(_i__pointer__));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("error: " : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

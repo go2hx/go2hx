@@ -6,44 +6,76 @@ function testEncodeIntSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         var _s64 = (new stdgo.Slice<stdgo.GoInt64>(9, 9, ...[(1162i64 : stdgo.GoInt64), (1247i64 : stdgo.GoInt64), (1335i64 : stdgo.GoInt64), (1426i64 : stdgo.GoInt64), (1520i64 : stdgo.GoInt64), (1617i64 : stdgo.GoInt64), (1717i64 : stdgo.GoInt64), (1820i64 : stdgo.GoInt64), (1926i64 : stdgo.GoInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
         _t.run(("int8" : stdgo.GoString), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _sink:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_sink__pointer__));
             _enc.encode(stdgo.Go.toInterface(_s8));
-            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_sink__pointer__));
             var _res = (new stdgo.Slice<stdgo.GoInt8>((9 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt8>);
-            _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt8>>)));
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt8>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt8>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt8>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt8>>);
+            _dec.decode(stdgo.Go.toInterface(_res__pointer__));
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_s8), stdgo.Go.toInterface(_res))) {
                 _t.fatalf(("EncodeIntSlice: expected %v, got %v" : stdgo.GoString), stdgo.Go.toInterface(_s8), stdgo.Go.toInterface(_res));
             };
         });
         _t.run(("int16" : stdgo.GoString), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _sink:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_sink__pointer__));
             _enc.encode(stdgo.Go.toInterface(_s16));
-            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_sink__pointer__));
             var _res = (new stdgo.Slice<stdgo.GoInt16>((9 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt16>);
-            _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt16>>)));
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt16>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt16>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt16>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt16>>);
+            _dec.decode(stdgo.Go.toInterface(_res__pointer__));
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_s16), stdgo.Go.toInterface(_res))) {
                 _t.fatalf(("EncodeIntSlice: expected %v, got %v" : stdgo.GoString), stdgo.Go.toInterface(_s16), stdgo.Go.toInterface(_res));
             };
         });
         _t.run(("int32" : stdgo.GoString), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _sink:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_sink__pointer__));
             _enc.encode(stdgo.Go.toInterface(_s32));
-            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_sink__pointer__));
             var _res = (new stdgo.Slice<stdgo.GoInt32>((9 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
-            _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>)));
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>);
+            _dec.decode(stdgo.Go.toInterface(_res__pointer__));
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_s32), stdgo.Go.toInterface(_res))) {
                 _t.fatalf(("EncodeIntSlice: expected %v, got %v" : stdgo.GoString), stdgo.Go.toInterface(_s32), stdgo.Go.toInterface(_res));
             };
         });
         _t.run(("int64" : stdgo.GoString), function(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _sink:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _sink__pointer__ = (stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_sink__pointer__));
             _enc.encode(stdgo.Go.toInterface(_s64));
-            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_sink) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_sink__pointer__));
             var _res = (new stdgo.Slice<stdgo.GoInt64>((9 : stdgo.GoInt).toBasic(), 0).__setNumber64__() : stdgo.Slice<stdgo.GoInt64>);
-            _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>)));
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>);
+            var _res__pointer__ = (stdgo.Go.setRef(_res) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>);
+            _dec.decode(stdgo.Go.toInterface(_res__pointer__));
             if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_s64), stdgo.Go.toInterface(_res))) {
                 _t.fatalf(("EncodeIntSlice: expected %v, got %v" : stdgo.GoString), stdgo.Go.toInterface(_s64), stdgo.Go.toInterface(_res));
             };

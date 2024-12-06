@@ -2,7 +2,11 @@ package stdgo._internal.text.template;
 function testMessageForExecuteEmpty(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _tmpl = stdgo._internal.text.template.Template_new_.new_(("empty" : stdgo.GoString));
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        var _err = (_tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo.Error);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _err = (_tmpl.execute(stdgo.Go.asInterface(_b__pointer__), stdgo.Go.toInterface((0 : stdgo.GoInt))) : stdgo.Error);
         if (_err == null) {
             _t.fatal(stdgo.Go.toInterface(("expected initial error" : stdgo.GoString)));
         };
@@ -16,7 +20,7 @@ function testMessageForExecuteEmpty(_t:stdgo.Ref<stdgo._internal.testing.Testing
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         _tmpl.addParseTree(("secondary" : stdgo.GoString), _tests.tree);
-        _err = _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.toInterface((0 : stdgo.GoInt)));
+        _err = _tmpl.execute(stdgo.Go.asInterface(_b__pointer__), stdgo.Go.toInterface((0 : stdgo.GoInt)));
         if (_err == null) {
             _t.fatal(stdgo.Go.toInterface(("expected second error" : stdgo.GoString)));
         };
@@ -25,7 +29,7 @@ function testMessageForExecuteEmpty(_t:stdgo.Ref<stdgo._internal.testing.Testing
         if (_got != (_want)) {
             _t.errorf(("expected error %s got %s" : stdgo.GoString), stdgo.Go.toInterface(_want), stdgo.Go.toInterface(_got));
         };
-        _err = _tmpl.executeTemplate(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("secondary" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
+        _err = _tmpl.executeTemplate(stdgo.Go.asInterface(_b__pointer__), ("secondary" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };

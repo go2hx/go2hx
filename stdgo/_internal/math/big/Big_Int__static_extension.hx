@@ -509,36 +509,60 @@ var _rB = __1, _rA = __0;
     static public function _modSqrtTonelliShanks( _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _x:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, _p:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>):stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> {
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _z;
         var _s:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
+        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         _s.sub(_p, stdgo._internal.math.big.Big__intOne._intOne);
         var _e = (_s._abs._trailingZeroBits() : stdgo.GoUInt);
-        _s.rsh((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _e);
+        _s.rsh(_s__pointer__, _e);
         var _n:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
+        var _n__pointer__ = (stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _n__pointer__ = (stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _n__pointer__ = (stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _n__pointer__ = (stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         _n.setInt64((2i64 : stdgo.GoInt64));
-        while (stdgo._internal.math.big.Big_jacobi.jacobi((stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _p) != ((-1 : stdgo.GoInt))) {
-            _n.add((stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), stdgo._internal.math.big.Big__intOne._intOne);
+        while (stdgo._internal.math.big.Big_jacobi.jacobi(_n__pointer__, _p) != ((-1 : stdgo.GoInt))) {
+            _n.add(_n__pointer__, stdgo._internal.math.big.Big__intOne._intOne);
         };
         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __2:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __3:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _t = __3, _g = __2, _b = __1, _y = __0;
-        _y.add((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), stdgo._internal.math.big.Big__intOne._intOne);
-        _y.rsh((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (1u32 : stdgo.GoUInt));
-        _y.exp(_x, (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _p);
-        _b.exp(_x, (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _p);
-        _g.exp((stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _p);
+        var _t__pointer__ = (stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _g__pointer__ = (stdgo.Go.setRef(_g) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _t__pointer__ = (stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _g__pointer__ = (stdgo.Go.setRef(_g) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _t__pointer__ = (stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _g__pointer__ = (stdgo.Go.setRef(_g) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _t__pointer__ = (stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _g__pointer__ = (stdgo.Go.setRef(_g) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        _y.add(_s__pointer__, stdgo._internal.math.big.Big__intOne._intOne);
+        _y.rsh(_y__pointer__, (1u32 : stdgo.GoUInt));
+        _y.exp(_x, _y__pointer__, _p);
+        _b.exp(_x, _s__pointer__, _p);
+        _g.exp(_n__pointer__, _s__pointer__, _p);
         var _r = (_e : stdgo.GoUInt);
         while (true) {
             var _m:stdgo.GoUInt = (0 : stdgo.GoUInt);
-            _t.set((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+            _t.set(_b__pointer__);
             while (_t.cmp(stdgo._internal.math.big.Big__intOne._intOne) != ((0 : stdgo.GoInt))) {
-                _t.mul((stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)).mod((stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _p);
+                _t.mul(_t__pointer__, _t__pointer__).mod(_t__pointer__, _p);
                 _m++;
             };
             if (_m == ((0u32 : stdgo.GoUInt))) {
-                return _z.set((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+                return _z.set(_y__pointer__);
             };
-            _t.setInt64((0i64 : stdgo.GoInt64)).setBit((stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (((_r - _m : stdgo.GoUInt) - (1u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt), (1u32 : stdgo.GoUInt)).exp((stdgo.Go.setRef(_g) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _p);
-            _g.mul((stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)).mod((stdgo.Go.setRef(_g) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _p);
-            _y.mul((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)).mod((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _p);
-            _b.mul((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_g) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)).mod((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _p);
+            _t.setInt64((0i64 : stdgo.GoInt64)).setBit(_t__pointer__, (((_r - _m : stdgo.GoUInt) - (1u32 : stdgo.GoUInt) : stdgo.GoUInt) : stdgo.GoInt), (1u32 : stdgo.GoUInt)).exp(_g__pointer__, _t__pointer__, _p);
+            _g.mul(_t__pointer__, _t__pointer__).mod(_g__pointer__, _p);
+            _y.mul(_y__pointer__, _t__pointer__).mod(_y__pointer__, _p);
+            _b.mul(_b__pointer__, _g__pointer__).mod(_b__pointer__, _p);
             _r = _m;
         };
     }
@@ -580,14 +604,18 @@ var _t = __3, _g = __2, _b = __1, _y = __0;
         };
         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _x = __1, _d = __0;
-        _d.gcd((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), null, _g, _n);
+        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        _d.gcd(_x__pointer__, null, _g, _n);
         if (_d.cmp(stdgo._internal.math.big.Big__intOne._intOne) != ((0 : stdgo.GoInt))) {
             return null;
         };
         if (_x._neg) {
-            _z.add((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _n);
+            _z.add(_x__pointer__, _n);
         } else {
-            _z.set((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+            _z.set(_x__pointer__);
         };
         return _z;
     }
@@ -994,7 +1022,11 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_> = _z;
         var _y_neg = (_y._neg : Bool);
         var _r:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
-        _z.quoRem(_x, _y, (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        _z.quoRem(_x, _y, _r__pointer__);
         if (_r._neg) {
             if (_y_neg) {
                 _z.add(_z, stdgo._internal.math.big.Big__intOne._intOne);
@@ -1051,13 +1083,25 @@ var _negB = __3, _negA = __2, _lenB = __1, _lenA = __0;
         };
         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __2:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __3:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _t = __3, _i = __2, k = __1, n = __0;
+        var _i__pointer__ = (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var k__pointer__ = (stdgo.Go.setRef(k) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var n__pointer__ = (stdgo.Go.setRef(n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _i__pointer__ = (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var k__pointer__ = (stdgo.Go.setRef(k) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var n__pointer__ = (stdgo.Go.setRef(n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _i__pointer__ = (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var k__pointer__ = (stdgo.Go.setRef(k) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var n__pointer__ = (stdgo.Go.setRef(n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _i__pointer__ = (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var k__pointer__ = (stdgo.Go.setRef(k) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var n__pointer__ = (stdgo.Go.setRef(n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         n.setInt64(_n);
         k.setInt64(_k);
         _z.set(stdgo._internal.math.big.Big__intOne._intOne);
-        while ((_i.cmp((stdgo.Go.setRef(k) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)) < (0 : stdgo.GoInt) : Bool)) {
-            _z.mul(_z, _t.sub((stdgo.Go.setRef(n) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)));
-            _i.add((stdgo.Go.setRef(_i) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), stdgo._internal.math.big.Big__intOne._intOne);
-            _z.quo(_z, (stdgo.Go.setRef(_i) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+        while ((_i.cmp(k__pointer__) < (0 : stdgo.GoInt) : Bool)) {
+            _z.mul(_z, _t.sub(n__pointer__, _i__pointer__));
+            _i.add(_i__pointer__, stdgo._internal.math.big.Big__intOne._intOne);
+            _z.quo(_z, _i__pointer__);
         };
         return _z;
     }

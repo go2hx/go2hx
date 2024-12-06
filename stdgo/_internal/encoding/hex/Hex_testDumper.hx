@@ -8,7 +8,11 @@ function testDumper(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _stride = (1 : stdgo.GoInt);
             while ((_stride < (_in.length) : Bool)) {
                 var _out:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-var _dumper = (stdgo._internal.encoding.hex.Hex_dumper.dumper(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>))) : stdgo._internal.io.Io_WriteCloser.WriteCloser);
+var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+var _dumper = (stdgo._internal.encoding.hex.Hex_dumper.dumper(stdgo.Go.asInterface(_out__pointer__)) : stdgo._internal.io.Io_WriteCloser.WriteCloser);
 var _done = (0 : stdgo.GoInt);
 while ((_done < (_in.length) : Bool)) {
                     var _todo = (_done + _stride : stdgo.GoInt);

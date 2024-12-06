@@ -13,7 +13,11 @@ function testIgnoreInterface(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
             _t.error(stdgo.Go.toInterface(("expected no encode error; got" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _item2 = (new stdgo._internal.encoding.gob.Gob_NoInterfaceItem.NoInterfaceItem() : stdgo._internal.encoding.gob.Gob_NoInterfaceItem.NoInterfaceItem);
-        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_item2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_NoInterfaceItem.NoInterfaceItem>)));
+        var _item2__pointer__ = (stdgo.Go.setRef(_item2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_NoInterfaceItem.NoInterfaceItem>);
+        var _item2__pointer__ = (stdgo.Go.setRef(_item2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_NoInterfaceItem.NoInterfaceItem>);
+        var _item2__pointer__ = (stdgo.Go.setRef(_item2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_NoInterfaceItem.NoInterfaceItem>);
+        var _item2__pointer__ = (stdgo.Go.setRef(_item2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_NoInterfaceItem.NoInterfaceItem>);
+        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface(_item2__pointer__));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

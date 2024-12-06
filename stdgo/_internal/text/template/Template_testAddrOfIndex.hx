@@ -7,12 +7,16 @@ function testAddrOfIndex(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
                 stdgo._internal.text.template.Template_must.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
             });
             var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-            var _err = (_tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((new stdgo.Slice<stdgo._internal.text.template.Template_V.V>(1, 1, ...[(new stdgo._internal.text.template.Template_V.V((1 : stdgo.GoInt)) : stdgo._internal.text.template.Template_V.V)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template_V.V)])) : stdgo.Slice<stdgo._internal.text.template.Template_V.V>)))))) : stdgo.Error);
+            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+            var _err = (_tmpl.execute(stdgo.Go.asInterface(_buf__pointer__), stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((new stdgo.Slice<stdgo._internal.text.template.Template_V.V>(1, 1, ...[(new stdgo._internal.text.template.Template_V.V((1 : stdgo.GoInt)) : stdgo._internal.text.template.Template_V.V)].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.text.template.Template_V.V)])) : stdgo.Slice<stdgo._internal.text.template.Template_V.V>)))))) : stdgo.Error);
             if (_err != null) {
                 _t.fatalf(("%s: Execute: %v" : stdgo.GoString), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(_err));
             };
             if ((_buf.string() : stdgo.GoString) != (("<1>" : stdgo.GoString))) {
-                _t.fatalf(("%s: template output = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>))), stdgo.Go.toInterface(("<1>" : stdgo.GoString)));
+                _t.fatalf(("%s: template output = %q, want %q" : stdgo.GoString), stdgo.Go.toInterface(_text), stdgo.Go.toInterface(stdgo.Go.asInterface(_buf__pointer__)), stdgo.Go.toInterface(("<1>" : stdgo.GoString)));
             };
         };
     }

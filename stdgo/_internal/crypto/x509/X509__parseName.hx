@@ -4,15 +4,18 @@ function _parseName(_raw:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cry
             return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid RDNSequence" : stdgo.GoString)) };
         };
         var _rdnSeq:stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence = new stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence(0, 0);
+        var _rdnSeq__pointer__ = (stdgo.Go.setRef(_rdnSeq) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence>);
         while (!_raw.empty()) {
             var _rdnSet:stdgo._internal.crypto.x509.pkix.Pkix_RelativeDistinguishedNameSET.RelativeDistinguishedNameSET = new stdgo._internal.crypto.x509.pkix.Pkix_RelativeDistinguishedNameSET.RelativeDistinguishedNameSET(0, 0);
             var _set:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-            if (!_raw.readASN1((stdgo.Go.setRef(_set) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (49 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
+            var _set__pointer__ = (stdgo.Go.setRef(_set) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
+            if (!_raw.readASN1(_set__pointer__, (49 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid RDNSequence" : stdgo.GoString)) };
             };
             while (!_set.empty()) {
                 var _atav:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-                if (!_set.readASN1((stdgo.Go.setRef(_atav) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
+                var _atav__pointer__ = (stdgo.Go.setRef(_atav) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
+                if (!_set.readASN1(_atav__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                     return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid RDNSequence: invalid attribute" : stdgo.GoString)) };
                 };
                 var _attr:stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue = ({} : stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue);
@@ -20,8 +23,10 @@ function _parseName(_raw:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cry
                     return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid RDNSequence: invalid attribute type" : stdgo.GoString)) };
                 };
                 var _rawValue:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
+                var _rawValue__pointer__ = (stdgo.Go.setRef(_rawValue) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
                 var _valueTag:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag = ((0 : stdgo.GoUInt8) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag);
-                if (!_atav.readAnyASN1((stdgo.Go.setRef(_rawValue) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), stdgo.Go.pointer(_valueTag))) {
+                var _valueTag__pointer__ = stdgo.Go.pointer(_valueTag);
+                if (!_atav.readAnyASN1(_rawValue__pointer__, _valueTag__pointer__)) {
                     return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid RDNSequence: invalid attribute value" : stdgo.GoString)) };
                 };
                 var _err:stdgo.Error = (null : stdgo.Error);
@@ -37,5 +42,5 @@ function _parseName(_raw:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cry
             };
             _rdnSeq = (_rdnSeq.__append__(_rdnSet));
         };
-        return { _0 : (stdgo.Go.setRef(_rdnSeq) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence>), _1 : (null : stdgo.Error) };
+        return { _0 : _rdnSeq__pointer__, _1 : (null : stdgo.Error) };
     }

@@ -13,8 +13,12 @@ function testBlock(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         {
-            var _err = (_tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(("hello" : stdgo.GoString))) : stdgo.Error);
+            var _err = (_tmpl.execute(stdgo.Go.asInterface(_buf__pointer__), stdgo.Go.toInterface(("hello" : stdgo.GoString))) : stdgo.Error);
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
@@ -27,7 +31,7 @@ function testBlock(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         };
         _buf.reset();
         {
-            var _err = (_tmpl2.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(("goodbye" : stdgo.GoString))) : stdgo.Error);
+            var _err = (_tmpl2.execute(stdgo.Go.asInterface(_buf__pointer__), stdgo.Go.toInterface(("goodbye" : stdgo.GoString))) : stdgo.Error);
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };

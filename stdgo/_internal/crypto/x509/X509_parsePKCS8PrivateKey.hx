@@ -2,8 +2,9 @@ package stdgo._internal.crypto.x509;
 function parsePKCS8PrivateKey(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } {
         var _key = (null : stdgo.AnyInterface), _err = (null : stdgo.Error);
         var _privKey:stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8 = ({} : stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8);
+        var _privKey__pointer__ = (stdgo.Go.setRef(_privKey) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8>);
         {
-            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_der, stdgo.Go.toInterface((stdgo.Go.setRef(_privKey) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8>))), __1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_der, stdgo.Go.toInterface(_privKey__pointer__)), __1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_der, stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey() : stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey)) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey>))), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -96,8 +97,9 @@ function parsePKCS8PrivateKey(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.
                 };
             };
             var _curvePrivateKey:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+            var _curvePrivateKey__pointer__ = (stdgo.Go.setRef(_curvePrivateKey) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             {
-                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_privKey.privateKey, stdgo.Go.toInterface((stdgo.Go.setRef(_curvePrivateKey) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>))), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_privKey.privateKey, stdgo.Go.toInterface(_curvePrivateKey__pointer__)), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return {
                         final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: invalid Ed25519 private key: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
@@ -137,8 +139,9 @@ function parsePKCS8PrivateKey(_der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.
                 };
             };
             var _curvePrivateKey:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+            var _curvePrivateKey__pointer__ = (stdgo.Go.setRef(_curvePrivateKey) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             {
-                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_privKey.privateKey, stdgo.Go.toInterface((stdgo.Go.setRef(_curvePrivateKey) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>))), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_privKey.privateKey, stdgo.Go.toInterface(_curvePrivateKey__pointer__)), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return {
                         final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : stdgo.Error; } = { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: invalid X25519 private key: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };

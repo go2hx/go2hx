@@ -12,7 +12,11 @@ function test29ElementSlice(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
             return;
         };
         var _dst:stdgo.Slice<stdgo.AnyInterface> = (null : stdgo.Slice<stdgo.AnyInterface>);
-        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_dst) : stdgo.Ref<stdgo.Slice<stdgo.AnyInterface>>)));
+        var _dst__pointer__ = (stdgo.Go.setRef(_dst) : stdgo.Ref<stdgo.Slice<stdgo.AnyInterface>>);
+        var _dst__pointer__ = (stdgo.Go.setRef(_dst) : stdgo.Ref<stdgo.Slice<stdgo.AnyInterface>>);
+        var _dst__pointer__ = (stdgo.Go.setRef(_dst) : stdgo.Ref<stdgo.Slice<stdgo.AnyInterface>>);
+        var _dst__pointer__ = (stdgo.Go.setRef(_dst) : stdgo.Ref<stdgo.Slice<stdgo.AnyInterface>>);
+        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf)).decode(stdgo.Go.toInterface(_dst__pointer__));
         if (_err != null) {
             _t.errorf(("decode: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             return;

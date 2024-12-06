@@ -9,9 +9,13 @@ function testSliceReusesMemory(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
                 _t.errorf(("bytes: encode: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             var _y = (("ABCDE" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             var _addr = stdgo.Go.pointer(_y[(0 : stdgo.GoInt)]);
             var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf));
-            _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)));
+            _err = _dec.decode(stdgo.Go.toInterface(_y__pointer__));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("bytes: decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };
@@ -30,9 +34,13 @@ function testSliceReusesMemory(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
                 _t.errorf(("ints: encode: %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             var _y = (("ABCDE" : stdgo.GoString) : stdgo.Slice<stdgo.GoInt32>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>);
             var _addr = stdgo.Go.pointer(_y[(0 : stdgo.GoInt)]);
             var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf));
-            _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>)));
+            _err = _dec.decode(stdgo.Go.toInterface(_y__pointer__));
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("ints: decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };

@@ -23,6 +23,7 @@ function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
             };
         };
         var _fhdr:stdgo._internal.internal.xcoff.Xcoff_T_bigarFileHeader.T_bigarFileHeader = ({} : stdgo._internal.internal.xcoff.Xcoff_T_bigarFileHeader.T_bigarFileHeader);
+        var _fhdr__pointer__ = (stdgo.Go.setRef(_fhdr) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_T_bigarFileHeader.T_bigarFileHeader>);
         {
             var __tmp__ = _sr.seek((0i64 : stdgo.GoInt64), (0 : stdgo.GoInt)), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -30,7 +31,7 @@ function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
             };
         };
         {
-            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_fhdr) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_T_bigarFileHeader.T_bigarFileHeader>))) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_fhdr__pointer__)) : stdgo.Error);
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
@@ -54,8 +55,9 @@ function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
                 };
             };
             var _mhdr:stdgo._internal.internal.xcoff.Xcoff_T_bigarMemberHeader.T_bigarMemberHeader = ({} : stdgo._internal.internal.xcoff.Xcoff_T_bigarMemberHeader.T_bigarMemberHeader);
+            var _mhdr__pointer__ = (stdgo.Go.setRef(_mhdr) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_T_bigarMemberHeader.T_bigarMemberHeader>);
             {
-                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_mhdr) : stdgo.Ref<stdgo._internal.internal.xcoff.Xcoff_T_bigarMemberHeader.T_bigarMemberHeader>))) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_mhdr__pointer__)) : stdgo.Error);
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };
@@ -90,8 +92,9 @@ function newArchive(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo
                 };
             };
             var _fmag:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(2, 2, ...[for (i in 0 ... 2) (0 : stdgo.GoUInt8)]);
+            var _fmag__pointer__ = (stdgo.Go.setRef(_fmag) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>);
             {
-                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_fmag) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>))) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(_fmag__pointer__)) : stdgo.Error);
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
                 };

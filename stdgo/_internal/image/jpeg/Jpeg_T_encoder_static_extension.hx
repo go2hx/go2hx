@@ -13,6 +13,9 @@ package stdgo._internal.image.jpeg;
         };
         var __0:stdgo._internal.image.jpeg.Jpeg_T_block.T_block = new stdgo._internal.image.jpeg.Jpeg_T_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)]), __1:stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block> = new stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>(4, 4, ...[for (i in 0 ... 4) new stdgo._internal.image.jpeg.Jpeg_T_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)])]), __2:stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block> = new stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>(4, 4, ...[for (i in 0 ... 4) new stdgo._internal.image.jpeg.Jpeg_T_block.T_block(64, 64, ...[for (i in 0 ... 64) (0 : stdgo.GoInt32)])]), __3:stdgo.GoInt32 = (0 : stdgo.GoInt32), __4:stdgo.GoInt32 = (0 : stdgo.GoInt32), __5:stdgo.GoInt32 = (0 : stdgo.GoInt32);
 var _prevDCCr = __5, _prevDCCb = __4, _prevDCY = __3, _cr = __2, _cb = __1, _b = __0;
+        var _cr__pointer__ = (stdgo.Go.setRef(_cr) : stdgo.Ref<stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>>);
+        var _cb__pointer__ = (stdgo.Go.setRef(_cb) : stdgo.Ref<stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>);
         var _bounds = (_m.bounds()?.__copy__() : stdgo._internal.image.Image_Rectangle.Rectangle);
         {
             final __type__ = _m;
@@ -25,8 +28,8 @@ var _prevDCCr = __5, _prevDCCb = __4, _prevDCY = __3, _cr = __2, _cb = __1, _b =
                             var _x = (_bounds.min.x : stdgo.GoInt);
                             while ((_x < _bounds.max.x : Bool)) {
                                 var _p = (stdgo._internal.image.Image_pt.pt(_x, _y).__copy__() : stdgo._internal.image.Image_Point.Point);
-stdgo._internal.image.jpeg.Jpeg__grayToY._grayToY(_m, _p.__copy__(), (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>));
-_prevDCY = _e._writeBlock((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (0 : stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex), _prevDCY);
+stdgo._internal.image.jpeg.Jpeg__grayToY._grayToY(_m, _p.__copy__(), _b__pointer__);
+_prevDCY = _e._writeBlock(_b__pointer__, (0 : stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex), _prevDCY);
                                 _x = (_x + ((8 : stdgo.GoInt)) : stdgo.GoInt);
                             };
                         };
@@ -58,20 +61,20 @@ _prevDCY = _e._writeBlock((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image
 var _yOff = (((_i & (2 : stdgo.GoInt) : stdgo.GoInt)) * (4 : stdgo.GoInt) : stdgo.GoInt);
 var _p = (stdgo._internal.image.Image_pt.pt((_x + _xOff : stdgo.GoInt), (_y + _yOff : stdgo.GoInt)).__copy__() : stdgo._internal.image.Image_Point.Point);
 if ((_rgba != null && ((_rgba : Dynamic).__nil__ == null || !(_rgba : Dynamic).__nil__))) {
-                                            stdgo._internal.image.jpeg.Jpeg__rgbaToYCbCr._rgbaToYCbCr(_rgba, _p.__copy__(), (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cb[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cr[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>));
+                                            stdgo._internal.image.jpeg.Jpeg__rgbaToYCbCr._rgbaToYCbCr(_rgba, _p.__copy__(), _b__pointer__, (stdgo.Go.setRef(_cb[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cr[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>));
                                         } else if ((_ycbcr != null && ((_ycbcr : Dynamic).__nil__ == null || !(_ycbcr : Dynamic).__nil__))) {
-                                            stdgo._internal.image.jpeg.Jpeg__yCbCrToYCbCr._yCbCrToYCbCr(_ycbcr, _p.__copy__(), (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cb[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cr[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>));
+                                            stdgo._internal.image.jpeg.Jpeg__yCbCrToYCbCr._yCbCrToYCbCr(_ycbcr, _p.__copy__(), _b__pointer__, (stdgo.Go.setRef(_cb[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cr[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>));
                                         } else {
-                                            stdgo._internal.image.jpeg.Jpeg__toYCbCr._toYCbCr(_m, _p.__copy__(), (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cb[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cr[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>));
+                                            stdgo._internal.image.jpeg.Jpeg__toYCbCr._toYCbCr(_m, _p.__copy__(), _b__pointer__, (stdgo.Go.setRef(_cb[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cr[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>));
                                         };
-_prevDCY = _e._writeBlock((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (0 : stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex), _prevDCY);
+_prevDCY = _e._writeBlock(_b__pointer__, (0 : stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex), _prevDCY);
                                         _i++;
                                     };
                                 };
-stdgo._internal.image.jpeg.Jpeg__scale._scale((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cb) : stdgo.Ref<stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>>));
-_prevDCCb = _e._writeBlock((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (1 : stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex), _prevDCCb);
-stdgo._internal.image.jpeg.Jpeg__scale._scale((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (stdgo.Go.setRef(_cr) : stdgo.Ref<stdgo.GoArray<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>>));
-_prevDCCr = _e._writeBlock((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.image.jpeg.Jpeg_T_block.T_block>), (1 : stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex), _prevDCCr);
+stdgo._internal.image.jpeg.Jpeg__scale._scale(_b__pointer__, _cb__pointer__);
+_prevDCCb = _e._writeBlock(_b__pointer__, (1 : stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex), _prevDCCb);
+stdgo._internal.image.jpeg.Jpeg__scale._scale(_b__pointer__, _cr__pointer__);
+_prevDCCr = _e._writeBlock(_b__pointer__, (1 : stdgo._internal.image.jpeg.Jpeg_T_quantIndex.T_quantIndex), _prevDCCr);
                                 _x = (_x + ((16 : stdgo.GoInt)) : stdgo.GoInt);
                             };
                         };

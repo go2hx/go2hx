@@ -16,8 +16,9 @@ package stdgo._internal.net.url;
             _p = (_p + (("/" : stdgo.GoString))?.__copy__() : stdgo.GoString);
         };
         var _url = ((_u : stdgo._internal.net.url.Url_URL.URL)?.__copy__() : stdgo._internal.net.url.Url_URL.URL);
+        var _url__pointer__ = (stdgo.Go.setRef(_url) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
         _url._setPath(_p?.__copy__());
-        return (stdgo.Go.setRef(_url) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        return _url__pointer__;
     }
     @:keep
     static public function unmarshalBinary( _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _text:stdgo.Slice<stdgo.GoUInt8>):stdgo.Error {
@@ -94,18 +95,19 @@ package stdgo._internal.net.url;
     static public function resolveReference( _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _ref:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>):stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> {
         @:recv var _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL> = _u;
         var _url = ((_ref : stdgo._internal.net.url.Url_URL.URL)?.__copy__() : stdgo._internal.net.url.Url_URL.URL);
+        var _url__pointer__ = (stdgo.Go.setRef(_url) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
         if (_ref.scheme == (stdgo.Go.str())) {
             _url.scheme = _u.scheme?.__copy__();
         };
         if (((_ref.scheme != (stdgo.Go.str()) || _ref.host != (stdgo.Go.str()) : Bool) || (_ref.user != null && ((_ref.user : Dynamic).__nil__ == null || !(_ref.user : Dynamic).__nil__)) : Bool)) {
             _url._setPath(stdgo._internal.net.url.Url__resolvePath._resolvePath(_ref.escapedPath()?.__copy__(), stdgo.Go.str()?.__copy__())?.__copy__());
-            return (stdgo.Go.setRef(_url) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+            return _url__pointer__;
         };
         if (_ref.opaque != (stdgo.Go.str())) {
             _url.user = null;
             _url.host = stdgo.Go.str()?.__copy__();
             _url.path = stdgo.Go.str()?.__copy__();
-            return (stdgo.Go.setRef(_url) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+            return _url__pointer__;
         };
         if (((_ref.path == (stdgo.Go.str()) && !_ref.forceQuery : Bool) && (_ref.rawQuery == stdgo.Go.str()) : Bool)) {
             _url.rawQuery = _u.rawQuery?.__copy__();
@@ -117,7 +119,7 @@ package stdgo._internal.net.url;
         _url.host = _u.host?.__copy__();
         _url.user = _u.user;
         _url._setPath(stdgo._internal.net.url.Url__resolvePath._resolvePath(_u.escapedPath()?.__copy__(), _ref.escapedPath()?.__copy__())?.__copy__());
-        return (stdgo.Go.setRef(_url) : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>);
+        return _url__pointer__;
     }
     @:keep
     static public function parse( _u:stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>, _ref:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal.net.url.Url_URL.URL>; var _1 : stdgo.Error; } {

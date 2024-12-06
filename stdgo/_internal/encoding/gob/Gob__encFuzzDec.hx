@@ -16,8 +16,12 @@ function _encFuzzDec(_rng:stdgo.Ref<stdgo._internal.math.rand.Rand_Rand.Rand>, _
         };
         var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf));
         var _e:stdgo.AnyInterface = (null : stdgo.AnyInterface);
+        var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.AnyInterface>);
+        var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.AnyInterface>);
+        var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.AnyInterface>);
+        var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.AnyInterface>);
         {
-            var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.AnyInterface>))) : stdgo.Error);
+            var _err = (_dec.decode(stdgo.Go.toInterface(_e__pointer__)) : stdgo.Error);
             if (_err != null) {
                 return _err;
             };

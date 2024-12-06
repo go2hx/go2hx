@@ -25,9 +25,13 @@ function testIgnoreDepthLimit(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
             _enc.encode(_badStruct.interface_());
             var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
             var _output:stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4 = ({ hello : (0 : stdgo.GoInt) } : stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4);
+            var _output__pointer__ = (stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4>);
+            var _output__pointer__ = (stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4>);
+            var _output__pointer__ = (stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4>);
+            var _output__pointer__ = (stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4>);
             var _expectedErr = ("invalid nesting depth" : stdgo.GoString);
             {
-                var _err = (_dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_output) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T__struct_4.T__struct_4>)))) : stdgo.Error);
+                var _err = (_dec.decode(stdgo.Go.toInterface(stdgo.Go.asInterface(_output__pointer__))) : stdgo.Error);
                 if (((_err == null) || (_err.error() != _expectedErr) : Bool)) {
                     _t.errorf(("Decode didn\'t fail with depth limit of 100: want %q, got %q" : stdgo.GoString), stdgo.Go.toInterface(_expectedErr), stdgo.Go.toInterface(_err));
                 };

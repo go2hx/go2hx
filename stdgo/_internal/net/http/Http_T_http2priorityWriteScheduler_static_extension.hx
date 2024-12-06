@@ -145,7 +145,8 @@ package stdgo._internal.net.http;
         _n._state = (1 : stdgo._internal.net.http.Http_T_http2priorityNodeState.T_http2priorityNodeState);
         _n._addBytes(-_n._bytes);
         var _q = (_n._q?.__copy__() : stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue);
-        _ws._queuePool._put((stdgo.Go.setRef(_q) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue>));
+        var _q__pointer__ = (stdgo.Go.setRef(_q) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2writeQueue.T_http2writeQueue>);
+        _ws._queuePool._put(_q__pointer__);
         _n._q._s = (null : stdgo.Slice<stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest>);
         if ((_ws._maxClosedNodesInTree > (0 : stdgo.GoInt) : Bool)) {
             _ws._addClosedOrIdleNode((stdgo.Go.setRef(_ws._closedNodes) : stdgo.Ref<stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2priorityNode.T_http2priorityNode>>>), _ws._maxClosedNodesInTree, _n);

@@ -2,14 +2,26 @@ package stdgo._internal.encoding.gob;
 function testGobEncoderValueThenPointer(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _v = ((("forty-two" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_ValueGobber.ValueGobber) : stdgo._internal.encoding.gob.Gob_ValueGobber.ValueGobber);
         var _w = ((("six-by-nine" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_ValueGobber.ValueGobber) : stdgo._internal.encoding.gob.Gob_ValueGobber.ValueGobber);
+        var _w__pointer__ = stdgo.Go.pointer(_w);
+        var _w__pointer__ = stdgo.Go.pointer(_w);
+        var _w__pointer__ = stdgo.Go.pointer(_w);
+        var _w__pointer__ = stdgo.Go.pointer(_w);
         var _bv = ((("1nanocentury" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_BinaryValueGobber.BinaryValueGobber) : stdgo._internal.encoding.gob.Gob_BinaryValueGobber.BinaryValueGobber);
         var _bw = ((("πseconds" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_BinaryValueGobber.BinaryValueGobber) : stdgo._internal.encoding.gob.Gob_BinaryValueGobber.BinaryValueGobber);
+        var _bw__pointer__ = stdgo.Go.pointer(_bw);
+        var _bw__pointer__ = stdgo.Go.pointer(_bw);
+        var _bw__pointer__ = stdgo.Go.pointer(_bw);
+        var _bw__pointer__ = stdgo.Go.pointer(_bw);
         var _tv = ((("gravitationalacceleration" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_TextValueGobber.TextValueGobber) : stdgo._internal.encoding.gob.Gob_TextValueGobber.TextValueGobber);
         var _tw = ((("π²ft/s²" : stdgo.GoString) : stdgo._internal.encoding.gob.Gob_TextValueGobber.TextValueGobber) : stdgo._internal.encoding.gob.Gob_TextValueGobber.TextValueGobber);
+        var _tw__pointer__ = stdgo.Go.pointer(_tw);
+        var _tw__pointer__ = stdgo.Go.pointer(_tw);
+        var _tw__pointer__ = stdgo.Go.pointer(_tw);
+        var _tw__pointer__ = stdgo.Go.pointer(_tw);
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b));
         {
-            var _err = (_enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTest6.GobTest6((42 : stdgo.GoInt), _v, stdgo.Go.pointer(_w), _bv, stdgo.Go.pointer(_bw), _tv, stdgo.Go.pointer(_tw)) : stdgo._internal.encoding.gob.Gob_GobTest6.GobTest6))) : stdgo.Error);
+            var _err = (_enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTest6.GobTest6((42 : stdgo.GoInt), _v, _w__pointer__, _bv, _bw__pointer__, _tv, _tw__pointer__) : stdgo._internal.encoding.gob.Gob_GobTest6.GobTest6))) : stdgo.Error);
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
             };

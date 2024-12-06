@@ -44,7 +44,8 @@ package stdgo._internal.text.template.parse;
     static public function string( _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode>):stdgo.GoString {
         @:recv var _c:stdgo.Ref<stdgo._internal.text.template.parse.Parse_CommandNode.CommandNode> = _c;
         var _sb:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        _c._writeTo((stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
+        var _sb__pointer__ = (stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        _c._writeTo(_sb__pointer__);
         return (_sb.string() : stdgo.GoString)?.__copy__();
     }
     @:keep

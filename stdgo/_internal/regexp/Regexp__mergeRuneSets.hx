@@ -9,6 +9,14 @@ function _mergeRuneSets(_leftRunes:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _right
             };
             var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
 var _rx = __1, _lx = __0;
+            var _rx__pointer__ = stdgo.Go.pointer(_rx);
+            var _lx__pointer__ = stdgo.Go.pointer(_lx);
+            var _rx__pointer__ = stdgo.Go.pointer(_rx);
+            var _lx__pointer__ = stdgo.Go.pointer(_lx);
+            var _rx__pointer__ = stdgo.Go.pointer(_rx);
+            var _lx__pointer__ = stdgo.Go.pointer(_lx);
+            var _rx__pointer__ = stdgo.Go.pointer(_rx);
+            var _lx__pointer__ = stdgo.Go.pointer(_lx);
             var _merged = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
             var _next = (new stdgo.Slice<stdgo.GoUInt32>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
             var _ok = (true : Bool);
@@ -34,13 +42,13 @@ var _rx = __1, _lx = __0;
             };
             while (((_lx < _leftLen : Bool) || (_rx < _rightLen : Bool) : Bool)) {
                 if ((_rx >= _rightLen : Bool)) {
-                    _ok = _extend(stdgo.Go.pointer(_lx), _leftRunes, _leftPC);
+                    _ok = _extend(_lx__pointer__, _leftRunes, _leftPC);
                 } else if ((_lx >= _leftLen : Bool)) {
-                    _ok = _extend(stdgo.Go.pointer(_rx), _rightRunes, _rightPC);
+                    _ok = _extend(_rx__pointer__, _rightRunes, _rightPC);
                 } else if ((((_rightRunes : stdgo.Slice<stdgo.GoInt32>))[(_rx : stdgo.GoInt)] < ((_leftRunes : stdgo.Slice<stdgo.GoInt32>))[(_lx : stdgo.GoInt)] : Bool)) {
-                    _ok = _extend(stdgo.Go.pointer(_rx), _rightRunes, _rightPC);
+                    _ok = _extend(_rx__pointer__, _rightRunes, _rightPC);
                 } else {
-                    _ok = _extend(stdgo.Go.pointer(_lx), _leftRunes, _leftPC);
+                    _ok = _extend(_lx__pointer__, _leftRunes, _leftPC);
                 };
                 if (!_ok) {
                     {

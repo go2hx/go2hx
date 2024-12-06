@@ -14,11 +14,15 @@ function _encOpFor(_rt:stdgo._internal.reflect.Reflect_Type_.Type_, _inProgress:
         var _indir = (_ut._indir : stdgo.GoInt);
         var _k = (_typ.kind() : stdgo._internal.reflect.Reflect_Kind.Kind);
         var _op:stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp = (null : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp);
+        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op__pointer__ = stdgo.Go.pointer(_op);
         if (((_k : stdgo.GoInt) < (stdgo._internal.encoding.gob.Gob__encOpTable._encOpTable.length) : Bool)) {
             _op = stdgo._internal.encoding.gob.Gob__encOpTable._encOpTable[(_k : stdgo.GoInt)];
         };
         if (_op == null) {
-            _inProgress[_rt] = stdgo.Go.pointer(_op);
+            _inProgress[_rt] = _op__pointer__;
             {
                 var _t = (_typ : stdgo._internal.reflect.Reflect_Type_.Type_);
                 {
@@ -90,5 +94,5 @@ function _encOpFor(_rt:stdgo._internal.reflect.Reflect_Type_.Type_, _inProgress:
         if (_op == null) {
             stdgo._internal.encoding.gob.Gob__errorf._errorf(("can\'t happen: encode type %s" : stdgo.GoString), stdgo.Go.toInterface(_rt));
         };
-        return { _0 : stdgo.Go.pointer(_op), _1 : _indir };
+        return { _0 : _op__pointer__, _1 : _indir };
     }

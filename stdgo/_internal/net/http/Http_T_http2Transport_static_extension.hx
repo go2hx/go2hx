@@ -75,7 +75,8 @@ package stdgo._internal.net.http;
             }, _cs = __tmp__._0, _ok = __tmp__._1;
             if (_ok) {
                 var _state = (_cs.connectionState()?.__copy__() : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
-                _cc._tlsState = (stdgo.Go.setRef(_state) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
+                var _state__pointer__ = (stdgo.Go.setRef(_state) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
+                _cc._tlsState = _state__pointer__;
             };
         };
         var _initialSettings = (new stdgo.Slice<stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting>(2, 2, ...[({ id : (2 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID), val : (0u32 : stdgo.GoUInt32) } : stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting), ({ id : (4 : stdgo._internal.net.http.Http_T_http2SettingID.T_http2SettingID), val : (4194304u32 : stdgo.GoUInt32) } : stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting)].concat([for (i in 2 ... (2 > 2 ? 2 : 2 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting)])) : stdgo.Slice<stdgo._internal.net.http.Http_T_http2Setting.T_http2Setting>);

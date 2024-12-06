@@ -2,9 +2,13 @@ package stdgo._internal.encoding.json;
 function testUnmarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (_i => _tt in stdgo._internal.encoding.json.Json__unmarshalTests._unmarshalTests) {
             var _scan:stdgo._internal.encoding.json.Json_T_scanner.T_scanner = ({} : stdgo._internal.encoding.json.Json_T_scanner.T_scanner);
+            var _scan__pointer__ = (stdgo.Go.setRef(_scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>);
+            var _scan__pointer__ = (stdgo.Go.setRef(_scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>);
+            var _scan__pointer__ = (stdgo.Go.setRef(_scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>);
+            var _scan__pointer__ = (stdgo.Go.setRef(_scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>);
             var _in = (_tt._in : stdgo.Slice<stdgo.GoUInt8>);
             {
-                var _err = (stdgo._internal.encoding.json.Json__checkValid._checkValid(_in, (stdgo.Go.setRef(_scan) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_scanner.T_scanner>)) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.json.Json__checkValid._checkValid(_in, _scan__pointer__) : stdgo.Error);
                 if (_err != null) {
                     if (!stdgo._internal.encoding.json.Json__equalError._equalError(_err, _tt._err)) {
                         _t.errorf(("#%d: checkValid: %#v" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_err));

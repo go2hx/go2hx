@@ -226,9 +226,10 @@ package stdgo._internal.net.http.httptest;
             _s._mu.lock();
             __deferstack__.unshift(() -> _s._mu.unlock());
             var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
+            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
             _buf.writeString(("httptest.Server blocked in Close after 5 seconds, waiting for connections:\n" : stdgo.GoString));
             for (_c => _st in _s._conns) {
-                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), ("  %T %p %v in state %v\n" : stdgo.GoString), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_c.remoteAddr()), stdgo.Go.toInterface(stdgo.Go.asInterface(_st)));
+                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_buf__pointer__), ("  %T %p %v in state %v\n" : stdgo.GoString), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_c), stdgo.Go.toInterface(_c.remoteAddr()), stdgo.Go.toInterface(stdgo.Go.asInterface(_st)));
             };
             stdgo._internal.log.Log_print.print(stdgo.Go.toInterface((_buf.string() : stdgo.GoString)));
             {

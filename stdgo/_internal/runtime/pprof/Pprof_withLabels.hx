@@ -7,11 +7,12 @@ function withLabels(_ctx:stdgo._internal.context.Context_Context.Context, _label
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>) : stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap);
+        var _childLabels__pointer__ = (stdgo.Go.setRef(_childLabels) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap>);
         for (_k => _v in _parentLabels) {
             _childLabels[_k] = _v?.__copy__();
         };
         for (__0 => _label in _labels._list) {
             _childLabels[_label._key] = _label._value?.__copy__();
         };
-        return stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface((new stdgo._internal.runtime.pprof.Pprof_T_labelContextKey.T_labelContextKey() : stdgo._internal.runtime.pprof.Pprof_T_labelContextKey.T_labelContextKey)), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_childLabels) : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap>))));
+        return stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface((new stdgo._internal.runtime.pprof.Pprof_T_labelContextKey.T_labelContextKey() : stdgo._internal.runtime.pprof.Pprof_T_labelContextKey.T_labelContextKey)), stdgo.Go.toInterface(stdgo.Go.asInterface(_childLabels__pointer__)));
     }

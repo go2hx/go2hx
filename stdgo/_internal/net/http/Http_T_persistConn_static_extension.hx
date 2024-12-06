@@ -1228,10 +1228,11 @@ package stdgo._internal.net.http;
             };
         };
         var _cs = (_tlsConn.connectionState()?.__copy__() : stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState);
+        var _cs__pointer__ = (stdgo.Go.setRef(_cs) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
         if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.tlshandshakeDone != null) : Bool)) {
             _trace.tlshandshakeDone(_cs?.__copy__(), (null : stdgo.Error));
         };
-        _pconn._tlsState = (stdgo.Go.setRef(_cs) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState>);
+        _pconn._tlsState = _cs__pointer__;
         _pconn._conn = stdgo.Go.asInterface(_tlsConn);
         return (null : stdgo.Error);
     }

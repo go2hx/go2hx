@@ -15,10 +15,14 @@ function testFloatZeroValue(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         };
         var _make = function(_x:stdgo.GoInt):stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> {
             var _f:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
+            var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
             if (_x != ((0 : stdgo.GoInt))) {
                 _f.setInt64((_x : stdgo.GoInt64));
             };
-            return (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            return _f__pointer__;
         };
         for (__8 => _test in (new stdgo.Slice<stdgo._internal.math.big.Big_T__struct_10.T__struct_10>(15, 15, ...[
 ({ _z : (0 : stdgo.GoInt), _x : (0 : stdgo.GoInt), _y : (0 : stdgo.GoInt), _want : (0 : stdgo.GoInt), _opname : (43 : stdgo.GoInt32), _op : stdgo._internal.math.big.Big_Float__static_extension.Float__static_extension.add } : stdgo._internal.math.big.Big_T__struct_10.T__struct_10),

@@ -6,8 +6,12 @@ function testUnmarshalErrorAfterMultipleJSON(_t:stdgo.Ref<stdgo._internal.testin
             var _err:stdgo.Error = (null : stdgo.Error);
             while (true) {
                 var _v:stdgo.AnyInterface = (null : stdgo.AnyInterface);
+                var _v__pointer__ = (stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>);
+                var _v__pointer__ = (stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>);
+                var _v__pointer__ = (stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>);
+                var _v__pointer__ = (stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>);
                 {
-                    _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>)));
+                    _err = _dec.decode(stdgo.Go.toInterface(_v__pointer__));
                     if (_err != null) {
                         break;
                     };

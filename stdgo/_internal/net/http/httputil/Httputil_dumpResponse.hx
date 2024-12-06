@@ -1,6 +1,7 @@
 package stdgo._internal.net.http.httputil;
 function dumpResponse(_resp:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>, _body:Bool):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         var _err:stdgo.Error = (null : stdgo.Error);
         var _save = (_resp.body : stdgo._internal.io.Io_ReadCloser.ReadCloser);
         var _savecl = (_resp.contentLength : stdgo.GoInt64);
@@ -23,7 +24,7 @@ function dumpResponse(_resp:stdgo.Ref<stdgo._internal.net.http.Http_Response.Res
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
         };
-        _err = _resp.write(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+        _err = _resp.write(stdgo.Go.asInterface(_b__pointer__));
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.net.http.httputil.Httputil__errNoBody._errNoBody))) {
             _err = (null : stdgo.Error);
         };

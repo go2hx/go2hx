@@ -322,6 +322,7 @@ if (_ma == ((0u32 : stdgo.GoUInt32))) {
             };
         };
         var _out:stdgo._internal.image.color.Color_RGBA64.RGBA64 = ({} : stdgo._internal.image.color.Color_RGBA64.RGBA64);
+        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.image.color.Color_RGBA64.RGBA64>);
         var _sy = ((_sp.y + _y0 : stdgo.GoInt) - _r.min.y : stdgo.GoInt);
         var _my = ((_mp.y + _y0 : stdgo.GoInt) - _r.min.y : stdgo.GoInt);
         {
@@ -360,7 +361,7 @@ if (_ma == ((0u32 : stdgo.GoUInt32))) {
                                 _out.b = (((_sb * _ma : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16);
                                 _out.a = (((_sa * _ma : stdgo.GoUInt32) / (65535u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoUInt16);
                             };
-                            _dst.set(_x, _y, stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.image.color.Color_RGBA64.RGBA64>)));
+                            _dst.set(_x, _y, stdgo.Go.asInterface(_out__pointer__));
                         };
                         {
                             final __tmp__0 = (_x + _dx : stdgo.GoInt);

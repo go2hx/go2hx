@@ -340,8 +340,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rela:stdgo._internal.debug.elf.Elf_Rela64.Rela64 = ({} : stdgo._internal.debug.elf.Elf_Rela64.Rela64);
+        var _rela__pointer__ = (stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rela__pointer__));
             var _symNo = (_rela.info >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
             var _t = ((_rela.info & (255i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo._internal.debug.elf.Elf_R_SPARC.R_SPARC);
             if (((_symNo == (0i64 : stdgo.GoUInt64)) || (_symNo > (_symbols.length : stdgo.GoUInt64) : Bool) : Bool)) {
@@ -382,8 +383,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rela:stdgo._internal.debug.elf.Elf_Rela64.Rela64 = ({} : stdgo._internal.debug.elf.Elf_Rela64.Rela64);
+        var _rela__pointer__ = (stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rela__pointer__));
             var _symNo = (_rela.info >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
             var _t = ((_rela.info & (65535i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo._internal.debug.elf.Elf_R_390.R_390);
             if (((_symNo == (0i64 : stdgo.GoUInt64)) || (_symNo > (_symbols.length : stdgo.GoUInt64) : Bool) : Bool)) {
@@ -424,8 +426,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rela:stdgo._internal.debug.elf.Elf_Rela64.Rela64 = ({} : stdgo._internal.debug.elf.Elf_Rela64.Rela64);
+        var _rela__pointer__ = (stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rela__pointer__));
             var _symNo = (_rela.info >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
             var _t = ((_rela.info & (65535i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo._internal.debug.elf.Elf_R_RISCV.R_RISCV);
             if (((_symNo == (0i64 : stdgo.GoUInt64)) || (_symNo > (_symbols.length : stdgo.GoUInt64) : Bool) : Bool)) {
@@ -466,8 +469,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rela:stdgo._internal.debug.elf.Elf_Rela64.Rela64 = ({} : stdgo._internal.debug.elf.Elf_Rela64.Rela64);
+        var _rela__pointer__ = (stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rela__pointer__));
             var _symNo:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
             var _t:stdgo._internal.debug.elf.Elf_R_LARCH.R_LARCH = ((0 : stdgo.GoInt) : stdgo._internal.debug.elf.Elf_R_LARCH.R_LARCH);
             _symNo = (_rela.info >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
@@ -510,8 +514,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rela:stdgo._internal.debug.elf.Elf_Rela64.Rela64 = ({} : stdgo._internal.debug.elf.Elf_Rela64.Rela64);
+        var _rela__pointer__ = (stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rela__pointer__));
             var _symNo:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
             var _t:stdgo._internal.debug.elf.Elf_R_MIPS.R_MIPS = ((0 : stdgo.GoInt) : stdgo._internal.debug.elf.Elf_R_MIPS.R_MIPS);
             if (stdgo.Go.toInterface(_f.fileHeader.byteOrder) == (stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian)))) {
@@ -559,8 +564,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rel:stdgo._internal.debug.elf.Elf_Rel32.Rel32 = ({} : stdgo._internal.debug.elf.Elf_Rel32.Rel32);
+        var _rel__pointer__ = (stdgo.Go.setRef(_rel) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rel32.Rel32>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rel) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rel32.Rel32>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rel__pointer__));
             var _symNo = (_rel.info >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
             var _t = ((_rel.info & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo._internal.debug.elf.Elf_R_MIPS.R_MIPS);
             if (((_symNo == (0u32 : stdgo.GoUInt32)) || (_symNo > (_symbols.length : stdgo.GoUInt32) : Bool) : Bool)) {
@@ -593,8 +599,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rela:stdgo._internal.debug.elf.Elf_Rela64.Rela64 = ({} : stdgo._internal.debug.elf.Elf_Rela64.Rela64);
+        var _rela__pointer__ = (stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rela__pointer__));
             var _symNo = (_rela.info >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
             var _t = ((_rela.info & (65535i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo._internal.debug.elf.Elf_R_PPC64.R_PPC64);
             if (((_symNo == (0i64 : stdgo.GoUInt64)) || (_symNo > (_symbols.length : stdgo.GoUInt64) : Bool) : Bool)) {
@@ -635,8 +642,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rela:stdgo._internal.debug.elf.Elf_Rela32.Rela32 = ({} : stdgo._internal.debug.elf.Elf_Rela32.Rela32);
+        var _rela__pointer__ = (stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela32.Rela32>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela32.Rela32>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rela__pointer__));
             var _symNo = (_rela.info >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
             var _t = ((_rela.info & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo._internal.debug.elf.Elf_R_PPC.R_PPC);
             if (((_symNo == (0u32 : stdgo.GoUInt32)) || (_symNo > (_symbols.length : stdgo.GoUInt32) : Bool) : Bool)) {
@@ -671,8 +679,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rela:stdgo._internal.debug.elf.Elf_Rela64.Rela64 = ({} : stdgo._internal.debug.elf.Elf_Rela64.Rela64);
+        var _rela__pointer__ = (stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rela__pointer__));
             var _symNo = (_rela.info >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
             var _t = ((_rela.info & (65535i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo._internal.debug.elf.Elf_R_AARCH64.R_AARCH64);
             if (((_symNo == (0i64 : stdgo.GoUInt64)) || (_symNo > (_symbols.length : stdgo.GoUInt64) : Bool) : Bool)) {
@@ -713,8 +722,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rel:stdgo._internal.debug.elf.Elf_Rel32.Rel32 = ({} : stdgo._internal.debug.elf.Elf_Rel32.Rel32);
+        var _rel__pointer__ = (stdgo.Go.setRef(_rel) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rel32.Rel32>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rel) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rel32.Rel32>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rel__pointer__));
             var _symNo = (_rel.info >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
             var _t = ((_rel.info & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo._internal.debug.elf.Elf_R_ARM.R_ARM);
             if (((_symNo == (0u32 : stdgo.GoUInt32)) || (_symNo > (_symbols.length : stdgo.GoUInt32) : Bool) : Bool)) {
@@ -747,8 +757,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rel:stdgo._internal.debug.elf.Elf_Rel32.Rel32 = ({} : stdgo._internal.debug.elf.Elf_Rel32.Rel32);
+        var _rel__pointer__ = (stdgo.Go.setRef(_rel) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rel32.Rel32>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rel) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rel32.Rel32>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rel__pointer__));
             var _symNo = (_rel.info >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt32);
             var _t = ((_rel.info & (255u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo._internal.debug.elf.Elf_R_386.R_386);
             if (((_symNo == (0u32 : stdgo.GoUInt32)) || (_symNo > (_symbols.length : stdgo.GoUInt32) : Bool) : Bool)) {
@@ -778,8 +789,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         };
         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_rels);
         var _rela:stdgo._internal.debug.elf.Elf_Rela64.Rela64 = ({} : stdgo._internal.debug.elf.Elf_Rela64.Rela64);
+        var _rela__pointer__ = (stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>);
         while ((_b.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_rela) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Rela64.Rela64>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_rela__pointer__));
             var _symNo = (_rela.info >> (32i64 : stdgo.GoUInt64) : stdgo.GoUInt64);
             var _t = ((_rela.info & (65535i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo._internal.debug.elf.Elf_R_X86_64.R_X86_64);
             if (((_symNo == (0i64 : stdgo.GoUInt64)) || (_symNo > (_symbols.length : stdgo.GoUInt64) : Bool) : Bool)) {
@@ -873,8 +885,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         var _symbols = (new stdgo.Slice<stdgo._internal.debug.elf.Elf_Symbol.Symbol>((_symtab.len() / (24 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_symtab.len() / (24 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (_symtab.len() / (24 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.elf.Elf_Symbol.Symbol)]) : stdgo.Slice<stdgo._internal.debug.elf.Elf_Symbol.Symbol>);
         var _i = (0 : stdgo.GoInt);
         var _sym:stdgo._internal.debug.elf.Elf_Sym64.Sym64 = ({} : stdgo._internal.debug.elf.Elf_Sym64.Sym64);
+        var _sym__pointer__ = (stdgo.Go.setRef(_sym) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Sym64.Sym64>);
         while ((_symtab.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_symtab), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_sym) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Sym64.Sym64>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_symtab), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_sym__pointer__));
             var __tmp__ = stdgo._internal.debug.elf.Elf__getString._getString(_strdata, (_sym.name : stdgo.GoInt)), _str:stdgo.GoString = __tmp__._0, __2:Bool = __tmp__._1;
             _symbols[(_i : stdgo.GoInt)].name = _str?.__copy__();
             _symbols[(_i : stdgo.GoInt)].info = _sym.info;
@@ -910,8 +923,9 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
         var _symbols = (new stdgo.Slice<stdgo._internal.debug.elf.Elf_Symbol.Symbol>((_symtab.len() / (16 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_symtab.len() / (16 : stdgo.GoInt) : stdgo.GoInt).toBasic() > 0 ? (_symtab.len() / (16 : stdgo.GoInt) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.elf.Elf_Symbol.Symbol)]) : stdgo.Slice<stdgo._internal.debug.elf.Elf_Symbol.Symbol>);
         var _i = (0 : stdgo.GoInt);
         var _sym:stdgo._internal.debug.elf.Elf_Sym32.Sym32 = ({} : stdgo._internal.debug.elf.Elf_Sym32.Sym32);
+        var _sym__pointer__ = (stdgo.Go.setRef(_sym) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Sym32.Sym32>);
         while ((_symtab.len() > (0 : stdgo.GoInt) : Bool)) {
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_symtab), _f.fileHeader.byteOrder, stdgo.Go.toInterface((stdgo.Go.setRef(_sym) : stdgo.Ref<stdgo._internal.debug.elf.Elf_Sym32.Sym32>)));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_symtab), _f.fileHeader.byteOrder, stdgo.Go.toInterface(_sym__pointer__));
             var __tmp__ = stdgo._internal.debug.elf.Elf__getString._getString(_strdata, (_sym.name : stdgo.GoInt)), _str:stdgo.GoString = __tmp__._0, __2:Bool = __tmp__._1;
             _symbols[(_i : stdgo.GoInt)].name = _str?.__copy__();
             _symbols[(_i : stdgo.GoInt)].info = _sym.info;

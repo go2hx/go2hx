@@ -20,15 +20,23 @@ function testCmpAbs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
                     while ((_k < (4 : stdgo.GoInt) : Bool)) {
                         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _b = __1, _a = __0;
+var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
 _a.set(_x);
 _b.set(_y);
 if ((_k & (1 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                            _a.neg((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+                            _a.neg(_a__pointer__);
                         };
 if ((_k & (2 : stdgo.GoInt) : stdgo.GoInt) != ((0 : stdgo.GoInt))) {
-                            _b.neg((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
+                            _b.neg(_b__pointer__);
                         };
-var _got = (_a.cmpAbs((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)) : stdgo.GoInt);
+var _got = (_a.cmpAbs(_b__pointer__) : stdgo.GoInt);
 var _want = (0 : stdgo.GoInt);
 if ((_i > _j : Bool)) {
                             _want = (1 : stdgo.GoInt);
@@ -36,7 +44,7 @@ if ((_i > _j : Bool)) {
                             _want = (-1 : stdgo.GoInt);
                         };
 if (_got != (_want)) {
-                            _t.errorf(("absCmp |%s|, |%s|: got %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>))), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>))), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
+                            _t.errorf(("absCmp |%s|, |%s|: got %d; want %d" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_a__pointer__)), stdgo.Go.toInterface(stdgo.Go.asInterface(_b__pointer__)), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
                         };
                         _k++;
                     };

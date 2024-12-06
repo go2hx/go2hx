@@ -128,6 +128,7 @@ package stdgo._internal.net.http.fcgi;
             __deferstack__.unshift(() -> _c._conn.close());
             __deferstack__.unshift(() -> _c._cleanUp());
             var _rec:stdgo._internal.net.http.fcgi.Fcgi_T_record.T_record = ({} : stdgo._internal.net.http.fcgi.Fcgi_T_record.T_record);
+            var _rec__pointer__ = (stdgo.Go.setRef(_rec) : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_record.T_record>);
             while (true) {
                 {
                     var _err = (_rec._read(_c._conn._rwc) : stdgo.Error);
@@ -141,7 +142,7 @@ package stdgo._internal.net.http.fcgi;
                     };
                 };
                 {
-                    var _err = (_c._handleRecord((stdgo.Go.setRef(_rec) : stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_record.T_record>)) : stdgo.Error);
+                    var _err = (_c._handleRecord(_rec__pointer__) : stdgo.Error);
                     if (_err != null) {
                         {
                             for (defer in __deferstack__) {

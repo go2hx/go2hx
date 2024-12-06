@@ -5,6 +5,10 @@ function _decInt64Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_deco
         } catch(_) {
             { _0 : (null : stdgo.Slice<stdgo.GoInt64>), _1 : false };
         }, _slice = __tmp__._0, _ok = __tmp__._1;
+        var _slice__pointer__ = (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>);
+        var _slice__pointer__ = (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>);
+        var _slice__pointer__ = (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>);
+        var _slice__pointer__ = (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>);
         if (!_ok) {
             return false;
         };
@@ -15,7 +19,7 @@ function _decInt64Slice(_state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_deco
                     stdgo._internal.encoding.gob.Gob__errorf._errorf(("decoding int64 array or slice: length exceeds input size (%d elements)" : stdgo.GoString), stdgo.Go.toInterface(_length));
                 };
 if ((_i >= (_slice.length) : Bool)) {
-                    stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v.__copy__(), (stdgo.Go.setRef(_slice) : stdgo.Ref<stdgo.Slice<stdgo.GoInt64>>), _length);
+                    stdgo._internal.encoding.gob.Gob__growSlice._growSlice(_v.__copy__(), _slice__pointer__, _length);
                 };
 _slice[(_i : stdgo.GoInt)] = _state._decodeInt();
                 _i++;

@@ -5,7 +5,8 @@ package stdgo._internal.crypto.tls;
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_finishedMsg.T_finishedMsg> = _m;
         _m._raw = _data;
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
-        return ((_s.skip((1 : stdgo.GoInt)) && stdgo._internal.crypto.tls.Tls__readUint24LengthPrefixed._readUint24LengthPrefixed((stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef(_m._verifyData) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : Bool) && _s.empty() : Bool);
+        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
+        return ((_s.skip((1 : stdgo.GoInt)) && stdgo._internal.crypto.tls.Tls__readUint24LengthPrefixed._readUint24LengthPrefixed(_s__pointer__, (stdgo.Go.setRef(_m._verifyData) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : Bool) && _s.empty() : Bool);
     }
     @:keep
     static public function _marshal( _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_finishedMsg.T_finishedMsg>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {

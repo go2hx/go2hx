@@ -15,19 +15,27 @@ function testFloatArithmeticRounding(_t:stdgo.Ref<stdgo._internal.testing.Testin
 ({ _mode : (4 : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _prec : (3u32 : stdgo.GoUInt), _x : (-9i64 : stdgo.GoInt64), _y : (1i64 : stdgo.GoInt64), _want : (-10i64 : stdgo.GoInt64), _op : (47 : stdgo.GoUInt8) } : stdgo._internal.math.big.Big_T__struct_27.T__struct_27)].concat([for (i in 12 ... (12 > 12 ? 12 : 12 : stdgo.GoInt).toBasic()) ({ _mode : ((0 : stdgo.GoUInt8) : stdgo._internal.math.big.Big_RoundingMode.RoundingMode), _prec : (0 : stdgo.GoUInt), _x : (0 : stdgo.GoInt64), _y : (0 : stdgo.GoInt64), _want : (0 : stdgo.GoInt64), _op : (0 : stdgo.GoUInt8) } : stdgo._internal.math.big.Big_T__struct_27.T__struct_27)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_27.T__struct_27>)) {
             var __0:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_), __1:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_), __2:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
 var _z = __2, _y = __1, _x = __0;
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
             _x.setInt64(_test._x);
             _y.setInt64(_test._y);
             _z.setPrec(_test._prec).setMode(_test._mode);
             {
                 final __value__ = _test._op;
                 if (__value__ == ((43 : stdgo.GoUInt8))) {
-                    _z.add((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>));
+                    _z.add(_x__pointer__, _y__pointer__);
                 } else if (__value__ == ((45 : stdgo.GoUInt8))) {
-                    _z.sub((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>));
+                    _z.sub(_x__pointer__, _y__pointer__);
                 } else if (__value__ == ((42 : stdgo.GoUInt8))) {
-                    _z.mul((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>));
+                    _z.mul(_x__pointer__, _y__pointer__);
                 } else if (__value__ == ((47 : stdgo.GoUInt8))) {
-                    _z.quo((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>));
+                    _z.quo(_x__pointer__, _y__pointer__);
                 } else {
                     throw stdgo.Go.toInterface(("unreachable" : stdgo.GoString));
                 };

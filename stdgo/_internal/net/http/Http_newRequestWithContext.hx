@@ -45,7 +45,8 @@ function newRequestWithContext(_ctx:stdgo._internal.context.Context_Context.Cont
                     var _snapshot = ((_v : stdgo._internal.bytes.Bytes_Reader.Reader)?.__copy__() : stdgo._internal.bytes.Bytes_Reader.Reader);
                     _req.getBody = function():{ var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo.Error; } {
                         var _r = (_snapshot?.__copy__() : stdgo._internal.bytes.Bytes_Reader.Reader);
-                        return { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>))), _1 : (null : stdgo.Error) };
+                        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.bytes.Bytes_Reader.Reader>);
+                        return { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(_r__pointer__)), _1 : (null : stdgo.Error) };
                     };
                 } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>))) {
                     var _v:stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>) : __type__.__underlying__().value;
@@ -53,7 +54,8 @@ function newRequestWithContext(_ctx:stdgo._internal.context.Context_Context.Cont
                     var _snapshot = ((_v : stdgo._internal.strings.Strings_Reader.Reader)?.__copy__() : stdgo._internal.strings.Strings_Reader.Reader);
                     _req.getBody = function():{ var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo.Error; } {
                         var _r = (_snapshot?.__copy__() : stdgo._internal.strings.Strings_Reader.Reader);
-                        return { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>))), _1 : (null : stdgo.Error) };
+                        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader>);
+                        return { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(_r__pointer__)), _1 : (null : stdgo.Error) };
                     };
                 } else {
                     var _v:stdgo._internal.io.Io_Reader.Reader = __type__ == null ? (null : stdgo._internal.io.Io_Reader.Reader) : cast __type__;

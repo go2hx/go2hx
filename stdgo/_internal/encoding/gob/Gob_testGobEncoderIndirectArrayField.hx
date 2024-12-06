@@ -5,9 +5,21 @@ function testGobEncoderIndirectArrayField(_t:stdgo.Ref<stdgo._internal.testing.T
         var _a:stdgo._internal.encoding.gob.Gob_GobTestIndirectArrayEncDec.GobTestIndirectArrayEncDec = ({} : stdgo._internal.encoding.gob.Gob_GobTestIndirectArrayEncDec.GobTestIndirectArrayEncDec);
         _a.x = (17 : stdgo.GoInt);
         var _array:stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct = ({} : stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct);
-        var _ap = (stdgo.Go.setRef(_array) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>);
-        var _app = (stdgo.Go.setRef(_ap) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>>);
-        _a.a = stdgo.Go.pointer(_app);
+        var _array__pointer__ = (stdgo.Go.setRef(_array) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>);
+        var _array__pointer__ = (stdgo.Go.setRef(_array) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>);
+        var _array__pointer__ = (stdgo.Go.setRef(_array) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>);
+        var _array__pointer__ = (stdgo.Go.setRef(_array) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>);
+        var _ap = _array__pointer__;
+        var _ap__pointer__ = (stdgo.Go.setRef(_ap) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>>);
+        var _ap__pointer__ = (stdgo.Go.setRef(_ap) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>>);
+        var _ap__pointer__ = (stdgo.Go.setRef(_ap) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>>);
+        var _ap__pointer__ = (stdgo.Go.setRef(_ap) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_ArrayStruct.ArrayStruct>>);
+        var _app = _ap__pointer__;
+        var _app__pointer__ = stdgo.Go.pointer(_app);
+        var _app__pointer__ = stdgo.Go.pointer(_app);
+        var _app__pointer__ = stdgo.Go.pointer(_app);
+        var _app__pointer__ = stdgo.Go.pointer(_app);
+        _a.a = _app__pointer__;
         for (_i => _ in _array._a) {
             _array._a[(_i : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
         };

@@ -10,7 +10,11 @@ function testRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             _t.fatalf(("ReadFull(buf) = %d, %s" : stdgo.GoString), stdgo.Go.toInterface(_n), stdgo.Go.toInterface(_err));
         };
         var _z:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        var __tmp__ = stdgo._internal.compress.flate.Flate_newWriter.newWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), (5 : stdgo.GoInt)), _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer> = __tmp__._0, __12:stdgo.Error = __tmp__._1;
+        var _z__pointer__ = (stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _z__pointer__ = (stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _z__pointer__ = (stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _z__pointer__ = (stdgo.Go.setRef(_z) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var __tmp__ = stdgo._internal.compress.flate.Flate_newWriter.newWriter(stdgo.Go.asInterface(_z__pointer__), (5 : stdgo.GoInt)), _f:stdgo.Ref<stdgo._internal.compress.flate.Flate_Writer.Writer> = __tmp__._0, __12:stdgo.Error = __tmp__._1;
         _f.write(_b);
         _f.close();
         if ((_z.len() < (((_b.length) * (99 : stdgo.GoInt) : stdgo.GoInt) / (100 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {

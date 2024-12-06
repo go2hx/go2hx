@@ -11,7 +11,11 @@ x.set(_nan2, ("c" : stdgo.GoString));
             x;
         } : stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>);
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b__pointer__));
         {
             var _err = (_enc.encode(stdgo.Go.toInterface(_in)) : stdgo.Error);
             if (_err != null) {
@@ -24,9 +28,13 @@ x.set(_nan2, ("c" : stdgo.GoString));
             {};
             x;
         } : stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>);
-        var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>>);
+        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>>);
+        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>>);
+        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>>);
+        var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b__pointer__));
         {
-            var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo.GoMap<stdgo.GoFloat64, stdgo.GoString>>))) : stdgo.Error);
+            var _err = (_dec.decode(stdgo.Go.toInterface(_out__pointer__)) : stdgo.Error);
             if (_err != null) {
                 _t.fatalf(("Decode : %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };

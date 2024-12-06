@@ -20,11 +20,19 @@ function testJacobi(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
 ({ _x : (-6i64 : stdgo.GoInt64), _y : (-5i64 : stdgo.GoInt64), _result : (-1 : stdgo.GoInt) } : stdgo._internal.math.big.Big_T__struct_47.T__struct_47)].concat([for (i in 17 ... (17 > 17 ? 17 : 17 : stdgo.GoInt).toBasic()) ({ _x : (0 : stdgo.GoInt64), _y : (0 : stdgo.GoInt64), _result : (0 : stdgo.GoInt) } : stdgo._internal.math.big.Big_T__struct_47.T__struct_47)])) : stdgo.Slice<stdgo._internal.math.big.Big_T__struct_47.T__struct_47>);
         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _y = __1, _x = __0;
+        var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
+        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         for (_i => _test in _testCases) {
             _x.setInt64(_test._x);
             _y.setInt64(_test._y);
             var _expected = (_test._result : stdgo.GoInt);
-            var _actual = (stdgo._internal.math.big.Big_jacobi.jacobi((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>)) : stdgo.GoInt);
+            var _actual = (stdgo._internal.math.big.Big_jacobi.jacobi(_x__pointer__, _y__pointer__) : stdgo.GoInt);
             if (_actual != (_expected)) {
                 _t.errorf(("#%d: Jacobi(%d, %d) = %d, but expected %d" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_test._x), stdgo.Go.toInterface(_test._y), stdgo.Go.toInterface(_actual), stdgo.Go.toInterface(_expected));
             };

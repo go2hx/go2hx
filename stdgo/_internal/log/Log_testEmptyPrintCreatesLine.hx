@@ -1,7 +1,11 @@
 package stdgo._internal.log;
 function testEmptyPrintCreatesLine(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), ("Header:" : stdgo.GoString), (3 : stdgo.GoInt));
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface(_b__pointer__), ("Header:" : stdgo.GoString), (3 : stdgo.GoInt));
         _l.print();
         _l.println(stdgo.Go.toInterface(("non-empty" : stdgo.GoString)));
         var _output = ((_b.string() : stdgo.GoString)?.__copy__() : stdgo.GoString);

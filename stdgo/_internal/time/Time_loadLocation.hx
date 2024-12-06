@@ -11,7 +11,11 @@ function loadLocation(_name:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal
         };
         stdgo._internal.time.Time__zoneinfoOnce._zoneinfoOnce.do_(function():Void {
             var __tmp__ = stdgo._internal.syscall.Syscall_getenv.getenv(("ZONEINFO" : stdgo.GoString)), _env:stdgo.GoString = __tmp__._0, __1:Bool = __tmp__._1;
-            stdgo._internal.time.Time__zoneinfo._zoneinfo = stdgo.Go.pointer(_env);
+            var _env__pointer__ = stdgo.Go.pointer(_env);
+            var _env__pointer__ = stdgo.Go.pointer(_env);
+            var _env__pointer__ = stdgo.Go.pointer(_env);
+            var _env__pointer__ = stdgo.Go.pointer(_env);
+            stdgo._internal.time.Time__zoneinfo._zoneinfo = _env__pointer__;
         });
         var _firstErr:stdgo.Error = (null : stdgo.Error);
         if (stdgo._internal.time.Time__zoneinfo._zoneinfo.value != (stdgo.Go.str())) {

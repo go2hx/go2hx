@@ -6,8 +6,12 @@ function testTree(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             _t.fatal(stdgo.Go.toInterface(("parse error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         {};
-        _err = _tmpl.lookup(("tree" : stdgo.GoString)).execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(_tree));
+        _err = _tmpl.lookup(("tree" : stdgo.GoString)).execute(stdgo.Go.asInterface(_b__pointer__), stdgo.Go.toInterface(_tree));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("exec error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -16,7 +20,7 @@ function testTree(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             _t.errorf(("expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(("[1[2[3[4]][5[6]]][7[8[9]][10[11]]]]" : stdgo.GoString)), stdgo.Go.toInterface(_result));
         };
         _b.reset();
-        _err = _tmpl.executeTemplate(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), ("tree" : stdgo.GoString), stdgo.Go.toInterface(_tree));
+        _err = _tmpl.executeTemplate(stdgo.Go.asInterface(_b__pointer__), ("tree" : stdgo.GoString), stdgo.Go.toInterface(_tree));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("exec error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

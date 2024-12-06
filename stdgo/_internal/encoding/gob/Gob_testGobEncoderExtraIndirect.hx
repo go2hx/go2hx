@@ -11,8 +11,12 @@ function testGobEncoderExtraIndirect(_t:stdgo.Ref<stdgo._internal.testing.Testin
         };
         var _d = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf));
         var _got:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0.T_gobDecoderBug0> = (null : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0.T_gobDecoderBug0>);
+        var _got__pointer__ = (stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0.T_gobDecoderBug0>>);
+        var _got__pointer__ = (stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0.T_gobDecoderBug0>>);
+        var _got__pointer__ = (stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0.T_gobDecoderBug0>>);
+        var _got__pointer__ = (stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0.T_gobDecoderBug0>>);
         {
-            var _err = (_d.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_gobDecoderBug0.T_gobDecoderBug0>>))) : stdgo.Error);
+            var _err = (_d.decode(stdgo.Go.toInterface(_got__pointer__)) : stdgo.Error);
             if (_err != null) {
                 _t.fatalf(("decode: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };

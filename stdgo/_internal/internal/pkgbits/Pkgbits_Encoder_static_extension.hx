@@ -202,8 +202,10 @@ package stdgo._internal.internal.pkgbits;
     static public function flush( _w:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_Encoder.Encoder>):stdgo._internal.internal.pkgbits.Pkgbits_Index.Index {
         @:recv var _w:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_Encoder.Encoder> = _w;
         var _sb:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
+        var _sb__pointer__ = (stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         var _tmp:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface((stdgo.Go.setRef(_tmp) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface((stdgo.Go.setRef(_w.data) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+        var _tmp__pointer__ = (stdgo.Go.setRef(_tmp) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
+        stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface(_tmp__pointer__), stdgo.Go.asInterface((stdgo.Go.setRef(_w.data) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
         if (_w._encodingRelocHeader) {
             throw stdgo.Go.toInterface(("encodingRelocHeader already true; recursive flush?" : stdgo.GoString));
         };
@@ -215,8 +217,8 @@ package stdgo._internal.internal.pkgbits;
             _w.len((_rEnt.kind : stdgo.GoInt));
             _w.len((_rEnt.idx : stdgo.GoInt));
         };
-        stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface((stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.asInterface((stdgo.Go.setRef(_w.data) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
-        stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface((stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.asInterface((stdgo.Go.setRef(_tmp) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+        stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface(_sb__pointer__), stdgo.Go.asInterface((stdgo.Go.setRef(_w.data) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+        stdgo._internal.io.Io_copy.copy(stdgo.Go.asInterface(_sb__pointer__), stdgo.Go.asInterface(_tmp__pointer__));
         _w._p._elems[(_w._k : stdgo.GoInt)][(_w.idx : stdgo.GoInt)] = (_sb.string() : stdgo.GoString)?.__copy__();
         return _w.idx;
     }

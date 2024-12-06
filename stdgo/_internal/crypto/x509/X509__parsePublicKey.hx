@@ -3,12 +3,13 @@ function _parsePublicKey(_keyData:stdgo.Ref<stdgo._internal.crypto.x509.X509_T_p
         var _oid = (_keyData.algorithm.algorithm : stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier);
         var _params = (_keyData.algorithm.parameters?.__copy__() : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue);
         var _der = (_keyData.publicKey.rightAlign() : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
+        var _der__pointer__ = (stdgo.Go.setRef(_der) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
         if (_oid.equal(stdgo._internal.crypto.x509.X509__oidPublicKeyRSA._oidPublicKeyRSA)) {
             if (!stdgo._internal.bytes.Bytes_equal.equal(_params.fullBytes, stdgo._internal.encoding.asn1.Asn1_nullBytes.nullBytes)) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: RSA key missing NULL parameters" : stdgo.GoString)) };
             };
             var _p = (stdgo.Go.setRef(({ n : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>) } : stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey)) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_pkcs1PublicKey.T_pkcs1PublicKey>);
-            if (!_der.readASN1((stdgo.Go.setRef(_der) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
+            if (!_der.readASN1(_der__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid RSA public key" : stdgo.GoString)) };
             };
             if (!_der.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_p.n)))) {
@@ -61,7 +62,8 @@ function _parsePublicKey(_keyData:stdgo.Ref<stdgo._internal.crypto.x509.X509_T_p
             };
             var _pub = (stdgo.Go.setRef(({ y : _y, parameters : ({ p : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), q : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), g : (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Int_.Int_)) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>) } : stdgo._internal.crypto.dsa.Dsa_Parameters.Parameters) } : stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey)) : stdgo.Ref<stdgo._internal.crypto.dsa.Dsa_PublicKey.PublicKey>);
             var _paramsDer = (_params.fullBytes : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
-            if ((((!_paramsDer.readASN1((stdgo.Go.setRef(_paramsDer) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !_paramsDer.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_pub.parameters.p))) : Bool) || !_paramsDer.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_pub.parameters.q))) : Bool) || !_paramsDer.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_pub.parameters.g))) : Bool)) {
+            var _paramsDer__pointer__ = (stdgo.Go.setRef(_paramsDer) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
+            if ((((!_paramsDer.readASN1(_paramsDer__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !_paramsDer.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_pub.parameters.p))) : Bool) || !_paramsDer.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_pub.parameters.q))) : Bool) || !_paramsDer.readASN1Integer(stdgo.Go.toInterface(stdgo.Go.asInterface(_pub.parameters.g))) : Bool)) {
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid DSA parameters" : stdgo.GoString)) };
             };
             if (((((_pub.y.sign() <= (0 : stdgo.GoInt) : Bool) || (_pub.parameters.p.sign() <= (0 : stdgo.GoInt) : Bool) : Bool) || (_pub.parameters.q.sign() <= (0 : stdgo.GoInt) : Bool) : Bool) || (_pub.parameters.g.sign() <= (0 : stdgo.GoInt) : Bool) : Bool)) {

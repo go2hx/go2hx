@@ -8,27 +8,35 @@ function testFloatJSONEncoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
                     };
                     var _x = ((_sign + _test?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                     var _tx:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
+                    var _tx__pointer__ = (stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+                    var _tx__pointer__ = (stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+                    var _tx__pointer__ = (stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+                    var _tx__pointer__ = (stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
                     var __tmp__ = _tx.setPrec(_prec).parse(_x?.__copy__(), (0 : stdgo.GoInt)), __11:stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_> = __tmp__._0, __12:stdgo.GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                     if (_err != null) {
                         _t.errorf(("parsing of %s (prec = %d) failed (invalid test case): %v" : stdgo.GoString), stdgo.Go.toInterface(_x), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(_err));
                         continue;
                     };
-                    var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>)))), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = stdgo._internal.encoding.json.Json_marshal.marshal(stdgo.Go.toInterface(stdgo.Go.asInterface(_tx__pointer__))), _b:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
-                        _t.errorf(("marshaling of %v (prec = %d) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>))), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(_err));
+                        _t.errorf(("marshaling of %v (prec = %d) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_tx__pointer__)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(_err));
                         continue;
                     };
                     var _rx:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
+                    var _rx__pointer__ = (stdgo.Go.setRef(_rx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+                    var _rx__pointer__ = (stdgo.Go.setRef(_rx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+                    var _rx__pointer__ = (stdgo.Go.setRef(_rx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
+                    var _rx__pointer__ = (stdgo.Go.setRef(_rx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>);
                     _rx.setPrec(_prec);
                     {
-                        var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_b, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_rx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>)))) : stdgo.Error);
+                        var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_b, stdgo.Go.toInterface(stdgo.Go.asInterface(_rx__pointer__))) : stdgo.Error);
                         if (_err != null) {
-                            _t.errorf(("unmarshaling of %v (prec = %d) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>))), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(_err));
+                            _t.errorf(("unmarshaling of %v (prec = %d) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_tx__pointer__)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(_err));
                             continue;
                         };
                     };
-                    if (_rx.cmp((stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>)) != ((0 : stdgo.GoInt))) {
-                        _t.errorf(("JSON encoding of %v (prec = %d) failed: got %v want %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>))), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_rx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>))), stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_tx) : stdgo.Ref<stdgo._internal.math.big.Big_Float_.Float_>))));
+                    if (_rx.cmp(_tx__pointer__) != ((0 : stdgo.GoInt))) {
+                        _t.errorf(("JSON encoding of %v (prec = %d) failed: got %v want %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_tx__pointer__)), stdgo.Go.toInterface(_prec), stdgo.Go.toInterface(stdgo.Go.asInterface(_rx__pointer__)), stdgo.Go.toInterface(stdgo.Go.asInterface(_tx__pointer__)));
                     };
                 };
             };

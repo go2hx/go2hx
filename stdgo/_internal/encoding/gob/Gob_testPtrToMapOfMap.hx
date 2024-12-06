@@ -26,7 +26,11 @@ function testPtrToMapOfMap(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             _t.fatal(stdgo.Go.toInterface(("encode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _newData:stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface> = (null : stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>);
-        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_newData) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>)));
+        var _newData__pointer__ = (stdgo.Go.setRef(_newData) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
+        var _newData__pointer__ = (stdgo.Go.setRef(_newData) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
+        var _newData__pointer__ = (stdgo.Go.setRef(_newData) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
+        var _newData__pointer__ = (stdgo.Go.setRef(_newData) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.AnyInterface>>);
+        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface(_newData__pointer__));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

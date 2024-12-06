@@ -46,12 +46,16 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoUInt8>, _val:stdgo.GoFloat64, _fm
             return stdgo._internal.strconv.Strconv__bigFtoa._bigFtoa(_dst, _prec, _fmt, _neg, _mant, _exp, _flt);
         };
         var _digs:stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice = ({} : stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice);
+        var _digs__pointer__ = (stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>);
+        var _digs__pointer__ = (stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>);
+        var _digs__pointer__ = (stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>);
+        var _digs__pointer__ = (stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>);
         var _ok = (false : Bool);
         var _shortest = (_prec < (0 : stdgo.GoInt) : Bool);
         if (_shortest) {
             var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);
             _digs._d = (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
-            stdgo._internal.strconv.Strconv__ryuFtoaShortest._ryuFtoaShortest((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>), _mant, (_exp - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt), _flt);
+            stdgo._internal.strconv.Strconv__ryuFtoaShortest._ryuFtoaShortest(_digs__pointer__, _mant, (_exp - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt), _flt);
             _ok = true;
             {
                 final __value__ = _fmt;
@@ -81,11 +85,11 @@ function _genericFtoa(_dst:stdgo.Slice<stdgo.GoUInt8>, _val:stdgo.GoFloat64, _fm
             var _buf:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(24, 24, ...[for (i in 0 ... 24) (0 : stdgo.GoUInt8)]);
             if (((_bitSize == (32 : stdgo.GoInt)) && (_digits <= (9 : stdgo.GoInt) : Bool) : Bool)) {
                 _digs._d = (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
-                stdgo._internal.strconv.Strconv__ryuFtoaFixed32._ryuFtoaFixed32((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>), (_mant : stdgo.GoUInt32), (_exp - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt), _digits);
+                stdgo._internal.strconv.Strconv__ryuFtoaFixed32._ryuFtoaFixed32(_digs__pointer__, (_mant : stdgo.GoUInt32), (_exp - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt), _digits);
                 _ok = true;
             } else if ((_digits <= (18 : stdgo.GoInt) : Bool)) {
                 _digs._d = (_buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>);
-                stdgo._internal.strconv.Strconv__ryuFtoaFixed64._ryuFtoaFixed64((stdgo.Go.setRef(_digs) : stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimalSlice.T_decimalSlice>), _mant, (_exp - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt), _digits);
+                stdgo._internal.strconv.Strconv__ryuFtoaFixed64._ryuFtoaFixed64(_digs__pointer__, _mant, (_exp - (_flt._mantbits : stdgo.GoInt) : stdgo.GoInt), _digits);
                 _ok = true;
             };
         };

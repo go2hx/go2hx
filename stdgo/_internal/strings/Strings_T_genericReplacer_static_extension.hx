@@ -60,7 +60,11 @@ var _wn = __1, _last = __0;
     static public function replace( _r:stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer>, _s:stdgo.GoString):stdgo.GoString {
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_T_genericReplacer.T_genericReplacer> = _r;
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), (_s.length)).__setNumber32__() : stdgo._internal.strings.Strings_T_appendSliceWriter.T_appendSliceWriter);
-        _r.writeString(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_T_appendSliceWriter.T_appendSliceWriter>)), _s?.__copy__());
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_T_appendSliceWriter.T_appendSliceWriter>);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_T_appendSliceWriter.T_appendSliceWriter>);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_T_appendSliceWriter.T_appendSliceWriter>);
+        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_T_appendSliceWriter.T_appendSliceWriter>);
+        _r.writeString(stdgo.Go.asInterface(_buf__pointer__), _s?.__copy__());
         return (_buf : stdgo.GoString)?.__copy__();
     }
     @:keep

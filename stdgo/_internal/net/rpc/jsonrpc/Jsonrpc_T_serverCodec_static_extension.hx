@@ -37,8 +37,9 @@ package stdgo._internal.net.rpc.jsonrpc;
             return stdgo._internal.net.rpc.jsonrpc.Jsonrpc__errMissingParams._errMissingParams;
         };
         var _params:stdgo.GoArray<stdgo.AnyInterface> = new stdgo.GoArray<stdgo.AnyInterface>(1, 1, ...[for (i in 0 ... 1) (null : stdgo.AnyInterface)]);
+        var _params__pointer__ = (stdgo.Go.setRef(_params) : stdgo.Ref<stdgo.GoArray<stdgo.AnyInterface>>);
         _params[(0 : stdgo.GoInt)] = _x;
-        return stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_c._req.params : stdgo._internal.encoding.json.Json_RawMessage.RawMessage), stdgo.Go.toInterface((stdgo.Go.setRef(_params) : stdgo.Ref<stdgo.GoArray<stdgo.AnyInterface>>)));
+        return stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_c._req.params : stdgo._internal.encoding.json.Json_RawMessage.RawMessage), stdgo.Go.toInterface(_params__pointer__));
     }
     @:keep
     static public function readRequestHeader( _c:stdgo.Ref<stdgo._internal.net.rpc.jsonrpc.Jsonrpc_T_serverCodec.T_serverCodec>, _r:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Request.Request>):stdgo.Error {

@@ -38,7 +38,11 @@ function testClone(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             };
         };
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        _err = _root.executeTemplate(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), ("a" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        _err = _root.executeTemplate(stdgo.Go.asInterface(_b__pointer__), ("a" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
@@ -46,7 +50,7 @@ function testClone(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             _t.errorf(("expected %q got %q" : stdgo.GoString), stdgo.Go.toInterface(("broot" : stdgo.GoString)), stdgo.Go.toInterface((_b.string() : stdgo.GoString)));
         };
         _b.reset();
-        _err = _clone.executeTemplate(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), ("a" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
+        _err = _clone.executeTemplate(stdgo.Go.asInterface(_b__pointer__), ("a" : stdgo.GoString), stdgo.Go.toInterface((0 : stdgo.GoInt)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };

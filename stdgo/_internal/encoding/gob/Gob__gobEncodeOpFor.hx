@@ -13,6 +13,10 @@ function _gobEncodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTy
             };
         };
         var _op:stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp = (null : stdgo._internal.encoding.gob.Gob_T_encOp.T_encOp);
+        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op__pointer__ = stdgo.Go.pointer(_op);
+        var _op__pointer__ = stdgo.Go.pointer(_op);
         _op = function(_i:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encInstr.T_encInstr>, _state:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encoderState.T_encoderState>, _v:stdgo._internal.reflect.Reflect_Value.Value):Void {
             if (_ut._encIndir == ((-1 : stdgo.GoInt8))) {
                 if (!_v.canAddr()) {
@@ -26,5 +30,5 @@ function _gobEncodeOpFor(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTy
             _state._update(_i);
             _state._enc._encodeGobEncoder(_state._b, _ut, _v?.__copy__());
         };
-        return { _0 : stdgo.Go.pointer(_op), _1 : (_ut._encIndir : stdgo.GoInt) };
+        return { _0 : _op__pointer__, _1 : (_ut._encIndir : stdgo.GoInt) };
     }

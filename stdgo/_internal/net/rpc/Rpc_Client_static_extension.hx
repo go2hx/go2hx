@@ -41,9 +41,10 @@ package stdgo._internal.net.rpc;
         @:recv var _client:stdgo.Ref<stdgo._internal.net.rpc.Rpc_Client.Client> = _client;
         var _err:stdgo.Error = (null : stdgo.Error);
         var _response:stdgo._internal.net.rpc.Rpc_Response.Response = ({} : stdgo._internal.net.rpc.Rpc_Response.Response);
+        var _response__pointer__ = (stdgo.Go.setRef(_response) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>);
         while (_err == null) {
             _response = (new stdgo._internal.net.rpc.Rpc_Response.Response() : stdgo._internal.net.rpc.Rpc_Response.Response);
-            _err = _client._codec.readResponseHeader((stdgo.Go.setRef(_response) : stdgo.Ref<stdgo._internal.net.rpc.Rpc_Response.Response>));
+            _err = _client._codec.readResponseHeader(_response__pointer__);
             if (_err != null) {
                 break;
             };

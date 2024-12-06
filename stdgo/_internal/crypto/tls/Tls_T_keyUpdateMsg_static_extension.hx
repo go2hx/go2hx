@@ -6,7 +6,8 @@ package stdgo._internal.crypto.tls;
         _m._raw = _data;
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
         var _updateRequested:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        if (((!_s.skip((4 : stdgo.GoInt)) || !_s.readUint8(stdgo.Go.pointer(_updateRequested)) : Bool) || !_s.empty() : Bool)) {
+        var _updateRequested__pointer__ = stdgo.Go.pointer(_updateRequested);
+        if (((!_s.skip((4 : stdgo.GoInt)) || !_s.readUint8(_updateRequested__pointer__) : Bool) || !_s.empty() : Bool)) {
             return false;
         };
         {

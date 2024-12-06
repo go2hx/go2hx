@@ -13,15 +13,16 @@ function _parseCertificateRequest(_in:stdgo.Ref<stdgo._internal.crypto.x509.X509
             };
         };
         var _subject:stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence = new stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence(0, 0);
+        var _subject__pointer__ = (stdgo.Go.setRef(_subject) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence>);
         {
-            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_in.tbscsr.subject.fullBytes, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_subject) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence>)))), _rest:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_in.tbscsr.subject.fullBytes, stdgo.Go.toInterface(stdgo.Go.asInterface(_subject__pointer__))), _rest:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             } else if ((_rest.length) != ((0 : stdgo.GoInt))) {
                 return { _0 : null, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: trailing data after X.509 Subject" : stdgo.GoString)) };
             };
         };
-        _out.subject.fillFromRDNSequence((stdgo.Go.setRef(_subject) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_RDNSequence.RDNSequence>));
+        _out.subject.fillFromRDNSequence(_subject__pointer__);
         {
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__parseCSRExtensions._parseCSRExtensions(_in.tbscsr.rawAttributes);

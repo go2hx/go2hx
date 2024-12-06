@@ -65,10 +65,11 @@ package stdgo._internal.mime.multipart;
             };
         };
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         if ((_w._lastpart != null && ((_w._lastpart : Dynamic).__nil__ == null || !(_w._lastpart : Dynamic).__nil__))) {
-            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("\r\n--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_w._boundary));
+            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b__pointer__), ("\r\n--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_w._boundary));
         } else {
-            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_w._boundary));
+            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b__pointer__), ("--%s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_w._boundary));
         };
         var _keys = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (_header.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
         for (_k => _ in _header) {
@@ -77,11 +78,11 @@ package stdgo._internal.mime.multipart;
         stdgo._internal.sort.Sort_strings.strings(_keys);
         for (__0 => _k in _keys) {
             for (__1 => _v in (_header[_k] ?? (null : stdgo.Slice<stdgo.GoString>))) {
-                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("%s: %s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
+                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b__pointer__), ("%s: %s\r\n" : stdgo.GoString), stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
             };
         };
-        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("\r\n" : stdgo.GoString));
-        var __tmp__ = stdgo._internal.io.Io_copy.copy(_w._w, stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>))), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b__pointer__), ("\r\n" : stdgo.GoString));
+        var __tmp__ = stdgo._internal.io.Io_copy.copy(_w._w, stdgo.Go.asInterface(_b__pointer__)), __1:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo._internal.io.Io_Writer.Writer), _1 : _err };
         };

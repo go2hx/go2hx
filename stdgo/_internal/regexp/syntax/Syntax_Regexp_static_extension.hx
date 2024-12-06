@@ -139,7 +139,9 @@ _suffix = stdgo._internal.regexp.syntax.Syntax__simplify1._simplify1((16 : stdgo
     static public function string( _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp>):stdgo.GoString {
         @:recv var _re:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Regexp.Regexp> = _re;
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        stdgo._internal.regexp.syntax.Syntax__writeRegexp._writeRegexp((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _re);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
+        stdgo._internal.regexp.syntax.Syntax__writeRegexp._writeRegexp(_b__pointer__, _re);
         return (_b.string() : stdgo.GoString)?.__copy__();
     }
     @:keep

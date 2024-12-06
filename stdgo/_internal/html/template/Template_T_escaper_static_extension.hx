@@ -256,12 +256,13 @@ var _b = __3, _i = __2, _written = __1, _s = __0;
     static public function _escapeListConditionally( _e:stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>, _c:stdgo._internal.html.template.Template_T_context.T_context, _n:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>, _filter:(stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>, stdgo._internal.html.template.Template_T_context.T_context) -> Bool):{ var _0 : stdgo._internal.html.template.Template_T_context.T_context; var _1 : Bool; } {
         @:recv var _e:stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper> = _e;
         var _e1 = (stdgo._internal.html.template.Template__makeEscaper._makeEscaper(_e._ns)?.__copy__() : stdgo._internal.html.template.Template_T_escaper.T_escaper);
+        var _e1__pointer__ = (stdgo.Go.setRef(_e1) : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>);
         _e1._rangeContext = _e._rangeContext;
         for (_k => _v in _e._output) {
             _e1._output[_k] = _v?.__copy__();
         };
         _c = _e1._escapeList(_c?.__copy__(), _n)?.__copy__();
-        var _ok = ((_filter != null) && _filter((stdgo.Go.setRef(_e1) : stdgo.Ref<stdgo._internal.html.template.Template_T_escaper.T_escaper>), _c?.__copy__()) : Bool);
+        var _ok = ((_filter != null) && _filter(_e1__pointer__, _c?.__copy__()) : Bool);
         if (_ok) {
             for (_k => _v in _e1._output) {
                 _e._output[_k] = _v?.__copy__();

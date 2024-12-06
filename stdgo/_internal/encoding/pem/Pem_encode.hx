@@ -53,8 +53,9 @@ function encode(_out:stdgo._internal.io.Io_Writer.Writer, _b:stdgo.Ref<stdgo._in
             };
         };
         var _breaker:stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker = ({} : stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker);
+        var _breaker__pointer__ = (stdgo.Go.setRef(_breaker) : stdgo.Ref<stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker>);
         _breaker._out = _out;
-        var _b64 = (stdgo._internal.encoding.base64.Base64_newEncoder.newEncoder(stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, stdgo.Go.asInterface((stdgo.Go.setRef(_breaker) : stdgo.Ref<stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker>))) : stdgo._internal.io.Io_WriteCloser.WriteCloser);
+        var _b64 = (stdgo._internal.encoding.base64.Base64_newEncoder.newEncoder(stdgo._internal.encoding.base64.Base64_stdEncoding.stdEncoding, stdgo.Go.asInterface(_breaker__pointer__)) : stdgo._internal.io.Io_WriteCloser.WriteCloser);
         {
             var __tmp__ = _b64.write(_b.bytes), __2:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

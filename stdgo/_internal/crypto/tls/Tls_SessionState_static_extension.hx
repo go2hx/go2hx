@@ -4,6 +4,7 @@ package stdgo._internal.crypto.tls;
     static public function bytes( _s:stdgo.Ref<stdgo._internal.crypto.tls.Tls_SessionState.SessionState>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {
         @:recv var _s:stdgo.Ref<stdgo._internal.crypto.tls.Tls_SessionState.SessionState> = _s;
         var _b:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder = ({} : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder);
+        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>);
         _b.addUint16(_s._version);
         if (_s._isClient) {
             _b.addUint8((2 : stdgo.GoUInt8));
@@ -11,7 +12,7 @@ package stdgo._internal.crypto.tls;
             _b.addUint8((1 : stdgo.GoUInt8));
         };
         _b.addUint16(_s._cipherSuite);
-        stdgo._internal.crypto.tls.Tls__addUint64._addUint64((stdgo.Go.setRef(_b) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>), _s._createdAt);
+        stdgo._internal.crypto.tls.Tls__addUint64._addUint64(_b__pointer__, _s._createdAt);
         _b.addUint8LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
             _b.addBytes(_s._secret);
         });
@@ -32,7 +33,7 @@ package stdgo._internal.crypto.tls;
         } else {
             _b.addUint8((0 : stdgo.GoUInt8));
         };
-        stdgo._internal.crypto.tls.Tls__marshalCertificate._marshalCertificate((stdgo.Go.setRef(_b) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>), ({ certificate : stdgo._internal.crypto.tls.Tls__certificatesToBytesSlice._certificatesToBytesSlice(_s._peerCertificates), ocspstaple : _s._ocspResponse, signedCertificateTimestamps : _s._scts } : stdgo._internal.crypto.tls.Tls_Certificate.Certificate));
+        stdgo._internal.crypto.tls.Tls__marshalCertificate._marshalCertificate(_b__pointer__, ({ certificate : stdgo._internal.crypto.tls.Tls__certificatesToBytesSlice._certificatesToBytesSlice(_s._peerCertificates), ocspstaple : _s._ocspResponse, signedCertificateTimestamps : _s._scts } : stdgo._internal.crypto.tls.Tls_Certificate.Certificate));
         _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
             for (__65 => _chain in _s._verifiedChains) {
                 _b.addUint24LengthPrefixed(function(_b:stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>):Void {
@@ -55,7 +56,7 @@ package stdgo._internal.crypto.tls;
         };
         if (_s._isClient) {
             if ((_s._version >= (772 : stdgo.GoUInt16) : Bool)) {
-                stdgo._internal.crypto.tls.Tls__addUint64._addUint64((stdgo.Go.setRef(_b) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_Builder.Builder>), _s._useBy);
+                stdgo._internal.crypto.tls.Tls__addUint64._addUint64(_b__pointer__, _s._useBy);
                 _b.addUint32(_s._ageAdd);
             };
         };

@@ -21,8 +21,12 @@ function testSequentialDecoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
             while ((_i < (10 : stdgo.GoInt) : Bool)) {
                 var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
 var _s:stdgo.GoString = ("" : stdgo.GoString);
+var _s__pointer__ = stdgo.Go.pointer(_s);
+var _s__pointer__ = stdgo.Go.pointer(_s);
+var _s__pointer__ = stdgo.Go.pointer(_s);
+var _s__pointer__ = stdgo.Go.pointer(_s);
 {
-                    var _err = (_dec.decode(stdgo.Go.toInterface(stdgo.Go.pointer(_s))) : stdgo.Error);
+                    var _err = (_dec.decode(stdgo.Go.toInterface(_s__pointer__)) : stdgo.Error);
                     if (_err != null) {
                         _t.fatal(stdgo.Go.toInterface(("decoder fail:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                     };

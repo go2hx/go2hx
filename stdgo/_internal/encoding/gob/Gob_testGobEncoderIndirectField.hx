@@ -3,8 +3,16 @@ function testGobEncoderIndirectField(_t:stdgo.Ref<stdgo._internal.testing.Testin
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b));
         var _s = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct(("HIJKL" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>);
-        var _sp = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>>);
-        var _err = (_enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec((17 : stdgo.GoInt), stdgo.Go.pointer(_sp)) : stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec))) : stdgo.Error);
+        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>>);
+        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>>);
+        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>>);
+        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_StringStruct.StringStruct>>);
+        var _sp = _s__pointer__;
+        var _sp__pointer__ = stdgo.Go.pointer(_sp);
+        var _sp__pointer__ = stdgo.Go.pointer(_sp);
+        var _sp__pointer__ = stdgo.Go.pointer(_sp);
+        var _sp__pointer__ = stdgo.Go.pointer(_sp);
+        var _err = (_enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec((17 : stdgo.GoInt), _sp__pointer__) : stdgo._internal.encoding.gob.Gob_GobTestIndirectEncDec.GobTestIndirectEncDec))) : stdgo.Error);
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

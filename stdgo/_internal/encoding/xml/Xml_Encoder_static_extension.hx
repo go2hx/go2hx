@@ -18,14 +18,16 @@ package stdgo._internal.encoding.xml;
             final __type__ = _t;
             if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.xml.Xml_StartElement.StartElement))) {
                 var _t:stdgo._internal.encoding.xml.Xml_StartElement.StartElement = __type__ == null ? ({} : stdgo._internal.encoding.xml.Xml_StartElement.StartElement) : __type__.__underlying__() == null ? ({} : stdgo._internal.encoding.xml.Xml_StartElement.StartElement) : __type__ == null ? ({} : stdgo._internal.encoding.xml.Xml_StartElement.StartElement) : __type__.__underlying__().value;
+                var _t__pointer__ = stdgo.Go.pointer(_t);
                 {
-                    var _err = (_p._writeStart((stdgo.Go.setRef(_t) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_StartElement.StartElement>)) : stdgo.Error);
+                    var _err = (_p._writeStart(_t__pointer__) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.xml.Xml_EndElement.EndElement))) {
                 var _t:stdgo._internal.encoding.xml.Xml_EndElement.EndElement = __type__ == null ? ({} : stdgo._internal.encoding.xml.Xml_EndElement.EndElement) : __type__.__underlying__() == null ? ({} : stdgo._internal.encoding.xml.Xml_EndElement.EndElement) : __type__ == null ? ({} : stdgo._internal.encoding.xml.Xml_EndElement.EndElement) : __type__.__underlying__().value;
+                var _t__pointer__ = stdgo.Go.pointer(_t);
                 {
                     var _err = (_p._writeEnd(_t.name?.__copy__()) : stdgo.Error);
                     if (_err != null) {
@@ -34,9 +36,11 @@ package stdgo._internal.encoding.xml;
                 };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.xml.Xml_CharData.CharData))) {
                 var _t:stdgo._internal.encoding.xml.Xml_CharData.CharData = __type__ == null ? new stdgo._internal.encoding.xml.Xml_CharData.CharData(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.encoding.xml.Xml_CharData.CharData(0, 0) : __type__ == null ? new stdgo._internal.encoding.xml.Xml_CharData.CharData(0, 0) : __type__.__underlying__().value;
+                var _t__pointer__ = stdgo.Go.pointer(_t);
                 stdgo._internal.encoding.xml.Xml__escapeText._escapeText(stdgo.Go.asInterface(_p), _t, false);
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.xml.Xml_Comment.Comment))) {
                 var _t:stdgo._internal.encoding.xml.Xml_Comment.Comment = __type__ == null ? new stdgo._internal.encoding.xml.Xml_Comment.Comment(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.encoding.xml.Xml_Comment.Comment(0, 0) : __type__ == null ? new stdgo._internal.encoding.xml.Xml_Comment.Comment(0, 0) : __type__.__underlying__().value;
+                var _t__pointer__ = stdgo.Go.pointer(_t);
                 if (stdgo._internal.bytes.Bytes_contains.contains(_t, stdgo._internal.encoding.xml.Xml__endComment._endComment)) {
                     return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: EncodeToken of Comment containing --> marker" : stdgo.GoString));
                 };
@@ -46,6 +50,7 @@ package stdgo._internal.encoding.xml;
                 return _p._cachedWriteError();
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.xml.Xml_ProcInst.ProcInst))) {
                 var _t:stdgo._internal.encoding.xml.Xml_ProcInst.ProcInst = __type__ == null ? ({} : stdgo._internal.encoding.xml.Xml_ProcInst.ProcInst) : __type__.__underlying__() == null ? ({} : stdgo._internal.encoding.xml.Xml_ProcInst.ProcInst) : __type__ == null ? ({} : stdgo._internal.encoding.xml.Xml_ProcInst.ProcInst) : __type__.__underlying__().value;
+                var _t__pointer__ = stdgo.Go.pointer(_t);
                 if (((_t.target == ("xml" : stdgo.GoString)) && (_p._w.buffered() != (0 : stdgo.GoInt)) : Bool)) {
                     return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: EncodeToken of ProcInst xml target only valid for xml declaration, first token encoded" : stdgo.GoString));
                 };
@@ -64,6 +69,7 @@ package stdgo._internal.encoding.xml;
                 _p.writeString(("?>" : stdgo.GoString));
             } else if (stdgo.Go.typeEquals((__type__ : stdgo._internal.encoding.xml.Xml_Directive.Directive))) {
                 var _t:stdgo._internal.encoding.xml.Xml_Directive.Directive = __type__ == null ? new stdgo._internal.encoding.xml.Xml_Directive.Directive(0, 0) : __type__.__underlying__() == null ? new stdgo._internal.encoding.xml.Xml_Directive.Directive(0, 0) : __type__ == null ? new stdgo._internal.encoding.xml.Xml_Directive.Directive(0, 0) : __type__.__underlying__().value;
+                var _t__pointer__ = stdgo.Go.pointer(_t);
                 if (!stdgo._internal.encoding.xml.Xml__isValidDirective._isValidDirective(_t)) {
                     return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: EncodeToken of Directive containing wrong < or > markers" : stdgo.GoString));
                 };
@@ -72,6 +78,7 @@ package stdgo._internal.encoding.xml;
                 _p.writeString((">" : stdgo.GoString));
             } else {
                 var _t:stdgo._internal.encoding.xml.Xml_Token.Token = __type__?.__underlying__();
+                var _t__pointer__ = stdgo.Go.pointer(_t);
                 return stdgo._internal.fmt.Fmt_errorf.errorf(("xml: EncodeToken of invalid token type" : stdgo.GoString));
             };
         };

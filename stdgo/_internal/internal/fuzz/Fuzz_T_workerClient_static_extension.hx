@@ -23,8 +23,9 @@ package stdgo._internal.internal.fuzz;
             __deferstack__.unshift(() -> _wc._mu.unlock());
             var _c = ({ ping : (stdgo.Go.setRef((new stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs() : stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs>) } : stdgo._internal.internal.fuzz.Fuzz_T_call.T_call);
             var _resp:stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse = ({} : stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse);
+            var _resp__pointer__ = (stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse>);
             {
-                final __ret__:stdgo.Error = _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface((stdgo.Go.setRef(_resp) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse>)));
+                final __ret__:stdgo.Error = _wc._callLocked(_ctx, _c?.__copy__(), stdgo.Go.toInterface(_resp__pointer__));
                 for (defer in __deferstack__) {
                     defer();
                 };

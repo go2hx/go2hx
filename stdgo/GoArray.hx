@@ -238,8 +238,9 @@ class GoArrayDataKeyValueIterator<T> {
 	var slice:GoArrayData<T>;
 
 	public inline function new(slice:GoArrayData<T>) {
-		this.slice = slice.__ref__();
+		this.slice = slice;
 	}
+
 
 	public inline function hasNext() {
 		return pos < slice.length;
@@ -255,7 +256,7 @@ class GoArrayDataIterator<T> {
 	var slice:GoArrayData<T>;
 
 	public inline function new(slice:GoArrayData<T>) {
-		this.slice = slice.__ref__();
+		this.slice = slice;
 	}
 
 	public inline function hasNext() {
@@ -298,11 +299,11 @@ abstract GoArray<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	}
 
 	public function iterator() {
-		return new GoArrayDataIterator(this);
+		return new GoArrayDataIterator(this.__copy__());
 	}
 
 	public function keyValueIterator():KeyValueIterator<GoInt, T> {
-		return new GoArrayDataKeyValueIterator(this);
+		return new GoArrayDataKeyValueIterator(this.__copy__());
 	}
 
 	private function __boundsCheck__(i:Int) {

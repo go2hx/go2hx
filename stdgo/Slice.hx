@@ -26,10 +26,10 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		return this.__setString__();
 
 	public function iterator()
-		return new stdgo.GoArray.GoArrayDataIterator<T>(this);
+		return new stdgo.GoArray.GoArrayDataIterator<T>(this.__ref__());
 
 	public function keyValueIterator()
-		return new GoArrayDataKeyValueIterator<T>(this);
+		return new GoArrayDataKeyValueIterator<T>(this.__ref__());
 
 	public inline function __append__(args:Rest<T>):Slice<T> {
 		if (this == null) {

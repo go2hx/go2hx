@@ -1082,6 +1082,8 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 			default:
 			}
 			data["type"] = parseType(obj.Type(), map[string]bool{})
+		} else {
+			data["type"] = parseType(checker.TypeOf(value), map[string]bool{})
 		}
 	}
 	return data

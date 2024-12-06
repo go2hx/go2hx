@@ -3,17 +3,9 @@ function testStructNonStruct(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
         {};
         {};
         var _s = (new stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305(("hello" : stdgo.GoString)) : stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305);
-        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>);
-        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>);
-        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>);
-        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>);
         var _sp:stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305 = ({} : stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305);
-        var _sp__pointer__ = (stdgo.Go.setRef(_sp) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>);
-        var _sp__pointer__ = (stdgo.Go.setRef(_sp) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>);
-        var _sp__pointer__ = (stdgo.Go.setRef(_sp) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>);
-        var _sp__pointer__ = (stdgo.Go.setRef(_sp) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>);
         {
-            var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_sp__pointer__)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_s), stdgo.Go.toInterface((stdgo.Go.setRef(_sp) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>))) : stdgo.Error);
             if (_err != null) {
                 _t.error(stdgo.Go.toInterface(_err));
             };
@@ -43,7 +35,7 @@ function testStructNonStruct(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
             };
         };
         {
-            var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_ns), stdgo.Go.toInterface(_s__pointer__)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_ns), stdgo.Go.toInterface((stdgo.Go.setRef(_s) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testStructNonStruct___localname___Struct_10305.T_testStructNonStruct___localname___Struct_10305>))) : stdgo.Error);
             if (_err == null) {
                 _t.error(stdgo.Go.toInterface(("should get error for non-struct/struct" : stdgo.GoString)));
             } else if (!stdgo._internal.strings.Strings_contains.contains(_err.error()?.__copy__(), ("type" : stdgo.GoString))) {

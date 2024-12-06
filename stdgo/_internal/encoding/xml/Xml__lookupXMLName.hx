@@ -12,14 +12,13 @@ function _lookupXMLName(_typ:stdgo._internal.reflect.Reflect_Type_.Type_):stdgo.
 var _n = __1, _i = __0;
             while ((_i < _n : Bool)) {
                 var _f = (_typ.field(_i).__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
-var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>);
 if (_f.name != (("XMLName" : stdgo.GoString))) {
                     {
                         _i++;
                         continue;
                     };
                 };
-var __tmp__ = stdgo._internal.encoding.xml.Xml__structFieldInfo._structFieldInfo(_typ, _f__pointer__), _finfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+var __tmp__ = stdgo._internal.encoding.xml.Xml__structFieldInfo._structFieldInfo(_typ, (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>)), _finfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 if (((_err == null) && (_finfo._name != stdgo.Go.str()) : Bool)) {
                     return _xmlname = _finfo;
                 };

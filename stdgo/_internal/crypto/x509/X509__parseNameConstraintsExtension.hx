@@ -4,14 +4,11 @@ function _parseNameConstraintsExtension(_out:stdgo.Ref<stdgo._internal.crypto.x5
         var _outer = (_e.value : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
         var __0:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0), __1:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0), __2:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
 var _excluded = __2, _permitted = __1, _toplevel = __0;
-        var _excluded__pointer__ = (stdgo.Go.setRef(_excluded) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-        var _permitted__pointer__ = (stdgo.Go.setRef(_permitted) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-        var _toplevel__pointer__ = (stdgo.Go.setRef(_toplevel) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
         var __0:Bool = false, __1:Bool = false;
 var _haveExcluded = __1, _havePermitted = __0;
         var _haveExcluded__pointer__ = stdgo.Go.pointer(_haveExcluded);
         var _havePermitted__pointer__ = stdgo.Go.pointer(_havePermitted);
-        if (((((!_outer.readASN1(_toplevel__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !_outer.empty() : Bool) || !_toplevel.readOptionalASN1(_permitted__pointer__, _havePermitted__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific().constructed()) : Bool) || !_toplevel.readOptionalASN1(_excluded__pointer__, _haveExcluded__pointer__, (1 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific().constructed()) : Bool) || !_toplevel.empty() : Bool)) {
+        if (((((!_outer.readASN1((stdgo.Go.setRef(_toplevel) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !_outer.empty() : Bool) || !_toplevel.readOptionalASN1((stdgo.Go.setRef(_permitted) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _havePermitted__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific().constructed()) : Bool) || !_toplevel.readOptionalASN1((stdgo.Go.setRef(_excluded) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _haveExcluded__pointer__, (1 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific().constructed()) : Bool) || !_toplevel.empty() : Bool)) {
             return {
                 final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : false, _1 : stdgo._internal.errors.Errors_new_.new_(("x509: invalid NameConstraints extension" : stdgo.GoString)) };
                 _unhandled = __tmp__._0;
@@ -32,11 +29,9 @@ var _haveExcluded = __1, _havePermitted = __0;
             while (!_subtrees.empty()) {
                 var __0:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0), __1:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
 var _value = __1, _seq = __0;
-                var _value__pointer__ = (stdgo.Go.setRef(_value) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-                var _seq__pointer__ = (stdgo.Go.setRef(_seq) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
                 var _tag:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag = ((0 : stdgo.GoUInt8) : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag);
                 var _tag__pointer__ = stdgo.Go.pointer(_tag);
-                if ((!_subtrees.readASN1(_seq__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !_seq.readAnyASN1(_value__pointer__, _tag__pointer__) : Bool)) {
+                if ((!_subtrees.readASN1((stdgo.Go.setRef(_seq) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag)) || !_seq.readAnyASN1((stdgo.Go.setRef(_value) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _tag__pointer__) : Bool)) {
                     return {
                         final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>; var _2 : stdgo.Slice<stdgo.GoString>; var _3 : stdgo.Slice<stdgo.GoString>; var _4 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.Net_IPNet.IPNet>>), _2 : (null : stdgo.Slice<stdgo.GoString>), _3 : (null : stdgo.Slice<stdgo.GoString>), _4 : stdgo._internal.fmt.Fmt_errorf.errorf(("x509: invalid NameConstraints extension" : stdgo.GoString)) };
                         _dnsNames = __tmp__._0;

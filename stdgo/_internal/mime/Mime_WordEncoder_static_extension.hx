@@ -91,15 +91,14 @@ if (((_currentLen + _runeLen : stdgo.GoInt) <= stdgo._internal.mime.Mime__maxBas
     static public function _encodeWord( _e:stdgo._internal.mime.Mime_WordEncoder.WordEncoder, _charset:stdgo.GoString, _s:stdgo.GoString):stdgo.GoString {
         @:recv var _e:stdgo._internal.mime.Mime_WordEncoder.WordEncoder = _e;
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         _buf.grow((48 : stdgo.GoInt));
-        _e._openWord(_buf__pointer__, _charset?.__copy__());
+        _e._openWord((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _charset?.__copy__());
         if (_e == ((98 : stdgo._internal.mime.Mime_WordEncoder.WordEncoder))) {
-            _e._bEncode(_buf__pointer__, _charset?.__copy__(), _s?.__copy__());
+            _e._bEncode((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _charset?.__copy__(), _s?.__copy__());
         } else {
-            _e._qEncode(_buf__pointer__, _charset?.__copy__(), _s?.__copy__());
+            _e._qEncode((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _charset?.__copy__(), _s?.__copy__());
         };
-        stdgo._internal.mime.Mime__closeWord._closeWord(_buf__pointer__);
+        stdgo._internal.mime.Mime__closeWord._closeWord((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
         return (_buf.string() : stdgo.GoString)?.__copy__();
     }
     @:keep

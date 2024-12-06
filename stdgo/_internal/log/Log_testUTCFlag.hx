@@ -1,11 +1,7 @@
 package stdgo._internal.log;
 function testUTCFlag(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface(_b__pointer__), ("Test:" : stdgo.GoString), (3 : stdgo.GoInt));
+        var _l = stdgo._internal.log.Log_new_.new_(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), ("Test:" : stdgo.GoString), (3 : stdgo.GoInt));
         _l.setFlags((35 : stdgo.GoInt));
         var _now = (stdgo._internal.time.Time_now.now().utc()?.__copy__() : stdgo._internal.time.Time_Time.Time);
         _l.print(stdgo.Go.toInterface(("hello" : stdgo.GoString)));

@@ -1,12 +1,8 @@
 package stdgo._internal.encoding.json;
 function testUnmarshalSyntax(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _x:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.AnyInterface>);
-        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.AnyInterface>);
-        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.AnyInterface>);
-        var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.AnyInterface>);
         for (__4 => _src in stdgo._internal.encoding.json.Json__unmarshalSyntaxTests._unmarshalSyntaxTests) {
-            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_src : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(_x__pointer__)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_src : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.AnyInterface>))) : stdgo.Error);
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_err) : stdgo.Ref<stdgo._internal.encoding.json.Json_SyntaxError.SyntaxError>)) : stdgo.Ref<stdgo._internal.encoding.json.Json_SyntaxError.SyntaxError>), _1 : true };

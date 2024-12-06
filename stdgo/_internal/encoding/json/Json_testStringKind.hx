@@ -3,10 +3,6 @@ function testStringKind(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
         {};
         var __0:stdgo.GoMap<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067, stdgo.GoInt> = (null : stdgo.GoMap<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067, stdgo.GoInt>), __1:stdgo.GoMap<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067, stdgo.GoInt> = (null : stdgo.GoMap<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067, stdgo.GoInt>);
 var _m2 = __1, _m1 = __0;
-        var _m2__pointer__ = (stdgo.Go.setRef(_m2) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067, stdgo.GoInt>>);
-        var _m2__pointer__ = (stdgo.Go.setRef(_m2) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067, stdgo.GoInt>>);
-        var _m2__pointer__ = (stdgo.Go.setRef(_m2) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067, stdgo.GoInt>>);
-        var _m2__pointer__ = (stdgo.Go.setRef(_m2) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067, stdgo.GoInt>>);
         _m1 = ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoInt>();
             x.__defaultValue__ = () -> (0 : stdgo.GoInt);
@@ -17,7 +13,7 @@ var _m2 = __1, _m1 = __0;
         if (_err != null) {
             _t.errorf(("Unexpected error marshaling: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
-        _err = stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_data, stdgo.Go.toInterface(_m2__pointer__));
+        _err = stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_data, stdgo.Go.toInterface((stdgo.Go.setRef(_m2) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_testStringKind___localname___stringKind_47067.T_testStringKind___localname___stringKind_47067, stdgo.GoInt>>)));
         if (_err != null) {
             _t.errorf(("Unexpected error unmarshaling: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };

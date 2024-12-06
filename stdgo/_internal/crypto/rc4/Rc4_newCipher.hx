@@ -5,7 +5,6 @@ function newCipher(_key:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._
             return { _0 : null, _1 : stdgo.Go.asInterface((_k : stdgo._internal.crypto.rc4.Rc4_KeySizeError.KeySizeError)) };
         };
         var _c:stdgo._internal.crypto.rc4.Rc4_Cipher.Cipher = ({} : stdgo._internal.crypto.rc4.Rc4_Cipher.Cipher);
-        var _c__pointer__ = (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_Cipher.Cipher>);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < (256 : stdgo.GoInt) : Bool)) {
@@ -31,5 +30,5 @@ function newCipher(_key:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._
                 _i++;
             };
         };
-        return { _0 : _c__pointer__, _1 : (null : stdgo.Error) };
+        return { _0 : (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo._internal.crypto.rc4.Rc4_Cipher.Cipher>), _1 : (null : stdgo.Error) };
     }

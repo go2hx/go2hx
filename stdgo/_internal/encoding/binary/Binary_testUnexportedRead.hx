@@ -3,17 +3,9 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
             var _u1 = ({ _a : (1 : stdgo.GoInt32) } : stdgo._internal.encoding.binary.Binary_Unexported.Unexported);
-            var _u1__pointer__ = (stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>);
-            var _u1__pointer__ = (stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>);
-            var _u1__pointer__ = (stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>);
-            var _u1__pointer__ = (stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>);
             {
-                var _err = (stdgo._internal.encoding.binary.Binary_write.write(stdgo.Go.asInterface(_buf__pointer__), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface(_u1__pointer__)) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.binary.Binary_write.write(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>))) : stdgo.Error);
                 if (_err != null) {
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
@@ -31,11 +23,7 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                 a();
             }));
             var _u2:stdgo._internal.encoding.binary.Binary_Unexported.Unexported = ({} : stdgo._internal.encoding.binary.Binary_Unexported.Unexported);
-            var _u2__pointer__ = (stdgo.Go.setRef(_u2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>);
-            var _u2__pointer__ = (stdgo.Go.setRef(_u2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>);
-            var _u2__pointer__ = (stdgo.Go.setRef(_u2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>);
-            var _u2__pointer__ = (stdgo.Go.setRef(_u2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>);
-            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_buf__pointer__), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface(_u2__pointer__));
+            stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_u2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>)));
             {
                 for (defer in __deferstack__) {
                     defer();

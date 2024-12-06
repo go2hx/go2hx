@@ -9,11 +9,7 @@ function trimLeft(_s:stdgo.GoString, _cutset:stdgo.GoString):stdgo.GoString {
         {
             var __tmp__ = stdgo._internal.strings.Strings__makeASCIISet._makeASCIISet(_cutset?.__copy__()), _as:stdgo._internal.strings.Strings_T_asciiSet.T_asciiSet = __tmp__._0, _ok:Bool = __tmp__._1;
             if (_ok) {
-                var _as__pointer__ = (stdgo.Go.setRef(_as) : stdgo.Ref<stdgo._internal.strings.Strings_T_asciiSet.T_asciiSet>);
-                var _as__pointer__ = (stdgo.Go.setRef(_as) : stdgo.Ref<stdgo._internal.strings.Strings_T_asciiSet.T_asciiSet>);
-                var _as__pointer__ = (stdgo.Go.setRef(_as) : stdgo.Ref<stdgo._internal.strings.Strings_T_asciiSet.T_asciiSet>);
-                var _as__pointer__ = (stdgo.Go.setRef(_as) : stdgo.Ref<stdgo._internal.strings.Strings_T_asciiSet.T_asciiSet>);
-                return stdgo._internal.strings.Strings__trimLeftASCII._trimLeftASCII(_s?.__copy__(), _as__pointer__)?.__copy__();
+                return stdgo._internal.strings.Strings__trimLeftASCII._trimLeftASCII(_s?.__copy__(), (stdgo.Go.setRef(_as) : stdgo.Ref<stdgo._internal.strings.Strings_T_asciiSet.T_asciiSet>))?.__copy__();
             };
         };
         return stdgo._internal.strings.Strings__trimLeftUnicode._trimLeftUnicode(_s?.__copy__(), _cutset?.__copy__())?.__copy__();

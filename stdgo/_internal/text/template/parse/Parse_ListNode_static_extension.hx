@@ -28,8 +28,7 @@ package stdgo._internal.text.template.parse;
     static public function string( _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode>):stdgo.GoString {
         @:recv var _l:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ListNode.ListNode> = _l;
         var _sb:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _sb__pointer__ = (stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        _l._writeTo(_sb__pointer__);
+        _l._writeTo((stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
         return (_sb.string() : stdgo.GoString)?.__copy__();
     }
     @:keep

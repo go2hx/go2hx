@@ -441,7 +441,6 @@ package stdgo._internal.net.http;
             };
             var _l = (2 : stdgo.GoInt);
             var _a:stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr = ({} : stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr);
-            var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr>);
             {
                 final __value__ = _b[(3 : stdgo.GoInt)];
                 if (__value__ == ((1 : stdgo.GoUInt8))) {
@@ -512,7 +511,7 @@ package stdgo._internal.net.http;
             _a.port = (((_b[((_b.length) - (2 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt) << (8i64 : stdgo.GoUInt64) : stdgo.GoInt) | (_b[((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt) : stdgo.GoInt);
             {
                 final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = {
-                    final __tmp__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface(_a__pointer__), _1 : (null : stdgo.Error) };
+                    final __tmp__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : stdgo.Go.asInterface((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.net.http.Http_T_socksAddr.T_socksAddr>)), _1 : (null : stdgo.Error) };
                     _0 = __tmp__._0;
                     _ctxErr = __tmp__._1;
                     __tmp__;

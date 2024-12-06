@@ -107,9 +107,8 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
                 };
             };
             var _rawValue:stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue = ({} : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue);
-            var _rawValue__pointer__ = (stdgo.Go.setRef(_rawValue) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>);
             {
-                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_b, stdgo.Go.toInterface(_rawValue__pointer__)), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_b, stdgo.Go.toInterface((stdgo.Go.setRef(_rawValue) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>))), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return {
                         final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };

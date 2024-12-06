@@ -6,11 +6,7 @@ function testStructTagObjectKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                 _t.fatalf(("Marshal(%#q) failed: %v" : stdgo.GoString), _tt._raw, stdgo.Go.toInterface(_err));
             };
             var _f:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-            var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo.AnyInterface>);
-            var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo.AnyInterface>);
-            var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo.AnyInterface>);
-            var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo.AnyInterface>);
-            _err = stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_b, stdgo.Go.toInterface(_f__pointer__));
+            _err = stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_b, stdgo.Go.toInterface((stdgo.Go.setRef(_f) : stdgo.Ref<stdgo.AnyInterface>)));
             if (_err != null) {
                 _t.fatalf(("Unmarshal(%#q) failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_b), stdgo.Go.toInterface(_err));
             };

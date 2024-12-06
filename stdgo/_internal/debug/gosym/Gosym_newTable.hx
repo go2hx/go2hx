@@ -1,33 +1,33 @@
 package stdgo._internal.debug.gosym;
 function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>):{ var _0 : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Table.Table>; var _1 : stdgo.Error; } {
-        var _s_3662995:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
-        var _depth_3661767:stdgo.GoInt = (0 : stdgo.GoInt);
         var _c_3661610:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _lasttyp_3659615:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var _j_3662968:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_3662995:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
         var _j_3661785:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3662475:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3661092:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lastf_3661076:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _obj_3660758:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>);
         var _nz_3659606:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3659363:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3663097:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fn_3662526:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Func.Func> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Func.Func>);
-        var _end_3662220:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3661443:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _t_3659483:stdgo._internal.debug.gosym.Gosym_Table.Table = ({} : stdgo._internal.debug.gosym.Gosym_Table.Table);
         var _n_3663194:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3663097:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3662008:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _depth_3661767:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _j_3662968:stdgo.GoInt = (0 : stdgo.GoInt);
         var _na_3662206:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _s_3661812:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
         var _sym_3661125:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
         var _err_3659370:stdgo.Error = (null : stdgo.Error);
-        var _countloopBreak = false;
-        var _s_3661812:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Sym.Sym>);
-        var _end_3661548:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _fname_3659535:stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString>);
-        var _np_3662202:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3662008:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3659363:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_3661443:stdgo.GoInt = (0 : stdgo.GoInt);
         var _nf_3659597:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fn_3662526:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Func.Func> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Func.Func>);
+        var _countloopBreak = false;
+        var _end_3662220:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _obj_3660758:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>);
+        var _n_3662475:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _np_3662202:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _end_3661548:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lastf_3661076:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _fname_3659535:stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString> = (null : stdgo.GoMap<stdgo.GoUInt16, stdgo.GoString>);
+        var _lasttyp_3659615:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var _t_3659483:stdgo._internal.debug.gosym.Gosym_Table.Table = ({} : stdgo._internal.debug.gosym.Gosym_Table.Table);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -47,7 +47,6 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                     return { _0 : null, _1 : _err_3659370 };
                     _gotoNext = 3659479i32;
                 } else if (__value__ == (3659479i32)) {
-                    _t_3659483 = (stdgo.Go.setRef(_t_3659483) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Table.Table>)?.__copy__();
                     if (_pcln._isGo12()) {
                         _gotoNext = 3659509i32;
                     } else {
@@ -391,7 +390,7 @@ function newTable(_symtab:stdgo.Slice<stdgo.GoUInt8>, _pcln:stdgo.Ref<stdgo._int
                     _obj_3660758.funcs = (_t_3659483.funcs.__slice__(_lastf_3661076) : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
                     _gotoNext = 3663447i32;
                 } else if (__value__ == (3663447i32)) {
-                    return { _0 : _t_3659483, _1 : (null : stdgo.Error) };
+                    return { _0 : (stdgo.Go.setRef(_t_3659483) : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Table.Table>), _1 : (null : stdgo.Error) };
                     _gotoNext = -1i32;
                 };
             };

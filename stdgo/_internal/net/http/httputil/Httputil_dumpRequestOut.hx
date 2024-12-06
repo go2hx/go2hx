@@ -68,13 +68,12 @@ function dumpRequestOut(_req:stdgo.Ref<stdgo._internal.net.http.Http_Request.Req
                 _reqSend.url.scheme = ("http" : stdgo.GoString);
             };
             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
             var __tmp__ = stdgo._internal.io.Io_pipe.pipe(), _pr:stdgo.Ref<stdgo._internal.io.Io_PipeReader.PipeReader> = __tmp__._0, _pw:stdgo.Ref<stdgo._internal.io.Io_PipeWriter.PipeWriter> = __tmp__._1;
             __deferstack__.unshift(() -> _pr.close());
             __deferstack__.unshift(() -> _pw.close());
             var _dr = (stdgo.Go.setRef(({ _c : (new stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>(0, () -> (null : stdgo._internal.io.Io_Reader.Reader)) : stdgo.Chan<stdgo._internal.io.Io_Reader.Reader>) } : stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_delegateReader.T_delegateReader>);
             var _t = (stdgo.Go.setRef(({ dial : function(_net:stdgo.GoString, _addr:stdgo.GoString):{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Error; } {
-                return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn(stdgo._internal.io.Io_multiWriter.multiWriter(stdgo.Go.asInterface(_buf__pointer__), stdgo.Go.asInterface(_pw)), stdgo.Go.asInterface(_dr)) : stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>)), _1 : (null : stdgo.Error) };
+                return { _0 : stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn(stdgo._internal.io.Io_multiWriter.multiWriter(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(_pw)), stdgo.Go.asInterface(_dr)) : stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_dumpConn.T_dumpConn>)), _1 : (null : stdgo.Error) };
             } } : stdgo._internal.net.http.Http_Transport.Transport)) : stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport>);
             __deferstack__.unshift(() -> _t.closeIdleConnections());
             var _quitReadCh = (new stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody>(0, () -> ({} : stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody)) : stdgo.Chan<stdgo._internal.net.http.httputil.Httputil_T_failureToReadBody.T_failureToReadBody>);

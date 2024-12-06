@@ -74,12 +74,8 @@ package stdgo._internal.sync;
             };
         };
         var _ic = (_i : stdgo.AnyInterface);
-        var _ic__pointer__ = (stdgo.Go.setRef(_ic) : stdgo.Ref<stdgo.AnyInterface>);
-        var _ic__pointer__ = (stdgo.Go.setRef(_ic) : stdgo.Ref<stdgo.AnyInterface>);
-        var _ic__pointer__ = (stdgo.Go.setRef(_ic) : stdgo.Ref<stdgo.AnyInterface>);
-        var _ic__pointer__ = (stdgo.Go.setRef(_ic) : stdgo.Ref<stdgo.AnyInterface>);
         while (true) {
-            if (_e._p.compareAndSwap((null : stdgo.Ref<stdgo.AnyInterface>), _ic__pointer__)) {
+            if (_e._p.compareAndSwap((null : stdgo.Ref<stdgo.AnyInterface>), (stdgo.Go.setRef(_ic) : stdgo.Ref<stdgo.AnyInterface>))) {
                 return {
                     final __tmp__:{ var _0 : stdgo.AnyInterface; var _1 : Bool; var _2 : Bool; } = { _0 : _i, _1 : false, _2 : true };
                     _actual = __tmp__._0;
@@ -128,12 +124,8 @@ package stdgo._internal.sync;
             return false;
         };
         var _nc = (_new : stdgo.AnyInterface);
-        var _nc__pointer__ = (stdgo.Go.setRef(_nc) : stdgo.Ref<stdgo.AnyInterface>);
-        var _nc__pointer__ = (stdgo.Go.setRef(_nc) : stdgo.Ref<stdgo.AnyInterface>);
-        var _nc__pointer__ = (stdgo.Go.setRef(_nc) : stdgo.Ref<stdgo.AnyInterface>);
-        var _nc__pointer__ = (stdgo.Go.setRef(_nc) : stdgo.Ref<stdgo.AnyInterface>);
         while (true) {
-            if (_e._p.compareAndSwap(_p, _nc__pointer__)) {
+            if (_e._p.compareAndSwap(_p, (stdgo.Go.setRef(_nc) : stdgo.Ref<stdgo.AnyInterface>))) {
                 return true;
             };
             _p = _e._p.load();

@@ -173,9 +173,8 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
             for (_i => _ in _sh.relocs) {
                 var _rel = (stdgo.Go.setRef(_sh.relocs[(_i : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Reloc.Reloc>);
                 var _ri:stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo = ({} : stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo);
-                var _ri__pointer__ = (stdgo.Go.setRef(_ri) : stdgo.Ref<stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo>);
                 {
-                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_ri__pointer__)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_ri) : stdgo.Ref<stdgo._internal.debug.macho.Macho_T_relocInfo.T_relocInfo>))) : stdgo.Error);
                     if (_err != null) {
                         return _err;
                     };
@@ -227,19 +226,17 @@ x.set(("ranges" : stdgo.GoString), (null : stdgo.Slice<stdgo.GoUInt8>));
             var _i = (0 : stdgo.GoInt);
             while ((_i < (_hdr.nsyms : stdgo.GoInt) : Bool)) {
                 var _n:stdgo._internal.debug.macho.Macho_Nlist64.Nlist64 = ({} : stdgo._internal.debug.macho.Macho_Nlist64.Nlist64);
-var _n__pointer__ = (stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Nlist64.Nlist64>);
 if (_f.fileHeader.magic == ((-17958193u32 : stdgo.GoUInt32))) {
                     {
-                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_n__pointer__)) : stdgo.Error);
+                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_n) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Nlist64.Nlist64>))) : stdgo.Error);
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
                     };
                 } else {
                     var _n32:stdgo._internal.debug.macho.Macho_Nlist32.Nlist32 = ({} : stdgo._internal.debug.macho.Macho_Nlist32.Nlist32);
-                    var _n32__pointer__ = (stdgo.Go.setRef(_n32) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Nlist32.Nlist32>);
                     {
-                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_n32__pointer__)) : stdgo.Error);
+                        var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_n32) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Nlist32.Nlist32>))) : stdgo.Error);
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };

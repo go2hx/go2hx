@@ -11,11 +11,7 @@ function testMissingMapKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             _t.fatal(stdgo.Go.toInterface(_err));
         };
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        _err = _tmpl.execute(stdgo.Go.asInterface(_b__pointer__), stdgo.Go.toInterface(_data));
+        _err = _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(_data));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };
@@ -26,7 +22,7 @@ function testMissingMapKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         };
         _tmpl.option(("missingkey=default" : stdgo.GoString));
         _b.reset();
-        _err = _tmpl.execute(stdgo.Go.asInterface(_b__pointer__), stdgo.Go.toInterface(_data));
+        _err = _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(_data));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("default:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -37,7 +33,7 @@ function testMissingMapKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         };
         _tmpl.option(("missingkey=zero" : stdgo.GoString));
         _b.reset();
-        _err = _tmpl.execute(stdgo.Go.asInterface(_b__pointer__), stdgo.Go.toInterface(_data));
+        _err = _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(_data));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("zero:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
@@ -47,11 +43,11 @@ function testMissingMapKey(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
             _t.errorf(("got %q; expected %q" : stdgo.GoString), stdgo.Go.toInterface(_got), stdgo.Go.toInterface(_want));
         };
         _tmpl.option(("missingkey=error" : stdgo.GoString));
-        _err = _tmpl.execute(stdgo.Go.asInterface(_b__pointer__), stdgo.Go.toInterface(_data));
+        _err = _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), stdgo.Go.toInterface(_data));
         if (_err == null) {
             _t.errorf(("expected error; got none" : stdgo.GoString));
         };
-        _err = _tmpl.execute(stdgo.Go.asInterface(_b__pointer__), (null : stdgo.AnyInterface));
+        _err = _tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), (null : stdgo.AnyInterface));
         _t.log(stdgo.Go.toInterface(_err));
         if (_err == null) {
             _t.errorf(("expected error for nil-interface; got none" : stdgo.GoString));

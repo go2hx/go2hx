@@ -182,11 +182,7 @@ var _type1 = __1, _type0 = __0;
                             var _i = (0 : stdgo.GoInt);
                             while ((_i < _t.numField() : Bool)) {
                                 var _f = (_t.field(_i).__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
-var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>);
-var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>);
-var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>);
-var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>);
-if (!stdgo._internal.encoding.gob.Gob__isSent._isSent(_f__pointer__)) {
+if (!stdgo._internal.encoding.gob.Gob__isSent._isSent((stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>))) {
                                     {
                                         _i++;
                                         continue;

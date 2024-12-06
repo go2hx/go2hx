@@ -8,11 +8,7 @@ function testInterfaceIndirect(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T
             _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var _r:stdgo.Slice<stdgo._internal.encoding.gob.Gob_T_interfaceIndirectTestI.T_interfaceIndirectTestI> = (null : stdgo.Slice<stdgo._internal.encoding.gob.Gob_T_interfaceIndirectTestI.T_interfaceIndirectTestI>);
-        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.gob.Gob_T_interfaceIndirectTestI.T_interfaceIndirectTestI>>);
-        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.gob.Gob_T_interfaceIndirectTestI.T_interfaceIndirectTestI>>);
-        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.gob.Gob_T_interfaceIndirectTestI.T_interfaceIndirectTestI>>);
-        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.gob.Gob_T_interfaceIndirectTestI.T_interfaceIndirectTestI>>);
-        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface(_r__pointer__));
+        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo.Slice<stdgo._internal.encoding.gob.Gob_T_interfaceIndirectTestI.T_interfaceIndirectTestI>>)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

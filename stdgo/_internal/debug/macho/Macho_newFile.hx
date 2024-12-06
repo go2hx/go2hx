@@ -67,10 +67,9 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : st
                     final __value__ = _cmd;
                     if (__value__ == ((-2147483620u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd))) {
                         var _hdr:stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd = ({} : stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd);
-                        var _hdr__pointer__ = (stdgo.Go.setRef(_hdr) : stdgo.Ref<stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd>);
                         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_cmddat);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_hdr__pointer__)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_hdr) : stdgo.Ref<stdgo._internal.debug.macho.Macho_RpathCmd.RpathCmd>))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -84,10 +83,9 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : st
                         _f.loads = (_f.loads.__append__(stdgo.Go.asInterface(_l)));
                     } else if (__value__ == ((12u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd))) {
                         var _hdr:stdgo._internal.debug.macho.Macho_DylibCmd.DylibCmd = ({} : stdgo._internal.debug.macho.Macho_DylibCmd.DylibCmd);
-                        var _hdr__pointer__ = (stdgo.Go.setRef(_hdr) : stdgo.Ref<stdgo._internal.debug.macho.Macho_DylibCmd.DylibCmd>);
                         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_cmddat);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_hdr__pointer__)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_hdr) : stdgo.Ref<stdgo._internal.debug.macho.Macho_DylibCmd.DylibCmd>))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -104,10 +102,9 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : st
                         _f.loads = (_f.loads.__append__(stdgo.Go.asInterface(_l)));
                     } else if (__value__ == ((2u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd))) {
                         var _hdr:stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd = ({} : stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd);
-                        var _hdr__pointer__ = (stdgo.Go.setRef(_hdr) : stdgo.Ref<stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd>);
                         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_cmddat);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_hdr__pointer__)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_hdr) : stdgo.Ref<stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd>))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -126,7 +123,7 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : st
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
-                        var __tmp__ = _f._parseSymtab(_symdat, _strtab, _cmddat, _hdr__pointer__, _offset), _st:stdgo.Ref<stdgo._internal.debug.macho.Macho_Symtab.Symtab> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        var __tmp__ = _f._parseSymtab(_symdat, _strtab, _cmddat, (stdgo.Go.setRef(_hdr) : stdgo.Ref<stdgo._internal.debug.macho.Macho_SymtabCmd.SymtabCmd>), _offset), _st:stdgo.Ref<stdgo._internal.debug.macho.Macho_Symtab.Symtab> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if (_err != null) {
                             return { _0 : null, _1 : _err };
                         };
@@ -134,10 +131,9 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : st
                         _f.symtab = _st;
                     } else if (__value__ == ((11u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd))) {
                         var _hdr:stdgo._internal.debug.macho.Macho_DysymtabCmd.DysymtabCmd = ({} : stdgo._internal.debug.macho.Macho_DysymtabCmd.DysymtabCmd);
-                        var _hdr__pointer__ = (stdgo.Go.setRef(_hdr) : stdgo.Ref<stdgo._internal.debug.macho.Macho_DysymtabCmd.DysymtabCmd>);
                         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_cmddat);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_hdr__pointer__)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_hdr) : stdgo.Ref<stdgo._internal.debug.macho.Macho_DysymtabCmd.DysymtabCmd>))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -168,10 +164,9 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : st
                         _f.dysymtab = _st;
                     } else if (__value__ == ((1u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd))) {
                         var _seg32:stdgo._internal.debug.macho.Macho_Segment32.Segment32 = ({} : stdgo._internal.debug.macho.Macho_Segment32.Segment32);
-                        var _seg32__pointer__ = (stdgo.Go.setRef(_seg32) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment32.Segment32>);
                         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_cmddat);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_seg32__pointer__)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_seg32) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment32.Segment32>))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -194,9 +189,8 @@ var _s:stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment.Segment> = (null : st
                             var _i = (0 : stdgo.GoInt);
                             while ((_i < (_s.segmentHeader.nsect : stdgo.GoInt) : Bool)) {
                                 var _sh32:stdgo._internal.debug.macho.Macho_Section32.Section32 = ({} : stdgo._internal.debug.macho.Macho_Section32.Section32);
-var _sh32__pointer__ = (stdgo.Go.setRef(_sh32) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section32.Section32>);
 {
-                                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_sh32__pointer__)) : stdgo.Error);
+                                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_sh32) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section32.Section32>))) : stdgo.Error);
                                     if (_err != null) {
                                         return { _0 : null, _1 : _err };
                                     };
@@ -222,10 +216,9 @@ _sh.sectionHeader.flags = _sh32.flags;
                         };
                     } else if (__value__ == ((25u32 : stdgo._internal.debug.macho.Macho_LoadCmd.LoadCmd))) {
                         var _seg64:stdgo._internal.debug.macho.Macho_Segment64.Segment64 = ({} : stdgo._internal.debug.macho.Macho_Segment64.Segment64);
-                        var _seg64__pointer__ = (stdgo.Go.setRef(_seg64) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment64.Segment64>);
                         var _b = stdgo._internal.bytes.Bytes_newReader.newReader(_cmddat);
                         {
-                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_seg64__pointer__)) : stdgo.Error);
+                            var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_seg64) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Segment64.Segment64>))) : stdgo.Error);
                             if (_err != null) {
                                 return { _0 : null, _1 : _err };
                             };
@@ -248,9 +241,8 @@ _sh.sectionHeader.flags = _sh32.flags;
                             var _i = (0 : stdgo.GoInt);
                             while ((_i < (_s.segmentHeader.nsect : stdgo.GoInt) : Bool)) {
                                 var _sh64:stdgo._internal.debug.macho.Macho_Section64.Section64 = ({} : stdgo._internal.debug.macho.Macho_Section64.Section64);
-var _sh64__pointer__ = (stdgo.Go.setRef(_sh64) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section64.Section64>);
 {
-                                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface(_sh64__pointer__)) : stdgo.Error);
+                                    var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_b), _bo, stdgo.Go.toInterface((stdgo.Go.setRef(_sh64) : stdgo.Ref<stdgo._internal.debug.macho.Macho_Section64.Section64>))) : stdgo.Error);
                                     if (_err != null) {
                                         return { _0 : null, _1 : _err };
                                     };

@@ -19,16 +19,12 @@ package stdgo._internal.sync;
     static public function range( _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_>, _f:(stdgo.AnyInterface, stdgo.AnyInterface) -> Bool):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.sync.Sync_Map_.Map_> = _m;
         var _read = (_m._loadReadOnly()?.__copy__() : stdgo._internal.sync.Sync_T_readOnly.T_readOnly);
-        var _read__pointer__ = (stdgo.Go.setRef(_read) : stdgo.Ref<stdgo._internal.sync.Sync_T_readOnly.T_readOnly>);
-        var _read__pointer__ = (stdgo.Go.setRef(_read) : stdgo.Ref<stdgo._internal.sync.Sync_T_readOnly.T_readOnly>);
-        var _read__pointer__ = (stdgo.Go.setRef(_read) : stdgo.Ref<stdgo._internal.sync.Sync_T_readOnly.T_readOnly>);
-        var _read__pointer__ = (stdgo.Go.setRef(_read) : stdgo.Ref<stdgo._internal.sync.Sync_T_readOnly.T_readOnly>);
         if (_read._amended) {
             _m._mu.lock();
             _read = _m._loadReadOnly()?.__copy__();
             if (_read._amended) {
                 _read = ({ _m : _m._dirty } : stdgo._internal.sync.Sync_T_readOnly.T_readOnly);
-                _m._read.store(_read__pointer__);
+                _m._read.store((stdgo.Go.setRef(_read) : stdgo.Ref<stdgo._internal.sync.Sync_T_readOnly.T_readOnly>));
                 _m._dirty = (null : stdgo.GoMap<stdgo.AnyInterface, stdgo.Ref<stdgo._internal.sync.Sync_T_entry.T_entry>>);
                 _m._misses = (0 : stdgo.GoInt);
             };

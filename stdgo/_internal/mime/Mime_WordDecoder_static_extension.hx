@@ -45,7 +45,6 @@ package stdgo._internal.mime;
             return { _0 : _header?.__copy__(), _1 : (null : stdgo.Error) };
         };
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         _buf.writeString((_header.__slice__(0, _i) : stdgo.GoString)?.__copy__());
         _header = (_header.__slice__(_i) : stdgo.GoString)?.__copy__();
         var _betweenWords = (false : Bool);
@@ -87,7 +86,7 @@ package stdgo._internal.mime;
                 _buf.writeString((_header.__slice__(0, _start) : stdgo.GoString)?.__copy__());
             };
             {
-                var _err = (_d._convert(_buf__pointer__, _charset?.__copy__(), _content) : stdgo.Error);
+                var _err = (_d._convert((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _charset?.__copy__(), _content) : stdgo.Error);
                 if (_err != null) {
                     return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
                 };
@@ -120,9 +119,8 @@ package stdgo._internal.mime;
             return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
         };
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         {
-            var _err = (_d._convert(_buf__pointer__, _charset?.__copy__(), _content) : stdgo.Error);
+            var _err = (_d._convert((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _charset?.__copy__(), _content) : stdgo.Error);
             if (_err != null) {
                 return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
             };

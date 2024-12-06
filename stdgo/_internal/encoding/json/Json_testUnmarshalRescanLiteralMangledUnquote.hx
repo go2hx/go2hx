@@ -1,12 +1,8 @@
 package stdgo._internal.encoding.json;
 function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _p:stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString> = (null : stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>);
-        var _p__pointer__ = (stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>);
-        var _p__pointer__ = (stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>);
-        var _p__pointer__ = (stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>);
-        var _p__pointer__ = (stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>);
         {
-            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((("{\"开源\":\"12345开源\"}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(_p__pointer__)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((("{\"开源\":\"12345开源\"}" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>))) : stdgo.Error);
             if (_err != null) {
                 _t.fatalf(("Unmarshal unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -24,12 +20,8 @@ function testUnmarshalRescanLiteralMangledUnquote(_t:stdgo.Ref<stdgo._internal.t
             _t.fatalf(("Marshal unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         var _t2:stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829 = ({} : stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829);
-        var _t2__pointer__ = (stdgo.Go.setRef(_t2) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829>);
-        var _t2__pointer__ = (stdgo.Go.setRef(_t2) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829>);
-        var _t2__pointer__ = (stdgo.Go.setRef(_t2) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829>);
-        var _t2__pointer__ = (stdgo.Go.setRef(_t2) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829>);
         {
-            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_b, stdgo.Go.toInterface(_t2__pointer__)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_b, stdgo.Go.toInterface((stdgo.Go.setRef(_t2) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829.T_testUnmarshalRescanLiteralMangledUnquote___localname___T_59829>))) : stdgo.Error);
             if (_err != null) {
                 _t.fatalf(("Unmarshal unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
@@ -49,12 +41,8 @@ x.set((("\"" : stdgo.GoString) : stdgo._internal.encoding.json.Json_T_textUnmars
             _t.fatalf(("Marshal unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
         var _got:stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString> = (null : stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>);
-        var _got__pointer__ = (stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>);
-        var _got__pointer__ = (stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>);
-        var _got__pointer__ = (stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>);
-        var _got__pointer__ = (stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>);
         {
-            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_encoded, stdgo.Go.toInterface(_got__pointer__)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_encoded, stdgo.Go.toInterface((stdgo.Go.setRef(_got) : stdgo.Ref<stdgo.GoMap<stdgo._internal.encoding.json.Json_T_textUnmarshalerString.T_textUnmarshalerString, stdgo.GoString>>))) : stdgo.Error);
             if (_err != null) {
                 _t.fatalf(("Unmarshal unexpected error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };

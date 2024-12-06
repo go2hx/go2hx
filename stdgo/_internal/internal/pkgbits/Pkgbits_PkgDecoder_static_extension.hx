@@ -8,13 +8,12 @@ package stdgo._internal.internal.pkgbits;
         var _rcode:stdgo.GoInt = (0 : stdgo.GoInt);
         {
             var _r = (_pr.tempDecoder((4 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind), _idx, (15 : stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker))?.__copy__() : stdgo._internal.internal.pkgbits.Pkgbits_Decoder.Decoder);
-            var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_Decoder.Decoder>);
             _r.sync((26 : stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker));
             _r.sync((16 : stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker));
             _ridx = _r.reloc((3 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind));
             _name = (_r.string() : stdgo.GoString)?.__copy__();
             _rcode = _r.code((25 : stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker));
-            _pr.retireDecoder(_r__pointer__);
+            _pr.retireDecoder((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_Decoder.Decoder>));
         };
         var _path = (_pr.peekPkgPath(_ridx)?.__copy__() : stdgo.GoString);
         stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(_name != (stdgo.Go.str()));
@@ -27,9 +26,8 @@ package stdgo._internal.internal.pkgbits;
         var _path:stdgo.GoString = ("" : stdgo.GoString);
         {
             var _r = (_pr.tempDecoder((3 : stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind), _idx, (17 : stdgo._internal.internal.pkgbits.Pkgbits_SyncMarker.SyncMarker))?.__copy__() : stdgo._internal.internal.pkgbits.Pkgbits_Decoder.Decoder);
-            var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_Decoder.Decoder>);
             _path = (_r.string() : stdgo.GoString)?.__copy__();
-            _pr.retireDecoder(_r__pointer__);
+            _pr.retireDecoder((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_Decoder.Decoder>));
         };
         if (_path == (stdgo.Go.str())) {
             _path = _pr._pkgPath?.__copy__();

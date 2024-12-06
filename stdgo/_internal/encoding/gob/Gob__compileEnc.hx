@@ -19,11 +19,7 @@ function _compileEnc(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeIn
 var _wireFieldNum = __1, _fieldNum = __0;
                 while ((_fieldNum < _srt.numField() : Bool)) {
                     var _f = (_srt.field(_fieldNum).__copy__() : stdgo._internal.reflect.Reflect_StructField.StructField);
-var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>);
-var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>);
-var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>);
-var _f__pointer__ = (stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>);
-if (!stdgo._internal.encoding.gob.Gob__isSent._isSent(_f__pointer__)) {
+if (!stdgo._internal.encoding.gob.Gob__isSent._isSent((stdgo.Go.setRef(_f) : stdgo.Ref<stdgo._internal.reflect.Reflect_StructField.StructField>))) {
                         {
                             _fieldNum++;
                             continue;

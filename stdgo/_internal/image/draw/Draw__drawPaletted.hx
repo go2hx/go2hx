@@ -86,7 +86,6 @@ var _quantErrorNext = __1, _quantErrorCurr = __0;
             };
         };
         var _out = ({ a : (65535 : stdgo.GoUInt16) } : stdgo._internal.image.color.Color_RGBA64.RGBA64);
-        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.image.color.Color_RGBA64.RGBA64>);
         {
             var _y = (0 : stdgo.GoInt);
             while (_y != (_r.dy())) {
@@ -135,7 +134,7 @@ var _bestSum = __1, _bestIndex = __0;
                             _out.g = (_eg : stdgo.GoUInt16);
                             _out.b = (_eb : stdgo.GoUInt16);
                             _out.a = (_ea : stdgo.GoUInt16);
-                            _dst.set((_r.min.x + _x : stdgo.GoInt), (_r.min.y + _y : stdgo.GoInt), stdgo.Go.asInterface(_out__pointer__));
+                            _dst.set((_r.min.x + _x : stdgo.GoInt), (_r.min.y + _y : stdgo.GoInt), stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.image.color.Color_RGBA64.RGBA64>)));
                             if (!_floydSteinberg) {
                                 {
                                     _x++;

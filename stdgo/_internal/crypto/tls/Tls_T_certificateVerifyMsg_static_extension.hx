@@ -5,7 +5,6 @@ package stdgo._internal.crypto.tls;
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg> = _m;
         _m._raw = _data;
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
-        var _s__pointer__ = (stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
         if (!_s.skip((4 : stdgo.GoInt))) {
             return false;
         };
@@ -14,7 +13,7 @@ package stdgo._internal.crypto.tls;
                 return false;
             };
         };
-        return (stdgo._internal.crypto.tls.Tls__readUint16LengthPrefixed._readUint16LengthPrefixed(_s__pointer__, (stdgo.Go.setRef(_m._signature) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) && _s.empty() : Bool);
+        return (stdgo._internal.crypto.tls.Tls__readUint16LengthPrefixed._readUint16LengthPrefixed((stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef(_m._signature) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) && _s.empty() : Bool);
     }
     @:keep
     static public function _marshal( _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateVerifyMsg.T_certificateVerifyMsg>):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } {

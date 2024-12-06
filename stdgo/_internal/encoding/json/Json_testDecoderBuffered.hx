@@ -2,12 +2,8 @@ package stdgo._internal.encoding.json;
 function testDecoderBuffered(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _r = stdgo._internal.strings.Strings_newReader.newReader(("{\"Name\": \"Gopher\"} extra " : stdgo.GoString));
         var _m:stdgo._internal.encoding.json.Json_T__struct_41.T__struct_41 = ({ name : ("" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_41.T__struct_41);
-        var _m__pointer__ = (stdgo.Go.setRef(_m) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_41.T__struct_41>);
-        var _m__pointer__ = (stdgo.Go.setRef(_m) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_41.T__struct_41>);
-        var _m__pointer__ = (stdgo.Go.setRef(_m) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_41.T__struct_41>);
-        var _m__pointer__ = (stdgo.Go.setRef(_m) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_41.T__struct_41>);
         var _d = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(stdgo.Go.asInterface(_r));
-        var _err = (_d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface(_m__pointer__))) : stdgo.Error);
+        var _err = (_d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_m) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_41.T__struct_41>)))) : stdgo.Error);
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };

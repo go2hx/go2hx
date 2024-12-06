@@ -40,10 +40,6 @@ if ((_oldnew[(_i + (1 : stdgo.GoInt) : stdgo.GoInt)].length) != ((1 : stdgo.GoIn
         };
         if (_allNewBytes) {
             var _r = ((new stdgo.GoArray<stdgo.GoUInt8>(256, 256, ...[]).__setNumber32__() : stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer)?.__copy__() : stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer);
-            var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>);
-            var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>);
-            var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>);
-            var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>);
             for (_i => _ in _r) {
                 _r[(_i : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
             };
@@ -56,13 +52,9 @@ _r[(_o : stdgo.GoInt)] = _n;
                     _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt);
                 };
             };
-            return stdgo.Go.asInterface(_r__pointer__);
+            return stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteReplacer.T_byteReplacer>));
         };
         var _r = ({ _toReplace : (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), ((_oldnew.length) / (2 : stdgo.GoInt) : stdgo.GoInt)).__setString__() : stdgo.Slice<stdgo.GoString>) } : stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer);
-        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer>);
-        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer>);
-        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer>);
-        var _r__pointer__ = (stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer>);
         {
             var _i = ((_oldnew.length) - (2 : stdgo.GoInt) : stdgo.GoInt);
             while ((_i >= (0 : stdgo.GoInt) : Bool)) {
@@ -75,7 +67,7 @@ _r._replacements[(_o : stdgo.GoInt)] = (_n : stdgo.Slice<stdgo.GoUInt8>);
                 _i = (_i - ((2 : stdgo.GoInt)) : stdgo.GoInt);
             };
         };
-        return stdgo.Go.asInterface(_r__pointer__);
+        return stdgo.Go.asInterface((stdgo.Go.setRef(_r) : stdgo.Ref<stdgo._internal.strings.Strings_T_byteStringReplacer.T_byteStringReplacer>));
     }
     @:keep
     static public function _buildOnce( _r:stdgo.Ref<stdgo._internal.strings.Strings_Replacer.Replacer>):Void {

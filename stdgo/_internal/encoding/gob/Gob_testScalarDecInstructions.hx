@@ -211,13 +211,9 @@ function testScalarDecInstructions(_t:stdgo.Ref<stdgo._internal.testing.Testing_
         };
         {
             var _data:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-            var _data__pointer__ = (stdgo.Go.setRef(_data) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
-            var _data__pointer__ = (stdgo.Go.setRef(_data) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
-            var _data__pointer__ = (stdgo.Go.setRef(_data) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
-            var _data__pointer__ = (stdgo.Go.setRef(_data) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             var _instr = (stdgo.Go.setRef((new stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr(stdgo._internal.encoding.gob.Gob__decUint8Slice._decUint8Slice, (6 : stdgo.GoInt), (null : stdgo.Slice<stdgo.GoInt>), _ovfl) : stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T_decInstr>);
             var _state = stdgo._internal.encoding.gob.Gob__newDecodeStateFromData._newDecodeStateFromData(stdgo._internal.encoding.gob.Gob__bytesResult._bytesResult);
-            stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface(_data__pointer__))?.__copy__());
+            stdgo._internal.encoding.gob.Gob__execDec._execDec(_instr, _state, _t, stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterface((stdgo.Go.setRef(_data) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)))?.__copy__());
             if ((_data : stdgo.GoString) != (("hello" : stdgo.GoString))) {
                 _t.errorf(("bytes a = %q not \"hello\"" : stdgo.GoString), stdgo.Go.toInterface((_data : stdgo.GoString)));
             };

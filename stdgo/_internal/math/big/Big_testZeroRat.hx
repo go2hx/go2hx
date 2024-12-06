@@ -4,16 +4,8 @@ function testZeroRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         try {
             var __0:stdgo._internal.math.big.Big_Rat.Rat = ({} : stdgo._internal.math.big.Big_Rat.Rat), __1:stdgo._internal.math.big.Big_Rat.Rat = ({} : stdgo._internal.math.big.Big_Rat.Rat), __2:stdgo._internal.math.big.Big_Rat.Rat = ({} : stdgo._internal.math.big.Big_Rat.Rat);
 var _z = __2, _y = __1, _x = __0;
-            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _y__pointer__ = (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
             _y.setFrac64((0i64 : stdgo.GoInt64), (42i64 : stdgo.GoInt64));
-            if (_x.cmp(_y__pointer__) != ((0 : stdgo.GoInt))) {
+            if (_x.cmp((stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>)) != ((0 : stdgo.GoInt))) {
                 _t.errorf(("x and y should be both equal and zero" : stdgo.GoString));
             };
             {
@@ -28,21 +20,21 @@ var _z = __2, _y = __1, _x = __0;
                     _t.errorf(("got x = %s, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s));
                 };
             };
-            _z.add(_x__pointer__, _y__pointer__);
+            _z.add((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>));
             {
                 var _s = (_z.ratString()?.__copy__() : stdgo.GoString);
                 if (_s != (("0" : stdgo.GoString))) {
                     _t.errorf(("got x+y = %s, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s));
                 };
             };
-            _z.sub(_x__pointer__, _y__pointer__);
+            _z.sub((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>));
             {
                 var _s = (_z.ratString()?.__copy__() : stdgo.GoString);
                 if (_s != (("0" : stdgo.GoString))) {
                     _t.errorf(("got x-y = %s, want 0" : stdgo.GoString), stdgo.Go.toInterface(_s));
                 };
             };
-            _z.mul(_x__pointer__, _y__pointer__);
+            _z.mul((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>));
             {
                 var _s = (_z.ratString()?.__copy__() : stdgo.GoString);
                 if (_s != (("0" : stdgo.GoString))) {
@@ -64,7 +56,7 @@ var _z = __2, _y = __1, _x = __0;
                 };
                 a();
             }));
-            _z.quo(_x__pointer__, _y__pointer__);
+            _z.quo((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>), (stdgo.Go.setRef(_y) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>));
             {
                 for (defer in __deferstack__) {
                     defer();

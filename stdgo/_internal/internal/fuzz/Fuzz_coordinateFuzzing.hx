@@ -185,7 +185,7 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                                                 };
                                                 break;
                                             };
-                                            _c._crashMinimizing = stdgo._internal.internal.fuzz.Fuzz__result__pointer__._result__pointer__;
+                                            _c._crashMinimizing = (stdgo.Go.setRef(_result) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_fuzzResult.T_fuzzResult>);
                                             stdgo._internal.fmt.Fmt_fprintf.fprintf(_c._opts.log, ("fuzz: minimizing %d-byte failing input file\n" : stdgo.GoString), stdgo.Go.toInterface((_result._entry.data.length)));
                                             _c._queueForMinimization(_result?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>));
                                         } else if (!_crashWritten) {

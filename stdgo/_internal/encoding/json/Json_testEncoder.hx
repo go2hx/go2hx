@@ -4,11 +4,7 @@ function testEncoder(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var _i = (0 : stdgo.GoInt);
             while ((_i <= (stdgo._internal.encoding.json.Json__streamTest._streamTest.length) : Bool)) {
                 var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-var _enc = stdgo._internal.encoding.json.Json_newEncoder.newEncoder(stdgo.Go.asInterface(_buf__pointer__));
+var _enc = stdgo._internal.encoding.json.Json_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)));
 _enc.setIndent((">" : stdgo.GoString), ("." : stdgo.GoString));
 _enc.setIndent(stdgo.Go.str().__copy__(), stdgo.Go.str().__copy__());
 for (_j => _v in (stdgo._internal.encoding.json.Json__streamTest._streamTest.__slice__((0 : stdgo.GoInt), _i) : stdgo.Slice<stdgo.AnyInterface>)) {

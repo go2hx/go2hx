@@ -21,11 +21,7 @@ function testMapBug1(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.gob.Gob_Bug1Elem.Bug1Elem>) : stdgo._internal.encoding.gob.Gob_Bug1StructMap.Bug1StructMap);
-        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug1StructMap.Bug1StructMap>);
-        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug1StructMap.Bug1StructMap>);
-        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug1StructMap.Bug1StructMap>);
-        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug1StructMap.Bug1StructMap>);
-        _err = _dec.decode(stdgo.Go.toInterface(_out__pointer__));
+        _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bug1StructMap.Bug1StructMap>)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

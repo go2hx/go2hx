@@ -62,27 +62,24 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                                 break;
                             } else if (__value__ == ((31 : stdgo.GoInt))) {
                                 var _val = (_e.value : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
-                                var _val__pointer__ = (stdgo.Go.setRef(_val) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-                                if (!_val.readASN1(_val__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
+                                if (!_val.readASN1((stdgo.Go.setRef(_val) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                                     return stdgo._internal.errors.Errors_new_.new_(("x509: invalid CRL distribution points" : stdgo.GoString));
                                 };
                                 while (!_val.empty()) {
                                     var _dpDER:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-                                    var _dpDER__pointer__ = (stdgo.Go.setRef(_dpDER) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-                                    if (!_val.readASN1(_dpDER__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
+                                    if (!_val.readASN1((stdgo.Go.setRef(_dpDER) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid CRL distribution point" : stdgo.GoString));
                                     };
                                     var _dpNameDER:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-                                    var _dpNameDER__pointer__ = (stdgo.Go.setRef(_dpNameDER) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
                                     var _dpNamePresent:Bool = false;
                                     var _dpNamePresent__pointer__ = stdgo.Go.pointer(_dpNamePresent);
-                                    if (!_dpDER.readOptionalASN1(_dpNameDER__pointer__, _dpNamePresent__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).constructed().contextSpecific())) {
+                                    if (!_dpDER.readOptionalASN1((stdgo.Go.setRef(_dpNameDER) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), _dpNamePresent__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).constructed().contextSpecific())) {
                                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid CRL distribution point" : stdgo.GoString));
                                     };
                                     if (!_dpNamePresent) {
                                         continue;
                                     };
-                                    if (!_dpNameDER.readASN1(_dpNameDER__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).constructed().contextSpecific())) {
+                                    if (!_dpNameDER.readASN1((stdgo.Go.setRef(_dpNameDER) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).constructed().contextSpecific())) {
                                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid CRL distribution point" : stdgo.GoString));
                                     };
                                     while (!_dpNameDER.empty()) {
@@ -90,8 +87,7 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                                             break;
                                         };
                                         var _uri:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-                                        var _uri__pointer__ = (stdgo.Go.setRef(_uri) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-                                        if (!_dpNameDER.readASN1(_uri__pointer__, (6 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific())) {
+                                        if (!_dpNameDER.readASN1((stdgo.Go.setRef(_uri) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (6 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific())) {
                                             return stdgo._internal.errors.Errors_new_.new_(("x509: invalid CRL distribution point" : stdgo.GoString));
                                         };
                                         _out.crldistributionPoints = (_out.crldistributionPoints.__append__((_uri : stdgo.GoString)?.__copy__()));
@@ -101,12 +97,11 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                             } else if (__value__ == ((35 : stdgo.GoInt))) {
                                 var _val = (_e.value : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
                                 var _akid:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-                                var _akid__pointer__ = (stdgo.Go.setRef(_akid) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-                                if (!_val.readASN1(_akid__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
+                                if (!_val.readASN1((stdgo.Go.setRef(_akid) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                                     return stdgo._internal.errors.Errors_new_.new_(("x509: invalid authority key identifier" : stdgo.GoString));
                                 };
                                 if (_akid.peekASN1Tag((0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific())) {
-                                    if (!_akid.readASN1(_akid__pointer__, (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific())) {
+                                    if (!_akid.readASN1((stdgo.Go.setRef(_akid) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (0 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific())) {
                                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid authority key identifier" : stdgo.GoString));
                                     };
                                     _out.authorityKeyId = _akid;
@@ -126,8 +121,7 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                             } else if (__value__ == ((14 : stdgo.GoInt))) {
                                 var _val = (_e.value : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
                                 var _skid:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-                                var _skid__pointer__ = (stdgo.Go.setRef(_skid) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-                                if (!_val.readASN1(_skid__pointer__, (4 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
+                                if (!_val.readASN1((stdgo.Go.setRef(_skid) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (4 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                                     return stdgo._internal.errors.Errors_new_.new_(("x509: invalid subject key identifier" : stdgo.GoString));
                                 };
                                 _out.subjectKeyId = _skid;
@@ -151,25 +145,22 @@ function _processExtensions(_out:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
                 };
             } else if (_e.id.equal(stdgo._internal.crypto.x509.X509__oidExtensionAuthorityInfoAccess._oidExtensionAuthorityInfoAccess)) {
                 var _val = (_e.value : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
-                var _val__pointer__ = (stdgo.Go.setRef(_val) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-                if (!_val.readASN1(_val__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
+                if (!_val.readASN1((stdgo.Go.setRef(_val) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                     return stdgo._internal.errors.Errors_new_.new_(("x509: invalid authority info access" : stdgo.GoString));
                 };
                 while (!_val.empty()) {
                     var _aiaDER:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-                    var _aiaDER__pointer__ = (stdgo.Go.setRef(_aiaDER) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>);
-                    if (!_val.readASN1(_aiaDER__pointer__, (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
+                    if (!_val.readASN1((stdgo.Go.setRef(_aiaDER) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (48 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag))) {
                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid authority info access" : stdgo.GoString));
                     };
                     var _method:stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier = new stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier(0, 0);
-                    var _method__pointer__ = (stdgo.Go.setRef(_method) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>);
-                    if (!_aiaDER.readASN1ObjectIdentifier(_method__pointer__)) {
+                    if (!_aiaDER.readASN1ObjectIdentifier((stdgo.Go.setRef(_method) : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>))) {
                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid authority info access" : stdgo.GoString));
                     };
                     if (!_aiaDER.peekASN1Tag((6 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific())) {
                         continue;
                     };
-                    if (!_aiaDER.readASN1(_aiaDER__pointer__, (6 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific())) {
+                    if (!_aiaDER.readASN1((stdgo.Go.setRef(_aiaDER) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (6 : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.asn1.Asn1_Tag.Tag).contextSpecific())) {
                         return stdgo._internal.errors.Errors_new_.new_(("x509: invalid authority info access" : stdgo.GoString));
                     };
                     if (_method.equal(stdgo._internal.crypto.x509.X509__oidAuthorityInfoAccessOcsp._oidAuthorityInfoAccessOcsp)) {

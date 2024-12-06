@@ -53,9 +53,8 @@ function encode(_w:stdgo._internal.io.Io_Writer.Writer, _m:stdgo._internal.image
         };
         if (stdgo.Go.toInterface(_pm.rect.min) != stdgo.Go.toInterface(((new stdgo._internal.image.Image_Point.Point() : stdgo._internal.image.Image_Point.Point)))) {
             var _dup = ((_pm : stdgo._internal.image.Image_Paletted.Paletted)?.__copy__() : stdgo._internal.image.Image_Paletted.Paletted);
-            var _dup__pointer__ = (stdgo.Go.setRef(_dup) : stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>);
             _dup.rect = _dup.rect.sub(_dup.rect.min?.__copy__())?.__copy__();
-            _pm = _dup__pointer__;
+            _pm = (stdgo.Go.setRef(_dup) : stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>);
         };
         return stdgo._internal.image.gif.Gif_encodeAll.encodeAll(_w, (stdgo.Go.setRef(({ image : (new stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>(1, 1, ...[_pm]) : stdgo.Slice<stdgo.Ref<stdgo._internal.image.Image_Paletted.Paletted>>), delay : (new stdgo.Slice<stdgo.GoInt>(1, 1, ...[(0 : stdgo.GoInt)]).__setNumber32__() : stdgo.Slice<stdgo.GoInt>), config : ({ colorModel : stdgo.Go.asInterface(_pm.palette), width : _b.dx(), height : _b.dy() } : stdgo._internal.image.Image_Config.Config) } : stdgo._internal.image.gif.Gif_GIF.GIF)) : stdgo.Ref<stdgo._internal.image.gif.Gif_GIF.GIF>));
     }

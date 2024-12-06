@@ -11,7 +11,6 @@ function _drainBody(_b:stdgo._internal.io.Io_ReadCloser.ReadCloser):{ var _0 : s
             };
         };
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         {
             {
                 var __tmp__ = _buf.readFrom(_b);
@@ -40,7 +39,7 @@ function _drainBody(_b:stdgo._internal.io.Io_ReadCloser.ReadCloser):{ var _0 : s
             };
         };
         return {
-            final __tmp__:{ var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _2 : stdgo.Error; } = { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(_buf__pointer__)), _1 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_buf.bytes()))), _2 : (null : stdgo.Error) };
+            final __tmp__:{ var _0 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _1 : stdgo._internal.io.Io_ReadCloser.ReadCloser; var _2 : stdgo.Error; } = { _0 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>))), _1 : stdgo._internal.io.Io_nopCloser.nopCloser(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_buf.bytes()))), _2 : (null : stdgo.Error) };
             _r1 = __tmp__._0;
             _r2 = __tmp__._1;
             _err = __tmp__._2;

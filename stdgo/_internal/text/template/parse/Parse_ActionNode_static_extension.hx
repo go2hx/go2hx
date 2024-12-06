@@ -21,8 +21,7 @@ package stdgo._internal.text.template.parse;
     static public function string( _a:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode>):stdgo.GoString {
         @:recv var _a:stdgo.Ref<stdgo._internal.text.template.parse.Parse_ActionNode.ActionNode> = _a;
         var _sb:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _sb__pointer__ = (stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        _a._writeTo(_sb__pointer__);
+        _a._writeTo((stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
         return (_sb.string() : stdgo.GoString)?.__copy__();
     }
     @:embedded

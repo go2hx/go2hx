@@ -11,8 +11,7 @@ package stdgo._internal.internal.fuzz;
         var _success = false, _retErr = (null : stdgo.Error);
         var _keepCoverage = _args.keepCoverage;
         var _memBytes = _mem._valueRef();
-        var _memBytes__pointer__ = (stdgo.Go.setRef(_memBytes) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
-        var _bPtr = _memBytes__pointer__;
+        var _bPtr = (stdgo.Go.setRef(_memBytes) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
         var _count = stdgo.Go.pointer(_mem._header()._count);
         var _shouldStop = (function():Bool {
             return ((_ctx.err() != null) || (((_args.limit > (0i64 : stdgo.GoInt64) : Bool) && (_count.value >= _args.limit : Bool) : Bool)) : Bool);
@@ -398,9 +397,8 @@ package stdgo._internal.internal.fuzz;
         var _dec = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(({ _ctx : _ctx, _r : stdgo.Go.asInterface(_ws._workerComm._fuzzIn) } : stdgo._internal.internal.fuzz.Fuzz_T_contextReader.T_contextReader)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_contextReader.T_contextReader>)));
         while (true) {
             var _c:stdgo._internal.internal.fuzz.Fuzz_T_call.T_call = ({} : stdgo._internal.internal.fuzz.Fuzz_T_call.T_call);
-            var _c__pointer__ = (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_call.T_call>);
             {
-                var _err = (_dec.decode(stdgo.Go.toInterface(_c__pointer__)) : stdgo.Error);
+                var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_c) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_call.T_call>))) : stdgo.Error);
                 if (_err != null) {
                     if (((stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) || (stdgo.Go.toInterface(_err) == stdgo.Go.toInterface(_ctx.err())) : Bool)) {
                         return (null : stdgo.Error);

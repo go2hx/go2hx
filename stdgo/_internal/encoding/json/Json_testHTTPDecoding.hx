@@ -13,19 +13,15 @@ function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             };
             __deferstack__.unshift(() -> _res.body.close());
             var _foo = ({ foo : ("" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44);
-            var _foo__pointer__ = (stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>);
-            var _foo__pointer__ = (stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>);
-            var _foo__pointer__ = (stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>);
-            var _foo__pointer__ = (stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>);
             var _d = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(_res.body);
-            _err = _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface(_foo__pointer__)));
+            _err = _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>))));
             if (_err != null) {
                 _t.fatalf(("Decode: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
             if (_foo.foo != (("bar" : stdgo.GoString))) {
                 _t.errorf(("decoded %q; want \"bar\"" : stdgo.GoString), stdgo.Go.toInterface(_foo.foo));
             };
-            _err = _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface(_foo__pointer__)));
+            _err = _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>))));
             if (stdgo.Go.toInterface(_err) != (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                 _t.errorf(("err = %v; want io.EOF" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };

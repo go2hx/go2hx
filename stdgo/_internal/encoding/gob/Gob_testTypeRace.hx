@@ -12,12 +12,8 @@ stdgo.Go.routine(() -> ({
                         try {
                             __deferstack__.unshift(() -> _wg.done());
                             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-                            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-                            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-                            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-                            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-                            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_buf__pointer__));
-                            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_buf__pointer__));
+                            var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
+                            var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
                             var _x:stdgo.AnyInterface = (null : stdgo.AnyInterface);
                             {
                                 final __value__ = _i;
@@ -41,10 +37,6 @@ stdgo.Go.routine(() -> ({
                                 {};
                                 x;
                             } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>);
-                            var _m__pointer__ = (stdgo.Go.setRef(_m) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>);
-                            var _m__pointer__ = (stdgo.Go.setRef(_m) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>);
-                            var _m__pointer__ = (stdgo.Go.setRef(_m) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>);
-                            var _m__pointer__ = (stdgo.Go.setRef(_m) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>);
                             _c.__get__();
                             {
                                 var _err = (_enc.encode(_x) : stdgo.Error);
@@ -71,7 +63,7 @@ stdgo.Go.routine(() -> ({
                                 };
                             };
                             {
-                                var _err = (_dec.decode(stdgo.Go.toInterface(_m__pointer__)) : stdgo.Error);
+                                var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_m) : stdgo.Ref<stdgo.GoMap<stdgo.GoString, stdgo.GoString>>))) : stdgo.Error);
                                 if (_err == null) {
                                     _t.error(stdgo.Go.toInterface(("decode unexpectedly succeeded" : stdgo.GoString)));
                                     {

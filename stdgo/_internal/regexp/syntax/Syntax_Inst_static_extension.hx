@@ -4,9 +4,7 @@ package stdgo._internal.regexp.syntax;
     static public function string( _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst>):stdgo.GoString {
         @:recv var _i:stdgo.Ref<stdgo._internal.regexp.syntax.Syntax_Inst.Inst> = _i;
         var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        stdgo._internal.regexp.syntax.Syntax__dumpInst._dumpInst(_b__pointer__, _i);
+        stdgo._internal.regexp.syntax.Syntax__dumpInst._dumpInst((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>), _i);
         return (_b.string() : stdgo.GoString)?.__copy__();
     }
     @:keep

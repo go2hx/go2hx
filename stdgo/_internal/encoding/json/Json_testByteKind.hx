@@ -7,11 +7,7 @@ function testByteKind(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
             _t.error(stdgo.Go.toInterface(_err));
         };
         var _b:stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617.T_testByteKind___localname___byteKind_47617 = new stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617.T_testByteKind___localname___byteKind_47617(0, 0);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617.T_testByteKind___localname___byteKind_47617>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617.T_testByteKind___localname___byteKind_47617>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617.T_testByteKind___localname___byteKind_47617>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617.T_testByteKind___localname___byteKind_47617>);
-        _err = stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_data, stdgo.Go.toInterface(_b__pointer__));
+        _err = stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_data, stdgo.Go.toInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.encoding.json.Json_T_testByteKind___localname___byteKind_47617.T_testByteKind___localname___byteKind_47617>)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(_err));
         };

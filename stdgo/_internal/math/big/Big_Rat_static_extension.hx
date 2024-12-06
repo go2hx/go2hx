@@ -397,17 +397,9 @@ var _b = __1, _a = __0;
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = _z;
         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _a2 = __1, _a1 = __0;
-        var _a2__pointer__ = (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a1__pointer__ = (stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a2__pointer__ = (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a1__pointer__ = (stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a2__pointer__ = (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a1__pointer__ = (stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a2__pointer__ = (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a1__pointer__ = (stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         _a1._scaleDenom((stdgo.Go.setRef(_x._a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _y._b._abs);
         _a2._scaleDenom((stdgo.Go.setRef(_y._a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _x._b._abs);
-        _z._a.sub(_a1__pointer__, _a2__pointer__);
+        _z._a.sub((stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
         _z._b._abs = stdgo._internal.math.big.Big__mulDenom._mulDenom(_z._b._abs, _x._b._abs, _y._b._abs);
         return _z._norm();
     }
@@ -416,17 +408,9 @@ var _a2 = __1, _a1 = __0;
         @:recv var _z:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = _z;
         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _a2 = __1, _a1 = __0;
-        var _a2__pointer__ = (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a1__pointer__ = (stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a2__pointer__ = (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a1__pointer__ = (stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a2__pointer__ = (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a1__pointer__ = (stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a2__pointer__ = (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _a1__pointer__ = (stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         _a1._scaleDenom((stdgo.Go.setRef(_x._a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _y._b._abs);
         _a2._scaleDenom((stdgo.Go.setRef(_y._a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _x._b._abs);
-        _z._a.add(_a1__pointer__, _a2__pointer__);
+        _z._a.add((stdgo.Go.setRef(_a1) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), (stdgo.Go.setRef(_a2) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
         _z._b._abs = stdgo._internal.math.big.Big__mulDenom._mulDenom(_z._b._abs, _x._b._abs, _y._b._abs);
         return _z._norm();
     }
@@ -435,13 +419,9 @@ var _a2 = __1, _a1 = __0;
         @:recv var _x:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = _x;
         var __0:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_), __1:stdgo._internal.math.big.Big_Int_.Int_ = ({} : stdgo._internal.math.big.Big_Int_.Int_);
 var _b = __1, _a = __0;
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>);
         _a._scaleDenom((stdgo.Go.setRef(_x._a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _y._b._abs);
         _b._scaleDenom((stdgo.Go.setRef(_y._a) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>), _x._b._abs);
-        return _a.cmp(_b__pointer__);
+        return _a.cmp((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>));
     }
     @:keep
     static public function _norm( _z:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>):stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> {

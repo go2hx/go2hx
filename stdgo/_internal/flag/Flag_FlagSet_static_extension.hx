@@ -349,11 +349,7 @@ package stdgo._internal.flag;
         var _isZeroValueErrs:stdgo.Slice<stdgo.Error> = (null : stdgo.Slice<stdgo.Error>);
         _f.visitAll(function(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>):Void {
             var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-            var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-            var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-            var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-            var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b__pointer__), ("  -%s" : stdgo.GoString), stdgo.Go.toInterface(_flag.name));
+            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), ("  -%s" : stdgo.GoString), stdgo.Go.toInterface(_flag.name));
             var __tmp__ = stdgo._internal.flag.Flag_unquoteUsage.unquoteUsage(_flag), _name:stdgo.GoString = __tmp__._0, _usage:stdgo.GoString = __tmp__._1;
             if (((_name.length) > (0 : stdgo.GoInt) : Bool)) {
                 _b.writeString((" " : stdgo.GoString));
@@ -377,9 +373,9 @@ package stdgo._internal.flag;
                             { _0 : (null : stdgo.Pointer<stdgo._internal.flag.Flag_T_stringValue.T_stringValue>), _1 : false };
                         }, __0 = __tmp__._0, _ok = __tmp__._1;
                         if (_ok) {
-                            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b__pointer__), (" (default %q)" : stdgo.GoString), stdgo.Go.toInterface(_flag.defValue));
+                            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), (" (default %q)" : stdgo.GoString), stdgo.Go.toInterface(_flag.defValue));
                         } else {
-                            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_b__pointer__), (" (default %v)" : stdgo.GoString), stdgo.Go.toInterface(_flag.defValue));
+                            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), (" (default %v)" : stdgo.GoString), stdgo.Go.toInterface(_flag.defValue));
                         };
                     };
                 };

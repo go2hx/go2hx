@@ -20,12 +20,8 @@ x.set(("D" : stdgo.GoString), null);
             {};
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo._internal.encoding.gob.Gob_T_testRecursiveMapType___localname___recursiveMap_7903.T_testRecursiveMapType___localname___recursiveMap_7903>) : stdgo._internal.encoding.gob.Gob_T_testRecursiveMapType___localname___recursiveMap_7903.T_testRecursiveMapType___localname___recursiveMap_7903);
-        var _r2__pointer__ = (stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveMapType___localname___recursiveMap_7903.T_testRecursiveMapType___localname___recursiveMap_7903>);
-        var _r2__pointer__ = (stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveMapType___localname___recursiveMap_7903.T_testRecursiveMapType___localname___recursiveMap_7903>);
-        var _r2__pointer__ = (stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveMapType___localname___recursiveMap_7903.T_testRecursiveMapType___localname___recursiveMap_7903>);
-        var _r2__pointer__ = (stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveMapType___localname___recursiveMap_7903.T_testRecursiveMapType___localname___recursiveMap_7903>);
         {
-            var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_r1), stdgo.Go.toInterface(_r2__pointer__)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.gob.Gob__encAndDec._encAndDec(stdgo.Go.toInterface(_r1), stdgo.Go.toInterface((stdgo.Go.setRef(_r2) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testRecursiveMapType___localname___recursiveMap_7903.T_testRecursiveMapType___localname___recursiveMap_7903>))) : stdgo.Error);
             if (_err != null) {
                 _t.error(stdgo.Go.toInterface(_err));
             };

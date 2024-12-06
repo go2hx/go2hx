@@ -13,17 +13,9 @@ function testExecError_CustomError(_t:stdgo.Ref<stdgo._internal.testing.Testing_
             stdgo._internal.text.template.Template_must.must((__tmp__._0 : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>), (__tmp__._1 : stdgo.Error));
         });
         var _b:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-        var _b__pointer__ = (stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-        var _err = (_tmpl.execute(stdgo.Go.asInterface(_b__pointer__), (null : stdgo.AnyInterface)) : stdgo.Error);
+        var _err = (_tmpl.execute(stdgo.Go.asInterface((stdgo.Go.setRef(_b) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), (null : stdgo.AnyInterface)) : stdgo.Error);
         var _e:stdgo.Ref<stdgo._internal.text.template.Template_CustomError.CustomError> = (null : stdgo.Ref<stdgo._internal.text.template.Template_CustomError.CustomError>);
-        var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.Ref<stdgo._internal.text.template.Template_CustomError.CustomError>>);
-        var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.Ref<stdgo._internal.text.template.Template_CustomError.CustomError>>);
-        var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.Ref<stdgo._internal.text.template.Template_CustomError.CustomError>>);
-        var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.Ref<stdgo._internal.text.template.Template_CustomError.CustomError>>);
-        if (!stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface(_e__pointer__))) {
+        if (!stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo.Ref<stdgo._internal.text.template.Template_CustomError.CustomError>>)))) {
             _t.fatalf(("expected custom error; got %s" : stdgo.GoString), stdgo.Go.toInterface(_err));
         };
     }

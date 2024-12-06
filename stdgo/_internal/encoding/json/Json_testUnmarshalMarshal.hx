@@ -2,12 +2,8 @@ package stdgo._internal.encoding.json;
 function testUnmarshalMarshal(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         stdgo._internal.encoding.json.Json__initBig._initBig();
         var _v:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-        var _v__pointer__ = (stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>);
-        var _v__pointer__ = (stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>);
-        var _v__pointer__ = (stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>);
-        var _v__pointer__ = (stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>);
         {
-            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(stdgo._internal.encoding.json.Json__jsonBig._jsonBig, stdgo.Go.toInterface(_v__pointer__)) : stdgo.Error);
+            var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(stdgo._internal.encoding.json.Json__jsonBig._jsonBig, stdgo.Go.toInterface((stdgo.Go.setRef(_v) : stdgo.Ref<stdgo.AnyInterface>))) : stdgo.Error);
             if (_err != null) {
                 _t.fatalf(("Unmarshal: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };

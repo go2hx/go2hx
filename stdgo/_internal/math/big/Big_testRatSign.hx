@@ -3,17 +3,13 @@ function testRatSign(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _zero = stdgo._internal.math.big.Big_newRat.newRat((0i64 : stdgo.GoInt64), (1i64 : stdgo.GoInt64));
         for (__8 => _a in stdgo._internal.math.big.Big__setStringTests._setStringTests) {
             var __tmp__ = (stdgo.Go.setRef(({} : stdgo._internal.math.big.Big_Rat.Rat)) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>).setString(_a._in?.__copy__()), _x:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>>);
             if (!_ok) {
                 continue;
             };
             var _s = (_x.sign() : stdgo.GoInt);
             var _e = (_x.cmp(_zero) : stdgo.GoInt);
             if (_s != (_e)) {
-                _t.errorf(("got %d; want %d for z = %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_e), stdgo.Go.toInterface(_x__pointer__));
+                _t.errorf(("got %d; want %d for z = %v" : stdgo.GoString), stdgo.Go.toInterface(_s), stdgo.Go.toInterface(_e), stdgo.Go.toInterface((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>>)));
             };
         };
     }

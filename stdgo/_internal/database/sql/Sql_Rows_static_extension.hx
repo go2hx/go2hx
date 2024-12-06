@@ -508,8 +508,7 @@ var _ok = __1, _doClose = __0;
                         _ctx.done().__get__();
                         {
                             var _err = (_ctx.err() : stdgo.Error);
-                            var _err__pointer__ = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
-                            _rs._contextDone.store(_err__pointer__);
+                            _rs._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
                 } else if (_txctxDone != null && _txctxDone.__isGet__()) {
@@ -518,8 +517,7 @@ var _ok = __1, _doClose = __0;
                         _txctxDone.__get__();
                         {
                             var _err = (_txctx.err() : stdgo.Error);
-                            var _err__pointer__ = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
-                            _rs._contextDone.store(_err__pointer__);
+                            _rs._contextDone.store((stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>));
                         };
                     };
                 } else if (_closectx.done() != null && _closectx.done().__isGet__()) {

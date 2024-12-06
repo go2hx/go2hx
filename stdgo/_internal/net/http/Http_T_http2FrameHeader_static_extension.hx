@@ -51,9 +51,8 @@ if (_name != (stdgo.Go.str())) {
     static public function string( _h:stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader):stdgo.GoString {
         @:recv var _h:stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader = _h?.__copy__();
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         _buf.writeString(("[FrameHeader " : stdgo.GoString));
-        _h._writeDebug(_buf__pointer__);
+        _h._writeDebug((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>));
         _buf.writeByte((93 : stdgo.GoUInt8));
         return (_buf.string() : stdgo.GoString)?.__copy__();
     }

@@ -45,10 +45,6 @@ _indices = (_indices.__append__(_i));
                     var _b = (_s : stdgo.Slice<stdgo.GoUInt8>);
 _b[(_i : stdgo.GoInt)] = (_b[(_i : stdgo.GoInt)] ^ ((_j : stdgo.GoUInt8)) : stdgo.GoUInt8);
 var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.gob.Gob_DT.DT);
-var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>);
-var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>);
-var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>);
-var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>);
 ({
                         var a = function():Void {
                             var __deferstack__:Array<Void -> Void> = [];
@@ -69,7 +65,7 @@ var _e__pointer__ = (stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.go
                                     };
                                     a();
                                 }));
-                                var _err = (stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))).decode(stdgo.Go.toInterface(_e__pointer__)) : stdgo.Error);
+                                var _err = (stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>))) : stdgo.Error);
                                 var __blank__ = _err;
                                 {
                                     for (defer in __deferstack__) {

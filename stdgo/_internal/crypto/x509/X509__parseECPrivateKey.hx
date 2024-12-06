@@ -2,9 +2,8 @@ package stdgo._internal.crypto.x509;
 function _parseECPrivateKey(_namedCurveOID:stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>, _der:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>; var _1 : stdgo.Error; } {
         var _key = (null : stdgo.Ref<stdgo._internal.crypto.ecdsa.Ecdsa_PrivateKey.PrivateKey>), _err = (null : stdgo.Error);
         var _privKey:stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey = ({} : stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey);
-        var _privKey__pointer__ = (stdgo.Go.setRef(_privKey) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey>);
         {
-            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_der, stdgo.Go.toInterface(_privKey__pointer__)), __1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_der, stdgo.Go.toInterface((stdgo.Go.setRef(_privKey) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_ecPrivateKey.T_ecPrivateKey>))), __1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_der, stdgo.Go.toInterface((stdgo.Go.setRef((new stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8() : stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8)) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_pkcs8.T_pkcs8>))), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

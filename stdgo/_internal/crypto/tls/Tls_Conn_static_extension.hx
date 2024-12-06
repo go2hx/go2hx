@@ -274,10 +274,9 @@ package stdgo._internal.crypto.tls;
             var __tmp__ = _certs[(0 : stdgo.GoInt)].verify(_opts?.__copy__()), _chains:stdgo.Slice<stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 var _errCertificateInvalid:stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError = ({} : stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError);
-                var _errCertificateInvalid__pointer__ = (stdgo.Go.setRef(_errCertificateInvalid) : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError>);
                 if (stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef((new stdgo._internal.crypto.x509.X509_UnknownAuthorityError.UnknownAuthorityError() : stdgo._internal.crypto.x509.X509_UnknownAuthorityError.UnknownAuthorityError)) : stdgo.Ref<stdgo._internal.crypto.x509.X509_UnknownAuthorityError.UnknownAuthorityError>))))) {
                     _c._sendAlert((48 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
-                } else if ((stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface(stdgo.Go.asInterface(_errCertificateInvalid__pointer__))) && (_errCertificateInvalid.reason == (1 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason)) : Bool)) {
+                } else if ((stdgo._internal.errors.Errors_as.as(_err, stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_errCertificateInvalid) : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertificateInvalidError.CertificateInvalidError>)))) && (_errCertificateInvalid.reason == (1 : stdgo._internal.crypto.x509.X509_InvalidReason.InvalidReason)) : Bool)) {
                     _c._sendAlert((45 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                 } else {
                     _c._sendAlert((42 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));

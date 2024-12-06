@@ -14,12 +14,8 @@ function testRoundtripStringTag(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
                     };
                 };
                 var _s2:stdgo._internal.encoding.json.Json_StringTag.StringTag = ({} : stdgo._internal.encoding.json.Json_StringTag.StringTag);
-                var _s2__pointer__ = (stdgo.Go.setRef(_s2) : stdgo.Ref<stdgo._internal.encoding.json.Json_StringTag.StringTag>);
-                var _s2__pointer__ = (stdgo.Go.setRef(_s2) : stdgo.Ref<stdgo._internal.encoding.json.Json_StringTag.StringTag>);
-                var _s2__pointer__ = (stdgo.Go.setRef(_s2) : stdgo.Ref<stdgo._internal.encoding.json.Json_StringTag.StringTag>);
-                var _s2__pointer__ = (stdgo.Go.setRef(_s2) : stdgo.Ref<stdgo._internal.encoding.json.Json_StringTag.StringTag>);
                 {
-                    var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_got, stdgo.Go.toInterface(_s2__pointer__)) : stdgo.Error);
+                    var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal(_got, stdgo.Go.toInterface((stdgo.Go.setRef(_s2) : stdgo.Ref<stdgo._internal.encoding.json.Json_StringTag.StringTag>))) : stdgo.Error);
                     if (_err != null) {
                         _t.fatalf(("Decode: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     };

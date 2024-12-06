@@ -50,8 +50,7 @@ package stdgo._internal.text.template.parse;
     static public function string( _p:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode>):stdgo.GoString {
         @:recv var _p:stdgo.Ref<stdgo._internal.text.template.parse.Parse_PipeNode.PipeNode> = _p;
         var _sb:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _sb__pointer__ = (stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
-        _p._writeTo(_sb__pointer__);
+        _p._writeTo((stdgo.Go.setRef(_sb) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>));
         return (_sb.string() : stdgo.GoString)?.__copy__();
     }
     @:keep

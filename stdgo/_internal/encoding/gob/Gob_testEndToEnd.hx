@@ -93,15 +93,11 @@ x.set(_arr2, _floatArr2);
             _t.error(stdgo.Go.toInterface(("encode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
         var __t1:stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836 = ({} : stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836);
-        var __t1__pointer__ = (stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836>);
-        var __t1__pointer__ = (stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836>);
-        var __t1__pointer__ = (stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836>);
-        var __t1__pointer__ = (stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836>);
-        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface(__t1__pointer__));
+        _err = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b)).decode(stdgo.Go.toInterface((stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836>)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };
-        if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_t1), stdgo.Go.toInterface(__t1__pointer__))) {
+        if (!stdgo._internal.reflect.Reflect_deepEqual.deepEqual(stdgo.Go.toInterface(_t1), stdgo.Go.toInterface((stdgo.Go.setRef(__t1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836>)))) {
             _t.errorf(("encode expected %v got %v" : stdgo.GoString), stdgo.Go.toInterface((_t1 : stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T1_13836.T_testEndToEnd___localname___T1_13836)), stdgo.Go.toInterface(__t1));
         };
         if (_t1.emptyMap == null) {

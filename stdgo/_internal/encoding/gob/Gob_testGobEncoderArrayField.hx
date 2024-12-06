@@ -3,15 +3,11 @@ function testGobEncoderArrayField(_t:stdgo.Ref<stdgo._internal.testing.Testing_T
         var _b = (stdgo.Go.setRef(({} : stdgo._internal.bytes.Bytes_Buffer.Buffer)) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
         var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b));
         var _a:stdgo._internal.encoding.gob.Gob_GobTestArrayEncDec.GobTestArrayEncDec = ({} : stdgo._internal.encoding.gob.Gob_GobTestArrayEncDec.GobTestArrayEncDec);
-        var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_GobTestArrayEncDec.GobTestArrayEncDec>);
-        var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_GobTestArrayEncDec.GobTestArrayEncDec>);
-        var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_GobTestArrayEncDec.GobTestArrayEncDec>);
-        var _a__pointer__ = (stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_GobTestArrayEncDec.GobTestArrayEncDec>);
         _a.x = (17 : stdgo.GoInt);
         for (_i => _ in _a.a._a) {
             _a.a._a[(_i : stdgo.GoInt)] = (_i : stdgo.GoUInt8);
         };
-        var _err = (_enc.encode(stdgo.Go.toInterface(_a__pointer__)) : stdgo.Error);
+        var _err = (_enc.encode(stdgo.Go.toInterface((stdgo.Go.setRef(_a) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_GobTestArrayEncDec.GobTestArrayEncDec>))) : stdgo.Error);
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

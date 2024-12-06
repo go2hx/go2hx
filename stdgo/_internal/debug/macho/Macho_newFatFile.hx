@@ -1,7 +1,6 @@
 package stdgo._internal.debug.macho;
 function newFatFile(_r:stdgo._internal.io.Io_ReaderAt.ReaderAt):{ var _0 : stdgo.Ref<stdgo._internal.debug.macho.Macho_FatFile.FatFile>; var _1 : stdgo.Error; } {
         var _ff:stdgo._internal.debug.macho.Macho_FatFile.FatFile = ({} : stdgo._internal.debug.macho.Macho_FatFile.FatFile);
-        var _ff__pointer__ = (stdgo.Go.setRef(_ff) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FatFile.FatFile>);
         var _sr = stdgo._internal.io.Io_newSectionReader.newSectionReader(_r, (0i64 : stdgo.GoInt64), (9223372036854775807i64 : stdgo.GoInt64));
         var _err = (stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface(_sr), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_bigEndian.bigEndian), stdgo.Go.toInterface(stdgo.Go.pointer(_ff.magic))) : stdgo.Error);
         if (_err != null) {
@@ -76,5 +75,5 @@ _ff.arches = (_ff.arches.__append__(_fa.__copy__()));
                 _i++;
             };
         };
-        return { _0 : _ff__pointer__, _1 : (null : stdgo.Error) };
+        return { _0 : (stdgo.Go.setRef(_ff) : stdgo.Ref<stdgo._internal.debug.macho.Macho_FatFile.FatFile>), _1 : (null : stdgo.Error) };
     }

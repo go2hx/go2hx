@@ -2,10 +2,6 @@ package stdgo._internal.math.big;
 function testFloatSetRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         for (__8 => _want in (new stdgo.Slice<stdgo.GoString>(8, 8, ...[("0" : stdgo.GoString), ("1" : stdgo.GoString), ("-1" : stdgo.GoString), ("1234567890" : stdgo.GoString), ("123456789012345678901234567890" : stdgo.GoString), ("123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890" : stdgo.GoString), ("1.2" : stdgo.GoString), ("3.14159265" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>)) {
             var _x:stdgo._internal.math.big.Big_Rat.Rat = ({} : stdgo._internal.math.big.Big_Rat.Rat);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
-            var _x__pointer__ = (stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>);
             var __tmp__ = _x.setString(_want?.__copy__()), __9:stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 _t.errorf(("invalid fraction %s" : stdgo.GoString), stdgo.Go.toInterface(_want));
@@ -15,8 +11,8 @@ function testFloatSetRat(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Vo
             var __0:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_), __1:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
 var _f2 = __1, _f1 = __0;
             _f2.setPrec((1000u32 : stdgo.GoUInt));
-            _f1.setRat(_x__pointer__);
-            _f2.setRat(_x__pointer__);
+            _f1.setRat((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>));
+            _f2.setRat((stdgo.Go.setRef(_x) : stdgo.Ref<stdgo._internal.math.big.Big_Rat.Rat>));
             if ((_n < (64 : stdgo.GoInt) : Bool)) {
                 _n = (64 : stdgo.GoInt);
             };

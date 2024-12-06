@@ -4,10 +4,6 @@ function testDecodeInStream(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
             var _dec = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.strings.Strings_newReader.newReader(_tcase._json?.__copy__())));
             for (_i => _etk in _tcase._expTokens) {
                 var _tk:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-                var _tk__pointer__ = (stdgo.Go.setRef(_tk) : stdgo.Ref<stdgo.AnyInterface>);
-                var _tk__pointer__ = (stdgo.Go.setRef(_tk) : stdgo.Ref<stdgo.AnyInterface>);
-                var _tk__pointer__ = (stdgo.Go.setRef(_tk) : stdgo.Ref<stdgo.AnyInterface>);
-                var _tk__pointer__ = (stdgo.Go.setRef(_tk) : stdgo.Ref<stdgo.AnyInterface>);
                 var _err:stdgo.Error = (null : stdgo.Error);
                 {
                     var __tmp__ = try {
@@ -17,7 +13,7 @@ function testDecodeInStream(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                     }, _dt = __tmp__._0, _ok = __tmp__._1;
                     if (_ok) {
                         _etk = _dt._v;
-                        _err = _dec.decode(stdgo.Go.toInterface(_tk__pointer__));
+                        _err = _dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_tk) : stdgo.Ref<stdgo.AnyInterface>)));
                     } else {
                         {
                             var __tmp__ = _dec.token();

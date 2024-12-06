@@ -12,9 +12,8 @@ function _http2shouldRetryRequest(_req:stdgo.Ref<stdgo._internal.net.http.Http_R
                 return { _0 : null, _1 : _err };
             };
             var _newReq = ((_req : stdgo._internal.net.http.Http_Request.Request)?.__copy__() : stdgo._internal.net.http.Http_Request.Request);
-            var _newReq__pointer__ = (stdgo.Go.setRef(_newReq) : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
             _newReq.body = _body;
-            return { _0 : _newReq__pointer__, _1 : (null : stdgo.Error) };
+            return { _0 : (stdgo.Go.setRef(_newReq) : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>), _1 : (null : stdgo.Error) };
         };
         if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.net.http.Http__http2errClientConnUnusable._http2errClientConnUnusable))) {
             return { _0 : _req, _1 : (null : stdgo.Error) };

@@ -14,17 +14,15 @@ function _getSignatureAlgorithmFromAI(_ai:stdgo._internal.crypto.x509.pkix.Pkix_
             return (0 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm);
         };
         var _params:stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters = ({} : stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters);
-        var _params__pointer__ = (stdgo.Go.setRef(_params) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters>);
         {
-            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_ai.parameters.fullBytes, stdgo.Go.toInterface(_params__pointer__)), __1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_ai.parameters.fullBytes, stdgo.Go.toInterface((stdgo.Go.setRef(_params) : stdgo.Ref<stdgo._internal.crypto.x509.X509_T_pssParameters.T_pssParameters>))), __1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return (0 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm);
             };
         };
         var _mgf1HashFunc:stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier = ({} : stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier);
-        var _mgf1HashFunc__pointer__ = (stdgo.Go.setRef(_mgf1HashFunc) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier>);
         {
-            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_params.mgf.parameters.fullBytes, stdgo.Go.toInterface(_mgf1HashFunc__pointer__)), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo._internal.encoding.asn1.Asn1_unmarshal.unmarshal(_params.mgf.parameters.fullBytes, stdgo.Go.toInterface((stdgo.Go.setRef(_mgf1HashFunc) : stdgo.Ref<stdgo._internal.crypto.x509.pkix.Pkix_AlgorithmIdentifier.AlgorithmIdentifier>))), __2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return (0 : stdgo._internal.crypto.x509.X509_SignatureAlgorithm.SignatureAlgorithm);
             };

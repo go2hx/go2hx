@@ -361,9 +361,7 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
             return (0i64 : stdgo.GoUInt64);
         };
         var _fp = (_t._pctab.__slice__(_filetab) : stdgo.Slice<stdgo.GoUInt8>);
-        var _fp__pointer__ = (stdgo.Go.setRef(_fp) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
         var _fl = (_t._pctab.__slice__(_linetab) : stdgo.Slice<stdgo.GoUInt8>);
-        var _fl__pointer__ = (stdgo.Go.setRef(_fl) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
         var _fileVal = ((-1 : stdgo.GoInt32) : stdgo.GoInt32);
         var _fileVal__pointer__ = stdgo.Go.pointer(_fileVal);
         var _filePC = (_entry : stdgo.GoUInt64);
@@ -373,14 +371,14 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
         var _linePC = (_entry : stdgo.GoUInt64);
         var _linePC__pointer__ = stdgo.Go.pointer(_linePC);
         var _fileStartPC = (_filePC : stdgo.GoUInt64);
-        while (_t._step(_fp__pointer__, _filePC__pointer__, _fileVal__pointer__, _filePC == (_entry))) {
+        while (_t._step((stdgo.Go.setRef(_fp) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>), _filePC__pointer__, _fileVal__pointer__, _filePC == (_entry))) {
             var _fileIndex = (_fileVal : stdgo.GoInt32);
             if (((_t._version == ((3 : stdgo._internal.debug.gosym.Gosym_T_version.T_version)) || _t._version == ((4 : stdgo._internal.debug.gosym.Gosym_T_version.T_version)) : Bool) || (_t._version == (5 : stdgo._internal.debug.gosym.Gosym_T_version.T_version)) : Bool)) {
                 _fileIndex = (_t._binary.uint32((_cutab.__slice__((_fileVal * (4 : stdgo.GoInt32) : stdgo.GoInt32)) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt32);
             };
             if (((_fileIndex == _filenum) && (_fileStartPC < _filePC : Bool) : Bool)) {
                 var _lineStartPC = (_linePC : stdgo.GoUInt64);
-                while (((_linePC < _filePC : Bool) && _t._step(_fl__pointer__, _linePC__pointer__, _lineVal__pointer__, _linePC == (_entry)) : Bool)) {
+                while (((_linePC < _filePC : Bool) && _t._step((stdgo.Go.setRef(_fl) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>), _linePC__pointer__, _lineVal__pointer__, _linePC == (_entry)) : Bool)) {
                     if (_lineVal == (_line)) {
                         if ((_fileStartPC <= _lineStartPC : Bool)) {
                             return _lineStartPC;
@@ -400,12 +398,11 @@ if (_pc != ((0i64 : stdgo.GoUInt64))) {
     static public function _pcvalue( _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable>, _off:stdgo.GoUInt32, _entry:stdgo.GoUInt64, _targetpc:stdgo.GoUInt64):stdgo.GoInt32 {
         @:recv var _t:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_LineTable.LineTable> = _t;
         var _p = (_t._pctab.__slice__(_off) : stdgo.Slice<stdgo.GoUInt8>);
-        var _p__pointer__ = (stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
         var _val = ((-1 : stdgo.GoInt32) : stdgo.GoInt32);
         var _val__pointer__ = stdgo.Go.pointer(_val);
         var _pc = (_entry : stdgo.GoUInt64);
         var _pc__pointer__ = stdgo.Go.pointer(_pc);
-        while (_t._step(_p__pointer__, _pc__pointer__, _val__pointer__, _pc == (_entry))) {
+        while (_t._step((stdgo.Go.setRef(_p) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>), _pc__pointer__, _val__pointer__, _pc == (_entry))) {
             if ((_targetpc < _pc : Bool)) {
                 return _val;
             };

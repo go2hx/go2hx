@@ -191,7 +191,6 @@ package stdgo._internal.net.http;
             _cc._mu.unlock();
             var _scratchLen = (_cs._frameScratchBufferLen(_maxFrameSize) : stdgo.GoInt);
             var _buf:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
-            var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo._internal.net.http.Http__http2bufPool._http2bufPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>), _1 : true };
@@ -207,7 +206,7 @@ package stdgo._internal.net.http;
                 } else {
                     _buf = (new stdgo.Slice<stdgo.GoUInt8>((_scratchLen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     {
-                        var _a0 = _buf__pointer__;
+                        var _a0 = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
                         __deferstack__.unshift(() -> stdgo._internal.net.http.Http__http2bufPool._http2bufPool.put(stdgo.Go.toInterface(_a0)));
                     };
                 };

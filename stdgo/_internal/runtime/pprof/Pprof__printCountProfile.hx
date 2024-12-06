@@ -1,12 +1,11 @@
 package stdgo._internal.runtime.pprof;
 function _printCountProfile(_w:stdgo._internal.io.Io_Writer.Writer, _debug:stdgo.GoInt, _name:stdgo.GoString, _p:stdgo._internal.runtime.pprof.Pprof_T_countProfile.T_countProfile):stdgo.Error {
         var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
-        var _buf__pointer__ = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>);
         var _key = function(_stk:stdgo.Slice<stdgo.GoUIntptr>, _lbls:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_T_labelMap.T_labelMap>):stdgo.GoString {
             _buf.reset();
-            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_buf__pointer__), ("@" : stdgo.GoString));
+            stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), ("@" : stdgo.GoString));
             for (__0 => _pc in _stk) {
-                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_buf__pointer__), (" %#x" : stdgo.GoString), stdgo.Go.toInterface(_pc));
+                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>)), (" %#x" : stdgo.GoString), stdgo.Go.toInterface(_pc));
             };
             if ((_lbls != null && ((_lbls : Dynamic).__nil__ == null || !(_lbls : Dynamic).__nil__))) {
                 _buf.writeString(("\n# labels: " : stdgo.GoString));

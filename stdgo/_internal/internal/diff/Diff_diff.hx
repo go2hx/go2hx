@@ -6,10 +6,9 @@ function diff(_oldName:stdgo.GoString, _old:stdgo.Slice<stdgo.GoUInt8>, _newName
         var _x = stdgo._internal.internal.diff.Diff__lines._lines(_old);
         var _y = stdgo._internal.internal.diff.Diff__lines._lines(_new);
         var _out:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
-        var _out__pointer__ = (stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>);
-        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_out__pointer__), ("diff %s %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName), stdgo.Go.toInterface(_newName));
-        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_out__pointer__), ("--- %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName));
-        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_out__pointer__), ("+++ %s\n" : stdgo.GoString), stdgo.Go.toInterface(_newName));
+        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("diff %s %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName), stdgo.Go.toInterface(_newName));
+        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("--- %s\n" : stdgo.GoString), stdgo.Go.toInterface(_oldName));
+        stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("+++ %s\n" : stdgo.GoString), stdgo.Go.toInterface(_newName));
         var __0:stdgo._internal.internal.diff.Diff_T_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_T_pair.T_pair), __1:stdgo._internal.internal.diff.Diff_T_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_T_pair.T_pair), __2:stdgo._internal.internal.diff.Diff_T_pair.T_pair = ({} : stdgo._internal.internal.diff.Diff_T_pair.T_pair), __3:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
 var _ctext = __3, _count = __2, _chunk = __1, _done = __0;
         for (__0 => _m in stdgo._internal.internal.diff.Diff__tgs._tgs(_x, _y)) {
@@ -61,7 +60,7 @@ var _ctext = __3, _count = __2, _chunk = __1, _done = __0;
                 if ((_count._y > (0 : stdgo.GoInt) : Bool)) {
                     _chunk._y++;
                 };
-                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface(_out__pointer__), ("@@ -%d,%d +%d,%d @@\n" : stdgo.GoString), stdgo.Go.toInterface(_chunk._x), stdgo.Go.toInterface(_count._x), stdgo.Go.toInterface(_chunk._y), stdgo.Go.toInterface(_count._y));
+                stdgo._internal.fmt.Fmt_fprintf.fprintf(stdgo.Go.asInterface((stdgo.Go.setRef(_out) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), ("@@ -%d,%d +%d,%d @@\n" : stdgo.GoString), stdgo.Go.toInterface(_chunk._x), stdgo.Go.toInterface(_count._x), stdgo.Go.toInterface(_chunk._y), stdgo.Go.toInterface(_count._y));
                 for (__4 => _s in _ctext) {
                     _out.writeString(_s?.__copy__());
                 };

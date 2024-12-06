@@ -667,7 +667,6 @@ var _n = __1, _i = __0;
             return _err;
         };
         var _start:stdgo._internal.encoding.xml.Xml_StartElement.StartElement = ({} : stdgo._internal.encoding.xml.Xml_StartElement.StartElement);
-        var _start__pointer__ = (stdgo.Go.setRef(_start) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_StartElement.StartElement>);
         if ((_startTemplate != null && ((_startTemplate : Dynamic).__nil__ == null || !(_startTemplate : Dynamic).__nil__))) {
             _start.name = _startTemplate.name?.__copy__();
             _start.attr = (_start.attr.__append__(...(_startTemplate.attr : Array<stdgo._internal.encoding.xml.Xml_Attr.Attr>)));
@@ -729,7 +728,7 @@ var _n = __1, _i = __0;
             };
             var _name = ({ space : _finfo._xmlns?.__copy__(), local : _finfo._name?.__copy__() } : stdgo._internal.encoding.xml.Xml_Name.Name);
             {
-                var _err = (_p._marshalAttr(_start__pointer__, _name?.__copy__(), _fv?.__copy__()) : stdgo.Error);
+                var _err = (_p._marshalAttr((stdgo.Go.setRef(_start) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_StartElement.StartElement>), _name?.__copy__(), _fv?.__copy__()) : stdgo.Error);
                 if (_err != null) {
                     return _err;
                 };
@@ -739,7 +738,7 @@ var _n = __1, _i = __0;
             _start.attr = (_start.attr.__append__((new stdgo._internal.encoding.xml.Xml_Attr.Attr((new stdgo._internal.encoding.xml.Xml_Name.Name(stdgo.Go.str()?.__copy__(), ("xmlns" : stdgo.GoString)) : stdgo._internal.encoding.xml.Xml_Name.Name), stdgo.Go.str()?.__copy__()) : stdgo._internal.encoding.xml.Xml_Attr.Attr)));
         };
         {
-            var _err = (_p._writeStart(_start__pointer__) : stdgo.Error);
+            var _err = (_p._writeStart((stdgo.Go.setRef(_start) : stdgo.Ref<stdgo._internal.encoding.xml.Xml_StartElement.StartElement>)) : stdgo.Error);
             if (_err != null) {
                 return _err;
             };

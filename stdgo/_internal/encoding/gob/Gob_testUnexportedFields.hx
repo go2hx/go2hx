@@ -9,12 +9,8 @@ function testUnexportedFields(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_
         stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface(_b)).encode(stdgo.Go.toInterface(_u0));
         var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(_b));
         var _u1:stdgo._internal.encoding.gob.Gob_U.U = ({} : stdgo._internal.encoding.gob.Gob_U.U);
-        var _u1__pointer__ = (stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_U.U>);
-        var _u1__pointer__ = (stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_U.U>);
-        var _u1__pointer__ = (stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_U.U>);
-        var _u1__pointer__ = (stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_U.U>);
         _u1._c = (1234 : stdgo.GoFloat64);
-        var _err = (_dec.decode(stdgo.Go.toInterface(_u1__pointer__)) : stdgo.Error);
+        var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_u1) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_U.U>))) : stdgo.Error);
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("decode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

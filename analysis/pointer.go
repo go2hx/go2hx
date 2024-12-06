@@ -96,6 +96,7 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 								if !skip {
 									ident2 := *ident
 									ident2.Name += suffix
+									checker.Types[&ident2] = checker.Types[stmt]
 									c.Replace(&ident2)
 								}
 							}

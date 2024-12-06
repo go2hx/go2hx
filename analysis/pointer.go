@@ -27,6 +27,9 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 								if strings.HasSuffix(ident.Name, "__pointer__") {
 
 								} else if hasAddrObj(ident.Obj, decl.Body, stmt) {
+									if !isValidPointer(checker.TypeOf(stmt.Lhs[i])) {
+										continue
+									}
 									ident2 := *ident
 									ident2.Name += suffix
 									index := c.Index()
@@ -62,6 +65,9 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 						for _, spec := range decl2.Specs {
 							switch stmt2 := spec.(type) {
 							case *ast.ValueSpec:
+								if !isValidPointer(checker.TypeOf(stmt2.Type)) {
+									continue
+								}
 								for _, ident := range stmt2.Names {
 									if hasAddrObj(ident.Obj, decl.Body, stmt2) {
 										ident2 := *ident
@@ -106,6 +112,24 @@ func ParseLocalPointers(file *ast.File, checker *types.Checker, fset *token.File
 				return true
 			})
 		}
+	}
+}
+
+func isValidPointer(t types.Type) bool {
+	if t == nil {
+		return false
+	}
+	switch t := t.(type) {
+	case *types.Named:
+		return isValidPointer(t.Underlying())
+	case *types.Pointer:
+		return false
+	case *types.Basic:
+		return true
+	case *types.Signature:
+		return true
+	default:
+		return false
 	}
 }
 

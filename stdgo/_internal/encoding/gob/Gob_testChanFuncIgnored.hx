@@ -2,7 +2,11 @@ package stdgo._internal.encoding.gob;
 function testChanFuncIgnored(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _c = (new stdgo.Chan<stdgo.GoInt>(0, () -> (0 : stdgo.GoInt)) : stdgo.Chan<stdgo.GoInt>);
         var _f = (function():Void {} : () -> Void);
-        var _fp = stdgo.Go.pointer(_f);
+        var _f__pointer__ = stdgo.Go.pointer(_f);
+        var _f__pointer__ = stdgo.Go.pointer(_f);
+        var _f__pointer__ = stdgo.Go.pointer(_f);
+        var _f__pointer__ = stdgo.Go.pointer(_f);
+        var _fp = _f__pointer__;
         var _b0 = (new stdgo._internal.encoding.gob.Gob_Bug2.Bug2((23 : stdgo.GoInt), _c, (stdgo.Go.setRef(_c) : stdgo.Ref<stdgo.Chan<stdgo.GoInt>>), _f, stdgo.Go.pointer(_fp)) : stdgo._internal.encoding.gob.Gob_Bug2.Bug2);
         var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
         var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));

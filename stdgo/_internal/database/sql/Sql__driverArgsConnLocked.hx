@@ -1,218 +1,218 @@
 package stdgo._internal.database.sql;
 function _driverArgsConnLocked(_ci:stdgo._internal.database.sql.driver.Driver_Conn.Conn, _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>, _args:stdgo.Slice<stdgo.AnyInterface>):{ var _0 : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>; var _1 : stdgo.Error; } {
-        var _arg_3606896:stdgo.AnyInterface = (null : stdgo.AnyInterface);
-        var _err_3606867:stdgo.Error = (null : stdgo.Error);
-        var _ok_3606462:Bool = false;
-        var _cc_3606163:stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker = ({} : stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker);
-        var _nvargs_3605910:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
-        var _np_3606940:stdgo._internal.database.sql.Sql_NamedArg.NamedArg = ({} : stdgo._internal.database.sql.Sql_NamedArg.NamedArg);
-        var _nv_3606918:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
-        var _nvc_3606457:stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker = (null : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker);
-        var _si_3606143:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt = (null : stdgo._internal.database.sql.driver.Driver_Stmt.Stmt);
-        var _ok_3606944:Bool = false;
-        var _i_3606903_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_3606882:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _cci_3606554:stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter = (null : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter);
-        var _want_3606126:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _nextCC_3607654:Bool = false;
-        var _checker_3607618:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> -> stdgo.Error = null;
+        var _checker_3704395:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> -> stdgo.Error = null;
+        var _i_3703680_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _cc_3702940:stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker = ({} : stdgo._internal.database.sql.Sql_T_ccChecker.T_ccChecker);
+        var _want_3702903:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ok_3703721:Bool = false;
+        var _np_3703717:stdgo._internal.database.sql.Sql_NamedArg.NamedArg = ({} : stdgo._internal.database.sql.Sql_NamedArg.NamedArg);
+        var _nv_3703695:stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+        var _err_3703644:stdgo.Error = (null : stdgo.Error);
+        var _cci_3703331:stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter = (null : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter);
+        var _si_3702920:stdgo._internal.database.sql.driver.Driver_Stmt.Stmt = (null : stdgo._internal.database.sql.driver.Driver_Stmt.Stmt);
+        var _nvargs_3702687:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+        var _nextCC_3704431:Bool = false;
+        var _n_3703659:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _arg_3703673:stdgo.AnyInterface = (null : stdgo.AnyInterface);
+        var _ok_3703239:Bool = false;
+        var _nvc_3703234:stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker = (null : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _nvargs_3605910 = (new stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>((_args.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_args.length : stdgo.GoInt).toBasic() > 0 ? (_args.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue)]) : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
-                    _want_3606126 = (-1 : stdgo.GoInt);
+                    _nvargs_3702687 = (new stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>((_args.length : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... ((_args.length : stdgo.GoInt).toBasic() > 0 ? (_args.length : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue)]) : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+                    _want_3702903 = (-1 : stdgo.GoInt);
                     if ((_ds != null && ((_ds : Dynamic).__nil__ == null || !(_ds : Dynamic).__nil__))) {
-                        _gotoNext = 3606190i32;
+                        _gotoNext = 3702967i32;
                     } else {
-                        _gotoNext = 3606457i32;
+                        _gotoNext = 3703234i32;
                     };
-                } else if (__value__ == (3606190i32)) {
-                    _si_3606143 = _ds._si;
-                    _want_3606126 = _ds._si.numInput();
-                    _cc_3606163._want = _want_3606126;
-                    _gotoNext = 3606457i32;
-                } else if (__value__ == (3606457i32)) {
+                } else if (__value__ == (3702967i32)) {
+                    _si_3702920 = _ds._si;
+                    _want_3702903 = _ds._si.numInput();
+                    _cc_3702940._want = _want_3702903;
+                    _gotoNext = 3703234i32;
+                } else if (__value__ == (3703234i32)) {
                     {
                         var __tmp__ = try {
-                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_si_3606143) : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker)) : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker), _1 : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_si_3702920) : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker)) : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker), _1 : true };
                         } catch(_) {
                             { _0 : (null : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker), _1 : false };
                         };
-                        _nvc_3606457 = __tmp__._0;
-                        _ok_3606462 = __tmp__._1;
+                        _nvc_3703234 = __tmp__._0;
+                        _ok_3703239 = __tmp__._1;
                     };
-                    if (!_ok_3606462) {
-                        _gotoNext = 3606506i32;
+                    if (!_ok_3703239) {
+                        _gotoNext = 3703283i32;
                     } else {
-                        _gotoNext = 3606554i32;
+                        _gotoNext = 3703331i32;
                     };
-                } else if (__value__ == (3606506i32)) {
+                } else if (__value__ == (3703283i32)) {
                     {
                         var __tmp__ = try {
                             { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_ci) : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker)) : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker), _1 : true };
                         } catch(_) {
                             { _0 : (null : stdgo._internal.database.sql.driver.Driver_NamedValueChecker.NamedValueChecker), _1 : false };
                         };
-                        _nvc_3606457 = __tmp__._0;
-                        _ok_3606462 = __tmp__._1;
+                        _nvc_3703234 = __tmp__._0;
+                        _ok_3703239 = __tmp__._1;
                     };
-                    _gotoNext = 3606554i32;
-                } else if (__value__ == (3606554i32)) {
+                    _gotoNext = 3703331i32;
+                } else if (__value__ == (3703331i32)) {
                     {
                         var __tmp__ = try {
-                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_si_3606143) : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter)) : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter), _1 : true };
+                            { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_si_3702920) : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter)) : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter), _1 : true };
                         } catch(_) {
                             { _0 : (null : stdgo._internal.database.sql.driver.Driver_ColumnConverter.ColumnConverter), _1 : false };
                         };
-                        _cci_3606554 = __tmp__._0;
-                        _ok_3606462 = __tmp__._1;
+                        _cci_3703331 = __tmp__._0;
+                        _ok_3703239 = __tmp__._1;
                     };
-                    if (_ok_3606462) {
-                        _gotoNext = 3606600i32;
+                    if (_ok_3703239) {
+                        _gotoNext = 3703377i32;
                     } else {
-                        _gotoNext = 3606863i32;
+                        _gotoNext = 3703640i32;
                     };
-                } else if (__value__ == (3606600i32)) {
-                    _cc_3606163._cci = _cci_3606554;
-                    _gotoNext = 3606863i32;
-                } else if (__value__ == (3606863i32)) {
+                } else if (__value__ == (3703377i32)) {
+                    _cc_3702940._cci = _cci_3703331;
+                    _gotoNext = 3703640i32;
+                } else if (__value__ == (3703640i32)) {
                     if ((0i32 : stdgo.GoInt) < (_args.length)) {
-                        _gotoNext = 3608242i32;
+                        _gotoNext = 3705019i32;
                     } else {
-                        _gotoNext = 3608334i32;
+                        _gotoNext = 3705111i32;
                     };
-                } else if (__value__ == (3606893i32)) {
-                    _i_3606903_0++;
-                    _gotoNext = 3608243i32;
-                } else if (__value__ == (3606914i32)) {
-                    _arg_3606896 = stdgo.Go.toInterface(_args[(_i_3606903_0 : stdgo.GoInt)]);
-                    _nv_3606918 = (stdgo.Go.setRef(_nvargs_3605910[(_n_3606882 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+                } else if (__value__ == (3703670i32)) {
+                    _i_3703680_0++;
+                    _gotoNext = 3705020i32;
+                } else if (__value__ == (3703691i32)) {
+                    _arg_3703673 = stdgo.Go.toInterface(_args[(_i_3703680_0 : stdgo.GoInt)]);
+                    _nv_3703695 = (stdgo.Go.setRef(_nvargs_3702687[(_n_3703659 : stdgo.GoInt)]) : stdgo.Ref<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
                     {
                         {
                             var __tmp__ = try {
-                                { _0 : (stdgo.Go.typeAssert((_arg_3606896 : stdgo._internal.database.sql.Sql_NamedArg.NamedArg)) : stdgo._internal.database.sql.Sql_NamedArg.NamedArg), _1 : true };
+                                { _0 : (stdgo.Go.typeAssert((_arg_3703673 : stdgo._internal.database.sql.Sql_NamedArg.NamedArg)) : stdgo._internal.database.sql.Sql_NamedArg.NamedArg), _1 : true };
                             } catch(_) {
                                 { _0 : ({} : stdgo._internal.database.sql.Sql_NamedArg.NamedArg), _1 : false };
                             };
-                            _np_3606940 = __tmp__._0?.__copy__();
-                            _ok_3606944 = __tmp__._1;
+                            _np_3703717 = __tmp__._0?.__copy__();
+                            _ok_3703721 = __tmp__._1;
                         };
-                        if (_ok_3606944) {
-                            _gotoNext = 3606969i32;
+                        if (_ok_3703721) {
+                            _gotoNext = 3703746i32;
                         } else {
-                            _gotoNext = 3607099i32;
+                            _gotoNext = 3703876i32;
                         };
                     };
-                } else if (__value__ == (3606969i32)) {
+                } else if (__value__ == (3703746i32)) {
                     {
-                        _err_3606867 = stdgo._internal.database.sql.Sql__validateNamedValueName._validateNamedValueName(_np_3606940.name?.__copy__());
-                        if (_err_3606867 != null) {
-                            _gotoNext = 3607027i32;
+                        _err_3703644 = stdgo._internal.database.sql.Sql__validateNamedValueName._validateNamedValueName(_np_3703717.name?.__copy__());
+                        if (_err_3703644 != null) {
+                            _gotoNext = 3703804i32;
                         } else {
-                            _gotoNext = 3607057i32;
+                            _gotoNext = 3703834i32;
                         };
                     };
-                } else if (__value__ == (3607027i32)) {
-                    return { _0 : (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>), _1 : _err_3606867 };
-                    _gotoNext = 3607057i32;
-                } else if (__value__ == (3607057i32)) {
-                    _arg_3606896 = _np_3606940.value;
-                    _nv_3606918.name = _np_3606940.name?.__copy__();
-                    _gotoNext = 3607099i32;
-                } else if (__value__ == (3607099i32)) {
-                    _nv_3606918.ordinal = (_n_3606882 + (1 : stdgo.GoInt) : stdgo.GoInt);
-                    _nv_3606918.value = stdgo.Go.toInterface(_arg_3606896);
-                    _checker_3607618 = stdgo._internal.database.sql.Sql__defaultCheckNamedValue._defaultCheckNamedValue;
-                    _nextCC_3607654 = false;
-                    _gotoNext = 3607672i32;
-                } else if (__value__ == (3607672i32)) {
-                    if (_nvc_3606457 != null) {
-                        _gotoNext = 3607683i32;
-                    } else if (_cci_3606554 != null) {
-                        _gotoNext = 3607758i32;
+                } else if (__value__ == (3703804i32)) {
+                    return { _0 : (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>), _1 : _err_3703644 };
+                    _gotoNext = 3703834i32;
+                } else if (__value__ == (3703834i32)) {
+                    _arg_3703673 = _np_3703717.value;
+                    _nv_3703695.name = _np_3703717.name?.__copy__();
+                    _gotoNext = 3703876i32;
+                } else if (__value__ == (3703876i32)) {
+                    _nv_3703695.ordinal = (_n_3703659 + (1 : stdgo.GoInt) : stdgo.GoInt);
+                    _nv_3703695.value = stdgo.Go.toInterface(_arg_3703673);
+                    _checker_3704395 = stdgo._internal.database.sql.Sql__defaultCheckNamedValue._defaultCheckNamedValue;
+                    _nextCC_3704431 = false;
+                    _gotoNext = 3704449i32;
+                } else if (__value__ == (3704449i32)) {
+                    if (_nvc_3703234 != null) {
+                        _gotoNext = 3704460i32;
+                    } else if (_cci_3703331 != null) {
+                        _gotoNext = 3704535i32;
                     } else {
-                        _gotoNext = 3607813i32;
+                        _gotoNext = 3704590i32;
                     };
-                } else if (__value__ == (3607683i32)) {
-                    _nextCC_3607654 = _cci_3606554 != null;
-                    _checker_3607618 = _nvc_3606457.checkNamedValue;
-                    _gotoNext = 3607813i32;
-                } else if (__value__ == (3607758i32)) {
-                    _checker_3607618 = _cc_3606163.checkNamedValue;
-                    _gotoNext = 3607813i32;
-                } else if (__value__ == (3607813i32)) {
-                    _gotoNext = 3607813i32;
-                    _err_3606867 = _checker_3607618(_nv_3606918);
-                    _gotoNext = 3607846i32;
-                } else if (__value__ == (3607846i32)) {
+                } else if (__value__ == (3704460i32)) {
+                    _nextCC_3704431 = _cci_3703331 != null;
+                    _checker_3704395 = _nvc_3703234.checkNamedValue;
+                    _gotoNext = 3704590i32;
+                } else if (__value__ == (3704535i32)) {
+                    _checker_3704395 = _cc_3702940.checkNamedValue;
+                    _gotoNext = 3704590i32;
+                } else if (__value__ == (3704590i32)) {
+                    _gotoNext = 3704590i32;
+                    _err_3703644 = _checker_3704395(_nv_3703695);
+                    _gotoNext = 3704623i32;
+                } else if (__value__ == (3704623i32)) {
                     {
-                        final __value__ = _err_3606867;
+                        final __value__ = _err_3703644;
                         if (__value__ == null) {
-                            _gotoNext = 3607861i32;
+                            _gotoNext = 3704638i32;
                         } else if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.database.sql.driver.Driver_errRemoveArgument.errRemoveArgument))) {
-                            _gotoNext = 3607892i32;
+                            _gotoNext = 3704669i32;
                         } else if (stdgo.Go.toInterface(__value__) == (stdgo.Go.toInterface(stdgo._internal.database.sql.driver.Driver_errSkip.errSkip))) {
-                            _gotoNext = 3607972i32;
+                            _gotoNext = 3704749i32;
                         } else {
-                            _gotoNext = 3608134i32;
+                            _gotoNext = 3704911i32;
                         };
                     };
-                } else if (__value__ == (3607861i32)) {
-                    _n_3606882++;
-                    _i_3606903_0++;
-                    _gotoNext = 3608243i32;
-                } else if (__value__ == (3607892i32)) {
-                    _nvargs_3605910 = (_nvargs_3605910.__slice__(0, ((_nvargs_3605910.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
-                    _i_3606903_0++;
-                    _gotoNext = 3608243i32;
-                } else if (__value__ == (3607972i32)) {
-                    if (_nextCC_3607654) {
-                        _gotoNext = 3608006i32;
+                } else if (__value__ == (3704638i32)) {
+                    _n_3703659++;
+                    _i_3703680_0++;
+                    _gotoNext = 3705020i32;
+                } else if (__value__ == (3704669i32)) {
+                    _nvargs_3702687 = (_nvargs_3702687.__slice__(0, ((_nvargs_3702687.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>);
+                    _i_3703680_0++;
+                    _gotoNext = 3705020i32;
+                } else if (__value__ == (3704749i32)) {
+                    if (_nextCC_3704431) {
+                        _gotoNext = 3704783i32;
                     } else {
-                        _gotoNext = 3608070i32;
+                        _gotoNext = 3704847i32;
                     };
-                } else if (__value__ == (3608006i32)) {
-                    _nextCC_3607654 = false;
-                    _checker_3607618 = _cc_3606163.checkNamedValue;
-                    _gotoNext = 3608117i32;
-                } else if (__value__ == (3608070i32)) {
-                    _gotoNext = 3608070i32;
-                    _checker_3607618 = stdgo._internal.database.sql.Sql__defaultCheckNamedValue._defaultCheckNamedValue;
+                } else if (__value__ == (3704783i32)) {
+                    _nextCC_3704431 = false;
+                    _checker_3704395 = _cc_3702940.checkNamedValue;
+                    _gotoNext = 3704894i32;
+                } else if (__value__ == (3704847i32)) {
+                    _gotoNext = 3704847i32;
+                    _checker_3704395 = stdgo._internal.database.sql.Sql__defaultCheckNamedValue._defaultCheckNamedValue;
                     var __blank__ = 0i32;
-                    _gotoNext = 3608117i32;
-                } else if (__value__ == (3608117i32)) {
-                    _gotoNext = 3607813i32;
-                } else if (__value__ == (3608134i32)) {
-                    return { _0 : (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("sql: converting argument %s type: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.database.sql.Sql__describeNamedValue._describeNamedValue(_nv_3606918)), stdgo.Go.toInterface(_err_3606867)) };
-                    _gotoNext = 3606893i32;
-                } else if (__value__ == (3608242i32)) {
+                    _gotoNext = 3704894i32;
+                } else if (__value__ == (3704894i32)) {
+                    _gotoNext = 3704590i32;
+                } else if (__value__ == (3704911i32)) {
+                    return { _0 : (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("sql: converting argument %s type: %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo._internal.database.sql.Sql__describeNamedValue._describeNamedValue(_nv_3703695)), stdgo.Go.toInterface(_err_3703644)) };
+                    _gotoNext = 3703670i32;
+                } else if (__value__ == (3705019i32)) {
                     {
                         final __tmp__0 = 0i32;
                         final __tmp__1 = stdgo.Go.toInterface(_args[(0i32 : stdgo.GoInt)]);
-                        _i_3606903_0 = __tmp__0;
-                        _arg_3606896 = __tmp__1;
+                        _i_3703680_0 = __tmp__0;
+                        _arg_3703673 = __tmp__1;
                     };
-                    _gotoNext = 3608243i32;
-                } else if (__value__ == (3608243i32)) {
-                    if (_i_3606903_0 < (_args.length)) {
-                        _gotoNext = 3606914i32;
+                    _gotoNext = 3705020i32;
+                } else if (__value__ == (3705020i32)) {
+                    if (_i_3703680_0 < (_args.length)) {
+                        _gotoNext = 3703691i32;
                     } else {
-                        _gotoNext = 3608334i32;
+                        _gotoNext = 3705111i32;
                     };
-                } else if (__value__ == (3608334i32)) {
-                    if (((_want_3606126 != (-1 : stdgo.GoInt)) && (_nvargs_3605910.length != _want_3606126) : Bool)) {
-                        _gotoNext = 3608371i32;
+                } else if (__value__ == (3705111i32)) {
+                    if (((_want_3702903 != (-1 : stdgo.GoInt)) && (_nvargs_3702687.length != _want_3702903) : Bool)) {
+                        _gotoNext = 3705148i32;
                     } else {
-                        _gotoNext = 3608460i32;
+                        _gotoNext = 3705237i32;
                     };
-                } else if (__value__ == (3608371i32)) {
-                    return { _0 : (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("sql: expected %d arguments, got %d" : stdgo.GoString), stdgo.Go.toInterface(_want_3606126), stdgo.Go.toInterface((_nvargs_3605910.length))) };
-                    _gotoNext = 3608460i32;
-                } else if (__value__ == (3608460i32)) {
-                    return { _0 : _nvargs_3605910, _1 : (null : stdgo.Error) };
+                } else if (__value__ == (3705148i32)) {
+                    return { _0 : (null : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue>), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("sql: expected %d arguments, got %d" : stdgo.GoString), stdgo.Go.toInterface(_want_3702903), stdgo.Go.toInterface((_nvargs_3702687.length))) };
+                    _gotoNext = 3705237i32;
+                } else if (__value__ == (3705237i32)) {
+                    return { _0 : _nvargs_3702687, _1 : (null : stdgo.Error) };
                     _gotoNext = -1i32;
                 };
             };

@@ -13,8 +13,9 @@ function _unmarshalCertificate(_s:stdgo.Ref<_internal.vendor.golang_dot_org.x.cr
             _certificate.certificate = (_certificate.certificate.__append__(_cert));
             while (!_extensions.empty()) {
                 var _extension:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+                var _extension__pointer__ = stdgo.Go.pointer(_extension);
                 var _extData:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-                if ((!_extensions.readUint16(stdgo.Go.pointer(_extension)) || !_extensions.readUint16LengthPrefixed((stdgo.Go.setRef(_extData) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>)) : Bool)) {
+                if ((!_extensions.readUint16(_extension__pointer__) || !_extensions.readUint16LengthPrefixed((stdgo.Go.setRef(_extData) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>)) : Bool)) {
                     return false;
                 };
                 if (((_certificate.certificate.length) > (1 : stdgo.GoInt) : Bool)) {
@@ -24,7 +25,8 @@ function _unmarshalCertificate(_s:stdgo.Ref<_internal.vendor.golang_dot_org.x.cr
                     final __value__ = _extension;
                     if (__value__ == ((5 : stdgo.GoUInt16))) {
                         var _statusType:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-                        if ((((!_extData.readUint8(stdgo.Go.pointer(_statusType)) || _statusType != ((1 : stdgo.GoUInt8)) : Bool) || !stdgo._internal.crypto.tls.Tls__readUint24LengthPrefixed._readUint24LengthPrefixed((stdgo.Go.setRef(_extData) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef(_certificate.ocspstaple) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : Bool) || (_certificate.ocspstaple.length == (0 : stdgo.GoInt)) : Bool)) {
+                        var _statusType__pointer__ = stdgo.Go.pointer(_statusType);
+                        if ((((!_extData.readUint8(_statusType__pointer__) || _statusType != ((1 : stdgo.GoUInt8)) : Bool) || !stdgo._internal.crypto.tls.Tls__readUint24LengthPrefixed._readUint24LengthPrefixed((stdgo.Go.setRef(_extData) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef(_certificate.ocspstaple) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : Bool) || (_certificate.ocspstaple.length == (0 : stdgo.GoInt)) : Bool)) {
                             return false;
                         };
                     } else if (__value__ == ((18 : stdgo.GoUInt16))) {

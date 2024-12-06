@@ -6,7 +6,8 @@ package stdgo._internal.crypto.tls;
         _m._raw = _data;
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
         var _statusType:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        if ((((((!_s.skip((4 : stdgo.GoInt)) || !_s.readUint8(stdgo.Go.pointer(_statusType)) : Bool) || _statusType != ((1 : stdgo.GoUInt8)) : Bool) || !stdgo._internal.crypto.tls.Tls__readUint24LengthPrefixed._readUint24LengthPrefixed((stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef(_m._response) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : Bool) || (_m._response.length) == ((0 : stdgo.GoInt)) : Bool) || !_s.empty() : Bool)) {
+        var _statusType__pointer__ = stdgo.Go.pointer(_statusType);
+        if ((((((!_s.skip((4 : stdgo.GoInt)) || !_s.readUint8(_statusType__pointer__) : Bool) || _statusType != ((1 : stdgo.GoUInt8)) : Bool) || !stdgo._internal.crypto.tls.Tls__readUint24LengthPrefixed._readUint24LengthPrefixed((stdgo.Go.setRef(_s) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>), (stdgo.Go.setRef(_m._response) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : Bool) || (_m._response.length) == ((0 : stdgo.GoInt)) : Bool) || !_s.empty() : Bool)) {
             return false;
         };
         return true;

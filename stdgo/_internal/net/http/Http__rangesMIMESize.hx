@@ -2,7 +2,8 @@ package stdgo._internal.net.http;
 function _rangesMIMESize(_ranges:stdgo.Slice<stdgo._internal.net.http.Http_T_httpRange.T_httpRange>, _contentType:stdgo.GoString, _contentSize:stdgo.GoInt64):stdgo.GoInt64 {
         var _encSize = (0 : stdgo.GoInt64);
         var _w:stdgo._internal.net.http.Http_T_countingWriter.T_countingWriter = ((0 : stdgo.GoInt64) : stdgo._internal.net.http.Http_T_countingWriter.T_countingWriter);
-        var _mw = stdgo._internal.mime.multipart.Multipart_newWriter.newWriter(stdgo.Go.asInterface(stdgo.Go.pointer(_w)));
+        var _w__pointer__ = stdgo.Go.pointer(_w);
+        var _mw = stdgo._internal.mime.multipart.Multipart_newWriter.newWriter(stdgo.Go.asInterface(_w__pointer__));
         for (__132 => _ra in _ranges) {
             _mw.createPart(_ra._mimeHeader(_contentType?.__copy__(), _contentSize));
             _encSize = (_encSize + (_ra._length) : stdgo.GoInt64);

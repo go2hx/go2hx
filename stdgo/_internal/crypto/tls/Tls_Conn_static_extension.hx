@@ -1288,8 +1288,9 @@ package stdgo._internal.crypto.tls;
                     _c._quicSetReadSecret((3 : stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel.QUICEncryptionLevel), _c._cipherSuite, _c._in._trafficSecret);
                 } else {
                     var _a:stdgo._internal.crypto.tls.Tls_T_alert.T_alert = ((0 : stdgo.GoUInt8) : stdgo._internal.crypto.tls.Tls_T_alert.T_alert);
+                    var _a__pointer__ = stdgo.Go.pointer(_a);
                     _c._out.lock();
-                    if (!stdgo._internal.errors.Errors_as.as(_c._out._err, stdgo.Go.toInterface(stdgo.Go.pointer(_a)))) {
+                    if (!stdgo._internal.errors.Errors_as.as(_c._out._err, stdgo.Go.toInterface(_a__pointer__))) {
                         _a = (80 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert);
                     };
                     _c._out.unlock();

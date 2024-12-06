@@ -6,12 +6,16 @@ function benchmarkUnicodeDecoder(_b:stdgo.Ref<stdgo._internal.testing.Testing_B.
         var _r = stdgo._internal.bytes.Bytes_newReader.newReader(_j);
         var _dec = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(stdgo.Go.asInterface(_r));
         var _out:stdgo.GoString = ("" : stdgo.GoString);
+        var _out__pointer__ = stdgo.Go.pointer(_out);
+        var _out__pointer__ = stdgo.Go.pointer(_out);
+        var _out__pointer__ = stdgo.Go.pointer(_out);
+        var _out__pointer__ = stdgo.Go.pointer(_out);
         _b.resetTimer();
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _b.n : Bool)) {
                 {
-                    var _err = (_dec.decode(stdgo.Go.toInterface(stdgo.Go.pointer(_out))) : stdgo.Error);
+                    var _err = (_dec.decode(stdgo.Go.toInterface(_out__pointer__)) : stdgo.Error);
                     if (_err != null) {
                         _b.fatal(stdgo.Go.toInterface(("Decode:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
                     };

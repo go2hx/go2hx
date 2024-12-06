@@ -17,9 +17,21 @@ function testGobEncoderField(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>
         };
         _b.reset();
         var _gobber = ((23 : stdgo._internal.encoding.gob.Gob_Gobber.Gobber) : stdgo._internal.encoding.gob.Gob_Gobber.Gobber);
+        var _gobber__pointer__ = stdgo.Go.pointer(_gobber);
+        var _gobber__pointer__ = stdgo.Go.pointer(_gobber);
+        var _gobber__pointer__ = stdgo.Go.pointer(_gobber);
+        var _gobber__pointer__ = stdgo.Go.pointer(_gobber);
         var _bgobber = ((24 : stdgo._internal.encoding.gob.Gob_BinaryGobber.BinaryGobber) : stdgo._internal.encoding.gob.Gob_BinaryGobber.BinaryGobber);
+        var _bgobber__pointer__ = stdgo.Go.pointer(_bgobber);
+        var _bgobber__pointer__ = stdgo.Go.pointer(_bgobber);
+        var _bgobber__pointer__ = stdgo.Go.pointer(_bgobber);
+        var _bgobber__pointer__ = stdgo.Go.pointer(_bgobber);
         var _tgobber = ((25 : stdgo._internal.encoding.gob.Gob_TextGobber.TextGobber) : stdgo._internal.encoding.gob.Gob_TextGobber.TextGobber);
-        _err = _enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTest3.GobTest3((17 : stdgo.GoInt), stdgo.Go.pointer(_gobber), stdgo.Go.pointer(_bgobber), stdgo.Go.pointer(_tgobber)) : stdgo._internal.encoding.gob.Gob_GobTest3.GobTest3)));
+        var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
+        var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
+        var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
+        var _tgobber__pointer__ = stdgo.Go.pointer(_tgobber);
+        _err = _enc.encode(stdgo.Go.toInterface((new stdgo._internal.encoding.gob.Gob_GobTest3.GobTest3((17 : stdgo.GoInt), _gobber__pointer__, _bgobber__pointer__, _tgobber__pointer__) : stdgo._internal.encoding.gob.Gob_GobTest3.GobTest3)));
         if (_err != null) {
             _t.fatal(stdgo.Go.toInterface(("encode error:" : stdgo.GoString)), stdgo.Go.toInterface(_err));
         };

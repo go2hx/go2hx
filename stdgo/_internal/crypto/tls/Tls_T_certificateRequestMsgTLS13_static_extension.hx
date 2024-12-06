@@ -20,8 +20,9 @@ var _extensions = __1, _context = __0;
         };
         while (!_extensions.empty()) {
             var _extension:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+            var _extension__pointer__ = stdgo.Go.pointer(_extension);
             var _extData:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);
-            if ((!_extensions.readUint16(stdgo.Go.pointer(_extension)) || !_extensions.readUint16LengthPrefixed((stdgo.Go.setRef(_extData) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>)) : Bool)) {
+            if ((!_extensions.readUint16(_extension__pointer__) || !_extensions.readUint16LengthPrefixed((stdgo.Go.setRef(_extData) : stdgo.Ref<_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_>)) : Bool)) {
                 return false;
             };
             {
@@ -37,7 +38,8 @@ var _extensions = __1, _context = __0;
                     };
                     while (!_sigAndAlgs.empty()) {
                         var _sigAndAlg:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-                        if (!_sigAndAlgs.readUint16(stdgo.Go.pointer(_sigAndAlg))) {
+                        var _sigAndAlg__pointer__ = stdgo.Go.pointer(_sigAndAlg);
+                        if (!_sigAndAlgs.readUint16(_sigAndAlg__pointer__)) {
                             return false;
                         };
                         _m._supportedSignatureAlgorithms = (_m._supportedSignatureAlgorithms.__append__((_sigAndAlg : stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme)));
@@ -49,7 +51,8 @@ var _extensions = __1, _context = __0;
                     };
                     while (!_sigAndAlgs.empty()) {
                         var _sigAndAlg:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-                        if (!_sigAndAlgs.readUint16(stdgo.Go.pointer(_sigAndAlg))) {
+                        var _sigAndAlg__pointer__ = stdgo.Go.pointer(_sigAndAlg);
+                        if (!_sigAndAlgs.readUint16(_sigAndAlg__pointer__)) {
                             return false;
                         };
                         _m._supportedSignatureAlgorithmsCert = (_m._supportedSignatureAlgorithmsCert.__append__((_sigAndAlg : stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme)));

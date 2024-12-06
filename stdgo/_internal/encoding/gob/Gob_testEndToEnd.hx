@@ -4,10 +4,30 @@ function testEndToEnd(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         {};
         {};
         var _pi = (3.14159 : stdgo.GoFloat64);
+        var _pi__pointer__ = stdgo.Go.pointer(_pi);
+        var _pi__pointer__ = stdgo.Go.pointer(_pi);
+        var _pi__pointer__ = stdgo.Go.pointer(_pi);
+        var _pi__pointer__ = stdgo.Go.pointer(_pi);
         var _e = (2.71828 : stdgo.GoFloat64);
+        var _e__pointer__ = stdgo.Go.pointer(_e);
+        var _e__pointer__ = stdgo.Go.pointer(_e);
+        var _e__pointer__ = stdgo.Go.pointer(_e);
+        var _e__pointer__ = stdgo.Go.pointer(_e);
         var _two = (2 : stdgo.GoFloat64);
+        var _two__pointer__ = stdgo.Go.pointer(_two);
+        var _two__pointer__ = stdgo.Go.pointer(_two);
+        var _two__pointer__ = stdgo.Go.pointer(_two);
+        var _two__pointer__ = stdgo.Go.pointer(_two);
         var _meaning = (42 : stdgo.GoInt);
+        var _meaning__pointer__ = stdgo.Go.pointer(_meaning);
+        var _meaning__pointer__ = stdgo.Go.pointer(_meaning);
+        var _meaning__pointer__ = stdgo.Go.pointer(_meaning);
+        var _meaning__pointer__ = stdgo.Go.pointer(_meaning);
         var _fingers = (5 : stdgo.GoInt);
+        var _fingers__pointer__ = stdgo.Go.pointer(_fingers);
+        var _fingers__pointer__ = stdgo.Go.pointer(_fingers);
+        var _fingers__pointer__ = stdgo.Go.pointer(_fingers);
+        var _fingers__pointer__ = stdgo.Go.pointer(_fingers);
         var _s1 = ("string1" : stdgo.GoString);
         var _s2 = ("string2" : stdgo.GoString);
         var _comp1:stdgo.GoComplex128 = new stdgo.GoComplex128((1 : stdgo.GoFloat64), (1 : stdgo.GoFloat64));
@@ -19,22 +39,22 @@ function testEndToEnd(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void 
         _arr2[(0 : stdgo.GoInt)] = _s2?.__copy__();
         _arr2[(1 : stdgo.GoInt)] = _s1?.__copy__();
         var _floatArr1:stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>(2, 2, ...[for (i in 0 ... 2) (null : stdgo.Pointer<stdgo.GoFloat64>)]);
-        _floatArr1[(0 : stdgo.GoInt)] = stdgo.Go.pointer(_pi);
-        _floatArr1[(1 : stdgo.GoInt)] = stdgo.Go.pointer(_e);
+        _floatArr1[(0 : stdgo.GoInt)] = _pi__pointer__;
+        _floatArr1[(1 : stdgo.GoInt)] = _e__pointer__;
         var _floatArr2:stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.Pointer<stdgo.GoFloat64>>(2, 2, ...[for (i in 0 ... 2) (null : stdgo.Pointer<stdgo.GoFloat64>)]);
-        _floatArr2[(0 : stdgo.GoInt)] = stdgo.Go.pointer(_e);
-        _floatArr2[(1 : stdgo.GoInt)] = stdgo.Go.pointer(_two);
+        _floatArr2[(0 : stdgo.GoInt)] = _e__pointer__;
+        _floatArr2[(1 : stdgo.GoInt)] = _two__pointer__;
         var _t1 = (stdgo.Go.setRef(({ a : (17 : stdgo.GoInt), b : (18 : stdgo.GoInt), c : (-5 : stdgo.GoInt), m : ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.Pointer<stdgo.GoFloat64>>();
             x.__defaultValue__ = () -> (null : stdgo.Pointer<stdgo.GoFloat64>);
-            x.set(("pi" : stdgo.GoString), stdgo.Go.pointer(_pi));
-x.set(("e" : stdgo.GoString), stdgo.Go.pointer(_e));
+            x.set(("pi" : stdgo.GoString), _pi__pointer__);
+x.set(("e" : stdgo.GoString), _e__pointer__);
             x;
         } : stdgo.GoMap<stdgo.GoString, stdgo.Pointer<stdgo.GoFloat64>>), m2 : ({
             final x = new stdgo.GoMap.GoIntMap<stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794>();
             x.__defaultValue__ = () -> ({} : stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794);
-            x.set((4 : stdgo.GoInt), ({ x : _pi, z : stdgo.Go.pointer(_meaning) } : stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794));
-x.set((10 : stdgo.GoInt), ({ x : _e, z : stdgo.Go.pointer(_fingers) } : stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794));
+            x.set((4 : stdgo.GoInt), ({ x : _pi, z : _meaning__pointer__ } : stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794));
+x.set((10 : stdgo.GoInt), ({ x : _e, z : _fingers__pointer__ } : stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794));
             x;
         } : stdgo.GoMap<stdgo.GoInt, stdgo._internal.encoding.gob.Gob_T_testEndToEnd___localname___T3_13794.T_testEndToEnd___localname___T3_13794>), mstring : ({
             final x = new stdgo.GoMap.GoStringMap<stdgo.GoString>();
@@ -45,8 +65,8 @@ x.set(("e" : stdgo.GoString), ("2.71" : stdgo.GoString));
         } : stdgo.GoMap<stdgo.GoString, stdgo.GoString>), mintptr : ({
             final x = new stdgo.GoMap.GoIntMap<stdgo.Pointer<stdgo.GoInt>>();
             x.__defaultValue__ = () -> (null : stdgo.Pointer<stdgo.GoInt>);
-            x.set(_meaning, stdgo.Go.pointer(_fingers));
-x.set(_fingers, stdgo.Go.pointer(_meaning));
+            x.set(_meaning, _fingers__pointer__);
+x.set(_fingers, _meaning__pointer__);
             x;
         } : stdgo.GoMap<stdgo.GoInt, stdgo.Pointer<stdgo.GoInt>>), mcomp : ({
             final x = new stdgo.GoMap.GoComplex128Map<stdgo.GoComplex128>();

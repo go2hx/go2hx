@@ -53,8 +53,12 @@ function testNumberIsValid(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
                 _t.errorf(("%s should be valid" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };
             var _f:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+            var _f__pointer__ = stdgo.Go.pointer(_f);
+            var _f__pointer__ = stdgo.Go.pointer(_f);
+            var _f__pointer__ = stdgo.Go.pointer(_f);
+            var _f__pointer__ = stdgo.Go.pointer(_f);
             {
-                var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_test : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.pointer(_f))) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_test : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(_f__pointer__)) : stdgo.Error);
                 if (_err != null) {
                     _t.errorf(("%s should be valid but Unmarshal failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_test), stdgo.Go.toInterface(_err));
                 };
@@ -90,8 +94,12 @@ stdgo.Go.str()?.__copy__(),
                 _t.errorf(("%s should be invalid" : stdgo.GoString), stdgo.Go.toInterface(_test));
             };
             var _f:stdgo.GoFloat64 = (0 : stdgo.GoFloat64);
+            var _f__pointer__ = stdgo.Go.pointer(_f);
+            var _f__pointer__ = stdgo.Go.pointer(_f);
+            var _f__pointer__ = stdgo.Go.pointer(_f);
+            var _f__pointer__ = stdgo.Go.pointer(_f);
             {
-                var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_test : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(stdgo.Go.pointer(_f))) : stdgo.Error);
+                var _err = (stdgo._internal.encoding.json.Json_unmarshal.unmarshal((_test : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.toInterface(_f__pointer__)) : stdgo.Error);
                 if (_err == null) {
                     _t.errorf(("%s should be invalid but unmarshal wrote %v" : stdgo.GoString), stdgo.Go.toInterface(_test), stdgo.Go.toInterface(_f));
                 };

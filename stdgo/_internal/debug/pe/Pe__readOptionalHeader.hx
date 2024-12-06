@@ -5,6 +5,7 @@ function _readOptionalHeader(_r:stdgo._internal.io.Io_ReadSeeker.ReadSeeker, _sz
         };
         var __0:stdgo.GoUInt16 = (0 : stdgo.GoUInt16), __1 = stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(_ohMagic));
 var _ohMagicSz = __1, _ohMagic = __0;
+        var _ohMagic__pointer__ = stdgo.Go.pointer(_ohMagic);
         if ((_sz < (_ohMagicSz : stdgo.GoUInt16) : Bool)) {
             return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("optional header size is less than optional header magic size" : stdgo.GoString)) };
         };
@@ -13,7 +14,7 @@ var _ohMagicSz = __1, _ohMagic = __0;
             _err = stdgo._internal.encoding.binary.Binary_read.read(_r, stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), _data);
             return _err == null;
         } : stdgo.AnyInterface -> Bool);
-        if (!_read(stdgo.Go.toInterface(stdgo.Go.pointer(_ohMagic)))) {
+        if (!_read(stdgo.Go.toInterface(_ohMagic__pointer__))) {
             return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("failure to read optional header magic: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)) };
         };
         {

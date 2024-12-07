@@ -138,11 +138,11 @@ package stdgo._internal.debug.gosym;
     @:keep
     static public function _lineFromAline( _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj>, _aline:stdgo.GoInt):{ var _0 : stdgo.GoString; var _1 : stdgo.GoInt; } {
         @:recv var _o:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_Obj.Obj> = _o;
+        var _s_3647495:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
+        var _i_3647500_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _tos_3647462:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
         var _noPath_3647426:stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt> = (null : stdgo.Ref<stdgo._internal.debug.gosym.Gosym_T_stackEnt.T_stackEnt>);
         var _val_3647518:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _s_3647495:stdgo._internal.debug.gosym.Gosym_Sym.Sym = ({} : stdgo._internal.debug.gosym.Gosym_Sym.Sym);
-        var _i_3647500_0:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

@@ -2,7 +2,7 @@ package stdgo._internal.encoding.gob;
 function testIndirectSliceMapArray(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
         var _i = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_Indirect.Indirect)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_Indirect.Indirect>);
         _i.a = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>));
-        _i.a.value = (stdgo.Go.setRef((null : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>)) : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>);
+        _i.a.value = (stdgo.Go.setRef(new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt)])) : stdgo.Ref<stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>>);
         _i.a.value = (stdgo.Go.setRef(new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[for (i in 0 ... 3) (0 : stdgo.GoInt)])) : stdgo.Ref<stdgo.GoArray<stdgo.GoInt>>);
         _i.a.value = (new stdgo.GoArray<stdgo.GoInt>(3, 3, ...[(1 : stdgo.GoInt), (2 : stdgo.GoInt), (3 : stdgo.GoInt)]).__setNumber32__() : stdgo.GoArray<stdgo.GoInt>)?.__copy__();
         _i.s = stdgo.Go.pointer((null : stdgo.Ref<stdgo.Ref<stdgo.Slice<stdgo.GoInt>>>));

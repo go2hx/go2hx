@@ -1,6 +1,6 @@
 package stdgo._internal.math;
 function _qzero(_x:stdgo.GoFloat64):stdgo.GoFloat64 {
-        var __0:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>> = (null : stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>), __1:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>> = (null : stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>);
+        var __0:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.GoFloat64>(6, 6, ...[for (i in 0 ... 6) (0 : stdgo.GoFloat64)]), __1:stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>> = new stdgo.GoArray<stdgo.GoFloat64>(6, 6, ...[for (i in 0 ... 6) (0 : stdgo.GoFloat64)]);
 var _q = __1, _p = __0;
         if ((_x >= (8 : stdgo.GoFloat64) : Bool)) {
             _p = (stdgo.Go.setRef(stdgo._internal.math.Math__q0R8._q0R8) : stdgo.Ref<stdgo.GoArray<stdgo.GoFloat64>>);

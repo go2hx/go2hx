@@ -218,7 +218,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update
-            file_pattern: '*.json'
+            file_pattern: '*.json,*.md'
             disable_globbing: true
   yaegi-medium:
     timeout-minutes: 25
@@ -277,7 +277,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update
-            file_pattern: '*.json'
+            file_pattern: '*.json,*.md'
             disable_globbing: true
   go-easy:
     timeout-minutes: 25
@@ -343,7 +343,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update
-            file_pattern: '*.json'
+            file_pattern: '*.json,*.md'
             disable_globbing: true
   go-medium:
     timeout-minutes: 25
@@ -409,5 +409,5 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update
-            file_pattern: '*.json'
+            file_pattern: '*.json,*.md'
             disable_globbing: true

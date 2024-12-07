@@ -8,39 +8,6 @@ import sys.io.FileOutput;
 import sys.FileSystem;
 using haxe.io.Path;
 
-// @formatter:off
-final excludes:Map<String,Array<String>> = [
-	"gobyexample" => [
-		"atomic-counters.go",                 // TODO fix looping
-		"non-blocking-channel-operations.go", // TODO fix looping
-		"command-line-arguments.go",          // unsupported functionality
-		"command-line-flags.go",              // unsupported functionality
-		"command-line-subcommands.go",        // unsupported functionality
-		"context.go",                         // TODO net/http
-		"defer.go",                           // TODO os
-		"directories.go",                     // TODO os
-		"embed-directive.go",                 // TODO embed
-		"environment-variables.go",           // TODO os
-		"execing-processes.go",               // TODO os/exec
-		"exit.go",                            // TODO os
-		"http-clients.go",                    // TODO net/http
-		"http-servers.go",                    // TODO net/http
-		"line-filters.go",                    // TODO os
-		"panic.go",                           // TODO os
-		"reading-files.go",                   // TODO os
-		"signals.go",                         // TODO os/signal
-		"spawning-processes.go",              // TODO os/exec
-		"string-formatting.go",               // TODO os
-		"temporary-files-and-directories.go", // TODO os
-		"main_test.go",                       // TODO testing
-		"text-templates.go",                  // TODO os
-		"writing-files.go",                   // TODO os
-	],
-	"yaegi" => [],
-	"go" => [],
-	"unit" => [],
-];
-
 final path = Sys.getCwd();
 var ciBool = false;
 var hxbBool = false;
@@ -69,7 +36,6 @@ var unitBool = false;
 var stdBool = false;
 var goBool = false;
 var yaegiBool = false;
-var goByExampleBool = false;
 var tinygoBool = false;
 var noLogs = false;
 
@@ -91,7 +57,6 @@ function main() {
 	goBool = Compiler.getDefine("go") != null;
 	globalPath = Compiler.getDefine("path") ?? "";
 	yaegiBool = Compiler.getDefine("yaegi") != null;
-	goByExampleBool = Compiler.getDefine("gobyexample") != null;
 	tinygoBool = Compiler.getDefine("tinygo") != null;
 	sortMode = Compiler.getDefine("mode") ?? (Compiler.getDefine("sort") ?? "");
 	final reportBool = Compiler.getDefine("report") != null;
@@ -103,27 +68,14 @@ function main() {
 	runOnly = Compiler.getDefine("runonly") ?? "";
 	dryRun = Compiler.getDefine("dryRun") != null;
 	var startStamp = 0.0;
-	if (!unitBool && !stdBool && !goBool && !yaegiBool && !goByExampleBool) {
+	if (!unitBool && !stdBool && !goBool && !yaegiBool) {
 		trace("no tests specified");
 		close();
 		return;
 	}
 	runTests();
 	if (reportBool) {
-		final testName = type + (sortMode == "" ? "" : "_" + sortMode);
-		final output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
-		if (output.length == 0)
-			throw testName + " not set";
-		final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
-		var tests:Array<String> = Reflect.field(testsJson, sortMode).map(s -> Path.withoutExtension(Path.withoutDirectory(s.split("\n")[0])));
-		tests = tests.map(s -> sanatize(s));
-		for (v in output) {
-			final parts = v.split("|");
-			final target = parts[0];
-			final path = sanatize(parts[1]);
-			tests.remove(path);
-		}
-		Sys.println(tests.join("\n"));
+		runReport();
 		Sys.exit(0);
 	}
 	trace(tests);
@@ -138,7 +90,47 @@ function main() {
 	}
 }
 
-function runTests() {
+private function runReport() {
+	final testName = type + (sortMode == "" ? "" : "_" + sortMode);
+	final output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
+	if (output.length == 0)
+		throw testName + " not set";
+	final testsJson = Json.parse(File.getContent('tests/sort_$type.json'));
+	var paths:Array<String> = Reflect.field(testsJson, sortMode).map(s -> s.split("\n")[0]);
+	var tests:Array<String> = paths.map(s -> Path.withoutExtension(Path.withoutDirectory(s)));
+	tests = tests.map(s -> sanatize(s));
+	for (i in 0...output.length) {
+		final v = output[i];
+		final path = paths[i];
+		final parts = v.split("|");
+		final target = parts[0];
+		final path = sanatize(parts[1]);
+		final index = tests.indexOf(path);
+		tests.remove(tests[index]);
+		paths.remove(paths[index]);
+	}
+	for (i in 0...tests.length) {
+		if (excludeTest(tests[i])) {
+			tests.remove(tests[i]);
+			paths.remove(paths[i]);
+		}
+	}
+	if (tests.length == 0)
+		return;
+	Sys.println(tests.join("\n"));
+	final mdContent = new StringBuf();
+	mdContent.add('# $testName\n');
+	for (i in 0...tests.length) {
+		mdContent.add('## ${tests[i]}\n');
+		mdContent.add('```go\n');
+		mdContent.add(File.getContent(paths[i]));
+		mdContent.add('\n```\n');
+	}
+
+	File.saveContent('tests/$testName.md', mdContent.toString());
+}
+
+private function runTests() {
 	if (unitBool)
 		testUnit();
 	if (stdBool)
@@ -149,8 +141,6 @@ function runTests() {
 		testYaegi();
 	if (tinygoBool)
 		testTinyGo();
-	if (goByExampleBool)
-		testGoByExample();
 	tests.sort((a, b) -> a > b ? 1 : -1); // consistent across os targets
 	if (offset > 0) {
 		tests = tests.slice(offset > tests.length ? tests.length : offset);
@@ -516,23 +506,29 @@ private function sortDataToTests(sortData:SortData) {
 		final path = data.substr(0, index);
 		final output = data.substr(index + 1);
 		final name = Path.withoutExtension(Path.withoutDirectory(path));
-		// exclude certain go tests
-		switch name {
-			case "more_intstar_input": // build compiler flag excludes wasm
-				continue;
-			case "issue32288": // inf loop
-				continue;
-			case "index0", "issue47227": // no main func
-				continue;
-			case "zerosize": // uses obsecure &runtime.zerobase
-				continue;
-			case "convert4": // relies on the same underlying runtime
-				continue;
-		}
+		
+		if (excludeTest(name))
+			continue;
 		tests.push(path);
 		final outputPath = sortData.name + "_" + name;
 		outputMap[outputPath] = output;
 	}
+}
+
+private function excludeTest(name:String) {
+	// exclude certain go tests
+	switch name {
+		case "more_intstar_input": // go-easy build compiler flag excludes wasm
+		case "issue32288": // go-easy inf loop uintptr stack and recover
+		case "index0": // go-easy no main func
+		case "issue47227": // go-easy cgo
+		case "zerosize": // go-easy uses obsecure &runtime.zerobase
+		case "convert4": // go-easy relies on the same underlying runtime
+		case "export0": // yaegi-easy no main func
+		default:
+			return false;
+	}
+	return true;
 }
 
 private function testYaegi() {
@@ -545,35 +541,13 @@ private function testUnit() {
 	final dir = "./tests/unit/";
 	for (path in FileSystem.readDirectory(dir)) {
 		path = dir + path;
-		if (FileSystem.isDirectory(path) || path.extension() != "go" || excludes[type].indexOf(path) != -1)
+		if (FileSystem.isDirectory(path) || path.extension() != "go")
 			continue;
 		tests.push(path);
 	}
 	// go run ./tests/unit/append0.go
 }
 
-private function testGoByExample() { // gobyexample
-	type = "gobyexample";
-	final dir = "./tests/gobyexample/examples/";
-	if (!FileSystem.exists(dir)) {
-		Sys.command("git clone https://github.com/mmcgrana/gobyexample tests/gobyexample");
-	} else {
-		Sys.setCwd("./tests/gobyexample");
-		Sys.command("git pull");
-		Sys.setCwd("../..");
-	}
-	for (folder in FileSystem.readDirectory(dir)) {
-		folder = dir + folder.addTrailingSlash();
-		for (path in FileSystem.readDirectory(folder)) {
-			if (path.extension() != "go" || excludes[type].indexOf(path) != -1)
-				continue;
-			final name = path.withoutExtension();
-			path = folder + path;
-			tests.push(name);
-		}
-	}
-	// go run ./tests/gobyexample/examples/arrays/arrays.go
-}
 @:structInit
 class TestSuiteData {
 	public var path:String = "";

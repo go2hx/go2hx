@@ -6556,7 +6556,12 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro null;
 		case refType(_.get() => elem):
 			final ct = toComplexType(elem, info);
-			macro(null : stdgo.Ref<$ct>); // pointer can be nil
+			switch elem {
+				case arrayType(_):
+					defaultValue(elem, info, strict);
+				default:
+					macro(null : stdgo.Ref<$ct>); // pointer can be nil
+			}
 		case named(path, _, underlying, alias, _):
 			switch getUnderlying(underlying) {
 				case chanType(_, _):

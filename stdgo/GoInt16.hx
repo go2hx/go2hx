@@ -101,7 +101,7 @@ abstract GoInt16(Int16) from Int16 from Int to Int16 {
 			throw "divide by zero";
 			#end
 		}
-		return Std.int(a.toBasic() / b.toBasic());
+		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
 
 	@:op(A > B) private static function gt(a:GoInt16, b:GoInt16):Bool

@@ -113,7 +113,7 @@ abstract GoInt8(Int8) from Int8 from Int to Int8 {
 			throw "divide by zero";
 			#end
 		}
-		return Std.int(a.toBasic() / b.toBasic());
+		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
 
 	static function clamp(x:Int)

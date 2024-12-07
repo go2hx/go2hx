@@ -78,7 +78,7 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 			throw "divide by zero";
 			#end
 		}
-		return Std.int(a.toBasic() / b.toBasic());
+		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
 
 	@:op(A >> B) private static function shr(a:GoUInt32, b:GoUInt32):GoUInt32 {

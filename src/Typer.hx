@@ -3006,9 +3006,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 									final exprs:Array<Expr> = [
 										for (field in methods) {
 											final field = field.name;
-											macro $x.$field = __tmp__.$field;
+											macro x.$field = __tmp__.$field;
 										}
 									];
+									exprs.unshift(macro var x = $x);
 									exprs.unshift(macro var __tmp__ = $y);
 									return (macro $b{exprs}).expr;
 								}
@@ -3018,9 +3019,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								final exprs:Array<Expr> = [
 									for (field in fields) {
 										final field = field.name;
-										macro $x.$field = __tmp__.$field;
+										macro x.$field = __tmp__.$field;
 									}
 								];
+								exprs.unshift(macro var x = $x);
 								exprs.unshift(macro var __tmp__ = $y);
 								return (macro $b{exprs}).expr;
 							default:
@@ -3097,6 +3099,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var fieldName = names[i];
 					if (fieldName == null)
 						fieldName = '_$i';
+
 					var e2 = macro __tmp__.$fieldName;
 					e2 = assignTranslate(types[i], typeof(stmt.lhs[i], info, false), e2, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
@@ -3108,7 +3111,45 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							default:
 						}
 					}
-					assigns.push(macro $e = ${e2});
+					final toType = typeof(stmt.lhs[i], info, false);
+					var normalAssign = true;
+					if (stmt.lhs[i].id == "StarExpr" && !isPointer(toType)) {
+						final x = e;
+						final y = e2;
+						normalAssign = false;
+						// set underlying not the ref
+						final underlyingType = getUnderlying(toType);
+						switch underlyingType {
+							case interfaceType(empty, methods):
+								if (empty) {
+									return (macro $x.__setData__($y)).expr;
+								} else {
+									final exprs:Array<Expr> = [
+										for (field in methods) {
+											final field = field.name;
+											macro x.$field = $y.$field;
+										}
+									];
+									assigns.unshift(macro var x = $x);
+									assigns = assigns.concat(exprs);
+								}
+							case sliceType(_), mapType(_, _):
+									assigns.push(macro $x.__setData__($y));
+							case structType(fields):
+								final exprs:Array<Expr> = [
+									for (field in fields) {
+										final field = field.name;
+										macro x.$field = $y.$field;
+									}
+								];
+								assigns.unshift(macro var x = $x);
+								assigns = assigns.concat(exprs);
+							default:
+								normalAssign = true;
+						}
+					}
+					if (normalAssign)
+						assigns.push(macro $e = ${e2});
 				}
 				return EBlock([macro var __tmp__ = $func].concat(assigns));
 			} else {

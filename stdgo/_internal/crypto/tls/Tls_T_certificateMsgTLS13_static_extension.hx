@@ -5,10 +5,11 @@ package stdgo._internal.crypto.tls;
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13> = _m;
         {
             var __tmp__ = ({ _raw : _data } : stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13);
-            (_m : stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13)._raw = __tmp__._raw;
-            (_m : stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13)._certificate = __tmp__._certificate;
-            (_m : stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13)._ocspStapling = __tmp__._ocspStapling;
-            (_m : stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13)._scts = __tmp__._scts;
+            var x = (_m : stdgo._internal.crypto.tls.Tls_T_certificateMsgTLS13.T_certificateMsgTLS13);
+            x._raw = __tmp__._raw;
+            x._certificate = __tmp__._certificate;
+            x._ocspStapling = __tmp__._ocspStapling;
+            x._scts = __tmp__._scts;
         };
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
         var _context:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);

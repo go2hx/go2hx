@@ -7,29 +7,33 @@ package stdgo._internal.net.netip;
         if (_n == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.net.netip.Netip_Addr.Addr() : stdgo._internal.net.netip.Netip_Addr.Addr);
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._addr = __tmp__._addr;
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._z = __tmp__._z;
+                var x = (_ip : stdgo._internal.net.netip.Netip_Addr.Addr);
+                x._addr = __tmp__._addr;
+                x._z = __tmp__._z;
             };
             return (null : stdgo.Error);
         } else if (_n == ((4 : stdgo.GoInt))) {
             {
                 var __tmp__ = stdgo._internal.net.netip.Netip_addrFrom4.addrFrom4((_b : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__())?.__copy__();
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._addr = __tmp__._addr;
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._z = __tmp__._z;
+                var x = (_ip : stdgo._internal.net.netip.Netip_Addr.Addr);
+                x._addr = __tmp__._addr;
+                x._z = __tmp__._z;
             };
             return (null : stdgo.Error);
         } else if (_n == ((16 : stdgo.GoInt))) {
             {
                 var __tmp__ = stdgo._internal.net.netip.Netip_addrFrom16.addrFrom16((_b : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__())?.__copy__();
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._addr = __tmp__._addr;
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._z = __tmp__._z;
+                var x = (_ip : stdgo._internal.net.netip.Netip_Addr.Addr);
+                x._addr = __tmp__._addr;
+                x._z = __tmp__._z;
             };
             return (null : stdgo.Error);
         } else if ((_n > (16 : stdgo.GoInt) : Bool)) {
             {
                 var __tmp__ = stdgo._internal.net.netip.Netip_addrFrom16.addrFrom16(((_b.__slice__(0, (16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoArray<stdgo.GoUInt8>)?.__copy__()).withZone(((_b.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__())?.__copy__();
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._addr = __tmp__._addr;
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._z = __tmp__._z;
+                var x = (_ip : stdgo._internal.net.netip.Netip_Addr.Addr);
+                x._addr = __tmp__._addr;
+                x._z = __tmp__._z;
             };
             return (null : stdgo.Error);
         };
@@ -67,15 +71,18 @@ package stdgo._internal.net.netip;
         if ((_text.length) == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.net.netip.Netip_Addr.Addr() : stdgo._internal.net.netip.Netip_Addr.Addr);
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._addr = __tmp__._addr;
-                (_ip : stdgo._internal.net.netip.Netip_Addr.Addr)._z = __tmp__._z;
+                var x = (_ip : stdgo._internal.net.netip.Netip_Addr.Addr);
+                x._addr = __tmp__._addr;
+                x._z = __tmp__._z;
             };
             return (null : stdgo.Error);
         };
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.net.netip.Netip_parseAddr.parseAddr((_text : stdgo.GoString)?.__copy__());
-            _ip = __tmp__._0?.__copy__();
+            var x = _ip;
+            x._addr = __tmp__._0?.__copy__()._addr;
+            x._z = __tmp__._0?.__copy__()._z;
             _err = __tmp__._1;
         };
         return _err;

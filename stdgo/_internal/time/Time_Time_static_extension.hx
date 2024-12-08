@@ -35,7 +35,10 @@ package stdgo._internal.time;
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.time.Time__parseStrictRFC3339._parseStrictRFC3339(_data);
-            _t = __tmp__._0?.__copy__();
+            var x = _t;
+            x._wall = __tmp__._0?.__copy__()._wall;
+            x._ext = __tmp__._0?.__copy__()._ext;
+            x._loc = __tmp__._0?.__copy__()._loc;
             _err = __tmp__._1;
         };
         return _err;
@@ -63,7 +66,10 @@ package stdgo._internal.time;
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.time.Time__parseStrictRFC3339._parseStrictRFC3339(_data);
-            _t = __tmp__._0?.__copy__();
+            var x = _t;
+            x._wall = __tmp__._0?.__copy__()._wall;
+            x._ext = __tmp__._0?.__copy__()._ext;
+            x._loc = __tmp__._0?.__copy__()._loc;
             _err = __tmp__._1;
         };
         return _err;
@@ -119,9 +125,10 @@ package stdgo._internal.time;
         };
         {
             var __tmp__ = (new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time);
-            (_t : stdgo._internal.time.Time_Time.Time)._wall = __tmp__._wall;
-            (_t : stdgo._internal.time.Time_Time.Time)._ext = __tmp__._ext;
-            (_t : stdgo._internal.time.Time_Time.Time)._loc = __tmp__._loc;
+            var x = (_t : stdgo._internal.time.Time_Time.Time);
+            x._wall = __tmp__._wall;
+            x._ext = __tmp__._ext;
+            x._loc = __tmp__._loc;
         };
         _t._wall = (_nsec : stdgo.GoUInt64);
         _t._ext = _sec;

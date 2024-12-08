@@ -216,18 +216,19 @@ function _parseField(_v:stdgo._internal.reflect.Reflect_Value.Value, _bytes:stdg
                 var _v:stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = (new stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue(_t._class, _t._tag, _t._isCompound, _innerBytes, (_bytes.__slice__(_initOffset, _offset) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue);
-                    (_v : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue).class_ = __tmp__.class_;
-                    (_v : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue).tag = __tmp__.tag;
-                    (_v : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue).isCompound = __tmp__.isCompound;
-                    (_v : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue).bytes = __tmp__.bytes;
-                    (_v : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue).fullBytes = __tmp__.fullBytes;
+                    var x = (_v : stdgo._internal.encoding.asn1.Asn1_RawValue.RawValue);
+                    x.class_ = __tmp__.class_;
+                    x.tag = __tmp__.tag;
+                    x.isCompound = __tmp__.isCompound;
+                    x.bytes = __tmp__.bytes;
+                    x.fullBytes = __tmp__.fullBytes;
                 };
                 return { _0 : _offset, _1 : _err };
             } else if (stdgo.Go.typeEquals((__type__ : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>))) {
                 var _v:stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseObjectIdentifier._parseObjectIdentifier(_innerBytes);
-                    _v = __tmp__._0;
+                    _v.__setData__(__tmp__._0);
                     _err = __tmp__._1;
                 };
                 return { _0 : _offset, _1 : _err };
@@ -235,7 +236,9 @@ function _parseField(_v:stdgo._internal.reflect.Reflect_Value.Value, _bytes:stdg
                 var _v:stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_BitString.BitString> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_BitString.BitString>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_BitString.BitString>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.encoding.asn1.Asn1_BitString.BitString>) : __type__.__underlying__().value;
                 {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseBitString._parseBitString(_innerBytes);
-                    _v = __tmp__._0?.__copy__();
+                    var x = _v;
+                    x.bytes = __tmp__._0?.__copy__().bytes;
+                    x.bitLength = __tmp__._0?.__copy__().bitLength;
                     _err = __tmp__._1;
                 };
                 return { _0 : _offset, _1 : _err };
@@ -244,14 +247,20 @@ function _parseField(_v:stdgo._internal.reflect.Reflect_Value.Value, _bytes:stdg
                 if (_universalTag == ((23 : stdgo.GoInt))) {
                     {
                         var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseUTCTime._parseUTCTime(_innerBytes);
-                        _v = __tmp__._0?.__copy__();
+                        var x = _v;
+                        x._wall = __tmp__._0?.__copy__()._wall;
+                        x._ext = __tmp__._0?.__copy__()._ext;
+                        x._loc = __tmp__._0?.__copy__()._loc;
                         _err = __tmp__._1;
                     };
                     return { _0 : _offset, _1 : _err };
                 };
                 {
                     var __tmp__ = stdgo._internal.encoding.asn1.Asn1__parseGeneralizedTime._parseGeneralizedTime(_innerBytes);
-                    _v = __tmp__._0?.__copy__();
+                    var x = _v;
+                    x._wall = __tmp__._0?.__copy__()._wall;
+                    x._ext = __tmp__._0?.__copy__()._ext;
+                    x._loc = __tmp__._0?.__copy__()._loc;
                     _err = __tmp__._1;
                 };
                 return { _0 : _offset, _1 : _err };

@@ -388,13 +388,14 @@ package stdgo._internal.math.big;
         if ((_buf.length) == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.math.big.Big_Float_.Float_() : stdgo._internal.math.big.Big_Float_.Float_);
-                (_z : stdgo._internal.math.big.Big_Float_.Float_)._prec = __tmp__._prec;
-                (_z : stdgo._internal.math.big.Big_Float_.Float_)._mode = __tmp__._mode;
-                (_z : stdgo._internal.math.big.Big_Float_.Float_)._acc = __tmp__._acc;
-                (_z : stdgo._internal.math.big.Big_Float_.Float_)._form = __tmp__._form;
-                (_z : stdgo._internal.math.big.Big_Float_.Float_)._neg = __tmp__._neg;
-                (_z : stdgo._internal.math.big.Big_Float_.Float_)._mant = __tmp__._mant;
-                (_z : stdgo._internal.math.big.Big_Float_.Float_)._exp = __tmp__._exp;
+                var x = (_z : stdgo._internal.math.big.Big_Float_.Float_);
+                x._prec = __tmp__._prec;
+                x._mode = __tmp__._mode;
+                x._acc = __tmp__._acc;
+                x._form = __tmp__._form;
+                x._neg = __tmp__._neg;
+                x._mant = __tmp__._mant;
+                x._exp = __tmp__._exp;
             };
             return (null : stdgo.Error);
         };

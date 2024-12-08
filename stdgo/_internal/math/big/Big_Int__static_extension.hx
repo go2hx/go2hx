@@ -101,8 +101,9 @@ var _rB = __1, _rA = __0;
         if ((_buf.length) == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.math.big.Big_Int_.Int_() : stdgo._internal.math.big.Big_Int_.Int_);
-                (_z : stdgo._internal.math.big.Big_Int_.Int_)._neg = __tmp__._neg;
-                (_z : stdgo._internal.math.big.Big_Int_.Int_)._abs = __tmp__._abs;
+                var x = (_z : stdgo._internal.math.big.Big_Int_.Int_);
+                x._neg = __tmp__._neg;
+                x._abs = __tmp__._abs;
             };
             return (null : stdgo.Error);
         };
@@ -747,8 +748,9 @@ var _r = __1, _q = __0;
         if ((_x != null && ((_x : Dynamic).__nil__ == null || !(_x : Dynamic).__nil__))) {
             {
                 var __tmp__ = (ua : stdgo._internal.math.big.Big_Int_.Int_)?.__copy__();
-                (_x : stdgo._internal.math.big.Big_Int_.Int_)._neg = __tmp__._neg;
-                (_x : stdgo._internal.math.big.Big_Int_.Int_)._abs = __tmp__._abs;
+                var x = (_x : stdgo._internal.math.big.Big_Int_.Int_);
+                x._neg = __tmp__._neg;
+                x._abs = __tmp__._abs;
             };
             if (_negA) {
                 _x._neg = !_x._neg;
@@ -756,8 +758,9 @@ var _r = __1, _q = __0;
         };
         {
             var __tmp__ = (a : stdgo._internal.math.big.Big_Int_.Int_)?.__copy__();
-            (_z : stdgo._internal.math.big.Big_Int_.Int_)._neg = __tmp__._neg;
-            (_z : stdgo._internal.math.big.Big_Int_.Int_)._abs = __tmp__._abs;
+            var x = (_z : stdgo._internal.math.big.Big_Int_.Int_);
+            x._neg = __tmp__._neg;
+            x._abs = __tmp__._abs;
         };
         return _z;
     }

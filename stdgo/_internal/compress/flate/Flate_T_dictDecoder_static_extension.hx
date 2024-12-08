@@ -92,10 +92,11 @@ package stdgo._internal.compress.flate;
         @:recv var _dd:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder> = _dd;
         {
             var __tmp__ = ({ _hist : _dd._hist } : stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder);
-            (_dd : stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder)._hist = __tmp__._hist;
-            (_dd : stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder)._wrPos = __tmp__._wrPos;
-            (_dd : stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder)._rdPos = __tmp__._rdPos;
-            (_dd : stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder)._full = __tmp__._full;
+            var x = (_dd : stdgo._internal.compress.flate.Flate_T_dictDecoder.T_dictDecoder);
+            x._hist = __tmp__._hist;
+            x._wrPos = __tmp__._wrPos;
+            x._rdPos = __tmp__._rdPos;
+            x._full = __tmp__._full;
         };
         if ((_dd._hist.capacity < _size : Bool)) {
             _dd._hist = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

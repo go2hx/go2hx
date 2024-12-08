@@ -148,7 +148,8 @@ package stdgo._internal.net.http;
             };
             {
                 var __tmp__ = _err;
-                (_dst : stdgo.Error).error = __tmp__.error;
+                var x = (_dst : stdgo.Error);
+                x.error = __tmp__.error;
             };
             _p._closeDoneLocked();
             {

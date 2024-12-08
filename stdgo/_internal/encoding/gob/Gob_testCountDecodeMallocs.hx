@@ -20,10 +20,11 @@ function testCountDecodeMallocs(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
         var _allocs = (stdgo._internal.testing.Testing_allocsPerRun.allocsPerRun((1000 : stdgo.GoInt), function():Void {
             {
                 var __tmp__ = (new stdgo._internal.encoding.gob.Gob_Bench.Bench() : stdgo._internal.encoding.gob.Gob_Bench.Bench);
-                (_bench : stdgo._internal.encoding.gob.Gob_Bench.Bench).a = __tmp__.a;
-                (_bench : stdgo._internal.encoding.gob.Gob_Bench.Bench).b = __tmp__.b;
-                (_bench : stdgo._internal.encoding.gob.Gob_Bench.Bench).c = __tmp__.c;
-                (_bench : stdgo._internal.encoding.gob.Gob_Bench.Bench).d = __tmp__.d;
+                var x = (_bench : stdgo._internal.encoding.gob.Gob_Bench.Bench);
+                x.a = __tmp__.a;
+                x.b = __tmp__.b;
+                x.c = __tmp__.c;
+                x.d = __tmp__.d;
             };
             var _err = (_dec.decode(stdgo.Go.toInterface((stdgo.Go.setRef(_bench) : stdgo.Ref<stdgo.Ref<stdgo._internal.encoding.gob.Gob_Bench.Bench>>))) : stdgo.Error);
             if (_err != null) {

@@ -5,7 +5,8 @@ package stdgo._internal.encoding.json;
         @:recv var _u:stdgo.Ref<stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler> = _u;
         {
             var __tmp__ = (new stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler(true) : stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler);
-            (_u : stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler).t = __tmp__.t;
+            var x = (_u : stdgo._internal.encoding.json.Json_T_unmarshaler.T_unmarshaler);
+            x.t = __tmp__.t;
         };
         return (null : stdgo.Error);
     }

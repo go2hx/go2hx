@@ -97,8 +97,9 @@ _word = (_word >> ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
         };
         {
             var __tmp__ = _z?.__copy__();
-            (_y : stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement)._low = __tmp__._low;
-            (_y : stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement)._high = __tmp__._high;
+            var x = (_y : stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement);
+            x._low = __tmp__._low;
+            x._high = __tmp__._high;
         };
     }
     @:keep

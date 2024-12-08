@@ -190,16 +190,17 @@ package stdgo._internal.compress.gzip;
         };
         {
             var __tmp__ = ({ header : ({ os : (255 : stdgo.GoUInt8) } : stdgo._internal.compress.gzip.Gzip_Header.Header), _w : _w, _level : _level, _compressor : _compressor } : stdgo._internal.compress.gzip.Gzip_Writer.Writer);
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer).header = __tmp__.header;
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer)._w = __tmp__._w;
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer)._level = __tmp__._level;
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer)._wroteHeader = __tmp__._wroteHeader;
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer)._compressor = __tmp__._compressor;
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer)._digest = __tmp__._digest;
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer)._size = __tmp__._size;
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer)._closed = __tmp__._closed;
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer)._buf = __tmp__._buf;
-            (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer)._err = __tmp__._err;
+            var x = (_z : stdgo._internal.compress.gzip.Gzip_Writer.Writer);
+            x.header = __tmp__.header;
+            x._w = __tmp__._w;
+            x._level = __tmp__._level;
+            x._wroteHeader = __tmp__._wroteHeader;
+            x._compressor = __tmp__._compressor;
+            x._digest = __tmp__._digest;
+            x._size = __tmp__._size;
+            x._closed = __tmp__._closed;
+            x._buf = __tmp__._buf;
+            x._err = __tmp__._err;
         };
     }
 }

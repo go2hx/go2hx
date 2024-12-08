@@ -26,7 +26,8 @@ package stdgo._internal.net.http;
             };
             {
                 var __tmp__ = _err;
-                (_sew._err : stdgo.Error).error = __tmp__.error;
+                var x = (_sew._err : stdgo.Error);
+                x.error = __tmp__.error;
             };
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };

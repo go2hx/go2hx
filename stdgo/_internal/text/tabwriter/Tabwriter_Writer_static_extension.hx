@@ -172,7 +172,8 @@ package stdgo._internal.text.tabwriter;
                     if (_ok) {
                         {
                             var __tmp__ = _nerr._err;
-                            (_err : stdgo.Error).error = __tmp__.error;
+                            var x = (_err : stdgo.Error);
+                            x.error = __tmp__.error;
                         };
                         return;
                     };

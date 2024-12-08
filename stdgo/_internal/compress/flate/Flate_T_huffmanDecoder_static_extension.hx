@@ -7,10 +7,11 @@ package stdgo._internal.compress.flate;
         if (_h._min != ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder() : stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder);
-                (_h : stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder)._min = __tmp__._min;
-                (_h : stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder)._chunks = __tmp__._chunks;
-                (_h : stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder)._links = __tmp__._links;
-                (_h : stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder)._linkMask = __tmp__._linkMask;
+                var x = (_h : stdgo._internal.compress.flate.Flate_T_huffmanDecoder.T_huffmanDecoder);
+                x._min = __tmp__._min;
+                x._chunks = __tmp__._chunks;
+                x._links = __tmp__._links;
+                x._linkMask = __tmp__._linkMask;
             };
         };
         var _count:stdgo.GoArray<stdgo.GoInt> = new stdgo.GoArray<stdgo.GoInt>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoInt)]);

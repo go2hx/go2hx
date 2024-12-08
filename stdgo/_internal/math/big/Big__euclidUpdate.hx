@@ -7,8 +7,9 @@ function _euclidUpdate(a:stdgo.Ref<stdgo._internal.math.big.Big_Int_.Int_>, b:st
         };
         {
             var __tmp__ = (b : stdgo._internal.math.big.Big_Int_.Int_)?.__copy__();
-            (a : stdgo._internal.math.big.Big_Int_.Int_)._neg = __tmp__._neg;
-            (a : stdgo._internal.math.big.Big_Int_.Int_)._abs = __tmp__._abs;
+            var x = (a : stdgo._internal.math.big.Big_Int_.Int_);
+            x._neg = __tmp__._neg;
+            x._abs = __tmp__._abs;
         };
         if (_extended) {
             _t.set(ub);

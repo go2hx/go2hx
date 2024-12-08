@@ -507,13 +507,14 @@ if ((_n > (0 : stdgo.GoInt) : Bool)) {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader> = _b;
         {
             var __tmp__ = ({ _buf : _buf, _rd : _r, _lastByte : (-1 : stdgo.GoInt), _lastRuneSize : (-1 : stdgo.GoInt) } : stdgo._internal.bufio.Bufio_Reader.Reader);
-            (_b : stdgo._internal.bufio.Bufio_Reader.Reader)._buf = __tmp__._buf;
-            (_b : stdgo._internal.bufio.Bufio_Reader.Reader)._rd = __tmp__._rd;
-            (_b : stdgo._internal.bufio.Bufio_Reader.Reader)._r = __tmp__._r;
-            (_b : stdgo._internal.bufio.Bufio_Reader.Reader)._w = __tmp__._w;
-            (_b : stdgo._internal.bufio.Bufio_Reader.Reader)._err = __tmp__._err;
-            (_b : stdgo._internal.bufio.Bufio_Reader.Reader)._lastByte = __tmp__._lastByte;
-            (_b : stdgo._internal.bufio.Bufio_Reader.Reader)._lastRuneSize = __tmp__._lastRuneSize;
+            var x = (_b : stdgo._internal.bufio.Bufio_Reader.Reader);
+            x._buf = __tmp__._buf;
+            x._rd = __tmp__._rd;
+            x._r = __tmp__._r;
+            x._w = __tmp__._w;
+            x._err = __tmp__._err;
+            x._lastByte = __tmp__._lastByte;
+            x._lastRuneSize = __tmp__._lastRuneSize;
         };
     }
     @:keep

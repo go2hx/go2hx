@@ -15,9 +15,10 @@ package stdgo._internal.encoding.json;
                 final e = _tm;
                 ({ _wall : e._wall, _ext : e._ext, _loc : e._loc } : stdgo._internal.encoding.json.Json_Time3339.Time3339);
             }));
-            (_t : stdgo._internal.encoding.json.Json_Time3339.Time3339)._wall = __tmp__._wall;
-            (_t : stdgo._internal.encoding.json.Json_Time3339.Time3339)._ext = __tmp__._ext;
-            (_t : stdgo._internal.encoding.json.Json_Time3339.Time3339)._loc = __tmp__._loc;
+            var x = (_t : stdgo._internal.encoding.json.Json_Time3339.Time3339);
+            x._wall = __tmp__._wall;
+            x._ext = __tmp__._ext;
+            x._loc = __tmp__._loc;
         };
         return (null : stdgo.Error);
     }

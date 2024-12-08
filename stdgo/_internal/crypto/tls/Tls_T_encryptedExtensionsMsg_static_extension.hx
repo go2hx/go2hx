@@ -5,10 +5,11 @@ package stdgo._internal.crypto.tls;
         @:recv var _m:stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg> = _m;
         {
             var __tmp__ = ({ _raw : _data } : stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg);
-            (_m : stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg)._raw = __tmp__._raw;
-            (_m : stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg)._alpnProtocol = __tmp__._alpnProtocol;
-            (_m : stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg)._quicTransportParameters = __tmp__._quicTransportParameters;
-            (_m : stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg)._earlyData = __tmp__._earlyData;
+            var x = (_m : stdgo._internal.crypto.tls.Tls_T_encryptedExtensionsMsg.T_encryptedExtensionsMsg);
+            x._raw = __tmp__._raw;
+            x._alpnProtocol = __tmp__._alpnProtocol;
+            x._quicTransportParameters = __tmp__._quicTransportParameters;
+            x._earlyData = __tmp__._earlyData;
         };
         var _s = (_data : _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_);
         var _extensions:_internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_ = new _internal.vendor.golang_dot_org.x.crypto.cryptobyte.Cryptobyte_String_.String_(0, 0);

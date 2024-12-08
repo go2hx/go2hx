@@ -36,8 +36,9 @@ package stdgo._internal.math.big;
         if ((_buf.length) == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.math.big.Big_Rat.Rat() : stdgo._internal.math.big.Big_Rat.Rat);
-                (_z : stdgo._internal.math.big.Big_Rat.Rat)._a = __tmp__._a;
-                (_z : stdgo._internal.math.big.Big_Rat.Rat)._b = __tmp__._b;
+                var x = (_z : stdgo._internal.math.big.Big_Rat.Rat);
+                x._a = __tmp__._a;
+                x._b = __tmp__._b;
             };
             return (null : stdgo.Error);
         };

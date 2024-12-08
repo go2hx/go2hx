@@ -41,11 +41,12 @@ package stdgo._internal.crypto.sha512;
         var _d0 = (stdgo.Go.setRef(({} : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest)) : stdgo.Ref<stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest>);
         {
             var __tmp__ = (_d : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest)?.__copy__();
-            (_d0 : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest)._h = __tmp__._h;
-            (_d0 : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest)._x = __tmp__._x;
-            (_d0 : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest)._nx = __tmp__._nx;
-            (_d0 : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest)._len = __tmp__._len;
-            (_d0 : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest)._function = __tmp__._function;
+            var x = (_d0 : stdgo._internal.crypto.sha512.Sha512_T_digest.T_digest);
+            x._h = __tmp__._h;
+            x._x = __tmp__._x;
+            x._nx = __tmp__._nx;
+            x._len = __tmp__._len;
+            x._function = __tmp__._function;
         };
         var _hash = _d0._checkSum()?.__copy__();
         {

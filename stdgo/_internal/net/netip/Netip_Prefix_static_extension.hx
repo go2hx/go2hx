@@ -21,8 +21,9 @@ package stdgo._internal.net.netip;
         };
         {
             var __tmp__ = stdgo._internal.net.netip.Netip_prefixFrom.prefixFrom(_addr?.__copy__(), (_b[((_b.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt))?.__copy__();
-            (_p : stdgo._internal.net.netip.Netip_Prefix.Prefix)._ip = __tmp__._ip;
-            (_p : stdgo._internal.net.netip.Netip_Prefix.Prefix)._bitsPlusOne = __tmp__._bitsPlusOne;
+            var x = (_p : stdgo._internal.net.netip.Netip_Prefix.Prefix);
+            x._ip = __tmp__._ip;
+            x._bitsPlusOne = __tmp__._bitsPlusOne;
         };
         return (null : stdgo.Error);
     }
@@ -39,15 +40,18 @@ package stdgo._internal.net.netip;
         if ((_text.length) == ((0 : stdgo.GoInt))) {
             {
                 var __tmp__ = (new stdgo._internal.net.netip.Netip_Prefix.Prefix() : stdgo._internal.net.netip.Netip_Prefix.Prefix);
-                (_p : stdgo._internal.net.netip.Netip_Prefix.Prefix)._ip = __tmp__._ip;
-                (_p : stdgo._internal.net.netip.Netip_Prefix.Prefix)._bitsPlusOne = __tmp__._bitsPlusOne;
+                var x = (_p : stdgo._internal.net.netip.Netip_Prefix.Prefix);
+                x._ip = __tmp__._ip;
+                x._bitsPlusOne = __tmp__._bitsPlusOne;
             };
             return (null : stdgo.Error);
         };
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.net.netip.Netip_parsePrefix.parsePrefix((_text : stdgo.GoString)?.__copy__());
-            _p = __tmp__._0?.__copy__();
+            var x = _p;
+            x._ip = __tmp__._0?.__copy__()._ip;
+            x._bitsPlusOne = __tmp__._0?.__copy__()._bitsPlusOne;
             _err = __tmp__._1;
         };
         return _err;

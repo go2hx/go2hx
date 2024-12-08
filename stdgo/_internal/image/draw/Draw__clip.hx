@@ -3,19 +3,22 @@ function _clip(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo.Ref<st
         var _orig = (_r.min?.__copy__() : stdgo._internal.image.Image_Point.Point);
         {
             var __tmp__ = _r.intersect(_dst.bounds()?.__copy__())?.__copy__();
-            (_r : stdgo._internal.image.Image_Rectangle.Rectangle).min = __tmp__.min;
-            (_r : stdgo._internal.image.Image_Rectangle.Rectangle).max = __tmp__.max;
+            var x = (_r : stdgo._internal.image.Image_Rectangle.Rectangle);
+            x.min = __tmp__.min;
+            x.max = __tmp__.max;
         };
         {
             var __tmp__ = _r.intersect(_src.bounds().add(_orig.sub((_sp : stdgo._internal.image.Image_Point.Point)?.__copy__())?.__copy__())?.__copy__())?.__copy__();
-            (_r : stdgo._internal.image.Image_Rectangle.Rectangle).min = __tmp__.min;
-            (_r : stdgo._internal.image.Image_Rectangle.Rectangle).max = __tmp__.max;
+            var x = (_r : stdgo._internal.image.Image_Rectangle.Rectangle);
+            x.min = __tmp__.min;
+            x.max = __tmp__.max;
         };
         if (_mask != null) {
             {
                 var __tmp__ = _r.intersect(_mask.bounds().add(_orig.sub((_mp : stdgo._internal.image.Image_Point.Point)?.__copy__())?.__copy__())?.__copy__())?.__copy__();
-                (_r : stdgo._internal.image.Image_Rectangle.Rectangle).min = __tmp__.min;
-                (_r : stdgo._internal.image.Image_Rectangle.Rectangle).max = __tmp__.max;
+                var x = (_r : stdgo._internal.image.Image_Rectangle.Rectangle);
+                x.min = __tmp__.min;
+                x.max = __tmp__.max;
             };
         };
         var _dx = (_r.min.x - _orig.x : stdgo.GoInt);

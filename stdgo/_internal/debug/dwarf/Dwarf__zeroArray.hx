@@ -8,8 +8,9 @@ function _zeroArray(_t:stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_Type_.Type_>)
         _tt.count = (0i64 : stdgo.GoInt64);
         {
             var __tmp__ = stdgo.Go.asInterface((stdgo.Go.setRef(_tt) : stdgo.Ref<stdgo._internal.debug.dwarf.Dwarf_ArrayType.ArrayType>));
-            (_t : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_).common = __tmp__.common;
-            (_t : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_).size = __tmp__.size;
-            (_t : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_).string = __tmp__.string;
+            var x = (_t : stdgo._internal.debug.dwarf.Dwarf_Type_.Type_);
+            x.common = __tmp__.common;
+            x.size = __tmp__.size;
+            x.string = __tmp__.string;
         };
     }

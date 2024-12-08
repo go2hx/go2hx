@@ -82,10 +82,11 @@ package stdgo._internal.html.template;
                 var _emptyTmpl = stdgo._internal.html.template.Template_new_.new_(_existing.name()?.__copy__());
                 {
                     var __tmp__ = (_emptyTmpl : stdgo._internal.html.template.Template_Template.Template)?.__copy__();
-                    (_existing : stdgo._internal.html.template.Template_Template.Template)._escapeErr = __tmp__._escapeErr;
-                    (_existing : stdgo._internal.html.template.Template_Template.Template)._text = __tmp__._text;
-                    (_existing : stdgo._internal.html.template.Template_Template.Template).tree = __tmp__.tree;
-                    (_existing : stdgo._internal.html.template.Template_Template.Template)._nameSpace = __tmp__._nameSpace;
+                    var x = (_existing : stdgo._internal.html.template.Template_Template.Template);
+                    x._escapeErr = __tmp__._escapeErr;
+                    x._text = __tmp__._text;
+                    x.tree = __tmp__.tree;
+                    x._nameSpace = __tmp__._nameSpace;
                 };
             };
         };

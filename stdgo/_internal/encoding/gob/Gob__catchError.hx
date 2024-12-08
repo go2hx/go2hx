@@ -17,7 +17,8 @@ function _catchError(_err:stdgo.Ref<stdgo.Error>):Void {
                 };
                 {
                     var __tmp__ = _ge._err;
-                    (_err : stdgo.Error).error = __tmp__.error;
+                    var x = (_err : stdgo.Error);
+                    x.error = __tmp__.error;
                 };
             };
         };

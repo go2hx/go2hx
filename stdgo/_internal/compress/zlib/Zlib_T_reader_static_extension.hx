@@ -5,11 +5,12 @@ package stdgo._internal.compress.zlib;
         @:recv var _z:stdgo.Ref<stdgo._internal.compress.zlib.Zlib_T_reader.T_reader> = _z;
         {
             var __tmp__ = ({ _decompressor : _z._decompressor } : stdgo._internal.compress.zlib.Zlib_T_reader.T_reader);
-            (_z : stdgo._internal.compress.zlib.Zlib_T_reader.T_reader)._r = __tmp__._r;
-            (_z : stdgo._internal.compress.zlib.Zlib_T_reader.T_reader)._decompressor = __tmp__._decompressor;
-            (_z : stdgo._internal.compress.zlib.Zlib_T_reader.T_reader)._digest = __tmp__._digest;
-            (_z : stdgo._internal.compress.zlib.Zlib_T_reader.T_reader)._err = __tmp__._err;
-            (_z : stdgo._internal.compress.zlib.Zlib_T_reader.T_reader)._scratch = __tmp__._scratch;
+            var x = (_z : stdgo._internal.compress.zlib.Zlib_T_reader.T_reader);
+            x._r = __tmp__._r;
+            x._decompressor = __tmp__._decompressor;
+            x._digest = __tmp__._digest;
+            x._err = __tmp__._err;
+            x._scratch = __tmp__._scratch;
         };
         {
             var __tmp__ = try {

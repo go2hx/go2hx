@@ -16,7 +16,8 @@ function _errorHandler(_errp:stdgo.Ref<stdgo.Error>):Void {
                     if (_ok) {
                         {
                             var __tmp__ = _se._err;
-                            (_errp : stdgo.Error).error = __tmp__.error;
+                            var x = (_errp : stdgo.Error);
+                            x.error = __tmp__.error;
                         };
                     } else {
                         var __tmp__ = try {
@@ -27,7 +28,8 @@ function _errorHandler(_errp:stdgo.Ref<stdgo.Error>):Void {
                         if ((_ok && (stdgo.Go.toInterface(_eof) == stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof)) : Bool)) {
                             {
                                 var __tmp__ = _eof;
-                                (_errp : stdgo.Error).error = __tmp__.error;
+                                var x = (_errp : stdgo.Error);
+                                x.error = __tmp__.error;
                             };
                         } else {
                             throw stdgo.Go.toInterface(_e);

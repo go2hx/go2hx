@@ -284,14 +284,15 @@ if (_z._buf[(_i : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
         @:recv var _z:stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader> = _z;
         {
             var __tmp__ = ({ _decompressor : _z._decompressor, _multistream : true } : stdgo._internal.compress.gzip.Gzip_Reader.Reader);
-            (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader).header = __tmp__.header;
-            (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader)._r = __tmp__._r;
-            (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader)._decompressor = __tmp__._decompressor;
-            (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader)._digest = __tmp__._digest;
-            (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader)._size = __tmp__._size;
-            (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader)._buf = __tmp__._buf;
-            (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader)._err = __tmp__._err;
-            (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader)._multistream = __tmp__._multistream;
+            var x = (_z : stdgo._internal.compress.gzip.Gzip_Reader.Reader);
+            x.header = __tmp__.header;
+            x._r = __tmp__._r;
+            x._decompressor = __tmp__._decompressor;
+            x._digest = __tmp__._digest;
+            x._size = __tmp__._size;
+            x._buf = __tmp__._buf;
+            x._err = __tmp__._err;
+            x._multistream = __tmp__._multistream;
         };
         {
             var __tmp__ = try {

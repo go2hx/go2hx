@@ -5,9 +5,10 @@ package stdgo._internal.strings;
         @:recv var _r:stdgo.Ref<stdgo._internal.strings.Strings_Reader.Reader> = _r;
         {
             var __tmp__ = (new stdgo._internal.strings.Strings_Reader.Reader(_s?.__copy__(), (0i64 : stdgo.GoInt64), (-1 : stdgo.GoInt)) : stdgo._internal.strings.Strings_Reader.Reader);
-            (_r : stdgo._internal.strings.Strings_Reader.Reader)._s = __tmp__._s;
-            (_r : stdgo._internal.strings.Strings_Reader.Reader)._i = __tmp__._i;
-            (_r : stdgo._internal.strings.Strings_Reader.Reader)._prevRune = __tmp__._prevRune;
+            var x = (_r : stdgo._internal.strings.Strings_Reader.Reader);
+            x._s = __tmp__._s;
+            x._i = __tmp__._i;
+            x._prevRune = __tmp__._prevRune;
         };
     }
     @:keep

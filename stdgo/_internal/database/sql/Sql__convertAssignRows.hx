@@ -71,9 +71,10 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                         var _d:stdgo.Ref<stdgo._internal.time.Time_Time.Time> = __type__ == null ? (null : stdgo.Ref<stdgo._internal.time.Time_Time.Time>) : __type__.__underlying__() == null ? (null : stdgo.Ref<stdgo._internal.time.Time_Time.Time>) : __type__ == null ? (null : stdgo.Ref<stdgo._internal.time.Time_Time.Time>) : __type__.__underlying__().value;
                         {
                             var __tmp__ = _s?.__copy__();
-                            (_d : stdgo._internal.time.Time_Time.Time)._wall = __tmp__._wall;
-                            (_d : stdgo._internal.time.Time_Time.Time)._ext = __tmp__._ext;
-                            (_d : stdgo._internal.time.Time_Time.Time)._loc = __tmp__._loc;
+                            var x = (_d : stdgo._internal.time.Time_Time.Time);
+                            x._wall = __tmp__._wall;
+                            x._ext = __tmp__._ext;
+                            x._loc = __tmp__._loc;
                         };
                         return (null : stdgo.Error);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Pointer<stdgo.GoString>))) {
@@ -150,18 +151,19 @@ function _convertAssignRows(_dest:stdgo.AnyInterface, _src:stdgo.AnyInterface, _
                         _rows._closemu.lock();
                         {
                             var __tmp__ = ({ _dc : _rows._dc, _releaseConn : function(_0:stdgo.Error):Void {}, _rowsi : _s } : stdgo._internal.database.sql.Sql_Rows.Rows);
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._dc = __tmp__._dc;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._releaseConn = __tmp__._releaseConn;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._rowsi = __tmp__._rowsi;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._cancel = __tmp__._cancel;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._closeStmt = __tmp__._closeStmt;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._contextDone = __tmp__._contextDone;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._closemu = __tmp__._closemu;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._closed = __tmp__._closed;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._lasterr = __tmp__._lasterr;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._lastcols = __tmp__._lastcols;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._closemuScanHold = __tmp__._closemuScanHold;
-                            (_d : stdgo._internal.database.sql.Sql_Rows.Rows)._hitEOF = __tmp__._hitEOF;
+                            var x = (_d : stdgo._internal.database.sql.Sql_Rows.Rows);
+                            x._dc = __tmp__._dc;
+                            x._releaseConn = __tmp__._releaseConn;
+                            x._rowsi = __tmp__._rowsi;
+                            x._cancel = __tmp__._cancel;
+                            x._closeStmt = __tmp__._closeStmt;
+                            x._contextDone = __tmp__._contextDone;
+                            x._closemu = __tmp__._closemu;
+                            x._closed = __tmp__._closed;
+                            x._lasterr = __tmp__._lasterr;
+                            x._lastcols = __tmp__._lastcols;
+                            x._closemuScanHold = __tmp__._closemuScanHold;
+                            x._hitEOF = __tmp__._hitEOF;
                         };
                         var _parentCancel = (_rows._cancel : () -> Void);
                         _rows._cancel = function():Void {

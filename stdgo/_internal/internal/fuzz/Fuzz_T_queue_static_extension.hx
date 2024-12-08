@@ -5,9 +5,10 @@ package stdgo._internal.internal.fuzz;
         @:recv var _q:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue> = _q;
         {
             var __tmp__ = (new stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue() : stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue);
-            (_q : stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue)._elems = __tmp__._elems;
-            (_q : stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue)._head = __tmp__._head;
-            (_q : stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue)._len = __tmp__._len;
+            var x = (_q : stdgo._internal.internal.fuzz.Fuzz_T_queue.T_queue);
+            x._elems = __tmp__._elems;
+            x._head = __tmp__._head;
+            x._len = __tmp__._len;
         };
     }
     @:keep

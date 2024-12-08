@@ -2971,6 +2971,11 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					var x = typeExpr(stmt.lhs[i], info);
 					var y = typeExpr(stmt.rhs[i], info);
+					// check if empty
+					if (stmt.lhs[i].id == "Ident" && stmt.lhs[i].name == "_") {
+						exprs.push(y);
+						continue;
+					}
 					var toType = typeof(stmt.lhs[i], info, false);
 					if (op == OpAssign) {
 						// __append__ -> __append__
@@ -3062,7 +3067,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							inits.push(macro final $tmpName = ${e2});
 							expr.expr = EBinop(op, e1, macro $i{tmpName});
 						default:
-							throw info.panic() + "expr should normally be a binop: " + expr.expr;
+							inits.push(expr);
 					}
 				}
 				exprs = orderOperations(inits, exprs);

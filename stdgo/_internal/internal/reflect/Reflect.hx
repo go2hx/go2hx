@@ -165,18 +165,21 @@ function deepValueEqual(v1:ReflectValue, v2:ReflectValue, visited:Map<Visit, Boo
 function directlyAssignable(t:Type, v:Type):Bool {
 	var tgt:GoType = (t : Dynamic)._common();
 	var vgt:GoType = (v : Dynamic)._common();
+	//trace("directlyAssignable tgt:", tgt);
+	//trace("directlyAssignable vgt:", vgt);
 	switch vgt {
 		case named(path, _, _):
 			switch tgt {
 				case named(path2, _, _):
 					return path == path2;
 				default:
-					return false;
 			}
 		default:
 	}
 	tgt = getUnderlying(tgt);
 	vgt = getUnderlying(vgt);
+	//trace("directlyAssignable underlying tgt:", tgt);
+	//trace("directlyAssignable underlying vgt:", vgt);
 	return switch tgt {
 		case chanType(_, _.get() => elem), sliceType(_.get() => elem):
 			switch vgt {
@@ -216,7 +219,9 @@ function directlyAssignable(t:Type, v:Type):Bool {
 					false;
 			}
 		case interfaceType(_):
-			false; // checked by implements instead
+			var bType = new stdgo._internal.internal.reflect.Reflect._Type(vgt);
+			final b = new stdgo._internal.internal.reflect.Reflect._Type(tgt).implements_(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> bType, value -> bType = value), bType));
+			b;
 		case signature(_, _.get() => input, _.get() => output, _):
 			switch vgt {
 				case signature(_, _.get() => input2, _.get() => output2, _):
@@ -374,8 +379,8 @@ function implementsMethod(t:Type, v:Type):Bool {
 		gt = getElem(gt);
 	if (isPointer(vgt) || isRef(vgt))
 		vgt = getElem(vgt);
-	// trace(gt);
-	// trace(vgt);
+	//trace("n0:", gt);
+	//trace("n1:", vgt);
 	return switch gt {
 		case interfaceType(_, methods), named(_, methods, interfaceType(_, _), _):
 			if (methods == null || methods.length == 0)

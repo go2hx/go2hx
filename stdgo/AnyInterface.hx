@@ -41,7 +41,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			return a == null && b == null;
 		var gt:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (a.type : Dynamic)._common();
 		var gt2:stdgo._internal.internal.reflect.Reflect.GoType = @:privateAccess (b.type : Dynamic)._common();
-
 		if (gt.match(invalidType) || gt2.match(invalidType))
 			return gt.match(invalidType) && gt2.match(invalidType);
 		if (gt.match(basic(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))
@@ -52,7 +51,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 		var aValue = a.value;
 		var bValue = b.value;
-
 		switch gt {
 			case named(_, _, _, _), refType(_):
 				if (aValue != null) {
@@ -144,8 +142,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					case invalidType: true;
 					default: false;
 				}
-			case interfaceType(_, _):
-				aValue == bValue;
+			case interfaceType(empty, _):
+				if (empty) {
+					equals(aValue, bValue);
+				}else{
+					aValue == bValue;
+				}
 			case arrayType(_.get() => elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;

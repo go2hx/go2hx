@@ -173,6 +173,7 @@ function directlyAssignable(t:Type, v:Type):Bool {
 				case named(path2, _, _):
 					return path == path2;
 				default:
+					return false;
 			}
 		default:
 	}

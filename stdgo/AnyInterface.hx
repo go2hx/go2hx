@@ -45,10 +45,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			return gt.match(invalidType) && gt2.match(invalidType);
 		if (gt.match(basic(untyped_nil_kind)) || gt2.match(basic(untyped_nil_kind)))
 			return gt.match(basic(untyped_nil_kind)) && gt2.match(basic(untyped_nil_kind));
-		// set internal Type
-		if (!a.type.assignableTo(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> b.type, value -> b.type = value), b.type))) {
-			return false;
-		}
 		var aValue = a.value;
 		var bValue = b.value;
 		switch gt {
@@ -81,6 +77,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 		gt = stdgo._internal.internal.reflect.Reflect.getUnderlying(gt);
 		gt2 = stdgo._internal.internal.reflect.Reflect.getUnderlying(gt2);
+		// set internal Type
+		var aType = new stdgo._internal.internal.reflect.Reflect._Type(gt);
+		var bType = new stdgo._internal.internal.reflect.Reflect._Type(gt2);
+		if (!aType.assignableTo(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> bType, value -> bType = value), bType))) {
+			return false;
+		}
 		return switch gt {
 			case refType(_):
 				aValue == bValue;
@@ -143,6 +145,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					default: false;
 				}
 			case interfaceType(empty, _):
+				//return aValue == bValue;
 				if (empty) {
 					equals(aValue, bValue);
 				}else{

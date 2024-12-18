@@ -88,7 +88,7 @@ if (_level == ((1 : stdgo.GoInt32))) {
                 _l._nextCharFreq = _list[(_n : stdgo.GoInt)]._freq;
             } else {
                 _l._lastFreq = _l._nextPairFreq;
-                stdgo.Go.copySlice((_leafCounts[(_level : stdgo.GoInt)].__slice__(0, _level) : stdgo.Slice<stdgo.GoInt32>), (_leafCounts[((_level - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)].__slice__(0, _level) : stdgo.Slice<stdgo.GoInt32>));
+                (_leafCounts[(_level : stdgo.GoInt)].__slice__(0, _level) : stdgo.Slice<stdgo.GoInt32>).__copyTo__((_leafCounts[((_level - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)].__slice__(0, _level) : stdgo.Slice<stdgo.GoInt32>));
                 _levels[((_l._level - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoInt)]._needed = (2 : stdgo.GoInt32);
             };
             {

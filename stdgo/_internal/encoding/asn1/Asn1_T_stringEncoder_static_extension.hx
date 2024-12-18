@@ -3,7 +3,7 @@ package stdgo._internal.encoding.asn1;
     @:keep
     static public function encode( _s:stdgo._internal.encoding.asn1.Asn1_T_stringEncoder.T_stringEncoder, _dst:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _s:stdgo._internal.encoding.asn1.Asn1_T_stringEncoder.T_stringEncoder = _s;
-        if (stdgo.Go.copySlice(_dst, _s) != ((_s.length))) {
+        if (_dst.__copyTo__(_s) != ((_s.length))) {
             throw stdgo.Go.toInterface(("internal error" : stdgo.GoString));
         };
     }

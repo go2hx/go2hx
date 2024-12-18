@@ -17,7 +17,7 @@ package stdgo._internal.crypto.cipher;
     static public function _deriveCounter( _g:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm>, _counter:stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>, _nonce:stdgo.Slice<stdgo.GoUInt8>):Void {
         @:recv var _g:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_gcm.T_gcm> = _g;
         if ((_nonce.length) == ((12 : stdgo.GoInt))) {
-            stdgo.Go.copySlice((_counter.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _nonce);
+            (_counter.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_nonce);
             _counter[(15 : stdgo.GoInt)] = (1 : stdgo.GoUInt8);
         } else {
             var _y:stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement = ({} : stdgo._internal.crypto.cipher.Cipher_T_gcmFieldElement.T_gcmFieldElement);
@@ -52,7 +52,7 @@ package stdgo._internal.crypto.cipher;
         _g._updateBlocks(_y, (_data.__slice__(0, _fullBlocks) : stdgo.Slice<stdgo.GoUInt8>));
         if ((_data.length) != (_fullBlocks)) {
             var _partialBlock:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
-            stdgo.Go.copySlice((_partialBlock.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_data.__slice__(_fullBlocks) : stdgo.Slice<stdgo.GoUInt8>));
+            (_partialBlock.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_data.__slice__(_fullBlocks) : stdgo.Slice<stdgo.GoUInt8>));
             _g._updateBlocks(_y, (_partialBlock.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         };
     }
@@ -160,7 +160,7 @@ var _tagMask = __1, _counter = __0;
         _g._counterCrypt(_out, _plaintext, (stdgo.Go.setRef(_counter) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
         var _tag:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(16, 16, ...[for (i in 0 ... 16) (0 : stdgo.GoUInt8)]);
         _g._auth((_tag.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_out.__slice__(0, (_plaintext.length)) : stdgo.Slice<stdgo.GoUInt8>), _data, (stdgo.Go.setRef(_tagMask) : stdgo.Ref<stdgo.GoArray<stdgo.GoUInt8>>));
-        stdgo.Go.copySlice((_out.__slice__((_plaintext.length)) : stdgo.Slice<stdgo.GoUInt8>), (_tag.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
+        (_out.__slice__((_plaintext.length)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_tag.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
         return _ret;
     }
     @:keep

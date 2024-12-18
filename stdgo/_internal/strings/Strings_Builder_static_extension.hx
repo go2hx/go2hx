@@ -44,7 +44,7 @@ package stdgo._internal.strings;
     static public function _grow( _b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder>, _n:stdgo.GoInt):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.strings.Strings_Builder.Builder> = _b;
         var _buf = (stdgo._internal.internal.bytealg.Bytealg_makeNoZero.makeNoZero((((2 : stdgo.GoInt) * _b._buf.capacity : stdgo.GoInt) + _n : stdgo.GoInt)).__slice__(0, (_b._buf.length)) : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice(_buf, _b._buf);
+        _buf.__copyTo__(_b._buf);
         _b._buf = _buf;
     }
     @:keep

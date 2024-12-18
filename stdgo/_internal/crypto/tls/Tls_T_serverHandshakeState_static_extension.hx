@@ -18,7 +18,7 @@ package stdgo._internal.crypto.tls;
                 return _err;
             };
         };
-        stdgo.Go.copySlice(_out, _finished._verifyData);
+        _out.__copyTo__(_finished._verifyData);
         return (null : stdgo.Error);
     }
     @:keep
@@ -102,7 +102,7 @@ package stdgo._internal.crypto.tls;
                 return _err;
             };
         };
-        stdgo.Go.copySlice(_out, _verify);
+        _out.__copyTo__(_verify);
         return (null : stdgo.Error);
     }
     @:keep
@@ -540,9 +540,9 @@ var _serverHash = __1, _clientHash = __0;
         var _maxVers = (_c._config._maxSupportedVersion(false) : stdgo.GoUInt16);
         if ((((_maxVers >= (771 : stdgo.GoUInt16) : Bool) && (_c._vers < _maxVers : Bool) : Bool) || stdgo._internal.crypto.tls.Tls__testingOnlyForceDowngradeCanary._testingOnlyForceDowngradeCanary : Bool)) {
             if (_c._vers == ((771 : stdgo.GoUInt16))) {
-                stdgo.Go.copySlice((_serverRandom.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.str("DOWNGRD", 1));
+                (_serverRandom.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(stdgo.Go.str("DOWNGRD", 1));
             } else {
-                stdgo.Go.copySlice((_serverRandom.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.str("DOWNGRD", 0));
+                (_serverRandom.__slice__((24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(stdgo.Go.str("DOWNGRD", 0));
             };
             _serverRandom = (_serverRandom.__slice__(0, (24 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         };

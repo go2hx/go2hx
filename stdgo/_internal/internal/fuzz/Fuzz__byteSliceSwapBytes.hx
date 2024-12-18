@@ -21,9 +21,9 @@ function _byteSliceSwapBytes(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_m
         };
         var _end = (_b.length : stdgo.GoInt);
         _b = (_b.__slice__(0, (_end + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice((_b.__slice__(_end) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__(_dst, (_dst + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo.Go.copySlice((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__(_src, (_src + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo.Go.copySlice((_b.__slice__(_src) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__(_end) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__(_end) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_dst, (_dst + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_src, (_src + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__(_src) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_end) : stdgo.Slice<stdgo.GoUInt8>));
         _b = (_b.__slice__(0, _end) : stdgo.Slice<stdgo.GoUInt8>);
         return _b;
     }

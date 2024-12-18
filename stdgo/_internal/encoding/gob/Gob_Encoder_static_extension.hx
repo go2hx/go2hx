@@ -218,7 +218,7 @@ package stdgo._internal.encoding.gob;
         _enc._countState._b.reset();
         _enc._countState._encodeUint((_messageLen : stdgo.GoUInt64));
         var _offset = ((9 : stdgo.GoInt) - _enc._countState._b.len() : stdgo.GoInt);
-        stdgo.Go.copySlice((_message.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>), _enc._countState._b.bytes());
+        (_message.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_enc._countState._b.bytes());
         var __tmp__ = _w.write((_message.__slice__(_offset) : stdgo.Slice<stdgo.GoUInt8>)), __8:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         _b.reset();
         _b.write(stdgo._internal.encoding.gob.Gob__spaceForLength._spaceForLength);

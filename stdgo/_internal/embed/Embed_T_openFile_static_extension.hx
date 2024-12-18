@@ -6,7 +6,7 @@ package stdgo._internal.embed;
         if (((_offset < (0i64 : stdgo.GoInt64) : Bool) || (_offset > (_f._f._data.length : stdgo.GoInt64) : Bool) : Bool)) {
             return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("read" : stdgo.GoString), path : _f._f._name?.__copy__(), err : stdgo._internal.io.fs.Fs_errInvalid.errInvalid } : stdgo._internal.io.fs.Fs_PathError.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>)) };
         };
-        var _n = (stdgo.Go.copySlice(_b, (_f._f._data.__slice__(_offset) : stdgo.GoString)) : stdgo.GoInt);
+        var _n = (_b.__copyTo__((_f._f._data.__slice__(_offset) : stdgo.GoString)) : stdgo.GoInt);
         if ((_n < (_b.length) : Bool)) {
             return { _0 : _n, _1 : stdgo._internal.io.Io_eof.eof };
         };
@@ -38,7 +38,7 @@ package stdgo._internal.embed;
         if ((_f._offset < (0i64 : stdgo.GoInt64) : Bool)) {
             return { _0 : (0 : stdgo.GoInt), _1 : stdgo.Go.asInterface((stdgo.Go.setRef(({ op : ("read" : stdgo.GoString), path : _f._f._name?.__copy__(), err : stdgo._internal.io.fs.Fs_errInvalid.errInvalid } : stdgo._internal.io.fs.Fs_PathError.PathError)) : stdgo.Ref<stdgo._internal.io.fs.Fs_PathError.PathError>)) };
         };
-        var _n = (stdgo.Go.copySlice(_b, (_f._f._data.__slice__(_f._offset) : stdgo.GoString)) : stdgo.GoInt);
+        var _n = (_b.__copyTo__((_f._f._data.__slice__(_f._offset) : stdgo.GoString)) : stdgo.GoInt);
         _f._offset = (_f._offset + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         return { _0 : _n, _1 : (null : stdgo.Error) };
     }

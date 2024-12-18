@@ -21,7 +21,7 @@ function _growSlice(_b:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):stdgo.Slice<s
                 _c = ((2 : stdgo.GoInt) * _b.capacity : stdgo.GoInt);
             };
             var _b2 = ((null : stdgo.Slice<stdgo.GoUInt8>).__append__(...((new stdgo.Slice<stdgo.GoUInt8>((_c : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>) : Array<stdgo.GoUInt8>)));
-            stdgo.Go.copySlice(_b2, _b);
+            _b2.__copyTo__(_b);
             {
                 final __ret__:stdgo.Slice<stdgo.GoUInt8> = (_b2.__slice__(0, (_b.length)) : stdgo.Slice<stdgo.GoUInt8>);
                 for (defer in __deferstack__) {

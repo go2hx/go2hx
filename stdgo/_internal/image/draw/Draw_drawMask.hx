@@ -137,7 +137,7 @@ function drawMask(_dst:stdgo._internal.image.draw.Draw_Image.Image, _r:stdgo._in
                                 while ((_y < _r.max.y : Bool)) {
                                     _i0 = (_i0 + (_dst0.stride) : stdgo.GoInt);
 _i1 = (_i1 + (_dst0.stride) : stdgo.GoInt);
-stdgo.Go.copySlice((_dst0.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>), _firstRow);
+(_dst0.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_firstRow);
                                     _y++;
                                 };
                             };

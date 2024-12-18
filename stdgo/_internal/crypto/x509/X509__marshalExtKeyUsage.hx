@@ -12,7 +12,7 @@ function _marshalExtKeyUsage(_extUsages:stdgo.Slice<stdgo._internal.crypto.x509.
                 };
             };
         };
-        stdgo.Go.copySlice((_oids.__slice__((_extUsages.length)) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>), _unknownUsages);
+        (_oids.__slice__((_extUsages.length)) : stdgo.Slice<stdgo._internal.encoding.asn1.Asn1_ObjectIdentifier.ObjectIdentifier>).__copyTo__(_unknownUsages);
         var _err:stdgo.Error = (null : stdgo.Error);
         {
             var __tmp__ = stdgo._internal.encoding.asn1.Asn1_marshal.marshal(stdgo.Go.toInterface(_oids));

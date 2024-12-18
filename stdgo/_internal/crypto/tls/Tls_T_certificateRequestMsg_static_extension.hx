@@ -17,7 +17,7 @@ package stdgo._internal.crypto.tls;
             return false;
         };
         _m._certificateTypes = (new stdgo.Slice<stdgo.GoUInt8>((_numCertTypes : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        if (stdgo.Go.copySlice(_m._certificateTypes, _data) != (_numCertTypes)) {
+        if (_m._certificateTypes.__copyTo__(_data) != (_numCertTypes)) {
             return false;
         };
         _data = (_data.__slice__(_numCertTypes) : stdgo.Slice<stdgo.GoUInt8>);
@@ -49,7 +49,7 @@ package stdgo._internal.crypto.tls;
             return false;
         };
         var _cas = (new stdgo.Slice<stdgo.GoUInt8>((_casLength : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice(_cas, _data);
+        _cas.__copyTo__(_data);
         _data = (_data.__slice__(_casLength) : stdgo.Slice<stdgo.GoUInt8>);
         _m._certificateAuthorities = (null : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
         while (((_cas.length) > (0 : stdgo.GoInt) : Bool)) {
@@ -87,7 +87,7 @@ package stdgo._internal.crypto.tls;
         _x[(2 : stdgo.GoInt)] = ((_length >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
         _x[(3 : stdgo.GoInt)] = (_length : stdgo.GoUInt8);
         _x[(4 : stdgo.GoInt)] = (_m._certificateTypes.length : stdgo.GoUInt8);
-        stdgo.Go.copySlice((_x.__slice__((5 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _m._certificateTypes);
+        (_x.__slice__((5 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_m._certificateTypes);
         var _y = (_x.__slice__(((5 : stdgo.GoInt) + (_m._certificateTypes.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         if (_m._hasSignatureAlgorithm) {
             var _n = ((_m._supportedSignatureAlgorithms.length) * (2 : stdgo.GoInt) : stdgo.GoInt);
@@ -107,7 +107,7 @@ package stdgo._internal.crypto.tls;
             _y[(0 : stdgo.GoInt)] = (((_ca.length) >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
             _y[(1 : stdgo.GoInt)] = (_ca.length : stdgo.GoUInt8);
             _y = (_y.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-            stdgo.Go.copySlice(_y, _ca);
+            _y.__copyTo__(_ca);
             _y = (_y.__slice__((_ca.length)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         _m._raw = _x;

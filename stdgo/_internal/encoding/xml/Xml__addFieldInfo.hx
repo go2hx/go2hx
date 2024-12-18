@@ -1,19 +1,19 @@
 package stdgo._internal.encoding.xml;
 function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_typeInfo.T_typeInfo>, _newf:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>):stdgo.Error {
-        var _conflicts_3754619:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
-        var _f1_3755994:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
         var _minl_3754916:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _i_3754713:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _conflicts_3754619:stdgo.Slice<stdgo.GoInt> = (null : stdgo.Slice<stdgo.GoInt>);
         var _i_3755734_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _c_3756301:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _f2_3756030:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
+        var _p_3754972:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _f1_3755994:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
         var _oldf_3755928:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
-        var _i_3755903:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _c_3756301:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _oldf_3754741:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
+        var _i_3754713:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3755908_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3755903:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3755729:stdgo.GoInt = (0 : stdgo.GoInt);
         var _i_3756342:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _oldf_3754741:stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo> = (null : stdgo.Ref<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
-        var _p_3754972:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _f2_3756030:stdgo._internal.reflect.Reflect_StructField.StructField = ({} : stdgo._internal.reflect.Reflect_StructField.StructField);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -205,7 +205,7 @@ function _addFieldInfo(_typ:stdgo._internal.reflect.Reflect_Type_.Type_, _tinfo:
                     };
                 } else if (__value__ == (3756338i32)) {
                     _i_3756342 = _conflicts_3754619[(_c_3756301 : stdgo.GoInt)];
-                    stdgo.Go.copySlice((_tinfo._fields.__slice__(_i_3756342) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>), (_tinfo._fields.__slice__((_i_3756342 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>));
+                    (_tinfo._fields.__slice__(_i_3756342) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>).__copyTo__((_tinfo._fields.__slice__((_i_3756342 + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>));
                     _tinfo._fields = (_tinfo._fields.__slice__(0, ((_tinfo._fields.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.encoding.xml.Xml_T_fieldInfo.T_fieldInfo>);
                     _c_3756301--;
                     _gotoNext = 3756297i32;

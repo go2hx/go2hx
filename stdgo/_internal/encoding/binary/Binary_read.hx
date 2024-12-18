@@ -57,7 +57,7 @@ function read(_r:stdgo._internal.io.Io_Reader.Reader, _order:stdgo._internal.enc
                         };
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<stdgo.GoUInt8>))) {
                         var _data:stdgo.Slice<stdgo.GoUInt8> = __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__ == null ? (null : stdgo.Slice<stdgo.GoUInt8>) : __type__.__underlying__().value;
-                        stdgo.Go.copySlice(_data, _bs);
+                        _data.__copyTo__(_bs);
                     } else if (stdgo.Go.typeEquals((__type__ : stdgo.Slice<stdgo.GoInt16>))) {
                         var _data:stdgo.Slice<stdgo.GoInt16> = __type__ == null ? (null : stdgo.Slice<stdgo.GoInt16>) : __type__.__underlying__() == null ? (null : stdgo.Slice<stdgo.GoInt16>) : __type__ == null ? (null : stdgo.Slice<stdgo.GoInt16>) : __type__.__underlying__().value;
                         for (_i => _ in _data) {

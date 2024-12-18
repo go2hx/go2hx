@@ -26,7 +26,7 @@ package stdgo._internal.net.http;
             throw stdgo.Go.toInterface(("invalid use of queue" : stdgo.GoString));
         };
         var _wr = (_q._s[(0 : stdgo.GoInt)] : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest);
-        stdgo.Go.copySlice(_q._s, (_q._s.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest>));
+        _q._s.__copyTo__((_q._s.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest>));
         _q._s[((_q._s.length) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest() : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest);
         _q._s = (_q._s.__slice__(0, ((_q._s.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest>);
         return _wr?.__copy__();

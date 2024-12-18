@@ -8,7 +8,7 @@ function _appendSorted(_es:stdgo.Slice<stdgo._internal.net.http.Http_T_muxEntry.
             return (_es.__append__(_e?.__copy__()));
         };
         _es = (_es.__append__((new stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry() : stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry)));
-        stdgo.Go.copySlice((_es.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry>), (_es.__slice__(_i) : stdgo.Slice<stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry>));
+        (_es.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry>).__copyTo__((_es.__slice__(_i) : stdgo.Slice<stdgo._internal.net.http.Http_T_muxEntry.T_muxEntry>));
         _es[(_i : stdgo.GoInt)] = _e?.__copy__();
         return _es;
     }

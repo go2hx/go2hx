@@ -9,7 +9,7 @@ var _dy = __4, _sdelta = __3, _ddelta = __2, _s0 = __1, _d0 = __0;
             _sdelta = -_srcStride;
         };
         while ((_dy > (0 : stdgo.GoInt) : Bool)) {
-            stdgo.Go.copySlice((_dstPix.__slice__(_d0, (_d0 + _bytesPerRow : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_srcPix.__slice__(_s0, (_s0 + _bytesPerRow : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+            (_dstPix.__slice__(_d0, (_d0 + _bytesPerRow : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_srcPix.__slice__(_s0, (_s0 + _bytesPerRow : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
 _d0 = (_d0 + (_ddelta) : stdgo.GoInt);
 _s0 = (_s0 + (_sdelta) : stdgo.GoInt);
             _dy--;

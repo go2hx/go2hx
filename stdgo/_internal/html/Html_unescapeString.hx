@@ -14,11 +14,11 @@ function unescapeString(_s:stdgo.GoString):stdgo.GoString {
                 _i = stdgo._internal.strings.Strings_indexByte.indexByte((_s.__slice__(_src) : stdgo.GoString)?.__copy__(), (38 : stdgo.GoUInt8));
             };
             if ((_i < (0 : stdgo.GoInt) : Bool)) {
-                _dst = (_dst + (stdgo.Go.copySlice((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), (_s.__slice__(_src) : stdgo.GoString))) : stdgo.GoInt);
+                _dst = (_dst + ((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_s.__slice__(_src) : stdgo.GoString))) : stdgo.GoInt);
                 break;
             };
             if ((_i > (0 : stdgo.GoInt) : Bool)) {
-                stdgo.Go.copySlice((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), (_s.__slice__(_src, (_src + _i : stdgo.GoInt)) : stdgo.GoString));
+                (_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_s.__slice__(_src, (_src + _i : stdgo.GoInt)) : stdgo.GoString));
             };
             {
                 var __tmp__ = stdgo._internal.html.Html__unescapeEntity._unescapeEntity(_b, (_dst + _i : stdgo.GoInt), (_src + _i : stdgo.GoInt));

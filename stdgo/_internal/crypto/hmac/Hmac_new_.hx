@@ -63,8 +63,8 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
             _hm._outer.write(_key);
             _key = _hm._outer.sum((null : stdgo.Slice<stdgo.GoUInt8>));
         };
-        stdgo.Go.copySlice(_hm._ipad, _key);
-        stdgo.Go.copySlice(_hm._opad, _key);
+        _hm._ipad.__copyTo__(_key);
+        _hm._opad.__copyTo__(_key);
         for (_i => _ in _hm._ipad) {
             _hm._ipad[(_i : stdgo.GoInt)] = (_hm._ipad[(_i : stdgo.GoInt)] ^ ((54 : stdgo.GoUInt8)) : stdgo.GoUInt8);
         };

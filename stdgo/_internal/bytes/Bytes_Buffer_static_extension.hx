@@ -155,7 +155,7 @@ package stdgo._internal.bytes;
                 __tmp__;
             };
         };
-        _n = stdgo.Go.copySlice(_p, (_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>));
+        _n = _p.__copyTo__((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>));
         _b._off = (_b._off + (_n) : stdgo.GoInt);
         if ((_n > (0 : stdgo.GoInt) : Bool)) {
             _b._lastRead = (-1 : stdgo._internal.bytes.Bytes_T_readOp.T_readOp);
@@ -286,7 +286,7 @@ package stdgo._internal.bytes;
             _m = _b._grow((_s.length));
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : stdgo.Go.copySlice((_b._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>), _s), _1 : (null : stdgo.Error) };
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_b._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s), _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -302,7 +302,7 @@ package stdgo._internal.bytes;
             _m = _b._grow((_p.length));
         };
         return {
-            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : stdgo.Go.copySlice((_b._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>), _p), _1 : (null : stdgo.Error) };
+            final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_b._buf.__slice__(_m) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p), _1 : (null : stdgo.Error) };
             _n = __tmp__._0;
             _err = __tmp__._1;
             __tmp__;
@@ -336,7 +336,7 @@ package stdgo._internal.bytes;
         };
         var _c = (_b._buf.capacity : stdgo.GoInt);
         if ((_n <= ((_c / (2 : stdgo.GoInt) : stdgo.GoInt) - _m : stdgo.GoInt) : Bool)) {
-            stdgo.Go.copySlice(_b._buf, (_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>));
+            _b._buf.__copyTo__((_b._buf.__slice__(_b._off) : stdgo.Slice<stdgo.GoUInt8>));
         } else if ((_c > (((2147483647 : stdgo.GoInt) - _c : stdgo.GoInt) - _n : stdgo.GoInt) : Bool)) {
             throw stdgo.Go.toInterface(stdgo._internal.bytes.Bytes_errTooLarge.errTooLarge);
         } else {

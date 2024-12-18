@@ -400,7 +400,7 @@ package stdgo._internal.crypto.tls;
                         throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("tls: unable to generate random session ticket key: %v" : stdgo.GoString), stdgo.Go.toInterface(_err)));
                     };
                 };
-                stdgo.Go.copySlice((_c.sessionTicketKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.crypto.tls.Tls__deprecatedSessionTicketKey._deprecatedSessionTicketKey);
+                (_c.sessionTicketKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(stdgo._internal.crypto.tls.Tls__deprecatedSessionTicketKey._deprecatedSessionTicketKey);
             } else if ((!stdgo._internal.bytes.Bytes_hasPrefix.hasPrefix((_c.sessionTicketKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.crypto.tls.Tls__deprecatedSessionTicketKey._deprecatedSessionTicketKey) && (_c._sessionTicketKeys.length == (0 : stdgo.GoInt)) : Bool)) {
                 _c._sessionTicketKeys = (new stdgo.Slice<stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey>(1, 1, ...[_c._ticketKeyFromBytes(_c.sessionTicketKey?.__copy__())?.__copy__()].concat([for (i in 1 ... (1 > 1 ? 1 : 1 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey)])) : stdgo.Slice<stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey>);
             };
@@ -476,8 +476,8 @@ package stdgo._internal.crypto.tls;
         var _key = ({} : stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey);
         var _hashed = stdgo._internal.crypto.sha512.Sha512_sum512.sum512((_b.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))?.__copy__();
         {};
-        stdgo.Go.copySlice((_key._aesKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_hashed.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo.Go.copySlice((_key._hmacKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_hashed.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        (_key._aesKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_hashed.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        (_key._hmacKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_hashed.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         _key._created = _c._time()?.__copy__();
         return _key = _key?.__copy__();
     }

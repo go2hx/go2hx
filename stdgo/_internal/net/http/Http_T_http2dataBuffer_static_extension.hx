@@ -24,7 +24,7 @@ package stdgo._internal.net.http;
                 _want = _b._expected;
             };
             var _chunk = _b._lastChunkOrAlloc(_want);
-            var _n = (stdgo.Go.copySlice((_chunk.__slice__(_b._w) : stdgo.Slice<stdgo.GoUInt8>), _p) : stdgo.GoInt);
+            var _n = ((_chunk.__slice__(_b._w) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p) : stdgo.GoInt);
             _p = (_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             _b._w = (_b._w + (_n) : stdgo.GoInt);
             _b._size = (_b._size + (_n) : stdgo.GoInt);
@@ -54,7 +54,7 @@ package stdgo._internal.net.http;
         var _ntotal:stdgo.GoInt = (0 : stdgo.GoInt);
         while ((((_p.length) > (0 : stdgo.GoInt) : Bool) && (_b._size > (0 : stdgo.GoInt) : Bool) : Bool)) {
             var _readFrom = _b._bytesFromFirstChunk();
-            var _n = (stdgo.Go.copySlice(_p, _readFrom) : stdgo.GoInt);
+            var _n = (_p.__copyTo__(_readFrom) : stdgo.GoInt);
             _p = (_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             _ntotal = (_ntotal + (_n) : stdgo.GoInt);
             _b._r = (_b._r + (_n) : stdgo.GoInt);
@@ -62,7 +62,7 @@ package stdgo._internal.net.http;
             if (_b._r == ((_b._chunks[(0 : stdgo.GoInt)].length))) {
                 stdgo._internal.net.http.Http__http2putDataBufferChunk._http2putDataBufferChunk(_b._chunks[(0 : stdgo.GoInt)]);
                 var _end = ((_b._chunks.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                stdgo.Go.copySlice((_b._chunks.__slice__(0, _end) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>), (_b._chunks.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>));
+                (_b._chunks.__slice__(0, _end) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>).__copyTo__((_b._chunks.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>));
                 _b._chunks[(_end : stdgo.GoInt)] = (null : stdgo.Slice<stdgo.GoUInt8>);
                 _b._chunks = (_b._chunks.__slice__(0, _end) : stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>);
                 _b._r = (0 : stdgo.GoInt);

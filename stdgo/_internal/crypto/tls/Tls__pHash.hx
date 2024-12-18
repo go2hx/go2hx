@@ -9,7 +9,7 @@ function _pHash(_result:stdgo.Slice<stdgo.GoUInt8>, _secret:stdgo.Slice<stdgo.Go
             _h.write(_a);
             _h.write(_seed);
             var _b = _h.sum((null : stdgo.Slice<stdgo.GoUInt8>));
-            stdgo.Go.copySlice((_result.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>), _b);
+            (_result.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b);
             _j = (_j + ((_b.length)) : stdgo.GoInt);
             _h.reset();
             _h.write(_a);

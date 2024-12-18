@@ -27,7 +27,7 @@ package stdgo._internal.compress.flate;
         var _dstBase = (_dstPos : stdgo.GoInt);
         var _srcPos = (_dstPos - _dist : stdgo.GoInt);
         while ((_dstPos < _endPos : Bool)) {
-            _dstPos = (_dstPos + (stdgo.Go.copySlice((_dd._hist.__slice__(_dstPos, _endPos) : stdgo.Slice<stdgo.GoUInt8>), (_dd._hist.__slice__(_srcPos, _dstPos) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
+            _dstPos = (_dstPos + ((_dd._hist.__slice__(_dstPos, _endPos) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_dd._hist.__slice__(_srcPos, _dstPos) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
         };
         _dd._wrPos = _dstPos;
         return (_dstPos - _dstBase : stdgo.GoInt);
@@ -44,11 +44,11 @@ package stdgo._internal.compress.flate;
         };
         if ((_srcPos < (0 : stdgo.GoInt) : Bool)) {
             _srcPos = (_srcPos + ((_dd._hist.length)) : stdgo.GoInt);
-            _dstPos = (_dstPos + (stdgo.Go.copySlice((_dd._hist.__slice__(_dstPos, _endPos) : stdgo.Slice<stdgo.GoUInt8>), (_dd._hist.__slice__(_srcPos) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
+            _dstPos = (_dstPos + ((_dd._hist.__slice__(_dstPos, _endPos) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_dd._hist.__slice__(_srcPos) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
             _srcPos = (0 : stdgo.GoInt);
         };
         while ((_dstPos < _endPos : Bool)) {
-            _dstPos = (_dstPos + (stdgo.Go.copySlice((_dd._hist.__slice__(_dstPos, _endPos) : stdgo.Slice<stdgo.GoUInt8>), (_dd._hist.__slice__(_srcPos, _dstPos) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
+            _dstPos = (_dstPos + ((_dd._hist.__slice__(_dstPos, _endPos) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_dd._hist.__slice__(_srcPos, _dstPos) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
         };
         _dd._wrPos = _dstPos;
         return (_dstPos - _dstBase : stdgo.GoInt);
@@ -105,7 +105,7 @@ package stdgo._internal.compress.flate;
         if (((_dict.length) > (_dd._hist.length) : Bool)) {
             _dict = (_dict.__slice__(((_dict.length) - (_dd._hist.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        _dd._wrPos = stdgo.Go.copySlice(_dd._hist, _dict);
+        _dd._wrPos = _dd._hist.__copyTo__(_dict);
         if (_dd._wrPos == ((_dd._hist.length))) {
             _dd._wrPos = (0 : stdgo.GoInt);
             _dd._full = true;

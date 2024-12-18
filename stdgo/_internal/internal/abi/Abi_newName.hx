@@ -24,12 +24,12 @@ function newName(_n:stdgo.GoString, _tag:stdgo.GoString, _exported:Bool, _embedd
         };
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((_l : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _b[(0 : stdgo.GoInt)] = _bits;
-        stdgo.Go.copySlice((_b.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_nameLen.__slice__(0, _nameLenLen) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo.Go.copySlice((_b.__slice__(((1 : stdgo.GoInt) + _nameLenLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _n);
+        (_b.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_nameLen.__slice__(0, _nameLenLen) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__(((1 : stdgo.GoInt) + _nameLenLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_n);
         if (((_tag.length) > (0 : stdgo.GoInt) : Bool)) {
             var _tb = (_b.__slice__((((1 : stdgo.GoInt) + _nameLenLen : stdgo.GoInt) + (_n.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-            stdgo.Go.copySlice(_tb, (_tagLen.__slice__(0, _tagLenLen) : stdgo.Slice<stdgo.GoUInt8>));
-            stdgo.Go.copySlice((_tb.__slice__(_tagLenLen) : stdgo.Slice<stdgo.GoUInt8>), _tag);
+            _tb.__copyTo__((_tagLen.__slice__(0, _tagLenLen) : stdgo.Slice<stdgo.GoUInt8>));
+            (_tb.__slice__(_tagLenLen) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_tag);
         };
         return ({ bytes : stdgo.Go.pointer(_b[(0 : stdgo.GoInt)]) } : stdgo._internal.internal.abi.Abi_Name.Name);
     }

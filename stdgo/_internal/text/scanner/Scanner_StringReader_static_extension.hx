@@ -6,7 +6,7 @@ package stdgo._internal.text.scanner;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if ((_r._step < (_r._data.length) : Bool)) {
             var _s = (_r._data[(_r._step : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
-            _n = stdgo.Go.copySlice(_p, _s);
+            _n = _p.__copyTo__(_s);
             _r._step++;
         } else {
             _err = stdgo._internal.io.Io_eof.eof;

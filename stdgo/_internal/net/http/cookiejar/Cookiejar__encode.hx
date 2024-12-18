@@ -1,7 +1,7 @@
 package stdgo._internal.net.http.cookiejar;
 function _encode(_prefix:stdgo.GoString, _s:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         var _output = (new stdgo.Slice<stdgo.GoUInt8>((_prefix.length : stdgo.GoInt).toBasic(), (((_prefix.length) + (1 : stdgo.GoInt) : stdgo.GoInt) + ((2 : stdgo.GoInt) * (_s.length) : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice(_output, _prefix);
+        _output.__copyTo__(_prefix);
         var __0 = ((0 : stdgo.GoInt32) : stdgo.GoInt32), __1 = (128 : stdgo.GoInt32), __2 = (72 : stdgo.GoInt32);
 var _bias = __2, _n = __1, _delta = __0;
         var __0 = ((0 : stdgo.GoInt32) : stdgo.GoInt32), __1 = ((0 : stdgo.GoInt32) : stdgo.GoInt32);

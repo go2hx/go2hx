@@ -91,7 +91,7 @@ if (_r._replacements[(_b : stdgo.GoInt)] != null) {
             while ((_i < (_s.length) : Bool)) {
                 var _b = (_s[(_i : stdgo.GoInt)] : stdgo.GoUInt8);
 if (_r._replacements[(_b : stdgo.GoInt)] != null) {
-                    _j = (_j + (stdgo.Go.copySlice((_buf.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>), _r._replacements[(_b : stdgo.GoInt)])) : stdgo.GoInt);
+                    _j = (_j + ((_buf.__slice__(_j) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_r._replacements[(_b : stdgo.GoInt)])) : stdgo.GoInt);
                 } else {
                     _buf[(_j : stdgo.GoInt)] = _b;
                     _j++;

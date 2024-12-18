@@ -7,9 +7,9 @@ package stdgo._internal.runtime.pprof;
         var _n2 = (_b._data.length : stdgo.GoInt);
         _b._length(_tag, (_n2 - _n1 : stdgo.GoInt));
         var _n3 = (_b._data.length : stdgo.GoInt);
-        stdgo.Go.copySlice((_b._tmp.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_b._data.__slice__(_n2, _n3) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo.Go.copySlice((_b._data.__slice__((_n1 + ((_n3 - _n2 : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_b._data.__slice__(_n1, _n2) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo.Go.copySlice((_b._data.__slice__(_n1) : stdgo.Slice<stdgo.GoUInt8>), (_b._tmp.__slice__(0, (_n3 - _n2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b._tmp.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._data.__slice__(_n2, _n3) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b._data.__slice__((_n1 + ((_n3 - _n2 : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._data.__slice__(_n1, _n2) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b._data.__slice__(_n1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._tmp.__slice__(0, (_n3 - _n2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         _b._nest--;
     }
     @:keep
@@ -67,9 +67,9 @@ package stdgo._internal.runtime.pprof;
             var _n2 = (_b._data.length : stdgo.GoInt);
             _b._length(_tag, (_n2 - _n1 : stdgo.GoInt));
             var _n3 = (_b._data.length : stdgo.GoInt);
-            stdgo.Go.copySlice((_b._tmp.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_b._data.__slice__(_n2, _n3) : stdgo.Slice<stdgo.GoUInt8>));
-            stdgo.Go.copySlice((_b._data.__slice__((_n1 + ((_n3 - _n2 : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_b._data.__slice__(_n1, _n2) : stdgo.Slice<stdgo.GoUInt8>));
-            stdgo.Go.copySlice((_b._data.__slice__(_n1) : stdgo.Slice<stdgo.GoUInt8>), (_b._tmp.__slice__(0, (_n3 - _n2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+            (_b._tmp.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._data.__slice__(_n2, _n3) : stdgo.Slice<stdgo.GoUInt8>));
+            (_b._data.__slice__((_n1 + ((_n3 - _n2 : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._data.__slice__(_n1, _n2) : stdgo.Slice<stdgo.GoUInt8>));
+            (_b._data.__slice__(_n1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._tmp.__slice__(0, (_n3 - _n2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
             return;
         };
         for (__0 => _u in _x) {
@@ -109,9 +109,9 @@ package stdgo._internal.runtime.pprof;
             var _n2 = (_b._data.length : stdgo.GoInt);
             _b._length(_tag, (_n2 - _n1 : stdgo.GoInt));
             var _n3 = (_b._data.length : stdgo.GoInt);
-            stdgo.Go.copySlice((_b._tmp.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_b._data.__slice__(_n2, _n3) : stdgo.Slice<stdgo.GoUInt8>));
-            stdgo.Go.copySlice((_b._data.__slice__((_n1 + ((_n3 - _n2 : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_b._data.__slice__(_n1, _n2) : stdgo.Slice<stdgo.GoUInt8>));
-            stdgo.Go.copySlice((_b._data.__slice__(_n1) : stdgo.Slice<stdgo.GoUInt8>), (_b._tmp.__slice__(0, (_n3 - _n2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+            (_b._tmp.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._data.__slice__(_n2, _n3) : stdgo.Slice<stdgo.GoUInt8>));
+            (_b._data.__slice__((_n1 + ((_n3 - _n2 : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._data.__slice__(_n1, _n2) : stdgo.Slice<stdgo.GoUInt8>));
+            (_b._data.__slice__(_n1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._tmp.__slice__(0, (_n3 - _n2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
             return;
         };
         for (__0 => _u in _x) {

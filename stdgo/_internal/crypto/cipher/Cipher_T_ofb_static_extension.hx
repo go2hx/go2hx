@@ -27,11 +27,11 @@ package stdgo._internal.crypto.cipher;
         if ((_remain > _x._outUsed : Bool)) {
             return;
         };
-        stdgo.Go.copySlice(_x._out, (_x._out.__slice__(_x._outUsed) : stdgo.Slice<stdgo.GoUInt8>));
+        _x._out.__copyTo__((_x._out.__slice__(_x._outUsed) : stdgo.Slice<stdgo.GoUInt8>));
         _x._out = (_x._out.__slice__(0, _x._out.capacity) : stdgo.Slice<stdgo.GoUInt8>);
         while ((_remain < ((_x._out.length) - _bs : stdgo.GoInt) : Bool)) {
             _x._b.encrypt(_x._cipher, _x._cipher);
-            stdgo.Go.copySlice((_x._out.__slice__(_remain) : stdgo.Slice<stdgo.GoUInt8>), _x._cipher);
+            (_x._out.__slice__(_remain) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_x._cipher);
             _remain = (_remain + (_bs) : stdgo.GoInt);
         };
         _x._out = (_x._out.__slice__(0, _remain) : stdgo.Slice<stdgo.GoUInt8>);

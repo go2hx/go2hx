@@ -22,7 +22,7 @@ package stdgo._internal.crypto.tls;
         _x[(1 : stdgo.GoInt)] = ((_length >> (16i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
         _x[(2 : stdgo.GoInt)] = ((_length >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
         _x[(3 : stdgo.GoInt)] = (_length : stdgo.GoUInt8);
-        stdgo.Go.copySlice((_x.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _m._key);
+        (_x.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_m._key);
         _m._raw = _x;
         return { _0 : _x, _1 : (null : stdgo.Error) };
     }

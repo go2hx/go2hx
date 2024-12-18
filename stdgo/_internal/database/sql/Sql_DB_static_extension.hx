@@ -945,7 +945,7 @@ if (_c._returnedAt.before(_idleSince.__copy__())) {
 if (_c._createdAt.before(_expiredSince.__copy__())) {
                         _closing = (_closing.__append__(_c));
                         var _last = ((_db._freeConn.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
-                        stdgo.Go.copySlice((_db._freeConn.__slice__(_i) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>), (_db._freeConn.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>));
+                        (_db._freeConn.__slice__(_i) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>).__copyTo__((_db._freeConn.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>));
                         _db._freeConn[(_last : stdgo.GoInt)] = null;
                         _db._freeConn = (_db._freeConn.__slice__(0, _last) : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn>>);
                         _i--;

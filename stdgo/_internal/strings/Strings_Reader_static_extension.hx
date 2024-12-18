@@ -149,7 +149,7 @@ package stdgo._internal.strings;
                 __tmp__;
             };
         };
-        _n = stdgo.Go.copySlice(_b, (_r._s.__slice__(_off) : stdgo.GoString));
+        _n = _b.__copyTo__((_r._s.__slice__(_off) : stdgo.GoString));
         if ((_n < (_b.length) : Bool)) {
             _err = stdgo._internal.io.Io_eof.eof;
         };
@@ -168,7 +168,7 @@ package stdgo._internal.strings;
             };
         };
         _r._prevRune = (-1 : stdgo.GoInt);
-        _n = stdgo.Go.copySlice(_b, (_r._s.__slice__(_r._i) : stdgo.GoString));
+        _n = _b.__copyTo__((_r._s.__slice__(_r._i) : stdgo.GoString));
         _r._i = (_r._i + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         return { _0 : _n, _1 : _err };
     }

@@ -91,7 +91,7 @@ package stdgo._internal.net.http;
                 _h2[_k] = (null : stdgo.Slice<stdgo.GoString>);
                 continue;
             };
-            var _n = (stdgo.Go.copySlice(_sv, _vv) : stdgo.GoInt);
+            var _n = (_sv.__copyTo__(_vv) : stdgo.GoInt);
             _h2[_k] = (_sv.__slice__(0, _n, _n) : stdgo.Slice<stdgo.GoString>);
             _sv = (_sv.__slice__(_n) : stdgo.Slice<stdgo.GoString>);
         };

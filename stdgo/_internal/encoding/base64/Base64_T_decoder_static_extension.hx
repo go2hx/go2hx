@@ -5,7 +5,7 @@ package stdgo._internal.encoding.base64;
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.base64.Base64_T_decoder.T_decoder> = _d;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((_d._out.length) > (0 : stdgo.GoInt) : Bool)) {
-            _n = stdgo.Go.copySlice(_p, _d._out);
+            _n = _p.__copyTo__(_d._out);
             _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : (null : stdgo.Error) };
@@ -47,7 +47,7 @@ package stdgo._internal.encoding.base64;
                 };
                 _d._nbuf = (0 : stdgo.GoInt);
                 _d._out = (_d._outbuf.__slice__(0, _nw) : stdgo.Slice<stdgo.GoUInt8>);
-                _n = stdgo.Go.copySlice(_p, _d._out);
+                _n = _p.__copyTo__(_d._out);
                 _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
                 if (((_n > (0 : stdgo.GoInt) : Bool) || ((_p.length) == ((0 : stdgo.GoInt)) && ((_d._out.length) > (0 : stdgo.GoInt) : Bool) : Bool) : Bool)) {
                     return {
@@ -86,7 +86,7 @@ package stdgo._internal.encoding.base64;
                 _d._err = __tmp__._1;
             };
             _d._out = (_d._outbuf.__slice__(0, _nw) : stdgo.Slice<stdgo.GoUInt8>);
-            _n = stdgo.Go.copySlice(_p, _d._out);
+            _n = _p.__copyTo__(_d._out);
             _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
             {
@@ -96,7 +96,7 @@ package stdgo._internal.encoding.base64;
             };
         };
         _d._nbuf = (_d._nbuf - (_nr) : stdgo.GoInt);
-        stdgo.Go.copySlice((_d._buf.__slice__(0, _d._nbuf) : stdgo.Slice<stdgo.GoUInt8>), (_d._buf.__slice__(_nr) : stdgo.Slice<stdgo.GoUInt8>));
+        (_d._buf.__slice__(0, _d._nbuf) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_d._buf.__slice__(_nr) : stdgo.Slice<stdgo.GoUInt8>));
         return {
             final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _d._err };
             _n = __tmp__._0;

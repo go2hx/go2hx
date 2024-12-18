@@ -23,7 +23,7 @@ package stdgo._internal.crypto.cipher;
     static public function _refill( _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_ctr.T_ctr>):Void {
         @:recv var _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_ctr.T_ctr> = _x;
         var _remain = ((_x._out.length) - _x._outUsed : stdgo.GoInt);
-        stdgo.Go.copySlice(_x._out, (_x._out.__slice__(_x._outUsed) : stdgo.Slice<stdgo.GoUInt8>));
+        _x._out.__copyTo__((_x._out.__slice__(_x._outUsed) : stdgo.Slice<stdgo.GoUInt8>));
         _x._out = (_x._out.__slice__(0, _x._out.capacity) : stdgo.Slice<stdgo.GoUInt8>);
         var _bs = (_x._b.blockSize() : stdgo.GoInt);
         while ((_remain <= ((_x._out.length) - _bs : stdgo.GoInt) : Bool)) {

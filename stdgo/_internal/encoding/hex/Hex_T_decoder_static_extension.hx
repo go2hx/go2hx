@@ -7,7 +7,7 @@ package stdgo._internal.encoding.hex;
         if ((((_d._in.length) < (2 : stdgo.GoInt) : Bool) && (_d._err == null) : Bool)) {
             var __0:stdgo.GoInt = (0 : stdgo.GoInt), __1:stdgo.GoInt = (0 : stdgo.GoInt);
 var _numRead = __1, _numCopy = __0;
-            _numCopy = stdgo.Go.copySlice((_d._arr.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _d._in);
+            _numCopy = (_d._arr.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_d._in);
             {
                 var __tmp__ = _d._r.read((_d._arr.__slice__(_numCopy) : stdgo.Slice<stdgo.GoUInt8>));
                 _numRead = __tmp__._0;

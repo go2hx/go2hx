@@ -105,7 +105,7 @@ package stdgo._internal.crypto.ed25519;
     static public function public_( _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey):stdgo._internal.crypto.Crypto_PublicKey.PublicKey {
         @:recv var _priv:stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey = _priv;
         var _publicKey = (new stdgo.Slice<stdgo.GoUInt8>((32 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice(_publicKey, (_priv.__slice__((32 : stdgo.GoInt)) : stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey));
+        _publicKey.__copyTo__((_priv.__slice__((32 : stdgo.GoInt)) : stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey));
         return stdgo.Go.toInterface(stdgo.Go.asInterface((_publicKey : stdgo._internal.crypto.ed25519.Ed25519_PublicKey.PublicKey)));
     }
 }

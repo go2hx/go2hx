@@ -2,7 +2,7 @@ package stdgo._internal.strconv;
 function _appendQuotedWith(_buf:stdgo.Slice<stdgo.GoUInt8>, _s:stdgo.GoString, _quote:stdgo.GoUInt8, asciionly:Bool, _graphicOnly:Bool):stdgo.Slice<stdgo.GoUInt8> {
         if (((_buf.capacity - (_buf.length) : stdgo.GoInt) < (_s.length) : Bool)) {
             var _nBuf = (new stdgo.Slice<stdgo.GoUInt8>((_buf.length : stdgo.GoInt).toBasic(), ((((_buf.length) + (1 : stdgo.GoInt) : stdgo.GoInt) + (_s.length) : stdgo.GoInt) + (1 : stdgo.GoInt) : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            stdgo.Go.copySlice(_nBuf, _buf);
+            _nBuf.__copyTo__(_buf);
             _buf = _nBuf;
         };
         _buf = (_buf.__append__(_quote));

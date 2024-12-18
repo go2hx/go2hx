@@ -6,7 +6,7 @@ function _byteSliceInsertRandomBytes(_m:stdgo.Ref<stdgo._internal.internal.fuzz.
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
         _b = (_b.__slice__(0, ((_b.length) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice((_b.__slice__((_pos + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__(_pos) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__((_pos + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_pos) : stdgo.Slice<stdgo.GoUInt8>));
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _n : Bool)) {

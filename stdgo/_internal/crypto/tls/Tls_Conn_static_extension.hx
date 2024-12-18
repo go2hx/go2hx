@@ -2505,7 +2505,7 @@ package stdgo._internal.crypto.tls;
         var _err = ({} : stdgo._internal.crypto.tls.Tls_RecordHeaderError.RecordHeaderError);
         _err.msg = _msg?.__copy__();
         _err.conn = _conn;
-        stdgo.Go.copySlice((_err.recordHeader.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _c._rawInput.bytes());
+        (_err.recordHeader.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_c._rawInput.bytes());
         return _err = _err?.__copy__();
     }
     @:keep

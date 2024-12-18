@@ -26,7 +26,7 @@ package stdgo._internal.crypto.tls;
         _ckx._ciphertext = (new stdgo.Slice<stdgo.GoUInt8>(((_encrypted.length) + (2 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _ckx._ciphertext[(0 : stdgo.GoInt)] = (((_encrypted.length) >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
         _ckx._ciphertext[(1 : stdgo.GoInt)] = (_encrypted.length : stdgo.GoUInt8);
-        stdgo.Go.copySlice((_ckx._ciphertext.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _encrypted);
+        (_ckx._ciphertext.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_encrypted);
         return { _0 : _preMasterSecret, _1 : _ckx, _2 : (null : stdgo.Error) };
     }
     @:keep

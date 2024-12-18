@@ -152,7 +152,7 @@ var _next = (_f.fileHeader.byteOrder.uint32((_d.__slice__((_j + (12 : stdgo.GoIn
 var _ndx = (_other : stdgo.GoInt);
 if ((_ndx >= (_need.length) : Bool)) {
                         var _a = (new stdgo.Slice<stdgo._internal.debug.elf.Elf_T_verneed.T_verneed>(((2 : stdgo.GoInt) * ((_ndx + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt).toBasic(), 0, ...[for (i in 0 ... (((2 : stdgo.GoInt) * ((_ndx + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt).toBasic() > 0 ? ((2 : stdgo.GoInt) * ((_ndx + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt).toBasic() : 0 : stdgo.GoInt).toBasic()) ({} : stdgo._internal.debug.elf.Elf_T_verneed.T_verneed)]) : stdgo.Slice<stdgo._internal.debug.elf.Elf_T_verneed.T_verneed>);
-                        stdgo.Go.copySlice(_a, _need);
+                        _a.__copyTo__(_need);
                         _need = _a;
                     };
 _need[(_ndx : stdgo.GoInt)] = (new stdgo._internal.debug.elf.Elf_T_verneed.T_verneed(_file.__copy__(), _name.__copy__()) : stdgo._internal.debug.elf.Elf_T_verneed.T_verneed);

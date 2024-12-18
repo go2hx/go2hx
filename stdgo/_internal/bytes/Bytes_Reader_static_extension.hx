@@ -149,7 +149,7 @@ package stdgo._internal.bytes;
                 __tmp__;
             };
         };
-        _n = stdgo.Go.copySlice(_b, (_r._s.__slice__(_off) : stdgo.Slice<stdgo.GoUInt8>));
+        _n = _b.__copyTo__((_r._s.__slice__(_off) : stdgo.Slice<stdgo.GoUInt8>));
         if ((_n < (_b.length) : Bool)) {
             _err = stdgo._internal.io.Io_eof.eof;
         };
@@ -168,7 +168,7 @@ package stdgo._internal.bytes;
             };
         };
         _r._prevRune = (-1 : stdgo.GoInt);
-        _n = stdgo.Go.copySlice(_b, (_r._s.__slice__(_r._i) : stdgo.Slice<stdgo.GoUInt8>));
+        _n = _b.__copyTo__((_r._s.__slice__(_r._i) : stdgo.Slice<stdgo.GoUInt8>));
         _r._i = (_r._i + ((_n : stdgo.GoInt64)) : stdgo.GoInt64);
         return { _0 : _n, _1 : _err };
     }

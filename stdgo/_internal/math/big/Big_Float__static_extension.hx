@@ -917,7 +917,7 @@ var _ym = __1, _xm = __0;
             var _d = ((_n - (_x._mant.length) : stdgo.GoInt) + (_y._mant.length) : stdgo.GoInt);
             if ((_d > (0 : stdgo.GoInt) : Bool)) {
                 _xadj = (new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>(((_x._mant.length) + _d : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.math.big.Big_T_nat.T_nat);
-                stdgo.Go.copySlice((_xadj.__slice__(_d) : stdgo._internal.math.big.Big_T_nat.T_nat), _x._mant);
+                (_xadj.__slice__(_d) : stdgo._internal.math.big.Big_T_nat.T_nat).__copyTo__(_x._mant);
             };
         };
         var _d = ((_xadj.length) - (_y._mant.length) : stdgo.GoInt);
@@ -1481,7 +1481,7 @@ var _b = __1, _a = __0;
         _sbit = (_sbit & ((1u32 : stdgo.GoUInt)) : stdgo.GoUInt);
         var _n = (((_z._prec + (31u32 : stdgo.GoUInt32) : stdgo.GoUInt32)) / (32u32 : stdgo.GoUInt32) : stdgo.GoUInt32);
         if ((_m > _n : Bool)) {
-            stdgo.Go.copySlice(_z._mant, (_z._mant.__slice__((_m - _n : stdgo.GoUInt32)) : stdgo._internal.math.big.Big_T_nat.T_nat));
+            _z._mant.__copyTo__((_z._mant.__slice__((_m - _n : stdgo.GoUInt32)) : stdgo._internal.math.big.Big_T_nat.T_nat));
             _z._mant = (_z._mant.__slice__(0, _n) : stdgo._internal.math.big.Big_T_nat.T_nat);
         };
         var _ntz = ((_n * (32u32 : stdgo.GoUInt32) : stdgo.GoUInt32) - _z._prec : stdgo.GoUInt32);

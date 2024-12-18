@@ -22,7 +22,7 @@ _dst.pix[(_i + (3 : stdgo.GoInt) : stdgo.GoInt)] = _sa8;
             while ((_y < _r.max.y : Bool)) {
                 _i0 = (_i0 + (_dst.stride) : stdgo.GoInt);
 _i1 = (_i1 + (_dst.stride) : stdgo.GoInt);
-stdgo.Go.copySlice((_dst.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>), _firstRow);
+(_dst.pix.__slice__(_i0, _i1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_firstRow);
                 _y++;
             };
         };

@@ -267,7 +267,7 @@ var _bounds = __1, _s = __0;
                     var _x = (_bounds.min.x : stdgo.GoInt);
                     while ((_x < _bounds.max.x : Bool)) {
                         var _d = (_dBase + ((_x * _p._xFactor : stdgo.GoInt) * _bytesPerPixel : stdgo.GoInt) : stdgo.GoInt);
-stdgo.Go.copySlice((_dstPix.__slice__(_d) : stdgo.Slice<stdgo.GoUInt8>), (_srcPix.__slice__(_s, (_s + _bytesPerPixel : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+(_dstPix.__slice__(_d) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_srcPix.__slice__(_s, (_s + _bytesPerPixel : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
 _s = (_s + (_bytesPerPixel) : stdgo.GoInt);
                         _x++;
                     };
@@ -548,7 +548,7 @@ _nrgba.setNRGBA(_x, _y, (new stdgo._internal.image.color.Color_NRGBA.NRGBA(_ycol
                                 };
                             };
                         } else {
-                            stdgo.Go.copySlice((_gray.pix.__slice__(_pixOffset) : stdgo.Slice<stdgo.GoUInt8>), _cdat);
+                            (_gray.pix.__slice__(_pixOffset) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_cdat);
                             _pixOffset = (_pixOffset + (_gray.stride) : stdgo.GoInt);
                         };
                     } else if (__value__ == ((5 : stdgo.GoInt))) {
@@ -675,10 +675,10 @@ _b = (_b << ((4i64 : stdgo.GoUInt64)) : stdgo.GoUInt8);
                                 };
                             };
                         };
-                        stdgo.Go.copySlice((_paletted.pix.__slice__(_pixOffset) : stdgo.Slice<stdgo.GoUInt8>), _cdat);
+                        (_paletted.pix.__slice__(_pixOffset) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_cdat);
                         _pixOffset = (_pixOffset + (_paletted.stride) : stdgo.GoInt);
                     } else if (__value__ == ((11 : stdgo.GoInt))) {
-                        stdgo.Go.copySlice((_nrgba.pix.__slice__(_pixOffset) : stdgo.Slice<stdgo.GoUInt8>), _cdat);
+                        (_nrgba.pix.__slice__(_pixOffset) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_cdat);
                         _pixOffset = (_pixOffset + (_nrgba.stride) : stdgo.GoInt);
                     } else if (__value__ == ((12 : stdgo.GoInt))) {
                         if (_d._useTransparent) {
@@ -953,7 +953,7 @@ if (_imagePass != null) {
                     return _err;
                 };
                 _d._crc.write((_d._tmp.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
-                stdgo.Go.copySlice((_d._transparent.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_d._tmp.__slice__(0, _length) : stdgo.Slice<stdgo.GoUInt8>));
+                (_d._transparent.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_d._tmp.__slice__(0, _length) : stdgo.Slice<stdgo.GoUInt8>));
                 {
                     final __value__ = _d._cb;
                     if (__value__ == ((1 : stdgo.GoInt))) {
@@ -974,7 +974,7 @@ if (_imagePass != null) {
                     return _err;
                 };
                 _d._crc.write((_d._tmp.__slice__(0, _n) : stdgo.Slice<stdgo.GoUInt8>));
-                stdgo.Go.copySlice((_d._transparent.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_d._tmp.__slice__(0, _length) : stdgo.Slice<stdgo.GoUInt8>));
+                (_d._transparent.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_d._tmp.__slice__(0, _length) : stdgo.Slice<stdgo.GoUInt8>));
                 _d._useTransparent = true;
             } else if (__value__ == ((7 : stdgo.GoInt)) || __value__ == ((8 : stdgo.GoInt)) || __value__ == ((9 : stdgo.GoInt)) || __value__ == ((10 : stdgo.GoInt))) {
                 if ((_length > (256u32 : stdgo.GoUInt32) : Bool)) {

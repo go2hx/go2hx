@@ -6,7 +6,7 @@ package stdgo._internal.encoding.gob;
         if ((_data.length) != ((_a._a.length))) {
             return stdgo._internal.errors.Errors_new_.new_(("wrong length in array decode" : stdgo.GoString));
         };
-        stdgo.Go.copySlice((_a._a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _data);
+        (_a._a.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_data);
         return (null : stdgo.Error);
     }
     @:keep

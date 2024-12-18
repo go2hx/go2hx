@@ -137,7 +137,7 @@ var _s = __1, _i = __0;
             _dst1 = __tmp__0;
             _src1 = __tmp__1;
         };
-        stdgo.Go.copySlice((_b.__slice__(_dst, _dst1) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__(_src, _src1) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__(_dst, _dst1) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_src, _src1) : stdgo.Slice<stdgo.GoUInt8>));
         return {
             final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoInt; } = { _0 : _dst1, _1 : _src1 };
             _dst1 = __tmp__._0;

@@ -26,7 +26,7 @@ var _y0 = __1, _y1 = __0;
         var _p = (_z.__slice__((_n * (3 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
         stdgo._internal.math.big.Big__karatsuba._karatsuba(_p, _xd, _yd);
         var _r = (_z.__slice__((_n * (4 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
-        stdgo.Go.copySlice(_r, (_z.__slice__(0, (_n * (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat));
+        _r.__copyTo__((_z.__slice__(0, (_n * (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat));
         stdgo._internal.math.big.Big__karatsubaAdd._karatsubaAdd((_z.__slice__(_n2) : stdgo._internal.math.big.Big_T_nat.T_nat), _r, _n);
         stdgo._internal.math.big.Big__karatsubaAdd._karatsubaAdd((_z.__slice__(_n2) : stdgo._internal.math.big.Big_T_nat.T_nat), (_r.__slice__(_n) : stdgo._internal.math.big.Big_T_nat.T_nat), _n);
         if ((_s > (0 : stdgo.GoInt) : Bool)) {

@@ -113,7 +113,7 @@ package stdgo._internal.image.png;
                         if (__value__ == ((4 : stdgo.GoInt))) {
                             if ((_gray != null && ((_gray : Dynamic).__nil__ == null || !(_gray : Dynamic).__nil__))) {
                                 var _offset = (((_y - _b.min.y : stdgo.GoInt)) * _gray.stride : stdgo.GoInt);
-                                stdgo.Go.copySlice((_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_gray.pix.__slice__(_offset, (_offset + _b.dx() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                                (_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_gray.pix.__slice__(_offset, (_offset + _b.dx() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             } else {
                                 {
                                     var _x = (_b.min.x : stdgo.GoInt);
@@ -173,7 +173,7 @@ _i = (_i + ((3 : stdgo.GoInt)) : stdgo.GoInt);
                         } else if (__value__ == ((10 : stdgo.GoInt))) {
                             if ((_paletted != null && ((_paletted : Dynamic).__nil__ == null || !(_paletted : Dynamic).__nil__))) {
                                 var _offset = (((_y - _b.min.y : stdgo.GoInt)) * _paletted.stride : stdgo.GoInt);
-                                stdgo.Go.copySlice((_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_paletted.pix.__slice__(_offset, (_offset + _b.dx() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                                (_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_paletted.pix.__slice__(_offset, (_offset + _b.dx() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             } else {
                                 var _pi = (stdgo.Go.typeAssert((stdgo.Go.toInterface(_m) : stdgo._internal.image.Image_PalettedImage.PalettedImage)) : stdgo._internal.image.Image_PalettedImage.PalettedImage);
                                 {
@@ -214,7 +214,7 @@ if (_c == (_pixelsPerByte)) {
                         } else if (__value__ == ((11 : stdgo.GoInt))) {
                             if ((_nrgba != null && ((_nrgba : Dynamic).__nil__ == null || !(_nrgba : Dynamic).__nil__))) {
                                 var _offset = (((_y - _b.min.y : stdgo.GoInt)) * _nrgba.stride : stdgo.GoInt);
-                                stdgo.Go.copySlice((_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_nrgba.pix.__slice__(_offset, (_offset + (_b.dx() * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+                                (_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_nrgba.pix.__slice__(_offset, (_offset + (_b.dx() * (4 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
                             } else if ((_rgba != null && ((_rgba : Dynamic).__nil__ == null || !(_rgba : Dynamic).__nil__))) {
                                 var _dst = (_cr[(0 : stdgo.GoInt)].__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                                 var _src = (_rgba.pix.__slice__(_rgba.pixOffset(_b.min.x, _y), _rgba.pixOffset(_b.max.x, _y)) : stdgo.Slice<stdgo.GoUInt8>);
@@ -227,7 +227,7 @@ if (_s[(3 : stdgo.GoInt)] == ((0 : stdgo.GoUInt8))) {
                                         _d[(2 : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
                                         _d[(3 : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
                                     } else if (_s[(3 : stdgo.GoInt)] == ((255 : stdgo.GoUInt8))) {
-                                        stdgo.Go.copySlice((_d.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_s.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
+                                        (_d.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_s.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
                                     } else {
                                         {};
                                         var _a = ((_s[(3 : stdgo.GoInt)] : stdgo.GoUInt32) * (257u32 : stdgo.GoUInt32) : stdgo.GoUInt32);

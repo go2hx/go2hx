@@ -20,7 +20,7 @@ function _emsaPSSEncode(_mHash:stdgo.Slice<stdgo.GoUInt8>, _emBits:stdgo.GoInt, 
         _h = _hash.sum((_h.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         _hash.reset();
         _db[(_psLen : stdgo.GoInt)] = (1 : stdgo.GoUInt8);
-        stdgo.Go.copySlice((_db.__slice__((_psLen + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _salt);
+        (_db.__slice__((_psLen + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_salt);
         stdgo._internal.crypto.rsa.Rsa__mgf1XOR._mgf1XOR(_db, _hash, _h);
         _db[(0 : stdgo.GoInt)] = (_db[(0 : stdgo.GoInt)] & (((255 : stdgo.GoUInt8) >> ((((8 : stdgo.GoInt) * _emLen : stdgo.GoInt) - _emBits : stdgo.GoInt)) : stdgo.GoUInt8)) : stdgo.GoUInt8);
         _em[(_emLen - (1 : stdgo.GoInt) : stdgo.GoInt)] = (188 : stdgo.GoUInt8);

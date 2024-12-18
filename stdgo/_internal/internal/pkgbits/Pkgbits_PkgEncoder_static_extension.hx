@@ -62,7 +62,7 @@ package stdgo._internal.internal.pkgbits;
                 stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(_err == null);
             };
         };
-        stdgo.Go.copySlice((_fingerprint.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _h.sum((null : stdgo.Slice<stdgo.GoUInt8>)));
+        (_fingerprint.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_h.sum((null : stdgo.Slice<stdgo.GoUInt8>)));
         var __tmp__ = _out0.write((_fingerprint.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __5:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         stdgo._internal.internal.pkgbits.Pkgbits__assert._assert(_err == null);
         return _fingerprint;

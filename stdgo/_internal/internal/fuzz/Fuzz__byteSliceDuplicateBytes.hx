@@ -14,9 +14,9 @@ function _byteSliceDuplicateBytes(_m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuz
         };
         var _end = (_b.length : stdgo.GoInt);
         _b = (_b.__slice__(0, (_end + ((_n * (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice((_b.__slice__((_end + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__(_src, (_src + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo.Go.copySlice((_b.__slice__((_dst + _n : stdgo.GoInt), (_end + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__(_dst, _end) : stdgo.Slice<stdgo.GoUInt8>));
-        stdgo.Go.copySlice((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__((_end + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__((_end + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_src, (_src + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__((_dst + _n : stdgo.GoInt), (_end + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_dst, _end) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__((_end + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
         _b = (_b.__slice__(0, (_end + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         return _b;
     }

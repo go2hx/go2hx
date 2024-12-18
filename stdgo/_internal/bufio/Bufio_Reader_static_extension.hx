@@ -103,9 +103,9 @@ package stdgo._internal.bufio;
         var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _n = (0 : stdgo.GoInt);
         for (_i => _ in _full) {
-            _n = (_n + (stdgo.Go.copySlice((_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _full[(_i : stdgo.GoInt)])) : stdgo.GoInt);
+            _n = (_n + ((_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_full[(_i : stdgo.GoInt)])) : stdgo.GoInt);
         };
-        stdgo.Go.copySlice((_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>), _frag);
+        (_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_frag);
         return { _0 : _buf, _1 : _err };
     }
     @:keep
@@ -379,7 +379,7 @@ package stdgo._internal.bufio;
             };
             _b._w = (_b._w + (_n) : stdgo.GoInt);
         };
-        _n = stdgo.Go.copySlice(_p, (_b._buf.__slice__(_b._r, _b._w) : stdgo.Slice<stdgo.GoUInt8>));
+        _n = _p.__copyTo__((_b._buf.__slice__(_b._r, _b._w) : stdgo.Slice<stdgo.GoUInt8>));
         _b._r = (_b._r + (_n) : stdgo.GoInt);
         _b._lastByte = (_b._buf[(_b._r - (1 : stdgo.GoInt) : stdgo.GoInt)] : stdgo.GoInt);
         _b._lastRuneSize = (-1 : stdgo.GoInt);
@@ -475,7 +475,7 @@ package stdgo._internal.bufio;
     static public function _fill( _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader> = _b;
         if ((_b._r > (0 : stdgo.GoInt) : Bool)) {
-            stdgo.Go.copySlice(_b._buf, (_b._buf.__slice__(_b._r, _b._w) : stdgo.Slice<stdgo.GoUInt8>));
+            _b._buf.__copyTo__((_b._buf.__slice__(_b._r, _b._w) : stdgo.Slice<stdgo.GoUInt8>));
             _b._w = (_b._w - (_b._r) : stdgo.GoInt);
             _b._r = (0 : stdgo.GoInt);
         };

@@ -19,7 +19,7 @@ function encryptPEMBlock(_rand:stdgo._internal.io.Io_Reader.Reader, _blockType:s
         var _enc = (stdgo._internal.crypto.cipher.Cipher_newCBCEncrypter.newCBCEncrypter(_block, _iv) : stdgo._internal.crypto.cipher.Cipher_BlockMode.BlockMode);
         var _pad = (_ciph._blockSize - ((_data.length) % _ciph._blockSize : stdgo.GoInt) : stdgo.GoInt);
         var _encrypted = (new stdgo.Slice<stdgo.GoUInt8>((_data.length : stdgo.GoInt).toBasic(), ((_data.length) + _pad : stdgo.GoInt)).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice(_encrypted, _data);
+        _encrypted.__copyTo__(_data);
         {
             var _i = (0 : stdgo.GoInt);
             while ((_i < _pad : Bool)) {

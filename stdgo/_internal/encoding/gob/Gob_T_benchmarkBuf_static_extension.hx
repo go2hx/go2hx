@@ -25,7 +25,7 @@ package stdgo._internal.encoding.gob;
     static public function read( _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_benchmarkBuf.T_benchmarkBuf>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _b:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_benchmarkBuf.T_benchmarkBuf> = _b;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
-        _n = stdgo.Go.copySlice(_p, (_b._data.__slice__(_b._offset) : stdgo.Slice<stdgo.GoUInt8>));
+        _n = _p.__copyTo__((_b._data.__slice__(_b._offset) : stdgo.Slice<stdgo.GoUInt8>));
         if (_n == ((0 : stdgo.GoInt))) {
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };

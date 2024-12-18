@@ -5,7 +5,7 @@ function _md5SHA1Hash(_slices:stdgo.Slice<stdgo.Slice<stdgo.GoUInt8>>):stdgo.Sli
         for (__65 => _slice in _slices) {
             _hmd5.write(_slice);
         };
-        stdgo.Go.copySlice(_md5sha1, _hmd5.sum((null : stdgo.Slice<stdgo.GoUInt8>)));
-        stdgo.Go.copySlice((_md5sha1.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), stdgo._internal.crypto.tls.Tls__sha1Hash._sha1Hash(_slices));
+        _md5sha1.__copyTo__(_hmd5.sum((null : stdgo.Slice<stdgo.GoUInt8>)));
+        (_md5sha1.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(stdgo._internal.crypto.tls.Tls__sha1Hash._sha1Hash(_slices));
         return _md5sha1;
     }

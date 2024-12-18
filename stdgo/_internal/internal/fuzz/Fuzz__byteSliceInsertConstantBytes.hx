@@ -9,7 +9,7 @@ function _byteSliceInsertConstantBytes(_m:stdgo.Ref<stdgo._internal.internal.fuz
             return (null : stdgo.Slice<stdgo.GoUInt8>);
         };
         _b = (_b.__slice__(0, ((_b.length) + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice((_b.__slice__((_dst + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>));
+        (_b.__slice__((_dst + _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b.__slice__(_dst) : stdgo.Slice<stdgo.GoUInt8>));
         var _rb = (_m._rand((256 : stdgo.GoInt)) : stdgo.GoUInt8);
         {
             var _i = (_dst : stdgo.GoInt);

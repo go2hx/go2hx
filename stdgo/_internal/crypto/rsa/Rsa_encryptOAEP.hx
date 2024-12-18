@@ -25,9 +25,9 @@ function encryptOAEP(_hash:stdgo._internal.hash.Hash_Hash.Hash, _random:stdgo._i
         var _em = (new stdgo.Slice<stdgo.GoUInt8>((_k : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         var _seed = (_em.__slice__((1 : stdgo.GoInt), ((1 : stdgo.GoInt) + _hash.size() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         var _db = (_em.__slice__(((1 : stdgo.GoInt) + _hash.size() : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice((_db.__slice__((0 : stdgo.GoInt), _hash.size()) : stdgo.Slice<stdgo.GoUInt8>), _lHash);
+        (_db.__slice__((0 : stdgo.GoInt), _hash.size()) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_lHash);
         _db[(((_db.length) - (_msg.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (1 : stdgo.GoUInt8);
-        stdgo.Go.copySlice((_db.__slice__(((_db.length) - (_msg.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _msg);
+        (_db.__slice__(((_db.length) - (_msg.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_msg);
         var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_random, _seed), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };

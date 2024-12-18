@@ -6,7 +6,7 @@ package stdgo._internal.crypto.cipher;
         if ((_iv.length) != ((_x._iv.length))) {
             throw stdgo.Go.toInterface(("cipher: incorrect length IV" : stdgo.GoString));
         };
-        stdgo.Go.copySlice(_x._iv, _iv);
+        _x._iv.__copyTo__(_iv);
     }
     @:keep
     static public function cryptBlocks( _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter.T_cbcEncrypter>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void {
@@ -28,7 +28,7 @@ package stdgo._internal.crypto.cipher;
             _src = (_src.__slice__(_x._blockSize) : stdgo.Slice<stdgo.GoUInt8>);
             _dst = (_dst.__slice__(_x._blockSize) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        stdgo.Go.copySlice(_x._iv, _iv);
+        _x._iv.__copyTo__(_iv);
     }
     @:keep
     static public function blockSize( _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcEncrypter.T_cbcEncrypter>):stdgo.GoInt {

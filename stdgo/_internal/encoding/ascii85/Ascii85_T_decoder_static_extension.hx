@@ -22,7 +22,7 @@ package stdgo._internal.encoding.ascii85;
         };
         while (true) {
             if (((_d._out.length) > (0 : stdgo.GoInt) : Bool)) {
-                _n = stdgo.Go.copySlice(_p, _d._out);
+                _n = _p.__copyTo__(_d._out);
                 _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
                 return { _0 : _n, _1 : _err };
             };
@@ -37,7 +37,7 @@ var _ndst = __2, _nsrc = __1, _nn = __0;
                 };
                 if ((_ndst > (0 : stdgo.GoInt) : Bool)) {
                     _d._out = (_d._outbuf.__slice__((0 : stdgo.GoInt), _ndst) : stdgo.Slice<stdgo.GoUInt8>);
-                    _d._nbuf = stdgo.Go.copySlice((_d._buf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_d._buf.__slice__(_nsrc, _d._nbuf) : stdgo.Slice<stdgo.GoUInt8>));
+                    _d._nbuf = (_d._buf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_d._buf.__slice__(_nsrc, _d._nbuf) : stdgo.Slice<stdgo.GoUInt8>));
                     continue;
                 };
                 if (((_ndst == (0 : stdgo.GoInt)) && (_d._err == null) : Bool)) {

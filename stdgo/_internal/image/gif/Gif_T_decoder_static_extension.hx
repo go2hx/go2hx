@@ -69,7 +69,7 @@ package stdgo._internal.image.gif;
                         _m.palette[(_ti : stdgo.GoInt)] = stdgo.Go.asInterface((new stdgo._internal.image.color.Color_RGBA.RGBA() : stdgo._internal.image.color.Color_RGBA.RGBA));
                     } else {
                         var _p = (new stdgo.Slice<stdgo._internal.image.color.Color_Color.Color>((_ti + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0) : stdgo._internal.image.color.Color_Palette.Palette);
-                        stdgo.Go.copySlice(_p, _m.palette);
+                        _p.__copyTo__(_m.palette);
                         {
                             var _i = (_m.palette.length : stdgo.GoInt);
                             while ((_i < (_p.length) : Bool)) {

@@ -5,7 +5,7 @@ package stdgo._internal.encoding.base32;
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.base32.Base32_T_decoder.T_decoder> = _d;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((_d._out.length) > (0 : stdgo.GoInt) : Bool)) {
-            _n = stdgo.Go.copySlice(_p, _d._out);
+            _n = _p.__copyTo__(_d._out);
             _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             if ((_d._out.length) == ((0 : stdgo.GoInt))) {
                 return {
@@ -83,7 +83,7 @@ package stdgo._internal.encoding.base32;
                 _err = __tmp__._2;
             };
             _d._out = (_d._outbuf.__slice__((0 : stdgo.GoInt), _nw) : stdgo.Slice<stdgo.GoUInt8>);
-            _n = stdgo.Go.copySlice(_p, _d._out);
+            _n = _p.__copyTo__(_d._out);
             _d._out = (_d._out.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
         } else {
             {

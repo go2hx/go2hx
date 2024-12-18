@@ -109,7 +109,7 @@ package stdgo._internal.time;
             } else if ((_u < ((1000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo.GoUInt64) : Bool)) {
                 _prec = (3 : stdgo.GoInt);
                 _w--;
-                stdgo.Go.copySlice((_buf.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>), ("µ" : stdgo.GoString));
+                (_buf.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(("µ" : stdgo.GoString));
             } else {
                 _prec = (6 : stdgo.GoInt);
                 _buf[(_w : stdgo.GoInt)] = (109 : stdgo.GoUInt8);

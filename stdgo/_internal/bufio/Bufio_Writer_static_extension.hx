@@ -109,7 +109,7 @@ package stdgo._internal.bufio;
                     _b._err = __tmp__._1;
                 };
             } else {
-                _n = stdgo.Go.copySlice((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>), _s);
+                _n = (_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s);
                 _b._n = (_b._n + (_n) : stdgo.GoInt);
                 _b.flush();
             };
@@ -119,7 +119,7 @@ package stdgo._internal.bufio;
         if (_b._err != null) {
             return { _0 : _nn, _1 : _b._err };
         };
-        var _n = (stdgo.Go.copySlice((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>), _s) : stdgo.GoInt);
+        var _n = ((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s) : stdgo.GoInt);
         _b._n = (_b._n + (_n) : stdgo.GoInt);
         _nn = (_nn + (_n) : stdgo.GoInt);
         return { _0 : _nn, _1 : (null : stdgo.Error) };
@@ -211,7 +211,7 @@ package stdgo._internal.bufio;
                     _b._err = __tmp__._1;
                 };
             } else {
-                _n = stdgo.Go.copySlice((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>), _p);
+                _n = (_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p);
                 _b._n = (_b._n + (_n) : stdgo.GoInt);
                 _b.flush();
             };
@@ -226,7 +226,7 @@ package stdgo._internal.bufio;
                 __tmp__;
             };
         };
-        var _n = (stdgo.Go.copySlice((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>), _p) : stdgo.GoInt);
+        var _n = ((_b._buf.__slice__(_b._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p) : stdgo.GoInt);
         _b._n = (_b._n + (_n) : stdgo.GoInt);
         _nn = (_nn + (_n) : stdgo.GoInt);
         return {
@@ -266,7 +266,7 @@ package stdgo._internal.bufio;
         };
         if (_err != null) {
             if (((_n > (0 : stdgo.GoInt) : Bool) && (_n < _b._n : Bool) : Bool)) {
-                stdgo.Go.copySlice((_b._buf.__slice__((0 : stdgo.GoInt), (_b._n - _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_b._buf.__slice__(_n, _b._n) : stdgo.Slice<stdgo.GoUInt8>));
+                (_b._buf.__slice__((0 : stdgo.GoInt), (_b._n - _n : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_b._buf.__slice__(_n, _b._n) : stdgo.Slice<stdgo.GoUInt8>));
             };
             _b._n = (_b._n - (_n) : stdgo.GoInt);
             _b._err = _err;

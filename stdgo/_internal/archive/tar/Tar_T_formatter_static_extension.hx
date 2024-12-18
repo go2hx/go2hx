@@ -44,7 +44,7 @@ _x = (_x >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoInt64);
         if (((_s.length) > (_b.length) : Bool)) {
             _f._err = stdgo._internal.archive.tar.Tar_errFieldTooLong.errFieldTooLong;
         };
-        stdgo.Go.copySlice(_b, _s);
+        _b.__copyTo__(_s);
         if (((_s.length) < (_b.length) : Bool)) {
             _b[(_s.length : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
         };

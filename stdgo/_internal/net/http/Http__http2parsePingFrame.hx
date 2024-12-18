@@ -9,6 +9,6 @@ function _http2parsePingFrame(__132:stdgo.Ref<stdgo._internal.net.http.Http_T_ht
             return { _0 : (null : stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame), _1 : stdgo.Go.asInterface(((1u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode) : stdgo._internal.net.http.Http_T_http2ConnectionError.T_http2ConnectionError)) };
         };
         var _f = (stdgo.Go.setRef(({ _http2FrameHeader : _fh?.__copy__() } : stdgo._internal.net.http.Http_T_http2PingFrame.T_http2PingFrame)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2PingFrame.T_http2PingFrame>);
-        stdgo.Go.copySlice((_f.data.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _payload);
+        (_f.data.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_payload);
         return { _0 : stdgo.Go.asInterface(_f), _1 : (null : stdgo.Error) };
     }

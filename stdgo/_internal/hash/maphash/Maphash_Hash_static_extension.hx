@@ -60,7 +60,7 @@ package stdgo._internal.hash.maphash;
         @:recv var _h:stdgo.Ref<stdgo._internal.hash.maphash.Maphash_Hash.Hash> = _h;
         var _size = (_s.length : stdgo.GoInt);
         if (((_h._n > (0 : stdgo.GoInt) : Bool) && (_h._n <= (128 : stdgo.GoInt) : Bool) : Bool)) {
-            var _k = (stdgo.Go.copySlice((_h._buf.__slice__(_h._n) : stdgo.Slice<stdgo.GoUInt8>), _s) : stdgo.GoInt);
+            var _k = ((_h._buf.__slice__(_h._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s) : stdgo.GoInt);
             _h._n = (_h._n + (_k) : stdgo.GoInt);
             if ((_h._n < (128 : stdgo.GoInt) : Bool)) {
                 return { _0 : _size, _1 : (null : stdgo.Error) };
@@ -75,7 +75,7 @@ package stdgo._internal.hash.maphash;
                 _s = (_s.__slice__((128 : stdgo.GoInt)) : stdgo.GoString)?.__copy__();
             };
         };
-        stdgo.Go.copySlice((_h._buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _s);
+        (_h._buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_s);
         _h._n = (_s.length);
         return { _0 : _size, _1 : (null : stdgo.Error) };
     }
@@ -84,7 +84,7 @@ package stdgo._internal.hash.maphash;
         @:recv var _h:stdgo.Ref<stdgo._internal.hash.maphash.Maphash_Hash.Hash> = _h;
         var _size = (_b.length : stdgo.GoInt);
         if (((_h._n > (0 : stdgo.GoInt) : Bool) && (_h._n <= (128 : stdgo.GoInt) : Bool) : Bool)) {
-            var _k = (stdgo.Go.copySlice((_h._buf.__slice__(_h._n) : stdgo.Slice<stdgo.GoUInt8>), _b) : stdgo.GoInt);
+            var _k = ((_h._buf.__slice__(_h._n) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b) : stdgo.GoInt);
             _h._n = (_h._n + (_k) : stdgo.GoInt);
             if ((_h._n < (128 : stdgo.GoInt) : Bool)) {
                 return { _0 : _size, _1 : (null : stdgo.Error) };
@@ -99,7 +99,7 @@ package stdgo._internal.hash.maphash;
                 _b = (_b.__slice__((128 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
             };
         };
-        stdgo.Go.copySlice((_h._buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _b);
+        (_h._buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b);
         _h._n = (_b.length);
         return { _0 : _size, _1 : (null : stdgo.Error) };
     }

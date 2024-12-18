@@ -72,7 +72,7 @@ package stdgo._internal.crypto.sha512;
         _nn = (_p.length);
         _d._len = (_d._len + ((_nn : stdgo.GoUInt64)) : stdgo.GoUInt64);
         if ((_d._nx > (0 : stdgo.GoInt) : Bool)) {
-            var _n = (stdgo.Go.copySlice((_d._x.__slice__(_d._nx) : stdgo.Slice<stdgo.GoUInt8>), _p) : stdgo.GoInt);
+            var _n = ((_d._x.__slice__(_d._nx) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p) : stdgo.GoInt);
             _d._nx = (_d._nx + (_n) : stdgo.GoInt);
             if (_d._nx == ((128 : stdgo.GoInt))) {
                 stdgo._internal.crypto.sha512.Sha512__block._block(_d, (_d._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
@@ -86,7 +86,7 @@ package stdgo._internal.crypto.sha512;
             _p = (_p.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (((_p.length) > (0 : stdgo.GoInt) : Bool)) {
-            _d._nx = stdgo.Go.copySlice((_d._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _p);
+            _d._nx = (_d._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p);
         };
         return { _0 : _nn, _1 : _err };
     }
@@ -164,7 +164,7 @@ package stdgo._internal.crypto.sha512;
             _b = __tmp__._0;
             _d._h[(7 : stdgo.GoInt)] = __tmp__._1;
         };
-        _b = (_b.__slice__(stdgo.Go.copySlice((_d._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _b)) : stdgo.Slice<stdgo.GoUInt8>);
+        _b = (_b.__slice__((_d._x.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b)) : stdgo.Slice<stdgo.GoUInt8>);
         {
             var __tmp__ = stdgo._internal.crypto.sha512.Sha512__consumeUint64._consumeUint64(_b);
             _b = __tmp__._0;

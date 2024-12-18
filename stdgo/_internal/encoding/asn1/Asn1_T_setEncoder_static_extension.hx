@@ -13,7 +13,7 @@ package stdgo._internal.encoding.asn1;
         });
         var _off:stdgo.GoInt = (0 : stdgo.GoInt);
         for (__0 => _b in _l) {
-            stdgo.Go.copySlice((_dst.__slice__(_off) : stdgo.Slice<stdgo.GoUInt8>), _b);
+            (_dst.__slice__(_off) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b);
             _off = (_off + ((_b.length)) : stdgo.GoInt);
         };
     }

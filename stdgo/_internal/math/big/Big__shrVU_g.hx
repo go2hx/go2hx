@@ -2,7 +2,7 @@ package stdgo._internal.math.big;
 function _shrVU_g(_z:stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>, _x:stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>, _s:stdgo.GoUInt):stdgo._internal.math.big.Big_Word.Word {
         var _c = ((0 : stdgo.GoUInt) : stdgo._internal.math.big.Big_Word.Word);
         if (_s == ((0u32 : stdgo.GoUInt))) {
-            stdgo.Go.copySlice(_z, _x);
+            _z.__copyTo__(_x);
             return _c;
         };
         if ((_z.length) == ((0 : stdgo.GoInt))) {

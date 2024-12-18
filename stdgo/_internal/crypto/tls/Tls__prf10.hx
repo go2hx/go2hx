@@ -3,8 +3,8 @@ function _prf10(_result:stdgo.Slice<stdgo.GoUInt8>, _secret:stdgo.Slice<stdgo.Go
         var _hashSHA1 = (stdgo._internal.crypto.sha1.Sha1_new_.new_ : () -> stdgo._internal.hash.Hash_Hash.Hash);
         var _hashMD5 = (stdgo._internal.crypto.md5.Md5_new_.new_ : () -> stdgo._internal.hash.Hash_Hash.Hash);
         var _labelAndSeed = (new stdgo.Slice<stdgo.GoUInt8>(((_label.length) + (_seed.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice(_labelAndSeed, _label);
-        stdgo.Go.copySlice((_labelAndSeed.__slice__((_label.length)) : stdgo.Slice<stdgo.GoUInt8>), _seed);
+        _labelAndSeed.__copyTo__(_label);
+        (_labelAndSeed.__slice__((_label.length)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_seed);
         var __tmp__ = stdgo._internal.crypto.tls.Tls__splitPreMasterSecret._splitPreMasterSecret(_secret), _s1:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _s2:stdgo.Slice<stdgo.GoUInt8> = __tmp__._1;
         stdgo._internal.crypto.tls.Tls__pHash._pHash(_result, _s1, _labelAndSeed, _hashMD5);
         var _result2 = (new stdgo.Slice<stdgo.GoUInt8>((_result.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

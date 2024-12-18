@@ -219,7 +219,7 @@ package stdgo._internal.internal.fuzz;
                     _m._scratch = ((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _maxPerVal).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_v : Array<stdgo.GoUInt8>)));
                 } else {
                     _m._scratch = (_m._scratch.__slice__(0, (_v.length)) : stdgo.Slice<stdgo.GoUInt8>);
-                    stdgo.Go.copySlice(_m._scratch, _v);
+                    _m._scratch.__copyTo__(_v);
                 };
                 _m._mutateBytes((stdgo.Go.setRef(_m._scratch) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>));
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface((_m._scratch : stdgo.GoString));
@@ -232,7 +232,7 @@ package stdgo._internal.internal.fuzz;
                     _m._scratch = ((new stdgo.Slice<stdgo.GoUInt8>((0 : stdgo.GoInt).toBasic(), _maxPerVal).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>).__append__(...(_v : Array<stdgo.GoUInt8>)));
                 } else {
                     _m._scratch = (_m._scratch.__slice__(0, (_v.length)) : stdgo.Slice<stdgo.GoUInt8>);
-                    stdgo.Go.copySlice(_m._scratch, _v);
+                    _m._scratch.__copyTo__(_v);
                 };
                 _m._mutateBytes((stdgo.Go.setRef(_m._scratch) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>));
                 _vals[(_i : stdgo.GoInt)] = stdgo.Go.toInterface(_m._scratch);

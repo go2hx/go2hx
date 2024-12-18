@@ -82,7 +82,7 @@ _e._nbuf++;
             _n = (_n + (_nn) : stdgo.GoInt);
             _p = (_p.__slice__(_nn) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        stdgo.Go.copySlice((_e._buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _p);
+        (_e._buf.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_p);
         _e._nbuf = (_p.length);
         _n = (_n + ((_p.length)) : stdgo.GoInt);
         return { _0 : _n, _1 : _err };

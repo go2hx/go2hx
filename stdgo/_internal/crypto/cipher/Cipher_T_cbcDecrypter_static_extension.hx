@@ -6,7 +6,7 @@ package stdgo._internal.crypto.cipher;
         if ((_iv.length) != ((_x._iv.length))) {
             throw stdgo.Go.toInterface(("cipher: incorrect length IV" : stdgo.GoString));
         };
-        stdgo.Go.copySlice(_x._iv, _iv);
+        _x._iv.__copyTo__(_iv);
     }
     @:keep
     static public function cryptBlocks( _x:stdgo.Ref<stdgo._internal.crypto.cipher.Cipher_T_cbcDecrypter.T_cbcDecrypter>, _dst:stdgo.Slice<stdgo.GoUInt8>, _src:stdgo.Slice<stdgo.GoUInt8>):Void {
@@ -26,7 +26,7 @@ package stdgo._internal.crypto.cipher;
         var _end = (_src.length : stdgo.GoInt);
         var _start = (_end - _x._blockSize : stdgo.GoInt);
         var _prev = (_start - _x._blockSize : stdgo.GoInt);
-        stdgo.Go.copySlice(_x._tmp, (_src.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>));
+        _x._tmp.__copyTo__((_src.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>));
         while ((_start > (0 : stdgo.GoInt) : Bool)) {
             _x._b.decrypt((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_src.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>));
             stdgo._internal.crypto.subtle.Subtle_xorbytes.xorbytes((_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_dst.__slice__(_start, _end) : stdgo.Slice<stdgo.GoUInt8>), (_src.__slice__(_prev, _start) : stdgo.Slice<stdgo.GoUInt8>));

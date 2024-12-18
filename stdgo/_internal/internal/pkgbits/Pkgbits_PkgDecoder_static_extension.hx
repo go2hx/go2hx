@@ -118,7 +118,7 @@ package stdgo._internal.internal.pkgbits;
     static public function fingerprint( _pr:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgDecoder.PkgDecoder>):stdgo.GoArray<stdgo.GoUInt8> {
         @:recv var _pr:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_PkgDecoder.PkgDecoder> = _pr;
         var _fp:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(8, 8, ...[for (i in 0 ... 8) (0 : stdgo.GoUInt8)]);
-        stdgo.Go.copySlice((_fp.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_pr._elemData.__slice__(((_pr._elemData.length) - (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString));
+        (_fp.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_pr._elemData.__slice__(((_pr._elemData.length) - (8 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoString));
         return _fp?.__copy__();
     }
     @:keep

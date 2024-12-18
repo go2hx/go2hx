@@ -7,7 +7,7 @@ function _sliceForAppend(_in:stdgo.Slice<stdgo.GoUInt8>, _n:stdgo.GoInt):{ var _
                 _head = (_in.__slice__(0, _total) : stdgo.Slice<stdgo.GoUInt8>);
             } else {
                 _head = (new stdgo.Slice<stdgo.GoUInt8>((_total : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                stdgo.Go.copySlice(_head, _in);
+                _head.__copyTo__(_in);
             };
         };
         _tail = (_head.__slice__((_in.length)) : stdgo.Slice<stdgo.GoUInt8>);

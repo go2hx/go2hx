@@ -14,7 +14,7 @@ function quoteMeta(_s:stdgo.GoString):stdgo.GoString {
             return _s?.__copy__();
         };
         var _b = (new stdgo.Slice<stdgo.GoUInt8>((((2 : stdgo.GoInt) * (_s.length) : stdgo.GoInt) - _i : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice(_b, (_s.__slice__(0, _i) : stdgo.GoString));
+        _b.__copyTo__((_s.__slice__(0, _i) : stdgo.GoString));
         var _j = (_i : stdgo.GoInt);
         while ((_i < (_s.length) : Bool)) {
             if (stdgo._internal.regexp.Regexp__special._special(_s[(_i : stdgo.GoInt)])) {

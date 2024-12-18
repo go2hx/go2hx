@@ -200,7 +200,7 @@ package stdgo._internal.io;
                         {
                             var _bw = _p._wrCh.__get__();
                             {
-                                var _nr = (stdgo.Go.copySlice(_b, _bw) : stdgo.GoInt);
+                                var _nr = (_b.__copyTo__(_bw) : stdgo.GoInt);
                                 _p._rdCh.__send__(_nr);
                                 return {
                                     final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _nr, _1 : (null : stdgo.Error) };

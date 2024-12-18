@@ -59,7 +59,7 @@ package stdgo._internal.internal.fuzz;
                     throw stdgo.Go.toInterface(("impossible" : stdgo.GoString));
                 };
             };
-            stdgo.Go.copySlice((_bPtr : stdgo.Slice<stdgo.GoUInt8>), _candidate);
+            (_bPtr : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_candidate);
             (_bPtr : stdgo.Slice<stdgo.GoUInt8>).__setData__((((_bPtr : stdgo.Slice<stdgo.GoUInt8>)).__slice__(0, (_candidate.length)) : stdgo.Slice<stdgo.GoUInt8>));
             _mem._setValueLen((_candidate.length));
             _count.value++;
@@ -250,7 +250,7 @@ package stdgo._internal.internal.fuzz;
                 };
             };
             var _vals = (new stdgo.Slice<stdgo.AnyInterface>((_originalVals.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.AnyInterface>);
-            stdgo.Go.copySlice(_vals, _originalVals);
+            _vals.__copyTo__(_originalVals);
             var _shouldStop = (function():Bool {
                 return ((_args.limit > (0i64 : stdgo.GoInt64) : Bool) && (_mem._header()._count >= _args.limit : Bool) : Bool);
             } : () -> Bool);
@@ -339,7 +339,7 @@ package stdgo._internal.internal.fuzz;
                             __select__ = false;
                             {
                                 if ((_mem._header()._count % (5i64 : stdgo.GoInt64) : stdgo.GoInt64) == ((0i64 : stdgo.GoInt64))) {
-                                    stdgo.Go.copySlice(_vals, _originalVals);
+                                    _vals.__copyTo__(_originalVals);
                                     _ws._m._r._save(stdgo.Go.pointer(_mem._header()._randState), stdgo.Go.pointer(_mem._header()._randInc));
                                 };
                                 _ws._m._mutate(_vals, _mem._valueRef().capacity);

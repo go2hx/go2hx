@@ -13,6 +13,6 @@ function _newKeyFromSeed(_privateKey:stdgo.Slice<stdgo.GoUInt8>, _seed:stdgo.Sli
         };
         var a = (stdgo.Go.setRef((new _internal.crypto.internal.edwards25519.Edwards25519_Point.Point() : _internal.crypto.internal.edwards25519.Edwards25519_Point.Point)) : stdgo.Ref<_internal.crypto.internal.edwards25519.Edwards25519_Point.Point>).scalarBaseMult(_s);
         var _publicKey = a.bytes();
-        stdgo.Go.copySlice(_privateKey, _seed);
-        stdgo.Go.copySlice((_privateKey.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _publicKey);
+        _privateKey.__copyTo__(_seed);
+        (_privateKey.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_publicKey);
     }

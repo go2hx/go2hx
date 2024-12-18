@@ -60,7 +60,7 @@ package stdgo._internal.net.netip;
                 _b = (new stdgo.Slice<stdgo.GoUInt8>((((16 : stdgo.GoInt) + (_z.length) : stdgo.GoInt) + _trailingBytes : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                 stdgo._internal.net.netip.Netip__bePutUint64._bePutUint64((_b.__slice__(0, (8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _ip._addr._hi);
                 stdgo._internal.net.netip.Netip__bePutUint64._bePutUint64((_b.__slice__((8 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _ip._addr._lo);
-                stdgo.Go.copySlice((_b.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _z);
+                (_b.__slice__((16 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_z);
             };
         };
         return _b;

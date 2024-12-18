@@ -28,7 +28,7 @@ if (stdgo._internal.net.url.Url__shouldEscape._shouldEscape(_c, _mode)) {
             _t = (new stdgo.Slice<stdgo.GoUInt8>((_required : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         };
         if (_hexCount == ((0 : stdgo.GoInt))) {
-            stdgo.Go.copySlice(_t, _s);
+            _t.__copyTo__(_s);
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < (_s.length) : Bool)) {

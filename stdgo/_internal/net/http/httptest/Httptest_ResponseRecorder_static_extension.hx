@@ -41,7 +41,7 @@ package stdgo._internal.net.http.httptest;
                             continue;
                         };
                         var _vv2 = (new stdgo.Slice<stdgo.GoString>((_vv.length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
-                        stdgo.Go.copySlice(_vv2, _vv);
+                        _vv2.__copyTo__(_vv);
                         _res.trailer[_k] = _vv2;
                     };
                 };

@@ -28,7 +28,7 @@ var _mm = __1, _ps = __0;
             return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
         };
         _em[(((_em.length) - (_msg.length) : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)] = (0 : stdgo.GoUInt8);
-        stdgo.Go.copySlice(_mm, _msg);
+        _mm.__copyTo__(_msg);
         if (false) {
             var _bkey:stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PublicKeyRSA.PublicKeyRSA> = (null : stdgo.Ref<stdgo._internal.crypto.internal.boring.Boring_PublicKeyRSA.PublicKeyRSA>);
             {

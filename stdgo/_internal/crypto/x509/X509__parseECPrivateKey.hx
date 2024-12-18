@@ -82,7 +82,7 @@ function _parseECPrivateKey(_namedCurveOID:stdgo.Ref<stdgo._internal.encoding.as
             };
             _privKey.privateKey = (_privKey.privateKey.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        stdgo.Go.copySlice((_privateKey.__slice__(((_privateKey.length) - (_privKey.privateKey.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _privKey.privateKey);
+        (_privateKey.__slice__(((_privateKey.length) - (_privKey.privateKey.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_privKey.privateKey);
         {
             var __tmp__ = _curve.scalarBaseMult(_privateKey);
             _priv.publicKey.x = __tmp__._0;

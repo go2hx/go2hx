@@ -22,7 +22,7 @@ package stdgo._internal.internal.fuzz;
             throw stdgo.Go.toInterface(stdgo._internal.fmt.Fmt_sprintf.sprintf(("value length %d larger than shared memory capacity %d" : stdgo.GoString), stdgo.Go.toInterface((_b.length)), stdgo.Go.toInterface(_v.capacity)));
         };
         _m._header()._valueLen = (_b.length);
-        stdgo.Go.copySlice((_v.__slice__(0, _v.capacity) : stdgo.Slice<stdgo.GoUInt8>), _b);
+        (_v.__slice__(0, _v.capacity) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b);
     }
     @:keep
     static public function _valueCopy( _m:stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_sharedMem.T_sharedMem>):stdgo.Slice<stdgo.GoUInt8> {

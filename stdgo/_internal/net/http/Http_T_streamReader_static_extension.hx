@@ -87,7 +87,7 @@ var _errCh = __1, _bCh = __0;
                     };
                 };
             };
-            _n = stdgo.Go.copySlice(_p, _r._pending);
+            _n = _p.__copyTo__(_r._pending);
             _r._pending = (_r._pending.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             {
                 final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {

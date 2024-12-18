@@ -27,15 +27,15 @@ package stdgo._internal.archive.tar;
     static public function _setFormat( _b:stdgo.Ref<stdgo._internal.archive.tar.Tar_T_block.T_block>, _format:stdgo._internal.archive.tar.Tar_Format.Format):Void {
         @:recv var _b:stdgo.Ref<stdgo._internal.archive.tar.Tar_T_block.T_block> = _b;
         if (_format._has((1 : stdgo._internal.archive.tar.Tar_Format.Format))) {} else if (_format._has((8 : stdgo._internal.archive.tar.Tar_Format.Format))) {
-            stdgo.Go.copySlice(_b._toGNU()._magic(), ("ustar " : stdgo.GoString));
-            stdgo.Go.copySlice(_b._toGNU()._version(), stdgo.Go.str(" ", 0));
+            _b._toGNU()._magic().__copyTo__(("ustar " : stdgo.GoString));
+            _b._toGNU()._version().__copyTo__(stdgo.Go.str(" ", 0));
         } else if (_format._has((16 : stdgo._internal.archive.tar.Tar_Format.Format))) {
-            stdgo.Go.copySlice(_b._toSTAR()._magic(), stdgo.Go.str("ustar", 0));
-            stdgo.Go.copySlice(_b._toSTAR()._version(), ("00" : stdgo.GoString));
-            stdgo.Go.copySlice(_b._toSTAR()._trailer(), stdgo.Go.str("tar", 0));
+            _b._toSTAR()._magic().__copyTo__(stdgo.Go.str("ustar", 0));
+            _b._toSTAR()._version().__copyTo__(("00" : stdgo.GoString));
+            _b._toSTAR()._trailer().__copyTo__(stdgo.Go.str("tar", 0));
         } else if (_format._has((6 : stdgo._internal.archive.tar.Tar_Format.Format))) {
-            stdgo.Go.copySlice(_b._toUSTAR()._magic(), stdgo.Go.str("ustar", 0));
-            stdgo.Go.copySlice(_b._toUSTAR()._version(), ("00" : stdgo.GoString));
+            _b._toUSTAR()._magic().__copyTo__(stdgo.Go.str("ustar", 0));
+            _b._toUSTAR()._version().__copyTo__(("00" : stdgo.GoString));
         } else {
             throw stdgo.Go.toInterface(("invalid format" : stdgo.GoString));
         };

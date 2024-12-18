@@ -7,7 +7,7 @@ package stdgo._internal.encoding.base64;
         if (((_p.length) > _nr._n : Bool)) {
             _p = (_p.__slice__(0, _nr._n) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        var _n = (stdgo.Go.copySlice(_p, _r._source) : stdgo.GoInt);
+        var _n = (_p.__copyTo__(_r._source) : stdgo.GoInt);
         _r._source = (_r._source.__slice__(_n) : stdgo.GoString)?.__copy__();
         return { _0 : _n, _1 : _nr._err };
     }

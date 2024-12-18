@@ -33,7 +33,7 @@ var _oh32MinSz = __1, _oh32 = __0;
                 if (_err != null) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : _err };
                 };
-                stdgo.Go.copySlice((_oh32.dataDirectory.__slice__(0) : stdgo.Slice<stdgo._internal.debug.pe.Pe_DataDirectory.DataDirectory>), _dd);
+                (_oh32.dataDirectory.__slice__(0) : stdgo.Slice<stdgo._internal.debug.pe.Pe_DataDirectory.DataDirectory>).__copyTo__(_dd);
                 return { _0 : stdgo.Go.toInterface((stdgo.Go.setRef(_oh32) : stdgo.Ref<stdgo._internal.debug.pe.Pe_OptionalHeader32.OptionalHeader32>)), _1 : (null : stdgo.Error) };
             } else if (__value__ == ((523 : stdgo.GoUInt16))) {
                 var __0:stdgo._internal.debug.pe.Pe_OptionalHeader64.OptionalHeader64 = ({} : stdgo._internal.debug.pe.Pe_OptionalHeader64.OptionalHeader64), __1 = (stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(_oh64)) - stdgo._internal.encoding.binary.Binary_size.size(stdgo.Go.toInterface(_oh64.dataDirectory)) : stdgo.GoInt);
@@ -49,7 +49,7 @@ var _oh64MinSz = __1, _oh64 = __0;
                 if (_err != null) {
                     return { _0 : (null : stdgo.AnyInterface), _1 : _err };
                 };
-                stdgo.Go.copySlice((_oh64.dataDirectory.__slice__(0) : stdgo.Slice<stdgo._internal.debug.pe.Pe_DataDirectory.DataDirectory>), _dd);
+                (_oh64.dataDirectory.__slice__(0) : stdgo.Slice<stdgo._internal.debug.pe.Pe_DataDirectory.DataDirectory>).__copyTo__(_dd);
                 return { _0 : stdgo.Go.toInterface((stdgo.Go.setRef(_oh64) : stdgo.Ref<stdgo._internal.debug.pe.Pe_OptionalHeader64.OptionalHeader64>)), _1 : (null : stdgo.Error) };
             } else {
                 return { _0 : (null : stdgo.AnyInterface), _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("optional header has unexpected Magic of 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_ohMagic)) };

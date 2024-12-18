@@ -39,7 +39,7 @@ var _bucket = __1, _freq = __0;
                 stdgo._internal.index.suffixarray.Suffixarray__recurse_32._recurse_32(_sa, _tmp, _numLMS, _maxID);
                 stdgo._internal.index.suffixarray.Suffixarray__unmap_32._unmap_32(_text, _sa, _numLMS);
             } else {
-                stdgo.Go.copySlice(_sa, (_sa.__slice__(((_sa.length) - _numLMS : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>));
+                _sa.__copyTo__((_sa.__slice__(((_sa.length) - _numLMS : stdgo.GoInt)) : stdgo.Slice<stdgo.GoInt32>));
             };
             stdgo._internal.index.suffixarray.Suffixarray__expand_32._expand_32(_text, _freq, _bucket, _sa, _numLMS);
         };

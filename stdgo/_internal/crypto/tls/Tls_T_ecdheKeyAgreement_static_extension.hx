@@ -55,7 +55,7 @@ package stdgo._internal.crypto.tls;
         _ka._ckx = (stdgo.Go.setRef(({} : stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsg.T_clientKeyExchangeMsg)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_clientKeyExchangeMsg.T_clientKeyExchangeMsg>);
         _ka._ckx._ciphertext = (new stdgo.Slice<stdgo.GoUInt8>(((1 : stdgo.GoInt) + (_ourPublicKey.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
         _ka._ckx._ciphertext[(0 : stdgo.GoInt)] = (_ourPublicKey.length : stdgo.GoUInt8);
-        stdgo.Go.copySlice((_ka._ckx._ciphertext.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _ourPublicKey);
+        (_ka._ckx._ciphertext.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_ourPublicKey);
         var _sigType:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var _sigHash:stdgo._internal.crypto.Crypto_Hash.Hash = ((0 : stdgo.GoUInt) : stdgo._internal.crypto.Crypto_Hash.Hash);
         if ((_ka._version >= (771 : stdgo.GoUInt16) : Bool)) {
@@ -150,7 +150,7 @@ package stdgo._internal.crypto.tls;
         _serverECDHEParams[(1 : stdgo.GoInt)] = ((_curveID >> (8i64 : stdgo.GoUInt64) : stdgo._internal.crypto.tls.Tls_CurveID.CurveID) : stdgo.GoUInt8);
         _serverECDHEParams[(2 : stdgo.GoInt)] = (_curveID : stdgo.GoUInt8);
         _serverECDHEParams[(3 : stdgo.GoInt)] = (_ecdhePublic.length : stdgo.GoUInt8);
-        stdgo.Go.copySlice((_serverECDHEParams.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _ecdhePublic);
+        (_serverECDHEParams.__slice__((4 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_ecdhePublic);
         var __tmp__ = try {
             { _0 : (stdgo.Go.typeAssert((_cert.privateKey : stdgo._internal.crypto.Crypto_Signer.Signer)) : stdgo._internal.crypto.Crypto_Signer.Signer), _1 : true };
         } catch(_) {
@@ -209,7 +209,7 @@ package stdgo._internal.crypto.tls;
             _sigAndHashLen = (2 : stdgo.GoInt);
         };
         _skx._key = (new stdgo.Slice<stdgo.GoUInt8>(((((_serverECDHEParams.length) + _sigAndHashLen : stdgo.GoInt) + (2 : stdgo.GoInt) : stdgo.GoInt) + (_sig.length) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice(_skx._key, _serverECDHEParams);
+        _skx._key.__copyTo__(_serverECDHEParams);
         var _k = (_skx._key.__slice__((_serverECDHEParams.length)) : stdgo.Slice<stdgo.GoUInt8>);
         if ((_ka._version >= (771 : stdgo.GoUInt16) : Bool)) {
             _k[(0 : stdgo.GoInt)] = ((_signatureAlgorithm >> (8i64 : stdgo.GoUInt64) : stdgo._internal.crypto.tls.Tls_SignatureScheme.SignatureScheme) : stdgo.GoUInt8);
@@ -218,7 +218,7 @@ package stdgo._internal.crypto.tls;
         };
         _k[(0 : stdgo.GoInt)] = (((_sig.length) >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
         _k[(1 : stdgo.GoInt)] = (_sig.length : stdgo.GoUInt8);
-        stdgo.Go.copySlice((_k.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _sig);
+        (_k.__slice__((2 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_sig);
         return { _0 : _skx, _1 : (null : stdgo.Error) };
     }
 }

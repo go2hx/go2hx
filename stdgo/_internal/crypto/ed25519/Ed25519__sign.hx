@@ -45,6 +45,6 @@ var _publicKey = __1, _seed = __0;
             throw stdgo.Go.toInterface(("ed25519: internal error: setting scalar failed" : stdgo.GoString));
         };
         var s = _internal.crypto.internal.edwards25519.Edwards25519_newScalar.newScalar().multiplyAdd(_k, _s, _r);
-        stdgo.Go.copySlice((_signature.__slice__(0, (32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), r.bytes());
-        stdgo.Go.copySlice((_signature.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), s.bytes());
+        (_signature.__slice__(0, (32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(r.bytes());
+        (_signature.__slice__((32 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(s.bytes());
     }

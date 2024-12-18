@@ -15,11 +15,11 @@ package stdgo._internal.crypto.cipher;
                 _x._outUsed = (0 : stdgo.GoInt);
             };
             if (_x._decrypt) {
-                stdgo.Go.copySlice((_x._next.__slice__(_x._outUsed) : stdgo.Slice<stdgo.GoUInt8>), _src);
+                (_x._next.__slice__(_x._outUsed) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_src);
             };
             var _n = (stdgo._internal.crypto.subtle.Subtle_xorbytes.xorbytes(_dst, _src, (_x._out.__slice__(_x._outUsed) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
             if (!_x._decrypt) {
-                stdgo.Go.copySlice((_x._next.__slice__(_x._outUsed) : stdgo.Slice<stdgo.GoUInt8>), _dst);
+                (_x._next.__slice__(_x._outUsed) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_dst);
             };
             _dst = (_dst.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);
             _src = (_src.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>);

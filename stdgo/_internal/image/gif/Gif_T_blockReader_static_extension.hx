@@ -38,7 +38,7 @@ package stdgo._internal.image.gif;
                 return { _0 : (0 : stdgo.GoInt), _1 : _b._err };
             };
         };
-        var _n = (stdgo.Go.copySlice(_p, (_b._d._tmp.__slice__(_b._i, _b._j) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
+        var _n = (_p.__copyTo__((_b._d._tmp.__slice__(_b._i, _b._j) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
         _b._i = (_b._i + ((_n : stdgo.GoUInt8)) : stdgo.GoUInt8);
         return { _0 : _n, _1 : (null : stdgo.Error) };
     }

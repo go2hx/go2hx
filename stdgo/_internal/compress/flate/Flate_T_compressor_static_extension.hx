@@ -193,28 +193,28 @@ package stdgo._internal.compress.flate;
     @:keep
     static public function _fillStore( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> = _d;
-        var _n = (stdgo.Go.copySlice((_d._window.__slice__(_d._windowEnd) : stdgo.Slice<stdgo.GoUInt8>), _b) : stdgo.GoInt);
+        var _n = ((_d._window.__slice__(_d._windowEnd) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b) : stdgo.GoInt);
         _d._windowEnd = (_d._windowEnd + (_n) : stdgo.GoInt);
         return _n;
     }
     @:keep
     static public function _deflate( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>):Void {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> = _d;
-        var _index_3661725:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _lookahead_3659290:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hash_3661828:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _newLength_3660573:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _minIndex_3660291:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hh_3660033:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
-        var _i_3662718:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _hh_3661991:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var _newIndex_3661573:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _newLength_3660573:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _lookahead_3659290:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3662718:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _index_3661725:stdgo.GoInt = (0 : stdgo.GoInt);
         var _newOffset_3660584:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _prevLength_3660194:stdgo.GoInt = (0 : stdgo.GoInt);
-        var loopBreak = false;
-        var _ok_3660595:Bool = false;
         var _prevOffset_3660219:stdgo.GoInt = (0 : stdgo.GoInt);
         var _hash_3659972:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _hash_3661828:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _minIndex_3660291:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _prevLength_3660194:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ok_3660595:Bool = false;
+        var _hh_3660033:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
+        var loopBreak = false;
+        var _hh_3661991:stdgo.Pointer<stdgo.GoUInt32> = (null : stdgo.Pointer<stdgo.GoUInt32>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -639,7 +639,7 @@ if (((_i < _minIndex : Bool) || (_i < (0 : stdgo.GoInt) : Bool) : Bool)) {
         if (((_b.length) > (32768 : stdgo.GoInt) : Bool)) {
             _b = (_b.__slice__(((_b.length) - (32768 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         };
-        var _n = (stdgo.Go.copySlice(_d._window, _b) : stdgo.GoInt);
+        var _n = (_d._window.__copyTo__(_b) : stdgo.GoInt);
         var _loops = ((((_n + (256 : stdgo.GoInt) : stdgo.GoInt) - (4 : stdgo.GoInt) : stdgo.GoInt)) / (256 : stdgo.GoInt) : stdgo.GoInt);
         {
             var _j = (0 : stdgo.GoInt);
@@ -689,7 +689,7 @@ for (_i => _val in _dst) {
     static public function _fillDeflate( _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor>, _b:stdgo.Slice<stdgo.GoUInt8>):stdgo.GoInt {
         @:recv var _d:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_compressor.T_compressor> = _d;
         if ((_d._index >= (65274 : stdgo.GoInt) : Bool)) {
-            stdgo.Go.copySlice(_d._window, (_d._window.__slice__((32768 : stdgo.GoInt), (65536 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+            _d._window.__copyTo__((_d._window.__slice__((32768 : stdgo.GoInt), (65536 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
             _d._index = (_d._index - ((32768 : stdgo.GoInt)) : stdgo.GoInt);
             _d._windowEnd = (_d._windowEnd - ((32768 : stdgo.GoInt)) : stdgo.GoInt);
             if ((_d._blockStart >= (32768 : stdgo.GoInt) : Bool)) {
@@ -718,7 +718,7 @@ for (_i => _val in _dst) {
                 };
             };
         };
-        var _n = (stdgo.Go.copySlice((_d._window.__slice__(_d._windowEnd) : stdgo.Slice<stdgo.GoUInt8>), _b) : stdgo.GoInt);
+        var _n = ((_d._window.__slice__(_d._windowEnd) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b) : stdgo.GoInt);
         _d._windowEnd = (_d._windowEnd + (_n) : stdgo.GoInt);
         return _n;
     }

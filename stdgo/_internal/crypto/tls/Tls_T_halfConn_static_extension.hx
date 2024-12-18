@@ -22,7 +22,7 @@ package stdgo._internal.crypto.tls;
                         { _0 : (null : stdgo._internal.crypto.tls.Tls_T_cbcMode.T_cbcMode), _1 : false };
                     }, __65 = __tmp__._0, _isCBC = __tmp__._1;
                     if ((!_isCBC && (_explicitNonceLen < (16 : stdgo.GoInt) : Bool) : Bool)) {
-                        stdgo.Go.copySlice(_explicitNonce, (_hc._seq.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
+                        _explicitNonce.__copyTo__((_hc._seq.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
                     } else {
                         {
                             var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_rand, _explicitNonce), __66:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -77,8 +77,8 @@ package stdgo._internal.crypto.tls;
                     _record = __tmp__._0;
                     _dst = __tmp__._1;
                 };
-                stdgo.Go.copySlice(_dst, _payload);
-                stdgo.Go.copySlice((_dst.__slice__((_payload.length)) : stdgo.Slice<stdgo.GoUInt8>), _mac);
+                _dst.__copyTo__(_payload);
+                (_dst.__slice__((_payload.length)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_mac);
                 {
                     var _i = (_plaintextLen : stdgo.GoInt);
                     while ((_i < (_dst.length) : Bool)) {

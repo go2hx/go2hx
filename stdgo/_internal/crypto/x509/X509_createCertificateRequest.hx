@@ -58,7 +58,7 @@ function createCertificateRequest(_rand:stdgo._internal.io.Io_Reader.Reader, _te
         var _attributes = (new stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>((0 : stdgo.GoInt).toBasic(), (_template.attributes.length), ...[for (i in 0 ... ((0 : stdgo.GoInt).toBasic() > (_template.attributes.length) ? (0 : stdgo.GoInt).toBasic() : (_template.attributes.length) : stdgo.GoInt).toBasic()) ({} : stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET)]) : stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET>);
         for (__1 => _attr in _template.attributes) {
             var _values = (new stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>>((_attr.value.length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo.Slice<stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValue.AttributeTypeAndValue>>);
-            stdgo.Go.copySlice(_values, _attr.value);
+            _values.__copyTo__(_attr.value);
             _attributes = (_attributes.__append__(({ type : _attr.type, value : _values } : stdgo._internal.crypto.x509.pkix.Pkix_AttributeTypeAndValueSET.AttributeTypeAndValueSET)));
         };
         var _extensionsAppended = (false : Bool);

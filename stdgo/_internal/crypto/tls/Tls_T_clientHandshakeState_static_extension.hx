@@ -18,7 +18,7 @@ package stdgo._internal.crypto.tls;
                 return _err;
             };
         };
-        stdgo.Go.copySlice(_out, _finished._verifyData);
+        _out.__copyTo__(_finished._verifyData);
         return (null : stdgo.Error);
     }
     @:keep
@@ -102,7 +102,7 @@ package stdgo._internal.crypto.tls;
                 return _err;
             };
         };
-        stdgo.Go.copySlice(_out, _verify);
+        _out.__copyTo__(_verify);
         return (null : stdgo.Error);
     }
     @:keep
@@ -128,8 +128,8 @@ package stdgo._internal.crypto.tls;
         };
         if (((_c._handshakes > (0 : stdgo.GoInt) : Bool) && _c._secureRenegotiation : Bool)) {
             var _expectedSecureRenegotiation:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(24, 24, ...[for (i in 0 ... 24) (0 : stdgo.GoUInt8)]);
-            stdgo.Go.copySlice((_expectedSecureRenegotiation.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), (_c._clientFinished.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
-            stdgo.Go.copySlice((_expectedSecureRenegotiation.__slice__((12 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_c._serverFinished.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
+            (_expectedSecureRenegotiation.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_c._clientFinished.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
+            (_expectedSecureRenegotiation.__slice__((12 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_c._serverFinished.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>));
             if (!stdgo._internal.bytes.Bytes_equal.equal(_hs._serverHello._secureRenegotiation, (_expectedSecureRenegotiation.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>))) {
                 _c._sendAlert((40 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
                 return { _0 : false, _1 : stdgo._internal.errors.Errors_new_.new_(("tls: incorrect renegotiation extension contents" : stdgo.GoString)) };

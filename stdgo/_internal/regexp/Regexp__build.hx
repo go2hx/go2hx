@@ -6,7 +6,7 @@ function _build(_n:stdgo.GoInt, _x:haxe.Rest<stdgo.GoInt>):stdgo.Slice<stdgo.Sli
         var _j = (0 : stdgo.GoInt);
         for (_i => _ in _ret) {
             _ret[(_i : stdgo.GoInt)] = (new stdgo.Slice<stdgo.GoInt>((_runLength : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-            stdgo.Go.copySlice(_ret[(_i : stdgo.GoInt)], (_x.__slice__(_j) : stdgo.Slice<stdgo.GoInt>));
+            _ret[(_i : stdgo.GoInt)].__copyTo__((_x.__slice__(_j) : stdgo.Slice<stdgo.GoInt>));
             _j = (_j + (_runLength) : stdgo.GoInt);
             if ((_j > (_x.length) : Bool)) {
                 throw stdgo.Go.toInterface(("invalid build entry" : stdgo.GoString));

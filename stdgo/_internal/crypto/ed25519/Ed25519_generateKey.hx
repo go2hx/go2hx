@@ -12,6 +12,6 @@ function generateKey(_rand:stdgo._internal.io.Io_Reader.Reader):{ var _0 : stdgo
         };
         var _privateKey = (stdgo._internal.crypto.ed25519.Ed25519_newKeyFromSeed.newKeyFromSeed(_seed) : stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey);
         var _publicKey = (new stdgo.Slice<stdgo.GoUInt8>((32 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-        stdgo.Go.copySlice(_publicKey, (_privateKey.__slice__((32 : stdgo.GoInt)) : stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey));
+        _publicKey.__copyTo__((_privateKey.__slice__((32 : stdgo.GoInt)) : stdgo._internal.crypto.ed25519.Ed25519_PrivateKey.PrivateKey));
         return { _0 : _publicKey, _1 : _privateKey, _2 : (null : stdgo.Error) };
     }

@@ -43,7 +43,7 @@ package stdgo._internal.encoding.gob;
     @:keep
     static public function read( _d:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>, _p:stdgo.Slice<stdgo.GoUInt8>):{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer> = _d;
-        var _n = (stdgo.Go.copySlice(_p, (_d._data.__slice__(_d._offset) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
+        var _n = (_p.__copyTo__((_d._data.__slice__(_d._offset) : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.GoInt);
         if (((_n == (0 : stdgo.GoInt)) && (_p.length != (0 : stdgo.GoInt)) : Bool)) {
             return { _0 : (0 : stdgo.GoInt), _1 : stdgo._internal.io.Io_eof.eof };
         };

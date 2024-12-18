@@ -22,13 +22,13 @@ function repeat(_b:stdgo.Slice<stdgo.GoUInt8>, _count:stdgo.GoInt):stdgo.Slice<s
             };
         };
         var _nb = stdgo._internal.internal.bytealg.Bytealg_makeNoZero.makeNoZero(_n);
-        var _bp = (stdgo.Go.copySlice(_nb, _b) : stdgo.GoInt);
+        var _bp = (_nb.__copyTo__(_b) : stdgo.GoInt);
         while ((_bp < _n : Bool)) {
             var _chunk = (_bp : stdgo.GoInt);
             if ((_chunk > _chunkMax : Bool)) {
                 _chunk = _chunkMax;
             };
-            _bp = (_bp + (stdgo.Go.copySlice((_nb.__slice__(_bp) : stdgo.Slice<stdgo.GoUInt8>), (_nb.__slice__(0, _chunk) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
+            _bp = (_bp + ((_nb.__slice__(_bp) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_nb.__slice__(0, _chunk) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
         };
         return _nb;
     }

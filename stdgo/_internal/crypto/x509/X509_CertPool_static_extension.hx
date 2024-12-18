@@ -142,13 +142,13 @@ var _mismatchKeyID = __2, _oneKeyID = __1, _matchingKeyID = __0;
         } : stdgo.GoMap<stdgo._internal.crypto.x509.X509_T_sum224.T_sum224, Bool>), _systemPool : _s._systemPool } : stdgo._internal.crypto.x509.X509_CertPool.CertPool)) : stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.CertPool>);
         for (_k => _v in _s._byName) {
             var _indexes = (new stdgo.Slice<stdgo.GoInt>((_v.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-            stdgo.Go.copySlice(_indexes, _v);
+            _indexes.__copyTo__(_v);
             _p._byName[_k] = _indexes;
         };
         for (_k => _ in _s._haveSum) {
             _p._haveSum[_k] = true;
         };
-        stdgo.Go.copySlice(_p._lazyCerts, _s._lazyCerts);
+        _p._lazyCerts.__copyTo__(_s._lazyCerts);
         return _p;
     }
     @:keep

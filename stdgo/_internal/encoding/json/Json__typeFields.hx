@@ -70,7 +70,7 @@ if (!stdgo._internal.encoding.json.Json__isValidTag._isValidTag(_name.__copy__()
                             _name = stdgo.Go.str().__copy__();
                         };
 var _index = (new stdgo.Slice<stdgo.GoInt>(((_f._index.length) + (1 : stdgo.GoInt) : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt>);
-stdgo.Go.copySlice(_index, _f._index);
+_index.__copyTo__(_f._index);
 _index[(_f._index.length : stdgo.GoInt)] = _i;
 var _ft = (_sf.type : stdgo._internal.reflect.Reflect_Type_.Type_);
 if (((_ft.name() == stdgo.Go.str()) && (_ft.kind() == (22u32 : stdgo._internal.reflect.Reflect_Kind.Kind)) : Bool)) {

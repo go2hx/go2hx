@@ -1,7 +1,7 @@
 package stdgo._internal.math.big;
 function _testShiftFunc(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _f:(stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>, stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>, stdgo.GoUInt) -> stdgo._internal.math.big.Big_Word.Word, _a:stdgo._internal.math.big.Big_T_argVU.T_argVU):Void {
         var _b = (new stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>((_a._d.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>);
-        stdgo.Go.copySlice(_b, _a._d);
+        _b.__copyTo__(_a._d);
         var _z = (_b.__slice__(_a._zp, (_a._zp + _a._l : stdgo.GoUInt)) : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>);
         var _x = (_b.__slice__(_a._xp, (_a._xp + _a._l : stdgo.GoUInt)) : stdgo.Slice<stdgo._internal.math.big.Big_Word.Word>);
         var _c = (_f(_z, _x, _a._s) : stdgo._internal.math.big.Big_Word.Word);

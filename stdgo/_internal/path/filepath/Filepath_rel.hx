@@ -52,19 +52,19 @@ var _ti = __3, _t0 = __2, _bi = __1, _b0 = __0;
                 _size = (_size + ((((1 : stdgo.GoInt) + _tl : stdgo.GoInt) - _t0 : stdgo.GoInt)) : stdgo.GoInt);
             };
             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((_size : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            var _n = (stdgo.Go.copySlice(_buf, (".." : stdgo.GoString)) : stdgo.GoInt);
+            var _n = (_buf.__copyTo__((".." : stdgo.GoString)) : stdgo.GoInt);
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < _seps : Bool)) {
                     _buf[(_n : stdgo.GoInt)] = (47 : stdgo.GoUInt8);
-stdgo.Go.copySlice((_buf.__slice__((_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (".." : stdgo.GoString));
+(_buf.__slice__((_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((".." : stdgo.GoString));
 _n = (_n + ((3 : stdgo.GoInt)) : stdgo.GoInt);
                     _i++;
                 };
             };
             if (_t0 != (_tl)) {
                 _buf[(_n : stdgo.GoInt)] = (47 : stdgo.GoUInt8);
-                stdgo.Go.copySlice((_buf.__slice__((_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_targ.__slice__(_t0) : stdgo.GoString));
+                (_buf.__slice__((_n + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_targ.__slice__(_t0) : stdgo.GoString));
             };
             return { _0 : (_buf : stdgo.GoString)?.__copy__(), _1 : (null : stdgo.Error) };
         };

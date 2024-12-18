@@ -25,7 +25,7 @@ function signPKCS1v15(_random:stdgo._internal.io.Io_Reader.Reader, _priv:stdgo.R
                 _i++;
             };
         };
-        stdgo.Go.copySlice((_em.__slice__((_k - _tLen : stdgo.GoInt), (_k - _hashLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _prefix);
-        stdgo.Go.copySlice((_em.__slice__((_k - _hashLen : stdgo.GoInt), _k) : stdgo.Slice<stdgo.GoUInt8>), _hashed);
+        (_em.__slice__((_k - _tLen : stdgo.GoInt), (_k - _hashLen : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_prefix);
+        (_em.__slice__((_k - _hashLen : stdgo.GoInt), _k) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_hashed);
         return stdgo._internal.crypto.rsa.Rsa__decrypt._decrypt(_priv, _em, true);
     }

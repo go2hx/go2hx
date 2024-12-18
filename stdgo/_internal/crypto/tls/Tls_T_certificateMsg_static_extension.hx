@@ -63,7 +63,7 @@ _d = (_d.__slice__(((3u32 : stdgo.GoUInt32) + _certLen : stdgo.GoUInt32)) : stdg
             _y[(0 : stdgo.GoInt)] = (((_slice.length) >> (16i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
             _y[(1 : stdgo.GoInt)] = (((_slice.length) >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
             _y[(2 : stdgo.GoInt)] = (_slice.length : stdgo.GoUInt8);
-            stdgo.Go.copySlice((_y.__slice__((3 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _slice);
+            (_y.__slice__((3 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_slice);
             _y = (_y.__slice__(((3 : stdgo.GoInt) + (_slice.length) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
         };
         _m._raw = _x;

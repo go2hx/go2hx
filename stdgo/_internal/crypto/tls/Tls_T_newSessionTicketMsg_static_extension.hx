@@ -33,7 +33,7 @@ package stdgo._internal.crypto.tls;
         _x[(3 : stdgo.GoInt)] = (_length : stdgo.GoUInt8);
         _x[(8 : stdgo.GoInt)] = ((_ticketLen >> (8i64 : stdgo.GoUInt64) : stdgo.GoInt) : stdgo.GoUInt8);
         _x[(9 : stdgo.GoInt)] = (_ticketLen : stdgo.GoUInt8);
-        stdgo.Go.copySlice((_x.__slice__((10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), _m._ticket);
+        (_x.__slice__((10 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_m._ticket);
         _m._raw = _x;
         return { _0 : _m._raw, _1 : (null : stdgo.Error) };
     }

@@ -507,7 +507,7 @@ package stdgo._internal.net.http;
                 };
             };
             if (_a.ip != null) {
-                stdgo.Go.copySlice(_a.ip, _b);
+                _a.ip.__copyTo__(_b);
             } else {
                 _a.name = ((_b.__slice__(0, ((_b.length) - (2 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>) : stdgo.GoString)?.__copy__();
             };

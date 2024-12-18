@@ -17,7 +17,7 @@ package stdgo._internal.path;
                 return;
             };
             _b._buf = (new stdgo.Slice<stdgo.GoUInt8>((_b._s.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-            stdgo.Go.copySlice(_b._buf, (_b._s.__slice__(0, _b._w) : stdgo.GoString));
+            _b._buf.__copyTo__((_b._s.__slice__(0, _b._w) : stdgo.GoString));
         };
         _b._buf[(_b._w : stdgo.GoInt)] = _c;
         _b._w++;

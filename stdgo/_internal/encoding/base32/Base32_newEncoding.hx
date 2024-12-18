@@ -5,8 +5,8 @@ function newEncoding(_encoder:stdgo.GoString):stdgo.Ref<stdgo._internal.encoding
         };
         var _e = (stdgo.Go.setRef(({} : stdgo._internal.encoding.base32.Base32_Encoding.Encoding)) : stdgo.Ref<stdgo._internal.encoding.base32.Base32_Encoding.Encoding>);
         _e._padChar = (61 : stdgo.GoInt32);
-        stdgo.Go.copySlice((_e._encode.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _encoder);
-        stdgo.Go.copySlice((_e._decodeMap.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), stdgo.Go.str(255,
+        (_e._encode.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_encoder);
+        (_e._decodeMap.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(stdgo.Go.str(255,
 255,
 255,
 255,

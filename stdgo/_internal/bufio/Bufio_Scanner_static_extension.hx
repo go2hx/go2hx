@@ -79,7 +79,7 @@ package stdgo._internal.bufio;
                 return false;
             };
             if (((_s._start > (0 : stdgo.GoInt) : Bool) && (((_s._end == (_s._buf.length)) || (_s._start > ((_s._buf.length) / (2 : stdgo.GoInt) : stdgo.GoInt) : Bool) : Bool)) : Bool)) {
-                stdgo.Go.copySlice(_s._buf, (_s._buf.__slice__(_s._start, _s._end) : stdgo.Slice<stdgo.GoUInt8>));
+                _s._buf.__copyTo__((_s._buf.__slice__(_s._start, _s._end) : stdgo.Slice<stdgo.GoUInt8>));
                 _s._end = (_s._end - (_s._start) : stdgo.GoInt);
                 _s._start = (0 : stdgo.GoInt);
             };
@@ -97,7 +97,7 @@ package stdgo._internal.bufio;
                     _newSize = _s._maxTokenSize;
                 };
                 var _newBuf = (new stdgo.Slice<stdgo.GoUInt8>((_newSize : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                stdgo.Go.copySlice(_newBuf, (_s._buf.__slice__(_s._start, _s._end) : stdgo.Slice<stdgo.GoUInt8>));
+                _newBuf.__copyTo__((_s._buf.__slice__(_s._start, _s._end) : stdgo.Slice<stdgo.GoUInt8>));
                 _s._buf = _newBuf;
                 _s._end = (_s._end - (_s._start) : stdgo.GoInt);
                 _s._start = (0 : stdgo.GoInt);

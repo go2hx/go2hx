@@ -58,7 +58,7 @@ if (_err != null) {
             _size = __tmp__._1;
         };
         if ((_size < _n : Bool)) {
-            stdgo.Go.copySlice((_r._pendBuf.__slice__(_r._pending) : stdgo.Slice<stdgo.GoUInt8>), (_r._buf.__slice__(_size, _n) : stdgo.Slice<stdgo.GoUInt8>));
+            (_r._pendBuf.__slice__(_r._pending) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_r._buf.__slice__(_size, _n) : stdgo.Slice<stdgo.GoUInt8>));
             _r._pending = (_r._pending + ((_n - _size : stdgo.GoInt)) : stdgo.GoInt);
         };
         _r._peekRune = (-1 ^ _rr);
@@ -70,7 +70,7 @@ if (_err != null) {
         var _b = (0 : stdgo.GoUInt8), _err = (null : stdgo.Error);
         if ((_r._pending > (0 : stdgo.GoInt) : Bool)) {
             _b = _r._pendBuf[(0 : stdgo.GoInt)];
-            stdgo.Go.copySlice((_r._pendBuf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (_r._pendBuf.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
+            (_r._pendBuf.__slice__((0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_r._pendBuf.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>));
             _r._pending--;
             return { _0 : _b, _1 : _err };
         };

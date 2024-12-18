@@ -8,6 +8,6 @@ function _aeadChaCha20Poly1305(_key:stdgo.Slice<stdgo.GoUInt8>, _nonceMask:stdgo
             throw stdgo.Go.toInterface(_err);
         };
         var _ret = (stdgo.Go.setRef(({ _aead : _aead } : stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD.T_xorNonceAEAD)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_xorNonceAEAD.T_xorNonceAEAD>);
-        stdgo.Go.copySlice((_ret._nonceMask.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>), _nonceMask);
+        (_ret._nonceMask.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_nonceMask);
         return stdgo.Go.asInterface(_ret);
     }

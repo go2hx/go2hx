@@ -476,7 +476,7 @@ _buf = (_buf.__append__(_digits[((_c >> (4i64 : stdgo.GoUInt64) : stdgo.GoUInt8)
         var _newLen = (_oldLen + _n : stdgo.GoInt);
         if ((_newLen > _buf.capacity : Bool)) {
             _buf = (new stdgo.Slice<stdgo.GoUInt8>(((_buf.capacity * (2 : stdgo.GoInt) : stdgo.GoInt) + _n : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo._internal.fmt.Fmt_T_buffer.T_buffer);
-            stdgo.Go.copySlice(_buf, (_f._buf : stdgo._internal.fmt.Fmt_T_buffer.T_buffer));
+            _buf.__copyTo__((_f._buf : stdgo._internal.fmt.Fmt_T_buffer.T_buffer));
         };
         var _padByte = ((32 : stdgo.GoUInt8) : stdgo.GoUInt8);
         if (_f._fmtFlags._zero) {

@@ -1418,7 +1418,7 @@ var _err = __1, _resp = __0;
                             if (_v != (_pconn)) {
                                 continue;
                             };
-                            stdgo.Go.copySlice((_pconns.__slice__(_i) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>), (_pconns.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>));
+                            (_pconns.__slice__(_i) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>).__copyTo__((_pconns.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>));
                             _t._idleConn[_key] = (_pconns.__slice__(0, ((_pconns.length) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn>>);
                             _removed = true;
                             break;

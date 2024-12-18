@@ -24,7 +24,7 @@ package stdgo._internal.encoding.pem;
         @:recv var _l:stdgo.Ref<stdgo._internal.encoding.pem.Pem_T_lineBreaker.T_lineBreaker> = _l;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         if (((_l._used + (_b.length) : stdgo.GoInt) < (64 : stdgo.GoInt) : Bool)) {
-            stdgo.Go.copySlice((_l._line.__slice__(_l._used) : stdgo.Slice<stdgo.GoUInt8>), _b);
+            (_l._line.__slice__(_l._used) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_b);
             _l._used = (_l._used + ((_b.length)) : stdgo.GoInt);
             return {
                 final __tmp__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (_b.length), _1 : (null : stdgo.Error) };

@@ -174,7 +174,7 @@ package stdgo._internal.expvar;
                     _v._keys = (_v._keys.__append__(_key?.__copy__()));
                 } else if (_v._keys[(_i : stdgo.GoInt)] != (_key)) {
                     _v._keys = (_v._keys.__append__(stdgo.Go.str()?.__copy__()));
-                    stdgo.Go.copySlice((_v._keys.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>), (_v._keys.__slice__(_i) : stdgo.Slice<stdgo.GoString>));
+                    (_v._keys.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>).__copyTo__((_v._keys.__slice__(_i) : stdgo.Slice<stdgo.GoString>));
                     _v._keys[(_i : stdgo.GoInt)] = _key?.__copy__();
                 };
             };

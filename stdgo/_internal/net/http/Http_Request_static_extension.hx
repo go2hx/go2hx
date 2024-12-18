@@ -680,7 +680,7 @@ package stdgo._internal.net.http;
             var _s = _r.transferEncoding;
             if (_s != null) {
                 var _s2 = (new stdgo.Slice<stdgo.GoString>((_s.length : stdgo.GoInt).toBasic(), 0).__setString__() : stdgo.Slice<stdgo.GoString>);
-                stdgo.Go.copySlice(_s2, _s);
+                _s2.__copyTo__(_s);
                 _r2.transferEncoding = _s2;
             };
         };

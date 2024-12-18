@@ -25,12 +25,12 @@ if ((_old.length) == ((0 : stdgo.GoInt))) {
                 } else {
                     _j = (_j + (stdgo._internal.bytes.Bytes_index.index((_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>), _old)) : stdgo.GoInt);
                 };
-_w = (_w + (stdgo.Go.copySlice((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>), (_s.__slice__(_start, _j) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
-_w = (_w + (stdgo.Go.copySlice((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>), _new)) : stdgo.GoInt);
+_w = (_w + ((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_s.__slice__(_start, _j) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
+_w = (_w + ((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__(_new)) : stdgo.GoInt);
 _start = (_j + (_old.length) : stdgo.GoInt);
                 _i++;
             };
         };
-        _w = (_w + (stdgo.Go.copySlice((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>), (_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
+        _w = (_w + ((_t.__slice__(_w) : stdgo.Slice<stdgo.GoUInt8>).__copyTo__((_s.__slice__(_start) : stdgo.Slice<stdgo.GoUInt8>))) : stdgo.GoInt);
         return (_t.__slice__((0 : stdgo.GoInt), _w) : stdgo.Slice<stdgo.GoUInt8>);
     }

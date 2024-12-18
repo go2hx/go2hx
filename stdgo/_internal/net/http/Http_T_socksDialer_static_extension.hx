@@ -167,22 +167,25 @@ package stdgo._internal.net.http;
                     _c.setDeadline(_deadline?.__copy__());
                     {
                         var _a0 = stdgo._internal.net.http.Http__socksnoDeadline._socksnoDeadline;
-                        __deferstack__.unshift(() -> _c.setDeadline(_a0?.__copy__()));
+                        final __f__ = _c.setDeadline;
+                        __deferstack__.unshift(() -> __f__(_a0?.__copy__()));
                     };
                 };
             };
             if (stdgo.Go.toInterface(_ctx) != (stdgo.Go.toInterface(stdgo._internal.context.Context_background.background()))) {
                 var _errCh = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
                 var _done = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
-                __deferstack__.unshift(() -> ({
-                    var a = function():Void {
-                        if (_done != null) _done.__close__();
-                        if (_ctxErr == null) {
-                            _ctxErr = _errCh.__get__();
+                {
+                    __deferstack__.unshift(() -> ({
+                        var a = function():Void {
+                            if (_done != null) _done.__close__();
+                            if (_ctxErr == null) {
+                                _ctxErr = _errCh.__get__();
+                            };
                         };
-                    };
-                    a();
-                }));
+                        a();
+                    }));
+                };
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         {

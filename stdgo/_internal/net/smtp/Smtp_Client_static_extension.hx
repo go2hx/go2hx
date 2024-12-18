@@ -274,7 +274,8 @@ package stdgo._internal.net.smtp;
             _c.text.startResponse(_id);
             {
                 var _a0 = _id;
-                __deferstack__.unshift(() -> _c.text.endResponse(_a0));
+                final __f__ = _c.text.endResponse;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var __tmp__ = _c.text.readResponse(_expectCode), _code:stdgo.GoInt = __tmp__._0, _msg:stdgo.GoString = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             {

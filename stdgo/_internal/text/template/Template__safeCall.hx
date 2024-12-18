@@ -3,28 +3,30 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
         var __deferstack__:Array<Void -> Void> = [];
         var _val = ({} : stdgo._internal.reflect.Reflect_Value.Value), _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    {
-                        var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
-                        if (_r != null) {
-                            {
-                                var __tmp__ = try {
-                                    { _0 : (stdgo.Go.typeAssert((_r : stdgo.Error)) : stdgo.Error), _1 : true };
-                                } catch(_) {
-                                    { _0 : (null : stdgo.Error), _1 : false };
-                                }, _e = __tmp__._0, _ok = __tmp__._1;
-                                if (_ok) {
-                                    _err = _e;
-                                } else {
-                                    _err = stdgo._internal.fmt.Fmt_errorf.errorf(("%v" : stdgo.GoString), _r);
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        {
+                            var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
+                            if (_r != null) {
+                                {
+                                    var __tmp__ = try {
+                                        { _0 : (stdgo.Go.typeAssert((_r : stdgo.Error)) : stdgo.Error), _1 : true };
+                                    } catch(_) {
+                                        { _0 : (null : stdgo.Error), _1 : false };
+                                    }, _e = __tmp__._0, _ok = __tmp__._1;
+                                    if (_ok) {
+                                        _err = _e;
+                                    } else {
+                                        _err = stdgo._internal.fmt.Fmt_errorf.errorf(("%v" : stdgo.GoString), _r);
+                                    };
                                 };
                             };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             var _ret = _fun.call(_args);
             if (((_ret.length == (2 : stdgo.GoInt)) && !_ret[(1 : stdgo.GoInt)].isNil() : Bool)) {
                 {

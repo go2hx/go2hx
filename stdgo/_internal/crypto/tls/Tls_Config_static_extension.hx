@@ -285,7 +285,10 @@ package stdgo._internal.crypto.tls;
                 _configForClient._mutex.runlock();
             };
             _c._mutex.rlock();
-            __deferstack__.unshift(() -> _c._mutex.runlock());
+            {
+                final __f__ = _c._mutex.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_c.sessionTicketsDisabled) {
                 {
                     final __ret__:stdgo.Slice<stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey> = (null : stdgo.Slice<stdgo._internal.crypto.tls.Tls_T_ticketKey.T_ticketKey>);
@@ -315,9 +318,15 @@ package stdgo._internal.crypto.tls;
                 };
             };
             _c._mutex.runlock();
-            __deferstack__.unshift(() -> _c._mutex.rlock());
+            {
+                final __f__ = _c._mutex.rlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c._mutex.lock();
-            __deferstack__.unshift(() -> _c._mutex.unlock());
+            {
+                final __f__ = _c._mutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (((_c._autoSessionTicketKeys.length == (0 : stdgo.GoInt)) || (_c._time().sub(_c._autoSessionTicketKeys[(0 : stdgo.GoInt)]._created?.__copy__()) >= (86400000000000i64 : stdgo._internal.time.Time_Duration.Duration) : Bool) : Bool)) {
                 var _newKey:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[for (i in 0 ... 32) (0 : stdgo.GoUInt8)]);
                 {
@@ -375,9 +384,15 @@ package stdgo._internal.crypto.tls;
                 return;
             };
             _c._mutex.runlock();
-            __deferstack__.unshift(() -> _c._mutex.rlock());
+            {
+                final __f__ = _c._mutex.rlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c._mutex.lock();
-            __deferstack__.unshift(() -> _c._mutex.unlock());
+            {
+                final __f__ = _c._mutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (stdgo.Go.toInterface(_c.sessionTicketKey) == stdgo.Go.toInterface((new stdgo.GoArray<stdgo.GoUInt8>(32, 32, ...[]).__setNumber32__() : stdgo.GoArray<stdgo.GoUInt8>))) {
                 {
                     var __tmp__ = stdgo._internal.io.Io_readFull.readFull(_c._rand(), (_c.sessionTicketKey.__slice__(0) : stdgo.Slice<stdgo.GoUInt8>)), __121:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -420,7 +435,10 @@ package stdgo._internal.crypto.tls;
                 return null;
             };
             _c._mutex.rlock();
-            __deferstack__.unshift(() -> _c._mutex.runlock());
+            {
+                final __f__ = _c._mutex.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config> = (stdgo.Go.setRef(({ rand : _c.rand, time : _c.time, certificates : _c.certificates, nameToCertificate : _c.nameToCertificate, getCertificate : _c.getCertificate, getClientCertificate : _c.getClientCertificate, getConfigForClient : _c.getConfigForClient, verifyPeerCertificate : _c.verifyPeerCertificate, verifyConnection : _c.verifyConnection, rootCAs : _c.rootCAs, nextProtos : _c.nextProtos, serverName : _c.serverName?.__copy__(), clientAuth : _c.clientAuth, clientCAs : _c.clientCAs, insecureSkipVerify : _c.insecureSkipVerify, cipherSuites : _c.cipherSuites, preferServerCipherSuites : _c.preferServerCipherSuites, sessionTicketsDisabled : _c.sessionTicketsDisabled, sessionTicketKey : _c.sessionTicketKey?.__copy__(), clientSessionCache : _c.clientSessionCache, unwrapSession : _c.unwrapSession, wrapSession : _c.wrapSession, minVersion : _c.minVersion, maxVersion : _c.maxVersion, curvePreferences : _c.curvePreferences, dynamicRecordSizingDisabled : _c.dynamicRecordSizingDisabled, renegotiation : _c.renegotiation, keyLogWriter : _c.keyLogWriter, _sessionTicketKeys : _c._sessionTicketKeys, _autoSessionTicketKeys : _c._autoSessionTicketKeys } : stdgo._internal.crypto.tls.Tls_Config.Config)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Config.Config>);
                 for (defer in __deferstack__) {

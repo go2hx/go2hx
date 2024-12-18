@@ -6,7 +6,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (__30156 => _vv in _p._conns) {
                 for (__30157 => _cc in _vv) {
                     _cc._closeIfIdle();
@@ -40,7 +43,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (__30156 => _key in (_p._keys[_cc] ?? (null : stdgo.Slice<stdgo.GoString>))) {
                 var __tmp__ = (_p._conns != null && _p._conns.exists(_key?.__copy__()) ? { _0 : _p._conns[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>>), _1 : false }), _vv:stdgo.Slice<stdgo.Ref<stdgo._internal.net.http.Http_T_http2ClientConn.T_http2ClientConn>> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {

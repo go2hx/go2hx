@@ -3,7 +3,10 @@ function _withLock(_lk:stdgo._internal.sync.Sync_Locker.Locker, _fn:() -> Void):
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _lk.lock();
-            __deferstack__.unshift(() -> _lk.unlock());
+            {
+                final __f__ = _lk.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _fn();
             {
                 for (defer in __deferstack__) {

@@ -49,22 +49,24 @@ var _e:stdgo._internal.encoding.gob.Gob_DT.DT = ({} : stdgo._internal.encoding.g
                         var a = function():Void {
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
-                                __deferstack__.unshift(() -> ({
-                                    var a = function():Void {
-                                        {
-                                            var _p = ({
-                                                final r = stdgo.Go.recover_exception;
-                                                stdgo.Go.recover_exception = null;
-                                                r;
-                                            } : stdgo.AnyInterface);
-                                            if (_p != null) {
-                                                _t.errorf(("crash for b[%d] ^= 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_j));
-                                                throw stdgo.Go.toInterface(_p);
+                                {
+                                    __deferstack__.unshift(() -> ({
+                                        var a = function():Void {
+                                            {
+                                                var _p = ({
+                                                    final r = stdgo.Go.recover_exception;
+                                                    stdgo.Go.recover_exception = null;
+                                                    r;
+                                                } : stdgo.AnyInterface);
+                                                if (_p != null) {
+                                                    _t.errorf(("crash for b[%d] ^= 0x%x" : stdgo.GoString), stdgo.Go.toInterface(_i), stdgo.Go.toInterface(_j));
+                                                    throw stdgo.Go.toInterface(_p);
+                                                };
                                             };
                                         };
-                                    };
-                                    a();
-                                }));
+                                        a();
+                                    }));
+                                };
                                 var _err = (stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface(stdgo._internal.bytes.Bytes_newReader.newReader(_b))).decode(stdgo.Go.toInterface((stdgo.Go.setRef(_e) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_DT.DT>))) : stdgo.Error);
                                 var __blank__ = _err;
                                 {

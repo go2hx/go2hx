@@ -3,21 +3,23 @@ function _http2registerHTTPSProtocol(_t:stdgo.Ref<stdgo._internal.net.http.Http_
         var __deferstack__:Array<Void -> Void> = [];
         var _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    {
-                        var _e = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        } : stdgo.AnyInterface);
-                        if (_e != null) {
-                            _err = stdgo._internal.fmt.Fmt_errorf.errorf(("%v" : stdgo.GoString), _e);
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        {
+                            var _e = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            } : stdgo.AnyInterface);
+                            if (_e != null) {
+                                _err = stdgo._internal.fmt.Fmt_errorf.errorf(("%v" : stdgo.GoString), _e);
+                            };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             _t.registerProtocol(("https" : stdgo.GoString), stdgo.Go.asInterface(_rt));
             {
                 final __ret__:stdgo.Error = _err = (null : stdgo.Error);

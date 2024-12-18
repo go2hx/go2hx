@@ -6,7 +6,10 @@ package stdgo._internal.archive.zip;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _r._mu.lock();
-            __deferstack__.unshift(() -> _r._mu.unlock());
+            {
+                final __f__ = _r._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _err:stdgo.Error = (null : stdgo.Error);
             if (_r._fr != null) {
                 _err = _r._fr.close();
@@ -50,7 +53,10 @@ package stdgo._internal.archive.zip;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             _r._mu.lock();
-            __deferstack__.unshift(() -> _r._mu.unlock());
+            {
+                final __f__ = _r._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_r._fr == null) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {

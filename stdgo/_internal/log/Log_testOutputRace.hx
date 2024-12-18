@@ -11,7 +11,10 @@ function testOutputRace(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Voi
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
-                            __deferstack__.unshift(() -> _wg.done());
+                            {
+                                final __f__ = _wg.done;
+                                __deferstack__.unshift(() -> __f__());
+                            };
                             _l.setFlags((0 : stdgo.GoInt));
                             _l.output((0 : stdgo.GoInt), stdgo.Go.str().__copy__());
                             {

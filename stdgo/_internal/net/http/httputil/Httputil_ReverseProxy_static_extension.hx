@@ -69,7 +69,10 @@ package stdgo._internal.net.http.httputil;
                     return;
                 };
             };
-            __deferstack__.unshift(() -> _conn.close());
+            {
+                final __f__ = _conn.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             stdgo._internal.net.http.httputil.Httputil__copyHeader._copyHeader(_rw.header(), _res.header);
             _res.header = _rw.header();
             _res.body = (null : stdgo._internal.io.Io_ReadCloser.ReadCloser);
@@ -174,7 +177,10 @@ package stdgo._internal.net.http.httputil;
             var _w:stdgo._internal.io.Io_Writer.Writer = _dst;
             if (_flushInterval != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 var _mlw = (stdgo.Go.setRef(({ _dst : _dst, _flush : stdgo._internal.net.http.Http_newResponseController.newResponseController(_dst).flush, _latency : _flushInterval } : stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter)) : stdgo.Ref<stdgo._internal.net.http.httputil.Httputil_T_maxLatencyWriter.T_maxLatencyWriter>);
-                __deferstack__.unshift(() -> _mlw._stop());
+                {
+                    final __f__ = _mlw._stop;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 _mlw._flushPending = true;
                 _mlw._t = stdgo._internal.time.Time_afterFunc.afterFunc(_flushInterval, _mlw._delayedFlush);
                 _w = stdgo.Go.asInterface(_mlw);
@@ -184,7 +190,8 @@ package stdgo._internal.net.http.httputil;
                 _buf = _p.bufferPool.get();
                 {
                     var _a0 = _buf;
-                    __deferstack__.unshift(() -> _p.bufferPool.put(_a0));
+                    final __f__ = _p.bufferPool.put;
+                    __deferstack__.unshift(() -> __f__(_a0));
                 };
             };
             var __tmp__ = _p._copyBuffer(_w, _src, _buf), __16:stdgo.GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -256,7 +263,10 @@ package stdgo._internal.net.http.httputil;
                         _ctx = __tmp__._0;
                         _cancel = __tmp__._1;
                     };
-                    __deferstack__.unshift(() -> _cancel());
+                    {
+                        final __f__ = _cancel;
+                        __deferstack__.unshift(() -> __f__());
+                    };
                     var _notifyChan = _cn.closeNotify();
                     stdgo.Go.routine(() -> ({
                         var a = function():Void {
@@ -292,7 +302,10 @@ package stdgo._internal.net.http.httputil;
                 _outreq.body = (null : stdgo._internal.io.Io_ReadCloser.ReadCloser);
             };
             if (_outreq.body != null) {
-                __deferstack__.unshift(() -> _outreq.body.close());
+                {
+                    final __f__ = _outreq.body.close;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             if (_outreq.header == null) {
                 _outreq.header = (({
@@ -424,7 +437,10 @@ package stdgo._internal.net.http.httputil;
             _rw.writeHeader(_res.statusCode);
             _err = _p._copyResponse(_rw, _res.body, _p._flushInterval(_res));
             if (_err != null) {
-                __deferstack__.unshift(() -> _res.body.close());
+                {
+                    final __f__ = _res.body.close;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 if (!stdgo._internal.net.http.httputil.Httputil__shouldPanicOnCopyError._shouldPanicOnCopyError(_req)) {
                     _p._logf(("suppressing panic for copyResponse error in test; copy error: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
                     {

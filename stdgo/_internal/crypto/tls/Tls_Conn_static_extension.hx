@@ -11,7 +11,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._handshakeMutex.unlock();
-            __deferstack__.unshift(() -> _c._handshakeMutex.lock());
+            {
+                final __f__ = _c._handshakeMutex.lock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __select__ = true;
                 while (__select__) {
@@ -767,19 +770,21 @@ package stdgo._internal.crypto.tls;
                 return _err;
             };
             if ((_session != null && ((_session : Dynamic).__nil__ == null || !(_session : Dynamic).__nil__))) {
-                __deferstack__.unshift(() -> ({
-                    var a = function():Void {
-                        if (_err != null) {
-                            {
-                                var _cacheKey = (_c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
-                                if (_cacheKey != (stdgo.Go.str())) {
-                                    _c._config.clientSessionCache.put(_cacheKey?.__copy__(), null);
+                {
+                    __deferstack__.unshift(() -> ({
+                        var a = function():Void {
+                            if (_err != null) {
+                                {
+                                    var _cacheKey = (_c._clientSessionCacheKey()?.__copy__() : stdgo.GoString);
+                                    if (_cacheKey != (stdgo.Go.str())) {
+                                        _c._config.clientSessionCache.put(_cacheKey?.__copy__(), null);
+                                    };
                                 };
                             };
                         };
-                    };
-                    a();
-                }));
+                        a();
+                    }));
+                };
             };
             {
                 var __tmp__ = _c._writeHandshakeRecord(stdgo.Go.asInterface(_hello), (null : stdgo._internal.crypto.tls.Tls_T_transcriptHash.T_transcriptHash)), __113:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1021,7 +1026,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._handshakeMutex.lock();
-            __deferstack__.unshift(() -> _c._handshakeMutex.unlock());
+            {
+                final __f__ = _c._handshakeMutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (!_c._isClient) {
                 {
                     final __ret__:stdgo.Error = stdgo._internal.errors.Errors_new_.new_(("tls: VerifyHostname called on TLS server connection" : stdgo.GoString));
@@ -1086,7 +1094,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._handshakeMutex.lock();
-            __deferstack__.unshift(() -> _c._handshakeMutex.unlock());
+            {
+                final __f__ = _c._handshakeMutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Slice<stdgo.GoUInt8> = _c._ocspResponse;
                 for (defer in __deferstack__) {
@@ -1153,7 +1164,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._handshakeMutex.lock();
-            __deferstack__.unshift(() -> _c._handshakeMutex.unlock());
+            {
+                final __f__ = _c._handshakeMutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo._internal.crypto.tls.Tls_ConnectionState.ConnectionState = _c._connectionStateLocked()?.__copy__();
                 for (defer in __deferstack__) {
@@ -1195,25 +1209,30 @@ package stdgo._internal.crypto.tls;
                 return _ret = (null : stdgo.Error);
             };
             var __tmp__ = stdgo._internal.context.Context_withCancel.withCancel(_ctx), _handshakeCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
-            __deferstack__.unshift(() -> _cancel());
+            {
+                final __f__ = _cancel;
+                __deferstack__.unshift(() -> __f__());
+            };
             if ((_c._quic != null && ((_c._quic : Dynamic).__nil__ == null || !(_c._quic : Dynamic).__nil__))) {
                 _c._quic._cancelc = _handshakeCtx.done();
                 _c._quic._cancel = _cancel;
             } else if (_ctx.done() != null) {
                 var _done = (new stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>(0, () -> ({} : stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg)) : stdgo.Chan<stdgo._internal.crypto.tls.Tls_T_endOfEarlyDataMsg.T_endOfEarlyDataMsg>);
                 var _interruptRes = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
-                __deferstack__.unshift(() -> ({
-                    var a = function():Void {
-                        if (_done != null) _done.__close__();
-                        {
-                            var _ctxErr = (_interruptRes.__get__() : stdgo.Error);
-                            if (_ctxErr != null) {
-                                _ret = _ctxErr;
+                {
+                    __deferstack__.unshift(() -> ({
+                        var a = function():Void {
+                            if (_done != null) _done.__close__();
+                            {
+                                var _ctxErr = (_interruptRes.__get__() : stdgo.Error);
+                                if (_ctxErr != null) {
+                                    _ret = _ctxErr;
+                                };
                             };
                         };
-                    };
-                    a();
-                }));
+                        a();
+                    }));
+                };
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         {
@@ -1246,7 +1265,10 @@ package stdgo._internal.crypto.tls;
                 }));
             };
             _c._handshakeMutex.lock();
-            __deferstack__.unshift(() -> _c._handshakeMutex.unlock());
+            {
+                final __f__ = _c._handshakeMutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _err = (_c._handshakeErr : stdgo.Error);
                 if (_err != null) {
@@ -1269,7 +1291,10 @@ package stdgo._internal.crypto.tls;
                 };
             };
             _c._in.lock();
-            __deferstack__.unshift(() -> _c._in.unlock());
+            {
+                final __f__ = _c._in.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c._handshakeErr = _c._handshakeFn(_handshakeCtx);
             if (_c._handshakeErr == null) {
                 _c._handshakes++;
@@ -1344,7 +1369,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._out.lock();
-            __deferstack__.unshift(() -> _c._out.unlock());
+            {
+                final __f__ = _c._out.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (!_c._closeNotifySent) {
                 _c.setWriteDeadline(stdgo._internal.time.Time_now.now().add((5000000000i64 : stdgo._internal.time.Time_Duration.Duration))?.__copy__());
                 _c._closeNotifyErr = _c._sendAlertLocked((0 : stdgo._internal.crypto.tls.Tls_T_alert.T_alert));
@@ -1438,7 +1466,10 @@ package stdgo._internal.crypto.tls;
                 return { _0 : (0 : stdgo.GoInt), _1 : (null : stdgo.Error) };
             };
             _c._in.lock();
-            __deferstack__.unshift(() -> _c._in.unlock());
+            {
+                final __f__ = _c._in.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             while (_c._input.len() == ((0 : stdgo.GoInt))) {
                 {
                     var _err = (_c._readRecord() : stdgo.Error);
@@ -1530,7 +1561,10 @@ package stdgo._internal.crypto.tls;
             _c._in._setTrafficSecret(_cipherSuite, (0 : stdgo._internal.crypto.tls.Tls_QUICEncryptionLevel.QUICEncryptionLevel), _newSecret);
             if (_keyUpdate._updateRequested) {
                 _c._out.lock();
-                __deferstack__.unshift(() -> _c._out.unlock());
+                {
+                    final __f__ = _c._out.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 var _msg = (stdgo.Go.setRef((new stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg() : stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_T_keyUpdateMsg.T_keyUpdateMsg>);
                 var __tmp__ = _msg._marshal(), _msgBytes:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
@@ -1655,7 +1689,10 @@ package stdgo._internal.crypto.tls;
                 };
             };
             _c._handshakeMutex.lock();
-            __deferstack__.unshift(() -> _c._handshakeMutex.unlock());
+            {
+                final __f__ = _c._handshakeMutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c._isHandshakeComplete.store(false);
             {
                 _c._handshakeErr = _c._clientHandshake(stdgo._internal.context.Context_background.background());
@@ -1710,7 +1747,8 @@ package stdgo._internal.crypto.tls;
             };
             {
                 var _a0 = (-2 : stdgo.GoInt32);
-                __deferstack__.unshift(() -> _c._activeCall.add(_a0));
+                final __f__ = _c._activeCall.add;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             {
                 var _err = (_c.handshake() : stdgo.Error);
@@ -1725,7 +1763,10 @@ package stdgo._internal.crypto.tls;
                 };
             };
             _c._out.lock();
-            __deferstack__.unshift(() -> _c._out.unlock());
+            {
+                final __f__ = _c._out.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _err = (_c._out._err : stdgo.Error);
                 if (_err != null) {
@@ -1923,7 +1964,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._out.lock();
-            __deferstack__.unshift(() -> _c._out.unlock());
+            {
+                final __f__ = _c._out.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = _c._writeRecordLocked((20 : stdgo._internal.crypto.tls.Tls_T_recordType.T_recordType), (new stdgo.Slice<stdgo.GoUInt8>(1, 1, ...[(1 : stdgo.GoUInt8)]).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>)), __89:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
@@ -1961,7 +2005,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._out.lock();
-            __deferstack__.unshift(() -> _c._out.unlock());
+            {
+                final __f__ = _c._out.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = _msg._marshal(), _data:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
@@ -2028,13 +2075,15 @@ package stdgo._internal.crypto.tls;
             };
             var _outBufPtr = (stdgo.Go.typeAssert((stdgo._internal.crypto.tls.Tls__outBufPool._outBufPool.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             var _outBuf = (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>).__setData__(_outBuf);
-                    stdgo._internal.crypto.tls.Tls__outBufPool._outBufPool.put(stdgo.Go.toInterface(_outBufPtr));
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        (_outBufPtr : stdgo.Slice<stdgo.GoUInt8>).__setData__(_outBuf);
+                        stdgo._internal.crypto.tls.Tls__outBufPool._outBufPool.put(stdgo.Go.toInterface(_outBufPtr));
+                    };
+                    a();
+                }));
+            };
             var _n:stdgo.GoInt = (0 : stdgo.GoInt);
             while (((_data.length) > (0 : stdgo.GoInt) : Bool)) {
                 var _m = (_data.length : stdgo.GoInt);
@@ -2207,7 +2256,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._out.lock();
-            __deferstack__.unshift(() -> _c._out.unlock());
+            {
+                final __f__ = _c._out.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Error = _c._sendAlertLocked(_err);
                 for (defer in __deferstack__) {

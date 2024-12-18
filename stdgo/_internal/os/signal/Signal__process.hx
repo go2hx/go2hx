@@ -7,7 +7,10 @@ function _process(_sig:stdgo._internal.os.Os_Signal.Signal):Void {
                 return;
             };
             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
-            __deferstack__.unshift(() -> stdgo._internal.os.signal.Signal__handlers._handlers.unlock());
+            {
+                final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (_c => _h in stdgo._internal.os.signal.Signal__handlers._handlers._m) {
                 if (_h._want(_n)) {
                     {

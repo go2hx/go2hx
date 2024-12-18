@@ -14,7 +14,10 @@ function _setExtensionType(_extension:stdgo.GoString, _mimeType:stdgo.GoString):
             stdgo._internal.mime.Mime__mimeTypes._mimeTypes.store(stdgo.Go.toInterface(_extension), stdgo.Go.toInterface(_mimeType));
             stdgo._internal.mime.Mime__mimeTypesLower._mimeTypesLower.store(stdgo.Go.toInterface(_extLower), stdgo.Go.toInterface(_mimeType));
             stdgo._internal.mime.Mime__extensionsMu._extensionsMu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock());
+            {
+                final __f__ = stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _exts:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             {
                 var __tmp__ = stdgo._internal.mime.Mime__extensions._extensions.load(stdgo.Go.toInterface(_justType)), _ei:stdgo.AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;

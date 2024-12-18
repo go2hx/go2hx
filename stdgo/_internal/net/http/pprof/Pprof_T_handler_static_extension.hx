@@ -29,7 +29,10 @@ package stdgo._internal.net.http.pprof;
                 return;
             };
             var _t = stdgo._internal.time.Time_newTimer.newTimer(((_sec : stdgo._internal.time.Time_Duration.Duration) * (1000000000i64 : stdgo._internal.time.Time_Duration.Duration) : stdgo._internal.time.Time_Duration.Duration));
-            __deferstack__.unshift(() -> _t.stop());
+            {
+                final __f__ = _t.stop;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __select__ = true;
                 while (__select__) {

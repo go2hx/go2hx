@@ -5,7 +5,8 @@ function testEncoderErrorAndReuseEncodeState(_t:stdgo.Ref<stdgo._internal.testin
             var _percent = (stdgo._internal.runtime.debug.Debug_setGCPercent.setGCPercent((-1 : stdgo.GoInt)) : stdgo.GoInt);
             {
                 var _a0 = _percent;
-                __deferstack__.unshift(() -> stdgo._internal.runtime.debug.Debug_setGCPercent.setGCPercent(_a0));
+                final __f__ = stdgo._internal.runtime.debug.Debug_setGCPercent.setGCPercent;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             {};
             var _dummy = ({ name : ("Dummy" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487.T_testEncoderErrorAndReuseEncodeState___localname___Dummy_1487);

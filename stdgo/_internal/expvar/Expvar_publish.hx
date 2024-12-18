@@ -9,7 +9,10 @@ function publish(_name:stdgo.GoString, _v:stdgo._internal.expvar.Expvar_Var.Var)
                 };
             };
             stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.unlock());
+            {
+                final __f__ = stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             stdgo._internal.expvar.Expvar__varKeys._varKeys = (stdgo._internal.expvar.Expvar__varKeys._varKeys.__append__(_name?.__copy__()));
             stdgo._internal.sort.Sort_strings.strings(stdgo._internal.expvar.Expvar__varKeys._varKeys);
             {

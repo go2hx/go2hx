@@ -5,7 +5,8 @@ function valid(_data:stdgo.Slice<stdgo.GoUInt8>):Bool {
             var _scan = stdgo._internal.encoding.json.Json__newScanner._newScanner();
             {
                 var _a0 = _scan;
-                __deferstack__.unshift(() -> stdgo._internal.encoding.json.Json__freeScanner._freeScanner(_a0));
+                final __f__ = stdgo._internal.encoding.json.Json__freeScanner._freeScanner;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             {
                 final __ret__:Bool = stdgo._internal.encoding.json.Json__checkValid._checkValid(_data, _scan) == null;

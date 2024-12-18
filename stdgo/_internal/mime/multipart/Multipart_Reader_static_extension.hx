@@ -116,32 +116,34 @@ var _fileOff = __1, _file = __0;
                 };
             };
             var _maxHeaders = (stdgo._internal.mime.multipart.Multipart__maxMIMEHeaders._maxMIMEHeaders() : stdgo.GoInt64);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
-                        {
-                            var _cerr = (_file.close() : stdgo.Error);
-                            if (_err == null) {
-                                _err = _cerr;
-                            };
-                        };
-                    };
-                    if ((_combineFiles && (_numDiskFiles > (1 : stdgo.GoInt) : Bool) : Bool)) {
-                        for (__16 => _fhs in _form.file) {
-                            for (__17 => _fh in _fhs) {
-                                _fh._tmpshared = true;
-                            };
-                        };
-                    };
-                    if (_err != null) {
-                        _form.removeAll();
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
                         if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
-                            stdgo._internal.os.Os_remove.remove(_file.name()?.__copy__());
+                            {
+                                var _cerr = (_file.close() : stdgo.Error);
+                                if (_err == null) {
+                                    _err = _cerr;
+                                };
+                            };
+                        };
+                        if ((_combineFiles && (_numDiskFiles > (1 : stdgo.GoInt) : Bool) : Bool)) {
+                            for (__16 => _fhs in _form.file) {
+                                for (__17 => _fh in _fhs) {
+                                    _fh._tmpshared = true;
+                                };
+                            };
+                        };
+                        if (_err != null) {
+                            _form.removeAll();
+                            if ((_file != null && ((_file : Dynamic).__nil__ == null || !(_file : Dynamic).__nil__))) {
+                                stdgo._internal.os.Os_remove.remove(_file.name()?.__copy__());
+                            };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             var _maxFileMemoryBytes = (_maxMemory : stdgo.GoInt64);
             if (_maxFileMemoryBytes == ((9223372036854775807i64 : stdgo.GoInt64))) {
                 _maxFileMemoryBytes--;

@@ -6,7 +6,8 @@ function _minimizeBytes(_v:stdgo.Slice<stdgo.GoUInt8>, _try:stdgo.Slice<stdgo.Go
             {
                 var _a0 = _tmp;
                 var _a1 = _v;
-                __deferstack__.unshift(() -> stdgo.Go.copySlice(_a0, _a1));
+                final __f__ = stdgo.Go.copySlice;
+                __deferstack__.unshift(() -> __f__(_a0, _a1));
             };
             {
                 var _n = (1024 : stdgo.GoInt);

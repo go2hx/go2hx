@@ -6,7 +6,8 @@ function checkRuntimeTimerPeriodOverflow():Void {
             stdgo._internal.time.Time__startTimer._startTimer(_r);
             {
                 var _a0 = _r;
-                __deferstack__.unshift(() -> stdgo._internal.time.Time__stopTimer._stopTimer(_a0));
+                final __f__ = stdgo._internal.time.Time__stopTimer._stopTimer;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             stdgo._internal.time.Time_after.after((25000000i64 : stdgo._internal.time.Time_Duration.Duration)).__get__();
             {

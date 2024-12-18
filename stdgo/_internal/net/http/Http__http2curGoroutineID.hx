@@ -5,7 +5,8 @@ function _http2curGoroutineID():stdgo.GoUInt64 {
             var _bp = (stdgo.Go.typeAssert((stdgo._internal.net.http.Http__http2littleBuf._http2littleBuf.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             {
                 var _a0 = _bp;
-                __deferstack__.unshift(() -> stdgo._internal.net.http.Http__http2littleBuf._http2littleBuf.put(stdgo.Go.toInterface(_a0)));
+                final __f__ = stdgo._internal.net.http.Http__http2littleBuf._http2littleBuf.put;
+                __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
             };
             var _b = (_bp : stdgo.Slice<stdgo.GoUInt8>);
             _b = (_b.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_b, false)) : stdgo.Slice<stdgo.GoUInt8>);

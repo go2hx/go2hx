@@ -6,7 +6,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _rs._closemu.lock();
-            __deferstack__.unshift(() -> _rs._closemu.unlock());
+            {
+                final __f__ = _rs._closemu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_rs._closed) {
                 {
                     final __ret__:stdgo.Error = (null : stdgo.Error);
@@ -126,7 +129,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _rs._closemu.rlock();
-            __deferstack__.unshift(() -> _rs._closemu.runlock());
+            {
+                final __f__ = _rs._closemu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_rs._closed) {
                 {
                     final __ret__:{ var _0 : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType>>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType>>), _1 : _rs._lasterrOrErrLocked(stdgo._internal.database.sql.Sql__errRowsClosed._errRowsClosed) };
@@ -146,7 +152,10 @@ package stdgo._internal.database.sql;
                 };
             };
             _rs._dc.lock();
-            __deferstack__.unshift(() -> _rs._dc.unlock());
+            {
+                final __f__ = _rs._dc.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.Ref<stdgo._internal.database.sql.Sql_ColumnType.ColumnType>>; var _1 : stdgo.Error; } = { _0 : stdgo._internal.database.sql.Sql__rowsColumnInfoSetupConnLocked._rowsColumnInfoSetupConnLocked(_rs._rowsi), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
@@ -184,7 +193,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _rs._closemu.rlock();
-            __deferstack__.unshift(() -> _rs._closemu.runlock());
+            {
+                final __f__ = _rs._closemu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_rs._closed) {
                 {
                     final __ret__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _rs._lasterrOrErrLocked(stdgo._internal.database.sql.Sql__errRowsClosed._errRowsClosed) };
@@ -204,7 +216,10 @@ package stdgo._internal.database.sql;
                 };
             };
             _rs._dc.lock();
-            __deferstack__.unshift(() -> _rs._dc.unlock());
+            {
+                final __f__ = _rs._dc.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = { _0 : _rs._rowsi.columns(), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
@@ -250,7 +265,10 @@ package stdgo._internal.database.sql;
                 };
             };
             _rs._closemu.rlock();
-            __deferstack__.unshift(() -> _rs._closemu.runlock());
+            {
+                final __f__ = _rs._closemu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Error = _rs._lasterrOrErrLocked((null : stdgo.Error));
                 for (defer in __deferstack__) {
@@ -289,16 +307,21 @@ package stdgo._internal.database.sql;
         try {
             _rs._closemuRUnlockIfHeldByScan();
             var _doClose:Bool = false;
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (_doClose) {
-                        _rs.close();
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (_doClose) {
+                            _rs.close();
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             _rs._closemu.rlock();
-            __deferstack__.unshift(() -> _rs._closemu.runlock());
+            {
+                final __f__ = _rs._closemu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_rs._closed) {
                 {
                     for (defer in __deferstack__) {
@@ -323,7 +346,10 @@ package stdgo._internal.database.sql;
                 };
             };
             _rs._dc.lock();
-            __deferstack__.unshift(() -> _rs._dc.unlock());
+            {
+                final __f__ = _rs._dc.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _rs._lasterr = _nextResultSet.nextResultSet();
             if (_rs._lasterr != null) {
                 _doClose = true;
@@ -377,7 +403,10 @@ package stdgo._internal.database.sql;
                 };
             };
             _rs._dc.lock();
-            __deferstack__.unshift(() -> _rs._dc.unlock());
+            {
+                final __f__ = _rs._dc.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_rs._lastcols == null) {
                 _rs._lastcols = (new stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>((_rs._rowsi.columns().length : stdgo.GoInt).toBasic(), 0) : stdgo.Slice<stdgo._internal.database.sql.driver.Driver_Value.Value>);
             };

@@ -3,7 +3,10 @@ function lookup(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.pprof.Pp
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.runtime.pprof.Pprof__lockProfiles._lockProfiles();
-            __deferstack__.unshift(() -> stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles());
+            {
+                final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m[_name] ?? (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>));
                 for (defer in __deferstack__) {

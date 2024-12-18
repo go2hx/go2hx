@@ -44,7 +44,10 @@ package stdgo._internal.text.template;
                 return null;
             };
             _t._common._muTmpl.rlock();
-            __deferstack__.unshift(() -> _t._common._muTmpl.runlock());
+            {
+                final __f__ = _t._common._muTmpl.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = (_t._common._tmpl[_name] ?? (null : stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>));
                 for (defer in __deferstack__) {
@@ -83,7 +86,10 @@ package stdgo._internal.text.template;
         try {
             _t._init();
             _t._common._muFuncs.lock();
-            __deferstack__.unshift(() -> _t._common._muFuncs.unlock());
+            {
+                final __f__ = _t._common._muFuncs.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             stdgo._internal.text.template.Template__addValueFuncs._addValueFuncs(_t._common._execFuncs, _funcMap);
             stdgo._internal.text.template.Template__addFuncs._addFuncs(_t._common._parseFuncs, _funcMap);
             {
@@ -133,7 +139,10 @@ package stdgo._internal.text.template;
                 return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>);
             };
             _t._common._muTmpl.rlock();
-            __deferstack__.unshift(() -> _t._common._muTmpl.runlock());
+            {
+                final __f__ = _t._common._muTmpl.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _m = (new stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>((0 : stdgo.GoInt).toBasic(), (_t._common._tmpl.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.text.template.Template_Template.Template>>);
             for (__56 => _v in _t._common._tmpl) {
                 _m = (_m.__append__(_v));
@@ -175,7 +184,10 @@ package stdgo._internal.text.template;
         try {
             _t._init();
             _t._common._muTmpl.lock();
-            __deferstack__.unshift(() -> _t._common._muTmpl.unlock());
+            {
+                final __f__ = _t._common._muTmpl.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _nt = _t;
             if (_name != (_t._name)) {
                 _nt = _t.new_(_name?.__copy__());
@@ -230,7 +242,10 @@ package stdgo._internal.text.template;
                 return { _0 : _nt, _1 : (null : stdgo.Error) };
             };
             _t._common._muTmpl.rlock();
-            __deferstack__.unshift(() -> _t._common._muTmpl.runlock());
+            {
+                final __f__ = _t._common._muTmpl.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (_k => _v in _t._common._tmpl) {
                 if (_k == (_t._name)) {
                     _nt._common._tmpl[_t._name] = _nt;
@@ -240,7 +255,10 @@ package stdgo._internal.text.template;
                 _nt._common._tmpl[_k] = _tmpl;
             };
             _t._common._muFuncs.rlock();
-            __deferstack__.unshift(() -> _t._common._muFuncs.runlock());
+            {
+                final __f__ = _t._common._muFuncs.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (_k => _v in _t._common._parseFuncs) {
                 _nt._common._parseFuncs[_k] = _v;
             };
@@ -387,7 +405,10 @@ package stdgo._internal.text.template;
             };
             var _b:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
             _t._common._muTmpl.rlock();
-            __deferstack__.unshift(() -> _t._common._muTmpl.runlock());
+            {
+                final __f__ = _t._common._muTmpl.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (_name => _tmpl in _t._common._tmpl) {
                 if (((_tmpl.tree == null || (_tmpl.tree : Dynamic).__nil__) || (_tmpl.tree.root == null || (_tmpl.tree.root : Dynamic).__nil__) : Bool)) {
                     continue;
@@ -438,7 +459,8 @@ package stdgo._internal.text.template;
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
-                __deferstack__.unshift(() -> stdgo._internal.text.template.Template__errRecover._errRecover(_a0));
+                final __f__ = stdgo._internal.text.template.Template__errRecover._errRecover;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((_data : stdgo._internal.reflect.Reflect_Value.Value)) : stdgo._internal.reflect.Reflect_Value.Value), _1 : true };

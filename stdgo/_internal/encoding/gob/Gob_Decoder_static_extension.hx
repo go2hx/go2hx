@@ -11,7 +11,10 @@ package stdgo._internal.encoding.gob;
                 };
             };
             _dec._mutex.lock();
-            __deferstack__.unshift(() -> _dec._mutex.unlock());
+            {
+                final __f__ = _dec._mutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _dec._buf.reset();
             _dec._err = (null : stdgo.Error);
             var _id = (_dec._decodeTypeSequence(false) : stdgo._internal.encoding.gob.Gob_T_typeId.T_typeId);
@@ -184,7 +187,8 @@ package stdgo._internal.encoding.gob;
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_dec._err) : stdgo.Ref<stdgo.Error>);
-                __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__catchError._catchError(_a0));
+                final __f__ = stdgo._internal.encoding.gob.Gob__catchError._catchError;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             if (!_value.isValid()) {
                 _dec._decodeIgnoredValue(_wireId);
@@ -323,7 +327,8 @@ package stdgo._internal.encoding.gob;
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
-                __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__catchError._catchError(_a0));
+                final __f__ = stdgo._internal.encoding.gob.Gob__catchError._catchError;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var _rt = (_ut._base : stdgo._internal.reflect.Reflect_Type_.Type_);
             var _srt = (_rt : stdgo._internal.reflect.Reflect_Type_.Type_);
@@ -506,7 +511,10 @@ _engine._numInstr++;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.encoding.gob.Gob__typeLock._typeLock.lock();
-            __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock());
+            {
+                final __f__ = stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _t = (stdgo._internal.encoding.gob.Gob__idToType._idToType(_remoteId) : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
                 if (_t != null) {
@@ -1078,7 +1086,8 @@ _elemOp(_instr, _state, _v.__copy__());
             var _state = _dec._newDecoderState((stdgo.Go.setRef(_dec._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>));
             {
                 var _a0 = _state;
-                __deferstack__.unshift(() -> _dec._freeDecoderState(_a0));
+                final __f__ = _dec._freeDecoderState;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             _state._fieldnum = (0 : stdgo.GoInt);
             var _delta = (_state._decodeUint() : stdgo.GoInt);
@@ -1117,7 +1126,8 @@ _elemOp(_instr, _state, _v.__copy__());
             var _state = _dec._newDecoderState((stdgo.Go.setRef(_dec._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>));
             {
                 var _a0 = _state;
-                __deferstack__.unshift(() -> _dec._freeDecoderState(_a0));
+                final __f__ = _dec._freeDecoderState;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             _state._fieldnum = (-1 : stdgo.GoInt);
             while ((_state._b.len() > (0 : stdgo.GoInt) : Bool)) {
@@ -1166,7 +1176,8 @@ _elemOp(_instr, _state, _v.__copy__());
             var _state = _dec._newDecoderState((stdgo.Go.setRef(_dec._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>));
             {
                 var _a0 = _state;
-                __deferstack__.unshift(() -> _dec._freeDecoderState(_a0));
+                final __f__ = _dec._freeDecoderState;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             _state._fieldnum = (-1 : stdgo.GoInt);
             while ((_state._b.len() > (0 : stdgo.GoInt) : Bool)) {
@@ -1222,7 +1233,8 @@ _elemOp(_instr, _state, _v.__copy__());
             var _state = _dec._newDecoderState((stdgo.Go.setRef(_dec._buf) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decBuffer.T_decBuffer>));
             {
                 var _a0 = _state;
-                __deferstack__.unshift(() -> _dec._freeDecoderState(_a0));
+                final __f__ = _dec._freeDecoderState;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             _state._fieldnum = (0 : stdgo.GoInt);
             if (_state._decodeUint() != ((0i64 : stdgo.GoUInt64))) {

@@ -13,7 +13,10 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                 stdgo._internal.net.http.Http_error.error(_w, _msg?.__copy__(), _code);
                 return;
             };
-            __deferstack__.unshift(() -> _f.close());
+            {
+                final __f__ = _f.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = _f.stat(), _d:stdgo._internal.io.fs.Fs_FileInfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 var __tmp__ = stdgo._internal.net.http.Http__toHTTPError._toHTTPError(_err), _msg:stdgo.GoString = __tmp__._0, _code:stdgo.GoInt = __tmp__._1;
@@ -63,7 +66,10 @@ function _serveFile(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWrit
                 var _index = ((stdgo._internal.strings.Strings_trimSuffix.trimSuffix(_name?.__copy__(), ("/" : stdgo.GoString)) + ("/index.html" : stdgo.GoString)?.__copy__() : stdgo.GoString)?.__copy__() : stdgo.GoString);
                 var __tmp__ = _fs.open(_index?.__copy__()), _ff:stdgo._internal.net.http.Http_File.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
-                    __deferstack__.unshift(() -> _ff.close());
+                    {
+                        final __f__ = _ff.close;
+                        __deferstack__.unshift(() -> __f__());
+                    };
                     var __tmp__ = _ff.stat(), _dd:stdgo._internal.io.fs.Fs_FileInfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err == null) {
                         _d = _dd;

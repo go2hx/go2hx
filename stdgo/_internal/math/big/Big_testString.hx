@@ -5,16 +5,18 @@ function testString(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
-                    __deferstack__.unshift(() -> ({
-                        var a = function():Void {
-                            _panicStr = (stdgo.Go.typeAssert(({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            } : stdgo.GoString)) : stdgo.GoString)?.__copy__();
-                        };
-                        a();
-                    }));
+                    {
+                        __deferstack__.unshift(() -> ({
+                            var a = function():Void {
+                                _panicStr = (stdgo.Go.typeAssert(({
+                                    final r = stdgo.Go.recover_exception;
+                                    stdgo.Go.recover_exception = null;
+                                    r;
+                                } : stdgo.GoString)) : stdgo.GoString)?.__copy__();
+                            };
+                            a();
+                        }));
+                    };
                     stdgo._internal.math.big.Big__natOne._natOne._utoa((1 : stdgo.GoInt));
                     {
                         for (defer in __deferstack__) {

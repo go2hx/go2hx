@@ -13,35 +13,37 @@ package stdgo._internal.net.http;
             };
             _ctx = stdgo._internal.context.Context_withValue.withValue(_ctx, stdgo.Go.toInterface(stdgo.Go.asInterface(stdgo._internal.net.http.Http_localAddrContextKey.localAddrContextKey)), stdgo.Go.toInterface(_c._rwc.localAddr()));
             var _inFlightResponse:stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response> = (null : stdgo.Ref<stdgo._internal.net.http.Http_T_response.T_response>);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    {
-                        var _err = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        } : stdgo.AnyInterface);
-                        if (((_err != null) && (_err != stdgo.Go.toInterface(stdgo._internal.net.http.Http_errAbortHandler.errAbortHandler)) : Bool)) {
-                            {};
-                            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                            _buf = (_buf.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_buf, false)) : stdgo.Slice<stdgo.GoUInt8>);
-                            _c._server._logf(("http: panic serving %v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(_c._remoteAddr), _err, stdgo.Go.toInterface(_buf));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        {
+                            var _err = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            } : stdgo.AnyInterface);
+                            if (((_err != null) && (_err != stdgo.Go.toInterface(stdgo._internal.net.http.Http_errAbortHandler.errAbortHandler)) : Bool)) {
+                                {};
+                                var _buf = (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+                                _buf = (_buf.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_buf, false)) : stdgo.Slice<stdgo.GoUInt8>);
+                                _c._server._logf(("http: panic serving %v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(_c._remoteAddr), _err, stdgo.Go.toInterface(_buf));
+                            };
                         };
-                    };
-                    if ((_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__))) {
-                        _inFlightResponse._cancelCtx();
-                    };
-                    if (!_c._hijacked()) {
                         if ((_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__))) {
-                            _inFlightResponse._conn._r._abortPendingRead();
-                            _inFlightResponse._reqBody.close();
+                            _inFlightResponse._cancelCtx();
                         };
-                        _c._close();
-                        _c._setState(_c._rwc, (4 : stdgo._internal.net.http.Http_ConnState.ConnState), true);
+                        if (!_c._hijacked()) {
+                            if ((_inFlightResponse != null && ((_inFlightResponse : Dynamic).__nil__ == null || !(_inFlightResponse : Dynamic).__nil__))) {
+                                _inFlightResponse._conn._r._abortPendingRead();
+                                _inFlightResponse._reqBody.close();
+                            };
+                            _c._close();
+                            _c._setState(_c._rwc, (4 : stdgo._internal.net.http.Http_ConnState.ConnState), true);
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             {
                 var __tmp__ = try {
                     { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_c._rwc) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>)) : stdgo.Ref<stdgo._internal.crypto.tls.Tls_Conn.Conn>), _1 : true };
@@ -129,7 +131,10 @@ package stdgo._internal.net.http;
             };
             var __tmp__ = stdgo._internal.context.Context_withCancel.withCancel(_ctx), _ctx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancelCtx:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
             _c._cancelCtx = _cancelCtx;
-            __deferstack__.unshift(() -> _cancelCtx());
+            {
+                final __f__ = _cancelCtx;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c._r = (stdgo.Go.setRef(({ _conn : _c } : stdgo._internal.net.http.Http_T_connReader.T_connReader)) : stdgo.Ref<stdgo._internal.net.http.Http_T_connReader.T_connReader>);
             _c._bufr = stdgo._internal.net.http.Http__newBufioReader._newBufioReader(stdgo.Go.asInterface(_c._r));
             _c._bufw = stdgo._internal.net.http.Http__newBufioWriterSize._newBufioWriterSize(stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_checkConnErrorWriter.T_checkConnErrorWriter(_c) : stdgo._internal.net.http.Http_T_checkConnErrorWriter.T_checkConnErrorWriter)), (4096 : stdgo.GoInt));
@@ -399,12 +404,14 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
             {
                 var _d = (_c._server.writeTimeout : stdgo._internal.time.Time_Duration.Duration);
                 if ((_d > (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
-                    __deferstack__.unshift(() -> ({
-                        var a = function():Void {
-                            _c._rwc.setWriteDeadline(stdgo._internal.time.Time_now.now().add(_d)?.__copy__());
-                        };
-                        a();
-                    }));
+                    {
+                        __deferstack__.unshift(() -> ({
+                            var a = function():Void {
+                                _c._rwc.setWriteDeadline(stdgo._internal.time.Time_now.now().add(_d)?.__copy__());
+                            };
+                            a();
+                        }));
+                    };
                 };
             };
             _c._r._setReadLimit(_c._server._initialReadLimitSize());
@@ -625,7 +632,10 @@ var _hdrDeadline = __1, _wholeReqDeadline = __0;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._mu.lock();
-            __deferstack__.unshift(() -> _c._mu.unlock());
+            {
+                final __f__ = _c._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:Bool = _c._hijackedv;
                 for (defer in __deferstack__) {

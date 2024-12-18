@@ -6,7 +6,10 @@ function _loadMimeGlobsFile(_filename:stdgo.GoString):stdgo.Error {
             if (_err != null) {
                 return _err;
             };
-            __deferstack__.unshift(() -> _f.close());
+            {
+                final __f__ = _f.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _scanner = stdgo._internal.bufio.Bufio_newScanner.newScanner(stdgo.Go.asInterface(_f));
             while (_scanner.scan()) {
                 var _fields = stdgo._internal.strings.Strings_split.split(_scanner.text()?.__copy__(), (":" : stdgo.GoString));

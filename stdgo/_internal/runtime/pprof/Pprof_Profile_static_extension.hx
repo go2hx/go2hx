@@ -37,7 +37,10 @@ var _u = __1, _t = __0;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_p._m != null) _p._m.remove(_value);
             {
                 for (defer in __deferstack__) {
@@ -79,7 +82,10 @@ var _u = __1, _t = __0;
                 _stk = (new stdgo.Slice<stdgo.GoUIntptr>(1, 1, ...[stdgo._internal.internal.abi.Abi_funcPCABIInternal.funcPCABIInternal(stdgo.Go.toInterface(stdgo._internal.runtime.pprof.Pprof__lostProfileEvent._lostProfileEvent))]) : stdgo.Slice<stdgo.GoUIntptr>);
             };
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if ((_p._m[_value] ?? (null : stdgo.Slice<stdgo.GoUIntptr>)) != null) {
                 throw stdgo.Go.toInterface(("pprof: Profile.Add of duplicate value" : stdgo.GoString));
             };
@@ -112,7 +118,10 @@ var _u = __1, _t = __0;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_p._count != null) {
                 {
                     final __ret__:stdgo.GoInt = _p._count();

@@ -3,7 +3,10 @@ function _initSystemRoots():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.unlock());
+            {
+                final __f__ = stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __tmp__ = stdgo._internal.crypto.x509.X509__loadSystemRoots._loadSystemRoots();
                 stdgo._internal.crypto.x509.X509__systemRoots._systemRoots = __tmp__._0;

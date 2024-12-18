@@ -3,7 +3,10 @@ function _unregisterAllDrivers():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.database.sql.Sql__driversMu._driversMu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.database.sql.Sql__driversMu._driversMu.unlock());
+            {
+                final __f__ = stdgo._internal.database.sql.Sql__driversMu._driversMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             stdgo._internal.database.sql.Sql__drivers._drivers = ({
                 final x = new stdgo.GoMap.GoStringMap<stdgo._internal.database.sql.driver.Driver_Driver.Driver>();
                 x.__defaultValue__ = () -> (null : stdgo._internal.database.sql.driver.Driver_Driver.Driver);

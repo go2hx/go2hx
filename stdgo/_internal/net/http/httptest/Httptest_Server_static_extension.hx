@@ -21,7 +21,10 @@ package stdgo._internal.net.http.httptest;
             var __deferstack__:Array<Void -> Void> = [];
             try {
                 _s._mu.lock();
-                __deferstack__.unshift(() -> _s._mu.unlock());
+                {
+                    final __f__ = _s._mu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 {
                     final __value__ = _cs;
                     if (__value__ == ((0 : stdgo._internal.net.http.Http_ConnState.ConnState))) {
@@ -73,7 +76,10 @@ package stdgo._internal.net.http.httptest;
                             var __tmp__ = (_s._conns != null && _s._conns.exists(_c) ? { _0 : _s._conns[_c], _1 : true } : { _0 : ((0 : stdgo.GoInt) : stdgo._internal.net.http.Http_ConnState.ConnState), _1 : false }), __208:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
                                 if (_s._conns != null) _s._conns.remove(_c);
-                                __deferstack__.unshift(() -> _s._wg.done());
+                                {
+                                    final __f__ = _s._wg.done;
+                                    __deferstack__.unshift(() -> __f__());
+                                };
                             };
                         };
                     };
@@ -112,7 +118,10 @@ package stdgo._internal.net.http.httptest;
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
-                    __deferstack__.unshift(() -> _s._wg.done());
+                    {
+                        final __f__ = _s._wg.done;
+                        __deferstack__.unshift(() -> __f__());
+                    };
                     _s.config.serve(_s.listener);
                     {
                         for (defer in __deferstack__) {
@@ -162,7 +171,10 @@ package stdgo._internal.net.http.httptest;
             };
             _s._mu.unlock();
             var _timer = stdgo._internal.time.Time_newTimer.newTimer((5000000000i64 : stdgo._internal.time.Time_Duration.Duration));
-            __deferstack__.unshift(() -> _timer.stop());
+            {
+                final __f__ = _timer.stop;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _i = (0 : stdgo.GoInt);
                 while ((_i < _nconn : Bool)) {
@@ -224,7 +236,10 @@ package stdgo._internal.net.http.httptest;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._mu.lock();
-            __deferstack__.unshift(() -> _s._mu.unlock());
+            {
+                final __f__ = _s._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _buf:stdgo._internal.strings.Strings_Builder.Builder = ({} : stdgo._internal.strings.Strings_Builder.Builder);
             _buf.writeString(("httptest.Server blocked in Close after 5 seconds, waiting for connections:\n" : stdgo.GoString));
             for (_c => _st in _s._conns) {
@@ -269,7 +284,10 @@ package stdgo._internal.net.http.httptest;
                     };
                 };
                 var _t = stdgo._internal.time.Time_afterFunc.afterFunc((5000000000i64 : stdgo._internal.time.Time_Duration.Duration), _s._logCloseHangDebugInfo);
-                __deferstack__.unshift(() -> _t.stop());
+                {
+                    final __f__ = _t.stop;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             _s._mu.unlock();
             {

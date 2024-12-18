@@ -6,7 +6,10 @@ function _lookupUserId(_uid:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._internal
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
-            __deferstack__.unshift(() -> _f.close());
+            {
+                final __f__ = _f.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.os.user.User_User.User>; var _1 : stdgo.Error; } = stdgo._internal.os.user.User__findUserId._findUserId(_uid?.__copy__(), stdgo.Go.asInterface(_f));
                 for (defer in __deferstack__) {

@@ -29,10 +29,16 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                     _ctx = __tmp__._0;
                     _cancel = __tmp__._1;
                 };
-                __deferstack__.unshift(() -> _cancel());
+                {
+                    final __f__ = _cancel;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             var __tmp__ = stdgo._internal.context.Context_withCancel.withCancel(_ctx), _fuzzCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancelWorkers:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
-            __deferstack__.unshift(() -> _cancelWorkers());
+            {
+                final __f__ = _cancelWorkers;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _doneC = _ctx.done();
             var _fuzzErr:stdgo.Error = (null : stdgo.Error);
             var _stopping = (false : Bool);
@@ -59,22 +65,24 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
                 _doneC = (null : stdgo.Chan<stdgo._internal.internal.fuzz.Fuzz_T_noCopy.T_noCopy>);
             } : stdgo.Error -> Void);
             var _crashWritten = (false : Bool);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (((_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
-                        return;
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (((_c._crashMinimizing == null || (_c._crashMinimizing : Dynamic).__nil__) || _crashWritten : Bool)) {
+                            return;
+                        };
+                        var _werr = (stdgo._internal.internal.fuzz.Fuzz__writeToCorpus._writeToCorpus((stdgo.Go.setRef(_c._crashMinimizing._entry) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry>), _opts.corpusDir?.__copy__()) : stdgo.Error);
+                        if (_werr != null) {
+                            _err = stdgo._internal.fmt.Fmt_errorf.errorf(("%w\n%v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_werr));
+                            return;
+                        };
+                        if (_err == null) {
+                            _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ _path : _c._crashMinimizing._entry.path?.__copy__(), _err : stdgo._internal.errors.Errors_new_.new_(_c._crashMinimizing._crasherMsg?.__copy__()) } : stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError>));
+                        };
                     };
-                    var _werr = (stdgo._internal.internal.fuzz.Fuzz__writeToCorpus._writeToCorpus((stdgo.Go.setRef(_c._crashMinimizing._entry) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry>), _opts.corpusDir?.__copy__()) : stdgo.Error);
-                    if (_werr != null) {
-                        _err = stdgo._internal.fmt.Fmt_errorf.errorf(("%w\n%v" : stdgo.GoString), stdgo.Go.toInterface(_err), stdgo.Go.toInterface(_werr));
-                        return;
-                    };
-                    if (_err == null) {
-                        _err = stdgo.Go.asInterface((stdgo.Go.setRef(({ _path : _c._crashMinimizing._entry.path?.__copy__(), _err : stdgo._internal.errors.Errors_new_.new_(_c._crashMinimizing._crasherMsg?.__copy__()) } : stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_crashError.T_crashError>));
-                    };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             var _dir = (stdgo.Go.str()?.__copy__() : stdgo.GoString);
             var _binPath = (stdgo._internal.os.Os_args.args[(0 : stdgo.GoInt)]?.__copy__() : stdgo.GoString);
             var _args = ((new stdgo.Slice<stdgo.GoString>(1, 1, ...[("-test.fuzzworker" : stdgo.GoString)]).__setString__() : stdgo.Slice<stdgo.GoString>).__append__(...((stdgo._internal.os.Os_args.args.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>)));
@@ -116,8 +124,14 @@ function coordinateFuzzing(_ctx:stdgo._internal.context.Context_Context.Context,
             };
             var _activeWorkers = (_workers.length : stdgo.GoInt);
             var _statTicker = stdgo._internal.time.Time_newTicker.newTicker((3000000000i64 : stdgo._internal.time.Time_Duration.Duration));
-            __deferstack__.unshift(() -> _statTicker.stop());
-            __deferstack__.unshift(() -> _c._logStats());
+            {
+                final __f__ = _statTicker.stop;
+                __deferstack__.unshift(() -> __f__());
+            };
+            {
+                final __f__ = _c._logStats;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c._logStats();
             while (true) {
                 if (((_c._opts.limit > (0i64 : stdgo.GoInt64) : Bool) && (_c._count >= _c._opts.limit : Bool) : Bool)) {

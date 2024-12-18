@@ -14,7 +14,10 @@ package stdgo._internal.database.sql;
                 return stdgo._internal.database.sql.Sql_errConnDone.errConnDone;
             };
             _c._closemu.lock();
-            __deferstack__.unshift(() -> _c._closemu.unlock());
+            {
+                final __f__ = _c._closemu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c._dc._releaseConn(_err);
             _c._dc = null;
             _c._db = null;
@@ -89,16 +92,18 @@ package stdgo._internal.database.sql;
             };
             var _fPanic = (true : Bool);
             _dc.mutex.lock();
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _dc.mutex.unlock();
-                    if (_fPanic) {
-                        _err = stdgo._internal.database.sql.driver.Driver_errBadConn.errBadConn;
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _dc.mutex.unlock();
+                        if (_fPanic) {
+                            _err = stdgo._internal.database.sql.driver.Driver_errBadConn.errBadConn;
+                        };
+                        _release(_err);
                     };
-                    _release(_err);
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             _err = _f(stdgo.Go.toInterface(_dc._ci));
             _fPanic = false;
             {

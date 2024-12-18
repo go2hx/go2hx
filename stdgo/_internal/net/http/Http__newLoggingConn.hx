@@ -3,7 +3,10 @@ function _newLoggingConn(_baseName:stdgo.GoString, _c:stdgo._internal.net.Net_Co
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.net.http.Http__uniqNameMu._uniqNameMu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.net.http.Http__uniqNameMu._uniqNameMu.unlock());
+            {
+                final __f__ = stdgo._internal.net.http.Http__uniqNameMu._uniqNameMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             (stdgo._internal.net.http.Http__uniqNameNext._uniqNameNext[_baseName] != null ? stdgo._internal.net.http.Http__uniqNameNext._uniqNameNext[_baseName]++ : (0 : stdgo.GoInt));
             {
                 final __ret__:stdgo._internal.net.Net_Conn.Conn = stdgo.Go.asInterface((stdgo.Go.setRef(({ _name : stdgo._internal.fmt.Fmt_sprintf.sprintf(("%s-%d" : stdgo.GoString), stdgo.Go.toInterface(_baseName), stdgo.Go.toInterface((stdgo._internal.net.http.Http__uniqNameNext._uniqNameNext[_baseName] ?? (0 : stdgo.GoInt))))?.__copy__(), conn : _c } : stdgo._internal.net.http.Http_T_loggingConn.T_loggingConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_loggingConn.T_loggingConn>));

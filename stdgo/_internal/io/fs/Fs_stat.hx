@@ -16,7 +16,10 @@ function stat(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ var 
             if (_err != null) {
                 return { _0 : (null : stdgo._internal.io.fs.Fs_FileInfo.FileInfo), _1 : _err };
             };
-            __deferstack__.unshift(() -> _file.close());
+            {
+                final __f__ = _file.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:{ var _0 : stdgo._internal.io.fs.Fs_FileInfo.FileInfo; var _1 : stdgo.Error; } = _file.stat();
                 for (defer in __deferstack__) {

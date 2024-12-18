@@ -5,19 +5,21 @@ var _p = __2, _valid = __1, _once = __0;
         var _g = (function():Void {
             var __deferstack__:Array<Void -> Void> = [];
             try {
-                __deferstack__.unshift(() -> ({
-                    var a = function():Void {
-                        _p = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        });
-                        if (!_valid) {
-                            throw stdgo.Go.toInterface(_p);
+                {
+                    __deferstack__.unshift(() -> ({
+                        var a = function():Void {
+                            _p = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            });
+                            if (!_valid) {
+                                throw stdgo.Go.toInterface(_p);
+                            };
                         };
-                    };
-                    a();
-                }));
+                        a();
+                    }));
+                };
                 _f();
                 _valid = true;
                 {

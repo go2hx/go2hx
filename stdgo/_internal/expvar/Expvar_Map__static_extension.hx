@@ -6,7 +6,10 @@ package stdgo._internal.expvar;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _v._keysMu.rlock();
-            __deferstack__.unshift(() -> _v._keysMu.runlock());
+            {
+                final __f__ = _v._keysMu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (__36 => _k in _v._keys) {
                 var __tmp__ = _v._m.load(stdgo.Go.toInterface(_k)), _i:stdgo.AnyInterface = __tmp__._0, __49:Bool = __tmp__._1;
                 var __tmp__ = try {
@@ -44,7 +47,10 @@ package stdgo._internal.expvar;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _v._keysMu.lock();
-            __deferstack__.unshift(() -> _v._keysMu.unlock());
+            {
+                final __f__ = _v._keysMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _i = (stdgo._internal.sort.Sort_searchStrings.searchStrings(_v._keys, _key?.__copy__()) : stdgo.GoInt);
             if (((_i < (_v._keys.length) : Bool) && (_key == _v._keys[(_i : stdgo.GoInt)]) : Bool)) {
                 _v._keys = ((_v._keys.__slice__(0, _i) : stdgo.Slice<stdgo.GoString>).__append__(...((_v._keys.__slice__((_i + (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>) : Array<stdgo.GoString>)));
@@ -158,7 +164,10 @@ package stdgo._internal.expvar;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _v._keysMu.lock();
-            __deferstack__.unshift(() -> _v._keysMu.unlock());
+            {
+                final __f__ = _v._keysMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _i = (stdgo._internal.sort.Sort_searchStrings.searchStrings(_v._keys, _key?.__copy__()) : stdgo.GoInt);
                 if ((_i >= (_v._keys.length) : Bool)) {
@@ -197,7 +206,10 @@ package stdgo._internal.expvar;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _v._keysMu.lock();
-            __deferstack__.unshift(() -> _v._keysMu.unlock());
+            {
+                final __f__ = _v._keysMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _v._keys = (_v._keys.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoString>);
             _v._m.range(function(_k:stdgo.AnyInterface, __56:stdgo.AnyInterface):Bool {
                 _v._m.delete(_k);

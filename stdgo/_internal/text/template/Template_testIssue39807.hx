@@ -19,7 +19,10 @@ stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
-                            __deferstack__.unshift(() -> _wg.done());
+                            {
+                                final __f__ = _wg.done;
+                                __deferstack__.unshift(() -> __f__());
+                            };
                             {
                                 var _j = (0 : stdgo.GoInt);
                                 while ((_j < _numTemplates : Bool)) {

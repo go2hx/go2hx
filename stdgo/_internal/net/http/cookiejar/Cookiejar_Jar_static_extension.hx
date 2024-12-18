@@ -134,7 +134,10 @@ package stdgo._internal.net.http.cookiejar;
             var _key = (stdgo._internal.net.http.cookiejar.Cookiejar__jarKey._jarKey(_host?.__copy__(), _j._psList)?.__copy__() : stdgo.GoString);
             var _defPath = (stdgo._internal.net.http.cookiejar.Cookiejar__defaultPath._defaultPath(_u.path?.__copy__())?.__copy__() : stdgo.GoString);
             _j._mu.lock();
-            __deferstack__.unshift(() -> _j._mu.unlock());
+            {
+                final __f__ = _j._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _submap = (_j._entries[_key] ?? (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>));
             var _modified = (false : Bool);
             for (__0 => _cookie in _cookies) {
@@ -227,7 +230,10 @@ package stdgo._internal.net.http.cookiejar;
             };
             var _key = (stdgo._internal.net.http.cookiejar.Cookiejar__jarKey._jarKey(_host?.__copy__(), _j._psList)?.__copy__() : stdgo.GoString);
             _j._mu.lock();
-            __deferstack__.unshift(() -> _j._mu.unlock());
+            {
+                final __f__ = _j._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _submap = (_j._entries[_key] ?? (null : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.cookiejar.Cookiejar_T_entry.T_entry>));
             if (_submap == null) {
                 {

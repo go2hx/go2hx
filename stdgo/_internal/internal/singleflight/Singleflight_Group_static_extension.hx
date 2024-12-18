@@ -6,7 +6,10 @@ package stdgo._internal.internal.singleflight;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _g._mu.lock();
-            __deferstack__.unshift(() -> _g._mu.unlock());
+            {
+                final __f__ = _g._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = (_g._m != null && _g._m.exists(_key?.__copy__()) ? { _0 : _g._m[_key?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_T_call.T_call>), _1 : false }), _c:stdgo.Ref<stdgo._internal.internal.singleflight.Singleflight_T_call.T_call> = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {

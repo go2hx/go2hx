@@ -6,12 +6,18 @@ function testHTTPDecoding(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):V
             var _ts = stdgo._internal.net.http.httptest.Httptest_newServer.newServer(stdgo.Go.asInterface((function(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseWriter, _r:stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>):Void {
                 _w.write((("{ \"foo\": \"bar\" }" : stdgo.GoString) : stdgo.Slice<stdgo.GoUInt8>));
             } : stdgo._internal.net.http.Http_HandlerFunc.HandlerFunc)));
-            __deferstack__.unshift(() -> _ts.close());
+            {
+                final __f__ = _ts.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = stdgo._internal.net.http.Http_get.get(_ts.url?.__copy__()), _res:stdgo.Ref<stdgo._internal.net.http.Http_Response.Response> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 stdgo._internal.log.Log_fatalf.fatalf(("GET failed: %v" : stdgo.GoString), stdgo.Go.toInterface(_err));
             };
-            __deferstack__.unshift(() -> _res.body.close());
+            {
+                final __f__ = _res.body.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _foo = ({ foo : ("" : stdgo.GoString) } : stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44);
             var _d = stdgo._internal.encoding.json.Json_newDecoder.newDecoder(_res.body);
             _err = _d.decode(stdgo.Go.toInterface(stdgo.Go.asInterface((stdgo.Go.setRef(_foo) : stdgo.Ref<stdgo._internal.encoding.json.Json_T__struct_44.T__struct_44>))));

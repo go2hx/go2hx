@@ -6,7 +6,10 @@ package stdgo._internal.log;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _l._outMu.lock();
-            __deferstack__.unshift(() -> _l._outMu.unlock());
+            {
+                final __f__ = _l._outMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo._internal.io.Io_Writer.Writer = _l._out;
                 for (defer in __deferstack__) {
@@ -162,7 +165,8 @@ package stdgo._internal.log;
             var _buf = stdgo._internal.log.Log__getBuffer._getBuffer();
             {
                 var _a0 = _buf;
-                __deferstack__.unshift(() -> stdgo._internal.log.Log__putBuffer._putBuffer(_a0));
+                final __f__ = stdgo._internal.log.Log__putBuffer._putBuffer;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             stdgo._internal.log.Log__formatHeader._formatHeader(_buf, _now?.__copy__(), _prefix?.__copy__(), _flag, _file?.__copy__(), _line);
             (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(_appendOutput((_buf : stdgo.Slice<stdgo.GoUInt8>)));
@@ -170,7 +174,10 @@ package stdgo._internal.log;
                 (_buf : stdgo.Slice<stdgo.GoUInt8>).__setData__(((_buf : stdgo.Slice<stdgo.GoUInt8>).__append__((10 : stdgo.GoUInt8))));
             };
             _l._outMu.lock();
-            __deferstack__.unshift(() -> _l._outMu.unlock());
+            {
+                final __f__ = _l._outMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = _l._out.write((_buf : stdgo.Slice<stdgo.GoUInt8>)), __59:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             {
                 for (defer in __deferstack__) {
@@ -216,7 +223,10 @@ package stdgo._internal.log;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _l._outMu.lock();
-            __deferstack__.unshift(() -> _l._outMu.unlock());
+            {
+                final __f__ = _l._outMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _l._out = _w;
             _l._isDiscard.store(stdgo.Go.toInterface(_w) == (stdgo.Go.toInterface(stdgo._internal.io.Io_discard.discard)));
             {

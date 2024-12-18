@@ -3,7 +3,10 @@ function drivers():stdgo.Slice<stdgo.GoString> {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.database.sql.Sql__driversMu._driversMu.rlock();
-            __deferstack__.unshift(() -> stdgo._internal.database.sql.Sql__driversMu._driversMu.runlock());
+            {
+                final __f__ = stdgo._internal.database.sql.Sql__driversMu._driversMu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _list = (new stdgo.Slice<stdgo.GoString>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.database.sql.Sql__drivers._drivers.length)).__setString__() : stdgo.Slice<stdgo.GoString>);
             for (_name => _ in stdgo._internal.database.sql.Sql__drivers._drivers) {
                 _list = (_list.__append__(_name?.__copy__()));

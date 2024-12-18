@@ -8,7 +8,8 @@ function _loadTzinfoFromZip(_zipfile:stdgo.GoString, _name:stdgo.GoString):{ var
             };
             {
                 var _a0 = _fd;
-                __deferstack__.unshift(() -> stdgo._internal.time.Time__closefd._closefd(_a0));
+                final __f__ = stdgo._internal.time.Time__closefd._closefd;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             {};
             var _buf = (new stdgo.Slice<stdgo.GoUInt8>((22 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);

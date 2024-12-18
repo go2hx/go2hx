@@ -7,7 +7,10 @@ function _elfBuildID(_file:stdgo.GoString):{ var _0 : stdgo.GoString; var _1 : s
             if (_err != null) {
                 return { _0 : stdgo.Go.str()?.__copy__(), _1 : _err };
             };
-            __deferstack__.unshift(() -> _f.close());
+            {
+                final __f__ = _f.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __tmp__ = _f.readAt((_buf.__slice__(0, (64 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>), (0i64 : stdgo.GoInt64)), __0:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {

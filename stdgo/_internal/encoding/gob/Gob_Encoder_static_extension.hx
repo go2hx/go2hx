@@ -12,7 +12,10 @@ package stdgo._internal.encoding.gob;
                 throw stdgo.Go.toInterface((("gob: cannot encode nil pointer of type " : stdgo.GoString) + (_value.type().string() : stdgo.GoString)?.__copy__() : stdgo.GoString));
             };
             _enc._mutex.lock();
-            __deferstack__.unshift(() -> _enc._mutex.unlock());
+            {
+                final __f__ = _enc._mutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _enc._w = (_enc._w.__slice__((0 : stdgo.GoInt), (1 : stdgo.GoInt)) : stdgo.Slice<stdgo._internal.io.Io_Writer.Writer>);
             var __tmp__ = stdgo._internal.encoding.gob.Gob__validUserType._validUserType(_value.type()), _ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTypeInfo.T_userTypeInfo> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -252,7 +255,8 @@ package stdgo._internal.encoding.gob;
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_enc._err) : stdgo.Ref<stdgo.Error>);
-                __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__catchError._catchError(_a0));
+                final __f__ = stdgo._internal.encoding.gob.Gob__catchError._catchError;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var _engine = stdgo._internal.encoding.gob.Gob__getEncEngine._getEncEngine(_ut, (null : stdgo.GoMap<stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_typeInfo.T_typeInfo>, Bool>));
             var _indir = (_ut._indir : stdgo.GoInt);
@@ -391,7 +395,8 @@ package stdgo._internal.encoding.gob;
             var _state = _enc._newEncoderState(_b);
             {
                 var _a0 = _state;
-                __deferstack__.unshift(() -> _enc._freeEncoderState(_a0));
+                final __f__ = _enc._freeEncoderState;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             _state._fieldnum = (-1 : stdgo.GoInt);
             _state._sendZero = true;
@@ -451,7 +456,8 @@ _op(null, _state, _elem.__copy__());
             var _state = _enc._newEncoderState(_b);
             {
                 var _a0 = _state;
-                __deferstack__.unshift(() -> _enc._freeEncoderState(_a0));
+                final __f__ = _enc._freeEncoderState;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             _state._fieldnum = (-1 : stdgo.GoInt);
             {
@@ -506,7 +512,8 @@ _instr._op(_instr, _state, _field.__copy__());
             var _state = _enc._newEncoderState(_b);
             {
                 var _a0 = _state;
-                __deferstack__.unshift(() -> _enc._freeEncoderState(_a0));
+                final __f__ = _enc._freeEncoderState;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             _state._fieldnum = (0 : stdgo.GoInt);
             _state._sendZero = true;

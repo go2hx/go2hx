@@ -8,7 +8,8 @@ package stdgo._internal.fmt;
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
-                __deferstack__.unshift(() -> stdgo._internal.fmt.Fmt__errorHandler._errorHandler(_a0));
+                final __f__ = stdgo._internal.fmt.Fmt__errorHandler._errorHandler;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var _end = ((_format.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
             {
@@ -178,7 +179,8 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         try {
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
-                __deferstack__.unshift(() -> stdgo._internal.fmt.Fmt__errorHandler._errorHandler(_a0));
+                final __f__ = stdgo._internal.fmt.Fmt__errorHandler._errorHandler;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             for (__0 => _arg in _a) {
                 _s._scanOne((118 : stdgo.GoInt32), _arg);
@@ -902,32 +904,34 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
         var __deferstack__:Array<Void -> Void> = [];
         var _tok = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    {
-                        var _e = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        } : stdgo.AnyInterface);
-                        if (_e != null) {
-                            {
-                                var __tmp__ = try {
-                                    { _0 : (stdgo.Go.typeAssert((_e : stdgo._internal.fmt.Fmt_T_scanError.T_scanError)) : stdgo._internal.fmt.Fmt_T_scanError.T_scanError), _1 : true };
-                                } catch(_) {
-                                    { _0 : ({} : stdgo._internal.fmt.Fmt_T_scanError.T_scanError), _1 : false };
-                                }, _se = __tmp__._0, _ok = __tmp__._1;
-                                if (_ok) {
-                                    _err = _se._err;
-                                } else {
-                                    throw stdgo.Go.toInterface(_e);
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        {
+                            var _e = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            } : stdgo.AnyInterface);
+                            if (_e != null) {
+                                {
+                                    var __tmp__ = try {
+                                        { _0 : (stdgo.Go.typeAssert((_e : stdgo._internal.fmt.Fmt_T_scanError.T_scanError)) : stdgo._internal.fmt.Fmt_T_scanError.T_scanError), _1 : true };
+                                    } catch(_) {
+                                        { _0 : ({} : stdgo._internal.fmt.Fmt_T_scanError.T_scanError), _1 : false };
+                                    }, _se = __tmp__._0, _ok = __tmp__._1;
+                                    if (_ok) {
+                                        _err = _se._err;
+                                    } else {
+                                        throw stdgo.Go.toInterface(_e);
+                                    };
                                 };
                             };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             if (_f == null) {
                 _f = stdgo._internal.fmt.Fmt__notSpace._notSpace;
             };

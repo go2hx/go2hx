@@ -599,20 +599,23 @@ package stdgo._internal.text.template;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._at(stdgo.Go.asInterface(_r));
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    {
-                        var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
-                        if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkBreak._walkBreak)) : Bool)) {
-                            throw stdgo.Go.toInterface(_r);
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        {
+                            var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
+                            if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkBreak._walkBreak)) : Bool)) {
+                                throw stdgo.Go.toInterface(_r);
+                            };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             {
                 var _a0 = _s._mark();
-                __deferstack__.unshift(() -> _s._pop(_a0));
+                final __f__ = _s._pop;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var __tmp__ = stdgo._internal.text.template.Template__indirect._indirect(_s._evalPipeline(_dot?.__copy__(), _r.branchNode.pipe)?.__copy__()), _val:stdgo._internal.reflect.Reflect_Value.Value = __tmp__._0, __40:Bool = __tmp__._1;
             var _mark = (_s._mark() : stdgo.GoInt);
@@ -639,19 +642,22 @@ package stdgo._internal.text.template;
                     };
                     {
                         var _a0 = _mark;
-                        __deferstack__.unshift(() -> _s._pop(_a0));
+                        final __f__ = _s._pop;
+                        __deferstack__.unshift(() -> __f__(_a0));
                     };
-                    __deferstack__.unshift(() -> ({
-                        var a = function():Void {
-                            {
-                                var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
-                                if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkContinue._walkContinue)) : Bool)) {
-                                    throw stdgo.Go.toInterface(_r);
+                    {
+                        __deferstack__.unshift(() -> ({
+                            var a = function():Void {
+                                {
+                                    var _r = (stdgo._internal.text.template.Template__recover._recover() : stdgo.AnyInterface);
+                                    if (((_r != null) && (_r != stdgo.Go.toInterface(stdgo._internal.text.template.Template__walkContinue._walkContinue)) : Bool)) {
+                                        throw stdgo.Go.toInterface(_r);
+                                    };
                                 };
                             };
-                        };
-                        a();
-                    }));
+                            a();
+                        }));
+                    };
                     _s._walk(_elem?.__copy__(), stdgo.Go.asInterface(_r.branchNode.list));
                     {
                         for (defer in __deferstack__) {
@@ -784,7 +790,8 @@ _oneIteration(stdgo._internal.reflect.Reflect_valueOf.valueOf(stdgo.Go.toInterfa
         try {
             {
                 var _a0 = _s._mark();
-                __deferstack__.unshift(() -> _s._pop(_a0));
+                final __f__ = _s._pop;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var _val = (_s._evalPipeline(_dot?.__copy__(), _pipe)?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
             var __tmp__ = stdgo._internal.text.template.Template__isTrue._isTrue(stdgo._internal.text.template.Template__indirectInterface._indirectInterface(_val?.__copy__())?.__copy__()), _truth:Bool = __tmp__._0, _ok:Bool = __tmp__._1;

@@ -16,7 +16,10 @@ function readDir(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ v
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo._internal.io.fs.Fs_DirEntry.DirEntry>), _1 : _err };
             };
-            __deferstack__.unshift(() -> _file.close());
+            {
+                final __f__ = _file.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_file) : stdgo._internal.io.fs.Fs_ReadDirFile.ReadDirFile)) : stdgo._internal.io.fs.Fs_ReadDirFile.ReadDirFile), _1 : true };
             } catch(_) {

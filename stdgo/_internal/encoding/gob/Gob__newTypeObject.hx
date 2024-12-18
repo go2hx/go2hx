@@ -8,14 +8,16 @@ function _newTypeObject(_name:stdgo.GoString, _ut:stdgo.Ref<stdgo._internal.enco
             var _err:stdgo.Error = (null : stdgo.Error);
             var __0:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), __1:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
 var _type1 = __1, _type0 = __0;
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (_err != null) {
-                        if (stdgo._internal.encoding.gob.Gob__types._types != null) stdgo._internal.encoding.gob.Gob__types._types.remove(_rt);
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (_err != null) {
+                            if (stdgo._internal.encoding.gob.Gob__types._types != null) stdgo._internal.encoding.gob.Gob__types._types.remove(_rt);
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             {
                 var _t = (_rt : stdgo._internal.reflect.Reflect_Type_.Type_);
                 {

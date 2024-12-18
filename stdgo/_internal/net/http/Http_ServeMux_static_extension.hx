@@ -14,7 +14,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _mux._mu.lock();
-            __deferstack__.unshift(() -> _mux._mu.unlock());
+            {
+                final __f__ = _mux._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_pattern == (stdgo.Go.str())) {
                 throw stdgo.Go.toInterface(("http: invalid pattern" : stdgo.GoString));
             };
@@ -85,7 +88,10 @@ package stdgo._internal.net.http;
         var _h = (null : stdgo._internal.net.http.Http_Handler.Handler), _pattern = ("" : stdgo.GoString);
         try {
             _mux._mu.rlock();
-            __deferstack__.unshift(() -> _mux._mu.runlock());
+            {
+                final __f__ = _mux._mu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_mux._hosts) {
                 {
                     var __tmp__ = _mux._match((_host + _path?.__copy__() : stdgo.GoString)?.__copy__());

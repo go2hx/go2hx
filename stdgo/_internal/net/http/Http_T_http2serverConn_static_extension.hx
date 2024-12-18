@@ -194,34 +194,37 @@ package stdgo._internal.net.http;
         try {
             {
                 var _a0 = stdgo._internal.net.http.Http__http2handlerDoneMsg._http2handlerDoneMsg;
-                __deferstack__.unshift(() -> _sc._sendServeMsg(stdgo.Go.toInterface(_a0)));
+                final __f__ = _sc._sendServeMsg;
+                __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
             };
             var _didPanic = (true : Bool);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _rw._rws._stream._cancelCtx();
-                    if ((_req.multipartForm != null && ((_req.multipartForm : Dynamic).__nil__ == null || !(_req.multipartForm : Dynamic).__nil__))) {
-                        _req.multipartForm.removeAll();
-                    };
-                    if (_didPanic) {
-                        var _e = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        } : stdgo.AnyInterface);
-                        _sc._writeFrameFromHandler(({ _write : stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_http2handlerPanicRST.T_http2handlerPanicRST(_rw._rws._stream._id) : stdgo._internal.net.http.Http_T_http2handlerPanicRST.T_http2handlerPanicRST)), _stream : _rw._rws._stream } : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest));
-                        if (((_e != null) && (_e != stdgo.Go.toInterface(stdgo._internal.net.http.Http_errAbortHandler.errAbortHandler)) : Bool)) {
-                            {};
-                            var _buf = (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
-                            _buf = (_buf.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_buf, false)) : stdgo.Slice<stdgo.GoUInt8>);
-                            _sc._logf(("http2: panic serving %v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(_sc._conn.remoteAddr()), _e, stdgo.Go.toInterface(_buf));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _rw._rws._stream._cancelCtx();
+                        if ((_req.multipartForm != null && ((_req.multipartForm : Dynamic).__nil__ == null || !(_req.multipartForm : Dynamic).__nil__))) {
+                            _req.multipartForm.removeAll();
                         };
-                        return;
+                        if (_didPanic) {
+                            var _e = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            } : stdgo.AnyInterface);
+                            _sc._writeFrameFromHandler(({ _write : stdgo.Go.asInterface((new stdgo._internal.net.http.Http_T_http2handlerPanicRST.T_http2handlerPanicRST(_rw._rws._stream._id) : stdgo._internal.net.http.Http_T_http2handlerPanicRST.T_http2handlerPanicRST)), _stream : _rw._rws._stream } : stdgo._internal.net.http.Http_T_http2FrameWriteRequest.T_http2FrameWriteRequest));
+                            if (((_e != null) && (_e != stdgo.Go.toInterface(stdgo._internal.net.http.Http_errAbortHandler.errAbortHandler)) : Bool)) {
+                                {};
+                                var _buf = (new stdgo.Slice<stdgo.GoUInt8>((65536 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
+                                _buf = (_buf.__slice__(0, stdgo._internal.runtime.Runtime_stack.stack(_buf, false)) : stdgo.Slice<stdgo.GoUInt8>);
+                                _sc._logf(("http2: panic serving %v: %v\n%s" : stdgo.GoString), stdgo.Go.toInterface(_sc._conn.remoteAddr()), _e, stdgo.Go.toInterface(_buf));
+                            };
+                            return;
+                        };
+                        _rw._handlerDone();
                     };
-                    _rw._handlerDone();
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             _handler(stdgo.Go.asInterface(_rw), _req);
             _didPanic = false;
             {
@@ -1318,7 +1321,10 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
                 a();
             }));
             var _timer = stdgo._internal.time.Time_newTimer.newTimer((10000000000i64 : stdgo._internal.time.Time_Duration.Duration));
-            __deferstack__.unshift(() -> _timer.stop());
+            {
+                final __f__ = _timer.stop;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 {
                     var __select__ = true;
@@ -1463,10 +1469,22 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _sc._serveG._check();
-            __deferstack__.unshift(() -> _sc._notePanic());
-            __deferstack__.unshift(() -> _sc._conn.close());
-            __deferstack__.unshift(() -> _sc._closeAllStreamsOnConnClose());
-            __deferstack__.unshift(() -> _sc._stopShutdownTimer());
+            {
+                final __f__ = _sc._notePanic;
+                __deferstack__.unshift(() -> __f__());
+            };
+            {
+                final __f__ = _sc._conn.close;
+                __deferstack__.unshift(() -> __f__());
+            };
+            {
+                final __f__ = _sc._closeAllStreamsOnConnClose;
+                __deferstack__.unshift(() -> __f__());
+            };
+            {
+                final __f__ = _sc._stopShutdownTimer;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _a0 = _sc._doneServing;
                 __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
@@ -1498,11 +1516,17 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
             _sc._setConnState((2 : stdgo._internal.net.http.Http_ConnState.ConnState));
             if (_sc._srv.idleTimeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 _sc._idleTimer = stdgo._internal.time.Time_afterFunc.afterFunc(_sc._srv.idleTimeout, _sc._onIdleTimer);
-                __deferstack__.unshift(() -> _sc._idleTimer.stop());
+                {
+                    final __f__ = _sc._idleTimer.stop;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             stdgo.Go.routine(() -> _sc._readFrames());
             var _settingsTimer = stdgo._internal.time.Time_afterFunc.afterFunc((2000000000i64 : stdgo._internal.time.Time_Duration.Duration), _sc._onSettingsTimer);
-            __deferstack__.unshift(() -> _settingsTimer.stop());
+            {
+                final __f__ = _settingsTimer.stop;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _loopNum = (0 : stdgo.GoInt);
             while (true) {
                 _loopNum++;
@@ -1688,7 +1712,10 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
         try {
             if ((stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu != null && ((stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu : Dynamic).__nil__ == null || !(stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu : Dynamic).__nil__))) {
                 stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu.lock();
-                __deferstack__.unshift(() -> stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu.unlock());
+                {
+                    final __f__ = stdgo._internal.net.http.Http__http2testHookOnPanicMu._http2testHookOnPanicMu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             if (stdgo._internal.net.http.Http__http2testHookOnPanic._http2testHookOnPanic != null) {
                 {

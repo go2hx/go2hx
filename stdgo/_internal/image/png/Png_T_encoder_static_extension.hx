@@ -37,7 +37,10 @@ package stdgo._internal.image.png;
             } else {
                 _e._zw.reset(_w);
             };
-            __deferstack__.unshift(() -> _e._zw.close());
+            {
+                final __f__ = _e._zw.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _bitsPerPixel = (0 : stdgo.GoInt);
             {
                 final __value__ = _cb;

@@ -3,7 +3,10 @@ function _cancel(_sigs:stdgo.Slice<stdgo._internal.os.Os_Signal.Signal>, _action
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
-            __deferstack__.unshift(() -> stdgo._internal.os.signal.Signal__handlers._handlers.unlock());
+            {
+                final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _remove = (function(_n:stdgo.GoInt):Void {
                 var _zerohandler:stdgo._internal.os.signal.Signal_T_handler.T_handler = ({} : stdgo._internal.os.signal.Signal_T_handler.T_handler);
                 for (_c => _h in stdgo._internal.os.signal.Signal__handlers._handlers._m) {

@@ -3,7 +3,10 @@ function stopCPUProfile():Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.runtime.pprof.Pprof__cpu._cpu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.runtime.pprof.Pprof__cpu._cpu.unlock());
+            {
+                final __f__ = stdgo._internal.runtime.pprof.Pprof__cpu._cpu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (!stdgo._internal.runtime.pprof.Pprof__cpu._cpu._profiling) {
                 {
                     for (defer in __deferstack__) {

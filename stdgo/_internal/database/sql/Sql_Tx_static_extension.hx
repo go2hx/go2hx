@@ -61,7 +61,8 @@ package stdgo._internal.database.sql;
             };
             {
                 var _a0 = null;
-                __deferstack__.unshift(() -> _release((null : stdgo.Error)));
+                final __f__ = _release;
+                __deferstack__.unshift(() -> __f__((null : stdgo.Error)));
             };
             if (_tx._db != (_stmt._db)) {
                 {
@@ -259,7 +260,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _tx._stmts.lock();
-            __deferstack__.unshift(() -> _tx._stmts.unlock());
+            {
+                final __f__ = _tx._stmts.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (__61 => _stmt in _tx._stmts._v) {
                 _stmt.close();
             };

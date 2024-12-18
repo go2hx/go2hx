@@ -6,7 +6,10 @@ package stdgo._internal.io;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _a.lock();
-            __deferstack__.unshift(() -> _a.unlock());
+            {
+                final __f__ = _a.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Error = _a._err;
                 for (defer in __deferstack__) {
@@ -44,7 +47,10 @@ package stdgo._internal.io;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _a.lock();
-            __deferstack__.unshift(() -> _a.unlock());
+            {
+                final __f__ = _a.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_a._err != null) {
                 {
                     for (defer in __deferstack__) {

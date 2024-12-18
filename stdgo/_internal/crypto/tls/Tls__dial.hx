@@ -9,7 +9,10 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
                     _ctx = __tmp__._0;
                     _cancel = __tmp__._1;
                 };
-                __deferstack__.unshift(() -> _cancel());
+                {
+                    final __f__ = _cancel;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             if (!_netDialer.deadline.isZero()) {
                 var _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = (null : stdgo._internal.context.Context_CancelFunc.CancelFunc);
@@ -18,7 +21,10 @@ function _dial(_ctx:stdgo._internal.context.Context_Context.Context, _netDialer:
                     _ctx = __tmp__._0;
                     _cancel = __tmp__._1;
                 };
-                __deferstack__.unshift(() -> _cancel());
+                {
+                    final __f__ = _cancel;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             var __tmp__ = _netDialer.dialContext(_ctx, _network?.__copy__(), _addr?.__copy__()), _rawConn:stdgo._internal.net.Net_Conn.Conn = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {

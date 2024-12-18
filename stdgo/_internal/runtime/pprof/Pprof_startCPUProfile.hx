@@ -4,7 +4,10 @@ function startCPUProfile(_w:stdgo._internal.io.Io_Writer.Writer):stdgo.Error {
         try {
             {};
             stdgo._internal.runtime.pprof.Pprof__cpu._cpu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.runtime.pprof.Pprof__cpu._cpu.unlock());
+            {
+                final __f__ = stdgo._internal.runtime.pprof.Pprof__cpu._cpu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (stdgo._internal.runtime.pprof.Pprof__cpu._cpu._done == null) {
                 stdgo._internal.runtime.pprof.Pprof__cpu._cpu._done = (new stdgo.Chan<Bool>(0, () -> false) : stdgo.Chan<Bool>);
             };

@@ -8,7 +8,8 @@ function _readFile(_name:stdgo.GoString):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; 
             };
             {
                 var _a0 = _f;
-                __deferstack__.unshift(() -> stdgo._internal.time.Time__closefd._closefd(_a0));
+                final __f__ = stdgo._internal.time.Time__closefd._closefd;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var __0:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(4096, 4096, ...[for (i in 0 ... 4096) (0 : stdgo.GoUInt8)]), __1:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>), __2:stdgo.GoInt = (0 : stdgo.GoInt);
 var _n = __2, _ret = __1, _buf = __0;

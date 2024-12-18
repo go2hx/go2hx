@@ -101,7 +101,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cr._lock();
-            __deferstack__.unshift(() -> _cr._unlock());
+            {
+                final __f__ = _cr._unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (!_cr._inRead) {
                 {
                     for (defer in __deferstack__) {
@@ -167,7 +170,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cr._lock();
-            __deferstack__.unshift(() -> _cr._unlock());
+            {
+                final __f__ = _cr._unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_cr._inRead) {
                 throw stdgo.Go.toInterface(("invalid concurrent Body.Read call" : stdgo.GoString));
             };

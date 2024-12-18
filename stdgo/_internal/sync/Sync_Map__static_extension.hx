@@ -90,7 +90,10 @@ package stdgo._internal.sync;
                 };
             };
             _m._mu.lock();
-            __deferstack__.unshift(() -> _m._mu.unlock());
+            {
+                final __f__ = _m._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _read = _m._loadReadOnly()?.__copy__();
             var _swapped = (false : Bool);
             {

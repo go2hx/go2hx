@@ -230,12 +230,14 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         var _res = (null : stdgo._internal.database.sql.Sql_Result.Result), _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _release(_err);
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _release(_err);
+                    };
+                    a();
+                }));
+            };
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_dc._ci) : stdgo._internal.database.sql.driver.Driver_ExecerContext.ExecerContext)) : stdgo._internal.database.sql.driver.Driver_ExecerContext.ExecerContext), _1 : true };
             } catch(_) {
@@ -323,7 +325,10 @@ package stdgo._internal.database.sql;
                 };
             };
             var _ds = (stdgo.Go.setRef(({ locker : stdgo.Go.asInterface(_dc), _si : _si } : stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt)) : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>);
-            __deferstack__.unshift(() -> _ds.close());
+            {
+                final __f__ = _ds.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = {
                     final __tmp__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = stdgo._internal.database.sql.Sql__resultFromStatement._resultFromStatement(_ctx, _dc._ci, _ds, ...(_args : Array<stdgo.AnyInterface>));
@@ -398,12 +403,14 @@ package stdgo._internal.database.sql;
         try {
             var _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = (null : stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt>);
             var _err:stdgo.Error = (null : stdgo.Error);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _release(_err);
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _release(_err);
+                    };
+                    a();
+                }));
+            };
             stdgo._internal.database.sql.Sql__withLock._withLock(stdgo.Go.asInterface(_dc), function():Void {
                 {
                     var __tmp__ = _dc._prepareLocked(_ctx, _cg, _query?.__copy__());
@@ -588,7 +595,10 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _db._mu.lock();
-            __deferstack__.unshift(() -> _db._mu.unlock());
+            {
+                final __f__ = _db._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_c._inUse) {
                 _c._onPut = (_c._onPut.__append__(function():Void {
                     _ds.close();
@@ -745,7 +755,10 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
         try {
             var __tmp__ = _db._connector.connect(_ctx), _ci:stdgo._internal.database.sql.driver.Driver_Conn.Conn = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             _db._mu.lock();
-            __deferstack__.unshift(() -> _db._mu.unlock());
+            {
+                final __f__ = _db._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_db._closed) {
                 if (_err == null) {
                     _ci.close();
@@ -854,7 +867,10 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
         try {
             var _wait = (_db._waitDuration.load() : stdgo.GoInt64);
             _db._mu.lock();
-            __deferstack__.unshift(() -> _db._mu.unlock());
+            {
+                final __f__ = _db._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _stats = ({ maxOpenConnections : _db._maxOpen, idle : (_db._freeConn.length), openConnections : _db._numOpen, inUse : (_db._numOpen - (_db._freeConn.length) : stdgo.GoInt), waitCount : _db._waitCount, waitDuration : (_wait : stdgo._internal.time.Time_Duration.Duration), maxIdleClosed : _db._maxIdleClosed, maxIdleTimeClosed : _db._maxIdleTimeClosed, maxLifetimeClosed : _db._maxLifetimeClosed } : stdgo._internal.database.sql.Sql_DBStats.DBStats);
             {
                 final __ret__:stdgo._internal.database.sql.Sql_DBStats.DBStats = _stats?.__copy__();
@@ -1029,7 +1045,10 @@ if (_c._createdAt.before(_expiredSince.__copy__())) {
                 _d = (0i64 : stdgo._internal.time.Time_Duration.Duration);
             };
             _db._mu.lock();
-            __deferstack__.unshift(() -> _db._mu.unlock());
+            {
+                final __f__ = _db._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if ((((_d > (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool) && (_d < _db._maxIdleTime : Bool) : Bool) && (_db._cleanerCh != null) : Bool)) {
                 {
                     var __select__ = true;
@@ -1316,7 +1335,10 @@ if (_c._createdAt.before(_expiredSince.__copy__())) {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _db._mu.lock();
-            __deferstack__.unshift(() -> _db._mu.unlock());
+            {
+                final __f__ = _db._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _db._addDepLocked(_x, _dep);
             {
                 for (defer in __deferstack__) {

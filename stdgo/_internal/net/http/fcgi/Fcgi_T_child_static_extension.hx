@@ -125,8 +125,14 @@ package stdgo._internal.net.http.fcgi;
         @:recv var _c:stdgo.Ref<stdgo._internal.net.http.fcgi.Fcgi_T_child.T_child> = _c;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            __deferstack__.unshift(() -> _c._conn.close());
-            __deferstack__.unshift(() -> _c._cleanUp());
+            {
+                final __f__ = _c._conn.close;
+                __deferstack__.unshift(() -> __f__());
+            };
+            {
+                final __f__ = _c._cleanUp;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _rec:stdgo._internal.net.http.fcgi.Fcgi_T_record.T_record = ({} : stdgo._internal.net.http.fcgi.Fcgi_T_record.T_record);
             while (true) {
                 {

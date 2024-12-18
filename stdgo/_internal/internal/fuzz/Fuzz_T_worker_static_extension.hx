@@ -108,7 +108,10 @@ package stdgo._internal.internal.fuzz;
             if (_err != null) {
                 return _err;
             };
-            __deferstack__.unshift(() -> _fuzzInR.close());
+            {
+                final __f__ = _fuzzInR.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = stdgo._internal.os.Os_pipe.pipe(), _fuzzOutR:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._0, _fuzzOutW:stdgo.Ref<stdgo._internal.os.Os_File.File> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 _fuzzInW.close();
@@ -119,7 +122,10 @@ package stdgo._internal.internal.fuzz;
                     return _err;
                 };
             };
-            __deferstack__.unshift(() -> _fuzzOutW.close());
+            {
+                final __f__ = _fuzzOutW.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             stdgo._internal.internal.fuzz.Fuzz__setWorkerComm._setWorkerComm(_cmd, ({ _fuzzIn : _fuzzInR, _fuzzOut : _fuzzOutW, _memMu : _w._memMu } : stdgo._internal.internal.fuzz.Fuzz_T_workerComm.T_workerComm));
             {
                 var _err = (_cmd.start() : stdgo.Error);
@@ -220,7 +226,10 @@ package stdgo._internal.internal.fuzz;
                     _ctx = __tmp__._0;
                     _cancel = __tmp__._1;
                 };
-                __deferstack__.unshift(() -> _cancel());
+                {
+                    final __f__ = _cancel;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             var _args = ({ limit : _input._limit, timeout : _input._timeout, keepCoverage : _input._keepCoverage } : stdgo._internal.internal.fuzz.Fuzz_T_minimizeArgs.T_minimizeArgs);
             var __tmp__ = _w._client._minimize(_ctx, _input._entry?.__copy__(), _args?.__copy__()), _entry:stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry = __tmp__._0, _resp:stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse = __tmp__._1, _err:stdgo.Error = __tmp__._2;

@@ -25,7 +25,10 @@ package stdgo._internal.net.http;
             var _cc = _cs._cc;
             var _ctx = (_cs._ctx : stdgo._internal.context.Context_Context.Context);
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             while (true) {
                 if (_cc._closed) {
                     {
@@ -200,14 +203,16 @@ package stdgo._internal.net.http;
                 if ((_ok && (((_bp : stdgo.Slice<stdgo.GoUInt8>).length) >= _scratchLen : Bool) : Bool)) {
                     {
                         var _a0 = _bp;
-                        __deferstack__.unshift(() -> stdgo._internal.net.http.Http__http2bufPool._http2bufPool.put(stdgo.Go.toInterface(_a0)));
+                        final __f__ = stdgo._internal.net.http.Http__http2bufPool._http2bufPool.put;
+                        __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
                     };
                     _buf = (_bp : stdgo.Slice<stdgo.GoUInt8>);
                 } else {
                     _buf = (new stdgo.Slice<stdgo.GoUInt8>((_scratchLen : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt8>);
                     {
                         var _a0 = (stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
-                        __deferstack__.unshift(() -> stdgo._internal.net.http.Http__http2bufPool._http2bufPool.put(stdgo.Go.toInterface(_a0)));
+                        final __f__ = stdgo._internal.net.http.Http__http2bufPool._http2bufPool.put;
+                        __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
                     };
                 };
             };
@@ -317,7 +322,10 @@ package stdgo._internal.net.http;
                 };
             };
             _cc._wmu.lock();
-            __deferstack__.unshift(() -> _cc._wmu.unlock());
+            {
+                final __f__ = _cc._wmu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _trls:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
             if (((_trailer.length) > (0 : stdgo.GoInt) : Bool)) {
                 {
@@ -479,7 +487,10 @@ package stdgo._internal.net.http;
             var _cc = _cs._cc;
             var _ctx = (_cs._ctx : stdgo._internal.context.Context_Context.Context);
             _cc._wmu.lock();
-            __deferstack__.unshift(() -> _cc._wmu.unlock());
+            {
+                final __f__ = _cc._wmu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __select__ = true;
                 while (__select__) {
@@ -748,7 +759,10 @@ package stdgo._internal.net.http;
                 var _d = (_cc._responseHeaderTimeout() : stdgo._internal.time.Time_Duration.Duration);
                 if (_d != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                     var _timer = stdgo._internal.time.Time_newTimer.newTimer(_d);
-                    __deferstack__.unshift(() -> _timer.stop());
+                    {
+                        final __f__ = _timer.stop;
+                        __deferstack__.unshift(() -> __f__());
+                    };
                     _respHeaderTimer = _timer.c;
                     _respHeaderRecv = _cs._respHeaderRecv;
                 };
@@ -893,7 +907,10 @@ package stdgo._internal.net.http;
         try {
             var _cc = _cs._cc;
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (((_cs._reqBody != null) && (_cs._reqBodyClosed == null) : Bool)) {
                 _cs._closeReqBodyLocked();
                 _cc._cond.broadcast();
@@ -940,7 +957,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cs._cc._mu.lock();
-            __deferstack__.unshift(() -> _cs._cc._mu.unlock());
+            {
+                final __f__ = _cs._cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _cs._abortStreamLocked(_err);
             {
                 for (defer in __deferstack__) {

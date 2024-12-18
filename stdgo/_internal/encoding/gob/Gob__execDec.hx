@@ -4,7 +4,8 @@ function _execDec(_instr:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_decInstr.T
         try {
             {
                 var _a0 = _t;
-                __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__testError._testError(_a0));
+                final __f__ = stdgo._internal.encoding.gob.Gob__testError._testError;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var _v = (_state._decodeUint() : stdgo.GoInt);
             if ((_v + _state._fieldnum : stdgo.GoInt) != ((6 : stdgo.GoInt))) {

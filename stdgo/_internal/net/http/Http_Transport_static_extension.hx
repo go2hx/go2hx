@@ -180,7 +180,10 @@ package stdgo._internal.net.http;
                 var _connectCtx = (_ctx : stdgo._internal.context.Context_Context.Context);
                 if (_ctx.done() == null) {
                     var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(_ctx, (60000000000i64 : stdgo._internal.time.Time_Duration.Duration)), _newCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
-                    __deferstack__.unshift(() -> _cancel());
+                    {
+                        final __f__ = _cancel;
+                        __deferstack__.unshift(() -> __f__());
+                    };
                     _connectCtx = _newCtx;
                 };
                 var _didReadResponse = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
@@ -443,7 +446,10 @@ var _err = __1, _resp = __0;
                 return;
             };
             _t._connsPerHostMu.lock();
-            __deferstack__.unshift(() -> _t._connsPerHostMu.unlock());
+            {
+                final __f__ = _t._connsPerHostMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _n = (_t._connsPerHost[_key] ?? (0 : stdgo.GoInt) : stdgo.GoInt);
             if (_n == ((0 : stdgo.GoInt))) {
                 throw stdgo.Go.toInterface(("net/http: internal error: connCount underflow" : stdgo.GoString));
@@ -510,7 +516,10 @@ var _err = __1, _resp = __0;
         @:recv var _t:stdgo.Ref<stdgo._internal.net.http.Http_Transport.Transport> = _t;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            __deferstack__.unshift(() -> _w._afterDial());
+            {
+                final __f__ = _w._afterDial;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = _t._dialConn(_w._ctx, _w._cm?.__copy__()), _pc:stdgo.Ref<stdgo._internal.net.http.Http_T_persistConn.T_persistConn> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             var _delivered = (_w._tryDeliver(_pc, _err) : Bool);
             if (((_err == null) && ((!_delivered || (_pc._alt != null) : Bool)) : Bool)) {
@@ -552,7 +561,10 @@ var _err = __1, _resp = __0;
                 return;
             };
             _t._connsPerHostMu.lock();
-            __deferstack__.unshift(() -> _t._connsPerHostMu.unlock());
+            {
+                final __f__ = _t._connsPerHostMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _n = (_t._connsPerHost[_w._key] ?? (0 : stdgo.GoInt) : stdgo.GoInt);
                 if ((_n < _t.maxConnsPerHost : Bool)) {
@@ -623,14 +635,16 @@ var _err = __1, _resp = __0;
                 _trace.getConn(_cm._addr()?.__copy__());
             };
             var _w = (stdgo.Go.setRef(({ _cm : _cm?.__copy__(), _key : _cm._key()?.__copy__(), _ctx : _ctx, _ready : (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>((1 : stdgo.GoInt).toBasic(), () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _beforeDial : stdgo._internal.net.http.Http__testHookPrePendingDial._testHookPrePendingDial, _afterDial : stdgo._internal.net.http.Http__testHookPostPendingDial._testHookPostPendingDial } : stdgo._internal.net.http.Http_T_wantConn.T_wantConn)) : stdgo.Ref<stdgo._internal.net.http.Http_T_wantConn.T_wantConn>);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (_err != null) {
-                        _w._cancel(_t, _err);
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (_err != null) {
+                            _w._cancel(_t, _err);
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             {
                 var _delivered = (_t._queueForIdleConn(_w) : Bool);
                 if (_delivered) {
@@ -901,7 +915,10 @@ var _err = __1, _resp = __0;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t._reqMu.lock();
-            __deferstack__.unshift(() -> _t._reqMu.unlock());
+            {
+                final __f__ = _t._reqMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = (_t._reqCanceler != null && _t._reqCanceler.exists(_key?.__copy__()) ? { _0 : _t._reqCanceler[_key?.__copy__()], _1 : true } : { _0 : null, _1 : false }), __35628:stdgo.Error -> Void = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 {
@@ -950,7 +967,10 @@ var _err = __1, _resp = __0;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t._reqMu.lock();
-            __deferstack__.unshift(() -> _t._reqMu.unlock());
+            {
+                final __f__ = _t._reqMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_t._reqCanceler == null) {
                 _t._reqCanceler = ({
                     final x = new stdgo.GoMap.GoObjectMap<stdgo._internal.net.http.Http_T_cancelKey.T_cancelKey, stdgo.Error -> Void>();
@@ -1416,7 +1436,10 @@ var _err = __1, _resp = __0;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t._idleMu.lock();
-            __deferstack__.unshift(() -> _t._idleMu.unlock());
+            {
+                final __f__ = _t._idleMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:Bool = _t._removeIdleConnLocked(_pconn);
                 for (defer in __deferstack__) {
@@ -1456,7 +1479,10 @@ var _err = __1, _resp = __0;
                 return _delivered = false;
             };
             _t._idleMu.lock();
-            __deferstack__.unshift(() -> _t._idleMu.unlock());
+            {
+                final __f__ = _t._idleMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _t._closeIdle = false;
             if ((_w == null || (_w : Dynamic).__nil__)) {
                 {
@@ -1565,7 +1591,10 @@ var _err = __1, _resp = __0;
             };
             _pconn._markReused();
             _t._idleMu.lock();
-            __deferstack__.unshift(() -> _t._idleMu.unlock());
+            {
+                final __f__ = _t._idleMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (((_pconn._alt != null) && ((_t._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>)) != null && ((_t._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>) : Dynamic).__nil__ == null || !(_t._idleLRU._m[_pconn] ?? (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>) : Dynamic).__nil__)) : Bool)) {
                 {
                     final __ret__:stdgo.Error = (null : stdgo.Error);
@@ -1735,7 +1764,10 @@ var _err = __1, _resp = __0;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t._reqMu.lock();
-            __deferstack__.unshift(() -> _t._reqMu.unlock());
+            {
+                final __f__ = _t._reqMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _cancel = (_t._reqCanceler[_key] ?? null : stdgo.Error -> Void);
             if (_t._reqCanceler != null) _t._reqCanceler.remove(_key);
             if (_cancel != null) {
@@ -1803,7 +1835,10 @@ var _err = __1, _resp = __0;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t._altMu.lock();
-            __deferstack__.unshift(() -> _t._altMu.unlock());
+            {
+                final __f__ = _t._altMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((_t._altProto.load() : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>)) : stdgo.GoMap<stdgo.GoString, stdgo._internal.net.http.Http_RoundTripper.RoundTripper>), _1 : true };
             } catch(_) {

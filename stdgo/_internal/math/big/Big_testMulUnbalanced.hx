@@ -4,7 +4,8 @@ function testMulUnbalanced(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
         try {
             {
                 var _a0 = stdgo._internal.runtime.Runtime_gomaxprocs.gomaxprocs((1 : stdgo.GoInt));
-                __deferstack__.unshift(() -> stdgo._internal.runtime.Runtime_gomaxprocs.gomaxprocs(_a0));
+                final __f__ = stdgo._internal.runtime.Runtime_gomaxprocs.gomaxprocs;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var _x = (stdgo._internal.math.big.Big__rndNat._rndNat((50000 : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);
             var _y = (stdgo._internal.math.big.Big__rndNat._rndNat((40 : stdgo.GoInt)) : stdgo._internal.math.big.Big_T_nat.T_nat);

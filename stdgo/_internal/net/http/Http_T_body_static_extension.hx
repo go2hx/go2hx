@@ -6,7 +6,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _b._mu.lock();
-            __deferstack__.unshift(() -> _b._mu.unlock());
+            {
+                final __f__ = _b._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _b._onHitEOF = _fn;
             {
                 for (defer in __deferstack__) {
@@ -36,7 +39,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _b._mu.lock();
-            __deferstack__.unshift(() -> _b._mu.unlock());
+            {
+                final __f__ = _b._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:Bool = !_b._sawEOF;
                 for (defer in __deferstack__) {
@@ -72,7 +78,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _b._mu.lock();
-            __deferstack__.unshift(() -> _b._mu.unlock());
+            {
+                final __f__ = _b._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:Bool = _b._earlyClose;
                 for (defer in __deferstack__) {
@@ -108,7 +117,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _b._mu.lock();
-            __deferstack__.unshift(() -> _b._mu.unlock());
+            {
+                final __f__ = _b._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_b._closed) {
                 {
                     final __ret__:stdgo.Error = (null : stdgo.Error);
@@ -303,7 +315,10 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             _b._mu.lock();
-            __deferstack__.unshift(() -> _b._mu.unlock());
+            {
+                final __f__ = _b._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_b._closed) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {

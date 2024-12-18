@@ -6,7 +6,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_p._donec == null) {
                 _p._donec = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
                 if (((_p._err != null) || (_p._breakErr != null) : Bool)) {
@@ -50,7 +53,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_p._breakErr != null) {
                 {
                     final __ret__:stdgo.Error = _p._breakErr;
@@ -126,11 +132,17 @@ package stdgo._internal.net.http;
                 throw stdgo.Go.toInterface(("err must be non-nil" : stdgo.GoString));
             };
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_p._c.l == null) {
                 _p._c.l = stdgo.Go.asInterface((stdgo.Go.setRef(_p._mu) : stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>));
             };
-            __deferstack__.unshift(() -> _p._c.signal());
+            {
+                final __f__ = _p._c.signal;
+                __deferstack__.unshift(() -> __f__());
+            };
             if ((_dst : stdgo.Error) != null) {
                 {
                     for (defer in __deferstack__) {
@@ -196,11 +208,17 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_p._c.l == null) {
                 _p._c.l = stdgo.Go.asInterface((stdgo.Go.setRef(_p._mu) : stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>));
             };
-            __deferstack__.unshift(() -> _p._c.signal());
+            {
+                final __f__ = _p._c.signal;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (((_p._err != null) || (_p._breakErr != null) : Bool)) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = {
@@ -258,7 +276,10 @@ package stdgo._internal.net.http;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_p._c.l == null) {
                 _p._c.l = stdgo.Go.asInterface((stdgo.Go.setRef(_p._mu) : stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>));
             };
@@ -342,7 +363,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_p._b == null) {
                 {
                     final __ret__:stdgo.GoInt = _p._unread;
@@ -389,7 +413,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _p._mu.lock();
-            __deferstack__.unshift(() -> _p._mu.unlock());
+            {
+                final __f__ = _p._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (((_p._err != null) || (_p._breakErr != null) : Bool)) {
                 {
                     for (defer in __deferstack__) {

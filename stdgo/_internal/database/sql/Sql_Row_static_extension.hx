@@ -14,7 +14,10 @@ package stdgo._internal.database.sql;
             if (_r._err != null) {
                 return _r._err;
             };
-            __deferstack__.unshift(() -> _r._rows.close());
+            {
+                final __f__ = _r._rows.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (__35 => _dp in _dest) {
                 {
                     var __tmp__ = try {

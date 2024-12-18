@@ -11,16 +11,18 @@ function testFillBytes(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
             var __deferstack__:Array<Void -> Void> = [];
             var _panic = false;
             try {
-                __deferstack__.unshift(() -> ({
-                    var a = function():Void {
-                        _panic = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        }) != null;
-                    };
-                    a();
-                }));
+                {
+                    __deferstack__.unshift(() -> ({
+                        var a = function():Void {
+                            _panic = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            }) != null;
+                        };
+                        a();
+                    }));
+                };
                 _f();
                 {
                     for (defer in __deferstack__) {

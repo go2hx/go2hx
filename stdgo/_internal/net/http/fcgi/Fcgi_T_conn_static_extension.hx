@@ -44,7 +44,10 @@ package stdgo._internal.net.http.fcgi;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._mutex.lock();
-            __deferstack__.unshift(() -> _c._mutex.unlock());
+            {
+                final __f__ = _c._mutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c._buf.reset();
             _c._h._init(_recType, _reqId, (_b.length));
             {
@@ -117,7 +120,10 @@ package stdgo._internal.net.http.fcgi;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c._mutex.lock();
-            __deferstack__.unshift(() -> _c._mutex.unlock());
+            {
+                final __f__ = _c._mutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (!_c._closed) {
                 _c._closeErr = _c._rwc.close();
                 _c._closed = true;

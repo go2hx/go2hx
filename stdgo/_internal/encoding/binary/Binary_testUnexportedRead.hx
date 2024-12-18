@@ -10,18 +10,20 @@ function testUnexportedRead(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>)
                     _t.fatal(stdgo.Go.toInterface(_err));
                 };
             };
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (({
-                        final r = stdgo.Go.recover_exception;
-                        stdgo.Go.recover_exception = null;
-                        r;
-                    }) == null) {
-                        _t.fatal(stdgo.Go.toInterface(("did not panic" : stdgo.GoString)));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (({
+                            final r = stdgo.Go.recover_exception;
+                            stdgo.Go.recover_exception = null;
+                            r;
+                        }) == null) {
+                            _t.fatal(stdgo.Go.toInterface(("did not panic" : stdgo.GoString)));
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             var _u2:stdgo._internal.encoding.binary.Binary_Unexported.Unexported = ({} : stdgo._internal.encoding.binary.Binary_Unexported.Unexported);
             stdgo._internal.encoding.binary.Binary_read.read(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)), stdgo.Go.asInterface(stdgo._internal.encoding.binary.Binary_littleEndian.littleEndian), stdgo.Go.toInterface((stdgo.Go.setRef(_u2) : stdgo.Ref<stdgo._internal.encoding.binary.Binary_Unexported.Unexported>)));
             {

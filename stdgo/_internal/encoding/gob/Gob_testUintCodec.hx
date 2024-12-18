@@ -4,7 +4,8 @@ function testUintCodec(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void
         try {
             {
                 var _a0 = _t;
-                __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__testError._testError(_a0));
+                final __f__ = stdgo._internal.encoding.gob.Gob__testError._testError;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var _b = (stdgo.Go.setRef(({} : stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer)) : stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_encBuffer.T_encBuffer>);
             var _encState = stdgo._internal.encoding.gob.Gob__newEncoderState._newEncoderState(_b);

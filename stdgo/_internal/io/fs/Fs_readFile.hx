@@ -16,7 +16,10 @@ function readFile(_fsys:stdgo._internal.io.fs.Fs_FS.FS, _name:stdgo.GoString):{ 
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoUInt8>), _1 : _err };
             };
-            __deferstack__.unshift(() -> _file.close());
+            {
+                final __f__ = _file.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _size:stdgo.GoInt = (0 : stdgo.GoInt);
             {
                 var __tmp__ = _file.stat(), _info:stdgo._internal.io.fs.Fs_FileInfo.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;

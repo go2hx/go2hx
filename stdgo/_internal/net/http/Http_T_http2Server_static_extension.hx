@@ -6,7 +6,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var __tmp__ = stdgo._internal.net.http.Http__http2serverConnBaseContext._http2serverConnBaseContext(_c, _opts), _baseCtx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:() -> Void = __tmp__._1;
-            __deferstack__.unshift(() -> _cancel());
+            {
+                final __f__ = _cancel;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _sc = (stdgo.Go.setRef(({ _srv : _s, _hs : _opts._baseConfig(), _conn : _c, _baseCtx : _baseCtx, _remoteAddrStr : (_c.remoteAddr().string() : stdgo.GoString)?.__copy__(), _bw : stdgo._internal.net.http.Http__http2newBufferedWriter._http2newBufferedWriter(_c), _handler : _opts._handler(), _streams : ({
                 final x = new stdgo.GoMap.GoIntMap<stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>>();
                 x.__defaultValue__ = () -> (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2stream.T_http2stream>);
@@ -16,7 +19,8 @@ package stdgo._internal.net.http;
             _s._state._registerConn(_sc);
             {
                 var _a0 = _sc;
-                __deferstack__.unshift(() -> _s._state._unregisterConn(_a0));
+                final __f__ = _s._state._unregisterConn;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             if (_sc._hs.writeTimeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 _sc._conn.setWriteDeadline((new stdgo._internal.time.Time_Time.Time() : stdgo._internal.time.Time_Time.Time));

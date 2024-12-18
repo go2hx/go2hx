@@ -3,7 +3,10 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.internal.intern.Intern__mu._mu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.internal.intern.Intern__mu._mu.unlock());
+            {
+                final __f__ = stdgo._internal.internal.intern.Intern__mu._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> = (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
             if (stdgo._internal.internal.intern.Intern__valSafe._valSafe != null) {
                 _v = (stdgo._internal.internal.intern.Intern__valSafe._valSafe[_k] ?? (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>));

@@ -31,11 +31,15 @@ package stdgo._internal.net.http.httputil;
             _cc._pipe.startResponse(_id);
             {
                 var _a0 = _id;
-                __deferstack__.unshift(() -> _cc._pipe.endResponse(_a0));
+                final __f__ = _cc._pipe.endResponse;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             _cc._mu.lock();
             if (_cc._re != null) {
-                __deferstack__.unshift(() -> _cc._mu.unlock());
+                {
+                    final __f__ = _cc._mu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = {
                         final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : _cc._re };
@@ -50,7 +54,10 @@ package stdgo._internal.net.http.httputil;
                 };
             };
             if ((_cc._r == null || (_cc._r : Dynamic).__nil__)) {
-                __deferstack__.unshift(() -> _cc._mu.unlock());
+                {
+                    final __f__ = _cc._mu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = {
                         final __tmp__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.net.http.httputil.Httputil__errClosed._errClosed };
@@ -72,7 +79,10 @@ package stdgo._internal.net.http.httputil;
                 _err = _lastbody.close();
                 if (_err != null) {
                     _cc._mu.lock();
-                    __deferstack__.unshift(() -> _cc._mu.unlock());
+                    {
+                        final __f__ = _cc._mu.unlock;
+                        __deferstack__.unshift(() -> __f__());
+                    };
                     _cc._re = _err;
                     {
                         final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = {
@@ -94,7 +104,10 @@ package stdgo._internal.net.http.httputil;
                 _err = __tmp__._1;
             };
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_err != null) {
                 _cc._re = _err;
                 {
@@ -169,7 +182,10 @@ package stdgo._internal.net.http.httputil;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.GoInt = (_cc._nwritten - _cc._nread : stdgo.GoInt);
                 for (defer in __deferstack__) {
@@ -209,23 +225,28 @@ package stdgo._internal.net.http.httputil;
             var _err:stdgo.Error = (null : stdgo.Error);
             var _id = (_cc._pipe.next() : stdgo.GoUInt);
             _cc._pipe.startRequest(_id);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _cc._pipe.endRequest(_id);
-                    if (_err != null) {
-                        _cc._pipe.startResponse(_id);
-                        _cc._pipe.endResponse(_id);
-                    } else {
-                        _cc._mu.lock();
-                        _cc._pipereq[_req] = _id;
-                        _cc._mu.unlock();
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _cc._pipe.endRequest(_id);
+                        if (_err != null) {
+                            _cc._pipe.startResponse(_id);
+                            _cc._pipe.endResponse(_id);
+                        } else {
+                            _cc._mu.lock();
+                            _cc._pipereq[_req] = _id;
+                            _cc._mu.unlock();
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             _cc._mu.lock();
             if (_cc._re != null) {
-                __deferstack__.unshift(() -> _cc._mu.unlock());
+                {
+                    final __f__ = _cc._mu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 {
                     final __ret__:stdgo.Error = _cc._re;
                     for (defer in __deferstack__) {
@@ -235,7 +256,10 @@ package stdgo._internal.net.http.httputil;
                 };
             };
             if (_cc._we != null) {
-                __deferstack__.unshift(() -> _cc._mu.unlock());
+                {
+                    final __f__ = _cc._mu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 {
                     final __ret__:stdgo.Error = _cc._we;
                     for (defer in __deferstack__) {
@@ -245,7 +269,10 @@ package stdgo._internal.net.http.httputil;
                 };
             };
             if (_cc._c == null) {
-                __deferstack__.unshift(() -> _cc._mu.unlock());
+                {
+                    final __f__ = _cc._mu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -260,7 +287,10 @@ package stdgo._internal.net.http.httputil;
             _cc._mu.unlock();
             _err = _cc._writeReq(_req, _c);
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_err != null) {
                 _cc._we = _err;
                 {
@@ -318,7 +348,10 @@ package stdgo._internal.net.http.httputil;
         var _c = (null : stdgo._internal.net.Net_Conn.Conn), _r = (null : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>);
         try {
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c = _cc._c;
             _r = _cc._r;
             _cc._c = (null : stdgo._internal.net.Net_Conn.Conn);

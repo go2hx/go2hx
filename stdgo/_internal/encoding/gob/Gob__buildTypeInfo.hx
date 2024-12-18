@@ -3,7 +3,10 @@ function _buildTypeInfo(_ut:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_userTyp
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.encoding.gob.Gob__typeLock._typeLock.lock();
-            __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock());
+            {
+                final __f__ = stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _info = stdgo._internal.encoding.gob.Gob__lookupTypeInfo._lookupTypeInfo(_rt);
                 if ((_info != null && ((_info : Dynamic).__nil__ == null || !(_info : Dynamic).__nil__))) {

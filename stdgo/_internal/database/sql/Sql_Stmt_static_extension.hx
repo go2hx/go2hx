@@ -6,7 +6,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._mu.lock();
-            __deferstack__.unshift(() -> _s._mu.unlock());
+            {
+                final __f__ = _s._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_s._css != null) {
                 for (__67 => _v in _s._css) {
                     _s._db._noteUnusedDriverStatement(_v._dc, _v._ds);
@@ -51,7 +54,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._closemu.lock();
-            __deferstack__.unshift(() -> _s._closemu.unlock());
+            {
+                final __f__ = _s._closemu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_s._stickyErr != null) {
                 {
                     final __ret__:stdgo.Error = _s._stickyErr;
@@ -154,7 +160,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._closemu.rlock();
-            __deferstack__.unshift(() -> _s._closemu.runlock());
+            {
+                final __f__ = _s._closemu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _rowsi:stdgo._internal.database.sql.driver.Driver_Rows.Rows = (null : stdgo._internal.database.sql.driver.Driver_Rows.Rows);
             var _rows:stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows> = (null : stdgo.Ref<stdgo._internal.database.sql.Sql_Rows.Rows>);
             var _err = (_s._db._retry(function(_strategy:stdgo._internal.database.sql.Sql_T_connReuseStrategy.T_connReuseStrategy):stdgo.Error {
@@ -362,7 +371,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._closemu.rlock();
-            __deferstack__.unshift(() -> _s._closemu.runlock());
+            {
+                final __f__ = _s._closemu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _res:stdgo._internal.database.sql.Sql_Result.Result = (null : stdgo._internal.database.sql.Sql_Result.Result);
             var _err = (_s._db._retry(function(_strategy:stdgo._internal.database.sql.Sql_T_connReuseStrategy.T_connReuseStrategy):stdgo.Error {
                 var __tmp__ = _s._connStmt(_ctx, _strategy), _dc:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverConn.T_driverConn> = __tmp__._0, _releaseConn:stdgo.Error -> Void = __tmp__._1, _ds:stdgo.Ref<stdgo._internal.database.sql.Sql_T_driverStmt.T_driverStmt> = __tmp__._2, _err:stdgo.Error = __tmp__._3;

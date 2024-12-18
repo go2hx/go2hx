@@ -5,7 +5,10 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
         try {
             if (((_tmpl != null && ((_tmpl : Dynamic).__nil__ == null || !(_tmpl : Dynamic).__nil__)) && (_tmpl._common != null && ((_tmpl._common : Dynamic).__nil__ == null || !(_tmpl._common : Dynamic).__nil__)) : Bool)) {
                 _tmpl._common._muFuncs.rlock();
-                __deferstack__.unshift(() -> _tmpl._common._muFuncs.runlock());
+                {
+                    final __f__ = _tmpl._common._muFuncs.runlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 {
                     var _fn = ((_tmpl._common._execFuncs[_name] ?? ({} : stdgo._internal.reflect.Reflect_Value.Value))?.__copy__() : stdgo._internal.reflect.Reflect_Value.Value);
                     if (_fn.isValid()) {

@@ -3,7 +3,10 @@ function profiles():stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Pr
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.runtime.pprof.Pprof__lockProfiles._lockProfiles();
-            __deferstack__.unshift(() -> stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles());
+            {
+                final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _all = (new stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>>((0 : stdgo.GoInt).toBasic(), (stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>>);
             for (__0 => _p in stdgo._internal.runtime.pprof.Pprof__profiles._profiles._m) {
                 _all = (_all.__append__(_p));

@@ -46,25 +46,27 @@ if (_got != (_want)) {
                     _prec++;
                 };
             };
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    {
-                        var __tmp__ = try {
-                            { _0 : (stdgo.Go.typeAssert(({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            } : stdgo._internal.math.big.Big_ErrNaN.ErrNaN)) : stdgo._internal.math.big.Big_ErrNaN.ErrNaN), _1 : true };
-                        } catch(_) {
-                            { _0 : ({} : stdgo._internal.math.big.Big_ErrNaN.ErrNaN), _1 : false };
-                        }, _p = __tmp__._0, _ok = __tmp__._1;
-                        if (!_ok) {
-                            _t.errorf(("got %v; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        {
+                            var __tmp__ = try {
+                                { _0 : (stdgo.Go.typeAssert(({
+                                    final r = stdgo.Go.recover_exception;
+                                    stdgo.Go.recover_exception = null;
+                                    r;
+                                } : stdgo._internal.math.big.Big_ErrNaN.ErrNaN)) : stdgo._internal.math.big.Big_ErrNaN.ErrNaN), _1 : true };
+                            } catch(_) {
+                                { _0 : ({} : stdgo._internal.math.big.Big_ErrNaN.ErrNaN), _1 : false };
+                            }, _p = __tmp__._0, _ok = __tmp__._1;
+                            if (!_ok) {
+                                _t.errorf(("got %v; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_p)));
+                            };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             var _f:stdgo._internal.math.big.Big_Float_.Float_ = ({} : stdgo._internal.math.big.Big_Float_.Float_);
             _f.setFloat64(stdgo._internal.math.Math_naN.naN());
             _t.errorf(("got %s; want ErrNaN panic" : stdgo.GoString), stdgo.Go.toInterface(_f.text((112 : stdgo.GoUInt8), (0 : stdgo.GoInt))));

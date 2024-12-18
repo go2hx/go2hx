@@ -43,16 +43,18 @@ function testGrow(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):Void {
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
-                    __deferstack__.unshift(() -> ({
-                        var a = function():Void {
-                            _gotPanic = ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            }) != null;
-                        };
-                        a();
-                    }));
+                    {
+                        __deferstack__.unshift(() -> ({
+                            var a = function():Void {
+                                _gotPanic = ({
+                                    final r = stdgo.Go.recover_exception;
+                                    stdgo.Go.recover_exception = null;
+                                    r;
+                                }) != null;
+                            };
+                            a();
+                        }));
+                    };
                     stdgo._internal.slices.Slices_grow.grow(_s1, (-1 : stdgo.GoInt));
                     {
                         for (defer in __deferstack__) {

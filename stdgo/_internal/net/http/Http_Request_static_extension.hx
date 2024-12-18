@@ -242,28 +242,32 @@ package stdgo._internal.net.http;
         try {
             var _trace = stdgo._internal.net.http.httptrace.Httptrace_contextClientTrace.contextClientTrace(_r.context());
             if (((_trace != null && ((_trace : Dynamic).__nil__ == null || !(_trace : Dynamic).__nil__)) && (_trace.wroteRequest != null) : Bool)) {
+                {
+                    __deferstack__.unshift(() -> ({
+                        var a = function():Void {
+                            _trace.wroteRequest(({ err : _err } : stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo));
+                        };
+                        a();
+                    }));
+                };
+            };
+            var _closed = (false : Bool);
+            {
                 __deferstack__.unshift(() -> ({
                     var a = function():Void {
-                        _trace.wroteRequest(({ err : _err } : stdgo._internal.net.http.httptrace.Httptrace_WroteRequestInfo.WroteRequestInfo));
+                        if (_closed) {
+                            return;
+                        };
+                        {
+                            var _closeErr = (_r._closeBody() : stdgo.Error);
+                            if (((_closeErr != null) && (_err == null) : Bool)) {
+                                _err = _closeErr;
+                            };
+                        };
                     };
                     a();
                 }));
             };
-            var _closed = (false : Bool);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (_closed) {
-                        return;
-                    };
-                    {
-                        var _closeErr = (_r._closeBody() : stdgo.Error);
-                        if (((_closeErr != null) && (_err == null) : Bool)) {
-                            _err = _closeErr;
-                        };
-                    };
-                };
-                a();
-            }));
             var _host = (_r.host?.__copy__() : stdgo.GoString);
             if (_host == (stdgo.Go.str())) {
                 if ((_r.url == null || (_r.url : Dynamic).__nil__)) {

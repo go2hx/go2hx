@@ -22,12 +22,14 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                             __tmp__;
                         };
                     };
-                    __deferstack__.unshift(() -> ({
-                        var a = function():Void {
-                            var __blank__ = stdgo._internal.os.Os_removeAll.removeAll(_dir?.__copy__());
-                        };
-                        a();
-                    }));
+                    {
+                        __deferstack__.unshift(() -> ({
+                            var a = function():Void {
+                                var __blank__ = stdgo._internal.os.Os_removeAll.removeAll(_dir?.__copy__());
+                            };
+                            a();
+                        }));
+                    };
                     var _fpath = (stdgo._internal.path.filepath.Filepath_join.join(_dir?.__copy__(), ("testfile.txt" : stdgo.GoString))?.__copy__() : stdgo.GoString);
                     {
                         var _err = (stdgo._internal.os.Os_writeFile.writeFile(_fpath?.__copy__(), (null : stdgo.Slice<stdgo.GoUInt8>), (420u32 : stdgo._internal.io.fs.Fs_FileMode.FileMode)) : stdgo.Error);

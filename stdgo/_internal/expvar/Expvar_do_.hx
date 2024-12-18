@@ -3,7 +3,10 @@ function do_(_f:stdgo._internal.expvar.Expvar_KeyValue.KeyValue -> Void):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.rlock();
-            __deferstack__.unshift(() -> stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.runlock());
+            {
+                final __f__ = stdgo._internal.expvar.Expvar__varKeysMu._varKeysMu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (__12 => _k in stdgo._internal.expvar.Expvar__varKeys._varKeys) {
                 var __tmp__ = stdgo._internal.expvar.Expvar__vars._vars.load(stdgo.Go.toInterface(_k)), _val:stdgo.AnyInterface = __tmp__._0, __17:Bool = __tmp__._1;
                 _f((new stdgo._internal.expvar.Expvar_KeyValue.KeyValue(_k?.__copy__(), (stdgo.Go.typeAssert((_val : stdgo._internal.expvar.Expvar_Var.Var)) : stdgo._internal.expvar.Expvar_Var.Var)) : stdgo._internal.expvar.Expvar_KeyValue.KeyValue));

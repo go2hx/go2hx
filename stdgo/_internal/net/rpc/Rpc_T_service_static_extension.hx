@@ -6,7 +6,10 @@ package stdgo._internal.net.rpc;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             if ((_wg != null && ((_wg : Dynamic).__nil__ == null || !(_wg : Dynamic).__nil__))) {
-                __deferstack__.unshift(() -> _wg.done());
+                {
+                    final __f__ = _wg.done;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             _mtype.lock();
             _mtype._numCalls++;

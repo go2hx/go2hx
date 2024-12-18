@@ -44,20 +44,22 @@ package stdgo._internal.net.http;
         try {
             var _ncopy:stdgo.GoInt64 = (0 : stdgo.GoInt64);
             var _closed = (false : Bool);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if ((_closed || (_t.bodyCloser == null) : Bool)) {
-                        return;
-                    };
-                    {
-                        var _closeErr = (_t.bodyCloser.close() : stdgo.Error);
-                        if (((_closeErr != null) && (_err == null) : Bool)) {
-                            _err = _closeErr;
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if ((_closed || (_t.bodyCloser == null) : Bool)) {
+                            return;
+                        };
+                        {
+                            var _closeErr = (_t.bodyCloser.close() : stdgo.Error);
+                            if (((_closeErr != null) && (_err == null) : Bool)) {
+                                _err = _closeErr;
+                            };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             if (_t.body != null) {
                 var _body = _t._unwrapBody();
                 if (stdgo._internal.net.http.Http__chunked._chunked(_t.transferEncoding)) {

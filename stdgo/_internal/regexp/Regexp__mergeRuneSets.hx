@@ -20,15 +20,17 @@ var _rx = __1, _lx = __0;
             var _merged = (new stdgo.Slice<stdgo.GoInt32>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoInt32>);
             var _next = (new stdgo.Slice<stdgo.GoUInt32>((0 : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo.GoUInt32>);
             var _ok = (true : Bool);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (!_ok) {
-                        _merged = (null : stdgo.Slice<stdgo.GoInt32>);
-                        _next = (null : stdgo.Slice<stdgo.GoUInt32>);
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (!_ok) {
+                            _merged = (null : stdgo.Slice<stdgo.GoInt32>);
+                            _next = (null : stdgo.Slice<stdgo.GoUInt32>);
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             var _ix = (-1 : stdgo.GoInt);
             var _extend = function(_newLow:stdgo.Pointer<stdgo.GoInt>, _newArray:stdgo.Ref<stdgo.Slice<stdgo.GoInt32>>, _pc:stdgo.GoUInt32):Bool {
                 if (((_ix > (0 : stdgo.GoInt) : Bool) && (((_newArray : stdgo.Slice<stdgo.GoInt32>))[(_newLow.value : stdgo.GoInt)] <= _merged[(_ix : stdgo.GoInt)] : Bool) : Bool)) {

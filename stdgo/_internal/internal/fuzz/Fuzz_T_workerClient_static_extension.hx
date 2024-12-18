@@ -20,7 +20,10 @@ package stdgo._internal.internal.fuzz;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _wc._mu.lock();
-            __deferstack__.unshift(() -> _wc._mu.unlock());
+            {
+                final __f__ = _wc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _c = ({ ping : (stdgo.Go.setRef((new stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs() : stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_pingArgs.T_pingArgs>) } : stdgo._internal.internal.fuzz.Fuzz_T_call.T_call);
             var _resp:stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse = ({} : stdgo._internal.internal.fuzz.Fuzz_T_pingResponse.T_pingResponse);
             {
@@ -61,7 +64,10 @@ package stdgo._internal.internal.fuzz;
         var _entryOut = ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry), _resp = ({} : stdgo._internal.internal.fuzz.Fuzz_T_fuzzResponse.T_fuzzResponse), _isInternalError = false, _err = (null : stdgo.Error);
         try {
             _wc._mu.lock();
-            __deferstack__.unshift(() -> _wc._mu.unlock());
+            {
+                final __f__ = _wc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 {
@@ -139,12 +145,14 @@ package stdgo._internal.internal.fuzz;
                     return __ret__;
                 };
             };
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _wc._workerComm._memMu.__send__(_mem);
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _wc._workerComm._memMu.__send__(_mem);
+                    };
+                    a();
+                }));
+            };
             _resp.count = _mem._header()._count;
             if (!stdgo._internal.bytes.Bytes_equal.equal(_inp, _mem._valueRef())) {
                 {
@@ -245,7 +253,10 @@ package stdgo._internal.internal.fuzz;
         var _entryOut = ({ parent : ("" : stdgo.GoString), path : ("" : stdgo.GoString), data : (null : stdgo.Slice<stdgo.GoUInt8>), values : (null : stdgo.Slice<stdgo.AnyInterface>), generation : (0 : stdgo.GoInt), isSeed : false } : stdgo._internal.internal.fuzz.Fuzz_CorpusEntry.CorpusEntry), _resp = ({} : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse), _retErr = (null : stdgo.Error);
         try {
             _wc._mu.lock();
-            __deferstack__.unshift(() -> _wc._mu.unlock());
+            {
+                final __f__ = _wc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = _wc._workerComm._memMu.__smartGet__(), _mem = __tmp__._0, _ok = __tmp__._1;
             if (!_ok) {
                 {
@@ -262,12 +273,14 @@ package stdgo._internal.internal.fuzz;
                     return __ret__;
                 };
             };
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _wc._workerComm._memMu.__send__(_mem);
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _wc._workerComm._memMu.__send__(_mem);
+                    };
+                    a();
+                }));
+            };
             _mem._header()._count = (0i64 : stdgo.GoInt64);
             var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__corpusEntryData._corpusEntryData(_entryIn?.__copy__()), _inp:stdgo.Slice<stdgo.GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -447,7 +460,10 @@ package stdgo._internal.internal.fuzz;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _wc._mu.lock();
-            __deferstack__.unshift(() -> _wc._mu.unlock());
+            {
+                final __f__ = _wc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _err = (_wc._workerComm._fuzzIn.close() : stdgo.Error);
                 if (_err != null) {

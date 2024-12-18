@@ -104,19 +104,23 @@ package stdgo._internal.internal.fuzz;
         var _resp = ({} : stdgo._internal.internal.fuzz.Fuzz_T_minimizeResponse.T_minimizeResponse);
         try {
             var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _resp.duration = stdgo._internal.time.Time_since.since(_start?.__copy__());
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _resp.duration = stdgo._internal.time.Time_since.since(_start?.__copy__());
+                    };
+                    a();
+                }));
+            };
             var _mem = _ws._workerComm._memMu.__get__();
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _ws._workerComm._memMu.__send__(_mem);
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _ws._workerComm._memMu.__send__(_mem);
+                    };
+                    a();
+                }));
+            };
             var __tmp__ = stdgo._internal.internal.fuzz.Fuzz__unmarshalCorpusFile._unmarshalCorpusFile(_mem._valueCopy()), _vals:stdgo.Slice<stdgo.AnyInterface> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 throw stdgo.Go.toInterface(_err);
@@ -129,7 +133,10 @@ package stdgo._internal.internal.fuzz;
                     _ctx = __tmp__._0;
                     _cancel = __tmp__._1;
                 };
-                __deferstack__.unshift(() -> _cancel());
+                {
+                    final __f__ = _cancel;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             var __tmp__ = _ws._minimizeInput(_ctx, _vals, _mem, _args?.__copy__()), _success:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_success) {
@@ -190,12 +197,14 @@ package stdgo._internal.internal.fuzz;
                 _ws._coverageMask = _args.coverageData;
             };
             var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _resp.totalDuration = stdgo._internal.time.Time_since.since(_start?.__copy__());
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _resp.totalDuration = stdgo._internal.time.Time_since.since(_start?.__copy__());
+                    };
+                    a();
+                }));
+            };
             if (_args.timeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 var _cancel:() -> Void = null;
                 {
@@ -203,17 +212,22 @@ package stdgo._internal.internal.fuzz;
                     _ctx = __tmp__._0;
                     _cancel = __tmp__._1;
                 };
-                __deferstack__.unshift(() -> _cancel());
+                {
+                    final __f__ = _cancel;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             var _mem = _ws._workerComm._memMu.__get__();
             _ws._m._r._save(stdgo.Go.pointer(_mem._header()._randState), stdgo.Go.pointer(_mem._header()._randInc));
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _resp.count = _mem._header()._count;
-                    _ws._workerComm._memMu.__send__(_mem);
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _resp.count = _mem._header()._count;
+                        _ws._workerComm._memMu.__send__(_mem);
+                    };
+                    a();
+                }));
+            };
             if (((_args.limit > (0i64 : stdgo.GoInt64) : Bool) && (_mem._header()._count >= _args.limit : Bool) : Bool)) {
                 _resp.internalErr = stdgo._internal.fmt.Fmt_sprintf.sprintf(("mem.header().count %d already exceeds args.Limit %d" : stdgo.GoString), stdgo.Go.toInterface(_mem._header()._count), stdgo.Go.toInterface(_args.limit))?.__copy__();
                 {

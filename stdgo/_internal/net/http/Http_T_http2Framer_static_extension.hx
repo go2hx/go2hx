@@ -48,7 +48,8 @@ package stdgo._internal.net.http;
             });
             {
                 var _a0 = function(_hf:_internal.vendor.golang_dot_org.x.net.http2.hpack.Hpack_HeaderField.HeaderField):Void {};
-                __deferstack__.unshift(() -> _hdec.setEmitFunc(_a0));
+                final __f__ = _hdec.setEmitFunc;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             var _hc:stdgo._internal.net.http.Http_T_http2headersOrContinuation.T_http2headersOrContinuation = stdgo.Go.asInterface(_hf);
             while (true) {

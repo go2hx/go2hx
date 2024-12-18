@@ -48,22 +48,24 @@ var _f = __2, _z = __1, _op = __0;
                             var a = function():Void {
                                 var __deferstack__:Array<Void -> Void> = [];
                                 try {
-                                    __deferstack__.unshift(() -> ({
-                                        var a = function():Void {
-                                            {
-                                                var _p = ({
-                                                    final r = stdgo.Go.recover_exception;
-                                                    stdgo.Go.recover_exception = null;
-                                                    r;
-                                                } : stdgo.AnyInterface);
-                                                if (_p != null) {
-                                                    var __blank__ = (stdgo.Go.typeAssert((_p : stdgo._internal.math.big.Big_ErrNaN.ErrNaN)) : stdgo._internal.math.big.Big_ErrNaN.ErrNaN);
-                                                    _errnan = true;
+                                    {
+                                        __deferstack__.unshift(() -> ({
+                                            var a = function():Void {
+                                                {
+                                                    var _p = ({
+                                                        final r = stdgo.Go.recover_exception;
+                                                        stdgo.Go.recover_exception = null;
+                                                        r;
+                                                    } : stdgo.AnyInterface);
+                                                    if (_p != null) {
+                                                        var __blank__ = (stdgo.Go.typeAssert((_p : stdgo._internal.math.big.Big_ErrNaN.ErrNaN)) : stdgo._internal.math.big.Big_ErrNaN.ErrNaN);
+                                                        _errnan = true;
+                                                    };
                                                 };
                                             };
-                                        };
-                                        a();
-                                    }));
+                                            a();
+                                        }));
+                                    };
                                     _f(_got, _xx, _yy);
                                     {
                                         for (defer in __deferstack__) {

@@ -6,7 +6,10 @@ package stdgo._internal.net.http.httputil;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _m._mu.lock();
-            __deferstack__.unshift(() -> _m._mu.unlock());
+            {
+                final __f__ = _m._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _m._flushPending = false;
             if ((_m._t != null && ((_m._t : Dynamic).__nil__ == null || !(_m._t : Dynamic).__nil__))) {
                 _m._t.stop();
@@ -39,7 +42,10 @@ package stdgo._internal.net.http.httputil;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _m._mu.lock();
-            __deferstack__.unshift(() -> _m._mu.unlock());
+            {
+                final __f__ = _m._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (!_m._flushPending) {
                 {
                     for (defer in __deferstack__) {
@@ -79,7 +85,10 @@ package stdgo._internal.net.http.httputil;
         var _n = (0 : stdgo.GoInt), _err = (null : stdgo.Error);
         try {
             _m._mu.lock();
-            __deferstack__.unshift(() -> _m._mu.unlock());
+            {
+                final __f__ = _m._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __tmp__ = _m._dst.write(_p);
                 _n = __tmp__._0;

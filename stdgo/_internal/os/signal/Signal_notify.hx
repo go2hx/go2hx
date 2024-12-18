@@ -7,7 +7,10 @@ function notify(_c:stdgo.Chan<stdgo._internal.os.Os_Signal.Signal>, _sig:haxe.Re
                 throw stdgo.Go.toInterface(("os/signal: Notify using nil channel" : stdgo.GoString));
             };
             stdgo._internal.os.signal.Signal__handlers._handlers.lock();
-            __deferstack__.unshift(() -> stdgo._internal.os.signal.Signal__handlers._handlers.unlock());
+            {
+                final __f__ = stdgo._internal.os.signal.Signal__handlers._handlers.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _h = (stdgo._internal.os.signal.Signal__handlers._handlers._m[_c] ?? (null : stdgo.Ref<stdgo._internal.os.signal.Signal_T_handler.T_handler>));
             if ((_h == null || (_h : Dynamic).__nil__)) {
                 if (stdgo._internal.os.signal.Signal__handlers._handlers._m == null) {

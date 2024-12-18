@@ -6,7 +6,10 @@ function _codeInit():Void {
             if (_err != null) {
                 throw stdgo.Go.toInterface(_err);
             };
-            __deferstack__.unshift(() -> _f.close());
+            {
+                final __f__ = _f.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = stdgo._internal.compress.gzip.Gzip_newReader.newReader(stdgo.Go.asInterface(_f)), _gz:stdgo.Ref<stdgo._internal.compress.gzip.Gzip_Reader.Reader> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 throw stdgo.Go.toInterface(_err);

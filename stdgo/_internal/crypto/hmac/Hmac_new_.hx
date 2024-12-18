@@ -14,16 +14,18 @@ function new_(_h:() -> stdgo._internal.hash.Hash_Hash.Hash, _key:stdgo.Slice<std
             var a = function():Void {
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
-                    __deferstack__.unshift(() -> ({
-                        var a = function():Void {
-                            var __blank__ = ({
-                                final r = stdgo.Go.recover_exception;
-                                stdgo.Go.recover_exception = null;
-                                r;
-                            });
-                        };
-                        a();
-                    }));
+                    {
+                        __deferstack__.unshift(() -> ({
+                            var a = function():Void {
+                                var __blank__ = ({
+                                    final r = stdgo.Go.recover_exception;
+                                    stdgo.Go.recover_exception = null;
+                                    r;
+                                });
+                            };
+                            a();
+                        }));
+                    };
                     if (stdgo.Go.toInterface(_hm._outer) == (stdgo.Go.toInterface(_hm._inner))) {
                         _unique = false;
                     };

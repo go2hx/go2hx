@@ -49,7 +49,10 @@ package stdgo._internal.net.http;
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
                     _cc._wmu.lock();
-                    __deferstack__.unshift(() -> _cc._wmu.unlock());
+                    {
+                        final __f__ = _cc._wmu.unlock;
+                        __deferstack__.unshift(() -> __f__());
+                    };
                     {
                         var _err = (_cc._fr.writePing(false, _p?.__copy__()) : stdgo.Error);
                         if (_err != null) {
@@ -181,7 +184,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _rl = (stdgo.Go.setRef(({ _cc : _cc } : stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop)) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientConnReadLoop.T_http2clientConnReadLoop>);
-            __deferstack__.unshift(() -> _rl._cleanup());
+            {
+                final __f__ = _rl._cleanup;
+                __deferstack__.unshift(() -> __f__());
+            };
             _cc._readerErr = _rl._run();
             {
                 var __tmp__ = try {
@@ -240,7 +246,10 @@ package stdgo._internal.net.http;
                     _cc._vlogf(("http2: Transport closing idle conn %p (forSingleUse=%v, maxStream=%v)" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_cc)), stdgo.Go.toInterface(_cc._singleUse), stdgo.Go.toInterface((_cc._nextStreamID - (2u32 : stdgo.GoUInt32) : stdgo.GoUInt32)));
                 };
                 _cc._closed = true;
-                __deferstack__.unshift(() -> _cc._closeConn());
+                {
+                    final __f__ = _cc._closeConn;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             _cc._mu.unlock();
             {
@@ -651,7 +660,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _cc._decrStreamReservationsLocked();
             {
                 for (defer in __deferstack__) {
@@ -728,7 +740,10 @@ package stdgo._internal.net.http;
                 return (null : stdgo.Error);
             };
             _cc._wmu.lock();
-            __deferstack__.unshift(() -> _cc._wmu.unlock());
+            {
+                final __f__ = _cc._wmu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _err = (_cc._fr.writeGoAway(_maxStreamID, (0u32 : stdgo._internal.net.http.Http_T_http2ErrCode.T_http2ErrCode), (null : stdgo.Slice<stdgo.GoUInt8>)) : stdgo.Error);
                 if (_err != null) {
@@ -798,7 +813,10 @@ package stdgo._internal.net.http;
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
                     _cc._mu.lock();
-                    __deferstack__.unshift(() -> _cc._mu.unlock());
+                    {
+                        final __f__ = _cc._mu.unlock;
+                        __deferstack__.unshift(() -> __f__());
+                    };
                     while (true) {
                         if (((_cc._streams.length == (0 : stdgo.GoInt)) || _cc._closed : Bool)) {
                             _cc._closed = true;
@@ -874,7 +892,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:Bool = (_cc._doNotReuse && (_cc._streams.length == (0 : stdgo.GoInt)) : Bool);
                 for (defer in __deferstack__) {
@@ -944,7 +965,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _t = stdgo._internal.time.Time_afterFunc.afterFunc((250000000i64 : stdgo._internal.time.Time_Duration.Duration), _cc._forceCloseConn);
-            __deferstack__.unshift(() -> _t.stop());
+            {
+                final __f__ = _t.stop;
+                __deferstack__.unshift(() -> __f__());
+            };
             _cc._tconn.close();
             {
                 for (defer in __deferstack__) {
@@ -1006,7 +1030,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo._internal.net.http.Http_T_http2clientConnIdleState.T_http2clientConnIdleState = _cc._idleStateLocked()?.__copy__();
                 for (defer in __deferstack__) {
@@ -1050,7 +1077,10 @@ package stdgo._internal.net.http;
             };
             _cc._wmu.unlock();
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo._internal.net.http.Http_T_http2ClientConnState.T_http2ClientConnState = ({ closed : _cc._closed, closing : (((_cc._closing || _cc._singleUse : Bool) || _cc._doNotReuse : Bool) || (_cc._goAway != null && ((_cc._goAway : Dynamic).__nil__ == null || !(_cc._goAway : Dynamic).__nil__)) : Bool), streamsActive : (_cc._streams.length), streamsReserved : _cc._streamsReserved, streamsPending : _cc._pendingRequests, lastIdle : _cc._lastIdle?.__copy__(), maxConcurrentStreams : _maxConcurrent } : stdgo._internal.net.http.Http_T_http2ClientConnState.T_http2ClientConnState);
                 for (defer in __deferstack__) {
@@ -1088,7 +1118,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _st = (_cc._idleStateLocked()?.__copy__() : stdgo._internal.net.http.Http_T_http2clientConnIdleState.T_http2clientConnIdleState);
                 if (!_st._canTakeNewRequest) {
@@ -1135,7 +1168,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:Bool = _cc._canTakeNewRequestLocked();
                 for (defer in __deferstack__) {
@@ -1171,7 +1207,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _old = _cc._goAway;
             _cc._goAway = _f;
             if (_cc._goAwayDebug == (stdgo.Go.str())) {
@@ -1214,7 +1253,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _cc._doNotReuse = true;
             {
                 for (defer in __deferstack__) {
@@ -1245,7 +1287,10 @@ package stdgo._internal.net.http;
         try {
             var _pingTimeout = (_cc._t._pingTimeout() : stdgo._internal.time.Time_Duration.Duration);
             var __tmp__ = stdgo._internal.context.Context_withTimeout.withTimeout(stdgo._internal.context.Context_background.background(), _pingTimeout), _ctx:stdgo._internal.context.Context_Context.Context = __tmp__._0, _cancel:stdgo._internal.context.Context_CancelFunc.CancelFunc = __tmp__._1;
-            __deferstack__.unshift(() -> _cancel());
+            {
+                final __f__ = _cancel;
+                __deferstack__.unshift(() -> __f__());
+            };
             _cc._vlogf(("http2: Transport sending health check" : stdgo.GoString));
             var _err = (_cc.ping(_ctx) : stdgo.Error);
             if (_err != null) {

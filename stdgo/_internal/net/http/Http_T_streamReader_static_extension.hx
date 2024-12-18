@@ -37,12 +37,18 @@ var _errCh = __1, _bCh = __0;
                     _bCh.__send__(_value);
                     return (null : stdgo.AnyInterface);
                 })?.__copy__() : stdgo._internal.syscall.js.Js_Func.Func);
-                __deferstack__.unshift(() -> _success.release());
+                {
+                    final __f__ = _success.release;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 var _failure = (stdgo._internal.syscall.js.Js_funcOf.funcOf(function(_this:stdgo._internal.syscall.js.Js_Value.Value, _args:stdgo.Slice<stdgo._internal.syscall.js.Js_Value.Value>):stdgo.AnyInterface {
                     _errCh.__send__(stdgo._internal.errors.Errors_new_.new_((_args[(0 : stdgo.GoInt)].get(("message" : stdgo.GoString)).string() : stdgo.GoString)?.__copy__()));
                     return (null : stdgo.AnyInterface);
                 })?.__copy__() : stdgo._internal.syscall.js.Js_Func.Func);
-                __deferstack__.unshift(() -> _failure.release());
+                {
+                    final __f__ = _failure.release;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 _r._stream.call(("read" : stdgo.GoString)).call(("then" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_success)), stdgo.Go.toInterface(stdgo.Go.asInterface(_failure)));
                 {
                     var __select__ = true;

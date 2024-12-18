@@ -780,7 +780,10 @@ _nrgba64.setNRGBA64(_x, _y, (new stdgo._internal.image.color.Color_NRGBA64.NRGBA
             if (_err != null) {
                 return { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : _err };
             };
-            __deferstack__.unshift(() -> _r.close());
+            {
+                final __f__ = _r.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _img:stdgo._internal.image.Image_Image.Image = (null : stdgo._internal.image.Image_Image.Image);
             if (_d._interlace == ((0 : stdgo.GoInt))) {
                 {

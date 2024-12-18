@@ -6,7 +6,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _tw._mu.lock();
-            __deferstack__.unshift(() -> _tw._mu.unlock());
+            {
+                final __f__ = _tw._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _tw._writeHeaderLocked(_code);
             {
                 for (defer in __deferstack__) {
@@ -52,7 +55,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _tw._mu.lock();
-            __deferstack__.unshift(() -> _tw._mu.unlock());
+            {
+                final __f__ = _tw._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_tw._err != null) {
                 {
                     final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : _tw._err };

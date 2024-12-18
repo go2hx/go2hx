@@ -3,7 +3,10 @@ function _finalize(_v:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Val
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.internal.intern.Intern__mu._mu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.internal.intern.Intern__mu._mu.unlock());
+            {
+                final __f__ = stdgo._internal.internal.intern.Intern__mu._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_v._resurrected) {
                 _v._resurrected = false;
                 stdgo._internal.runtime.Runtime_setFinalizer.setFinalizer(stdgo.Go.toInterface(stdgo.Go.asInterface(_v)), stdgo.Go.toInterface(stdgo._internal.internal.intern.Intern__finalize._finalize));

@@ -23,18 +23,20 @@ function testProbablyPrime(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>):
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
-                        __deferstack__.unshift(() -> ({
-                            var a = function():Void {
-                                if (((_n < (0 : stdgo.GoInt) : Bool) && (({
-                                    final r = stdgo.Go.recover_exception;
-                                    stdgo.Go.recover_exception = null;
-                                    r;
-                                }) == null) : Bool)) {
-                                    _t.fatalf(("expected panic from ProbablyPrime(%d)" : stdgo.GoString), stdgo.Go.toInterface(_n));
+                        {
+                            __deferstack__.unshift(() -> ({
+                                var a = function():Void {
+                                    if (((_n < (0 : stdgo.GoInt) : Bool) && (({
+                                        final r = stdgo.Go.recover_exception;
+                                        stdgo.Go.recover_exception = null;
+                                        r;
+                                    }) == null) : Bool)) {
+                                        _t.fatalf(("expected panic from ProbablyPrime(%d)" : stdgo.GoString), stdgo.Go.toInterface(_n));
+                                    };
                                 };
-                            };
-                            a();
-                        }));
+                                a();
+                            }));
+                        };
                         if (!_c.probablyPrime(_n)) {
                             _t.fatalf(("%v should be a prime" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_c)));
                         };

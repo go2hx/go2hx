@@ -6,7 +6,10 @@ function _listGroups(_u:stdgo.Ref<stdgo._internal.os.user.User_User.User>):{ var
             if (_err != null) {
                 return { _0 : (null : stdgo.Slice<stdgo.GoString>), _1 : _err };
             };
-            __deferstack__.unshift(() -> _f.close());
+            {
+                final __f__ = _f.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } = stdgo._internal.os.user.User__listGroupsFromReader._listGroupsFromReader(_u, stdgo.Go.asInterface(_f));
                 for (defer in __deferstack__) {

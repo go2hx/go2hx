@@ -6,7 +6,8 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
             var _tp = stdgo._internal.net.http.Http__newTextprotoReader._newTextprotoReader(_b);
             {
                 var _a0 = _tp;
-                __deferstack__.unshift(() -> stdgo._internal.net.http.Http__putTextprotoReader._putTextprotoReader(_a0));
+                final __f__ = stdgo._internal.net.http.Http__putTextprotoReader._putTextprotoReader;
+                __deferstack__.unshift(() -> __f__(_a0));
             };
             _req = (stdgo.Go.setRef(({} : stdgo._internal.net.http.Http_Request.Request)) : stdgo.Ref<stdgo._internal.net.http.Http_Request.Request>);
             var _s:stdgo.GoString = ("" : stdgo.GoString);
@@ -31,14 +32,16 @@ function _readRequest(_b:stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>):{
                     };
                 };
             };
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
-                        _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
+                            _err = stdgo._internal.io.Io_errUnexpectedEOF.errUnexpectedEOF;
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             var _ok:Bool = false;
             {
                 var __tmp__ = stdgo._internal.net.http.Http__parseRequestLine._parseRequestLine(_s?.__copy__());

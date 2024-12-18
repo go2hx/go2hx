@@ -20,7 +20,10 @@ function sendMail(_addr:stdgo.GoString, _a:stdgo._internal.net.smtp.Smtp_Auth.Au
             if (_err != null) {
                 return _err;
             };
-            __deferstack__.unshift(() -> _c.close());
+            {
+                final __f__ = _c.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 _err = _c._hello();
                 if (_err != null) {

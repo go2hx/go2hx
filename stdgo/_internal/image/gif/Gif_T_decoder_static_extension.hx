@@ -90,7 +90,10 @@ package stdgo._internal.image.gif;
             };
             var _br = (stdgo.Go.setRef(({ _d : _d } : stdgo._internal.image.gif.Gif_T_blockReader.T_blockReader)) : stdgo.Ref<stdgo._internal.image.gif.Gif_T_blockReader.T_blockReader>);
             var _lzwr = (stdgo._internal.compress.lzw.Lzw_newReader.newReader(stdgo.Go.asInterface(_br), (0 : stdgo._internal.compress.lzw.Lzw_Order.Order), (_litWidth : stdgo.GoInt)) : stdgo._internal.io.Io_ReadCloser.ReadCloser);
-            __deferstack__.unshift(() -> _lzwr.close());
+            {
+                final __f__ = _lzwr.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 _err = stdgo._internal.image.gif.Gif__readFull._readFull(_lzwr, _m.pix);
                 if (_err != null) {

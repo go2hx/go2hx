@@ -7,7 +7,10 @@ function setFallbackRoots(_roots:stdgo.Ref<stdgo._internal.crypto.x509.X509_Cert
             };
             var __blank__ = stdgo._internal.crypto.x509.X509__systemRootsPool._systemRootsPool();
             stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.unlock());
+            {
+                final __f__ = stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (stdgo._internal.crypto.x509.X509__fallbacksSet._fallbacksSet) {
                 throw stdgo.Go.toInterface(("SetFallbackRoots has already been called" : stdgo.GoString));
             };

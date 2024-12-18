@@ -5,7 +5,8 @@ function marshal(_v:stdgo.AnyInterface):{ var _0 : stdgo.Slice<stdgo.GoUInt8>; v
             var _e = stdgo._internal.encoding.json.Json__newEncodeState._newEncodeState();
             {
                 var _a0 = _e;
-                __deferstack__.unshift(() -> stdgo._internal.encoding.json.Json__encodeStatePool._encodeStatePool.put(stdgo.Go.toInterface(stdgo.Go.asInterface(_a0))));
+                final __f__ = stdgo._internal.encoding.json.Json__encodeStatePool._encodeStatePool.put;
+                __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(stdgo.Go.asInterface(_a0))));
             };
             var _err = (_e._marshal(_v, ({ _escapeHTML : true } : stdgo._internal.encoding.json.Json_T_encOpts.T_encOpts)) : stdgo.Error);
             if (_err != null) {

@@ -21,7 +21,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _w._mu.lock();
-            __deferstack__.unshift(() -> _w._mu.unlock());
+            {
+                final __f__ = _w._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (((_w._pc != null && ((_w._pc : Dynamic).__nil__ == null || !(_w._pc : Dynamic).__nil__)) || (_w._err != null) : Bool)) {
                 {
                     for (defer in __deferstack__) {

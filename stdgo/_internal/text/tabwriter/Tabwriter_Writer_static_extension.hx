@@ -9,7 +9,8 @@ package stdgo._internal.text.tabwriter;
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 var _a1 = ("Write" : stdgo.GoString);
-                __deferstack__.unshift(() -> _b._handlePanic(_a0, _a1?.__copy__()));
+                final __f__ = _b._handlePanic;
+                __deferstack__.unshift(() -> __f__(_a0, _a1?.__copy__()));
             };
             _n = (0 : stdgo.GoInt);
             for (_i => _ch in _buf) {
@@ -113,7 +114,8 @@ package stdgo._internal.text.tabwriter;
             {
                 var _a0 = (stdgo.Go.setRef(_err) : stdgo.Ref<stdgo.Error>);
                 var _a1 = ("Flush" : stdgo.GoString);
-                __deferstack__.unshift(() -> _b._handlePanic(_a0, _a1?.__copy__()));
+                final __f__ = _b._handlePanic;
+                __deferstack__.unshift(() -> __f__(_a0, _a1?.__copy__()));
             };
             _b._flushNoDefers();
             {

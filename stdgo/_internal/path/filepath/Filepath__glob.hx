@@ -15,7 +15,10 @@ function _glob(_dir:stdgo.GoString, _pattern:stdgo.GoString, _matches:stdgo.Slic
             if (_err != null) {
                 return { _0 : _m, _1 : _e };
             };
-            __deferstack__.unshift(() -> _d.close());
+            {
+                final __f__ = _d.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = _d.readdirnames((-1 : stdgo.GoInt)), _names:stdgo.Slice<stdgo.GoString> = __tmp__._0, __0:stdgo.Error = __tmp__._1;
             stdgo._internal.sort.Sort_strings.strings(_names);
             for (__1 => _n in _names) {

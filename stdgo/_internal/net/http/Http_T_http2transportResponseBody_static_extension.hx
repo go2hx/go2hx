@@ -111,7 +111,10 @@ package stdgo._internal.net.http;
             _cc._mu.unlock();
             if (((_connAdd != (0 : stdgo.GoInt32)) || (_streamAdd != (0 : stdgo.GoInt32)) : Bool)) {
                 _cc._wmu.lock();
-                __deferstack__.unshift(() -> _cc._wmu.unlock());
+                {
+                    final __f__ = _cc._wmu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 if (_connAdd != ((0 : stdgo.GoInt32))) {
                     _cc._fr.writeWindowUpdate((0u32 : stdgo.GoUInt32), stdgo._internal.net.http.Http__http2mustUint31._http2mustUint31(_connAdd));
                 };

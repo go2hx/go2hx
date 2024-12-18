@@ -6,7 +6,10 @@ function _lookupGroup(_groupname:stdgo.GoString):{ var _0 : stdgo.Ref<stdgo._int
             if (_err != null) {
                 return { _0 : null, _1 : _err };
             };
-            __deferstack__.unshift(() -> _f.close());
+            {
+                final __f__ = _f.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.os.user.User_Group.Group>; var _1 : stdgo.Error; } = stdgo._internal.os.user.User__findGroupName._findGroupName(_groupname?.__copy__(), stdgo.Go.asInterface(_f));
                 for (defer in __deferstack__) {

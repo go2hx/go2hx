@@ -167,8 +167,14 @@ var _path = __1, _cwd = __0;
                     _hook(_cmd.process);
                 };
             };
-            __deferstack__.unshift(() -> _cmd.wait_());
-            __deferstack__.unshift(() -> _stdoutRead.close());
+            {
+                final __f__ = _cmd.wait_;
+                __deferstack__.unshift(() -> __f__());
+            };
+            {
+                final __f__ = _stdoutRead.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _linebody = stdgo._internal.bufio.Bufio_newReaderSize.newReaderSize(_stdoutRead, (1024 : stdgo.GoInt));
             var _headers = (({
                 final x = new stdgo.GoMap.GoStringMap<stdgo.Slice<stdgo.GoString>>();

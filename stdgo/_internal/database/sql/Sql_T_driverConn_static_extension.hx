@@ -49,7 +49,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _dc.lock();
-            __deferstack__.unshift(() -> _dc.unlock());
+            {
+                final __f__ = _dc.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_dc._closed) {
                 {
                     final __ret__:() -> stdgo.Error = function():stdgo.Error {
@@ -118,7 +121,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _dc.lock();
-            __deferstack__.unshift(() -> _dc.unlock());
+            {
+                final __f__ = _dc.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_needsReset) {
                 _dc._needReset = true;
             };
@@ -172,7 +178,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _dc.lock();
-            __deferstack__.unshift(() -> _dc.unlock());
+            {
+                final __f__ = _dc.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (!_dc._needReset) {
                 {
                     final __ret__:stdgo.Error = (null : stdgo.Error);
@@ -243,7 +252,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _dc.lock();
-            __deferstack__.unshift(() -> _dc.unlock());
+            {
+                final __f__ = _dc.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_dc._openStmt != null) _dc._openStmt.remove(_ds);
             {
                 for (defer in __deferstack__) {

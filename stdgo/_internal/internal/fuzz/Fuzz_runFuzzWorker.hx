@@ -10,7 +10,10 @@ function runFuzzWorker(_ctx:stdgo._internal.context.Context_Context.Context, _fn
                 var _timer = stdgo._internal.time.Time_afterFunc.afterFunc((10000000000i64 : stdgo._internal.time.Time_Duration.Duration), function():Void {
                     throw stdgo.Go.toInterface(("deadlocked!" : stdgo.GoString));
                 });
-                __deferstack__.unshift(() -> _timer.stop());
+                {
+                    final __f__ = _timer.stop;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 var _start = (stdgo._internal.time.Time_now.now()?.__copy__() : stdgo._internal.time.Time_Time.Time);
                 var _err = (_fn(_e?.__copy__()) : stdgo.Error);
                 {

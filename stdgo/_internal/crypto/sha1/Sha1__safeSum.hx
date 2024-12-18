@@ -3,21 +3,23 @@ function _safeSum(_h:stdgo._internal.hash.Hash_Hash.Hash):{ var _0 : stdgo.Slice
         var __deferstack__:Array<Void -> Void> = [];
         var _sum = (null : stdgo.Slice<stdgo.GoUInt8>), _err = (null : stdgo.Error);
         try {
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    {
-                        var _r = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        } : stdgo.AnyInterface);
-                        if (_r != null) {
-                            _err = stdgo._internal.fmt.Fmt_errorf.errorf(("sum panic: %v" : stdgo.GoString), _r);
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        {
+                            var _r = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            } : stdgo.AnyInterface);
+                            if (_r != null) {
+                                _err = stdgo._internal.fmt.Fmt_errorf.errorf(("sum panic: %v" : stdgo.GoString), _r);
+                            };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             {
                 final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = {
                     final __tmp__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _h.sum((null : stdgo.Slice<stdgo.GoUInt8>)), _1 : (null : stdgo.Error) };

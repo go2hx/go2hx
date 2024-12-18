@@ -49,7 +49,10 @@ package stdgo._internal.crypto.tls;
                 return (null : stdgo.Error);
             };
             _c._handshakeMutex.lock();
-            __deferstack__.unshift(() -> _c._handshakeMutex.unlock());
+            {
+                final __f__ = _c._handshakeMutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _c._hand.write(_c._quic._readbuf);
             _c._quic._readbuf = (null : stdgo.Slice<stdgo.GoUInt8>);
             while (((_q._conn._hand.len() >= (4 : stdgo.GoInt) : Bool) && (_q._conn._handshakeErr == null) : Bool)) {

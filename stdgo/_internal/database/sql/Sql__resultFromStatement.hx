@@ -4,7 +4,10 @@ function _resultFromStatement(_ctx:stdgo._internal.context.Context_Context.Conte
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _ds.lock();
-            __deferstack__.unshift(() -> _ds.unlock());
+            {
+                final __f__ = _ds.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = stdgo._internal.database.sql.Sql__driverArgsConnLocked._driverArgsConnLocked(_ci, _ds, _args), _dargs:stdgo.Slice<stdgo._internal.database.sql.driver.Driver_NamedValue.NamedValue> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {

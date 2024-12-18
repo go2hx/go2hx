@@ -27,7 +27,10 @@ package stdgo._internal.runtime.pprof;
             if ((_b._deck._pcs.length) == ((0 : stdgo.GoInt))) {
                 return (0i64 : stdgo.GoUInt64);
             };
-            __deferstack__.unshift(() -> _b._deck._reset());
+            {
+                final __f__ = _b._deck._reset;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _addr = (_b._deck._pcs[(0 : stdgo.GoInt)] : stdgo.GoUIntptr);
             var _firstFrame = (_b._deck._frames[(0 : stdgo.GoInt)] : stdgo._internal.runtime.Runtime_Frame.Frame);
             {};

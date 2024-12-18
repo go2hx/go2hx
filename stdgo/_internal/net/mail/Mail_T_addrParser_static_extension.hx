@@ -286,12 +286,12 @@ package stdgo._internal.net.mail;
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
-        var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
         var _escaped_4210985:Bool = false;
+        var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
+        var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -474,19 +474,21 @@ package stdgo._internal.net.mail;
         try {
             stdgo._internal.net.mail.Mail__debug._debug.printf(("consumeAddrSpec: %q" : stdgo.GoString), stdgo.Go.toInterface(_p._s));
             var _orig = ((_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser)?.__copy__() : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (_err != null) {
-                        {
-                            var __tmp__ = _orig?.__copy__();
-                            var x = (_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser);
-                            x._s = __tmp__._s;
-                            x._dec = __tmp__._dec;
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (_err != null) {
+                            {
+                                var __tmp__ = _orig?.__copy__();
+                                var x = (_p : stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser);
+                                x._s = __tmp__._s;
+                                x._dec = __tmp__._dec;
+                            };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             var _localPart:stdgo.GoString = ("" : stdgo.GoString);
             _p._skipSpace();
             if (_p._empty()) {

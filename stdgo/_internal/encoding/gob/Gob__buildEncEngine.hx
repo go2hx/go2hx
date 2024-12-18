@@ -6,7 +6,10 @@ function _buildEncEngine(_info:stdgo.Ref<stdgo._internal.encoding.gob.Gob_T_type
                 return null;
             };
             _info._encInit.lock();
-            __deferstack__.unshift(() -> _info._encInit.unlock());
+            {
+                final __f__ = _info._encInit.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _enc = _info._encoder.load();
             if ((_enc == null || (_enc : Dynamic).__nil__)) {
                 if (_building == null) {

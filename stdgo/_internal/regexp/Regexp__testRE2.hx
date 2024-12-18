@@ -6,7 +6,10 @@ function _testRE2(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.T_>, _file:std
             if (_err != null) {
                 _t.fatal(stdgo.Go.toInterface(_err));
             };
-            __deferstack__.unshift(() -> _f.close());
+            {
+                final __f__ = _f.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _txt:stdgo._internal.io.Io_Reader.Reader = (null : stdgo._internal.io.Io_Reader.Reader);
             if (stdgo._internal.strings.Strings_hasSuffix.hasSuffix(_file?.__copy__(), (".bz2" : stdgo.GoString))) {
                 var _z = (stdgo._internal.compress.bzip2.Bzip2_newReader.newReader(stdgo.Go.asInterface(_f)) : stdgo._internal.io.Io_Reader.Reader);

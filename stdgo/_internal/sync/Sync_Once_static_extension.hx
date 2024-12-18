@@ -6,12 +6,16 @@ package stdgo._internal.sync;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _o._m.lock();
-            __deferstack__.unshift(() -> _o._m.unlock());
+            {
+                final __f__ = _o._m.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_o._done == ((0u32 : stdgo.GoUInt32))) {
                 {
                     var _a0 = stdgo.Go.pointer(_o._done);
                     var _a1 = (1u32 : stdgo.GoUInt32);
-                    __deferstack__.unshift(() -> stdgo._internal.sync.atomic_.Atomic__storeUint32.storeUint32(_a0, _a1));
+                    final __f__ = stdgo._internal.sync.atomic_.Atomic__storeUint32.storeUint32;
+                    __deferstack__.unshift(() -> __f__(_a0, _a1));
                 };
                 _f();
             };

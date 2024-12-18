@@ -23,7 +23,10 @@ package stdgo._internal.html.template;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t._nameSpace._mu.lock();
-            __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
+            {
+                final __f__ = _t._nameSpace._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = (_t._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>));
                 for (defer in __deferstack__) {
@@ -99,7 +102,10 @@ package stdgo._internal.html.template;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t._nameSpace._mu.lock();
-            __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
+            {
+                final __f__ = _t._nameSpace._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = _t._new(_name?.__copy__());
                 for (defer in __deferstack__) {
@@ -137,7 +143,10 @@ package stdgo._internal.html.template;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t._nameSpace._mu.lock();
-            __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
+            {
+                final __f__ = _t._nameSpace._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_t._escapeErr != null) {
                 {
                     final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : null, _1 : stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: cannot Clone %q after it has executed" : stdgo.GoString), stdgo.Go.toInterface(_t.name())) };
@@ -224,7 +233,10 @@ package stdgo._internal.html.template;
                 };
             };
             _t._nameSpace._mu.lock();
-            __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
+            {
+                final __f__ = _t._nameSpace._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = _t._text.addParseTree(_name?.__copy__(), _tree), _text:stdgo.Ref<stdgo._internal.text.template.Template_Template.Template> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 {
@@ -284,7 +296,10 @@ package stdgo._internal.html.template;
                 return { _0 : null, _1 : _err };
             };
             _t._nameSpace._mu.lock();
-            __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
+            {
+                final __f__ = _t._nameSpace._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (__54 => _v in _ret.templates()) {
                 var _name = (_v.name()?.__copy__() : stdgo.GoString);
                 var _tmpl = (_t._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>));
@@ -337,7 +352,10 @@ package stdgo._internal.html.template;
         var _tmpl = (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _err = (null : stdgo.Error);
         try {
             _t._nameSpace._mu.lock();
-            __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
+            {
+                final __f__ = _t._nameSpace._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _t._nameSpace._escaped = true;
             _tmpl = (_t._nameSpace._set[_name] ?? (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>));
             if ((_tmpl == null || (_tmpl : Dynamic).__nil__)) {
@@ -450,7 +468,10 @@ package stdgo._internal.html.template;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _t._nameSpace._mu.lock();
-            __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
+            {
+                final __f__ = _t._nameSpace._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _t._nameSpace._escaped = true;
             if (_t._escapeErr == null) {
                 if ((_t.tree == null || (_t.tree : Dynamic).__nil__)) {
@@ -522,7 +543,10 @@ package stdgo._internal.html.template;
                 return (null : stdgo.Error);
             };
             _t._nameSpace._mu.lock();
-            __deferstack__.unshift(() -> _t._nameSpace._mu.unlock());
+            {
+                final __f__ = _t._nameSpace._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_t._nameSpace._escaped) {
                 {
                     final __ret__:stdgo.Error = stdgo._internal.fmt.Fmt_errorf.errorf(("html/template: cannot Parse after Execute" : stdgo.GoString));
@@ -577,7 +601,10 @@ package stdgo._internal.html.template;
         try {
             var _ns = _t._nameSpace;
             _ns._mu.lock();
-            __deferstack__.unshift(() -> _ns._mu.unlock());
+            {
+                final __f__ = _ns._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _m = (new stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>((0 : stdgo.GoInt).toBasic(), (_ns._set.length)) : stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>);
             for (__14 => _v in _ns._set) {
                 _m = (_m.__append__(_v));

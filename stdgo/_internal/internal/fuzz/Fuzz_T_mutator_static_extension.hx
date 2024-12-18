@@ -6,15 +6,17 @@ package stdgo._internal.internal.fuzz;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _b = (_ptrB : stdgo.Slice<stdgo.GoUInt8>);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (stdgo._internal.unsafe.Unsafe_sliceData.sliceData((_ptrB : stdgo.Slice<stdgo.GoUInt8>)) != (stdgo._internal.unsafe.Unsafe_sliceData.sliceData(_b))) {
-                        throw stdgo.Go.toInterface(("data moved to new address" : stdgo.GoString));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (stdgo._internal.unsafe.Unsafe_sliceData.sliceData((_ptrB : stdgo.Slice<stdgo.GoUInt8>)) != (stdgo._internal.unsafe.Unsafe_sliceData.sliceData(_b))) {
+                            throw stdgo.Go.toInterface(("data moved to new address" : stdgo.GoString));
+                        };
+                        (_ptrB : stdgo.Slice<stdgo.GoUInt8>).__setData__(_b);
                     };
-                    (_ptrB : stdgo.Slice<stdgo.GoUInt8>).__setData__(_b);
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             while (true) {
                 var _mut = (stdgo._internal.internal.fuzz.Fuzz__byteSliceMutators._byteSliceMutators[(_m._rand((stdgo._internal.internal.fuzz.Fuzz__byteSliceMutators._byteSliceMutators.length)) : stdgo.GoInt)] : stdgo._internal.internal.fuzz.Fuzz_T_byteSliceMutator.T_byteSliceMutator);
                 {

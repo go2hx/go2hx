@@ -12,7 +12,10 @@ function serve(_l:stdgo._internal.net.Net_Listener.Listener, _handler:stdgo._int
                 if (_err != null) {
                     return _err;
                 };
-                __deferstack__.unshift(() -> _l.close());
+                {
+                    final __f__ = _l.close;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             if (_handler == null) {
                 _handler = stdgo.Go.asInterface(stdgo._internal.net.http.Http_defaultServeMux.defaultServeMux);

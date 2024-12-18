@@ -6,7 +6,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c.lock();
-            __deferstack__.unshift(() -> _c.unlock());
+            {
+                final __f__ = _c.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __tmp__ = (_c._m != null && _c._m.exists(_sessionKey?.__copy__()) ? { _0 : _c._m[_sessionKey?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _1 : false }), _elem:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {
@@ -57,7 +60,10 @@ package stdgo._internal.crypto.tls;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _c.lock();
-            __deferstack__.unshift(() -> _c.unlock());
+            {
+                final __f__ = _c.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __tmp__ = (_c._m != null && _c._m.exists(_sessionKey?.__copy__()) ? { _0 : _c._m[_sessionKey?.__copy__()], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _1 : false }), _elem:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (_ok) {

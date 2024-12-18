@@ -4,18 +4,20 @@ function testNewXxxBadRectangle(_t:stdgo.Ref<stdgo._internal.testing.Testing_T_.
             var __deferstack__:Array<Void -> Void> = [];
             var _ok = false;
             try {
-                __deferstack__.unshift(() -> ({
-                    var a = function():Void {
-                        if (({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        }) != null) {
-                            _ok = false;
+                {
+                    __deferstack__.unshift(() -> ({
+                        var a = function():Void {
+                            if (({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            }) != null) {
+                                _ok = false;
+                            };
                         };
-                    };
-                    a();
-                }));
+                        a();
+                    }));
+                };
                 _f(_r?.__copy__());
                 {
                     final __ret__:Bool = _ok = true;

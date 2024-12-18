@@ -62,7 +62,10 @@ package stdgo._internal.io;
                         __select__ = false;
                         {
                             _p._wrMu.lock();
-                            __deferstack__.unshift(() -> _p._wrMu.unlock());
+                            {
+                                final __f__ = _p._wrMu.unlock;
+                                __deferstack__.unshift(() -> __f__());
+                            };
                         };
                     };
                     #if !js Sys.sleep(0.01) #else null #end;

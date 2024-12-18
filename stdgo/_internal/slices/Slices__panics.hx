@@ -3,21 +3,23 @@ function _panics(_f:() -> Void):Bool {
         var __deferstack__:Array<Void -> Void> = [];
         var _b = false;
         try {
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    {
-                        var _x = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        } : stdgo.AnyInterface);
-                        if (_x != null) {
-                            _b = true;
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        {
+                            var _x = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            } : stdgo.AnyInterface);
+                            if (_x != null) {
+                                _b = true;
+                            };
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             _f();
             {
                 final __ret__:Bool = _b = false;

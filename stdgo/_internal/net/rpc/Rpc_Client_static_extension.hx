@@ -99,7 +99,10 @@ package stdgo._internal.net.rpc;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _client._reqMutex.lock();
-            __deferstack__.unshift(() -> _client._reqMutex.unlock());
+            {
+                final __f__ = _client._reqMutex.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _client._mutex.lock();
             if ((_client._shutdown || _client._closing : Bool)) {
                 _client._mutex.unlock();

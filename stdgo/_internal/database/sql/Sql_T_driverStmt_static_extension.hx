@@ -6,7 +6,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _ds.lock();
-            __deferstack__.unshift(() -> _ds.unlock());
+            {
+                final __f__ = _ds.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_ds._closed) {
                 {
                     final __ret__:stdgo.Error = _ds._closeErr;

@@ -3,7 +3,10 @@ function newProfile(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.ppro
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.runtime.pprof.Pprof__lockProfiles._lockProfiles();
-            __deferstack__.unshift(() -> stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles());
+            {
+                final __f__ = stdgo._internal.runtime.pprof.Pprof__unlockProfiles._unlockProfiles;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_name == (stdgo.Go.str())) {
                 throw stdgo.Go.toInterface(("pprof: NewProfile with empty name" : stdgo.GoString));
             };

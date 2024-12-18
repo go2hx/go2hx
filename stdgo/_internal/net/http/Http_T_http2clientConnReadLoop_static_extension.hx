@@ -13,7 +13,10 @@ package stdgo._internal.net.http;
             if (_f.isAck()) {
                 var _cc = _rl._cc;
                 _cc._mu.lock();
-                __deferstack__.unshift(() -> _cc._mu.unlock());
+                {
+                    final __f__ = _cc._mu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 {
                     var __tmp__ = (_cc._pings != null && _cc._pings.exists(_f.data?.__copy__()) ? { _0 : _cc._pings[_f.data?.__copy__()], _1 : true } : { _0 : (null : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>), _1 : false }), _c:stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError> = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (_ok) {
@@ -31,7 +34,10 @@ package stdgo._internal.net.http;
             };
             var _cc = _rl._cc;
             _cc._wmu.lock();
-            __deferstack__.unshift(() -> _cc._wmu.unlock());
+            {
+                final __f__ = _cc._wmu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _err = (_cc._fr.writePing(true, _f.data?.__copy__()) : stdgo.Error);
                 if (_err != null) {
@@ -107,7 +113,10 @@ package stdgo._internal.net.http;
                 return (null : stdgo.Error);
             };
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _fl = (stdgo.Go.setRef(_cc._flow) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2outflow.T_http2outflow>);
             if ((_cs != null && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__))) {
                 _fl = (stdgo.Go.setRef(_cs._flow) : stdgo.Ref<stdgo._internal.net.http.Http_T_http2outflow.T_http2outflow>);
@@ -160,7 +169,10 @@ package stdgo._internal.net.http;
         try {
             var _cc = _rl._cc;
             _cc._mu.lock();
-            __deferstack__.unshift(() -> _cc._mu.unlock());
+            {
+                final __f__ = _cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_f.isAck()) {
                 if (_cc._wantSettingsAck) {
                     _cc._wantSettingsAck = false;
@@ -262,7 +274,10 @@ package stdgo._internal.net.http;
         try {
             var _cc = _rl._cc;
             _cc._wmu.lock();
-            __deferstack__.unshift(() -> _cc._wmu.unlock());
+            {
+                final __f__ = _cc._wmu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _err = (_rl._processSettingsNoWrite(_f) : stdgo.Error);
                 if (_err != null) {
@@ -332,7 +347,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _rl._cc._mu.lock();
-            __deferstack__.unshift(() -> _rl._cc._mu.unlock());
+            {
+                final __f__ = _rl._cc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _cs = (_rl._cc._streams[_id] ?? (null : stdgo.Ref<stdgo._internal.net.http.Http_T_http2clientStream.T_http2clientStream>));
             if (((_cs != null && ((_cs : Dynamic).__nil__ == null || !(_cs : Dynamic).__nil__)) && !_cs._readAborted : Bool)) {
                 {
@@ -386,7 +404,10 @@ package stdgo._internal.net.http;
             if (!_cs._readClosed) {
                 _cs._readClosed = true;
                 _rl._cc._mu.lock();
-                __deferstack__.unshift(() -> _rl._cc._mu.unlock());
+                {
+                    final __f__ = _rl._cc._mu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 _cs._bufPipe._closeWithErrorAndCode(stdgo._internal.io.Io_eof.eof, _cs._copyTrailers);
                 if (_cs._peerClosed != null) _cs._peerClosed.__close__();
             };
@@ -734,7 +755,10 @@ package stdgo._internal.net.http;
             var _t:stdgo.Ref<stdgo._internal.time.Time_Timer.Timer> = (null : stdgo.Ref<stdgo._internal.time.Time_Timer.Timer>);
             if (_readIdleTimeout != ((0i64 : stdgo._internal.time.Time_Duration.Duration))) {
                 _t = stdgo._internal.time.Time_afterFunc.afterFunc(_readIdleTimeout, _cc._healthCheck);
-                __deferstack__.unshift(() -> _t.stop());
+                {
+                    final __f__ = _t.stop;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             while (true) {
                 var __tmp__ = _cc._fr.readFrame(), _f:stdgo._internal.net.http.Http_T_http2Frame.T_http2Frame = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -868,7 +892,10 @@ package stdgo._internal.net.http;
         try {
             var _cc = _rl._cc;
             _cc._t._connPool().markDead(_cc);
-            __deferstack__.unshift(() -> _cc._closeConn());
+            {
+                final __f__ = _cc._closeConn;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _a0 = _cc._readerDone;
                 __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());

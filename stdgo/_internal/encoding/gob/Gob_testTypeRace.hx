@@ -10,7 +10,10 @@ stdgo.Go.routine(() -> ({
                     var a = function(_i:stdgo.GoInt):Void {
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
-                            __deferstack__.unshift(() -> _wg.done());
+                            {
+                                final __f__ = _wg.done;
+                                __deferstack__.unshift(() -> __f__());
+                            };
                             var _buf:stdgo._internal.bytes.Bytes_Buffer.Buffer = ({} : stdgo._internal.bytes.Bytes_Buffer.Buffer);
                             var _enc = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));
                             var _dec = stdgo._internal.encoding.gob.Gob_newDecoder.newDecoder(stdgo.Go.asInterface((stdgo.Go.setRef(_buf) : stdgo.Ref<stdgo._internal.bytes.Bytes_Buffer.Buffer>)));

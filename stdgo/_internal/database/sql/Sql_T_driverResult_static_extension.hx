@@ -6,7 +6,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _dr.lock();
-            __deferstack__.unshift(() -> _dr.unlock());
+            {
+                final __f__ = _dr.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _dr._resi.rowsAffected();
                 for (defer in __deferstack__) {
@@ -44,7 +47,10 @@ package stdgo._internal.database.sql;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _dr.lock();
-            __deferstack__.unshift(() -> _dr.unlock());
+            {
+                final __f__ = _dr.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:{ var _0 : stdgo.GoInt64; var _1 : stdgo.Error; } = _dr._resi.lastInsertId();
                 for (defer in __deferstack__) {

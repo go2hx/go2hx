@@ -25,7 +25,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _pc._mu.lock();
-            __deferstack__.unshift(() -> _pc._mu.unlock());
+            {
+                final __f__ = _pc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _pc._closeLocked(_err);
             {
                 for (defer in __deferstack__) {
@@ -96,14 +99,16 @@ package stdgo._internal.net.http;
                 var _a0 = _gone;
                 __deferstack__.unshift(() -> if (_a0 != null) _a0.__close__());
             };
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (_err != null) {
-                        _pc._t._setReqCanceler(_req._cancelKey?.__copy__(), null);
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (_err != null) {
+                            _pc._t._setReqCanceler(_req._cancelKey?.__copy__(), null);
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             {};
             var _startBytesWritten = (_pc._nwrite : stdgo.GoInt64);
             var _writeErrCh = (new stdgo.Chan<stdgo.Error>((1 : stdgo.GoInt).toBasic(), () -> (null : stdgo.Error)) : stdgo.Chan<stdgo.Error>);
@@ -150,7 +155,10 @@ package stdgo._internal.net.http;
                                                 _req._logf(("starting timer for %v" : stdgo.GoString), stdgo.Go.toInterface(stdgo.Go.asInterface(_d)));
                                             };
                                             var _timer = stdgo._internal.time.Time_newTimer.newTimer(_d);
-                                            __deferstack__.unshift(() -> _timer.stop());
+                                            {
+                                                final __f__ = _timer.stop;
+                                                __deferstack__.unshift(() -> __f__());
+                                            };
                                             _respHeaderTimer = _timer.c;
                                         };
                                     };
@@ -313,7 +321,10 @@ package stdgo._internal.net.http;
                             __select__ = false;
                             {
                                 var _t = stdgo._internal.time.Time_newTimer.newTimer(stdgo._internal.net.http.Http__maxWriteWaitBeforeConnReuse._maxWriteWaitBeforeConnReuse);
-                                __deferstack__.unshift(() -> _t.stop());
+                                {
+                                    final __f__ = _t.stop;
+                                    __deferstack__.unshift(() -> __f__());
+                                };
                                 {
                                     {
                                         var __select__ = true;
@@ -495,7 +506,10 @@ package stdgo._internal.net.http;
             var __deferstack__:Array<Void -> Void> = [];
             try {
                 var _timer = stdgo._internal.time.Time_newTimer.newTimer(_pc._t.expectContinueTimeout);
-                __deferstack__.unshift(() -> _timer.stop());
+                {
+                    final __f__ = _timer.stop;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 {
                     {
                         var __select__ = true;
@@ -664,13 +678,15 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             var _closeErr = (stdgo._internal.net.http.Http__errReadLoopExiting._errReadLoopExiting : stdgo.Error);
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    _pc._close(_closeErr);
-                    _pc._t._removeIdleConn(_pc);
-                };
-                a();
-            }));
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        _pc._close(_closeErr);
+                        _pc._t._removeIdleConn(_pc);
+                    };
+                    a();
+                }));
+            };
             var _tryPutIdleConn = function(_trace:stdgo.Ref<stdgo._internal.net.http.httptrace.Httptrace_ClientTrace.ClientTrace>):Bool {
                 {
                     var _err = (_pc._t._tryPutIdleConn(_pc) : stdgo.Error);
@@ -982,7 +998,10 @@ package stdgo._internal.net.http;
         try {
             var _t = _pc._t;
             _t._idleMu.lock();
-            __deferstack__.unshift(() -> _t._idleMu.unlock());
+            {
+                final __f__ = _t._idleMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __tmp__ = (_t._idleLRU._m != null && _t._idleLRU._m.exists(_pc) ? { _0 : _t._idleLRU._m[_pc], _1 : true } : { _0 : (null : stdgo.Ref<stdgo._internal.container.list.List_Element.Element>), _1 : false }), __36032:stdgo.Ref<stdgo._internal.container.list.List_Element.Element> = __tmp__._0, _ok:Bool = __tmp__._1;
                 if (!_ok) {
@@ -1024,7 +1043,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _pc._mu.lock();
-            __deferstack__.unshift(() -> _pc._mu.unlock());
+            {
+                final __f__ = _pc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _pc._canceledErr = _err;
             _pc._closeLocked(stdgo._internal.net.http.Http__errRequestCanceled._errRequestCanceled);
             {
@@ -1056,7 +1078,10 @@ package stdgo._internal.net.http;
         var _t = ({} : stdgo._internal.net.http.httptrace.Httptrace_GotConnInfo.GotConnInfo);
         try {
             _pc._mu.lock();
-            __deferstack__.unshift(() -> _pc._mu.unlock());
+            {
+                final __f__ = _pc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             _t.reused = _pc._reused;
             _t.conn = _pc._conn;
             _t.wasIdle = true;
@@ -1105,7 +1130,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _pc._mu.lock();
-            __deferstack__.unshift(() -> _pc._mu.unlock());
+            {
+                final __f__ = _pc._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Error = _pc._canceledErr;
                 for (defer in __deferstack__) {

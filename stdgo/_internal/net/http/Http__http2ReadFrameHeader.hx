@@ -5,7 +5,8 @@ function _http2ReadFrameHeader(_r:stdgo._internal.io.Io_Reader.Reader):{ var _0 
             var _bufp = (stdgo.Go.typeAssert((stdgo._internal.net.http.Http__http2fhBytes._http2fhBytes.get() : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>)) : stdgo.Ref<stdgo.Slice<stdgo.GoUInt8>>);
             {
                 var _a0 = _bufp;
-                __deferstack__.unshift(() -> stdgo._internal.net.http.Http__http2fhBytes._http2fhBytes.put(stdgo.Go.toInterface(_a0)));
+                final __f__ = stdgo._internal.net.http.Http__http2fhBytes._http2fhBytes.put;
+                __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
             };
             {
                 final __ret__:{ var _0 : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader; var _1 : stdgo.Error; } = stdgo._internal.net.http.Http__http2readFrameHeader._http2readFrameHeader((_bufp : stdgo.Slice<stdgo.GoUInt8>), _r);

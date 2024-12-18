@@ -3,7 +3,10 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Refl
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.encoding.gob.Gob__typeLock._typeLock.lock();
-            __deferstack__.unshift(() -> stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock());
+            {
+                final __f__ = stdgo._internal.encoding.gob.Gob__typeLock._typeLock.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var __tmp__ = stdgo._internal.encoding.gob.Gob__getBaseType._getBaseType(_name?.__copy__(), _rt), _t:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 throw stdgo.Go.toInterface((("getTypeUnlocked: " : stdgo.GoString) + _err.error()?.__copy__() : stdgo.GoString));

@@ -22,7 +22,10 @@ package stdgo._internal.net.http;
             };
             var _c = _w._conn;
             _c._mu.lock();
-            __deferstack__.unshift(() -> _c._mu.unlock());
+            {
+                final __f__ = _c._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var __tmp__ = _c._hijackLocked();
                 _rwc = __tmp__._0;
@@ -297,7 +300,8 @@ package stdgo._internal.net.http;
             var _buf = (_bufp : stdgo.Slice<stdgo.GoUInt8>);
             {
                 var _a0 = _bufp;
-                __deferstack__.unshift(() -> stdgo._internal.net.http.Http__copyBufPool._copyBufPool.put(stdgo.Go.toInterface(_a0)));
+                final __f__ = stdgo._internal.net.http.Http__copyBufPool._copyBufPool.put;
+                __deferstack__.unshift(() -> __f__(stdgo.Go.toInterface(_a0)));
             };
             var __tmp__ = try {
                 { _0 : (stdgo.Go.typeAssert((stdgo.Go.toInterface(_w._conn._rwc) : stdgo._internal.io.Io_ReaderFrom.ReaderFrom)) : stdgo._internal.io.Io_ReaderFrom.ReaderFrom), _1 : true };

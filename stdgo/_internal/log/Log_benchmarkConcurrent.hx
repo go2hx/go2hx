@@ -17,7 +17,10 @@ stdgo.Go.routine(() -> ({
                                     _i++;
                                 };
                             };
-                            __deferstack__.unshift(() -> _group.done());
+                            {
+                                final __f__ = _group.done;
+                                __deferstack__.unshift(() -> __f__());
+                            };
                             {
                                 for (defer in __deferstack__) {
                                     defer();

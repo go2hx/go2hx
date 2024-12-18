@@ -10,24 +10,26 @@ function _isZeroValue(_flag:stdgo.Ref<stdgo._internal.flag.Flag_Flag.Flag>, _val
             } else {
                 _z = stdgo._internal.reflect.Reflect_zero.zero(_typ)?.__copy__();
             };
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    {
-                        var _e = ({
-                            final r = stdgo.Go.recover_exception;
-                            stdgo.Go.recover_exception = null;
-                            r;
-                        } : stdgo.AnyInterface);
-                        if (_e != null) {
-                            if (_typ.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
-                                _typ = _typ.elem();
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        {
+                            var _e = ({
+                                final r = stdgo.Go.recover_exception;
+                                stdgo.Go.recover_exception = null;
+                                r;
+                            } : stdgo.AnyInterface);
+                            if (_e != null) {
+                                if (_typ.kind() == ((22u32 : stdgo._internal.reflect.Reflect_Kind.Kind))) {
+                                    _typ = _typ.elem();
+                                };
+                                _err = stdgo._internal.fmt.Fmt_errorf.errorf(("panic calling String method on zero %v for flag %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(_flag.name), _e);
                             };
-                            _err = stdgo._internal.fmt.Fmt_errorf.errorf(("panic calling String method on zero %v for flag %s: %v" : stdgo.GoString), stdgo.Go.toInterface(_typ), stdgo.Go.toInterface(_flag.name), _e);
                         };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             {
                 final __ret__:{ var _0 : Bool; var _1 : stdgo.Error; } = {
                     final __tmp__:{ var _0 : Bool; var _1 : stdgo.Error; } = { _0 : _value == (((stdgo.Go.typeAssert((_z.interface_() : stdgo._internal.flag.Flag_Value.Value)) : stdgo._internal.flag.Flag_Value.Value).string() : stdgo.GoString)), _1 : (null : stdgo.Error) };

@@ -90,7 +90,10 @@ function _serveContent(_w:stdgo._internal.net.http.Http_ResponseWriter.ResponseW
                 var _mw = stdgo._internal.mime.multipart.Multipart_newWriter.newWriter(stdgo.Go.asInterface(_pw));
                 _w.header().set(("Content-Type" : stdgo.GoString), (("multipart/byteranges; boundary=" : stdgo.GoString) + _mw.boundary()?.__copy__() : stdgo.GoString)?.__copy__());
                 _sendContent = stdgo.Go.asInterface(_pr);
-                __deferstack__.unshift(() -> _pr.close());
+                {
+                    final __f__ = _pr.close;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 stdgo.Go.routine(() -> ({
                     var a = function():Void {
                         for (__132 => _ra in _ranges) {

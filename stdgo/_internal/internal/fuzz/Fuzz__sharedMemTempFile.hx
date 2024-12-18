@@ -12,15 +12,17 @@ function _sharedMemTempFile(_size:stdgo.GoInt):{ var _0 : stdgo.Ref<stdgo._inter
                     __tmp__;
                 };
             };
-            __deferstack__.unshift(() -> ({
-                var a = function():Void {
-                    if (_err != null) {
-                        _f.close();
-                        stdgo._internal.os.Os_remove.remove(_f.name()?.__copy__());
+            {
+                __deferstack__.unshift(() -> ({
+                    var a = function():Void {
+                        if (_err != null) {
+                            _f.close();
+                            stdgo._internal.os.Os_remove.remove(_f.name()?.__copy__());
+                        };
                     };
-                };
-                a();
-            }));
+                    a();
+                }));
+            };
             var _totalSize = (stdgo._internal.internal.fuzz.Fuzz__sharedMemSize._sharedMemSize(_size) : stdgo.GoInt);
             {
                 var _err = (_f.truncate((_totalSize : stdgo.GoInt64)) : stdgo.Error);

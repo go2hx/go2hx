@@ -52,7 +52,10 @@ package stdgo._internal.net.http;
             if (_err != null) {
                 return _err;
             };
-            __deferstack__.unshift(() -> _ln.close());
+            {
+                final __f__ = _ln.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 final __ret__:stdgo.Error = _srv.serveTLS(_ln, _certFile?.__copy__(), _keyFile?.__copy__());
                 for (defer in __deferstack__) {
@@ -136,7 +139,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._mu.lock();
-            __deferstack__.unshift(() -> _s._mu.unlock());
+            {
+                final __f__ = _s._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_s._activeConn == null) {
                 _s._activeConn = ({
                     final x = new stdgo.GoMap.GoRefMap<stdgo.Ref<stdgo._internal.net.http.Http_T_conn.T_conn>, stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>();
@@ -177,7 +183,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._mu.lock();
-            __deferstack__.unshift(() -> _s._mu.unlock());
+            {
+                final __f__ = _s._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_s._listeners == null) {
                 _s._listeners = ({
                     final x = new stdgo.GoMap.GoRefMap<stdgo.Ref<stdgo._internal.net.Net_Listener.Listener>, stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>();
@@ -270,7 +279,10 @@ package stdgo._internal.net.http;
             };
             var _origListener = (_l : stdgo._internal.net.Net_Listener.Listener);
             _l = stdgo.Go.asInterface((stdgo.Go.setRef(({ listener : _l } : stdgo._internal.net.http.Http_T_onceCloseListener.T_onceCloseListener)) : stdgo.Ref<stdgo._internal.net.http.Http_T_onceCloseListener.T_onceCloseListener>));
-            __deferstack__.unshift(() -> _l.close());
+            {
+                final __f__ = _l.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 var _err = (_srv._setupHTTP2_Serve() : stdgo.Error);
                 if (_err != null) {
@@ -293,7 +305,8 @@ package stdgo._internal.net.http;
             {
                 var _a0 = (stdgo.Go.setRef(_l) : stdgo.Ref<stdgo._internal.net.Net_Listener.Listener>);
                 var _a1 = false;
-                __deferstack__.unshift(() -> _srv._trackListener(_a0, _a1));
+                final __f__ = _srv._trackListener;
+                __deferstack__.unshift(() -> __f__(_a0, _a1));
             };
             var _baseCtx = (stdgo._internal.context.Context_background.background() : stdgo._internal.context.Context_Context.Context);
             if (_srv.baseContext != null) {
@@ -428,7 +441,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _s._mu.lock();
-            __deferstack__.unshift(() -> _s._mu.unlock());
+            {
+                final __f__ = _s._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _quiescent = (true : Bool);
             for (_c => _ in _s._activeConn) {
                 var __tmp__ = _c._getState(), _st:stdgo._internal.net.http.Http_ConnState.ConnState = __tmp__._0, _unixSec:stdgo.GoInt64 = __tmp__._1;
@@ -500,7 +516,10 @@ package stdgo._internal.net.http;
                 return _interval;
             } : () -> stdgo._internal.time.Time_Duration.Duration);
             var _timer = stdgo._internal.time.Time_newTimer.newTimer(_nextPollInterval());
-            __deferstack__.unshift(() -> _timer.stop());
+            {
+                final __f__ = _timer.stop;
+                __deferstack__.unshift(() -> __f__());
+            };
             while (true) {
                 if (_srv._closeIdleConns()) {
                     {
@@ -572,7 +591,10 @@ package stdgo._internal.net.http;
         try {
             _srv._inShutdown.store(true);
             _srv._mu.lock();
-            __deferstack__.unshift(() -> _srv._mu.unlock());
+            {
+                final __f__ = _srv._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _err = (_srv._closeListenersLocked() : stdgo.Error);
             _srv._mu.unlock();
             _srv._listenerGroup.wait_();

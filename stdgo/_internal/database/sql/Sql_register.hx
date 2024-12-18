@@ -3,7 +3,10 @@ function register(_name:stdgo.GoString, _driver:stdgo._internal.database.sql.dri
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo._internal.database.sql.Sql__driversMu._driversMu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.database.sql.Sql__driversMu._driversMu.unlock());
+            {
+                final __f__ = stdgo._internal.database.sql.Sql__driversMu._driversMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_driver == null) {
                 throw stdgo.Go.toInterface(("sql: Register driver is nil" : stdgo.GoString));
             };

@@ -20,7 +20,10 @@ package stdgo._internal.log.syslog;
         try {
             var _pr = (((_w._priority & (248 : stdgo._internal.log.syslog.Syslog_Priority.Priority) : stdgo._internal.log.syslog.Syslog_Priority.Priority)) | ((_p & (7 : stdgo._internal.log.syslog.Syslog_Priority.Priority) : stdgo._internal.log.syslog.Syslog_Priority.Priority)) : stdgo._internal.log.syslog.Syslog_Priority.Priority);
             _w._mu.lock();
-            __deferstack__.unshift(() -> _w._mu.unlock());
+            {
+                final __f__ = _w._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_w._conn != null) {
                 {
                     var __tmp__ = _w._write(_pr, _s?.__copy__()), _n:stdgo.GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -132,7 +135,10 @@ package stdgo._internal.log.syslog;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _w._mu.lock();
-            __deferstack__.unshift(() -> _w._mu.unlock());
+            {
+                final __f__ = _w._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_w._conn != null) {
                 var _err = (_w._conn._close() : stdgo.Error);
                 _w._conn = (null : stdgo._internal.log.syslog.Syslog_T_serverConn.T_serverConn);

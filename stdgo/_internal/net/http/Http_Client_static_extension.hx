@@ -124,12 +124,14 @@ var _icookies = __1, _ireqhdr = __0;
         var _retres = (null : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>), _reterr = (null : stdgo.Error);
         try {
             if (stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult != null) {
-                __deferstack__.unshift(() -> ({
-                    var a = function():Void {
-                        stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult(_retres, _reterr);
-                    };
-                    a();
-                }));
+                {
+                    __deferstack__.unshift(() -> ({
+                        var a = function():Void {
+                            stdgo._internal.net.http.Http__testHookClientDoResult._testHookClientDoResult(_retres, _reterr);
+                        };
+                        a();
+                    }));
+                };
             };
             if ((_req.url == null || (_req.url : Dynamic).__nil__)) {
                 _req._closeBody();

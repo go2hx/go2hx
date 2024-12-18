@@ -12,7 +12,10 @@ function _setMimeTypes(_lowerExt:stdgo.GoMap<stdgo.GoString, stdgo.GoString>, _m
                 stdgo._internal.mime.Mime__mimeTypes._mimeTypes.store(stdgo.Go.toInterface(_k), stdgo.Go.toInterface(_v));
             };
             stdgo._internal.mime.Mime__extensionsMu._extensionsMu.lock();
-            __deferstack__.unshift(() -> stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock());
+            {
+                final __f__ = stdgo._internal.mime.Mime__extensionsMu._extensionsMu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             for (_k => _v in _lowerExt) {
                 var __tmp__ = stdgo._internal.mime.Mime_parseMediaType.parseMediaType(_v?.__copy__()), _justType:stdgo.GoString = __tmp__._0, __0:stdgo.GoMap<stdgo.GoString, stdgo.GoString> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (_err != null) {

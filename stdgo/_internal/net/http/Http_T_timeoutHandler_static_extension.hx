@@ -13,7 +13,10 @@ package stdgo._internal.net.http;
                     _ctx = __tmp__._0;
                     _cancelCtx = __tmp__._1;
                 };
-                __deferstack__.unshift(() -> _cancelCtx());
+                {
+                    final __f__ = _cancelCtx;
+                    __deferstack__.unshift(() -> __f__());
+                };
             };
             _r = _r.withContext(_ctx);
             var _done = (new stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>(0, () -> ({} : stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError)) : stdgo.Chan<stdgo._internal.net.http.Http_T_http2goAwayFlowError.T_http2goAwayFlowError>);
@@ -28,21 +31,23 @@ package stdgo._internal.net.http;
                 var a = function():Void {
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
-                        __deferstack__.unshift(() -> ({
-                            var a = function():Void {
-                                {
-                                    var _p = ({
-                                        final r = stdgo.Go.recover_exception;
-                                        stdgo.Go.recover_exception = null;
-                                        r;
-                                    } : stdgo.AnyInterface);
-                                    if (_p != null) {
-                                        _panicChan.__send__(_p);
+                        {
+                            __deferstack__.unshift(() -> ({
+                                var a = function():Void {
+                                    {
+                                        var _p = ({
+                                            final r = stdgo.Go.recover_exception;
+                                            stdgo.Go.recover_exception = null;
+                                            r;
+                                        } : stdgo.AnyInterface);
+                                        if (_p != null) {
+                                            _panicChan.__send__(_p);
+                                        };
                                     };
                                 };
-                            };
-                            a();
-                        }));
+                                a();
+                            }));
+                        };
                         _h._handler.serveHTTP(stdgo.Go.asInterface(_tw), _r);
                         if (_done != null) _done.__close__();
                         {
@@ -86,7 +91,10 @@ package stdgo._internal.net.http;
                             _done.__get__();
                             {
                                 _tw._mu.lock();
-                                __deferstack__.unshift(() -> _tw._mu.unlock());
+                                {
+                                    final __f__ = _tw._mu.unlock;
+                                    __deferstack__.unshift(() -> __f__());
+                                };
                                 var _dst = (_w.header() : stdgo._internal.net.http.Http_Header.Header);
                                 for (_k => _vv in _tw._h) {
                                     _dst[_k] = _vv;
@@ -104,7 +112,10 @@ package stdgo._internal.net.http;
                             _ctx.done().__get__();
                             {
                                 _tw._mu.lock();
-                                __deferstack__.unshift(() -> _tw._mu.unlock());
+                                {
+                                    final __f__ = _tw._mu.unlock;
+                                    __deferstack__.unshift(() -> __f__());
+                                };
                                 {
                                     var _err = (_ctx.err() : stdgo.Error);
                                     {

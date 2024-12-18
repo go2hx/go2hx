@@ -6,7 +6,10 @@ function _loadMimeFile(_filename:stdgo.GoString):Void {
             if (_err != null) {
                 return;
             };
-            __deferstack__.unshift(() -> _f.close());
+            {
+                final __f__ = _f.close;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _scanner = stdgo._internal.bufio.Bufio_newScanner.newScanner(stdgo.Go.asInterface(_f));
             while (_scanner.scan()) {
                 var _fields = stdgo._internal.strings.Strings_fields.fields(_scanner.text()?.__copy__());

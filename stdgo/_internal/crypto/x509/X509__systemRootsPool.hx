@@ -4,7 +4,10 @@ function _systemRootsPool():stdgo.Ref<stdgo._internal.crypto.x509.X509_CertPool.
         try {
             stdgo._internal.crypto.x509.X509__once._once.do_(stdgo._internal.crypto.x509.X509__initSystemRoots._initSystemRoots);
             stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.rlock();
-            __deferstack__.unshift(() -> stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.runlock());
+            {
+                final __f__ = stdgo._internal.crypto.x509.X509__systemRootsMu._systemRootsMu.runlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             {
                 for (defer in __deferstack__) {
                     defer();

@@ -11,7 +11,10 @@ function dial(_network:stdgo.GoString, _raddr:stdgo.GoString, _priority:stdgo._i
             var __tmp__ = stdgo._internal.os.Os_hostname.hostname(), _hostname:stdgo.GoString = __tmp__._0, __4:stdgo.Error = __tmp__._1;
             var _w = (stdgo.Go.setRef(({ _priority : _priority, _tag : _tag?.__copy__(), _hostname : _hostname?.__copy__(), _network : _network?.__copy__(), _raddr : _raddr?.__copy__() } : stdgo._internal.log.syslog.Syslog_Writer.Writer)) : stdgo.Ref<stdgo._internal.log.syslog.Syslog_Writer.Writer>);
             _w._mu.lock();
-            __deferstack__.unshift(() -> _w._mu.unlock());
+            {
+                final __f__ = _w._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             var _err = (_w._connect() : stdgo.Error);
             if (_err != null) {
                 {

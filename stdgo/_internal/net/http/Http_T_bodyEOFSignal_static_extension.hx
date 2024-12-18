@@ -16,7 +16,10 @@ package stdgo._internal.net.http;
         var __deferstack__:Array<Void -> Void> = [];
         try {
             _es._mu.lock();
-            __deferstack__.unshift(() -> _es._mu.unlock());
+            {
+                final __f__ = _es._mu.unlock;
+                __deferstack__.unshift(() -> __f__());
+            };
             if (_es._closed) {
                 {
                     final __ret__:stdgo.Error = (null : stdgo.Error);
@@ -101,7 +104,10 @@ var _rerr = __1, _closed = __0;
             };
             if (_err != null) {
                 _es._mu.lock();
-                __deferstack__.unshift(() -> _es._mu.unlock());
+                {
+                    final __f__ = _es._mu.unlock;
+                    __deferstack__.unshift(() -> __f__());
+                };
                 if (_es._rerr == null) {
                     _es._rerr = _err;
                 };

@@ -220,9 +220,10 @@ function directlyAssignable(t:Type, v:Type):Bool {
 					false;
 			}
 		case interfaceType(_):
-			var bType = new stdgo._internal.internal.reflect.Reflect._Type(vgt);
+			false;
+			/*var bType = new stdgo._internal.internal.reflect.Reflect._Type(vgt);
 			final b = new stdgo._internal.internal.reflect.Reflect._Type(tgt).implements_(cast new stdgo._internal.internal.reflect.Reflect._Type_asInterface(new Pointer(() -> bType, value -> bType = value), bType));
-			b;
+			b;*/
 		case signature(_, _.get() => input, _.get() => output, _):
 			switch vgt {
 				case signature(_, _.get() => input2, _.get() => output2, _):

@@ -4107,7 +4107,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						return returnExpr(macro($e.__append__($a{args}))).expr;
 					case "copy":
 						genArgs(false);
-						return returnExpr(macro stdgo.Go.copySlice($a{args})).expr;
+						//return returnExpr(macro stdgo.Go.copySlice($a{args})).expr;
+						return returnExpr(macro ${args[0]}.__copyTo__($a{args.slice(1)})).expr;
 					case "delete":
 						var e = typeExpr(expr.args[0], info);
 						var key = typeExpr(expr.args[1], info);
@@ -7908,13 +7909,16 @@ private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<
 			}
 			final name = nameIdent(nameStr, false, true, info);
 			info.localIdents.remove(name);
+			var e = macro $tmpExpr.$fieldName;
+			final toType = typeof(value.names[i], info, false);
+			e = assignTranslate(t,toType, e, info, false);
 			values.push({
 				name: name,
 				pos: {min: posMin, max: 0, file: ""},
 				pack: [],
 				fields: [],
 				isExtern: isTitle(value.names[i]?.name ?? ""),
-				kind: TDField(FVar(type, macro $tmpExpr.$fieldName), [])
+				kind: TDField(FVar(type, e), [])
 			});
 		}
 		if (emptyNames)

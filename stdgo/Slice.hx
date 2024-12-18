@@ -171,4 +171,17 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 		@:privateAccess data.isString = data.isString;
 		#end
 	}
+
+	public function __copyTo__(src:Slice<T>):GoInt {
+		final dst:Slice<T> = this;
+		return if (src == null || dst == null) {
+			0;
+		} else {
+			final min:Int = src.length > dst.length ? dst.length : src.length;
+			for (i in 0...min) {
+				dst[i] = src[i];
+			}
+			min;
+		}
+	}
 }

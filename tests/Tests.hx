@@ -17,6 +17,7 @@ var globalPath = "";
 var logOutput:FileOutput = null;
 var startStamp = 0.0;
 var tests:Array<String> = [];
+var ranTests:Array<String> = [];
 var outputMap:Map<String,String> = [];
 var tasks:Array<TaskData> = [];
 var type:String = "";
@@ -140,20 +141,27 @@ private function runTests() {
 	if (tinygoBool)
 		testTinyGo();
 	tests.sort((a, b) -> a > b ? 1 : -1); // consistent across os targets
-	if (offset > 0) {
-		tests = tests.slice(offset > tests.length ? tests.length : offset);
-	}
-	if (testCount > 0) {
-		tests = tests.slice(0, tests.length < testCount ? tests.length : testCount);
-	}
 	if (run != "") {
 		tests = tests.filter((v) -> v.indexOf(run) != -1);
 		tasks = tasks.filter((v) -> v.path.indexOf(run) != -1);
 		trace(tests);
 	}
+	if (testCount > 0) {
+		tests = tests.slice(0, tests.length < testCount ? tests.length : testCount);
+	}
+	if (offset > 0) {
+		tests = tests.slice(offset > tests.length ? tests.length : offset);
+	}
 	if (runOnly != "") {
 		tests = tests.filter(v -> v == runOnly);
 		tasks = tasks.filter(v -> v.path == runOnly);
+	}
+	ranTests = [];
+	for (test in tests) {
+		for (target in targets) {
+			final path = Path.withoutDirectory(Path.withoutExtension(test));
+			ranTests.push('$target|$path');
+		}
 	}
 }
 
@@ -245,7 +253,7 @@ function update() {
 		});
 		ls.on('close', function(code) {
 			if (code == 0) {
-				if (task.runtime) {
+				if (task.runtime || task.target == "interp") {
 					final wanted = outputMap[type + "_" + task.path];
 					if (wanted != null && wanted != "") {
 						final output = task.output;
@@ -272,7 +280,7 @@ function update() {
 					}else{
 						suite.success(task);
 					}
-				}else if (task.target != "interp") {
+				}else {
 					final cmd = Main.runTarget(task.target,"golibs/" + task.out,[],task.main).split(" ");
 					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: ""});
 				}
@@ -394,20 +402,13 @@ private function close() {
 	log("======= SUMMARY RESULTS ======");
 	function calc(count:Int, total:Int):String {
 		if (count == 0)
-			return "0%";
+			return "0 0%";
 		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
 	}
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode);
 	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	// remove targets that don't exist
-	output = output.filter((v) -> {
-		final parts = v.split("|");
-		final target = parts[0];
-		final path = parts[1];
-		if (targets.indexOf(target) == -1)
-			return false;
-		return true;
-	});
+	output = ranTests.copy();
 	log('--> $type');
 	log('      correct output: ' + calc(suite.correctCount, suite.count));
 	log('    incorrect output: ' + calc(suite.incorrectCount, suite.count));
@@ -447,7 +448,7 @@ private function close() {
 		}
 	}
 	var code = 0;
-	if (testCount == 0 && offset == 0 && run == "" && (failedRegressionTasks.length > 0 || output.length > 0)) {
+	if (failedRegressionTasks.length > 0) {
 		log('         regression results: ');
 		for (obj in output)
 			log(obj);
@@ -461,12 +462,17 @@ private function close() {
 			dryRun = false;
 			return;
 		}
-	}else {
+	}else{
 		input.sort((a, b) -> a > b ? 1 : -1);
 		final filePath = 'tests/$testName.json';
-		final fileContent = Json.stringify(input, null, " ");
+		var outputFile:Array<String> = FileSystem.exists(filePath) ? Json.parse(File.getContent(filePath)) : [];
+		for (path in input) {
+			if (outputFile.indexOf(path) == -1)
+				outputFile.push(path);
+		}
+		final fileContent = Json.stringify(outputFile , null, " ");
 		Sys.println(' Saving file: $filePath:\n\n$fileContent');
-		File.saveContent(filePath, fileContent);
+		//File.saveContent(filePath, fileContent);
 		trace(testCount == 0, offset == 0, output.length > 0, run == "");
 	}
 	logOutput.close();
@@ -579,33 +585,43 @@ class TestSuite {
 	public function new() {}
 
 	public function buildError(task:TaskData) {
-		dataList.push({path: task.path, target: task.target, build: false, task: task, passing: false, incorrect: false, correct: false});
+		addData({path: task.path, target: task.target, build: false, task: task, passing: false, incorrect: false, correct: false});
 		buildErrorCount++;
 		count++;
 	}
 
 	public function runtimeError(task:TaskData) {
-		dataList.push({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: false, correct: false});
+		addData({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: false, correct: false});
 		runtimeErrorCount++;
 		count++;
 	}
 
 	public function success(task:TaskData) { // passess running the test
-		dataList.push({path: task.path, target: task.target, build: true, task: task, passing: true, incorrect: false, correct: false});
+		addData({path: task.path, target: task.target, build: true, task: task, passing: true, incorrect: false, correct: false});
 		successCount++;
 		count++;
 	}
 
 	public function correct(task:TaskData) { // correct matching output
-		dataList.push({path: task.path, target: task.target, build: true, task: task, passing: true, incorrect: false, correct: true});
+		addData({path: task.path, target: task.target, build: true, task: task, passing: true, incorrect: false, correct: true});
 		correctCount++;
 		count++;
 	}
 
 	public function incorrect(task:TaskData) { // incorrect matching output
-		dataList.push({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: true, correct: false});
+		addData({path: task.path, target: task.target, build: true, task: task, passing: false, incorrect: true, correct: false});
 		incorrectCount++;
 		count++;
+	}
+
+	private function addData(data:TestSuiteData) {
+		for (i in 0...dataList.length) {
+			if (dataList[i].target == data.target && dataList[i].path == data.path) {
+				dataList[i] = data;
+				return;
+			}
+		}
+		dataList.push(data);
 	}
 }
 

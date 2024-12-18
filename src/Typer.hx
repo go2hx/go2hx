@@ -1396,14 +1396,15 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 		exprs.push(macro var $name = $arg);
 		stmt.call.args[i] = {id: "Ident", name: 'a$i', type: stmt.call.args[i].type}; // switch out call arguments
 	}
+	exprs.push(macro final __f__ = ${typeExpr(stmt.call.fun,info)});
+	localIdents.push("__f__");
+	stmt.call.fun = {id: "Ident", name: '_f__', type: stmt.call.fun.type};
 	info.localIdents = info.localIdents.concat(localIdents);
 	// otherwise its Ident, Selector etc
 	var call = toExpr(typeCallExpr(stmt.call, info));
 	info.localIdents = info.localIdents.slice(0, info.localIdents.length - localIdents.length);
 	var e = macro __deferstack__.unshift(() -> $call);
-	if (exprs.length > 0)
-		return EBlock(exprs.concat([e]));
-	return e.expr;
+	return EBlock(exprs.concat([e]));
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for stmt

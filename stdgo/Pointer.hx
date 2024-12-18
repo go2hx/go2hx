@@ -13,6 +13,8 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 		return this.address;
 
 	private function get_value():T {
+		if (this == null)
+			throw "invalid memory address or nil pointer dereference";
 		if (this.assign != null) {
 			value = this.assign();
 			this.assign = null;
@@ -94,8 +96,9 @@ class PointerData<T> {
 		globalAddressMutex.release();
 	}
 
-	public function toString():String
+	public function toString():String {
 		return '0x$address';
+	}
 }
 
 var globalAddress = 0;

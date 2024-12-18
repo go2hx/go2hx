@@ -21,7 +21,7 @@ func main() {
 
 func f() {
 	defer func() {
-		println(recover())
+		println(recover().(string))
 		b = true
 	}()
 	goto JUMP

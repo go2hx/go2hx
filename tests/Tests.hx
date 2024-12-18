@@ -43,8 +43,6 @@ function main() {
 	final targetsDefine = Compiler.getDefine("targets");
 	if (targetsDefine != null)
 		targets = targetsDefine.split(",");
-	if (Compiler.getDefine("target_hxcpp") != null)
-		targets = ["cpp"];
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
 	// logs
@@ -274,7 +272,7 @@ function update() {
 					}else{
 						suite.success(task);
 					}
-				}else{
+				}else if (task.target != "interp") {
 					final cmd = Main.runTarget(task.target,"golibs/" + task.out,[],task.main).split(" ");
 					tasks.push({command:cmd[0], args: cmd.slice(1), target: task.target, path: task.path, runtime: true, out: "", main: ""});
 				}

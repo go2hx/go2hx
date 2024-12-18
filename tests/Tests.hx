@@ -408,7 +408,7 @@ private function close() {
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode);
 	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	// remove targets that don't exist
-	output = ranTests.copy();
+	output = output.filter(o -> ranTests.indexOf(o) == -1);
 	log('--> $type');
 	log('      correct output: ' + calc(suite.correctCount, suite.count));
 	log('    incorrect output: ' + calc(suite.incorrectCount, suite.count));

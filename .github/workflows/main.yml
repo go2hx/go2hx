@@ -1607,24 +1607,6 @@ jobs:
             commit_message: yaegi medium tests update lua
             file_pattern: '*.json *.md'
             disable_globbing: true
-  cpp-hl:
-    - name: setup c++
-      run: sudo apt install g++-multilib
-  cpp-jvm:
-    - name: setup c++
-      run: sudo apt install g++-multilib
-  cpp-interp:
-    - name: setup c++
-      run: sudo apt install g++-multilib
-  cpp-js:
-    - name: setup c++
-      run: sudo apt install g++-multilib
-  cpp-php:
-    - name: setup c++
-      run: sudo apt install g++-multilib
-  cpp-lua:
-    - name: setup c++
-      run: sudo apt install g++-multilib
   build-hl:
     
     timeout-minutes: 26

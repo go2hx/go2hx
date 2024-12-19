@@ -11,7 +11,7 @@ final targets = [
     "jvm",    // 1
     "interp", // 1
     //"cpp",    // 2
-    //"hxcppia", // 2 TODO
+    //"cppia", // 2 TODO
     "js",     // 1
     "php",    // 1
     "lua",    // 2
@@ -28,7 +28,7 @@ function main() {
         if (path == "main.yml")
             continue;
         final name = Path.withoutExtension(path);
-        if (targets.indexOf(name) != -1)
+        if (targets.indexOf(name) != -1 || path == "cppia.yml")
             continue;
         trace(path);
         for (target in targets) {

@@ -59,20 +59,30 @@ jobs:
             ./go2hx.*.zip
           key: ${{ github.sha }}-build-${{ env.cache-name }}
   goto:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-go@v3
-      continue-on-error: true
-      with:
-        go-version: '1.21.3' # The Go version to download (if necessary) and use.
-    - name: Create vendor
-      run: go mod vendor
-    - run: go run . -goto
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        continue-on-error: true
+        with:
+          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - name: Create vendor
+        run: go mod vendor
+      - run: go run . -goto
   pointer:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-go@v3
-      continue-on-error: true
-      with:
-        go-version: '1.21.3' # The Go version to download (if necessary) and use.
-    - name: Create vendor
-      run: go mod vendor
-    - run: go run . -pointer
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-go@v3
+        continue-on-error: true
+        with:
+          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - name: Create vendor
+        run: go mod vendor
+      - run: go run . -pointer

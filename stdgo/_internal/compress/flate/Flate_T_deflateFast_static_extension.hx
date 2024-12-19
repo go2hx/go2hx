@@ -77,23 +77,23 @@ package stdgo._internal.compress.flate;
     @:keep
     static public function _encode( _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast>, _dst:stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token>, _src:stdgo.Slice<stdgo.GoUInt8>):stdgo.Slice<stdgo._internal.compress.flate.Flate_T_token.T_token> {
         @:recv var _e:stdgo.Ref<stdgo._internal.compress.flate.Flate_T_deflateFast.T_deflateFast> = _e;
-        var _x_3722699:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _nextHash_3719667:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _prevHash_3722724:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _candidate_3720580:stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry = ({} : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
-        var _sLimit_3719497:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _currHash_3722849:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _t_3722022:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _offset_3720959:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _bytesBetweenHashLookups_3720625:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _s_3719630:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _nextEmit_3719608:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _l_3722059:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _now_3720833:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _skip_3720542:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _cv_3719645:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
-        var _offset_3723003:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var _nextS_3720563:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _offset_3671374:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _nextS_3670978:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _skip_3670957:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _s_3670045:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _x_3673114:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _sLimit_3669912:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _now_3671248:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _nextHash_3670082:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _cv_3670060:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _nextEmit_3670023:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _offset_3673418:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _currHash_3673264:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _prevHash_3673139:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _l_3672474:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _t_3672437:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _bytesBetweenHashLookups_3671040:stdgo.GoInt32 = (0 : stdgo.GoInt32);
+        var _candidate_3670995:stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry = ({} : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -101,132 +101,132 @@ package stdgo._internal.compress.flate;
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
                     if ((_e._cur >= (2147352577 : stdgo.GoInt32) : Bool)) {
-                        _gotoNext = 3719051i32;
+                        _gotoNext = 3669466i32;
                     } else {
-                        _gotoNext = 3719195i32;
+                        _gotoNext = 3669610i32;
                     };
-                } else if (__value__ == (3719051i32)) {
+                } else if (__value__ == (3669466i32)) {
                     _e._shiftOffsets();
-                    _gotoNext = 3719195i32;
-                } else if (__value__ == (3719195i32)) {
+                    _gotoNext = 3669610i32;
+                } else if (__value__ == (3669610i32)) {
                     if (((_src.length) < (17 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 3719232i32;
+                        _gotoNext = 3669647i32;
                     } else {
-                        _gotoNext = 3719497i32;
+                        _gotoNext = 3669912i32;
                     };
-                } else if (__value__ == (3719232i32)) {
+                } else if (__value__ == (3669647i32)) {
                     _e._cur = (_e._cur + ((65535 : stdgo.GoInt32)) : stdgo.GoInt32);
                     _e._prev = (_e._prev.__slice__(0, (0 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     return stdgo._internal.compress.flate.Flate__emitLiteral._emitLiteral(_dst, _src);
-                    _gotoNext = 3719497i32;
-                } else if (__value__ == (3719497i32)) {
-                    _sLimit_3719497 = (((_src.length) - (15 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32);
-                    _nextEmit_3719608 = (0 : stdgo.GoInt32);
-                    _s_3719630 = (0 : stdgo.GoInt32);
-                    _cv_3719645 = stdgo._internal.compress.flate.Flate__load32._load32(_src, _s_3719630);
-                    _nextHash_3719667 = stdgo._internal.compress.flate.Flate__hash._hash(_cv_3719645);
+                    _gotoNext = 3669912i32;
+                } else if (__value__ == (3669912i32)) {
+                    _sLimit_3669912 = (((_src.length) - (15 : stdgo.GoInt) : stdgo.GoInt) : stdgo.GoInt32);
+                    _nextEmit_3670023 = (0 : stdgo.GoInt32);
+                    _s_3670045 = (0 : stdgo.GoInt32);
+                    _cv_3670060 = stdgo._internal.compress.flate.Flate__load32._load32(_src, _s_3670045);
+                    _nextHash_3670082 = stdgo._internal.compress.flate.Flate__hash._hash(_cv_3670060);
                     var __blank__ = 0i32;
-                    _gotoNext = 3719690i32;
-                } else if (__value__ == (3719690i32)) {
+                    _gotoNext = 3670105i32;
+                } else if (__value__ == (3670105i32)) {
                     if (true) {
-                        _gotoNext = 3719694i32;
+                        _gotoNext = 3670109i32;
                     } else {
-                        _gotoNext = 3723185i32;
+                        _gotoNext = 3673600i32;
                     };
-                } else if (__value__ == (3719694i32)) {
-                    _skip_3720542 = (32 : stdgo.GoInt32);
-                    _nextS_3720563 = _s_3719630;
+                } else if (__value__ == (3670109i32)) {
+                    _skip_3670957 = (32 : stdgo.GoInt32);
+                    _nextS_3670978 = _s_3670045;
                     var __blank__ = 0i32;
-                    _gotoNext = 3720603i32;
-                } else if (__value__ == (3720603i32)) {
+                    _gotoNext = 3671018i32;
+                } else if (__value__ == (3671018i32)) {
                     if (true) {
-                        _gotoNext = 3720607i32;
+                        _gotoNext = 3671022i32;
                     } else {
-                        _gotoNext = 3721312i32;
+                        _gotoNext = 3671727i32;
                     };
-                } else if (__value__ == (3720607i32)) {
-                    _s_3719630 = _nextS_3720563;
-                    _bytesBetweenHashLookups_3720625 = (_skip_3720542 >> (5i64 : stdgo.GoUInt64) : stdgo.GoInt32);
-                    _nextS_3720563 = (_s_3719630 + _bytesBetweenHashLookups_3720625 : stdgo.GoInt32);
-                    _skip_3720542 = (_skip_3720542 + (_bytesBetweenHashLookups_3720625) : stdgo.GoInt32);
-                    if ((_nextS_3720563 > _sLimit_3719497 : Bool)) {
-                        _gotoNext = 3720757i32;
+                } else if (__value__ == (3671022i32)) {
+                    _s_3670045 = _nextS_3670978;
+                    _bytesBetweenHashLookups_3671040 = (_skip_3670957 >> (5i64 : stdgo.GoUInt64) : stdgo.GoInt32);
+                    _nextS_3670978 = (_s_3670045 + _bytesBetweenHashLookups_3671040 : stdgo.GoInt32);
+                    _skip_3670957 = (_skip_3670957 + (_bytesBetweenHashLookups_3671040) : stdgo.GoInt32);
+                    if ((_nextS_3670978 > _sLimit_3669912 : Bool)) {
+                        _gotoNext = 3671172i32;
                     } else {
-                        _gotoNext = 3720790i32;
+                        _gotoNext = 3671205i32;
                     };
-                } else if (__value__ == (3720757i32)) {
-                    _gotoNext = 3723185i32;
-                } else if (__value__ == (3720790i32)) {
-                    _candidate_3720580 = _e._table[((_nextHash_3719667 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
-                    _now_3720833 = stdgo._internal.compress.flate.Flate__load32._load32(_src, _nextS_3720563);
-                    _e._table[((_nextHash_3719667 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (_s_3719630 + _e._cur : stdgo.GoInt32), _val : _cv_3719645 } : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
-                    _nextHash_3719667 = stdgo._internal.compress.flate.Flate__hash._hash(_now_3720833);
-                    _offset_3720959 = (_s_3719630 - ((_candidate_3720580._offset - _e._cur : stdgo.GoInt32)) : stdgo.GoInt32);
-                    if (((_offset_3720959 > (32768 : stdgo.GoInt32) : Bool) || (_cv_3719645 != _candidate_3720580._val) : Bool)) {
-                        _gotoNext = 3721053i32;
+                } else if (__value__ == (3671172i32)) {
+                    _gotoNext = 3673600i32;
+                } else if (__value__ == (3671205i32)) {
+                    _candidate_3670995 = _e._table[((_nextHash_3670082 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
+                    _now_3671248 = stdgo._internal.compress.flate.Flate__load32._load32(_src, _nextS_3670978);
+                    _e._table[((_nextHash_3670082 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (_s_3670045 + _e._cur : stdgo.GoInt32), _val : _cv_3670060 } : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
+                    _nextHash_3670082 = stdgo._internal.compress.flate.Flate__hash._hash(_now_3671248);
+                    _offset_3671374 = (_s_3670045 - ((_candidate_3670995._offset - _e._cur : stdgo.GoInt32)) : stdgo.GoInt32);
+                    if (((_offset_3671374 > (32768 : stdgo.GoInt32) : Bool) || (_cv_3670060 != _candidate_3670995._val) : Bool)) {
+                        _gotoNext = 3671468i32;
                     } else {
-                        _gotoNext = 3721125i32;
+                        _gotoNext = 3671540i32;
                     };
-                } else if (__value__ == (3721053i32)) {
-                    _cv_3719645 = _now_3720833;
+                } else if (__value__ == (3671468i32)) {
+                    _cv_3670060 = _now_3671248;
                     var __blank__ = 0i32;
-                    _gotoNext = 3720603i32;
-                } else if (__value__ == (3721125i32)) {
-                    _gotoNext = 3721312i32;
-                } else if (__value__ == (3721312i32)) {
-                    _dst = stdgo._internal.compress.flate.Flate__emitLiteral._emitLiteral(_dst, (_src.__slice__(_nextEmit_3719608, _s_3719630) : stdgo.Slice<stdgo.GoUInt8>));
+                    _gotoNext = 3671018i32;
+                } else if (__value__ == (3671540i32)) {
+                    _gotoNext = 3671727i32;
+                } else if (__value__ == (3671727i32)) {
+                    _dst = stdgo._internal.compress.flate.Flate__emitLiteral._emitLiteral(_dst, (_src.__slice__(_nextEmit_3670023, _s_3670045) : stdgo.Slice<stdgo.GoUInt8>));
                     var __blank__ = 0i32;
-                    _gotoNext = 3721843i32;
-                } else if (__value__ == (3721843i32)) {
+                    _gotoNext = 3672258i32;
+                } else if (__value__ == (3672258i32)) {
                     if (true) {
-                        _gotoNext = 3721847i32;
+                        _gotoNext = 3672262i32;
                     } else {
-                        _gotoNext = 3723185i32;
+                        _gotoNext = 3673600i32;
                     };
-                } else if (__value__ == (3721847i32)) {
-                    _s_3719630 = (_s_3719630 + ((4 : stdgo.GoInt32)) : stdgo.GoInt32);
-                    _t_3722022 = ((_candidate_3720580._offset - _e._cur : stdgo.GoInt32) + (4 : stdgo.GoInt32) : stdgo.GoInt32);
-                    _l_3722059 = _e._matchLen(_s_3719630, _t_3722022, _src);
-                    _dst = (_dst.__append__(stdgo._internal.compress.flate.Flate__matchToken._matchToken((((_l_3722059 + (4 : stdgo.GoInt32) : stdgo.GoInt32) - (3 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoUInt32), (((_s_3719630 - _t_3722022 : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoUInt32))));
-                    _s_3719630 = (_s_3719630 + (_l_3722059) : stdgo.GoInt32);
-                    _nextEmit_3719608 = _s_3719630;
-                    if ((_s_3719630 >= _sLimit_3719497 : Bool)) {
-                        _gotoNext = 3722299i32;
+                } else if (__value__ == (3672262i32)) {
+                    _s_3670045 = (_s_3670045 + ((4 : stdgo.GoInt32)) : stdgo.GoInt32);
+                    _t_3672437 = ((_candidate_3670995._offset - _e._cur : stdgo.GoInt32) + (4 : stdgo.GoInt32) : stdgo.GoInt32);
+                    _l_3672474 = _e._matchLen(_s_3670045, _t_3672437, _src);
+                    _dst = (_dst.__append__(stdgo._internal.compress.flate.Flate__matchToken._matchToken((((_l_3672474 + (4 : stdgo.GoInt32) : stdgo.GoInt32) - (3 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoUInt32), (((_s_3670045 - _t_3672437 : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32) : stdgo.GoUInt32))));
+                    _s_3670045 = (_s_3670045 + (_l_3672474) : stdgo.GoInt32);
+                    _nextEmit_3670023 = _s_3670045;
+                    if ((_s_3670045 >= _sLimit_3669912 : Bool)) {
+                        _gotoNext = 3672714i32;
                     } else {
-                        _gotoNext = 3722699i32;
+                        _gotoNext = 3673114i32;
                     };
-                } else if (__value__ == (3722299i32)) {
-                    _gotoNext = 3723185i32;
-                } else if (__value__ == (3722699i32)) {
-                    _x_3722699 = stdgo._internal.compress.flate.Flate__load64._load64(_src, (_s_3719630 - (1 : stdgo.GoInt32) : stdgo.GoInt32));
-                    _prevHash_3722724 = stdgo._internal.compress.flate.Flate__hash._hash((_x_3722699 : stdgo.GoUInt32));
-                    _e._table[((_prevHash_3722724 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : ((_e._cur + _s_3719630 : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32), _val : (_x_3722699 : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
-                    _x_3722699 = (_x_3722699 >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                    _currHash_3722849 = stdgo._internal.compress.flate.Flate__hash._hash((_x_3722699 : stdgo.GoUInt32));
-                    _candidate_3720580 = _e._table[((_currHash_3722849 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
-                    _e._table[((_currHash_3722849 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (_e._cur + _s_3719630 : stdgo.GoInt32), _val : (_x_3722699 : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
-                    _offset_3723003 = (_s_3719630 - ((_candidate_3720580._offset - _e._cur : stdgo.GoInt32)) : stdgo.GoInt32);
-                    if (((_offset_3723003 > (32768 : stdgo.GoInt32) : Bool) || ((_x_3722699 : stdgo.GoUInt32) != _candidate_3720580._val) : Bool)) {
-                        _gotoNext = 3723104i32;
+                } else if (__value__ == (3672714i32)) {
+                    _gotoNext = 3673600i32;
+                } else if (__value__ == (3673114i32)) {
+                    _x_3673114 = stdgo._internal.compress.flate.Flate__load64._load64(_src, (_s_3670045 - (1 : stdgo.GoInt32) : stdgo.GoInt32));
+                    _prevHash_3673139 = stdgo._internal.compress.flate.Flate__hash._hash((_x_3673114 : stdgo.GoUInt32));
+                    _e._table[((_prevHash_3673139 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : ((_e._cur + _s_3670045 : stdgo.GoInt32) - (1 : stdgo.GoInt32) : stdgo.GoInt32), _val : (_x_3673114 : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
+                    _x_3673114 = (_x_3673114 >> ((8i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                    _currHash_3673264 = stdgo._internal.compress.flate.Flate__hash._hash((_x_3673114 : stdgo.GoUInt32));
+                    _candidate_3670995 = _e._table[((_currHash_3673264 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)];
+                    _e._table[((_currHash_3673264 & (16383u32 : stdgo.GoUInt32) : stdgo.GoUInt32) : stdgo.GoInt)] = ({ _offset : (_e._cur + _s_3670045 : stdgo.GoInt32), _val : (_x_3673114 : stdgo.GoUInt32) } : stdgo._internal.compress.flate.Flate_T_tableEntry.T_tableEntry);
+                    _offset_3673418 = (_s_3670045 - ((_candidate_3670995._offset - _e._cur : stdgo.GoInt32)) : stdgo.GoInt32);
+                    if (((_offset_3673418 > (32768 : stdgo.GoInt32) : Bool) || ((_x_3673114 : stdgo.GoUInt32) != _candidate_3670995._val) : Bool)) {
+                        _gotoNext = 3673519i32;
                     } else {
-                        _gotoNext = 3723185i32;
+                        _gotoNext = 3673600i32;
                     };
-                } else if (__value__ == (3723104i32)) {
-                    _cv_3719645 = ((_x_3722699 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
-                    _nextHash_3719667 = stdgo._internal.compress.flate.Flate__hash._hash(_cv_3719645);
-                    _s_3719630++;
-                    _gotoNext = 3723185i32;
-                } else if (__value__ == (3723185i32)) {
-                    _gotoNext = 3723185i32;
-                    if (((_nextEmit_3719608 : stdgo.GoInt) < (_src.length) : Bool)) {
-                        _gotoNext = 3723229i32;
+                } else if (__value__ == (3673519i32)) {
+                    _cv_3670060 = ((_x_3673114 >> (8i64 : stdgo.GoUInt64) : stdgo.GoUInt64) : stdgo.GoUInt32);
+                    _nextHash_3670082 = stdgo._internal.compress.flate.Flate__hash._hash(_cv_3670060);
+                    _s_3670045++;
+                    _gotoNext = 3673600i32;
+                } else if (__value__ == (3673600i32)) {
+                    _gotoNext = 3673600i32;
+                    if (((_nextEmit_3670023 : stdgo.GoInt) < (_src.length) : Bool)) {
+                        _gotoNext = 3673644i32;
                     } else {
-                        _gotoNext = 3723276i32;
+                        _gotoNext = 3673691i32;
                     };
-                } else if (__value__ == (3723229i32)) {
-                    _dst = stdgo._internal.compress.flate.Flate__emitLiteral._emitLiteral(_dst, (_src.__slice__(_nextEmit_3719608) : stdgo.Slice<stdgo.GoUInt8>));
-                    _gotoNext = 3723276i32;
-                } else if (__value__ == (3723276i32)) {
+                } else if (__value__ == (3673644i32)) {
+                    _dst = stdgo._internal.compress.flate.Flate__emitLiteral._emitLiteral(_dst, (_src.__slice__(_nextEmit_3670023) : stdgo.Slice<stdgo.GoUInt8>));
+                    _gotoNext = 3673691i32;
+                } else if (__value__ == (3673691i32)) {
                     _e._cur = (_e._cur + ((_src.length : stdgo.GoInt32)) : stdgo.GoInt32);
                     _e._prev = (_e._prev.__slice__(0, (_src.length)) : stdgo.Slice<stdgo.GoUInt8>);
                     _e._prev.__copyTo__(_src);

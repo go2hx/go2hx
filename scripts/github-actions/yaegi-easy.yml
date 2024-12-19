@@ -53,6 +53,6 @@ steps:
   # add yaegi_easy.json regression 
   - uses: stefanzweifel/git-auto-commit-action@v5
     with:
-        commit_message: yaegi easy tests update
+        commit_message: yaegi easy tests update ::target::
         file_pattern: '*.json *.md'
         disable_globbing: true

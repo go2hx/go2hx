@@ -90,6 +90,7 @@ function main() {
 }
 
 private function runReport() {
+	final currentTarget = targets[0];
 	final testName = type + (sortMode == "" ? "" : "_" + sortMode);
 	final output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	if (output.length == 0)
@@ -103,6 +104,8 @@ private function runReport() {
 		final path = paths[i];
 		final parts = v.split("|");
 		final target = parts[0];
+		if (target != currentTarget)
+			continue;
 		final path = sanatize(parts[1]);
 		final index = tests.indexOf(path);
 		tests.remove(tests[index]);
@@ -126,7 +129,7 @@ private function runReport() {
 		mdContent.add('\n```\n');
 	}
 
-	File.saveContent('tests/$testName.md', mdContent.toString());
+	File.saveContent('tests/${testName}_$currentTarget.md', mdContent.toString());
 }
 
 private function runTests() {

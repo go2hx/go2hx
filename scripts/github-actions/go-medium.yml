@@ -60,6 +60,6 @@ steps:
   # add go_medium.json regression 
   - uses: stefanzweifel/git-auto-commit-action@v5
     with:
-        commit_message: go medium tests update
+        commit_message: go medium tests update ::target::
         file_pattern: '*.json *.md'
         disable_globbing: tru

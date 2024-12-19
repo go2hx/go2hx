@@ -59,7 +59,24 @@ jobs:
             ./stdgo/*
             ./go2hx.*.zip
           key: ${{ github.sha }}-build-${{ env.cache-name }}
-          
+  goto:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-go@v3
+      continue-on-error: true
+        with:
+          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+    - name: Create vendor
+      run: go mod vendor
+    - run: go run . -goto
+  pointer:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-go@v3
+      continue-on-error: true
+        with:
+          go-version: '1.21.3' # The Go version to download (if necessary) and use.
+    - name: Create vendor
+      run: go mod vendor
+    - run: go run . -pointer
   go-easy-hl:
     timeout-minutes: 25
     needs: setup
@@ -123,7 +140,7 @@ jobs:
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go easy tests update
+            commit_message: go easy tests update hl
             file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-jvm:
@@ -190,7 +207,7 @@ jobs:
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go easy tests update
+            commit_message: go easy tests update jvm
             file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-interp:
@@ -256,7 +273,7 @@ jobs:
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go easy tests update
+            commit_message: go easy tests update interp
             file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-cpp:
@@ -323,7 +340,7 @@ jobs:
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go easy tests update
+            commit_message: go easy tests update cpp
             file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-js:
@@ -389,7 +406,7 @@ jobs:
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go easy tests update
+            commit_message: go easy tests update js
             file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-php:
@@ -457,7 +474,7 @@ jobs:
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go easy tests update
+            commit_message: go easy tests update php
             file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-lua:
@@ -525,7 +542,7 @@ jobs:
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go easy tests update
+            commit_message: go easy tests update lua
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-hl:
@@ -584,7 +601,7 @@ jobs:
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi easy tests update
+            commit_message: yaegi easy tests update hl
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-jvm:
@@ -644,7 +661,7 @@ jobs:
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi easy tests update
+            commit_message: yaegi easy tests update jvm
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-interp:
@@ -703,7 +720,7 @@ jobs:
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi easy tests update
+            commit_message: yaegi easy tests update interp
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-cpp:
@@ -763,7 +780,7 @@ jobs:
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi easy tests update
+            commit_message: yaegi easy tests update cpp
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-js:
@@ -822,7 +839,7 @@ jobs:
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi easy tests update
+            commit_message: yaegi easy tests update js
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-php:
@@ -883,7 +900,7 @@ jobs:
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi easy tests update
+            commit_message: yaegi easy tests update php
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-lua:
@@ -944,7 +961,7 @@ jobs:
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi easy tests update
+            commit_message: yaegi easy tests update lua
             file_pattern: '*.json *.md'
             disable_globbing: true
   go-medium-hl:
@@ -1010,7 +1027,7 @@ jobs:
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go medium tests update
+            commit_message: go medium tests update hl
             file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-jvm:
@@ -1077,7 +1094,7 @@ jobs:
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go medium tests update
+            commit_message: go medium tests update jvm
             file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-interp:
@@ -1143,7 +1160,7 @@ jobs:
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go medium tests update
+            commit_message: go medium tests update interp
             file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-cpp:
@@ -1210,7 +1227,7 @@ jobs:
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go medium tests update
+            commit_message: go medium tests update cpp
             file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-js:
@@ -1276,7 +1293,7 @@ jobs:
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go medium tests update
+            commit_message: go medium tests update js
             file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-php:
@@ -1344,7 +1361,7 @@ jobs:
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go medium tests update
+            commit_message: go medium tests update php
             file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-lua:
@@ -1412,7 +1429,7 @@ jobs:
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: go medium tests update
+            commit_message: go medium tests update lua
             file_pattern: '*.json *.md'
             disable_globbing: tru
   yaegi-medium-hl:
@@ -1471,7 +1488,7 @@ jobs:
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi medium tests update
+            commit_message: yaegi medium tests update hl
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-jvm:
@@ -1531,7 +1548,7 @@ jobs:
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi medium tests update
+            commit_message: yaegi medium tests update jvm
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-interp:
@@ -1590,7 +1607,7 @@ jobs:
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi medium tests update
+            commit_message: yaegi medium tests update interp
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-cpp:
@@ -1650,7 +1667,7 @@ jobs:
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi medium tests update
+            commit_message: yaegi medium tests update cpp
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-js:
@@ -1709,7 +1726,7 @@ jobs:
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi medium tests update
+            commit_message: yaegi medium tests update js
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-php:
@@ -1770,7 +1787,7 @@ jobs:
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi medium tests update
+            commit_message: yaegi medium tests update php
             file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-lua:
@@ -1831,7 +1848,7 @@ jobs:
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: yaegi medium tests update
+            commit_message: yaegi medium tests update lua
             file_pattern: '*.json *.md'
             disable_globbing: true
   build-hl:
@@ -1881,14 +1898,14 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - name: Pull latest
         run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: stdgo automatic compile
+          commit_message: stdgo automatic compile hl
   build-jvm:
     
     timeout-minutes: 26
@@ -1937,14 +1954,14 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm #-D hxb
       - name: Pull latest
         run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: stdgo automatic compile
+          commit_message: stdgo automatic compile jvm
   build-interp:
     
     timeout-minutes: 26
@@ -1992,14 +2009,14 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - name: Pull latest
         run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: stdgo automatic compile
+          commit_message: stdgo automatic compile interp
   build-cpp:
     
     timeout-minutes: 26
@@ -2048,14 +2065,14 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=cpp #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=cpp #-D hxb
       - name: Pull latest
         run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: stdgo automatic compile
+          commit_message: stdgo automatic compile cpp
   build-js:
     
     timeout-minutes: 26
@@ -2103,14 +2120,14 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - name: Pull latest
         run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: stdgo automatic compile
+          commit_message: stdgo automatic compile js
   build-php:
     
     timeout-minutes: 26
@@ -2160,14 +2177,14 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=php #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=php #-D hxb
       - name: Pull latest
         run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: stdgo automatic compile
+          commit_message: stdgo automatic compile php
   build-lua:
     
     timeout-minutes: 26
@@ -2217,11 +2234,11 @@ jobs:
       #- name: Run stdgo automatic compile
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
-        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=lua #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} #-D hxb
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=lua #-D hxb
       - name: Pull latest
         run: git pull
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: stdgo automatic compile
+          commit_message: stdgo automatic compile lua

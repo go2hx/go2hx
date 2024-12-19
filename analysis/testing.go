@@ -16,12 +16,14 @@ import (
 const dir = "analysis/tests/unit"
 
 func GotoParseTest() {
-	create(dir, "test.go")
-	all("analysis/tests/unit")
+	//create(dir, "test.go")
+	all(dir + "/goto")
 }
 
 func PointerParseTest() {
-	create(dir+"/pointer", "issue5056.go")
+	//create(dir+"/pointer", "issue5056.go")
+	//create(dir+"/pointer", "ref2.go")
+	all(dir + "/pointer")
 }
 
 func all(dir string) {
@@ -64,13 +66,11 @@ func create(filePath string, fileName string) {
 	checker := types.NewChecker(&conf, fset, pkg, info)
 
 	// Rewrite the function body without goto statements
-	ParseLocalPointers(file, checker, fset)
 	ParseLocalGotos(file, checker, fset)
 
 	// Print the result
 	config := printer.Config{Mode: printer.UseSpaces, Tabwidth: 4}
 	// new file
-	_ = os.MkdirAll(filePath+"mod", 0755)
 	newPath := filePath + "mod/" + fileName
 	modFile, err := os.Create(newPath)
 	if err != nil {

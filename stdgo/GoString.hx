@@ -102,7 +102,9 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 		var bytes = haxe.io.Bytes.alloc(x.length.toBasic());
 		for (i in 0...bytes.length) {
 			final n = x[i];
+			#if !target.static
 			if (n != null)
+			#end
 				bytes.set(i, n);
 		}
 		return bytes;

@@ -106,12 +106,11 @@ jobs:
             ./stdgo/*
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
-        - name: Pull latest
-  - name: Pull latest
-    run: git pull
-  - uses: stefanzweifel/git-auto-commit-action@v5
-    with:
-      commit_message: stdgo automatic compile
+      - name: Pull latest
+        run: git pull
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: stdgo automatic compile
   go-easy-hl:
     timeout-minutes: 25
     needs: setup

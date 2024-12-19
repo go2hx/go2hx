@@ -17,5 +17,5 @@
 -D HXCPP_COMPILE_THREADS=1
 -D HXCPP_PCH=1
 -D splitdeps
--D eval-call-stack-depth=10000
+-D eval-call-stack-depth=40000
 #--macro include("stdgo", true)

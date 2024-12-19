@@ -11,6 +11,8 @@ tests.md
 ./debug
 ./export
 ./repl
+vendor
+.lua
 examples/*/
 examples/.haxerc
 tests.txt

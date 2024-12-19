@@ -102,4 +102,4 @@ class PointerData<T> {
 }
 
 var globalAddress = 0;
-final globalAddressMutex = #if !js new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end
+final globalAddressMutex = #if target.threaded new sys.thread.Mutex(); #else {acquire: () -> {}, release: () -> {}}; #end

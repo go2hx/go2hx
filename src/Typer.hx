@@ -1688,6 +1688,8 @@ private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:In
 					//return macro @:not_struct null;
 					throw info.panic() + "not a struct: " + underlying;
 			}
+		case structType([]):
+			return e;
 		default:
 			throw info.panic() + "struct is unnamed: " + toType;
 	}
@@ -7583,7 +7585,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 											case ECall({expr: EField({expr: EConst(CIdent(s)), pos: _}, field), pos: _}, params):
 												macro __self__.$s.$field($a{params});
 											default:
-												trace(expr.expr);
+												trace(printer.printExpr(expr));
 												expr;
 										}
 									}

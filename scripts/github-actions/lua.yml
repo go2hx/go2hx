@@ -2,6 +2,7 @@
   with:
     luaVersion: "5.4.4"
 - run: |
+    sudo apt -y install luarocks
     luarocks install lrexlib-pcre2
     luarocks install luasocket
     luarocks install luasec

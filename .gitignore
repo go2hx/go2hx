@@ -13,6 +13,7 @@ tests.md
 ./repl
 vendor
 .lua
+.luarocks
 examples/*/
 examples/.haxerc
 tests.txt

@@ -144,12 +144,12 @@ _a._nd++;
     static public function _floatBits( _d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal>, _flt:stdgo.Ref<stdgo._internal.strconv.Strconv_T_floatInfo.T_floatInfo>):{ var _0 : stdgo.GoUInt64; var _1 : Bool; } {
         @:recv var _d:stdgo.Ref<stdgo._internal.strconv.Strconv_T_decimal.T_decimal> = _d;
         var _b = (0 : stdgo.GoUInt64), _overflow = false;
-        var _bits_2662197:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _n_2661634:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_2661310:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _n_2661153:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _mant_2660708:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
-        var _exp_2660695:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_2699792:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _n_2699635:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _mant_2699190:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _exp_2699177:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _bits_2700679:stdgo.GoUInt64 = (0 : stdgo.GoUInt64);
+        var _n_2700116:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -157,154 +157,154 @@ _a._nd++;
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
                     if (_d._nd == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 2660770i32;
+                        _gotoNext = 2699252i32;
                     } else {
-                        _gotoNext = 2660963i32;
+                        _gotoNext = 2699445i32;
                     };
-                } else if (__value__ == (2660770i32)) {
-                    _mant_2660708 = (0i64 : stdgo.GoUInt64);
-                    _exp_2660695 = _flt._bias;
-                    _gotoNext = 2662172i32;
-                } else if (__value__ == (2660963i32)) {
+                } else if (__value__ == (2699252i32)) {
+                    _mant_2699190 = (0i64 : stdgo.GoUInt64);
+                    _exp_2699177 = _flt._bias;
+                    _gotoNext = 2700654i32;
+                } else if (__value__ == (2699445i32)) {
                     if ((_d._dp > (310 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2660977i32;
+                        _gotoNext = 2699459i32;
                     } else {
-                        _gotoNext = 2660999i32;
+                        _gotoNext = 2699481i32;
                     };
-                } else if (__value__ == (2660977i32)) {
-                    _gotoNext = 2662087i32;
-                } else if (__value__ == (2660999i32)) {
+                } else if (__value__ == (2699459i32)) {
+                    _gotoNext = 2700569i32;
+                } else if (__value__ == (2699481i32)) {
                     if ((_d._dp < (-330 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2661014i32;
+                        _gotoNext = 2699496i32;
                     } else {
-                        _gotoNext = 2661123i32;
+                        _gotoNext = 2699605i32;
                     };
-                } else if (__value__ == (2661014i32)) {
-                    _mant_2660708 = (0i64 : stdgo.GoUInt64);
-                    _exp_2660695 = _flt._bias;
-                    _gotoNext = 2662172i32;
-                } else if (__value__ == (2661123i32)) {
-                    _exp_2660695 = (0 : stdgo.GoInt);
+                } else if (__value__ == (2699496i32)) {
+                    _mant_2699190 = (0i64 : stdgo.GoUInt64);
+                    _exp_2699177 = _flt._bias;
+                    _gotoNext = 2700654i32;
+                } else if (__value__ == (2699605i32)) {
+                    _exp_2699177 = (0 : stdgo.GoInt);
                     var __blank__ = 0i32;
-                    _gotoNext = 2661132i32;
-                } else if (__value__ == (2661132i32)) {
+                    _gotoNext = 2699614i32;
+                } else if (__value__ == (2699614i32)) {
                     if ((_d._dp > (0 : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2661145i32;
+                        _gotoNext = 2699627i32;
                     } else {
-                        _gotoNext = 2661260i32;
+                        _gotoNext = 2699742i32;
                     };
-                } else if (__value__ == (2661145i32)) {
+                } else if (__value__ == (2699627i32)) {
                     if ((_d._dp >= (stdgo._internal.strconv.Strconv__powtab._powtab.length) : Bool)) {
-                        _gotoNext = 2661184i32;
+                        _gotoNext = 2699666i32;
                     } else {
-                        _gotoNext = 2661205i32;
+                        _gotoNext = 2699687i32;
                     };
-                } else if (__value__ == (2661184i32)) {
-                    _n_2661153 = (27 : stdgo.GoInt);
-                    _gotoNext = 2661233i32;
-                } else if (__value__ == (2661205i32)) {
-                    _gotoNext = 2661205i32;
-                    _n_2661153 = stdgo._internal.strconv.Strconv__powtab._powtab[(_d._dp : stdgo.GoInt)];
+                } else if (__value__ == (2699666i32)) {
+                    _n_2699635 = (27 : stdgo.GoInt);
+                    _gotoNext = 2699715i32;
+                } else if (__value__ == (2699687i32)) {
+                    _gotoNext = 2699687i32;
+                    _n_2699635 = stdgo._internal.strconv.Strconv__powtab._powtab[(_d._dp : stdgo.GoInt)];
                     var __blank__ = 0i32;
-                    _gotoNext = 2661233i32;
-                } else if (__value__ == (2661233i32)) {
-                    _d.shift(-_n_2661153);
-                    _exp_2660695 = (_exp_2660695 + (_n_2661153) : stdgo.GoInt);
-                    _gotoNext = 2661132i32;
-                } else if (__value__ == (2661260i32)) {
+                    _gotoNext = 2699715i32;
+                } else if (__value__ == (2699715i32)) {
+                    _d.shift(-_n_2699635);
+                    _exp_2699177 = (_exp_2699177 + (_n_2699635) : stdgo.GoInt);
+                    _gotoNext = 2699614i32;
+                } else if (__value__ == (2699742i32)) {
                     var __blank__ = 0i32;
-                    _gotoNext = 2661260i32;
+                    _gotoNext = 2699742i32;
                     if (((_d._dp < (0 : stdgo.GoInt) : Bool) || (_d._dp == ((0 : stdgo.GoInt)) && (_d._d[(0 : stdgo.GoInt)] < (53 : stdgo.GoUInt8) : Bool) : Bool) : Bool)) {
-                        _gotoNext = 2661302i32;
+                        _gotoNext = 2699784i32;
                     } else {
-                        _gotoNext = 2661479i32;
+                        _gotoNext = 2699961i32;
                     };
-                } else if (__value__ == (2661302i32)) {
+                } else if (__value__ == (2699784i32)) {
                     if ((-_d._dp >= (stdgo._internal.strconv.Strconv__powtab._powtab.length) : Bool)) {
-                        _gotoNext = 2661342i32;
+                        _gotoNext = 2699824i32;
                     } else {
-                        _gotoNext = 2661363i32;
+                        _gotoNext = 2699845i32;
                     };
-                } else if (__value__ == (2661342i32)) {
-                    _n_2661310 = (27 : stdgo.GoInt);
-                    _gotoNext = 2661392i32;
-                } else if (__value__ == (2661363i32)) {
-                    _gotoNext = 2661363i32;
-                    _n_2661310 = stdgo._internal.strconv.Strconv__powtab._powtab[(-_d._dp : stdgo.GoInt)];
+                } else if (__value__ == (2699824i32)) {
+                    _n_2699792 = (27 : stdgo.GoInt);
+                    _gotoNext = 2699874i32;
+                } else if (__value__ == (2699845i32)) {
+                    _gotoNext = 2699845i32;
+                    _n_2699792 = stdgo._internal.strconv.Strconv__powtab._powtab[(-_d._dp : stdgo.GoInt)];
                     var __blank__ = 0i32;
-                    _gotoNext = 2661392i32;
-                } else if (__value__ == (2661392i32)) {
-                    _d.shift(_n_2661310);
-                    _exp_2660695 = (_exp_2660695 - (_n_2661310) : stdgo.GoInt);
-                    _gotoNext = 2661260i32;
-                } else if (__value__ == (2661479i32)) {
-                    _exp_2660695--;
-                    if ((_exp_2660695 < (_flt._bias + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2661630i32;
+                    _gotoNext = 2699874i32;
+                } else if (__value__ == (2699874i32)) {
+                    _d.shift(_n_2699792);
+                    _exp_2699177 = (_exp_2699177 - (_n_2699792) : stdgo.GoInt);
+                    _gotoNext = 2699742i32;
+                } else if (__value__ == (2699961i32)) {
+                    _exp_2699177--;
+                    if ((_exp_2699177 < (_flt._bias + (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
+                        _gotoNext = 2700112i32;
                     } else {
-                        _gotoNext = 2661688i32;
+                        _gotoNext = 2700170i32;
                     };
-                } else if (__value__ == (2661630i32)) {
-                    _n_2661634 = ((_flt._bias + (1 : stdgo.GoInt) : stdgo.GoInt) - _exp_2660695 : stdgo.GoInt);
-                    _d.shift(-_n_2661634);
-                    _exp_2660695 = (_exp_2660695 + (_n_2661634) : stdgo.GoInt);
-                    _gotoNext = 2661688i32;
-                } else if (__value__ == (2661688i32)) {
-                    if (((_exp_2660695 - _flt._bias : stdgo.GoInt) >= (((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2661724i32;
+                } else if (__value__ == (2700112i32)) {
+                    _n_2700116 = ((_flt._bias + (1 : stdgo.GoInt) : stdgo.GoInt) - _exp_2699177 : stdgo.GoInt);
+                    _d.shift(-_n_2700116);
+                    _exp_2699177 = (_exp_2699177 + (_n_2700116) : stdgo.GoInt);
+                    _gotoNext = 2700170i32;
+                } else if (__value__ == (2700170i32)) {
+                    if (((_exp_2699177 - _flt._bias : stdgo.GoInt) >= (((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
+                        _gotoNext = 2700206i32;
                     } else {
-                        _gotoNext = 2661780i32;
+                        _gotoNext = 2700262i32;
                     };
-                } else if (__value__ == (2661724i32)) {
-                    _gotoNext = 2662087i32;
-                } else if (__value__ == (2661780i32)) {
+                } else if (__value__ == (2700206i32)) {
+                    _gotoNext = 2700569i32;
+                } else if (__value__ == (2700262i32)) {
                     _d.shift((((1u32 : stdgo.GoUInt) + _flt._mantbits : stdgo.GoUInt) : stdgo.GoInt));
-                    _mant_2660708 = _d.roundedInteger();
-                    if (_mant_2660708 == (((2i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64))) {
-                        _gotoNext = 2661916i32;
+                    _mant_2699190 = _d.roundedInteger();
+                    if (_mant_2699190 == (((2i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64))) {
+                        _gotoNext = 2700398i32;
                     } else {
-                        _gotoNext = 2662023i32;
+                        _gotoNext = 2700505i32;
                     };
-                } else if (__value__ == (2661916i32)) {
-                    _mant_2660708 = (_mant_2660708 >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                    _exp_2660695++;
-                    if (((_exp_2660695 - _flt._bias : stdgo.GoInt) >= (((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
-                        _gotoNext = 2661977i32;
+                } else if (__value__ == (2700398i32)) {
+                    _mant_2699190 = (_mant_2699190 >> ((1i64 : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                    _exp_2699177++;
+                    if (((_exp_2699177 - _flt._bias : stdgo.GoInt) >= (((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) : Bool)) {
+                        _gotoNext = 2700459i32;
                     } else {
-                        _gotoNext = 2662023i32;
+                        _gotoNext = 2700505i32;
                     };
-                } else if (__value__ == (2661977i32)) {
-                    _gotoNext = 2662087i32;
-                } else if (__value__ == (2662023i32)) {
-                    if ((_mant_2660708 & (((1i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64)) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64))) {
-                        _gotoNext = 2662054i32;
+                } else if (__value__ == (2700459i32)) {
+                    _gotoNext = 2700569i32;
+                } else if (__value__ == (2700505i32)) {
+                    if ((_mant_2699190 & (((1i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64)) : stdgo.GoUInt64) == ((0i64 : stdgo.GoUInt64))) {
+                        _gotoNext = 2700536i32;
                     } else {
-                        _gotoNext = 2662077i32;
+                        _gotoNext = 2700559i32;
                     };
-                } else if (__value__ == (2662054i32)) {
-                    _exp_2660695 = _flt._bias;
-                    _gotoNext = 2662077i32;
-                } else if (__value__ == (2662077i32)) {
-                    _gotoNext = 2662172i32;
-                } else if (__value__ == (2662087i32)) {
-                    _mant_2660708 = (0i64 : stdgo.GoUInt64);
-                    _exp_2660695 = ((((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) + _flt._bias : stdgo.GoInt);
+                } else if (__value__ == (2700536i32)) {
+                    _exp_2699177 = _flt._bias;
+                    _gotoNext = 2700559i32;
+                } else if (__value__ == (2700559i32)) {
+                    _gotoNext = 2700654i32;
+                } else if (__value__ == (2700569i32)) {
+                    _mant_2699190 = (0i64 : stdgo.GoUInt64);
+                    _exp_2699177 = ((((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt) + _flt._bias : stdgo.GoInt);
                     _overflow = true;
-                    _gotoNext = 2662172i32;
-                } else if (__value__ == (2662172i32)) {
-                    _bits_2662197 = (_mant_2660708 & ((((1i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                    _bits_2662197 = (_bits_2662197 | ((((((_exp_2660695 - _flt._bias : stdgo.GoInt)) & ((((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                    _gotoNext = 2700654i32;
+                } else if (__value__ == (2700654i32)) {
+                    _bits_2700679 = (_mant_2699190 & ((((1i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64) - (1i64 : stdgo.GoUInt64) : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                    _bits_2700679 = (_bits_2700679 | ((((((_exp_2699177 - _flt._bias : stdgo.GoInt)) & ((((1 : stdgo.GoInt) << _flt._expbits : stdgo.GoInt) - (1 : stdgo.GoInt) : stdgo.GoInt)) : stdgo.GoInt) : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64)) : stdgo.GoUInt64);
                     if (_d._neg) {
-                        _gotoNext = 2662319i32;
+                        _gotoNext = 2700801i32;
                     } else {
-                        _gotoNext = 2662368i32;
+                        _gotoNext = 2700850i32;
                     };
-                } else if (__value__ == (2662319i32)) {
-                    _bits_2662197 = (_bits_2662197 | ((((1i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64) << _flt._expbits : stdgo.GoUInt64)) : stdgo.GoUInt64);
-                    _gotoNext = 2662368i32;
-                } else if (__value__ == (2662368i32)) {
+                } else if (__value__ == (2700801i32)) {
+                    _bits_2700679 = (_bits_2700679 | ((((1i64 : stdgo.GoUInt64) << _flt._mantbits : stdgo.GoUInt64) << _flt._expbits : stdgo.GoUInt64)) : stdgo.GoUInt64);
+                    _gotoNext = 2700850i32;
+                } else if (__value__ == (2700850i32)) {
                     return {
-                        final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : Bool; } = { _0 : _bits_2662197, _1 : _overflow };
+                        final __tmp__:{ var _0 : stdgo.GoUInt64; var _1 : Bool; } = { _0 : _bits_2700679, _1 : _overflow };
                         _b = __tmp__._0;
                         _overflow = __tmp__._1;
                         __tmp__;

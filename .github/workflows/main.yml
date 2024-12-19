@@ -123,6 +123,12 @@ jobs:
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       - uses: cedx/setup-hashlink@v6.0.0
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -190,6 +196,12 @@ jobs:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
       - name: setup jvm 
         run: sudo apt install default-jdk
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -256,6 +268,12 @@ jobs:
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
     
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -322,6 +340,12 @@ jobs:
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
     
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -390,6 +414,12 @@ jobs:
       - uses: nanasess/setup-php@v4
         with:
           php-version: '8.2'
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -467,6 +497,12 @@ jobs:
           luarocks install luautf8
           luarocks install hx-lua-simdjson
           luarocks install bit32
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -900,6 +936,12 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       - uses: cedx/setup-hashlink@v6.0.0
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -966,6 +1008,12 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       - name: setup jvm 
         run: sudo apt install default-jdk
       # Get the cores 
@@ -1033,6 +1081,12 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
     
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -1099,6 +1153,12 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
     
       # Get the cores 
       - name: Get number of cores (Ubuntu)
@@ -1165,6 +1225,12 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       - uses: nanasess/setup-php@v4
         with:
           php-version: '8.2'
@@ -1233,6 +1299,12 @@ jobs:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - name: cleanup
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf /opt/ghc
+          sudo rm -rf "/usr/local/share/boost"
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"

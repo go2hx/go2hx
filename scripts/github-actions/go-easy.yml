@@ -9,6 +9,12 @@ steps:
     with:
       go-version: '1.21.3' # The Go version to download (if necessary) and use.
 ::support::
+  - name: cleanup
+    run: |
+      sudo rm -rf /usr/share/dotnet
+      sudo rm -rf /opt/ghc
+      sudo rm -rf "/usr/local/share/boost"
+      sudo rm -rf "$AGENT_TOOLSDIRECTORY"
   # Get the cores 
   - name: Get number of cores (Ubuntu)
     if: startsWith(runner.os, 'Linux')

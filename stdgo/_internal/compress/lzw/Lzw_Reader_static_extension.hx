@@ -74,11 +74,11 @@ package stdgo._internal.compress.lzw;
     @:keep
     static public function _decode( _r:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Reader.Reader>):Void {
         @:recv var _r:stdgo.Ref<stdgo._internal.compress.lzw.Lzw_Reader.Reader> = _r;
+        var _code_3654674:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _loopBreak = false;
         var _i_3655275:stdgo.GoInt = (0 : stdgo.GoInt);
         var _c_3655272:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
         var _err_3654680:stdgo.Error = (null : stdgo.Error);
-        var _code_3654674:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _loopBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

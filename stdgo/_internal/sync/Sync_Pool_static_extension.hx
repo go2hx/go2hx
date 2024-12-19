@@ -63,7 +63,7 @@ package stdgo._internal.sync;
     @:keep
     static public function get( _p:stdgo.Ref<stdgo._internal.sync.Sync_Pool.Pool>):stdgo.AnyInterface {
         @:recv var _p:stdgo.Ref<stdgo._internal.sync.Sync_Pool.Pool> = _p;
-        var obj = #if !target.threaded @:privateAccess _p.pool.pop(false) #else @:privateAccess _p.pool.pop() #end;
+        var obj = #if target.threaded @:privateAccess _p.pool.pop(false) #else @:privateAccess _p.pool.pop() #end;
         if (obj == null && @:privateAccess _p.new_ != null) obj = @:privateAccess _p.new_();
         return obj;
     }

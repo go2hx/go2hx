@@ -70,6 +70,7 @@ jobs:
         continue-on-error: true
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - run: git clone https://github.com/go2hx/tools --depth=1
       - name: Create vendor
         run: go mod vendor
       - run: go run . -goto
@@ -84,9 +85,33 @@ jobs:
         continue-on-error: true
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
+      - run: git clone https://github.com/go2hx/tools --depth=1
       - name: Create vendor
         run: go mod vendor
       - run: go run . -pointer
+  stdgo:
+    timeout-minutes: 15
+    needs: build-hl
+    strategy:
+      fail-fast: false
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/cache/restore@v4
+        id: setup-cache
+        with:
+          path: |
+            TypeInfoData_go2hx_hxb.hx
+            ./_internal/*
+            ./stdgo/*
+            ./go2hx.*.zip 
+          key: ${{ github.sha }}-build-${{ env.cache-name }}
+        - name: Pull latest
+  - name: Pull latest
+    run: git pull
+  - uses: stefanzweifel/git-auto-commit-action@v5
+    with:
+      commit_message: stdgo automatic compile
   go-easy-hl:
     timeout-minutes: 25
     needs: setup
@@ -1656,12 +1681,7 @@ jobs:
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
-      - name: Pull latest
-        run: git pull
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: stdgo automatic compile hl
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
   build-jvm:
     
     timeout-minutes: 26
@@ -1712,12 +1732,7 @@ jobs:
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm #-D hxb
-      - name: Pull latest
-        run: git pull
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: stdgo automatic compile jvm
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm  #-D hxb
   build-interp:
     
     timeout-minutes: 26
@@ -1767,12 +1782,7 @@ jobs:
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
-      - name: Pull latest
-        run: git pull
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: stdgo automatic compile interp
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
   build-js:
     
     timeout-minutes: 26
@@ -1822,12 +1832,7 @@ jobs:
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
-      - name: Pull latest
-        run: git pull
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: stdgo automatic compile js
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
   build-php:
     
     timeout-minutes: 26
@@ -1879,12 +1884,7 @@ jobs:
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=php #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=php #-D hxb
-      - name: Pull latest
-        run: git pull
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: stdgo automatic compile php
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=php  #-D hxb
   build-lua:
     
     timeout-minutes: 26
@@ -1936,9 +1936,4 @@ jobs:
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=lua #-D hxb
       - name: Run std
-        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=lua #-D hxb
-      - name: Pull latest
-        run: git pull
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: stdgo automatic compile lua
+        run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=lua  #-D hxb

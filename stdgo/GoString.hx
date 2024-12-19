@@ -100,8 +100,11 @@ abstract GoString(GoStringData) from GoStringData to GoStringData {
 			return new GoStringData(x.__bytes__, x.__offset__, x.__offset__ + x.length);
 		}
 		var bytes = haxe.io.Bytes.alloc(x.length.toBasic());
-		for (i in 0...bytes.length)
-			bytes.set(i, x[i].toBasic());
+		for (i in 0...bytes.length) {
+			final n = x[i];
+			if (n != null)
+				bytes.set(i, n);
+		}
 		return bytes;
 	}
 

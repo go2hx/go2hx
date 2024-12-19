@@ -1410,7 +1410,7 @@ final list = [
 	"syscall:mprotect" => macro return null,
 	// testing
 	"testing:mainStart" => macro {
-		final args = Sys.args();
+		final args = @:define("target.sys", []) Sys.args();
 		var testlist:Array<stdgo._internal.testing.Testing_InternalTest.InternalTest> = [];
 		var runArgBool = false;
 		var excludes:Array<String> = [];

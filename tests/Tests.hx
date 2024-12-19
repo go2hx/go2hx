@@ -528,6 +528,7 @@ private function excludeTest(name:String) {
 		case "more_intstar_input": // go-easy build compiler flag excludes wasm
 		case "issue32288": // go-easy inf loop uintptr stack and recover
 		case "index0": // go-easy no main func
+		case "issue16760": // stack panic for interp, 1000 -> 100 stack as unit test
 		case "issue47227": // go-easy cgo
 		case "zerosize": // go-easy uses obsecure &runtime.zerobase
 		case "convert4": // go-easy relies on the same underlying runtime

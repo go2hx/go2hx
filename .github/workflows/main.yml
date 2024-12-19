@@ -458,9 +458,8 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - uses: leafo/gh-actions-luarocks@v4
       - run: |
-          sudo apt-get update
-          sudo apt-get -y install luarocks
           luarocks install lrexlib-pcre2
           luarocks install luasocket
           luarocks install luasec
@@ -832,9 +831,8 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - uses: leafo/gh-actions-luarocks@v4
       - run: |
-          sudo apt-get update
-          sudo apt-get -y install luarocks
           luarocks install lrexlib-pcre2
           luarocks install luasocket
           luarocks install luasec
@@ -1238,9 +1236,8 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - uses: leafo/gh-actions-luarocks@v4
       - run: |
-          sudo apt-get update
-          sudo apt-get -y install luarocks
           luarocks install lrexlib-pcre2
           luarocks install luasocket
           luarocks install luasec
@@ -1612,9 +1609,8 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - uses: leafo/gh-actions-luarocks@v4
       - run: |
-          sudo apt-get update
-          sudo apt-get -y install luarocks
           luarocks install lrexlib-pcre2
           luarocks install luasocket
           luarocks install luasec
@@ -1949,9 +1945,8 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - uses: leafo/gh-actions-luarocks@v4
       - run: |
-          sudo apt-get update
-          sudo apt-get -y install luarocks
           luarocks install lrexlib-pcre2
           luarocks install luasocket
           luarocks install luasec

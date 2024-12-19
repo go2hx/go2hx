@@ -183,7 +183,7 @@ function clampUInt16(x:Int):Int
 
 function clampUInt(x:Int):UInt32
 	#if js 
-		return x >>> untyped __js__("0"); // using GopherJS method (with workround to stop it being optimized away by Haxe)
+		return x >>> js.Syntax.code("0"); // using GopherJS method (with workround to stop it being optimized away by Haxe)
 	#else
 		return x;
 	#end

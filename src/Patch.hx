@@ -1255,7 +1255,7 @@ final list = [
 	"sync.atomic_.Bool_:load" => macro return @:privateAccess _x._v == 1,
 	// stdgo/sync
 	"sync.Pool:get" => macro {
-		var obj = @:define("!target.threaded", @:privateAccess _p.pool.pop()) @:privateAccess _p.pool.pop(false);
+		var obj = @:define("target.threaded", @:privateAccess _p.pool.pop()) @:privateAccess _p.pool.pop(false);
 		if (obj == null && @:privateAccess _p.new_ != null)
 			obj = @:privateAccess _p.new_();
 		return obj;

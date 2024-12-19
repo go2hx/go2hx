@@ -1646,7 +1646,7 @@ final structs = [
 	},
 	"sync:Pool" => macro {
 		@:local
-		var pool = @:define("!target.threaded", new Array<stdgo.AnyInterface>()) new sys.thread.Deque<stdgo.AnyInterface>();
+		var pool = @:define("target.threaded", new Array<stdgo.AnyInterface>()) new sys.thread.Deque<stdgo.AnyInterface>();
 	},
 	"reflect:ValueError" => macro {
 		@:splitdeps function toString():String {

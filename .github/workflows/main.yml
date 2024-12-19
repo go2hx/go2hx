@@ -107,7 +107,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: stdgo automatic compile
@@ -170,7 +170,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -237,7 +237,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -303,7 +303,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -369,7 +369,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -437,7 +437,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -458,6 +458,14 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - run: |
+      luarocks install lrexlib-pcre2
+      luarocks install luasocket
+      luarocks install luasec
+      luarocks install luv
+      luarocks install luautf8
+      luarocks install hx-lua-simdjson
+      luarocks install bit32
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -505,7 +513,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -564,7 +572,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -624,7 +632,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -683,7 +691,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -742,7 +750,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -803,7 +811,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -822,6 +830,14 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - run: |
+      luarocks install lrexlib-pcre2
+      luarocks install luasocket
+      luarocks install luasec
+      luarocks install luv
+      luarocks install luautf8
+      luarocks install hx-lua-simdjson
+      luarocks install bit32
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -864,7 +880,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -930,7 +946,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -997,7 +1013,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1063,7 +1079,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1129,7 +1145,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1197,7 +1213,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1218,6 +1234,14 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - run: |
+      luarocks install lrexlib-pcre2
+      luarocks install luasocket
+      luarocks install luasec
+      luarocks install luv
+      luarocks install luautf8
+      luarocks install hx-lua-simdjson
+      luarocks install bit32
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1265,7 +1289,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1324,7 +1348,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1384,7 +1408,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1443,7 +1467,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1502,7 +1526,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1563,7 +1587,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1582,6 +1606,14 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - run: |
+      luarocks install lrexlib-pcre2
+      luarocks install luasocket
+      luarocks install luasec
+      luarocks install luv
+      luarocks install luautf8
+      luarocks install hx-lua-simdjson
+      luarocks install bit32
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1624,7 +1656,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull
+        run: git pull https://github.com/go2hx/go2hx
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1909,6 +1941,14 @@ jobs:
       - uses: leafo/gh-actions-lua@v10
         with:
           luaVersion: "5.4.4"
+      - run: |
+      luarocks install lrexlib-pcre2
+      luarocks install luasocket
+      luarocks install luasec
+      luarocks install luv
+      luarocks install luautf8
+      luarocks install hx-lua-simdjson
+      luarocks install bit32
       - name: Install lix
         run: npm i lix -g
       - name: Run lix

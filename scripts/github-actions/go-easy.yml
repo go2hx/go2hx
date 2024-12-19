@@ -56,7 +56,7 @@ steps:
     run: rm go2hx.*.zip
   # git pull latest
   - name: Pull latest
-    run: git pull
+    run: git pull https://github.com/go2hx/go2hx
   # add go_easy.json regression 
   - uses: stefanzweifel/git-auto-commit-action@v5
     with:

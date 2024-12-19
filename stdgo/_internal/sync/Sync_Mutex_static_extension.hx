@@ -24,7 +24,7 @@ package stdgo._internal.sync;
         };
     }
     @:keep
-    static public function unlock( _m:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>):Void @:privateAccess #if !js _m.mutex.release() #else null #end;
+    static public function unlock( _m:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>):Void @:privateAccess #if !target.threaded _m.mutex.release() #else null #end;
     @:keep
     static public function _lockSlow( _m:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>):Void {
         @:recv var _m:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex> = _m;
@@ -92,7 +92,7 @@ package stdgo._internal.sync;
         };
     }
     @:keep
-    static public function tryLock( _m:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>):Bool @:privateAccess return #if !js _m.mutex.tryAcquire() #else true #end;
+    static public function tryLock( _m:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>):Bool @:privateAccess return #if !target.threaded _m.mutex.tryAcquire() #else true #end;
     @:keep
-    static public function lock( _m:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>):Void @:privateAccess #if !js _m.mutex.acquire() #else null #end;
+    static public function lock( _m:stdgo.Ref<stdgo._internal.sync.Sync_Mutex.Mutex>):Void @:privateAccess #if !target.threaded _m.mutex.acquire() #else null #end;
 }

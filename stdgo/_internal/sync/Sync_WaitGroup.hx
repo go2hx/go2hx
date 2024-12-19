@@ -4,7 +4,7 @@ package stdgo._internal.sync;
     public var _state : stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64 = ({} : stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64);
     public var _sema : stdgo.GoUInt32 = 0;
     @:local
-    var lock = #if !js new sys.thread.Lock() #else null #end;
+    var lock = #if !target.threaded new sys.thread.Lock() #else null #end;
     var counter : stdgo.GoUInt = 0;
     public function new(?_noCopy:stdgo._internal.sync.Sync_T_noCopy.T_noCopy, ?_state:stdgo._internal.sync.atomic_.Atomic__Uint64.Uint64, ?_sema:stdgo.GoUInt32, ?lock, ?counter:stdgo.GoUInt) {
         if (_noCopy != null) this._noCopy = _noCopy;

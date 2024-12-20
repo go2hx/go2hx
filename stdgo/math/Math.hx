@@ -61,9 +61,194 @@ private function set_trigReduce(v:stdgo.GoFloat64 -> { var _0 : stdgo.GoUInt64; 
         return v;
     }
 /**
-    Package math provides basic constants and mathematical functions.
-    
-    This package does not guarantee bit-identical results across architectures.
+    /|*{
+    	Euler_455178 = 0.5772156649015329
+    	gotoNext = 455269
+    	_ = gotoNext == 455269
+    	switch {
+    	case isNegInt(x) || IsInf(x, -1) || IsNaN(x):
+    		gotoNext = 455279
+    		_ = gotoNext == 455279
+    		return NaN()
+    		gotoNext = 455449
+    	case IsInf(x, 1):
+    		gotoNext = 455341
+    		_ = gotoNext == 455341
+    		return Inf(1)
+    		gotoNext = 455449
+    	case x == 0:
+    		gotoNext = 455376
+    		_ = gotoNext == 455376
+    		if Signbit(x) {
+    			gotoNext = 455405
+    			_ = gotoNext == 455405
+    			return Inf(-1)
+    			gotoNext = 455431
+    		} else {
+    			gotoNext = 455431
+    		}
+    		_ = gotoNext == 455431
+    		return Inf(1)
+    		gotoNext = 455449
+    	default:
+    		gotoNext = 455449
+    	}
+    	_ = gotoNext == 455449
+    	q_455449 = Abs(x)
+    	p_455462 = Floor(q_455449)
+    	if q_455449 > 33 {
+    		gotoNext = 455487
+    		_ = gotoNext == 455487
+    		if x >= 0 {
+    			gotoNext = 455501
+    			_ = gotoNext == 455501
+    			y1_455506, y2_455510 = stirling(x)
+    			return y1_455506 * y2_455510
+    			gotoNext = 455751
+    		} else {
+    			gotoNext = 455751
+    		}
+    		_ = gotoNext == 455751
+    		signgam_455751 = 1
+    		if ip_455769 = int64(p_455462); ip_455769&1 == 0 {
+    			gotoNext = 455795
+    			_ = gotoNext == 455795
+    			signgam_455751 = -1
+    			gotoNext = 455819
+    		} else {
+    			gotoNext = 455819
+    		}
+    		_ = gotoNext == 455819
+    		z_455819 = q_455449 - p_455462
+    		if z_455819 > 0.5 {
+    			gotoNext = 455843
+    			_ = gotoNext == 455843
+    			p_455462 = p_455462 + 1
+    			z_455819 = q_455449 - p_455462
+    			gotoNext = 455877
+    		} else {
+    			gotoNext = 455877
+    		}
+    		_ = gotoNext == 455877
+    		z_455819 = q_455449 * Sin(3.141592653589793*z_455819)
+    		if z_455819 == 0 {
+    			gotoNext = 455907
+    			_ = gotoNext == 455907
+    			return Inf(signgam_455751)
+    			gotoNext = 455938
+    		} else {
+    			gotoNext = 455938
+    		}
+    		_ = gotoNext == 455938
+    		sq1_455938, sq2_455943 = stirling(q_455449)
+    		absz_455964 = Abs(z_455819)
+    		d_455981 = absz_455964 * sq1_455938 * sq2_455943
+    		if IsInf(d_455981, 0) {
+    			gotoNext = 456020
+    			_ = gotoNext == 456020
+    			z_455819 = 3.141592653589793 / absz_455964 / sq1_455938 / sq2_455943
+    			gotoNext = 456082
+    		} else {
+    			gotoNext = 456060
+    			_ = gotoNext == 456060
+    			gotoNext = 456060
+    			_ = gotoNext == 456060
+    			z_455819 = 3.141592653589793 / d_455981
+    			_ = 0
+    			gotoNext = 456082
+    		}
+    		_ = gotoNext == 456082
+    		return float64(signgam_455751) * z_455819
+    		gotoNext = 456135
+    	} else {
+    		gotoNext = 456135
+    	}
+    	_ = gotoNext == 456135
+    	z_456135 = 1
+    	_ = 0
+    	gotoNext = 456145
+    	_ = gotoNext == 456145
+    	if x >= 3 {
+    		gotoNext = 456156
+    		_ = gotoNext == 456156
+    		x = x - 1
+    		z_456135 = z_456135 * x
+    		gotoNext = 456145
+    	} else {
+    		gotoNext = 456186
+    	}
+    	_ = gotoNext == 456186
+    	_ = 0
+    	gotoNext = 456186
+    	_ = gotoNext == 456186
+    	if x < 0 {
+    		gotoNext = 456196
+    		_ = gotoNext == 456196
+    		if x > -1e-09 {
+    			gotoNext = 456214
+    			_ = gotoNext == 456214
+    			gotoNext = 456592
+    			gotoNext = 456236
+    		} else {
+    			gotoNext = 456236
+    		}
+    		_ = gotoNext == 456236
+    		z_456135 = z_456135 / x
+    		x = x + 1
+    		gotoNext = 456186
+    	} else {
+    		gotoNext = 456262
+    	}
+    	_ = gotoNext == 456262
+    	_ = 0
+    	gotoNext = 456262
+    	_ = gotoNext == 456262
+    	if x < 2 {
+    		gotoNext = 456272
+    		_ = gotoNext == 456272
+    		if x < 1e-09 {
+    			gotoNext = 456289
+    			_ = gotoNext == 456289
+    			gotoNext = 456592
+    			gotoNext = 456311
+    		} else {
+    			gotoNext = 456311
+    		}
+    		_ = gotoNext == 456311
+    		z_456135 = z_456135 / x
+    		x = x + 1
+    		gotoNext = 456262
+    	} else {
+    		gotoNext = 456338
+    	}
+    	_ = gotoNext == 456338
+    	if x == 2 {
+    		gotoNext = 456348
+    		_ = gotoNext == 456348
+    		return z_456135
+    		gotoNext = 456366
+    	} else {
+    		gotoNext = 456366
+    	}
+    	_ = gotoNext == 456366
+    	x = x - 2
+    	p_455462 = (((((x*_gamP[0]+_gamP[1])*x+_gamP[2])*x+_gamP[3])*x+_gamP[4])*x+_gamP[5])*x + _gamP[6]
+    	q_455449 = ((((((x*_gamQ[0]+_gamQ[1])*x+_gamQ[2])*x+_gamQ[3])*x+_gamQ[4])*x+_gamQ[5])*x+_gamQ[6])*x + _gamQ[7]
+    	return z_456135 * p_455462 / q_455449
+    	gotoNext = 456592
+    	_ = gotoNext == 456592
+    	if x == 0 {
+    		gotoNext = 456610
+    		_ = gotoNext == 456610
+    		return Inf(1)
+    		gotoNext = 456632
+    	} else {
+    		gotoNext = 456632
+    	}
+    	_ = gotoNext == 456632
+    	return z_456135 / ((1 + 0.5772156649015329*x) * x)
+    	gotoNext = -1
+    }*|/
 **/
 class Math {
     /**

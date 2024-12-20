@@ -150,10 +150,10 @@ package stdgo._internal.net.mail;
     static public function _consumeAtom( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>, _dot:Bool, _permissive:Bool):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _atom = ("" : stdgo.GoString), _err = (null : stdgo.Error);
-        var _size_4212318:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r_4212315:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
         var _i_4212292:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _size_4212318:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -194,13 +194,13 @@ package stdgo._internal.net.mail;
                         _err = __tmp__._1;
                         __tmp__;
                     };
-                    _gotoNext = 4212579i32;
+                    _gotoNext = 4212307i32;
                 } else if (__value__ == (4212482i32)) {
                     loopBreak = true;
                     _gotoNext = 4212307i32;
                 } else if (__value__ == (4212547i32)) {
                     _i_4212292 = (_i_4212292 + (_size_4212318) : stdgo.GoInt);
-                    _gotoNext = 4212579i32;
+                    _gotoNext = 4212307i32;
                 } else if (__value__ == (4212579i32)) {
                     if (_i_4212292 == ((0 : stdgo.GoInt))) {
                         _gotoNext = 4212589i32;
@@ -286,12 +286,12 @@ package stdgo._internal.net.mail;
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
+        var loopBreak = false;
         var _escaped_4210985:Bool = false;
         var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
         var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
         var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
         var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
-        var loopBreak = false;
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

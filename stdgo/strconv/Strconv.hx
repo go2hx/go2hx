@@ -186,57 +186,167 @@ class T_decimal_static_extension {
     }
 }
 /**
-    Package strconv implements conversions to and from string representations
-    of basic data types.
-    
-    # Numeric Conversions
-    
-    The most common numeric conversions are Atoi (string to int) and Itoa (int to string).
-    
-    	i, err := strconv.Atoi("-42")
-    	s := strconv.Itoa(-42)
-    
-    These assume decimal and the Go int type.
-    
-    [ParseBool], [ParseFloat], [ParseInt], and [ParseUint] convert strings to values:
-    
-    	b, err := strconv.ParseBool("true")
-    	f, err := strconv.ParseFloat("3.1415", 64)
-    	i, err := strconv.ParseInt("-42", 10, 64)
-    	u, err := strconv.ParseUint("42", 10, 64)
-    
-    The parse functions return the widest type (float64, int64, and uint64),
-    but if the size argument specifies a narrower width the result can be
-    converted to that narrower type without data loss:
-    
-    	s := "2147483647" // biggest int32
-    	i64, err := strconv.ParseInt(s, 10, 32)
-    	...
-    	i := int32(i64)
-    
-    [FormatBool], [FormatFloat], [FormatInt], and [FormatUint] convert values to strings:
-    
-    	s := strconv.FormatBool(true)
-    	s := strconv.FormatFloat(3.1415, 'E', -1, 64)
-    	s := strconv.FormatInt(-42, 16)
-    	s := strconv.FormatUint(42, 16)
-    
-    [AppendBool], [AppendFloat], [AppendInt], and [AppendUint] are similar but
-    append the formatted value to a destination slice.
-    
-    # String Conversions
-    
-    [Quote] and [QuoteToASCII] convert strings to quoted Go string literals.
-    The latter guarantees that the result is an ASCII string, by escaping
-    any non-ASCII Unicode with \u:
-    
-    	q := strconv.Quote("Hello, 世界")
-    	q := strconv.QuoteToASCII("Hello, 世界")
-    
-    [QuoteRune] and [QuoteRuneToASCII] are similar but accept runes and
-    return quoted Go rune literals.
-    
-    [Unquote] and [UnquoteChar] unquote Go string and rune literals.
+    /|*{
+    	if d.nd == 0 {
+    		gotoNext = 2739279
+    		_ = gotoNext == 2739279
+    		mant_2739217 = 0
+    		exp_2739204 = flt.bias
+    		gotoNext = 2740681
+    		gotoNext = 2739472
+    	} else {
+    		gotoNext = 2739472
+    	}
+    	_ = gotoNext == 2739472
+    	if d.dp > 310 {
+    		gotoNext = 2739486
+    		_ = gotoNext == 2739486
+    		gotoNext = 2740596
+    		gotoNext = 2739508
+    	} else {
+    		gotoNext = 2739508
+    	}
+    	_ = gotoNext == 2739508
+    	if d.dp < -330 {
+    		gotoNext = 2739523
+    		_ = gotoNext == 2739523
+    		mant_2739217 = 0
+    		exp_2739204 = flt.bias
+    		gotoNext = 2740681
+    		gotoNext = 2739632
+    	} else {
+    		gotoNext = 2739632
+    	}
+    	_ = gotoNext == 2739632
+    	exp_2739204 = 0
+    	_ = 0
+    	gotoNext = 2739641
+    	_ = gotoNext == 2739641
+    	if d.dp > 0 {
+    		gotoNext = 2739654
+    		_ = gotoNext == 2739654
+    		if d.dp >= len(powtab) {
+    			gotoNext = 2739693
+    			_ = gotoNext == 2739693
+    			n_2739662 = 27
+    			gotoNext = 2739742
+    		} else {
+    			gotoNext = 2739714
+    			_ = gotoNext == 2739714
+    			gotoNext = 2739714
+    			_ = gotoNext == 2739714
+    			n_2739662 = powtab[d.dp]
+    			_ = 0
+    			gotoNext = 2739742
+    		}
+    		_ = gotoNext == 2739742
+    		d.Shift(-n_2739662)
+    		exp_2739204 += n_2739662
+    		gotoNext = 2739641
+    	} else {
+    		gotoNext = 2739769
+    	}
+    	_ = gotoNext == 2739769
+    	_ = 0
+    	gotoNext = 2739769
+    	_ = gotoNext == 2739769
+    	if d.dp < 0 || d.dp == 0 && d.d[0] < 53 {
+    		gotoNext = 2739811
+    		_ = gotoNext == 2739811
+    		if -d.dp >= len(powtab) {
+    			gotoNext = 2739851
+    			_ = gotoNext == 2739851
+    			n_2739819 = 27
+    			gotoNext = 2739901
+    		} else {
+    			gotoNext = 2739872
+    			_ = gotoNext == 2739872
+    			gotoNext = 2739872
+    			_ = gotoNext == 2739872
+    			n_2739819 = powtab[-d.dp]
+    			_ = 0
+    			gotoNext = 2739901
+    		}
+    		_ = gotoNext == 2739901
+    		d.Shift(n_2739819)
+    		exp_2739204 -= n_2739819
+    		gotoNext = 2739769
+    	} else {
+    		gotoNext = 2739988
+    	}
+    	_ = gotoNext == 2739988
+    	exp_2739204--
+    	if exp_2739204 < flt.bias+1 {
+    		gotoNext = 2740139
+    		_ = gotoNext == 2740139
+    		n_2740143 = flt.bias + 1 - exp_2739204
+    		d.Shift(-n_2740143)
+    		exp_2739204 += n_2740143
+    		gotoNext = 2740197
+    	} else {
+    		gotoNext = 2740197
+    	}
+    	_ = gotoNext == 2740197
+    	if exp_2739204-flt.bias >= 1<<flt.expbits-1 {
+    		gotoNext = 2740233
+    		_ = gotoNext == 2740233
+    		gotoNext = 2740596
+    		gotoNext = 2740289
+    	} else {
+    		gotoNext = 2740289
+    	}
+    	_ = gotoNext == 2740289
+    	d.Shift(int(1 + flt.mantbits))
+    	mant_2739217 = d.RoundedInteger()
+    	if mant_2739217 == 2<<flt.mantbits {
+    		gotoNext = 2740425
+    		_ = gotoNext == 2740425
+    		mant_2739217 >>= 1
+    		exp_2739204++
+    		if exp_2739204-flt.bias >= 1<<flt.expbits-1 {
+    			gotoNext = 2740486
+    			_ = gotoNext == 2740486
+    			gotoNext = 2740596
+    			gotoNext = 2740532
+    		} else {
+    			gotoNext = 2740532
+    		}
+    		gotoNext = 2740532
+    	} else {
+    		gotoNext = 2740532
+    	}
+    	_ = gotoNext == 2740532
+    	if mant_2739217&(1<<flt.mantbits) == 0 {
+    		gotoNext = 2740563
+    		_ = gotoNext == 2740563
+    		exp_2739204 = flt.bias
+    		gotoNext = 2740586
+    	} else {
+    		gotoNext = 2740586
+    	}
+    	_ = gotoNext == 2740586
+    	gotoNext = 2740681
+    	gotoNext = 2740596
+    	_ = gotoNext == 2740596
+    	mant_2739217 = 0
+    	exp_2739204 = 1<<flt.expbits - 1 + flt.bias
+    	overflow = true
+    	gotoNext = 2740681
+    	_ = gotoNext == 2740681
+    	bits_2740706 = mant_2739217 & (uint64(1)<<flt.mantbits - 1)
+    	bits_2740706 |= uint64((exp_2739204-flt.bias)&(1<<flt.expbits-1)) << flt.mantbits
+    	if d.neg {
+    		gotoNext = 2740828
+    		_ = gotoNext == 2740828
+    		bits_2740706 |= 1 << flt.mantbits << flt.expbits
+    		gotoNext = 2740877
+    	} else {
+    		gotoNext = 2740877
+    	}
+    	_ = gotoNext == 2740877
+    	return bits_2740706, overflow
+    	gotoNext = -1
+    }*|/
 **/
 class Strconv {
     /**

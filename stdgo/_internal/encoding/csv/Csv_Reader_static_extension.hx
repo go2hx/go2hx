@@ -3,26 +3,26 @@ package stdgo._internal.encoding.csv;
     @:keep
     static public function _readRecord( _r:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Reader.Reader>, _dst:stdgo.Slice<stdgo.GoString>):{ var _0 : stdgo.Slice<stdgo.GoString>; var _1 : stdgo.Error; } {
         @:recv var _r:stdgo.Ref<stdgo._internal.encoding.csv.Csv_Reader.Reader> = _r;
-        var _i_3653148:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _commaLen_3652596:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _preIdx_3656322:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _str_3656108:stdgo.GoString = ("" : stdgo.GoString);
+        var _idx_3656341:stdgo.GoInt = (0 : stdgo.GoInt);
         var _recLine_3652631:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _line_3652164:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _i_3656338:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _preIdx_3656322:stdgo.GoInt = (0 : stdgo.GoInt);
         var _rn_3654191:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _fieldPos_3653912:stdgo._internal.encoding.csv.Csv_T_position.T_position = ({} : stdgo._internal.encoding.csv.Csv_T_position.T_position);
-        var _j_3653390:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _field_3653187:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _col_3653438:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_3653148:stdgo.GoInt = (0 : stdgo.GoInt);
         var _pos_3652796:stdgo._internal.encoding.csv.Csv_T_position.T_position = ({} : stdgo._internal.encoding.csv.Csv_T_position.T_position);
         var _err_3652558:stdgo.Error = (null : stdgo.Error);
-        var _errRead_3652181:stdgo.Error = (null : stdgo.Error);
-        var _idx_3656341:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _str_3656108:stdgo.GoString = ("" : stdgo.GoString);
         var _i_3653990:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _field_3653187:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _i_3652885:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _quoteLen_3652575;
-        var _col_3653438:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _commaLen_3652596:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _errRead_3652181:stdgo.Error = (null : stdgo.Error);
         var _parseFieldBreak = false;
+        var _quoteLen_3652575;
+        var _line_3652164:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _j_3653390:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -193,7 +193,7 @@ package stdgo._internal.encoding.csv;
                     if (true) {
                         _gotoNext = 3653984i32;
                     } else {
-                        _gotoNext = 3655946i32;
+                        _gotoNext = 3652850i32;
                     };
                 } else if (__value__ == (3653984i32)) {
                     _i_3653990 = stdgo._internal.bytes.Bytes_indexByte.indexByte(_line_3652164, (34 : stdgo.GoUInt8));
@@ -228,7 +228,7 @@ package stdgo._internal.encoding.csv;
                     _r._recordBuffer = (_r._recordBuffer.__append__((34 : stdgo.GoUInt8)));
                     _line_3652164 = (_line_3652164.__slice__((1 : stdgo.GoInt)) : stdgo.Slice<stdgo.GoUInt8>);
                     _pos_3652796._col = (_pos_3652796._col + ((1 : stdgo.GoInt)) : stdgo.GoInt);
-                    _gotoNext = 3655946i32;
+                    _gotoNext = 3653980i32;
                 } else if (__value__ == (3654386i32)) {
                     _line_3652164 = (_line_3652164.__slice__(_commaLen_3652596) : stdgo.Slice<stdgo.GoUInt8>);
                     _pos_3652796._col = (_pos_3652796._col + (_commaLen_3652596) : stdgo.GoInt);
@@ -242,7 +242,7 @@ package stdgo._internal.encoding.csv;
                     _gotoNext = 3652850i32;
                 } else if (__value__ == (3654886i32)) {
                     _r._recordBuffer = (_r._recordBuffer.__append__((34 : stdgo.GoUInt8)));
-                    _gotoNext = 3655946i32;
+                    _gotoNext = 3653980i32;
                 } else if (__value__ == (3654997i32)) {
                     _err_3652558 = stdgo.Go.asInterface((stdgo.Go.setRef(({ startLine : _recLine_3652631, line : _r._numLine, column : (_pos_3652796._col - (1 : stdgo.GoInt) : stdgo.GoInt), err : stdgo._internal.encoding.csv.Csv_errQuote.errQuote } : stdgo._internal.encoding.csv.Csv_ParseError.ParseError)) : stdgo.Ref<stdgo._internal.encoding.csv.Csv_ParseError.ParseError>));
                     _parseFieldBreak = true;
@@ -277,11 +277,11 @@ package stdgo._internal.encoding.csv;
                     if (stdgo.Go.toInterface(_errRead_3652181) == (stdgo.Go.toInterface(stdgo._internal.io.Io_eof.eof))) {
                         _gotoNext = 3655531i32;
                     } else {
-                        _gotoNext = 3655946i32;
+                        _gotoNext = 3653980i32;
                     };
                 } else if (__value__ == (3655531i32)) {
                     _errRead_3652181 = (null : stdgo.Error);
-                    _gotoNext = 3655946i32;
+                    _gotoNext = 3653980i32;
                 } else if (__value__ == (3655571i32)) {
                     _gotoNext = 3655571i32;
                     if ((!_r.lazyQuotes && (_errRead_3652181 == null) : Bool)) {

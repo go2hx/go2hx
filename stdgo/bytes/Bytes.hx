@@ -260,8 +260,174 @@ class T_asciiSet_static_extension {
     }
 }
 /**
-    Package bytes implements functions for the manipulation of byte slices.
-    It is analogous to the facilities of the [strings] package.
+    /|*{
+    	i_2872900 = 0
+    	_ = 0
+    	gotoNext = 2872908
+    	_ = gotoNext == 2872908
+    	if i_2872900 < len(s) && i_2872900 < len(t) {
+    		gotoNext = 2872944
+    		_ = gotoNext == 2872944
+    		sr_2872948 = s[i_2872900]
+    		tr_2872961 = t[i_2872900]
+    		if sr_2872948|tr_2872961 >= 128 {
+    			gotoNext = 2873000
+    			_ = gotoNext == 2873000
+    			gotoNext = 2873358
+    			gotoNext = 2873044
+    		} else {
+    			gotoNext = 2873044
+    		}
+    		_ = gotoNext == 2873044
+    		if tr_2872961 == sr_2872948 {
+    			gotoNext = 2873056
+    			_ = gotoNext == 2873056
+    			i_2872900++
+    			gotoNext = 2872908
+    			gotoNext = 2873121
+    		} else {
+    			gotoNext = 2873121
+    		}
+    		_ = gotoNext == 2873121
+    		if tr_2872961 < sr_2872948 {
+    			gotoNext = 2873132
+    			_ = gotoNext == 2873132
+    			tr_2872961, sr_2872948 = sr_2872948, tr_2872961
+    			gotoNext = 2873207
+    		} else {
+    			gotoNext = 2873207
+    		}
+    		_ = gotoNext == 2873207
+    		if 65 <= sr_2872948 && sr_2872948 <= 90 && tr_2872961 == sr_2872948+97-65 {
+    			gotoNext = 2873253
+    			_ = gotoNext == 2873253
+    			i_2872900++
+    			gotoNext = 2872908
+    			gotoNext = 2873273
+    		} else {
+    			gotoNext = 2873273
+    		}
+    		_ = gotoNext == 2873273
+    		return false
+    		i_2872900++
+    		gotoNext = 2872908
+    	} else {
+    		gotoNext = 2873333
+    	}
+    	_ = gotoNext == 2873333
+    	return len(s) == len(t)
+    	gotoNext = 2873358
+    	_ = gotoNext == 2873358
+    	s = s[i_2872900:]
+    	t = t[i_2872900:]
+    	_ = 0
+    	gotoNext = 2873393
+    	_ = gotoNext == 2873393
+    	if len(s) != 0 && len(t) != 0 {
+    		gotoNext = 2873424
+    		_ = gotoNext == 2873424
+    		if s[0] < 128 {
+    			gotoNext = 2873505
+    			_ = gotoNext == 2873505
+    			sr_2873467, s = rune(s[0]), s[1:]
+    			gotoNext = 2873609
+    		} else {
+    			gotoNext = 2873545
+    			_ = gotoNext == 2873545
+    			gotoNext = 2873545
+    			_ = gotoNext == 2873545
+    			r_2873550, size_2873553 = utf8.DecodeRune(s)
+    			sr_2873467, s = r_2873550, s[size_2873553:]
+    			_ = 0
+    			gotoNext = 2873609
+    		}
+    		_ = gotoNext == 2873609
+    		if t[0] < 128 {
+    			gotoNext = 2873633
+    			_ = gotoNext == 2873633
+    			tr_2873471, t = rune(t[0]), t[1:]
+    			gotoNext = 2873809
+    		} else {
+    			gotoNext = 2873673
+    			_ = gotoNext == 2873673
+    			gotoNext = 2873673
+    			_ = gotoNext == 2873673
+    			r_2873678, size_2873681 = utf8.DecodeRune(t)
+    			tr_2873471, t = r_2873678, t[size_2873681:]
+    			_ = 0
+    			gotoNext = 2873809
+    		}
+    		_ = gotoNext == 2873809
+    		if tr_2873471 == sr_2873467 {
+    			gotoNext = 2873821
+    			_ = gotoNext == 2873821
+    			_ = 0
+    			gotoNext = 2873393
+    			gotoNext = 2873886
+    		} else {
+    			gotoNext = 2873886
+    		}
+    		_ = gotoNext == 2873886
+    		if tr_2873471 < sr_2873467 {
+    			gotoNext = 2873897
+    			_ = gotoNext == 2873897
+    			tr_2873471, sr_2873467 = sr_2873467, tr_2873471
+    			gotoNext = 2873951
+    		} else {
+    			gotoNext = 2873951
+    		}
+    		_ = gotoNext == 2873951
+    		if tr_2873471 < 128 {
+    			gotoNext = 2873973
+    			_ = gotoNext == 2873973
+    			if 65 <= sr_2873467 && sr_2873467 <= 90 && tr_2873471 == sr_2873467+97-65 {
+    				gotoNext = 2874073
+    				_ = gotoNext == 2874073
+    				_ = 0
+    				gotoNext = 2873393
+    				gotoNext = 2874096
+    			} else {
+    				gotoNext = 2874096
+    			}
+    			_ = gotoNext == 2874096
+    			return false
+    			gotoNext = 2874226
+    		} else {
+    			gotoNext = 2874226
+    		}
+    		_ = gotoNext == 2874226
+    		r_2874226 = unicode.SimpleFold(sr_2873467)
+    		_ = 0
+    		gotoNext = 2874256
+    		_ = gotoNext == 2874256
+    		if r_2874226 != sr_2873467 && r_2874226 < tr_2873471 {
+    			gotoNext = 2874278
+    			_ = gotoNext == 2874278
+    			r_2874226 = unicode.SimpleFold(r_2874226)
+    			gotoNext = 2874256
+    		} else {
+    			gotoNext = 2874315
+    		}
+    		_ = gotoNext == 2874315
+    		if r_2874226 == tr_2873471 {
+    			gotoNext = 2874326
+    			_ = gotoNext == 2874326
+    			_ = 0
+    			gotoNext = 2873393
+    			gotoNext = 2874346
+    		} else {
+    			gotoNext = 2874346
+    		}
+    		_ = gotoNext == 2874346
+    		return false
+    		gotoNext = 2873393
+    	} else {
+    		gotoNext = 2874399
+    	}
+    	_ = gotoNext == 2874399
+    	return len(s) == len(t)
+    	gotoNext = -1
+    }*|/
 **/
 class Bytes {
     /**

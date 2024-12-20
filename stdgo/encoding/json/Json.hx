@@ -4429,12 +4429,113 @@ class T_testAnonymousFields___localname___S_11225_static_extension {
 
 }
 /**
-    Package json implements encoding and decoding of JSON as defined in
-    RFC 7159. The mapping between JSON and Go values is described
-    in the documentation for the Marshal and Unmarshal functions.
-    
-    See "JSON and Go" for an introduction to this package:
-    https://golang.org/doc/articles/json_and_go.html
+    /|*{
+    	dec.scan.reset()
+    	scanp_6707034 = dec.scanp
+    	gotoNext = 6707068
+    	_ = gotoNext == 6707068
+    	_ = 0
+    	InputBreak = false
+    	gotoNext = 6707179
+    	_ = gotoNext == 6707179
+    	if !InputBreak && (scanp_6707034 >= 0) {
+    		gotoNext = 6707194
+    		_ = gotoNext == 6707194
+    		_ = 0
+    		gotoNext = 6707240
+    		_ = gotoNext == 6707240
+    		if scanp_6707034 < len(dec.buf) {
+    			gotoNext = 6707276
+    			_ = gotoNext == 6707276
+    			c_6707281 = dec.buf[scanp_6707034]
+    			dec.scan.bytes++
+    			gotoNext = 6707324
+    			_ = gotoNext == 6707324
+    			switch dec.scan.step(&dec.scan, c_6707281) {
+    			case 10:
+    				gotoNext = 6707364
+    				_ = gotoNext == 6707364
+    				dec.scan.bytes--
+    				InputBreak = true
+    				gotoNext = 6707179
+    				gotoNext = 6707268
+    			case 5, 8:
+    				gotoNext = 6707577
+    				_ = gotoNext == 6707577
+    				if stateEndValue(&dec.scan, 32) == 10 {
+    					gotoNext = 6707790
+    					_ = gotoNext == 6707790
+    					scanp_6707034++
+    					InputBreak = true
+    					gotoNext = 6707179
+    					gotoNext = 6707268
+    				} else {
+    					gotoNext = 6707268
+    				}
+    				gotoNext = 6707268
+    			case 11:
+    				gotoNext = 6707831
+    				_ = gotoNext == 6707831
+    				dec.err = dec.scan.err
+    				return 0, dec.scan.err
+    				gotoNext = 6707268
+    			default:
+    				gotoNext = 6707268
+    			}
+    			_ = gotoNext == 6707268
+    			scanp_6707034++
+    			gotoNext = 6707240
+    		} else {
+    			gotoNext = 6707996
+    		}
+    		_ = gotoNext == 6707996
+    		if err_6707058 != nil {
+    			gotoNext = 6708010
+    			_ = gotoNext == 6708010
+    			if err_6707058 == io.EOF {
+    				gotoNext = 6708032
+    				_ = gotoNext == 6708032
+    				if dec.scan.step(&dec.scan, 32) == 10 {
+    					gotoNext = 6708082
+    					_ = gotoNext == 6708082
+    					InputBreak = true
+    					gotoNext = 6707179
+    					gotoNext = 6708111
+    				} else {
+    					gotoNext = 6708111
+    				}
+    				_ = gotoNext == 6708111
+    				if nonSpace(dec.buf) {
+    					gotoNext = 6708132
+    					_ = gotoNext == 6708132
+    					err_6707058 = io.ErrUnexpectedEOF
+    					gotoNext = 6708179
+    				} else {
+    					gotoNext = 6708179
+    				}
+    				gotoNext = 6708179
+    			} else {
+    				gotoNext = 6708179
+    			}
+    			_ = gotoNext == 6708179
+    			dec.err = err_6707058
+    			return 0, err_6707058
+    			gotoNext = 6708217
+    		} else {
+    			gotoNext = 6708217
+    		}
+    		_ = gotoNext == 6708217
+    		n_6708217 = scanp_6707034 - dec.scanp
+    		err_6707058 = dec.refill()
+    		scanp_6707034 = dec.scanp + n_6708217
+    		gotoNext = 6707179
+    	} else {
+    		gotoNext = 6708289
+    	}
+    	_ = gotoNext == 6708289
+    	return scanp_6707034 - dec.scanp, nil
+    	gotoNext = -1
+    }*|/
 **/
 class Json {
     static public function benchmarkCodeEncoder(_b:stdgo._internal.testing.Testing_B.B):Void {

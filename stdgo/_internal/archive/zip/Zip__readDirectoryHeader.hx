@@ -1,38 +1,38 @@
 package stdgo._internal.archive.zip;
 function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.File>, _r:stdgo._internal.io.Io_Reader.Reader):stdgo.Error {
-        var _needCSize_3871461:Bool = false;
-        var _ts_3873628:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _fieldBuf_3871948:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _commentLen_3870289:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _extraLen_3870260:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _err_3869718:stdgo.Error = (null : stdgo.Error);
         var _epoch_3873355:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
-        var _utf8Require1_3870756:Bool = false;
-        var _utf8Valid1_3870744:Bool = false;
+        var _nsecs_3873292:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _fieldSize_3871870:stdgo.GoInt = (0 : stdgo.GoInt);
         var _fieldTag_3871841:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _needHeaderOffset_3871506:Bool = false;
-        var _err_3870520:stdgo.Error = (null : stdgo.Error);
+        var _extra_3871763:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _utf8Valid2_3870792:Bool = false;
+        var _utf8Require1_3870756:Bool = false;
         var _buf_3869682:stdgo.GoArray<stdgo.GoUInt8> = new stdgo.GoArray<stdgo.GoUInt8>(46, 46, ...[for (i in 0 ... 46) (0 : stdgo.GoUInt8)]);
         var _msdosModified_3873926:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
-        var _fieldSize_3871870:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _parseExtrasBreak = false;
-        var _extra_3871763:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _modified_3871726:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
-        var _utf8Valid2_3870792:Bool = false;
-        var _ticksPerSecond_3873128;
-        var _attrBuf_3872991:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
-        var _attrSize_3872886:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _ts_3873827:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _nsecs_3873292:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _attrTag_3872853:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
-        var _secs_3873253:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _ts_3873188:stdgo.GoInt64 = (0 : stdgo.GoInt64);
-        var _filenameLen_3870228:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _sig_3869804:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
         var _needUSize_3871414:Bool = false;
-        var _utf8Require2_3870804:Bool = false;
-        var _d_3870462:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _filenameLen_3870228:stdgo.GoInt = (0 : stdgo.GoInt);
         var _b_3869779:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _err_3869718:stdgo.Error = (null : stdgo.Error);
+        var _attrBuf_3872991:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _attrTag_3872853:stdgo.GoUInt16 = (0 : stdgo.GoUInt16);
+        var _fieldBuf_3871948:stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf = new stdgo._internal.archive.zip.Zip_T_readBuf.T_readBuf(0, 0);
+        var _ts_3873628:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _ts_3873188:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _needCSize_3871461:Bool = false;
+        var _utf8Require2_3870804:Bool = false;
+        var _sig_3869804:stdgo.GoUInt32 = (0 : stdgo.GoUInt32);
+        var _secs_3873253:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _utf8Valid1_3870744:Bool = false;
+        var _d_3870462:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
+        var _extraLen_3870260:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ts_3873827:stdgo.GoInt64 = (0 : stdgo.GoInt64);
+        var _needHeaderOffset_3871506:Bool = false;
+        var _parseExtrasBreak = false;
+        var _modified_3871726:stdgo._internal.time.Time_Time.Time = ({} : stdgo._internal.time.Time_Time.Time);
+        var _err_3870520:stdgo.Error = (null : stdgo.Error);
+        var _commentLen_3870289:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _ticksPerSecond_3873128;
+        var _attrSize_3872886:stdgo.GoInt = (0 : stdgo.GoInt);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -171,7 +171,7 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                         } else if (__value__ == ((21589 : stdgo.GoUInt16))) {
                             _gotoNext = 3873720i32;
                         } else {
-                            _gotoNext = 3873926i32;
+                            _gotoNext = 3871759i32;
                         };
                     };
                 } else if (__value__ == (3872004i32)) {
@@ -217,7 +217,7 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                     if (_needHeaderOffset_3871506) {
                         _gotoNext = 3872528i32;
                     } else {
-                        _gotoNext = 3873926i32;
+                        _gotoNext = 3871759i32;
                     };
                 } else if (__value__ == (3872528i32)) {
                     _needHeaderOffset_3871506 = false;
@@ -231,7 +231,7 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                     _gotoNext = 3872618i32;
                 } else if (__value__ == (3872618i32)) {
                     _f._headerOffset = (_fieldBuf_3871948._uint64() : stdgo.GoInt64);
-                    _gotoNext = 3873926i32;
+                    _gotoNext = 3871759i32;
                 } else if (__value__ == (3872667i32)) {
                     if (((_fieldBuf_3871948.length) < (4 : stdgo.GoInt) : Bool)) {
                         _gotoNext = 3872709i32;
@@ -248,7 +248,7 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                     if (((_fieldBuf_3871948.length) >= (4 : stdgo.GoInt) : Bool)) {
                         _gotoNext = 3872817i32;
                     } else {
-                        _gotoNext = 3873926i32;
+                        _gotoNext = 3871759i32;
                     };
                 } else if (__value__ == (3872817i32)) {
                     _attrTag_3872853 = _fieldBuf_3871948._uint16();
@@ -290,7 +290,7 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                     _fieldBuf_3871948._uint32();
                     _ts_3873628 = (_fieldBuf_3871948._uint32() : stdgo.GoInt64);
                     _modified_3871726 = stdgo._internal.time.Time_unix.unix(_ts_3873628, (0i64 : stdgo.GoInt64))?.__copy__();
-                    _gotoNext = 3873926i32;
+                    _gotoNext = 3871759i32;
                 } else if (__value__ == (3873720i32)) {
                     if ((((_fieldBuf_3871948.length) < (5 : stdgo.GoInt) : Bool) || ((_fieldBuf_3871948._uint8() & (1 : stdgo.GoUInt8) : stdgo.GoUInt8) == (0 : stdgo.GoUInt8)) : Bool)) {
                         _gotoNext = 3873792i32;
@@ -302,7 +302,7 @@ function _readDirectoryHeader(_f:stdgo.Ref<stdgo._internal.archive.zip.Zip_File.
                 } else if (__value__ == (3873827i32)) {
                     _ts_3873827 = (_fieldBuf_3871948._uint32() : stdgo.GoInt64);
                     _modified_3871726 = stdgo._internal.time.Time_unix.unix(_ts_3873827, (0i64 : stdgo.GoInt64))?.__copy__();
-                    _gotoNext = 3873926i32;
+                    _gotoNext = 3871759i32;
                 } else if (__value__ == (3873926i32)) {
                     _msdosModified_3873926 = stdgo._internal.archive.zip.Zip__msDosTimeToTime._msDosTimeToTime(_f.fileHeader.modifiedDate, _f.fileHeader.modifiedTime)?.__copy__();
                     _f.fileHeader.modified = _msdosModified_3873926?.__copy__();

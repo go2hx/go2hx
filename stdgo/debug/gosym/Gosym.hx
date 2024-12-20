@@ -713,9 +713,118 @@ class UnknownFileError_static_extension {
     }
 }
 /**
-    Package gosym implements access to the Go symbol
-    and line number tables embedded in Go binaries generated
-    by the gc compilers.
+    /|*{
+    	if line < 1 {
+    		gotoNext = 3667120
+    		_ = gotoNext == 3667120
+    		return 0, &UnknownLineError{path, line}
+    		gotoNext = 3667169
+    	} else {
+    		gotoNext = 3667169
+    	}
+    	_ = gotoNext == 3667169
+    	if 0 < len(o.Paths) {
+    		gotoNext = 3667749
+    		_ = gotoNext == 3667749
+    		i_3667173, s_3667176 = 0, o.Paths[0]
+    		gotoNext = 3667750
+    		_ = gotoNext == 3667750
+    		if i_3667173 < len(o.Paths) {
+    			gotoNext = 3667195
+    			_ = gotoNext == 3667195
+    			s_3667176 = o.Paths[i_3667173]
+    			if s_3667176.Name != path {
+    				gotoNext = 3667237
+    				_ = gotoNext == 3667237
+    				i_3667173++
+    				gotoNext = 3667750
+    				gotoNext = 3667298
+    			} else {
+    				gotoNext = 3667298
+    			}
+    			_ = gotoNext == 3667298
+    			depth_3667298 = 0
+    			line += int(s_3667176.Value)
+    			gotoNext = 3667352
+    			_ = gotoNext == 3667352
+    			if 0 < len(o.Paths[i_3667173:]) {
+    				gotoNext = 3667704
+    				_ = gotoNext == 3667704
+    				i_3667376_0, s_3667371 = 0, o.Paths[i_3667173:][0]
+    				gotoNext = 3667705
+    				_ = gotoNext == 3667705
+    				if i_3667376_0 < len(o.Paths[i_3667173:]) {
+    					gotoNext = 3667394
+    					_ = gotoNext == 3667394
+    					s_3667371 = o.Paths[i_3667173:][i_3667376_0]
+    					val_3667399 = int(s_3667371.Value)
+    					gotoNext = 3667422
+    					_ = gotoNext == 3667422
+    					switch {
+    					case depth_3667298 == 1 && val_3667399 >= line:
+    						gotoNext = 3667434
+    						_ = gotoNext == 3667434
+    						return line - 1, nil
+    						gotoNext = 3667368
+    					case s_3667371.Name == "":
+    						gotoNext = 3667495
+    						_ = gotoNext == 3667495
+    						depth_3667298--
+    						if depth_3667298 == 0 {
+    							gotoNext = 3667544
+    							_ = gotoNext == 3667544
+    							pathloopBreak = true
+    							gotoNext = 3667705
+    							gotoNext = 3667368
+    						} else if depth_3667298 == 1 {
+    							gotoNext = 3667591
+    							_ = gotoNext == 3667591
+    							line += val_3667399 - incstart_3667315
+    							gotoNext = 3667368
+    						} else {
+    							gotoNext = 3667368
+    						}
+    						gotoNext = 3667368
+    					default:
+    						gotoNext = 3667631
+    						_ = gotoNext == 3667631
+    						if depth_3667298 == 1 {
+    							gotoNext = 3667658
+    							_ = gotoNext == 3667658
+    							incstart_3667315 = val_3667399
+    							gotoNext = 3667690
+    						} else {
+    							gotoNext = 3667690
+    						}
+    						_ = gotoNext == 3667690
+    						depth_3667298++
+    						gotoNext = 3667368
+    					}
+    					_ = gotoNext == 3667368
+    					i_3667376_0++
+    					gotoNext = 3667705
+    				} else {
+    					gotoNext = 3667709
+    				}
+    				gotoNext = 3667709
+    			} else {
+    				gotoNext = 3667709
+    			}
+    			_ = gotoNext == 3667709
+    			return 0, &UnknownLineError{path, line}
+    			i_3667173++
+    			gotoNext = 3667750
+    		} else {
+    			gotoNext = 3667753
+    		}
+    		gotoNext = 3667753
+    	} else {
+    		gotoNext = 3667753
+    	}
+    	_ = gotoNext == 3667753
+    	return 0, UnknownFileError(path)
+    	gotoNext = -1
+    }*|/
 **/
 class Gosym {
     /**

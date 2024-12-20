@@ -1079,9 +1079,289 @@ class T_token_static_extension {
     }
 }
 /**
-    Package flate implements the DEFLATE compressed data format, described in
-    RFC 1951.  The gzip and zlib packages implement access to DEFLATE-based file
-    formats.
+    /|*{
+    	stateInit_3714275 = 1
+    	gotoNext = 3714341
+    	_ = gotoNext == 3714341
+    	switch f.stepState {
+    	case 0:
+    		gotoNext = 3714363
+    		_ = gotoNext == 3714363
+    		gotoNext = 3714438
+    		gotoNext = 3714438
+    	case 1:
+    		gotoNext = 3714399
+    		_ = gotoNext == 3714399
+    		gotoNext = 3716544
+    		gotoNext = 3714438
+    	default:
+    		gotoNext = 3714438
+    	}
+    	_ = gotoNext == 3714438
+    	gotoNext = 3714438
+    	_ = gotoNext == 3714438
+    	{
+    		gotoNext = 3714527
+    		_ = gotoNext == 3714527
+    		v_3714531, err_3714534 = f.huffSym(f.hl)
+    		if err_3714534 != nil {
+    			gotoNext = 3714573
+    			_ = gotoNext == 3714573
+    			f.err = err_3714534
+    			return
+    			gotoNext = 3714606
+    		} else {
+    			gotoNext = 3714606
+    		}
+    		_ = gotoNext == 3714606
+    		gotoNext = 3714660
+    		_ = gotoNext == 3714660
+    		switch {
+    		case v_3714531 < 256:
+    			gotoNext = 3714671
+    			_ = gotoNext == 3714671
+    			f.dict.writeByte(byte(v_3714531))
+    			if f.dict.availWrite() == 0 {
+    				gotoNext = 3714745
+    				_ = gotoNext == 3714745
+    				f.toRead = f.dict.readFlush()
+    				f.step = (*decompressor).huffmanBlock
+    				f.stepState = 0
+    				return
+    				gotoNext = 3714870
+    			} else {
+    				gotoNext = 3714870
+    			}
+    			_ = gotoNext == 3714870
+    			gotoNext = 3714438
+    			gotoNext = 3715423
+    		case v_3714531 == 256:
+    			gotoNext = 3714889
+    			_ = gotoNext == 3714889
+    			f.finishBlock()
+    			return
+    			gotoNext = 3715423
+    		case v_3714531 < 265:
+    			gotoNext = 3714975
+    			_ = gotoNext == 3714975
+    			length_3714647 = v_3714531 - 254
+    			n_3714610 = 0
+    			gotoNext = 3715423
+    		case v_3714531 < 269:
+    			gotoNext = 3715026
+    			_ = gotoNext == 3715026
+    			length_3714647 = v_3714531*2 - 519
+    			n_3714610 = 1
+    			gotoNext = 3715423
+    		case v_3714531 < 273:
+    			gotoNext = 3715082
+    			_ = gotoNext == 3715082
+    			length_3714647 = v_3714531*4 - 1057
+    			n_3714610 = 2
+    			gotoNext = 3715423
+    		case v_3714531 < 277:
+    			gotoNext = 3715138
+    			_ = gotoNext == 3715138
+    			length_3714647 = v_3714531*8 - 2149
+    			n_3714610 = 3
+    			gotoNext = 3715423
+    		case v_3714531 < 281:
+    			gotoNext = 3715194
+    			_ = gotoNext == 3715194
+    			length_3714647 = v_3714531*16 - 4365
+    			n_3714610 = 4
+    			gotoNext = 3715423
+    		case v_3714531 < 285:
+    			gotoNext = 3715252
+    			_ = gotoNext == 3715252
+    			length_3714647 = v_3714531*32 - 8861
+    			n_3714610 = 5
+    			gotoNext = 3715423
+    		case v_3714531 < 286:
+    			gotoNext = 3715311
+    			_ = gotoNext == 3715311
+    			length_3714647 = 258
+    			n_3714610 = 0
+    			gotoNext = 3715423
+    		default:
+    			gotoNext = 3715358
+    			_ = gotoNext == 3715358
+    			f.err = CorruptInputError(f.roffset)
+    			return
+    			gotoNext = 3715423
+    		}
+    		_ = gotoNext == 3715423
+    		if n_3714610 > 0 {
+    			gotoNext = 3715432
+    			_ = gotoNext == 3715432
+    			_ = 0
+    			gotoNext = 3715437
+    			_ = gotoNext == 3715437
+    			if f.nb < n_3714610 {
+    				gotoNext = 3715450
+    				_ = gotoNext == 3715450
+    				if err_3714534 = f.moreBits(); err_3714534 != nil {
+    					gotoNext = 3715490
+    					_ = gotoNext == 3715490
+    					f.err = err_3714534
+    					return
+    					gotoNext = 3715437
+    				} else {
+    					gotoNext = 3715437
+    				}
+    				gotoNext = 3715437
+    			} else {
+    				gotoNext = 3715535
+    			}
+    			_ = gotoNext == 3715535
+    			length_3714647 += int(f.b & uint32(1<<n_3714610-1))
+    			f.b >>= n_3714610
+    			f.nb -= n_3714610
+    			gotoNext = 3715604
+    		} else {
+    			gotoNext = 3715604
+    		}
+    		_ = gotoNext == 3715604
+    		if f.hd == nil {
+    			gotoNext = 3715634
+    			_ = gotoNext == 3715634
+    			_ = 0
+    			gotoNext = 3715639
+    			_ = gotoNext == 3715639
+    			if f.nb < 5 {
+    				gotoNext = 3715652
+    				_ = gotoNext == 3715652
+    				if err_3714534 = f.moreBits(); err_3714534 != nil {
+    					gotoNext = 3715692
+    					_ = gotoNext == 3715692
+    					f.err = err_3714534
+    					return
+    					gotoNext = 3715639
+    				} else {
+    					gotoNext = 3715639
+    				}
+    				gotoNext = 3715639
+    			} else {
+    				gotoNext = 3715737
+    			}
+    			_ = gotoNext == 3715737
+    			dist_3715608 = int(bits.Reverse8(uint8(f.b & 31 << 3)))
+    			f.b >>= 5
+    			f.nb -= 5
+    			gotoNext = 3715911
+    		} else {
+    			gotoNext = 3715822
+    			_ = gotoNext == 3715822
+    			gotoNext = 3715822
+    			_ = gotoNext == 3715822
+    			if dist_3715608, err_3714534 = f.huffSym(f.hd); err_3714534 != nil {
+    				gotoNext = 3715870
+    				_ = gotoNext == 3715870
+    				f.err = err_3714534
+    				return
+    				gotoNext = 3715911
+    			} else {
+    				gotoNext = 3715911
+    			}
+    			_ = 0
+    			gotoNext = 3715911
+    		}
+    		_ = gotoNext == 3715911
+    		gotoNext = 3715911
+    		_ = gotoNext == 3715911
+    		switch {
+    		case dist_3715608 < 4:
+    			gotoNext = 3715922
+    			_ = gotoNext == 3715922
+    			dist_3715608++
+    			gotoNext = 3716397
+    		case dist_3715608 < 30:
+    			gotoNext = 3715949
+    			_ = gotoNext == 3715949
+    			nb_3715976 = uint(dist_3715608-2) >> 1
+    			extra_3716053 = (dist_3715608 & 1) << nb_3715976
+    			_ = 0
+    			gotoNext = 3716082
+    			_ = gotoNext == 3716082
+    			if f.nb < nb_3715976 {
+    				gotoNext = 3716096
+    				_ = gotoNext == 3716096
+    				if err_3714534 = f.moreBits(); err_3714534 != nil {
+    					gotoNext = 3716136
+    					_ = gotoNext == 3716136
+    					f.err = err_3714534
+    					return
+    					gotoNext = 3716082
+    				} else {
+    					gotoNext = 3716082
+    				}
+    				gotoNext = 3716082
+    			} else {
+    				gotoNext = 3716181
+    			}
+    			_ = gotoNext == 3716181
+    			extra_3716053 |= int(f.b & uint32(1<<nb_3715976-1))
+    			f.b >>= nb_3715976
+    			f.nb -= nb_3715976
+    			dist_3715608 = 1<<(nb_3715976+1) + 1 + extra_3716053
+    			gotoNext = 3716397
+    		default:
+    			gotoNext = 3716279
+    			_ = gotoNext == 3716279
+    			f.err = CorruptInputError(f.roffset)
+    			return
+    			gotoNext = 3716397
+    		}
+    		_ = gotoNext == 3716397
+    		if dist_3715608 > f.dict.histSize() {
+    			gotoNext = 3716425
+    			_ = gotoNext == 3716425
+    			f.err = CorruptInputError(f.roffset)
+    			return
+    			gotoNext = 3716484
+    		} else {
+    			gotoNext = 3716484
+    		}
+    		_ = gotoNext == 3716484
+    		f.copyLen, f.copyDist = length_3714647, dist_3715608
+    		gotoNext = 3716544
+    		gotoNext = 3716544
+    	}
+    	_ = gotoNext == 3716544
+    	gotoNext = 3716544
+    	_ = gotoNext == 3716544
+    	{
+    		gotoNext = 3716619
+    		_ = gotoNext == 3716619
+    		cnt_3716623 = f.dict.tryWriteCopy(f.copyDist, f.copyLen)
+    		if cnt_3716623 == 0 {
+    			gotoNext = 3716687
+    			_ = gotoNext == 3716687
+    			cnt_3716623 = f.dict.writeCopy(f.copyDist, f.copyLen)
+    			gotoNext = 3716744
+    		} else {
+    			gotoNext = 3716744
+    		}
+    		_ = gotoNext == 3716744
+    		f.copyLen -= cnt_3716623
+    		if f.dict.availWrite() == 0 || f.copyLen > 0 {
+    			gotoNext = 3716809
+    			_ = gotoNext == 3716809
+    			f.toRead = f.dict.readFlush()
+    			f.step = (*decompressor).huffmanBlock
+    			f.stepState = 1
+    			return
+    			gotoNext = 3716961
+    		} else {
+    			gotoNext = 3716961
+    		}
+    		_ = gotoNext == 3716961
+    		gotoNext = 3714438
+    		gotoNext = 3716981
+    	}
+    	_ = gotoNext == 3716981
+    	gotoNext = -1
+    }*|/
 **/
 class Flate {
     /**

@@ -282,17 +282,188 @@ class Writer_static_extension {
     }
 }
 /**
-    Package lzw implements the Lempel-Ziv-Welch compressed data format,
-    described in T. A. Welch, “A Technique for High-Performance Data
-    Compression”, Computer, 17(6) (June 1984), pp 8-19.
-    
-    In particular, it implements LZW as used by the GIF and PDF file
-    formats, which means variable-width codes up to 12 bits and the first
-    two non-literal codes are a clear code and an EOF code.
-    
-    The TIFF file format uses a similar but incompatible version of the LZW
-    algorithm. See the golang.org/x/image/tiff/lzw package for an
-    implementation.
+    /|*{
+    	if w.err != nil {
+    		gotoNext = 3645944
+    		_ = gotoNext == 3645944
+    		return 0, w.err
+    		gotoNext = 3645968
+    	} else {
+    		gotoNext = 3645968
+    	}
+    	_ = gotoNext == 3645968
+    	if len(p) == 0 {
+    		gotoNext = 3645983
+    		_ = gotoNext == 3645983
+    		return 0, nil
+    		gotoNext = 3646005
+    	} else {
+    		gotoNext = 3646005
+    	}
+    	_ = gotoNext == 3646005
+    	if maxLit_3646008 = uint8(1<<w.litWidth - 1); maxLit_3646008 != 255 {
+    		gotoNext = 3646059
+    		_ = gotoNext == 3646059
+    		if 0 < len(p) {
+    			gotoNext = 3646199
+    			_ = gotoNext == 3646199
+    			i_3646075_0, x_3646070 = 0, p[0]
+    			gotoNext = 3646200
+    			_ = gotoNext == 3646200
+    			if i_3646075_0 < len(p) {
+    				gotoNext = 3646083
+    				_ = gotoNext == 3646083
+    				x_3646070 = p[i_3646075_0]
+    				if x_3646070 > maxLit_3646008 {
+    					gotoNext = 3646102
+    					_ = gotoNext == 3646102
+    					w.err = errors.New("lzw: input byte too large for the litWidth")
+    					return 0, w.err
+    					gotoNext = 3646067
+    				} else {
+    					gotoNext = 3646067
+    				}
+    				_ = gotoNext == 3646067
+    				i_3646075_0++
+    				gotoNext = 3646200
+    			} else {
+    				gotoNext = 3646206
+    			}
+    			gotoNext = 3646206
+    		} else {
+    			gotoNext = 3646206
+    		}
+    		gotoNext = 3646206
+    	} else {
+    		gotoNext = 3646206
+    	}
+    	_ = gotoNext == 3646206
+    	n = len(p)
+    	code_3646218 = w.savedCode
+    	if code_3646218 == 4294967295 {
+    		gotoNext = 3646262
+    		_ = gotoNext == 3646262
+    		clear_3646633 = uint32(1) << w.litWidth
+    		if err_3646671 = w.write(w, clear_3646633); err_3646671 != nil {
+    			gotoNext = 3646708
+    			_ = gotoNext == 3646708
+    			return 0, err_3646671
+    			gotoNext = 3646841
+    		} else {
+    			gotoNext = 3646841
+    		}
+    		_ = gotoNext == 3646841
+    		code_3646218, p = uint32(p[0]), p[1:]
+    		gotoNext = 3646874
+    	} else {
+    		gotoNext = 3646874
+    	}
+    	_ = gotoNext == 3646874
+    	gotoNext = 3646874
+    	_ = gotoNext == 3646874
+    	if 0 < len(p) {
+    		gotoNext = 3647937
+    		_ = gotoNext == 3647937
+    		i_3646893_0, x_3646888 = 0, p[0]
+    		gotoNext = 3647938
+    		_ = gotoNext == 3647938
+    		if i_3646893_0 < len(p) {
+    			gotoNext = 3646901
+    			_ = gotoNext == 3646901
+    			x_3646888 = p[i_3646893_0]
+    			literal_3646905 = uint32(x_3646888)
+    			key_3646928 = code_3646218<<8 | literal_3646905
+    			hash_3647061 = (key_3646928>>12 ^ key_3646928) & 16383
+    			h_3647103, t_3647106 = hash_3647061, w.table[hash_3647061]
+    			gotoNext = 3647099
+    			_ = gotoNext == 3647099
+    			if t_3647106 != 0 {
+    				gotoNext = 3647151
+    				_ = gotoNext == 3647151
+    				if key_3646928 == t_3647106>>12 {
+    					gotoNext = 3647172
+    					_ = gotoNext == 3647172
+    					code_3646218 = t_3647106 & 4095
+    					i_3646893++
+    					gotoNext = 3647938
+    					gotoNext = 3647223
+    				} else {
+    					gotoNext = 3647223
+    				}
+    				_ = gotoNext == 3647223
+    				h_3647103 = (h_3647103 + 1) & 16383
+    				t_3647106 = w.table[h_3647103]
+    				gotoNext = 3647099
+    			} else {
+    				gotoNext = 3647372
+    			}
+    			_ = gotoNext == 3647372
+    			if w.err = w.write(w, code_3646218); w.err != nil {
+    				gotoNext = 3647414
+    				_ = gotoNext == 3647414
+    				return 0, w.err
+    				gotoNext = 3647441
+    			} else {
+    				gotoNext = 3647441
+    			}
+    			_ = gotoNext == 3647441
+    			code_3646218 = literal_3646905
+    			if err1_3647607 = w.incHi(); err1_3647607 != nil {
+    				gotoNext = 3647638
+    				_ = gotoNext == 3647638
+    				if err1_3647607 == errOutOfCodes {
+    					gotoNext = 3647668
+    					_ = gotoNext == 3647668
+    					i_3646893_0++
+    					gotoNext = 3647938
+    					gotoNext = 3647691
+    				} else {
+    					gotoNext = 3647691
+    				}
+    				_ = gotoNext == 3647691
+    				w.err = err1_3647607
+    				return 0, w.err
+    				gotoNext = 3647802
+    			} else {
+    				gotoNext = 3647802
+    			}
+    			_ = gotoNext == 3647802
+    			_ = 0
+    			gotoNext = 3647802
+    			_ = gotoNext == 3647802
+    			if true {
+    				gotoNext = 3647806
+    				_ = gotoNext == 3647806
+    				if w.table[hash_3647061] == 0 {
+    					gotoNext = 3647844
+    					_ = gotoNext == 3647844
+    					w.table[hash_3647061] = (key_3646928 << 12) | w.hi
+    					gotoNext = 3646885
+    					gotoNext = 3647903
+    				} else {
+    					gotoNext = 3647903
+    				}
+    				_ = gotoNext == 3647903
+    				hash_3647061 = (hash_3647061 + 1) & 16383
+    				gotoNext = 3647802
+    			} else {
+    				gotoNext = 3646885
+    			}
+    			_ = gotoNext == 3646885
+    			i_3646893_0++
+    			gotoNext = 3647938
+    		} else {
+    			gotoNext = 3647941
+    		}
+    		gotoNext = 3647941
+    	} else {
+    		gotoNext = 3647941
+    	}
+    	_ = gotoNext == 3647941
+    	w.savedCode = code_3646218
+    	return n, nil
+    	gotoNext = -1
+    }*|/
 **/
 class Lzw {
     /**

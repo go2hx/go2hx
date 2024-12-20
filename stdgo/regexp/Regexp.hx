@@ -1035,71 +1035,379 @@ class T_runeSlice_static_extension {
     }
 }
 /**
-    Package regexp implements regular expression search.
-    
-    The syntax of the regular expressions accepted is the same
-    general syntax used by Perl, Python, and other languages.
-    More precisely, it is the syntax accepted by RE2 and described at
-    https://golang.org/s/re2syntax, except for \C.
-    For an overview of the syntax, run
-    
-    	go doc regexp/syntax
-    
-    The regexp implementation provided by this package is
-    guaranteed to run in time linear in the size of the input.
-    (This is a property not guaranteed by most open source
-    implementations of regular expressions.) For more information
-    about this property, see
-    
-    	https://swtch.com/~rsc/regexp/regexp1.html
-    
-    or any book about automata theory.
-    
-    All characters are UTF-8-encoded code points.
-    Following utf8.DecodeRune, each byte of an invalid UTF-8 sequence
-    is treated as if it encoded utf8.RuneError (U+FFFD).
-    
-    There are 16 methods of Regexp that match a regular expression and identify
-    the matched text. Their names are matched by this regular expression:
-    
-    	Find(All)?(String)?(Submatch)?(Index)?
-    
-    If 'All' is present, the routine matches successive non-overlapping
-    matches of the entire expression. Empty matches abutting a preceding
-    match are ignored. The return value is a slice containing the successive
-    return values of the corresponding non-'All' routine. These routines take
-    an extra integer argument, n. If n >= 0, the function returns at most n
-    matches/submatches; otherwise, it returns all of them.
-    
-    If 'String' is present, the argument is a string; otherwise it is a slice
-    of bytes; return values are adjusted as appropriate.
-    
-    If 'Submatch' is present, the return value is a slice identifying the
-    successive submatches of the expression. Submatches are matches of
-    parenthesized subexpressions (also known as capturing groups) within the
-    regular expression, numbered from left to right in order of opening
-    parenthesis. Submatch 0 is the match of the entire expression, submatch 1 is
-    the match of the first parenthesized subexpression, and so on.
-    
-    If 'Index' is present, matches and submatches are identified by byte index
-    pairs within the input string: result[2*n:2*n+2] identifies the indexes of
-    the nth submatch. The pair for n==0 identifies the match of the entire
-    expression. If 'Index' is not present, the match is identified by the text
-    of the match/submatch. If an index is negative or text is nil, it means that
-    subexpression did not match any string in the input. For 'String' versions
-    an empty string means either no match or an empty match.
-    
-    There is also a subset of the methods that can be applied to text read
-    from a RuneReader:
-    
-    	MatchReader, FindReaderIndex, FindReaderSubmatchIndex
-    
-    This set may grow. Note that regular expression matches may need to
-    examine text beyond the text returned by a match, so the methods that
-    match text from a RuneReader may read arbitrarily far into the input
-    before returning.
-    
-    (There are a few other methods that do not match this pattern.)
+    /|*{
+    	f_4912779, err_4912782 = os.Open(file)
+    	if err_4912782 != nil {
+    		gotoNext = 4912818
+    		_ = gotoNext == 4912818
+    		t.Error(err_4912782)
+    		return
+    		gotoNext = 4912848
+    	} else {
+    		gotoNext = 4912848
+    	}
+    	_ = gotoNext == 4912848
+    	defer f_4912779.Close()
+    	b_4912865 = bufio.NewReader(f_4912779)
+    	lineno_4912890 = 0
+    	lastRegexp_4912903 = ""
+    	gotoNext = 4912920
+    	_ = gotoNext == 4912920
+    	_ = 0
+    	ReadingBreak = false
+    	gotoNext = 4912930
+    	_ = gotoNext == 4912930
+    	if !ReadingBreak {
+    		gotoNext = 4912934
+    		_ = gotoNext == 4912934
+    		lineno_4912890++
+    		line_4912949, err_4912955 = b_4912865.ReadString(10)
+    		if err_4912955 != nil {
+    			gotoNext = 4912997
+    			_ = gotoNext == 4912997
+    			if err_4912955 != io.EOF {
+    				gotoNext = 4913019
+    				_ = gotoNext == 4913019
+    				t.Errorf("%s:%d: %v", file, lineno_4912890, err_4912955)
+    				gotoNext = 4913074
+    			} else {
+    				gotoNext = 4913074
+    			}
+    			_ = gotoNext == 4913074
+    			ReadingBreak = true
+    			gotoNext = 4912930
+    			gotoNext = 4913415
+    		} else {
+    			gotoNext = 4913415
+    		}
+    		_ = gotoNext == 4913415
+    		if line_4912949[0] == 35 || line_4912949[0] == 10 {
+    			gotoNext = 4913452
+    			_ = gotoNext == 4913452
+    			gotoNext = 4912930
+    			gotoNext = 4913480
+    		} else {
+    			gotoNext = 4913480
+    		}
+    		_ = gotoNext == 4913480
+    		line_4912949 = line_4912949[:len(line_4912949)-1]
+    		field_4913508 = notab.FindAllString(line_4912949, -1)
+    		if 0 < len(field_4913508) {
+    			gotoNext = 4913714
+    			_ = gotoNext == 4913714
+    			i_4913553, f_4913556 = 0, field_4913508[0]
+    			gotoNext = 4913715
+    			_ = gotoNext == 4913715
+    			if i_4913553 < len(field_4913508) {
+    				gotoNext = 4913573
+    				_ = gotoNext == 4913573
+    				f_4913556 = field_4913508[i_4913553]
+    				if f_4913556 == "NULL" {
+    					gotoNext = 4913593
+    					_ = gotoNext == 4913593
+    					field_4913508[i_4913553] = ""
+    					gotoNext = 4913621
+    				} else {
+    					gotoNext = 4913621
+    				}
+    				_ = gotoNext == 4913621
+    				if f_4913556 == "NIL" {
+    					gotoNext = 4913635
+    					_ = gotoNext == 4913635
+    					t.Logf("%s:%d: skip: %s", file, lineno_4912890, line_4912949)
+    					gotoNext = 4912930
+    					gotoNext = 4913553
+    				} else {
+    					gotoNext = 4913553
+    				}
+    				_ = gotoNext == 4913553
+    				i_4913553++
+    				gotoNext = 4913715
+    			} else {
+    				gotoNext = 4913719
+    			}
+    			gotoNext = 4913719
+    		} else {
+    			gotoNext = 4913719
+    		}
+    		_ = gotoNext == 4913719
+    		if len(field_4913508) == 0 {
+    			gotoNext = 4913738
+    			_ = gotoNext == 4913738
+    			gotoNext = 4912930
+    			gotoNext = 4916492
+    		} else {
+    			gotoNext = 4916492
+    		}
+    		_ = gotoNext == 4916492
+    		flag_4916492 = field_4913508[0]
+    		gotoNext = 4916511
+    		_ = gotoNext == 4916511
+    		switch flag_4916492[0] {
+    		case 63, 38, 124, 59, 123, 125:
+    			gotoNext = 4916530
+    			_ = gotoNext == 4916530
+    			flag_4916492 = flag_4916492[1:]
+    			if flag_4916492 == "" {
+    				gotoNext = 4916668
+    				_ = gotoNext == 4916668
+    				gotoNext = 4912930
+    				gotoNext = 4917037
+    			} else {
+    				gotoNext = 4917037
+    			}
+    			gotoNext = 4917037
+    		case 58:
+    			gotoNext = 4916698
+    			_ = gotoNext == 4916698
+    			if _, flag_4916492, ok_4916715 = strings.Cut(flag_4916492[1:], ":"); !ok_4916715 {
+    				gotoNext = 4916775
+    				_ = gotoNext == 4916775
+    				t.Logf("skip: %s", line_4912949)
+    				gotoNext = 4912930
+    				gotoNext = 4917037
+    			} else {
+    				gotoNext = 4917037
+    			}
+    			gotoNext = 4917037
+    		case 67, 78, 84, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57:
+    			gotoNext = 4916834
+    			_ = gotoNext == 4916834
+    			t.Logf("skip: %s", line_4912949)
+    			gotoNext = 4912930
+    			gotoNext = 4917037
+    		default:
+    			gotoNext = 4917037
+    		}
+    		_ = gotoNext == 4917037
+    		if len(field_4913508) < 4 {
+    			gotoNext = 4917055
+    			_ = gotoNext == 4917055
+    			t.Errorf("%s:%d: too few fields: %s", file, lineno_4912890, line_4912949)
+    			gotoNext = 4912930
+    			gotoNext = 4917188
+    		} else {
+    			gotoNext = 4917188
+    		}
+    		_ = gotoNext == 4917188
+    		if strings.Contains(flag_4916492, "$") {
+    			gotoNext = 4917219
+    			_ = gotoNext == 4917219
+    			f_4917224 = "\"" + field_4913508[1] + "\""
+    			if field_4913508[1], err_4912955 = strconv.Unquote(f_4917224); err_4912955 != nil {
+    				gotoNext = 4917303
+    				_ = gotoNext == 4917303
+    				t.Errorf("%s:%d: cannot unquote %s", file, lineno_4912890, f_4917224)
+    				gotoNext = 4917371
+    			} else {
+    				gotoNext = 4917371
+    			}
+    			_ = gotoNext == 4917371
+    			f_4917224 = "\"" + field_4913508[2] + "\""
+    			if field_4913508[2], err_4912955 = strconv.Unquote(f_4917224); err_4912955 != nil {
+    				gotoNext = 4917449
+    				_ = gotoNext == 4917449
+    				t.Errorf("%s:%d: cannot unquote %s", file, lineno_4912890, f_4917224)
+    				gotoNext = 4917638
+    			} else {
+    				gotoNext = 4917638
+    			}
+    			gotoNext = 4917638
+    		} else {
+    			gotoNext = 4917638
+    		}
+    		_ = gotoNext == 4917638
+    		if field_4913508[1] == "SAME" {
+    			gotoNext = 4917660
+    			_ = gotoNext == 4917660
+    			field_4913508[1] = lastRegexp_4912903
+    			gotoNext = 4917693
+    		} else {
+    			gotoNext = 4917693
+    		}
+    		_ = gotoNext == 4917693
+    		lastRegexp_4912903 = field_4913508[1]
+    		text_4917755 = field_4913508[2]
+    		ok_4917811, shouldCompile_4917815, shouldMatch_4917830, pos_4917843 = parseFowlerResult(field_4913508[3])
+    		if !ok_4917811 {
+    			gotoNext = 4917887
+    			_ = gotoNext == 4917887
+    			t.Errorf("%s:%d: cannot parse result %#q", file, lineno_4912890, field_4913508[3])
+    			gotoNext = 4912930
+    			gotoNext = 4918043
+    		} else {
+    			gotoNext = 4918043
+    		}
+    		_ = gotoNext == 4918043
+    		gotoNext = 4918043
+    		_ = gotoNext == 4918043
+    		keys_4918129 = []int{}
+    		values_4918129 = []rune{}
+    		for key, value := range flag_4916492 {
+    			keys_4918129 = append(keys_4918129, key)
+    			values_4918129 = append(values_4918129, value)
+    		}
+    		if 0 < len(keys_4918129) {
+    			gotoNext = 4919408
+    			_ = gotoNext == 4919408
+    			i_4918141 = 0
+    			gotoNext = 4919409
+    			_ = gotoNext == 4919409
+    			if i_4918141 < len(keys_4918129) {
+    				gotoNext = 4918152
+    				_ = gotoNext == 4918152
+    				c_4918136 = values_4918129[i_4918141]
+    				_ = keys_4918129[i_4918141]
+    				pattern_4918157 = field_4913508[1]
+    				syn_4918180 = 4
+    				gotoNext = 4918220
+    				_ = gotoNext == 4918220
+    				switch c_4918136 {
+    				default:
+    					gotoNext = 4918234
+    					_ = gotoNext == 4918234
+    					i_4918141++
+    					gotoNext = 4919409
+    					gotoNext = 4918388
+    				case 69:
+    					gotoNext = 4918267
+    					_ = gotoNext == 4918267
+    					gotoNext = 4918388
+    				case 76:
+    					gotoNext = 4918321
+    					_ = gotoNext == 4918321
+    					pattern_4918157 = QuoteMeta(pattern_4918157)
+    					gotoNext = 4918388
+    				}
+    				_ = gotoNext == 4918388
+    				keys_4918388 = []int{}
+    				values_4918388 = []rune{}
+    				for key, value := range flag_4916492 {
+    					keys_4918388 = append(keys_4918388, key)
+    					values_4918388 = append(values_4918388, value)
+    				}
+    				if 0 < len(keys_4918388) {
+    					gotoNext = 4918478
+    					_ = gotoNext == 4918478
+    					i_4918400 = 0
+    					gotoNext = 4918479
+    					_ = gotoNext == 4918479
+    					if i_4918400 < len(keys_4918388) {
+    						gotoNext = 4918411
+    						_ = gotoNext == 4918411
+    						c_4918395 = values_4918388[i_4918400]
+    						_ = keys_4918388[i_4918400]
+    						gotoNext = 4918417
+    						_ = gotoNext == 4918417
+    						switch c_4918395 {
+    						case 105:
+    							gotoNext = 4918432
+    							_ = gotoNext == 4918432
+    							syn_4918180 |= 1
+    							gotoNext = 4918400
+    						default:
+    							gotoNext = 4918400
+    						}
+    						_ = gotoNext == 4918400
+    						i_4918400++
+    						gotoNext = 4918479
+    					} else {
+    						gotoNext = 4918485
+    					}
+    					gotoNext = 4918485
+    				} else {
+    					gotoNext = 4918485
+    				}
+    				_ = gotoNext == 4918485
+    				re_4918485, err_4918489 = compile(pattern_4918157, syn_4918180, true)
+    				if err_4918489 != nil {
+    					gotoNext = 4918541
+    					_ = gotoNext == 4918541
+    					if shouldCompile_4917815 {
+    						gotoNext = 4918564
+    						_ = gotoNext == 4918564
+    						t.Errorf("%s:%d: %#q did not compile", file, lineno_4912890, pattern_4918157)
+    						gotoNext = 4918643
+    					} else {
+    						gotoNext = 4918643
+    					}
+    					_ = gotoNext == 4918643
+    					i_4918141++
+    					gotoNext = 4919409
+    					gotoNext = 4918668
+    				} else {
+    					gotoNext = 4918668
+    				}
+    				_ = gotoNext == 4918668
+    				if !shouldCompile_4917815 {
+    					gotoNext = 4918686
+    					_ = gotoNext == 4918686
+    					t.Errorf("%s:%d: %#q should not compile", file, lineno_4912890, pattern_4918157)
+    					i_4918141++
+    					gotoNext = 4919409
+    					gotoNext = 4918786
+    				} else {
+    					gotoNext = 4918786
+    				}
+    				_ = gotoNext == 4918786
+    				match_4918786 = re_4918485.MatchString(text_4917755)
+    				if match_4918786 != shouldMatch_4917830 {
+    					gotoNext = 4918843
+    					_ = gotoNext == 4918843
+    					t.Errorf("%s:%d: %#q.Match(%#q) = %v, want %v", file, lineno_4912890, pattern_4918157, text_4917755, match_4918786, shouldMatch_4917830)
+    					i_4918141++
+    					gotoNext = 4919409
+    					gotoNext = 4918975
+    				} else {
+    					gotoNext = 4918975
+    				}
+    				_ = gotoNext == 4918975
+    				have_4918975 = re_4918485.FindStringSubmatchIndex(text_4917755)
+    				if (len(have_4918975) > 0) != match_4918786 {
+    					gotoNext = 4919047
+    					_ = gotoNext == 4919047
+    					t.Errorf("%s:%d: %#q.Match(%#q) = %v, but %#q.FindSubmatchIndex(%#q) = %v", file, lineno_4912890, pattern_4918157, text_4917755, match_4918786, pattern_4918157, text_4917755, have_4918975)
+    					i_4918141++
+    					gotoNext = 4919409
+    					gotoNext = 4919215
+    				} else {
+    					gotoNext = 4919215
+    				}
+    				_ = gotoNext == 4919215
+    				if len(have_4918975) > len(pos_4917843) {
+    					gotoNext = 4919239
+    					_ = gotoNext == 4919239
+    					have_4918975 = have_4918975[:len(pos_4917843)]
+    					gotoNext = 4919276
+    				} else {
+    					gotoNext = 4919276
+    				}
+    				_ = gotoNext == 4919276
+    				if !same(have_4918975, pos_4917843) {
+    					gotoNext = 4919296
+    					_ = gotoNext == 4919296
+    					t.Errorf("%s:%d: %#q.FindSubmatchIndex(%#q) = %v, want %v", file, lineno_4912890, pattern_4918157, text_4917755, have_4918975, pos_4917843)
+    					gotoNext = 4918141
+    				} else {
+    					gotoNext = 4918141
+    				}
+    				_ = gotoNext == 4918141
+    				i_4918141++
+    				gotoNext = 4919409
+    			} else {
+    				gotoNext = 4912930
+    			}
+    			gotoNext = 4912930
+    		} else {
+    			gotoNext = 4912930
+    		}
+    		gotoNext = 4912930
+    	} else {
+    		gotoNext = 4919414
+    	}
+    	_ = gotoNext == 4919414
+    	gotoNext = -1
+    }*|/
 **/
 class Regexp {
     static public function testGoodCompile(_t:stdgo._internal.testing.Testing_T_.T_):Void {

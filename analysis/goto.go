@@ -426,6 +426,12 @@ func (fs *funcScope) markJumps(stmt ast.Stmt, scopeIndex int) []ast.Stmt {
 			stmt.Body.List = append(stmt.Body.List, fs.loopPost)
 		}*/
 		stmt.Body.List = append([]ast.Stmt{jumpTo(stmt.Body.Pos()), setJump(stmt.Body.Pos())}, stmt.Body.List...)
+		if len(fs.nextJumpFunc) > 0 {
+			for _, f := range fs.nextJumpFunc {
+				f(stmt.Pos())
+			}
+			fs.nextJumpFunc = []func(token.Pos){}
+		}
 		stmt.Body.List = append(stmt.Body.List, jumpTo(stmt.Pos()))
 		if stmt.Cond == nil {
 			stmt.Cond = ast.NewIdent("true")
@@ -839,7 +845,7 @@ func ParseLocalGotos(file *ast.File, checker *types.Checker, fset *token.FileSet
 		}
 		_ = switchStmt
 		secondPass := true
-		commentBool := !true
+		commentBool := true
 		if secondPass {
 			if commentBool {
 				buf := bytes.NewBufferString("")

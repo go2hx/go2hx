@@ -1,13 +1,13 @@
 package stdgo._internal.crypto.x509;
 function _parseRFC2821Mailbox(_in:stdgo.GoString):{ var _0 : stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox; var _1 : Bool; } {
         var _mailbox = ({} : stdgo._internal.crypto.x509.X509_T_rfc2821Mailbox.T_rfc2821Mailbox), _ok = false;
+        var _c_5608865:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
+        var quotedStringBreak = false;
+        var _localPartBytes_5608236:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _ok_5611384:Bool = false;
         var _twoDots_5610957:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _c_5609902:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
         var nextCharBreak = false;
-        var _c_5608865:stdgo.GoUInt8 = (0 : stdgo.GoUInt8);
-        var quotedStringBreak = false;
-        var _localPartBytes_5608236:stdgo.Slice<stdgo.GoUInt8> = (null : stdgo.Slice<stdgo.GoUInt8>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {

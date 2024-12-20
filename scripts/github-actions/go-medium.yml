@@ -5,15 +5,15 @@ strategy:
 runs-on: ubuntu-latest
 steps:
   - uses: actions/checkout@v3
-  - uses: actions/setup-go@v3
-    with:
-      go-version: '1.21.3' # The Go version to download (if necessary) and use.
   - name: cleanup
     run: |
       sudo rm -rf /usr/share/dotnet
       sudo rm -rf /opt/ghc
       sudo rm -rf "/usr/local/share/boost"
       sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+  - uses: actions/setup-go@v3
+    with:
+      go-version: '1.21.3' # The Go version to download (if necessary) and use.
 ::support::
   # Get the cores 
   - name: Get number of cores (Ubuntu)

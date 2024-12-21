@@ -43,7 +43,7 @@ final list = [
 	},
 	"os:isPathSeparator" => macro {
 		@:define("js") return _c == "/";
-		@:define("target.sys") {
+		@:define("sys") {
 			final sep = switch Sys.systemName() {
 				case "Windows":
 					"\\\\".code;
@@ -54,7 +54,7 @@ final list = [
 		}
 	},
 	"os:writeFile" => macro {
-		return @:define("target.sys") {
+		return @:define("(sys || hxnodejs)") {
 			if (!sys.FileSystem.exists(_name)) {
 				return stdgo._internal.errors.Errors_new_.new_("writeFile " + _name + ": no such file or directory");
 			}else{
@@ -68,7 +68,7 @@ final list = [
 		}
 	},
 	"os:readFile" => macro {
-		return @:define("target.sys") {
+		return @:define("(sys || hxnodejs)") {
 			if (!sys.FileSystem.exists(_name)) {
 				return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("readFile " + _name + ": no such file or directory")};
 			}else{
@@ -81,7 +81,7 @@ final list = [
 		};
 	},
 	"os:openFile" => macro {
-		return @:define("target.sys") {
+		return @:define("(sys || hxnodejs)") {
 			if (!sys.FileSystem.exists(_name)) {
 				sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
 			}
@@ -105,7 +105,7 @@ final list = [
 		return {_0: i, _1: null};
 	},
 	"os.File:truncate" => macro {
-		@:define("target.sys") {
+		@:define("(sys || hxnodejs)") {
 			@:privateAccess _f._output.close();
 			final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
 			sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0,(_size : stdgo.GoInt).toBasic()));
@@ -122,7 +122,7 @@ final list = [
 		return null;
 	},
 	"os:getwd" => macro {
-		return @:define("target.sys") {
+		return @:define("(sys || hxnodejs)") {
 			try {
 				return {_0: std.Sys.getCwd(), _1: null};
 			} catch (e) {
@@ -132,7 +132,7 @@ final list = [
 	},
 	"os:_runtime_args" => macro {
 		@:define("js") return new stdgo.Slice<stdgo.GoString>(0, 0).__setString__();
-		@:define("target.sys") {
+		@:define("(sys || hxnodejs)") {
 			final args:Array<stdgo.GoString> = std.Sys.args().map(arg -> (arg : stdgo.GoString));
 			args.unshift(std.Sys.getCwd());
 			return new stdgo.Slice<stdgo.GoString>(args.length, args.length, ...args).__setString__();
@@ -143,7 +143,7 @@ final list = [
 	// stdgo/time
 	"time:sleep" => macro {
 		final seconds = _d.toFloat() / 1000000000;
-		@:define("sys") {
+		@:define("(sys || hxnodejs)") {
 			var ticks = std.Math.floor(seconds * 100);
 			while (--ticks > 0) {
 				stdgo._internal.internal.Async.tick();
@@ -199,7 +199,7 @@ final list = [
 		_startTimer(_t);
 	},
 	"time:_runtimeNano" => macro {
-		@:define("sys") {
+		@:define("(sys || hxnodejs)") {
 			return ((std.Sys.time() * 1000000 * 1000) - std.Date.now().getTimezoneOffset() * 60000000000 : stdgo.GoInt64);
 		}
 		return 0;
@@ -376,7 +376,7 @@ final list = [
 	"math:_sin" => macro return stdgo._internal.math.Math_sin.sin(_x),
 	// stdgo/os
 	"os:open" => macro {
-		return @:define("target.sys") {
+		return @:define("(sys || hxnodejs)") {
 		if (!sys.FileSystem.exists(_name))
 			return {_0: null, _1: stdgo._internal.errors.Errors_new_.new_("open " + _name + ": no such file or directory")};
 		throw "os.open is not yet implemented";
@@ -388,15 +388,15 @@ final list = [
 	"regexp.syntax:_parseTests" => macro null,
 	"regexp.syntax:_invalidRegexps" => macro null,*/
 	"os:stdin" => macro {
-		final input:haxe.io.Input = @:define("(target.sys || hxnodejs)") std.Sys.stdin();
+		final input:haxe.io.Input = @:define("(sys || hxnodejs)") std.Sys.stdin();
 		new stdgo._internal.os.Os_File.File(input, null);
 	},
 	"os:stdout" => macro {
-		final output:haxe.io.Output = @:define("(target.sys || hxnodejs)") std.Sys.stdout();
+		final output:haxe.io.Output = @:define("(sys || hxnodejs)") std.Sys.stdout();
 		new stdgo._internal.os.Os_File.File(null, output);
 	},
 	"os:stderr" => macro {
-		final output:haxe.io.Output = @:define("(target.sys || hxnodejs)") std.Sys.stderr();
+		final output:haxe.io.Output = @:define("(sys || hxnodejs)") std.Sys.stderr();
 		new stdgo._internal.os.Os_File.File(null, output);
 	},
 	"os.File:writeString" => macro return _f.write(_s),
@@ -1265,9 +1265,9 @@ final list = [
 	},
 	"sync:_runtime_procPin" => macro return 0,
 	"sync.Map_:_dirtyLocked" => macro {},
-	"sync.Mutex:lock" => macro @:privateAccess @:define("!target.threaded") _m.mutex.acquire(),
-	"sync.Mutex:tryLock" => macro @:privateAccess return @:define("!target.threaded", true) _m.mutex.tryAcquire(),
-	"sync.Mutex:unlock" => macro @:privateAccess @:define("!target.threaded") _m.mutex.release(),
+	"sync.Mutex:lock" => macro @:privateAccess @:define("target.threaded") _m.mutex.acquire(),
+	"sync.Mutex:tryLock" => macro @:privateAccess return @:define("target.threaded", true) _m.mutex.tryAcquire(),
+	"sync.Mutex:unlock" => macro @:privateAccess @:define("target.threaded") _m.mutex.release(),
 	"sync.WaitGroup:add" => macro {
 		@:privateAccess _wg.counter += _delta;
 		if (@:privateAccess _wg.counter < 0)
@@ -1276,10 +1276,10 @@ final list = [
 	"sync.WaitGroup:done" => macro {
 		@:privateAccess _wg.counter--;
 		if (@:privateAccess _wg.counter <= 0) {
-			@:privateAccess @:define("!target.threaded") _wg.lock.release();
+			@:privateAccess @:define("target.threaded") _wg.lock.release();
 		}
 	},
-	"sync.WaitGroup:wait_" => macro @:privateAccess @:define("!target.threaded") _wg.lock.wait(),
+	"sync.WaitGroup:wait_" => macro @:privateAccess @:define("target.threaded") _wg.lock.wait(),
 	"sync.Once:do_" => macro {
 		if (@:privateAccess _o._done == 1)
 			return;
@@ -1410,7 +1410,7 @@ final list = [
 	"syscall:mprotect" => macro return null,
 	// testing
 	"testing:mainStart" => macro {
-		final args = @:define("target.sys", []) Sys.args();
+		final args = @:define("(sys || hxnodejs)", []) Sys.args();
 		var testlist:Array<stdgo._internal.testing.Testing_InternalTest.InternalTest> = [];
 		var runArgBool = false;
 		var excludes:Array<String> = [];
@@ -1453,7 +1453,7 @@ final list = [
 	"testing.T_common:skipped" => macro return false,
 	"testing.T_common:fail" => macro {
 		_c._failed = true;
-		@:define("sys") Sys.exit(1);
+		@:define("(sys || hxnodejs)") Sys.exit(1);
 	},
 	"testing.T_common:skip" => macro {},
 	"testing.T_common:helper" => macro {},
@@ -1633,16 +1633,16 @@ final structs = [
 	},
 	"sync:WaitGroup" => macro {
 		@:local
-		var lock = @:define("!target.threaded") new sys.thread.Lock();
+		var lock = @:define("target.threaded") new sys.thread.Lock();
 		var counter:stdgo.GoUInt = 0;
 	},
 	"sync:Mutex" => macro {
 		@:local
-		var mutex = @:define("!target.threaded") new sys.thread.Mutex();
+		var mutex = @:define("target.threaded") new sys.thread.Mutex();
 	},
 	"sync:RWMutex" => macro {
 		@:local
-		var mutex = @:define("!target.threaded") new sys.thread.Mutex();
+		var mutex = @:define("target.threaded") new sys.thread.Mutex();
 	},
 	"sync:Pool" => macro {
 		@:local

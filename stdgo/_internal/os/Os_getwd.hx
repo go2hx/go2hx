@@ -1,6 +1,6 @@
 package stdgo._internal.os;
 function getwd():{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
-        return #if target.sys {
+        return #if (sys || hxnodejs) {
             try {
                 return { _0 : std.Sys.getCwd(), _1 : null };
             } catch(e) {

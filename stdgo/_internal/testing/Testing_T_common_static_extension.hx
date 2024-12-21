@@ -73,7 +73,7 @@ package stdgo._internal.testing;
     static public function fail( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):Void {
         @:recv var _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common> = _c;
         _c._failed = true;
-        #if sys Sys.exit(1) #else null #end;
+        #if (sys || hxnodejs) Sys.exit(1) #else null #end;
     }
     @:keep
     static public function _setRan( _c:stdgo.Ref<stdgo._internal.testing.Testing_T_common.T_common>):Void throw "T_common:testing._setRan is not yet implemented";

@@ -1,6 +1,6 @@
 package stdgo._internal.os;
 function openFile(_name:stdgo.GoString, _flag:stdgo.GoInt, _perm:stdgo._internal.io.fs.Fs_FileMode.FileMode):{ var _0 : stdgo.Ref<stdgo._internal.os.Os_File.File>; var _1 : stdgo.Error; } {
-        return #if target.sys {
+        return #if (sys || hxnodejs) {
             if (!sys.FileSystem.exists(_name)) {
                 sys.io.File.saveBytes(_name, haxe.io.Bytes.alloc(0));
             };

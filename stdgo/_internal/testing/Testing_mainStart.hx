@@ -1,6 +1,6 @@
 package stdgo._internal.testing;
 function mainStart(_deps:stdgo._internal.testing.Testing_T_testDeps.T_testDeps, _tests:stdgo.Slice<stdgo._internal.testing.Testing_InternalTest.InternalTest>, _benchmarks:stdgo.Slice<stdgo._internal.testing.Testing_InternalBenchmark.InternalBenchmark>, _fuzzTargets:stdgo.Slice<stdgo._internal.testing.Testing_InternalFuzzTarget.InternalFuzzTarget>, _examples:stdgo.Slice<stdgo._internal.testing.Testing_InternalExample.InternalExample>):stdgo.Ref<stdgo._internal.testing.Testing_M.M> {
-        final args = #if target.sys Sys.args() #else [] #end;
+        final args = #if (sys || hxnodejs) Sys.args() #else [] #end;
         var testlist:Array<stdgo._internal.testing.Testing_InternalTest.InternalTest> = [];
         var runArgBool = false;
         var excludes:Array<String> = [];

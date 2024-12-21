@@ -23,7 +23,7 @@ package stdgo._internal.os;
     @:keep
     static public function truncate( _f:stdgo.Ref<stdgo._internal.os.Os_File.File>, _size:stdgo.GoInt64):stdgo.Error {
         @:recv var _f:stdgo.Ref<stdgo._internal.os.Os_File.File> = _f;
-        #if target.sys {
+        #if (sys || hxnodejs) {
             @:privateAccess _f._output.close();
             final bytes = _size == 0 ? haxe.io.Bytes.alloc(0) : sys.io.File.getBytes(@:privateAccess _f._file._name);
             sys.io.File.saveBytes(@:privateAccess _f._file._name, bytes.sub(0, (_size : stdgo.GoInt).toBasic()));

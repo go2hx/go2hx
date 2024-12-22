@@ -1047,285 +1047,285 @@ class T_writeBuf_static_extension {
 }
 /**
     /|*{
-    	if _, err_3882006 = io.ReadFull(r, buf_3881970[:]); err_3882006 != nil {
-    		gotoNext = 3882048
-    		_ = gotoNext == 3882048
-    		return err_3882006
-    		gotoNext = 3882067
+    	if _, err_3863534 = io.ReadFull(r, buf_3863498[:]); err_3863534 != nil {
+    		gotoNext = 3863576
+    		_ = gotoNext == 3863576
+    		return err_3863534
+    		gotoNext = 3863595
     	} else {
-    		gotoNext = 3882067
+    		gotoNext = 3863595
     	}
-    	_ = gotoNext == 3882067
-    	b_3882067 = readBuf(buf_3881970[:])
-    	if sig_3882092 = b_3882067.uint32(); sig_3882092 != 33639248 {
-    		gotoNext = 3882143
-    		_ = gotoNext == 3882143
+    	_ = gotoNext == 3863595
+    	b_3863595 = readBuf(buf_3863498[:])
+    	if sig_3863620 = b_3863595.uint32(); sig_3863620 != 33639248 {
+    		gotoNext = 3863671
+    		_ = gotoNext == 3863671
     		return ErrFormat
-    		gotoNext = 3882168
+    		gotoNext = 3863696
     	} else {
-    		gotoNext = 3882168
+    		gotoNext = 3863696
     	}
-    	_ = gotoNext == 3882168
-    	f.CreatorVersion = b_3882067.uint16()
-    	f.ReaderVersion = b_3882067.uint16()
-    	f.Flags = b_3882067.uint16()
-    	f.Method = b_3882067.uint16()
-    	f.ModifiedTime = b_3882067.uint16()
-    	f.ModifiedDate = b_3882067.uint16()
-    	f.CRC32 = b_3882067.uint32()
-    	f.CompressedSize = b_3882067.uint32()
-    	f.UncompressedSize = b_3882067.uint32()
+    	_ = gotoNext == 3863696
+    	f.CreatorVersion = b_3863595.uint16()
+    	f.ReaderVersion = b_3863595.uint16()
+    	f.Flags = b_3863595.uint16()
+    	f.Method = b_3863595.uint16()
+    	f.ModifiedTime = b_3863595.uint16()
+    	f.ModifiedDate = b_3863595.uint16()
+    	f.CRC32 = b_3863595.uint32()
+    	f.CompressedSize = b_3863595.uint32()
+    	f.UncompressedSize = b_3863595.uint32()
     	f.CompressedSize64 = uint64(f.CompressedSize)
     	f.UncompressedSize64 = uint64(f.UncompressedSize)
-    	filenameLen_3882516 = int(b_3882067.uint16())
-    	extraLen_3882548 = int(b_3882067.uint16())
-    	commentLen_3882577 = int(b_3882067.uint16())
-    	b_3882067 = b_3882067[4:]
-    	f.ExternalAttrs = b_3882067.uint32()
-    	f.headerOffset = int64(b_3882067.uint32())
-    	d_3882750 = make([]byte, filenameLen_3882516+extraLen_3882548+commentLen_3882577)
-    	if _, err_3882808 = io.ReadFull(r, d_3882750); err_3882808 != nil {
-    		gotoNext = 3882845
-    		_ = gotoNext == 3882845
-    		return err_3882808
-    		gotoNext = 3882864
+    	filenameLen_3864044 = int(b_3863595.uint16())
+    	extraLen_3864076 = int(b_3863595.uint16())
+    	commentLen_3864105 = int(b_3863595.uint16())
+    	b_3863595 = b_3863595[4:]
+    	f.ExternalAttrs = b_3863595.uint32()
+    	f.headerOffset = int64(b_3863595.uint32())
+    	d_3864278 = make([]byte, filenameLen_3864044+extraLen_3864076+commentLen_3864105)
+    	if _, err_3864336 = io.ReadFull(r, d_3864278); err_3864336 != nil {
+    		gotoNext = 3864373
+    		_ = gotoNext == 3864373
+    		return err_3864336
+    		gotoNext = 3864392
     	} else {
-    		gotoNext = 3882864
+    		gotoNext = 3864392
     	}
-    	_ = gotoNext == 3882864
-    	f.Name = string(d_3882750[:filenameLen_3882516])
-    	f.Extra = d_3882750[filenameLen_3882516 : filenameLen_3882516+extraLen_3882548]
-    	f.Comment = string(d_3882750[filenameLen_3882516+extraLen_3882548:])
-    	utf8Valid1_3883032, utf8Require1_3883044 = detectUTF8(f.Name)
-    	utf8Valid2_3883080, utf8Require2_3883092 = detectUTF8(f.Comment)
-    	gotoNext = 3883131
-    	_ = gotoNext == 3883131
+    	_ = gotoNext == 3864392
+    	f.Name = string(d_3864278[:filenameLen_3864044])
+    	f.Extra = d_3864278[filenameLen_3864044 : filenameLen_3864044+extraLen_3864076]
+    	f.Comment = string(d_3864278[filenameLen_3864044+extraLen_3864076:])
+    	utf8Valid1_3864560, utf8Require1_3864572 = detectUTF8(f.Name)
+    	utf8Valid2_3864608, utf8Require2_3864620 = detectUTF8(f.Comment)
+    	gotoNext = 3864659
+    	_ = gotoNext == 3864659
     	switch {
-    	case !utf8Valid1_3883032 || !utf8Valid2_3883080:
-    		gotoNext = 3883141
-    		_ = gotoNext == 3883141
+    	case !utf8Valid1_3864560 || !utf8Valid2_3864608:
+    		gotoNext = 3864669
+    		_ = gotoNext == 3864669
     		f.NonUTF8 = true
-    		gotoNext = 3883702
-    	case !utf8Require1_3883044 && !utf8Require2_3883092:
-    		gotoNext = 3883238
-    		_ = gotoNext == 3883238
+    		gotoNext = 3865230
+    	case !utf8Require1_3864572 && !utf8Require2_3864620:
+    		gotoNext = 3864766
+    		_ = gotoNext == 3864766
     		f.NonUTF8 = false
-    		gotoNext = 3883702
+    		gotoNext = 3865230
     	default:
-    		gotoNext = 3883370
-    		_ = gotoNext == 3883370
+    		gotoNext = 3864898
+    		_ = gotoNext == 3864898
     		f.NonUTF8 = f.Flags&2048 == 0
-    		gotoNext = 3883702
+    		gotoNext = 3865230
     	}
-    	_ = gotoNext == 3883702
-    	needUSize_3883702 = f.UncompressedSize == 4294967295
-    	needCSize_3883749 = f.CompressedSize == 4294967295
-    	needHeaderOffset_3883794 = f.headerOffset == int64(4294967295)
-    	gotoNext = 3884033
-    	_ = gotoNext == 3884033
-    	extra_3884051 = readBuf(f.Extra)
+    	_ = gotoNext == 3865230
+    	needUSize_3865230 = f.UncompressedSize == 4294967295
+    	needCSize_3865277 = f.CompressedSize == 4294967295
+    	needHeaderOffset_3865322 = f.headerOffset == int64(4294967295)
+    	gotoNext = 3865561
+    	_ = gotoNext == 3865561
+    	extra_3865579 = readBuf(f.Extra)
     	parseExtrasBreak = false
-    	gotoNext = 3884047
-    	_ = gotoNext == 3884047
-    	if !parseExtrasBreak && (len(extra_3884051) >= 4) {
-    		gotoNext = 3884095
-    		_ = gotoNext == 3884095
-    		fieldTag_3884129 = extra_3884051.uint16()
-    		fieldSize_3884158 = int(extra_3884051.uint16())
-    		if len(extra_3884051) < fieldSize_3884158 {
-    			gotoNext = 3884219
-    			_ = gotoNext == 3884219
-    			gotoNext = 3886214
-    			gotoNext = 3884236
+    	gotoNext = 3865575
+    	_ = gotoNext == 3865575
+    	if !parseExtrasBreak && (len(extra_3865579) >= 4) {
+    		gotoNext = 3865623
+    		_ = gotoNext == 3865623
+    		fieldTag_3865657 = extra_3865579.uint16()
+    		fieldSize_3865686 = int(extra_3865579.uint16())
+    		if len(extra_3865579) < fieldSize_3865686 {
+    			gotoNext = 3865747
+    			_ = gotoNext == 3865747
+    			gotoNext = 3867742
+    			gotoNext = 3865764
     		} else {
-    			gotoNext = 3884236
+    			gotoNext = 3865764
     		}
-    		_ = gotoNext == 3884236
-    		fieldBuf_3884236 = extra_3884051.sub(fieldSize_3884158)
-    		gotoNext = 3884272
-    		_ = gotoNext == 3884272
-    		switch fieldTag_3884129 {
+    		_ = gotoNext == 3865764
+    		fieldBuf_3865764 = extra_3865579.sub(fieldSize_3865686)
+    		gotoNext = 3865800
+    		_ = gotoNext == 3865800
+    		switch fieldTag_3865657 {
     		case 1:
-    			gotoNext = 3884292
-    			_ = gotoNext == 3884292
+    			gotoNext = 3865820
+    			_ = gotoNext == 3865820
     			f.zip64 = true
-    			if needUSize_3883702 {
-    				gotoNext = 3884521
-    				_ = gotoNext == 3884521
-    				needUSize_3883702 = false
-    				if len(fieldBuf_3884236) < 8 {
-    					gotoNext = 3884570
-    					_ = gotoNext == 3884570
+    			if needUSize_3865230 {
+    				gotoNext = 3866049
+    				_ = gotoNext == 3866049
+    				needUSize_3865230 = false
+    				if len(fieldBuf_3865764) < 8 {
+    					gotoNext = 3866098
+    					_ = gotoNext == 3866098
     					return ErrFormat
-    					gotoNext = 3884604
+    					gotoNext = 3866132
     				} else {
-    					gotoNext = 3884604
+    					gotoNext = 3866132
     				}
-    				_ = gotoNext == 3884604
-    				f.UncompressedSize64 = fieldBuf_3884236.uint64()
-    				gotoNext = 3884653
+    				_ = gotoNext == 3866132
+    				f.UncompressedSize64 = fieldBuf_3865764.uint64()
+    				gotoNext = 3866181
     			} else {
-    				gotoNext = 3884653
+    				gotoNext = 3866181
     			}
-    			_ = gotoNext == 3884653
-    			if needCSize_3883749 {
-    				gotoNext = 3884666
-    				_ = gotoNext == 3884666
-    				needCSize_3883749 = false
-    				if len(fieldBuf_3884236) < 8 {
-    					gotoNext = 3884715
-    					_ = gotoNext == 3884715
+    			_ = gotoNext == 3866181
+    			if needCSize_3865277 {
+    				gotoNext = 3866194
+    				_ = gotoNext == 3866194
+    				needCSize_3865277 = false
+    				if len(fieldBuf_3865764) < 8 {
+    					gotoNext = 3866243
+    					_ = gotoNext == 3866243
     					return ErrFormat
-    					gotoNext = 3884749
+    					gotoNext = 3866277
     				} else {
-    					gotoNext = 3884749
+    					gotoNext = 3866277
     				}
-    				_ = gotoNext == 3884749
-    				f.CompressedSize64 = fieldBuf_3884236.uint64()
-    				gotoNext = 3884796
+    				_ = gotoNext == 3866277
+    				f.CompressedSize64 = fieldBuf_3865764.uint64()
+    				gotoNext = 3866324
     			} else {
-    				gotoNext = 3884796
+    				gotoNext = 3866324
     			}
-    			_ = gotoNext == 3884796
-    			if needHeaderOffset_3883794 {
-    				gotoNext = 3884816
-    				_ = gotoNext == 3884816
-    				needHeaderOffset_3883794 = false
-    				if len(fieldBuf_3884236) < 8 {
-    					gotoNext = 3884872
-    					_ = gotoNext == 3884872
+    			_ = gotoNext == 3866324
+    			if needHeaderOffset_3865322 {
+    				gotoNext = 3866344
+    				_ = gotoNext == 3866344
+    				needHeaderOffset_3865322 = false
+    				if len(fieldBuf_3865764) < 8 {
+    					gotoNext = 3866400
+    					_ = gotoNext == 3866400
     					return ErrFormat
-    					gotoNext = 3884906
+    					gotoNext = 3866434
     				} else {
-    					gotoNext = 3884906
+    					gotoNext = 3866434
     				}
-    				_ = gotoNext == 3884906
-    				f.headerOffset = int64(fieldBuf_3884236.uint64())
-    				gotoNext = 3884047
+    				_ = gotoNext == 3866434
+    				f.headerOffset = int64(fieldBuf_3865764.uint64())
+    				gotoNext = 3865575
     			} else {
-    				gotoNext = 3884047
+    				gotoNext = 3865575
     			}
-    			gotoNext = 3884047
+    			gotoNext = 3865575
     		case 10:
-    			gotoNext = 3884955
-    			_ = gotoNext == 3884955
-    			if len(fieldBuf_3884236) < 4 {
-    				gotoNext = 3884997
-    				_ = gotoNext == 3884997
-    				gotoNext = 3884047
-    				gotoNext = 3885032
+    			gotoNext = 3866483
+    			_ = gotoNext == 3866483
+    			if len(fieldBuf_3865764) < 4 {
+    				gotoNext = 3866525
+    				_ = gotoNext == 3866525
+    				gotoNext = 3865575
+    				gotoNext = 3866560
     			} else {
-    				gotoNext = 3885032
+    				gotoNext = 3866560
     			}
-    			_ = gotoNext == 3885032
-    			fieldBuf_3884236.uint32()
+    			_ = gotoNext == 3866560
+    			fieldBuf_3865764.uint32()
     			_ = 0
-    			gotoNext = 3885082
-    			_ = gotoNext == 3885082
-    			if len(fieldBuf_3884236) >= 4 {
-    				gotoNext = 3885105
-    				_ = gotoNext == 3885105
-    				attrTag_3885141 = fieldBuf_3884236.uint16()
-    				attrSize_3885174 = int(fieldBuf_3884236.uint16())
-    				if len(fieldBuf_3884236) < attrSize_3885174 {
-    					gotoNext = 3885241
-    					_ = gotoNext == 3885241
-    					gotoNext = 3884047
-    					gotoNext = 3885279
+    			gotoNext = 3866610
+    			_ = gotoNext == 3866610
+    			if len(fieldBuf_3865764) >= 4 {
+    				gotoNext = 3866633
+    				_ = gotoNext == 3866633
+    				attrTag_3866669 = fieldBuf_3865764.uint16()
+    				attrSize_3866702 = int(fieldBuf_3865764.uint16())
+    				if len(fieldBuf_3865764) < attrSize_3866702 {
+    					gotoNext = 3866769
+    					_ = gotoNext == 3866769
+    					gotoNext = 3865575
+    					gotoNext = 3866807
     				} else {
-    					gotoNext = 3885279
+    					gotoNext = 3866807
     				}
-    				_ = gotoNext == 3885279
-    				attrBuf_3885279 = fieldBuf_3884236.sub(attrSize_3885174)
-    				if attrTag_3885141 != 1 || attrSize_3885174 != 24 {
-    					gotoNext = 3885351
-    					_ = gotoNext == 3885351
+    				_ = gotoNext == 3866807
+    				attrBuf_3866807 = fieldBuf_3865764.sub(attrSize_3866702)
+    				if attrTag_3866669 != 1 || attrSize_3866702 != 24 {
+    					gotoNext = 3866879
+    					_ = gotoNext == 3866879
     					_ = 0
-    					gotoNext = 3885082
-    					gotoNext = 3885410
+    					gotoNext = 3866610
+    					gotoNext = 3866938
     				} else {
-    					gotoNext = 3885410
+    					gotoNext = 3866938
     				}
-    				_ = gotoNext == 3885410
-    				ticksPerSecond_3885416 = 1e+07
-    				ts_3885476 = int64(attrBuf_3885279.uint64())
-    				secs_3885541 = int64(ts_3885476 / 10000000)
-    				nsecs_3885580 = 100 * int64(ts_3885476%10000000)
-    				epoch_3885643 = time.Date(1601, 1, 1, 0, 0, 0, 0, time.UTC)
-    				modified_3884014 = time.Unix(epoch_3885643.Unix()+secs_3885541, nsecs_3885580)
-    				gotoNext = 3885082
+    				_ = gotoNext == 3866938
+    				ticksPerSecond_3866944 = 1e+07
+    				ts_3867004 = int64(attrBuf_3866807.uint64())
+    				secs_3867069 = int64(ts_3867004 / 10000000)
+    				nsecs_3867108 = 100 * int64(ts_3867004%10000000)
+    				epoch_3867171 = time.Date(1601, 1, 1, 0, 0, 0, 0, time.UTC)
+    				modified_3865542 = time.Unix(epoch_3867171.Unix()+secs_3867069, nsecs_3867108)
+    				gotoNext = 3866610
     			} else {
-    				gotoNext = 3884047
+    				gotoNext = 3865575
     			}
-    			gotoNext = 3884047
+    			gotoNext = 3865575
     		case 13, 22613:
-    			gotoNext = 3885765
-    			_ = gotoNext == 3885765
-    			if len(fieldBuf_3884236) < 8 {
-    				gotoNext = 3885827
-    				_ = gotoNext == 3885827
-    				gotoNext = 3884047
-    				gotoNext = 3885862
+    			gotoNext = 3867293
+    			_ = gotoNext == 3867293
+    			if len(fieldBuf_3865764) < 8 {
+    				gotoNext = 3867355
+    				_ = gotoNext == 3867355
+    				gotoNext = 3865575
+    				gotoNext = 3867390
     			} else {
-    				gotoNext = 3885862
+    				gotoNext = 3867390
     			}
-    			_ = gotoNext == 3885862
-    			fieldBuf_3884236.uint32()
-    			ts_3885916 = int64(fieldBuf_3884236.uint32())
-    			modified_3884014 = time.Unix(ts_3885916, 0)
-    			gotoNext = 3884047
+    			_ = gotoNext == 3867390
+    			fieldBuf_3865764.uint32()
+    			ts_3867444 = int64(fieldBuf_3865764.uint32())
+    			modified_3865542 = time.Unix(ts_3867444, 0)
+    			gotoNext = 3865575
     		case 21589:
-    			gotoNext = 3886008
-    			_ = gotoNext == 3886008
-    			if len(fieldBuf_3884236) < 5 || fieldBuf_3884236.uint8()&1 == 0 {
-    				gotoNext = 3886080
-    				_ = gotoNext == 3886080
-    				gotoNext = 3884047
-    				gotoNext = 3886115
+    			gotoNext = 3867536
+    			_ = gotoNext == 3867536
+    			if len(fieldBuf_3865764) < 5 || fieldBuf_3865764.uint8()&1 == 0 {
+    				gotoNext = 3867608
+    				_ = gotoNext == 3867608
+    				gotoNext = 3865575
+    				gotoNext = 3867643
     			} else {
-    				gotoNext = 3886115
+    				gotoNext = 3867643
     			}
-    			_ = gotoNext == 3886115
-    			ts_3886115 = int64(fieldBuf_3884236.uint32())
-    			modified_3884014 = time.Unix(ts_3886115, 0)
-    			gotoNext = 3884047
+    			_ = gotoNext == 3867643
+    			ts_3867643 = int64(fieldBuf_3865764.uint32())
+    			modified_3865542 = time.Unix(ts_3867643, 0)
+    			gotoNext = 3865575
     		default:
-    			gotoNext = 3884047
+    			gotoNext = 3865575
     		}
-    		gotoNext = 3884047
+    		gotoNext = 3865575
     	} else {
-    		gotoNext = 3886214
+    		gotoNext = 3867742
     	}
-    	_ = gotoNext == 3886214
-    	msdosModified_3886214 = msDosTimeToTime(f.ModifiedDate, f.ModifiedTime)
-    	f.Modified = msdosModified_3886214
-    	if !modified_3884014.IsZero() {
-    		gotoNext = 3886330
-    		_ = gotoNext == 3886330
-    		f.Modified = modified_3884014.UTC()
+    	_ = gotoNext == 3867742
+    	msdosModified_3867742 = msDosTimeToTime(f.ModifiedDate, f.ModifiedTime)
+    	f.Modified = msdosModified_3867742
+    	if !modified_3865542.IsZero() {
+    		gotoNext = 3867858
+    		_ = gotoNext == 3867858
+    		f.Modified = modified_3865542.UTC()
     		if f.ModifiedTime != 0 || f.ModifiedDate != 0 {
-    			gotoNext = 3886866
-    			_ = gotoNext == 3886866
-    			f.Modified = modified_3884014.In(timeZone(msdosModified_3886214.Sub(modified_3884014)))
-    			gotoNext = 3887468
+    			gotoNext = 3868394
+    			_ = gotoNext == 3868394
+    			f.Modified = modified_3865542.In(timeZone(msdosModified_3867742.Sub(modified_3865542)))
+    			gotoNext = 3868996
     		} else {
-    			gotoNext = 3887468
+    			gotoNext = 3868996
     		}
-    		gotoNext = 3887468
+    		gotoNext = 3868996
     	} else {
-    		gotoNext = 3887468
+    		gotoNext = 3868996
     	}
-    	_ = gotoNext == 3887468
-    	_ = needUSize_3883702
-    	if needCSize_3883749 || needHeaderOffset_3883794 {
-    		gotoNext = 3887517
-    		_ = gotoNext == 3887517
+    	_ = gotoNext == 3868996
+    	_ = needUSize_3865230
+    	if needCSize_3865277 || needHeaderOffset_3865322 {
+    		gotoNext = 3869045
+    		_ = gotoNext == 3869045
     		return ErrFormat
-    		gotoNext = 3887543
+    		gotoNext = 3869071
     	} else {
-    		gotoNext = 3887543
+    		gotoNext = 3869071
     	}
-    	_ = gotoNext == 3887543
+    	_ = gotoNext == 3869071
     	return nil
     	gotoNext = -1
     }*|/

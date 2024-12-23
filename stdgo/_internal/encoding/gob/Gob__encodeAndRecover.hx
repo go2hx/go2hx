@@ -29,19 +29,17 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
             };
             _encodeErr = stdgo._internal.encoding.gob.Gob_newEncoder.newEncoder(stdgo._internal.io.Io_discard.discard).encode(_value);
             {
-                final __ret__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _encodeErr, _1 : _panicErr };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return __ret__;
+                return { _0 : _encodeErr, _1 : _panicErr };
             };
             {
-                final __ret__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _encodeErr, _1 : _panicErr };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _encodeErr, _1 : _panicErr };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -51,11 +49,10 @@ function _encodeAndRecover(_value:stdgo.AnyInterface):{ var _0 : stdgo.Error; va
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.Error; var _1 : stdgo.Error; } = { _0 : _encodeErr, _1 : _panicErr };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _encodeErr, _1 : _panicErr };
         };
     }

@@ -19,12 +19,11 @@ function drivers():stdgo.Slice<stdgo.GoString> {
                 return _list;
             };
             {
-                final __ret__:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Slice<stdgo.GoString>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -34,11 +33,10 @@ function drivers():stdgo.Slice<stdgo.GoString> {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Slice<stdgo.GoString> = (null : stdgo.Slice<stdgo.GoString>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Slice<stdgo.GoString>);
         };
     }

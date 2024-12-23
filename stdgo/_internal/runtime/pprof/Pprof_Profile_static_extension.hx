@@ -139,12 +139,11 @@ var _u = __1, _t = __0;
                 return __ret__;
             };
             {
-                final __ret__:stdgo.GoInt = (0 : stdgo.GoInt);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (0 : stdgo.GoInt);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -154,12 +153,11 @@ var _u = __1, _t = __0;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.GoInt = (0 : stdgo.GoInt);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (0 : stdgo.GoInt);
         };
     }
     @:keep

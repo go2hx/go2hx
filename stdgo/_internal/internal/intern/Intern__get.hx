@@ -39,12 +39,11 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
                 return _v;
             };
             {
-                final __ret__:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> = (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -54,11 +53,10 @@ function _get(_k:stdgo._internal.internal.intern.Intern_T_key.T_key):stdgo.Ref<s
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value> = (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Ref<stdgo._internal.internal.intern.Intern_Value.Value>);
         };
     }

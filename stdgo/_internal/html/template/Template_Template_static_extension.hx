@@ -35,12 +35,11 @@ package stdgo._internal.html.template;
                 return __ret__;
             };
             {
-                final __ret__:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -50,12 +49,11 @@ package stdgo._internal.html.template;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         };
     }
     @:keep
@@ -114,12 +112,11 @@ package stdgo._internal.html.template;
                 return __ret__;
             };
             {
-                final __ret__:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -129,12 +126,11 @@ package stdgo._internal.html.template;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Ref<stdgo._internal.html.template.Template_Template.Template> = (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>);
         };
     }
     @:keep
@@ -198,12 +194,11 @@ package stdgo._internal.html.template;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -213,12 +208,11 @@ package stdgo._internal.html.template;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
         };
     }
     @:keep
@@ -257,12 +251,11 @@ package stdgo._internal.html.template;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -272,12 +265,11 @@ package stdgo._internal.html.template;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
         };
     }
     @:keep
@@ -317,12 +309,11 @@ package stdgo._internal.html.template;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -332,12 +323,11 @@ package stdgo._internal.html.template;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : (null : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>), _1 : (null : stdgo.Error) };
         };
     }
     @:keep
@@ -419,12 +409,11 @@ package stdgo._internal.html.template;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _tmpl, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -434,12 +423,11 @@ package stdgo._internal.html.template;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>; var _1 : stdgo.Error; } = { _0 : _tmpl, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _tmpl, _1 : _err };
         };
     }
     @:keep
@@ -511,12 +499,11 @@ package stdgo._internal.html.template;
                 return __ret__;
             };
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Error);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -526,12 +513,11 @@ package stdgo._internal.html.template;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Error);
         };
     }
     @:keep
@@ -564,12 +550,11 @@ package stdgo._internal.html.template;
                 return __ret__;
             };
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Error);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -579,12 +564,11 @@ package stdgo._internal.html.template;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Error);
         };
     }
     @:keep
@@ -616,12 +600,11 @@ package stdgo._internal.html.template;
                 return _m;
             };
             {
-                final __ret__:stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -631,12 +614,11 @@ package stdgo._internal.html.template;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>> = (null : stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Slice<stdgo.Ref<stdgo._internal.html.template.Template_Template.Template>>);
         };
     }
 }

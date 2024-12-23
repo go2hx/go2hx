@@ -67,19 +67,17 @@ package stdgo._internal.fmt;
                 _s._errorString(("too many operands" : stdgo.GoString));
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return __ret__;
+                return { _0 : _numProcessed, _1 : _err };
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _numProcessed, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -89,12 +87,11 @@ package stdgo._internal.fmt;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _numProcessed, _1 : _err };
         };
     }
     @:keep
@@ -199,19 +196,17 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return __ret__;
+                return { _0 : _numProcessed, _1 : _err };
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _numProcessed, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -221,12 +216,11 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _numProcessed, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _numProcessed, _1 : _err };
         };
     }
     @:keep
@@ -938,19 +932,17 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
             _s._buf = (_s._buf.__slice__(0, (0 : stdgo.GoInt)) : stdgo._internal.fmt.Fmt_T_buffer.T_buffer);
             _tok = _s._token(_skipSpace, _f);
             {
-                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _tok, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return __ret__;
+                return { _0 : _tok, _1 : _err };
             };
             {
-                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _tok, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _tok, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -960,12 +952,11 @@ if (((_inputc != (10 : stdgo.GoInt32)) && (_inputc != (-1 : stdgo.GoInt32)) : Bo
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoUInt8>; var _1 : stdgo.Error; } = { _0 : _tok, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _tok, _1 : _err };
         };
     }
     @:keep

@@ -63,19 +63,17 @@ package stdgo._internal.text.tabwriter;
             _b._append((_buf.__slice__(_n) : stdgo.Slice<stdgo.GoUInt8>));
             _n = (_buf.length);
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return __ret__;
+                return { _0 : _n, _1 : _err };
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _n, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -85,12 +83,11 @@ package stdgo._internal.text.tabwriter;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _n, _1 : _err };
         };
     }
     @:keep

@@ -23,12 +23,11 @@ package stdgo._internal.archive.zip;
                 return _err;
             };
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Error);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -38,12 +37,11 @@ package stdgo._internal.archive.zip;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Error);
         };
     }
     @:keep
@@ -84,12 +82,11 @@ package stdgo._internal.archive.zip;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _n, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -99,12 +96,11 @@ package stdgo._internal.archive.zip;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _n, _1 : _err };
         };
     }
 }

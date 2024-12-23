@@ -342,12 +342,11 @@ package stdgo._internal.database.sql;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = { _0 : _res, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _res, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -357,12 +356,11 @@ package stdgo._internal.database.sql;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.database.sql.Sql_Result.Result; var _1 : stdgo.Error; } = { _0 : _res, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _res, _1 : _err };
         };
     }
     @:keep
@@ -441,12 +439,11 @@ package stdgo._internal.database.sql;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : (null : stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -456,12 +453,11 @@ package stdgo._internal.database.sql;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>; var _1 : stdgo.Error; } = { _0 : (null : stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : (null : stdgo.Ref<stdgo._internal.database.sql.Sql_Stmt.Stmt>), _1 : (null : stdgo.Error) };
         };
     }
     @:keep
@@ -880,12 +876,11 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                 return __ret__;
             };
             {
-                final __ret__:stdgo._internal.database.sql.Sql_DBStats.DBStats = ({} : stdgo._internal.database.sql.Sql_DBStats.DBStats);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return ({} : stdgo._internal.database.sql.Sql_DBStats.DBStats);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -895,12 +890,11 @@ if (((_err == null) || !stdgo._internal.errors.Errors_is_.is_(_err, stdgo._inter
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo._internal.database.sql.Sql_DBStats.DBStats = ({} : stdgo._internal.database.sql.Sql_DBStats.DBStats);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return ({} : stdgo._internal.database.sql.Sql_DBStats.DBStats);
         };
     }
     @:keep

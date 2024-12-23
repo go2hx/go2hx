@@ -24,12 +24,11 @@ function runFuzzWorker(_ctx:stdgo._internal.context.Context_Context.Context, _fn
                     return __ret__;
                 };
                 {
-                    final __ret__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Error; } = { _0 : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration), _1 : (null : stdgo.Error) };
                     for (defer in __deferstack__) {
                         defer();
                     };
                     if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                    return __ret__;
+                    return { _0 : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration), _1 : (null : stdgo.Error) };
                 };
             } catch(__exception__) {
                 var exe:Dynamic = __exception__.native;
@@ -39,12 +38,11 @@ function runFuzzWorker(_ctx:stdgo._internal.context.Context_Context.Context, _fn
                     exe = stdgo.Go.toInterface(__exception__.message);
                 };
                 stdgo.Go.recover_exception = exe;
-                final __ret__:{ var _0 : stdgo._internal.time.Time_Duration.Duration; var _1 : stdgo.Error; } = { _0 : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : ((0 : stdgo.GoInt64) : stdgo._internal.time.Time_Duration.Duration), _1 : (null : stdgo.Error) };
             };
         }, _m : stdgo._internal.internal.fuzz.Fuzz__newMutator._newMutator() } : stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer)) : stdgo.Ref<stdgo._internal.internal.fuzz.Fuzz_T_workerServer.T_workerServer>);
         return _srv._serve(_ctx);

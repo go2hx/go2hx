@@ -154,12 +154,11 @@ package stdgo._internal.net.http;
                 _cc._cond.wait_();
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _taken, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -169,12 +168,11 @@ package stdgo._internal.net.http;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.GoInt32; var _1 : stdgo.Error; } = { _0 : _taken, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _taken, _1 : _err };
         };
     }
     @:keep
@@ -575,12 +573,11 @@ package stdgo._internal.net.http;
                 return _err;
             };
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Error);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -590,12 +587,11 @@ package stdgo._internal.net.http;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Error);
         };
     }
     @:keep

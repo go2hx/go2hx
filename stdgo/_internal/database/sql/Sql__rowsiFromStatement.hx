@@ -26,12 +26,11 @@ function _rowsiFromStatement(_ctx:stdgo._internal.context.Context_Context.Contex
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.database.sql.driver.Driver_Rows.Rows; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.driver.Driver_Rows.Rows), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : (null : stdgo._internal.database.sql.driver.Driver_Rows.Rows), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -41,11 +40,10 @@ function _rowsiFromStatement(_ctx:stdgo._internal.context.Context_Context.Contex
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.database.sql.driver.Driver_Rows.Rows; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.database.sql.driver.Driver_Rows.Rows), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : (null : stdgo._internal.database.sql.driver.Driver_Rows.Rows), _1 : (null : stdgo.Error) };
         };
     }

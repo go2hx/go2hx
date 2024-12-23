@@ -16,12 +16,11 @@ function _newLoggingConn(_baseName:stdgo.GoString, _c:stdgo._internal.net.Net_Co
                 return __ret__;
             };
             {
-                final __ret__:stdgo._internal.net.Net_Conn.Conn = (null : stdgo._internal.net.Net_Conn.Conn);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo._internal.net.Net_Conn.Conn);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -31,11 +30,10 @@ function _newLoggingConn(_baseName:stdgo.GoString, _c:stdgo._internal.net.Net_Co
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo._internal.net.Net_Conn.Conn = (null : stdgo._internal.net.Net_Conn.Conn);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo._internal.net.Net_Conn.Conn);
         };
     }

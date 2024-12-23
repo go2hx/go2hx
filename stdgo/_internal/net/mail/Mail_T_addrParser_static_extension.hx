@@ -286,12 +286,12 @@ package stdgo._internal.net.mail;
     static public function _consumeQuotedString( _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser>):{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } {
         @:recv var _p:stdgo.Ref<stdgo._internal.net.mail.Mail_T_addrParser.T_addrParser> = _p;
         var _qs = ("" : stdgo.GoString), _err = (null : stdgo.Error);
+        var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var loopBreak = false;
         var _escaped_4210985:Bool = false;
         var _qsb_4210956:stdgo.Slice<stdgo.GoInt32> = (null : stdgo.Slice<stdgo.GoInt32>);
         var _i_4210948:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _size_4211021:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _r_4211018:stdgo.GoInt32 = (0 : stdgo.GoInt32);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
@@ -600,12 +600,11 @@ package stdgo._internal.net.mail;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : _spec, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _spec, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -615,12 +614,11 @@ package stdgo._internal.net.mail;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : _spec, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _spec, _1 : _err };
         };
     }
     @:keep

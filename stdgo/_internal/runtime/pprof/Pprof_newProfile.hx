@@ -27,12 +27,11 @@ function newProfile(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.ppro
                 return _p;
             };
             {
-                final __ret__:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -42,11 +41,10 @@ function newProfile(_name:stdgo.GoString):stdgo.Ref<stdgo._internal.runtime.ppro
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile> = (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Ref<stdgo._internal.runtime.pprof.Pprof_Profile.Profile>);
         };
     }

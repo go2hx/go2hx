@@ -1366,20 +1366,18 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
                     };
                 };
                 {
-                    final __ret__:stdgo.Error = (null : stdgo.Error);
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return __ret__;
+                    return (null : stdgo.Error);
                 };
             };
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Error);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -1389,12 +1387,11 @@ _sc._unstartedHandlers[(_i : stdgo.GoInt)] = (new stdgo._internal.net.http.Http_
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Error);
         };
     }
     @:keep

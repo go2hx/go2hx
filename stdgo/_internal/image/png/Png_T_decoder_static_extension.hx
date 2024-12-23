@@ -882,12 +882,11 @@ if (_imagePass != null) {
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -897,12 +896,11 @@ if (_imagePass != null) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.image.Image_Image.Image; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : (null : stdgo._internal.image.Image_Image.Image), _1 : (null : stdgo.Error) };
         };
     }
     @:keep

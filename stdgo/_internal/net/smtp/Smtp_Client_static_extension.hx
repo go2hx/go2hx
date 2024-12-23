@@ -286,12 +286,11 @@ package stdgo._internal.net.smtp;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : ("" : stdgo.GoString), _2 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : (0 : stdgo.GoInt), _1 : ("" : stdgo.GoString), _2 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -301,12 +300,11 @@ package stdgo._internal.net.smtp;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.GoString; var _2 : stdgo.Error; } = { _0 : (0 : stdgo.GoInt), _1 : ("" : stdgo.GoString), _2 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : (0 : stdgo.GoInt), _1 : ("" : stdgo.GoString), _2 : (null : stdgo.Error) };
         };
     }
     @:keep

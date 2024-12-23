@@ -94,12 +94,11 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : _ok, _1 : _reason };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _ok, _1 : _reason };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -109,11 +108,10 @@ function _hasSymlink():{ var _0 : Bool; var _1 : stdgo.GoString; } {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : Bool; var _1 : stdgo.GoString; } = { _0 : _ok, _1 : _reason };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _ok, _1 : _reason };
         };
     }

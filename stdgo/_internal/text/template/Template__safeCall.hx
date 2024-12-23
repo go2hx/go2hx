@@ -55,12 +55,11 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } = { _0 : _val, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _val, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -70,11 +69,10 @@ function _safeCall(_fun:stdgo._internal.reflect.Reflect_Value.Value, _args:stdgo
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : stdgo.Error; } = { _0 : _val, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _val, _1 : _err };
         };
     }

@@ -16,12 +16,11 @@ function _http2ReadFrameHeader(_r:stdgo._internal.io.Io_Reader.Reader):{ var _0 
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader; var _1 : stdgo.Error; } = { _0 : ({} : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : ({} : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -31,11 +30,10 @@ function _http2ReadFrameHeader(_r:stdgo._internal.io.Io_Reader.Reader):{ var _0 
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader; var _1 : stdgo.Error; } = { _0 : ({} : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : ({} : stdgo._internal.net.http.Http_T_http2FrameHeader.T_http2FrameHeader), _1 : (null : stdgo.Error) };
         };
     }

@@ -97,20 +97,18 @@ package stdgo._internal.net.http.httputil;
             if ((_m._latency < (0i64 : stdgo._internal.time.Time_Duration.Duration) : Bool)) {
                 _m._flush();
                 {
-                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return __ret__;
+                    return { _0 : _n, _1 : _err };
                 };
             };
             if (_m._flushPending) {
                 {
-                    final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return __ret__;
+                    return { _0 : _n, _1 : _err };
                 };
             };
             if ((_m._t == null || (_m._t : Dynamic).__nil__)) {
@@ -120,19 +118,17 @@ package stdgo._internal.net.http.httputil;
             };
             _m._flushPending = true;
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return __ret__;
+                return { _0 : _n, _1 : _err };
             };
             {
-                final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _n, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -142,12 +138,11 @@ package stdgo._internal.net.http.httputil;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.GoInt; var _1 : stdgo.Error; } = { _0 : _n, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _n, _1 : _err };
         };
     }
 }

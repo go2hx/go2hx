@@ -153,12 +153,11 @@ package stdgo._internal.net.http.httputil;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _resp, _1 : _err };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -168,12 +167,11 @@ package stdgo._internal.net.http.httputil;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.Ref<stdgo._internal.net.http.Http_Response.Response>; var _1 : stdgo.Error; } = { _0 : _resp, _1 : _err };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _resp, _1 : _err };
         };
     }
     @:keep
@@ -194,12 +192,11 @@ package stdgo._internal.net.http.httputil;
                 return __ret__;
             };
             {
-                final __ret__:stdgo.GoInt = (0 : stdgo.GoInt);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (0 : stdgo.GoInt);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -209,12 +206,11 @@ package stdgo._internal.net.http.httputil;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.GoInt = (0 : stdgo.GoInt);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (0 : stdgo.GoInt);
         };
     }
     @:keep
@@ -309,12 +305,11 @@ package stdgo._internal.net.http.httputil;
                 return __ret__;
             };
             {
-                final __ret__:stdgo.Error = (null : stdgo.Error);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Error);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -324,12 +319,11 @@ package stdgo._internal.net.http.httputil;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Error = (null : stdgo.Error);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Error);
         };
     }
     @:keep
@@ -357,19 +351,17 @@ package stdgo._internal.net.http.httputil;
             _cc._c = (null : stdgo._internal.net.Net_Conn.Conn);
             _cc._r = null;
             {
-                final __ret__:{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>; } = { _0 : _c, _1 : _r };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return __ret__;
+                return { _0 : _c, _1 : _r };
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>; } = { _0 : _c, _1 : _r };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _c, _1 : _r };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -379,12 +371,11 @@ package stdgo._internal.net.http.httputil;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.net.Net_Conn.Conn; var _1 : stdgo.Ref<stdgo._internal.bufio.Bufio_Reader.Reader>; } = { _0 : _c, _1 : _r };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _c, _1 : _r };
         };
     }
 }

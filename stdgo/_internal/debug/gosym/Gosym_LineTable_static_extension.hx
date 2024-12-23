@@ -563,12 +563,11 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                 return _funcs;
             };
             {
-                final __ret__:stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func> = (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -578,12 +577,11 @@ if ((_b & (128 : stdgo.GoUInt8) : stdgo.GoUInt8) == ((0 : stdgo.GoUInt8))) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func> = (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Slice<stdgo._internal.debug.gosym.Gosym_Func.Func>);
         };
     }
     @:keep

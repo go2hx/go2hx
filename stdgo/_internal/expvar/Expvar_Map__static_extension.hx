@@ -222,12 +222,11 @@ package stdgo._internal.expvar;
                 return _v;
             };
             {
-                final __ret__:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_> = (null : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -237,12 +236,11 @@ package stdgo._internal.expvar;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_> = (null : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo.Ref<stdgo._internal.expvar.Expvar_Map_.Map_>);
         };
     }
     @:keep

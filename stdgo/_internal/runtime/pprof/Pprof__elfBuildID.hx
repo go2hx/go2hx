@@ -185,12 +185,11 @@ while ((_off < _size : Bool)) {
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : ("" : stdgo.GoString), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : ("" : stdgo.GoString), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -200,11 +199,10 @@ while ((_off < _size : Bool)) {
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.GoString; var _1 : stdgo.Error; } = { _0 : ("" : stdgo.GoString), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : ("" : stdgo.GoString), _1 : (null : stdgo.Error) };
         };
     }

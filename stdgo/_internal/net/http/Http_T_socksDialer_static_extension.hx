@@ -249,11 +249,10 @@ package stdgo._internal.net.http;
                 };
                 if (_ctxErr != null) {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0, _1 : _ctxErr };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return __ret__;
+                        return { _0 : _0, _1 : _ctxErr };
                     };
                 };
             };
@@ -264,11 +263,10 @@ package stdgo._internal.net.http;
                 };
                 if (_ctxErr != null) {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0, _1 : _ctxErr };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return __ret__;
+                        return { _0 : _0, _1 : _ctxErr };
                     };
                 };
             };
@@ -306,11 +304,10 @@ package stdgo._internal.net.http;
                     _ctxErr = _d.authenticate(_ctx, _c, _am);
                     if (_ctxErr != null) {
                         {
-                            final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0, _1 : _ctxErr };
                             for (defer in __deferstack__) {
                                 defer();
                             };
-                            return __ret__;
+                            return { _0 : _0, _1 : _ctxErr };
                         };
                     };
                 };
@@ -374,11 +371,10 @@ package stdgo._internal.net.http;
                 };
                 if (_ctxErr != null) {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0, _1 : _ctxErr };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return __ret__;
+                        return { _0 : _0, _1 : _ctxErr };
                     };
                 };
             };
@@ -389,11 +385,10 @@ package stdgo._internal.net.http;
                 };
                 if (_ctxErr != null) {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0, _1 : _ctxErr };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return __ret__;
+                        return { _0 : _0, _1 : _ctxErr };
                     };
                 };
             };
@@ -498,11 +493,10 @@ package stdgo._internal.net.http;
                 };
                 if (_ctxErr != null) {
                     {
-                        final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0, _1 : _ctxErr };
                         for (defer in __deferstack__) {
                             defer();
                         };
-                        return __ret__;
+                        return { _0 : _0, _1 : _ctxErr };
                     };
                 };
             };
@@ -525,12 +519,11 @@ package stdgo._internal.net.http;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0, _1 : _ctxErr };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _0, _1 : _ctxErr };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -540,12 +533,11 @@ package stdgo._internal.net.http;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.net.Net_Addr.Addr; var _1 : stdgo.Error; } = { _0 : _0, _1 : _ctxErr };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _0, _1 : _ctxErr };
         };
     }
 }

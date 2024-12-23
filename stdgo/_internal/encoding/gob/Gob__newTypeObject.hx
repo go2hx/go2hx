@@ -232,12 +232,11 @@ _st.field = (_st.field.__append__((new stdgo._internal.encoding.gob.Gob_T_fieldT
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : (null : stdgo.Error) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -247,11 +246,10 @@ _st.field = (_st.field.__append__((new stdgo._internal.encoding.gob.Gob_T_fieldT
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType; var _1 : stdgo.Error; } = { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : (null : stdgo.Error) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType), _1 : (null : stdgo.Error) };
         };
     }

@@ -18,12 +18,11 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Refl
                 return _t;
             };
             {
-                final __ret__:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -33,11 +32,10 @@ function _getTypeUnlocked(_name:stdgo.GoString, _rt:stdgo._internal.reflect.Refl
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType = (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return (null : stdgo._internal.encoding.gob.Gob_T_gobType.T_gobType);
         };
     }

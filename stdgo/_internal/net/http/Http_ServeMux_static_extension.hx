@@ -115,19 +115,17 @@ package stdgo._internal.net.http;
                 };
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : _h, _1 : _pattern };
                 for (defer in __deferstack__) {
                     defer();
                 };
-                return __ret__;
+                return { _0 : _h, _1 : _pattern };
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : _h, _1 : _pattern };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _h, _1 : _pattern };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -137,12 +135,11 @@ package stdgo._internal.net.http;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.net.http.Http_Handler.Handler; var _1 : stdgo.GoString; } = { _0 : _h, _1 : _pattern };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _h, _1 : _pattern };
         };
     }
     @:keep

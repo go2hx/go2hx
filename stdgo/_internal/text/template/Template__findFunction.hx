@@ -60,12 +60,11 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _v, _1 : _isBuiltin, _2 : _ok };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : _v, _1 : _isBuiltin, _2 : _ok };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -75,11 +74,10 @@ function _findFunction(_name:stdgo.GoString, _tmpl:stdgo.Ref<stdgo._internal.tex
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo._internal.reflect.Reflect_Value.Value; var _1 : Bool; var _2 : Bool; } = { _0 : _v, _1 : _isBuiltin, _2 : _ok };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : _v, _1 : _isBuiltin, _2 : _ok };
         };
     }

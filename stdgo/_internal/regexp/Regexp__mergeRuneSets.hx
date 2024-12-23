@@ -70,12 +70,11 @@ var _rx = __1, _lx = __0;
                 return __ret__;
             };
             {
-                final __ret__:{ var _0 : stdgo.Slice<stdgo.GoInt32>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };
                 for (defer in __deferstack__) {
                     defer();
                 };
                 if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-                return __ret__;
+                return { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };
             };
         } catch(__exception__) {
             var exe:Dynamic = __exception__.native;
@@ -85,11 +84,10 @@ var _rx = __1, _lx = __0;
                 exe = stdgo.Go.toInterface(__exception__.message);
             };
             stdgo.Go.recover_exception = exe;
-            final __ret__:{ var _0 : stdgo.Slice<stdgo.GoInt32>; var _1 : stdgo.Slice<stdgo.GoUInt32>; } = { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };
             for (defer in __deferstack__) {
                 defer();
             };
             if (stdgo.Go.recover_exception != null) throw stdgo.Go.recover_exception;
-            return __ret__;
+            return { _0 : (null : stdgo.Slice<stdgo.GoInt32>), _1 : (null : stdgo.Slice<stdgo.GoUInt32>) };
         };
     }

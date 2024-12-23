@@ -1483,7 +1483,7 @@ jobs:
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
-        - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update hl
             file_pattern: '*.json *.md'
@@ -1539,7 +1539,7 @@ jobs:
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm #-D hxb
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm  #-D hxb
-        - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update jvm
             file_pattern: '*.json *.md'
@@ -1594,7 +1594,7 @@ jobs:
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
-        - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update interp
             file_pattern: '*.json *.md'
@@ -1649,7 +1649,7 @@ jobs:
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
-        - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update js
             file_pattern: '*.json *.md'
@@ -1706,7 +1706,7 @@ jobs:
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=php #-D hxb
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=php  #-D hxb
-        - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update php
             file_pattern: '*.json *.md'

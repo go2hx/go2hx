@@ -3335,12 +3335,12 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 }
 
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
-	function ret(e:ExprDef) {
+	function ret(e:ExprDef, blank:Bool=false) {
 		if (info.global.deferBool) {
 			final exprs:Array<Expr> = [];
 			switch e {
 				case EReturn(expr):
-					if (expr == null) {
+					if (expr == null || blank) {
 						exprs.push(typeDeferReturn(info, false));
 						exprs.push(toExpr(e));
 					}else{
@@ -3369,14 +3369,14 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			return ret(EReturn());
 		if (info.returnTypes.length == 1) {
 			if (info.returnNames.length == 1 && info.returnNamed)
-				return ret(EReturn(macro $i{info.returnNames[0]}));
-			return ret(EReturn(defaultValue(info.returnTypes[0], info)));
+				return ret(EReturn(macro $i{info.returnNames[0]}), true);
+			return ret(EReturn(defaultValue(info.returnTypes[0], info)), true);
 		}
 		final fields:Array<ObjectField> = [
 			for (i in 0...info.returnTypes.length)
 				{field: "_" + i, expr: info.returnNamed ? macro $i{info.returnNames[i]} : defaultValue(info.returnTypes[i], info)}
 		];
-		return ret(EReturn(toExpr(EObjectDecl(fields))));
+		return ret(EReturn(toExpr(EObjectDecl(fields))), true);
 	}
 	if (stmt.results.length == 1) {
 		var e = typeExpr(stmt.results[0], info);

@@ -2935,6 +2935,24 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 	switch stmt.tok {
 		case ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
 			// remove checkType from x in x = y
+
+			var assign = removeCoalAndCheckType(typeExpr(stmt.lhs[0], info));
+			var assignName = "";
+			var assignExpr = null;
+			switch assign.expr {
+				case EField(e, field):
+					switch e.expr {
+						case ECall(_,_):
+							assignExpr = e;
+							assignName = "__t__";
+							info.localIdents.push(assignName);
+							stmt.lhs[0] = {id: "Ident", name: '_t__.$field'};
+							assign = removeCoalAndCheckType(typeExpr(stmt.lhs[0], info));
+						default:
+					}
+				case EConst(_):
+				default:
+			}
 			final expr = toExpr(typeBinaryExpr({
 				x: stmt.lhs[0],
 				y: {id: "ParenExpr", x: stmt.rhs[0]},
@@ -2942,8 +2960,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				opPos: 0,
 				type: stmt.lhs[0],
 			}, info));
-
-			var assign = removeCoalAndCheckType(typeExpr(stmt.lhs[0], info));
+			if (assignName != "")
+				info.localIdents.remove(assignName);
 			if (stmt.lhs[0].id == "IndexExpr" || stmt.lhs[0].id == "StarExpr" && stmt.lhs[0].x.id == "IndexExpr") { // prevent invalid assign to null
 				switch escapeParens(assign).expr {
 					case ETernary(econd, eif, _):
@@ -2951,6 +2969,12 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							$expr).expr;
 					default:
 				}
+			}
+			if (assignName != "") {
+				return (macro {
+					final __t__ = $assignExpr;
+					$assign = $expr;
+				}).expr;
 			}
 			return (macro $assign = $expr).expr;
 		case ASSIGN: // x = y
@@ -4051,7 +4075,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "Exit":
 					if (expr.fun.x.id == "Ident" && expr.fun.x.name == "os") {
 						genArgs(true);
-						return (macro Sys.exit($a{args})).expr;
+						return (macro @:define("(sys || hxnodejs)") Sys.exit($a{args})).expr;
 					}
 			}
 		case "FuncLit":

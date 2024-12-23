@@ -47,3 +47,8 @@ steps:
     run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=::target:: #-D hxb
   - name: Run std
     run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
+    - uses: stefanzweifel/git-auto-commit-action@v5
+    with:
+        commit_message: build tests update ::target::
+        file_pattern: '*.json *.md'
+        disable_globbing: true

@@ -30,9 +30,9 @@ package stdgo._internal.flag;
                     return _err;
                 } else if (__value__ == ((1 : stdgo._internal.flag.Flag_ErrorHandling.ErrorHandling))) {
                     if (stdgo.Go.toInterface(_err) == (stdgo.Go.toInterface(stdgo._internal.flag.Flag_errHelp.errHelp))) {
-                        Sys.exit((0 : stdgo.GoInt));
+                        #if (sys || hxnodejs) Sys.exit((0 : stdgo.GoInt)) #else null #end;
                     };
-                    Sys.exit((2 : stdgo.GoInt));
+                    #if (sys || hxnodejs) Sys.exit((2 : stdgo.GoInt)) #else null #end;
                 } else if (__value__ == ((2 : stdgo._internal.flag.Flag_ErrorHandling.ErrorHandling))) {
                     throw stdgo.Go.toInterface(_err);
                 };

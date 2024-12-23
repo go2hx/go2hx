@@ -86,21 +86,21 @@ package stdgo._internal.log;
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
         _l.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt_sprintln.sprintln(...(_v : Array<stdgo.AnyInterface>))?.__copy__());
-        Sys.exit((1 : stdgo.GoInt));
+        #if (sys || hxnodejs) Sys.exit((1 : stdgo.GoInt)) #else null #end;
     }
     @:keep
     static public function fatalf( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>, _format:stdgo.GoString, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
         _l.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt_sprintf.sprintf(_format?.__copy__(), ...(_v : Array<stdgo.AnyInterface>))?.__copy__());
-        Sys.exit((1 : stdgo.GoInt));
+        #if (sys || hxnodejs) Sys.exit((1 : stdgo.GoInt)) #else null #end;
     }
     @:keep
     static public function fatal( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>, _v:haxe.Rest<stdgo.AnyInterface>):Void {
         var _v = new stdgo.Slice<stdgo.AnyInterface>(_v.length, 0, ..._v);
         @:recv var _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger> = _l;
         _l.output((2 : stdgo.GoInt), stdgo._internal.fmt.Fmt_sprint.sprint(...(_v : Array<stdgo.AnyInterface>))?.__copy__());
-        Sys.exit((1 : stdgo.GoInt));
+        #if (sys || hxnodejs) Sys.exit((1 : stdgo.GoInt)) #else null #end;
     }
     @:keep
     static public function println( _l:stdgo.Ref<stdgo._internal.log.Log_Logger.Logger>, _v:haxe.Rest<stdgo.AnyInterface>):Void {

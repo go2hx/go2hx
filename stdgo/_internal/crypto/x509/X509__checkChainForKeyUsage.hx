@@ -1,173 +1,173 @@
 package stdgo._internal.crypto.x509;
 function _checkChainForKeyUsage(_chain:stdgo.Slice<stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>>, _keyUsages:stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>):Bool {
-        var _usage_5553408:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
-        var _cert_5552900:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = (null : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
-        var _i_5552863:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _usagesRemaining_5552649:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _usage_5553083:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
-        var _i_5553092_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _usage_5541275:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
+        var _i_5541284_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _invalidUsage_5541113:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
+        var _usage_5540950:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
         var nextCertBreak = false;
-        var _usages_5552535:stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage> = (null : stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>);
-        var _i_5553417_0:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _requestedUsage_5553307:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
-        var _i_5553304:stdgo.GoInt = (0 : stdgo.GoInt);
-        var _invalidUsage_5553246:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
+        var _usagesRemaining_5540516:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _requestedUsage_5541174:stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage = ((0 : stdgo.GoInt) : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
+        var _i_5541171:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _i_5540959_0:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _cert_5540767:stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate> = (null : stdgo.Ref<stdgo._internal.crypto.x509.X509_Certificate.Certificate>);
+        var _i_5540730:stdgo.GoInt = (0 : stdgo.GoInt);
+        var _usages_5540402:stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage> = (null : stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>);
         var _gotoNext = 0i32;
         var __blank__ = _gotoNext == ((0i32 : stdgo.GoInt));
         while (_gotoNext != ((-1i32 : stdgo.GoInt))) {
             {
                 final __value__ = _gotoNext;
                 if (__value__ == (0i32)) {
-                    _usages_5552535 = (new stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>((_keyUsages.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>);
-                    _usages_5552535.__copyTo__(_keyUsages);
+                    _usages_5540402 = (new stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>((_keyUsages.length : stdgo.GoInt).toBasic(), 0).__setNumber32__() : stdgo.Slice<stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage>);
+                    _usages_5540402.__copyTo__(_keyUsages);
                     if ((_chain.length) == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5552627i32;
+                        _gotoNext = 5540494i32;
                     } else {
-                        _gotoNext = 5552649i32;
+                        _gotoNext = 5540516i32;
                     };
-                } else if (__value__ == (5552627i32)) {
+                } else if (__value__ == (5540494i32)) {
                     return false;
-                    _gotoNext = 5552649i32;
-                } else if (__value__ == (5552649i32)) {
-                    _usagesRemaining_5552649 = (_usages_5552535.length);
-                    _gotoNext = 5552848i32;
-                } else if (__value__ == (5552848i32)) {
-                    _i_5552863 = ((_chain.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
+                    _gotoNext = 5540516i32;
+                } else if (__value__ == (5540516i32)) {
+                    _usagesRemaining_5540516 = (_usages_5540402.length);
+                    _gotoNext = 5540715i32;
+                } else if (__value__ == (5540715i32)) {
+                    _i_5540730 = ((_chain.length) - (1 : stdgo.GoInt) : stdgo.GoInt);
                     nextCertBreak = false;
-                    _gotoNext = 5552859i32;
-                } else if (__value__ == (5552859i32)) {
-                    if (!nextCertBreak && ((_i_5552863 >= (0 : stdgo.GoInt) : Bool))) {
-                        _gotoNext = 5552896i32;
+                    _gotoNext = 5540726i32;
+                } else if (__value__ == (5540726i32)) {
+                    if (!nextCertBreak && ((_i_5540730 >= (0 : stdgo.GoInt) : Bool))) {
+                        _gotoNext = 5540763i32;
                     } else {
-                        _gotoNext = 5553629i32;
+                        _gotoNext = 5541496i32;
                     };
-                } else if (__value__ == (5552892i32)) {
-                    _i_5552863--;
-                    _gotoNext = 5552859i32;
-                } else if (__value__ == (5552896i32)) {
-                    _cert_5552900 = _chain[(_i_5552863 : stdgo.GoInt)];
-                    if (((_cert_5552900.extKeyUsage.length == (0 : stdgo.GoInt)) && (_cert_5552900.unknownExtKeyUsage.length == (0 : stdgo.GoInt)) : Bool)) {
-                        _gotoNext = 5552986i32;
+                } else if (__value__ == (5540759i32)) {
+                    _i_5540730--;
+                    _gotoNext = 5540726i32;
+                } else if (__value__ == (5540763i32)) {
+                    _cert_5540767 = _chain[(_i_5540730 : stdgo.GoInt)];
+                    if (((_cert_5540767.extKeyUsage.length == (0 : stdgo.GoInt)) && (_cert_5540767.unknownExtKeyUsage.length == (0 : stdgo.GoInt)) : Bool)) {
+                        _gotoNext = 5540853i32;
                     } else {
-                        _gotoNext = 5553076i32;
+                        _gotoNext = 5540943i32;
                     };
-                } else if (__value__ == (5552986i32)) {
-                    _i_5552863--;
-                    _gotoNext = 5552859i32;
-                } else if (__value__ == (5553076i32)) {
-                    if ((0i32 : stdgo.GoInt) < (_cert_5552900.extKeyUsage.length)) {
-                        _gotoNext = 5553234i32;
+                } else if (__value__ == (5540853i32)) {
+                    _i_5540730--;
+                    _gotoNext = 5540726i32;
+                } else if (__value__ == (5540943i32)) {
+                    if ((0i32 : stdgo.GoInt) < (_cert_5540767.extKeyUsage.length)) {
+                        _gotoNext = 5541101i32;
                     } else {
-                        _gotoNext = 5553240i32;
+                        _gotoNext = 5541107i32;
                     };
-                } else if (__value__ == (5553080i32)) {
-                    _i_5553092_0++;
-                    _gotoNext = 5553235i32;
-                } else if (__value__ == (5553115i32)) {
-                    _usage_5553083 = _cert_5552900.extKeyUsage[(_i_5553092_0 : stdgo.GoInt)];
-                    if (_usage_5553083 == ((0 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage))) {
-                        _gotoNext = 5553147i32;
+                } else if (__value__ == (5540947i32)) {
+                    _i_5540959_0++;
+                    _gotoNext = 5541102i32;
+                } else if (__value__ == (5540982i32)) {
+                    _usage_5540950 = _cert_5540767.extKeyUsage[(_i_5540959_0 : stdgo.GoInt)];
+                    if (_usage_5540950 == ((0 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage))) {
+                        _gotoNext = 5541014i32;
                     } else {
-                        _gotoNext = 5553080i32;
+                        _gotoNext = 5540947i32;
                     };
-                } else if (__value__ == (5553147i32)) {
-                    _i_5552863--;
-                    _gotoNext = 5552859i32;
-                } else if (__value__ == (5553234i32)) {
+                } else if (__value__ == (5541014i32)) {
+                    _i_5540730--;
+                    _gotoNext = 5540726i32;
+                } else if (__value__ == (5541101i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = _cert_5552900.extKeyUsage[(0i32 : stdgo.GoInt)];
-                        _i_5553092_0 = __tmp__0;
-                        _usage_5553083 = __tmp__1;
+                        final __tmp__1 = _cert_5540767.extKeyUsage[(0i32 : stdgo.GoInt)];
+                        _i_5540959_0 = __tmp__0;
+                        _usage_5540950 = __tmp__1;
                     };
-                    _gotoNext = 5553235i32;
-                } else if (__value__ == (5553235i32)) {
-                    if (_i_5553092_0 < (_cert_5552900.extKeyUsage.length)) {
-                        _gotoNext = 5553115i32;
+                    _gotoNext = 5541102i32;
+                } else if (__value__ == (5541102i32)) {
+                    if (_i_5540959_0 < (_cert_5540767.extKeyUsage.length)) {
+                        _gotoNext = 5540982i32;
                     } else {
-                        _gotoNext = 5553240i32;
+                        _gotoNext = 5541107i32;
                     };
-                } else if (__value__ == (5553240i32)) {
-                    _invalidUsage_5553246 = (-1 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
-                    _gotoNext = 5553278i32;
-                } else if (__value__ == (5553278i32)) {
-                    if ((0i32 : stdgo.GoInt) < (_usages_5552535.length)) {
-                        _gotoNext = 5553621i32;
+                } else if (__value__ == (5541107i32)) {
+                    _invalidUsage_5541113 = (-1 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
+                    _gotoNext = 5541145i32;
+                } else if (__value__ == (5541145i32)) {
+                    if ((0i32 : stdgo.GoInt) < (_usages_5540402.length)) {
+                        _gotoNext = 5541488i32;
                     } else {
-                        _gotoNext = 5552892i32;
+                        _gotoNext = 5540759i32;
                     };
-                } else if (__value__ == (5553304i32)) {
-                    _i_5553304++;
-                    _gotoNext = 5553622i32;
-                } else if (__value__ == (5553338i32)) {
-                    _requestedUsage_5553307 = _usages_5552535[(_i_5553304 : stdgo.GoInt)];
-                    if (_requestedUsage_5553307 == ((-1 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage))) {
-                        _gotoNext = 5553377i32;
+                } else if (__value__ == (5541171i32)) {
+                    _i_5541171++;
+                    _gotoNext = 5541489i32;
+                } else if (__value__ == (5541205i32)) {
+                    _requestedUsage_5541174 = _usages_5540402[(_i_5541171 : stdgo.GoInt)];
+                    if (_requestedUsage_5541174 == ((-1 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage))) {
+                        _gotoNext = 5541244i32;
                     } else {
-                        _gotoNext = 5553401i32;
+                        _gotoNext = 5541268i32;
                     };
-                } else if (__value__ == (5553377i32)) {
-                    _i_5553304++;
-                    _gotoNext = 5553622i32;
-                } else if (__value__ == (5553401i32)) {
-                    if ((0i32 : stdgo.GoInt) < (_cert_5552900.extKeyUsage.length)) {
-                        _gotoNext = 5553516i32;
+                } else if (__value__ == (5541244i32)) {
+                    _i_5541171++;
+                    _gotoNext = 5541489i32;
+                } else if (__value__ == (5541268i32)) {
+                    if ((0i32 : stdgo.GoInt) < (_cert_5540767.extKeyUsage.length)) {
+                        _gotoNext = 5541383i32;
                     } else {
-                        _gotoNext = 5553523i32;
+                        _gotoNext = 5541390i32;
                     };
-                } else if (__value__ == (5553405i32)) {
-                    _i_5553417_0++;
-                    _gotoNext = 5553517i32;
-                } else if (__value__ == (5553440i32)) {
-                    _usage_5553408 = _cert_5552900.extKeyUsage[(_i_5553417_0 : stdgo.GoInt)];
-                    if (_requestedUsage_5553307 == (_usage_5553408)) {
-                        _gotoNext = 5553473i32;
+                } else if (__value__ == (5541272i32)) {
+                    _i_5541284_0++;
+                    _gotoNext = 5541384i32;
+                } else if (__value__ == (5541307i32)) {
+                    _usage_5541275 = _cert_5540767.extKeyUsage[(_i_5541284_0 : stdgo.GoInt)];
+                    if (_requestedUsage_5541174 == (_usage_5541275)) {
+                        _gotoNext = 5541340i32;
                     } else {
-                        _gotoNext = 5553405i32;
+                        _gotoNext = 5541272i32;
                     };
-                } else if (__value__ == (5553473i32)) {
-                    _i_5553304++;
-                    _gotoNext = 5553622i32;
-                } else if (__value__ == (5553516i32)) {
+                } else if (__value__ == (5541340i32)) {
+                    _i_5541171++;
+                    _gotoNext = 5541489i32;
+                } else if (__value__ == (5541383i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = _cert_5552900.extKeyUsage[(0i32 : stdgo.GoInt)];
-                        _i_5553417_0 = __tmp__0;
-                        _usage_5553408 = __tmp__1;
+                        final __tmp__1 = _cert_5540767.extKeyUsage[(0i32 : stdgo.GoInt)];
+                        _i_5541284_0 = __tmp__0;
+                        _usage_5541275 = __tmp__1;
                     };
-                    _gotoNext = 5553517i32;
-                } else if (__value__ == (5553517i32)) {
-                    if (_i_5553417_0 < (_cert_5552900.extKeyUsage.length)) {
-                        _gotoNext = 5553440i32;
+                    _gotoNext = 5541384i32;
+                } else if (__value__ == (5541384i32)) {
+                    if (_i_5541284_0 < (_cert_5540767.extKeyUsage.length)) {
+                        _gotoNext = 5541307i32;
                     } else {
-                        _gotoNext = 5553523i32;
+                        _gotoNext = 5541390i32;
                     };
-                } else if (__value__ == (5553523i32)) {
-                    _usages_5552535[(_i_5553304 : stdgo.GoInt)] = (-1 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
-                    _usagesRemaining_5552649--;
-                    if (_usagesRemaining_5552649 == ((0 : stdgo.GoInt))) {
-                        _gotoNext = 5553596i32;
+                } else if (__value__ == (5541390i32)) {
+                    _usages_5540402[(_i_5541171 : stdgo.GoInt)] = (-1 : stdgo._internal.crypto.x509.X509_ExtKeyUsage.ExtKeyUsage);
+                    _usagesRemaining_5540516--;
+                    if (_usagesRemaining_5540516 == ((0 : stdgo.GoInt))) {
+                        _gotoNext = 5541463i32;
                     } else {
-                        _gotoNext = 5553304i32;
+                        _gotoNext = 5541171i32;
                     };
-                } else if (__value__ == (5553596i32)) {
+                } else if (__value__ == (5541463i32)) {
                     return false;
-                    _gotoNext = 5553304i32;
-                } else if (__value__ == (5553621i32)) {
+                    _gotoNext = 5541171i32;
+                } else if (__value__ == (5541488i32)) {
                     {
                         final __tmp__0 = 0i32;
-                        final __tmp__1 = _usages_5552535[(0i32 : stdgo.GoInt)];
-                        _i_5553304 = __tmp__0;
-                        _requestedUsage_5553307 = __tmp__1;
+                        final __tmp__1 = _usages_5540402[(0i32 : stdgo.GoInt)];
+                        _i_5541171 = __tmp__0;
+                        _requestedUsage_5541174 = __tmp__1;
                     };
-                    _gotoNext = 5553622i32;
-                } else if (__value__ == (5553622i32)) {
-                    if (_i_5553304 < (_usages_5552535.length)) {
-                        _gotoNext = 5553338i32;
+                    _gotoNext = 5541489i32;
+                } else if (__value__ == (5541489i32)) {
+                    if (_i_5541171 < (_usages_5540402.length)) {
+                        _gotoNext = 5541205i32;
                     } else {
-                        _gotoNext = 5552892i32;
+                        _gotoNext = 5540759i32;
                     };
-                } else if (__value__ == (5553629i32)) {
+                } else if (__value__ == (5541496i32)) {
                     return true;
                     _gotoNext = -1i32;
                 };

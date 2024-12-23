@@ -247,7 +247,10 @@ _b._pbSample(_values, _locs, _labels);
                 _count = (_stk[(0 : stdgo.GoInt)] : stdgo.GoUInt64);
                 _stk = (new stdgo.Slice<stdgo.GoUInt64>(1, 1, ...[((stdgo._internal.internal.abi.Abi_funcPCABIInternal.funcPCABIInternal(stdgo.Go.toInterface(stdgo._internal.runtime.pprof.Pprof__lostProfileEvent._lostProfileEvent)) + (1 : stdgo.GoUIntptr) : stdgo.GoUIntptr) : stdgo.GoUInt64)]).__setNumber64__() : stdgo.Slice<stdgo.GoUInt64>);
             };
-            _b._m._lookup(_stk, _tag)._count = (_b._m._lookup(_stk, _tag)._count + ((_count : stdgo.GoInt64)) : stdgo.GoInt64);
+            {
+                final __t__ = _b._m._lookup(_stk, _tag);
+                __t__._count = __t__._count + ((_count : stdgo.GoInt64));
+            };
         };
         if ((_tags.length) != ((0 : stdgo.GoInt))) {
             return stdgo._internal.fmt.Fmt_errorf.errorf(("mismatched profile records and tags" : stdgo.GoString));

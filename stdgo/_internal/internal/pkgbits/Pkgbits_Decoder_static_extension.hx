@@ -155,7 +155,7 @@ package stdgo._internal.internal.pkgbits;
         for (__4 => _pc in stdgo._internal.internal.pkgbits.Pkgbits__fmtFrames._fmtFrames(...((_readerPCs.__slice__(0, _n) : stdgo.Slice<stdgo.GoUIntptr>) : Array<stdgo.GoUIntptr>))) {
             stdgo._internal.fmt.Fmt_printf.printf(("\t%s\n" : stdgo.GoString), stdgo.Go.toInterface(_pc));
         };
-        Sys.exit((1 : stdgo.GoInt));
+        #if (sys || hxnodejs) Sys.exit((1 : stdgo.GoInt)) #else null #end;
     }
     @:keep
     static public function _rawReloc( _r:stdgo.Ref<stdgo._internal.internal.pkgbits.Pkgbits_Decoder.Decoder>, _k:stdgo._internal.internal.pkgbits.Pkgbits_RelocKind.RelocKind, _idx:stdgo.GoInt):stdgo._internal.internal.pkgbits.Pkgbits_Index.Index {

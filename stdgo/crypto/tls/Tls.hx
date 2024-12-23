@@ -4061,380 +4061,380 @@ class QUICEncryptionLevel_static_extension {
 }
 /**
     /|*{
-    	c_6047093 = hs.c
+    	c_5776760 = hs.c
     	hs.hello = new(serverHelloMsg)
     	hs.hello.vers = 771
-    	hs.hello.supportedVersion = c_6047093.vers
+    	hs.hello.supportedVersion = c_5776760.vers
     	if len(hs.clientHello.supportedVersions) == 0 {
-    		gotoNext = 6047388
-    		_ = gotoNext == 6047388
-    		c_6047093.sendAlert(47)
+    		gotoNext = 5777055
+    		_ = gotoNext == 5777055
+    		c_5776760.sendAlert(47)
     		return errors.New("tls: client used the legacy version field to negotiate TLS 1.3")
-    		gotoNext = 6048181
+    		gotoNext = 5777848
     	} else {
-    		gotoNext = 6048181
+    		gotoNext = 5777848
     	}
-    	_ = gotoNext == 6048181
+    	_ = gotoNext == 5777848
     	if 0 < len(hs.clientHello.cipherSuites) {
-    		gotoNext = 6048599
-    		_ = gotoNext == 6048599
-    		i_6048194_0, id_6048188 = 0, hs.clientHello.cipherSuites[0]
-    		gotoNext = 6048600
-    		_ = gotoNext == 6048600
-    		if i_6048194_0 < len(hs.clientHello.cipherSuites) {
-    			gotoNext = 6048228
-    			_ = gotoNext == 6048228
-    			id_6048188 = hs.clientHello.cipherSuites[i_6048194_0]
-    			if id_6048188 == 22016 {
-    				gotoNext = 6048259
-    				_ = gotoNext == 6048259
-    				if c_6047093.vers < c_6047093.config.maxSupportedVersion(false) {
-    					gotoNext = 6048460
-    					_ = gotoNext == 6048460
-    					c_6047093.sendAlert(86)
+    		gotoNext = 5778266
+    		_ = gotoNext == 5778266
+    		i_5777861_0, id_5777855 = 0, hs.clientHello.cipherSuites[0]
+    		gotoNext = 5778267
+    		_ = gotoNext == 5778267
+    		if i_5777861_0 < len(hs.clientHello.cipherSuites) {
+    			gotoNext = 5777895
+    			_ = gotoNext == 5777895
+    			id_5777855 = hs.clientHello.cipherSuites[i_5777861_0]
+    			if id_5777855 == 22016 {
+    				gotoNext = 5777926
+    				_ = gotoNext == 5777926
+    				if c_5776760.vers < c_5776760.config.maxSupportedVersion(false) {
+    					gotoNext = 5778127
+    					_ = gotoNext == 5778127
+    					c_5776760.sendAlert(86)
     					return errors.New("tls: client using inappropriate protocol fallback")
-    					gotoNext = 6048589
+    					gotoNext = 5778256
     				} else {
-    					gotoNext = 6048589
+    					gotoNext = 5778256
     				}
-    				_ = gotoNext == 6048589
-    				gotoNext = 6048604
-    				gotoNext = 6048185
+    				_ = gotoNext == 5778256
+    				gotoNext = 5778271
+    				gotoNext = 5777852
     			} else {
-    				gotoNext = 6048185
+    				gotoNext = 5777852
     			}
-    			_ = gotoNext == 6048185
-    			i_6048194_0++
-    			gotoNext = 6048600
+    			_ = gotoNext == 5777852
+    			i_5777861_0++
+    			gotoNext = 5778267
     		} else {
-    			gotoNext = 6048604
+    			gotoNext = 5778271
     		}
-    		gotoNext = 6048604
+    		gotoNext = 5778271
     	} else {
-    		gotoNext = 6048604
+    		gotoNext = 5778271
     	}
-    	_ = gotoNext == 6048604
+    	_ = gotoNext == 5778271
     	if len(hs.clientHello.compressionMethods) != 1 || hs.clientHello.compressionMethods[0] != 0 {
-    		gotoNext = 6048712
-    		_ = gotoNext == 6048712
-    		c_6047093.sendAlert(47)
+    		gotoNext = 5778379
+    		_ = gotoNext == 5778379
+    		c_5776760.sendAlert(47)
     		return errors.New("tls: TLS 1.3 client supports illegal compression methods")
-    		gotoNext = 6048836
+    		gotoNext = 5778503
     	} else {
-    		gotoNext = 6048836
+    		gotoNext = 5778503
     	}
-    	_ = gotoNext == 6048836
+    	_ = gotoNext == 5778503
     	hs.hello.random = make([]byte, 32)
-    	if _, err_6048878 = io.ReadFull(c_6047093.config.rand(), hs.hello.random); err_6048878 != nil {
-    		gotoNext = 6048943
-    		_ = gotoNext == 6048943
-    		c_6047093.sendAlert(80)
-    		return err_6048878
-    		gotoNext = 6048997
+    	if _, err_5778545 = io.ReadFull(c_5776760.config.rand(), hs.hello.random); err_5778545 != nil {
+    		gotoNext = 5778610
+    		_ = gotoNext == 5778610
+    		c_5776760.sendAlert(80)
+    		return err_5778545
+    		gotoNext = 5778664
     	} else {
-    		gotoNext = 6048997
+    		gotoNext = 5778664
     	}
-    	_ = gotoNext == 6048997
+    	_ = gotoNext == 5778664
     	if len(hs.clientHello.secureRenegotiation) != 0 {
-    		gotoNext = 6049045
-    		_ = gotoNext == 6049045
-    		c_6047093.sendAlert(40)
+    		gotoNext = 5778712
+    		_ = gotoNext == 5778712
+    		c_5776760.sendAlert(40)
     		return errors.New("tls: initial handshake had non-empty renegotiation extension")
-    		gotoNext = 6049173
+    		gotoNext = 5778840
     	} else {
-    		gotoNext = 6049173
+    		gotoNext = 5778840
     	}
-    	_ = gotoNext == 6049173
-    	if hs.clientHello.earlyData && c_6047093.quic != nil {
-    		gotoNext = 6049218
-    		_ = gotoNext == 6049218
+    	_ = gotoNext == 5778840
+    	if hs.clientHello.earlyData && c_5776760.quic != nil {
+    		gotoNext = 5778885
+    		_ = gotoNext == 5778885
     		if len(hs.clientHello.pskIdentities) == 0 {
-    			gotoNext = 6049264
-    			_ = gotoNext == 6049264
-    			c_6047093.sendAlert(47)
+    			gotoNext = 5778931
+    			_ = gotoNext == 5778931
+    			c_5776760.sendAlert(47)
     			return errors.New("tls: early_data without pre_shared_key")
-    			gotoNext = 6049943
+    			gotoNext = 5779610
     		} else {
-    			gotoNext = 6049943
+    			gotoNext = 5779610
     		}
-    		gotoNext = 6049943
+    		gotoNext = 5779610
     	} else if hs.clientHello.earlyData {
-    		gotoNext = 6049407
-    		_ = gotoNext == 6049407
-    		c_6047093.sendAlert(110)
+    		gotoNext = 5779074
+    		_ = gotoNext == 5779074
+    		c_5776760.sendAlert(110)
     		return errors.New("tls: client sent unexpected early data")
-    		gotoNext = 6049943
+    		gotoNext = 5779610
     	} else {
-    		gotoNext = 6049943
+    		gotoNext = 5779610
     	}
-    	_ = gotoNext == 6049943
+    	_ = gotoNext == 5779610
     	hs.hello.sessionId = hs.clientHello.sessionId
     	hs.hello.compressionMethod = 0
-    	preferenceList_6050037 = defaultCipherSuitesTLS13
+    	preferenceList_5779704 = defaultCipherSuitesTLS13
     	if !hasAESGCMHardwareSupport || !aesgcmPreferred(hs.clientHello.cipherSuites) {
-    		gotoNext = 6050159
-    		_ = gotoNext == 6050159
-    		preferenceList_6050037 = defaultCipherSuitesTLS13NoAES
-    		gotoNext = 6050214
+    		gotoNext = 5779826
+    		_ = gotoNext == 5779826
+    		preferenceList_5779704 = defaultCipherSuitesTLS13NoAES
+    		gotoNext = 5779881
     	} else {
-    		gotoNext = 6050214
+    		gotoNext = 5779881
     	}
-    	_ = gotoNext == 6050214
-    	if 0 < len(preferenceList_6050037) {
-    		gotoNext = 6050365
-    		_ = gotoNext == 6050365
-    		i_6050232_0, suiteID_6050221 = 0, preferenceList_6050037[0]
-    		gotoNext = 6050366
-    		_ = gotoNext == 6050366
-    		if i_6050232_0 < len(preferenceList_6050037) {
-    			gotoNext = 6050253
-    			_ = gotoNext == 6050253
-    			suiteID_6050221 = preferenceList_6050037[i_6050232_0]
-    			hs.suite = mutualCipherSuiteTLS13(hs.clientHello.cipherSuites, suiteID_6050221)
+    	_ = gotoNext == 5779881
+    	if 0 < len(preferenceList_5779704) {
+    		gotoNext = 5780032
+    		_ = gotoNext == 5780032
+    		i_5779899_0, suiteID_5779888 = 0, preferenceList_5779704[0]
+    		gotoNext = 5780033
+    		_ = gotoNext == 5780033
+    		if i_5779899_0 < len(preferenceList_5779704) {
+    			gotoNext = 5779920
+    			_ = gotoNext == 5779920
+    			suiteID_5779888 = preferenceList_5779704[i_5779899_0]
+    			hs.suite = mutualCipherSuiteTLS13(hs.clientHello.cipherSuites, suiteID_5779888)
     			if hs.suite != nil {
-    				gotoNext = 6050350
-    				_ = gotoNext == 6050350
-    				gotoNext = 6050369
-    				gotoNext = 6050218
+    				gotoNext = 5780017
+    				_ = gotoNext == 5780017
+    				gotoNext = 5780036
+    				gotoNext = 5779885
     			} else {
-    				gotoNext = 6050218
+    				gotoNext = 5779885
     			}
-    			_ = gotoNext == 6050218
-    			i_6050232_0++
-    			gotoNext = 6050366
+    			_ = gotoNext == 5779885
+    			i_5779899_0++
+    			gotoNext = 5780033
     		} else {
-    			gotoNext = 6050369
+    			gotoNext = 5780036
     		}
-    		gotoNext = 6050369
+    		gotoNext = 5780036
     	} else {
-    		gotoNext = 6050369
+    		gotoNext = 5780036
     	}
-    	_ = gotoNext == 6050369
+    	_ = gotoNext == 5780036
     	if hs.suite == nil {
-    		gotoNext = 6050388
-    		_ = gotoNext == 6050388
-    		c_6047093.sendAlert(40)
+    		gotoNext = 5780055
+    		_ = gotoNext == 5780055
+    		c_5776760.sendAlert(40)
     		return errors.New("tls: no cipher suite supported by both client and server")
-    		gotoNext = 6050511
+    		gotoNext = 5780178
     	} else {
-    		gotoNext = 6050511
+    		gotoNext = 5780178
     	}
-    	_ = gotoNext == 6050511
-    	c_6047093.cipherSuite = hs.suite.id
+    	_ = gotoNext == 5780178
+    	c_5776760.cipherSuite = hs.suite.id
     	hs.hello.cipherSuite = hs.suite.id
     	hs.transcript = hs.suite.hash.New()
-    	gotoNext = 6050814
-    	_ = gotoNext == 6050814
-    	if 0 < len(c_6047093.config.curvePreferences()) {
-    		gotoNext = 6051239
-    		_ = gotoNext == 6051239
-    		i_6050856_0, preferredGroup_6050838 = 0, c_6047093.config.curvePreferences()[0]
-    		gotoNext = 6051240
-    		_ = gotoNext == 6051240
-    		if i_6050856_0 < len(c_6047093.config.curvePreferences()) {
-    			gotoNext = 6050890
-    			_ = gotoNext == 6050890
-    			preferredGroup_6050838 = c_6047093.config.curvePreferences()[i_6050856_0]
+    	gotoNext = 5780481
+    	_ = gotoNext == 5780481
+    	if 0 < len(c_5776760.config.curvePreferences()) {
+    		gotoNext = 5780906
+    		_ = gotoNext == 5780906
+    		i_5780523_0, preferredGroup_5780505 = 0, c_5776760.config.curvePreferences()[0]
+    		gotoNext = 5780907
+    		_ = gotoNext == 5780907
+    		if i_5780523_0 < len(c_5776760.config.curvePreferences()) {
+    			gotoNext = 5780557
+    			_ = gotoNext == 5780557
+    			preferredGroup_5780505 = c_5776760.config.curvePreferences()[i_5780523_0]
     			if 0 < len(hs.clientHello.keyShares) {
-    				gotoNext = 6051060
-    				_ = gotoNext == 6051060
-    				i_6050907_0, ks_6050901 = 0, hs.clientHello.keyShares[0]
-    				gotoNext = 6051061
-    				_ = gotoNext == 6051061
-    				if i_6050907_0 < len(hs.clientHello.keyShares) {
-    					gotoNext = 6050938
-    					_ = gotoNext == 6050938
-    					ks_6050901 = hs.clientHello.keyShares[i_6050907_0]
-    					if ks_6050901.group == preferredGroup_6050838 {
-    						gotoNext = 6050973
-    						_ = gotoNext == 6050973
-    						selectedGroup_6050762 = ks_6050901.group
-    						clientKeyShare_6050789 = &ks_6050901
+    				gotoNext = 5780727
+    				_ = gotoNext == 5780727
+    				i_5780574_0, ks_5780568 = 0, hs.clientHello.keyShares[0]
+    				gotoNext = 5780728
+    				_ = gotoNext == 5780728
+    				if i_5780574_0 < len(hs.clientHello.keyShares) {
+    					gotoNext = 5780605
+    					_ = gotoNext == 5780605
+    					ks_5780568 = hs.clientHello.keyShares[i_5780574_0]
+    					if ks_5780568.group == preferredGroup_5780505 {
+    						gotoNext = 5780640
+    						_ = gotoNext == 5780640
+    						selectedGroup_5780429 = ks_5780568.group
+    						clientKeyShare_5780456 = &ks_5780568
     						GroupSelectionBreak = true
-    						gotoNext = 6051240
-    						gotoNext = 6050898
+    						gotoNext = 5780907
+    						gotoNext = 5780565
     					} else {
-    						gotoNext = 6050898
+    						gotoNext = 5780565
     					}
-    					_ = gotoNext == 6050898
-    					i_6050907_0++
-    					gotoNext = 6051061
+    					_ = gotoNext == 5780565
+    					i_5780574_0++
+    					gotoNext = 5780728
     				} else {
-    					gotoNext = 6051065
+    					gotoNext = 5780732
     				}
-    				gotoNext = 6051065
+    				gotoNext = 5780732
     			} else {
-    				gotoNext = 6051065
+    				gotoNext = 5780732
     			}
-    			_ = gotoNext == 6051065
-    			if selectedGroup_6050762 != 0 {
-    				gotoNext = 6051087
-    				_ = gotoNext == 6051087
-    				i_6050856_0++
-    				gotoNext = 6051240
-    				gotoNext = 6051107
+    			_ = gotoNext == 5780732
+    			if selectedGroup_5780429 != 0 {
+    				gotoNext = 5780754
+    				_ = gotoNext == 5780754
+    				i_5780523_0++
+    				gotoNext = 5780907
+    				gotoNext = 5780774
     			} else {
-    				gotoNext = 6051107
+    				gotoNext = 5780774
     			}
-    			_ = gotoNext == 6051107
+    			_ = gotoNext == 5780774
     			if 0 < len(hs.clientHello.supportedCurves) {
-    				gotoNext = 6051236
-    				_ = gotoNext == 6051236
-    				i_6051123_0, group_6051114 = 0, hs.clientHello.supportedCurves[0]
-    				gotoNext = 6051237
-    				_ = gotoNext == 6051237
-    				if i_6051123_0 < len(hs.clientHello.supportedCurves) {
-    					gotoNext = 6051160
-    					_ = gotoNext == 6051160
-    					group_6051114 = hs.clientHello.supportedCurves[i_6051123_0]
-    					if group_6051114 == preferredGroup_6050838 {
-    						gotoNext = 6051192
-    						_ = gotoNext == 6051192
-    						selectedGroup_6050762 = group_6051114
-    						gotoNext = 6050835
-    						gotoNext = 6051111
+    				gotoNext = 5780903
+    				_ = gotoNext == 5780903
+    				i_5780790_0, group_5780781 = 0, hs.clientHello.supportedCurves[0]
+    				gotoNext = 5780904
+    				_ = gotoNext == 5780904
+    				if i_5780790_0 < len(hs.clientHello.supportedCurves) {
+    					gotoNext = 5780827
+    					_ = gotoNext == 5780827
+    					group_5780781 = hs.clientHello.supportedCurves[i_5780790_0]
+    					if group_5780781 == preferredGroup_5780505 {
+    						gotoNext = 5780859
+    						_ = gotoNext == 5780859
+    						selectedGroup_5780429 = group_5780781
+    						gotoNext = 5780502
+    						gotoNext = 5780778
     					} else {
-    						gotoNext = 6051111
+    						gotoNext = 5780778
     					}
-    					_ = gotoNext == 6051111
-    					i_6051123_0++
-    					gotoNext = 6051237
+    					_ = gotoNext == 5780778
+    					i_5780790_0++
+    					gotoNext = 5780904
     				} else {
-    					gotoNext = 6050835
+    					gotoNext = 5780502
     				}
-    				gotoNext = 6050835
+    				gotoNext = 5780502
     			} else {
-    				gotoNext = 6050835
+    				gotoNext = 5780502
     			}
-    			_ = gotoNext == 6050835
-    			i_6050856_0++
-    			gotoNext = 6051240
+    			_ = gotoNext == 5780502
+    			i_5780523_0++
+    			gotoNext = 5780907
     		} else {
-    			gotoNext = 6051243
+    			gotoNext = 5780910
     		}
-    		gotoNext = 6051243
+    		gotoNext = 5780910
     	} else {
-    		gotoNext = 6051243
+    		gotoNext = 5780910
     	}
-    	_ = gotoNext == 6051243
-    	if selectedGroup_6050762 == 0 {
-    		gotoNext = 6051265
-    		_ = gotoNext == 6051265
-    		c_6047093.sendAlert(40)
+    	_ = gotoNext == 5780910
+    	if selectedGroup_5780429 == 0 {
+    		gotoNext = 5780932
+    		_ = gotoNext == 5780932
+    		c_5776760.sendAlert(40)
     		return errors.New("tls: no ECDHE curve supported by both client and server")
-    		gotoNext = 6051387
+    		gotoNext = 5781054
     	} else {
-    		gotoNext = 6051387
+    		gotoNext = 5781054
     	}
-    	_ = gotoNext == 6051387
-    	if clientKeyShare_6050789 == nil {
-    		gotoNext = 6051412
-    		_ = gotoNext == 6051412
-    		if err_6051419 = hs.doHelloRetryRequest(selectedGroup_6050762); err_6051419 != nil {
-    			gotoNext = 6051476
-    			_ = gotoNext == 6051476
-    			return err_6051419
-    			gotoNext = 6051498
+    	_ = gotoNext == 5781054
+    	if clientKeyShare_5780456 == nil {
+    		gotoNext = 5781079
+    		_ = gotoNext == 5781079
+    		if err_5781086 = hs.doHelloRetryRequest(selectedGroup_5780429); err_5781086 != nil {
+    			gotoNext = 5781143
+    			_ = gotoNext == 5781143
+    			return err_5781086
+    			gotoNext = 5781165
     		} else {
-    			gotoNext = 6051498
+    			gotoNext = 5781165
     		}
-    		_ = gotoNext == 6051498
-    		clientKeyShare_6050789 = &hs.clientHello.keyShares[0]
-    		gotoNext = 6051549
+    		_ = gotoNext == 5781165
+    		clientKeyShare_5780456 = &hs.clientHello.keyShares[0]
+    		gotoNext = 5781216
     	} else {
-    		gotoNext = 6051549
+    		gotoNext = 5781216
     	}
-    	_ = gotoNext == 6051549
-    	if _, ok_6051555 = curveForCurveID(selectedGroup_6050762); !ok_6051555 {
-    		gotoNext = 6051597
-    		_ = gotoNext == 6051597
-    		c_6047093.sendAlert(80)
+    	_ = gotoNext == 5781216
+    	if _, ok_5781222 = curveForCurveID(selectedGroup_5780429); !ok_5781222 {
+    		gotoNext = 5781264
+    		_ = gotoNext == 5781264
+    		c_5776760.sendAlert(80)
     		return errors.New("tls: CurvePreferences includes unsupported curve")
-    		gotoNext = 6051709
+    		gotoNext = 5781376
     	} else {
-    		gotoNext = 6051709
+    		gotoNext = 5781376
     	}
-    	_ = gotoNext == 6051709
-    	key_6051709, err_6051714 = generateECDHEKey(c_6047093.config.rand(), selectedGroup_6050762)
-    	if err_6051714 != nil {
-    		gotoNext = 6051785
-    		_ = gotoNext == 6051785
-    		c_6047093.sendAlert(80)
-    		return err_6051714
-    		gotoNext = 6051838
+    	_ = gotoNext == 5781376
+    	key_5781376, err_5781381 = generateECDHEKey(c_5776760.config.rand(), selectedGroup_5780429)
+    	if err_5781381 != nil {
+    		gotoNext = 5781452
+    		_ = gotoNext == 5781452
+    		c_5776760.sendAlert(80)
+    		return err_5781381
+    		gotoNext = 5781505
     	} else {
-    		gotoNext = 6051838
+    		gotoNext = 5781505
     	}
-    	_ = gotoNext == 6051838
-    	hs.hello.serverShare = keyShare{group: selectedGroup_6050762, data: key_6051709.PublicKey().Bytes()}
-    	peerKey_6051924, err_6051714 = key_6051709.Curve().NewPublicKey(clientKeyShare_6050789.data)
-    	if err_6051714 != nil {
-    		gotoNext = 6052001
-    		_ = gotoNext == 6052001
-    		c_6047093.sendAlert(47)
+    	_ = gotoNext == 5781505
+    	hs.hello.serverShare = keyShare{group: selectedGroup_5780429, data: key_5781376.PublicKey().Bytes()}
+    	peerKey_5781591, err_5781381 = key_5781376.Curve().NewPublicKey(clientKeyShare_5780456.data)
+    	if err_5781381 != nil {
+    		gotoNext = 5781668
+    		_ = gotoNext == 5781668
+    		c_5776760.sendAlert(47)
     		return errors.New("tls: invalid client key share")
-    		gotoNext = 6052097
+    		gotoNext = 5781764
     	} else {
-    		gotoNext = 6052097
+    		gotoNext = 5781764
     	}
-    	_ = gotoNext == 6052097
-    	hs.sharedKey, err_6051714 = key_6051709.ECDH(peerKey_6051924)
-    	if err_6051714 != nil {
-    		gotoNext = 6052150
-    		_ = gotoNext == 6052150
-    		c_6047093.sendAlert(47)
+    	_ = gotoNext == 5781764
+    	hs.sharedKey, err_5781381 = key_5781376.ECDH(peerKey_5781591)
+    	if err_5781381 != nil {
+    		gotoNext = 5781817
+    		_ = gotoNext == 5781817
+    		c_5776760.sendAlert(47)
     		return errors.New("tls: invalid client key share")
-    		gotoNext = 6052247
+    		gotoNext = 5781914
     	} else {
-    		gotoNext = 6052247
+    		gotoNext = 5781914
     	}
-    	_ = gotoNext == 6052247
-    	selectedProto_6052247, err_6051714 = negotiateALPN(c_6047093.config.NextProtos, hs.clientHello.alpnProtocols, c_6047093.quic != nil)
-    	if err_6051714 != nil {
-    		gotoNext = 6052364
-    		_ = gotoNext == 6052364
-    		c_6047093.sendAlert(120)
-    		return err_6051714
-    		gotoNext = 6052425
+    	_ = gotoNext == 5781914
+    	selectedProto_5781914, err_5781381 = negotiateALPN(c_5776760.config.NextProtos, hs.clientHello.alpnProtocols, c_5776760.quic != nil)
+    	if err_5781381 != nil {
+    		gotoNext = 5782031
+    		_ = gotoNext == 5782031
+    		c_5776760.sendAlert(120)
+    		return err_5781381
+    		gotoNext = 5782092
     	} else {
-    		gotoNext = 6052425
+    		gotoNext = 5782092
     	}
-    	_ = gotoNext == 6052425
-    	c_6047093.clientProtocol = selectedProto_6052247
-    	if c_6047093.quic != nil {
-    		gotoNext = 6052477
-    		_ = gotoNext == 6052477
+    	_ = gotoNext == 5782092
+    	c_5776760.clientProtocol = selectedProto_5781914
+    	if c_5776760.quic != nil {
+    		gotoNext = 5782144
+    		_ = gotoNext == 5782144
     		if hs.clientHello.quicTransportParameters == nil {
-    			gotoNext = 6052530
-    			_ = gotoNext == 6052530
-    			c_6047093.sendAlert(109)
+    			gotoNext = 5782197
+    			_ = gotoNext == 5782197
+    			c_5776760.sendAlert(109)
     			return errors.New("tls: client did not send a quic_transport_parameters extension")
-    			gotoNext = 6052691
+    			gotoNext = 5782358
     		} else {
-    			gotoNext = 6052691
+    			gotoNext = 5782358
     		}
-    		_ = gotoNext == 6052691
-    		c_6047093.quicSetTransportParameters(hs.clientHello.quicTransportParameters)
-    		gotoNext = 6052965
+    		_ = gotoNext == 5782358
+    		c_5776760.quicSetTransportParameters(hs.clientHello.quicTransportParameters)
+    		gotoNext = 5782632
     	} else {
-    		gotoNext = 6052768
-    		_ = gotoNext == 6052768
-    		gotoNext = 6052768
-    		_ = gotoNext == 6052768
+    		gotoNext = 5782435
+    		_ = gotoNext == 5782435
+    		gotoNext = 5782435
+    		_ = gotoNext == 5782435
     		if hs.clientHello.quicTransportParameters != nil {
-    			gotoNext = 6052821
-    			_ = gotoNext == 6052821
-    			c_6047093.sendAlert(110)
+    			gotoNext = 5782488
+    			_ = gotoNext == 5782488
+    			c_5776760.sendAlert(110)
     			return errors.New("tls: client sent an unexpected quic_transport_parameters extension")
-    			gotoNext = 6052965
+    			gotoNext = 5782632
     		} else {
-    			gotoNext = 6052965
+    			gotoNext = 5782632
     		}
     		_ = 0
-    		gotoNext = 6052965
+    		gotoNext = 5782632
     	}
-    	_ = gotoNext == 6052965
-    	c_6047093.serverName = hs.clientHello.serverName
+    	_ = gotoNext == 5782632
+    	c_5776760.serverName = hs.clientHello.serverName
     	return nil
     	gotoNext = -1
     }*|/

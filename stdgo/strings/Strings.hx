@@ -436,179 +436,179 @@ class T_asciiSet_static_extension {
 }
 /**
     /|*{
-    	i_2957370 = 0
+    	i_3041158 = 0
     	_ = 0
-    	gotoNext = 2957378
-    	_ = gotoNext == 2957378
-    	if i_2957370 < len(s) && i_2957370 < len(t) {
-    		gotoNext = 2957414
-    		_ = gotoNext == 2957414
-    		sr_2957418 = s[i_2957370]
-    		tr_2957431 = t[i_2957370]
-    		if sr_2957418|tr_2957431 >= 128 {
-    			gotoNext = 2957470
-    			_ = gotoNext == 2957470
-    			gotoNext = 2957828
-    			gotoNext = 2957514
+    	gotoNext = 3041166
+    	_ = gotoNext == 3041166
+    	if i_3041158 < len(s) && i_3041158 < len(t) {
+    		gotoNext = 3041202
+    		_ = gotoNext == 3041202
+    		sr_3041206 = s[i_3041158]
+    		tr_3041219 = t[i_3041158]
+    		if sr_3041206|tr_3041219 >= 128 {
+    			gotoNext = 3041258
+    			_ = gotoNext == 3041258
+    			gotoNext = 3041616
+    			gotoNext = 3041302
     		} else {
-    			gotoNext = 2957514
+    			gotoNext = 3041302
     		}
-    		_ = gotoNext == 2957514
-    		if tr_2957431 == sr_2957418 {
-    			gotoNext = 2957526
-    			_ = gotoNext == 2957526
-    			i_2957370++
-    			gotoNext = 2957378
-    			gotoNext = 2957591
+    		_ = gotoNext == 3041302
+    		if tr_3041219 == sr_3041206 {
+    			gotoNext = 3041314
+    			_ = gotoNext == 3041314
+    			i_3041158++
+    			gotoNext = 3041166
+    			gotoNext = 3041379
     		} else {
-    			gotoNext = 2957591
+    			gotoNext = 3041379
     		}
-    		_ = gotoNext == 2957591
-    		if tr_2957431 < sr_2957418 {
-    			gotoNext = 2957602
-    			_ = gotoNext == 2957602
-    			tr_2957431, sr_2957418 = sr_2957418, tr_2957431
-    			gotoNext = 2957677
+    		_ = gotoNext == 3041379
+    		if tr_3041219 < sr_3041206 {
+    			gotoNext = 3041390
+    			_ = gotoNext == 3041390
+    			tr_3041219, sr_3041206 = sr_3041206, tr_3041219
+    			gotoNext = 3041465
     		} else {
-    			gotoNext = 2957677
+    			gotoNext = 3041465
     		}
-    		_ = gotoNext == 2957677
-    		if 65 <= sr_2957418 && sr_2957418 <= 90 && tr_2957431 == sr_2957418+97-65 {
-    			gotoNext = 2957723
-    			_ = gotoNext == 2957723
-    			i_2957370++
-    			gotoNext = 2957378
-    			gotoNext = 2957743
+    		_ = gotoNext == 3041465
+    		if 65 <= sr_3041206 && sr_3041206 <= 90 && tr_3041219 == sr_3041206+97-65 {
+    			gotoNext = 3041511
+    			_ = gotoNext == 3041511
+    			i_3041158++
+    			gotoNext = 3041166
+    			gotoNext = 3041531
     		} else {
-    			gotoNext = 2957743
+    			gotoNext = 3041531
     		}
-    		_ = gotoNext == 2957743
+    		_ = gotoNext == 3041531
     		return false
-    		i_2957370++
-    		gotoNext = 2957378
+    		i_3041158++
+    		gotoNext = 3041166
     	} else {
-    		gotoNext = 2957803
+    		gotoNext = 3041591
     	}
-    	_ = gotoNext == 2957803
+    	_ = gotoNext == 3041591
     	return len(s) == len(t)
-    	gotoNext = 2957828
-    	_ = gotoNext == 2957828
-    	s = s[i_2957370:]
-    	t = t[i_2957370:]
-    	keys_2957863 = []int{}
-    	values_2957863 = []rune{}
+    	gotoNext = 3041616
+    	_ = gotoNext == 3041616
+    	s = s[i_3041158:]
+    	t = t[i_3041158:]
+    	keys_3041651 = []int{}
+    	values_3041651 = []rune{}
     	for key, value := range s {
-    		keys_2957863 = append(keys_2957863, key)
-    		values_2957863 = append(values_2957863, value)
+    		keys_3041651 = append(keys_3041651, key)
+    		values_3041651 = append(values_3041651, value)
     	}
-    	if 0 < len(keys_2957863) {
-    		gotoNext = 2958794
-    		_ = gotoNext == 2958794
-    		i_2957876 = 0
-    		gotoNext = 2958795
-    		_ = gotoNext == 2958795
-    		if i_2957876 < len(keys_2957863) {
-    			gotoNext = 2957884
-    			_ = gotoNext == 2957884
-    			sr_2957870 = values_2957863[i_2957876]
-    			_ = keys_2957863[i_2957876]
+    	if 0 < len(keys_3041651) {
+    		gotoNext = 3042582
+    		_ = gotoNext == 3042582
+    		i_3041664 = 0
+    		gotoNext = 3042583
+    		_ = gotoNext == 3042583
+    		if i_3041664 < len(keys_3041651) {
+    			gotoNext = 3041672
+    			_ = gotoNext == 3041672
+    			sr_3041658 = values_3041651[i_3041664]
+    			_ = keys_3041651[i_3041664]
     			if len(t) == 0 {
-    				gotoNext = 2957953
-    				_ = gotoNext == 2957953
+    				gotoNext = 3041741
+    				_ = gotoNext == 3041741
     				return false
-    				gotoNext = 2958022
+    				gotoNext = 3041810
     			} else {
-    				gotoNext = 2958022
+    				gotoNext = 3041810
     			}
-    			_ = gotoNext == 2958022
+    			_ = gotoNext == 3041810
     			if t[0] < 128 {
-    				gotoNext = 2958060
-    				_ = gotoNext == 2958060
-    				tr_2958026, t = rune(t[0]), t[1:]
-    				gotoNext = 2958244
+    				gotoNext = 3041848
+    				_ = gotoNext == 3041848
+    				tr_3041814, t = rune(t[0]), t[1:]
+    				gotoNext = 3042032
     			} else {
-    				gotoNext = 2958100
-    				_ = gotoNext == 2958100
-    				gotoNext = 2958100
-    				_ = gotoNext == 2958100
-    				r_2958105, size_2958108 = utf8.DecodeRuneInString(t)
-    				tr_2958026, t = r_2958105, t[size_2958108:]
+    				gotoNext = 3041888
+    				_ = gotoNext == 3041888
+    				gotoNext = 3041888
+    				_ = gotoNext == 3041888
+    				r_3041893, size_3041896 = utf8.DecodeRuneInString(t)
+    				tr_3041814, t = r_3041893, t[size_3041896:]
     				_ = 0
-    				gotoNext = 2958244
+    				gotoNext = 3042032
     			}
-    			_ = gotoNext == 2958244
-    			if tr_2958026 == sr_2957870 {
-    				gotoNext = 2958256
-    				_ = gotoNext == 2958256
-    				i_2957876++
-    				gotoNext = 2958795
-    				gotoNext = 2958321
+    			_ = gotoNext == 3042032
+    			if tr_3041814 == sr_3041658 {
+    				gotoNext = 3042044
+    				_ = gotoNext == 3042044
+    				i_3041664++
+    				gotoNext = 3042583
+    				gotoNext = 3042109
     			} else {
-    				gotoNext = 2958321
+    				gotoNext = 3042109
     			}
-    			_ = gotoNext == 2958321
-    			if tr_2958026 < sr_2957870 {
-    				gotoNext = 2958332
-    				_ = gotoNext == 2958332
-    				tr_2958026, sr_2957870 = sr_2957870, tr_2958026
-    				gotoNext = 2958386
+    			_ = gotoNext == 3042109
+    			if tr_3041814 < sr_3041658 {
+    				gotoNext = 3042120
+    				_ = gotoNext == 3042120
+    				tr_3041814, sr_3041658 = sr_3041658, tr_3041814
+    				gotoNext = 3042174
     			} else {
-    				gotoNext = 2958386
+    				gotoNext = 3042174
     			}
-    			_ = gotoNext == 2958386
-    			if tr_2958026 < 128 {
-    				gotoNext = 2958408
-    				_ = gotoNext == 2958408
-    				if 65 <= sr_2957870 && sr_2957870 <= 90 && tr_2958026 == sr_2957870+97-65 {
-    					gotoNext = 2958508
-    					_ = gotoNext == 2958508
-    					i_2957876++
-    					gotoNext = 2958795
-    					gotoNext = 2958531
+    			_ = gotoNext == 3042174
+    			if tr_3041814 < 128 {
+    				gotoNext = 3042196
+    				_ = gotoNext == 3042196
+    				if 65 <= sr_3041658 && sr_3041658 <= 90 && tr_3041814 == sr_3041658+97-65 {
+    					gotoNext = 3042296
+    					_ = gotoNext == 3042296
+    					i_3041664++
+    					gotoNext = 3042583
+    					gotoNext = 3042319
     				} else {
-    					gotoNext = 2958531
+    					gotoNext = 3042319
     				}
-    				_ = gotoNext == 2958531
+    				_ = gotoNext == 3042319
     				return false
-    				gotoNext = 2958661
+    				gotoNext = 3042449
     			} else {
-    				gotoNext = 2958661
+    				gotoNext = 3042449
     			}
-    			_ = gotoNext == 2958661
-    			r_2958661 = unicode.SimpleFold(sr_2957870)
+    			_ = gotoNext == 3042449
+    			r_3042449 = unicode.SimpleFold(sr_3041658)
     			_ = 0
-    			gotoNext = 2958691
-    			_ = gotoNext == 2958691
-    			if r_2958661 != sr_2957870 && r_2958661 < tr_2958026 {
-    				gotoNext = 2958713
-    				_ = gotoNext == 2958713
-    				r_2958661 = unicode.SimpleFold(r_2958661)
-    				gotoNext = 2958691
+    			gotoNext = 3042479
+    			_ = gotoNext == 3042479
+    			if r_3042449 != sr_3041658 && r_3042449 < tr_3041814 {
+    				gotoNext = 3042501
+    				_ = gotoNext == 3042501
+    				r_3042449 = unicode.SimpleFold(r_3042449)
+    				gotoNext = 3042479
     			} else {
-    				gotoNext = 2958750
+    				gotoNext = 3042538
     			}
-    			_ = gotoNext == 2958750
-    			if r_2958661 == tr_2958026 {
-    				gotoNext = 2958761
-    				_ = gotoNext == 2958761
-    				i_2957876++
-    				gotoNext = 2958795
-    				gotoNext = 2958781
+    			_ = gotoNext == 3042538
+    			if r_3042449 == tr_3041814 {
+    				gotoNext = 3042549
+    				_ = gotoNext == 3042549
+    				i_3041664++
+    				gotoNext = 3042583
+    				gotoNext = 3042569
     			} else {
-    				gotoNext = 2958781
+    				gotoNext = 3042569
     			}
-    			_ = gotoNext == 2958781
+    			_ = gotoNext == 3042569
     			return false
-    			i_2957876++
-    			gotoNext = 2958795
+    			i_3041664++
+    			gotoNext = 3042583
     		} else {
-    			gotoNext = 2958868
+    			gotoNext = 3042656
     		}
-    		gotoNext = 2958868
+    		gotoNext = 3042656
     	} else {
-    		gotoNext = 2958868
+    		gotoNext = 3042656
     	}
-    	_ = gotoNext == 2958868
+    	_ = gotoNext == 3042656
     	return len(t) == 0
     	gotoNext = -1
     }*|/

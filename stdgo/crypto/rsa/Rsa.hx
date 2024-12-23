@@ -237,243 +237,243 @@ class PrivateKey_static_extension {
     /|*{
     	randutil.MaybeReadByte(random)
     	if false && random == 0 && nprimes == 2 && (bits == 2048 || bits == 3072 || bits == 4096) {
-    		gotoNext = 4066002
-    		_ = gotoNext == 4066002
-    		bN_4066006, bE_4066010, bD_4066014, bP_4066018, bQ_4066022, bDp_4066026, bDq_4066031, bQinv_4066036, err_4066043 = boring.GenerateKeyRSA(bits)
-    		if err_4066043 != nil {
-    			gotoNext = 4066094
-    			_ = gotoNext == 4066094
-    			return nil, err_4066043
-    			gotoNext = 4066121
+    		gotoNext = 4090769
+    		_ = gotoNext == 4090769
+    		bN_4090773, bE_4090777, bD_4090781, bP_4090785, bQ_4090789, bDp_4090793, bDq_4090798, bQinv_4090803, err_4090810 = boring.GenerateKeyRSA(bits)
+    		if err_4090810 != nil {
+    			gotoNext = 4090861
+    			_ = gotoNext == 4090861
+    			return nil, err_4090810
+    			gotoNext = 4090888
     		} else {
-    			gotoNext = 4066121
+    			gotoNext = 4090888
     		}
-    		_ = gotoNext == 4066121
-    		N_4066121 = bbig.Dec(bN_4066006)
-    		E_4066141 = bbig.Dec(bE_4066010)
-    		D_4066161 = bbig.Dec(bD_4066014)
-    		P_4066181 = bbig.Dec(bP_4066018)
-    		Q_4066201 = bbig.Dec(bQ_4066022)
-    		Dp_4066221 = bbig.Dec(bDp_4066026)
-    		Dq_4066243 = bbig.Dec(bDq_4066031)
-    		Qinv_4066265 = bbig.Dec(bQinv_4066036)
-    		e64_4066291 = E_4066141.Int64()
-    		if !E_4066141.IsInt64() || int64(int(e64_4066291)) != e64_4066291 {
-    			gotoNext = 4066352
-    			_ = gotoNext == 4066352
+    		_ = gotoNext == 4090888
+    		N_4090888 = bbig.Dec(bN_4090773)
+    		E_4090908 = bbig.Dec(bE_4090777)
+    		D_4090928 = bbig.Dec(bD_4090781)
+    		P_4090948 = bbig.Dec(bP_4090785)
+    		Q_4090968 = bbig.Dec(bQ_4090789)
+    		Dp_4090988 = bbig.Dec(bDp_4090793)
+    		Dq_4091010 = bbig.Dec(bDq_4090798)
+    		Qinv_4091032 = bbig.Dec(bQinv_4090803)
+    		e64_4091058 = E_4090908.Int64()
+    		if !E_4090908.IsInt64() || int64(int(e64_4091058)) != e64_4091058 {
+    			gotoNext = 4091119
+    			_ = gotoNext == 4091119
     			return nil, errors.New("crypto/rsa: generated key exponent too large")
-    			gotoNext = 4066435
+    			gotoNext = 4091202
     		} else {
-    			gotoNext = 4066435
+    			gotoNext = 4091202
     		}
-    		_ = gotoNext == 4066435
-    		mn_4066435, err_4066043 = bigmod.NewModulusFromBig(N_4066121)
-    		if err_4066043 != nil {
-    			gotoNext = 4066490
-    			_ = gotoNext == 4066490
-    			return nil, err_4066043
-    			gotoNext = 4066517
+    		_ = gotoNext == 4091202
+    		mn_4091202, err_4090810 = bigmod.NewModulusFromBig(N_4090888)
+    		if err_4090810 != nil {
+    			gotoNext = 4091257
+    			_ = gotoNext == 4091257
+    			return nil, err_4090810
+    			gotoNext = 4091284
     		} else {
-    			gotoNext = 4066517
+    			gotoNext = 4091284
     		}
-    		_ = gotoNext == 4066517
-    		mp_4066517, err_4066043 = bigmod.NewModulusFromBig(P_4066181)
-    		if err_4066043 != nil {
-    			gotoNext = 4066572
-    			_ = gotoNext == 4066572
-    			return nil, err_4066043
-    			gotoNext = 4066599
+    		_ = gotoNext == 4091284
+    		mp_4091284, err_4090810 = bigmod.NewModulusFromBig(P_4090948)
+    		if err_4090810 != nil {
+    			gotoNext = 4091339
+    			_ = gotoNext == 4091339
+    			return nil, err_4090810
+    			gotoNext = 4091366
     		} else {
-    			gotoNext = 4066599
+    			gotoNext = 4091366
     		}
-    		_ = gotoNext == 4066599
-    		mq_4066599, err_4066043 = bigmod.NewModulusFromBig(Q_4066201)
-    		if err_4066043 != nil {
-    			gotoNext = 4066654
-    			_ = gotoNext == 4066654
-    			return nil, err_4066043
-    			gotoNext = 4066682
+    		_ = gotoNext == 4091366
+    		mq_4091366, err_4090810 = bigmod.NewModulusFromBig(Q_4090968)
+    		if err_4090810 != nil {
+    			gotoNext = 4091421
+    			_ = gotoNext == 4091421
+    			return nil, err_4090810
+    			gotoNext = 4091449
     		} else {
-    			gotoNext = 4066682
+    			gotoNext = 4091449
     		}
-    		_ = gotoNext == 4066682
-    		key_4066682 = &PrivateKey{PublicKey: PublicKey{N_4066121: N_4066121, E_4066141: int(e64_4066291)}, D_4066161: D_4066161, Primes: []*big.Int{P_4066181, Q_4066201}, Precomputed: PrecomputedValues{Dp_4066221: Dp_4066221, Dq_4066243: Dq_4066243, Qinv_4066265: Qinv_4066265, CRTValues: make([]CRTValue, 0), n: mn_4066435, p: mp_4066517, q: mq_4066599}}
-    		return key_4066682, nil
-    		gotoNext = 4067055
+    		_ = gotoNext == 4091449
+    		key_4091449 = &PrivateKey{PublicKey: PublicKey{N_4090888: N_4090888, E_4090908: int(e64_4091058)}, D_4090928: D_4090928, Primes: []*big.Int{P_4090948, Q_4090968}, Precomputed: PrecomputedValues{Dp_4090988: Dp_4090988, Dq_4091010: Dq_4091010, Qinv_4091032: Qinv_4091032, CRTValues: make([]CRTValue, 0), n: mn_4091202, p: mp_4091284, q: mq_4091366}}
+    		return key_4091449, nil
+    		gotoNext = 4091822
     	} else {
-    		gotoNext = 4067055
+    		gotoNext = 4091822
     	}
-    	_ = gotoNext == 4067055
-    	priv_4067055 = new(PrivateKey)
-    	priv_4067055.E = 65537
+    	_ = gotoNext == 4091822
+    	priv_4091822 = new(PrivateKey)
+    	priv_4091822.E = 65537
     	if nprimes < 2 {
-    		gotoNext = 4067112
-    		_ = gotoNext == 4067112
+    		gotoNext = 4091879
+    		_ = gotoNext == 4091879
     		return nil, errors.New("crypto/rsa: GenerateMultiPrimeKey: nprimes must be >= 2")
-    		gotoNext = 4067203
+    		gotoNext = 4091970
     	} else {
-    		gotoNext = 4067203
+    		gotoNext = 4091970
     	}
-    	_ = gotoNext == 4067203
+    	_ = gotoNext == 4091970
     	if bits < 64 {
-    		gotoNext = 4067216
-    		_ = gotoNext == 4067216
-    		primeLimit_4067220 = float64(uint64(1) << uint(bits/nprimes))
-    		pi_4067340 = primeLimit_4067220 / (math.Log(primeLimit_4067220) - 1)
-    		pi_4067340 /= 4
-    		pi_4067340 /= 2
-    		if pi_4067340 <= float64(nprimes) {
-    			gotoNext = 4067628
-    			_ = gotoNext == 4067628
+    		gotoNext = 4091983
+    		_ = gotoNext == 4091983
+    		primeLimit_4091987 = float64(uint64(1) << uint(bits/nprimes))
+    		pi_4092107 = primeLimit_4091987 / (math.Log(primeLimit_4091987) - 1)
+    		pi_4092107 /= 4
+    		pi_4092107 /= 2
+    		if pi_4092107 <= float64(nprimes) {
+    			gotoNext = 4092395
+    			_ = gotoNext == 4092395
     			return nil, errors.New("crypto/rsa: too few primes of given length to generate an RSA key")
-    			gotoNext = 4067734
+    			gotoNext = 4092501
     		} else {
-    			gotoNext = 4067734
+    			gotoNext = 4092501
     		}
-    		gotoNext = 4067734
+    		gotoNext = 4092501
     	} else {
-    		gotoNext = 4067734
+    		gotoNext = 4092501
     	}
-    	_ = gotoNext == 4067734
-    	primes_4067734 = make([]*big.Int, nprimes)
-    	gotoNext = 4067771
-    	_ = gotoNext == 4067771
+    	_ = gotoNext == 4092501
+    	primes_4092501 = make([]*big.Int, nprimes)
+    	gotoNext = 4092538
+    	_ = gotoNext == 4092538
     	_ = 0
     	NextSetOfPrimesBreak = false
-    	gotoNext = 4067789
-    	_ = gotoNext == 4067789
+    	gotoNext = 4092556
+    	_ = gotoNext == 4092556
     	if !NextSetOfPrimesBreak {
-    		gotoNext = 4067793
-    		_ = gotoNext == 4067793
-    		todo_4067797 = bits
+    		gotoNext = 4092560
+    		_ = gotoNext == 4092560
+    		todo_4092564 = bits
     		if nprimes >= 7 {
-    			gotoNext = 4068324
-    			_ = gotoNext == 4068324
-    			todo_4067797 += (nprimes - 2) / 5
-    			gotoNext = 4068361
+    			gotoNext = 4093091
+    			_ = gotoNext == 4093091
+    			todo_4092564 += (nprimes - 2) / 5
+    			gotoNext = 4093128
     		} else {
-    			gotoNext = 4068361
+    			gotoNext = 4093128
     		}
-    		_ = gotoNext == 4068361
-    		i_4068365 = 0
-    		gotoNext = 4068361
-    		_ = gotoNext == 4068361
-    		if i_4068365 < nprimes {
-    			gotoNext = 4068390
-    			_ = gotoNext == 4068390
-    			primes_4067734[i_4068365], err_4068399 = rand.Prime(random, todo_4067797/(nprimes-i_4068365))
-    			if err_4068399 != nil {
-    				gotoNext = 4068483
-    				_ = gotoNext == 4068483
-    				return nil, err_4068399
-    				gotoNext = 4068513
+    		_ = gotoNext == 4093128
+    		i_4093132 = 0
+    		gotoNext = 4093128
+    		_ = gotoNext == 4093128
+    		if i_4093132 < nprimes {
+    			gotoNext = 4093157
+    			_ = gotoNext == 4093157
+    			primes_4092501[i_4093132], err_4093166 = rand.Prime(random, todo_4092564/(nprimes-i_4093132))
+    			if err_4093166 != nil {
+    				gotoNext = 4093250
+    				_ = gotoNext == 4093250
+    				return nil, err_4093166
+    				gotoNext = 4093280
     			} else {
-    				gotoNext = 4068513
+    				gotoNext = 4093280
     			}
-    			_ = gotoNext == 4068513
-    			todo_4067797 -= primes_4067734[i_4068365].BitLen()
-    			i_4068365++
-    			gotoNext = 4068361
+    			_ = gotoNext == 4093280
+    			todo_4092564 -= primes_4092501[i_4093132].BitLen()
+    			i_4093132++
+    			gotoNext = 4093128
     		} else {
-    			gotoNext = 4068595
+    			gotoNext = 4093362
     		}
-    		_ = gotoNext == 4068595
-    		if 0 < len(primes_4067734) {
-    			gotoNext = 4068731
-    			_ = gotoNext == 4068731
-    			i_4068599, prime_4068602 = 0, primes_4067734[0]
-    			gotoNext = 4068732
-    			_ = gotoNext == 4068732
-    			if i_4068599 < len(primes_4067734) {
-    				gotoNext = 4068624
-    				_ = gotoNext == 4068624
-    				prime_4068602 = primes_4067734[i_4068599]
-    				j_4068633 = 0
-    				gotoNext = 4068629
-    				_ = gotoNext == 4068629
-    				if j_4068633 < i_4068599 {
-    					gotoNext = 4068652
-    					_ = gotoNext == 4068652
-    					if prime_4068602.Cmp(primes_4067734[j_4068633]) == 0 {
-    						gotoNext = 4068687
-    						_ = gotoNext == 4068687
-    						gotoNext = 4067789
-    						gotoNext = 4068648
+    		_ = gotoNext == 4093362
+    		if 0 < len(primes_4092501) {
+    			gotoNext = 4093498
+    			_ = gotoNext == 4093498
+    			i_4093366, prime_4093369 = 0, primes_4092501[0]
+    			gotoNext = 4093499
+    			_ = gotoNext == 4093499
+    			if i_4093366 < len(primes_4092501) {
+    				gotoNext = 4093391
+    				_ = gotoNext == 4093391
+    				prime_4093369 = primes_4092501[i_4093366]
+    				j_4093400 = 0
+    				gotoNext = 4093396
+    				_ = gotoNext == 4093396
+    				if j_4093400 < i_4093366 {
+    					gotoNext = 4093419
+    					_ = gotoNext == 4093419
+    					if prime_4093369.Cmp(primes_4092501[j_4093400]) == 0 {
+    						gotoNext = 4093454
+    						_ = gotoNext == 4093454
+    						gotoNext = 4092556
+    						gotoNext = 4093415
     					} else {
-    						gotoNext = 4068648
+    						gotoNext = 4093415
     					}
-    					_ = gotoNext == 4068648
-    					j_4068633++
-    					gotoNext = 4068629
+    					_ = gotoNext == 4093415
+    					j_4093400++
+    					gotoNext = 4093396
     				} else {
-    					gotoNext = 4068599
+    					gotoNext = 4093366
     				}
-    				_ = gotoNext == 4068599
-    				i_4068599++
-    				gotoNext = 4068732
+    				_ = gotoNext == 4093366
+    				i_4093366++
+    				gotoNext = 4093499
     			} else {
-    				gotoNext = 4068737
+    				gotoNext = 4093504
     			}
-    			gotoNext = 4068737
+    			gotoNext = 4093504
     		} else {
-    			gotoNext = 4068737
+    			gotoNext = 4093504
     		}
-    		_ = gotoNext == 4068737
-    		n_4068737 = new(big.Int).Set(bigOne)
-    		totient_4068769 = new(big.Int).Set(bigOne)
-    		pminus1_4068807 = new(big.Int)
-    		if 0 < len(primes_4067734) {
-    			gotoNext = 4068947
-    			_ = gotoNext == 4068947
-    			i_4068849_0, prime_4068840 = 0, primes_4067734[0]
-    			gotoNext = 4068948
-    			_ = gotoNext == 4068948
-    			if i_4068849_0 < len(primes_4067734) {
-    				gotoNext = 4068862
-    				_ = gotoNext == 4068862
-    				prime_4068840 = primes_4067734[i_4068849_0]
-    				n_4068737.Mul(n_4068737, prime_4068840)
-    				pminus1_4068807.Sub(prime_4068840, bigOne)
-    				totient_4068769.Mul(totient_4068769, pminus1_4068807)
-    				i_4068849_0++
-    				gotoNext = 4068948
+    		_ = gotoNext == 4093504
+    		n_4093504 = new(big.Int).Set(bigOne)
+    		totient_4093536 = new(big.Int).Set(bigOne)
+    		pminus1_4093574 = new(big.Int)
+    		if 0 < len(primes_4092501) {
+    			gotoNext = 4093714
+    			_ = gotoNext == 4093714
+    			i_4093616_0, prime_4093607 = 0, primes_4092501[0]
+    			gotoNext = 4093715
+    			_ = gotoNext == 4093715
+    			if i_4093616_0 < len(primes_4092501) {
+    				gotoNext = 4093629
+    				_ = gotoNext == 4093629
+    				prime_4093607 = primes_4092501[i_4093616_0]
+    				n_4093504.Mul(n_4093504, prime_4093607)
+    				pminus1_4093574.Sub(prime_4093607, bigOne)
+    				totient_4093536.Mul(totient_4093536, pminus1_4093574)
+    				i_4093616_0++
+    				gotoNext = 4093715
     			} else {
-    				gotoNext = 4068952
+    				gotoNext = 4093719
     			}
-    			gotoNext = 4068952
+    			gotoNext = 4093719
     		} else {
-    			gotoNext = 4068952
+    			gotoNext = 4093719
     		}
-    		_ = gotoNext == 4068952
-    		if n_4068737.BitLen() != bits {
-    			gotoNext = 4068974
-    			_ = gotoNext == 4068974
-    			gotoNext = 4067789
-    			gotoNext = 4069184
+    		_ = gotoNext == 4093719
+    		if n_4093504.BitLen() != bits {
+    			gotoNext = 4093741
+    			_ = gotoNext == 4093741
+    			gotoNext = 4092556
+    			gotoNext = 4093951
     		} else {
-    			gotoNext = 4069184
+    			gotoNext = 4093951
     		}
-    		_ = gotoNext == 4069184
-    		priv_4067055.D = new(big.Int)
-    		e_4069208 = big.NewInt(int64(priv_4067055.E))
-    		ok_4069241 = priv_4067055.D.ModInverse(e_4069208, totient_4068769)
-    		if ok_4069241 != nil {
-    			gotoNext = 4069293
-    			_ = gotoNext == 4069293
-    			priv_4067055.Primes = primes_4067734
-    			priv_4067055.N = n_4068737
-    			gotoNext = 4069351
-    			gotoNext = 4067789
+    		_ = gotoNext == 4093951
+    		priv_4091822.D = new(big.Int)
+    		e_4093975 = big.NewInt(int64(priv_4091822.E))
+    		ok_4094008 = priv_4091822.D.ModInverse(e_4093975, totient_4093536)
+    		if ok_4094008 != nil {
+    			gotoNext = 4094060
+    			_ = gotoNext == 4094060
+    			priv_4091822.Primes = primes_4092501
+    			priv_4091822.N = n_4093504
+    			gotoNext = 4094118
+    			gotoNext = 4092556
     		} else {
-    			gotoNext = 4067789
+    			gotoNext = 4092556
     		}
-    		gotoNext = 4067789
+    		gotoNext = 4092556
     	} else {
-    		gotoNext = 4069351
+    		gotoNext = 4094118
     	}
-    	_ = gotoNext == 4069351
-    	priv_4067055.Precompute()
-    	return priv_4067055, nil
+    	_ = gotoNext == 4094118
+    	priv_4091822.Precompute()
+    	return priv_4091822, nil
     	gotoNext = -1
     }*|/
 **/

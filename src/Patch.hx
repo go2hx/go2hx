@@ -252,7 +252,7 @@ final list = [
 		@:define("(js || interp)") {
 			if (_x == 1 && std.Math.isNaN(_y.toBasic()))
 				return 1;
-			if ((_x == -1 || _x == 1) && isInf(_y, 0))
+			if ((_x == -1 || _x == 1) && stdgo._internal.math.Math_isInf.isInf(_y, 0))
 				return 1;
 		};
 		return std.Math.pow(_x.toBasic(), _y.toBasic());
@@ -387,6 +387,10 @@ final list = [
 	"regexp:_badRe" => macro null,
 	"regexp.syntax:_parseTests" => macro null,
 	"regexp.syntax:_invalidRegexps" => macro null,*/
+	"os:create" => macro {
+		throw "os.create is not yet implemented";
+		//new stdgo._internal.os.Os_File.File()
+	},
 	"os:stdin" => macro {
 		final input:haxe.io.Input = @:define("(sys || hxnodejs)") std.Sys.stdin();
 		new stdgo._internal.os.Os_File.File(input, null);

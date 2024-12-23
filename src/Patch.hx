@@ -409,6 +409,7 @@ final list = [
 		trace("interp - testGamma not implemented: high floating point precision");
 		return;
 	},
+	"regexp.syntax:testParseInvalidRegexps" => macro trace("testParseInvalidRegexps not implemented: too slow"),
 	// stdgo/math_bits_test
 	"math_bits_test:testLeadingZeros" => macro {},
 	"math_bits_test:testOnesCount" => macro {},

@@ -15,5 +15,6 @@
  "hl|text/scanner",
  "hl|unicode",
  "hl|unicode/utf16",
- "hl|unicode/utf8"
+ "hl|unicode/utf8",
+ "hl|regexp/syntax"
 ]

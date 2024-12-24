@@ -256,5 +256,8 @@
  "php|typeswitch0",
  "php|unary0",
  "php|unsafe0",
- "php|var0"
+ "php|var0",
+ "hl|deferreturn",
+ "hl|issue16760",
+ "hl|opassign"
 ]

@@ -531,7 +531,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update hl
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   yaegi-easy-jvm:
     timeout-minutes: 25
@@ -591,7 +591,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update jvm
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   yaegi-easy-interp:
     timeout-minutes: 25
@@ -650,7 +650,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update interp
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   yaegi-easy-js:
     timeout-minutes: 25
@@ -709,7 +709,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update js
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   yaegi-easy-php:
     timeout-minutes: 25
@@ -770,7 +770,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update php
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   go-medium-hl:
     timeout-minutes: 25
@@ -1192,7 +1192,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update hl
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   yaegi-medium-jvm:
     timeout-minutes: 25
@@ -1252,7 +1252,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update jvm
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   yaegi-medium-interp:
     timeout-minutes: 25
@@ -1311,7 +1311,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update interp
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   yaegi-medium-js:
     timeout-minutes: 25
@@ -1370,7 +1370,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update js
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   yaegi-medium-php:
     timeout-minutes: 25
@@ -1431,7 +1431,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update php
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   build-hl:
     
@@ -1488,7 +1488,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update hl
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   build-jvm:
     
@@ -1546,7 +1546,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update jvm
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   build-interp:
     
@@ -1603,7 +1603,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update interp
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   build-js:
     
@@ -1660,7 +1660,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update js
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   build-php:
     
@@ -1719,5 +1719,5 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build tests update php
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true

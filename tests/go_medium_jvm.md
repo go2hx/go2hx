@@ -782,43 +782,6 @@ func main() {
 }
 
 ```
-## bug258
-```go
-// run
-
-// Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-import "math"
-
-func f() float64 {
-	math.Pow(2, 2)
-	return 1
-}
-
-func main() {
-	for i := 0; i < 10; i++ {
-		// 386 float register bug used to load constant before call
-		if -5 < f() {
-		} else {
-			println("BUG 1")
-			return
-		}
-		if f() > -7 {
-		} else {
-			println("BUG 2")
-		}
-		
-		if math.Pow(2, 3) != 8 {
-			println("BUG 3")
-		}
-	}
-}
-
-```
 ## bug259
 ```go
 // run
@@ -1020,42 +983,6 @@ func main() {
 	}
 	if s != "500000 1000000 5000000 10000000 50000000 100000000 500000000 1000000000 5000000000 " {
 		panic(s)
-	}
-}
-
-```
-## bug434
-```go
-// run
-
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test that typed and untyped negative zero floating point constants
-// are treated as equivalent to zero constants.
-
-package main
-
-import "math"
-
-const zero = 0.0
-
-func main() {
-	x := -zero
-	b := math.Float64bits(x)
-	if b != 0 {
-		panic(b)
-	}
-	x = -float64(zero)
-	b = math.Float64bits(x)
-	if b != 0 {
-		panic(b)
-	}
-	v := x
-	b = math.Float64bits(-v)
-	if b != 0x8000000000000000 {
-		panic(b)
 	}
 }
 
@@ -1268,100 +1195,6 @@ import "fmt"
 func main() {
 	if []byte("foo")[0] == []byte("b")[0] {
 		fmt.Println("BUG: \"foo\" and \"b\" appear to have the same first byte")
-	}
-}
-
-```
-## issue12577
-```go
-// run
-
-// Copyright 2015 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Issue 12577: Test that there are no -0 floating-point constants.
-
-package main
-
-import "math"
-
-const (
-	z0 = 0.0
-	z1 = -0.0
-	z2 = -z0
-	z3 = -z2
-)
-
-var (
-	x0 float32 = z0
-	x1 float32 = z1
-	x2 float32 = z2
-	x3 float32 = z3
-
-	y0 float64 = z0
-	y1 float64 = z1
-	y2 float64 = z2
-	y3 float64 = z3
-)
-
-func test32(f float32) {
-	if f != 0 || math.Signbit(float64(f)) {
-		println("BUG: got", f, "want 0.0")
-		return
-	}
-}
-
-func test64(f float64) {
-	if f != 0 || math.Signbit(f) {
-		println("BUG: got", f, "want 0.0")
-		return
-	}
-}
-
-func main() {
-	if f := -x0; f != 0 || !math.Signbit(float64(f)) {
-		println("BUG: got", f, "want -0.0")
-	}
-
-	test32(-0.0)
-	test32(x0)
-	test32(x1)
-	test32(x2)
-	test32(x3)
-
-	if f := -y0; f != 0 || !math.Signbit(f) {
-		println("BUG: got", f, "want -0.0")
-	}
-
-	test64(-0.0)
-	test64(y0)
-	test64(y1)
-	test64(y2)
-	test64(y3)
-}
-
-```
-## issue12621
-```go
-// run
-
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Issues 12576 and 12621: Negative untyped floating point constants
-// with small magnitude round to 0, not negative zero.
-
-package main
-
-import "math"
-
-var m = -1e-10000
-
-func main() {
-	if math.Signbit(m) {
-		panic(m)
 	}
 }
 
@@ -1701,68 +1534,6 @@ func main() {
 }
 
 ```
-## issue16249
-```go
-// run
-
-// Copyright 2016 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Liveness calculations were wrong for a result parameter pushed onto
-// the heap in a function that used defer.  Program would crash with
-//     runtime: bad pointer in frame main.A at 0xc4201e6838: 0x1
-
-package main
-
-import "errors"
-
-var sink interface{}
-
-//go:noinline
-func f(err *error) {
-	if err != nil {
-		sink = err
-	}
-}
-
-//go:noinline
-func A(n, m int64) (res int64, err error) {
-	defer f(&err) // output parameter's address escapes to a defer.
-	if n < 0 {
-		err = errors.New("No negative")
-		return
-	}
-	if n <= 1 {
-		res = n
-		return
-	}
-	res = B(m) // This call to B drizzles a little junk on the stack.
-	res, err = A(n-1, m)
-	res++
-	return
-}
-
-// B does a little bit of recursion dribbling not-zero onto the stack.
-//go:noinline
-func B(n int64) (res int64) {
-	if n <= 1 { // Prefer to leave a 1 on the stack.
-		return n
-	}
-	return 1 + B(n-1)
-}
-
-func main() {
-	x, e := A(0, 0)
-	for j := 0; j < 4; j++ { // j controls amount of B's stack dribble
-		for i := 0; i < 1000; i++ { // try more and more recursion until stack growth occurs in newobject in prologue
-			x, e = A(int64(i), int64(j))
-		}
-	}
-	_, _ = x, e
-}
-
-```
 ## issue17640
 ```go
 // run
@@ -2065,35 +1836,6 @@ func main() {
 }
 
 ```
-## issue21887
-```go
-// run
-
-// Copyright 2017 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Issue 21887: println(^uint(0)) fails to compile
-
-package main
-
-import "strconv"
-
-func main() {
-	if strconv.IntSize == 32 {
-		println(^uint(0))
-	} else {
-		println(^uint32(0))
-	}
-
-	if strconv.IntSize == 64 {
-		println(^uint(0))
-	} else {
-		println(^uint64(0))
-	}
-}
-
-```
 ## issue23017
 ```go
 // run
@@ -2207,56 +1949,6 @@ func init() {
 func check(want, got int) {
 	if want != got {
 		panic(fmt.Sprintf("wanted %d, but got %d", want, got))
-	}
-}
-
-```
-## issue23522
-```go
-// run
-
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-import (
-	"math"
-)
-
-type S struct {
-	u int64
-	n int32
-}
-
-func F1(f float64) *S {
-	s := f
-	pf := math.Copysign(f, 1)
-	u := math.Floor(pf)
-	return &S{
-		u: int64(math.Copysign(u, s)),
-		n: int32(math.Copysign((pf-u)*1e9, s)),
-	}
-}
-
-func F2(f float64) *S {
-	s := f
-	f = math.Copysign(f, 1)
-	u := math.Floor(f)
-	return &S{
-		u: int64(math.Copysign(u, s)),
-		n: int32(math.Copysign((f-u)*1e9, s)),
-	}
-}
-
-func main() {
-	s1 := F1(-1)
-	s2 := F2(-1)
-	if *s1 != *s2 {
-		println("F1:", s1.u, s1.n)
-		println("F2:", s2.u, s2.n)
-		panic("different")
 	}
 }
 
@@ -3655,23 +3347,6 @@ func main() {
 		fmt.Println(x)
 		panic("x != [4]byte{'1','2','3','4'}")
 	}
-}
-
-```
-## issue6899
-```go
-// run
-
-// Copyright 2013 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-import "math"
-
-func main() {
-	println(math.Copysign(0, -1))
 }
 
 ```

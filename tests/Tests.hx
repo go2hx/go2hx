@@ -475,6 +475,7 @@ private function close() {
 		}
 		final fileContent = Json.stringify(outputFile , null, " ");
 		Sys.println(' Saving file: $filePath:\n\n$fileContent');
+		Sys.command("git pull");
 		File.saveContent(filePath, fileContent);
 		trace(testCount == 0, offset == 0, output.length > 0, run == "");
 	}

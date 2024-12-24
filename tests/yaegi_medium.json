@@ -483,5 +483,12 @@
  "interp|variadic5",
  "interp|variadic6",
  "interp|variadic7",
- "interp|variadic9"
+ "interp|variadic9",
+ "js|bin0",
+ "js|convert1",
+ "js|interface16",
+ "js|math1",
+ "js|method35",
+ "js|str3",
+ "js|str4"
 ]

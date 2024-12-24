@@ -1794,159 +1794,159 @@ class IsolationLevel_static_extension {
 }
 /**
     /|*{
-    	nvargs_3706258 = make([]driver.NamedValue, len(args))
-    	want_3706474 = -1
+    	nvargs_3702687 = make([]driver.NamedValue, len(args))
+    	want_3702903 = -1
     	if ds != nil {
-    		gotoNext = 3706538
-    		_ = gotoNext == 3706538
-    		si_3706491 = ds.si
-    		want_3706474 = ds.si.NumInput()
-    		cc_3706511.want = want_3706474
-    		gotoNext = 3706805
+    		gotoNext = 3702967
+    		_ = gotoNext == 3702967
+    		si_3702920 = ds.si
+    		want_3702903 = ds.si.NumInput()
+    		cc_3702940.want = want_3702903
+    		gotoNext = 3703234
     	} else {
-    		gotoNext = 3706805
+    		gotoNext = 3703234
     	}
-    	_ = gotoNext == 3706805
-    	nvc_3706805, ok_3706810 = si_3706491.(driver.NamedValueChecker)
-    	if !ok_3706810 {
-    		gotoNext = 3706854
-    		_ = gotoNext == 3706854
-    		nvc_3706805, ok_3706810 = ci.(driver.NamedValueChecker)
-    		gotoNext = 3706902
+    	_ = gotoNext == 3703234
+    	nvc_3703234, ok_3703239 = si_3702920.(driver.NamedValueChecker)
+    	if !ok_3703239 {
+    		gotoNext = 3703283
+    		_ = gotoNext == 3703283
+    		nvc_3703234, ok_3703239 = ci.(driver.NamedValueChecker)
+    		gotoNext = 3703331
     	} else {
-    		gotoNext = 3706902
+    		gotoNext = 3703331
     	}
-    	_ = gotoNext == 3706902
-    	cci_3706902, ok_3706810 = si_3706491.(driver.ColumnConverter)
-    	if ok_3706810 {
-    		gotoNext = 3706948
-    		_ = gotoNext == 3706948
-    		cc_3706511.cci = cci_3706902
-    		gotoNext = 3707211
+    	_ = gotoNext == 3703331
+    	cci_3703331, ok_3703239 = si_3702920.(driver.ColumnConverter)
+    	if ok_3703239 {
+    		gotoNext = 3703377
+    		_ = gotoNext == 3703377
+    		cc_3702940.cci = cci_3703331
+    		gotoNext = 3703640
     	} else {
-    		gotoNext = 3707211
+    		gotoNext = 3703640
     	}
-    	_ = gotoNext == 3707211
+    	_ = gotoNext == 3703640
     	if 0 < len(args) {
-    		gotoNext = 3708590
-    		_ = gotoNext == 3708590
-    		i_3707251_0, arg_3707244 = 0, args[0]
-    		gotoNext = 3708591
-    		_ = gotoNext == 3708591
-    		if i_3707251_0 < len(args) {
-    			gotoNext = 3707262
-    			_ = gotoNext == 3707262
-    			arg_3707244 = args[i_3707251_0]
-    			nv_3707266 = &nvargs_3706258[n_3707230]
-    			if np_3707288, ok_3707292 = arg_3707244.(NamedArg); ok_3707292 {
-    				gotoNext = 3707317
-    				_ = gotoNext == 3707317
-    				if err_3707215 = validateNamedValueName(np_3707288.Name); err_3707215 != nil {
-    					gotoNext = 3707375
-    					_ = gotoNext == 3707375
-    					return nil, err_3707215
-    					gotoNext = 3707405
+    		gotoNext = 3705019
+    		_ = gotoNext == 3705019
+    		i_3703680_0, arg_3703673 = 0, args[0]
+    		gotoNext = 3705020
+    		_ = gotoNext == 3705020
+    		if i_3703680_0 < len(args) {
+    			gotoNext = 3703691
+    			_ = gotoNext == 3703691
+    			arg_3703673 = args[i_3703680_0]
+    			nv_3703695 = &nvargs_3702687[n_3703659]
+    			if np_3703717, ok_3703721 = arg_3703673.(NamedArg); ok_3703721 {
+    				gotoNext = 3703746
+    				_ = gotoNext == 3703746
+    				if err_3703644 = validateNamedValueName(np_3703717.Name); err_3703644 != nil {
+    					gotoNext = 3703804
+    					_ = gotoNext == 3703804
+    					return nil, err_3703644
+    					gotoNext = 3703834
     				} else {
-    					gotoNext = 3707405
+    					gotoNext = 3703834
     				}
-    				_ = gotoNext == 3707405
-    				arg_3707244 = np_3707288.Value
-    				nv_3707266.Name = np_3707288.Name
-    				gotoNext = 3707447
+    				_ = gotoNext == 3703834
+    				arg_3703673 = np_3703717.Value
+    				nv_3703695.Name = np_3703717.Name
+    				gotoNext = 3703876
     			} else {
-    				gotoNext = 3707447
+    				gotoNext = 3703876
     			}
-    			_ = gotoNext == 3707447
-    			nv_3707266.Ordinal = n_3707230 + 1
-    			nv_3707266.Value = arg_3707244
-    			checker_3707966 = defaultCheckNamedValue
-    			nextCC_3708002 = false
-    			gotoNext = 3708020
-    			_ = gotoNext == 3708020
+    			_ = gotoNext == 3703876
+    			nv_3703695.Ordinal = n_3703659 + 1
+    			nv_3703695.Value = arg_3703673
+    			checker_3704395 = defaultCheckNamedValue
+    			nextCC_3704431 = false
+    			gotoNext = 3704449
+    			_ = gotoNext == 3704449
     			switch {
-    			case nvc_3706805 != nil:
-    				gotoNext = 3708031
-    				_ = gotoNext == 3708031
-    				nextCC_3708002 = cci_3706902 != nil
-    				checker_3707966 = nvc_3706805.CheckNamedValue
-    				gotoNext = 3708161
-    			case cci_3706902 != nil:
-    				gotoNext = 3708106
-    				_ = gotoNext == 3708106
-    				checker_3707966 = cc_3706511.CheckNamedValue
-    				gotoNext = 3708161
+    			case nvc_3703234 != nil:
+    				gotoNext = 3704460
+    				_ = gotoNext == 3704460
+    				nextCC_3704431 = cci_3703331 != nil
+    				checker_3704395 = nvc_3703234.CheckNamedValue
+    				gotoNext = 3704590
+    			case cci_3703331 != nil:
+    				gotoNext = 3704535
+    				_ = gotoNext == 3704535
+    				checker_3704395 = cc_3702940.CheckNamedValue
+    				gotoNext = 3704590
     			default:
-    				gotoNext = 3708161
+    				gotoNext = 3704590
     			}
-    			_ = gotoNext == 3708161
-    			gotoNext = 3708161
-    			_ = gotoNext == 3708161
-    			err_3707215 = checker_3707966(nv_3707266)
-    			gotoNext = 3708194
-    			_ = gotoNext == 3708194
-    			switch err_3707215 {
+    			_ = gotoNext == 3704590
+    			gotoNext = 3704590
+    			_ = gotoNext == 3704590
+    			err_3703644 = checker_3704395(nv_3703695)
+    			gotoNext = 3704623
+    			_ = gotoNext == 3704623
+    			switch err_3703644 {
     			case nil:
-    				gotoNext = 3708209
-    				_ = gotoNext == 3708209
-    				n_3707230++
-    				i_3707251_0++
-    				gotoNext = 3708591
-    				gotoNext = 3707241
+    				gotoNext = 3704638
+    				_ = gotoNext == 3704638
+    				n_3703659++
+    				i_3703680_0++
+    				gotoNext = 3705020
+    				gotoNext = 3703670
     			case driver.ErrRemoveArgument:
-    				gotoNext = 3708240
-    				_ = gotoNext == 3708240
-    				nvargs_3706258 = nvargs_3706258[:len(nvargs_3706258)-1]
-    				i_3707251_0++
-    				gotoNext = 3708591
-    				gotoNext = 3707241
+    				gotoNext = 3704669
+    				_ = gotoNext == 3704669
+    				nvargs_3702687 = nvargs_3702687[:len(nvargs_3702687)-1]
+    				i_3703680_0++
+    				gotoNext = 3705020
+    				gotoNext = 3703670
     			case driver.ErrSkip:
-    				gotoNext = 3708320
-    				_ = gotoNext == 3708320
-    				if nextCC_3708002 {
-    					gotoNext = 3708354
-    					_ = gotoNext == 3708354
-    					nextCC_3708002 = false
-    					checker_3707966 = cc_3706511.CheckNamedValue
-    					gotoNext = 3708465
+    				gotoNext = 3704749
+    				_ = gotoNext == 3704749
+    				if nextCC_3704431 {
+    					gotoNext = 3704783
+    					_ = gotoNext == 3704783
+    					nextCC_3704431 = false
+    					checker_3704395 = cc_3702940.CheckNamedValue
+    					gotoNext = 3704894
     				} else {
-    					gotoNext = 3708418
-    					_ = gotoNext == 3708418
-    					gotoNext = 3708418
-    					_ = gotoNext == 3708418
-    					checker_3707966 = defaultCheckNamedValue
+    					gotoNext = 3704847
+    					_ = gotoNext == 3704847
+    					gotoNext = 3704847
+    					_ = gotoNext == 3704847
+    					checker_3704395 = defaultCheckNamedValue
     					_ = 0
-    					gotoNext = 3708465
+    					gotoNext = 3704894
     				}
-    				_ = gotoNext == 3708465
-    				gotoNext = 3708161
-    				gotoNext = 3707241
+    				_ = gotoNext == 3704894
+    				gotoNext = 3704590
+    				gotoNext = 3703670
     			default:
-    				gotoNext = 3708482
-    				_ = gotoNext == 3708482
-    				return nil, fmt.Errorf("sql: converting argument %s type: %v", describeNamedValue(nv_3707266), err_3707215)
-    				gotoNext = 3707241
+    				gotoNext = 3704911
+    				_ = gotoNext == 3704911
+    				return nil, fmt.Errorf("sql: converting argument %s type: %v", describeNamedValue(nv_3703695), err_3703644)
+    				gotoNext = 3703670
     			}
-    			_ = gotoNext == 3707241
-    			i_3707251_0++
-    			gotoNext = 3708591
+    			_ = gotoNext == 3703670
+    			i_3703680_0++
+    			gotoNext = 3705020
     		} else {
-    			gotoNext = 3708682
+    			gotoNext = 3705111
     		}
-    		gotoNext = 3708682
+    		gotoNext = 3705111
     	} else {
-    		gotoNext = 3708682
+    		gotoNext = 3705111
     	}
-    	_ = gotoNext == 3708682
-    	if want_3706474 != -1 && len(nvargs_3706258) != want_3706474 {
-    		gotoNext = 3708719
-    		_ = gotoNext == 3708719
-    		return nil, fmt.Errorf("sql: expected %d arguments, got %d", want_3706474, len(nvargs_3706258))
-    		gotoNext = 3708808
+    	_ = gotoNext == 3705111
+    	if want_3702903 != -1 && len(nvargs_3702687) != want_3702903 {
+    		gotoNext = 3705148
+    		_ = gotoNext == 3705148
+    		return nil, fmt.Errorf("sql: expected %d arguments, got %d", want_3702903, len(nvargs_3702687))
+    		gotoNext = 3705237
     	} else {
-    		gotoNext = 3708808
+    		gotoNext = 3705237
     	}
-    	_ = gotoNext == 3708808
-    	return nvargs_3706258, nil
+    	_ = gotoNext == 3705237
+    	return nvargs_3702687, nil
     	gotoNext = -1
     }*|/
 **/

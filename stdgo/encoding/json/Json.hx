@@ -4431,109 +4431,109 @@ class T_testAnonymousFields___localname___S_11225_static_extension {
 /**
     /|*{
     	dec.scan.reset()
-    	scanp_5564830 = dec.scanp
-    	gotoNext = 5564864
-    	_ = gotoNext == 5564864
+    	scanp_5454703 = dec.scanp
+    	gotoNext = 5454737
+    	_ = gotoNext == 5454737
     	_ = 0
     	InputBreak = false
-    	gotoNext = 5564975
-    	_ = gotoNext == 5564975
-    	if !InputBreak && (scanp_5564830 >= 0) {
-    		gotoNext = 5564990
-    		_ = gotoNext == 5564990
+    	gotoNext = 5454848
+    	_ = gotoNext == 5454848
+    	if !InputBreak && (scanp_5454703 >= 0) {
+    		gotoNext = 5454863
+    		_ = gotoNext == 5454863
     		_ = 0
-    		gotoNext = 5565036
-    		_ = gotoNext == 5565036
-    		if scanp_5564830 < len(dec.buf) {
-    			gotoNext = 5565072
-    			_ = gotoNext == 5565072
-    			c_5565077 = dec.buf[scanp_5564830]
+    		gotoNext = 5454909
+    		_ = gotoNext == 5454909
+    		if scanp_5454703 < len(dec.buf) {
+    			gotoNext = 5454945
+    			_ = gotoNext == 5454945
+    			c_5454950 = dec.buf[scanp_5454703]
     			dec.scan.bytes++
-    			gotoNext = 5565120
-    			_ = gotoNext == 5565120
-    			switch dec.scan.step(&dec.scan, c_5565077) {
+    			gotoNext = 5454993
+    			_ = gotoNext == 5454993
+    			switch dec.scan.step(&dec.scan, c_5454950) {
     			case 10:
-    				gotoNext = 5565160
-    				_ = gotoNext == 5565160
+    				gotoNext = 5455033
+    				_ = gotoNext == 5455033
     				dec.scan.bytes--
     				InputBreak = true
-    				gotoNext = 5564975
-    				gotoNext = 5565064
+    				gotoNext = 5454848
+    				gotoNext = 5454937
     			case 5, 8:
-    				gotoNext = 5565373
-    				_ = gotoNext == 5565373
+    				gotoNext = 5455246
+    				_ = gotoNext == 5455246
     				if stateEndValue(&dec.scan, 32) == 10 {
-    					gotoNext = 5565586
-    					_ = gotoNext == 5565586
-    					scanp_5564830++
+    					gotoNext = 5455459
+    					_ = gotoNext == 5455459
+    					scanp_5454703++
     					InputBreak = true
-    					gotoNext = 5564975
-    					gotoNext = 5565064
+    					gotoNext = 5454848
+    					gotoNext = 5454937
     				} else {
-    					gotoNext = 5565064
+    					gotoNext = 5454937
     				}
-    				gotoNext = 5565064
+    				gotoNext = 5454937
     			case 11:
-    				gotoNext = 5565627
-    				_ = gotoNext == 5565627
+    				gotoNext = 5455500
+    				_ = gotoNext == 5455500
     				dec.err = dec.scan.err
     				return 0, dec.scan.err
-    				gotoNext = 5565064
+    				gotoNext = 5454937
     			default:
-    				gotoNext = 5565064
+    				gotoNext = 5454937
     			}
-    			_ = gotoNext == 5565064
-    			scanp_5564830++
-    			gotoNext = 5565036
+    			_ = gotoNext == 5454937
+    			scanp_5454703++
+    			gotoNext = 5454909
     		} else {
-    			gotoNext = 5565792
+    			gotoNext = 5455665
     		}
-    		_ = gotoNext == 5565792
-    		if err_5564854 != nil {
-    			gotoNext = 5565806
-    			_ = gotoNext == 5565806
-    			if err_5564854 == io.EOF {
-    				gotoNext = 5565828
-    				_ = gotoNext == 5565828
+    		_ = gotoNext == 5455665
+    		if err_5454727 != nil {
+    			gotoNext = 5455679
+    			_ = gotoNext == 5455679
+    			if err_5454727 == io.EOF {
+    				gotoNext = 5455701
+    				_ = gotoNext == 5455701
     				if dec.scan.step(&dec.scan, 32) == 10 {
-    					gotoNext = 5565878
-    					_ = gotoNext == 5565878
+    					gotoNext = 5455751
+    					_ = gotoNext == 5455751
     					InputBreak = true
-    					gotoNext = 5564975
-    					gotoNext = 5565907
+    					gotoNext = 5454848
+    					gotoNext = 5455780
     				} else {
-    					gotoNext = 5565907
+    					gotoNext = 5455780
     				}
-    				_ = gotoNext == 5565907
+    				_ = gotoNext == 5455780
     				if nonSpace(dec.buf) {
-    					gotoNext = 5565928
-    					_ = gotoNext == 5565928
-    					err_5564854 = io.ErrUnexpectedEOF
-    					gotoNext = 5565975
+    					gotoNext = 5455801
+    					_ = gotoNext == 5455801
+    					err_5454727 = io.ErrUnexpectedEOF
+    					gotoNext = 5455848
     				} else {
-    					gotoNext = 5565975
+    					gotoNext = 5455848
     				}
-    				gotoNext = 5565975
+    				gotoNext = 5455848
     			} else {
-    				gotoNext = 5565975
+    				gotoNext = 5455848
     			}
-    			_ = gotoNext == 5565975
-    			dec.err = err_5564854
-    			return 0, err_5564854
-    			gotoNext = 5566013
+    			_ = gotoNext == 5455848
+    			dec.err = err_5454727
+    			return 0, err_5454727
+    			gotoNext = 5455886
     		} else {
-    			gotoNext = 5566013
+    			gotoNext = 5455886
     		}
-    		_ = gotoNext == 5566013
-    		n_5566013 = scanp_5564830 - dec.scanp
-    		err_5564854 = dec.refill()
-    		scanp_5564830 = dec.scanp + n_5566013
-    		gotoNext = 5564975
+    		_ = gotoNext == 5455886
+    		n_5455886 = scanp_5454703 - dec.scanp
+    		err_5454727 = dec.refill()
+    		scanp_5454703 = dec.scanp + n_5455886
+    		gotoNext = 5454848
     	} else {
-    		gotoNext = 5566085
+    		gotoNext = 5455958
     	}
-    	_ = gotoNext == 5566085
-    	return scanp_5564830 - dec.scanp, nil
+    	_ = gotoNext == 5455958
+    	return scanp_5454703 - dec.scanp, nil
     	gotoNext = -1
     }*|/
 **/

@@ -1080,286 +1080,286 @@ class T_token_static_extension {
 }
 /**
     /|*{
-    	stateInit_3714526 = 1
-    	gotoNext = 3714592
-    	_ = gotoNext == 3714592
+    	stateInit_3674899 = 1
+    	gotoNext = 3674965
+    	_ = gotoNext == 3674965
     	switch f.stepState {
     	case 0:
-    		gotoNext = 3714614
-    		_ = gotoNext == 3714614
-    		gotoNext = 3714689
-    		gotoNext = 3714689
+    		gotoNext = 3674987
+    		_ = gotoNext == 3674987
+    		gotoNext = 3675062
+    		gotoNext = 3675062
     	case 1:
-    		gotoNext = 3714650
-    		_ = gotoNext == 3714650
-    		gotoNext = 3716795
-    		gotoNext = 3714689
+    		gotoNext = 3675023
+    		_ = gotoNext == 3675023
+    		gotoNext = 3677168
+    		gotoNext = 3675062
     	default:
-    		gotoNext = 3714689
+    		gotoNext = 3675062
     	}
-    	_ = gotoNext == 3714689
-    	gotoNext = 3714689
-    	_ = gotoNext == 3714689
+    	_ = gotoNext == 3675062
+    	gotoNext = 3675062
+    	_ = gotoNext == 3675062
     	{
-    		gotoNext = 3714778
-    		_ = gotoNext == 3714778
-    		v_3714782, err_3714785 = f.huffSym(f.hl)
-    		if err_3714785 != nil {
-    			gotoNext = 3714824
-    			_ = gotoNext == 3714824
-    			f.err = err_3714785
+    		gotoNext = 3675151
+    		_ = gotoNext == 3675151
+    		v_3675155, err_3675158 = f.huffSym(f.hl)
+    		if err_3675158 != nil {
+    			gotoNext = 3675197
+    			_ = gotoNext == 3675197
+    			f.err = err_3675158
     			return
-    			gotoNext = 3714857
+    			gotoNext = 3675230
     		} else {
-    			gotoNext = 3714857
+    			gotoNext = 3675230
     		}
-    		_ = gotoNext == 3714857
-    		gotoNext = 3714911
-    		_ = gotoNext == 3714911
+    		_ = gotoNext == 3675230
+    		gotoNext = 3675284
+    		_ = gotoNext == 3675284
     		switch {
-    		case v_3714782 < 256:
-    			gotoNext = 3714922
-    			_ = gotoNext == 3714922
-    			f.dict.writeByte(byte(v_3714782))
+    		case v_3675155 < 256:
+    			gotoNext = 3675295
+    			_ = gotoNext == 3675295
+    			f.dict.writeByte(byte(v_3675155))
     			if f.dict.availWrite() == 0 {
-    				gotoNext = 3714996
-    				_ = gotoNext == 3714996
+    				gotoNext = 3675369
+    				_ = gotoNext == 3675369
     				f.toRead = f.dict.readFlush()
     				f.step = (*decompressor).huffmanBlock
     				f.stepState = 0
     				return
-    				gotoNext = 3715121
+    				gotoNext = 3675494
     			} else {
-    				gotoNext = 3715121
+    				gotoNext = 3675494
     			}
-    			_ = gotoNext == 3715121
-    			gotoNext = 3714689
-    			gotoNext = 3715674
-    		case v_3714782 == 256:
-    			gotoNext = 3715140
-    			_ = gotoNext == 3715140
+    			_ = gotoNext == 3675494
+    			gotoNext = 3675062
+    			gotoNext = 3676047
+    		case v_3675155 == 256:
+    			gotoNext = 3675513
+    			_ = gotoNext == 3675513
     			f.finishBlock()
     			return
-    			gotoNext = 3715674
-    		case v_3714782 < 265:
-    			gotoNext = 3715226
-    			_ = gotoNext == 3715226
-    			length_3714898 = v_3714782 - 254
-    			n_3714861 = 0
-    			gotoNext = 3715674
-    		case v_3714782 < 269:
-    			gotoNext = 3715277
-    			_ = gotoNext == 3715277
-    			length_3714898 = v_3714782*2 - 519
-    			n_3714861 = 1
-    			gotoNext = 3715674
-    		case v_3714782 < 273:
-    			gotoNext = 3715333
-    			_ = gotoNext == 3715333
-    			length_3714898 = v_3714782*4 - 1057
-    			n_3714861 = 2
-    			gotoNext = 3715674
-    		case v_3714782 < 277:
-    			gotoNext = 3715389
-    			_ = gotoNext == 3715389
-    			length_3714898 = v_3714782*8 - 2149
-    			n_3714861 = 3
-    			gotoNext = 3715674
-    		case v_3714782 < 281:
-    			gotoNext = 3715445
-    			_ = gotoNext == 3715445
-    			length_3714898 = v_3714782*16 - 4365
-    			n_3714861 = 4
-    			gotoNext = 3715674
-    		case v_3714782 < 285:
-    			gotoNext = 3715503
-    			_ = gotoNext == 3715503
-    			length_3714898 = v_3714782*32 - 8861
-    			n_3714861 = 5
-    			gotoNext = 3715674
-    		case v_3714782 < 286:
-    			gotoNext = 3715562
-    			_ = gotoNext == 3715562
-    			length_3714898 = 258
-    			n_3714861 = 0
-    			gotoNext = 3715674
+    			gotoNext = 3676047
+    		case v_3675155 < 265:
+    			gotoNext = 3675599
+    			_ = gotoNext == 3675599
+    			length_3675271 = v_3675155 - 254
+    			n_3675234 = 0
+    			gotoNext = 3676047
+    		case v_3675155 < 269:
+    			gotoNext = 3675650
+    			_ = gotoNext == 3675650
+    			length_3675271 = v_3675155*2 - 519
+    			n_3675234 = 1
+    			gotoNext = 3676047
+    		case v_3675155 < 273:
+    			gotoNext = 3675706
+    			_ = gotoNext == 3675706
+    			length_3675271 = v_3675155*4 - 1057
+    			n_3675234 = 2
+    			gotoNext = 3676047
+    		case v_3675155 < 277:
+    			gotoNext = 3675762
+    			_ = gotoNext == 3675762
+    			length_3675271 = v_3675155*8 - 2149
+    			n_3675234 = 3
+    			gotoNext = 3676047
+    		case v_3675155 < 281:
+    			gotoNext = 3675818
+    			_ = gotoNext == 3675818
+    			length_3675271 = v_3675155*16 - 4365
+    			n_3675234 = 4
+    			gotoNext = 3676047
+    		case v_3675155 < 285:
+    			gotoNext = 3675876
+    			_ = gotoNext == 3675876
+    			length_3675271 = v_3675155*32 - 8861
+    			n_3675234 = 5
+    			gotoNext = 3676047
+    		case v_3675155 < 286:
+    			gotoNext = 3675935
+    			_ = gotoNext == 3675935
+    			length_3675271 = 258
+    			n_3675234 = 0
+    			gotoNext = 3676047
     		default:
-    			gotoNext = 3715609
-    			_ = gotoNext == 3715609
+    			gotoNext = 3675982
+    			_ = gotoNext == 3675982
     			f.err = CorruptInputError(f.roffset)
     			return
-    			gotoNext = 3715674
+    			gotoNext = 3676047
     		}
-    		_ = gotoNext == 3715674
-    		if n_3714861 > 0 {
-    			gotoNext = 3715683
-    			_ = gotoNext == 3715683
+    		_ = gotoNext == 3676047
+    		if n_3675234 > 0 {
+    			gotoNext = 3676056
+    			_ = gotoNext == 3676056
     			_ = 0
-    			gotoNext = 3715688
-    			_ = gotoNext == 3715688
-    			if f.nb < n_3714861 {
-    				gotoNext = 3715701
-    				_ = gotoNext == 3715701
-    				if err_3714785 = f.moreBits(); err_3714785 != nil {
-    					gotoNext = 3715741
-    					_ = gotoNext == 3715741
-    					f.err = err_3714785
+    			gotoNext = 3676061
+    			_ = gotoNext == 3676061
+    			if f.nb < n_3675234 {
+    				gotoNext = 3676074
+    				_ = gotoNext == 3676074
+    				if err_3675158 = f.moreBits(); err_3675158 != nil {
+    					gotoNext = 3676114
+    					_ = gotoNext == 3676114
+    					f.err = err_3675158
     					return
-    					gotoNext = 3715688
+    					gotoNext = 3676061
     				} else {
-    					gotoNext = 3715688
+    					gotoNext = 3676061
     				}
-    				gotoNext = 3715688
+    				gotoNext = 3676061
     			} else {
-    				gotoNext = 3715786
+    				gotoNext = 3676159
     			}
-    			_ = gotoNext == 3715786
-    			length_3714898 += int(f.b & uint32(1<<n_3714861-1))
-    			f.b >>= n_3714861
-    			f.nb -= n_3714861
-    			gotoNext = 3715855
+    			_ = gotoNext == 3676159
+    			length_3675271 += int(f.b & uint32(1<<n_3675234-1))
+    			f.b >>= n_3675234
+    			f.nb -= n_3675234
+    			gotoNext = 3676228
     		} else {
-    			gotoNext = 3715855
+    			gotoNext = 3676228
     		}
-    		_ = gotoNext == 3715855
+    		_ = gotoNext == 3676228
     		if f.hd == nil {
-    			gotoNext = 3715885
-    			_ = gotoNext == 3715885
+    			gotoNext = 3676258
+    			_ = gotoNext == 3676258
     			_ = 0
-    			gotoNext = 3715890
-    			_ = gotoNext == 3715890
+    			gotoNext = 3676263
+    			_ = gotoNext == 3676263
     			if f.nb < 5 {
-    				gotoNext = 3715903
-    				_ = gotoNext == 3715903
-    				if err_3714785 = f.moreBits(); err_3714785 != nil {
-    					gotoNext = 3715943
-    					_ = gotoNext == 3715943
-    					f.err = err_3714785
+    				gotoNext = 3676276
+    				_ = gotoNext == 3676276
+    				if err_3675158 = f.moreBits(); err_3675158 != nil {
+    					gotoNext = 3676316
+    					_ = gotoNext == 3676316
+    					f.err = err_3675158
     					return
-    					gotoNext = 3715890
+    					gotoNext = 3676263
     				} else {
-    					gotoNext = 3715890
+    					gotoNext = 3676263
     				}
-    				gotoNext = 3715890
+    				gotoNext = 3676263
     			} else {
-    				gotoNext = 3715988
+    				gotoNext = 3676361
     			}
-    			_ = gotoNext == 3715988
-    			dist_3715859 = int(bits.Reverse8(uint8(f.b & 31 << 3)))
+    			_ = gotoNext == 3676361
+    			dist_3676232 = int(bits.Reverse8(uint8(f.b & 31 << 3)))
     			f.b >>= 5
     			f.nb -= 5
-    			gotoNext = 3716162
+    			gotoNext = 3676535
     		} else {
-    			gotoNext = 3716073
-    			_ = gotoNext == 3716073
-    			gotoNext = 3716073
-    			_ = gotoNext == 3716073
-    			if dist_3715859, err_3714785 = f.huffSym(f.hd); err_3714785 != nil {
-    				gotoNext = 3716121
-    				_ = gotoNext == 3716121
-    				f.err = err_3714785
+    			gotoNext = 3676446
+    			_ = gotoNext == 3676446
+    			gotoNext = 3676446
+    			_ = gotoNext == 3676446
+    			if dist_3676232, err_3675158 = f.huffSym(f.hd); err_3675158 != nil {
+    				gotoNext = 3676494
+    				_ = gotoNext == 3676494
+    				f.err = err_3675158
     				return
-    				gotoNext = 3716162
+    				gotoNext = 3676535
     			} else {
-    				gotoNext = 3716162
+    				gotoNext = 3676535
     			}
     			_ = 0
-    			gotoNext = 3716162
+    			gotoNext = 3676535
     		}
-    		_ = gotoNext == 3716162
-    		gotoNext = 3716162
-    		_ = gotoNext == 3716162
+    		_ = gotoNext == 3676535
+    		gotoNext = 3676535
+    		_ = gotoNext == 3676535
     		switch {
-    		case dist_3715859 < 4:
-    			gotoNext = 3716173
-    			_ = gotoNext == 3716173
-    			dist_3715859++
-    			gotoNext = 3716648
-    		case dist_3715859 < 30:
-    			gotoNext = 3716200
-    			_ = gotoNext == 3716200
-    			nb_3716227 = uint(dist_3715859-2) >> 1
-    			extra_3716304 = (dist_3715859 & 1) << nb_3716227
+    		case dist_3676232 < 4:
+    			gotoNext = 3676546
+    			_ = gotoNext == 3676546
+    			dist_3676232++
+    			gotoNext = 3677021
+    		case dist_3676232 < 30:
+    			gotoNext = 3676573
+    			_ = gotoNext == 3676573
+    			nb_3676600 = uint(dist_3676232-2) >> 1
+    			extra_3676677 = (dist_3676232 & 1) << nb_3676600
     			_ = 0
-    			gotoNext = 3716333
-    			_ = gotoNext == 3716333
-    			if f.nb < nb_3716227 {
-    				gotoNext = 3716347
-    				_ = gotoNext == 3716347
-    				if err_3714785 = f.moreBits(); err_3714785 != nil {
-    					gotoNext = 3716387
-    					_ = gotoNext == 3716387
-    					f.err = err_3714785
+    			gotoNext = 3676706
+    			_ = gotoNext == 3676706
+    			if f.nb < nb_3676600 {
+    				gotoNext = 3676720
+    				_ = gotoNext == 3676720
+    				if err_3675158 = f.moreBits(); err_3675158 != nil {
+    					gotoNext = 3676760
+    					_ = gotoNext == 3676760
+    					f.err = err_3675158
     					return
-    					gotoNext = 3716333
+    					gotoNext = 3676706
     				} else {
-    					gotoNext = 3716333
+    					gotoNext = 3676706
     				}
-    				gotoNext = 3716333
+    				gotoNext = 3676706
     			} else {
-    				gotoNext = 3716432
+    				gotoNext = 3676805
     			}
-    			_ = gotoNext == 3716432
-    			extra_3716304 |= int(f.b & uint32(1<<nb_3716227-1))
-    			f.b >>= nb_3716227
-    			f.nb -= nb_3716227
-    			dist_3715859 = 1<<(nb_3716227+1) + 1 + extra_3716304
-    			gotoNext = 3716648
+    			_ = gotoNext == 3676805
+    			extra_3676677 |= int(f.b & uint32(1<<nb_3676600-1))
+    			f.b >>= nb_3676600
+    			f.nb -= nb_3676600
+    			dist_3676232 = 1<<(nb_3676600+1) + 1 + extra_3676677
+    			gotoNext = 3677021
     		default:
-    			gotoNext = 3716530
-    			_ = gotoNext == 3716530
+    			gotoNext = 3676903
+    			_ = gotoNext == 3676903
     			f.err = CorruptInputError(f.roffset)
     			return
-    			gotoNext = 3716648
+    			gotoNext = 3677021
     		}
-    		_ = gotoNext == 3716648
-    		if dist_3715859 > f.dict.histSize() {
-    			gotoNext = 3716676
-    			_ = gotoNext == 3716676
+    		_ = gotoNext == 3677021
+    		if dist_3676232 > f.dict.histSize() {
+    			gotoNext = 3677049
+    			_ = gotoNext == 3677049
     			f.err = CorruptInputError(f.roffset)
     			return
-    			gotoNext = 3716735
+    			gotoNext = 3677108
     		} else {
-    			gotoNext = 3716735
+    			gotoNext = 3677108
     		}
-    		_ = gotoNext == 3716735
-    		f.copyLen, f.copyDist = length_3714898, dist_3715859
-    		gotoNext = 3716795
-    		gotoNext = 3716795
+    		_ = gotoNext == 3677108
+    		f.copyLen, f.copyDist = length_3675271, dist_3676232
+    		gotoNext = 3677168
+    		gotoNext = 3677168
     	}
-    	_ = gotoNext == 3716795
-    	gotoNext = 3716795
-    	_ = gotoNext == 3716795
+    	_ = gotoNext == 3677168
+    	gotoNext = 3677168
+    	_ = gotoNext == 3677168
     	{
-    		gotoNext = 3716870
-    		_ = gotoNext == 3716870
-    		cnt_3716874 = f.dict.tryWriteCopy(f.copyDist, f.copyLen)
-    		if cnt_3716874 == 0 {
-    			gotoNext = 3716938
-    			_ = gotoNext == 3716938
-    			cnt_3716874 = f.dict.writeCopy(f.copyDist, f.copyLen)
-    			gotoNext = 3716995
+    		gotoNext = 3677243
+    		_ = gotoNext == 3677243
+    		cnt_3677247 = f.dict.tryWriteCopy(f.copyDist, f.copyLen)
+    		if cnt_3677247 == 0 {
+    			gotoNext = 3677311
+    			_ = gotoNext == 3677311
+    			cnt_3677247 = f.dict.writeCopy(f.copyDist, f.copyLen)
+    			gotoNext = 3677368
     		} else {
-    			gotoNext = 3716995
+    			gotoNext = 3677368
     		}
-    		_ = gotoNext == 3716995
-    		f.copyLen -= cnt_3716874
+    		_ = gotoNext == 3677368
+    		f.copyLen -= cnt_3677247
     		if f.dict.availWrite() == 0 || f.copyLen > 0 {
-    			gotoNext = 3717060
-    			_ = gotoNext == 3717060
+    			gotoNext = 3677433
+    			_ = gotoNext == 3677433
     			f.toRead = f.dict.readFlush()
     			f.step = (*decompressor).huffmanBlock
     			f.stepState = 1
     			return
-    			gotoNext = 3717212
+    			gotoNext = 3677585
     		} else {
-    			gotoNext = 3717212
+    			gotoNext = 3677585
     		}
-    		_ = gotoNext == 3717212
-    		gotoNext = 3714689
-    		gotoNext = 3717232
+    		_ = gotoNext == 3677585
+    		gotoNext = 3675062
+    		gotoNext = 3677605
     	}
-    	_ = gotoNext == 3717232
+    	_ = gotoNext == 3677605
     	gotoNext = -1
     }*|/
 **/

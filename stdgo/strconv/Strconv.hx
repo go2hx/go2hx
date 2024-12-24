@@ -188,163 +188,163 @@ class T_decimal_static_extension {
 /**
     /|*{
     	if d.nd == 0 {
-    		gotoNext = 2660903
-    		_ = gotoNext == 2660903
-    		mant_2660841 = 0
-    		exp_2660828 = flt.bias
-    		gotoNext = 2662305
-    		gotoNext = 2661096
+    		gotoNext = 2617365
+    		_ = gotoNext == 2617365
+    		mant_2617303 = 0
+    		exp_2617290 = flt.bias
+    		gotoNext = 2618767
+    		gotoNext = 2617558
     	} else {
-    		gotoNext = 2661096
+    		gotoNext = 2617558
     	}
-    	_ = gotoNext == 2661096
+    	_ = gotoNext == 2617558
     	if d.dp > 310 {
-    		gotoNext = 2661110
-    		_ = gotoNext == 2661110
-    		gotoNext = 2662220
-    		gotoNext = 2661132
+    		gotoNext = 2617572
+    		_ = gotoNext == 2617572
+    		gotoNext = 2618682
+    		gotoNext = 2617594
     	} else {
-    		gotoNext = 2661132
+    		gotoNext = 2617594
     	}
-    	_ = gotoNext == 2661132
+    	_ = gotoNext == 2617594
     	if d.dp < -330 {
-    		gotoNext = 2661147
-    		_ = gotoNext == 2661147
-    		mant_2660841 = 0
-    		exp_2660828 = flt.bias
-    		gotoNext = 2662305
-    		gotoNext = 2661256
+    		gotoNext = 2617609
+    		_ = gotoNext == 2617609
+    		mant_2617303 = 0
+    		exp_2617290 = flt.bias
+    		gotoNext = 2618767
+    		gotoNext = 2617718
     	} else {
-    		gotoNext = 2661256
+    		gotoNext = 2617718
     	}
-    	_ = gotoNext == 2661256
-    	exp_2660828 = 0
+    	_ = gotoNext == 2617718
+    	exp_2617290 = 0
     	_ = 0
-    	gotoNext = 2661265
-    	_ = gotoNext == 2661265
+    	gotoNext = 2617727
+    	_ = gotoNext == 2617727
     	if d.dp > 0 {
-    		gotoNext = 2661278
-    		_ = gotoNext == 2661278
+    		gotoNext = 2617740
+    		_ = gotoNext == 2617740
     		if d.dp >= len(powtab) {
-    			gotoNext = 2661317
-    			_ = gotoNext == 2661317
-    			n_2661286 = 27
-    			gotoNext = 2661366
+    			gotoNext = 2617779
+    			_ = gotoNext == 2617779
+    			n_2617748 = 27
+    			gotoNext = 2617828
     		} else {
-    			gotoNext = 2661338
-    			_ = gotoNext == 2661338
-    			gotoNext = 2661338
-    			_ = gotoNext == 2661338
-    			n_2661286 = powtab[d.dp]
+    			gotoNext = 2617800
+    			_ = gotoNext == 2617800
+    			gotoNext = 2617800
+    			_ = gotoNext == 2617800
+    			n_2617748 = powtab[d.dp]
     			_ = 0
-    			gotoNext = 2661366
+    			gotoNext = 2617828
     		}
-    		_ = gotoNext == 2661366
-    		d.Shift(-n_2661286)
-    		exp_2660828 += n_2661286
-    		gotoNext = 2661265
+    		_ = gotoNext == 2617828
+    		d.Shift(-n_2617748)
+    		exp_2617290 += n_2617748
+    		gotoNext = 2617727
     	} else {
-    		gotoNext = 2661393
+    		gotoNext = 2617855
     	}
-    	_ = gotoNext == 2661393
+    	_ = gotoNext == 2617855
     	_ = 0
-    	gotoNext = 2661393
-    	_ = gotoNext == 2661393
+    	gotoNext = 2617855
+    	_ = gotoNext == 2617855
     	if d.dp < 0 || d.dp == 0 && d.d[0] < 53 {
-    		gotoNext = 2661435
-    		_ = gotoNext == 2661435
+    		gotoNext = 2617897
+    		_ = gotoNext == 2617897
     		if -d.dp >= len(powtab) {
-    			gotoNext = 2661475
-    			_ = gotoNext == 2661475
-    			n_2661443 = 27
-    			gotoNext = 2661525
+    			gotoNext = 2617937
+    			_ = gotoNext == 2617937
+    			n_2617905 = 27
+    			gotoNext = 2617987
     		} else {
-    			gotoNext = 2661496
-    			_ = gotoNext == 2661496
-    			gotoNext = 2661496
-    			_ = gotoNext == 2661496
-    			n_2661443 = powtab[-d.dp]
+    			gotoNext = 2617958
+    			_ = gotoNext == 2617958
+    			gotoNext = 2617958
+    			_ = gotoNext == 2617958
+    			n_2617905 = powtab[-d.dp]
     			_ = 0
-    			gotoNext = 2661525
+    			gotoNext = 2617987
     		}
-    		_ = gotoNext == 2661525
-    		d.Shift(n_2661443)
-    		exp_2660828 -= n_2661443
-    		gotoNext = 2661393
+    		_ = gotoNext == 2617987
+    		d.Shift(n_2617905)
+    		exp_2617290 -= n_2617905
+    		gotoNext = 2617855
     	} else {
-    		gotoNext = 2661612
+    		gotoNext = 2618074
     	}
-    	_ = gotoNext == 2661612
-    	exp_2660828--
-    	if exp_2660828 < flt.bias+1 {
-    		gotoNext = 2661763
-    		_ = gotoNext == 2661763
-    		n_2661767 = flt.bias + 1 - exp_2660828
-    		d.Shift(-n_2661767)
-    		exp_2660828 += n_2661767
-    		gotoNext = 2661821
+    	_ = gotoNext == 2618074
+    	exp_2617290--
+    	if exp_2617290 < flt.bias+1 {
+    		gotoNext = 2618225
+    		_ = gotoNext == 2618225
+    		n_2618229 = flt.bias + 1 - exp_2617290
+    		d.Shift(-n_2618229)
+    		exp_2617290 += n_2618229
+    		gotoNext = 2618283
     	} else {
-    		gotoNext = 2661821
+    		gotoNext = 2618283
     	}
-    	_ = gotoNext == 2661821
-    	if exp_2660828-flt.bias >= 1<<flt.expbits-1 {
-    		gotoNext = 2661857
-    		_ = gotoNext == 2661857
-    		gotoNext = 2662220
-    		gotoNext = 2661913
+    	_ = gotoNext == 2618283
+    	if exp_2617290-flt.bias >= 1<<flt.expbits-1 {
+    		gotoNext = 2618319
+    		_ = gotoNext == 2618319
+    		gotoNext = 2618682
+    		gotoNext = 2618375
     	} else {
-    		gotoNext = 2661913
+    		gotoNext = 2618375
     	}
-    	_ = gotoNext == 2661913
+    	_ = gotoNext == 2618375
     	d.Shift(int(1 + flt.mantbits))
-    	mant_2660841 = d.RoundedInteger()
-    	if mant_2660841 == 2<<flt.mantbits {
-    		gotoNext = 2662049
-    		_ = gotoNext == 2662049
-    		mant_2660841 >>= 1
-    		exp_2660828++
-    		if exp_2660828-flt.bias >= 1<<flt.expbits-1 {
-    			gotoNext = 2662110
-    			_ = gotoNext == 2662110
-    			gotoNext = 2662220
-    			gotoNext = 2662156
+    	mant_2617303 = d.RoundedInteger()
+    	if mant_2617303 == 2<<flt.mantbits {
+    		gotoNext = 2618511
+    		_ = gotoNext == 2618511
+    		mant_2617303 >>= 1
+    		exp_2617290++
+    		if exp_2617290-flt.bias >= 1<<flt.expbits-1 {
+    			gotoNext = 2618572
+    			_ = gotoNext == 2618572
+    			gotoNext = 2618682
+    			gotoNext = 2618618
     		} else {
-    			gotoNext = 2662156
+    			gotoNext = 2618618
     		}
-    		gotoNext = 2662156
+    		gotoNext = 2618618
     	} else {
-    		gotoNext = 2662156
+    		gotoNext = 2618618
     	}
-    	_ = gotoNext == 2662156
-    	if mant_2660841&(1<<flt.mantbits) == 0 {
-    		gotoNext = 2662187
-    		_ = gotoNext == 2662187
-    		exp_2660828 = flt.bias
-    		gotoNext = 2662210
+    	_ = gotoNext == 2618618
+    	if mant_2617303&(1<<flt.mantbits) == 0 {
+    		gotoNext = 2618649
+    		_ = gotoNext == 2618649
+    		exp_2617290 = flt.bias
+    		gotoNext = 2618672
     	} else {
-    		gotoNext = 2662210
+    		gotoNext = 2618672
     	}
-    	_ = gotoNext == 2662210
-    	gotoNext = 2662305
-    	gotoNext = 2662220
-    	_ = gotoNext == 2662220
-    	mant_2660841 = 0
-    	exp_2660828 = 1<<flt.expbits - 1 + flt.bias
+    	_ = gotoNext == 2618672
+    	gotoNext = 2618767
+    	gotoNext = 2618682
+    	_ = gotoNext == 2618682
+    	mant_2617303 = 0
+    	exp_2617290 = 1<<flt.expbits - 1 + flt.bias
     	overflow = true
-    	gotoNext = 2662305
-    	_ = gotoNext == 2662305
-    	bits_2662330 = mant_2660841 & (uint64(1)<<flt.mantbits - 1)
-    	bits_2662330 |= uint64((exp_2660828-flt.bias)&(1<<flt.expbits-1)) << flt.mantbits
+    	gotoNext = 2618767
+    	_ = gotoNext == 2618767
+    	bits_2618792 = mant_2617303 & (uint64(1)<<flt.mantbits - 1)
+    	bits_2618792 |= uint64((exp_2617290-flt.bias)&(1<<flt.expbits-1)) << flt.mantbits
     	if d.neg {
-    		gotoNext = 2662452
-    		_ = gotoNext == 2662452
-    		bits_2662330 |= 1 << flt.mantbits << flt.expbits
-    		gotoNext = 2662501
+    		gotoNext = 2618914
+    		_ = gotoNext == 2618914
+    		bits_2618792 |= 1 << flt.mantbits << flt.expbits
+    		gotoNext = 2618963
     	} else {
-    		gotoNext = 2662501
+    		gotoNext = 2618963
     	}
-    	_ = gotoNext == 2662501
-    	return bits_2662330, overflow
+    	_ = gotoNext == 2618963
+    	return bits_2618792, overflow
     	gotoNext = -1
     }*|/
 **/

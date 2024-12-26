@@ -173,6 +173,7 @@ abstract Slice<T>(GoArrayData<T>) from GoArrayData<T> to GoArrayData<T> {
 	}
 
 	public function __copyTo__(src:Slice<T>):GoInt {
+		final src:Slice<T> = src.__copy__();
 		final dst:Slice<T> = this;
 		return if (src == null || dst == null) {
 			0;

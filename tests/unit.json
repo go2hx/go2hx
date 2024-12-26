@@ -448,6 +448,6 @@
  "js|unary0",
  "js|unsafe0",
  "js|var0",
- "hl|copy",
- "hl|copy2"
+ "php|copy",
+ "php|copy2"
 ]

@@ -447,5 +447,7 @@
  "js|typeswitch0",
  "js|unary0",
  "js|unsafe0",
- "js|var0"
+ "js|var0",
+ "hl|copy",
+ "hl|copy2"
 ]

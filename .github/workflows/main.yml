@@ -91,7 +91,7 @@ jobs:
       - run: go run . -pointer
   stdgo:
     timeout-minutes: 15
-    needs: build-hl
+    needs: [build-hl,build-interp,build-js,build-jvm]
     strategy:
       fail-fast: false
     runs-on: [ubuntu-latest]
@@ -181,7 +181,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update hl
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   go-easy-jvm:
     timeout-minutes: 25
@@ -254,7 +254,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update jvm
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   go-easy-interp:
     timeout-minutes: 25
@@ -326,7 +326,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update interp
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   go-easy-js:
     timeout-minutes: 25
@@ -398,7 +398,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update js
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   go-easy-php:
     timeout-minutes: 25
@@ -472,7 +472,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update php
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: true
   yaegi-easy-hl:
     timeout-minutes: 25
@@ -842,7 +842,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update hl
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: tru
   go-medium-jvm:
     timeout-minutes: 25
@@ -915,7 +915,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update jvm
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: tru
   go-medium-interp:
     timeout-minutes: 25
@@ -987,7 +987,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update interp
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: tru
   go-medium-js:
     timeout-minutes: 25
@@ -1059,7 +1059,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update js
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: tru
   go-medium-php:
     timeout-minutes: 25
@@ -1133,7 +1133,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update php
-            file_pattern: '*.json *.md'
+            file_pattern: '*.json'
             disable_globbing: tru
   yaegi-medium-hl:
     timeout-minutes: 25

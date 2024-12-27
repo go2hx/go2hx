@@ -679,8 +679,8 @@ class Go {
 				for (field in a.fields) {
 					if (field.name == "__underlying__") {
 						final gt = macro stdgo._internal.internal.reflect.Reflect.GoType.basic(untyped_nil_kind);
-						return macro $expr == null ? new stdgo.AnyInterface(null,
-							new stdgo._internal.internal.reflect.Reflect._Type($gt)) : new stdgo.AnyInterface($expr, $expr.__underlying__().type);
+						return macro @:pos(Context.currentPos()) ($expr == null ? new stdgo.AnyInterface(null,
+							new stdgo._internal.internal.reflect.Reflect._Type($gt)) : new stdgo.AnyInterface($expr, $expr.__underlying__().type));
 					}
 				}
 			default:

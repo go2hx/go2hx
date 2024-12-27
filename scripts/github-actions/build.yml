@@ -53,7 +53,7 @@ steps:
   - name: Run std
     run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
   - name: Pull latest
-    run: git pull https://github.com/go2hx/go2hx
+    run: git pull https://github.com/go2hx/go2hx master --force
   - uses: stefanzweifel/git-auto-commit-action@v5
     with:
         commit_message: build std tests update ::target::

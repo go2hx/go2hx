@@ -107,7 +107,7 @@ jobs:
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: stdgo automatic compile
@@ -176,7 +176,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -249,7 +249,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -321,7 +321,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -393,7 +393,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -467,7 +467,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -526,7 +526,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -586,7 +586,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -645,7 +645,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -704,7 +704,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -765,7 +765,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -837,7 +837,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -910,7 +910,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -982,7 +982,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1054,7 +1054,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1128,7 +1128,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1187,7 +1187,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1247,7 +1247,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1306,7 +1306,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1365,7 +1365,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1426,7 +1426,7 @@ jobs:
         run: rm go2hx.*.zip
       # git pull latest
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
@@ -1481,6 +1481,8 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
+      - name: Pull latest
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build unit tests update hl
@@ -1489,7 +1491,7 @@ jobs:
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build std tests update hl
@@ -1544,6 +1546,8 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm #-D hxb
+      - name: Pull latest
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build unit tests update jvm
@@ -1552,7 +1556,7 @@ jobs:
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm  #-D hxb
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build std tests update jvm
@@ -1606,6 +1610,8 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
+      - name: Pull latest
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build unit tests update interp
@@ -1614,7 +1620,7 @@ jobs:
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build std tests update interp
@@ -1668,6 +1674,8 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
+      - name: Pull latest
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build unit tests update js
@@ -1676,7 +1684,7 @@ jobs:
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build std tests update js
@@ -1732,6 +1740,8 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=php #-D hxb
+      - name: Pull latest
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build unit tests update php
@@ -1740,7 +1750,7 @@ jobs:
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=php  #-D hxb
       - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx
+        run: git pull https://github.com/go2hx/go2hx master --force
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: build std tests update php

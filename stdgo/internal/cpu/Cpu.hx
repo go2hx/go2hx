@@ -120,184 +120,184 @@ class T__struct_5_static_extension {
 typedef T__struct_5 = stdgo._internal.internal.cpu.Cpu_T__struct_5.T__struct_5;
 /**
     /|*{
-    	gotoNext = 28493
-    	_ = gotoNext == 28493
+    	gotoNext = 20757
+    	_ = gotoNext == 20757
     	_ = 0
     	fieldBreak = false
-    	gotoNext = 28501
-    	_ = gotoNext == 28501
+    	gotoNext = 20765
+    	_ = gotoNext == 20765
     	if !fieldBreak && (env != "") {
-    		gotoNext = 28515
-    		_ = gotoNext == 28515
-    		field_28519 = ""
-    		i_28533 = indexByte(env, 44)
-    		if i_28533 < 0 {
-    			gotoNext = 28569
-    			_ = gotoNext == 28569
-    			field_28519, env = env, ""
-    			gotoNext = 28647
+    		gotoNext = 20779
+    		_ = gotoNext == 20779
+    		field_20783 = ""
+    		i_20797 = indexByte(env, 44)
+    		if i_20797 < 0 {
+    			gotoNext = 20833
+    			_ = gotoNext == 20833
+    			field_20783, env = env, ""
+    			gotoNext = 20911
     		} else {
-    			gotoNext = 28604
-    			_ = gotoNext == 28604
-    			gotoNext = 28604
-    			_ = gotoNext == 28604
-    			field_28519, env = env[:i_28533], env[i_28533+1:]
+    			gotoNext = 20868
+    			_ = gotoNext == 20868
+    			gotoNext = 20868
+    			_ = gotoNext == 20868
+    			field_20783, env = env[:i_20797], env[i_20797+1:]
     			_ = 0
-    			gotoNext = 28647
+    			gotoNext = 20911
     		}
-    		_ = gotoNext == 28647
-    		if len(field_28519) < 4 || field_28519[:4] != "cpu." {
-    			gotoNext = 28688
-    			_ = gotoNext == 28688
+    		_ = gotoNext == 20911
+    		if len(field_20783) < 4 || field_20783[:4] != "cpu." {
+    			gotoNext = 20952
+    			_ = gotoNext == 20952
     			_ = 0
-    			gotoNext = 28501
-    			gotoNext = 28708
+    			gotoNext = 20765
+    			gotoNext = 20972
     		} else {
-    			gotoNext = 28708
+    			gotoNext = 20972
     		}
-    		_ = gotoNext == 28708
-    		i_28533 = indexByte(field_28519, 61)
-    		if i_28533 < 0 {
-    			gotoNext = 28745
-    			_ = gotoNext == 28745
-    			print("GODEBUG: no value specified for \"", field_28519, "\"\n")
+    		_ = gotoNext == 20972
+    		i_20797 = indexByte(field_20783, 61)
+    		if i_20797 < 0 {
+    			gotoNext = 21009
+    			_ = gotoNext == 21009
+    			print("GODEBUG: no value specified for \"", field_20783, "\"\n")
     			_ = 0
-    			gotoNext = 28501
-    			gotoNext = 28827
+    			gotoNext = 20765
+    			gotoNext = 21091
     		} else {
-    			gotoNext = 28827
+    			gotoNext = 21091
     		}
-    		_ = gotoNext == 28827
-    		key_28827, value_28832 = field_28519[4:i_28533], field_28519[i_28533+1:]
-    		gotoNext = 28907
-    		_ = gotoNext == 28907
-    		switch value_28832 {
+    		_ = gotoNext == 21091
+    		key_21091, value_21096 = field_20783[4:i_20797], field_20783[i_20797+1:]
+    		gotoNext = 21171
+    		_ = gotoNext == 21171
+    		switch value_21096 {
     		case "on":
-    			gotoNext = 28924
-    			_ = gotoNext == 28924
-    			enable_28893 = true
-    			gotoNext = 29108
+    			gotoNext = 21188
+    			_ = gotoNext == 21188
+    			enable_21157 = true
+    			gotoNext = 21372
     		case "off":
-    			gotoNext = 28954
-    			_ = gotoNext == 28954
-    			enable_28893 = false
-    			gotoNext = 29108
+    			gotoNext = 21218
+    			_ = gotoNext == 21218
+    			enable_21157 = false
+    			gotoNext = 21372
     		default:
-    			gotoNext = 28986
-    			_ = gotoNext == 28986
-    			print("GODEBUG: value \"", value_28832, "\" not supported for cpu option \"", key_28827, "\"\n")
-    			gotoNext = 28501
-    			gotoNext = 29108
+    			gotoNext = 21250
+    			_ = gotoNext == 21250
+    			print("GODEBUG: value \"", value_21096, "\" not supported for cpu option \"", key_21091, "\"\n")
+    			gotoNext = 20765
+    			gotoNext = 21372
     		}
-    		_ = gotoNext == 29108
-    		if key_28827 == "all" {
-    			gotoNext = 29124
-    			_ = gotoNext == 29124
+    		_ = gotoNext == 21372
+    		if key_21091 == "all" {
+    			gotoNext = 21388
+    			_ = gotoNext == 21388
     			if 0 < len(options) {
-    				gotoNext = 29219
-    				_ = gotoNext == 29219
-    				i_29133 = 0
-    				gotoNext = 29220
-    				_ = gotoNext == 29220
-    				if i_29133 < len(options) {
-    					gotoNext = 29152
-    					_ = gotoNext == 29152
-    					options[i_29133].Specified = true
-    					options[i_29133].Enable = enable_28893
-    					i_29133++
-    					gotoNext = 29220
+    				gotoNext = 21483
+    				_ = gotoNext == 21483
+    				i_21397 = 0
+    				gotoNext = 21484
+    				_ = gotoNext == 21484
+    				if i_21397 < len(options) {
+    					gotoNext = 21416
+    					_ = gotoNext == 21416
+    					options[i_21397].Specified = true
+    					options[i_21397].Enable = enable_21157
+    					i_21397++
+    					gotoNext = 21484
     				} else {
-    					gotoNext = 29225
+    					gotoNext = 21489
     				}
-    				gotoNext = 29225
+    				gotoNext = 21489
     			} else {
-    				gotoNext = 29225
+    				gotoNext = 21489
     			}
-    			_ = gotoNext == 29225
-    			gotoNext = 28501
-    			gotoNext = 29247
+    			_ = gotoNext == 21489
+    			gotoNext = 20765
+    			gotoNext = 21511
     		} else {
-    			gotoNext = 29247
+    			gotoNext = 21511
     		}
-    		_ = gotoNext == 29247
+    		_ = gotoNext == 21511
     		if 0 < len(options) {
-    			gotoNext = 29391
-    			_ = gotoNext == 29391
-    			i_29251 = 0
-    			gotoNext = 29392
-    			_ = gotoNext == 29392
-    			if i_29251 < len(options) {
-    				gotoNext = 29270
-    				_ = gotoNext == 29270
-    				if options[i_29251].Name == key_28827 {
-    					gotoNext = 29301
-    					_ = gotoNext == 29301
-    					options[i_29251].Specified = true
-    					options[i_29251].Enable = enable_28893
-    					gotoNext = 28501
-    					gotoNext = 29251
+    			gotoNext = 21655
+    			_ = gotoNext == 21655
+    			i_21515 = 0
+    			gotoNext = 21656
+    			_ = gotoNext == 21656
+    			if i_21515 < len(options) {
+    				gotoNext = 21534
+    				_ = gotoNext == 21534
+    				if options[i_21515].Name == key_21091 {
+    					gotoNext = 21565
+    					_ = gotoNext == 21565
+    					options[i_21515].Specified = true
+    					options[i_21515].Enable = enable_21157
+    					gotoNext = 20765
+    					gotoNext = 21515
     				} else {
-    					gotoNext = 29251
+    					gotoNext = 21515
     				}
-    				_ = gotoNext == 29251
-    				i_29251++
-    				gotoNext = 29392
+    				_ = gotoNext == 21515
+    				i_21515++
+    				gotoNext = 21656
     			} else {
-    				gotoNext = 29397
+    				gotoNext = 21661
     			}
-    			gotoNext = 29397
+    			gotoNext = 21661
     		} else {
-    			gotoNext = 29397
+    			gotoNext = 21661
     		}
-    		_ = gotoNext == 29397
-    		print("GODEBUG: unknown cpu feature \"", key_28827, "\"\n")
-    		gotoNext = 28501
+    		_ = gotoNext == 21661
+    		print("GODEBUG: unknown cpu feature \"", key_21091, "\"\n")
+    		gotoNext = 20765
     	} else {
-    		gotoNext = 29456
+    		gotoNext = 21720
     	}
-    	_ = gotoNext == 29456
+    	_ = gotoNext == 21720
     	if 0 < len(options) {
-    		gotoNext = 29669
-    		_ = gotoNext == 29669
-    		i_29468_0, o_29463 = 0, options[0]
-    		gotoNext = 29670
-    		_ = gotoNext == 29670
-    		if i_29468_0 < len(options) {
-    			gotoNext = 29482
-    			_ = gotoNext == 29482
-    			o_29463 = options[i_29468_0]
-    			if !o_29463.Specified {
-    				gotoNext = 29502
-    				_ = gotoNext == 29502
-    				i_29468_0++
-    				gotoNext = 29670
-    				gotoNext = 29523
+    		gotoNext = 21933
+    		_ = gotoNext == 21933
+    		i_21732_0, o_21727 = 0, options[0]
+    		gotoNext = 21934
+    		_ = gotoNext == 21934
+    		if i_21732_0 < len(options) {
+    			gotoNext = 21746
+    			_ = gotoNext == 21746
+    			o_21727 = options[i_21732_0]
+    			if !o_21727.Specified {
+    				gotoNext = 21766
+    				_ = gotoNext == 21766
+    				i_21732_0++
+    				gotoNext = 21934
+    				gotoNext = 21787
     			} else {
-    				gotoNext = 29523
+    				gotoNext = 21787
     			}
-    			_ = gotoNext == 29523
-    			if o_29463.Enable && !*o_29463.Feature {
-    				gotoNext = 29550
-    				_ = gotoNext == 29550
-    				print("GODEBUG: can not enable \"", o_29463.Name, "\", missing CPU support\n")
-    				i_29468_0++
-    				gotoNext = 29670
-    				gotoNext = 29647
+    			_ = gotoNext == 21787
+    			if o_21727.Enable && !*o_21727.Feature {
+    				gotoNext = 21814
+    				_ = gotoNext == 21814
+    				print("GODEBUG: can not enable \"", o_21727.Name, "\", missing CPU support\n")
+    				i_21732_0++
+    				gotoNext = 21934
+    				gotoNext = 21911
     			} else {
-    				gotoNext = 29647
+    				gotoNext = 21911
     			}
-    			_ = gotoNext == 29647
-    			*o_29463.Feature = o_29463.Enable
-    			i_29468_0++
-    			gotoNext = 29670
+    			_ = gotoNext == 21911
+    			*o_21727.Feature = o_21727.Enable
+    			i_21732_0++
+    			gotoNext = 21934
     		} else {
-    			gotoNext = 29672
+    			gotoNext = 21936
     		}
-    		gotoNext = 29672
+    		gotoNext = 21936
     	} else {
-    		gotoNext = 29672
+    		gotoNext = 21936
     	}
-    	_ = gotoNext == 29672
+    	_ = gotoNext == 21936
     	gotoNext = -1
     }*|/
 **/

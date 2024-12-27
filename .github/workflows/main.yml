@@ -181,7 +181,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update hl
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-jvm:
     timeout-minutes: 25
@@ -254,7 +254,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update jvm
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-interp:
     timeout-minutes: 25
@@ -326,7 +326,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update interp
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-js:
     timeout-minutes: 25
@@ -398,7 +398,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update js
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   go-easy-php:
     timeout-minutes: 25
@@ -472,7 +472,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go easy tests update php
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-hl:
     timeout-minutes: 25
@@ -531,7 +531,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update hl
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-jvm:
     timeout-minutes: 25
@@ -591,7 +591,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update jvm
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-interp:
     timeout-minutes: 25
@@ -650,7 +650,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update interp
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-js:
     timeout-minutes: 25
@@ -709,7 +709,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update js
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-easy-php:
     timeout-minutes: 25
@@ -770,7 +770,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi easy tests update php
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   go-medium-hl:
     timeout-minutes: 25
@@ -842,7 +842,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update hl
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-jvm:
     timeout-minutes: 25
@@ -915,7 +915,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update jvm
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-interp:
     timeout-minutes: 25
@@ -987,7 +987,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update interp
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-js:
     timeout-minutes: 25
@@ -1059,7 +1059,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update js
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: tru
   go-medium-php:
     timeout-minutes: 25
@@ -1133,7 +1133,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: go medium tests update php
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: tru
   yaegi-medium-hl:
     timeout-minutes: 25
@@ -1192,7 +1192,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update hl
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-jvm:
     timeout-minutes: 25
@@ -1252,7 +1252,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update jvm
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-interp:
     timeout-minutes: 25
@@ -1311,7 +1311,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update interp
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-js:
     timeout-minutes: 25
@@ -1370,7 +1370,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update js
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   yaegi-medium-php:
     timeout-minutes: 25
@@ -1431,7 +1431,7 @@ jobs:
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
             commit_message: yaegi medium tests update php
-            file_pattern: '*.json'
+            file_pattern: '*.json *.md'
             disable_globbing: true
   build-hl:
     
@@ -1481,14 +1481,19 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+            commit_message: build unit tests update hl
+            file_pattern: '*.json *.md'
+            disable_globbing: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: build tests update hl
-            file_pattern: '*.json'
+            commit_message: build std tests update hl
+            file_pattern: '*.json *.md'
             disable_globbing: true
   build-jvm:
     
@@ -1539,14 +1544,19 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm #-D hxb
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+            commit_message: build unit tests update jvm
+            file_pattern: '*.json *.md'
+            disable_globbing: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm  #-D hxb
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: build tests update jvm
-            file_pattern: '*.json'
+            commit_message: build std tests update jvm
+            file_pattern: '*.json *.md'
             disable_globbing: true
   build-interp:
     
@@ -1596,14 +1606,19 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+            commit_message: build unit tests update interp
+            file_pattern: '*.json *.md'
+            disable_globbing: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: build tests update interp
-            file_pattern: '*.json'
+            commit_message: build std tests update interp
+            file_pattern: '*.json *.md'
             disable_globbing: true
   build-js:
     
@@ -1653,14 +1668,19 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+            commit_message: build unit tests update js
+            file_pattern: '*.json *.md'
+            disable_globbing: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: build tests update js
-            file_pattern: '*.json'
+            commit_message: build std tests update js
+            file_pattern: '*.json *.md'
             disable_globbing: true
   build-php:
     
@@ -1712,12 +1732,17 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=php #-D hxb
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+            commit_message: build unit tests update php
+            file_pattern: '*.json *.md'
+            disable_globbing: true
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=php  #-D hxb
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
-            commit_message: build tests update php
-            file_pattern: '*.json'
+            commit_message: build std tests update php
+            file_pattern: '*.json *.md'
             disable_globbing: true

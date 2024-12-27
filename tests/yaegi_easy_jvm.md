@@ -258,19 +258,6 @@ func main() {
 // 32
 
 ```
-## add0
-```go
-package main
-
-func main() {
-	var a interface{} = 2 + 5
-	println(a.(int))
-}
-
-// Output:
-// 7
-
-```
 ## add1
 ```go
 package main
@@ -314,22 +301,6 @@ func main() {
 // 12
 // 13
 // hello
-
-```
-## add2
-```go
-package main
-
-type iface interface{}
-
-func main() {
-	b := 2
-	var a iface = 5 + b
-	println(a.(int))
-}
-
-// Output:
-// 7
 
 ```
 ## and
@@ -436,101 +407,6 @@ func main() {
 // ok
 
 ```
-## and3
-```go
-package main
-
-var a = true && true
-
-func main() {
-	println(a)
-}
-
-// Output:
-// true
-
-```
-## assert4
-```go
-package main
-
-var cc interface{} = 2
-var dd = cc.(int)
-
-func main() {
-	println(dd)
-}
-
-// Output:
-// 2
-
-```
-## assign
-```go
-package main
-
-func main() {
-	a, b := 1, 2 // Multiple assign
-	println(a, b)
-}
-
-// Output:
-// 1 2
-
-```
-## assign10
-```go
-package main
-
-func main() {
-	var a uint
-	a = 1 + 2
-	println(a)
-}
-
-// Output:
-// 3
-
-```
-## assign14
-```go
-package main
-
-var optionsG map[string]string = nil
-
-var roundG = 30
-
-func main() {
-	dummy := roundG
-	roundG = dummy + 1
-	println(roundG)
-	println(optionsG == nil)
-}
-
-// Output:
-// 31
-// true
-
-```
-## assign16
-```go
-package main
-
-type H struct {
-	bits uint
-}
-
-func main() {
-	h := &H{8}
-	var x uint = (1 << h.bits) >> 6
-
-	println(x)
-}
-
-// Output:
-// 4
-
-```
 ## assign17
 ```go
 package main
@@ -579,67 +455,6 @@ func main() {
 // start
 // m1
 // start
-
-```
-## assign2
-```go
-package main
-
-func main() {
-	r := uint32(2000000000)
-	r = hello(r)
-	println(r)
-}
-
-func hello(r uint32) uint32 { return r + 1 }
-
-// Output:
-// 2000000001
-
-```
-## assign3
-```go
-package main
-
-func main() {
-	a, b := 1, 2
-	println(a, b)
-	a, b = b, a
-	println(a, b)
-}
-
-// Output:
-// 1 2
-// 2 1
-
-```
-## assign4
-```go
-package main
-
-func main() {
-	a, b, c := 1, 2, 3
-	println(a, b, c)
-	a, b, c = c, a, b
-	println(a, b, c)
-}
-
-// Output:
-// 1 2 3
-// 3 1 2
-
-```
-## assign8
-```go
-package main
-
-func main() {
-	_ = 1
-	println(1)
-}
-
-// Output:
-// 1
 
 ```
 ## assign9
@@ -739,25 +554,6 @@ package main
 func main() {
 	m := []bool{false, true}
 	if m[0] {
-		println(0)
-	} else {
-		println(1)
-	}
-}
-
-// Output:
-// 1
-
-```
-## bool5
-```go
-package main
-
-func main() {
-	var b bool
-	m := &b
-
-	if *m {
 		println(0)
 	} else {
 		println(1)
@@ -879,51 +675,6 @@ func main() {
 // 2
 
 ```
-## closure0
-```go
-package main
-
-type adder func(int, int) int
-
-func genAdd(k int) adder {
-	return func(i, j int) int {
-		return i + j + k
-	}
-}
-
-func main() {
-	f := genAdd(5)
-	println(f(3, 4))
-}
-
-// Output:
-// 12
-
-```
-## closure1
-```go
-package main
-
-type adder func(int, int) int
-
-func genAdd(k int) adder {
-	return func(i, j int) int {
-		return i + j + k
-	}
-}
-
-func main() {
-	f := genAdd(5)
-	g := genAdd(8)
-	println(f(3, 4))
-	println(g(3, 4))
-}
-
-// Output:
-// 12
-// 15
-
-```
 ## closure10
 ```go
 package main
@@ -970,38 +721,6 @@ func main() {
 // 3 0
 // 3 1
 // 3 2
-
-```
-## closure2
-```go
-package main
-
-func adder() func(int) int {
-	sum := 0
-	return func(x int) int {
-		sum = sum + x
-		return sum
-	}
-}
-
-func main() {
-	pos, neg := adder(), adder()
-	for i := 0; i < 10; i++ {
-		println(pos(i), neg(-2*i))
-	}
-}
-
-// Output:
-// 0 0
-// 1 -2
-// 3 -6
-// 6 -12
-// 10 -20
-// 15 -30
-// 21 -42
-// 28 -56
-// 36 -72
-// 45 -90
 
 ```
 ## closure3
@@ -1112,20 +831,6 @@ func main() {
 // 9
 
 ```
-## closure8
-```go
-package main
-
-var f = func(a int) int { return 2 + a }
-
-func main() {
-	println(f(3))
-}
-
-// Output:
-// 5
-
-```
 ## closure9
 ```go
 package main
@@ -1146,49 +851,6 @@ func main() {
 // 3 0
 // 3 1
 // 3 2
-
-```
-## comp0
-```go
-package main
-
-func main() {
-	println(2 < 2.4)
-}
-
-// Output:
-// true
-
-```
-## comp1
-```go
-package main
-
-func main() {
-	var a interface{} = 1 < 2
-	println(a.(bool))
-}
-
-// Output:
-// true
-
-```
-## comp2
-```go
-package main
-
-type delta int32
-
-func main() {
-	a := delta(-1)
-
-	println(a != -1)
-	println(a == -1)
-}
-
-// Output:
-// false
-// true
 
 ```
 ## composite12
@@ -1235,37 +897,6 @@ func main() {
 
 // Output:
 // bb
-
-```
-## composite3
-```go
-package main
-
-func main() {
-	var err error
-	var ok bool
-
-	_, ok = err.(interface{ IsSet() bool })
-	println(ok)
-}
-
-// Output:
-// false
-
-```
-## composite4
-```go
-package main
-
-func main() {
-	var err error
-
-	_, ok := err.(interface{ IsSet() bool })
-	println(ok)
-}
-
-// Output:
-// false
 
 ```
 ## composite7
@@ -1332,23 +963,6 @@ func main() {
 // 1 2
 
 ```
-## const0
-```go
-package main
-
-const (
-	a = iota
-	b
-)
-
-func main() {
-	println(a, b)
-}
-
-// Output:
-// 0 1
-
-```
 ## const1
 ```go
 package main
@@ -1368,27 +982,6 @@ func main() {
 // 1 hello
 
 ```
-## const10
-```go
-package main
-
-const (
-	a = 2
-	b = c + d
-	c = a + d
-	d = e + f
-	e = 3
-	f = 4
-)
-
-func main() {
-	println(b)
-}
-
-// Output:
-// 16
-
-```
 ## const11
 ```go
 package main
@@ -1406,48 +999,6 @@ func main() {
 // 0 4
 
 ```
-## const12
-```go
-package main
-
-type Kind int
-
-const (
-	None Kind = 0
-	Left Kind = 1 << iota
-	Right
-	Both Kind = Left | Right
-)
-
-func main() {
-	println(None, Left, Right, Both)
-}
-
-// Output:
-// 0 2 4 6
-
-```
-## const15
-```go
-package main
-
-type T1 t1
-
-type t1 int8
-
-const (
-	P2 T1 = 2
-	P3 T1 = 3
-)
-
-func main() {
-	println(P3)
-}
-
-// Output:
-// 3
-
-```
 ## const2
 ```go
 package main
@@ -1460,41 +1011,6 @@ const a = "hello"
 
 // Output:
 // hello
-
-```
-## const21
-```go
-package main
-
-const a = 64
-
-var b uint = a * a / 2
-
-func main() {
-	println(b)
-}
-
-// Output:
-// 2048
-
-```
-## const22
-```go
-package main
-
-const (
-	numDec uint8 = (1 << iota) / 2
-	numHex
-	numOct
-	numFloat
-)
-
-func main() {
-	println(13 & (numHex | numOct))
-}
-
-// Output:
-// 1
 
 ```
 ## const23
@@ -1529,173 +1045,6 @@ func main() {
 
 // Output:
 // 3
-
-```
-## const25
-```go
-package main
-
-const (
-	FGBlack Attribute = iota + 30
-)
-
-type Attribute int
-
-func main() {
-	println(FGBlack)
-}
-
-```
-## const3
-```go
-package main
-
-const a, b, c int = 1, 2, 3
-
-func main() { println(a, b, c) }
-
-// Output:
-// 1 2 3
-
-```
-## const4
-```go
-package main
-
-const (
-	a = 2
-	b = 3
-	c
-)
-
-func main() {
-	println(a, b, c)
-}
-
-// Output:
-// 2 3 3
-
-```
-## const6
-```go
-package main
-
-const (
-	maxNonStarters = 30
-	maxBufferSize  = maxNonStarters + 2
-)
-
-type reorderBuffer struct {
-	rune [maxBufferSize]Properties
-}
-
-type Properties struct {
-	pos  uint8
-	size uint8
-}
-
-func main() {
-	println(len(reorderBuffer{}.rune))
-}
-
-// Output:
-// 32
-
-```
-## const8
-```go
-package main
-
-const (
-	a = 2
-	b = c + d
-	c = 4
-	d = 5
-)
-
-func main() {
-	println(a, b, c, d)
-}
-
-// Output:
-// 2 9 4 5
-
-```
-## cont
-```go
-package main
-
-func main() {
-	for i := 0; i < 10; i++ {
-		if i < 5 {
-			continue
-		}
-		println(i)
-	}
-}
-
-// Output:
-// 5
-// 6
-// 7
-// 8
-// 9
-
-```
-## cont0
-```go
-package main
-
-func main() {
-	i := 0
-	for {
-		if i > 10 {
-			break
-		}
-		i++
-		if i < 5 {
-			continue
-		}
-		println(i)
-	}
-}
-
-// Output:
-// 5
-// 6
-// 7
-// 8
-// 9
-// 10
-// 11
-
-```
-## cont1
-```go
-package main
-
-func main() {
-	i := 0
-	for {
-		if i > 10 {
-			break
-		}
-		if i < 5 {
-			i++
-			continue
-		}
-		println(i)
-		i++
-	}
-}
-
-// Output:
-// 5
-// 6
-// 7
-// 8
-// 9
-// 10
 
 ```
 ## cont2
@@ -1818,74 +1167,6 @@ func main() {
 
 // Output:
 // hello f3-end f3-begin f2-end f2-begin f1-end f1-begin
-
-```
-## fib0
-```go
-package main
-
-// Compute fibonacci numbers, no memoization
-func fib(n int) int {
-	if n < 2 {
-		return n
-	}
-	return fib(n-2) + fib(n-1)
-}
-
-func main() {
-	println(fib(4))
-}
-
-// Output:
-// 3
-
-```
-## for0
-```go
-package main
-
-func main() {
-	i := 0
-	//for ;i >= 0; i++ {
-	for {
-		if i > 5 {
-			break
-		}
-		println(i)
-		i++
-	}
-}
-
-// Output:
-// 0
-// 1
-// 2
-// 3
-// 4
-// 5
-
-```
-## for1
-```go
-package main
-
-func main() {
-	i := 0
-	for i < 10 {
-		if i > 4 {
-			break
-		}
-		println(i)
-		i++
-	}
-}
-
-// Output:
-// 0
-// 1
-// 2
-// 3
-// 4
 
 ```
 ## for10
@@ -2016,45 +1297,6 @@ func main() {
 // bye
 
 ```
-## for2
-```go
-package main
-
-func main() {
-	for i := 2; ; i++ {
-		println(i)
-		if i > 3 {
-			break
-		}
-	}
-}
-
-// Output:
-// 2
-// 3
-// 4
-
-```
-## for4
-```go
-package main
-
-func main() {
-	for i := 1; i <= 2; i++ {
-		var x, y int
-		println(x, y)
-		x, y = i, 2*i
-		println(x, y)
-	}
-}
-
-// Output:
-// 0 0
-// 1 2
-// 0 0
-// 2 4
-
-```
 ## for5
 ```go
 package main
@@ -2073,28 +1315,6 @@ func main() {
 // bye
 
 ```
-## for8
-```go
-package main
-
-func main() {
-	for i := 0; i < 4; i++ {
-		for {
-			break
-		}
-		if i == 1 {
-			continue
-		}
-		println(i)
-	}
-}
-
-// Output:
-// 0
-// 2
-// 3
-
-```
 ## for9
 ```go
 package main
@@ -2109,20 +1329,6 @@ func main() {
 
 // Output:
 // bye
-
-```
-## fun
-```go
-package main
-
-func f(i int) int { return i + 15 }
-
-func main() {
-	println(f(4))
-}
-
-// Output:
-// 19
 
 ```
 ## fun11
@@ -2157,83 +1363,6 @@ func main() {
 // bye
 
 ```
-## fun14
-```go
-package main
-
-func f() (bool, int) { return true, 2 }
-
-func g() (bool, int) { return f() }
-
-func main() {
-	b, i := g()
-	println(b, i)
-}
-
-// Output:
-// true 2
-
-```
-## fun15
-```go
-package main
-
-func f1(a int) interface{} { return a + 1 }
-
-func f2(a int64) interface{} { return a + 1 }
-
-func main() {
-	c := f1(3)
-	println(c.(int))
-	b := f2(3)
-	println(b.(int64))
-}
-
-// Output:
-// 4
-// 4
-
-```
-## fun16
-```go
-package main
-
-func f1(a int) int { return a + 1 }
-
-func f2(a int) interface{} {
-	// TODO: re-enable the optimized case below, once we've figured out why it
-	// interferes with the empty interface model.
-	// return f1(a)
-	var foo interface{} = f1(a)
-	return foo
-}
-
-func main() {
-	c := f2(3)
-	println(c.(int))
-}
-
-// Output:
-// 4
-
-```
-## fun17
-```go
-package main
-
-func f1(a int) interface{} { return a + 1 }
-
-func f2(a int) interface{} { return f1(a) }
-
-func main() {
-	c := f2(3)
-	println(c.(int))
-}
-
-// Output:
-// 4
-
-```
 ## fun18
 ```go
 package main
@@ -2248,23 +1377,6 @@ func main() {
 
 // Output:
 // 1
-
-```
-## fun2
-```go
-package main
-
-type Coord struct{ x, y int }
-
-func f(c Coord) int { return c.x + c.y }
-
-func main() {
-	c := Coord{3, 4}
-	println(f(c))
-}
-
-// Output:
-// 7
 
 ```
 ## fun26
@@ -2288,23 +1400,6 @@ func main() {
 // hello 3
 
 ```
-## fun3
-```go
-package main
-
-type Coord struct{ x, y int }
-
-func f(i, j int, c Coord) int { return i*c.x + j*c.y }
-
-func main() {
-	c := Coord{3, 4}
-	println(f(2, 3, c))
-}
-
-// Output:
-// 18
-
-```
 ## fun4
 ```go
 package main
@@ -2318,66 +1413,6 @@ func main() {
 
 // Output:
 // ok
-
-```
-## fun5
-```go
-package main
-
-func f(i int64) {
-	println(i)
-}
-
-func main() {
-	f(34)
-}
-
-// Output:
-// 34
-
-```
-## fun8
-```go
-package main
-
-func main() { println(f == nil) }
-
-var f func()
-
-// Output:
-// true
-
-```
-## fun9
-```go
-package main
-
-type T uint
-
-func main() {
-	type myint int
-	var i = myint(1)
-	println(i)
-}
-
-// Output:
-// 1
-
-```
-## gen10
-```go
-package main
-
-func genFunc() (f func()) {
-	return f
-}
-
-func main() {
-	println(genFunc() == nil)
-}
-
-// Output:
-// true
 
 ```
 ## goto0
@@ -2413,22 +1448,6 @@ here:
 
 // Output:
 // ok
-
-```
-## if_
-```go
-package main
-
-func main() {
-	if a := f(); a > 0 {
-		println(a)
-	}
-}
-
-func f() int { return 1 }
-
-// Output:
-// 1
 
 ```
 ## if0
@@ -2537,40 +1556,6 @@ func main() {
 
 // Output:
 // bye
-
-```
-## if7
-```go
-package main
-
-func main() {
-	a := 0
-	b := false
-	if (b) {
-		a = 1
-	} else {
-		a = -1
-	}
-	println(a)
-}
-
-// Output:
-// -1
-
-```
-## inc
-```go
-package main
-
-func main() {
-	i := 2
-	//i++
-	i = i + 1
-	println(i)
-}
-
-// Output:
-// 3
 
 ```
 ## init0
@@ -2753,32 +1738,6 @@ func main() {
 // ok
 
 ```
-## interface29
-```go
-package main
-
-func main() {
-	var a interface{}
-	println(a == nil)
-}
-
-// Output:
-// true
-
-```
-## interface30
-```go
-package main
-
-func main() {
-	var a interface{}
-	println(a != nil)
-}
-
-// Output:
-// false
-
-```
 ## interface37
 ```go
 package main
@@ -2804,29 +1763,6 @@ func main() {
 
 // Output:
 // a
-
-```
-## interface44
-```go
-package main
-
-type S struct {
-	a int
-}
-
-func main() {
-	var i interface{} = S{a: 1}
-
-	s, ok := i.(S)
-	if !ok {
-		println("bad")
-		return
-	}
-	println(s.a)
-}
-
-// Output:
-// 1
 
 ```
 ## interface47
@@ -2863,72 +1799,6 @@ func main() {
 // Output:
 // true
 // in do
-
-```
-## interface49
-```go
-package main
-
-type Descriptor interface {
-	ParentFile() FileDescriptor
-}
-
-type FileDescriptor interface {
-	Enums() EnumDescriptors
-	Services() ServiceDescriptors
-}
-
-type EnumDescriptors interface {
-	Get(i int) EnumDescriptor
-}
-
-type EnumDescriptor interface {
-	Values() EnumValueDescriptors
-}
-
-type EnumValueDescriptors interface {
-	Get(i int) EnumValueDescriptor
-}
-
-type EnumValueDescriptor interface {
-	Descriptor
-}
-
-type ServiceDescriptors interface {
-	Get(i int) ServiceDescriptor
-}
-
-type ServiceDescriptor interface {
-	Descriptor
-	isServiceDescriptor
-}
-
-type isServiceDescriptor interface{ ProtoType(ServiceDescriptor) }
-
-func main() {
-	var d Descriptor
-	println(d == nil)
-}
-
-// Output:
-// true
-
-```
-## interface50
-```go
-package main
-
-func main() {
-	a := true
-	var b interface{} = 5
-	println(b.(int))
-	b = a == true
-	println(b.(bool))
-}
-
-// Output:
-// 5
-// true
 
 ```
 ## interface51
@@ -3158,20 +2028,6 @@ func main() {
 // in F test
 
 ```
-## issue_dash_1181
-```go
-package main
-
-func main() {
-	a, b := 1, 2
-	a, b = b, -a
-	println(a, b)
-}
-
-// Output:
-// 2 -1
-
-```
 ## issue_dash_1189
 ```go
 package main
@@ -3234,33 +2090,6 @@ func main() {
 // Output:
 // in apply
 // in apply
-
-```
-## issue_dash_1208
-```go
-package main
-
-type Enabler interface {
-	Enabled() bool
-}
-
-type Logger struct {
-	core Enabler
-}
-
-func (log *Logger) GetCore() Enabler { return log.core }
-
-type T struct{}
-
-func (t *T) Enabled() bool { return true }
-
-func main() {
-	base := &Logger{&T{}}
-	println(base.GetCore().Enabled())
-}
-
-// Output:
-// true
 
 ```
 ## issue_dash_1285
@@ -3348,29 +2177,6 @@ func main() {
 
 // Output:
 // parent child
-
-```
-## issue_dash_1311
-```go
-package main
-
-type T struct {
-	v interface{}
-}
-
-func f() (ret int64, err error) {
-	ret += 2
-	return
-}
-
-func main() {
-	t := &T{}
-	t.v, _ = f()
-	println(t.v.(int64))
-}
-
-// Output:
-// 2
 
 ```
 ## issue_dash_1315
@@ -3534,28 +2340,6 @@ label:
 // true
 
 ```
-## issue_dash_1365
-```go
-package main
-
-func genInt() (int, error) { return 3, nil }
-
-func getInt() (value int) {
-	value, err := genInt()
-	if err != nil {
-		panic(err)
-	}
-	return
-}
-
-func main() {
-	println(getInt())
-}
-
-// Output:
-// 3
-
-```
 ## issue_dash_1368
 ```go
 package main
@@ -3600,47 +2384,6 @@ func main() {
 
 // Output:
 // foo
-
-```
-## issue_dash_1408
-```go
-package main
-
-type (
-	Number  = int32
-	Number2 = Number
-)
-
-func f(n Number2) { println(n) }
-
-func main() {
-	var n Number = 5
-	f(n)
-}
-
-// Output:
-// 5
-
-```
-## issue_dash_1416
-```go
-package main
-
-type Number int32
-
-type Number1 = Number
-
-type Number2 = Number1
-
-func (n Number2) IsValid() bool { return true }
-
-func main() {
-	a := Number(5)
-	println(a.IsValid())
-}
-
-// Output:
-// true
 
 ```
 ## issue_dash_1439
@@ -3695,32 +2438,6 @@ func main() {
 // 2
 
 ```
-## issue_dash_1454
-```go
-package main
-
-type I2 interface {
-	I2() string
-}
-
-type I interface {
-	I2
-}
-
-type S struct{}
-
-func (*S) I2() string { return "foo" }
-
-func main() {
-	var i I
-	_, ok := i.(*S)
-	println(ok)
-}
-
-// Output:
-// false
-
-```
 ## issue_dash_1470
 ```go
 package main
@@ -3738,22 +2455,6 @@ func main() {
 
 // Output:
 // 25
-
-```
-## issue_dash_1475
-```go
-package main
-
-type T uint16
-
-func f() T { return 0 }
-
-func main() {
-	println(f())
-}
-
-// Output:
-// 0
 
 ```
 ## issue_dash_1496
@@ -3885,90 +2586,6 @@ func main() {
 // 101
 // 202
 // 303
-
-```
-## issue_dash_993
-```go
-package main
-
-var m map[string]int64
-
-func initVar() {
-	m = make(map[string]int64)
-}
-
-func main() {
-	initVar()
-	println(len(m))
-}
-
-// Output:
-// 0
-
-```
-## l2
-```go
-package main
-
-func main() {
-	for a := 0; a < 20000; a++ {
-		if (a & 0x8ff) == 0x800 {
-			println(a)
-		}
-	}
-}
-
-// Output:
-// 2048
-// 2304
-// 2560
-// 2816
-// 3072
-// 3328
-// 3584
-// 3840
-// 6144
-// 6400
-// 6656
-// 6912
-// 7168
-// 7424
-// 7680
-// 7936
-// 10240
-// 10496
-// 10752
-// 11008
-// 11264
-// 11520
-// 11776
-// 12032
-// 14336
-// 14592
-// 14848
-// 15104
-// 15360
-// 15616
-// 15872
-// 16128
-// 18432
-// 18688
-// 18944
-// 19200
-// 19456
-// 19712
-// 19968
-
-```
-## l4
-```go
-package main
-
-func main()       { println(f(5)) }
-func f(i int) int { return i + 1 }
-
-// Output:
-// 6
 
 ```
 ## len0
@@ -4163,21 +2780,6 @@ func main() {
 // bidule machin
 
 ```
-## map7
-```go
-package main
-
-func main() {
-	dict := map[int32]int64{13: 733}
-	for k, v := range dict {
-		println(k, v)
-	}
-}
-
-// Output:
-// 13 733
-
-```
 ## math2
 ```go
 package main
@@ -4192,25 +2794,6 @@ func main() {
 
 // Output:
 // yes
-
-```
-## method
-```go
-package main
-
-type Coord struct {
-	x, y int
-}
-
-func (c Coord) dist() int { return c.x*c.x + c.y*c.y }
-
-func main() {
-	o := Coord{3, 4}
-	println(o.dist())
-}
-
-// Output:
-// 25
 
 ```
 ## method1
@@ -4235,27 +2818,6 @@ func main() {
 // in foo hello 3
 
 ```
-## method10
-```go
-package main
-
-const BlockSize = 8
-
-type Cipher struct{}
-
-func (c *Cipher) BlockSize() int { return BlockSize }
-
-func main() {
-	println(BlockSize)
-	s := Cipher{}
-	println(s.BlockSize())
-}
-
-// Output:
-// 8
-// 8
-
-```
 ## method11
 ```go
 package main
@@ -4275,161 +2837,6 @@ func main() {
 // Output:
 // func
 // method
-
-```
-## method12
-```go
-package main
-
-type Coord struct {
-	x, y int
-}
-
-func (c Coord) dist() int { return c.x*c.x + c.y*c.y }
-
-func main() {
-	o := Coord{3, 4}
-	f := o.dist
-	println(f())
-}
-
-// Output:
-// 25
-
-```
-## method13
-```go
-package main
-
-type Coord struct {
-	x, y int
-}
-
-func (c Coord) dist() int { return c.x*c.x + c.y*c.y }
-
-type Point struct {
-	Coord
-	z int
-}
-
-func main() {
-	o := Point{Coord{3, 4}, 5}
-	f := o.dist
-	println(f())
-}
-
-// Output:
-// 25
-
-```
-## method14
-```go
-package main
-
-func main() {
-	o := Coord{3, 4}
-	println(o.dist())
-}
-
-func (c *Coord) dist() int { return c.x*c.x + c.y*c.y }
-
-type Coord struct {
-	x, y int
-}
-
-// Output:
-// 25
-
-```
-## method15
-```go
-package main
-
-type Coord struct {
-	x, y int
-}
-
-func (c Coord) dist() int { return c.x*c.x + c.y*c.y }
-
-func main() {
-	o := &Coord{3, 4}
-	println(o.dist())
-}
-
-// Output:
-// 25
-
-```
-## method2
-```go
-package main
-
-type Coord struct {
-	x, y int
-}
-
-func (c Coord) dist() int { return c.x*c.x + c.y*c.y }
-
-type Point struct {
-	Coord
-	z int
-}
-
-func main() {
-	o := Point{Coord{3, 4}, 5}
-	println(o.dist())
-}
-
-// Output:
-// 25
-
-```
-## method22
-```go
-package main
-
-func Bar() {
-	s := Obj.Foo()
-	println(s)
-}
-
-var Obj = &T{}
-
-type T struct{}
-
-func (t *T) Foo() bool { return t != nil }
-
-func main() {
-	Bar()
-}
-
-// Output:
-// true
-
-```
-## method23
-```go
-package main
-
-func Bar() {
-	s := Obj.Foo()
-	println(s)
-}
-
-var Obj = NewT()
-
-func NewT() *T { return &T{} }
-
-type T struct{}
-
-func (t *T) Foo() bool { return t != nil }
-
-func main() {
-	Bar()
-}
-
-// Output:
-// true
 
 ```
 ## method26
@@ -4452,30 +2859,6 @@ func main() {
 
 // Output:
 // true
-
-```
-## method3
-```go
-package main
-
-type Coord struct {
-	x, y int
-}
-
-func (c Coord) dist() int { return c.x*c.x + c.y*c.y }
-
-type Point struct {
-	Coord
-	z int
-}
-
-func main() {
-	o := Point{Coord{3, 4}, 5}
-	println(o.Coord.dist())
-}
-
-// Output:
-// 25
 
 ```
 ## method30
@@ -4565,35 +2948,6 @@ func main() {
 // Hello test
 
 ```
-## method4
-```go
-package main
-
-type Coord struct {
-	x, y int
-}
-
-func (c Coord) dist() int { return c.x*c.x + c.y*c.y }
-
-type Point struct {
-	Coord
-	z int
-}
-
-type Tpoint struct {
-	t int
-	Point
-}
-
-func main() {
-	o := Tpoint{0, Point{Coord{3, 4}, 5}}
-	println(o.dist())
-}
-
-// Output:
-// 25
-
-```
 ## method6
 ```go
 package main
@@ -4669,56 +3023,6 @@ func main() {
 // 0 world
 
 ```
-## method9
-```go
-package main
-
-type Coord struct {
-	x, y int
-}
-
-func main() {
-	o := Coord{3, 4}
-	println(o.dist())
-}
-
-func (c Coord) dist() int { return c.x*c.x + c.y*c.y }
-
-// Output:
-// 25
-
-```
-## new0
-```go
-package main
-
-func main() {
-	a := new(int)
-	*a = 3
-	println(*a)
-}
-
-// Output:
-// 3
-
-```
-## new2
-```go
-package main
-
-func f() interface{} {
-	return new(int)
-}
-
-func main() {
-	a := f()
-	println(*(a.(*int)))
-}
-
-// Output:
-// 0
-
-```
 ## nil1
 ```go
 package main
@@ -4783,58 +3087,6 @@ func main() {
 // Hello
 
 ```
-## not0
-```go
-package main
-
-func main() {
-	a := 0
-	b := true
-	c := false
-	if b && c {
-		a = 1
-	} else {
-		a = -1
-	}
-	println(a)
-}
-
-// Output:
-// -1
-
-```
-## not1
-```go
-package main
-
-func main() {
-        a := 0
-        b := true
-        if (!b) {
-                a = 1
-        } else {
-                a = -1
-        }
-        println(a)
-}
-
-// Output:
-// -1
-
-```
-## not2
-```go
-package main
-
-func main() {
-	var b interface{} = !(1 == 2)
-	println(b.(bool))
-}
-
-// Output:
-// true
-
-```
 ## op10
 ```go
 package main
@@ -4862,19 +3114,6 @@ func main() {
 // ok
 
 ```
-## op4
-```go
-package main
-
-func main() {
-	i := 102
-	println(i % -1e2)
-}
-
-// Output:
-// 2
-
-```
 ## op6
 ```go
 package main
@@ -4894,71 +3133,6 @@ func main() {
 
 // Output:
 // ok
-
-```
-## op8
-```go
-package main
-
-type I interface {
-	Get() interface{}
-}
-
-type T struct{}
-
-func (T) Get() interface{} {
-	return nil
-}
-
-func main() {
-	var i I = T{}
-	var ei interface{}
-
-	println(i != ei)
-}
-
-// Output:
-// true
-
-```
-## or0
-```go
-package main
-
-func main() {
-	c := false
-	println(c || !c)
-}
-
-// Output:
-// true
-
-```
-## or1
-```go
-package main
-
-func main() {
-	c := false
-	println(!c || c)
-}
-
-// Output:
-// true
-
-```
-## or2
-```go
-package main
-
-var a = false || true
-
-func main() {
-	println(a)
-}
-
-// Output:
-// true
 
 ```
 ## primes
@@ -5001,161 +3175,6 @@ func main() {
 
 // Output:
 // hello
-
-```
-## ptr0
-```go
-package main
-
-type myint int
-
-func main() {
-	var a myint = 2
-	var b *myint = &a
-	println(*b)
-}
-
-// Output:
-// 2
-
-```
-## ptr1
-```go
-package main
-
-func main() {
-	var a int = 2
-	b := &a
-	println(*b)
-}
-
-// Output:
-// 2
-
-```
-## ptr2
-```go
-package main
-
-func f(i *int) {
-	*i = *i + 3
-}
-
-func main() {
-	var a int = 2
-	f(&a)
-	println(a)
-}
-
-// Output:
-// 5
-
-```
-## ptr3
-```go
-package main
-
-func f(i *int) {
-	*i++
-}
-
-func main() {
-	var a int = 2
-	f(&a)
-	println(a)
-}
-
-// Output:
-// 3
-
-```
-## ptr4
-```go
-package main
-
-type Foo struct {
-	val int
-}
-
-func f(p *Foo) {
-	p.val = p.val + 2
-}
-
-func main() {
-	var a = Foo{3}
-	f(&a)
-	println(a.val)
-}
-
-// Output:
-// 5
-
-```
-## ptr5
-```go
-package main
-
-type Foo struct {
-	val int
-}
-
-func main() {
-	var a = &Foo{3}
-	println(a.val)
-}
-
-// Output:
-// 3
-
-```
-## ptr5a
-```go
-package main
-
-type Foo struct {
-	val int
-}
-
-func main() {
-	var a = Foo{3}
-	b := &a
-	println(b.val)
-}
-
-// Output:
-// 3
-
-```
-## ptr6
-```go
-package main
-
-type Foo struct {
-	val int
-}
-
-func main() {
-	var a = Foo{3}
-	b := &a
-	println(b.val)
-}
-
-// Output:
-// 3
-
-```
-## ptr8
-```go
-package main
-
-var a = func() *bool { b := true; return &b }()
-
-func main() {
-	println(*a && true)
-}
-
-// Output:
-// true
 
 ```
 ## ptr_array0
@@ -5297,93 +3316,6 @@ func main() {
 // in f1 b
 
 ```
-## ret1
-```go
-package main
-
-func f(i int) (o int) { o = i + 1; return }
-
-func main() { println(f(4)) }
-
-// Output:
-// 5
-
-```
-## ret2
-```go
-package main
-
-func r2() (int, int) { return 1, 2 }
-
-func main() {
-	a, b := r2()
-	println(a, b)
-}
-
-// Output:
-// 1 2
-
-```
-## ret4
-```go
-package main
-
-func r() int { return 1 }
-
-func main() {
-	a := r()
-	println(a)
-}
-
-// Output:
-// 1
-
-```
-## ret5
-```go
-package main
-
-func r2() (int, int) { return 1, 2 }
-
-var a, b int = r2()
-
-func main() { println(a, b) }
-
-// Output:
-// 1 2
-
-```
-## ret7
-```go
-package main
-
-func one() uint {
-	return 1
-}
-func main() {
-	println(one())
-}
-
-// Output:
-// 1
-
-```
-## run1
-```go
-package main
-
-func f() (int, int) { return 2, 3 }
-
-func g(i, j int) int { return i + j }
-
-func main() {
-	println(g(f()))
-}
-
-// Output:
-// 5
-
-```
 ## run10
 ```go
 package main
@@ -5394,40 +3326,6 @@ func main() {
 
 // Output:
 // hello
-
-```
-## run12
-```go
-package main
-
-func f(a int) (int, int) {
-	return a + 1, a + 2
-}
-
-func main() {
-	a, b := f(3)
-	println(a, b)
-}
-
-// Output:
-// 4 5
-
-```
-## run13
-```go
-package main
-
-func main() {
-	a, b := f(3)
-	println(a, b)
-}
-
-func f(a int) (int, int) {
-	return a + 1, a + 2
-}
-
-// Output:
-// 4 5
 
 ```
 ## run4
@@ -5526,119 +3424,6 @@ func main() {
 // 22
 
 ```
-## scope0
-```go
-package main
-
-var a int = 1
-
-func main() {
-	println(a)
-}
-
-// Output:
-// 1
-
-```
-## scope1
-```go
-package main
-
-func f(a int) int {
-	return 2*a + 1
-}
-
-var b int = f(3)
-
-func main() {
-	println(b)
-}
-
-// Output:
-// 7
-
-```
-## scope2
-```go
-package main
-
-var a int = 1
-
-func f() { println(a) }
-
-func main() {
-	println(a)
-	a := 2
-	println(a)
-	f()
-}
-
-// Output:
-// 1
-// 2
-// 1
-
-```
-## scope3
-```go
-package main
-
-func main() {
-	a := 1
-	if a := 2; a > 0 {
-		println(a)
-	}
-	println(a)
-}
-
-// Output:
-// 2
-// 1
-
-```
-## scope4
-```go
-package main
-
-func main() {
-	a := 1
-	if a := 2; a > 0 {
-		println(a)
-	}
-	{
-		a := 3
-		println(a)
-	}
-	println(a)
-}
-
-// Output:
-// 2
-// 3
-// 1
-
-```
-## scope5
-```go
-package main
-
-var a int = 1
-
-func f() { println(a) }
-
-func main() {
-	println(a)
-	a = 2
-	println(a)
-	f()
-}
-
-// Output:
-// 1
-// 2
-// 2
-
-```
 ## select3
 ```go
 package main
@@ -5654,49 +3439,6 @@ func main() {
 // Output:
 // no comm
 // bye
-
-```
-## shift0
-```go
-package main
-
-func main() {
-	var rounds uint64
-	var cost uint32 = 2
-	rounds = 1 << cost
-	println(rounds)
-}
-
-// Output:
-// 4
-
-```
-## shift2
-```go
-package main
-
-func main() {
-	var u uint64
-	var v uint32
-	println(u << v)
-}
-
-// Output:
-// 0
-
-```
-## shift3
-```go
-package main
-
-const a = 1.0
-
-const b = a + 3
-
-func main() { println(b << (1)) }
-
-// Output:
-// 8
 
 ```
 ## str
@@ -5745,62 +3487,6 @@ func main() {
 // ok
 
 ```
-## struct_
-```go
-package main
-
-type T struct {
-	f int
-	g int
-}
-
-func main() {
-	a := T{7, 8}
-	println(a.f, a.g)
-}
-
-// Output:
-// 7 8
-
-```
-## struct0
-```go
-package main
-
-type T struct {
-	f int
-	g int
-}
-
-func main() {
-	a := T{}
-	println(a.f, a.g)
-}
-
-// Output:
-// 0 0
-
-```
-## struct0a
-```go
-package main
-
-type T struct {
-	f int
-}
-
-func main() {
-	a := T{}
-	println(a.f)
-	a.f = 8
-	println(a.f)
-}
-
-// Output:
-// 0
-// 8
-
-```
 ## struct1
 ```go
 package main
@@ -5820,24 +3506,6 @@ func main() {
 
 // Output:
 // a.g.h 5
-
-```
-## struct10
-```go
-package main
-
-type T struct {
-	f int
-	g int64
-}
-
-func main() {
-	a := T{g: 8}
-	println(a.f, a.g)
-}
-
-// Output:
-// 0 8
 
 ```
 ## struct16
@@ -5882,24 +3550,6 @@ func main() {
 
 // Output:
 // foo
-
-```
-## struct2
-```go
-package main
-
-type T struct {
-	f int
-	g int
-}
-
-func main() {
-	a := T{g: 8, f: 7}
-	println(a.f, a.g)
-}
-
-// Output:
-// 7 8
 
 ```
 ## struct20
@@ -5972,22 +3622,6 @@ func main() {
 // child
 
 ```
-## struct24
-```go
-package main
-
-var a = &T{}
-
-type T struct{}
-
-func main() {
-	println(a != nil)
-}
-
-// Output:
-// true
-
-```
 ## struct29
 ```go
 package main
@@ -6011,30 +3645,6 @@ func main() {
 // ok
 
 ```
-## struct3
-```go
-package main
-
-type T struct {
-	f int
-	g int
-	h struct {
-		k int
-	}
-}
-
-func f(i int) int { return i + 3 }
-
-func main() {
-	a := T{}
-	a.h.k = f(4)
-	println(a.h.k)
-}
-
-// Output:
-// 7
-
-```
 ## struct30
 ```go
 package main
@@ -6056,24 +3666,6 @@ func main() {
 
 // Output:
 // ok
-
-```
-## struct31
-```go
-package main
-
-type T struct {
-	bool
-}
-
-var t = T{true}
-
-func main() {
-	println(t.bool && true)
-}
-
-// Output:
-// true
 
 ```
 ## struct32
@@ -6177,26 +3769,6 @@ func main() {
 // ok
 
 ```
-## struct35
-```go
-package main
-
-type T struct {
-	f func(*T)
-}
-
-func f1(t *T) { t.f = f1 }
-
-func main() {
-	t := &T{}
-	f1(t)
-	println(t.f != nil)
-}
-
-// Output:
-// true
-
-```
 ## struct38
 ```go
 package main
@@ -6249,36 +3821,6 @@ func main() {
 
 // Output:
 // ok
-
-```
-## struct4
-```go
-package main
-
-type T3 struct {
-	k int
-}
-
-type T2 struct {
-	h int
-	T3
-}
-
-type T struct {
-	f int
-	g int
-	T2
-}
-
-func f(i int) int { return i * i }
-
-func main() {
-	a := T{5, 7, T2{f(8), T3{9}}}
-	println(a.f, a.g, a.h, a.k)
-}
-
-// Output:
-// 5 7 64 9
 
 ```
 ## struct40
@@ -6415,28 +3957,6 @@ func main() {
 // ok
 
 ```
-## struct45
-```go
-package main
-
-type T struct {
-	b bool
-}
-
-type T1 struct {
-	T
-}
-
-func main() {
-	t := &T1{}
-	t.b = true
-	println(t.b)
-}
-
-// Output:
-// true
-
-```
 ## struct48
 ```go
 package main
@@ -6515,26 +4035,6 @@ func main() {
 // true true
 
 ```
-## struct5
-```go
-package main
-
-type T struct {
-	f int
-	g int
-}
-
-func f(i int) int { return i * i }
-
-func main() {
-	a := T{7, f(4)}
-	println(a.f, a.g)
-}
-
-// Output:
-// 7 16
-
-```
 ## struct54
 ```go
 package main
@@ -6565,23 +4065,6 @@ func main() {
 }
 
 ```
-## struct6
-```go
-package main
-
-type T struct {
-	f, g int
-}
-
-func main() {
-	a := T{7, 8}
-	println(a.f, a.g)
-}
-
-// Output:
-// 7 8
-
-```
 ## struct62
 ```go
 package main
@@ -6595,96 +4078,6 @@ func main() {
 
 // Output:
 // v.A.A = v true
-
-```
-## struct7
-```go
-package main
-
-type Opt struct {
-	b bool
-}
-
-type T struct {
-	i   int
-	opt Opt
-}
-
-func main() {
-	a := T{}
-	println(a.i, a.opt.b)
-}
-
-// Output:
-// 0 false
-
-```
-## struct8
-```go
-package main
-
-type T3 struct {
-	k int
-}
-
-type T2 struct {
-	h int
-	T3
-}
-
-type T struct {
-	f int
-	g int
-	T2
-}
-
-func f(i int) int { return i * i }
-
-func main() {
-	a := T{5, 7, T2{8, T3{9}}}
-	println(a.f, a.g, a.T2.h, a.T2.T3.k)
-}
-
-// Output:
-// 5 7 8 9
-
-```
-## struct9
-```go
-package main
-
-type T struct {
-	f int
-	g int64
-}
-
-func main() {
-	a := T{7, 8}
-	println(a.f, a.g)
-}
-
-// Output:
-// 7 8
-
-```
-## switch_
-```go
-package main
-
-func main() {
-	a := 3
-	switch a {
-	case 0:
-		println(200)
-	default:
-		println(a)
-	case 3:
-		println(100)
-	}
-}
-
-// Output:
-// 100
 
 ```
 ## switch1
@@ -6763,25 +4156,6 @@ func main() {
 
 // Output:
 // i is nil
-
-```
-## switch2
-```go
-package main
-
-func main() {
-	i := 1
-
-	switch i {
-	case 0, 1, 2:
-		println(i)
-	default:
-		println("not nul")
-	}
-}
-
-// Output:
-// 1
 
 ```
 ## switch20
@@ -6890,28 +4264,6 @@ func main() {
 // bye
 
 ```
-## switch26
-```go
-package main
-
-func main() {
-	a := 1
-	switch a := 2; {
-	case a == 1:
-		println(1)
-	case a == 2:
-		println(2)
-	default:
-		println("default")
-	}
-	println(a)
-}
-
-// Output:
-// 2
-// 1
-
-```
 ## switch27
 ```go
 package main
@@ -6967,28 +4319,6 @@ func main() {
 // Output:
 // three
 // bye
-
-```
-## switch3
-```go
-package main
-
-func main() {
-	a := 3
-	switch a {
-	case 0:
-		println(200)
-	case 3:
-		println(100)
-		fallthrough
-	default:
-		println(a)
-	}
-}
-
-// Output:
-// 100
-// 3
 
 ```
 ## switch30
@@ -7304,21 +4634,6 @@ func main() {
 // string
 
 ```
-## type0
-```go
-package main
-
-type newInt int
-
-func main() {
-	var a newInt
-	println(a)
-}
-
-// Output:
-// 0
-
-```
 ## type12
 ```go
 package main
@@ -7351,35 +4666,6 @@ func main() {
 
 // Output:
 // no name
-
-```
-## type13
-```go
-package main
-
-var a = &T{}
-
-type T struct{}
-
-func main() {
-	println(a != nil)
-}
-
-// Output:
-// true
-
-```
-## type15
-```go
-package main
-
-func main() {
-	err := error(nil)
-	println(err == nil)
-}
-
-// Output:
-// true
 
 ```
 ## type18
@@ -7451,19 +4737,6 @@ func main() {
 
 // Output:
 // foo
-
-```
-## var_
-```go
-package main
-
-func main() {
-	var a, b, c int
-	println(a, b, c)
-}
-
-// Output:
-// 0 0 0
 
 ```
 ## var10
@@ -7539,25 +4812,6 @@ func main() {
 // hello world!
 
 ```
-## var15
-```go
-package main
-
-var a int = 2
-
-func inca() {
-	a = a + 1
-}
-
-func main() {
-	inca()
-	println(a)
-}
-
-// Output:
-// 3
-
-```
 ## var16
 ```go
 package main
@@ -7579,45 +4833,6 @@ func main() {
 // getNum
 // getArray
 // #3
-
-```
-## var2
-```go
-package main
-
-func main() {
-	var a int = 2
-	println(a)
-}
-
-// Output:
-// 2
-
-```
-## var3
-```go
-package main
-
-func main() {
-	var a, b int = 2, 3
-	println(a, b)
-}
-
-// Output:
-// 2 3
-
-```
-## var4
-```go
-package main
-
-func main() {
-	var a, b = 2, 3
-	println(a, b)
-}
-
-// Output:
-// 2 3
 
 ```
 ## var9

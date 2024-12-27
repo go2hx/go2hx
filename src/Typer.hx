@@ -484,10 +484,26 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				wrapper.isExtern = true;
 				wrapper.params = def.params;
 				file.defs.push(wrapper);
+				// type alias pointer
+				final aliasPointerName = def.name + "Pointer";
+				final aliasPointer:TypeDefinition = {
+					name: aliasPointerName,
+					pos: null,
+					pack: [],
+					kind: TDAlias(TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(TPath({pack: [], name: splitDepFullPathName(def.name, info)}))]})),
+					fields: [],
+					isExtern: true,
+					meta: [
+						{name: ":keep", pos: null},
+					],
+				};
+				info.data.defs.push(aliasPointer);
 				// files check against all TypeSpecs
-				if (def.meta != null) {
-					def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
+				if (def.meta == null) {
+					def.meta = [];
 				}
+				aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
+				def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				file.defs.push(staticExtension);
 				var embedded = false;
 				for (field in def.fields) { // embedded
@@ -607,7 +623,7 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	final funcName = name;
 	final staticArgs = fun.args.copy();
 	if (isPointerArg) {
-		final t = exprOfType(staticArgs[0].type);
+		/*final t = exprOfType(staticArgs[0].type);
 		switch t {
 			case TPath(p):
 				switch p.params[0] { // Pointer<T>
@@ -621,11 +637,11 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 								params: [TPType(t)]
 							}),
 						};
-						staticArgs.unshift(f);
+						//staticArgs.unshift(f);
 					default:
 				}
 			default:
-		}
+		}*/
 	}
 	final funcName = name;
 	var staticFieldExpr:Expr = {expr: fun.expr.expr, pos: null};
@@ -6099,9 +6115,21 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	}
 	var typeX = typeof(expr.x, info, false);
 
-	if (isPointer(typeX)) {
-		if (!isClass(expr.x, info))
-			x = macro $x.value;
+	if (isPointer(typeX)) { 
+		if (!isClass(expr.x, info)) {
+			if (expr.recv == null) {
+				x = macro $x.value;
+			}else{
+				final elem = getElem(typeX);
+				switch elem {
+					case named(path, methods, type, alias, params):
+						final ct = toComplexType(named(path + "Pointer", methods, type, alias, params), info);
+						x = macro ($x : $ct);
+					default:
+						throw "needs to be named type: " + elem;
+				}
+			}
+		}
 	}
 	final restrictedFields:Array<String> = [];
 	final fields = getStructFields(typeX, restrictedFields);
@@ -7511,7 +7539,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 				info.restricted = [];
 			}
-			if (local) {
+			if (local) { // local type created from analysis/local
 				final def:TypeDefinition = {
 					name: name,
 					pack: [],
@@ -7542,6 +7570,20 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						}))
 					]
 				});
+				// type alias pointer
+				final aliasPointerName = def.name + "Pointer";
+				final aliasPointer:TypeDefinition = {
+					name: aliasPointerName,
+					pos: null,
+					pack: [],
+					kind: TDAlias(TPath({name: "Pointer", pack: ["stdgo"], params: [TPType(TPath({pack: [], name: splitDepFullPathName(def.name, info)}))]})),
+					fields: [],
+					isExtern: true,
+					meta: [
+						{name: ":keep", pos: null},
+					],
+				};
+				info.data.defs.push(aliasPointer);
 				final staticExtensionName = def.name + "_static_extension";
 				final wrapperName = def.name + "_asInterface";
 				final fieldWrapper = [info.global.filePath, wrapperName];
@@ -7565,6 +7607,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				wrapper.params = def.params;
 				info.data.defs.push(wrapper);
 				// embedding
+				aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				info.data.defs.push(staticExtension);
 				var embedded = false;
@@ -7746,65 +7789,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							}else{
 								implicits.push(tp);
 							}
-						default:
-					}
-				}
-			}
-			// Interface -> Struct creation
-			final interfaceToStructBool = false;
-			if (interfaceToStructBool) {
-				final ct:ComplexType = TPath({
-					name: "Pointer",
-					pack: ["stdgo"],
-					params: [
-						TPType(TPath({
-							name: "_" + name,
-							pack: [],
-							params: [],
-						}))
-					]
-				});
-				final staticExtensionName = "_" + name + "_static_extension";
-				final wrapperName = "_" + name + "_asInterface";
-				final fieldWrapper = [info.global.filePath, wrapperName];
-				final globalPath = getGlobalPath(info);
-				if (globalPath != "")
-					fieldWrapper.unshift(globalPath);
-				final staticExtension:TypeDefinition = {
-					name: staticExtensionName,
-					pos: null,
-					pack: [],
-					kind: TDClass(),
-					fields: [],
-					isExtern: true,
-					meta: [
-						{name: ":keep", pos: null},
-						{name: ":allow", pos: null, params: [toExpr(EConst(CIdent(fieldWrapper.join("."))))]}
-					],
-				};
-				final wrapper = createWrapper(wrapperName, ct);
-				info.data.defs.push(wrapper);
-				info.data.defs.push(staticExtension);
-				for (i in 0...fields.length) {
-					final field = fields[i];
-					switch field.kind {
-						case FFun(f):
-							// f.args.unshift({})
-							f.expr = macro {}; // fill in because it's an interface method
-							if (!isVoid(f.ret)) {
-								final t = typeof(struct.methods.list[i].type, info, false, []);
-								switch t {
-									case signature(_, _, _.get() => results, _, _):
-										final s = makeString("not implemented: " + field.name);
-										f.expr = macro throw $s;
-									default:
-								}
-							}
-							f.args.unshift({name: "t", type: TPath({name: "_" + name, pack: []})});
-							// interface struct creation
-							addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
-							f.expr = null;
-							f.args.shift();
 						default:
 					}
 				}
@@ -8128,14 +8112,8 @@ private function formatHaxeFieldName(name:String, info:Info) {
 }
 
 private function untitle(name:String):String {
-	if (isTitle(name)) { // nicer styling turns "GC" -> "gc" instead of "gC"
-		var index = 0;
-		while (index < name.length) {
-			if (!isTitle(name.charAt(index)))
-				break;
-			index++;
-		}
-		name = name.substr(0, index).toLowerCase() + name.substring(index);
+	if (isTitle(name)) {
+		name = name.substr(0, 1).toLowerCase() + name.substring(1);
 	} else {
 		name = "_" + name;
 	}

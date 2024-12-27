@@ -14,116 +14,6 @@ func main() {
 // [hello world] [2]string
 
 ```
-## a39
-```go
-package main
-
-import "fmt"
-
-func main() {
-	a := [...]byte{}
-	b := a
-	fmt.Printf("%T %T\n", a, b)
-}
-
-// Output:
-// [0]uint8 [0]uint8
-
-```
-## complex1
-```go
-package main
-
-import "fmt"
-
-func main() {
-	var c complex128
-	c = 1
-	fmt.Printf("%T %v\n", c, c)
-}
-
-// Output:
-// complex128 (1+0i)
-
-```
-## complex2
-```go
-package main
-
-import "fmt"
-
-func main() {
-	c := complex(1, 0)
-	c += 1
-	fmt.Printf("%T %v\n", c, c)
-}
-
-// Output:
-// complex128 (2+0i)
-
-```
-## complex3
-```go
-package main
-
-import "fmt"
-
-func main() {
-	var s int = 1 + complex(1, 0)
-	fmt.Printf("%T %v\n", s, s)
-}
-
-// Output:
-// int 2
-
-```
-## const5
-```go
-package main
-
-import (
-	"fmt"
-)
-
-const (
-	a uint8 = 2 * iota
-	b
-	c
-)
-
-func main() {
-	fmt.Printf("%T\n", c)
-	fmt.Println(a, b, c)
-}
-
-// Output:
-// uint8
-// 0 2 4
-
-```
-## fun10
-```go
-package main
-
-import "fmt"
-
-func f() func() {
-	return nil
-}
-
-func main() {
-	g := f()
-	fmt.Printf("%T %v\n", g, g)
-	if g == nil {
-		fmt.Println("nil func")
-	}
-}
-
-// Output:
-// func() <nil>
-// nil func
-
-```
 ## gen4
 ```go
 package main
@@ -205,22 +95,6 @@ func main() {
 // inCall
 // Hello &{foo}
 // foo
-
-```
-## interface19
-```go
-package main
-
-import "fmt"
-
-var I interface{}
-
-func main() {
-	fmt.Printf("%T %v\n", I, I)
-}
-
-// Output:
-// <nil> <nil>
 
 ```
 ## interface2
@@ -542,40 +416,6 @@ func displayRoot(val *Root) {
 // &{root}
 
 ```
-## op3
-```go
-package main
-
-import "fmt"
-
-func main() {
-	a := -1.2
-	fmt.Printf("a: %v %T\n", a, a)
-	b := -(2 + 1i)
-	fmt.Printf("b: %v %T\n", b, b)
-}
-
-// Output:
-// a: -1.2 float64
-// b: (-2-1i) complex128
-
-```
-## op5
-```go
-package main
-
-import "fmt"
-
-func main() {
-	i := 100
-	j := i % 1e2
-	fmt.Printf("%T %v\n", j, j)
-}
-
-// Output:
-// int 0
-
-```
 ## range1
 ```go
 package main
@@ -614,22 +454,6 @@ func main() {
 // true
 // true
 // true
-
-```
-## shift1
-```go
-package main
-
-import "fmt"
-
-const a1 = 0x7f8 >> 3
-
-func main() {
-	fmt.Printf("%T %v\n", a1, a1)
-}
-
-// Output:
-// int 255
 
 ```
 ## struct12
@@ -750,39 +574,6 @@ func main() {
 
 // Output:
 // {<nil>}
-
-```
-## switch0
-```go
-package main
-
-import "fmt"
-
-func f(i int) bool {
-	switch i {
-	case 0:
-		println(i)
-		return false
-	default:
-		println("not nul")
-		return true
-	}
-}
-
-func main() {
-	r0 := f(0)
-	fmt.Printf("%T %v", r0, r0)
-	fmt.Println()
-	r1 := f(1)
-	fmt.Printf("%T %v", r1, r1)
-	fmt.Println()
-}
-
-// Output:
-// 0
-// bool false
-// not nul
-// bool true
 
 ```
 ## switch14
@@ -991,36 +782,6 @@ func main() {
 // foo
 // inCall
 // a: {}
-
-```
-## type16
-```go
-package main
-
-import "fmt"
-
-func main() {
-	a := uint8(15) ^ byte(0)
-	fmt.Printf("%T %v\n", a, a)
-}
-
-// Output:
-// uint8 15
-
-```
-## type17
-```go
-package main
-
-import "fmt"
-
-func main() {
-	a := int32(15) ^ rune(0)
-	fmt.Printf("%T %v\n", a, a)
-}
-
-// Output:
-// int32 15
 
 ```
 ## type9

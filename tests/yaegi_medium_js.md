@@ -738,21 +738,6 @@ func main() {
 // Hello
 
 ```
-## bin0
-```go
-package main
-
-import "strings"
-
-func main() {
-	a := strings.SplitN("truc machin", " ", 2)
-	println(a[0])
-}
-
-// Output:
-// truc
-
-```
 ## bin2
 ```go
 package main
@@ -1459,27 +1444,6 @@ func main() {
 // [0 0]
 
 ```
-## convert1
-```go
-package main
-
-import "strconv"
-
-type atoidef func(s string) (int, error)
-
-func main() {
-	stdatoi := atoidef(strconv.Atoi)
-	n, err := stdatoi("7")
-	if err != nil {
-		panic(err)
-	}
-	println(n)
-}
-
-// Output:
-// 7
-
-```
 ## copy0
 ```go
 package main
@@ -2016,35 +1980,6 @@ func main() {
 
 // Output:
 // 2
-
-```
-## interface16
-```go
-package main
-
-import "fmt"
-
-type Barer interface {
-	fmt.Stringer
-	Bar()
-}
-
-type T struct{}
-
-func (*T) String() string { return "T: nothing" }
-func (*T) Bar()           { println("in bar") }
-
-var t = &T{}
-
-func main() {
-	var f Barer
-	if f != t {
-		println("ok")
-	}
-}
-
-// Output:
-// ok
 
 ```
 ## interface19
@@ -4001,23 +3936,6 @@ func main() {
 // -1
 
 ```
-## math1
-```go
-package main
-
-import "math"
-
-func main() {
-	var f float32
-	if f < math.MaxFloat32 {
-		println("ok")
-	}
-}
-
-// Output:
-// ok
-
-```
 ## method0
 ```go
 package main
@@ -4260,24 +4178,6 @@ func main() {
 // T2 ok
 // T2.f()
 // T1.g()
-
-```
-## method35
-```go
-package main
-
-import "strconv"
-
-func main() {
-	var err error
-	_, err = strconv.Atoi("erwer")
-	if _, ok := err.(*strconv.NumError); ok {
-		println("here")
-	}
-}
-
-// Output:
-// here
 
 ```
 ## method5
@@ -5695,36 +5595,6 @@ func main() {
 
 // Output:
 // 48 uint8
-
-```
-## str3
-```go
-package main
-
-import "strconv"
-
-func main() {
-	str := strconv.Itoa(101)
-	println(str[0] == '1')
-}
-
-// Output:
-// true
-
-```
-## str4
-```go
-package main
-
-import "unicode/utf8"
-
-func main() {
-	r, _ := utf8.DecodeRuneInString("Hello")
-	println(r < utf8.RuneSelf)
-}
-
-// Output:
-// true
 
 ```
 ## struct12

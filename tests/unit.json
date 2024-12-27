@@ -448,7 +448,5 @@
  "js|unary0",
  "js|unsafe0",
  "js|var0",
- "js|copy2",
- "hl|copy",
- "hl|copy2"
+ "js|copy2"
 ]

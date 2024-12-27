@@ -42,7 +42,7 @@ abstract GoMap<K, V>(IMap<K, V>) {
 	public var length(get, never):GoInt;
 
 	function get_length():GoInt {
-		return this.iterator == null ? 0 : Lambda.count(this);
+		return this?.iterator == null ? 0 : Lambda.count(this);
 	}
 
 	/**

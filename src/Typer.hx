@@ -4247,7 +4247,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							case mapType(_.get() => key, _.get() => value):
 								var keyType = toComplexType(key, info);
 								var valueType = toComplexType(value, info);
-								createMap(underlyingType, keyType, valueType, [], info);
+								createMap(underlyingType, keyType, valueType, [], info, toComplexType(type, info));
 							case chanType(dir, _.get() => elem):
 								var value = defaultValue(elem, info);
 								var param = toComplexType(elem, info);
@@ -5627,10 +5627,10 @@ private function compositeLitMapList(keyType:GoType, valueType:GoType, underlyin
 	}
 	final keyComplexType = toComplexType(keyType, info);
 	final valueComplexType = toComplexType(valueType, info);
-	return createMap(underlying, keyComplexType, valueComplexType, exprs, info);
+	return createMap(underlying, keyComplexType, valueComplexType, exprs, info, ct);
 }
 
-private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:ComplexType, exprs:Array<Expr>, info:Info):Expr {
+private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexType:ComplexType, exprs:Array<Expr>, info:Info, ct:ComplexType):Expr {
 	var k:GoType = null;
 	var v:GoType = null;
 	switch getUnderlying(t) {
@@ -5693,20 +5693,20 @@ private function createMap(t:GoType, keyComplexType:ComplexType, valueComplexTyp
 		p.params = [p.params[1]];
 	}
 	if (isObjectMap) {
-		return macro({
+		return macro(({
 			final x = new stdgo.GoMap.GoObjectMap<$keyComplexType, $valueComplexType>();
 			x.t = new stdgo._internal.internal.reflect.Reflect._Type($keyT);
 			x.__defaultValue__ = () -> $defaultValueExpr;
 			@:mergeBlock $b{exprs};
 			cast x;
-		} : stdgo.GoMap<$keyComplexType, $valueComplexType>);
+		} : stdgo.GoMap<$keyComplexType, $valueComplexType>) : $ct);
 	}
-	return macro({
+	return macro(({
 		final x = new $p();
 		x.__defaultValue__ = () -> $defaultValueExpr;
 		@:mergeBlock $b{exprs};
 		x;
-	} : stdgo.GoMap<$keyComplexType, $valueComplexType>);
+	} : stdgo.GoMap<$keyComplexType, $valueComplexType>) : $ct);
 }
 
 private function compositeLitList(elem:GoType, keyValueBool:Bool, len:Int, underlying:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:Info):Expr {

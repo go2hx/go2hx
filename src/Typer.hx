@@ -432,18 +432,9 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 					default:
 				}
 				final ct:ComplexType = TPath({
-					name: "Pointer",
-					pack: ["stdgo"],
-					params: [
-						TPType(TPath({
-							name: splitDepFullPathName(def.name, info),
-							pack: [],
-							params: def.params == null ? [] : def.params.map(p -> TPType(TPath({
-								name: p.name,
-								pack: []
-							})))
-						}))
-					]
+					name: splitDepFullPathName(def.name + "Pointer", info),
+					pack: [],
+					params: [],
 				});
 				// trace(new haxe.macro.Printer().printComplexType(ct));
 				var embedded = false;
@@ -532,7 +523,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...[for (i in $e{args[args.length - 1]}) i];
 										default:
 									}
-									fun.expr = macro __self__.$fieldName($a{args});
+									fun.expr = macro @:_5 __self__.$fieldName($a{args});
 									switch expr.expr {
 										case EReturn(_):
 											fun.expr = macro return ${fun.expr};
@@ -668,20 +659,24 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	// trace(printer.printField(staticField));
 	final fieldRet = exprOfType(fun.ret);
 	var fieldArgs = staticArgs.slice(1);
-	if (isPointerArg)
-		fieldArgs.shift();
+	//if (isPointerArg)
+	//	fieldArgs.shift();
 	for (i in 0...fieldArgs.length)
 		fieldArgs[i] = {name: fieldArgs[i].name, type: exprOfType(fieldArgs[i].type)};
 
 	final fieldCallArgs = fieldArgs.map(arg -> macro $i{arg.name});
-	var e = macro __self__;
-	if (isPointerArg) {
-		fieldCallArgs.unshift(macro __self__);
-	}
+	var e = macro @:_0 __self__;
+	/*if (isPointerArg) {
+		fieldCallArgs.unshift(macro @:_1 __self__);
+	}*/
 	if (fieldArgs.length > 0 && isRestType(fieldArgs[fieldArgs.length - 1].type)) {
 		fieldCallArgs[fieldCallArgs.length - 1] = macro...$e{fieldCallArgs[fieldCallArgs.length - 1]};
 	}
-	var e = macro $e.value.$funcName($a{fieldCallArgs});
+	var e = if (isPointerArg) {
+		macro $e.$funcName($a{fieldCallArgs});
+	}else{
+		macro $e.value.$funcName($a{fieldCallArgs});
+	}
 	if (!isVoid(fieldRet))
 		e = macro return $e;
 	var paramIndex = 0;
@@ -4049,7 +4044,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						case _var(_, _.get() => type):
 							final xType = typeof(expr.fun.x, info, false);
 							final xTypePointer = isPointer(xType);
-							final b = isPointer(type);
+							/*final b = isPointer(type);
 							if (b) {
 								final sel = nameIdent(expr.fun.sel.name, false, false, info, false, true);
 								final selExpr = macro $i{sel};
@@ -4075,7 +4070,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									e = macro $e.$sel($a{args});
 								}
 								return returnExpr(e).expr;
-							}
+							}*/
 						default:
 					}
 				default:
@@ -6114,8 +6109,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		default:
 	}
 	var typeX = typeof(expr.x, info, false);
-
-	if (isPointer(typeX)) { 
+	if (isPointer(typeX)) {
 		if (!isClass(expr.x, info)) {
 			if (expr.recv == null) {
 				x = macro $x.value;
@@ -6123,11 +6117,54 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 				final elem = getElem(typeX);
 				switch elem {
 					case named(path, methods, type, alias, params):
-						final ct = toComplexType(named(path + "Pointer", methods, type, alias, params), info);
-						x = macro ($x : $ct);
+						var recvPointerBool = false;
+						for (method in methods) {
+							if (method.name != sel)
+								continue;
+							recvPointerBool = isRef(method.recv.get());
+							break;
+						}
+						if (!recvPointerBool) {
+							x = macro $x.value;
+						}else{
+							trace("this");
+							final ct = toComplexType(named(path + "Pointer", methods, type, alias, params), info);
+							x = macro @:isptr ($x : $ct);
+						}
 					default:
 						throw "needs to be named type: " + elem;
 				}
+			}
+		}
+	}else{
+		if (!isClass(expr.x, info)) {
+			switch typeX {
+				case named(path, methods, type, alias, params):
+					var recvPointerBool = false;
+					for (method in methods) {
+						if (method.name != sel)
+							continue;
+						switch typeof(expr.sel, info, false) {
+							case signature(_, _.get() => params, _.get() => results, _.get() => recv, _.get() => typeParams):
+								// trace(getVar(recv));
+								// trace(getElem(getVar(recv)));
+								// trace(sel);
+							default:
+						}
+						//trace(getElem(method.recv.get()), isRefValue(getElem(method.recv.get())));
+						recvPointerBool = isRef(method.recv.get());
+						//trace(recvPointerBool, method.name, method.recv.get());
+						break;
+					}
+					if (!recvPointerBool) {
+						//x = macro $x.value;
+					}else{
+						final ct = toComplexType(named(path + "Pointer", methods, type, alias, params), info);
+						if (!isRefValue(type))
+							x = macro @:notptr (stdgo.Go.pointer($x) : $ct);
+					}
+				default:
+					//throw "needs to be named type: " + typeX;
 			}
 		}
 	}
@@ -7557,18 +7594,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				}
 				// if (localEmbeddedFields.length > 0) {
 				final ct:ComplexType = TPath({
-					name: "Pointer",
-					pack: ["stdgo"],
-					params: [
-						TPType(TPath({
-							name: splitDepFullPathName(def.name,info),
-							pack: [],
-							params: def.params == null ? [] : def.params.map(p -> TPType(TPath({
-								name: p.name,
-								pack: []
-							})))
-						}))
-					]
+					name: splitDepFullPathName(def.name + "Pointer",info),
+					pack: [],
+					params: [],
 				});
 				// type alias pointer
 				final aliasPointerName = def.name + "Pointer";
@@ -7631,7 +7659,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 									});
 									final expr = {expr: fun.expr.expr, pos: null};
 									final fieldName = field.name;
-									final args = fun.args.slice(1).map(a -> macro $i{a.name});
+									final args = fun.args.slice(0).map(a -> macro $i{a.name});
 									switch fun.args[fun.args.length - 1].type {
 										case TPath(p):
 											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...$e{
@@ -7645,12 +7673,12 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 												macro return ${modify(expr)};
 											case ECall({expr: EField({expr: EField({expr: EConst(CIdent(s)), pos: _}, field), pos: _}, nextField), pos: _}, params):
 												if (s == "this") {
-													macro __self__.$field.$nextField($a{params});
+													macro @:_2 __self__.$field.$nextField($a{params});
 												}else{
-													macro __self__.$s.$field.$nextField($a{params});
+													macro @:_3 __self__.$s.$field.$nextField($a{params});
 												}
 											case ECall({expr: EField({expr: EConst(CIdent(s)), pos: _}, field), pos: _}, params):
-												macro __self__.$s.$field($a{params});
+												macro @:_4 __self__.$s.$field($a{params});
 											default:
 												trace(printer.printExpr(expr));
 												expr;

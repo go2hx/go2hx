@@ -38,192 +38,49 @@ func main() {
 }
 
 ```
-## open_defer_1
+## issue16760
 ```go
 // run
 
-// Copyright 2021 The Go Authors. All rights reserved.
+// Copyright 2016 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// For #45062, miscompilation of open defer of method invocation
+// Make sure we don't start marshaling (writing to the stack)
+// arguments until those arguments are evaluated and known
+// not to unconditionally panic. If they unconditionally panic,
+// we write some args but never do the call. That messes up
+// the logic which decides how big the argout section needs to be.
 
 package main
 
+type W interface {
+	Write([]byte)
+}
+
+type F func(W)
+
+func foo(f F) {
+	defer func() {
+		if r := recover(); r != nil {
+			usestack(1000)
+		}
+	}()
+	f(nil)
+}
+
 func main() {
-	var x, y, z int = -1, -2, -3
-	F(x, y, z)
+	foo(func(w W) {
+		var x []string
+		w.Write([]byte(x[5]))
+	})
 }
 
-//go:noinline
-func F(x, y, z int) {
-	defer i.M(x, y, z)
-	defer func() { recover() }()
-	panic("XXX")
-}
-
-type T int
-
-func (t *T) M(x, y, z int) {
-	if x == -1 && y == -2 && z == -3 {
+func usestack(n int) {
+	if n == 0 {
 		return
 	}
-	println("FAIL: Expected -1, -2, -3, but x, y, z =", x, y, z)
-}
-
-var t T = 42
-
-type I interface{ M(x, y, z int) }
-
-var i I = &t
-
-```
-## bug286
-```go
-// run
-
-// Copyright 2010 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test case for issue 849.
-
-package main
-
-type I interface {
-	f()
-}
-
-var callee string
-var error_ bool
-
-type T int
-
-func (t *T) f() { callee = "f" }
-func (i *T) g() { callee = "g" }
-
-// test1 and test2 are the same except that in the interface J
-// the entries are swapped. test2 and test3 are the same except
-// that in test3 the interface J is declared outside the function.
-//
-// Error: test2 calls g instead of f
-
-func test1(x I) {
-	type J interface {
-		I
-		g()
-	}
-	x.(J).f()
-	if callee != "f" {
-		println("test1 called", callee)
-		error_ = true
-	}
-}
-
-func test2(x I) {
-	type J interface {
-		g()
-		I
-	}
-	x.(J).f()
-	if callee != "f" {
-		println("test2 called", callee)
-		error_ = true
-	}
-}
-
-type J interface {
-	g()
-	I
-}
-
-func test3(x I) {
-	x.(J).f()
-	if callee != "f" {
-		println("test3 called", callee)
-		error_ = true
-	}
-}
-
-func main() {
-	x := new(T)
-	test1(x)
-	test2(x)
-	test3(x)
-	if error_ {
-		panic("wrong method called")
-	}
-}
-
-/*
-6g bug286.go && 6l bug286.6 && 6.out
-test2 called g
-panic: wrong method called
-
-panic PC=0x24e040
-runtime.panic+0x7c /home/gri/go1/src/pkg/runtime/proc.c:1012
-	runtime.panic(0x0, 0x24e0a0)
-main.main+0xef /home/gri/go1/test/bugs/bug286.go:76
-	main.main()
-mainstart+0xf /home/gri/go1/src/pkg/runtime/amd64/asm.s:60
-	mainstart()
-goexit /home/gri/go1/src/pkg/runtime/proc.c:145
-	goexit()
-*/
-
-```
-## bug494
-```go
-// run
-
-// Copyright 2014 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Gccgo incorrectly executed functions multiple times when they
-// appeared in a composite literal that required a conversion between
-// different interface types.
-
-package main
-
-type MyInt int
-
-var c MyInt
-
-func (c *MyInt) S(i int) {
-	*c = MyInt(i)
-}
-
-func (c *MyInt) V() int {
-	return int(*c)
-}
-
-type i1 interface {
-	S(int)
-	V() int
-}
-
-type i2 interface {
-	V() int
-}
-
-type s struct {
-	i i2
-}
-
-func f() i1 {
-	c++
-	return &c
-}
-
-func main() {
-	p := &s{f()}
-	if v := p.i.V(); v != 1 {
-		panic(v)
-	}
-	if c != 1 {
-		panic(c)
-	}
+	usestack(n - 1)
 }
 
 ```
@@ -450,60 +307,6 @@ func main() {
 }
 
 ```
-## issue4167
-```go
-// run
-
-// Copyright 2012 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Issue 4167: inlining of a (*T).Method expression taking
-// its arguments from a multiple return breaks the compiler.
-
-package main
-
-type pa []int
-
-type p int
-
-func (this *pa) func1() (v *p, c int) {
-	for _ = range *this {
-		c++
-	}
-	v = (*p)(&c)
-	return
-}
-
-func (this *pa) func2() p {
-	return (*p).func3(this.func1())
-}
-
-func (this *p) func3(f int) p {
-	return *this
-}
-
-func (this *pa) func2dots() p {
-	return (*p).func3(this.func1())
-}
-
-func (this *p) func3dots(f ...int) p {
-	return *this
-}
-
-func main() {
-	arr := make(pa, 13)
-	length := arr.func2()
-	if int(length) != len(arr) {
-		panic("length != len(arr)")
-	}
-	length = arr.func2dots()
-	if int(length) != len(arr) {
-		panic("length != len(arr)")
-	}
-}
-
-```
 ## issue4316
 ```go
 // run
@@ -592,86 +395,6 @@ var i64 int64 = 100023
 func main() {
 	defer func() { recover() }()
 	_ = paib[i64]
-}
-
-```
-## issue46304
-```go
-// run
-
-// Copyright 2021 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// This testcase caused a crash when the register ABI was in effect,
-// on amd64 (problem with register allocation).
-
-package main
-
-type Op struct {
-	tag   string
-	_x    []string
-	_q    [20]uint64
-	plist []P
-}
-
-type P struct {
-	tag string
-	_x  [10]uint64
-	b   bool
-}
-
-type M int
-
-//go:noinline
-func (w *M) walkP(p *P) *P {
-	np := &P{}
-	*np = *p
-	np.tag += "new"
-	return np
-}
-
-func (w *M) walkOp(op *Op) *Op {
-	if op == nil {
-		return nil
-	}
-
-	orig := op
-	cloned := false
-	clone := func() {
-		if !cloned {
-			cloned = true
-			op = &Op{}
-			*op = *orig
-		}
-	}
-
-	pCloned := false
-	for i := range op.plist {
-		if s := w.walkP(&op.plist[i]); s != &op.plist[i] {
-			if !pCloned {
-				pCloned = true
-				clone()
-				op.plist = make([]P, len(orig.plist))
-				copy(op.plist, orig.plist)
-			}
-			op.plist[i] = *s
-		}
-	}
-
-	return op
-}
-
-func main() {
-	var ww M
-	w := &ww
-	p1 := P{tag: "a"}
-	p1._x[1] = 9
-	o := Op{tag: "old", plist: []P{p1}}
-	no := w.walkOp(&o)
-	if no.plist[0].tag != "anew" {
-		panic("bad")
-	}
 }
 
 ```
@@ -1117,84 +840,6 @@ func main() {
 	chku64(uint64(u64), cu64&0xffffffffffffffff)
 	//	chku64(uint64(f32), 0)
 	//	chku64(uint64(f64), 0)
-}
-
-```
-## bigdata
-```go
-// run
-
-// Copyright 2009 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Test big vs. small, pointer vs. value interface methods.
-
-package main
-
-type I interface { M() int64 }
-
-type BigPtr struct { a, b, c, d int64 }
-func (z *BigPtr) M() int64 { return z.a+z.b+z.c+z.d }
-
-type SmallPtr struct { a int32 }
-func (z *SmallPtr) M() int64 { return int64(z.a) }
-
-type IntPtr int32
-func (z *IntPtr) M() int64 { return int64(*z) }
-
-var bad bool
-
-func test(name string, i I) {
-	m := i.M()
-	if m != 12345 {
-		println(name, m)
-		bad = true
-	}
-}
-
-func ptrs() {
-	var bigptr BigPtr = BigPtr{ 10000, 2000, 300, 45 }
-	var smallptr SmallPtr = SmallPtr{ 12345 }
-	var intptr IntPtr = 12345
-
-//	test("bigptr", bigptr)
-	test("&bigptr", &bigptr)
-//	test("smallptr", smallptr)
-	test("&smallptr", &smallptr)
-//	test("intptr", intptr)
-	test("&intptr", &intptr)
-}
-
-type Big struct { a, b, c, d int64 }
-func (z Big) M() int64 { return z.a+z.b+z.c+z.d }
-
-type Small struct { a int32 }
-func (z Small) M() int64 { return int64(z.a) }
-
-type Int int32
-func (z Int) M() int64 { return int64(z) }
-
-func nonptrs() {
-	var big Big = Big{ 10000, 2000, 300, 45 }
-	var small Small = Small{ 12345 }
-	var int Int = 12345
-
-	test("big", big)
-	test("&big", &big)
-	test("small", small)
-	test("&small", &small)
-	test("int", int)
-	test("&int", &int)
-}
-
-func main() {
-	ptrs()
-	nonptrs()
-
-	if bad {
-		println("BUG: interface4")
-	}
 }
 
 ```

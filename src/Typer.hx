@@ -7620,7 +7620,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 							//expr = results.length == 1 ? defaultValue(results[0], info) : macro @:typeType null;
 						}
-						final ftype = TFunction(params.map(param -> param.type), ret);
+						final ftype = ret != null ? TFunction(params.map(param -> param.type), ret) : null;
 						final field:Field = {
 							name: methodName,
 							meta: [{name: ":embedded", pos: null}],
@@ -7853,6 +7853,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						final f:haxe.macro.Expr.Function = {args: []};
 						f.args = [for (i in 0...args.length) ({name: '_$i', type: args[i]} : haxe.macro.Expr.FunctionArg)];
 						f.expr = macro t.$fieldName($a{fargs});
+						f.ret = ret;
 						if (!isVoid(f.ret))
 							f.expr = macro return ${f.expr};
 						f.args.unshift({name: "t", type: TPath({name:splitDepFullPathName(name, info), pack: []})});

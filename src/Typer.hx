@@ -6157,7 +6157,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 							x = macro @:isptr ($x : $ct);
 						}
 					default:
-						throw "needs to be named type: " + elem;
+						//throw "needs to be named type: " + elem;
 				}
 			}
 		}
@@ -6228,7 +6228,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 				    }
 					//x = macro @:check4 ($x ?? throw "null pointer dereference");
 				default:
-					throw "needs to be named type: " + typeX;
+					//throw "needs to be named type: " + typeX;
 			}
 		}
 	}

@@ -7625,7 +7625,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						final ftype = TFunction(params.map(param -> param.type), ret);
 						final field:Field = {
 							name: methodName,
-							meta: [{name: ":embedded", pos: null}],
 							pos: null,
 							access: [APublic],
 							/*kind: FFun({
@@ -7638,6 +7637,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						final fieldGet:Field = {
 							name: "get_" + methodName,
 							pos: null,
+							meta: [{name: ":embedded", pos: null}],
 							access: [APublic],
 							kind: FFun({
 								args: [],
@@ -7733,12 +7733,21 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						if (embedded) { // embedded method already exists create it for staticExtension
 							switch field.kind {
 								case FFun(fun):
+									field.name = field.name.substr("_get".length);
+									switch fun.ret {
+										case TFunction(args, ret):
+											fun.ret = ret;
+											fun.args = [for (i in 0...args.length) {name: '_$i', type: args[i]}];
+										default:
+									}
 									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
+									final fArgs = fun.args.map(arg -> macro $i{arg.name});
 									fun.args.unshift({
 										name: "__self__",
 										type: t,
 										meta: [],
 									});
+									fun.expr = macro ${fun.expr}($a{fArgs});
 									final expr = {expr: fun.expr.expr, pos: null};
 									final fieldName = field.name;
 									final args = fun.args.slice(0).map(a -> macro $i{a.name});
@@ -7749,24 +7758,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 											};
 										default:
 									}
-									function modify(expr) {
-										return switch expr.expr {
-											case EReturn(expr):
-												macro return ${modify(expr)};
-											case ECall({expr: EField({expr: EField({expr: EConst(CIdent(s)), pos: _}, field), pos: _}, nextField), pos: _}, params):
-												if (s == "this") {
-													macro @:_2 __self__.$field.$nextField($a{params});
-												}else{
-													macro @:_3 __self__.$s.$field.$nextField($a{params});
-												}
-											case ECall({expr: EField({expr: EConst(CIdent(s)), pos: _}, field), pos: _}, params):
-												macro @:_4 __self__.$s.$field($a{params});
-											default:
-												trace(printer.printExpr(expr));
-												expr;
-										}
-									}
-									fun.expr = modify(fun.expr);
+									fun.expr = replaceIdent(["this" => "__self__"], fun.expr);
 									switch expr.expr {
 										case EReturn(_):
 											fun.expr = macro return ${fun.expr};

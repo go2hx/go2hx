@@ -38,6 +38,240 @@ func main() {
 }
 
 ```
+## ddd
+```go
+// run
+
+// Copyright 2010 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Test variadic functions and calls (dot-dot-dot).
+
+package main
+
+func sum(args ...int) int {
+	s := 0
+	for _, v := range args {
+		s += v
+	}
+	return s
+}
+
+func sumC(args ...int) int { return func() int { return sum(args...) }() }
+
+var sumD = func(args ...int) int { return sum(args...) }
+
+var sumE = func() func(...int) int { return func(args ...int) int { return sum(args...) } }()
+
+var sumF = func(args ...int) func() int { return func() int { return sum(args...) } }
+
+func sumA(args []int) int {
+	s := 0
+	for _, v := range args {
+		s += v
+	}
+	return s
+}
+
+func sumB(args []int) int { return sum(args...) }
+
+func sum2(args ...int) int { return 2 * sum(args...) }
+
+func sum3(args ...int) int { return 3 * sumA(args) }
+
+func sum4(args ...int) int { return 4 * sumB(args) }
+
+func intersum(args ...interface{}) int {
+	s := 0
+	for _, v := range args {
+		s += v.(int)
+	}
+	return s
+}
+
+type T []T
+
+func ln(args ...T) int { return len(args) }
+
+func ln2(args ...T) int { return 2 * ln(args...) }
+
+func (*T) Sum(args ...int) int { return sum(args...) }
+
+type U struct {
+	*T
+}
+
+type I interface {
+	Sum(...int) int
+}
+
+func main() {
+	if x := sum(1, 2, 3); x != 6 {
+		println("sum 6", x)
+		panic("fail")
+	}
+	if x := sum(); x != 0 {
+		println("sum 0", x)
+		panic("fail")
+	}
+	if x := sum(10); x != 10 {
+		println("sum 10", x)
+		panic("fail")
+	}
+	if x := sum(1, 8); x != 9 {
+		println("sum 9", x)
+		panic("fail")
+	}
+	if x := sumC(4, 5, 6); x != 15 {
+		println("sumC 15", x)
+		panic("fail")
+	}
+	if x := sumD(4, 5, 7); x != 16 {
+		println("sumD 16", x)
+		panic("fail")
+	}
+	if x := sumE(4, 5, 8); x != 17 {
+		println("sumE 17", x)
+		panic("fail")
+	}
+	if x := sumF(4, 5, 9)(); x != 18 {
+		println("sumF 18", x)
+		panic("fail")
+	}
+	if x := sum2(1, 2, 3); x != 2*6 {
+		println("sum 6", x)
+		panic("fail")
+	}
+	if x := sum2(); x != 2*0 {
+		println("sum 0", x)
+		panic("fail")
+	}
+	if x := sum2(10); x != 2*10 {
+		println("sum 10", x)
+		panic("fail")
+	}
+	if x := sum2(1, 8); x != 2*9 {
+		println("sum 9", x)
+		panic("fail")
+	}
+	if x := sum3(1, 2, 3); x != 3*6 {
+		println("sum 6", x)
+		panic("fail")
+	}
+	if x := sum3(); x != 3*0 {
+		println("sum 0", x)
+		panic("fail")
+	}
+	if x := sum3(10); x != 3*10 {
+		println("sum 10", x)
+		panic("fail")
+	}
+	if x := sum3(1, 8); x != 3*9 {
+		println("sum 9", x)
+		panic("fail")
+	}
+	if x := sum4(1, 2, 3); x != 4*6 {
+		println("sum 6", x)
+		panic("fail")
+	}
+	if x := sum4(); x != 4*0 {
+		println("sum 0", x)
+		panic("fail")
+	}
+	if x := sum4(10); x != 4*10 {
+		println("sum 10", x)
+		panic("fail")
+	}
+	if x := sum4(1, 8); x != 4*9 {
+		println("sum 9", x)
+		panic("fail")
+	}
+	if x := intersum(1, 2, 3); x != 6 {
+		println("intersum 6", x)
+		panic("fail")
+	}
+	if x := intersum(); x != 0 {
+		println("intersum 0", x)
+		panic("fail")
+	}
+	if x := intersum(10); x != 10 {
+		println("intersum 10", x)
+		panic("fail")
+	}
+	if x := intersum(1, 8); x != 9 {
+		println("intersum 9", x)
+		panic("fail")
+	}
+
+	if x := ln(nil, nil, nil); x != 3 {
+		println("ln 3", x)
+		panic("fail")
+	}
+	if x := ln([]T{}); x != 1 {
+		println("ln 1", x)
+		panic("fail")
+	}
+	if x := ln2(nil, nil, nil); x != 2*3 {
+		println("ln2 3", x)
+		panic("fail")
+	}
+	if x := ln2([]T{}); x != 2*1 {
+		println("ln2 1", x)
+		panic("fail")
+	}
+	if x := ((*T)(nil)).Sum(1, 3, 5, 7); x != 16 {
+		println("(*T)(nil).Sum", x)
+		panic("fail")
+	}
+	if x := (*T).Sum(nil, 1, 3, 5, 6); x != 15 {
+		println("(*T).Sum", x)
+		panic("fail")
+	}
+	if x := (&U{}).Sum(1, 3, 5, 5); x != 14 {
+		println("(&U{}).Sum", x)
+		panic("fail")
+	}
+	var u U
+	if x := u.Sum(1, 3, 5, 4); x != 13 {
+		println("u.Sum", x)
+		panic("fail")
+	}
+	if x := (&u).Sum(1, 3, 5, 3); x != 12 {
+		println("(&u).Sum", x)
+		panic("fail")
+	}
+	var i interface {
+		Sum(...int) int
+	} = &u
+	if x := i.Sum(2, 3, 5, 7); x != 17 {
+		println("i(=&u).Sum", x)
+		panic("fail")
+	}
+	i = u
+	if x := i.Sum(2, 3, 5, 6); x != 16 {
+		println("i(=u).Sum", x)
+		panic("fail")
+	}
+	var s struct {
+		I
+	}
+	s.I = &u
+	if x := s.Sum(2, 3, 5, 8); x != 18 {
+		println("s{&u}.Sum", x)
+		panic("fail")
+	}
+	if x := (*U).Sum(&U{}, 1, 3, 5, 2); x != 11 {
+		println("(*U).Sum", x)
+		panic("fail")
+	}
+	if x := U.Sum(U{}, 1, 3, 5, 1); x != 10 {
+		println("U.Sum", x)
+		panic("fail")
+	}
+}
+
+```
 ## bug113
 ```go
 // run
@@ -83,6 +317,47 @@ func shouldPanic(f func()) {
 		}
 	}()
 	f()
+}
+
+```
+## issue12108
+```go
+// run
+
+// Copyright 2015 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// A generated method with a return value large enough to be
+// initialized by duffzero is not a leaf method, which violated
+// assumptions made by cmd/internal/obj/ppc64.
+
+package main
+
+const N = 9 // values > 8 cause (Super).Method to use duffzero
+
+type Base struct {
+}
+
+func (b *Base) Method() (x [N]uintptr) {
+	return
+}
+
+type Super struct {
+	Base
+}
+
+type T interface {
+	Method() [N]uintptr
+}
+
+func f(q T) {
+	q.Method()
+}
+
+func main() {
+	var s Super
+	f(&s)
 }
 
 ```
@@ -352,34 +627,6 @@ func poison() {
 var g [10]int
 
 ```
-## issue29013a
-```go
-// run
-
-// Copyright 2018 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-type TestSuite struct {
-	Tests []int
-}
-
-var Suites = []TestSuite{
-	Dicts,
-}
-var Dicts = TestSuite{
-	Tests: []int{0},
-}
-
-func main() {
-	if &Dicts.Tests[0] != &Suites[0].Tests[0] {
-		panic("bad")
-	}
-}
-
-```
 ## issue37753
 ```go
 // run
@@ -491,31 +738,6 @@ func main() {
 	defer func() { recover() }()
 	_ = paib[i64]
 }
-
-```
-## issue47928
-```go
-// run -goexperiment fieldtrack
-
-// Copyright 2021 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-func main() {
-	var i interface{} = new(T)
-	if _, ok := i.(interface{ Bad() }); ok {
-		panic("FAIL")
-	}
-}
-
-type T struct{ U }
-
-type U struct{}
-
-//go:nointerface
-func (*U) Bad() {}
 
 ```
 ## issue50672
@@ -718,6 +940,49 @@ func g(x interface{}) {
 }
 
 var sink []byte
+
+```
+## issue6269
+```go
+// run
+
+// Copyright 2013 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// issue 6269: name collision on method names for function local types.
+
+package main
+
+type foo struct{}
+
+func (foo) Error() string {
+	return "ok"
+}
+
+type bar struct{}
+
+func (bar) Error() string {
+	return "fail"
+}
+
+func unused() {
+	type collision struct {
+		bar
+	}
+	_ = collision{}
+}
+
+func main() {
+	type collision struct {
+		foo
+	}
+	s := error(collision{})
+	if str := s.Error(); str != "ok" {
+		println("s.Error() ==", str)
+		panic(`s.Error() != "ok"`)
+	}
+}
 
 ```
 ## intcvt
@@ -1889,6 +2154,329 @@ func main() {
 }
 
 ```
+## embed
+```go
+// run
+
+// Copyright 2009 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Test embedded fields of structs, including methods.
+
+package main
+
+
+type I interface {
+	test1() int
+	test2() int
+	test3() int
+	test4() int
+	test5() int
+	test6() int
+	test7() int
+}
+
+/******
+ ******
+ ******/
+
+type SubpSubp struct {
+	a7 int
+	a  int
+}
+
+func (p *SubpSubp) test7() int {
+	if p.a != p.a7 {
+		println("SubpSubp", p, p.a7)
+		panic("fail")
+	}
+	return p.a
+}
+func (p *SubpSubp) testx() { println("SubpSubp", p, p.a7) }
+
+/******
+ ******
+ ******/
+
+type SubpSub struct {
+	a6 int
+	SubpSubp
+	a int
+}
+
+func (p *SubpSub) test6() int {
+	if p.a != p.a6 {
+		println("SubpSub", p, p.a6)
+		panic("fail")
+	}
+	return p.a
+}
+func (p *SubpSub) testx() { println("SubpSub", p, p.a6) }
+
+/******
+ ******
+ ******/
+
+type SubSubp struct {
+	a5 int
+	a  int
+}
+
+func (p *SubSubp) test5() int {
+	if p.a != p.a5 {
+		println("SubpSub", p, p.a5)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
+
+type SubSub struct {
+	a4 int
+	a  int
+}
+
+func (p *SubSub) test4() int {
+	if p.a != p.a4 {
+		println("SubpSub", p, p.a4)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
+
+type Subp struct {
+	a3 int
+	*SubpSubp
+	SubpSub
+	a int
+}
+
+func (p *Subp) test3() int {
+	if p.a != p.a3 {
+		println("SubpSub", p, p.a3)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
+
+type Sub struct {
+	a2 int
+	*SubSubp
+	SubSub
+	a int
+}
+
+func (p *Sub) test2() int {
+	if p.a != p.a2 {
+		println("SubpSub", p, p.a2)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
+
+type S struct {
+	a1 int
+	Sub
+	*Subp
+	a int
+}
+
+func (p *S) test1() int {
+	if p.a != p.a1 {
+		println("SubpSub", p, p.a1)
+		panic("fail")
+	}
+	return p.a
+}
+
+/******
+ ******
+ ******/
+
+func main() {
+	var i I
+	var s *S
+
+	// allocate
+	s = new(S)
+	s.Subp = new(Subp)
+	s.Sub.SubSubp = new(SubSubp)
+	s.Subp.SubpSubp = new(SubpSubp)
+
+	// explicit assignment
+	s.a = 1
+	s.Sub.a = 2
+	s.Subp.a = 3
+	s.Sub.SubSub.a = 4
+	s.Sub.SubSubp.a = 5
+	s.Subp.SubpSub.a = 6
+	s.Subp.SubpSubp.a = 7
+
+	// embedded (unique) assignment
+	s.a1 = 1
+	s.a2 = 2
+	s.a3 = 3
+	s.a4 = 4
+	s.a5 = 5
+	s.a6 = 6
+	s.a7 = 7
+
+	// unique calls with explicit &
+	if s.test1() != 1 {
+		println("t1", 1)
+		panic("fail")
+	}
+	if (&s.Sub).test2() != 2 {
+		println("t1", 2)
+		panic("fail")
+	}
+	if s.Subp.test3() != 3 {
+		println("t1", 3)
+		panic("fail")
+	}
+	if (&s.Sub.SubSub).test4() != 4 {
+		println("t1", 4)
+		panic("fail")
+	}
+	if s.Sub.SubSubp.test5() != 5 {
+		println("t1", 5)
+		panic("fail")
+	}
+	if (&s.Subp.SubpSub).test6() != 6 {
+		println("t1", 6)
+		panic("fail")
+	}
+	if s.Subp.SubpSubp.test7() != 7 {
+		println("t1", 7)
+		panic("fail")
+	}
+
+	// automatic &
+	if s.Sub.test2() != 2 {
+		println("t2", 2)
+		panic("fail")
+	}
+	if s.Sub.SubSub.test4() != 4 {
+		println("t2", 4)
+		panic("fail")
+	}
+	if s.Subp.SubpSub.test6() != 6 {
+		println("t2", 6)
+		panic("fail")
+	}
+
+	// embedded calls
+	if s.test1() != s.a1 {
+		println("t3", 1)
+		panic("fail")
+	}
+	if s.test2() != s.a2 {
+		println("t3", 2)
+		panic("fail")
+	}
+	if s.test3() != s.a3 {
+		println("t3", 3)
+		panic("fail")
+	}
+	if s.test4() != s.a4 {
+		println("t3", 4)
+		panic("fail")
+	}
+	if s.test5() != s.a5 {
+		println("t3", 5)
+		panic("fail")
+	}
+	if s.test6() != s.a6 {
+		println("t3", 6)
+		panic("fail")
+	}
+	if s.test7() != s.a7 {
+		println("t3", 7)
+		panic("fail")
+	}
+
+	// run it through an interface
+	i = s
+	s = i.(*S)
+
+	// same as t3
+	if s.test1() != s.a1 {
+		println("t4", 1)
+		panic("fail")
+	}
+	if s.test2() != s.a2 {
+		println("t4", 2)
+		panic("fail")
+	}
+	if s.test3() != s.a3 {
+		println("t4", 3)
+		panic("fail")
+	}
+	if s.test4() != s.a4 {
+		println("t4", 4)
+		panic("fail")
+	}
+	if s.test5() != s.a5 {
+		println("t4", 5)
+		panic("fail")
+	}
+	if s.test6() != s.a6 {
+		println("t4", 6)
+		panic("fail")
+	}
+	if s.test7() != s.a7 {
+		println("t4", 7)
+		panic("fail")
+	}
+
+	// call interface
+	if i.test1() != s.test1() {
+		println("t5", 1)
+		panic("fail")
+	}
+	if i.test2() != s.test2() {
+		println("t5", 2)
+		panic("fail")
+	}
+	if i.test3() != s.test3() {
+		println("t5", 3)
+		panic("fail")
+	}
+	if i.test4() != s.test4() {
+		println("t5", 4)
+		panic("fail")
+	}
+	if i.test5() != s.test5() {
+		println("t5", 5)
+		panic("fail")
+	}
+	if i.test6() != s.test6() {
+		println("t5", 6)
+		panic("fail")
+	}
+	if i.test7() != s.test7() {
+		println("t5", 7)
+		panic("fail")
+	}
+}
+
+```
 ## for_
 ```go
 // run
@@ -2969,6 +3557,77 @@ func main() {
 	shouldNotPanic(func() { var t4 T4; f = t4.M })
 	if f == nil {
 		panic("nothing set f")
+	}
+}
+
+```
+## method7
+```go
+// run
+
+// Copyright 2017 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Test forms of method expressions T.m where T is
+// a literal type.
+
+package main
+
+var got, want string
+
+type I interface {
+	m()
+}
+
+type S struct {
+}
+
+func (S) m()          { got += " m()" }
+func (S) m1(s string) { got += " m1(" + s + ")" }
+
+type T int
+
+func (T) m2() { got += " m2()" }
+
+type Outer struct{ *Inner }
+type Inner struct{ s string }
+
+func (i Inner) M() string { return i.s }
+
+func main() {
+	// method expressions with named receiver types
+	I.m(S{})
+	want += " m()"
+
+	S.m1(S{}, "a")
+	want += " m1(a)"
+
+	// method expressions with literal receiver types
+	f := interface{ m1(string) }.m1
+	f(S{}, "b")
+	want += " m1(b)"
+
+	interface{ m1(string) }.m1(S{}, "c")
+	want += " m1(c)"
+
+	x := S{}
+	interface{ m1(string) }.m1(x, "d")
+	want += " m1(d)"
+
+	g := struct{ T }.m2
+	g(struct{ T }{})
+	want += " m2()"
+
+	if got != want {
+		panic("got" + got + ", want" + want)
+	}
+
+	h := (*Outer).M
+	got := h(&Outer{&Inner{"hello"}})
+	want := "hello"
+	if got != want {
+		panic("got " + got + ", want " + want)
 	}
 }
 

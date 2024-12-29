@@ -7620,7 +7620,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 							//expr = results.length == 1 ? defaultValue(results[0], info) : macro @:typeType null;
 						}
-						final ftype = ret != null ? TFunction(params.map(param -> param.type), ret) : null;
+						if (ret == null)
+							ret = TPath({name: "Void", pack: []});
+						final ftype = TFunction(params.map(param -> param.type), ret);
 						final field:Field = {
 							name: methodName,
 							meta: [{name: ":embedded", pos: null}],

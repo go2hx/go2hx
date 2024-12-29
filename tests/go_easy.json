@@ -1159,6 +1159,5 @@
  "php|strvar",
  "php|turing",
  "php|varinit",
- "php|zombie_struct_select",
- "php|method5"
+ "php|zombie_struct_select"
 ]

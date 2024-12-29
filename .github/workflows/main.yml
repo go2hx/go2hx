@@ -13,7 +13,7 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -65,7 +65,7 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         continue-on-error: true
         with:
@@ -80,7 +80,7 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         continue-on-error: true
         with:
@@ -96,7 +96,7 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/cache/restore@v4
         id: setup-cache
         with:
@@ -106,11 +106,10 @@ jobs:
             ./stdgo/*
             ./go2hx.*.zip 
           key: ${{ github.sha }}-build-${{ env.cache-name }}
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-          commit_message: stdgo automatic compile
+            message: stdgo automatic compile
+            pull: '--rebase --autostash ...'
   go-easy-hl:
     timeout-minutes: 25
     needs: setup
@@ -118,7 +117,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -178,11 +177,16 @@ jobs:
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go easy tests update hl
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update hl
+            pull: '--rebase --autostash ...'
+            add: ./tests
+      - uses: EndBug/add-and-commit@v9
+        with:
+            message: go easy tests update hl
+            pull: '--rebase --autostash ...'
+            add: ./tests
   go-easy-jvm:
     timeout-minutes: 25
     needs: setup
@@ -190,7 +194,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -251,11 +255,16 @@ jobs:
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go easy tests update jvm
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update jvm
+            pull: '--rebase --autostash ...'
+            add: ./tests
+      - uses: EndBug/add-and-commit@v9
+        with:
+            message: go easy tests update jvm
+            pull: '--rebase --autostash ...'
+            add: ./tests
   go-easy-interp:
     timeout-minutes: 25
     needs: setup
@@ -263,7 +272,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -323,11 +332,16 @@ jobs:
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go easy tests update interp
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update interp
+            pull: '--rebase --autostash ...'
+            add: ./tests
+      - uses: EndBug/add-and-commit@v9
+        with:
+            message: go easy tests update interp
+            pull: '--rebase --autostash ...'
+            add: ./tests
   go-easy-js:
     timeout-minutes: 25
     needs: setup
@@ -335,7 +349,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -395,11 +409,16 @@ jobs:
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go easy tests update js
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update js
+            pull: '--rebase --autostash ...'
+            add: ./tests
+      - uses: EndBug/add-and-commit@v9
+        with:
+            message: go easy tests update js
+            pull: '--rebase --autostash ...'
+            add: ./tests
   go-easy-php:
     timeout-minutes: 25
     needs: setup
@@ -407,7 +426,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -469,17 +488,22 @@ jobs:
       - name: Pull latest
         run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go easy tests update php
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update php
+            pull: '--rebase --autostash ...'
+            add: ./tests
+      - uses: EndBug/add-and-commit@v9
+        with:
+            message: go easy tests update php
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-easy-hl:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -524,21 +548,18 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi easy tests update hl
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi easy tests update hl
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-easy-jvm:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -584,21 +605,18 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi easy tests update jvm
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi easy tests update jvm
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-easy-interp:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -643,21 +661,18 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi easy tests update interp
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi easy tests update interp
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-easy-js:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -702,21 +717,18 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi easy tests update js
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi easy tests update js
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-easy-php:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -763,15 +775,12 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_easy.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi easy tests update php
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi easy tests update php
+            pull: '--rebase --autostash ...'
+            add: ./tests
   go-medium-hl:
     timeout-minutes: 25
     needs: setup
@@ -779,7 +788,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -835,15 +844,12 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go medium tests update hl
-            file_pattern: '*.json *.md'
-            disable_globbing: tru
+            message: go medium tests update hl
+            pull: '--rebase --autostash ...'
+            add: ./tests
   go-medium-jvm:
     timeout-minutes: 25
     needs: setup
@@ -851,7 +857,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -908,15 +914,12 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go medium tests update jvm
-            file_pattern: '*.json *.md'
-            disable_globbing: tru
+            message: go medium tests update jvm
+            pull: '--rebase --autostash ...'
+            add: ./tests
   go-medium-interp:
     timeout-minutes: 25
     needs: setup
@@ -924,7 +927,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -980,15 +983,12 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go medium tests update interp
-            file_pattern: '*.json *.md'
-            disable_globbing: tru
+            message: go medium tests update interp
+            pull: '--rebase --autostash ...'
+            add: ./tests
   go-medium-js:
     timeout-minutes: 25
     needs: setup
@@ -996,7 +996,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -1052,15 +1052,12 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go medium tests update js
-            file_pattern: '*.json *.md'
-            disable_globbing: tru
+            message: go medium tests update js
+            pull: '--rebase --autostash ...'
+            add: ./tests
   go-medium-php:
     timeout-minutes: 25
     needs: setup
@@ -1068,7 +1065,7 @@ jobs:
       fail-fast: false
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: cleanup
         run: |
           sudo rm -rf /usr/share/dotnet
@@ -1126,21 +1123,18 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: go medium tests update php
-            file_pattern: '*.json *.md'
-            disable_globbing: tru
+            message: go medium tests update php
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-medium-hl:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -1185,21 +1179,18 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi medium tests update hl
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi medium tests update hl
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-medium-jvm:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -1245,21 +1236,18 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi medium tests update jvm
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi medium tests update jvm
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-medium-interp:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -1304,21 +1292,18 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi medium tests update interp
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi medium tests update interp
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-medium-js:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -1363,21 +1348,18 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi medium tests update js
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi medium tests update js
+            pull: '--rebase --autostash ...'
+            add: ./tests
   yaegi-medium-php:
     timeout-minutes: 25
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: actions/setup-go@v3
         with:
           go-version: '1.21.3' # The Go version to download (if necessary) and use.
@@ -1424,15 +1406,12 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add yaegi_medium.json regression 
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: yaegi medium tests update php
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: yaegi medium tests update php
+            pull: '--rebase --autostash ...'
+            add: ./tests
   build-hl:
     
     timeout-minutes: 26
@@ -1441,7 +1420,7 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1481,22 +1460,18 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=hl #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build unit tests update hl
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update hl
+            pull: '--rebase --autostash ...'
+            add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build std tests update hl
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: build std tests update hl
+            pull: '--rebase --autostash ...'
+            add: ./tests
   build-jvm:
     
     timeout-minutes: 26
@@ -1505,7 +1480,7 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1546,22 +1521,18 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build unit tests update jvm
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update jvm
+            pull: '--rebase --autostash ...'
+            add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm  #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build std tests update jvm
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: build std tests update jvm
+            pull: '--rebase --autostash ...'
+            add: ./tests
   build-interp:
     
     timeout-minutes: 26
@@ -1570,7 +1541,7 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1610,22 +1581,18 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=interp #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build unit tests update interp
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update interp
+            pull: '--rebase --autostash ...'
+            add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build std tests update interp
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: build std tests update interp
+            pull: '--rebase --autostash ...'
+            add: ./tests
   build-js:
     
     timeout-minutes: 26
@@ -1634,7 +1601,7 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1674,22 +1641,18 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=js #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build unit tests update js
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update js
+            pull: '--rebase --autostash ...'
+            add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build std tests update js
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: build std tests update js
+            pull: '--rebase --autostash ...'
+            add: ./tests
   build-php:
     
     timeout-minutes: 26
@@ -1698,7 +1661,7 @@ jobs:
       fail-fast: false
     runs-on: [ubuntu-latest]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # Get the cores 
       - name: Get number of cores (Ubuntu)
         if: startsWith(runner.os, 'Linux')
@@ -1740,19 +1703,15 @@ jobs:
       #  run: npx haxe scripts/stdgo.hxml -D runnerCount=${{ env.CORES }}
       - name: Run unit
         run: npx haxe tests/tests.hxml -D unit -D ci -D runnerCount=${{ env.CORES }} -D targets=php #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build unit tests update php
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: go easy tests update php
+            pull: '--rebase --autostash ...'
+            add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=php  #-D hxb
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
-      - uses: stefanzweifel/git-auto-commit-action@v5
+      - uses: EndBug/add-and-commit@v9
         with:
-            commit_message: build std tests update php
-            file_pattern: '*.json *.md'
-            disable_globbing: true
+            message: build std tests update php
+            pull: '--rebase --autostash ...'
+            add: ./tests

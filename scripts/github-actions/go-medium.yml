@@ -4,7 +4,7 @@ strategy:
   fail-fast: false
 runs-on: ubuntu-latest
 steps:
-  - uses: actions/checkout@v3
+  - uses: actions/checkout@v4
   - name: cleanup
     run: |
       sudo rm -rf /usr/share/dotnet
@@ -60,12 +60,9 @@ steps:
     run: rm -r -d _internal
   - name: Remove hxb zips
     run: rm go2hx.*.zip
-  # git pull latest
-  - name: Pull latest
-    run: git pull https://github.com/go2hx/go2hx master --force
   # add go_medium.json regression 
-  - uses: stefanzweifel/git-auto-commit-action@v5
+  - uses: EndBug/add-and-commit@v9
     with:
-        commit_message: go medium tests update ::target::
-        file_pattern: '*.json *.md'
-        disable_globbing: tru
+        message: go medium tests update ::target::
+        pull: '--rebase --autostash ...'
+        add: ./tests

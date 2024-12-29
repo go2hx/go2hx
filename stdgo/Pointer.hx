@@ -3,8 +3,7 @@ package stdgo;
 import stdgo.GoInt;
 
 @:forward.new
-@:forward
-abstract Pointer<T>(PointerData<T>) from PointerData<T> {
+abstract Pointer<T>(PointerData<T>) from PointerData<T> to PointerData<T> {
 	public var value(get, set):T;
 
 	public var address(get,never):GoInt;
@@ -22,13 +21,13 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 		final bool = this.previous != null && this.convert != null;
 		if (bool) {
 			this.ref = this.get();
-			this.previous.assign = () -> this.convert(this.ref);
+			(this.previous : PointerData<Any>).assign = () -> this.convert(this.ref);
 			function recursive(p:Pointer<Any>, value:Void->Any) {
-				if (p.previous == null)
+				if ((p : PointerData<Any>).previous == null)
 					return;
-				p.previous.assign = () -> p.convert(value());
+				((p : PointerData<Any>).previous : PointerData<Any>).assign = () -> (p : PointerData<Any>).convert(value());
 			}
-			recursive(this.previous, this.previous.assign);
+			recursive(this.previous, (this.previous : PointerData<Any>).assign);
 			return this.ref;
 		}
 		return this.get();
@@ -37,9 +36,9 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 	@:op(A == B)
 	private static function equals<T>(a:Pointer<T>, b:Pointer<T>):Bool {
 		return (a : Dynamic) == (b : Dynamic)
-			|| a.underlying != null
-			&& a.underlying == b.underlying
-			&& (a.underlyingIndex == null || a.underlyingIndex == b.underlyingIndex);
+			|| (a : PointerData<T>).underlying != null
+			&& (a : PointerData<T>).underlying == (b : PointerData<T>).underlying
+			&& ((a : PointerData<T>).underlyingIndex == null || (a : PointerData<T>).underlyingIndex == (b : PointerData<T>).underlyingIndex);
 	}
 
 	@:op(A != B)

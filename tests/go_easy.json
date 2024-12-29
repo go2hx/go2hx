@@ -1161,5 +1161,5 @@
  "php|varinit",
  "php|zombie_struct_select",
  "hl|issue8047",
- "hl|issue47928"
+ "jvm|issue47928"
 ]

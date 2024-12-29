@@ -423,7 +423,7 @@ final list = [
 	// stdgo/runtime
 	// :)
 	"runtime:compiler" => macro "go2hx",
-	"runtime:gomaxprocs" => macro return 1,
+	"runtime:gOMAXPROCS" => macro return 1,
 	// stdgo/reflect
 	"reflect:typeOf" => macro @:splitdeps {
 		// // set internal Type

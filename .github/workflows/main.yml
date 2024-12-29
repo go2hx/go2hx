@@ -109,7 +109,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: stdgo automatic compile
-            pull: '--rebase --autostash ...'
   go-easy-hl:
     timeout-minutes: 25
     needs: setup
@@ -818,7 +817,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go medium tests update hl
-            pull: '--rebase --autostash ...'
             add: ./tests
   go-medium-jvm:
     timeout-minutes: 25
@@ -888,7 +886,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go medium tests update jvm
-            pull: '--rebase --autostash ...'
             add: ./tests
   go-medium-interp:
     timeout-minutes: 25
@@ -957,7 +954,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go medium tests update interp
-            pull: '--rebase --autostash ...'
             add: ./tests
   go-medium-js:
     timeout-minutes: 25
@@ -1026,7 +1022,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go medium tests update js
-            pull: '--rebase --autostash ...'
             add: ./tests
   go-medium-php:
     timeout-minutes: 25
@@ -1097,7 +1092,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go medium tests update php
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-medium-hl:
     timeout-minutes: 25

@@ -108,4 +108,3 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: stdgo automatic compile
-            pull: '--rebase --autostash ...'

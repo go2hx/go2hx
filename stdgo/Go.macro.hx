@@ -413,7 +413,7 @@ class Go {
 						final p = createTypePath();
 						if (!selfPointer)
 							expr = macro stdgo.Go.pointer($expr);
-							final e = macro new $p($expr, $rt);
+							final e = macro @:pos(Context.currentPos()) new $p($expr, $rt);
 							// trace(new haxe.macro.Printer().printExpr(e));
 							return e;
 					}
@@ -905,7 +905,7 @@ class Go {
 									final get = () -> underlying.get(index);
 									final set = v -> underlying.set(index, v);
 									final ptr = new $p(get, set, false, null, underlying, underlyingIndex);
-									ptr.underlying = underlying;
+									(ptr : stdgo.Pointer.PointerData<Any>).underlying = underlying;
 									ptr;
 								};
 								// trace(new haxe.macro.Printer().printExpr(expr));

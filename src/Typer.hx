@@ -490,11 +490,10 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 				};
 				info.data.defs.push(aliasPointer);
 				// files check against all TypeSpecs
-				if (def.meta == null) {
-					def.meta = [];
+				if (def.meta != null) { // prevents adding @:using or other metadata to Patch.replace types
+					def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				}
 				aliasPointer.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
-				def.meta.push({name: ":using", params: [macro $i{splitDepFullPathName(staticExtensionName, info)}], pos: null});
 				file.defs.push(staticExtension);
 				var embedded = false;
 				for (field in def.fields) { // embedded
@@ -6157,7 +6156,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 						break;
 					}
 					if (!recvPointerBool) {
+						//trace("here?");
 						//x = macro $x.value;
+						x = macro @:here $x;
 					}else{
 						final ct = toComplexType(named(path + "Pointer", methods, type, alias, params), info);
 						if (!isRefValue(type))
@@ -6295,6 +6296,7 @@ private function typeParenExpr(expr:Ast.ParenExpr, info:Info):ExprDef {
 
 private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 	return macro for (defer in __deferstack__) {
+		__deferstack__.remove(defer);
 		defer();
 	};
 }
@@ -7350,7 +7352,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 			pack: [],
 			kind: TDAlias(TPath({name: printer.printExpr(replaceExpr), pack: []})),
 			fields: [],
-			meta: null,
+			meta: null, // prevents adding @:using or other metadata
 			isExtern: true,
 		};
 		return td; 

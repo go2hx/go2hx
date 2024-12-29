@@ -48,12 +48,10 @@ steps:
   - uses: EndBug/add-and-commit@v9
     with:
         message: go easy tests update ::target::
-        pull: '--rebase --autostash ...'
         add: ./tests
   - name: Run std
     run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=::target::  #-D hxb
   - uses: EndBug/add-and-commit@v9
     with:
         message: build std tests update ::target::
-        pull: '--rebase --autostash ...'
         add: ./tests

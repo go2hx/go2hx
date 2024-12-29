@@ -173,19 +173,14 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update hl
-            pull: '--rebase --autostash ...'
             add: ./tests
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update hl
-            pull: '--rebase --autostash ...'
             add: ./tests
   go-easy-jvm:
     timeout-minutes: 25
@@ -251,19 +246,14 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update jvm
-            pull: '--rebase --autostash ...'
             add: ./tests
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update jvm
-            pull: '--rebase --autostash ...'
             add: ./tests
   go-easy-interp:
     timeout-minutes: 25
@@ -328,19 +318,14 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update interp
-            pull: '--rebase --autostash ...'
             add: ./tests
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update interp
-            pull: '--rebase --autostash ...'
             add: ./tests
   go-easy-js:
     timeout-minutes: 25
@@ -405,19 +390,14 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update js
-            pull: '--rebase --autostash ...'
             add: ./tests
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update js
-            pull: '--rebase --autostash ...'
             add: ./tests
   go-easy-php:
     timeout-minutes: 25
@@ -484,19 +464,14 @@ jobs:
         run: rm -r -d _internal
       - name: Remove hxb zips
         run: rm go2hx.*.zip
-      # git pull latest
-      - name: Pull latest
-        run: git pull https://github.com/go2hx/go2hx master --force
       # add go_easy.json regression 
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update php
-            pull: '--rebase --autostash ...'
             add: ./tests
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update php
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-easy-hl:
     timeout-minutes: 25
@@ -552,7 +527,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi easy tests update hl
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-easy-jvm:
     timeout-minutes: 25
@@ -609,7 +583,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi easy tests update jvm
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-easy-interp:
     timeout-minutes: 25
@@ -665,7 +638,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi easy tests update interp
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-easy-js:
     timeout-minutes: 25
@@ -721,7 +693,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi easy tests update js
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-easy-php:
     timeout-minutes: 25
@@ -779,7 +750,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi easy tests update php
-            pull: '--rebase --autostash ...'
             add: ./tests
   go-medium-hl:
     timeout-minutes: 25
@@ -1183,7 +1153,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi medium tests update hl
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-medium-jvm:
     timeout-minutes: 25
@@ -1240,7 +1209,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi medium tests update jvm
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-medium-interp:
     timeout-minutes: 25
@@ -1296,7 +1264,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi medium tests update interp
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-medium-js:
     timeout-minutes: 25
@@ -1352,7 +1319,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi medium tests update js
-            pull: '--rebase --autostash ...'
             add: ./tests
   yaegi-medium-php:
     timeout-minutes: 25
@@ -1410,7 +1376,6 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: yaegi medium tests update php
-            pull: '--rebase --autostash ...'
             add: ./tests
   build-hl:
     
@@ -1463,14 +1428,12 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update hl
-            pull: '--rebase --autostash ...'
             add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=hl  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update hl
-            pull: '--rebase --autostash ...'
             add: ./tests
   build-jvm:
     
@@ -1524,14 +1487,12 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update jvm
-            pull: '--rebase --autostash ...'
             add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=jvm  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update jvm
-            pull: '--rebase --autostash ...'
             add: ./tests
   build-interp:
     
@@ -1584,14 +1545,12 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update interp
-            pull: '--rebase --autostash ...'
             add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=interp  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update interp
-            pull: '--rebase --autostash ...'
             add: ./tests
   build-js:
     
@@ -1644,14 +1603,12 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update js
-            pull: '--rebase --autostash ...'
             add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=js  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update js
-            pull: '--rebase --autostash ...'
             add: ./tests
   build-php:
     
@@ -1706,12 +1663,10 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
             message: go easy tests update php
-            pull: '--rebase --autostash ...'
             add: ./tests
       - name: Run std
         run: npx haxe tests/tests.hxml -D std -D ci -D runnerCount=${{ env.CORES }} -D targets=php  #-D hxb
       - uses: EndBug/add-and-commit@v9
         with:
             message: build std tests update php
-            pull: '--rebase --autostash ...'
             add: ./tests

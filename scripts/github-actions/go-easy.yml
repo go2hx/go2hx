@@ -64,10 +64,8 @@ steps:
   - uses: EndBug/add-and-commit@v9
     with:
         message: go easy tests update ::target::
-        pull: '--rebase --autostash ...'
         add: ./tests
   - uses: EndBug/add-and-commit@v9
     with:
         message: go easy tests update ::target::
-        pull: '--rebase --autostash ...'
         add: ./tests

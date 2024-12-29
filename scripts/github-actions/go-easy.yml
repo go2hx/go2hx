@@ -69,3 +69,4 @@ steps:
     with:
         message: go easy tests update ::target::
         add: ./tests
+        pull: --rebase --autostash

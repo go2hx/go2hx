@@ -55,3 +55,4 @@ steps:
     with:
         message: build std tests update ::target::
         add: ./tests
+        pull: --rebase --autostash

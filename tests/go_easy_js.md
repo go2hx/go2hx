@@ -38,49 +38,51 @@ func main() {
 }
 
 ```
-## issue16760
+## bug113
 ```go
 // run
 
-// Copyright 2016 The Go Authors. All rights reserved.
+// Copyright 2009 The Go Authors. All rights reserved.
 // Use of this source code is governed by a BSD-style
 // license that can be found in the LICENSE file.
 
-// Make sure we don't start marshaling (writing to the stack)
-// arguments until those arguments are evaluated and known
-// not to unconditionally panic. If they unconditionally panic,
-// we write some args but never do the call. That messes up
-// the logic which decides how big the argout section needs to be.
-
 package main
 
-type W interface {
-	Write([]byte)
+type I interface{}
+
+func foo1(i int) int     { return i }
+func foo2(i int32) int32 { return i }
+func main() {
+	var i I
+	i = 1
+	var v1 = i.(int)
+	if foo1(v1) != 1 {
+		panic(1)
+	}
+	var v2 = int32(i.(int))
+	if foo2(v2) != 1 {
+		panic(2)
+	}
+	
+	shouldPanic(p1)
 }
 
-type F func(W)
+func p1() {
+	var i I
+	i = 1
+	var v3 = i.(int32) // This type conversion should fail at runtime.
+	if foo2(v3) != 1 {
+		panic(3)
+	}
+}
 
-func foo(f F) {
+func shouldPanic(f func()) {
 	defer func() {
-		if r := recover(); r != nil {
-			usestack(1000)
+		if recover() == nil {
+			panic("function should panic")
 		}
 	}()
-	f(nil)
-}
-
-func main() {
-	foo(func(w W) {
-		var x []string
-		w.Write([]byte(x[5]))
-	})
-}
-
-func usestack(n int) {
-	if n == 0 {
-		return
-	}
-	usestack(n - 1)
+	f()
 }
 
 ```
@@ -124,6 +126,35 @@ func main() {
 }
 
 ```
+## issue19710
+```go
+// run
+
+// Copyright 2017 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Issue 19710: mishandled defer delete(...)
+
+package main
+
+func main() {
+	if n := len(f()); n != 0 {
+		println("got", n, "want 0")
+		panic("bad defer delete")
+	}
+}
+
+func f() map[int]bool {
+	m := map[int]bool{}
+	for i := 0; i < 3; i++ {
+		m[i] = true
+		defer delete(m, i)
+	}
+	return m
+}
+
+```
 ## issue23305
 ```go
 // run
@@ -153,6 +184,42 @@ func main() {
 		println("got", res2, "want", 0xffffffff)
 		panic("FAIL")
 	}
+}
+
+```
+## issue23734
+```go
+// run
+
+// Copyright 2018 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+package main
+
+func main() {
+	m := map[interface{}]int{}
+	k := []int{}
+
+	mustPanic(func() {
+		_ = m[k]
+	})
+	mustPanic(func() {
+		_, _ = m[k]
+	})
+	mustPanic(func() {
+		delete(m, k)
+	})
+}
+
+func mustPanic(f func()) {
+	defer func() {
+		r := recover()
+		if r == nil {
+			panic("didn't panic")
+		}
+	}()
+	f()
 }
 
 ```
@@ -653,39 +720,6 @@ func g(x interface{}) {
 var sink []byte
 
 ```
-## issue8047
-```go
-// run
-
-// Copyright 2014 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-// Issue 8047.  Stack copier shouldn't crash if there
-// is a nil defer.
-
-package main
-
-func stackit(n int) {
-	if n == 0 {
-		return
-	}
-	stackit(n - 1)
-}
-
-func main() {
-	defer func() {
-		// catch & ignore panic from nil defer below
-		err := recover()
-		if err == nil {
-			panic("defer of nil func didn't panic")
-		}
-	}()
-	defer ((func())(nil))()
-	stackit(1000)
-}
-
-```
 ## intcvt
 ```go
 // run
@@ -868,6 +902,50 @@ func main() {
 	chku64(uint64(u64), cu64&0xffffffffffffffff)
 	//	chku64(uint64(f32), 0)
 	//	chku64(uint64(f64), 0)
+}
+
+```
+## noeq
+```go
+// run
+
+// Copyright 2011 The Go Authors. All rights reserved.
+// Use of this source code is governed by a BSD-style
+// license that can be found in the LICENSE file.
+
+// Test run-time error detection for interface values containing types
+// that cannot be compared for equality.
+
+package main
+
+func main() {
+	cmp(1)
+
+	var (
+		m map[int]int
+		s struct{ x []int }
+		f func()
+	)
+	noCmp(m)
+	noCmp(s)
+	noCmp(f)
+}
+
+func cmp(x interface{}) bool {
+	return x == x
+}
+
+func noCmp(x interface{}) {
+	shouldPanic(func() { cmp(x) })
+}
+
+func shouldPanic(f func()) {
+	defer func() {
+		if recover() == nil {
+			panic("function should panic")
+		}
+	}()
+	f()
 }
 
 ```
@@ -2892,141 +2970,6 @@ func main() {
 	if f == nil {
 		panic("nothing set f")
 	}
-}
-
-```
-## nilptr2
-```go
-// run
-
-// Copyright 2013 The Go Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style
-// license that can be found in the LICENSE file.
-
-package main
-
-func main() {
-	ok := true
-	for _, tt := range tests {
-		func() {
-			defer func() {
-				if err := recover(); err == nil {
-					println(tt.name, "did not panic")
-					ok = false
-				}
-			}()
-			tt.fn()
-		}()
-	}
-	if !ok {
-		println("BUG")
-	}
-}
-
-var intp *int
-var slicep *[]byte
-var a10p *[10]int
-var a10Mp *[1<<20]int
-var structp *Struct
-var bigstructp *BigStruct
-var i int
-var m *M
-var m1 *M1
-var m2 *M2
-
-var V interface{}
-
-func use(x interface{}) {
-	V = x
-}
-
-var tests = []struct{
-	name string
-	fn func()
-}{
-	// Edit .+1,/^}/s/^[^	].+/	{"&", func() { println(&) }},\n	{"\&&", func() { println(\&&) }},/g
-	{"*intp", func() { println(*intp) }},
-	{"&*intp", func() { println(&*intp) }},
-	{"*slicep", func() { println(*slicep) }},
-	{"&*slicep", func() { println(&*slicep) }},
-	{"(*slicep)[0]", func() { println((*slicep)[0]) }},
-	{"&(*slicep)[0]", func() { println(&(*slicep)[0]) }},
-	{"(*slicep)[i]", func() { println((*slicep)[i]) }},
-	{"&(*slicep)[i]", func() { println(&(*slicep)[i]) }},
-	{"*a10p", func() { use(*a10p) }},
-	{"&*a10p", func() { println(&*a10p) }},
-	{"a10p[0]", func() { println(a10p[0]) }},
-	{"&a10p[0]", func() { println(&a10p[0]) }},
-	{"a10p[i]", func() { println(a10p[i]) }},
-	{"&a10p[i]", func() { println(&a10p[i]) }},
-	{"*structp", func() { use(*structp) }},
-	{"&*structp", func() { println(&*structp) }},
-	{"structp.i", func() { println(structp.i) }},
-	{"&structp.i", func() { println(&structp.i) }},
-	{"structp.j", func() { println(structp.j) }},
-	{"&structp.j", func() { println(&structp.j) }},
-	{"structp.k", func() { println(structp.k) }},
-	{"&structp.k", func() { println(&structp.k) }},
-	{"structp.x[0]", func() { println(structp.x[0]) }},
-	{"&structp.x[0]", func() { println(&structp.x[0]) }},
-	{"structp.x[i]", func() { println(structp.x[i]) }},
-	{"&structp.x[i]", func() { println(&structp.x[i]) }},
-	{"structp.x[9]", func() { println(structp.x[9]) }},
-	{"&structp.x[9]", func() { println(&structp.x[9]) }},
-	{"structp.l", func() { println(structp.l) }},
-	{"&structp.l", func() { println(&structp.l) }},
-	{"*bigstructp", func() { use(*bigstructp) }},
-	{"&*bigstructp", func() { println(&*bigstructp) }},
-	{"bigstructp.i", func() { println(bigstructp.i) }},
-	{"&bigstructp.i", func() { println(&bigstructp.i) }},
-	{"bigstructp.j", func() { println(bigstructp.j) }},
-	{"&bigstructp.j", func() { println(&bigstructp.j) }},
-	{"bigstructp.k", func() { println(bigstructp.k) }},
-	{"&bigstructp.k", func() { println(&bigstructp.k) }},
-	{"bigstructp.x[0]", func() { println(bigstructp.x[0]) }},
-	{"&bigstructp.x[0]", func() { println(&bigstructp.x[0]) }},
-	{"bigstructp.x[i]", func() { println(bigstructp.x[i]) }},
-	{"&bigstructp.x[i]", func() { println(&bigstructp.x[i]) }},
-	{"bigstructp.x[9]", func() { println(bigstructp.x[9]) }},
-	{"&bigstructp.x[9]", func() { println(&bigstructp.x[9]) }},
-	{"bigstructp.x[100<<20]", func() { println(bigstructp.x[100<<20]) }},
-	{"&bigstructp.x[100<<20]", func() { println(&bigstructp.x[100<<20]) }},
-	{"bigstructp.l", func() { println(bigstructp.l) }},
-	{"&bigstructp.l", func() { println(&bigstructp.l) }},
-	{"m1.F()", func() { println(m1.F()) }},
-	{"m1.M.F()", func() { println(m1.M.F()) }},
-	{"m2.F()", func() { println(m2.F()) }},
-	{"m2.M.F()", func() { println(m2.M.F()) }},
-}
-
-type Struct struct {
-	i int
-	j float64
-	k string
-	x [10]int
-	l []byte
-}
-
-type BigStruct struct {
-	i int
-	j float64
-	k string
-	x [128<<20]byte
-	l []byte
-}
-
-type M struct {
-}
-
-func (m *M) F() int {return 0}
-
-type M1 struct {
-	M
-}
-
-type M2 struct {
-	x int
-	M
 }
 
 ```

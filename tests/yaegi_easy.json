@@ -1157,5 +1157,8 @@
  "js|var2",
  "js|var9",
  "js|var_",
- "js|variadic4"
+ "js|variadic4",
+ "js|issue_dash_1439",
+ "js|issue_dash_1515",
+ "js|method34"
 ]

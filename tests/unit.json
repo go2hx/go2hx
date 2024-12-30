@@ -581,5 +581,6 @@
  "interp|typeswitch0",
  "interp|unary0",
  "interp|unsafe0",
- "interp|var0"
+ "interp|var0",
+ "interp|opassign"
 ]

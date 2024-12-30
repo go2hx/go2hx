@@ -6236,7 +6236,8 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 							if (!recvPointerBool) {
 								//trace("here?");
 								//x = macro $x.value;
-								x = macro (@:checkr $x ?? throw "null pointer dereference");
+								if (expr.x.id != "CallExpr")
+									x = macro (@:checkr $x ?? throw "null pointer dereference");
 							}else{
 								final ct = toComplexType(named(path + "Pointer", methods, type, alias, params), info);
 								if (!isRefValue(type)) {

@@ -529,6 +529,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									fun.expr = macro @:_5 __self__.$fieldName($a{args});
 									if (!isVoid(ret))
 										fun.expr = macro return ${fun.expr};
+									if (field.meta == null)
+										field.meta = [];
 									field.meta.push({name: ":embeddeddeffieldsfprop", pos: null});
 									// embedded named
 									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
@@ -538,6 +540,8 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									//fun.expr = expr;
 								case FFun(fun):
 									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
+									if (field.meta == null)
+										field.meta = [];
 									field.meta.push({name: ":embeddeddeffieldsffun", pos: null});
 									final expr = {expr: fun.expr.expr, pos: null};
 									final fieldName = field.name.substr("_get".length);
@@ -7877,15 +7881,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						f.args.shift();
 					case FFun(f):
 						// f.args.unshift({})
-						var embedded = false;
-						for (meta in field.meta) {
-							if (meta.name == ":embedded") {
-								embedded = true;
-								break;
-							}
-						}
-						if (embedded)
-							field.name = field.name.substr("_get".length);
 						final args = [for (arg in f.args) macro $i{arg.name}];
 						if (f.args.length > 0 && isRestType(f.args[f.args.length - 1].type)) {
 							args[args.length - 1] = macro...$e{args[args.length - 1]};
@@ -7895,6 +7890,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						if (!isVoid(f.ret))
 							f.expr = macro return ${f.expr};
 						f.args.unshift({name: "t", type: TPath({name:splitDepFullPathName(name, info), pack: []})});
+						if (field.meta == null)
+							field.meta = [];
 						field.meta.push({name: ":interfacetypeffun", pos: null});
 						// interface struct creation
 						addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);

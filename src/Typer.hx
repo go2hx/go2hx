@@ -508,6 +508,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 						if (embedded) { // embedded method already exists create it for staticExtension
 							switch field.kind {
 								case FProp(_, _, TFunction(args, ret), _):
+									throw "use this prop";
 									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
 									final fun:haxe.macro.Expr.Function = {args: []};
 									fun.args = [for (i in 0...args.length) ({name: '_$i', type: args[i]} : haxe.macro.Expr.FunctionArg)];
@@ -528,6 +529,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									fun.expr = macro @:_5 __self__.$fieldName($a{args});
 									if (!isVoid(ret))
 										fun.expr = macro return ${fun.expr};
+									field.meta.push({name: ":embeddeddeffieldsfprop", pos: null});
 									// embedded named
 									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper,
 										true, def.params != null
@@ -536,13 +538,27 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 									//fun.expr = expr;
 								case FFun(fun):
 									final t = TPath({name: splitDepFullPathName(def.name, info), pack: []});
+									field.meta.push({name: ":embeddeddeffieldsffun", pos: null});
+									final expr = {expr: fun.expr.expr, pos: null};
+									final fieldName = field.name.substr("_get".length);
+									final fun:haxe.macro.Expr.Function = {
+										ret: fun.ret,
+										args: fun.args,
+										params: fun.params,
+										expr: fun.expr,
+									}
+									switch fun.ret {
+										case TFunction(args, ret):
+											fun.args = [for (i in 0...args.length) ({name: '_$i', type: args[i]} : haxe.macro.Expr.FunctionArg)];
+											fun.ret = ret;
+										default:
+											throw "fun.ret must be TFunction: " + fun.ret;
+									}
 									fun.args.unshift({
 										name: "__self__",
 										type: t,
 										meta: [],
 									});
-									final expr = {expr: fun.expr.expr, pos: null};
-									final fieldName = field.name;
 									final args = fun.args.slice(1).map(a -> macro $i{a.name});
 									switch fun.args[fun.args.length - 1].type {
 										case TPath(p):
@@ -583,6 +599,7 @@ function main(data:DataType, instance:Main.InstanceData):Array<Module> {
 										fun.expr = patch;
 										Patch.list.remove(patchName);
 									}*/
+									func.meta.push({name: ":tdfield", pos: null});
 									if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 										access.push(AInline);
 									// recv func named
@@ -7734,6 +7751,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 							switch field.kind {
 								case FFun(fun):
 									field.name = field.name.substr("_get".length);
+									field.meta.push({name: ":localembedfields", pos: null});
 									switch fun.ret {
 										case TFunction(args, ret):
 											fun.ret = ret;
@@ -7838,6 +7856,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 				final field = fields[i];
 				switch field.kind {
 					case FProp(_, _, TFunction(args, ret), _):
+						throw "use this prop";
 						// f.args.unshift({})
 						final fargs = [for (i in 0...args.length) macro $i{'_$i'}];
 						if (args.length > 0 && isRestType(args[args.length - 1])) {
@@ -7850,6 +7869,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						f.ret = ret;
 						if (!isVoid(f.ret))
 							f.expr = macro return ${f.expr};
+						field.meta.push({name: ":interfacetypefprop", pos: null});
 						f.args.unshift({name: "t", type: TPath({name:splitDepFullPathName(name, info), pack: []})});
 						// interface struct creation
 						addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
@@ -7857,6 +7877,15 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						f.args.shift();
 					case FFun(f):
 						// f.args.unshift({})
+						var embedded = false;
+						for (meta in field.meta) {
+							if (meta.name == ":embedded") {
+								embedded = true;
+								break;
+							}
+						}
+						if (embedded)
+							field.name = field.name.substr("_get".length);
 						final args = [for (arg in f.args) macro $i{arg.name}];
 						if (f.args.length > 0 && isRestType(f.args[f.args.length - 1].type)) {
 							args[args.length - 1] = macro...$e{args[args.length - 1]};
@@ -7866,6 +7895,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false, hash
 						if (!isVoid(f.ret))
 							f.expr = macro return ${f.expr};
 						f.args.unshift({name: "t", type: TPath({name:splitDepFullPathName(name, info), pack: []})});
+						field.meta.push({name: ":interfacetypeffun", pos: null});
 						// interface struct creation
 						addLocalMethod(field.name, field.pos, field.meta, null, [], f, staticExtension, wrapper, false, false);
 						f.expr = null;

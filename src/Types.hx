@@ -354,6 +354,6 @@ function isNamedUnderlying(type:GoType):Bool {
 			isNamedUnderlying(underlying);
 		case structType(_): true;
 		case interfaceType(_, _): false;
-		default: false;
+		default: true;
 	}
 }

@@ -1,4 +1,4 @@
-# go_easy
+# go_easy_jvm
 ## defer_aggregate
 ```go
 // run

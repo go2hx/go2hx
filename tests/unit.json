@@ -582,5 +582,7 @@
  "interp|unary0",
  "interp|unsafe0",
  "interp|var0",
- "interp|opassign"
+ "interp|opassign",
+ "hl|copy",
+ "hl|copy2"
 ]

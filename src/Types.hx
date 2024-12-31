@@ -338,13 +338,22 @@ function isNamed(type:GoType):Bool {
 		case refType(_.get() => underlying):
 			isNamed(underlying);
 		case named(_, _, underlying, _, _):
-			switch underlying {
-				case structType(_): true;
-				case interfaceType(_, _): false;
-				case named(_, _, underlying, _, _): isNamed(underlying);
-				default:
-					true;
-			}
+			isNamedUnderlying(underlying);
+		default: false;
+	}
+}
+
+// named doesn't count for interfaces
+function isNamedUnderlying(type:GoType):Bool {
+	if (type == null)
+		return false;
+	return switch type {
+		case refType(_.get() => underlying):
+			isNamed(underlying);
+		case named(_, _, underlying, _, _):
+			isNamedUnderlying(underlying);
+		case structType(_): true;
+		case interfaceType(_, _): false;
 		default: false;
 	}
 }

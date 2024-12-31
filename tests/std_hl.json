@@ -1,0 +1,20 @@
+[
+ "hl|bytes",
+ "hl|encoding/base64",
+ "hl|encoding/hex",
+ "hl|errors",
+ "hl|hash",
+ "hl|hash/adler32",
+ "hl|internal/saferio",
+ "hl|math",
+ "hl|math/bits",
+ "hl|path",
+ "hl|regexp/syntax",
+ "hl|sort",
+ "hl|strconv",
+ "hl|strings",
+ "hl|text/scanner",
+ "hl|unicode",
+ "hl|unicode/utf16",
+ "hl|unicode/utf8"
+]

@@ -22,7 +22,7 @@ var outputMap:Map<String,String> = [];
 var tasks:Array<TaskData> = [];
 var type:String = "";
 // cpp tests take a long time to compile, so sometimes its not run if quick testing is required
-var targets = ["hl"];
+var target = "hl";
 var suite = new TestSuite();
 var completeBool = false;
 var sortMode = "";
@@ -41,9 +41,9 @@ var tinygoBool = false;
 var noLogs = false;
 
 function main() {
-	final targetsDefine = Compiler.getDefine("targets");
-	if (targetsDefine != null)
-		targets = targetsDefine.split(",");
+	final targetDefine = Compiler.getDefine("target") ?? Compiler.getDefine("targets");
+	if (targetDefine != null)
+		target = targetDefine;
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
 	// logs
@@ -90,8 +90,7 @@ function main() {
 }
 
 private function runReport() {
-	final currentTarget = targets[0];
-	final testName = type + (sortMode == "" ? "" : "_" + sortMode);
+	final testName = type + (sortMode == "" ? "" : "_" + sortMode) + "_" + target;
 	final output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	if (output.length == 0)
 		throw testName + " not set";
@@ -103,8 +102,8 @@ private function runReport() {
 		final v = output[i];
 		final path = paths[i];
 		final parts = v.split("|");
-		final target = parts[0];
-		if (target != currentTarget)
+		final partTarget = parts[0];
+		if (partTarget != target)
 			continue;
 		final path = sanatize(parts[1]);
 		final index = tests.indexOf(path);
@@ -129,7 +128,7 @@ private function runReport() {
 		mdContent.add('\n```\n');
 	}
 
-	File.saveContent('tests/${testName}_$currentTarget.md', mdContent.toString());
+	File.saveContent('tests/$testName.md', mdContent.toString());
 }
 
 private function runTests() {
@@ -161,10 +160,8 @@ private function runTests() {
 	}
 	ranTests = [];
 	for (test in tests) {
-		for (target in targets) {
-			final path = Path.withoutDirectory(Path.withoutExtension(test));
-			ranTests.push('$target|$path');
-		}
+		final path = Path.withoutDirectory(Path.withoutExtension(test));
+		ranTests.push('$target|$path');
 	}
 }
 
@@ -314,14 +311,12 @@ private function complete(modules:Array<Typer.Module>, _) {
 		final main = path;
 		path = path.charAt(0).toLowerCase() + path.substr(1);
 		final hxml = "golibs/" + type + "_" + sanatize(path) + ".hxml";
-		for (target in targets) {
-			final out = createTargetOutput(target, type, path);
-			final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
-			final args = [hxml].concat(outCmd);
-			if (ciBool)
-				args.unshift("haxe");
-			tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: path, runtime: false, target: target, out: out, main: main});
-		}
+		final out = createTargetOutput(target, type, path);
+		final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
+		final args = [hxml].concat(outCmd);
+		if (ciBool)
+			args.unshift("haxe");
+		tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: path, runtime: false, target: target, out: out, main: main});
 	}
 }
 
@@ -376,15 +371,13 @@ private function testStd() { // standard library package tests
 		if (!sys.FileSystem.exists(hxml))
 			continue;
 		final main = name;
-		for (target in targets) {
-			final out = createTargetOutput(target, type, name);
-			final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
-			final args = [hxml].concat(outCmd);
-			if (ciBool)
-				args.unshift("haxe");
-			tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});
-			Sys.println(args.join(" "));
-		}
+		final out = createTargetOutput(target, type, name);
+		final outCmd = Main.buildTarget(target, "golibs/" + out).split(" ");
+		final args = [hxml].concat(outCmd);
+		if (ciBool)
+			args.unshift("haxe");
+		tasks.push({command: ciBool ? "npx" : "haxe", args: args, path: name, runtime: false, target: target, out: out, main: main});
+		Sys.println(args.join(" "));
 	}
 	Sys.println("______________________");
 	// haxe stdgo/unicode.hxml --interp
@@ -408,7 +401,7 @@ private function close() {
 			return "0 0%";
 		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
 	}
-	final testName = type + (sortMode == "" ? "" : "_" + sortMode);
+	final testName = type + (sortMode == "" ? "" : "_" + sortMode) + "_" + target;
 	var output:Array<String> = FileSystem.exists('tests/$testName.json') ? Json.parse(File.getContent('tests/$testName.json')) : [];
 	// remove targets that don't exist
 	output = output.filter(o -> ranTests.indexOf(o) == -1);
@@ -475,7 +468,6 @@ private function close() {
 		}
 		final fileContent = Json.stringify(outputFile , null, " ");
 		Sys.println(' Saving file: $filePath:\n\n$fileContent');
-		Sys.command("git pull");
 		File.saveContent(filePath, fileContent);
 		trace(testCount == 0, offset == 0, output.length > 0, run == "");
 	}
